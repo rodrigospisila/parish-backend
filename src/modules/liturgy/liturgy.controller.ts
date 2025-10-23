@@ -1,17 +1,17 @@
 import { Controller, Get, Param } from '@nestjs/common';
-import { LiturgyService } from './liturgy.service';
+import { LiturgyService, LiturgyData } from './liturgy.service';
 
 @Controller('liturgy')
 export class LiturgyController {
   constructor(private readonly liturgyService: LiturgyService) {}
 
   @Get('today')
-  getTodayLiturgy() {
+  getTodayLiturgy(): Promise<LiturgyData> {
     return this.liturgyService.getTodayLiturgy();
   }
 
   @Get(':date')
-  getLiturgyByDate(@Param('date') date: string) {
+  getLiturgyByDate(@Param('date') date: string): Promise<LiturgyData> {
     // Validar formato da data (YYYY-MM-DD)
     const dateRegex = /^\d{4}-\d{2}-\d{2}$/;
     if (!dateRegex.test(date)) {

@@ -6,13 +6,13 @@ import {
 import { ConfigService } from '@nestjs/config';
 import axios from 'axios';
 
-interface LiturgyReading {
+export interface LiturgyReading {
   title: string;
   text: string;
   reference: string;
 }
 
-interface LiturgyData {
+export interface LiturgyData {
   date: string;
   liturgy: string;
   liturgicalColor: string;
