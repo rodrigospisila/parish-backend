@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:17-alpine
+    container_name: parish-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: parish
+      POSTGRES_PASSWORD: parish123
+      POSTGRES_DB: parish_db
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - parish-network
+
+  # Redis Cache
+  redis:
+    image: redis:7-alpine
+    container_name: parish-redis
+    restart: unless-stopped
+    ports:
+      - '6379:6379'
+    volumes:
+      - redis_data:/data
+    networks:
+      - parish-network
+
+  # MailHog (Email testing)
+  mailhog:
+    image: mailhog/mailhog:latest
+    container_name: parish-mailhog
+    restart: unless-stopped
+    ports:
+      - '1025:1025'  # SMTP server
+      - '8025:8025'  # Web UI
+    networks:
+      - parish-network
+
+volumes:
+  postgres_data:
+  redis_data:
+
+networks:
+  parish-network:
+    driver: bridge
+

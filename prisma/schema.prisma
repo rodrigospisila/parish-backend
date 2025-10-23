@@ -1,0 +1,653 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ============================================
+// ENUMS
+// ============================================
+
+enum UserRole {
+  DIOCESAN_ADMIN      // Administrador Diocesano
+  PARISH_ADMIN        // Administrador Paroquial
+  COMMUNITY_COORDINATOR // Coordenador de Comunidade
+  PASTORAL_COORDINATOR  // Coordenador de Pastoral/Ministério
+  VOLUNTEER           // Membro/Voluntário
+  FAITHFUL            // Fiel
+}
+
+enum EntityStatus {
+  ACTIVE
+  INACTIVE
+}
+
+enum MemberStatus {
+  ACTIVE
+  INACTIVE
+  DECEASED
+}
+
+enum SacramentType {
+  BAPTISM
+  FIRST_COMMUNION
+  CONFIRMATION
+  MARRIAGE
+  HOLY_ORDERS
+  ANOINTING_OF_THE_SICK
+}
+
+enum EventType {
+  MASS
+  SACRAMENT
+  PASTORAL_MEETING
+  COMMUNITY_EVENT
+  RETREAT
+  FORMATION
+  VISITATION
+}
+
+enum MassScheduleType {
+  MASS
+  CONFESSION
+  ADORATION
+  ROSARY
+}
+
+enum IntentionType {
+  THANKSGIVING
+  SUFFRAGE
+  SPECIAL
+}
+
+enum PrayerRequestCategory {
+  HEALTH
+  FAMILY
+  WORK
+  STUDIES
+  OTHER
+}
+
+enum PrayerRequestStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+enum TransactionType {
+  INCOME
+  EXPENSE
+}
+
+enum NotificationType {
+  URGENT_NOTICE
+  SCHEDULE_REMINDER
+  EVENT_REMINDER
+  PRAYER_REQUEST
+  MASS_INTENTION_CONFIRMED
+  DAILY_LITURGY
+  NEWS
+}
+
+// ============================================
+// AUTHENTICATION & USERS
+// ============================================
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  name      String
+  phone     String?
+  role      UserRole @default(FAITHFUL)
+  isActive  Boolean  @default(true)
+  
+  // 2FA
+  twoFactorEnabled Boolean @default(false)
+  twoFactorSecret  String?
+  
+  // Refresh tokens
+  refreshTokens RefreshToken[]
+  
+  // Relations
+  dioceseId    String?
+  diocese      Diocese?    @relation(fields: [dioceseId], references: [id])
+  parishId     String?
+  parish       Parish?     @relation(fields: [parishId], references: [id])
+  communityId  String?
+  community    Community?  @relation(fields: [communityId], references: [id])
+  
+  // Member profile (if user is a member/faithful)
+  member       Member?
+  
+  // Audit
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  lastLogin DateTime?
+  
+  @@index([email])
+  @@index([role])
+  @@map("users")
+}
+
+model RefreshToken {
+  id        String   @id @default(cuid())
+  token     String   @unique
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+  
+  @@index([userId])
+  @@index([token])
+  @@map("refresh_tokens")
+}
+
+// ============================================
+// ECCLESIASTICAL STRUCTURE
+// ============================================
+
+model Diocese {
+  id          String       @id @default(cuid())
+  name        String
+  address     String
+  city        String
+  state       String
+  zipCode     String
+  phone       String?
+  email       String?
+  website     String?
+  logoUrl     String?
+  
+  // Responsible
+  bishopName  String?
+  
+  // Geolocation
+  latitude    Float?
+  longitude   Float?
+  
+  // Metadata
+  foundedAt   DateTime?
+  status      EntityStatus @default(ACTIVE)
+  
+  // Relations
+  parishes    Parish[]
+  users       User[]
+  
+  // Audit
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  @@map("dioceses")
+}
+
+model Parish {
+  id          String       @id @default(cuid())
+  name        String
+  address     String
+  city        String
+  state       String
+  zipCode     String
+  phone       String?
+  email       String?
+  website     String?
+  logoUrl     String?
+  
+  // Responsible
+  priestName  String?
+  
+  // Geolocation
+  latitude    Float?
+  longitude   Float?
+  
+  // Metadata
+  foundedAt   DateTime?
+  status      EntityStatus @default(ACTIVE)
+  
+  // Relations
+  dioceseId   String
+  diocese     Diocese      @relation(fields: [dioceseId], references: [id], onDelete: Cascade)
+  communities Community[]
+  users       User[]
+  
+  // Audit
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  @@index([dioceseId])
+  @@map("parishes")
+}
+
+model Community {
+  id          String       @id @default(cuid())
+  name        String
+  address     String
+  city        String
+  state       String
+  zipCode     String
+  phone       String?
+  email       String?
+  website     String?
+  logoUrl     String?
+  
+  // Responsible
+  coordinatorName String?
+  
+  // Geolocation
+  latitude    Float?
+  longitude   Float?
+  
+  // Metadata
+  foundedAt   DateTime?
+  status      EntityStatus @default(ACTIVE)
+  
+  // Relations
+  parishId    String
+  parish      Parish       @relation(fields: [parishId], references: [id], onDelete: Cascade)
+  pastorals   Pastoral[]
+  users       User[]
+  members     Member[]
+  events      Event[]
+  massSchedules MassSchedule[]
+  massIntentions MassIntention[]
+  prayerRequests PrayerRequest[]
+  news        News[]
+  
+  // Audit
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  @@index([parishId])
+  @@map("communities")
+}
+
+// ============================================
+// PASTORALS, MINISTRIES & MOVEMENTS
+// ============================================
+
+model Pastoral {
+  id          String       @id @default(cuid())
+  name        String
+  description String?
+  mission     String?
+  photoUrl    String?
+  
+  // Metadata
+  foundedAt   DateTime?
+  status      EntityStatus @default(ACTIVE)
+  
+  // Relations
+  communityId String
+  community   Community    @relation(fields: [communityId], references: [id], onDelete: Cascade)
+  members     PastoralMember[]
+  
+  // Audit
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  @@index([communityId])
+  @@map("pastorals")
+}
+
+model PastoralMember {
+  id          String   @id @default(cuid())
+  isCoordinator Boolean @default(false)
+  
+  // Relations
+  pastoralId  String
+  pastoral    Pastoral @relation(fields: [pastoralId], references: [id], onDelete: Cascade)
+  memberId    String
+  member      Member   @relation(fields: [memberId], references: [id], onDelete: Cascade)
+  
+  // Audit
+  joinedAt    DateTime @default(now())
+  
+  @@unique([pastoralId, memberId])
+  @@index([pastoralId])
+  @@index([memberId])
+  @@map("pastoral_members")
+}
+
+// ============================================
+// MEMBERS & FAITHFUL
+// ============================================
+
+model Member {
+  id          String       @id @default(cuid())
+  
+  // Personal Info
+  fullName    String
+  birthDate   DateTime?
+  cpf         String?      @unique
+  rg          String?
+  photoUrl    String?
+  
+  // Contact
+  phone       String?
+  email       String?
+  address     String?
+  city        String?
+  state       String?
+  zipCode     String?
+  
+  // Family
+  fatherName  String?
+  motherName  String?
+  spouseId    String?      @unique
+  spouse      Member?      @relation("Spouse", fields: [spouseId], references: [id])
+  spouseOf    Member?      @relation("Spouse")
+  
+  // Status
+  status      MemberStatus @default(ACTIVE)
+  
+  // LGPD Consent
+  consentGiven Boolean    @default(false)
+  consentDate  DateTime?
+  
+  // Relations
+  userId      String?      @unique
+  user        User?        @relation(fields: [userId], references: [id])
+  communityId String
+  community   Community    @relation(fields: [communityId], references: [id], onDelete: Cascade)
+  
+  // Pastorals
+  pastorals   PastoralMember[]
+  
+  // Sacraments
+  sacraments  Sacrament[]
+  
+  // Prayer Requests
+  prayerRequests PrayerRequest[]
+  
+  // Schedule Assignments
+  scheduleAssignments ScheduleAssignment[]
+  
+  // Audit
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  @@index([communityId])
+  @@index([email])
+  @@index([cpf])
+  @@map("members")
+}
+
+model Sacrament {
+  id          String        @id @default(cuid())
+  type        SacramentType
+  date        DateTime
+  place       String?
+  minister    String?       // Priest/Deacon name
+  notes       String?
+  
+  // Relations
+  memberId    String
+  member      Member        @relation(fields: [memberId], references: [id], onDelete: Cascade)
+  
+  // Audit
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  @@index([memberId])
+  @@index([type])
+  @@map("sacraments")
+}
+
+// ============================================
+// EVENTS & CALENDAR
+// ============================================
+
+model Event {
+  id          String    @id @default(cuid())
+  title       String
+  description String?
+  type        EventType
+  startDate   DateTime
+  endDate     DateTime?
+  location    String?
+  isRecurring Boolean   @default(false)
+  recurrenceRule String? // iCal RRULE format
+  
+  // Metadata
+  maxParticipants Int?
+  isPublic    Boolean   @default(true)
+  
+  // Relations
+  communityId String
+  community   Community @relation(fields: [communityId], references: [id], onDelete: Cascade)
+  schedules   Schedule[]
+  
+  // Audit
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  @@index([communityId])
+  @@index([startDate])
+  @@index([type])
+  @@map("events")
+}
+
+// ============================================
+// SCHEDULES & ASSIGNMENTS
+// ============================================
+
+model Schedule {
+  id          String    @id @default(cuid())
+  title       String
+  description String?
+  date        DateTime
+  
+  // Relations
+  eventId     String
+  event       Event     @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  assignments ScheduleAssignment[]
+  
+  // Audit
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  @@index([eventId])
+  @@index([date])
+  @@map("schedules")
+}
+
+model ScheduleAssignment {
+  id          String   @id @default(cuid())
+  role        String   // e.g., "Leitor", "Ministro", "Acólito"
+  checkedIn   Boolean  @default(false)
+  checkedInAt DateTime?
+  
+  // Relations
+  scheduleId  String
+  schedule    Schedule @relation(fields: [scheduleId], references: [id], onDelete: Cascade)
+  memberId    String
+  member      Member   @relation(fields: [memberId], references: [id], onDelete: Cascade)
+  
+  // Audit
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  @@index([scheduleId])
+  @@index([memberId])
+  @@map("schedule_assignments")
+}
+
+// ============================================
+// MASS SCHEDULES
+// ============================================
+
+model MassSchedule {
+  id          String          @id @default(cuid())
+  dayOfWeek   Int             // 0 = Sunday, 6 = Saturday
+  time        String          // HH:MM format
+  type        MassScheduleType
+  notes       String?
+  isSpecial   Boolean         @default(false)
+  specialDate DateTime?
+  
+  // Relations
+  communityId String
+  community   Community       @relation(fields: [communityId], references: [id], onDelete: Cascade)
+  
+  // Audit
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  @@index([communityId])
+  @@index([dayOfWeek])
+  @@map("mass_schedules")
+}
+
+// ============================================
+// MASS INTENTIONS
+// ============================================
+
+model MassIntention {
+  id          String        @id @default(cuid())
+  intentionFor String       // Name of the person
+  type        IntentionType
+  requestedDate DateTime
+  notes       String?
+  
+  // Payment
+  amount      Float?
+  isPaid      Boolean       @default(false)
+  paidAt      DateTime?
+  paymentMethod String?
+  
+  // Relations
+  communityId String
+  community   Community     @relation(fields: [communityId], references: [id], onDelete: Cascade)
+  requestedBy String        // User email or name
+  
+  // Audit
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  @@index([communityId])
+  @@index([requestedDate])
+  @@map("mass_intentions")
+}
+
+// ============================================
+// PRAYER REQUESTS
+// ============================================
+
+model PrayerRequest {
+  id          String               @id @default(cuid())
+  title       String
+  description String
+  category    PrayerRequestCategory
+  isAnonymous Boolean              @default(false)
+  status      PrayerRequestStatus  @default(PENDING)
+  prayerCount Int                  @default(0)
+  
+  // Relations
+  communityId String
+  community   Community            @relation(fields: [communityId], references: [id], onDelete: Cascade)
+  memberId    String?
+  member      Member?              @relation(fields: [memberId], references: [id], onDelete: SetNull)
+  
+  // Audit
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  @@index([communityId])
+  @@index([status])
+  @@index([category])
+  @@map("prayer_requests")
+}
+
+// ============================================
+// NEWS & ANNOUNCEMENTS
+// ============================================
+
+model News {
+  id          String   @id @default(cuid())
+  title       String
+  content     String
+  category    String   // "Aviso Urgente", "Notícia", "Evento", "Formação"
+  imageUrl    String?
+  isUrgent    Boolean  @default(false)
+  publishedAt DateTime @default(now())
+  
+  // Relations
+  communityId String
+  community   Community @relation(fields: [communityId], references: [id], onDelete: Cascade)
+  
+  // Audit
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  @@index([communityId])
+  @@index([publishedAt])
+  @@index([category])
+  @@map("news")
+}
+
+// ============================================
+// FINANCIAL TRANSACTIONS
+// ============================================
+
+model FinancialTransaction {
+  id          String          @id @default(cuid())
+  type        TransactionType
+  category    String
+  amount      Float
+  description String?
+  date        DateTime
+  
+  // Bank account (optional)
+  accountName String?
+  
+  // Relations
+  communityId String?
+  parishId    String?
+  dioceseId   String?
+  
+  // Audit
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  @@index([type])
+  @@index([date])
+  @@index([communityId])
+  @@map("financial_transactions")
+}
+
+// ============================================
+// NOTIFICATIONS
+// ============================================
+
+model Notification {
+  id          String           @id @default(cuid())
+  title       String
+  body        String
+  type        NotificationType
+  data        Json?            // Additional data
+  
+  // Targeting
+  userId      String?
+  communityId String?
+  parishId    String?
+  dioceseId   String?
+  
+  // Status
+  isSent      Boolean          @default(false)
+  sentAt      DateTime?
+  
+  // Audit
+  createdAt   DateTime @default(now())
+  
+  @@index([userId])
+  @@index([isSent])
+  @@index([type])
+  @@map("notifications")
+}
+
