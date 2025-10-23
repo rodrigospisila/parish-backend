@@ -14,6 +14,11 @@ import { MembersModule } from './modules/members/members.module';
 import { LiturgyModule } from './modules/liturgy/liturgy.module';
 import { MassSchedulesModule } from './modules/mass-schedules/mass-schedules.module';
 import { NewsModule } from './modules/news/news.module';
+import { EventsModule } from './modules/events/events.module';
+import { SchedulesModule } from './modules/schedules/schedules.module';
+import { PrayerRequestsModule } from './modules/prayer-requests/prayer-requests.module';
+import { MassIntentionsModule } from './modules/mass-intentions/mass-intentions.module';
+import { PastoralsModule } from './modules/pastorals/pastorals.module';
 
 @Module({
   imports: [
@@ -31,6 +36,11 @@ import { NewsModule } from './modules/news/news.module';
     LiturgyModule,
     MassSchedulesModule,
     NewsModule,
+    EventsModule,
+    SchedulesModule,
+    PrayerRequestsModule,
+    MassIntentionsModule,
+    PastoralsModule,
   ],
   controllers: [AppController],
   providers: [
