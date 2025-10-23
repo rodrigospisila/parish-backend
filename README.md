@@ -23,19 +23,15 @@ Este repositório contém o código-fonte da API backend do sistema Parish. A AP
 ```
 src/
 ├── modules/            # Módulos da aplicação
-│   ├── auth/          # Autenticação e autorização
+│   ├── auth/          # Autenticação e autorização (JWT, RBAC)
 │   ├── users/         # Gestão de usuários
 │   ├── dioceses/      # Gestão de dioceses
 │   ├── parishes/      # Gestão de paróquias
 │   ├── communities/   # Gestão de comunidades
-│   ├── members/       # Cadastro de fiéis
-│   ├── events/        # Calendário e eventos
-│   ├── schedules/     # Escalas de serviço
-│   ├── liturgy/       # Liturgia diária
-│   ├── mass-intentions/ # Intenções de missa
-│   ├── prayer-requests/ # Pedidos de oração
-│   ├── finance/       # Gestão financeira
-│   └── notifications/ # Notificações
+│   ├── members/       # Cadastro de fiéis (com LGPD)
+│   ├── liturgy/       # Liturgia diária (integração CNBB)
+│   ├── mass-schedules/ # Horários de missa
+│   └── news/          # Avisos paroquiais e notícias
 ├── common/            # Componentes reutilizáveis
 │   ├── decorators/
 │   ├── guards/
@@ -46,6 +42,56 @@ src/
 ├── database/          # Prisma (migrations e seeds)
 └── main.ts            # Ponto de entrada
 ```
+
+## ✅ Módulos Implementados (Fase 1)
+
+### Autenticação e Autorização
+- ✅ Login com email/senha
+- ✅ Registro de usuários
+- ✅ Refresh token
+- ✅ Logout
+- ✅ RBAC com 6 perfis de acesso:
+  - DIOCESAN_ADMIN
+  - PARISH_ADMIN
+  - COMMUNITY_COORDINATOR
+  - PASTORAL_COORDINATOR
+  - VOLUNTEER
+  - FAITHFUL
+
+### Estrutura Eclesial
+- ✅ CRUD de Dioceses
+- ✅ CRUD de Paróquias
+- ✅ CRUD de Comunidades
+
+### Membros e Fiéis
+- ✅ CRUD completo de membros
+- ✅ Conformidade LGPD:
+  - Termo de consentimento
+  - Exportação de dados
+  - Direito ao esquecimento (anonimização)
+- ✅ Busca por nome
+- ✅ Histórico sacramental
+- ✅ Vínculo com pastorais
+
+### Liturgia Diária
+- ✅ Integração com API da CNBB
+- ✅ Cache de 24 horas
+- ✅ Fallback local
+- ✅ Endpoint para liturgia do dia
+- ✅ Endpoint para liturgia por data
+
+### Horários de Missa
+- ✅ CRUD de horários regulares
+- ✅ Horários especiais (festas, solenidades)
+- ✅ Filtro por dia da semana
+- ✅ Filtro por tipo (Missa, Confissão, Adoração, Terço)
+
+### Avisos Paroquiais e Notícias
+- ✅ CRUD completo
+- ✅ Categorização
+- ✅ Avisos urgentes
+- ✅ Filtros por categoria e comunidade
+- ✅ Listagem de notícias recentes
 
 ## 🛠️ Como Começar
 
@@ -141,12 +187,6 @@ O sistema implementa controle de acesso baseado em funções:
 5. **VOLUNTEER**: Acesso às escalas e eventos em que está envolvido
 6. **FAITHFUL**: Somente leitura de eventos e notícias públicas
 
-## 🧪 Testes
-
-- **Testes Unitários**: `pnpm run test`
-- **Testes de Integração**: `pnpm run test:e2e`
-- **Cobertura de Testes**: `pnpm run test:cov`
-
 ## 📖 Documentação da API
 
 Após iniciar a aplicação, a documentação interativa da API (Swagger) estará disponível em:
@@ -154,6 +194,45 @@ Após iniciar a aplicação, a documentação interativa da API (Swagger) estar�
 ```
 http://localhost:3000/api
 ```
+
+### Principais Endpoints
+
+#### Autenticação
+- `POST /api/v1/auth/register` - Registro de usuário
+- `POST /api/v1/auth/login` - Login
+- `POST /api/v1/auth/refresh` - Renovar token
+- `POST /api/v1/auth/logout` - Logout
+
+#### Dioceses, Paróquias e Comunidades
+- `GET /api/v1/dioceses` - Listar dioceses
+- `GET /api/v1/parishes` - Listar paróquias
+- `GET /api/v1/communities` - Listar comunidades
+
+#### Membros
+- `GET /api/v1/members` - Listar membros
+- `POST /api/v1/members` - Criar membro
+- `GET /api/v1/members/:id/export` - Exportar dados (LGPD)
+- `POST /api/v1/members/:id/anonymize` - Anonimizar (LGPD)
+
+#### Liturgia
+- `GET /api/v1/liturgy/today` - Liturgia do dia
+- `GET /api/v1/liturgy/:date` - Liturgia por data (YYYY-MM-DD)
+
+#### Horários de Missa
+- `GET /api/v1/mass-schedules` - Listar horários
+- `GET /api/v1/mass-schedules/day/:dayOfWeek` - Horários por dia da semana
+- `GET /api/v1/mass-schedules/special` - Horários especiais
+
+#### Notícias
+- `GET /api/v1/news` - Listar notícias
+- `GET /api/v1/news/recent` - Notícias recentes
+- `GET /api/v1/news/urgent` - Avisos urgentes
+
+## 🧪 Testes
+
+- **Testes Unitários**: `pnpm run test`
+- **Testes de Integração**: `pnpm run test:e2e`
+- **Cobertura de Testes**: `pnpm run test:cov`
 
 ## 🗄️ Prisma Studio
 
@@ -204,6 +283,15 @@ O projeto inclui um `docker-compose.yml` para facilitar o desenvolvimento local.
 - **PostgreSQL**: Banco de dados principal
 - **Redis**: Cache e gerenciamento de filas
 - **MailHog**: Servidor SMTP para testes de email
+
+## 🔜 Próximas Etapas (Fase 2)
+
+- [ ] Módulo de Eventos e Calendário
+- [ ] Módulo de Escalas de Serviço
+- [ ] Módulo de Pedidos de Oração
+- [ ] Módulo de Intenções de Missa (com pagamento PIX)
+- [ ] Módulo de Pastorais e Ministérios
+- [ ] Módulo de Notificações Push
 
 ## 🤝 Contribuição
 

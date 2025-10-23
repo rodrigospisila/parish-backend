@@ -10,6 +10,10 @@ import { UsersModule } from './modules/users/users.module';
 import { DiocesesModule } from './modules/dioceses/dioceses.module';
 import { ParishesModule } from './modules/parishes/parishes.module';
 import { CommunitiesModule } from './modules/communities/communities.module';
+import { MembersModule } from './modules/members/members.module';
+import { LiturgyModule } from './modules/liturgy/liturgy.module';
+import { MassSchedulesModule } from './modules/mass-schedules/mass-schedules.module';
+import { NewsModule } from './modules/news/news.module';
 
 @Module({
   imports: [
@@ -23,6 +27,10 @@ import { CommunitiesModule } from './modules/communities/communities.module';
     DiocesesModule,
     ParishesModule,
     CommunitiesModule,
+    MembersModule,
+    LiturgyModule,
+    MassSchedulesModule,
+    NewsModule,
   ],
   controllers: [AppController],
   providers: [
