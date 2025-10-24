@@ -15,12 +15,12 @@ datasource db {
 // ============================================
 
 enum UserRole {
-  DIOCESAN_ADMIN      // Administrador Diocesano
-  PARISH_ADMIN        // Administrador Paroquial
+  DIOCESAN_ADMIN // Administrador Diocesano
+  PARISH_ADMIN // Administrador Paroquial
   COMMUNITY_COORDINATOR // Coordenador de Comunidade
-  PASTORAL_COORDINATOR  // Coordenador de Pastoral/Ministério
-  VOLUNTEER           // Membro/Voluntário
-  FAITHFUL            // Fiel
+  PASTORAL_COORDINATOR // Coordenador de Pastoral/Ministério
+  VOLUNTEER // Membro/Voluntário
+  FAITHFUL // Fiel
 }
 
 enum EntityStatus {
@@ -100,37 +100,35 @@ enum NotificationType {
 // ============================================
 
 model User {
-  id        String   @id @default(cuid())
-  email     String   @unique
-  password  String
-  name      String
-  phone     String?
-  role      UserRole @default(FAITHFUL)
-  isActive  Boolean  @default(true)
-  
+  id       String   @id @default(cuid())
+  email    String   @unique
+  password String
+  name     String
+  phone    String?
+  role     UserRole @default(FAITHFUL)
+  isActive Boolean  @default(true)
+
   // 2FA
   twoFactorEnabled Boolean @default(false)
   twoFactorSecret  String?
-  
+
   // Refresh tokens
   refreshTokens RefreshToken[]
-  
-  // Relations
-  dioceseId    String?
-  diocese      Diocese?    @relation(fields: [dioceseId], references: [id])
-  parishId     String?
-  parish       Parish?     @relation(fields: [parishId], references: [id])
-  communityId  String?
-  community    Community?  @relation(fields: [communityId], references: [id])
-  
+
+  // Relations - Many-to-many with communities
+  communities UserCommunity[]
+
+  // Primary community (for quick access)
+  primaryCommunityId String?
+
   // Member profile (if user is a member/faithful)
-  member       Member?
-  
+  member Member?
+
   // Audit
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
   lastLogin DateTime?
-  
+
   @@index([email])
   @@index([role])
   @@map("users")
@@ -143,10 +141,40 @@ model RefreshToken {
   user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   expiresAt DateTime
   createdAt DateTime @default(now())
-  
+
   @@index([userId])
   @@index([token])
   @@map("refresh_tokens")
+}
+
+// Tabela de vínculos entre usuário e comunidade (Many-to-Many)
+model UserCommunity {
+  id String @id @default(cuid())
+
+  // Relations
+  userId      String
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  communityId String
+  community   Community @relation(fields: [communityId], references: [id], onDelete: Cascade)
+
+  // Role específico nesta comunidade
+  role UserRole
+
+  // Status
+  isActive  Boolean @default(true)
+  isPrimary Boolean @default(false) // Comunidade principal do usuário
+
+  // Audit
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  joinedAt  DateTime  @default(now())
+  leftAt    DateTime?
+
+  @@unique([userId, communityId])
+  @@index([userId])
+  @@index([communityId])
+  @@index([isActive])
+  @@map("user_communities")
 }
 
 // ============================================
@@ -154,115 +182,113 @@ model RefreshToken {
 // ============================================
 
 model Diocese {
-  id          String       @id @default(cuid())
-  name        String
-  address     String
-  city        String
-  state       String
-  zipCode     String
-  phone       String?
-  email       String?
-  website     String?
-  logoUrl     String?
-  
+  id      String  @id @default(cuid())
+  name    String
+  address String
+  city    String
+  state   String
+  zipCode String
+  phone   String?
+  email   String?
+  website String?
+  logoUrl String?
+
   // Responsible
-  bishopName  String?
-  
+  bishopName String?
+
   // Geolocation
-  latitude    Float?
-  longitude   Float?
-  
+  latitude  Float?
+  longitude Float?
+
   // Metadata
-  foundedAt   DateTime?
-  status      EntityStatus @default(ACTIVE)
-  
+  foundedAt DateTime?
+  status    EntityStatus @default(ACTIVE)
+
   // Relations
-  parishes    Parish[]
-  users       User[]
-  
+  parishes Parish[]
+
   // Audit
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
   @@map("dioceses")
 }
 
 model Parish {
-  id          String       @id @default(cuid())
-  name        String
-  address     String
-  city        String
-  state       String
-  zipCode     String
-  phone       String?
-  email       String?
-  website     String?
-  logoUrl     String?
-  
+  id      String  @id @default(cuid())
+  name    String
+  address String
+  city    String
+  state   String
+  zipCode String
+  phone   String?
+  email   String?
+  website String?
+  logoUrl String?
+
   // Responsible
-  priestName  String?
-  
+  priestName String?
+
   // Geolocation
-  latitude    Float?
-  longitude   Float?
-  
+  latitude  Float?
+  longitude Float?
+
   // Metadata
-  foundedAt   DateTime?
-  status      EntityStatus @default(ACTIVE)
-  
+  foundedAt DateTime?
+  status    EntityStatus @default(ACTIVE)
+
   // Relations
   dioceseId   String
-  diocese     Diocese      @relation(fields: [dioceseId], references: [id], onDelete: Cascade)
+  diocese     Diocese     @relation(fields: [dioceseId], references: [id], onDelete: Cascade)
   communities Community[]
-  users       User[]
-  
+
   // Audit
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
   @@index([dioceseId])
   @@map("parishes")
 }
 
 model Community {
-  id          String       @id @default(cuid())
-  name        String
-  address     String
-  city        String
-  state       String
-  zipCode     String
-  phone       String?
-  email       String?
-  website     String?
-  logoUrl     String?
-  
+  id      String  @id @default(cuid())
+  name    String
+  address String
+  city    String
+  state   String
+  zipCode String
+  phone   String?
+  email   String?
+  website String?
+  logoUrl String?
+
   // Responsible
   coordinatorName String?
-  
+
   // Geolocation
-  latitude    Float?
-  longitude   Float?
-  
+  latitude  Float?
+  longitude Float?
+
   // Metadata
-  foundedAt   DateTime?
-  status      EntityStatus @default(ACTIVE)
-  
+  foundedAt DateTime?
+  status    EntityStatus @default(ACTIVE)
+
   // Relations
-  parishId    String
-  parish      Parish       @relation(fields: [parishId], references: [id], onDelete: Cascade)
-  pastorals   Pastoral[]
-  users       User[]
-  members     Member[]
-  events      Event[]
-  massSchedules MassSchedule[]
-  massIntentions MassIntention[]
-  prayerRequests PrayerRequest[]
-  news        News[]
-  
+  parishId        String
+  parish          Parish          @relation(fields: [parishId], references: [id], onDelete: Cascade)
+  pastorals       Pastoral[]
+  userCommunities UserCommunity[]
+  members         Member[]
+  events          Event[]
+  massSchedules   MassSchedule[]
+  massIntentions  MassIntention[]
+  prayerRequests  PrayerRequest[]
+  news            News[]
+
   // Audit
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
   @@index([parishId])
   @@map("communities")
 }
@@ -272,42 +298,42 @@ model Community {
 // ============================================
 
 model Pastoral {
-  id          String       @id @default(cuid())
+  id          String  @id @default(cuid())
   name        String
   description String?
   mission     String?
   photoUrl    String?
-  
+
   // Metadata
-  foundedAt   DateTime?
-  status      EntityStatus @default(ACTIVE)
-  
+  foundedAt DateTime?
+  status    EntityStatus @default(ACTIVE)
+
   // Relations
   communityId String
-  community   Community    @relation(fields: [communityId], references: [id], onDelete: Cascade)
+  community   Community        @relation(fields: [communityId], references: [id], onDelete: Cascade)
   members     PastoralMember[]
-  
+
   // Audit
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
   @@index([communityId])
   @@map("pastorals")
 }
 
 model PastoralMember {
-  id          String   @id @default(cuid())
+  id            String  @id @default(cuid())
   isCoordinator Boolean @default(false)
-  
+
   // Relations
-  pastoralId  String
-  pastoral    Pastoral @relation(fields: [pastoralId], references: [id], onDelete: Cascade)
-  memberId    String
-  member      Member   @relation(fields: [memberId], references: [id], onDelete: Cascade)
-  
+  pastoralId String
+  pastoral   Pastoral @relation(fields: [pastoralId], references: [id], onDelete: Cascade)
+  memberId   String
+  member     Member   @relation(fields: [memberId], references: [id], onDelete: Cascade)
+
   // Audit
-  joinedAt    DateTime @default(now())
-  
+  joinedAt DateTime @default(now())
+
   @@unique([pastoralId, memberId])
   @@index([pastoralId])
   @@index([memberId])
@@ -319,59 +345,59 @@ model PastoralMember {
 // ============================================
 
 model Member {
-  id          String       @id @default(cuid())
-  
+  id String @id @default(cuid())
+
   // Personal Info
-  fullName    String
-  birthDate   DateTime?
-  cpf         String?      @unique
-  rg          String?
-  photoUrl    String?
-  
+  fullName  String
+  birthDate DateTime?
+  cpf       String?   @unique
+  rg        String?
+  photoUrl  String?
+
   // Contact
-  phone       String?
-  email       String?
-  address     String?
-  city        String?
-  state       String?
-  zipCode     String?
-  
+  phone   String?
+  email   String?
+  address String?
+  city    String?
+  state   String?
+  zipCode String?
+
   // Family
-  fatherName  String?
-  motherName  String?
-  spouseId    String?      @unique
-  spouse      Member?      @relation("Spouse", fields: [spouseId], references: [id])
-  spouseOf    Member?      @relation("Spouse")
-  
+  fatherName String?
+  motherName String?
+  spouseId   String? @unique
+  spouse     Member? @relation("Spouse", fields: [spouseId], references: [id])
+  spouseOf   Member? @relation("Spouse")
+
   // Status
-  status      MemberStatus @default(ACTIVE)
-  
+  status MemberStatus @default(ACTIVE)
+
   // LGPD Consent
-  consentGiven Boolean    @default(false)
+  consentGiven Boolean   @default(false)
   consentDate  DateTime?
-  
+
   // Relations
-  userId      String?      @unique
-  user        User?        @relation(fields: [userId], references: [id])
+  userId      String?   @unique
+  user        User?     @relation(fields: [userId], references: [id])
   communityId String
-  community   Community    @relation(fields: [communityId], references: [id], onDelete: Cascade)
-  
+  community   Community @relation(fields: [communityId], references: [id], onDelete: Cascade)
+
   // Pastorals
-  pastorals   PastoralMember[]
-  
+  pastorals PastoralMember[]
+
   // Sacraments
-  sacraments  Sacrament[]
-  
+  sacraments Sacrament[]
+
   // Prayer Requests
   prayerRequests PrayerRequest[]
-  
+
   // Schedule Assignments
   scheduleAssignments ScheduleAssignment[]
-  
+
   // Audit
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
   @@index([communityId])
   @@index([email])
   @@index([cpf])
@@ -379,21 +405,21 @@ model Member {
 }
 
 model Sacrament {
-  id          String        @id @default(cuid())
-  type        SacramentType
-  date        DateTime
-  place       String?
-  minister    String?       // Priest/Deacon name
-  notes       String?
-  
+  id       String        @id @default(cuid())
+  type     SacramentType
+  date     DateTime
+  place    String?
+  minister String? // Priest/Deacon name
+  notes    String?
+
   // Relations
-  memberId    String
-  member      Member        @relation(fields: [memberId], references: [id], onDelete: Cascade)
-  
+  memberId String
+  member   Member @relation(fields: [memberId], references: [id], onDelete: Cascade)
+
   // Audit
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
   @@index([memberId])
   @@index([type])
   @@map("sacraments")
@@ -404,29 +430,29 @@ model Sacrament {
 // ============================================
 
 model Event {
-  id          String    @id @default(cuid())
-  title       String
-  description String?
-  type        EventType
-  startDate   DateTime
-  endDate     DateTime?
-  location    String?
-  isRecurring Boolean   @default(false)
+  id             String    @id @default(cuid())
+  title          String
+  description    String?
+  type           EventType
+  startDate      DateTime
+  endDate        DateTime?
+  location       String?
+  isRecurring    Boolean   @default(false)
   recurrenceRule String? // iCal RRULE format
-  
+
   // Metadata
   maxParticipants Int?
-  isPublic    Boolean   @default(true)
-  
+  isPublic        Boolean @default(true)
+
   // Relations
   communityId String
-  community   Community @relation(fields: [communityId], references: [id], onDelete: Cascade)
+  community   Community  @relation(fields: [communityId], references: [id], onDelete: Cascade)
   schedules   Schedule[]
-  
+
   // Audit
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
   @@index([communityId])
   @@index([startDate])
   @@index([type])
@@ -438,41 +464,41 @@ model Event {
 // ============================================
 
 model Schedule {
-  id          String    @id @default(cuid())
+  id          String   @id @default(cuid())
   title       String
   description String?
   date        DateTime
-  
+
   // Relations
   eventId     String
-  event       Event     @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  event       Event                @relation(fields: [eventId], references: [id], onDelete: Cascade)
   assignments ScheduleAssignment[]
-  
+
   // Audit
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
   @@index([eventId])
   @@index([date])
   @@map("schedules")
 }
 
 model ScheduleAssignment {
-  id          String   @id @default(cuid())
-  role        String   // e.g., "Leitor", "Ministro", "Acólito"
-  checkedIn   Boolean  @default(false)
+  id          String    @id @default(cuid())
+  role        String // e.g., "Leitor", "Ministro", "Acólito"
+  checkedIn   Boolean   @default(false)
   checkedInAt DateTime?
-  
+
   // Relations
-  scheduleId  String
-  schedule    Schedule @relation(fields: [scheduleId], references: [id], onDelete: Cascade)
-  memberId    String
-  member      Member   @relation(fields: [memberId], references: [id], onDelete: Cascade)
-  
+  scheduleId String
+  schedule   Schedule @relation(fields: [scheduleId], references: [id], onDelete: Cascade)
+  memberId   String
+  member     Member   @relation(fields: [memberId], references: [id], onDelete: Cascade)
+
   // Audit
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
   @@index([scheduleId])
   @@index([memberId])
   @@map("schedule_assignments")
@@ -483,22 +509,22 @@ model ScheduleAssignment {
 // ============================================
 
 model MassSchedule {
-  id          String          @id @default(cuid())
-  dayOfWeek   Int             // 0 = Sunday, 6 = Saturday
-  time        String          // HH:MM format
+  id          String           @id @default(cuid())
+  dayOfWeek   Int // 0 = Sunday, 6 = Saturday
+  time        String // HH:MM format
   type        MassScheduleType
   notes       String?
-  isSpecial   Boolean         @default(false)
+  isSpecial   Boolean          @default(false)
   specialDate DateTime?
-  
+
   // Relations
   communityId String
-  community   Community       @relation(fields: [communityId], references: [id], onDelete: Cascade)
-  
+  community   Community @relation(fields: [communityId], references: [id], onDelete: Cascade)
+
   // Audit
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
   @@index([communityId])
   @@index([dayOfWeek])
   @@map("mass_schedules")
@@ -509,27 +535,27 @@ model MassSchedule {
 // ============================================
 
 model MassIntention {
-  id          String        @id @default(cuid())
-  intentionFor String       // Name of the person
-  type        IntentionType
+  id            String        @id @default(cuid())
+  intentionFor  String // Name of the person
+  type          IntentionType
   requestedDate DateTime
-  notes       String?
-  
+  notes         String?
+
   // Payment
-  amount      Float?
-  isPaid      Boolean       @default(false)
-  paidAt      DateTime?
+  amount        Float?
+  isPaid        Boolean   @default(false)
+  paidAt        DateTime?
   paymentMethod String?
-  
+
   // Relations
   communityId String
-  community   Community     @relation(fields: [communityId], references: [id], onDelete: Cascade)
-  requestedBy String        // User email or name
-  
+  community   Community @relation(fields: [communityId], references: [id], onDelete: Cascade)
+  requestedBy String // User email or name
+
   // Audit
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
   @@index([communityId])
   @@index([requestedDate])
   @@map("mass_intentions")
@@ -540,24 +566,24 @@ model MassIntention {
 // ============================================
 
 model PrayerRequest {
-  id          String               @id @default(cuid())
+  id          String                @id @default(cuid())
   title       String
   description String
   category    PrayerRequestCategory
-  isAnonymous Boolean              @default(false)
-  status      PrayerRequestStatus  @default(PENDING)
-  prayerCount Int                  @default(0)
-  
+  isAnonymous Boolean               @default(false)
+  status      PrayerRequestStatus   @default(PENDING)
+  prayerCount Int                   @default(0)
+
   // Relations
   communityId String
-  community   Community            @relation(fields: [communityId], references: [id], onDelete: Cascade)
+  community   Community @relation(fields: [communityId], references: [id], onDelete: Cascade)
   memberId    String?
-  member      Member?              @relation(fields: [memberId], references: [id], onDelete: SetNull)
-  
+  member      Member?   @relation(fields: [memberId], references: [id], onDelete: SetNull)
+
   // Audit
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
   @@index([communityId])
   @@index([status])
   @@index([category])
@@ -572,19 +598,19 @@ model News {
   id          String   @id @default(cuid())
   title       String
   content     String
-  category    String   // "Aviso Urgente", "Notícia", "Evento", "Formação"
+  category    String // "Aviso Urgente", "Notícia", "Evento", "Formação"
   imageUrl    String?
   isUrgent    Boolean  @default(false)
   publishedAt DateTime @default(now())
-  
+
   // Relations
   communityId String
   community   Community @relation(fields: [communityId], references: [id], onDelete: Cascade)
-  
+
   // Audit
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
   @@index([communityId])
   @@index([publishedAt])
   @@index([category])
@@ -602,19 +628,19 @@ model FinancialTransaction {
   amount      Float
   description String?
   date        DateTime
-  
+
   // Bank account (optional)
   accountName String?
-  
+
   // Relations
   communityId String?
   parishId    String?
   dioceseId   String?
-  
+
   // Audit
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
   @@index([type])
   @@index([date])
   @@index([communityId])
@@ -626,28 +652,27 @@ model FinancialTransaction {
 // ============================================
 
 model Notification {
-  id          String           @id @default(cuid())
-  title       String
-  body        String
-  type        NotificationType
-  data        Json?            // Additional data
-  
+  id    String           @id @default(cuid())
+  title String
+  body  String
+  type  NotificationType
+  data  Json? // Additional data
+
   // Targeting
   userId      String?
   communityId String?
   parishId    String?
   dioceseId   String?
-  
+
   // Status
-  isSent      Boolean          @default(false)
-  sentAt      DateTime?
-  
+  isSent Boolean   @default(false)
+  sentAt DateTime?
+
   // Audit
-  createdAt   DateTime @default(now())
-  
+  createdAt DateTime @default(now())
+
   @@index([userId])
   @@index([isSent])
   @@index([type])
   @@map("notifications")
 }
-
