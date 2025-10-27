@@ -25,7 +25,6 @@ export class DiocesesService {
         _count: {
           select: {
             parishes: true,
-            users: true,
           },
         },
       },
@@ -52,7 +51,6 @@ export class DiocesesService {
         _count: {
           select: {
             parishes: true,
-            users: true,
           },
         },
       },
