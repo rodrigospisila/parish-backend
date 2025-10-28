@@ -15,6 +15,7 @@ datasource db {
 // ============================================
 
 enum UserRole {
+  SYSTEM_ADMIN // Administrador do Sistema (Super Admin)
   DIOCESAN_ADMIN // Administrador Diocesano
   PARISH_ADMIN // Administrador Paroquial
   COMMUNITY_COORDINATOR // Coordenador de Comunidade
@@ -368,6 +369,11 @@ model Member {
   spouseId   String? @unique
   spouse     Member? @relation("Spouse", fields: [spouseId], references: [id])
   spouseOf   Member? @relation("Spouse")
+  
+  // Responsible (for minors without app access)
+  responsibleId String?
+  responsible   Member?  @relation("Responsible", fields: [responsibleId], references: [id])
+  dependents    Member[] @relation("Responsible")
 
   // Status
   status MemberStatus @default(ACTIVE)
