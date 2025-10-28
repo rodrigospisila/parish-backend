@@ -78,6 +78,10 @@ export class CreateMemberDto {
   userId?: string;
 
   @IsString()
+  @IsOptional()
+  responsibleId?: string;
+
+  @IsString()
   @IsNotEmpty()
   communityId: string;
 }

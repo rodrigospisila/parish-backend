@@ -24,6 +24,7 @@ export class MembersController {
 
   @Post()
   @Roles(
+    UserRole.SYSTEM_ADMIN,
     UserRole.DIOCESAN_ADMIN,
     UserRole.PARISH_ADMIN,
     UserRole.COMMUNITY_COORDINATOR,
@@ -55,6 +56,7 @@ export class MembersController {
 
   @Patch(':id')
   @Roles(
+    UserRole.SYSTEM_ADMIN,
     UserRole.DIOCESAN_ADMIN,
     UserRole.PARISH_ADMIN,
     UserRole.COMMUNITY_COORDINATOR,
@@ -64,7 +66,7 @@ export class MembersController {
   }
 
   @Delete(':id')
-  @Roles(UserRole.DIOCESAN_ADMIN, UserRole.PARISH_ADMIN)
+  @Roles(UserRole.SYSTEM_ADMIN, UserRole.DIOCESAN_ADMIN, UserRole.PARISH_ADMIN)
   remove(@Param('id') id: string) {
     return this.membersService.remove(id);
   }
@@ -77,7 +79,7 @@ export class MembersController {
 
   // LGPD: Direito ao esquecimento
   @Post(':id/anonymize')
-  @Roles(UserRole.DIOCESAN_ADMIN, UserRole.PARISH_ADMIN)
+  @Roles(UserRole.SYSTEM_ADMIN, UserRole.DIOCESAN_ADMIN, UserRole.PARISH_ADMIN)
   anonymize(@Param('id') id: string) {
     return this.membersService.anonymizeMember(id);
   }
