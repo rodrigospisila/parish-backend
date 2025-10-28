@@ -14,7 +14,7 @@ import { UpdateCommunityDto } from './dto/update-community.dto';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { RolesGuard } from '../auth/guards/roles.guard';
 import { Roles } from '../auth/decorators/roles.decorator';
-import { GetUser } from '../auth/decorators/get-user.decorator';
+import { CurrentUser } from '../auth/decorators/current-user.decorator';
 import { UserRole } from '@prisma/client';
 
 @Controller('communities')
@@ -33,7 +33,7 @@ export class CommunitiesController {
   }
 
   @Get()
-  findAll(@GetUser() user: any) {
+  findAll(@CurrentUser() user: any) {
     return this.communitiesService.findAll(user);
   }
 

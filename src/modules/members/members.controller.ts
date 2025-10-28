@@ -15,7 +15,7 @@ import { UpdateMemberDto } from './dto/update-member.dto';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { RolesGuard } from '../auth/guards/roles.guard';
 import { Roles } from '../auth/decorators/roles.decorator';
-import { GetUser } from '../auth/decorators/get-user.decorator';
+import { CurrentUser } from '../auth/decorators/current-user.decorator';
 import { UserRole, MemberStatus } from '@prisma/client';
 
 @Controller('members')
@@ -36,7 +36,7 @@ export class MembersController {
 
   @Get()
   findAll(
-    @GetUser() user: any,
+    @CurrentUser() user: any,
     @Query('communityId') communityId?: string,
     @Query('status') status?: MemberStatus,
   ) {
