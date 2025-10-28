@@ -14,6 +14,7 @@ import { UpdateDioceseDto } from './dto/update-diocese.dto';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { RolesGuard } from '../auth/guards/roles.guard';
 import { Roles } from '../auth/decorators/roles.decorator';
+import { GetUser } from '../auth/decorators/get-user.decorator';
 import { UserRole } from '@prisma/client';
 
 @Controller('dioceses')
@@ -28,8 +29,8 @@ export class DiocesesController {
   }
 
   @Get()
-  findAll() {
-    return this.diocesesService.findAll();
+  findAll(@GetUser() user: any) {
+    return this.diocesesService.findAll(user);
   }
 
   @Get(':id')

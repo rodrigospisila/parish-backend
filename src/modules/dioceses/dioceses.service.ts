@@ -13,8 +13,16 @@ export class DiocesesService {
     });
   }
 
-  async findAll() {
+  async findAll(user?: any) {
+    const where: any = {};
+
+    // DIOCESAN_ADMIN só vê sua própria diocese
+    if (user && user.role === 'DIOCESAN_ADMIN' && user.dioceseId) {
+      where.id = user.dioceseId;
+    }
+
     return this.prisma.diocese.findMany({
+      where,
       include: {
         parishes: {
           select: {

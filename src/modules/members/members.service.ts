@@ -76,8 +76,17 @@ export class MembersService {
     return member;
   }
 
-  async findAll(communityId?: string, status?: MemberStatus) {
+  async findAll(user?: any, communityId?: string, status?: MemberStatus) {
     const where: any = {};
+
+    // DIOCESAN_ADMIN só vê membros das comunidades da sua diocese
+    if (user && user.role === 'DIOCESAN_ADMIN' && user.dioceseId) {
+      where.community = {
+        parish: {
+          dioceseId: user.dioceseId,
+        },
+      };
+    }
 
     if (communityId) {
       where.communityId = communityId;

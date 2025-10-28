@@ -27,8 +27,18 @@ export class CommunitiesService {
     });
   }
 
-  async findAll() {
+  async findAll(user?: any) {
+    const where: any = {};
+
+    // DIOCESAN_ADMIN só vê comunidades das paróquias da sua diocese
+    if (user && user.role === 'DIOCESAN_ADMIN' && user.dioceseId) {
+      where.parish = {
+        dioceseId: user.dioceseId,
+      };
+    }
+
     return this.prisma.community.findMany({
+      where,
       include: {
         parish: {
           select: {

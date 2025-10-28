@@ -14,6 +14,7 @@ import { UpdateParishDto } from './dto/update-parish.dto';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { RolesGuard } from '../auth/guards/roles.guard';
 import { Roles } from '../auth/decorators/roles.decorator';
+import { GetUser } from '../auth/decorators/get-user.decorator';
 import { UserRole } from '@prisma/client';
 
 @Controller('parishes')
@@ -28,8 +29,8 @@ export class ParishesController {
   }
 
   @Get()
-  findAll() {
-    return this.parishesService.findAll();
+  findAll(@GetUser() user: any) {
+    return this.parishesService.findAll(user);
   }
 
   @Get(':id')
