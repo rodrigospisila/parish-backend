@@ -55,7 +55,7 @@ export class AuthService {
     });
 
     // Gerar tokens
-    const tokens = await this.generateTokens(user.id, user.email, user.role);
+    const tokens = await this.generateTokens(user.id, user.email, user.role, user.dioceseId);
 
     return {
       user,
@@ -94,7 +94,7 @@ export class AuthService {
     });
 
     // Gerar tokens
-    const tokens = await this.generateTokens(user.id, user.email, user.role);
+    const tokens = await this.generateTokens(user.id, user.email, user.role, user.dioceseId);
 
     return {
       user: {
@@ -168,8 +168,8 @@ export class AuthService {
     return { message: 'Logout realizado com sucesso' };
   }
 
-  private async generateTokens(userId: string, email: string, role: UserRole) {
-    const payload = { sub: userId, email, role };
+  private async generateTokens(userId: string, email: string, role: UserRole, dioceseId?: string) {
+    const payload = { sub: userId, email, role, dioceseId };
 
     // Gerar access token
     const accessToken = this.jwtService.sign(payload, {
@@ -212,6 +212,7 @@ export class AuthService {
         phone: true,
         role: true,
         isActive: true,
+        dioceseId: true,
         primaryCommunityId: true,
         communities: {
           include: {
