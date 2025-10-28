@@ -29,17 +29,5 @@ export class RegisterDto {
   @IsEnum(UserRole, { message: 'Perfil de usuário inválido' })
   @IsOptional()
   role?: UserRole;
-
-  @IsString({ message: 'ID da comunidade deve ser uma string' })
-  @IsOptional()
-  communityId?: string;
-
-  @IsString({ message: 'ID da paróquia deve ser uma string' })
-  @IsOptional()
-  parishId?: string;
-
-  @IsString({ message: 'ID da diocese deve ser uma string' })
-  @IsOptional()
-  dioceseId?: string;
 }
 

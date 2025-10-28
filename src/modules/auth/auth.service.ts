@@ -20,7 +20,7 @@ export class AuthService {
   ) {}
 
   async register(registerDto: RegisterDto) {
-    const { email, password, name, phone, role, communityId, parishId, dioceseId } = registerDto;
+    const { email, password, name, phone, role } = registerDto;
 
     // Verificar se o usuário já existe
     const existingUser = await this.prisma.user.findUnique({
@@ -42,9 +42,6 @@ export class AuthService {
         name,
         phone,
         role: role || UserRole.FAITHFUL,
-        communityId,
-        parishId,
-        dioceseId,
       },
       select: {
         id: true,
@@ -213,9 +210,17 @@ export class AuthService {
         phone: true,
         role: true,
         isActive: true,
-        communityId: true,
-        parishId: true,
-        dioceseId: true,
+        primaryCommunityId: true,
+        communities: {
+          include: {
+            community: {
+              select: {
+                id: true,
+                name: true,
+              },
+            },
+          },
+        },
       },
     });
 

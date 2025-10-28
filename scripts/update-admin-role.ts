@@ -23,7 +23,7 @@ async function main() {
 
     console.log('✅ Role do usuário atualizada com sucesso!');
     console.log('📧 Email:', updated.email);
-    console.log('👤 Nome:', updated.fullName);
+    console.log('👤 Nome:', updated.name);
     console.log('🎭 Role:', updated.role);
     console.log('\n🎉 Agora você pode criar dioceses, paróquias e comunidades!');
   } catch (error) {
