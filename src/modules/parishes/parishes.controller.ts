@@ -22,7 +22,7 @@ export class ParishesController {
   constructor(private readonly parishesService: ParishesService) {}
 
   @Post()
-  @Roles(UserRole.DIOCESAN_ADMIN, UserRole.PARISH_ADMIN)
+  @Roles(UserRole.SYSTEM_ADMIN, UserRole.DIOCESAN_ADMIN, UserRole.PARISH_ADMIN)
   create(@Body() createParishDto: CreateParishDto) {
     return this.parishesService.create(createParishDto);
   }
@@ -38,13 +38,13 @@ export class ParishesController {
   }
 
   @Patch(':id')
-  @Roles(UserRole.DIOCESAN_ADMIN, UserRole.PARISH_ADMIN)
+  @Roles(UserRole.SYSTEM_ADMIN, UserRole.DIOCESAN_ADMIN, UserRole.PARISH_ADMIN)
   update(@Param('id') id: string, @Body() updateParishDto: UpdateParishDto) {
     return this.parishesService.update(id, updateParishDto);
   }
 
   @Delete(':id')
-  @Roles(UserRole.DIOCESAN_ADMIN)
+  @Roles(UserRole.SYSTEM_ADMIN, UserRole.DIOCESAN_ADMIN)
   remove(@Param('id') id: string) {
     return this.parishesService.remove(id);
   }

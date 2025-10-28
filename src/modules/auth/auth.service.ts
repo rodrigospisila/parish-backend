@@ -104,6 +104,8 @@ export class AuthService {
         phone: user.phone,
         role: user.role,
         isActive: user.isActive,
+        forcePasswordChange: user.forcePasswordChange,
+        dioceseId: user.dioceseId,
         createdAt: user.createdAt,
       },
       ...tokens,

@@ -108,6 +108,13 @@ model User {
   phone    String?
   role     UserRole @default(FAITHFUL)
   isActive Boolean  @default(true)
+  
+  // Force password change on first login
+  forcePasswordChange Boolean @default(false)
+
+  // Scope - Diocese vinculada (para DIOCESAN_ADMIN)
+  dioceseId String?
+  diocese   Diocese? @relation(fields: [dioceseId], references: [id])
 
   // 2FA
   twoFactorEnabled Boolean @default(false)
@@ -207,6 +214,7 @@ model Diocese {
 
   // Relations
   parishes Parish[]
+  users    User[] // DIOCESAN_ADMINs vinculados
 
   // Audit
   createdAt DateTime @default(now())
