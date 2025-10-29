@@ -50,12 +50,13 @@ export class AuthService {
         phone: true,
         role: true,
         isActive: true,
+        dioceseId: true,
         createdAt: true,
       },
     });
 
     // Gerar tokens
-    const tokens = await this.generateTokens(user.id, user.email, user.role, user.dioceseId);
+    const tokens = await this.generateTokens(user.id, user.email, user.role, user.dioceseId ?? undefined);
 
     return {
       user,
@@ -94,7 +95,7 @@ export class AuthService {
     });
 
     // Gerar tokens
-    const tokens = await this.generateTokens(user.id, user.email, user.role, user.dioceseId);
+    const tokens = await this.generateTokens(user.id, user.email, user.role, user.dioceseId ?? undefined);
 
     return {
       user: {
