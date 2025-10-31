@@ -15,6 +15,7 @@ import { UpdateEventDto } from './dto/update-event.dto';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { RolesGuard } from '../auth/guards/roles.guard';
 import { Roles } from '../auth/decorators/roles.decorator';
+import { CurrentUser } from '../auth/decorators/current-user.decorator';
 import { UserRole, EventType } from '@prisma/client';
 
 @Controller('events')
@@ -24,12 +25,13 @@ export class EventsController {
   @Post()
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles(
+    UserRole.SYSTEM_ADMIN,
     UserRole.DIOCESAN_ADMIN,
     UserRole.PARISH_ADMIN,
     UserRole.COMMUNITY_COORDINATOR,
   )
-  create(@Body() createEventDto: CreateEventDto) {
-    return this.eventsService.create(createEventDto);
+  create(@Body() createEventDto: CreateEventDto, @CurrentUser() user: any) {
+    return this.eventsService.create(createEventDto, user);
   }
 
   @Get()
@@ -38,8 +40,9 @@ export class EventsController {
     @Query('type') type?: EventType,
     @Query('startDate') startDate?: string,
     @Query('endDate') endDate?: string,
+    @CurrentUser() user?: any,
   ) {
-    return this.eventsService.findAll(communityId, type, startDate, endDate);
+    return this.eventsService.findAll(communityId, type, startDate, endDate, user);
   }
 
   @Get('upcoming')
@@ -81,6 +84,7 @@ export class EventsController {
   @Patch(':id')
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles(
+    UserRole.SYSTEM_ADMIN,
     UserRole.DIOCESAN_ADMIN,
     UserRole.PARISH_ADMIN,
     UserRole.COMMUNITY_COORDINATOR,
@@ -91,9 +95,33 @@ export class EventsController {
 
   @Delete(':id')
   @UseGuards(JwtAuthGuard, RolesGuard)
-  @Roles(UserRole.DIOCESAN_ADMIN, UserRole.PARISH_ADMIN)
+  @Roles(UserRole.SYSTEM_ADMIN, UserRole.DIOCESAN_ADMIN, UserRole.PARISH_ADMIN)
   remove(@Param('id') id: string) {
     return this.eventsService.remove(id);
+  }
+
+  // Participant management
+  @Post(':id/participants')
+  @UseGuards(JwtAuthGuard)
+  addParticipant(
+    @Param('id') eventId: string,
+    @Body('memberId') memberId: string,
+  ) {
+    return this.eventsService.addParticipant(eventId, memberId);
+  }
+
+  @Delete(':id/participants/:memberId')
+  @UseGuards(JwtAuthGuard)
+  removeParticipant(
+    @Param('id') eventId: string,
+    @Param('memberId') memberId: string,
+  ) {
+    return this.eventsService.removeParticipant(eventId, memberId);
+  }
+
+  @Get(':id/participants')
+  getParticipants(@Param('id') eventId: string) {
+    return this.eventsService.getParticipants(eventId);
   }
 }
 

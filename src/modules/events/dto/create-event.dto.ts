@@ -8,7 +8,7 @@ import {
   IsInt,
   Min,
 } from 'class-validator';
-import { EventType } from '@prisma/client';
+import { EventType, EventStatus } from '@prisma/client';
 
 export class CreateEventDto {
   @IsString()
@@ -50,6 +50,10 @@ export class CreateEventDto {
   @IsBoolean()
   @IsOptional()
   isPublic?: boolean;
+
+  @IsEnum(EventStatus)
+  @IsOptional()
+  status?: EventStatus;
 
   @IsString()
   @IsNotEmpty()

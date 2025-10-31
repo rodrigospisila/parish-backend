@@ -1,23 +1,35 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable, NotFoundException, BadRequestException } from '@nestjs/common';
 import { PrismaService } from '../../database/prisma.service';
 import { CreateEventDto } from './dto/create-event.dto';
 import { UpdateEventDto } from './dto/update-event.dto';
-import { EventType } from '@prisma/client';
+import { EventType, UserRole } from '@prisma/client';
 
 @Injectable()
 export class EventsService {
   constructor(private readonly prisma: PrismaService) {}
 
-  async create(createEventDto: CreateEventDto) {
+  async create(createEventDto: CreateEventDto, user: any) {
     const { communityId, ...rest } = createEventDto;
 
     // Verificar se a comunidade existe
     const community = await this.prisma.community.findUnique({
       where: { id: communityId },
+      include: {
+        parish: {
+          include: {
+            diocese: true,
+          },
+        },
+      },
     });
 
     if (!community) {
       throw new NotFoundException(`Comunidade com ID ${communityId} não encontrada`);
+    }
+
+    // Verificar permissão por diocese
+    if (user.role === UserRole.DIOCESAN_ADMIN && community.parish.dioceseId !== user.dioceseId) {
+      throw new BadRequestException('Você não tem permissão para criar eventos nesta comunidade');
     }
 
     return this.prisma.event.create({
@@ -30,6 +42,18 @@ export class EventsService {
           select: {
             id: true,
             name: true,
+            parish: {
+              select: {
+                id: true,
+                name: true,
+                diocese: {
+                  select: {
+                    id: true,
+                    name: true,
+                  },
+                },
+              },
+            },
           },
         },
       },
@@ -41,8 +65,18 @@ export class EventsService {
     type?: EventType,
     startDate?: string,
     endDate?: string,
+    user?: any,
   ) {
     const where: any = {};
+
+    // Filtrar por diocese se for DIOCESAN_ADMIN
+    if (user && user.role === UserRole.DIOCESAN_ADMIN && user.dioceseId) {
+      where.community = {
+        parish: {
+          dioceseId: user.dioceseId,
+        },
+      };
+    }
 
     if (communityId) {
       where.communityId = communityId;
@@ -69,18 +103,17 @@ export class EventsService {
           select: {
             id: true,
             name: true,
-          },
-        },
-        schedules: {
-          select: {
-            id: true,
-            title: true,
-            date: true,
+            parish: {
+              select: {
+                id: true,
+                name: true,
+              },
+            },
           },
         },
         _count: {
           select: {
-            schedules: true,
+            participants: true,
           },
         },
       },
@@ -95,6 +128,7 @@ export class EventsService {
       startDate: {
         gte: new Date(),
       },
+      status: 'PUBLISHED',
     };
 
     if (communityId) {
@@ -108,6 +142,11 @@ export class EventsService {
           select: {
             id: true,
             name: true,
+          },
+        },
+        _count: {
+          select: {
+            participants: true,
           },
         },
       },
@@ -145,24 +184,33 @@ export class EventsService {
     const event = await this.prisma.event.findUnique({
       where: { id },
       include: {
-        community: true,
-        schedules: {
+        community: {
           include: {
-            assignments: {
+            parish: {
               include: {
-                member: {
-                  select: {
-                    id: true,
-                    fullName: true,
-                    email: true,
-                    phone: true,
-                  },
-                },
+                diocese: true,
+              },
+            },
+          },
+        },
+        participants: {
+          include: {
+            member: {
+              select: {
+                id: true,
+                fullName: true,
+                email: true,
+                phone: true,
               },
             },
           },
           orderBy: {
-            date: 'asc',
+            registeredAt: 'asc',
+          },
+        },
+        _count: {
+          select: {
+            participants: true,
           },
         },
       },
@@ -186,6 +234,11 @@ export class EventsService {
           select: {
             id: true,
             name: true,
+          },
+        },
+        _count: {
+          select: {
+            participants: true,
           },
         },
       },
@@ -252,5 +305,116 @@ export class EventsService {
       },
     });
   }
-}
 
+  // ============================================
+  // PARTICIPANT MANAGEMENT
+  // ============================================
+
+  async addParticipant(eventId: string, memberId: string) {
+    // Verificar se o evento existe
+    const event = await this.findOne(eventId);
+
+    // Verificar se o membro existe
+    const member = await this.prisma.member.findUnique({
+      where: { id: memberId },
+    });
+
+    if (!member) {
+      throw new NotFoundException(`Membro com ID ${memberId} não encontrado`);
+    }
+
+    // Verificar se já está inscrito
+    const existing = await this.prisma.eventParticipant.findUnique({
+      where: {
+        eventId_memberId: {
+          eventId,
+          memberId,
+        },
+      },
+    });
+
+    if (existing) {
+      throw new BadRequestException('Membro já está inscrito neste evento');
+    }
+
+    // Verificar vagas disponíveis
+    if (event.maxParticipants) {
+      const count = await this.prisma.eventParticipant.count({
+        where: { eventId },
+      });
+
+      if (count >= event.maxParticipants) {
+        throw new BadRequestException('Evento lotado');
+      }
+    }
+
+    return this.prisma.eventParticipant.create({
+      data: {
+        eventId,
+        memberId,
+      },
+      include: {
+        member: {
+          select: {
+            id: true,
+            fullName: true,
+            email: true,
+            phone: true,
+          },
+        },
+      },
+    });
+  }
+
+  async removeParticipant(eventId: string, memberId: string) {
+    const participant = await this.prisma.eventParticipant.findUnique({
+      where: {
+        eventId_memberId: {
+          eventId,
+          memberId,
+        },
+      },
+    });
+
+    if (!participant) {
+      throw new NotFoundException('Inscrição não encontrada');
+    }
+
+    return this.prisma.eventParticipant.delete({
+      where: {
+        eventId_memberId: {
+          eventId,
+          memberId,
+        },
+      },
+    });
+  }
+
+  async getParticipants(eventId: string) {
+    await this.findOne(eventId); // Verifica se o evento existe
+
+    return this.prisma.eventParticipant.findMany({
+      where: { eventId },
+      include: {
+        member: {
+          select: {
+            id: true,
+            fullName: true,
+            email: true,
+            phone: true,
+            communityId: true,
+            community: {
+              select: {
+                id: true,
+                name: true,
+              },
+            },
+          },
+        },
+      },
+      orderBy: {
+        registeredAt: 'asc',
+      },
+    });
+  }
+}
