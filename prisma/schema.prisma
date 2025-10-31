@@ -54,6 +54,13 @@ enum EventType {
   VISITATION
 }
 
+enum EventStatus {
+  DRAFT // Rascunho
+  PUBLISHED // Publicado
+  CANCELLED // Cancelado
+  COMPLETED // Concluído
+}
+
 enum MassScheduleType {
   MASS
   CONFESSION
@@ -408,6 +415,9 @@ model Member {
   // Schedule Assignments
   scheduleAssignments ScheduleAssignment[]
 
+  // Event Participations
+  eventParticipations EventParticipant[]
+
   // Audit
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -456,12 +466,14 @@ model Event {
 
   // Metadata
   maxParticipants Int?
-  isPublic        Boolean @default(true)
+  isPublic        Boolean     @default(true)
+  status          EventStatus @default(DRAFT)
 
   // Relations
-  communityId String
-  community   Community  @relation(fields: [communityId], references: [id], onDelete: Cascade)
-  schedules   Schedule[]
+  communityId  String
+  community    Community            @relation(fields: [communityId], references: [id], onDelete: Cascade)
+  schedules    Schedule[]
+  participants EventParticipant[]
 
   // Audit
   createdAt DateTime @default(now())
@@ -470,7 +482,28 @@ model Event {
   @@index([communityId])
   @@index([startDate])
   @@index([type])
+  @@index([status])
   @@map("events")
+}
+
+model EventParticipant {
+  id String @id @default(cuid())
+
+  // Relations
+  eventId  String
+  event    Event   @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  memberId String
+  member   Member  @relation(fields: [memberId], references: [id], onDelete: Cascade)
+
+  // Metadata
+  registeredAt DateTime @default(now())
+  attended     Boolean  @default(false)
+  notes        String?
+
+  @@unique([eventId, memberId])
+  @@index([eventId])
+  @@index([memberId])
+  @@map("event_participants")
 }
 
 // ============================================
