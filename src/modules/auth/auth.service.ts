@@ -51,12 +51,21 @@ export class AuthService {
         role: true,
         isActive: true,
         dioceseId: true,
+        parishId: true,
+        communityId: true,
         createdAt: true,
       },
     });
 
     // Gerar tokens
-    const tokens = await this.generateTokens(user.id, user.email, user.role, user.dioceseId ?? undefined);
+    const tokens = await this.generateTokens(
+      user.id, 
+      user.email, 
+      user.role, 
+      user.dioceseId ?? undefined,
+      user.parishId ?? undefined,
+      user.communityId ?? undefined
+    );
 
     return {
       user,
@@ -95,7 +104,14 @@ export class AuthService {
     });
 
     // Gerar tokens
-    const tokens = await this.generateTokens(user.id, user.email, user.role, user.dioceseId ?? undefined);
+    const tokens = await this.generateTokens(
+      user.id, 
+      user.email, 
+      user.role, 
+      user.dioceseId ?? undefined,
+      user.parishId ?? undefined,
+      user.communityId ?? undefined
+    );
 
     return {
       user: {
@@ -147,7 +163,14 @@ export class AuthService {
       }
 
       // Gerar novos tokens
-      const tokens = await this.generateTokens(user.id, user.email, user.role);
+      const tokens = await this.generateTokens(
+        user.id, 
+        user.email, 
+        user.role,
+        user.dioceseId ?? undefined,
+        user.parishId ?? undefined,
+        user.communityId ?? undefined
+      );
 
       // Deletar o refresh token antigo
       await this.prisma.refreshToken.delete({
@@ -169,8 +192,8 @@ export class AuthService {
     return { message: 'Logout realizado com sucesso' };
   }
 
-  private async generateTokens(userId: string, email: string, role: UserRole, dioceseId?: string) {
-    const payload = { sub: userId, email, role, dioceseId };
+  private async generateTokens(userId: string, email: string, role: UserRole, dioceseId?: string, parishId?: string, communityId?: string) {
+    const payload = { sub: userId, email, role, dioceseId, parishId, communityId };
 
     // Gerar access token
     const accessToken = this.jwtService.sign(payload, {
@@ -214,6 +237,8 @@ export class AuthService {
         role: true,
         isActive: true,
         dioceseId: true,
+        parishId: true,
+        communityId: true,
         primaryCommunityId: true,
         communities: {
           include: {
