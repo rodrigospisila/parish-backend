@@ -17,7 +17,7 @@ export class UsersService {
   constructor(private readonly prisma: PrismaService) {}
 
   async create(createUserDto: CreateUserDto, currentUser: any) {
-    const { email, password, role, dioceseId, ...rest } = createUserDto;
+    const { email, password, role, dioceseId, parishId, communityId, ...rest } = createUserDto;
 
     // Verificar se o email já está em uso
     const existingUser = await this.prisma.user.findUnique({
@@ -71,6 +71,8 @@ export class UsersService {
         password: hashedPassword,
         role,
         dioceseId,
+        parishId,
+        communityId,
         forcePasswordChange: true, // Forçar troca de senha no primeiro acesso
       },
       include: {
