@@ -17,7 +17,7 @@ export class UsersService {
   constructor(private readonly prisma: PrismaService) {}
 
   async create(createUserDto: CreateUserDto, currentUser: any) {
-    const { email, password, role, dioceseId, parishId, communityId, ...rest } = createUserDto;
+    let { email, password, role, dioceseId, parishId, communityId, ...rest } = createUserDto;
 
     // Verificar se o email já está em uso
     const existingUser = await this.prisma.user.findUnique({
@@ -28,36 +28,65 @@ export class UsersService {
       throw new ConflictException('Email já está em uso');
     }
 
-    // Validar hierarquia de roles
+    // Definir hierarquia de níveis
+    const roleHierarchy: Record<UserRole, number> = {
+      SYSTEM_ADMIN: 1,
+      DIOCESAN_ADMIN: 2,
+      PARISH_ADMIN: 3,
+      COMMUNITY_COORDINATOR: 4,
+      PASTORAL_COORDINATOR: 5,
+      VOLUNTEER: 6,
+      FAITHFUL: 7,
+    };
+
+    const currentUserLevel = roleHierarchy[currentUser.role as UserRole];
+    const newUserLevel = roleHierarchy[role];
+
+    // REGRA 1: Não pode criar usuário de nível superior ou igual
+    if (newUserLevel <= currentUserLevel) {
+      throw new ForbiddenException('Você não pode criar usuários de nível superior ou igual ao seu');
+    }
+
+    // REGRA 2: Validar e auto-preencher escopo baseado no role do usuário atual
     if (currentUser.role === UserRole.DIOCESAN_ADMIN) {
-      // DIOCESAN_ADMIN só pode criar usuários da sua diocese
-      if (dioceseId !== currentUser.dioceseId) {
-        throw new ForbiddenException('Você só pode criar usuários da sua diocese');
+      // DIOCESAN_ADMIN só pode criar para sua diocese
+      if (dioceseId && dioceseId !== currentUser.dioceseId) {
+        throw new ForbiddenException('Você só pode criar usuários para sua diocese');
       }
-
-      // DIOCESAN_ADMIN não pode criar SYSTEM_ADMIN ou DIOCESAN_ADMIN
-      if (role === UserRole.SYSTEM_ADMIN || role === UserRole.DIOCESAN_ADMIN) {
-        throw new ForbiddenException('Você não tem permissão para criar este tipo de usuário');
-      }
+      // Auto-preencher diocese se não fornecida
+      dioceseId = currentUser.dioceseId;
     }
 
-    // PARISH_ADMIN só pode criar usuários da sua paróquia
     if (currentUser.role === UserRole.PARISH_ADMIN) {
-      if (role === UserRole.SYSTEM_ADMIN || role === UserRole.DIOCESAN_ADMIN || role === UserRole.PARISH_ADMIN) {
-        throw new ForbiddenException('Você não tem permissão para criar este tipo de usuário');
+      // PARISH_ADMIN deve ter diocese e paróquia vinculadas
+      if (!currentUser.dioceseId || !currentUser.parishId) {
+        throw new ForbiddenException('Seu usuário não está vinculado a uma diocese/paróquia');
       }
+      // Auto-preencher diocese e paróquia (ignora valores enviados)
+      dioceseId = currentUser.dioceseId;
+      parishId = currentUser.parishId;
     }
 
-    // COMMUNITY_COORDINATOR só pode criar usuários da sua comunidade
     if (currentUser.role === UserRole.COMMUNITY_COORDINATOR) {
-      if (role !== UserRole.FAITHFUL && role !== UserRole.VOLUNTEER) {
-        throw new ForbiddenException('Você só pode criar usuários do tipo FAITHFUL ou VOLUNTEER');
+      // COMMUNITY_COORDINATOR deve ter diocese, paróquia e comunidade vinculadas
+      if (!currentUser.dioceseId || !currentUser.parishId || !currentUser.communityId) {
+        throw new ForbiddenException('Seu usuário não está vinculado a uma diocese/paróquia/comunidade');
       }
+      // Auto-preencher diocese, paróquia e comunidade (ignora valores enviados)
+      dioceseId = currentUser.dioceseId;
+      parishId = currentUser.parishId;
+      communityId = currentUser.communityId;
     }
 
-    // Validar dioceseId para DIOCESAN_ADMIN
+    // REGRA 3: Validar campos obrigatórios baseado no role sendo criado
     if (role === UserRole.DIOCESAN_ADMIN && !dioceseId) {
       throw new BadRequestException('DIOCESAN_ADMIN deve ter uma diocese vinculada');
+    }
+    if (role === UserRole.PARISH_ADMIN && (!dioceseId || !parishId)) {
+      throw new BadRequestException('PARISH_ADMIN deve ter uma diocese e paróquia vinculadas');
+    }
+    if (role === UserRole.COMMUNITY_COORDINATOR && (!dioceseId || !parishId || !communityId)) {
+      throw new BadRequestException('COMMUNITY_COORDINATOR deve ter uma diocese, paróquia e comunidade vinculadas');
     }
 
     // Hash da senha
