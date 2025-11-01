@@ -33,5 +33,13 @@ export class CreateUserDto {
   @IsString()
   @IsOptional()
   dioceseId?: string;
+
+  @IsString()
+  @IsOptional()
+  parishId?: string;
+
+  @IsString()
+  @IsOptional()
+  communityId?: string;
 }
 
