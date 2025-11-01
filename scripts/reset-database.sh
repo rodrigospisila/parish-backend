@@ -24,6 +24,7 @@ echo "⚠️  ATENÇÃO: Este script irá:"
 echo "   - Resetar completamente o banco de dados"
 echo "   - Apagar TODOS os dados existentes"
 echo "   - Recriar as tabelas"
+echo "   - Aplicar todas as migrations"
 echo "   - Criar um usuário SYSTEM_ADMIN padrão"
 echo ""
 read -p "Deseja continuar? (s/N): " -n 1 -r
@@ -35,16 +36,44 @@ if [[ ! $REPLY =~ ^[Ss]$ ]]; then
 fi
 
 echo ""
-echo "🗑️  Passo 1/3: Resetando banco de dados..."
-pnpm prisma migrate reset --force --skip-seed
+echo "🗑️  Passo 1/4: Resetando banco de dados..."
+pnpm prisma migrate reset --force --skip-seed || {
+  echo "❌ Erro ao resetar banco de dados"
+  echo ""
+  echo "Tente executar manualmente:"
+  echo "  pnpm prisma migrate reset --force --skip-seed"
+  exit 1
+}
 
 echo ""
-echo "🔧 Passo 2/3: Aplicando migrations..."
-pnpm prisma migrate deploy
+echo "🔧 Passo 2/4: Gerando Prisma Client atualizado..."
+pnpm prisma generate || {
+  echo "❌ Erro ao gerar Prisma Client"
+  echo ""
+  echo "Tente executar manualmente:"
+  echo "  pnpm prisma generate"
+  exit 1
+}
 
 echo ""
-echo "👤 Passo 3/3: Criando usuário SYSTEM_ADMIN..."
-pnpm prisma db seed
+echo "📦 Passo 3/4: Aplicando todas as migrations..."
+pnpm prisma migrate deploy || {
+  echo "❌ Erro ao aplicar migrations"
+  echo ""
+  echo "Tente executar manualmente:"
+  echo "  pnpm prisma migrate deploy"
+  exit 1
+}
+
+echo ""
+echo "👤 Passo 4/4: Criando usuário SYSTEM_ADMIN..."
+pnpm prisma db seed || {
+  echo "❌ Erro ao executar seed"
+  echo ""
+  echo "Tente executar manualmente:"
+  echo "  pnpm prisma db seed"
+  exit 1
+}
 
 echo ""
 echo "✅ Reset concluído com sucesso!"
