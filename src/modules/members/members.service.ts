@@ -88,6 +88,18 @@ export class MembersService {
       };
     }
 
+    // PARISH_ADMIN só vê membros das comunidades da sua paróquia
+    if (user && user.role === 'PARISH_ADMIN' && user.parishId) {
+      where.community = {
+        parishId: user.parishId,
+      };
+    }
+
+    // COMMUNITY_COORDINATOR só vê membros da sua comunidade
+    if (user && user.role === 'COMMUNITY_COORDINATOR' && user.communityId) {
+      where.communityId = user.communityId;
+    }
+
     if (communityId) {
       where.communityId = communityId;
     }

@@ -41,6 +41,20 @@ export class UsersService {
       }
     }
 
+    // PARISH_ADMIN só pode criar usuários da sua paróquia
+    if (currentUser.role === UserRole.PARISH_ADMIN) {
+      if (role === UserRole.SYSTEM_ADMIN || role === UserRole.DIOCESAN_ADMIN || role === UserRole.PARISH_ADMIN) {
+        throw new ForbiddenException('Você não tem permissão para criar este tipo de usuário');
+      }
+    }
+
+    // COMMUNITY_COORDINATOR só pode criar usuários da sua comunidade
+    if (currentUser.role === UserRole.COMMUNITY_COORDINATOR) {
+      if (role !== UserRole.FAITHFUL && role !== UserRole.VOLUNTEER) {
+        throw new ForbiddenException('Você só pode criar usuários do tipo FAITHFUL ou VOLUNTEER');
+      }
+    }
+
     // Validar dioceseId para DIOCESAN_ADMIN
     if (role === UserRole.DIOCESAN_ADMIN && !dioceseId) {
       throw new BadRequestException('DIOCESAN_ADMIN deve ter uma diocese vinculada');
@@ -80,6 +94,16 @@ export class UsersService {
     // DIOCESAN_ADMIN só vê usuários da sua diocese
     if (currentUser.role === UserRole.DIOCESAN_ADMIN) {
       where.dioceseId = currentUser.dioceseId;
+    }
+
+    // PARISH_ADMIN só vê usuários da sua paróquia
+    if (currentUser.role === UserRole.PARISH_ADMIN) {
+      where.parishId = currentUser.parishId;
+    }
+
+    // COMMUNITY_COORDINATOR só vê usuários da sua comunidade
+    if (currentUser.role === UserRole.COMMUNITY_COORDINATOR) {
+      where.communityId = currentUser.communityId;
     }
 
     const users = await this.prisma.user.findMany({
@@ -173,13 +197,26 @@ export class UsersService {
     return userWithoutPassword;
   }
 
-  async remove(id: string) {
+  async remove(id: string, currentUser?: any) {
     const user = await this.prisma.user.findUnique({
       where: { id },
     });
 
     if (!user) {
       throw new NotFoundException(`Usuário com ID ${id} não encontrado`);
+    }
+
+    // Validar permissões
+    if (currentUser) {
+      if (currentUser.role === UserRole.DIOCESAN_ADMIN && user.dioceseId !== currentUser.dioceseId) {
+        throw new ForbiddenException('Você só pode excluir usuários da sua diocese');
+      }
+      if (currentUser.role === UserRole.PARISH_ADMIN && user.parishId !== currentUser.parishId) {
+        throw new ForbiddenException('Você só pode excluir usuários da sua paróquia');
+      }
+      if (currentUser.role === UserRole.COMMUNITY_COORDINATOR && user.communityId !== currentUser.communityId) {
+        throw new ForbiddenException('Você só pode excluir usuários da sua comunidade');
+      }
     }
 
     await this.prisma.user.delete({

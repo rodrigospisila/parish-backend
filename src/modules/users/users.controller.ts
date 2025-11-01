@@ -24,13 +24,13 @@ export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
   @Post()
-  @Roles(UserRole.SYSTEM_ADMIN, UserRole.DIOCESAN_ADMIN)
+  @Roles(UserRole.SYSTEM_ADMIN, UserRole.DIOCESAN_ADMIN, UserRole.PARISH_ADMIN, UserRole.COMMUNITY_COORDINATOR)
   create(@Body() createUserDto: CreateUserDto, @Request() req) {
     return this.usersService.create(createUserDto, req.user);
   }
 
   @Get()
-  @Roles(UserRole.SYSTEM_ADMIN, UserRole.DIOCESAN_ADMIN)
+  @Roles(UserRole.SYSTEM_ADMIN, UserRole.DIOCESAN_ADMIN, UserRole.PARISH_ADMIN, UserRole.COMMUNITY_COORDINATOR)
   findAll(@Request() req) {
     return this.usersService.findAll(req.user);
   }
@@ -41,15 +41,15 @@ export class UsersController {
   }
 
   @Patch(':id')
-  @Roles(UserRole.SYSTEM_ADMIN, UserRole.DIOCESAN_ADMIN)
+  @Roles(UserRole.SYSTEM_ADMIN, UserRole.DIOCESAN_ADMIN, UserRole.PARISH_ADMIN, UserRole.COMMUNITY_COORDINATOR)
   update(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto, @Request() req) {
     return this.usersService.update(id, updateUserDto, req.user);
   }
 
   @Delete(':id')
-  @Roles(UserRole.SYSTEM_ADMIN)
-  remove(@Param('id') id: string) {
-    return this.usersService.remove(id);
+  @Roles(UserRole.SYSTEM_ADMIN, UserRole.DIOCESAN_ADMIN, UserRole.PARISH_ADMIN, UserRole.COMMUNITY_COORDINATOR)
+  remove(@Param('id') id: string, @Request() req) {
+    return this.usersService.remove(id, req.user);
   }
 
   @Post(':id/change-password')
@@ -58,7 +58,7 @@ export class UsersController {
   }
 
   @Post(':id/reset-password')
-  @Roles(UserRole.SYSTEM_ADMIN, UserRole.DIOCESAN_ADMIN)
+  @Roles(UserRole.SYSTEM_ADMIN, UserRole.DIOCESAN_ADMIN, UserRole.PARISH_ADMIN, UserRole.COMMUNITY_COORDINATOR)
   resetPassword(@Param('id') id: string, @Request() req) {
     return this.usersService.resetPassword(id, req.user);
   }

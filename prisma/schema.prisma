@@ -123,6 +123,14 @@ model User {
   dioceseId String?
   diocese   Diocese? @relation(fields: [dioceseId], references: [id])
 
+  // Scope - Paróquia vinculada (para PARISH_ADMIN)
+  parishId String?
+  parish   Parish? @relation(fields: [parishId], references: [id])
+
+  // Scope - Comunidade vinculada (para COMMUNITY_ADMIN)
+  communityId String?
+  community   Community? @relation("UserCommunity", fields: [communityId], references: [id])
+
   // 2FA
   twoFactorEnabled Boolean @default(false)
   twoFactorSecret  String?
@@ -257,6 +265,7 @@ model Parish {
   dioceseId   String
   diocese     Diocese     @relation(fields: [dioceseId], references: [id], onDelete: Cascade)
   communities Community[]
+  users       User[]      // PARISH_ADMIN vinculados a esta paróquia
 
   // Audit
   createdAt DateTime @default(now())
@@ -294,6 +303,7 @@ model Community {
   parish          Parish          @relation(fields: [parishId], references: [id], onDelete: Cascade)
   pastorals       Pastoral[]
   userCommunities UserCommunity[]
+  users           User[]          @relation("UserCommunity") // COMMUNITY_ADMIN vinculados a esta comunidade
   members         Member[]
   events          Event[]
   massSchedules   MassSchedule[]

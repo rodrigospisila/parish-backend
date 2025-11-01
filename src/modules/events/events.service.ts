@@ -78,6 +78,18 @@ export class EventsService {
       };
     }
 
+    // PARISH_ADMIN só vê eventos das comunidades da sua paróquia
+    if (user && user.role === UserRole.PARISH_ADMIN && user.parishId) {
+      where.community = {
+        parishId: user.parishId,
+      };
+    }
+
+    // COMMUNITY_COORDINATOR só vê eventos da sua comunidade
+    if (user && user.role === UserRole.COMMUNITY_COORDINATOR && user.communityId) {
+      where.communityId = user.communityId;
+    }
+
     if (communityId) {
       where.communityId = communityId;
     }

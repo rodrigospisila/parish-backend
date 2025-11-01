@@ -37,6 +37,16 @@ export class CommunitiesService {
       };
     }
 
+    // PARISH_ADMIN só vê comunidades da sua paróquia
+    if (user && user.role === 'PARISH_ADMIN' && user.parishId) {
+      where.parishId = user.parishId;
+    }
+
+    // COMMUNITY_COORDINATOR só vê sua comunidade
+    if (user && user.role === 'COMMUNITY_COORDINATOR' && user.communityId) {
+      where.id = user.communityId;
+    }
+
     return this.prisma.community.findMany({
       where,
       include: {

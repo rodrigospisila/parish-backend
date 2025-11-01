@@ -29,6 +29,11 @@ export class ParishesService {
       where.dioceseId = user.dioceseId;
     }
 
+    // PARISH_ADMIN só vê sua paróquia
+    if (user && user.role === 'PARISH_ADMIN' && user.parishId) {
+      where.id = user.parishId;
+    }
+
     return this.prisma.parish.findMany({
       where,
       include: {
@@ -77,8 +82,13 @@ export class ParishesService {
     return parish;
   }
 
-  async update(id: string, updateParishDto: UpdateParishDto) {
+  async update(id: string, updateParishDto: UpdateParishDto, user?: any) {
     await this.findOne(id);
+
+    // PARISH_ADMIN só pode editar sua própria paróquia
+    if (user && user.role === 'PARISH_ADMIN' && user.parishId && user.parishId !== id) {
+      throw new NotFoundException(`Você não tem permissão para editar esta paróquia`);
+    }
 
     return this.prisma.parish.update({
       where: { id },
