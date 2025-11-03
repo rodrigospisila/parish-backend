@@ -12,6 +12,7 @@ import {
 import { EventsService } from './events.service';
 import { CreateEventDto } from './dto/create-event.dto';
 import { UpdateEventDto } from './dto/update-event.dto';
+import { DuplicateEventDto } from './dto/duplicate-event.dto';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { RolesGuard } from '../auth/guards/roles.guard';
 import { Roles } from '../auth/decorators/roles.decorator';
@@ -98,6 +99,22 @@ export class EventsController {
   @Roles(UserRole.SYSTEM_ADMIN, UserRole.DIOCESAN_ADMIN, UserRole.PARISH_ADMIN, UserRole.COMMUNITY_COORDINATOR)
   remove(@Param('id') id: string) {
     return this.eventsService.remove(id);
+  }
+
+  @Post(':id/duplicate')
+  @UseGuards(JwtAuthGuard, RolesGuard)
+  @Roles(
+    UserRole.SYSTEM_ADMIN,
+    UserRole.DIOCESAN_ADMIN,
+    UserRole.PARISH_ADMIN,
+    UserRole.COMMUNITY_COORDINATOR,
+  )
+  duplicate(
+    @Param('id') id: string,
+    @Body() duplicateEventDto: DuplicateEventDto,
+    @CurrentUser() user: any,
+  ) {
+    return this.eventsService.duplicate(id, duplicateEventDto, user);
   }
 
   // Participant management

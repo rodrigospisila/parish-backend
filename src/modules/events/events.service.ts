@@ -466,4 +466,79 @@ export class EventsService {
       },
     });
   }
+
+  // ============================================
+  // DUPLICATE EVENT
+  // ============================================
+
+  /**
+   * Duplica um evento para múltiplas datas
+   * @param id ID do evento original
+   * @param duplicateEventDto DTO com array de datas
+   * @param user Usuário autenticado
+   * @returns Array de eventos criados
+   */
+  async duplicate(id: string, duplicateEventDto: any, user: any) {
+    // Buscar evento original
+    const originalEvent = await this.findOne(id);
+
+    if (!originalEvent) {
+      throw new NotFoundException(`Evento com ID ${id} não encontrado`);
+    }
+
+    // Calcular duração do evento
+    const duration = originalEvent.endDate
+      ? originalEvent.endDate.getTime() - originalEvent.startDate.getTime()
+      : 0;
+
+    // Criar eventos duplicados
+    const createdEvents: any[] = [];
+
+    for (const dateStr of duplicateEventDto.dates) {
+      const newStartDate = this.formatToISO(dateStr);
+      const newEndDate = duration > 0 ? new Date(newStartDate.getTime() + duration) : undefined;
+
+      const newEvent = await this.prisma.event.create({
+        data: {
+          title: originalEvent.title,
+          description: originalEvent.description,
+          type: originalEvent.type,
+          startDate: newStartDate,
+          endDate: newEndDate,
+          location: originalEvent.location,
+          isRecurring: false, // Eventos duplicados não são recorrentes
+          maxParticipants: originalEvent.maxParticipants,
+          isPublic: originalEvent.isPublic,
+          status: originalEvent.status,
+          communityId: originalEvent.communityId,
+        },
+        include: {
+          community: {
+            select: {
+              id: true,
+              name: true,
+              parish: {
+                select: {
+                  id: true,
+                  name: true,
+                },
+              },
+            },
+          },
+          _count: {
+            select: {
+              participants: true,
+            },
+          },
+        },
+      });
+
+      createdEvents.push(newEvent);
+    }
+
+    return {
+      message: `${createdEvents.length} eventos criados com sucesso`,
+      events: createdEvents,
+    };
+  }
 }

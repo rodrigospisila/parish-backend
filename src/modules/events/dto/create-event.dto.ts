@@ -8,7 +8,7 @@ import {
   IsInt,
   Min,
 } from 'class-validator';
-import { EventType, EventStatus } from '@prisma/client';
+import { EventType, EventStatus, RecurrenceType } from '@prisma/client';
 
 export class CreateEventDto {
   @IsString()
@@ -38,9 +38,26 @@ export class CreateEventDto {
   @IsOptional()
   isRecurring?: boolean;
 
+  @IsEnum(RecurrenceType)
+  @IsOptional()
+  recurrenceType?: RecurrenceType;
+
+  @IsInt()
+  @Min(1)
+  @IsOptional()
+  recurrenceInterval?: number; // A cada X dias/semanas/meses
+
   @IsString()
   @IsOptional()
-  recurrenceRule?: string; // iCal RRULE format
+  recurrenceDays?: string; // JSON array de dias da semana [0-6] ou datas específicas
+
+  @IsDateString()
+  @IsOptional()
+  recurrenceEndDate?: string; // Data de término da recorrência
+
+  @IsString()
+  @IsOptional()
+  recurrenceRule?: string; // iCal RRULE format (opcional)
 
   @IsInt()
   @Min(1)

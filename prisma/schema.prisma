@@ -61,6 +61,13 @@ enum EventStatus {
   COMPLETED // Concluído
 }
 
+enum RecurrenceType {
+  DAILY      // Diário
+  WEEKLY     // Semanal
+  MONTHLY    // Mensal
+  CUSTOM     // Personalizado (dias específicos)
+}
+
 enum MassScheduleType {
   MASS
   CONFESSION
@@ -471,8 +478,12 @@ model Event {
   startDate      DateTime
   endDate        DateTime?
   location       String?
-  isRecurring    Boolean   @default(false)
-  recurrenceRule String? // iCal RRULE format
+  isRecurring       Boolean          @default(false)
+  recurrenceType    RecurrenceType?
+  recurrenceInterval Int?            @default(1) // A cada X dias/semanas/meses
+  recurrenceDays    String?          // JSON array de dias da semana [0-6] ou datas específicas
+  recurrenceEndDate DateTime?        // Data de término da recorrência
+  recurrenceRule    String?          // iCal RRULE format (opcional, para compatibilidade)
 
   // Metadata
   maxParticipants Int?
