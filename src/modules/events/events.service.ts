@@ -8,8 +8,34 @@ import { EventType, UserRole } from '@prisma/client';
 export class EventsService {
   constructor(private readonly prisma: PrismaService) {}
 
+  /**
+   * Converte string de data para formato ISO-8601 completo aceito pelo Prisma
+   * @param dateString - Data no formato "YYYY-MM-DDTHH:mm" ou similar
+   * @returns Date object no formato ISO-8601
+   */
+  private formatToISO(dateString: string): Date {
+    // Se já tem timezone (Z ou +/-), retorna como Date
+    if (dateString.includes('Z') || dateString.match(/[+-]\d{2}:\d{2}$/)) {
+      return new Date(dateString);
+    }
+    // Se não tem segundos, adiciona :00.000Z
+    if (dateString.match(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/)) {
+      return new Date(dateString + ':00.000Z');
+    }
+    // Se tem segundos mas não tem milissegundos, adiciona .000Z
+    if (dateString.match(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}$/)) {
+      return new Date(dateString + '.000Z');
+    }
+    // Caso contrário, tenta converter diretamente
+    return new Date(dateString);
+  }
+
   async create(createEventDto: CreateEventDto, user: any) {
-    const { communityId, ...rest } = createEventDto;
+    const { communityId, startDate, endDate, ...rest } = createEventDto;
+
+    // Converter datas para formato ISO-8601 completo
+    const formattedStartDate = this.formatToISO(startDate);
+    const formattedEndDate = endDate ? this.formatToISO(endDate) : undefined;
 
     // Verificar se a comunidade existe
     const community = await this.prisma.community.findUnique({
@@ -35,6 +61,8 @@ export class EventsService {
     return this.prisma.event.create({
       data: {
         ...rest,
+        startDate: formattedStartDate,
+        endDate: formattedEndDate,
         communityId,
       },
       include: {
@@ -238,9 +266,18 @@ export class EventsService {
   async update(id: string, updateEventDto: UpdateEventDto) {
     await this.findOne(id); // Verifica se existe
 
+    // Formatar datas se existirem no DTO
+    const dataToUpdate: any = { ...updateEventDto };
+    if (updateEventDto.startDate) {
+      dataToUpdate.startDate = this.formatToISO(updateEventDto.startDate as string);
+    }
+    if (updateEventDto.endDate) {
+      dataToUpdate.endDate = this.formatToISO(updateEventDto.endDate as string);
+    }
+
     return this.prisma.event.update({
       where: { id },
-      data: updateEventDto,
+      data: dataToUpdate,
       include: {
         community: {
           select: {
