@@ -6,7 +6,7 @@ import {
   IsBoolean,
   IsDateString,
 } from 'class-validator';
-import { MemberStatus } from '@prisma/client';
+import { MemberStatus, Gender, MaritalStatus } from '@prisma/client';
 
 export class CreateMemberDto {
   @IsString()
@@ -25,6 +25,18 @@ export class CreateMemberDto {
   @IsOptional()
   rg?: string;
 
+  @IsEnum(Gender)
+  @IsOptional()
+  gender?: Gender;
+
+  @IsEnum(MaritalStatus)
+  @IsOptional()
+  maritalStatus?: MaritalStatus;
+
+  @IsString()
+  @IsOptional()
+  occupation?: string;
+
   @IsString()
   @IsOptional()
   photoUrl?: string;
@@ -39,7 +51,23 @@ export class CreateMemberDto {
 
   @IsString()
   @IsOptional()
-  address?: string;
+  zipCode?: string;
+
+  @IsString()
+  @IsOptional()
+  street?: string;
+
+  @IsString()
+  @IsOptional()
+  number?: string;
+
+  @IsString()
+  @IsOptional()
+  complement?: string;
+
+  @IsString()
+  @IsOptional()
+  neighborhood?: string;
 
   @IsString()
   @IsOptional()
@@ -48,10 +76,6 @@ export class CreateMemberDto {
   @IsString()
   @IsOptional()
   state?: string;
-
-  @IsString()
-  @IsOptional()
-  zipCode?: string;
 
   @IsString()
   @IsOptional()

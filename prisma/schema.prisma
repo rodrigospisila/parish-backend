@@ -35,6 +35,20 @@ enum MemberStatus {
   DECEASED
 }
 
+enum Gender {
+  MALE
+  FEMALE
+  OTHER
+}
+
+enum MaritalStatus {
+  SINGLE
+  MARRIED
+  DIVORCED
+  WIDOWED
+  COMMON_LAW_MARRIAGE
+}
+
 enum SacramentType {
   BAPTISM
   FIRST_COMMUNION
@@ -381,19 +395,25 @@ model Member {
   id String @id @default(cuid())
 
   // Personal Info
-  fullName  String
-  birthDate DateTime?
-  cpf       String?   @unique
-  rg        String?
-  photoUrl  String?
+  fullName      String
+  birthDate     DateTime?
+  cpf           String?        @unique
+  rg            String?
+  gender        Gender?
+  maritalStatus MaritalStatus?
+  occupation    String?
+  photoUrl      String?
 
   // Contact
-  phone   String?
-  email   String?
-  address String?
-  city    String?
-  state   String?
-  zipCode String?
+  phone        String?
+  email        String?
+  zipCode      String?
+  street       String?
+  number       String?
+  complement   String?
+  neighborhood String?
+  city         String?
+  state        String?
 
   // Family
   fatherName String?
