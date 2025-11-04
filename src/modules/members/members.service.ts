@@ -117,9 +117,19 @@ export class MembersService {
             name: true,
           },
         },
-        pastorals: {
+        pastoralMemberships: {
           include: {
-            pastoral: {
+            communityPastoral: {
+              include: {
+                globalPastoral: {
+                  select: {
+                    id: true,
+                    name: true,
+                  },
+                },
+              },
+            },
+            pastoralGroup: {
               select: {
                 id: true,
                 name: true,
@@ -160,9 +170,15 @@ export class MembersService {
             fullName: true,
           },
         },
-        pastorals: {
+        pastoralMemberships: {
           include: {
-            pastoral: true,
+            communityPastoral: {
+              include: {
+                globalPastoral: true,
+                community: true,
+              },
+            },
+            pastoralGroup: true,
           },
         },
         sacraments: {

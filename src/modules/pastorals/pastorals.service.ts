@@ -116,12 +116,13 @@ export class PastoralsService {
     }
 
     // Validar hierarquia de permissões
-    const canCreate = [
+    const allowedRoles: UserRole[] = [
       UserRole.SYSTEM_ADMIN,
       UserRole.DIOCESAN_ADMIN,
       UserRole.PARISH_ADMIN,
       UserRole.COMMUNITY_COORDINATOR,
-    ].includes(user.role);
+    ];
+    const canCreate = allowedRoles.includes(user.role);
 
     if (!canCreate) {
       throw new ForbiddenException('Você não tem permissão para criar pastorais');
@@ -248,12 +249,17 @@ export class PastoralsService {
       where: { id: userId },
     });
 
-    const canUpdate = [
+    if (!user) {
+      throw new NotFoundException('Usuário não encontrado');
+    }
+
+    const allowedRoles: UserRole[] = [
       UserRole.SYSTEM_ADMIN,
       UserRole.DIOCESAN_ADMIN,
       UserRole.PARISH_ADMIN,
       UserRole.COMMUNITY_COORDINATOR,
-    ].includes(user.role);
+    ];
+    const canUpdate = allowedRoles.includes(user.role);
 
     if (!canUpdate) {
       throw new ForbiddenException('Você não tem permissão para editar pastorais');
@@ -279,12 +285,17 @@ export class PastoralsService {
       where: { id: userId },
     });
 
-    const canDelete = [
+    if (!user) {
+      throw new NotFoundException('Usuário não encontrado');
+    }
+
+    const allowedRoles: UserRole[] = [
       UserRole.SYSTEM_ADMIN,
       UserRole.DIOCESAN_ADMIN,
       UserRole.PARISH_ADMIN,
       UserRole.COMMUNITY_COORDINATOR,
-    ].includes(user.role);
+    ];
+    const canDelete = allowedRoles.includes(user.role);
 
     if (!canDelete) {
       throw new ForbiddenException('Você não tem permissão para excluir pastorais');

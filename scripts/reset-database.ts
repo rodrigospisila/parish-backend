@@ -12,11 +12,35 @@ async function resetDatabase() {
     await prisma.sacrament.deleteMany();
     console.log('✅ Sacramentos deletados');
     
+    await prisma.pastoralMeetingParticipant.deleteMany();
+    console.log('✅ Participantes de reuniões deletados');
+    
+    await prisma.pastoralMeeting.deleteMany();
+    console.log('✅ Reuniões de pastorais deletadas');
+    
+    await prisma.pastoralActivity.deleteMany();
+    console.log('✅ Atividades de pastorais deletadas');
+    
+    await prisma.pastoralCoordinator.deleteMany();
+    console.log('✅ Coordenadores de pastorais deletados');
+    
     await prisma.pastoralMember.deleteMany();
     console.log('✅ Membros de pastorais deletados');
     
-    await prisma.pastoral.deleteMany();
-    console.log('✅ Pastorais deletadas');
+    await prisma.pastoralGroup.deleteMany();
+    console.log('✅ Grupos pastorais deletados');
+    
+    await prisma.communityPastoral.deleteMany();
+    console.log('✅ Pastorais comunitárias deletadas');
+    
+    await prisma.parishPastoral.deleteMany();
+    console.log('✅ Pastorais paroquiais deletadas');
+    
+    await prisma.diocesanPastoral.deleteMany();
+    console.log('✅ Pastorais diocesanas deletadas');
+    
+    await prisma.globalPastoral.deleteMany();
+    console.log('✅ Pastorais globais deletadas');
     
     await prisma.member.deleteMany();
     console.log('✅ Membros deletados');
