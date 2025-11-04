@@ -1,264 +1,450 @@
-import { Injectable, NotFoundException, BadRequestException } from '@nestjs/common';
+import { Injectable, NotFoundException, ForbiddenException, BadRequestException } from '@nestjs/common';
 import { PrismaService } from '../../database/prisma.service';
-import { CreatePastoralDto } from './dto/create-pastoral.dto';
-import { AddMemberDto } from './dto/add-member.dto';
+import { CreateGlobalPastoralDto } from './dto/create-global-pastoral.dto';
+import { UpdateGlobalPastoralDto } from './dto/update-global-pastoral.dto';
+import { CreateCommunityPastoralDto } from './dto/create-community-pastoral.dto';
+import { UpdateCommunityPastoralDto } from './dto/update-community-pastoral.dto';
+import { CreatePastoralGroupDto } from './dto/create-pastoral-group.dto';
+import { CreatePastoralMemberDto } from './dto/create-pastoral-member.dto';
+import { UserRole } from '@prisma/client';
 
 @Injectable()
 export class PastoralsService {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(private prisma: PrismaService) {}
 
-  async create(createPastoralDto: CreatePastoralDto) {
-    const { communityId, ...rest } = createPastoralDto;
+  // ============================================
+  // GLOBAL PASTORALS (SYSTEM_ADMIN only)
+  // ============================================
 
-    // Verificar se a comunidade existe
-    const community = await this.prisma.community.findUnique({
-      where: { id: communityId },
-    });
-
-    if (!community) {
-      throw new NotFoundException(`Comunidade com ID ${communityId} não encontrada`);
+  async createGlobalPastoral(dto: CreateGlobalPastoralDto, userRole: UserRole) {
+    // Apenas SYSTEM_ADMIN pode criar pastorais globais
+    if (userRole !== UserRole.SYSTEM_ADMIN) {
+      throw new ForbiddenException('Apenas SYSTEM_ADMIN pode criar pastorais globais');
     }
 
-    return this.prisma.pastoral.create({
-      data: {
-        ...rest,
-        communityId,
-      },
-      include: {
-        community: {
-          select: {
-            id: true,
-            name: true,
-          },
-        },
-      },
+    // Verificar se já existe pastoral com esse nome
+    const existing = await this.prisma.globalPastoral.findUnique({
+      where: { name: dto.name },
+    });
+
+    if (existing) {
+      throw new BadRequestException('Já existe uma pastoral com esse nome');
+    }
+
+    return this.prisma.globalPastoral.create({
+      data: dto,
     });
   }
 
-  async findAll(communityId?: string) {
-    const where: any = {};
-
-    if (communityId) {
-      where.communityId = communityId;
-    }
-
-    return this.prisma.pastoral.findMany({
-      where,
-      include: {
-        community: {
-          select: {
-            id: true,
-            name: true,
-          },
-        },
-        members: {
-          include: {
-            member: {
-              select: {
-                id: true,
-                fullName: true,
-                email: true,
-                phone: true,
-                photoUrl: true,
-              },
-            },
-          },
-        },
-        _count: {
-          select: {
-            members: true,
-          },
-        },
-      },
-      orderBy: {
-        name: 'asc',
-      },
+  async findAllGlobalPastorals() {
+    return this.prisma.globalPastoral.findMany({
+      orderBy: { name: 'asc' },
     });
   }
 
-  async findOne(id: string) {
-    const pastoral = await this.prisma.pastoral.findUnique({
+  async findOneGlobalPastoral(id: string) {
+    const pastoral = await this.prisma.globalPastoral.findUnique({
       where: { id },
       include: {
-        community: true,
-        members: {
+        communityPastorals: {
           include: {
-            member: {
-              select: {
-                id: true,
-                fullName: true,
-                email: true,
-                phone: true,
-                photoUrl: true,
-                birthDate: true,
-              },
-            },
+            community: true,
           },
-          orderBy: [
-            { isCoordinator: 'desc' },
-            { joinedAt: 'asc' },
-          ],
         },
       },
     });
 
     if (!pastoral) {
-      throw new NotFoundException(`Pastoral com ID ${id} não encontrada`);
+      throw new NotFoundException('Pastoral global não encontrada');
     }
 
     return pastoral;
   }
 
-  async update(id: string, updateData: Partial<CreatePastoralDto>) {
-    await this.findOne(id); // Verifica se existe
+  async updateGlobalPastoral(id: string, dto: UpdateGlobalPastoralDto, userRole: UserRole) {
+    if (userRole !== UserRole.SYSTEM_ADMIN) {
+      throw new ForbiddenException('Apenas SYSTEM_ADMIN pode editar pastorais globais');
+    }
 
-    return this.prisma.pastoral.update({
+    await this.findOneGlobalPastoral(id);
+
+    // Se está alterando o nome, verificar duplicação
+    if (dto.name) {
+      const existing = await this.prisma.globalPastoral.findFirst({
+        where: {
+          name: dto.name,
+          id: { not: id },
+        },
+      });
+
+      if (existing) {
+        throw new BadRequestException('Já existe uma pastoral com esse nome');
+      }
+    }
+
+    return this.prisma.globalPastoral.update({
       where: { id },
-      data: updateData,
+      data: dto,
+    });
+  }
+
+  async removeGlobalPastoral(id: string, userRole: UserRole) {
+    if (userRole !== UserRole.SYSTEM_ADMIN) {
+      throw new ForbiddenException('Apenas SYSTEM_ADMIN pode excluir pastorais globais');
+    }
+
+    await this.findOneGlobalPastoral(id);
+
+    return this.prisma.globalPastoral.delete({
+      where: { id },
+    });
+  }
+
+  // ============================================
+  // COMMUNITY PASTORALS
+  // ============================================
+
+  async createCommunityPastoral(dto: CreateCommunityPastoralDto, userId: string) {
+    // Verificar se o usuário tem permissão na comunidade
+    const user = await this.prisma.user.findUnique({
+      where: { id: userId },
+      include: { community: true },
+    });
+
+    if (!user) {
+      throw new NotFoundException('Usuário não encontrado');
+    }
+
+    // Validar hierarquia de permissões
+    const canCreate = [
+      UserRole.SYSTEM_ADMIN,
+      UserRole.DIOCESAN_ADMIN,
+      UserRole.PARISH_ADMIN,
+      UserRole.COMMUNITY_COORDINATOR,
+    ].includes(user.role);
+
+    if (!canCreate) {
+      throw new ForbiddenException('Você não tem permissão para criar pastorais');
+    }
+
+    // Verificar se a comunidade existe
+    const community = await this.prisma.community.findUnique({
+      where: { id: dto.communityId },
+    });
+
+    if (!community) {
+      throw new NotFoundException('Comunidade não encontrada');
+    }
+
+    // Verificar se a pastoral global existe
+    const globalPastoral = await this.prisma.globalPastoral.findUnique({
+      where: { id: dto.globalPastoralId },
+    });
+
+    if (!globalPastoral) {
+      throw new NotFoundException('Pastoral global não encontrada');
+    }
+
+    // Verificar se já existe essa pastoral na comunidade
+    const existing = await this.prisma.communityPastoral.findFirst({
+      where: {
+        globalPastoralId: dto.globalPastoralId,
+        communityId: dto.communityId,
+      },
+    });
+
+    if (existing) {
+      throw new BadRequestException('Esta pastoral já existe nesta comunidade');
+    }
+
+    return this.prisma.communityPastoral.create({
+      data: {
+        ...dto,
+        foundedAt: dto.foundedAt ? new Date(dto.foundedAt) : undefined,
+      },
       include: {
-        community: {
-          select: {
-            id: true,
-            name: true,
+        globalPastoral: true,
+        community: true,
+      },
+    });
+  }
+
+  async findAllCommunityPastorals(communityId?: string) {
+    return this.prisma.communityPastoral.findMany({
+      where: communityId ? { communityId } : undefined,
+      include: {
+        globalPastoral: true,
+        community: true,
+        members: {
+          include: {
+            member: true,
           },
+        },
+        subGroups: true,
+      },
+      orderBy: {
+        globalPastoral: {
+          name: 'asc',
         },
       },
     });
   }
 
-  async remove(id: string) {
-    await this.findOne(id); // Verifica se existe
-
-    return this.prisma.pastoral.delete({
+  async findOneCommunityPastoral(id: string) {
+    const pastoral = await this.prisma.communityPastoral.findUnique({
       where: { id },
-    });
-  }
-
-  // ========== GESTÃO DE MEMBROS ==========
-
-  async addMember(addMemberDto: AddMemberDto) {
-    const { pastoralId, memberId, isCoordinator } = addMemberDto;
-
-    // Verificar se a pastoral existe
-    const pastoral = await this.prisma.pastoral.findUnique({
-      where: { id: pastoralId },
+      include: {
+        globalPastoral: true,
+        community: true,
+        members: {
+          include: {
+            member: true,
+          },
+        },
+        subGroups: {
+          include: {
+            members: {
+              include: {
+                member: true,
+              },
+            },
+          },
+        },
+        coordinatorHistory: {
+          include: {
+            member: true,
+          },
+          orderBy: {
+            startDate: 'desc',
+          },
+        },
+        meetings: {
+          orderBy: {
+            date: 'desc',
+          },
+          take: 10,
+        },
+        activities: {
+          orderBy: {
+            startDate: 'desc',
+          },
+          take: 10,
+        },
+      },
     });
 
     if (!pastoral) {
-      throw new NotFoundException(`Pastoral com ID ${pastoralId} não encontrada`);
+      throw new NotFoundException('Pastoral comunitária não encontrada');
     }
 
+    return pastoral;
+  }
+
+  async updateCommunityPastoral(id: string, dto: UpdateCommunityPastoralDto, userId: string) {
+    const pastoral = await this.findOneCommunityPastoral(id);
+
+    // Verificar permissões
+    const user = await this.prisma.user.findUnique({
+      where: { id: userId },
+    });
+
+    const canUpdate = [
+      UserRole.SYSTEM_ADMIN,
+      UserRole.DIOCESAN_ADMIN,
+      UserRole.PARISH_ADMIN,
+      UserRole.COMMUNITY_COORDINATOR,
+    ].includes(user.role);
+
+    if (!canUpdate) {
+      throw new ForbiddenException('Você não tem permissão para editar pastorais');
+    }
+
+    return this.prisma.communityPastoral.update({
+      where: { id },
+      data: {
+        ...dto,
+        foundedAt: dto.foundedAt ? new Date(dto.foundedAt) : undefined,
+      },
+      include: {
+        globalPastoral: true,
+        community: true,
+      },
+    });
+  }
+
+  async removeCommunityPastoral(id: string, userId: string) {
+    await this.findOneCommunityPastoral(id);
+
+    const user = await this.prisma.user.findUnique({
+      where: { id: userId },
+    });
+
+    const canDelete = [
+      UserRole.SYSTEM_ADMIN,
+      UserRole.DIOCESAN_ADMIN,
+      UserRole.PARISH_ADMIN,
+      UserRole.COMMUNITY_COORDINATOR,
+    ].includes(user.role);
+
+    if (!canDelete) {
+      throw new ForbiddenException('Você não tem permissão para excluir pastorais');
+    }
+
+    return this.prisma.communityPastoral.delete({
+      where: { id },
+    });
+  }
+
+  // ============================================
+  // PASTORAL GROUPS (Sub-grupos)
+  // ============================================
+
+  async createPastoralGroup(dto: CreatePastoralGroupDto) {
+    // Verificar se a pastoral comunitária existe
+    const communityPastoral = await this.prisma.communityPastoral.findUnique({
+      where: { id: dto.communityPastoralId },
+    });
+
+    if (!communityPastoral) {
+      throw new NotFoundException('Pastoral comunitária não encontrada');
+    }
+
+    return this.prisma.pastoralGroup.create({
+      data: dto,
+      include: {
+        communityPastoral: {
+          include: {
+            globalPastoral: true,
+          },
+        },
+      },
+    });
+  }
+
+  async findAllPastoralGroups(communityPastoralId?: string) {
+    return this.prisma.pastoralGroup.findMany({
+      where: communityPastoralId ? { communityPastoralId } : undefined,
+      include: {
+        communityPastoral: {
+          include: {
+            globalPastoral: true,
+          },
+        },
+        members: {
+          include: {
+            member: true,
+          },
+        },
+      },
+      orderBy: { name: 'asc' },
+    });
+  }
+
+  async findOnePastoralGroup(id: string) {
+    const group = await this.prisma.pastoralGroup.findUnique({
+      where: { id },
+      include: {
+        communityPastoral: {
+          include: {
+            globalPastoral: true,
+          },
+        },
+        members: {
+          include: {
+            member: true,
+          },
+        },
+      },
+    });
+
+    if (!group) {
+      throw new NotFoundException('Grupo pastoral não encontrado');
+    }
+
+    return group;
+  }
+
+  async removePastoralGroup(id: string) {
+    await this.findOnePastoralGroup(id);
+
+    return this.prisma.pastoralGroup.delete({
+      where: { id },
+    });
+  }
+
+  // ============================================
+  // PASTORAL MEMBERS
+  // ============================================
+
+  async addMemberToPastoral(dto: CreatePastoralMemberDto) {
     // Verificar se o membro existe
     const member = await this.prisma.member.findUnique({
-      where: { id: memberId },
+      where: { id: dto.memberId },
     });
 
     if (!member) {
-      throw new NotFoundException(`Membro com ID ${memberId} não encontrado`);
+      throw new NotFoundException('Membro não encontrado');
     }
 
-    // Verificar se o membro já está na pastoral
-    const existingMembership = await this.prisma.pastoralMember.findUnique({
+    // Verificar se já está vinculado
+    const existing = await this.prisma.pastoralMember.findFirst({
       where: {
-        pastoralId_memberId: {
-          pastoralId,
-          memberId,
-        },
+        memberId: dto.memberId,
+        communityPastoralId: dto.communityPastoralId,
+        pastoralGroupId: dto.pastoralGroupId,
       },
     });
 
-    if (existingMembership) {
-      throw new BadRequestException('Membro já está nesta pastoral');
+    if (existing) {
+      throw new BadRequestException('Membro já está vinculado a esta pastoral/grupo');
     }
 
     return this.prisma.pastoralMember.create({
-      data: {
-        pastoralId,
-        memberId,
-        isCoordinator: isCoordinator || false,
-      },
+      data: dto,
       include: {
-        pastoral: {
-          select: {
-            id: true,
-            name: true,
+        member: true,
+        communityPastoral: {
+          include: {
+            globalPastoral: true,
           },
         },
-        member: {
-          select: {
-            id: true,
-            fullName: true,
-            email: true,
-            phone: true,
-          },
-        },
+        pastoralGroup: true,
       },
     });
   }
 
-  async removeMember(pastoralId: string, memberId: string) {
-    const membership = await this.prisma.pastoralMember.findUnique({
+  async findPastoralMembers(communityPastoralId?: string, pastoralGroupId?: string) {
+    return this.prisma.pastoralMember.findMany({
       where: {
-        pastoralId_memberId: {
-          pastoralId,
-          memberId,
+        communityPastoralId,
+        pastoralGroupId,
+      },
+      include: {
+        member: true,
+        communityPastoral: {
+          include: {
+            globalPastoral: true,
+          },
         },
+        pastoralGroup: true,
+      },
+      orderBy: {
+        joinedAt: 'desc',
       },
     });
+  }
 
-    if (!membership) {
-      throw new NotFoundException('Membro não encontrado nesta pastoral');
+  async removeMemberFromPastoral(id: string) {
+    const pastoralMember = await this.prisma.pastoralMember.findUnique({
+      where: { id },
+    });
+
+    if (!pastoralMember) {
+      throw new NotFoundException('Vínculo não encontrado');
     }
 
     return this.prisma.pastoralMember.delete({
-      where: {
-        pastoralId_memberId: {
-          pastoralId,
-          memberId,
-        },
-      },
+      where: { id },
     });
-  }
-
-  async setCoordinator(pastoralId: string, memberId: string, isCoordinator: boolean) {
-    const membership = await this.prisma.pastoralMember.findUnique({
-      where: {
-        pastoralId_memberId: {
-          pastoralId,
-          memberId,
-        },
-      },
-    });
-
-    if (!membership) {
-      throw new NotFoundException('Membro não encontrado nesta pastoral');
-    }
-
-    return this.prisma.pastoralMember.update({
-      where: {
-        pastoralId_memberId: {
-          pastoralId,
-          memberId,
-        },
-      },
-      data: {
-        isCoordinator,
-      },
-    });
-  }
-
-  // ========== RELATÓRIOS ==========
-
-  async getCoordinators(pastoralId: string) {
-    const pastoral = await this.findOne(pastoralId);
-
-    return pastoral.members.filter((m) => m.isCoordinator);
-  }
-
-  async getMembersByPastoral(pastoralId: string) {
-    const pastoral = await this.findOne(pastoralId);
-
-    return pastoral.members;
   }
 }
-

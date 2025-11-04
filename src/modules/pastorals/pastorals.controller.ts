@@ -8,10 +8,15 @@ import {
   Delete,
   UseGuards,
   Query,
+  Request,
 } from '@nestjs/common';
 import { PastoralsService } from './pastorals.service';
-import { CreatePastoralDto } from './dto/create-pastoral.dto';
-import { AddMemberDto } from './dto/add-member.dto';
+import { CreateGlobalPastoralDto } from './dto/create-global-pastoral.dto';
+import { UpdateGlobalPastoralDto } from './dto/update-global-pastoral.dto';
+import { CreateCommunityPastoralDto } from './dto/create-community-pastoral.dto';
+import { UpdateCommunityPastoralDto } from './dto/update-community-pastoral.dto';
+import { CreatePastoralGroupDto } from './dto/create-pastoral-group.dto';
+import { CreatePastoralMemberDto } from './dto/create-pastoral-member.dto';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { RolesGuard } from '../auth/guards/roles.guard';
 import { Roles } from '../auth/decorators/roles.decorator';
@@ -22,99 +27,173 @@ import { UserRole } from '@prisma/client';
 export class PastoralsController {
   constructor(private readonly pastoralsService: PastoralsService) {}
 
-  @Post()
+  // ============================================
+  // GLOBAL PASTORALS (SYSTEM_ADMIN only)
+  // ============================================
+
+  @Post('global')
+  @UseGuards(RolesGuard)
+  @Roles(UserRole.SYSTEM_ADMIN)
+  createGlobalPastoral(@Body() dto: CreateGlobalPastoralDto, @Request() req) {
+    return this.pastoralsService.createGlobalPastoral(dto, req.user.role);
+  }
+
+  @Get('global')
+  findAllGlobalPastorals() {
+    return this.pastoralsService.findAllGlobalPastorals();
+  }
+
+  @Get('global/:id')
+  findOneGlobalPastoral(@Param('id') id: string) {
+    return this.pastoralsService.findOneGlobalPastoral(id);
+  }
+
+  @Patch('global/:id')
+  @UseGuards(RolesGuard)
+  @Roles(UserRole.SYSTEM_ADMIN)
+  updateGlobalPastoral(
+    @Param('id') id: string,
+    @Body() dto: UpdateGlobalPastoralDto,
+    @Request() req,
+  ) {
+    return this.pastoralsService.updateGlobalPastoral(id, dto, req.user.role);
+  }
+
+  @Delete('global/:id')
+  @UseGuards(RolesGuard)
+  @Roles(UserRole.SYSTEM_ADMIN)
+  removeGlobalPastoral(@Param('id') id: string, @Request() req) {
+    return this.pastoralsService.removeGlobalPastoral(id, req.user.role);
+  }
+
+  // ============================================
+  // COMMUNITY PASTORALS
+  // ============================================
+
+  @Post('community')
   @UseGuards(RolesGuard)
   @Roles(
+    UserRole.SYSTEM_ADMIN,
     UserRole.DIOCESAN_ADMIN,
     UserRole.PARISH_ADMIN,
     UserRole.COMMUNITY_COORDINATOR,
   )
-  create(@Body() createPastoralDto: CreatePastoralDto) {
-    return this.pastoralsService.create(createPastoralDto);
+  createCommunityPastoral(@Body() dto: CreateCommunityPastoralDto, @Request() req) {
+    return this.pastoralsService.createCommunityPastoral(dto, req.user.id);
   }
 
-  @Get()
-  findAll(@Query('communityId') communityId?: string) {
-    return this.pastoralsService.findAll(communityId);
+  @Get('community')
+  findAllCommunityPastorals(@Query('communityId') communityId?: string) {
+    return this.pastoralsService.findAllCommunityPastorals(communityId);
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.pastoralsService.findOne(id);
+  @Get('community/:id')
+  findOneCommunityPastoral(@Param('id') id: string) {
+    return this.pastoralsService.findOneCommunityPastoral(id);
   }
 
-  @Patch(':id')
+  @Patch('community/:id')
   @UseGuards(RolesGuard)
   @Roles(
+    UserRole.SYSTEM_ADMIN,
     UserRole.DIOCESAN_ADMIN,
     UserRole.PARISH_ADMIN,
     UserRole.COMMUNITY_COORDINATOR,
   )
-  update(@Param('id') id: string, @Body() updateData: Partial<CreatePastoralDto>) {
-    return this.pastoralsService.update(id, updateData);
+  updateCommunityPastoral(
+    @Param('id') id: string,
+    @Body() dto: UpdateCommunityPastoralDto,
+    @Request() req,
+  ) {
+    return this.pastoralsService.updateCommunityPastoral(id, dto, req.user.id);
   }
 
-  @Delete(':id')
+  @Delete('community/:id')
   @UseGuards(RolesGuard)
-  @Roles(UserRole.DIOCESAN_ADMIN, UserRole.PARISH_ADMIN)
-  remove(@Param('id') id: string) {
-    return this.pastoralsService.remove(id);
+  @Roles(
+    UserRole.SYSTEM_ADMIN,
+    UserRole.DIOCESAN_ADMIN,
+    UserRole.PARISH_ADMIN,
+    UserRole.COMMUNITY_COORDINATOR,
+  )
+  removeCommunityPastoral(@Param('id') id: string, @Request() req) {
+    return this.pastoralsService.removeCommunityPastoral(id, req.user.id);
   }
 
-  // ========== GESTÃO DE MEMBROS ==========
+  // ============================================
+  // PASTORAL GROUPS (Sub-grupos)
+  // ============================================
+
+  @Post('groups')
+  @UseGuards(RolesGuard)
+  @Roles(
+    UserRole.SYSTEM_ADMIN,
+    UserRole.DIOCESAN_ADMIN,
+    UserRole.PARISH_ADMIN,
+    UserRole.COMMUNITY_COORDINATOR,
+    UserRole.PASTORAL_COORDINATOR,
+  )
+  createPastoralGroup(@Body() dto: CreatePastoralGroupDto) {
+    return this.pastoralsService.createPastoralGroup(dto);
+  }
+
+  @Get('groups')
+  findAllPastoralGroups(@Query('communityPastoralId') communityPastoralId?: string) {
+    return this.pastoralsService.findAllPastoralGroups(communityPastoralId);
+  }
+
+  @Get('groups/:id')
+  findOnePastoralGroup(@Param('id') id: string) {
+    return this.pastoralsService.findOnePastoralGroup(id);
+  }
+
+  @Delete('groups/:id')
+  @UseGuards(RolesGuard)
+  @Roles(
+    UserRole.SYSTEM_ADMIN,
+    UserRole.DIOCESAN_ADMIN,
+    UserRole.PARISH_ADMIN,
+    UserRole.COMMUNITY_COORDINATOR,
+  )
+  removePastoralGroup(@Param('id') id: string) {
+    return this.pastoralsService.removePastoralGroup(id);
+  }
+
+  // ============================================
+  // PASTORAL MEMBERS
+  // ============================================
 
   @Post('members')
   @UseGuards(RolesGuard)
   @Roles(
+    UserRole.SYSTEM_ADMIN,
     UserRole.DIOCESAN_ADMIN,
     UserRole.PARISH_ADMIN,
     UserRole.COMMUNITY_COORDINATOR,
     UserRole.PASTORAL_COORDINATOR,
   )
-  addMember(@Body() addMemberDto: AddMemberDto) {
-    return this.pastoralsService.addMember(addMemberDto);
+  addMemberToPastoral(@Body() dto: CreatePastoralMemberDto) {
+    return this.pastoralsService.addMemberToPastoral(dto);
   }
 
-  @Delete(':pastoralId/members/:memberId')
+  @Get('members')
+  findPastoralMembers(
+    @Query('communityPastoralId') communityPastoralId?: string,
+    @Query('pastoralGroupId') pastoralGroupId?: string,
+  ) {
+    return this.pastoralsService.findPastoralMembers(communityPastoralId, pastoralGroupId);
+  }
+
+  @Delete('members/:id')
   @UseGuards(RolesGuard)
   @Roles(
+    UserRole.SYSTEM_ADMIN,
     UserRole.DIOCESAN_ADMIN,
     UserRole.PARISH_ADMIN,
     UserRole.COMMUNITY_COORDINATOR,
     UserRole.PASTORAL_COORDINATOR,
   )
-  removeMember(
-    @Param('pastoralId') pastoralId: string,
-    @Param('memberId') memberId: string,
-  ) {
-    return this.pastoralsService.removeMember(pastoralId, memberId);
-  }
-
-  @Patch(':pastoralId/members/:memberId/coordinator')
-  @UseGuards(RolesGuard)
-  @Roles(
-    UserRole.DIOCESAN_ADMIN,
-    UserRole.PARISH_ADMIN,
-    UserRole.COMMUNITY_COORDINATOR,
-  )
-  setCoordinator(
-    @Param('pastoralId') pastoralId: string,
-    @Param('memberId') memberId: string,
-    @Body('isCoordinator') isCoordinator: boolean,
-  ) {
-    return this.pastoralsService.setCoordinator(pastoralId, memberId, isCoordinator);
-  }
-
-  // ========== RELATÓRIOS ==========
-
-  @Get(':id/coordinators')
-  getCoordinators(@Param('id') id: string) {
-    return this.pastoralsService.getCoordinators(id);
-  }
-
-  @Get(':id/members')
-  getMembersByPastoral(@Param('id') id: string) {
-    return this.pastoralsService.getMembersByPastoral(id);
+  removeMemberFromPastoral(@Param('id') id: string) {
+    return this.pastoralsService.removeMemberFromPastoral(id);
   }
 }
-

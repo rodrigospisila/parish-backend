@@ -322,7 +322,7 @@ model Community {
   // Relations
   parishId        String
   parish          Parish          @relation(fields: [parishId], references: [id], onDelete: Cascade)
-  pastorals       Pastoral[]
+  communityPastorals CommunityPastoral[]
   userCommunities UserCommunity[]
   users           User[]          @relation("UserCommunity") // COMMUNITY_ADMIN vinculados a esta comunidade
   members         Member[]
@@ -344,47 +344,273 @@ model Community {
 // PASTORALS, MINISTRIES & MOVEMENTS
 // ============================================
 
-model Pastoral {
+// Cadastro Global de Pastorais (criado por SYSTEM_ADMIN)
+model GlobalPastoral {
   id          String  @id @default(cuid())
-  name        String
+  name        String  @unique // Ex: "Liturgia", "Catequese", "Jovens"
   description String?
   mission     String?
-  photoUrl    String?
+  iconUrl     String?
+  colorHex    String? // Cor para identificação visual
+
+  // Metadata
+  status EntityStatus @default(ACTIVE)
+
+  // Relations - Vínculos hierárquicos
+  diocesanPastorals DiocesanPastoral[]
+  parishPastorals   ParishPastoral[]
+  communityPastorals CommunityPastoral[]
+
+  // Audit
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("global_pastorals")
+}
+
+// Pastoral vinculada à Diocese
+model DiocesanPastoral {
+  id          String  @id @default(cuid())
+  description String?
+  notes       String?
 
   // Metadata
   foundedAt DateTime?
   status    EntityStatus @default(ACTIVE)
 
   // Relations
-  communityId String
-  community   Community        @relation(fields: [communityId], references: [id], onDelete: Cascade)
-  members     PastoralMember[]
+  globalPastoralId String
+  globalPastoral   GlobalPastoral @relation(fields: [globalPastoralId], references: [id], onDelete: Cascade)
+  dioceseId        String
+
+  // Sub-vínculos
+  parishPastorals ParishPastoral[]
 
   // Audit
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  @@index([communityId])
-  @@map("pastorals")
+  @@unique([globalPastoralId, dioceseId])
+  @@index([dioceseId])
+  @@map("diocesan_pastorals")
 }
 
-model PastoralMember {
-  id            String  @id @default(cuid())
-  isCoordinator Boolean @default(false)
+// Pastoral vinculada à Paróquia
+model ParishPastoral {
+  id          String  @id @default(cuid())
+  description String?
+  notes       String?
+
+  // Metadata
+  foundedAt DateTime?
+  status    EntityStatus @default(ACTIVE)
 
   // Relations
-  pastoralId String
-  pastoral   Pastoral @relation(fields: [pastoralId], references: [id], onDelete: Cascade)
-  memberId   String
-  member     Member   @relation(fields: [memberId], references: [id], onDelete: Cascade)
+  globalPastoralId   String
+  globalPastoral     GlobalPastoral    @relation(fields: [globalPastoralId], references: [id], onDelete: Cascade)
+  diocesanPastoralId String?
+  diocesanPastoral   DiocesanPastoral? @relation(fields: [diocesanPastoralId], references: [id], onDelete: SetNull)
+  parishId           String
+
+  // Sub-vínculos
+  communityPastorals CommunityPastoral[]
 
   // Audit
-  joinedAt DateTime @default(now())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
-  @@unique([pastoralId, memberId])
-  @@index([pastoralId])
+  @@unique([globalPastoralId, parishId])
+  @@index([parishId])
+  @@map("parish_pastorals")
+}
+
+// Pastoral vinculada à Comunidade (nível operacional)
+model CommunityPastoral {
+  id          String  @id @default(cuid())
+  description String?
+  mission     String?
+  photoUrl    String?
+  notes       String?
+
+  // Metadata
+  foundedAt DateTime?
+  status    EntityStatus @default(ACTIVE)
+
+  // Relations
+  globalPastoralId  String
+  globalPastoral    GlobalPastoral  @relation(fields: [globalPastoralId], references: [id], onDelete: Cascade)
+  parishPastoralId  String?
+  parishPastoral    ParishPastoral? @relation(fields: [parishPastoralId], references: [id], onDelete: SetNull)
+  communityId       String
+  community         Community       @relation(fields: [communityId], references: [id], onDelete: Cascade)
+
+  // Sub-grupos
+  subGroups PastoralGroup[]
+
+  // Membros
+  members PastoralMember[]
+
+  // Reuniões e Atividades
+  meetings   PastoralMeeting[]
+  activities PastoralActivity[]
+
+  // Histórico de coordenadores
+  coordinatorHistory PastoralCoordinator[]
+
+  // Audit
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([globalPastoralId, communityId])
+  @@index([communityId])
+  @@map("community_pastorals")
+}
+
+// Sub-grupos de uma Pastoral (ex: Liturgia → Coral, Ministros)
+model PastoralGroup {
+  id          String  @id @default(cuid())
+  name        String  // Ex: "Coral", "Ministros da Eucaristia"
+  description String?
+  photoUrl    String?
+
+  // Metadata
+  status EntityStatus @default(ACTIVE)
+
+  // Relations
+  communityPastoralId String
+  communityPastoral   CommunityPastoral @relation(fields: [communityPastoralId], references: [id], onDelete: Cascade)
+
+  // Hierarquia de sub-grupos
+  parentGroupId String?
+  parentGroup   PastoralGroup? @relation("SubGroups", fields: [parentGroupId], references: [id], onDelete: SetNull)
+  subGroups     PastoralGroup[] @relation("SubGroups")
+
+  // Membros
+  members PastoralMember[]
+
+  // Audit
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([communityPastoralId])
+  @@map("pastoral_groups")
+}
+
+// Membros de uma Pastoral ou Sub-grupo
+model PastoralMember {
+  id   String  @id @default(cuid())
+  role String? // Ex: "Coordenador", "Vice-coordenador", "Membro"
+
+  // Metadata
+  isActive Boolean @default(true)
+
+  // Relations
+  communityPastoralId String?
+  communityPastoral   CommunityPastoral? @relation(fields: [communityPastoralId], references: [id], onDelete: Cascade)
+  pastoralGroupId     String?
+  pastoralGroup       PastoralGroup?     @relation(fields: [pastoralGroupId], references: [id], onDelete: Cascade)
+  memberId            String
+  member              Member             @relation(fields: [memberId], references: [id], onDelete: Cascade)
+
+  // Audit
+  joinedAt DateTime  @default(now())
+  leftAt   DateTime?
+
+  @@index([communityPastoralId])
+  @@index([pastoralGroupId])
   @@index([memberId])
   @@map("pastoral_members")
+}
+
+// Histórico de Coordenadores de uma Pastoral
+model PastoralCoordinator {
+  id String @id @default(cuid())
+
+  // Relations
+  communityPastoralId String
+  communityPastoral   CommunityPastoral @relation(fields: [communityPastoralId], references: [id], onDelete: Cascade)
+  memberId            String
+  member              Member            @relation("PastoralCoordinators", fields: [memberId], references: [id], onDelete: Cascade)
+
+  // Período de coordenação
+  startDate DateTime
+  endDate   DateTime?
+  isCurrent Boolean   @default(false)
+
+  // Audit
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([communityPastoralId])
+  @@index([memberId])
+  @@map("pastoral_coordinators")
+}
+
+// Reuniões de uma Pastoral
+model PastoralMeeting {
+  id          String   @id @default(cuid())
+  title       String
+  description String?
+  date        DateTime
+  location    String?
+  notes       String?
+
+  // Relations
+  communityPastoralId String
+  communityPastoral   CommunityPastoral @relation(fields: [communityPastoralId], references: [id], onDelete: Cascade)
+
+  // Participantes
+  participants PastoralMeetingParticipant[]
+
+  // Audit
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([communityPastoralId])
+  @@index([date])
+  @@map("pastoral_meetings")
+}
+
+model PastoralMeetingParticipant {
+  id String @id @default(cuid())
+
+  // Relations
+  meetingId String
+  meeting   PastoralMeeting @relation(fields: [meetingId], references: [id], onDelete: Cascade)
+  memberId  String
+  member    Member          @relation("PastoralMeetingParticipants", fields: [memberId], references: [id], onDelete: Cascade)
+
+  // Presença
+  attended   Boolean   @default(false)
+  attendedAt DateTime?
+
+  @@unique([meetingId, memberId])
+  @@index([meetingId])
+  @@index([memberId])
+  @@map("pastoral_meeting_participants")
+}
+
+// Atividades de uma Pastoral
+model PastoralActivity {
+  id          String   @id @default(cuid())
+  title       String
+  description String?
+  startDate   DateTime
+  endDate     DateTime?
+  location    String?
+  notes       String?
+
+  // Relations
+  communityPastoralId String
+  communityPastoral   CommunityPastoral @relation(fields: [communityPastoralId], references: [id], onDelete: Cascade)
+
+  // Audit
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([communityPastoralId])
+  @@index([startDate])
+  @@map("pastoral_activities")
 }
 
 // ============================================
@@ -441,7 +667,9 @@ model Member {
   community   Community @relation(fields: [communityId], references: [id], onDelete: Cascade)
 
   // Pastorals
-  pastorals PastoralMember[]
+  pastoralMemberships     PastoralMember[]                 @relation
+  pastoralCoordinations   PastoralCoordinator[]            @relation("PastoralCoordinators")
+  pastoralMeetingAttendances PastoralMeetingParticipant[] @relation("PastoralMeetingParticipants")
 
   // Sacraments
   sacraments Sacrament[]
