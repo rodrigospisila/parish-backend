@@ -123,6 +123,8 @@ export class AuthService {
         isActive: user.isActive,
         forcePasswordChange: user.forcePasswordChange,
         dioceseId: user.dioceseId,
+        parishId: user.parishId,
+        communityId: user.communityId,
         createdAt: user.createdAt,
       },
       ...tokens,
