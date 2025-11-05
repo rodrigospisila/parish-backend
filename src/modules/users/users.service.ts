@@ -85,8 +85,11 @@ export class UsersService {
     if (role === UserRole.PARISH_ADMIN && (!dioceseId || !parishId)) {
       throw new BadRequestException('PARISH_ADMIN deve ter uma diocese e paróquia vinculadas');
     }
-    if (role === UserRole.COMMUNITY_COORDINATOR && (!dioceseId || !parishId || !communityId)) {
-      throw new BadRequestException('COMMUNITY_COORDINATOR deve ter uma diocese, paróquia e comunidade vinculadas');
+    if (role === UserRole.COMMUNITY_COORDINATOR && (!dioceseId || !parishId)) {
+      throw new BadRequestException('COMMUNITY_COORDINATOR deve ter uma diocese e paróquia vinculadas');
+    }
+    if (role === UserRole.COMMUNITY_COORDINATOR && (!communityIds || communityIds.length === 0)) {
+      throw new BadRequestException('COMMUNITY_COORDINATOR deve ter pelo menos uma comunidade vinculada');
     }
 
     // Hash da senha
