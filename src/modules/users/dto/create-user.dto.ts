@@ -5,6 +5,7 @@ import {
   IsEnum,
   IsOptional,
   MinLength,
+  IsArray,
 } from 'class-validator';
 import { UserRole } from '@prisma/client';
 
@@ -41,5 +42,9 @@ export class CreateUserDto {
   @IsString()
   @IsOptional()
   communityId?: string;
+
+  @IsArray()
+  @IsOptional()
+  communityIds?: string[];
 }
 

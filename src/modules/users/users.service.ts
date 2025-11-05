@@ -17,7 +17,7 @@ export class UsersService {
   constructor(private readonly prisma: PrismaService) {}
 
   async create(createUserDto: CreateUserDto, currentUser: any) {
-    let { email, password, role, dioceseId, parishId, communityId, ...rest } = createUserDto;
+    let { email, password, role, dioceseId, parishId, communityId, communityIds, ...rest } = createUserDto;
 
     // Verificar se o email já está em uso
     const existingUser = await this.prisma.user.findUnique({
@@ -114,6 +114,22 @@ export class UsersService {
       },
     });
 
+    // Se communityIds foi fornecido, criar vínculos UserCommunity
+    if (communityIds && communityIds.length > 0) {
+      await Promise.all(
+        communityIds.map((commId, index) =>
+          this.prisma.userCommunity.create({
+            data: {
+              userId: user.id,
+              communityId: commId,
+              role: user.role, // Usar o role do usuário
+              isPrimary: index === 0, // Primeira comunidade é a principal
+            },
+          }),
+        ),
+      );
+    }
+
     // Remover senha do retorno
     const { password: _, ...userWithoutPassword } = user;
     return userWithoutPassword;
@@ -144,6 +160,16 @@ export class UsersService {
           select: {
             id: true,
             name: true,
+          },
+        },
+        communities: {
+          include: {
+            community: {
+              select: {
+                id: true,
+                name: true,
+              },
+            },
           },
         },
       },
