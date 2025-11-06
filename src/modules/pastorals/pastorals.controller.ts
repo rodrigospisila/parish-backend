@@ -16,7 +16,13 @@ import { UpdateGlobalPastoralDto } from './dto/update-global-pastoral.dto';
 import { CreateCommunityPastoralDto } from './dto/create-community-pastoral.dto';
 import { UpdateCommunityPastoralDto } from './dto/update-community-pastoral.dto';
 import { CreatePastoralGroupDto } from './dto/create-pastoral-group.dto';
+import { UpdatePastoralGroupDto } from './dto/update-pastoral-group.dto';
 import { CreatePastoralMemberDto } from './dto/create-pastoral-member.dto';
+import { UpdatePastoralMemberDto } from './dto/update-pastoral-member.dto';
+import { CreateMeetingDto } from './dto/create-meeting.dto';
+import { UpdateMeetingDto } from './dto/update-meeting.dto';
+import { MarkAttendanceDto } from './dto/mark-attendance.dto';
+import { CreateActivityDto } from './dto/create-activity.dto';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { RolesGuard } from '../auth/guards/roles.guard';
 import { Roles } from '../auth/decorators/roles.decorator';
@@ -147,6 +153,19 @@ export class PastoralsController {
     return this.pastoralsService.findOnePastoralGroup(id);
   }
 
+  @Patch('groups/:id')
+  @UseGuards(RolesGuard)
+  @Roles(
+    UserRole.SYSTEM_ADMIN,
+    UserRole.DIOCESAN_ADMIN,
+    UserRole.PARISH_ADMIN,
+    UserRole.COMMUNITY_COORDINATOR,
+    UserRole.PASTORAL_COORDINATOR,
+  )
+  updatePastoralGroup(@Param('id') id: string, @Body() dto: UpdatePastoralGroupDto) {
+    return this.pastoralsService.updatePastoralGroup(id, dto);
+  }
+
   @Delete('groups/:id')
   @UseGuards(RolesGuard)
   @Roles(
@@ -184,6 +203,19 @@ export class PastoralsController {
     return this.pastoralsService.findPastoralMembers(communityPastoralId, pastoralGroupId);
   }
 
+  @Patch('members/:id')
+  @UseGuards(RolesGuard)
+  @Roles(
+    UserRole.SYSTEM_ADMIN,
+    UserRole.DIOCESAN_ADMIN,
+    UserRole.PARISH_ADMIN,
+    UserRole.COMMUNITY_COORDINATOR,
+    UserRole.PASTORAL_COORDINATOR,
+  )
+  updateMember(@Param('id') id: string, @Body() dto: UpdatePastoralMemberDto) {
+    return this.pastoralsService.updateMember(id, dto);
+  }
+
   @Delete('members/:id')
   @UseGuards(RolesGuard)
   @Roles(
@@ -195,5 +227,109 @@ export class PastoralsController {
   )
   removeMemberFromPastoral(@Param('id') id: string) {
     return this.pastoralsService.removeMemberFromPastoral(id);
+  }
+
+  // ============================================
+  // MEETINGS
+  // ============================================
+
+  @Post('meetings')
+  @UseGuards(RolesGuard)
+  @Roles(
+    UserRole.SYSTEM_ADMIN,
+    UserRole.DIOCESAN_ADMIN,
+    UserRole.PARISH_ADMIN,
+    UserRole.COMMUNITY_COORDINATOR,
+    UserRole.PASTORAL_COORDINATOR,
+  )
+  createMeeting(@Body() dto: CreateMeetingDto) {
+    return this.pastoralsService.createMeeting(dto);
+  }
+
+  @Get('meetings')
+  findAllMeetings(@Query('communityPastoralId') communityPastoralId?: string) {
+    return this.pastoralsService.findAllMeetings(communityPastoralId);
+  }
+
+  @Get('meetings/:id')
+  findOneMeeting(@Param('id') id: string) {
+    return this.pastoralsService.findOneMeeting(id);
+  }
+
+  @Patch('meetings/:id')
+  @UseGuards(RolesGuard)
+  @Roles(
+    UserRole.SYSTEM_ADMIN,
+    UserRole.DIOCESAN_ADMIN,
+    UserRole.PARISH_ADMIN,
+    UserRole.COMMUNITY_COORDINATOR,
+    UserRole.PASTORAL_COORDINATOR,
+  )
+  updateMeeting(@Param('id') id: string, @Body() dto: UpdateMeetingDto) {
+    return this.pastoralsService.updateMeeting(id, dto);
+  }
+
+  @Delete('meetings/:id')
+  @UseGuards(RolesGuard)
+  @Roles(
+    UserRole.SYSTEM_ADMIN,
+    UserRole.DIOCESAN_ADMIN,
+    UserRole.PARISH_ADMIN,
+    UserRole.COMMUNITY_COORDINATOR,
+  )
+  removeMeeting(@Param('id') id: string) {
+    return this.pastoralsService.removeMeeting(id);
+  }
+
+  @Post('meetings/attendance')
+  @UseGuards(RolesGuard)
+  @Roles(
+    UserRole.SYSTEM_ADMIN,
+    UserRole.DIOCESAN_ADMIN,
+    UserRole.PARISH_ADMIN,
+    UserRole.COMMUNITY_COORDINATOR,
+    UserRole.PASTORAL_COORDINATOR,
+  )
+  markAttendance(@Body() dto: MarkAttendanceDto) {
+    return this.pastoralsService.markAttendance(dto);
+  }
+
+  // ============================================
+  // ACTIVITIES
+  // ============================================
+
+  @Post('activities')
+  @UseGuards(RolesGuard)
+  @Roles(
+    UserRole.SYSTEM_ADMIN,
+    UserRole.DIOCESAN_ADMIN,
+    UserRole.PARISH_ADMIN,
+    UserRole.COMMUNITY_COORDINATOR,
+    UserRole.PASTORAL_COORDINATOR,
+  )
+  createActivity(@Body() dto: CreateActivityDto) {
+    return this.pastoralsService.createActivity(dto);
+  }
+
+  @Get('activities')
+  findAllActivities(@Query('communityPastoralId') communityPastoralId?: string) {
+    return this.pastoralsService.findAllActivities(communityPastoralId);
+  }
+
+  @Get('activities/:id')
+  findOneActivity(@Param('id') id: string) {
+    return this.pastoralsService.findOneActivity(id);
+  }
+
+  @Delete('activities/:id')
+  @UseGuards(RolesGuard)
+  @Roles(
+    UserRole.SYSTEM_ADMIN,
+    UserRole.DIOCESAN_ADMIN,
+    UserRole.PARISH_ADMIN,
+    UserRole.COMMUNITY_COORDINATOR,
+  )
+  removeActivity(@Param('id') id: string) {
+    return this.pastoralsService.removeActivity(id);
   }
 }

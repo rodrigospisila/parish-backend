@@ -5,7 +5,13 @@ import { UpdateGlobalPastoralDto } from './dto/update-global-pastoral.dto';
 import { CreateCommunityPastoralDto } from './dto/create-community-pastoral.dto';
 import { UpdateCommunityPastoralDto } from './dto/update-community-pastoral.dto';
 import { CreatePastoralGroupDto } from './dto/create-pastoral-group.dto';
+import { UpdatePastoralGroupDto } from './dto/update-pastoral-group.dto';
 import { CreatePastoralMemberDto } from './dto/create-pastoral-member.dto';
+import { UpdatePastoralMemberDto } from './dto/update-pastoral-member.dto';
+import { CreateMeetingDto } from './dto/create-meeting.dto';
+import { UpdateMeetingDto } from './dto/update-meeting.dto';
+import { MarkAttendanceDto } from './dto/mark-attendance.dto';
+import { CreateActivityDto } from './dto/create-activity.dto';
 import { UserRole } from '@prisma/client';
 
 @Injectable()
@@ -375,6 +381,15 @@ export class PastoralsService {
     return group;
   }
 
+  async updatePastoralGroup(id: string, dto: UpdatePastoralGroupDto) {
+    await this.findOnePastoralGroup(id);
+
+    return this.prisma.pastoralGroup.update({
+      where: { id },
+      data: dto,
+    });
+  }
+
   async removePastoralGroup(id: string) {
     await this.findOnePastoralGroup(id);
 
@@ -445,6 +460,30 @@ export class PastoralsService {
     });
   }
 
+  async updateMember(id: string, dto: UpdatePastoralMemberDto) {
+    const pastoralMember = await this.prisma.pastoralMember.findUnique({
+      where: { id },
+    });
+
+    if (!pastoralMember) {
+      throw new NotFoundException('Vínculo não encontrado');
+    }
+
+    return this.prisma.pastoralMember.update({
+      where: { id },
+      data: dto,
+      include: {
+        member: true,
+        communityPastoral: {
+          include: {
+            globalPastoral: true,
+            community: true,
+          },
+        },
+      },
+    });
+  }
+
   async removeMemberFromPastoral(id: string) {
     const pastoralMember = await this.prisma.pastoralMember.findUnique({
       where: { id },
@@ -455,6 +494,208 @@ export class PastoralsService {
     }
 
     return this.prisma.pastoralMember.delete({
+      where: { id },
+    });
+  }
+
+  // ============================================
+  // MEETINGS
+  // ============================================
+
+  async createMeeting(dto: CreateMeetingDto) {
+    return this.prisma.pastoralMeeting.create({
+      data: {
+        title: dto.title,
+        description: dto.description,
+        date: new Date(dto.date),
+        location: dto.location,
+        notes: dto.notes,
+        communityPastoralId: dto.communityPastoralId,
+      },
+      include: {
+        communityPastoral: {
+          include: {
+            globalPastoral: true,
+          },
+        },
+      },
+    });
+  }
+
+  async findAllMeetings(communityPastoralId?: string) {
+    return this.prisma.pastoralMeeting.findMany({
+      where: communityPastoralId ? { communityPastoralId } : {},
+      include: {
+        communityPastoral: {
+          include: {
+            globalPastoral: true,
+          },
+        },
+        participants: {
+          include: {
+            member: true,
+          },
+        },
+      },
+      orderBy: {
+        date: 'desc',
+      },
+    });
+  }
+
+  async findOneMeeting(id: string) {
+    const meeting = await this.prisma.pastoralMeeting.findUnique({
+      where: { id },
+      include: {
+        communityPastoral: {
+          include: {
+            globalPastoral: true,
+          },
+        },
+        participants: {
+          include: {
+            member: true,
+          },
+        },
+      },
+    });
+
+    if (!meeting) {
+      throw new NotFoundException('Reunião não encontrada');
+    }
+
+    return meeting;
+  }
+
+  async updateMeeting(id: string, dto: UpdateMeetingDto) {
+    await this.findOneMeeting(id);
+
+    const updateData: any = { ...dto };
+    if (dto.date) {
+      updateData.date = new Date(dto.date);
+    }
+
+    return this.prisma.pastoralMeeting.update({
+      where: { id },
+      data: updateData,
+      include: {
+        communityPastoral: {
+          include: {
+            globalPastoral: true,
+          },
+        },
+      },
+    });
+  }
+
+  async removeMeeting(id: string) {
+    await this.findOneMeeting(id);
+
+    return this.prisma.pastoralMeeting.delete({
+      where: { id },
+    });
+  }
+
+  async markAttendance(dto: MarkAttendanceDto) {
+    // Verificar se reunião existe
+    await this.findOneMeeting(dto.meetingId);
+
+    // Verificar se membro existe
+    const member = await this.prisma.member.findUnique({
+      where: { id: dto.memberId },
+    });
+
+    if (!member) {
+      throw new NotFoundException('Membro não encontrado');
+    }
+
+    // Criar ou atualizar registro de presença
+    return this.prisma.pastoralMeetingParticipant.upsert({
+      where: {
+        meetingId_memberId: {
+          meetingId: dto.meetingId,
+          memberId: dto.memberId,
+        },
+      },
+      create: {
+        meetingId: dto.meetingId,
+        memberId: dto.memberId,
+        attended: dto.attended,
+        attendedAt: dto.attended ? new Date() : null,
+      },
+      update: {
+        attended: dto.attended,
+        attendedAt: dto.attended ? new Date() : null,
+      },
+      include: {
+        member: true,
+      },
+    });
+  }
+
+  // ============================================
+  // ACTIVITIES
+  // ============================================
+
+  async createActivity(dto: CreateActivityDto) {
+    return this.prisma.pastoralActivity.create({
+      data: {
+        title: dto.title,
+        description: dto.description,
+        startDate: new Date(dto.startDate),
+        endDate: dto.endDate ? new Date(dto.endDate) : null,
+        location: dto.location,
+        communityPastoralId: dto.communityPastoralId,
+      },
+      include: {
+        communityPastoral: {
+          include: {
+            globalPastoral: true,
+          },
+        },
+      },
+    });
+  }
+
+  async findAllActivities(communityPastoralId?: string) {
+    return this.prisma.pastoralActivity.findMany({
+      where: communityPastoralId ? { communityPastoralId } : {},
+      include: {
+        communityPastoral: {
+          include: {
+            globalPastoral: true,
+          },
+        },
+      },
+      orderBy: {
+        startDate: 'desc',
+      },
+    });
+  }
+
+  async findOneActivity(id: string) {
+    const activity = await this.prisma.pastoralActivity.findUnique({
+      where: { id },
+      include: {
+        communityPastoral: {
+          include: {
+            globalPastoral: true,
+          },
+        },
+      },
+    });
+
+    if (!activity) {
+      throw new NotFoundException('Atividade não encontrada');
+    }
+
+    return activity;
+  }
+
+  async removeActivity(id: string) {
+    await this.findOneActivity(id);
+
+    return this.prisma.pastoralActivity.delete({
       where: { id },
     });
   }
