@@ -2,6 +2,9 @@ import { Injectable, NotFoundException, BadRequestException } from '@nestjs/comm
 import { PrismaService } from '../../database/prisma.service';
 import { CreateEventDto } from './dto/create-event.dto';
 import { UpdateEventDto } from './dto/update-event.dto';
+import { AddPastoralToEventDto } from './dto/add-pastoral-to-event.dto';
+import { CreateAssignmentDto } from './dto/create-assignment.dto';
+import { CheckinAssignmentDto } from './dto/checkin-assignment.dto';
 import { EventType, UserRole } from '@prisma/client';
 
 @Injectable()
@@ -231,6 +234,45 @@ export class EventsService {
                 diocese: true,
               },
             },
+          },
+        },
+        eventPastorals: {
+          include: {
+            communityPastoral: {
+              select: {
+                id: true,
+                globalPastoral: {
+                  select: {
+                    id: true,
+                    name: true,
+                    icon: true,
+                  },
+                },
+              },
+            },
+            assignments: {
+              include: {
+                member: {
+                  select: {
+                    id: true,
+                    fullName: true,
+                    email: true,
+                    phone: true,
+                  },
+                },
+              },
+              orderBy: {
+                createdAt: 'asc',
+              },
+            },
+            _count: {
+              select: {
+                assignments: true,
+              },
+            },
+          },
+          orderBy: {
+            isLeader: 'desc',
           },
         },
         participants: {
@@ -540,5 +582,243 @@ export class EventsService {
       message: `${createdEvents.length} eventos criados com sucesso`,
       events: createdEvents,
     };
+  }
+}
+
+  // ============================================
+  // PASTORAL MANAGEMENT
+  // ============================================
+
+  async addPastoralToEvent(eventId: string, dto: AddPastoralToEventDto) {
+    // Verificar se o evento existe
+    await this.findOne(eventId);
+
+    // Verificar se a pastoral existe
+    const pastoral = await this.prisma.communityPastoral.findUnique({
+      where: { id: dto.communityPastoralId },
+    });
+
+    if (!pastoral) {
+      throw new NotFoundException(`Pastoral com ID ${dto.communityPastoralId} não encontrada`);
+    }
+
+    // Verificar se já está vinculada
+    const existing = await this.prisma.eventPastoral.findUnique({
+      where: {
+        eventId_communityPastoralId: {
+          eventId,
+          communityPastoralId: dto.communityPastoralId,
+        },
+      },
+    });
+
+    if (existing) {
+      throw new BadRequestException('Pastoral já está vinculada a este evento');
+    }
+
+    return this.prisma.eventPastoral.create({
+      data: {
+        eventId,
+        communityPastoralId: dto.communityPastoralId,
+        role: dto.role,
+        isLeader: dto.isLeader || false,
+      },
+      include: {
+        communityPastoral: {
+          select: {
+            id: true,
+            globalPastoral: {
+              select: {
+                id: true,
+                name: true,
+                icon: true,
+              },
+            },
+          },
+        },
+      },
+    });
+  }
+
+  async getEventPastorals(eventId: string) {
+    await this.findOne(eventId);
+
+    return this.prisma.eventPastoral.findMany({
+      where: { eventId },
+      include: {
+        communityPastoral: {
+          select: {
+            id: true,
+            globalPastoral: {
+              select: {
+                id: true,
+                name: true,
+                icon: true,
+              },
+            },
+          },
+        },
+        _count: {
+          select: {
+            assignments: true,
+          },
+        },
+      },
+      orderBy: {
+        isLeader: 'desc',
+      },
+    });
+  }
+
+  async removePastoralFromEvent(eventId: string, pastoralId: string) {
+    const eventPastoral = await this.prisma.eventPastoral.findUnique({
+      where: {
+        eventId_communityPastoralId: {
+          eventId,
+          communityPastoralId: pastoralId,
+        },
+      },
+    });
+
+    if (!eventPastoral) {
+      throw new NotFoundException('Pastoral não está vinculada a este evento');
+    }
+
+    return this.prisma.eventPastoral.delete({
+      where: {
+        eventId_communityPastoralId: {
+          eventId,
+          communityPastoralId: pastoralId,
+        },
+      },
+    });
+  }
+
+  // ============================================
+  // ASSIGNMENT MANAGEMENT (ESCALA)
+  // ============================================
+
+  async createAssignment(eventId: string, pastoralId: string, dto: CreateAssignmentDto) {
+    // Verificar se o EventPastoral existe
+    const eventPastoral = await this.prisma.eventPastoral.findUnique({
+      where: {
+        eventId_communityPastoralId: {
+          eventId,
+          communityPastoralId: pastoralId,
+        },
+      },
+    });
+
+    if (!eventPastoral) {
+      throw new NotFoundException('Pastoral não está vinculada a este evento');
+    }
+
+    // Verificar se o membro existe e pertence à pastoral
+    const pastoralMember = await this.prisma.pastoralMember.findUnique({
+      where: {
+        communityPastoralId_memberId: {
+          communityPastoralId: pastoralId,
+          memberId: dto.memberId,
+        },
+      },
+    });
+
+    if (!pastoralMember) {
+      throw new BadRequestException('Membro não pertence a esta pastoral');
+    }
+
+    return this.prisma.eventPastoralAssignment.create({
+      data: {
+        eventPastoralId: eventPastoral.id,
+        memberId: dto.memberId,
+        role: dto.role,
+        notes: dto.notes,
+      },
+      include: {
+        member: {
+          select: {
+            id: true,
+            fullName: true,
+            email: true,
+            phone: true,
+          },
+        },
+      },
+    });
+  }
+
+  async getAssignments(eventId: string, pastoralId: string) {
+    // Verificar se o EventPastoral existe
+    const eventPastoral = await this.prisma.eventPastoral.findUnique({
+      where: {
+        eventId_communityPastoralId: {
+          eventId,
+          communityPastoralId: pastoralId,
+        },
+      },
+    });
+
+    if (!eventPastoral) {
+      throw new NotFoundException('Pastoral não está vinculada a este evento');
+    }
+
+    return this.prisma.eventPastoralAssignment.findMany({
+      where: { eventPastoralId: eventPastoral.id },
+      include: {
+        member: {
+          select: {
+            id: true,
+            fullName: true,
+            email: true,
+            phone: true,
+          },
+        },
+      },
+      orderBy: {
+        createdAt: 'asc',
+      },
+    });
+  }
+
+  async checkinAssignment(assignmentId: string, dto: CheckinAssignmentDto) {
+    const assignment = await this.prisma.eventPastoralAssignment.findUnique({
+      where: { id: assignmentId },
+    });
+
+    if (!assignment) {
+      throw new NotFoundException('Escalação não encontrada');
+    }
+
+    return this.prisma.eventPastoralAssignment.update({
+      where: { id: assignmentId },
+      data: {
+        checkedIn: dto.checkedIn,
+        checkedInAt: dto.checkedIn ? new Date() : null,
+      },
+      include: {
+        member: {
+          select: {
+            id: true,
+            fullName: true,
+            email: true,
+            phone: true,
+          },
+        },
+      },
+    });
+  }
+
+  async removeAssignment(assignmentId: string) {
+    const assignment = await this.prisma.eventPastoralAssignment.findUnique({
+      where: { id: assignmentId },
+    });
+
+    if (!assignment) {
+      throw new NotFoundException('Escalação não encontrada');
+    }
+
+    return this.prisma.eventPastoralAssignment.delete({
+      where: { id: assignmentId },
+    });
   }
 }
