@@ -61,7 +61,8 @@ enum SacramentType {
 enum EventType {
   MASS
   SACRAMENT
-  PASTORAL_MEETING
+  PASTORAL_MEETING    // Reunião de Pastoral
+  PASTORAL_ACTIVITY   // Atividade de Pastoral
   COMMUNITY_EVENT
   RETREAT
   FORMATION
@@ -450,9 +451,8 @@ model CommunityPastoral {
   // Membros
   members PastoralMember[]
 
-  // Reuniões e Atividades
-  meetings   PastoralMeeting[]
-  activities PastoralActivity[]
+  // Eventos (reuniões, atividades, missas, etc)
+  eventPastorals EventPastoral[]
 
   // Histórico de coordenadores
   coordinatorHistory PastoralCoordinator[]
@@ -546,72 +546,7 @@ model PastoralCoordinator {
   @@map("pastoral_coordinators")
 }
 
-// Reuniões de uma Pastoral
-model PastoralMeeting {
-  id          String   @id @default(cuid())
-  title       String
-  description String?
-  date        DateTime
-  location    String?
-  notes       String?
 
-  // Relations
-  communityPastoralId String
-  communityPastoral   CommunityPastoral @relation(fields: [communityPastoralId], references: [id], onDelete: Cascade)
-
-  // Participantes
-  participants PastoralMeetingParticipant[]
-
-  // Audit
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  @@index([communityPastoralId])
-  @@index([date])
-  @@map("pastoral_meetings")
-}
-
-model PastoralMeetingParticipant {
-  id String @id @default(cuid())
-
-  // Relations
-  meetingId String
-  meeting   PastoralMeeting @relation(fields: [meetingId], references: [id], onDelete: Cascade)
-  memberId  String
-  member    Member          @relation("PastoralMeetingParticipants", fields: [memberId], references: [id], onDelete: Cascade)
-
-  // Presença
-  attended   Boolean   @default(false)
-  attendedAt DateTime?
-
-  @@unique([meetingId, memberId])
-  @@index([meetingId])
-  @@index([memberId])
-  @@map("pastoral_meeting_participants")
-}
-
-// Atividades de uma Pastoral
-model PastoralActivity {
-  id          String   @id @default(cuid())
-  title       String
-  description String?
-  startDate   DateTime
-  endDate     DateTime?
-  location    String?
-  notes       String?
-
-  // Relations
-  communityPastoralId String
-  communityPastoral   CommunityPastoral @relation(fields: [communityPastoralId], references: [id], onDelete: Cascade)
-
-  // Audit
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  @@index([communityPastoralId])
-  @@index([startDate])
-  @@map("pastoral_activities")
-}
 
 // ============================================
 // MEMBERS & FAITHFUL
@@ -667,9 +602,9 @@ model Member {
   community   Community @relation(fields: [communityId], references: [id], onDelete: Cascade)
 
   // Pastorals
-  pastoralMemberships     PastoralMember[]                 @relation
-  pastoralCoordinations   PastoralCoordinator[]            @relation("PastoralCoordinators")
-  pastoralMeetingAttendances PastoralMeetingParticipant[] @relation("PastoralMeetingParticipants")
+  pastoralMemberships       PastoralMember[]                @relation
+  pastoralCoordinations     PastoralCoordinator[]           @relation("PastoralCoordinators")
+  eventPastoralAssignments  EventPastoralAssignment[]       @relation("EventPastoralAssignments")
 
   // Sacraments
   sacraments Sacrament[]
@@ -726,6 +661,7 @@ model Event {
   startDate      DateTime
   endDate        DateTime?
   location       String?
+  notes          String? // Notas adicionais
   isRecurring       Boolean          @default(false)
   recurrenceType    RecurrenceType?
   recurrenceInterval Int?            @default(1) // A cada X dias/semanas/meses
@@ -743,6 +679,7 @@ model Event {
   community    Community            @relation(fields: [communityId], references: [id], onDelete: Cascade)
   schedules    Schedule[]
   participants EventParticipant[]
+  eventPastorals EventPastoral[] // Pastorais vinculadas ao evento
 
   // Audit
   createdAt DateTime @default(now())
@@ -773,6 +710,57 @@ model EventParticipant {
   @@index([eventId])
   @@index([memberId])
   @@map("event_participants")
+}
+
+model EventPastoral {
+  id String @id @default(cuid())
+
+  // Relations
+  eventId             String
+  event               Event             @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  communityPastoralId String
+  communityPastoral   CommunityPastoral @relation(fields: [communityPastoralId], references: [id], onDelete: Cascade)
+
+  // Metadata
+  role     String? // Ex: "Responsável pela música", "Responsável pela liturgia"
+  isLeader Boolean @default(false) // Pastoral principal/organizadora
+  notes    String?
+
+  // Escalas específicas desta pastoral neste evento
+  assignments EventPastoralAssignment[]
+
+  // Audit
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([eventId, communityPastoralId])
+  @@index([eventId])
+  @@index([communityPastoralId])
+  @@map("event_pastorals")
+}
+
+model EventPastoralAssignment {
+  id String @id @default(cuid())
+
+  // Relations
+  eventPastoralId String
+  eventPastoral   EventPastoral @relation(fields: [eventPastoralId], references: [id], onDelete: Cascade)
+  memberId        String
+  member          Member        @relation("EventPastoralAssignments", fields: [memberId], references: [id], onDelete: Cascade)
+
+  // Metadata
+  role        String // Ex: "Ministro", "Leitor", "Cantor", "Violão"
+  checkedIn   Boolean   @default(false)
+  checkedInAt DateTime?
+  notes       String?
+
+  // Audit
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([eventPastoralId])
+  @@index([memberId])
+  @@map("event_pastoral_assignments")
 }
 
 // ============================================
