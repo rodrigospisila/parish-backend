@@ -1,3 +1,14 @@
+/**
+ * SCRIPT DE MIGRAÇÃO JÁ EXECUTADO
+ * 
+ * Este script foi usado para migrar dados de PastoralMeeting e PastoralActivity
+ * para o modelo unificado Event. A migração foi concluída com sucesso.
+ * 
+ * Mantido apenas para referência histórica.
+ * NÃO EXECUTAR NOVAMENTE - os modelos antigos foram removidos do schema.
+ */
+
+/*
 import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
@@ -123,3 +134,6 @@ main()
   .finally(async () => {
     await prisma.$disconnect();
   });
+*/
+
+export {};

@@ -230,8 +230,12 @@ export class PastoralsController {
   }
 
   // ============================================
-  // MEETINGS
+  // MEETINGS & ACTIVITIES (DEPRECATED)
   // ============================================
+  /*
+   * ENDPOINTS DEPRECADOS - Use /events para criar eventos
+   * Tipo PASTORAL_MEETING ou PASTORAL_ACTIVITY
+   *
 
   @Post('meetings')
   @UseGuards(RolesGuard)
@@ -332,4 +336,5 @@ export class PastoralsController {
   removeActivity(@Param('id') id: string) {
     return this.pastoralsService.removeActivity(id);
   }
+  */
 }

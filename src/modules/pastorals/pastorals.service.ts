@@ -217,26 +217,8 @@ export class PastoralsService {
             },
           },
         },
-        coordinatorHistory: {
-          include: {
-            member: true,
-          },
-          orderBy: {
-            startDate: 'desc',
-          },
-        },
-        meetings: {
-          orderBy: {
-            date: 'desc',
-          },
-          take: 10,
-        },
-        activities: {
-          orderBy: {
-            startDate: 'desc',
-          },
-          take: 10,
-        },
+        // meetings e activities foram unificados em Event
+        // Use eventPastorals para acessar eventos da pastoral
       },
     });
 
@@ -499,8 +481,12 @@ export class PastoralsService {
   }
 
   // ============================================
-  // MEETINGS
+  // MEETINGS & ACTIVITIES (DEPRECATED)
   // ============================================
+  /*
+   * MÉTODOS DEPRECADOS - Reuniões e Atividades foram unificadas em Event
+   * Use EventsService para criar eventos do tipo PASTORAL_MEETING ou PASTORAL_ACTIVITY
+   *
 
   async createMeeting(dto: CreateMeetingDto) {
     return this.prisma.pastoralMeeting.create({
@@ -697,6 +683,7 @@ export class PastoralsService {
 
     return this.prisma.pastoralActivity.delete({
       where: { id },
-    });
+     });
   }
+  */
 }

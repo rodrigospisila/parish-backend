@@ -245,7 +245,6 @@ export class EventsService {
                   select: {
                     id: true,
                     name: true,
-                    icon: true,
                   },
                 },
               },
@@ -583,7 +582,6 @@ export class EventsService {
       events: createdEvents,
     };
   }
-}
 
   // ============================================
   // PASTORAL MANAGEMENT
@@ -631,7 +629,6 @@ export class EventsService {
               select: {
                 id: true,
                 name: true,
-                icon: true,
               },
             },
           },
@@ -653,7 +650,6 @@ export class EventsService {
               select: {
                 id: true,
                 name: true,
-                icon: true,
               },
             },
           },
@@ -714,12 +710,10 @@ export class EventsService {
     }
 
     // Verificar se o membro existe e pertence à pastoral
-    const pastoralMember = await this.prisma.pastoralMember.findUnique({
+    const pastoralMember = await this.prisma.pastoralMember.findFirst({
       where: {
-        communityPastoralId_memberId: {
-          communityPastoralId: pastoralId,
-          memberId: dto.memberId,
-        },
+        communityPastoralId: pastoralId,
+        memberId: dto.memberId,
       },
     });
 

@@ -12,14 +12,10 @@ async function resetDatabase() {
     await prisma.sacrament.deleteMany();
     console.log('✅ Sacramentos deletados');
     
-    await prisma.pastoralMeetingParticipant.deleteMany();
-    console.log('✅ Participantes de reuniões deletados');
-    
-    await prisma.pastoralMeeting.deleteMany();
-    console.log('✅ Reuniões de pastorais deletadas');
-    
-    await prisma.pastoralActivity.deleteMany();
-    console.log('✅ Atividades de pastorais deletadas');
+    // Modelos antigos removidos (agora unificados em Event)
+    // await prisma.pastoralMeetingParticipant.deleteMany();
+    // await prisma.pastoralMeeting.deleteMany();
+    // await prisma.pastoralActivity.deleteMany();
     
     await prisma.pastoralCoordinator.deleteMany();
     console.log('✅ Coordenadores de pastorais deletados');
