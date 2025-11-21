@@ -5,6 +5,7 @@ import {
   MinLength,
   IsEnum,
   IsOptional,
+  IsUUID,
 } from 'class-validator';
 import { UserRole } from '@prisma/client';
 
@@ -29,5 +30,17 @@ export class RegisterDto {
   @IsEnum(UserRole, { message: 'Perfil de usuário inválido' })
   @IsOptional()
   role?: UserRole;
+
+  @IsUUID('4', { message: 'ID da diocese inválido' })
+  @IsOptional()
+  dioceseId?: string;
+
+  @IsUUID('4', { message: 'ID da paróquia inválido' })
+  @IsOptional()
+  parishId?: string;
+
+  @IsUUID('4', { message: 'ID da comunidade inválido' })
+  @IsOptional()
+  communityId?: string;
 }
 
