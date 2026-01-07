@@ -423,6 +423,219 @@ export class SchedulesService {
     };
   }
 
+  // ========== MINHAS ESCALAS ==========
+
+  /**
+   * Busca as escalas do usuário logado
+   * Retorna apenas escalas futuras ou do dia atual
+   */
+  async findMyAssignments(userId: string) {
+    // Buscar o membro vinculado ao usuário
+    const member = await this.prisma.member.findFirst({
+      where: { userId },
+    });
+
+    if (!member) {
+      return {
+        upcoming: [],
+        past: [],
+        message: 'Usuário não possui cadastro de membro',
+      };
+    }
+
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    // Buscar escalas futuras
+    const upcomingAssignments = await this.prisma.scheduleAssignment.findMany({
+      where: {
+        memberId: member.id,
+        schedule: {
+          date: {
+            gte: today,
+          },
+        },
+      },
+      include: {
+        schedule: {
+          include: {
+            event: {
+              select: {
+                id: true,
+                title: true,
+                type: true,
+                location: true,
+                community: {
+                  select: {
+                    id: true,
+                    name: true,
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
+      orderBy: {
+        schedule: {
+          date: 'asc',
+        },
+      },
+    });
+
+    // Buscar escalas passadas (últimos 30 dias)
+    const thirtyDaysAgo = new Date();
+    thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+
+    const pastAssignments = await this.prisma.scheduleAssignment.findMany({
+      where: {
+        memberId: member.id,
+        schedule: {
+          date: {
+            lt: today,
+            gte: thirtyDaysAgo,
+          },
+        },
+      },
+      include: {
+        schedule: {
+          include: {
+            event: {
+              select: {
+                id: true,
+                title: true,
+                type: true,
+                location: true,
+              },
+            },
+          },
+        },
+      },
+      orderBy: {
+        schedule: {
+          date: 'desc',
+        },
+      },
+      take: 10,
+    });
+
+    return {
+      memberId: member.id,
+      memberName: member.fullName,
+      upcoming: upcomingAssignments.map((a) => ({
+        id: a.id,
+        role: a.role,
+        status: a.status,
+        checkedIn: a.checkedIn,
+        checkedInAt: a.checkedInAt,
+        schedule: {
+          id: a.schedule.id,
+          title: a.schedule.title,
+          description: a.schedule.description,
+          date: a.schedule.date,
+          event: a.schedule.event,
+        },
+      })),
+      past: pastAssignments.map((a) => ({
+        id: a.id,
+        role: a.role,
+        status: a.status,
+        checkedIn: a.checkedIn,
+        checkedInAt: a.checkedInAt,
+        schedule: {
+          id: a.schedule.id,
+          title: a.schedule.title,
+          date: a.schedule.date,
+          event: a.schedule.event,
+        },
+      })),
+    };
+  }
+
+  /**
+   * Confirma participação em uma escala
+   */
+  async confirmAssignment(assignmentId: string, userId: string) {
+    // Verificar se o assignment pertence ao usuário
+    const member = await this.prisma.member.findFirst({
+      where: { userId },
+    });
+
+    if (!member) {
+      throw new NotFoundException('Usuário não possui cadastro de membro');
+    }
+
+    const assignment = await this.prisma.scheduleAssignment.findUnique({
+      where: { id: assignmentId },
+    });
+
+    if (!assignment) {
+      throw new NotFoundException('Escala não encontrada');
+    }
+
+    if (assignment.memberId !== member.id) {
+      throw new BadRequestException('Você não tem permissão para confirmar esta escala');
+    }
+
+    return this.prisma.scheduleAssignment.update({
+      where: { id: assignmentId },
+      data: {
+        status: 'CONFIRMED',
+      },
+      include: {
+        schedule: {
+          select: {
+            id: true,
+            title: true,
+            date: true,
+          },
+        },
+      },
+    });
+  }
+
+  /**
+   * Recusa participação em uma escala
+   */
+  async declineAssignment(assignmentId: string, userId: string) {
+    // Verificar se o assignment pertence ao usuário
+    const member = await this.prisma.member.findFirst({
+      where: { userId },
+    });
+
+    if (!member) {
+      throw new NotFoundException('Usuário não possui cadastro de membro');
+    }
+
+    const assignment = await this.prisma.scheduleAssignment.findUnique({
+      where: { id: assignmentId },
+    });
+
+    if (!assignment) {
+      throw new NotFoundException('Escala não encontrada');
+    }
+
+    if (assignment.memberId !== member.id) {
+      throw new BadRequestException('Você não tem permissão para recusar esta escala');
+    }
+
+    return this.prisma.scheduleAssignment.update({
+      where: { id: assignmentId },
+      data: {
+        status: 'DECLINED',
+      },
+      include: {
+        schedule: {
+          select: {
+            id: true,
+            title: true,
+            date: true,
+          },
+        },
+      },
+    });
+  }
+
   // ========== RELATÓRIOS ==========
 
   async getMemberStats(memberId: string) {

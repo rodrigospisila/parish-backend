@@ -790,6 +790,7 @@ model Schedule {
 model ScheduleAssignment {
   id          String    @id @default(cuid())
   role        String // e.g., "Leitor", "Ministro", "Acólito"
+  status      AssignmentStatus @default(PENDING) // Status da confirmação
   checkedIn   Boolean   @default(false)
   checkedInAt DateTime?
 
@@ -805,7 +806,14 @@ model ScheduleAssignment {
 
   @@index([scheduleId])
   @@index([memberId])
+  @@index([status])
   @@map("schedule_assignments")
+}
+
+enum AssignmentStatus {
+  PENDING   // Aguardando confirmação
+  CONFIRMED // Confirmado
+  DECLINED  // Recusado
 }
 
 // ============================================

@@ -8,6 +8,7 @@ import {
   UseGuards,
   Query,
   Patch,
+  Request,
 } from '@nestjs/common';
 import { SchedulesService } from './schedules.service';
 import { CreateScheduleDto } from './dto/create-schedule.dto';
@@ -21,6 +22,35 @@ import { UserRole } from '@prisma/client';
 @UseGuards(JwtAuthGuard)
 export class SchedulesController {
   constructor(private readonly schedulesService: SchedulesService) {}
+
+  // ========== MINHAS ESCALAS (USUÁRIO LOGADO) ==========
+
+  /**
+   * Busca as escalas do usuário logado
+   * GET /schedules/my-assignments
+   */
+  @Get('my-assignments')
+  async findMyAssignments(@Request() req: any) {
+    return this.schedulesService.findMyAssignments(req.user.id);
+  }
+
+  /**
+   * Confirma participação em uma escala
+   * PATCH /schedules/assignments/:id/confirm
+   */
+  @Patch('assignments/:id/confirm')
+  async confirmAssignment(@Param('id') id: string, @Request() req: any) {
+    return this.schedulesService.confirmAssignment(id, req.user.id);
+  }
+
+  /**
+   * Recusa participação em uma escala
+   * PATCH /schedules/assignments/:id/decline
+   */
+  @Patch('assignments/:id/decline')
+  async declineAssignment(@Param('id') id: string, @Request() req: any) {
+    return this.schedulesService.declineAssignment(id, req.user.id);
+  }
 
   // ========== SCHEDULES ==========
 
