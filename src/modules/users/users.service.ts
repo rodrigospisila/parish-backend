@@ -322,6 +322,57 @@ export class UsersService {
     return { message: 'Senha alterada com sucesso' };
   }
 
+  /**
+   * Permite que o usuário atualize sua própria comunidade
+   * Usado principalmente no fluxo de onboarding do app mobile
+   */
+  async updateMyCommunity(userId: string, communityId: string) {
+    // Verificar se a comunidade existe
+    const community = await this.prisma.community.findUnique({
+      where: { id: communityId },
+      include: {
+        parish: true,
+      },
+    });
+
+    if (!community) {
+      throw new NotFoundException(`Comunidade com ID ${communityId} não encontrada`);
+    }
+
+    // Atualizar o usuário com a comunidade, paróquia e diocese
+    const updatedUser = await this.prisma.user.update({
+      where: { id: userId },
+      data: {
+        communityId: communityId,
+        parishId: community.parishId,
+        dioceseId: community.parish.dioceseId,
+      },
+      include: {
+        diocese: {
+          select: {
+            id: true,
+            name: true,
+          },
+        },
+        parish: {
+          select: {
+            id: true,
+            name: true,
+          },
+        },
+        community: {
+          select: {
+            id: true,
+            name: true,
+          },
+        },
+      },
+    });
+
+    const { password: _, ...userWithoutPassword } = updatedUser;
+    return userWithoutPassword;
+  }
+
   async resetPassword(id: string, currentUser: any) {
     const user = await this.prisma.user.findUnique({
       where: { id },

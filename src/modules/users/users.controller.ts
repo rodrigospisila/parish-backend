@@ -62,5 +62,14 @@ export class UsersController {
   resetPassword(@Param('id') id: string, @Request() req) {
     return this.usersService.resetPassword(id, req.user);
   }
+
+  /**
+   * Endpoint para usuário atualizar sua própria comunidade
+   * Qualquer usuário autenticado pode usar este endpoint para definir sua comunidade
+   */
+  @Patch('me/community')
+  updateMyCommunity(@Body() body: { communityId: string }, @Request() req) {
+    return this.usersService.updateMyCommunity(req.user.id, body.communityId);
+  }
 }
 
