@@ -108,6 +108,17 @@ export class SchedulesController {
     return this.schedulesService.undoCheckIn(id);
   }
 
+  // ========== MEMBROS ELEGÍVEIS ==========
+
+  /**
+   * Busca membros elegíveis para uma escala baseado nas pastorais vinculadas ao evento
+   * GET /schedules/events/:eventId/eligible-members
+   */
+  @Get('events/:eventId/eligible-members')
+  findEligibleMembers(@Param('eventId') eventId: string) {
+    return this.schedulesService.findEligibleMembers(eventId);
+  }
+
   // ========== RELATÓRIOS ==========
 
   @Get('members/:memberId/stats')

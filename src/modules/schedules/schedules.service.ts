@@ -299,6 +299,130 @@ export class SchedulesService {
     });
   }
 
+  // ========== MEMBROS ELEGÍVEIS ==========
+
+  /**
+   * Busca membros elegíveis para uma escala baseado nas pastorais vinculadas ao evento
+   * Se o evento tiver pastorais vinculadas, retorna apenas membros dessas pastorais
+   * Se não tiver pastorais vinculadas, retorna todos os membros da comunidade do evento
+   */
+  async findEligibleMembers(eventId: string) {
+    // Buscar o evento com suas pastorais vinculadas
+    const event = await this.prisma.event.findUnique({
+      where: { id: eventId },
+      include: {
+        eventPastorals: {
+          include: {
+            communityPastoral: {
+              include: {
+                members: {
+                  where: { isActive: true },
+                  include: {
+                    member: {
+                      select: {
+                        id: true,
+                        fullName: true,
+                        email: true,
+                        phone: true,
+                        photoUrl: true,
+                        status: true,
+                      },
+                    },
+                  },
+                },
+                globalPastoral: {
+                  select: {
+                    id: true,
+                    name: true,
+                  },
+                },
+              },
+            },
+          },
+        },
+        community: {
+          select: {
+            id: true,
+            name: true,
+          },
+        },
+      },
+    });
+
+    if (!event) {
+      throw new NotFoundException(`Evento com ID ${eventId} não encontrado`);
+    }
+
+    // Se o evento tem pastorais vinculadas, retornar membros dessas pastorais
+    if (event.eventPastorals && event.eventPastorals.length > 0) {
+      const membersMap = new Map();
+      const pastoralInfo: any[] = [];
+
+      for (const ep of event.eventPastorals) {
+        const pastoral = ep.communityPastoral;
+        const pastoralName = pastoral.globalPastoral?.name || 'Pastoral';
+        
+        pastoralInfo.push({
+          id: pastoral.id,
+          name: pastoralName,
+          role: ep.role,
+          isLeader: ep.isLeader,
+        });
+
+        for (const pm of pastoral.members) {
+          if (pm.member.status === 'ACTIVE') {
+            if (!membersMap.has(pm.member.id)) {
+              membersMap.set(pm.member.id, {
+                ...pm.member,
+                pastorals: [{ name: pastoralName, role: pm.role }],
+              });
+            } else {
+              const existing = membersMap.get(pm.member.id);
+              existing.pastorals.push({ name: pastoralName, role: pm.role });
+            }
+          }
+        }
+      }
+
+      return {
+        eventId: event.id,
+        eventTitle: event.title,
+        community: event.community,
+        pastorals: pastoralInfo,
+        hasPastorals: true,
+        members: Array.from(membersMap.values()),
+      };
+    }
+
+    // Se não tem pastorais vinculadas, retornar todos os membros ativos da comunidade
+    const members = await this.prisma.member.findMany({
+      where: {
+        communityId: event.communityId,
+        status: 'ACTIVE',
+      },
+      select: {
+        id: true,
+        fullName: true,
+        email: true,
+        phone: true,
+        photoUrl: true,
+        status: true,
+      },
+      orderBy: {
+        fullName: 'asc',
+      },
+    });
+
+    return {
+      eventId: event.id,
+      eventTitle: event.title,
+      community: event.community,
+      pastorals: [],
+      hasPastorals: false,
+      members: members.map(m => ({ ...m, pastorals: [] })),
+    };
+  }
+
   // ========== RELATÓRIOS ==========
 
   async getMemberStats(memberId: string) {
