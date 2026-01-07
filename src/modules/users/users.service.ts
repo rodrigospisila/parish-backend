@@ -325,6 +325,7 @@ export class UsersService {
   /**
    * Permite que o usuário atualize sua própria comunidade
    * Usado principalmente no fluxo de onboarding do app mobile
+   * Também cria ou atualiza o registro de Membro vinculado ao usuário
    */
   async updateMyCommunity(userId: string, communityId: string) {
     // Verificar se a comunidade existe
@@ -339,34 +340,76 @@ export class UsersService {
       throw new NotFoundException(`Comunidade com ID ${communityId} não encontrada`);
     }
 
-    // Atualizar o usuário com a comunidade, paróquia e diocese
-    const updatedUser = await this.prisma.user.update({
+    // Buscar usuário atual para obter dados
+    const currentUser = await this.prisma.user.findUnique({
       where: { id: userId },
-      data: {
-        communityId: communityId,
-        parishId: community.parishId,
-        dioceseId: community.parish.dioceseId,
-      },
       include: {
-        diocese: {
-          select: {
-            id: true,
-            name: true,
-          },
-        },
-        parish: {
-          select: {
-            id: true,
-            name: true,
-          },
-        },
-        community: {
-          select: {
-            id: true,
-            name: true,
-          },
-        },
+        member: true,
       },
+    });
+
+    if (!currentUser) {
+      throw new NotFoundException(`Usuário com ID ${userId} não encontrado`);
+    }
+
+    // Usar transação para atualizar User e criar/atualizar Member
+    const updatedUser = await this.prisma.$transaction(async (tx) => {
+      // Atualizar o usuário com a comunidade, paróquia e diocese
+      const user = await tx.user.update({
+        where: { id: userId },
+        data: {
+          communityId: communityId,
+          parishId: community.parishId,
+          dioceseId: community.parish.dioceseId,
+        },
+        include: {
+          diocese: {
+            select: {
+              id: true,
+              name: true,
+            },
+          },
+          parish: {
+            select: {
+              id: true,
+              name: true,
+            },
+          },
+          community: {
+            select: {
+              id: true,
+              name: true,
+            },
+          },
+        },
+      });
+
+      // Criar ou atualizar Membro vinculado ao usuário
+      if (currentUser.member) {
+        // Atualizar membro existente com a nova comunidade
+        await tx.member.update({
+          where: { id: currentUser.member.id },
+          data: {
+            communityId: communityId,
+          },
+        });
+      } else {
+        // Criar novo membro vinculado ao usuário
+        await tx.member.create({
+          data: {
+            fullName: currentUser.name,
+            email: currentUser.email,
+            phone: currentUser.phone,
+            userId: userId,
+            communityId: communityId,
+            status: 'ACTIVE',
+            consentGiven: true,
+            consentDate: new Date(),
+          },
+        });
+      }
+
+      return user;
     });
 
     const { password: _, ...userWithoutPassword } = updatedUser;

@@ -34,44 +34,66 @@ export class AuthService {
     // Hash da senha
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    // Criar usuário
-    const user = await this.prisma.user.create({
-      data: {
-        email,
-        password: hashedPassword,
-        name,
-        phone,
-        role: role || UserRole.FAITHFUL,
-        dioceseId,
-        parishId,
-        communityId,
-      },
-      select: {
-        id: true,
-        email: true,
-        name: true,
-        phone: true,
-        role: true,
-        isActive: true,
-        dioceseId: true,
-        parishId: true,
-        communityId: true,
-        createdAt: true,
-      },
+    // Usar transação para criar User e Member juntos
+    const result = await this.prisma.$transaction(async (tx) => {
+      // Criar usuário
+      const user = await tx.user.create({
+        data: {
+          email,
+          password: hashedPassword,
+          name,
+          phone,
+          role: role || UserRole.FAITHFUL,
+          dioceseId,
+          parishId,
+          communityId,
+        },
+        select: {
+          id: true,
+          email: true,
+          name: true,
+          phone: true,
+          role: true,
+          isActive: true,
+          dioceseId: true,
+          parishId: true,
+          communityId: true,
+          createdAt: true,
+        },
+      });
+
+      // Criar Membro automaticamente vinculado ao usuário
+      // Somente se o usuário tiver uma comunidade definida
+      if (communityId) {
+        await tx.member.create({
+          data: {
+            fullName: name,
+            email: email,
+            phone: phone,
+            userId: user.id,
+            communityId: communityId,
+            status: 'ACTIVE',
+            consentGiven: true,
+            consentDate: new Date(),
+          },
+        });
+      }
+
+      return user;
     });
 
     // Gerar tokens
     const tokens = await this.generateTokens(
-      user.id, 
-      user.email, 
-      user.role, 
-      user.dioceseId ?? undefined,
-      user.parishId ?? undefined,
-      user.communityId ?? undefined
+      result.id, 
+      result.email, 
+      result.role, 
+      result.dioceseId ?? undefined,
+      result.parishId ?? undefined,
+      result.communityId ?? undefined
     );
 
     return {
-      user,
+      user: result,
       ...tokens,
     };
   }
