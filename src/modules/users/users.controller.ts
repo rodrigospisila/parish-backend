@@ -35,6 +35,16 @@ export class UsersController {
     return this.usersService.findAll(req.user);
   }
 
+  /**
+   * Endpoint para usuário atualizar sua própria comunidade
+   * Qualquer usuário autenticado pode usar este endpoint para definir sua comunidade
+   * IMPORTANTE: Esta rota deve vir ANTES de :id para não ser interpretada como parâmetro
+   */
+  @Patch('me/community')
+  updateMyCommunity(@Body() body: { communityId: string }, @Request() req) {
+    return this.usersService.updateMyCommunity(req.user.id, body.communityId);
+  }
+
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.usersService.findOne(id);
@@ -62,14 +72,4 @@ export class UsersController {
   resetPassword(@Param('id') id: string, @Request() req) {
     return this.usersService.resetPassword(id, req.user);
   }
-
-  /**
-   * Endpoint para usuário atualizar sua própria comunidade
-   * Qualquer usuário autenticado pode usar este endpoint para definir sua comunidade
-   */
-  @Patch('me/community')
-  updateMyCommunity(@Body() body: { communityId: string }, @Request() req) {
-    return this.usersService.updateMyCommunity(req.user.id, body.communityId);
-  }
 }
-
