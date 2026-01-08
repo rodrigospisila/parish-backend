@@ -30,8 +30,8 @@ export class MembersController {
     UserRole.PARISH_ADMIN,
     UserRole.COMMUNITY_COORDINATOR,
   )
-  create(@Body() createMemberDto: CreateMemberDto) {
-    return this.membersService.create(createMemberDto);
+  create(@Body() createMemberDto: CreateMemberDto, @CurrentUser() user: any) {
+    return this.membersService.create(createMemberDto, user);
   }
 
   @Get()
@@ -63,14 +63,14 @@ export class MembersController {
     UserRole.PARISH_ADMIN,
     UserRole.COMMUNITY_COORDINATOR,
   )
-  update(@Param('id') id: string, @Body() updateMemberDto: UpdateMemberDto) {
-    return this.membersService.update(id, updateMemberDto);
+  update(@Param('id') id: string, @Body() updateMemberDto: UpdateMemberDto, @CurrentUser() user: any) {
+    return this.membersService.update(id, updateMemberDto, user);
   }
 
   @Delete(':id')
   @Roles(UserRole.SYSTEM_ADMIN, UserRole.DIOCESAN_ADMIN, UserRole.PARISH_ADMIN, UserRole.COMMUNITY_COORDINATOR)
-  remove(@Param('id') id: string) {
-    return this.membersService.remove(id);
+  remove(@Param('id') id: string, @CurrentUser() user: any) {
+    return this.membersService.remove(id, user);
   }
 
   // LGPD: Exportar dados
@@ -82,7 +82,7 @@ export class MembersController {
   // LGPD: Direito ao esquecimento
   @Post(':id/anonymize')
   @Roles(UserRole.SYSTEM_ADMIN, UserRole.DIOCESAN_ADMIN, UserRole.PARISH_ADMIN, UserRole.COMMUNITY_COORDINATOR)
-  anonymize(@Param('id') id: string) {
+  anonymize(@Param('id') id: string, @CurrentUser() user: any) {
     return this.membersService.anonymizeMember(id);
   }
 
@@ -95,4 +95,3 @@ export class MembersController {
     return this.membersService.updateConsent(id, consentGiven);
   }
 }
-

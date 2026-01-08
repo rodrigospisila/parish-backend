@@ -19,6 +19,7 @@ import { SchedulesModule } from './modules/schedules/schedules.module';
 import { PrayerRequestsModule } from './modules/prayer-requests/prayer-requests.module';
 import { MassIntentionsModule } from './modules/mass-intentions/mass-intentions.module';
 import { PastoralsModule } from './modules/pastorals/pastorals.module';
+import { CommonModule } from './common/common.module';
 
 @Module({
   imports: [
@@ -27,6 +28,7 @@ import { PastoralsModule } from './modules/pastorals/pastorals.module';
       envFilePath: '.env',
     }),
     PrismaModule,
+    CommonModule,
     AuthModule,
     UsersModule,
     DiocesesModule,

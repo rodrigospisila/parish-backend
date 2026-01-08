@@ -57,18 +57,19 @@ export class SchedulesController {
   @Post()
   @UseGuards(RolesGuard)
   @Roles(
+    UserRole.SYSTEM_ADMIN,
     UserRole.DIOCESAN_ADMIN,
     UserRole.PARISH_ADMIN,
     UserRole.COMMUNITY_COORDINATOR,
     UserRole.PASTORAL_COORDINATOR,
   )
-  createSchedule(@Body() createScheduleDto: CreateScheduleDto) {
-    return this.schedulesService.createSchedule(createScheduleDto);
+  createSchedule(@Body() createScheduleDto: CreateScheduleDto, @Request() req: any) {
+    return this.schedulesService.createSchedule(createScheduleDto, req.user);
   }
 
   @Get()
-  findAllSchedules(@Query('eventId') eventId?: string) {
-    return this.schedulesService.findAllSchedules(eventId);
+  findAllSchedules(@Query('eventId') eventId?: string, @Request() req?: any) {
+    return this.schedulesService.findAllSchedules(eventId, req?.user);
   }
 
   @Get(':id')
@@ -79,12 +80,13 @@ export class SchedulesController {
   @Delete(':id')
   @UseGuards(RolesGuard)
   @Roles(
+    UserRole.SYSTEM_ADMIN,
     UserRole.DIOCESAN_ADMIN,
     UserRole.PARISH_ADMIN,
     UserRole.COMMUNITY_COORDINATOR,
   )
-  removeSchedule(@Param('id') id: string) {
-    return this.schedulesService.removeSchedule(id);
+  removeSchedule(@Param('id') id: string, @Request() req: any) {
+    return this.schedulesService.removeSchedule(id, req.user);
   }
 
   // ========== ASSIGNMENTS ==========
@@ -92,13 +94,14 @@ export class SchedulesController {
   @Post('assignments')
   @UseGuards(RolesGuard)
   @Roles(
+    UserRole.SYSTEM_ADMIN,
     UserRole.DIOCESAN_ADMIN,
     UserRole.PARISH_ADMIN,
     UserRole.COMMUNITY_COORDINATOR,
     UserRole.PASTORAL_COORDINATOR,
   )
-  createAssignment(@Body() createAssignmentDto: CreateAssignmentDto) {
-    return this.schedulesService.createAssignment(createAssignmentDto);
+  createAssignment(@Body() createAssignmentDto: CreateAssignmentDto, @Request() req: any) {
+    return this.schedulesService.createAssignment(createAssignmentDto, req.user);
   }
 
   @Get('assignments/all')
@@ -117,25 +120,42 @@ export class SchedulesController {
   @Delete('assignments/:id')
   @UseGuards(RolesGuard)
   @Roles(
+    UserRole.SYSTEM_ADMIN,
     UserRole.DIOCESAN_ADMIN,
     UserRole.PARISH_ADMIN,
     UserRole.COMMUNITY_COORDINATOR,
     UserRole.PASTORAL_COORDINATOR,
   )
-  removeAssignment(@Param('id') id: string) {
-    return this.schedulesService.removeAssignment(id);
+  removeAssignment(@Param('id') id: string, @Request() req: any) {
+    return this.schedulesService.removeAssignment(id, req.user);
   }
 
   // ========== CHECK-IN ==========
 
   @Patch('assignments/:id/checkin')
-  checkIn(@Param('id') id: string) {
-    return this.schedulesService.checkIn(id);
+  @UseGuards(RolesGuard)
+  @Roles(
+    UserRole.SYSTEM_ADMIN,
+    UserRole.DIOCESAN_ADMIN,
+    UserRole.PARISH_ADMIN,
+    UserRole.COMMUNITY_COORDINATOR,
+    UserRole.PASTORAL_COORDINATOR,
+  )
+  checkIn(@Param('id') id: string, @Request() req: any) {
+    return this.schedulesService.checkIn(id, req.user);
   }
 
   @Patch('assignments/:id/undo-checkin')
-  undoCheckIn(@Param('id') id: string) {
-    return this.schedulesService.undoCheckIn(id);
+  @UseGuards(RolesGuard)
+  @Roles(
+    UserRole.SYSTEM_ADMIN,
+    UserRole.DIOCESAN_ADMIN,
+    UserRole.PARISH_ADMIN,
+    UserRole.COMMUNITY_COORDINATOR,
+    UserRole.PASTORAL_COORDINATOR,
+  )
+  undoCheckIn(@Param('id') id: string, @Request() req: any) {
+    return this.schedulesService.undoCheckIn(id, req.user);
   }
 
   // ========== MEMBROS ELEGÍVEIS ==========
@@ -145,8 +165,8 @@ export class SchedulesController {
    * GET /schedules/events/:eventId/eligible-members
    */
   @Get('events/:eventId/eligible-members')
-  findEligibleMembers(@Param('eventId') eventId: string) {
-    return this.schedulesService.findEligibleMembers(eventId);
+  findEligibleMembers(@Param('eventId') eventId: string, @Request() req: any) {
+    return this.schedulesService.findEligibleMembers(eventId, req.user);
   }
 
   // ========== RELATÓRIOS ==========
@@ -156,4 +176,3 @@ export class SchedulesController {
     return this.schedulesService.getMemberStats(memberId);
   }
 }
-

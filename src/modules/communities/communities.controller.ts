@@ -24,12 +24,12 @@ export class CommunitiesController {
 
   @Post()
   @Roles(
+    UserRole.SYSTEM_ADMIN,
     UserRole.DIOCESAN_ADMIN,
     UserRole.PARISH_ADMIN,
-    UserRole.COMMUNITY_COORDINATOR,
   )
-  create(@Body() createCommunityDto: CreateCommunityDto) {
-    return this.communitiesService.create(createCommunityDto);
+  create(@Body() createCommunityDto: CreateCommunityDto, @CurrentUser() user: any) {
+    return this.communitiesService.create(createCommunityDto, user);
   }
 
   @Get()
@@ -44,6 +44,7 @@ export class CommunitiesController {
 
   @Patch(':id')
   @Roles(
+    UserRole.SYSTEM_ADMIN,
     UserRole.DIOCESAN_ADMIN,
     UserRole.PARISH_ADMIN,
     UserRole.COMMUNITY_COORDINATOR,
@@ -51,14 +52,14 @@ export class CommunitiesController {
   update(
     @Param('id') id: string,
     @Body() updateCommunityDto: UpdateCommunityDto,
+    @CurrentUser() user: any,
   ) {
-    return this.communitiesService.update(id, updateCommunityDto);
+    return this.communitiesService.update(id, updateCommunityDto, user);
   }
 
   @Delete(':id')
-  @Roles(UserRole.DIOCESAN_ADMIN, UserRole.PARISH_ADMIN)
-  remove(@Param('id') id: string) {
-    return this.communitiesService.remove(id);
+  @Roles(UserRole.SYSTEM_ADMIN, UserRole.DIOCESAN_ADMIN, UserRole.PARISH_ADMIN)
+  remove(@Param('id') id: string, @CurrentUser() user: any) {
+    return this.communitiesService.remove(id, user);
   }
 }
-

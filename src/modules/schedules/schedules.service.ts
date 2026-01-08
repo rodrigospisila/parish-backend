@@ -1,15 +1,19 @@
-import { Injectable, NotFoundException, BadRequestException } from '@nestjs/common';
+import { Injectable, NotFoundException, BadRequestException, ForbiddenException } from '@nestjs/common';
 import { PrismaService } from '../../database/prisma.service';
 import { CreateScheduleDto } from './dto/create-schedule.dto';
 import { CreateAssignmentDto } from './dto/create-assignment.dto';
+import { HierarchyService, CurrentUser } from '../../common/hierarchy.service';
 
 @Injectable()
 export class SchedulesService {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(
+    private readonly prisma: PrismaService,
+    private readonly hierarchyService: HierarchyService,
+  ) {}
 
   // ========== SCHEDULES ==========
 
-  async createSchedule(createScheduleDto: CreateScheduleDto) {
+  async createSchedule(createScheduleDto: CreateScheduleDto, currentUser?: CurrentUser) {
     const { eventId, ...rest } = createScheduleDto;
 
     // Verificar se o evento existe
@@ -19,6 +23,14 @@ export class SchedulesService {
 
     if (!event) {
       throw new NotFoundException(`Evento com ID ${eventId} não encontrado`);
+    }
+
+    // Validar acesso ao evento para PASTORAL_COORDINATOR
+    if (currentUser) {
+      const hasAccess = await this.hierarchyService.hasAccessToEvent(currentUser.id, eventId);
+      if (!hasAccess) {
+        throw new ForbiddenException('Você não tem permissão para criar escalas para este evento');
+      }
     }
 
     return this.prisma.schedule.create({
@@ -38,8 +50,13 @@ export class SchedulesService {
     });
   }
 
-  async findAllSchedules(eventId?: string) {
-    const where: any = {};
+  async findAllSchedules(eventId?: string, currentUser?: CurrentUser) {
+    // Aplicar filtros de hierarquia
+    const hierarchyFilter = currentUser 
+      ? this.hierarchyService.applyScheduleFilter(currentUser)
+      : {};
+    
+    const where: any = { ...hierarchyFilter };
 
     if (eventId) {
       where.eventId = eventId;
@@ -110,8 +127,16 @@ export class SchedulesService {
     return schedule;
   }
 
-  async removeSchedule(id: string) {
+  async removeSchedule(id: string, currentUser?: CurrentUser) {
     await this.findOneSchedule(id); // Verifica se existe
+
+    // Validar acesso à escala
+    if (currentUser) {
+      const hasAccess = await this.hierarchyService.hasAccessToSchedule(currentUser.id, id);
+      if (!hasAccess) {
+        throw new ForbiddenException('Você não tem permissão para excluir esta escala');
+      }
+    }
 
     return this.prisma.schedule.delete({
       where: { id },
@@ -120,7 +145,7 @@ export class SchedulesService {
 
   // ========== ASSIGNMENTS ==========
 
-  async createAssignment(createAssignmentDto: CreateAssignmentDto) {
+  async createAssignment(createAssignmentDto: CreateAssignmentDto, currentUser?: CurrentUser) {
     const { scheduleId, memberId, role } = createAssignmentDto;
 
     // Verificar se a escala existe
@@ -130,6 +155,14 @@ export class SchedulesService {
 
     if (!schedule) {
       throw new NotFoundException(`Escala com ID ${scheduleId} não encontrada`);
+    }
+
+    // Validar acesso à escala
+    if (currentUser) {
+      const hasAccess = await this.hierarchyService.hasAccessToSchedule(currentUser.id, scheduleId);
+      if (!hasAccess) {
+        throw new ForbiddenException('Você não tem permissão para adicionar membros a esta escala');
+      }
     }
 
     // Verificar se o membro existe
@@ -242,8 +275,16 @@ export class SchedulesService {
     return assignment;
   }
 
-  async removeAssignment(id: string) {
-    await this.findOneAssignment(id); // Verifica se existe
+  async removeAssignment(id: string, currentUser?: CurrentUser) {
+    const assignment = await this.findOneAssignment(id); // Verifica se existe
+
+    // Validar acesso à escala
+    if (currentUser && assignment.scheduleId) {
+      const hasAccess = await this.hierarchyService.hasAccessToSchedule(currentUser.id, assignment.scheduleId);
+      if (!hasAccess) {
+        throw new ForbiddenException('Você não tem permissão para remover membros desta escala');
+      }
+    }
 
     return this.prisma.scheduleAssignment.delete({
       where: { id },
@@ -252,8 +293,16 @@ export class SchedulesService {
 
   // ========== CHECK-IN ==========
 
-  async checkIn(id: string) {
+  async checkIn(id: string, currentUser?: CurrentUser) {
     const assignment = await this.findOneAssignment(id);
+
+    // Validar permissão para fazer check-in
+    if (currentUser) {
+      const hasAccess = await this.hierarchyService.hasAccessToAssignment(currentUser.id, id);
+      if (!hasAccess) {
+        throw new ForbiddenException('Você não tem permissão para fazer check-in nesta escala');
+      }
+    }
 
     if (assignment.checkedIn) {
       throw new BadRequestException('Check-in já realizado');
@@ -283,8 +332,16 @@ export class SchedulesService {
     });
   }
 
-  async undoCheckIn(id: string) {
+  async undoCheckIn(id: string, currentUser?: CurrentUser) {
     const assignment = await this.findOneAssignment(id);
+
+    // Validar permissão para desfazer check-in
+    if (currentUser) {
+      const hasAccess = await this.hierarchyService.hasAccessToAssignment(currentUser.id, id);
+      if (!hasAccess) {
+        throw new ForbiddenException('Você não tem permissão para desfazer check-in nesta escala');
+      }
+    }
 
     if (!assignment.checkedIn) {
       throw new BadRequestException('Check-in não foi realizado');
@@ -306,7 +363,15 @@ export class SchedulesService {
    * Se o evento tiver pastorais vinculadas, retorna apenas membros dessas pastorais
    * Se não tiver pastorais vinculadas, retorna todos os membros da comunidade do evento
    */
-  async findEligibleMembers(eventId: string) {
+  async findEligibleMembers(eventId: string, currentUser?: CurrentUser) {
+    // Validar acesso ao evento
+    if (currentUser) {
+      const hasAccess = await this.hierarchyService.hasAccessToEvent(currentUser.id, eventId);
+      if (!hasAccess) {
+        throw new ForbiddenException('Você não tem permissão para acessar este evento');
+      }
+    }
+
     // Buscar o evento com suas pastorais vinculadas
     const event = await this.prisma.event.findUnique({
       where: { id: eventId },

@@ -1,13 +1,27 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable, NotFoundException, ForbiddenException } from '@nestjs/common';
 import { PrismaService } from '../../database/prisma.service';
 import { CreateCommunityDto } from './dto/create-community.dto';
 import { UpdateCommunityDto } from './dto/update-community.dto';
+import { HierarchyService, CurrentUser } from '../../common/hierarchy.service';
 
 @Injectable()
 export class CommunitiesService {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(
+    private readonly prisma: PrismaService,
+    private readonly hierarchyService: HierarchyService,
+  ) {}
 
-  async create(createCommunityDto: CreateCommunityDto) {
+  async create(createCommunityDto: CreateCommunityDto, currentUser?: CurrentUser) {
+    const { parishId } = createCommunityDto;
+
+    // Validar acesso à paróquia
+    if (currentUser) {
+      const canManage = await this.hierarchyService.canManageParish(currentUser.id, parishId);
+      if (!canManage) {
+        throw new ForbiddenException('Você não tem permissão para criar comunidades nesta paróquia');
+      }
+    }
+
     return this.prisma.community.create({
       data: createCommunityDto,
       include: {
@@ -27,28 +41,14 @@ export class CommunitiesService {
     });
   }
 
-  async findAll(user?: any) {
-    const where: any = {};
-
-    // DIOCESAN_ADMIN só vê comunidades das paróquias da sua diocese
-    if (user && user.role === 'DIOCESAN_ADMIN' && user.dioceseId) {
-      where.parish = {
-        dioceseId: user.dioceseId,
-      };
-    }
-
-    // PARISH_ADMIN só vê comunidades da sua paróquia
-    if (user && user.role === 'PARISH_ADMIN' && user.parishId) {
-      where.parishId = user.parishId;
-    }
-
-    // COMMUNITY_COORDINATOR só vê sua comunidade
-    if (user && user.role === 'COMMUNITY_COORDINATOR' && user.communityId) {
-      where.id = user.communityId;
-    }
+  async findAll(currentUser?: CurrentUser) {
+    // Aplicar filtros de hierarquia usando o serviço centralizado
+    const hierarchyFilter = currentUser
+      ? this.hierarchyService.applyCommunityFilter(currentUser)
+      : {};
 
     return this.prisma.community.findMany({
-      where,
+      where: hierarchyFilter,
       include: {
         parish: {
           select: {
@@ -112,8 +112,16 @@ export class CommunitiesService {
     return community;
   }
 
-  async update(id: string, updateCommunityDto: UpdateCommunityDto) {
-    await this.findOne(id);
+  async update(id: string, updateCommunityDto: UpdateCommunityDto, currentUser?: CurrentUser) {
+    const community = await this.findOne(id);
+
+    // Validar permissão para editar esta comunidade
+    if (currentUser) {
+      const canManage = await this.hierarchyService.canManageCommunity(currentUser.id, id);
+      if (!canManage) {
+        throw new ForbiddenException('Você não tem permissão para editar esta comunidade');
+      }
+    }
 
     return this.prisma.community.update({
       where: { id },
@@ -135,12 +143,19 @@ export class CommunitiesService {
     });
   }
 
-  async remove(id: string) {
+  async remove(id: string, currentUser?: CurrentUser) {
     await this.findOne(id);
+
+    // Validar permissão para excluir esta comunidade
+    if (currentUser) {
+      const canManage = await this.hierarchyService.canManageCommunity(currentUser.id, id);
+      if (!canManage) {
+        throw new ForbiddenException('Você não tem permissão para excluir esta comunidade');
+      }
+    }
 
     return this.prisma.community.delete({
       where: { id },
     });
   }
 }
-

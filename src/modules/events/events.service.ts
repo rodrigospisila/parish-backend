@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException, BadRequestException } from '@nestjs/common';
+import { Injectable, NotFoundException, BadRequestException, ForbiddenException } from '@nestjs/common';
 import { PrismaService } from '../../database/prisma.service';
 import { CreateEventDto } from './dto/create-event.dto';
 import { UpdateEventDto } from './dto/update-event.dto';
@@ -6,10 +6,14 @@ import { AddPastoralToEventDto } from './dto/add-pastoral-to-event.dto';
 import { CreateAssignmentDto } from './dto/create-assignment.dto';
 import { CheckinAssignmentDto } from './dto/checkin-assignment.dto';
 import { EventType, UserRole } from '@prisma/client';
+import { HierarchyService, CurrentUser } from '../../common/hierarchy.service';
 
 @Injectable()
 export class EventsService {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(
+    private readonly prisma: PrismaService,
+    private readonly hierarchyService: HierarchyService,
+  ) {}
 
   /**
    * Converte string de data para formato ISO-8601 completo aceito pelo Prisma
@@ -33,7 +37,7 @@ export class EventsService {
     return new Date(dateString);
   }
 
-  async create(createEventDto: CreateEventDto, user: any) {
+  async create(createEventDto: CreateEventDto, currentUser?: CurrentUser) {
     const { communityId, startDate, endDate, ...rest } = createEventDto;
 
     // Converter datas para formato ISO-8601 completo
@@ -56,9 +60,12 @@ export class EventsService {
       throw new NotFoundException(`Comunidade com ID ${communityId} não encontrada`);
     }
 
-    // Verificar permissão por diocese
-    if (user.role === UserRole.DIOCESAN_ADMIN && community.parish.dioceseId !== user.dioceseId) {
-      throw new BadRequestException('Você não tem permissão para criar eventos nesta comunidade');
+    // Validar acesso à comunidade usando HierarchyService
+    if (currentUser) {
+      const canManage = await this.hierarchyService.canManageCommunity(currentUser.id, communityId);
+      if (!canManage) {
+        throw new ForbiddenException('Você não tem permissão para criar eventos nesta comunidade');
+      }
     }
 
     return this.prisma.event.create({
@@ -96,30 +103,14 @@ export class EventsService {
     type?: EventType,
     startDate?: string,
     endDate?: string,
-    user?: any,
+    currentUser?: CurrentUser,
   ) {
-    const where: any = {};
-
-    // Filtrar por diocese se for DIOCESAN_ADMIN
-    if (user && user.role === UserRole.DIOCESAN_ADMIN && user.dioceseId) {
-      where.community = {
-        parish: {
-          dioceseId: user.dioceseId,
-        },
-      };
-    }
-
-    // PARISH_ADMIN só vê eventos das comunidades da sua paróquia
-    if (user && user.role === UserRole.PARISH_ADMIN && user.parishId) {
-      where.community = {
-        parishId: user.parishId,
-      };
-    }
-
-    // COMMUNITY_COORDINATOR só vê eventos da sua comunidade
-    if (user && user.role === UserRole.COMMUNITY_COORDINATOR && user.communityId) {
-      where.communityId = user.communityId;
-    }
+    // Aplicar filtros de hierarquia usando o serviço centralizado
+    const hierarchyFilter = currentUser
+      ? this.hierarchyService.applyEventFilter(currentUser)
+      : {};
+    
+    const where: any = { ...hierarchyFilter };
 
     if (communityId) {
       where.communityId = communityId;
@@ -304,8 +295,16 @@ export class EventsService {
     return event;
   }
 
-  async update(id: string, updateEventDto: UpdateEventDto) {
-    await this.findOne(id); // Verifica se existe
+  async update(id: string, updateEventDto: UpdateEventDto, currentUser?: CurrentUser) {
+    const event = await this.findOne(id); // Verifica se existe
+
+    // Validar permissão para editar este evento
+    if (currentUser) {
+      const canManage = await this.hierarchyService.canManageEvent(currentUser.id, id);
+      if (!canManage) {
+        throw new ForbiddenException('Você não tem permissão para editar este evento');
+      }
+    }
 
     // Formatar datas se existirem no DTO
     const dataToUpdate: any = { ...updateEventDto };
@@ -335,8 +334,16 @@ export class EventsService {
     });
   }
 
-  async remove(id: string) {
+  async remove(id: string, currentUser?: CurrentUser) {
     await this.findOne(id); // Verifica se existe
+
+    // Validar permissão para excluir este evento
+    if (currentUser) {
+      const canManage = await this.hierarchyService.canManageEvent(currentUser.id, id);
+      if (!canManage) {
+        throw new ForbiddenException('Você não tem permissão para excluir este evento');
+      }
+    }
 
     return this.prisma.event.delete({
       where: { id },

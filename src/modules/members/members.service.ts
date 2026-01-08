@@ -3,17 +3,22 @@ import {
   NotFoundException,
   ConflictException,
   BadRequestException,
+  ForbiddenException,
 } from '@nestjs/common';
 import { PrismaService } from '../../database/prisma.service';
 import { CreateMemberDto } from './dto/create-member.dto';
 import { UpdateMemberDto } from './dto/update-member.dto';
 import { MemberStatus } from '@prisma/client';
+import { HierarchyService, CurrentUser } from '../../common/hierarchy.service';
 
 @Injectable()
 export class MembersService {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(
+    private readonly prisma: PrismaService,
+    private readonly hierarchyService: HierarchyService,
+  ) {}
 
-  async create(createMemberDto: CreateMemberDto) {
+  async create(createMemberDto: CreateMemberDto, currentUser?: CurrentUser) {
     const { cpf, email, communityId, ...rest } = createMemberDto;
 
     // Verificar se a comunidade existe
@@ -23,6 +28,18 @@ export class MembersService {
 
     if (!community) {
       throw new NotFoundException(`Comunidade com ID ${communityId} não encontrada`);
+    }
+
+    // Validar acesso à comunidade
+    if (currentUser) {
+      const communityFilter = this.hierarchyService.applyCommunityFilter(currentUser);
+      // Verificar se a comunidade está dentro da hierarquia do usuário
+      if (communityFilter.id && communityFilter.id !== communityId) {
+        throw new ForbiddenException('Você não tem permissão para criar membros nesta comunidade');
+      }
+      if (communityFilter.parishId && community.parishId !== currentUser.parishId) {
+        throw new ForbiddenException('Você não tem permissão para criar membros nesta comunidade');
+      }
     }
 
     // Verificar se CPF já está cadastrado (se fornecido)
@@ -76,29 +93,13 @@ export class MembersService {
     return member;
   }
 
-  async findAll(user?: any, communityId?: string, status?: MemberStatus) {
-    const where: any = {};
-
-    // DIOCESAN_ADMIN só vê membros das comunidades da sua diocese
-    if (user && user.role === 'DIOCESAN_ADMIN' && user.dioceseId) {
-      where.community = {
-        parish: {
-          dioceseId: user.dioceseId,
-        },
-      };
-    }
-
-    // PARISH_ADMIN só vê membros das comunidades da sua paróquia
-    if (user && user.role === 'PARISH_ADMIN' && user.parishId) {
-      where.community = {
-        parishId: user.parishId,
-      };
-    }
-
-    // COMMUNITY_COORDINATOR só vê membros da sua comunidade
-    if (user && user.role === 'COMMUNITY_COORDINATOR' && user.communityId) {
-      where.communityId = user.communityId;
-    }
+  async findAll(currentUser?: CurrentUser, communityId?: string, status?: MemberStatus) {
+    // Aplicar filtros de hierarquia usando o serviço centralizado
+    const hierarchyFilter = currentUser
+      ? this.hierarchyService.applyMemberFilter(currentUser)
+      : {};
+    
+    const where: any = { ...hierarchyFilter };
 
     if (communityId) {
       where.communityId = communityId;
@@ -215,8 +216,16 @@ export class MembersService {
     return member;
   }
 
-  async update(id: string, updateMemberDto: UpdateMemberDto) {
-    await this.findOne(id); // Verifica se existe
+  async update(id: string, updateMemberDto: UpdateMemberDto, currentUser?: CurrentUser) {
+    const member = await this.findOne(id); // Verifica se existe
+
+    // Validar permissão para editar este membro
+    if (currentUser) {
+      const canManage = await this.hierarchyService.canManageMember(currentUser.id, id);
+      if (!canManage) {
+        throw new ForbiddenException('Você não tem permissão para editar este membro');
+      }
+    }
 
     const { cpf, email, ...rest } = updateMemberDto;
 
@@ -262,8 +271,16 @@ export class MembersService {
     });
   }
 
-  async remove(id: string) {
+  async remove(id: string, currentUser?: CurrentUser) {
     await this.findOne(id); // Verifica se existe
+
+    // Validar permissão para excluir este membro
+    if (currentUser) {
+      const canManage = await this.hierarchyService.canManageMember(currentUser.id, id);
+      if (!canManage) {
+        throw new ForbiddenException('Você não tem permissão para excluir este membro');
+      }
+    }
 
     return this.prisma.member.delete({
       where: { id },
