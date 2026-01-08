@@ -88,7 +88,7 @@ export class HierarchyService {
           include: {
             pastoralMemberships: {
               where: coordinatorOnly ? { role: 'COORDINATOR' } : undefined,
-              select: { pastoralId: true },
+              select: { communityPastoralId: true },
             },
           },
         },
@@ -99,7 +99,9 @@ export class HierarchyService {
       return [];
     }
 
-    return user.member.pastoralMemberships.map((pm) => pm.pastoralId);
+    return user.member.pastoralMemberships
+      .map((pm) => pm.communityPastoralId)
+      .filter((id): id is string => id !== null);
   }
 
   /**
@@ -116,7 +118,7 @@ export class HierarchyService {
         member: {
           include: {
             pastoralMemberships: {
-              where: { pastoralId },
+              where: { communityPastoralId: pastoralId },
             },
           },
         },
