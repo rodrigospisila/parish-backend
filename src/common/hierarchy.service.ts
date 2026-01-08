@@ -86,7 +86,7 @@ export class HierarchyService {
       include: {
         member: {
           include: {
-            pastoralMembers: {
+            pastoralMemberships: {
               where: coordinatorOnly ? { role: 'COORDINATOR' } : undefined,
               select: { pastoralId: true },
             },
@@ -95,11 +95,11 @@ export class HierarchyService {
       },
     });
 
-    if (!user?.member?.pastoralMembers) {
+    if (!user?.member?.pastoralMemberships) {
       return [];
     }
 
-    return user.member.pastoralMembers.map((pm) => pm.pastoralId);
+    return user.member.pastoralMemberships.map((pm) => pm.pastoralId);
   }
 
   /**
@@ -115,7 +115,7 @@ export class HierarchyService {
       include: {
         member: {
           include: {
-            pastoralMembers: {
+            pastoralMemberships: {
               where: { pastoralId },
             },
           },
@@ -123,12 +123,12 @@ export class HierarchyService {
       },
     });
 
-    if (!user?.member?.pastoralMembers?.length) {
+    if (!user?.member?.pastoralMemberships?.length) {
       return false;
     }
 
     if (requireCoordinator) {
-      return user.member.pastoralMembers.some((pm) => pm.role === 'COORDINATOR');
+      return user.member.pastoralMemberships.some((pm) => pm.role === 'COORDINATOR');
     }
 
     return true;
@@ -182,7 +182,7 @@ export class HierarchyService {
     // Para PASTORAL_COORDINATOR, verificar se coordena alguma pastoral do evento
     if (user?.role === UserRole.PASTORAL_COORDINATOR && user.member) {
       const userPastoralIds = await this.getUserPastoralIds(userId, true);
-      return event.eventPastorals.some((ep) => userPastoralIds.includes(ep.pastoralId));
+      return event.eventPastorals.some((ep) => userPastoralIds.includes(ep.communityPastoralId));
     }
 
     // VOLUNTEER e FAITHFUL só têm acesso se estiverem na mesma comunidade
@@ -451,7 +451,7 @@ export class HierarchyService {
     // Para PASTORAL_COORDINATOR, verificar se coordena alguma pastoral do evento
     if (user.role === UserRole.PASTORAL_COORDINATOR && user.member) {
       const userPastoralIds = await this.getUserPastoralIds(userId, true);
-      return event.eventPastorals.some((ep) => userPastoralIds.includes(ep.pastoralId));
+      return event.eventPastorals.some((ep) => userPastoralIds.includes(ep.communityPastoralId));
     }
 
     return false;
