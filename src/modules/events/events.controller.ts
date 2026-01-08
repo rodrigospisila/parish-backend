@@ -39,6 +39,7 @@ export class EventsController {
   }
 
   @Get()
+  @UseGuards(JwtAuthGuard)
   findAll(
     @Query('communityId') communityId?: string,
     @Query('type') type?: EventType,
