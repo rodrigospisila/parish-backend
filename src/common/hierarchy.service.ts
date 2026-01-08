@@ -470,16 +470,26 @@ export class HierarchyService {
         // Sem filtro
         break;
       case UserRole.DIOCESAN_ADMIN:
-        where.parish = { dioceseId: user.dioceseId };
+        if (user.dioceseId) {
+          where.parish = { dioceseId: user.dioceseId };
+        }
         break;
       case UserRole.PARISH_ADMIN:
-        where.parishId = user.parishId;
+        if (user.parishId) {
+          where.parishId = user.parishId;
+        }
         break;
       case UserRole.COMMUNITY_COORDINATOR:
       case UserRole.PASTORAL_COORDINATOR:
       case UserRole.VOLUNTEER:
       case UserRole.FAITHFUL:
-        where.id = user.communityId;
+        // Se o usuário tem communityId, filtra por comunidade
+        // Se não tem, filtra pela paróquia (se tiver)
+        if (user.communityId) {
+          where.id = user.communityId;
+        } else if (user.parishId) {
+          where.parishId = user.parishId;
+        }
         break;
     }
 
