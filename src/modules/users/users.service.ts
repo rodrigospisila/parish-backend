@@ -238,7 +238,7 @@ export class UsersService {
       }
     }
 
-    const { password, ...updateData } = updateUserDto;
+    const { password, communityIds, ...updateData } = updateUserDto;
 
     const updatedUser = await this.prisma.user.update({
       where: { id },
@@ -250,10 +250,71 @@ export class UsersService {
             name: true,
           },
         },
+        communities: {
+          include: {
+            community: {
+              select: {
+                id: true,
+                name: true,
+              },
+            },
+          },
+        },
       },
     });
 
-    const { password: _, ...userWithoutPassword } = updatedUser;
+    // Se communityIds foi fornecido, atualizar vínculos UserCommunity
+    if (communityIds !== undefined) {
+      // Remover vínculos antigos
+      await this.prisma.userCommunity.deleteMany({
+        where: { userId: id },
+      });
+
+      // Criar novos vínculos
+      if (communityIds.length > 0) {
+        await Promise.all(
+          communityIds.map((commId, index) =>
+            this.prisma.userCommunity.create({
+              data: {
+                userId: id,
+                communityId: commId,
+                role: updatedUser.role, // Usar o role do usuário
+                isPrimary: index === 0, // Primeira comunidade é a principal
+              },
+            }),
+          ),
+        );
+      }
+    }
+
+    // Buscar usuário atualizado com comunidades
+    const finalUser = await this.prisma.user.findUnique({
+      where: { id },
+      include: {
+        diocese: {
+          select: {
+            id: true,
+            name: true,
+          },
+        },
+        communities: {
+          include: {
+            community: {
+              select: {
+                id: true,
+                name: true,
+              },
+            },
+          },
+        },
+      },
+    });
+
+    if (!finalUser) {
+      throw new NotFoundException(`Usuário com ID ${id} não encontrado`);
+    }
+
+    const { password: _, ...userWithoutPassword } = finalUser;
     return userWithoutPassword;
   }
 
