@@ -13,10 +13,14 @@ import { UpdateMeetingDto } from './dto/update-meeting.dto';
 import { MarkAttendanceDto } from './dto/mark-attendance.dto';
 import { CreateActivityDto } from './dto/create-activity.dto';
 import { UserRole } from '@prisma/client';
+import { HierarchyService, CurrentUser } from '../../common/hierarchy.service';
 
 @Injectable()
 export class PastoralsService {
-  constructor(private prisma: PrismaService) {}
+  constructor(
+    private prisma: PrismaService,
+    private readonly hierarchyService: HierarchyService,
+  ) {}
 
   // ============================================
   // GLOBAL PASTORALS (SYSTEM_ADMIN only)
@@ -176,12 +180,57 @@ export class PastoralsService {
     });
   }
 
-  async findAllCommunityPastorals(communityId?: string) {
+  async findAllCommunityPastorals(communityId?: string, currentUser?: CurrentUser) {
+    // Aplicar filtros de hierarquia
+    const where: any = {};
+    
+    if (communityId) {
+      where.communityId = communityId;
+    }
+    
+    // Aplicar filtro de hierarquia baseado no role do usuário
+    if (currentUser) {
+      switch (currentUser.role) {
+        case UserRole.SYSTEM_ADMIN:
+          // Sem filtro adicional
+          break;
+        case UserRole.DIOCESAN_ADMIN:
+          // Filtrar por diocese
+          if (currentUser.dioceseId) {
+            where.community = { parish: { dioceseId: currentUser.dioceseId } };
+          }
+          break;
+        case UserRole.PARISH_ADMIN:
+          // Filtrar por paróquia
+          if (currentUser.parishId) {
+            where.community = { parishId: currentUser.parishId };
+          }
+          break;
+        case UserRole.COMMUNITY_COORDINATOR:
+        case UserRole.PASTORAL_COORDINATOR:
+        case UserRole.VOLUNTEER:
+        case UserRole.FAITHFUL:
+          // Filtrar por comunidade
+          if (currentUser.communityId) {
+            where.communityId = currentUser.communityId;
+          }
+          break;
+      }
+    }
+    
     return this.prisma.communityPastoral.findMany({
-      where: communityId ? { communityId } : undefined,
+      where: Object.keys(where).length > 0 ? where : undefined,
       include: {
         globalPastoral: true,
-        community: true,
+        community: {
+          include: {
+            parish: {
+              include: {
+                diocese: true,
+              },
+            },
+          },
+        },
         members: {
           include: {
             member: true,
