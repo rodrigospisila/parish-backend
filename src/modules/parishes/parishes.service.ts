@@ -34,6 +34,11 @@ export class ParishesService {
       where.id = user.parishId;
     }
 
+    // COMMUNITY_COORDINATOR só vê a paróquia da sua comunidade
+    if (user && user.role === 'COMMUNITY_COORDINATOR' && user.parishId) {
+      where.id = user.parishId;
+    }
+
     return this.prisma.parish.findMany({
       where,
       include: {
