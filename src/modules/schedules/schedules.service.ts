@@ -70,6 +70,18 @@ export class SchedulesService {
             id: true,
             title: true,
             type: true,
+            community: {
+              select: {
+                id: true,
+                name: true,
+                parish: {
+                  select: {
+                    id: true,
+                    name: true,
+                  },
+                },
+              },
+            },
           },
         },
         assignments: {
