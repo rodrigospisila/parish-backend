@@ -151,9 +151,37 @@ export class UsersService {
       where.parishId = currentUser.parishId;
     }
 
-    // COMMUNITY_COORDINATOR só vê usuários da sua comunidade
+    // COMMUNITY_COORDINATOR só vê usuários vinculados à sua comunidade
     if (currentUser.role === UserRole.COMMUNITY_COORDINATOR) {
-      where.communityId = currentUser.communityId;
+      // Filtrar usuários que têm vínculo com a comunidade do coordenador
+      // e que são de nível inferior (não pode ver PARISH_ADMIN ou superior)
+      if (currentUser.communityId) {
+        where.communities = {
+          some: {
+            communityId: currentUser.communityId,
+          },
+        };
+        // Também filtrar por roles de nível inferior
+        where.role = {
+          in: [
+            UserRole.COMMUNITY_COORDINATOR,
+            UserRole.PASTORAL_COORDINATOR,
+            UserRole.VOLUNTEER,
+            UserRole.FAITHFUL,
+          ],
+        };
+      } else if (currentUser.parishId) {
+        // Fallback para paróquia se não tiver comunidade
+        where.parishId = currentUser.parishId;
+        where.role = {
+          in: [
+            UserRole.COMMUNITY_COORDINATOR,
+            UserRole.PASTORAL_COORDINATOR,
+            UserRole.VOLUNTEER,
+            UserRole.FAITHFUL,
+          ],
+        };
+      }
     }
 
     const users = await this.prisma.user.findMany({
