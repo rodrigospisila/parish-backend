@@ -6,12 +6,28 @@ import {
   IsBoolean,
   IsDateString,
 } from 'class-validator';
-import { MemberStatus, Gender, MaritalStatus } from '@prisma/client';
+import { MemberStatus, MemberType, Gender, MaritalStatus } from '@prisma/client';
 
 export class CreateMemberDto {
   @IsString()
   @IsNotEmpty()
   fullName: string;
+
+  @IsEnum(MemberType)
+  @IsOptional()
+  memberType?: MemberType;
+
+  @IsString()
+  @IsOptional()
+  emergencyContactName?: string;
+
+  @IsString()
+  @IsOptional()
+  emergencyContactPhone?: string;
+
+  @IsString()
+  @IsOptional()
+  emergencyContactRelation?: string;
 
   @IsDateString()
   @IsOptional()

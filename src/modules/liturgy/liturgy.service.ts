@@ -33,9 +33,8 @@ export class LiturgyService {
       this.configService.get('CNBB_LITURGY_API_URL') ||
       'https://liturgia.up.railway.app';
   }
-
   async getLiturgyByDate(date: string): Promise<LiturgyData> {
-    // Verificar se está em cache
+    // Verificar se esta em cache
     const cached = this.cache.get(date);
     if (cached && cached.expiresAt > Date.now()) {
       this.logger.log(`Liturgia do dia ${date} retornada do cache`);
@@ -43,7 +42,7 @@ export class LiturgyService {
     }
 
     try {
-      // Fazer requisição à API da CNBB
+      // Fazer requisicao a API da CNBB
       const response = await axios.get(`${this.apiUrl}/${date}`);
       const liturgyData: LiturgyData = this.parseLiturgyResponse(
         response.data,
@@ -57,18 +56,97 @@ export class LiturgyService {
       this.logger.log(`Liturgia do dia ${date} obtida da API da CNBB`);
       return liturgyData;
     } catch (error) {
-      this.logger.error(
-        `Erro ao buscar liturgia do dia ${date}: ${error.message}`,
-      );
+      if (axios.isAxiosError(error) && error.response?.status === 404) {
+        const fromBase = await this.fetchFromBase(date, true);
+        if (fromBase) {
+          this.logger.warn(
+            `Endpoint de liturgia com data indisponivel; usando base para ${date}`,
+          );
+          return fromBase;
+        }
+      }
 
-      // Fallback: retornar dados básicos
-      return this.getFallbackLiturgy(date);
+      const fallback = this.getFallbackLiturgy(date);
+      const expiresAt = Date.now() + 6 * 60 * 60 * 1000;
+      this.cache.set(date, { data: fallback, expiresAt });
+
+      if (axios.isAxiosError(error) && error.response?.status === 404) {
+        this.logger.warn(
+          `Liturgia do dia ${date} nao encontrada na API externa`,
+        );
+      } else {
+        const message = axios.isAxiosError(error)
+          ? error.message
+          : String(error);
+        this.logger.error(
+          `Erro ao buscar liturgia do dia ${date}: ${message}`,
+        );
+      }
+
+      return fallback;
     }
   }
 
   async getTodayLiturgy(): Promise<LiturgyData> {
     const today = this.formatDate(new Date());
+    const cached = this.cache.get(today);
+    if (cached && cached.expiresAt > Date.now()) {
+      this.logger.log(`Liturgia do dia ${today} retornada do cache`);
+      return cached.data;
+    }
+
+    const fromBase = await this.fetchFromBase(today, false);
+    if (fromBase) {
+      return fromBase;
+    }
+
     return this.getLiturgyByDate(today);
+  }
+
+  private normalizeApiDate(value?: string): string | null {
+    if (!value) {
+      return null;
+    }
+
+    if (/^\d{4}-\d{2}-\d{2}$/.test(value)) {
+      return value;
+    }
+
+    if (/^\d{2}\/\d{2}\/\d{4}$/.test(value)) {
+      const [day, month, year] = value.split('/');
+      return `${year}-${month}-${day}`;
+    }
+
+    return null;
+  }
+
+  private async fetchFromBase(expectedDate: string, requireMatch: boolean): Promise<LiturgyData | null> {
+    try {
+      const response = await axios.get(this.apiUrl);
+      const apiDate = this.normalizeApiDate(response.data?.data || response.data?.date);
+      if (requireMatch && apiDate && apiDate !== expectedDate) {
+        return null;
+      }
+
+      const effectiveDate = apiDate || expectedDate;
+      const liturgyData: LiturgyData = this.parseLiturgyResponse(response.data, effectiveDate);
+      const expiresAt = Date.now() + 24 * 60 * 60 * 1000;
+      this.cache.set(effectiveDate, { data: liturgyData, expiresAt });
+
+      if (effectiveDate !== expectedDate) {
+        this.cache.set(expectedDate, { data: liturgyData, expiresAt });
+      }
+
+      if (!requireMatch && apiDate && apiDate !== expectedDate) {
+        this.logger.warn(
+          `API de liturgia retornou data ${apiDate} diferente de ${expectedDate}`,
+        );
+      }
+
+      return liturgyData;
+    } catch {
+      return null;
+    }
   }
 
   private parseLiturgyResponse(data: any, date: string): LiturgyData {

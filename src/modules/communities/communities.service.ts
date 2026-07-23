@@ -3,12 +3,14 @@ import { PrismaService } from '../../database/prisma.service';
 import { CreateCommunityDto } from './dto/create-community.dto';
 import { UpdateCommunityDto } from './dto/update-community.dto';
 import { HierarchyService, CurrentUser } from '../../common/hierarchy.service';
+import { AuditService } from '../../common/audit.service';
 
 @Injectable()
 export class CommunitiesService {
   constructor(
     private readonly prisma: PrismaService,
     private readonly hierarchyService: HierarchyService,
+    private readonly auditService: AuditService,
   ) {}
 
   async create(createCommunityDto: CreateCommunityDto, currentUser?: CurrentUser) {
@@ -48,7 +50,7 @@ export class CommunitiesService {
       : {};
 
     return this.prisma.community.findMany({
-      where: hierarchyFilter,
+      where: { ...hierarchyFilter, deletedAt: null },
       include: {
         parish: {
           select: {
@@ -76,8 +78,8 @@ export class CommunitiesService {
   }
 
   async findOne(id: string) {
-    const community = await this.prisma.community.findUnique({
-      where: { id },
+    const community = await this.prisma.community.findFirst({
+      where: { id, deletedAt: null },
       include: {
         parish: {
           include: {
@@ -154,8 +156,23 @@ export class CommunitiesService {
       }
     }
 
-    return this.prisma.community.delete({
+    // Soft delete (arquivamento): NUNCA excluir fisicamente — o cascade
+    // apagaria membros, eventos, escalas e pastorais da comunidade.
+    const archived = await this.prisma.community.update({
       where: { id },
+      data: { deletedAt: new Date() },
     });
+
+    await this.auditService.log({
+      actor: currentUser
+        ? { id: currentUser.id, email: currentUser.email, role: currentUser.role }
+        : null,
+      action: 'SOFT_DELETE',
+      entity: 'Community',
+      entityId: id,
+      before: { name: archived.name },
+    });
+
+    return archived;
   }
 }

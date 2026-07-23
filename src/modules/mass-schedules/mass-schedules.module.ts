@@ -4,6 +4,7 @@ import { MassSchedulesController } from './mass-schedules.controller';
 
 @Module({
   providers: [MassSchedulesService],
-  controllers: [MassSchedulesController]
+  controllers: [MassSchedulesController],
+  exports: [MassSchedulesService],
 })
 export class MassSchedulesModule {}

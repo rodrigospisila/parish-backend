@@ -9,5 +9,9 @@ export class CreateAssignmentDto {
 
   @IsOptional()
   @IsString()
+  communityPastoralId?: string;
+
+  @IsOptional()
+  @IsString()
   notes?: string;
 }

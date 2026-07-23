@@ -1,6 +1,7 @@
 import {
   IsString,
   IsNotEmpty,
+  IsOptional,
 } from 'class-validator';
 
 export class CreateAssignmentDto {
@@ -15,5 +16,12 @@ export class CreateAssignmentDto {
   @IsString()
   @IsNotEmpty()
   memberId: string;
-}
 
+  @IsOptional()
+  @IsString()
+  communityPastoralId?: string;
+
+  @IsOptional()
+  @IsString()
+  notes?: string;
+}

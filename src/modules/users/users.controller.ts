@@ -17,11 +17,15 @@ import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { RolesGuard } from '../auth/guards/roles.guard';
 import { Roles } from '../auth/decorators/roles.decorator';
 import { UserRole } from '@prisma/client';
+import { NotificationsService } from '../notifications/notifications.service';
 
 @Controller('users')
 @UseGuards(JwtAuthGuard, RolesGuard)
 export class UsersController {
-  constructor(private readonly usersService: UsersService) {}
+  constructor(
+    private readonly usersService: UsersService,
+    private readonly notificationsService: NotificationsService,
+  ) {}
 
   @Post()
   @Roles(UserRole.SYSTEM_ADMIN, UserRole.DIOCESAN_ADMIN, UserRole.PARISH_ADMIN, UserRole.COMMUNITY_COORDINATOR)
@@ -36,18 +40,38 @@ export class UsersController {
   }
 
   /**
+   * Retorna os dados completos do usuário autenticado (incluindo pastorais e roles).
+   * IMPORTANTE: Esta rota deve vir ANTES de :id para não ser interpretada como parâmetro.
+   */
+  @Get('me')
+  getMe(@Request() req) {
+    return this.usersService.findOne(req.user.id, req.user);
+  }
+
+  /**
    * Endpoint para usuário atualizar sua própria comunidade
    * Qualquer usuário autenticado pode usar este endpoint para definir sua comunidade
    * IMPORTANTE: Esta rota deve vir ANTES de :id para não ser interpretada como parâmetro
    */
   @Patch('me/community')
-  updateMyCommunity(@Body() body: { communityId: string }, @Request() req) {
-    return this.usersService.updateMyCommunity(req.user.id, body.communityId);
+  updateMyCommunity(@Body() body: { communityId: string; consentGiven?: boolean }, @Request() req) {
+    return this.usersService.updateMyCommunity(req.user.id, body.communityId, body.consentGiven);
+  }
+
+  /**
+   * Registra (ou limpa, enviando pushToken: null) o token de push do dispositivo
+   * do usuário logado. Usado pelo app mobile após o login/permissão concedida
+   * e no logout.
+   * IMPORTANTE: Esta rota deve vir ANTES de :id para não ser interpretada como parâmetro
+   */
+  @Patch('me/push-token')
+  updateMyPushToken(@Body() body: { pushToken: string | null }, @Request() req) {
+    return this.notificationsService.registerPushToken(req.user.id, body.pushToken);
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.usersService.findOne(id);
+  findOne(@Param('id') id: string, @Request() req) {
+    return this.usersService.findOne(id, req.user);
   }
 
   @Patch(':id')

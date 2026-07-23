@@ -8,7 +8,9 @@ import {
   Delete,
   UseGuards,
   Query,
+  Res,
 } from '@nestjs/common';
+import type { Response } from 'express';
 import { EventsService } from './events.service';
 import { CreateEventDto } from './dto/create-event.dto';
 import { UpdateEventDto } from './dto/update-event.dto';
@@ -33,6 +35,7 @@ export class EventsController {
     UserRole.DIOCESAN_ADMIN,
     UserRole.PARISH_ADMIN,
     UserRole.COMMUNITY_COORDINATOR,
+    UserRole.PASTORAL_COORDINATOR,
   )
   create(@Body() createEventDto: CreateEventDto, @CurrentUser() user: any) {
     return this.eventsService.create(createEventDto, user);
@@ -43,14 +46,41 @@ export class EventsController {
   findAll(
     @Query('communityId') communityId?: string,
     @Query('type') type?: EventType,
+    @Query('q') q?: string,
     @Query('startDate') startDate?: string,
     @Query('endDate') endDate?: string,
+    @Query('onlyMyPastorals') onlyMyPastorals?: string,
     @CurrentUser() user?: any,
   ) {
-    return this.eventsService.findAll(communityId, type, startDate, endDate, user);
+    return this.eventsService.findAll(
+      communityId,
+      type,
+      q,
+      startDate,
+      endDate,
+      user,
+      onlyMyPastorals === 'true',
+    );
+  }
+
+  // Exporta a agenda em iCalendar (.ics) para Google Calendar/Outlook/Apple
+  @Get('export.ics')
+  @UseGuards(JwtAuthGuard)
+  async exportIcs(
+    @Res() res: Response,
+    @Query('communityId') communityId?: string,
+    @CurrentUser() user?: any,
+  ) {
+    const ics = await this.eventsService.exportIcs(user, communityId);
+    res.set({
+      'Content-Type': 'text/calendar; charset=utf-8',
+      'Content-Disposition': 'attachment; filename="agenda-paroquial.ics"',
+    });
+    res.send(ics);
   }
 
   @Get('upcoming')
+  @UseGuards(JwtAuthGuard)
   findUpcoming(
     @Query('communityId') communityId?: string,
     @Query('limit') limit?: string,
@@ -60,11 +90,13 @@ export class EventsController {
   }
 
   @Get('recurring')
+  @UseGuards(JwtAuthGuard)
   findRecurring(@Query('communityId') communityId?: string) {
     return this.eventsService.findRecurring(communityId);
   }
 
   @Get('type/:type')
+  @UseGuards(JwtAuthGuard)
   findByType(
     @Param('type') type: EventType,
     @Query('communityId') communityId?: string,
@@ -73,6 +105,7 @@ export class EventsController {
   }
 
   @Get('range')
+  @UseGuards(JwtAuthGuard)
   findByDateRange(
     @Query('startDate') startDate: string,
     @Query('endDate') endDate: string,
@@ -81,9 +114,28 @@ export class EventsController {
     return this.eventsService.findByDateRange(startDate, endDate, communityId);
   }
 
+  @Get('favorites')
+  @UseGuards(JwtAuthGuard)
+  getFavorites(@CurrentUser() user: any) {
+    return this.eventsService.getFavorites(user);
+  }
+
+  @Post(':id/favorite')
+  @UseGuards(JwtAuthGuard)
+  addFavorite(@Param('id') id: string, @CurrentUser() user: any) {
+    return this.eventsService.addFavorite(id, user);
+  }
+
+  @Delete(':id/favorite')
+  @UseGuards(JwtAuthGuard)
+  removeFavorite(@Param('id') id: string, @CurrentUser() user: any) {
+    return this.eventsService.removeFavorite(id, user);
+  }
+
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.eventsService.findOne(id);
+  @UseGuards(JwtAuthGuard)
+  findOne(@Param('id') id: string, @CurrentUser() user?: any) {
+    return this.eventsService.findOne(id, user);
   }
 
   @Patch(':id')
@@ -93,6 +145,7 @@ export class EventsController {
     UserRole.DIOCESAN_ADMIN,
     UserRole.PARISH_ADMIN,
     UserRole.COMMUNITY_COORDINATOR,
+    UserRole.PASTORAL_COORDINATOR,
   )
   update(@Param('id') id: string, @Body() updateEventDto: UpdateEventDto, @CurrentUser() user: any) {
     return this.eventsService.update(id, updateEventDto, user);
@@ -100,7 +153,13 @@ export class EventsController {
 
   @Delete(':id')
   @UseGuards(JwtAuthGuard, RolesGuard)
-  @Roles(UserRole.SYSTEM_ADMIN, UserRole.DIOCESAN_ADMIN, UserRole.PARISH_ADMIN, UserRole.COMMUNITY_COORDINATOR)
+  @Roles(
+    UserRole.SYSTEM_ADMIN,
+    UserRole.DIOCESAN_ADMIN,
+    UserRole.PARISH_ADMIN,
+    UserRole.COMMUNITY_COORDINATOR,
+    UserRole.PASTORAL_COORDINATOR,
+  )
   remove(@Param('id') id: string, @CurrentUser() user: any) {
     return this.eventsService.remove(id, user);
   }
@@ -112,6 +171,7 @@ export class EventsController {
     UserRole.DIOCESAN_ADMIN,
     UserRole.PARISH_ADMIN,
     UserRole.COMMUNITY_COORDINATOR,
+    UserRole.PASTORAL_COORDINATOR,
   )
   duplicate(
     @Param('id') id: string,
@@ -141,8 +201,9 @@ export class EventsController {
   }
 
   @Get(':id/participants')
-  getParticipants(@Param('id') eventId: string) {
-    return this.eventsService.getParticipants(eventId);
+  @UseGuards(JwtAuthGuard)
+  getParticipants(@Param('id') eventId: string, @CurrentUser() user: any) {
+    return this.eventsService.getParticipants(eventId, user);
   }
 
   // ============================================
@@ -161,13 +222,15 @@ export class EventsController {
   addPastoralToEvent(
     @Param('id') eventId: string,
     @Body() dto: AddPastoralToEventDto,
+    @CurrentUser() user: any,
   ) {
-    return this.eventsService.addPastoralToEvent(eventId, dto);
+    return this.eventsService.addPastoralToEvent(eventId, dto, user);
   }
 
   @Get(':id/pastorals')
-  getEventPastorals(@Param('id') eventId: string) {
-    return this.eventsService.getEventPastorals(eventId);
+  @UseGuards(JwtAuthGuard)
+  getEventPastorals(@Param('id') eventId: string, @CurrentUser() user: any) {
+    return this.eventsService.getEventPastorals(eventId, user);
   }
 
   @Delete(':id/pastorals/:pastoralId')
@@ -182,8 +245,9 @@ export class EventsController {
   removePastoralFromEvent(
     @Param('id') eventId: string,
     @Param('pastoralId') pastoralId: string,
+    @CurrentUser() user: any,
   ) {
-    return this.eventsService.removePastoralFromEvent(eventId, pastoralId);
+    return this.eventsService.removePastoralFromEvent(eventId, pastoralId, user);
   }
 
   // ============================================
@@ -203,16 +267,19 @@ export class EventsController {
     @Param('id') eventId: string,
     @Param('pastoralId') pastoralId: string,
     @Body() dto: CreateAssignmentDto,
+    @CurrentUser() user: any,
   ) {
-    return this.eventsService.createAssignment(eventId, pastoralId, dto);
+    return this.eventsService.createAssignment(eventId, pastoralId, dto, user);
   }
 
   @Get(':id/pastorals/:pastoralId/assignments')
+  @UseGuards(JwtAuthGuard)
   getAssignments(
     @Param('id') eventId: string,
     @Param('pastoralId') pastoralId: string,
+    @CurrentUser() user: any,
   ) {
-    return this.eventsService.getAssignments(eventId, pastoralId);
+    return this.eventsService.getAssignments(eventId, pastoralId, user);
   }
 
   @Patch('assignments/:assignmentId/checkin')
@@ -227,8 +294,9 @@ export class EventsController {
   checkinAssignment(
     @Param('assignmentId') assignmentId: string,
     @Body() dto: CheckinAssignmentDto,
+    @CurrentUser() user: any,
   ) {
-    return this.eventsService.checkinAssignment(assignmentId, dto);
+    return this.eventsService.checkinAssignment(assignmentId, dto, user);
   }
 
   @Delete('assignments/:assignmentId')
@@ -240,8 +308,7 @@ export class EventsController {
     UserRole.COMMUNITY_COORDINATOR,
     UserRole.PASTORAL_COORDINATOR,
   )
-  removeAssignment(@Param('assignmentId') assignmentId: string) {
-    return this.eventsService.removeAssignment(assignmentId);
+  removeAssignment(@Param('assignmentId') assignmentId: string, @CurrentUser() user: any) {
+    return this.eventsService.removeAssignment(assignmentId, user);
   }
 }
-

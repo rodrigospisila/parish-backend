@@ -6,8 +6,10 @@ import {
   IsOptional,
   MinLength,
   IsArray,
+  IsBoolean,
+  IsString as IsStringEach,
 } from 'class-validator';
-import { UserRole } from '@prisma/client';
+import { UserRole, ClergyTitle } from '@prisma/client';
 
 export class CreateUserDto {
   @IsEmail()
@@ -23,13 +25,19 @@ export class CreateUserDto {
   @IsNotEmpty()
   name: string;
 
+  // null limpa o telefone (users.phone é unique; vazio é normalizado para null no service)
   @IsString()
   @IsOptional()
-  phone?: string;
+  phone?: string | null;
 
   @IsEnum(UserRole)
   @IsNotEmpty()
   role: UserRole;
+
+  // Cargo eclesiástico (opcional): Bispo/Pároco/Diácono. null limpa.
+  @IsEnum(ClergyTitle)
+  @IsOptional()
+  clergyTitle?: ClergyTitle | null;
 
   @IsString()
   @IsOptional()
@@ -46,5 +54,13 @@ export class CreateUserDto {
   @IsArray()
   @IsOptional()
   communityIds?: string[];
-}
 
+  @IsArray()
+  @IsOptional()
+  @IsStringEach({ each: true })
+  pastoralIds?: string[];
+
+  @IsBoolean()
+  @IsOptional()
+  consentGiven?: boolean;
+}

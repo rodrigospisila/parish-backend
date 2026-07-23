@@ -1,4 +1,4 @@
-import { IsString, IsOptional, IsBoolean } from 'class-validator';
+import { IsString, IsOptional, IsBoolean, IsInt, Min } from 'class-validator';
 
 export class AddPastoralToEventDto {
   @IsString()
@@ -11,4 +11,9 @@ export class AddPastoralToEventDto {
   @IsOptional()
   @IsBoolean()
   isLeader?: boolean; // Pastoral principal/organizadora
+
+  @IsOptional()
+  @IsInt()
+  @Min(0)
+  requiredPeople?: number;
 }

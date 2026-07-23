@@ -15,6 +15,7 @@ import { UpdatePrayerRequestDto } from './dto/update-prayer-request.dto';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { RolesGuard } from '../auth/guards/roles.guard';
 import { Roles } from '../auth/decorators/roles.decorator';
+import { CurrentUser } from '../auth/decorators/current-user.decorator';
 import { UserRole, PrayerRequestCategory, PrayerRequestStatus } from '@prisma/client';
 
 @Controller('prayer-requests')
@@ -23,8 +24,8 @@ export class PrayerRequestsController {
 
   @Post()
   @UseGuards(JwtAuthGuard)
-  create(@Body() createPrayerRequestDto: CreatePrayerRequestDto) {
-    return this.prayerRequestsService.create(createPrayerRequestDto);
+  create(@Body() createPrayerRequestDto: CreatePrayerRequestDto, @CurrentUser() user: any) {
+    return this.prayerRequestsService.create(createPrayerRequestDto, user);
   }
 
   @Get()
@@ -43,6 +44,7 @@ export class PrayerRequestsController {
   }
 
   @Get('approved')
+  @UseGuards(JwtAuthGuard)
   findApproved(
     @Query('communityId') communityId?: string,
     @Query('category') category?: PrayerRequestCategory,
@@ -74,8 +76,8 @@ export class PrayerRequestsController {
 
   @Get(':id')
   @UseGuards(JwtAuthGuard)
-  findOne(@Param('id') id: string) {
-    return this.prayerRequestsService.findOne(id);
+  findOne(@Param('id') id: string, @CurrentUser() user: any) {
+    return this.prayerRequestsService.findOne(id, user);
   }
 
   @Patch(':id')
@@ -126,6 +128,7 @@ export class PrayerRequestsController {
   // ========== CONTADOR DE ORAÇÕES ==========
 
   @Post(':id/pray')
+  @UseGuards(JwtAuthGuard)
   incrementPrayerCount(@Param('id') id: string) {
     return this.prayerRequestsService.incrementPrayerCount(id);
   }

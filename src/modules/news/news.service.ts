@@ -1,13 +1,20 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable, NotFoundException, ForbiddenException } from '@nestjs/common';
+import { NotificationType } from '@prisma/client';
 import { PrismaService } from '../../database/prisma.service';
 import { CreateNewsDto } from './dto/create-news.dto';
 import { UpdateNewsDto } from './dto/update-news.dto';
+import { HierarchyService, CurrentUser } from '../../common/hierarchy.service';
+import { NotificationsService } from '../notifications/notifications.service';
 
 @Injectable()
 export class NewsService {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(
+    private readonly prisma: PrismaService,
+    private readonly hierarchyService: HierarchyService,
+    private readonly notificationsService: NotificationsService,
+  ) {}
 
-  async create(createNewsDto: CreateNewsDto) {
+  async create(createNewsDto: CreateNewsDto, currentUser?: CurrentUser) {
     const { communityId, ...rest } = createNewsDto;
 
     // Verificar se a comunidade existe
@@ -19,7 +26,15 @@ export class NewsService {
       throw new NotFoundException(`Comunidade com ID ${communityId} não encontrada`);
     }
 
-    return this.prisma.news.create({
+    // Escopo: o autor só publica em comunidades do seu alcance
+    if (currentUser) {
+      const inScope = await this.hierarchyService.isCommunityInScope(currentUser, communityId);
+      if (!inScope) {
+        throw new ForbiddenException('Você não tem permissão para publicar nesta comunidade');
+      }
+    }
+
+    const news = await this.prisma.news.create({
       data: {
         ...rest,
         communityId,
@@ -33,6 +48,46 @@ export class NewsService {
         },
       },
     });
+
+    // Comunicado segmentado por comunidade: dispara notificação aos usuários
+    // da comunidade (respeitando opt-out no NotificationsService).
+    await this.broadcastToCommunity(news);
+
+    return news;
+  }
+
+  /**
+   * Notifica os usuários vinculados à comunidade do aviso. Best-effort.
+   * O tipo URGENT_NOTICE/NEWS respeita o opt-out de comunicações do titular.
+   */
+  private async broadcastToCommunity(news: {
+    id: string;
+    title: string;
+    communityId: string;
+    isUrgent: boolean;
+  }) {
+    const users = await this.prisma.user.findMany({
+      where: {
+        isActive: true,
+        OR: [
+          { communityId: news.communityId },
+          { communities: { some: { communityId: news.communityId, isActive: true } } },
+        ],
+      },
+      select: { id: true },
+    });
+
+    if (users.length === 0) {
+      return;
+    }
+
+    await this.notificationsService.notifyUsers(
+      users.map((user) => user.id),
+      news.isUrgent ? NotificationType.URGENT_NOTICE : NotificationType.NEWS,
+      news.isUrgent ? 'Aviso urgente' : 'Novo comunicado',
+      news.title,
+      { newsId: news.id },
+    );
   }
 
   async findAll(communityId?: string, category?: string, isUrgent?: boolean) {

@@ -4,6 +4,7 @@ import {
   Post,
   Body,
   Patch,
+  Put,
   Param,
   Delete,
   UseGuards,
@@ -12,6 +13,8 @@ import {
 import { MembersService } from './members.service';
 import { CreateMemberDto } from './dto/create-member.dto';
 import { UpdateMemberDto } from './dto/update-member.dto';
+import { ImportMembersDto } from './dto/import-members.dto';
+import { UpdateMemberAvailabilityDto } from './dto/update-member-availability.dto';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { RolesGuard } from '../auth/guards/roles.guard';
 import { Roles } from '../auth/decorators/roles.decorator';
@@ -45,15 +48,45 @@ export class MembersController {
 
   @Get('search')
   searchByName(
+    @CurrentUser() user: any,
     @Query('name') name: string,
     @Query('communityId') communityId?: string,
   ) {
-    return this.membersService.searchByName(name, communityId);
+    return this.membersService.searchByName(name, communityId, user);
+  }
+
+  // Detecção de possíveis duplicados (nome + nascimento/telefone), respeitando escopo
+  @Get('check-duplicates')
+  checkDuplicates(
+    @CurrentUser() user: any,
+    @Query('fullName') fullName: string,
+    @Query('birthDate') birthDate?: string,
+    @Query('phone') phone?: string,
+    @Query('communityId') communityId?: string,
+    @Query('excludeId') excludeId?: string,
+  ) {
+    return this.membersService.findPotentialDuplicates(
+      { fullName, birthDate, phone, communityId },
+      user,
+      excludeId,
+    );
+  }
+
+  // Importação em massa (o cliente envia as linhas já parseadas do CSV)
+  @Post('import')
+  @Roles(
+    UserRole.SYSTEM_ADMIN,
+    UserRole.DIOCESAN_ADMIN,
+    UserRole.PARISH_ADMIN,
+    UserRole.COMMUNITY_COORDINATOR,
+  )
+  importMembers(@Body() body: ImportMembersDto, @CurrentUser() user: any) {
+    return this.membersService.importMembers(body.rows, body.communityId, user);
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.membersService.findOne(id);
+  findOne(@Param('id') id: string, @CurrentUser() user: any) {
+    return this.membersService.findOne(id, user);
   }
 
   @Patch(':id')
@@ -73,25 +106,57 @@ export class MembersController {
     return this.membersService.remove(id, user);
   }
 
-  // LGPD: Exportar dados
+  // LGPD: Exportar dados (o próprio titular ou gestor com escopo)
   @Get(':id/export')
-  exportData(@Param('id') id: string) {
-    return this.membersService.exportMemberData(id);
+  exportData(@Param('id') id: string, @CurrentUser() user: any) {
+    return this.membersService.exportMemberData(id, user);
   }
 
   // LGPD: Direito ao esquecimento
   @Post(':id/anonymize')
-  @Roles(UserRole.SYSTEM_ADMIN, UserRole.DIOCESAN_ADMIN, UserRole.PARISH_ADMIN, UserRole.COMMUNITY_COORDINATOR)
+  @Roles(UserRole.COMMUNITY_COORDINATOR)
   anonymize(@Param('id') id: string, @CurrentUser() user: any) {
-    return this.membersService.anonymizeMember(id);
+    return this.membersService.anonymizeMember(id, user);
   }
 
-  // LGPD: Atualizar consentimento
+  // LGPD: Atualizar consentimento (o próprio titular ou gestor com escopo)
   @Patch(':id/consent')
   updateConsent(
     @Param('id') id: string,
     @Body('consentGiven') consentGiven: boolean,
+    @CurrentUser() user: any,
   ) {
-    return this.membersService.updateConsent(id, consentGiven);
+    return this.membersService.updateConsent(id, consentGiven, user);
+  }
+
+  @Get('me/availability')
+  getMyAvailability(@CurrentUser() user: any) {
+    return this.membersService.getMyAvailability(user.id);
+  }
+
+  @Put('me/availability')
+  updateMyAvailability(@Body() body: UpdateMemberAvailabilityDto, @CurrentUser() user: any) {
+    return this.membersService.updateMyAvailability(user.id, body);
+  }
+
+  @Get(':id/availability')
+  getAvailability(@Param('id') id: string, @CurrentUser() user: any) {
+    return this.membersService.getAvailability(id, user);
+  }
+
+  @Put(':id/availability')
+  @Roles(
+    UserRole.SYSTEM_ADMIN,
+    UserRole.DIOCESAN_ADMIN,
+    UserRole.PARISH_ADMIN,
+    UserRole.COMMUNITY_COORDINATOR,
+    UserRole.PASTORAL_COORDINATOR,
+  )
+  updateAvailability(
+    @Param('id') id: string,
+    @Body() body: UpdateMemberAvailabilityDto,
+    @CurrentUser() user: any,
+  ) {
+    return this.membersService.updateAvailability(id, body, user);
   }
 }

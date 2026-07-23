@@ -2,14 +2,21 @@ import {
   Injectable,
   UnauthorizedException,
   ConflictException,
+  ForbiddenException,
 } from '@nestjs/common';
+import { randomUUID } from 'crypto';
 import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
 import * as bcrypt from 'bcrypt';
 import { PrismaService } from '../../database/prisma.service';
 import { LoginDto } from './dto/login.dto';
 import { RegisterDto } from './dto/register.dto';
-import { UserRole } from '@prisma/client';
+import { ConsentType, UserRole } from '@prisma/client';
+import { MembersService } from '../members/members.service';
+import { OtpService } from './otp.service';
+import { AuditService } from '../../common/audit.service';
+import { ConsentsService } from '../consents/consents.service';
+import { CURRENT_POLICY_VERSION } from '../consents/consent.constants';
 
 @Injectable()
 export class AuthService {
@@ -17,10 +24,56 @@ export class AuthService {
     private readonly prisma: PrismaService,
     private readonly jwtService: JwtService,
     private readonly configService: ConfigService,
+    private readonly membersService: MembersService,
+    private readonly otpService: OtpService,
+    private readonly auditService: AuditService,
+    private readonly consentsService: ConsentsService,
   ) {}
 
+  private mapUserResponse(user: any) {
+    const pastoralMemberships = user.member?.pastoralMemberships || [];
+
+    return {
+      id: user.id,
+      email: user.email,
+      name: user.name,
+      phone: user.phone,
+      role: user.role,
+      isActive: user.isActive,
+      forcePasswordChange: user.forcePasswordChange,
+      dioceseId: user.dioceseId,
+      parishId: user.parishId,
+      communityId: user.communityId,
+      createdAt: user.createdAt,
+      pastoralIds: pastoralMemberships.map((membership: any) => membership.communityPastoralId),
+      pastorals: pastoralMemberships.map((membership: any) => ({
+        id: membership.communityPastoral.id,
+        name: membership.communityPastoral.globalPastoral.name,
+        communityId: membership.communityPastoral.communityId,
+        role: membership.role,
+      })),
+    };
+  }
+
   async register(registerDto: RegisterDto) {
-    const { email, password, name, phone, role, dioceseId, parishId, communityId } = registerDto;
+    const { email, password, name, role, communityId, consentGiven, verifiedPhoneToken } =
+      registerDto;
+
+    // SEGURANÇA: o registro público NUNCA atribui papel elevado.
+    // Qualquer papel acima de FAITHFUL só pode ser criado por um administrador
+    // via POST /users (que valida hierarquia e escopo). Sem esta trava, qualquer
+    // pessoa poderia se auto-registrar como SYSTEM_ADMIN.
+    if (role && role !== UserRole.FAITHFUL) {
+      throw new ForbiddenException(
+        'O registro público permite apenas o perfil FAITHFUL. Perfis administrativos são criados pela gestão da paróquia.',
+      );
+    }
+
+    // If a verifiedPhoneToken was provided, extract the phone from it (mobile registration path).
+    // Otherwise fall back to the raw phone field (admin/internal path).
+    const phone = verifiedPhoneToken
+      ? this.otpService.decodeVerifiedPhoneToken(verifiedPhoneToken)
+      : registerDto.phone;
 
     // Verificar se o usuário já existe
     const existingUser = await this.prisma.user.findUnique({
@@ -34,66 +87,98 @@ export class AuthService {
     // Hash da senha
     const hashedPassword = await bcrypt.hash(password, 10);
 
+    // Aceite de termos/política: registrado quando o titular consente no cadastro
+    const acceptedTerms = consentGiven === true;
+    const now = new Date();
+
     // Usar transação para criar User e Member juntos
     const result = await this.prisma.$transaction(async (tx) => {
-      // Criar usuário
+      // Criar usuário — sempre FAITHFUL e sem escopo administrativo
+      // (dioceseId/parishId são atribuídos apenas pela gestão via /users)
       const user = await tx.user.create({
         data: {
           email,
           password: hashedPassword,
           name,
           phone,
-          role: role || UserRole.FAITHFUL,
-          dioceseId,
-          parishId,
+          role: UserRole.FAITHFUL,
           communityId,
+          acceptedTermsAt: acceptedTerms ? now : null,
+          acceptedTermsVersion: acceptedTerms ? CURRENT_POLICY_VERSION : null,
         },
-        select: {
-          id: true,
-          email: true,
-          name: true,
-          phone: true,
-          role: true,
-          isActive: true,
-          dioceseId: true,
-          parishId: true,
-          communityId: true,
-          createdAt: true,
+        include: {
+          member: {
+            include: {
+              pastoralMemberships: {
+                where: { isActive: true },
+                include: {
+                  communityPastoral: {
+                    select: {
+                      id: true,
+                      communityId: true,
+                      globalPastoral: {
+                        select: {
+                          id: true,
+                          name: true,
+                        },
+                      },
+                    },
+                  },
+                },
+              },
+            },
+          },
         },
       });
 
-      // Criar Membro automaticamente vinculado ao usuário
-      // Somente se o usuário tiver uma comunidade definida
+      // Garante o perfil de Member (somente para roles elegiveis e quando ha comunidade
+      // definida) - mesma regra usada em UsersService, centralizada em MembersService.
       if (communityId) {
-        await tx.member.create({
-          data: {
-            fullName: name,
-            email: email,
-            phone: phone,
+        const member = await this.membersService.ensureProfileForUser(
+          tx,
+          {
             userId: user.id,
-            communityId: communityId,
-            status: 'ACTIVE',
-            consentGiven: true,
-            consentDate: new Date(),
+            role: UserRole.FAITHFUL,
+            name,
+            email,
+            phone,
+            communityId,
+            consentGiven,
           },
-        });
+          user.member?.id,
+        );
+
+        // Registra o consentimento granular de tratamento de dados (LGPD)
+        if (member && acceptedTerms) {
+          await this.consentsService.grantInitialConsents(tx, member.id, user.id, [
+            ConsentType.DATA_PROCESSING,
+          ]);
+        }
       }
 
       return user;
     });
 
+    await this.auditService.log({
+      actor: { id: result.id, email: result.email, role: result.role },
+      action: 'REGISTER',
+      entity: 'User',
+      entityId: result.id,
+      metadata: { communityId: result.communityId },
+    });
+
     // Gerar tokens
     const tokens = await this.generateTokens(
-      result.id, 
-      result.email, 
-      result.role, 
+      result.id,
+      result.email,
+      result.role,
       result.dioceseId ?? undefined,
       result.parishId ?? undefined,
       result.communityId ?? undefined
     );
 
     return {
-      user: result,
+      user: this.mapUserResponse(result),
       ...tokens,
     };
   }
@@ -104,6 +189,29 @@ export class AuthService {
     // Buscar usuário
     const user = await this.prisma.user.findUnique({
       where: { email },
+      include: {
+        member: {
+          include: {
+            pastoralMemberships: {
+              where: { isActive: true },
+              include: {
+                communityPastoral: {
+                  select: {
+                    id: true,
+                    communityId: true,
+                    globalPastoral: {
+                      select: {
+                        id: true,
+                        name: true,
+                      },
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
     });
 
     if (!user) {
@@ -139,19 +247,7 @@ export class AuthService {
     );
 
     return {
-      user: {
-        id: user.id,
-        email: user.email,
-        name: user.name,
-        phone: user.phone,
-        role: user.role,
-        isActive: user.isActive,
-        forcePasswordChange: user.forcePasswordChange,
-        dioceseId: user.dioceseId,
-        parishId: user.parishId,
-        communityId: user.communityId,
-        createdAt: user.createdAt,
-      },
+      user: this.mapUserResponse(user),
       ...tokens,
     };
   }
@@ -220,19 +316,28 @@ export class AuthService {
   }
 
   private async generateTokens(userId: string, email: string, role: UserRole, dioceseId?: string, parishId?: string, communityId?: string) {
-    const payload = { sub: userId, email, role, dioceseId, parishId, communityId };
+    // `jti`: nonce único por emissão. Sem ele, dois logins do mesmo usuário no
+    // mesmo segundo produziriam JWTs idênticos (payload + iat em segundos) e
+    // colidiriam na constraint única de refreshToken.token.
+    const basePayload = { sub: userId, email, role, dioceseId, parishId, communityId };
 
     // Gerar access token
-    const accessToken = this.jwtService.sign(payload, {
-      secret: this.configService.get('JWT_SECRET'),
-      expiresIn: this.configService.get('JWT_EXPIRES_IN') || '1d',
-    });
+    const accessToken = this.jwtService.sign(
+      { ...basePayload, jti: randomUUID() },
+      {
+        secret: this.configService.get('JWT_SECRET'),
+        expiresIn: this.configService.get('JWT_EXPIRES_IN') || '1d',
+      },
+    );
 
-    // Gerar refresh token
-    const refreshToken = this.jwtService.sign(payload, {
-      secret: this.configService.get('JWT_REFRESH_SECRET'),
-      expiresIn: this.configService.get('JWT_REFRESH_EXPIRES_IN') || '7d',
-    });
+    // Gerar refresh token (jti próprio, garante unicidade do token persistido)
+    const refreshToken = this.jwtService.sign(
+      { ...basePayload, jti: randomUUID() },
+      {
+        secret: this.configService.get('JWT_REFRESH_SECRET'),
+        expiresIn: this.configService.get('JWT_REFRESH_EXPIRES_IN') || '7d',
+      },
+    );
 
     // Calcular data de expiração do refresh token
     const expiresAt = new Date();
@@ -267,6 +372,21 @@ export class AuthService {
         parishId: true,
         communityId: true,
         primaryCommunityId: true,
+        member: {
+          select: {
+            id: true,
+            pastoralMemberships: {
+              where: {
+                isActive: true,
+                communityPastoralId: { not: null },
+              },
+              select: {
+                communityPastoralId: true,
+                role: true,
+              },
+            },
+          },
+        },
         communities: {
           include: {
             community: {
@@ -284,7 +404,11 @@ export class AuthService {
       throw new UnauthorizedException('Usuário não encontrado ou inativo');
     }
 
-    return user;
+    return {
+      ...user,
+      pastoralIds: user.member?.pastoralMemberships
+        .map((membership) => membership.communityPastoralId)
+        .filter((id): id is string => !!id),
+    };
   }
 }
-

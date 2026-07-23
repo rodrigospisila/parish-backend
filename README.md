@@ -13,10 +13,15 @@ Este repositório contém o código-fonte da API backend do sistema Parish. A AP
 - **Banco de Dados**: [PostgreSQL](https://www.postgresql.org/) (v16.x ou 17.x)
 - **ORM**: [Prisma](https://www.prisma.io/) (v6.x)
 - **Runtime**: [Node.js](https://nodejs.org/) (v20.x ou 22.x)
-- **Cache**: [Redis](https://redis.io/) (v7.x)
-- **Filas**: [BullMQ](https://bullmq.io/)
-- **Autenticação**: JWT (JSON Web Tokens)
+- **Jobs agendados**: [`@nestjs/schedule`](https://docs.nestjs.com/techniques/task-scheduling) (crons de lembrete de escala)
+- **Mensageria**: SMS via [Twilio](https://www.twilio.com/) (OTP e fallback de notificações); push via Expo
+- **Autenticação**: JWT (JSON Web Tokens) + RBAC hierárquico
+- **PDF**: `pdfkit` (exportação de escalas)
 - **Documentação da API**: Swagger (OpenAPI)
+
+> **Planejado (ainda não integrado):** Redis + BullMQ para filas assíncronas e cache. O
+> agendamento atual usa `@nestjs/schedule` (cron in-process); a migração para filas está prevista
+> em fases futuras do [roadmap](../docs/roadmap-implementacao-fases.md).
 
 ## 📁 Estrutura do Projeto
 
@@ -173,8 +178,13 @@ O schema do Prisma inclui as seguintes entidades principais:
 - **News**: Avisos e notícias paroquiais
 
 ### Financeiro e Notificações
-- **FinancialTransaction**: Transações financeiras
-- **Notification**: Notificações push
+- **FinancialTransaction**: modelo-base de transações financeiras. **Sem módulo/endpoints ainda** —
+  serve de fundação para o módulo Financeiro/Dízimo previsto na Fase 4 do
+  [roadmap](../docs/roadmap-implementacao-fases.md). Não deve ser usado como se estivesse ativo.
+- **Notification**: Notificações push (Expo), com fallback SMS e opt-out (LGPD)
+- **AuditLog**: trilha de auditoria (quem acessou/alterou dados sensíveis)
+- **Consent**: consentimentos granulares LGPD (tratamento, imagem, comunicações)
+- **PasswordResetToken**: recuperação de senha por autoatendimento
 
 ## 🔐 Perfis de Acesso (RBAC)
 
@@ -284,14 +294,12 @@ O projeto inclui um `docker-compose.yml` para facilitar o desenvolvimento local.
 - **Redis**: Cache e gerenciamento de filas
 - **MailHog**: Servidor SMTP para testes de email
 
-## 🔜 Próximas Etapas (Fase 2)
+## 📦 Módulos já implementados além da Fase 1
 
-- [ ] Módulo de Eventos e Calendário
-- [ ] Módulo de Escalas de Serviço
-- [ ] Módulo de Pedidos de Oração
-- [ ] Módulo de Intenções de Missa (com pagamento PIX)
-- [ ] Módulo de Pastorais e Ministérios
-- [ ] Módulo de Notificações Push
+Eventos/Calendário, Escalas de Serviço, Pedidos de Oração, Intenções de Missa, Pastorais/Ministérios
+e Notificações Push já existem no código. Consulte o
+[roadmap de implementação por fases](../docs/roadmap-implementacao-fases.md) para o estado real de
+cada área (o que está completo, parcial ou pendente) e as próximas entregas.
 
 ## 🤝 Contribuição
 

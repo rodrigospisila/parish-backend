@@ -2,17 +2,28 @@ import { NestFactory } from '@nestjs/core';
 import { ValidationPipe } from '@nestjs/common';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { AppModule } from './app.module';
+import { validateEnv } from './config/validate-env';
 
 async function bootstrap() {
+  // Falha rápido se segredos/configuração de segurança estiverem ausentes
+  validateEnv();
+
   const app = await NestFactory.create(AppModule);
 
-  // Global prefix
+  // Global prefix (o /health fica fora do prefixo para o healthcheck do Railway)
   const apiPrefix = process.env.API_PREFIX || 'api/v1';
-  app.setGlobalPrefix(apiPrefix);
+  app.setGlobalPrefix(apiPrefix, { exclude: ['health'] });
 
-  // CORS
+  // CORS: origens explícitas via env. Sem CORS_ORIGIN definido, permite
+  // apenas localhost (desenvolvimento) — nunca "*" com credentials.
+  const corsOrigins = process.env.CORS_ORIGIN?.split(',')
+    .map((origin) => origin.trim())
+    .filter(Boolean);
+
   app.enableCors({
-    origin: process.env.CORS_ORIGIN?.split(',') || '*',
+    origin: corsOrigins?.length
+      ? corsOrigins
+      : [/^http:\/\/localhost(:\d+)?$/, /^http:\/\/127\.0\.0\.1(:\d+)?$/],
     credentials: true,
   });
 

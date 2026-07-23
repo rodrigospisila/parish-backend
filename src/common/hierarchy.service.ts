@@ -8,9 +8,13 @@ import { UserRole } from '@prisma/client';
 export interface CurrentUser {
   id: string;
   role: UserRole;
+  email?: string;
   dioceseId?: string;
   parishId?: string;
   communityId?: string;
+  pastoralIds?: string[];
+  /** Vínculos N:N carregados pelo JwtStrategy (validateUser) */
+  communities?: Array<{ communityId: string }>;
 }
 
 /**
@@ -87,7 +91,7 @@ export class HierarchyService {
         member: {
           include: {
             pastoralMemberships: {
-              where: coordinatorOnly ? { role: 'COORDINATOR' } : undefined,
+              where: coordinatorOnly ? { role: 'COORDINATOR', isActive: true } : { isActive: true },
               select: { communityPastoralId: true },
             },
           },
@@ -118,7 +122,7 @@ export class HierarchyService {
         member: {
           include: {
             pastoralMemberships: {
-              where: { communityPastoralId: pastoralId },
+              where: { communityPastoralId: pastoralId, isActive: true },
             },
           },
         },
@@ -192,19 +196,38 @@ export class HierarchyService {
   }
 
   /**
-   * Verifica se o usuário tem acesso a uma escala específica
+   * Verifica se o usuário tem acesso a uma escala específica.
+   * Escala com evento: herda o acesso do evento. Escala sem evento (Fase 4.1):
+   * usa a comunidade própria da escala.
    */
   async hasAccessToSchedule(userId: string, scheduleId: string): Promise<boolean> {
     const schedule = await this.prisma.schedule.findUnique({
       where: { id: scheduleId },
-      include: { event: true },
+      select: { eventId: true, communityId: true },
     });
 
-    if (!schedule?.eventId) {
+    if (!schedule) {
       return false;
     }
 
-    return this.hasAccessToEvent(userId, schedule.eventId);
+    if (schedule.eventId) {
+      return this.hasAccessToEvent(userId, schedule.eventId);
+    }
+
+    if (schedule.communityId) {
+      const user = await this.prisma.user.findUnique({ where: { id: userId } });
+      if (!user) return false;
+      const currentUser: CurrentUser = {
+        id: user.id,
+        role: user.role,
+        dioceseId: user.dioceseId ?? undefined,
+        parishId: user.parishId ?? undefined,
+        communityId: user.communityId ?? undefined,
+      };
+      return this.isCommunityInScope(currentUser, schedule.communityId);
+    }
+
+    return false;
   }
 
   /**
@@ -229,10 +252,28 @@ export class HierarchyService {
     const assignment = await this.prisma.scheduleAssignment.findUnique({
       where: { id: assignmentId },
       include: {
+        member: {
+          include: {
+            pastoralMemberships: {
+              where: {
+                isActive: true,
+                communityPastoralId: { not: null },
+              },
+              select: {
+                communityPastoralId: true,
+              },
+            },
+          },
+        },
         schedule: {
           include: {
             event: {
               include: {
+                eventPastorals: {
+                  select: {
+                    communityPastoralId: true,
+                  },
+                },
                 community: {
                   include: { parish: true },
                 },
@@ -272,7 +313,19 @@ export class HierarchyService {
 
     // PASTORAL_COORDINATOR pode gerenciar atribuições de eventos de suas pastorais
     if (user.role === UserRole.PASTORAL_COORDINATOR) {
-      return this.hasAccessToEvent(userId, event.id);
+      const userPastoralIds = await this.getUserPastoralIds(userId, true);
+      const assignmentPastoralIds = assignment.member?.pastoralMemberships
+        ?.map((membership) => membership.communityPastoralId)
+        .filter((id): id is string => !!id) || [];
+      const eventPastoralIds = assignment.schedule?.event?.eventPastorals
+        ?.map((eventPastoral) => eventPastoral.communityPastoralId)
+        .filter((id): id is string => !!id) || [];
+
+      return userPastoralIds.some(
+        (pastoralId) =>
+          assignmentPastoralIds.includes(pastoralId) &&
+          eventPastoralIds.includes(pastoralId),
+      );
     }
 
     return false;
@@ -301,6 +354,15 @@ export class HierarchyService {
         community: {
           include: { parish: true },
         },
+        pastoralMemberships: {
+          where: {
+            isActive: true,
+            communityPastoralId: { not: null },
+          },
+          select: {
+            communityPastoralId: true,
+          },
+        },
       },
     });
 
@@ -319,6 +381,53 @@ export class HierarchyService {
 
     if (user.role === UserRole.COMMUNITY_COORDINATOR) {
       return member.communityId === user.communityId;
+    }
+
+    if (user.role === UserRole.PASTORAL_COORDINATOR) {
+      const userPastoralIds = await this.getUserPastoralIds(userId, true);
+      const memberPastoralIds = member.pastoralMemberships
+        .map((membership) => membership.communityPastoralId)
+        .filter((id): id is string => !!id);
+
+      return userPastoralIds.some((pastoralId) => memberPastoralIds.includes(pastoralId));
+    }
+
+    return false;
+  }
+
+  /**
+   * Verifica se uma comunidade está dentro do escopo de LEITURA/PARTICIPAÇÃO
+   * do usuário (mais permissivo que canManageCommunity: um FAITHFUL "está em
+   * escopo" na própria comunidade, embora não possa gerenciá-la).
+   */
+  async isCommunityInScope(user: CurrentUser, communityId: string): Promise<boolean> {
+    if (user.role === UserRole.SYSTEM_ADMIN) {
+      return true;
+    }
+
+    if (user.communityId === communityId) {
+      return true;
+    }
+
+    if (user.communities?.some((link) => link.communityId === communityId)) {
+      return true;
+    }
+
+    if (user.role === UserRole.DIOCESAN_ADMIN || user.role === UserRole.PARISH_ADMIN) {
+      const community = await this.prisma.community.findUnique({
+        where: { id: communityId },
+        include: { parish: true },
+      });
+
+      if (!community) {
+        return false;
+      }
+
+      if (user.role === UserRole.DIOCESAN_ADMIN) {
+        return community.parish?.dioceseId === user.dioceseId;
+      }
+
+      return community.parishId === user.parishId;
     }
 
     return false;
@@ -538,7 +647,28 @@ export class HierarchyService {
         where.community = { parishId: user.parishId };
         break;
       case UserRole.COMMUNITY_COORDINATOR:
+        where.communityId = user.communityId;
+        break;
       case UserRole.PASTORAL_COORDINATOR:
+        // Vê os eventos da sua comunidade e também os eventos (de outras
+        // comunidades) em que alguma de suas pastorais está envolvida
+        if (user.pastoralIds?.length) {
+          where.OR = [
+            ...(user.communityId ? [{ communityId: user.communityId }] : []),
+            {
+              eventPastorals: {
+                some: {
+                  communityPastoralId: {
+                    in: user.pastoralIds,
+                  },
+                },
+              },
+            },
+          ];
+        } else {
+          where.communityId = user.communityId;
+        }
+        break;
       case UserRole.VOLUNTEER:
       case UserRole.FAITHFUL:
         where.communityId = user.communityId;
@@ -565,7 +695,22 @@ export class HierarchyService {
         where.community = { parishId: user.parishId };
         break;
       case UserRole.COMMUNITY_COORDINATOR:
+        where.communityId = user.communityId;
+        break;
       case UserRole.PASTORAL_COORDINATOR:
+        if (user.pastoralIds?.length) {
+          where.pastoralMemberships = {
+            some: {
+              communityPastoralId: {
+                in: user.pastoralIds,
+              },
+              isActive: true,
+            },
+          };
+        } else {
+          where.communityId = user.communityId;
+        }
+        break;
       case UserRole.VOLUNTEER:
       case UserRole.FAITHFUL:
         where.communityId = user.communityId;
@@ -576,29 +721,55 @@ export class HierarchyService {
   }
 
   /**
-   * Aplica filtros de hierarquia a uma query do Prisma para escalas
+   * Aplica filtros de hierarquia a uma query do Prisma para escalas.
+   * Cobre tanto escalas COM evento quanto escalas SEM evento (Fase 4.1),
+   * que se ancoram diretamente na comunidade (schedule.communityId).
    */
   applyScheduleFilter(user: CurrentUser): any {
-    const where: any = {};
+    // Cláusula equivalente aplicada ao evento OU à comunidade própria da escala
+    let eventClause: any = null;
+    let standaloneClause: any = null;
 
     switch (user.role) {
       case UserRole.SYSTEM_ADMIN:
-        // Sem filtro
-        break;
+        return {};
       case UserRole.DIOCESAN_ADMIN:
-        where.event = { community: { parish: { dioceseId: user.dioceseId } } };
+        eventClause = { community: { parish: { dioceseId: user.dioceseId } } };
+        standaloneClause = { community: { parish: { dioceseId: user.dioceseId } } };
         break;
       case UserRole.PARISH_ADMIN:
-        where.event = { community: { parishId: user.parishId } };
+        eventClause = { community: { parishId: user.parishId } };
+        standaloneClause = { community: { parishId: user.parishId } };
         break;
       case UserRole.COMMUNITY_COORDINATOR:
+        eventClause = { communityId: user.communityId };
+        standaloneClause = { communityId: user.communityId };
+        break;
       case UserRole.PASTORAL_COORDINATOR:
+        if (user.pastoralIds?.length) {
+          eventClause = {
+            eventPastorals: { some: { communityPastoralId: { in: user.pastoralIds } } },
+          };
+          standaloneClause = {
+            pastorals: { some: { communityPastoralId: { in: user.pastoralIds } } },
+          };
+        } else {
+          eventClause = { communityId: user.communityId };
+          standaloneClause = { communityId: user.communityId };
+        }
+        break;
       case UserRole.VOLUNTEER:
       case UserRole.FAITHFUL:
-        where.event = { communityId: user.communityId };
+        eventClause = { communityId: user.communityId };
+        standaloneClause = { communityId: user.communityId };
         break;
     }
 
-    return where;
+    return {
+      OR: [
+        { event: eventClause },
+        { AND: [{ eventId: null }, standaloneClause] },
+      ],
+    };
   }
 }

@@ -2,13 +2,44 @@ import { Injectable, NotFoundException, ForbiddenException } from '@nestjs/commo
 import { PrismaService } from '../../database/prisma.service';
 import { CreatePrayerRequestDto } from './dto/create-prayer-request.dto';
 import { UpdatePrayerRequestDto } from './dto/update-prayer-request.dto';
-import { PrayerRequestCategory, PrayerRequestStatus } from '@prisma/client';
+import { PrayerRequestCategory, PrayerRequestStatus, UserRole } from '@prisma/client';
+import { HierarchyService, CurrentUser } from '../../common/hierarchy.service';
+import { AuditService } from '../../common/audit.service';
+import { isRoleAtLeast } from '../auth/constants/role-hierarchy';
+
+/**
+ * Remove a identificação do autor quando o pedido é anônimo.
+ * Moderadores (COMMUNITY_COORDINATOR ou superior) continuam vendo o autor,
+ * pois precisam dele para moderação e prevenção de abuso.
+ */
+function maskAnonymous<T extends { isAnonymous: boolean; member?: unknown; memberId?: string | null }>(
+  request: T,
+  viewerRole?: UserRole,
+): T {
+  const isModerator = viewerRole
+    ? isRoleAtLeast(viewerRole, UserRole.COMMUNITY_COORDINATOR)
+    : false;
+
+  if (!request.isAnonymous || isModerator) {
+    return request;
+  }
+
+  return {
+    ...request,
+    member: null,
+    ...(('memberId' in request) ? { memberId: null } : {}),
+  };
+}
 
 @Injectable()
 export class PrayerRequestsService {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(
+    private readonly prisma: PrismaService,
+    private readonly hierarchyService: HierarchyService,
+    private readonly auditService: AuditService,
+  ) {}
 
-  async create(createPrayerRequestDto: CreatePrayerRequestDto) {
+  async create(createPrayerRequestDto: CreatePrayerRequestDto, currentUser?: CurrentUser) {
     const { communityId, memberId, ...rest } = createPrayerRequestDto;
 
     // Verificar se a comunidade existe
@@ -18,6 +49,15 @@ export class PrayerRequestsService {
 
     if (!community) {
       throw new NotFoundException(`Comunidade com ID ${communityId} não encontrada`);
+    }
+
+    // Escopo: o solicitante só pode criar pedidos para comunidades das quais participa
+    // (ou que administra, no caso de papéis administrativos)
+    if (currentUser) {
+      const inScope = await this.hierarchyService.isCommunityInScope(currentUser, communityId);
+      if (!inScope) {
+        throw new ForbiddenException('Você não pode criar pedidos de oração para esta comunidade');
+      }
     }
 
     // Verificar se o membro existe (se fornecido)
@@ -31,7 +71,7 @@ export class PrayerRequestsService {
       }
     }
 
-    return this.prisma.prayerRequest.create({
+    const created = await this.prisma.prayerRequest.create({
       data: {
         ...rest,
         communityId,
@@ -53,6 +93,18 @@ export class PrayerRequestsService {
         },
       },
     });
+
+    await this.auditService.log({
+      actor: currentUser
+        ? { id: currentUser.id, email: currentUser.email, role: currentUser.role }
+        : null,
+      action: 'CREATE',
+      entity: 'PrayerRequest',
+      entityId: created.id,
+      metadata: { communityId, isAnonymous: created.isAnonymous, category: created.category },
+    });
+
+    return created;
   }
 
   async findAll(
@@ -109,7 +161,7 @@ export class PrayerRequestsService {
       where.category = category;
     }
 
-    return this.prisma.prayerRequest.findMany({
+    const requests = await this.prisma.prayerRequest.findMany({
       where,
       select: {
         id: true,
@@ -125,7 +177,6 @@ export class PrayerRequestsService {
             name: true,
           },
         },
-        // Não incluir membro se for anônimo
         member: {
           select: {
             id: true,
@@ -137,6 +188,9 @@ export class PrayerRequestsService {
         createdAt: 'desc',
       },
     });
+
+    // Lista pública (fiéis): pedidos anônimos NUNCA expõem o autor
+    return requests.map((request) => maskAnonymous(request));
   }
 
   async findPending(communityId?: string) {
@@ -171,7 +225,7 @@ export class PrayerRequestsService {
     });
   }
 
-  async findOne(id: string) {
+  async findOne(id: string, currentUser?: CurrentUser) {
     const prayerRequest = await this.prisma.prayerRequest.findUnique({
       where: { id },
       include: {
@@ -184,7 +238,8 @@ export class PrayerRequestsService {
       throw new NotFoundException(`Pedido de oração com ID ${id} não encontrado`);
     }
 
-    return prayerRequest;
+    // Pedido anônimo não expõe o autor para quem não é moderador
+    return maskAnonymous(prayerRequest, currentUser?.role);
   }
 
   async update(id: string, updatePrayerRequestDto: UpdatePrayerRequestDto) {

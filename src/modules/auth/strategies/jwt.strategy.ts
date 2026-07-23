@@ -10,10 +10,18 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     private readonly configService: ConfigService,
     private readonly authService: AuthService,
   ) {
+    const jwtSecret = configService.get<string>('JWT_SECRET');
+
+    if (!jwtSecret) {
+      // Nunca usar fallback silencioso: um segredo previsível permitiria
+      // forjar tokens de qualquer usuário.
+      throw new Error('[SEGURANÇA] JWT_SECRET não definido — a autenticação não pode iniciar.');
+    }
+
     super({
       jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
       ignoreExpiration: false,
-      secretOrKey: configService.get<string>('JWT_SECRET') || 'default-secret-key',
+      secretOrKey: jwtSecret,
     });
   }
 

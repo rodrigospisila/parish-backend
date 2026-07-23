@@ -1,4 +1,4 @@
-import { IsString, IsNotEmpty, IsOptional, IsEnum, IsNumber } from 'class-validator';
+import { IsString, IsNotEmpty, IsOptional, IsEnum, IsNumber, IsBoolean } from 'class-validator';
 import { EntityStatus } from '@prisma/client';
 
 export class CreateCommunityDto {
@@ -57,5 +57,10 @@ export class CreateCommunityDto {
   @IsEnum(EntityStatus)
   @IsOptional()
   status?: EntityStatus;
+
+  // Habilita o fallback de notificação por SMS para membros sem app (custo por comunidade)
+  @IsBoolean()
+  @IsOptional()
+  smsEnabled?: boolean;
 }
 

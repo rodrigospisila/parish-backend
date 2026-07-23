@@ -15,6 +15,7 @@ import { UpdateNewsDto } from './dto/update-news.dto';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { RolesGuard } from '../auth/guards/roles.guard';
 import { Roles } from '../auth/decorators/roles.decorator';
+import { CurrentUser } from '../auth/decorators/current-user.decorator';
 import { UserRole } from '@prisma/client';
 
 @Controller('news')
@@ -28,8 +29,8 @@ export class NewsController {
     UserRole.PARISH_ADMIN,
     UserRole.COMMUNITY_COORDINATOR,
   )
-  create(@Body() createNewsDto: CreateNewsDto) {
-    return this.newsService.create(createNewsDto);
+  create(@Body() createNewsDto: CreateNewsDto, @CurrentUser() user: any) {
+    return this.newsService.create(createNewsDto, user);
   }
 
   @Get()

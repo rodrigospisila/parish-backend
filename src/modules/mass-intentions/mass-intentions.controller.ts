@@ -22,6 +22,7 @@ export class MassIntentionsController {
   constructor(private readonly massIntentionsService: MassIntentionsService) {}
 
   @Post()
+  @UseGuards(JwtAuthGuard)
   create(@Body() createMassIntentionDto: CreateMassIntentionDto) {
     return this.massIntentionsService.create(createMassIntentionDto);
   }
@@ -51,6 +52,7 @@ export class MassIntentionsController {
   }
 
   @Get('upcoming')
+  @UseGuards(JwtAuthGuard)
   findUpcoming(
     @Query('communityId') communityId?: string,
     @Query('limit') limit?: string,
@@ -82,6 +84,7 @@ export class MassIntentionsController {
   }
 
   @Get('date/:date')
+  @UseGuards(JwtAuthGuard)
   findByDate(
     @Param('date') date: string,
     @Query('communityId') communityId?: string,
@@ -90,6 +93,7 @@ export class MassIntentionsController {
   }
 
   @Get(':id')
+  @UseGuards(JwtAuthGuard)
   findOne(@Param('id') id: string) {
     return this.massIntentionsService.findOne(id);
   }

@@ -1,11 +1,11 @@
 import {
+  IsBoolean,
   IsEmail,
   IsNotEmpty,
   IsString,
   MinLength,
   IsEnum,
   IsOptional,
-  IsUUID,
 } from 'class-validator';
 import { UserRole } from '@prisma/client';
 
@@ -31,16 +31,25 @@ export class RegisterDto {
   @IsOptional()
   role?: UserRole;
 
-  @IsUUID('4', { message: 'ID da diocese inválido' })
+  // IDs são cuid (não UUID) — validar apenas como string
+  @IsString({ message: 'ID da diocese inválido' })
   @IsOptional()
   dioceseId?: string;
 
-  @IsUUID('4', { message: 'ID da paróquia inválido' })
+  @IsString({ message: 'ID da paróquia inválido' })
   @IsOptional()
   parishId?: string;
 
-  @IsUUID('4', { message: 'ID da comunidade inválido' })
+  @IsString({ message: 'ID da comunidade inválido' })
   @IsOptional()
   communityId?: string;
+
+  @IsBoolean({ message: 'Consentimento deve ser um booleano' })
+  @IsOptional()
+  consentGiven?: boolean;
+
+  @IsString()
+  @IsOptional()
+  verifiedPhoneToken?: string;
 }
 
