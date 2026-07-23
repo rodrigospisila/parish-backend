@@ -39,9 +39,7 @@ lerna-debug.log*
 .env.local
 .env.*.local
 
-# Prisma
-prisma/migrations/
-!prisma/migrations/.gitkeep
+# Prisma (as migrations DEVEM ser versionadas — o deploy roda `migrate deploy`)
 /generated/prisma
 
 # Docker
