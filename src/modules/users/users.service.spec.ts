@@ -1,5 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { ForbiddenException } from '@nestjs/common';
+import { ForbiddenException, NotFoundException } from '@nestjs/common';
 import { UserRole } from '@prisma/client';
 import { UsersService } from './users.service';
 import { PrismaService } from '../../database/prisma.service';
@@ -87,6 +87,51 @@ describe('UsersService (hierarquia de papéis - Fase 1)', () => {
           currentUser,
         ),
       ).rejects.toBeInstanceOf(ForbiddenException);
+    });
+  });
+
+  describe('deleteOwnAccount — exclusão da própria conta', () => {
+    it('anonimiza o membro vinculado e exclui o usuário', async () => {
+      const tx = {
+        member: { update: jest.fn().mockResolvedValue({}) },
+        user: { delete: jest.fn().mockResolvedValue({}) },
+      };
+      prisma.user.findUnique = jest
+        .fn()
+        .mockResolvedValue({ id: 'u1', email: 'a@b.com', role: UserRole.FAITHFUL, member: { id: 'm1' } });
+      prisma.$transaction = jest.fn(async (cb: any) => cb(tx));
+
+      const res = await service.deleteOwnAccount('u1');
+
+      expect(res).toEqual({ deleted: true });
+      expect(tx.member.update).toHaveBeenCalledWith(
+        expect.objectContaining({
+          where: { id: 'm1' },
+          data: expect.objectContaining({ fullName: 'Membro removido', email: null, phone: null }),
+        }),
+      );
+      expect(tx.user.delete).toHaveBeenCalledWith({ where: { id: 'u1' } });
+    });
+
+    it('exclui usuário sem membro vinculado (não toca em member)', async () => {
+      const tx = {
+        member: { update: jest.fn() },
+        user: { delete: jest.fn().mockResolvedValue({}) },
+      };
+      prisma.user.findUnique = jest
+        .fn()
+        .mockResolvedValue({ id: 'u2', email: 'c@d.com', role: UserRole.FAITHFUL, member: null });
+      prisma.$transaction = jest.fn(async (cb: any) => cb(tx));
+
+      await service.deleteOwnAccount('u2');
+
+      expect(tx.member.update).not.toHaveBeenCalled();
+      expect(tx.user.delete).toHaveBeenCalledWith({ where: { id: 'u2' } });
+    });
+
+    it('lança NotFound quando o usuário não existe', async () => {
+      prisma.user.findUnique = jest.fn().mockResolvedValue(null);
+      await expect(service.deleteOwnAccount('nope')).rejects.toBeInstanceOf(NotFoundException);
     });
   });
 });

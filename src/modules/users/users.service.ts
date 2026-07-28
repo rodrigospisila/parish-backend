@@ -943,6 +943,57 @@ export class UsersService {
     return { message: 'Usuario excluido com sucesso' };
   }
 
+  /**
+   * Exclusão da própria conta (autoatendimento) — exigida pela App Store
+   * (5.1.1(v)) e direito de eliminação da LGPD.
+   *
+   * Remove definitivamente o usuário (o cascade revoga sessões, favoritos e
+   * vínculos de comunidade) e ANONIMIZA o perfil de membro vinculado, se houver
+   * — preservando o histórico paroquial (escalas/presenças) sem manter dados
+   * pessoais. A conta fica permanentemente inacessível.
+   */
+  async deleteOwnAccount(userId: string) {
+    const user = await this.prisma.user.findUnique({
+      where: { id: userId },
+      include: { member: true },
+    });
+
+    if (!user) {
+      throw new NotFoundException('Usuário não encontrado');
+    }
+
+    await this.prisma.$transaction(async (tx) => {
+      // Anonimiza o perfil de membro (o vínculo user↔member é SetNull no delete,
+      // então sem isto o membro ficaria órfão com os dados pessoais).
+      if (user.member) {
+        await tx.member.update({
+          where: { id: user.member.id },
+          data: {
+            fullName: 'Membro removido',
+            email: null,
+            phone: null,
+            cpf: null,
+            birthDate: null,
+          },
+        });
+      }
+
+      // Exclusão definitiva do usuário (cascade cuida do restante).
+      await tx.user.delete({ where: { id: userId } });
+    });
+
+    await this.auditService.log({
+      actor: { id: user.id, email: user.email, role: user.role },
+      action: 'DELETE',
+      entity: 'User',
+      entityId: userId,
+      before: { email: user.email, role: user.role },
+      metadata: { selfService: true },
+    });
+
+    return { deleted: true };
+  }
+
   async changePassword(id: string, changePasswordDto: ChangePasswordDto, currentUser: any) {
     if (currentUser.id !== id && currentUser.role !== UserRole.SYSTEM_ADMIN) {
       throw new ForbiddenException('Voce so pode trocar sua propria senha');

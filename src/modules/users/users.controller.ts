@@ -69,6 +69,16 @@ export class UsersController {
     return this.notificationsService.registerPushToken(req.user.id, body.pushToken);
   }
 
+  /**
+   * Exclusão da própria conta (autoatendimento). Sem @Roles: qualquer usuário
+   * autenticado pode excluir a si mesmo. Exigido pela App Store e pela LGPD.
+   * IMPORTANTE: deve vir ANTES de :id.
+   */
+  @Delete('me')
+  deleteMe(@Request() req) {
+    return this.usersService.deleteOwnAccount(req.user.id);
+  }
+
   @Get(':id')
   findOne(@Param('id') id: string, @Request() req) {
     return this.usersService.findOne(id, req.user);
