@@ -1,9 +1,31 @@
-import { Injectable, NotFoundException, ForbiddenException, BadRequestException } from '@nestjs/common';
+import {
+  Injectable,
+  NotFoundException,
+  ForbiddenException,
+  BadRequestException,
+  ConflictException,
+} from '@nestjs/common';
 import { PrismaService } from '../../database/prisma.service';
-import { CreateMassScheduleDto } from './dto/create-mass-schedule.dto';
+import {
+  CreateMassScheduleDto,
+  MassSchedulePastoralSettingDto,
+} from './dto/create-mass-schedule.dto';
 import { UpdateMassScheduleDto } from './dto/update-mass-schedule.dto';
-import { MassScheduleType, UserRole } from '@prisma/client';
+import { GenerateScheduleFromMassDto } from './dto/generate-schedule.dto';
+import { MassScheduleType, ScheduleStatus, UserRole } from '@prisma/client';
 import { CurrentUser, HierarchyService } from '../../common/hierarchy.service';
+
+/** Include padrão das pastorais vinculadas (com o nome global para o painel). */
+const PASTORAL_INCLUDE = {
+  include: {
+    communityPastoral: {
+      select: {
+        id: true,
+        globalPastoral: { select: { id: true, name: true } },
+      },
+    },
+  },
+} as const;
 
 /** Rótulos e durações padrão por tipo de horário fixo (agenda da comunidade). */
 const SCHEDULE_LABELS: Record<MassScheduleType, string> = {
@@ -82,8 +104,49 @@ export class MassSchedulesService {
     }
   }
 
+  /**
+   * Valida que as pastorais pertencem à comunidade e monta o array de criação
+   * de MassSchedulePastoral (uma linha por pastoral, sem duplicar).
+   */
+  private async buildPastoralCreate(
+    communityId: string,
+    settings?: MassSchedulePastoralSettingDto[],
+  ) {
+    if (!settings || settings.length === 0) return [];
+    const byId = new Map<string, MassSchedulePastoralSettingDto>();
+    for (const s of settings) byId.set(s.communityPastoralId, s);
+    const ids = [...byId.keys()];
+
+    const valid = await this.prisma.communityPastoral.findMany({
+      where: { id: { in: ids }, communityId, deletedAt: null },
+      select: { id: true },
+    });
+    const validIds = new Set(valid.map((v) => v.id));
+    const missing = ids.filter((id) => !validIds.has(id));
+    if (missing.length) {
+      throw new BadRequestException(
+        'Uma ou mais pastorais não pertencem à comunidade selecionada',
+      );
+    }
+
+    return [...byId.values()].map((s) => ({
+      communityPastoralId: s.communityPastoralId,
+      role: s.role ?? null,
+      isLeader: s.isLeader ?? false,
+      requiredPeople: Number(s.requiredPeople ?? 0),
+    }));
+  }
+
+  private addMinutes(hhmm: string, minutes: number): string {
+    const [h, m] = (hhmm || '00:00').split(':').map((n) => parseInt(n, 10) || 0);
+    const total = h * 60 + m + minutes;
+    const hh = Math.floor((((total % (24 * 60)) + 24 * 60) % (24 * 60)) / 60);
+    const mm = ((total % 60) + 60) % 60;
+    return `${String(hh).padStart(2, '0')}:${String(mm).padStart(2, '0')}`;
+  }
+
   async create(createMassScheduleDto: CreateMassScheduleDto, currentUser?: CurrentUser) {
-    const { communityId, ...rest } = createMassScheduleDto;
+    const { communityId, pastoralSettings, ...rest } = createMassScheduleDto;
 
     // Verificar se a comunidade existe
     const community = await this.prisma.community.findUnique({
@@ -96,18 +159,17 @@ export class MassSchedulesService {
 
     await this.assertCommunityInScope(communityId, currentUser);
 
+    const pastoralsCreate = await this.buildPastoralCreate(communityId, pastoralSettings);
+
     return this.prisma.massSchedule.create({
       data: {
         ...rest,
         communityId,
+        pastorals: { create: pastoralsCreate },
       },
       include: {
-        community: {
-          select: {
-            id: true,
-            name: true,
-          },
-        },
+        community: { select: { id: true, name: true } },
+        pastorals: PASTORAL_INCLUDE,
       },
     });
   }
@@ -152,6 +214,7 @@ export class MassSchedulesService {
         community: {
           select: { id: true, name: true, parish: { select: { id: true, name: true } } },
         },
+        pastorals: PASTORAL_INCLUDE,
       },
       orderBy: [{ dayOfWeek: 'asc' }, { time: 'asc' }],
     });
@@ -282,6 +345,7 @@ export class MassSchedulesService {
       where: { id },
       include: {
         community: true,
+        pastorals: PASTORAL_INCLUDE,
       },
     });
 
@@ -296,16 +360,108 @@ export class MassSchedulesService {
     const schedule = await this.findOne(id); // Verifica se existe
     await this.assertCommunityInScope(schedule.communityId, currentUser);
 
+    const { pastoralSettings, communityId, ...rest } = updateMassScheduleDto;
+    const targetCommunityId = communityId ?? schedule.communityId;
+    if (communityId && communityId !== schedule.communityId) {
+      await this.assertCommunityInScope(communityId, currentUser);
+    }
+
+    const data: any = { ...rest };
+    if (communityId) data.communityId = communityId;
+    // Se pastoralSettings vier no payload, substitui as pastorais vinculadas.
+    if (pastoralSettings !== undefined) {
+      const pastoralsCreate = await this.buildPastoralCreate(targetCommunityId, pastoralSettings);
+      data.pastorals = { deleteMany: {}, create: pastoralsCreate };
+    }
+
     return this.prisma.massSchedule.update({
       where: { id },
-      data: updateMassScheduleDto,
+      data,
       include: {
-        community: {
-          select: {
-            id: true,
-            name: true,
-          },
+        community: { select: { id: true, name: true } },
+        pastorals: PASTORAL_INCLUDE,
+      },
+    });
+  }
+
+  /**
+   * Gera uma escala (Schedule) para uma data específica deste horário fixo,
+   * copiando as pastorais vinculadas — mesmo fluxo de uma escala de evento.
+   */
+  async generateSchedule(
+    id: string,
+    dto: GenerateScheduleFromMassDto,
+    currentUser: CurrentUser,
+  ) {
+    const mass = await this.prisma.massSchedule.findUnique({
+      where: { id },
+      include: {
+        community: { select: { id: true, name: true } },
+        pastorals: true,
+      },
+    });
+    if (!mass) {
+      throw new NotFoundException(`Horário fixo com ID ${id} não encontrado`);
+    }
+    await this.assertCommunityInScope(mass.communityId, currentUser);
+
+    if (mass.pastorals.length === 0) {
+      throw new BadRequestException(
+        'Vincule ao menos uma pastoral a este horário fixo antes de gerar a escala.',
+      );
+    }
+
+    const date = new Date(dto.date);
+    if (Number.isNaN(date.getTime())) {
+      throw new BadRequestException('Data inválida');
+    }
+
+    // Deduplicação: no máximo uma escala por (horário fixo, dia)
+    const dayStart = new Date(
+      Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate(), 0, 0, 0),
+    );
+    const dayEnd = new Date(
+      Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate(), 23, 59, 59),
+    );
+    const existing = await this.prisma.schedule.findFirst({
+      where: {
+        massScheduleId: id,
+        date: { gte: dayStart, lte: dayEnd },
+        deletedAt: null,
+      },
+      select: { id: true },
+    });
+    if (existing) {
+      throw new ConflictException('Já existe uma escala para este horário nesta data.');
+    }
+
+    const label = SCHEDULE_LABELS[mass.type] ?? mass.type;
+    const title =
+      dto.title?.trim() ||
+      `${label} ${mass.time}${mass.notes ? ` — ${mass.notes}` : ''}`;
+    const endTime = this.addMinutes(mass.time, SCHEDULE_DURATION_MIN[mass.type] ?? 45);
+
+    return this.prisma.schedule.create({
+      data: {
+        title,
+        date,
+        communityId: mass.communityId,
+        massScheduleId: mass.id,
+        startTime: mass.time,
+        endTime,
+        status: ScheduleStatus.OPEN,
+        pastorals: {
+          create: mass.pastorals.map((p) => ({
+            communityPastoralId: p.communityPastoralId,
+            role: p.role,
+            isLeader: p.isLeader,
+            requiredPeople: p.requiredPeople,
+          })),
         },
+      },
+      include: {
+        community: { select: { id: true, name: true } },
+        pastorals: PASTORAL_INCLUDE,
       },
     });
   }

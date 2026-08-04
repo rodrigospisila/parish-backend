@@ -6,10 +6,34 @@ import {
   IsEnum,
   IsBoolean,
   IsDateString,
+  IsArray,
+  ValidateNested,
   Min,
   Max,
 } from 'class-validator';
+import { Type } from 'class-transformer';
 import { MassScheduleType } from '@prisma/client';
+
+/** Configuração de uma pastoral vinculada ao horário fixo (espelha o evento). */
+export class MassSchedulePastoralSettingDto {
+  @IsString()
+  @IsNotEmpty()
+  communityPastoralId: string;
+
+  @IsOptional()
+  @Type(() => Number)
+  @IsInt()
+  @Min(0)
+  requiredPeople?: number;
+
+  @IsOptional()
+  @IsString()
+  role?: string;
+
+  @IsOptional()
+  @IsBoolean()
+  isLeader?: boolean;
+}
 
 export class CreateMassScheduleDto {
   @IsInt()
@@ -39,5 +63,11 @@ export class CreateMassScheduleDto {
   @IsString()
   @IsNotEmpty()
   communityId: string;
-}
 
+  /** Pastorais vinculadas a este horário fixo (base para gerar escalas). */
+  @IsOptional()
+  @IsArray()
+  @ValidateNested({ each: true })
+  @Type(() => MassSchedulePastoralSettingDto)
+  pastoralSettings?: MassSchedulePastoralSettingDto[];
+}

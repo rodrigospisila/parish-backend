@@ -95,8 +95,8 @@ enum SacramentType {
 enum EventType {
   MASS
   SACRAMENT
-  PASTORAL_MEETING    // Reunião de Pastoral
-  PASTORAL_ACTIVITY   // Atividade de Pastoral
+  PASTORAL_MEETING // Reunião de Pastoral
+  PASTORAL_ACTIVITY // Atividade de Pastoral
   COMMUNITY_EVENT
   RETREAT
   FORMATION
@@ -111,10 +111,10 @@ enum EventStatus {
 }
 
 enum RecurrenceType {
-  DAILY      // Diário
-  WEEKLY     // Semanal
-  MONTHLY    // Mensal
-  CUSTOM     // Personalizado (dias específicos)
+  DAILY // Diário
+  WEEKLY // Semanal
+  MONTHLY // Mensal
+  CUSTOM // Personalizado (dias específicos)
 }
 
 enum MassScheduleType {
@@ -168,8 +168,8 @@ enum NotificationType {
 // Tipos de consentimento granular (LGPD)
 enum ConsentType {
   DATA_PROCESSING // Tratamento de dados pessoais
-  IMAGE_USE       // Uso de imagem / fotografias
-  COMMUNICATIONS  // Comunicacoes nao essenciais (opt-in/opt-out)
+  IMAGE_USE // Uso de imagem / fotografias
+  COMMUNICATIONS // Comunicacoes nao essenciais (opt-in/opt-out)
 }
 
 // ============================================
@@ -181,13 +181,13 @@ model User {
   email    String   @unique
   password String
   name     String
-  phone    String?   @unique
+  phone    String?  @unique
   role     UserRole @default(FAITHFUL)
   isActive Boolean  @default(true)
 
   // Cargo eclesiástico (ordenação), quando aplicável — Bispo/Pároco/Diácono
   clergyTitle ClergyTitle?
-  
+
   // Force password change on first login
   forcePasswordChange Boolean @default(false)
 
@@ -225,7 +225,7 @@ model User {
   communities UserCommunity[]
 
   // Favoritos de eventos
-  eventFavorites EventFavorite[]
+  eventFavorites        EventFavorite[]
   // Favoritos de horarios de missa
   massScheduleFavorites MassScheduleFavorite[]
 
@@ -360,7 +360,7 @@ model Parish {
   dioceseId   String
   diocese     Diocese     @relation(fields: [dioceseId], references: [id], onDelete: Cascade)
   communities Community[]
-  users       User[]      // PARISH_ADMIN vinculados a esta paróquia
+  users       User[] // PARISH_ADMIN vinculados a esta paróquia
 
   // Fase 3 (catálogos por paróquia)
   catechesisStages CatechesisStage[]
@@ -408,17 +408,17 @@ model Community {
   smsEnabled Boolean @default(false)
 
   // Relations
-  parishId        String
-  parish          Parish          @relation(fields: [parishId], references: [id], onDelete: Cascade)
+  parishId           String
+  parish             Parish              @relation(fields: [parishId], references: [id], onDelete: Cascade)
   communityPastorals CommunityPastoral[]
-  userCommunities UserCommunity[]
-  users           User[]          @relation("UserCommunity") // COMMUNITY_ADMIN vinculados a esta comunidade
-  members         Member[]
-  events          Event[]
-  massSchedules   MassSchedule[]
-  massIntentions  MassIntention[]
-  prayerRequests  PrayerRequest[]
-  news            News[]
+  userCommunities    UserCommunity[]
+  users              User[]              @relation("UserCommunity") // COMMUNITY_ADMIN vinculados a esta comunidade
+  members            Member[]
+  events             Event[]
+  massSchedules      MassSchedule[]
+  massIntentions     MassIntention[]
+  prayerRequests     PrayerRequest[]
+  news               News[]
 
   // Fase 3
   catechesisClasses CatechesisClass[]
@@ -426,10 +426,10 @@ model Community {
   documents         PastoralDocument[]
 
   // Fase 4
-  schedules         Schedule[]
-  rooms             Room[]
+  schedules          Schedule[]
+  rooms              Room[]
   sacramentProcesses SacramentProcess[]
-  visitRequests     VisitRequest[]
+  visitRequests      VisitRequest[]
 
   // Santos padroeiros + mensagens do clero
   saintPatronages SaintPatronage[]
@@ -463,8 +463,8 @@ model GlobalPastoral {
   status EntityStatus @default(ACTIVE)
 
   // Relations - Vínculos hierárquicos
-  diocesanPastorals DiocesanPastoral[]
-  parishPastorals   ParishPastoral[]
+  diocesanPastorals  DiocesanPastoral[]
+  parishPastorals    ParishPastoral[]
   communityPastorals CommunityPastoral[]
 
   // Audit
@@ -543,12 +543,12 @@ model CommunityPastoral {
   status    EntityStatus @default(ACTIVE)
 
   // Relations
-  globalPastoralId  String
-  globalPastoral    GlobalPastoral  @relation(fields: [globalPastoralId], references: [id], onDelete: Cascade)
-  parishPastoralId  String?
-  parishPastoral    ParishPastoral? @relation(fields: [parishPastoralId], references: [id], onDelete: SetNull)
-  communityId       String
-  community         Community       @relation(fields: [communityId], references: [id], onDelete: Cascade)
+  globalPastoralId String
+  globalPastoral   GlobalPastoral  @relation(fields: [globalPastoralId], references: [id], onDelete: Cascade)
+  parishPastoralId String?
+  parishPastoral   ParishPastoral? @relation(fields: [parishPastoralId], references: [id], onDelete: SetNull)
+  communityId      String
+  community        Community       @relation(fields: [communityId], references: [id], onDelete: Cascade)
 
   // Sub-grupos
   subGroups PastoralGroup[]
@@ -562,6 +562,9 @@ model CommunityPastoral {
   // Escalas
   schedulePastorals   SchedulePastoral[]
   scheduleAssignments ScheduleAssignment[]
+
+  // Vínculo com horários fixos (agenda fixa)
+  massSchedulePastorals MassSchedulePastoral[]
 
   // Histórico de coordenadores
   coordinatorHistory PastoralCoordinator[]
@@ -583,7 +586,7 @@ model CommunityPastoral {
 // Sub-grupos de uma Pastoral (ex: Liturgia → Coral, Ministros)
 model PastoralGroup {
   id          String  @id @default(cuid())
-  name        String  // Ex: "Coral", "Ministros da Eucaristia"
+  name        String // Ex: "Coral", "Ministros da Eucaristia"
   description String?
   photoUrl    String?
 
@@ -596,7 +599,7 @@ model PastoralGroup {
 
   // Hierarquia de sub-grupos
   parentGroupId String?
-  parentGroup   PastoralGroup? @relation("SubGroups", fields: [parentGroupId], references: [id], onDelete: SetNull)
+  parentGroup   PastoralGroup?  @relation("SubGroups", fields: [parentGroupId], references: [id], onDelete: SetNull)
   subGroups     PastoralGroup[] @relation("SubGroups")
 
   // Membros
@@ -662,8 +665,6 @@ model PastoralCoordinator {
   @@map("pastoral_coordinators")
 }
 
-
-
 // ============================================
 // MEMBERS & FAITHFUL
 // ============================================
@@ -706,7 +707,7 @@ model Member {
   spouseId   String? @unique
   spouse     Member? @relation("Spouse", fields: [spouseId], references: [id])
   spouseOf   Member? @relation("Spouse")
-  
+
   // Responsible (for minors without app access)
   responsibleId String?
   responsible   Member?  @relation("Responsible", fields: [responsibleId], references: [id])
@@ -730,9 +731,9 @@ model Member {
   community   Community @relation(fields: [communityId], references: [id], onDelete: Cascade)
 
   // Pastorals
-  pastoralMemberships       PastoralMember[]                @relation
-  pastoralCoordinations     PastoralCoordinator[]           @relation("PastoralCoordinators")
-  eventPastoralAssignments  EventPastoralAssignment[]       @relation("EventPastoralAssignments")
+  pastoralMemberships      PastoralMember[]          @relation
+  pastoralCoordinations    PastoralCoordinator[]     @relation("PastoralCoordinators")
+  eventPastoralAssignments EventPastoralAssignment[] @relation("EventPastoralAssignments")
 
   // Sacraments
   sacraments Sacrament[]
@@ -758,7 +759,7 @@ model Member {
   responsibleActions PastoralAction[] @relation("ActionResponsible")
 
   // Fase 4
-  tither            Tither?
+  tither             Tither?
   sacramentProcesses SacramentProcess[]
 
   // Mensagens do clero direcionadas ao membro
@@ -810,20 +811,20 @@ model Sacrament {
 // ============================================
 
 model Event {
-  id             String    @id @default(cuid())
-  title          String
-  description    String?
-  type           EventType
-  startDate      DateTime
-  endDate        DateTime?
-  location       String?
-  notes          String? // Notas adicionais
-  isRecurring       Boolean          @default(false)
-  recurrenceType    RecurrenceType?
+  id                 String          @id @default(cuid())
+  title              String
+  description        String?
+  type               EventType
+  startDate          DateTime
+  endDate            DateTime?
+  location           String?
+  notes              String? // Notas adicionais
+  isRecurring        Boolean         @default(false)
+  recurrenceType     RecurrenceType?
   recurrenceInterval Int?            @default(1) // A cada X dias/semanas/meses
-  recurrenceDays    String?          // JSON array de dias da semana [0-6] ou datas específicas
-  recurrenceEndDate DateTime?        // Data de término da recorrência
-  recurrenceRule    String?          // iCal RRULE format (opcional, para compatibilidade)
+  recurrenceDays     String? // JSON array de dias da semana [0-6] ou datas específicas
+  recurrenceEndDate  DateTime? // Data de término da recorrência
+  recurrenceRule     String? // iCal RRULE format (opcional, para compatibilidade)
 
   // Metadata
   maxParticipants Int?
@@ -831,12 +832,12 @@ model Event {
   status          EventStatus @default(DRAFT)
 
   // Relations
-  communityId  String
-  community    Community            @relation(fields: [communityId], references: [id], onDelete: Cascade)
-  schedules    Schedule[]
-  participants EventParticipant[]
+  communityId    String
+  community      Community          @relation(fields: [communityId], references: [id], onDelete: Cascade)
+  schedules      Schedule[]
+  participants   EventParticipant[]
   eventPastorals EventPastoral[] // Pastorais vinculadas ao evento
-  favorites    EventFavorite[]
+  favorites      EventFavorite[]
 
   // Planejamento pastoral (Fase 3): vincula a atividade a um objetivo,
   // evitando que o sistema seja apenas uma agenda de tarefas.
@@ -862,9 +863,9 @@ model EventParticipant {
 
   // Relations
   eventId  String
-  event    Event   @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  event    Event  @relation(fields: [eventId], references: [id], onDelete: Cascade)
   memberId String
-  member   Member  @relation(fields: [memberId], references: [id], onDelete: Cascade)
+  member   Member @relation(fields: [memberId], references: [id], onDelete: Cascade)
 
   // Metadata
   registeredAt DateTime @default(now())
@@ -882,9 +883,9 @@ model EventFavorite {
 
   // Relations
   userId  String
-  user    User  @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user    User   @relation(fields: [userId], references: [id], onDelete: Cascade)
   eventId String
-  event   Event @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  event   Event  @relation(fields: [eventId], references: [id], onDelete: Cascade)
 
   // Audit
   createdAt DateTime @default(now())
@@ -905,10 +906,10 @@ model EventPastoral {
   communityPastoral   CommunityPastoral @relation(fields: [communityPastoralId], references: [id], onDelete: Cascade)
 
   // Metadata
-  role     String? // Ex: "Responsável pela música", "Responsável pela liturgia"
-  isLeader Boolean @default(false) // Pastoral principal/organizadora
-  requiredPeople Int @default(0)
-  notes    String?
+  role           String? // Ex: "Responsável pela música", "Responsável pela liturgia"
+  isLeader       Boolean @default(false) // Pastoral principal/organizadora
+  requiredPeople Int     @default(0)
+  notes          String?
 
   // Escalas específicas desta pastoral neste evento
   assignments EventPastoralAssignment[]
@@ -960,17 +961,20 @@ model Schedule {
   // Relations
   // eventId agora é OPCIONAL (Fase 4.1): escalas de serviços contínuos
   // (limpeza, secretaria, dízimo, adoração) não exigem evento artificial.
-  eventId     String?
-  event       Event?               @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  eventId        String?
+  event          Event?               @relation(fields: [eventId], references: [id], onDelete: Cascade)
   // Escala sem evento fica ancorada diretamente na comunidade + horário próprio
-  communityId String?
-  community   Community?           @relation(fields: [communityId], references: [id], onDelete: Cascade)
-  startTime   String? // HH:MM (quando não há evento)
-  endTime     String? // HH:MM
-  location    String?
-  assignments ScheduleAssignment[]
-  pastorals   SchedulePastoral[]
-  status      ScheduleStatus       @default(OPEN)
+  communityId    String?
+  community      Community?           @relation(fields: [communityId], references: [id], onDelete: Cascade)
+  // Escala originada de um horário fixo (agenda fixa), quando aplicável
+  massScheduleId String?
+  massSchedule   MassSchedule?        @relation(fields: [massScheduleId], references: [id], onDelete: SetNull)
+  startTime      String? // HH:MM (quando não há evento)
+  endTime        String? // HH:MM
+  location       String?
+  assignments    ScheduleAssignment[]
+  pastorals      SchedulePastoral[]
+  status         ScheduleStatus       @default(OPEN)
 
   // Audit
   createdAt DateTime  @default(now())
@@ -979,6 +983,7 @@ model Schedule {
 
   @@index([eventId])
   @@index([communityId])
+  @@index([massScheduleId])
   @@index([date])
   @@index([deletedAt])
   @@map("schedules")
@@ -1009,10 +1014,10 @@ model SchedulePastoral {
 }
 
 model ScheduleAssignment {
-  id          String    @id @default(cuid())
+  id          String           @id @default(cuid())
   role        String // e.g., "Leitor", "Ministro", "Acólito"
   status      AssignmentStatus @default(PENDING) // Status da confirmação
-  checkedIn   Boolean   @default(false)
+  checkedIn   Boolean          @default(false)
   checkedInAt DateTime?
 
   // Deduplicação dos lembretes automáticos (jobs/schedule-reminders)
@@ -1031,10 +1036,10 @@ model ScheduleAssignment {
   swapRequests AssignmentSwapRequest[]
 
   // Relations
-  scheduleId String
-  schedule   Schedule @relation(fields: [scheduleId], references: [id], onDelete: Cascade)
-  memberId   String
-  member     Member   @relation(fields: [memberId], references: [id], onDelete: Cascade)
+  scheduleId          String
+  schedule            Schedule           @relation(fields: [scheduleId], references: [id], onDelete: Cascade)
+  memberId            String
+  member              Member             @relation(fields: [memberId], references: [id], onDelete: Cascade)
   communityPastoralId String?
   communityPastoral   CommunityPastoral? @relation(fields: [communityPastoralId], references: [id], onDelete: SetNull)
 
@@ -1050,10 +1055,10 @@ model ScheduleAssignment {
 }
 
 enum AssignmentStatus {
-  PENDING   // Aguardando confirmação
+  PENDING // Aguardando confirmação
   CONFIRMED // Confirmado
-  DECLINED  // Recusado
-  EXPIRED   // Prazo de resposta estourado (Fase 4.6)
+  DECLINED // Recusado
+  EXPIRED // Prazo de resposta estourado (Fase 4.6)
 }
 
 enum SwapStatus {
@@ -1125,8 +1130,12 @@ model MassSchedule {
 
   // Relations
   communityId String
-  community   Community @relation(fields: [communityId], references: [id], onDelete: Cascade)
+  community   Community              @relation(fields: [communityId], references: [id], onDelete: Cascade)
   favorites   MassScheduleFavorite[]
+  // Pastorais vinculadas ao horário fixo (base para gerar escalas)
+  pastorals   MassSchedulePastoral[]
+  // Escalas geradas a partir deste horário fixo
+  schedules   Schedule[]
 
   // Audit
   createdAt DateTime @default(now())
@@ -1135,6 +1144,32 @@ model MassSchedule {
   @@index([communityId])
   @@index([dayOfWeek])
   @@map("mass_schedules")
+}
+
+// Vínculo de pastoral a um horário fixo (espelha EventPastoral).
+// Ao gerar uma escala para uma data, estas pastorais viram SchedulePastoral.
+model MassSchedulePastoral {
+  id String @id @default(cuid())
+
+  // Relations
+  massScheduleId      String
+  massSchedule        MassSchedule      @relation(fields: [massScheduleId], references: [id], onDelete: Cascade)
+  communityPastoralId String
+  communityPastoral   CommunityPastoral @relation(fields: [communityPastoralId], references: [id], onDelete: Cascade)
+
+  // Metadata
+  role           String?
+  isLeader       Boolean @default(false)
+  requiredPeople Int     @default(0)
+
+  // Audit
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([massScheduleId, communityPastoralId])
+  @@index([massScheduleId])
+  @@index([communityPastoralId])
+  @@map("mass_schedule_pastorals")
 }
 
 model MassScheduleFavorite {
@@ -1420,7 +1455,7 @@ model CatechesisStage {
 }
 
 model CatechesisClass {
-  id      String @id @default(cuid())
+  id      String  @id @default(cuid())
   name    String
   year    Int
   weekday Int?
@@ -1450,11 +1485,11 @@ model CatechesisClass {
 
 // Catequistas/auxiliares de uma turma (N:N com Member)
 model CatechesisCatechist {
-  id       String  @id @default(cuid())
+  id       String          @id @default(cuid())
   classId  String
   class    CatechesisClass @relation(fields: [classId], references: [id], onDelete: Cascade)
   memberId String
-  member   Member  @relation(fields: [memberId], references: [id], onDelete: Cascade)
+  member   Member          @relation(fields: [memberId], references: [id], onDelete: Cascade)
   role     String? // "Catequista" | "Auxiliar"
 
   createdAt DateTime @default(now())
@@ -1467,11 +1502,11 @@ model CatechesisCatechist {
 
 // Matrícula do catequizando em uma turma
 model CatechesisEnrollment {
-  id       String @id @default(cuid())
+  id       String          @id @default(cuid())
   classId  String
   class    CatechesisClass @relation(fields: [classId], references: [id], onDelete: Cascade)
   memberId String
-  member   Member @relation(fields: [memberId], references: [id], onDelete: Cascade)
+  member   Member          @relation(fields: [memberId], references: [id], onDelete: Cascade)
 
   status           CatechesisEnrollmentStatus @default(ACTIVE)
   pendingDocuments String?
@@ -1491,7 +1526,7 @@ model CatechesisEnrollment {
 }
 
 model CatechesisSession {
-  id      String   @id @default(cuid())
+  id      String          @id @default(cuid())
   classId String
   class   CatechesisClass @relation(fields: [classId], references: [id], onDelete: Cascade)
   date    DateTime
@@ -1506,12 +1541,12 @@ model CatechesisSession {
 }
 
 model CatechesisAttendance {
-  id           String  @id @default(cuid())
+  id           String               @id @default(cuid())
   sessionId    String
   session      CatechesisSession    @relation(fields: [sessionId], references: [id], onDelete: Cascade)
   enrollmentId String
   enrollment   CatechesisEnrollment @relation(fields: [enrollmentId], references: [id], onDelete: Cascade)
-  present      Boolean @default(false)
+  present      Boolean              @default(false)
 
   @@unique([sessionId, enrollmentId])
   @@index([sessionId])
@@ -1562,7 +1597,7 @@ model PastoralPlan {
 }
 
 model PastoralObjective {
-  id          String @id @default(cuid())
+  id          String       @id @default(cuid())
   planId      String
   plan        PastoralPlan @relation(fields: [planId], references: [id], onDelete: Cascade)
   description String
@@ -1579,12 +1614,12 @@ model PastoralObjective {
 }
 
 model PastoralGoal {
-  id          String @id @default(cuid())
-  objectiveId String
-  objective   PastoralObjective @relation(fields: [objectiveId], references: [id], onDelete: Cascade)
-  description String
-  indicator   String? // o que medir
-  targetValue String? // meta
+  id           String            @id @default(cuid())
+  objectiveId  String
+  objective    PastoralObjective @relation(fields: [objectiveId], references: [id], onDelete: Cascade)
+  description  String
+  indicator    String? // o que medir
+  targetValue  String? // meta
   currentValue String? // valor atual
 
   createdAt DateTime @default(now())
@@ -1595,12 +1630,12 @@ model PastoralGoal {
 }
 
 model PastoralAction {
-  id          String @id @default(cuid())
+  id          String            @id @default(cuid())
   objectiveId String
   objective   PastoralObjective @relation(fields: [objectiveId], references: [id], onDelete: Cascade)
   title       String
   dueDate     DateTime?
-  status      ActionStatus @default(PLANNED)
+  status      ActionStatus      @default(PLANNED)
 
   responsibleMemberId String?
   responsibleMember   Member? @relation("ActionResponsible", fields: [responsibleMemberId], references: [id], onDelete: SetNull)
@@ -1625,10 +1660,10 @@ model PastoralDocument {
   title    String
   category String // ata, planejamento, regimento, manual, prestação de contas, etc.
 
-  parishId    String
-  parish      Parish     @relation(fields: [parishId], references: [id], onDelete: Cascade)
-  communityId String?
-  community   Community? @relation(fields: [communityId], references: [id], onDelete: SetNull)
+  parishId            String
+  parish              Parish     @relation(fields: [parishId], references: [id], onDelete: Cascade)
+  communityId         String?
+  community           Community? @relation(fields: [communityId], references: [id], onDelete: SetNull)
   // Vínculo opcional a uma pastoral (continuidade após troca de coordenação)
   communityPastoralId String?
 
@@ -1657,13 +1692,13 @@ model PastoralDocument {
 }
 
 model DocumentVersion {
-  id         String @id @default(cuid())
-  documentId String
-  document   PastoralDocument @relation(fields: [documentId], references: [id], onDelete: Cascade)
-  version    Int
-  storageKey String?
-  fileUrl    String?
-  notes      String?
+  id              String           @id @default(cuid())
+  documentId      String
+  document        PastoralDocument @relation(fields: [documentId], references: [id], onDelete: Cascade)
+  version         Int
+  storageKey      String?
+  fileUrl         String?
+  notes           String?
   createdByUserId String?
 
   createdAt DateTime @default(now())
@@ -1709,12 +1744,12 @@ model FormationCourse {
   description String?
 
   parishId String
-  parish   Parish  @relation(fields: [parishId], references: [id], onDelete: Cascade)
+  parish   Parish          @relation(fields: [parishId], references: [id], onDelete: Cascade)
   trackId  String?
   track    FormationTrack? @relation(fields: [trackId], references: [id], onDelete: SetNull)
 
   // Validade da formação em meses (renovação); null = não expira
-  validityMonths Int?
+  validityMonths  Int?
   // Pré-requisito: função/papel na pastoral que exige este curso (ex.: "Ministro")
   requiredForRole String?
 
@@ -1731,11 +1766,11 @@ model FormationCourse {
 }
 
 model FormationEnrollment {
-  id       String @id @default(cuid())
+  id       String          @id @default(cuid())
   courseId String
   course   FormationCourse @relation(fields: [courseId], references: [id], onDelete: Cascade)
   memberId String
-  member   Member @relation(fields: [memberId], references: [id], onDelete: Cascade)
+  member   Member          @relation(fields: [memberId], references: [id], onDelete: Cascade)
 
   status              FormationEnrollmentStatus @default(ENROLLED)
   completedAt         DateTime?
@@ -1764,9 +1799,9 @@ enum ReservationStatus {
 }
 
 model Room {
-  id          String  @id @default(cuid())
+  id          String       @id @default(cuid())
   communityId String
-  community   Community @relation(fields: [communityId], references: [id], onDelete: Cascade)
+  community   Community    @relation(fields: [communityId], references: [id], onDelete: Cascade)
   name        String
   capacity    Int?
   resources   String? // projetor, som, etc. (texto livre)
@@ -1922,9 +1957,9 @@ enum VisitRequestStatus {
 }
 
 model VisitRequest {
-  id          String    @id @default(cuid())
-  communityId String
-  community   Community @relation(fields: [communityId], references: [id], onDelete: Cascade)
+  id                  String    @id @default(cuid())
+  communityId         String
+  community           Community @relation(fields: [communityId], references: [id], onDelete: Cascade)
   // Pastoral da visitação responsável (restringe o acesso às anotações)
   communityPastoralId String?
 
@@ -1934,9 +1969,9 @@ model VisitRequest {
   address      String?
   contactPhone String?
 
-  reason VisitReason
+  reason          VisitReason
   // Consentimento explícito do visitado/família (dado sensível de saúde)
-  consentGiven Boolean            @default(false)
+  consentGiven    Boolean            @default(false)
   requesterUserId String?
   status          VisitRequestStatus @default(OPEN)
 
@@ -1954,15 +1989,15 @@ model VisitRequest {
 }
 
 model Visit {
-  id             String       @id @default(cuid())
-  visitRequestId String
-  visitRequest   VisitRequest @relation(fields: [visitRequestId], references: [id], onDelete: Cascade)
-  date           DateTime
+  id               String       @id @default(cuid())
+  visitRequestId   String
+  visitRequest     VisitRequest @relation(fields: [visitRequestId], references: [id], onDelete: Cascade)
+  date             DateTime
   // Dupla visitadora (ids de members, csv) — simplificado
   visitorMemberIds String?
   // Anotações pastorais: SENSÍVEL. Acesso apenas coordenador da pastoral + visitadores.
-  notes           String?
-  createdByUserId String?
+  notes            String?
+  createdByUserId  String?
 
   createdAt DateTime @default(now())
 
@@ -2068,9 +2103,9 @@ model ClergyMessage {
   body     String? // texto da mensagem
   videoUrl String? // link de vídeo (YouTube, Vimeo...)
 
-  senderUserId String
-  sender       User    @relation("ClergyMessagesSent", fields: [senderUserId], references: [id], onDelete: Cascade)
-  senderTitle  String? // assinatura pastoral: "Pe. João — Pároco", "Dom Carlos", "Diác. José"
+  senderUserId      String
+  sender            User         @relation("ClergyMessagesSent", fields: [senderUserId], references: [id], onDelete: Cascade)
+  senderTitle       String? // assinatura pastoral: "Pe. João — Pároco", "Dom Carlos", "Diác. José"
   // Cargo do remetente no momento da publicação (denormalizado p/ rótulo estável)
   senderClergyTitle ClergyTitle?
 

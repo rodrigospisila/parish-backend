@@ -12,6 +12,7 @@ import {
 import { MassSchedulesService } from './mass-schedules.service';
 import { CreateMassScheduleDto } from './dto/create-mass-schedule.dto';
 import { UpdateMassScheduleDto } from './dto/update-mass-schedule.dto';
+import { GenerateScheduleFromMassDto } from './dto/generate-schedule.dto';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { RolesGuard } from '../auth/guards/roles.guard';
 import { Roles } from '../auth/decorators/roles.decorator';
@@ -99,6 +100,25 @@ export class MassSchedulesController {
   @UseGuards(JwtAuthGuard)
   removeFavorite(@Param('id') id: string, @CurrentUser() user: any) {
     return this.massSchedulesService.removeFavorite(id, user);
+  }
+
+  // Gera uma escala (Schedule) para uma data deste horário fixo, copiando as
+  // pastorais vinculadas — mesmo fluxo de uma escala de evento.
+  @Post(':id/schedule')
+  @UseGuards(JwtAuthGuard, RolesGuard)
+  @Roles(
+    UserRole.SYSTEM_ADMIN,
+    UserRole.DIOCESAN_ADMIN,
+    UserRole.PARISH_ADMIN,
+    UserRole.COMMUNITY_COORDINATOR,
+    UserRole.PASTORAL_COORDINATOR,
+  )
+  generateSchedule(
+    @Param('id') id: string,
+    @Body() dto: GenerateScheduleFromMassDto,
+    @CurrentUser() user: any,
+  ) {
+    return this.massSchedulesService.generateSchedule(id, dto, user);
   }
 
   @Get(':id')
