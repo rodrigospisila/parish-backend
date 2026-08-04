@@ -2260,6 +2260,10 @@ export class SchedulesService {
       date: Date;
       suggestions: Array<{ role: string; memberId: string; memberName: string; score: number }>;
       gaps: Array<{ role: string; missing: number }>;
+      /** Escala sem nenhuma pastoral vinculada */
+      noPastorals?: boolean;
+      /** Pastorais vinculadas, mas todas com 0 vagas (nada a sugerir) */
+      noSlots?: boolean;
     }> = [];
 
     for (const scheduleId of dto.scheduleIds) {
@@ -2309,6 +2313,10 @@ export class SchedulesService {
         date: candidates.date,
         suggestions,
         gaps,
+        noPastorals: candidates.pastorals.length === 0,
+        noSlots:
+          candidates.pastorals.length > 0 &&
+          !candidates.pastorals.some((p: any) => Number(p.requiredPeople || 0) > 0),
       });
     }
 
