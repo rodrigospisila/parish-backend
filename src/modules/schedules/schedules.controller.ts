@@ -18,6 +18,7 @@ import { CreateStandaloneScheduleDto } from './dto/create-standalone-schedule.dt
 import { CreateAssignmentDto } from './dto/create-assignment.dto';
 import { ReplaceAssignmentDto } from './dto/replace-assignment.dto';
 import { UpdateScheduleStatusDto } from './dto/update-schedule-status.dto';
+import { UpdateSchedulePastoralsDto } from './dto/update-schedule-pastorals.dto';
 import { NotifyTeamDto } from './dto/notify-team.dto';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { RolesGuard } from '../auth/guards/roles.guard';
@@ -99,8 +100,37 @@ export class SchedulesController {
     UserRole.COMMUNITY_COORDINATOR,
     UserRole.PASTORAL_COORDINATOR,
   )
-  generateRotation(@Body() dto: { scheduleIds: string[]; dryRun?: boolean }, @Request() req: any) {
+  generateRotation(
+    @Body()
+    dto: {
+      scheduleIds: string[];
+      dryRun?: boolean;
+      slotOverrides?: Array<{
+        scheduleId: string;
+        settings: Array<{ communityPastoralId: string; requiredPeople: number }>;
+      }>;
+    },
+    @Request() req: any,
+  ) {
     return this.schedulesService.generateRotation(dto, req.user);
+  }
+
+  // Ajusta as vagas (requiredPeople) das pastorais vinculadas à escala
+  @Patch(':id/pastorals')
+  @UseGuards(RolesGuard)
+  @Roles(
+    UserRole.SYSTEM_ADMIN,
+    UserRole.DIOCESAN_ADMIN,
+    UserRole.PARISH_ADMIN,
+    UserRole.COMMUNITY_COORDINATOR,
+    UserRole.PASTORAL_COORDINATOR,
+  )
+  updateSchedulePastorals(
+    @Param('id') id: string,
+    @Body() dto: UpdateSchedulePastoralsDto,
+    @Request() req: any,
+  ) {
+    return this.schedulesService.updateSchedulePastorals(id, dto, req.user);
   }
 
   @Get()

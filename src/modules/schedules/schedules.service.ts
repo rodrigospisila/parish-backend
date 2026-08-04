@@ -2248,18 +2248,85 @@ export class SchedulesService {
    * quem já foi alocado neste lote para equalizar a carga.
    * dryRun=true devolve apenas a prévia; dryRun=false cria as atribuições PENDING.
    */
+  /**
+   * Atualiza as vagas (requiredPeople) das pastorais já vinculadas à escala.
+   * Não adiciona nem remove pastorais — só ajusta as vagas de cada uma.
+   */
+  async updateSchedulePastorals(
+    scheduleId: string,
+    dto: { pastoralSettings: Array<{ communityPastoralId: string; requiredPeople: number }> },
+    currentUser: CurrentUser,
+  ) {
+    const hasAccess = await this.hierarchyService.hasAccessToSchedule(currentUser.id, scheduleId);
+    if (!hasAccess) {
+      throw new ForbiddenException('Voce nao tem permissao para alterar esta escala');
+    }
+
+    const schedule = await this.prisma.schedule.findFirst({
+      where: { id: scheduleId, deletedAt: null },
+      include: { pastorals: { select: { communityPastoralId: true } } },
+    });
+    if (!schedule) {
+      throw new NotFoundException('Escala nao encontrada');
+    }
+
+    const linked = new Set(schedule.pastorals.map((p) => p.communityPastoralId));
+    const scopedPastoralIds =
+      currentUser.role === 'PASTORAL_COORDINATOR' ? await this.getScopedPastoralIds(currentUser) : null;
+
+    for (const setting of dto.pastoralSettings || []) {
+      if (!linked.has(setting.communityPastoralId)) {
+        throw new BadRequestException('Pastoral nao vinculada a esta escala');
+      }
+      if (scopedPastoralIds && !scopedPastoralIds.includes(setting.communityPastoralId)) {
+        throw new ForbiddenException('Voce so pode ajustar vagas das suas pastorais');
+      }
+      await this.prisma.schedulePastoral.updateMany({
+        where: { scheduleId, communityPastoralId: setting.communityPastoralId },
+        data: { requiredPeople: Math.max(0, Number(setting.requiredPeople || 0)) },
+      });
+    }
+
+    return this.findOneSchedule(scheduleId, currentUser);
+  }
+
   async generateRotation(
-    dto: { scheduleIds: string[]; dryRun?: boolean },
+    dto: {
+      scheduleIds: string[];
+      dryRun?: boolean;
+      /** Vagas por pastoral definidas na própria geração (persistidas ao publicar) */
+      slotOverrides?: Array<{
+        scheduleId: string;
+        settings: Array<{ communityPastoralId: string; requiredPeople: number }>;
+      }>;
+    },
     currentUser: CurrentUser,
   ) {
     const dryRun = dto.dryRun !== false;
     const timesPicked = new Map<string, number>(); // memberId -> vezes escolhido no lote
+
+    // Vagas definidas na própria geração: scheduleId -> (communityPastoralId -> vagas)
+    const overrideMap = new Map<string, Map<string, number>>();
+    for (const override of dto.slotOverrides ?? []) {
+      overrideMap.set(
+        override.scheduleId,
+        new Map(
+          (override.settings ?? []).map((s) => [
+            s.communityPastoralId,
+            Math.max(0, Number(s.requiredPeople || 0)),
+          ]),
+        ),
+      );
+    }
+
     const preview: Array<{
       scheduleId: string;
       title: string;
       date: Date;
       suggestions: Array<{ role: string; memberId: string; memberName: string; score: number }>;
       gaps: Array<{ role: string; missing: number }>;
+      /** Pastorais da escala com as vagas efetivas (para edição na UI do rodízio) */
+      pastorals: Array<{ communityPastoralId: string; name: string; requiredPeople: number }>;
       /** Escala sem nenhuma pastoral vinculada */
       noPastorals?: boolean;
       /** Pastorais vinculadas, mas todas com 0 vagas (nada a sugerir) */
@@ -2271,9 +2338,16 @@ export class SchedulesService {
       const suggestions: Array<{ role: string; memberId: string; memberName: string; score: number }> = [];
       const gaps: Array<{ role: string; missing: number }> = [];
       const pickedInThisSchedule = new Set<string>();
+      const overrides = overrideMap.get(scheduleId);
+      const effectiveRequired = (pastoral: any) =>
+        Number(
+          (overrides?.has(pastoral.communityPastoralId)
+            ? overrides.get(pastoral.communityPastoralId)
+            : pastoral.requiredPeople) || 0,
+        );
 
       for (const pastoral of candidates.pastorals) {
-        const required = Number(pastoral.requiredPeople || 0);
+        const required = effectiveRequired(pastoral);
         if (required <= 0) continue;
 
         // Candidatos elegíveis para esta pastoral, ordenados por score do rodízio
@@ -2313,15 +2387,30 @@ export class SchedulesService {
         date: candidates.date,
         suggestions,
         gaps,
+        pastorals: candidates.pastorals.map((p: any) => ({
+          communityPastoralId: p.communityPastoralId,
+          name: p.name || 'Pastoral',
+          requiredPeople: effectiveRequired(p),
+        })),
         noPastorals: candidates.pastorals.length === 0,
         noSlots:
           candidates.pastorals.length > 0 &&
-          !candidates.pastorals.some((p: any) => Number(p.requiredPeople || 0) > 0),
+          !candidates.pastorals.some((p: any) => effectiveRequired(p) > 0),
       });
     }
 
     if (dryRun) {
       return { dryRun: true, preview };
+    }
+
+    // Persiste as vagas definidas na geração antes de criar as atribuições
+    for (const [scheduleId, overrides] of overrideMap) {
+      for (const [communityPastoralId, requiredPeople] of overrides) {
+        await this.prisma.schedulePastoral.updateMany({
+          where: { scheduleId, communityPastoralId },
+          data: { requiredPeople },
+        });
+      }
     }
 
     // Publica: cria as atribuições PENDING sugeridas
