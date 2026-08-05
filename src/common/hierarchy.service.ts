@@ -384,12 +384,9 @@ export class HierarchyService {
     }
 
     if (user.role === UserRole.PASTORAL_COORDINATOR) {
-      const userPastoralIds = await this.getUserPastoralIds(userId, true);
-      const memberPastoralIds = member.pastoralMemberships
-        .map((membership) => membership.communityPastoralId)
-        .filter((id): id is string => !!id);
-
-      return userPastoralIds.some((pastoralId) => memberPastoralIds.includes(pastoralId));
+      // Alinhado ao applyMemberFilter: o coordenador de pastoral gerencia os
+      // membros da PRÓPRIA COMUNIDADE (vincular cônjuge, atualizar cadastro).
+      return member.communityId === user.communityId;
     }
 
     return false;
