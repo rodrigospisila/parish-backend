@@ -897,6 +897,7 @@ export class SchedulesService {
                 fullName: true,
                 email: true,
                 phone: true,
+                spouseId: true,
               },
             },
           },
@@ -1007,6 +1008,7 @@ export class SchedulesService {
                 email: true,
                 phone: true,
                 photoUrl: true,
+                spouseId: true,
               },
             },
             // Pedidos de troca em aberto — destacados na gestão da escala
@@ -2336,7 +2338,13 @@ export class SchedulesService {
       scheduleId: string;
       title: string;
       date: Date;
-      suggestions: Array<{ role: string; memberId: string; memberName: string; score: number }>;
+      suggestions: Array<{
+        role: string;
+        memberId: string;
+        memberName: string;
+        score: number;
+        spouseId?: string | null;
+      }>;
       gaps: Array<{ role: string; missing: number }>;
       /** Pastorais da escala com as vagas efetivas (para edição na UI do rodízio) */
       pastorals: Array<{ communityPastoralId: string; name: string; requiredPeople: number }>;
@@ -2368,7 +2376,13 @@ export class SchedulesService {
         }
       }
 
-      const suggestions: Array<{ role: string; memberId: string; memberName: string; score: number }> = [];
+      const suggestions: Array<{
+        role: string;
+        memberId: string;
+        memberName: string;
+        score: number;
+        spouseId?: string | null;
+      }> = [];
       const gaps: Array<{ role: string; missing: number }> = [];
       const pickedInThisSchedule = new Set<string>();
       const overrides = overrideMap.get(scheduleId);
@@ -2412,6 +2426,7 @@ export class SchedulesService {
             memberId: member.id,
             memberName: member.fullName,
             score,
+            spouseId: member.spouseId ?? null,
           });
           pickedInThisSchedule.add(member.id);
           timesPicked.set(member.id, (timesPicked.get(member.id) ?? 0) + 1);
@@ -2869,6 +2884,7 @@ export class SchedulesService {
               select: {
                 id: true,
                 fullName: true,
+                spouseId: true,
               },
             },
             // Pedidos de troca em aberto (alerta para o coordenador)
@@ -2925,6 +2941,8 @@ export class SchedulesService {
           hasPendingSwap: (assignment.swapRequests?.length ?? 0) > 0,
           // Mensagem do pedido de troca mais recente (tooltip do coordenador)
           pendingSwapMessage: assignment.swapRequests?.[0]?.message ?? null,
+          // Casal: usado para destacar cônjuges escalados juntos
+          spouseId: (assignment.member as any)?.spouseId ?? null,
         })),
       };
     });
