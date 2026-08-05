@@ -2813,7 +2813,8 @@ export class SchedulesService {
             // Pedidos de troca em aberto (alerta para o coordenador)
             swapRequests: {
               where: { status: 'PENDING' },
-              select: { id: true },
+              select: { id: true, message: true, createdAt: true },
+              orderBy: { createdAt: 'desc' },
             },
           },
           orderBy: {
@@ -2861,6 +2862,8 @@ export class SchedulesService {
           checkedIn: assignment.checkedIn,
           checkedInAt: assignment.checkedInAt,
           hasPendingSwap: (assignment.swapRequests?.length ?? 0) > 0,
+          // Mensagem do pedido de troca mais recente (tooltip do coordenador)
+          pendingSwapMessage: assignment.swapRequests?.[0]?.message ?? null,
         })),
       };
     });
