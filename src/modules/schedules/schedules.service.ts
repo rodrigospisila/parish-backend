@@ -2331,10 +2331,30 @@ export class SchedulesService {
       noPastorals?: boolean;
       /** Pastorais vinculadas, mas todas com 0 vagas (nada a sugerir) */
       noSlots?: boolean;
+      /** Todas as vagas já estão preenchidas — nada a completar */
+      allFilled?: boolean;
     }> = [];
 
     for (const scheduleId of dto.scheduleIds) {
       const candidates = await this.findScheduleCandidates(scheduleId, currentUser);
+
+      // Atribuições existentes: o rodízio COMPLETA a escala — desconta as vagas
+      // já ocupadas e nunca sugere quem já está escalado.
+      const existingAssignments = await this.prisma.scheduleAssignment.findMany({
+        where: { scheduleId },
+        select: { memberId: true, communityPastoralId: true },
+      });
+      const assignedMemberIds = new Set(existingAssignments.map((a) => a.memberId));
+      const assignedByPastoral = new Map<string, number>();
+      for (const assignment of existingAssignments) {
+        if (assignment.communityPastoralId) {
+          assignedByPastoral.set(
+            assignment.communityPastoralId,
+            (assignedByPastoral.get(assignment.communityPastoralId) ?? 0) + 1,
+          );
+        }
+      }
+
       const suggestions: Array<{ role: string; memberId: string; memberName: string; score: number }> = [];
       const gaps: Array<{ role: string; missing: number }> = [];
       const pickedInThisSchedule = new Set<string>();
@@ -2345,14 +2365,20 @@ export class SchedulesService {
             ? overrides.get(pastoral.communityPastoralId)
             : pastoral.requiredPeople) || 0,
         );
+      const remainingFor = (pastoral: any) =>
+        Math.max(
+          0,
+          effectiveRequired(pastoral) - (assignedByPastoral.get(pastoral.communityPastoralId) ?? 0),
+        );
 
       for (const pastoral of candidates.pastorals) {
-        const required = effectiveRequired(pastoral);
+        const required = remainingFor(pastoral);
         if (required <= 0) continue;
 
         // Candidatos elegíveis para esta pastoral, ordenados por score do rodízio
         const ranked = candidates.members
           .filter((m: any) => m.pastorals?.some((p: any) => p.communityPastoralId === pastoral.communityPastoralId))
+          .filter((m: any) => !assignedMemberIds.has(m.id))
           .filter((m: any) => !pickedInThisSchedule.has(m.id))
           .map((m: any) => {
             const base = m.recommendation?.score ?? 0;
@@ -2396,6 +2422,9 @@ export class SchedulesService {
         noSlots:
           candidates.pastorals.length > 0 &&
           !candidates.pastorals.some((p: any) => effectiveRequired(p) > 0),
+        allFilled:
+          candidates.pastorals.some((p: any) => effectiveRequired(p) > 0) &&
+          candidates.pastorals.every((p: any) => remainingFor(p) === 0),
       });
     }
 
