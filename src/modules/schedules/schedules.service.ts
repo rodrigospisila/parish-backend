@@ -586,6 +586,7 @@ export class SchedulesService {
             communityPastoral: {
               select: {
                 id: true,
+                scheduleCouplesTogether: true,
                 globalPastoral: {
                   select: {
                     id: true,
@@ -697,6 +698,7 @@ export class SchedulesService {
             communityPastoral: {
               select: {
                 id: true,
+                scheduleCouplesTogether: true,
                 globalPastoral: {
                   select: {
                     id: true,
@@ -858,6 +860,7 @@ export class SchedulesService {
             communityPastoral: {
               select: {
                 id: true,
+                scheduleCouplesTogether: true,
                 globalPastoral: {
                   select: {
                     id: true,
@@ -968,6 +971,7 @@ export class SchedulesService {
             communityPastoral: {
               select: {
                 id: true,
+                scheduleCouplesTogether: true,
                 globalPastoral: {
                   select: {
                     id: true,
@@ -1009,6 +1013,7 @@ export class SchedulesService {
                 phone: true,
                 photoUrl: true,
                 spouseId: true,
+                spouse: { select: { id: true, fullName: true } },
               },
             },
             // Pedidos de troca em aberto — destacados na gestão da escala
@@ -1725,6 +1730,7 @@ export class SchedulesService {
                         photoUrl: true,
                         status: true,
                         spouseId: true,
+                        spouse: { select: { id: true, fullName: true } },
                       },
                     },
                   },
@@ -1893,6 +1899,7 @@ export class SchedulesService {
                         photoUrl: true,
                         status: true,
                         spouseId: true,
+                        spouse: { select: { id: true, fullName: true } },
                       },
                     },
                   },
@@ -1916,6 +1923,7 @@ export class SchedulesService {
             communityPastoral: {
               select: {
                 id: true,
+                scheduleCouplesTogether: true,
                 globalPastoral: {
                   select: {
                     id: true,
@@ -2015,6 +2023,7 @@ export class SchedulesService {
               phone: true,
               photoUrl: true,
               spouseId: true,
+              spouse: { select: { id: true, fullName: true } },
             },
             orderBy: {
               fullName: 'asc',
@@ -2864,6 +2873,7 @@ export class SchedulesService {
             communityPastoral: {
               select: {
                 id: true,
+                scheduleCouplesTogether: true,
                 globalPastoral: {
                   select: {
                     id: true,
