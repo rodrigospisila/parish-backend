@@ -220,8 +220,53 @@ export class MembersService {
     });
   }
 
+  /**
+   * Sincroniza o vínculo de cônjuge nos DOIS sentidos (A↔B), desfazendo
+   * vínculos anteriores de ambos os lados. `spouseId` é @unique, então as
+   * limpezas acontecem antes das novas gravações, numa transação.
+   */
+  private async syncSpouseLink(memberId: string, desiredSpouseId: string | null) {
+    if (desiredSpouseId === memberId) {
+      throw new BadRequestException('O cônjuge não pode ser o próprio membro');
+    }
+
+    await this.prisma.$transaction(async (tx) => {
+      const me = await tx.member.findUnique({
+        where: { id: memberId },
+        select: { id: true, spouseId: true },
+      });
+      if (!me) return;
+
+      // Limpa o vínculo atual dos dois lados
+      if (me.spouseId && me.spouseId !== desiredSpouseId) {
+        await tx.member.updateMany({ where: { id: me.spouseId }, data: { spouseId: null } });
+      }
+      await tx.member.updateMany({ where: { id: memberId }, data: { spouseId: null } });
+
+      if (!desiredSpouseId) return;
+
+      const target = await tx.member.findUnique({
+        where: { id: desiredSpouseId },
+        select: { id: true, spouseId: true, deletedAt: true },
+      });
+      if (!target || target.deletedAt) {
+        throw new BadRequestException('Cônjuge informado não encontrado');
+      }
+
+      // Desfaz o casamento anterior do alvo (se houver, com outra pessoa)
+      if (target.spouseId && target.spouseId !== memberId) {
+        await tx.member.updateMany({ where: { id: target.spouseId }, data: { spouseId: null } });
+      }
+      await tx.member.updateMany({ where: { id: target.id }, data: { spouseId: null } });
+
+      // Grava o vínculo recíproco
+      await tx.member.update({ where: { id: memberId }, data: { spouseId: target.id } });
+      await tx.member.update({ where: { id: target.id }, data: { spouseId: memberId } });
+    });
+  }
+
   async create(createMemberDto: CreateMemberDto, currentUser?: CurrentUser) {
-    const { cpf, email, communityId, ...rest } = createMemberDto;
+    const { cpf, email, communityId, spouseId, ...rest } = createMemberDto;
     const normalizedCpf = this.normalizeCpf(cpf);
     const normalizedEmail = this.normalizeEmail(email);
 
@@ -294,6 +339,11 @@ export class MembersService {
         },
       });
 
+      // Vínculo de cônjuge (recíproco)
+      if (spouseId) {
+        await this.syncSpouseLink(member.id, spouseId);
+      }
+
       await this.auditService.log({
         actor: this.auditActor(currentUser),
         action: 'CREATE',
@@ -336,6 +386,12 @@ export class MembersService {
           select: {
             id: true,
             name: true,
+          },
+        },
+        spouse: {
+          select: {
+            id: true,
+            fullName: true,
           },
         },
         pastoralMemberships: {
@@ -473,9 +529,14 @@ export class MembersService {
       }
     }
 
-    const { cpf, email, ...rest } = updateMemberDto;
+    const { cpf, email, spouseId, ...rest } = updateMemberDto;
     const normalizedCpf = this.normalizeCpf(cpf);
     const normalizedEmail = this.normalizeEmail(email);
+
+    // Vínculo de cônjuge (recíproco): só mexe quando o campo vem no payload
+    if (spouseId !== undefined) {
+      await this.syncSpouseLink(id, spouseId || null);
+    }
 
     // Verificar se CPF já está em uso por outro membro
     if (normalizedCpf) {

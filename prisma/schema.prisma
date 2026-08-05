@@ -538,6 +538,9 @@ model CommunityPastoral {
   photoUrl    String?
   notes       String?
 
+  // Regra de escala: casais servem juntos (rodízio puxa o cônjuge quando possível)
+  scheduleCouplesTogether Boolean @default(false)
+
   // Metadata
   foundedAt DateTime?
   status    EntityStatus @default(ACTIVE)

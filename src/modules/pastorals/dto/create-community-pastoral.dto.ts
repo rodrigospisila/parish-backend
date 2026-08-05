@@ -1,4 +1,4 @@
-import { IsString, IsOptional, IsEnum, IsDateString } from 'class-validator';
+import { IsString, IsOptional, IsEnum, IsDateString, IsBoolean } from 'class-validator';
 import { EntityStatus } from '@prisma/client';
 
 export class CreateCommunityPastoralDto {
@@ -31,6 +31,11 @@ export class CreateCommunityPastoralDto {
   @IsDateString()
   @IsOptional()
   foundedAt?: string;
+
+  /** Regra de escala: casais servem juntos (o rodízio puxa o cônjuge) */
+  @IsBoolean()
+  @IsOptional()
+  scheduleCouplesTogether?: boolean;
 
   @IsEnum(EntityStatus)
   @IsOptional()

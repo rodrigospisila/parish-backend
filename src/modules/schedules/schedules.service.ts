@@ -1722,6 +1722,7 @@ export class SchedulesService {
                         phone: true,
                         photoUrl: true,
                         status: true,
+                        spouseId: true,
                       },
                     },
                   },
@@ -1889,6 +1890,7 @@ export class SchedulesService {
                         phone: true,
                         photoUrl: true,
                         status: true,
+                        spouseId: true,
                       },
                     },
                   },
@@ -1963,6 +1965,8 @@ export class SchedulesService {
         requiredPeople,
         assignedCount,
         remainingPeople: requiredPeople > 0 ? Math.max(requiredPeople - assignedCount, 0) : null,
+        // Regra de escala da pastoral: casais servem juntos
+        scheduleCouplesTogether: schedulePastoral.communityPastoral.scheduleCouplesTogether ?? false,
       };
     });
 
@@ -2008,6 +2012,7 @@ export class SchedulesService {
               email: true,
               phone: true,
               photoUrl: true,
+              spouseId: true,
             },
             orderBy: {
               fullName: 'asc',
@@ -2305,6 +2310,8 @@ export class SchedulesService {
         scheduleId: string;
         settings: Array<{ communityPastoralId: string; requiredPeople: number }>;
       }>;
+      /** Casais juntos (política preferencial) nas pastorais com a regra ativa; default true */
+      couplesTogether?: boolean;
     },
     currentUser: CurrentUser,
   ) {
@@ -2395,18 +2402,37 @@ export class SchedulesService {
           .sort((a, b) => b.score - a.score);
 
         const roleLabel = pastoral.name || 'Função';
+        // Casais juntos: regra da pastoral, com opt-out pontual na geração
+        const coupleActive =
+          Boolean((pastoral as any).scheduleCouplesTogether) && dto.couplesTogether !== false;
         let filled = 0;
-        for (const entry of ranked) {
-          if (filled >= required) break;
+        const pick = (member: any, score: number) => {
           suggestions.push({
             role: roleLabel,
-            memberId: entry.member.id,
-            memberName: entry.member.fullName,
-            score: entry.score,
+            memberId: member.id,
+            memberName: member.fullName,
+            score,
           });
-          pickedInThisSchedule.add(entry.member.id);
-          timesPicked.set(entry.member.id, (timesPicked.get(entry.member.id) ?? 0) + 1);
+          pickedInThisSchedule.add(member.id);
+          timesPicked.set(member.id, (timesPicked.get(member.id) ?? 0) + 1);
           filled++;
+        };
+        for (const entry of ranked) {
+          if (filled >= required) break;
+          // Pode já ter entrado como cônjuge de um escolhido anterior
+          if (pickedInThisSchedule.has(entry.member.id)) continue;
+          pick(entry.member, entry.score);
+          // Política preferencial: puxa o cônjuge junto quando elegível e houver vaga
+          if (coupleActive && entry.member.spouseId && filled < required) {
+            const spouseEntry = ranked.find(
+              (candidate) =>
+                candidate.member.id === entry.member.spouseId &&
+                !pickedInThisSchedule.has(candidate.member.id),
+            );
+            if (spouseEntry) {
+              pick(spouseEntry.member, spouseEntry.score);
+            }
+          }
         }
         if (filled < required) {
           gaps.push({ role: roleLabel, missing: required - filled });

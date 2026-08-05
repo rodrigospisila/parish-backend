@@ -109,6 +109,7 @@ export class SchedulesController {
         scheduleId: string;
         settings: Array<{ communityPastoralId: string; requiredPeople: number }>;
       }>;
+      couplesTogether?: boolean;
     },
     @Request() req: any,
   ) {
