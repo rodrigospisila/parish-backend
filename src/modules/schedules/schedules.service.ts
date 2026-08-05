@@ -1039,6 +1039,31 @@ export class SchedulesService {
       throw new NotFoundException(`Escala com ID ${id} nÃ£o encontrada`);
     }
 
+    // Casais: marca se o cônjuge do escalado participa da MESMA pastoral da
+    // atribuição (alertas de "sem o cônjuge" só fazem sentido nesse caso).
+    const spousePairs = schedule.assignments
+      .filter((a: any) => a.member?.spouseId && a.communityPastoralId)
+      .map((a: any) => ({ spouseId: a.member.spouseId as string, pastoralId: a.communityPastoralId as string }));
+    if (spousePairs.length > 0) {
+      const memberships = await this.prisma.pastoralMember.findMany({
+        where: {
+          isActive: true,
+          OR: spousePairs.map((pair) => ({
+            memberId: pair.spouseId,
+            communityPastoralId: pair.pastoralId,
+          })),
+        },
+        select: { memberId: true, communityPastoralId: true },
+      });
+      const membershipSet = new Set(memberships.map((m) => `${m.memberId}|${m.communityPastoralId}`));
+      for (const assignment of schedule.assignments as any[]) {
+        assignment.spouseInSamePastoral =
+          Boolean(assignment.member?.spouseId) &&
+          Boolean(assignment.communityPastoralId) &&
+          membershipSet.has(`${assignment.member.spouseId}|${assignment.communityPastoralId}`);
+      }
+    }
+
     return this.normalizeSchedulePayload(schedule);
   }
 
