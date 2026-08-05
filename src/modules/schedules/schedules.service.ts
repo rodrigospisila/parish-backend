@@ -2388,6 +2388,8 @@ export class SchedulesService {
       noSlots?: boolean;
       /** Todas as vagas já estão preenchidas — nada a completar */
       allFilled?: boolean;
+      /** Casados escalados sem o cônjuge por falta de vaga (política preferencial) */
+      coupleWarnings?: string[];
     }> = [];
 
     for (const scheduleId of dto.scheduleIds) {
@@ -2418,6 +2420,7 @@ export class SchedulesService {
         spouseId?: string | null;
       }> = [];
       const gaps: Array<{ role: string; missing: number }> = [];
+      const coupleWarnings: string[] = [];
       const pickedInThisSchedule = new Set<string>();
       const overrides = overrideMap.get(scheduleId);
       const effectiveRequired = (pastoral: any) =>
@@ -2471,15 +2474,22 @@ export class SchedulesService {
           // Pode já ter entrado como cônjuge de um escolhido anterior
           if (pickedInThisSchedule.has(entry.member.id)) continue;
           pick(entry.member, entry.score);
-          // Política preferencial: puxa o cônjuge junto quando elegível e houver vaga
-          if (coupleActive && entry.member.spouseId && filled < required) {
+          // Política preferencial: puxa o cônjuge junto quando elegível; sem
+          // vaga para os dois, escala um e REGISTRA o aviso para o coordenador.
+          if (coupleActive && entry.member.spouseId && !assignedMemberIds.has(entry.member.spouseId)) {
             const spouseEntry = ranked.find(
               (candidate) =>
                 candidate.member.id === entry.member.spouseId &&
                 !pickedInThisSchedule.has(candidate.member.id),
             );
             if (spouseEntry) {
-              pick(spouseEntry.member, spouseEntry.score);
+              if (filled < required) {
+                pick(spouseEntry.member, spouseEntry.score);
+              } else {
+                coupleWarnings.push(
+                  `${entry.member.fullName} ficará sem o cônjuge (${spouseEntry.member.fullName}) — não há vaga para os dois em ${roleLabel}`,
+                );
+              }
             }
           }
         }
@@ -2506,6 +2516,7 @@ export class SchedulesService {
         allFilled:
           candidates.pastorals.some((p: any) => effectiveRequired(p) > 0) &&
           candidates.pastorals.every((p: any) => remainingFor(p) === 0),
+        coupleWarnings,
       });
     }
 
