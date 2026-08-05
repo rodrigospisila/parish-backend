@@ -1009,6 +1009,12 @@ export class SchedulesService {
                 photoUrl: true,
               },
             },
+            // Pedidos de troca em aberto — destacados na gestão da escala
+            swapRequests: {
+              where: { status: 'PENDING' },
+              select: { id: true, message: true, createdAt: true },
+              orderBy: { createdAt: 'desc' },
+            },
           },
           orderBy: {
             role: 'asc',
