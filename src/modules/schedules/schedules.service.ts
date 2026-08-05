@@ -2810,6 +2810,11 @@ export class SchedulesService {
                 fullName: true,
               },
             },
+            // Pedidos de troca em aberto (alerta para o coordenador)
+            swapRequests: {
+              where: { status: 'PENDING' },
+              select: { id: true },
+            },
           },
           orderBy: {
             role: 'asc',
@@ -2827,6 +2832,9 @@ export class SchedulesService {
       const confirmed = schedule.assignments.filter((assignment) => assignment.status === 'CONFIRMED').length;
       const declined = schedule.assignments.filter((assignment) => assignment.status === 'DECLINED').length;
       const checkedIn = schedule.assignments.filter((assignment) => assignment.checkedIn).length;
+      const swapsPending = schedule.assignments.filter(
+        (assignment: any) => (assignment.swapRequests?.length ?? 0) > 0,
+      ).length;
       const attendanceRate = total > 0 ? parseFloat(((checkedIn / total) * 100).toFixed(2)) : 0;
       const normalizedSchedule = this.normalizeSchedulePayload(schedule as any);
 
@@ -2841,9 +2849,10 @@ export class SchedulesService {
           confirmed,
           declined,
           checkedIn,
+          swapsPending,
         },
         attendanceRate,
-        assignments: schedule.assignments.map((assignment) => ({
+        assignments: schedule.assignments.map((assignment: any) => ({
           id: assignment.id,
           memberId: assignment.memberId,
           memberName: assignment.member?.fullName || 'Membro',
@@ -2851,6 +2860,7 @@ export class SchedulesService {
           status: assignment.status,
           checkedIn: assignment.checkedIn,
           checkedInAt: assignment.checkedInAt,
+          hasPendingSwap: (assignment.swapRequests?.length ?? 0) > 0,
         })),
       };
     });
