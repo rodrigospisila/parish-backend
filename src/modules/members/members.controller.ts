@@ -32,6 +32,8 @@ export class MembersController {
     UserRole.DIOCESAN_ADMIN,
     UserRole.PARISH_ADMIN,
     UserRole.COMMUNITY_COORDINATOR,
+    // Coordenador de pastoral cadastra membros na própria comunidade
+    UserRole.PASTORAL_COORDINATOR,
   )
   create(@Body() createMemberDto: CreateMemberDto, @CurrentUser() user: any) {
     return this.membersService.create(createMemberDto, user);
@@ -95,6 +97,9 @@ export class MembersController {
     UserRole.DIOCESAN_ADMIN,
     UserRole.PARISH_ADMIN,
     UserRole.COMMUNITY_COORDINATOR,
+    // Coordenador de pastoral edita membros da própria comunidade
+    // (escopo validado em canManageMember no service)
+    UserRole.PASTORAL_COORDINATOR,
   )
   update(@Param('id') id: string, @Body() updateMemberDto: UpdateMemberDto, @CurrentUser() user: any) {
     return this.membersService.update(id, updateMemberDto, user);
