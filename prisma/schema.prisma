@@ -541,6 +541,9 @@ model CommunityPastoral {
   // Regra de escala: casais servem juntos (rodízio puxa o cônjuge quando possível)
   scheduleCouplesTogether Boolean @default(false)
 
+  // Regra de escala: esta pastoral escala GRUPOS/equipes (ex.: música), não pessoas
+  scheduleByGroup Boolean @default(false)
+
   // Metadata
   foundedAt DateTime?
   status    EntityStatus @default(ACTIVE)
@@ -607,6 +610,9 @@ model PastoralGroup {
 
   // Membros
   members PastoralMember[]
+
+  // Escalas em que o grupo foi escalado como unidade
+  scheduleAssignments ScheduleAssignment[]
 
   // Audit
   createdAt DateTime  @default(now())
@@ -1045,12 +1051,16 @@ model ScheduleAssignment {
   member              Member             @relation(fields: [memberId], references: [id], onDelete: Cascade)
   communityPastoralId String?
   communityPastoral   CommunityPastoral? @relation(fields: [communityPastoralId], references: [id], onDelete: SetNull)
+  // Grupo/equipe escalado como unidade (pastorais com scheduleByGroup)
+  pastoralGroupId     String?
+  pastoralGroup       PastoralGroup?     @relation(fields: [pastoralGroupId], references: [id], onDelete: SetNull)
 
   // Audit
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
   @@index([scheduleId])
+  @@index([pastoralGroupId])
   @@index([memberId])
   @@index([communityPastoralId])
   @@index([status])

@@ -180,6 +180,39 @@ export class SchedulesController {
     return this.schedulesService.createAssignment(createAssignmentDto, req.user);
   }
 
+  @Post('assignments/group')
+  @UseGuards(RolesGuard)
+  @Roles(
+    UserRole.SYSTEM_ADMIN,
+    UserRole.DIOCESAN_ADMIN,
+    UserRole.PARISH_ADMIN,
+    UserRole.COMMUNITY_COORDINATOR,
+    UserRole.PASTORAL_COORDINATOR,
+  )
+  createGroupAssignment(
+    @Body() dto: { scheduleId: string; pastoralGroupId: string; role?: string },
+    @Request() req: any,
+  ) {
+    return this.schedulesService.createGroupAssignment(dto, req.user);
+  }
+
+  @Delete('assignments/group')
+  @UseGuards(RolesGuard)
+  @Roles(
+    UserRole.SYSTEM_ADMIN,
+    UserRole.DIOCESAN_ADMIN,
+    UserRole.PARISH_ADMIN,
+    UserRole.COMMUNITY_COORDINATOR,
+    UserRole.PASTORAL_COORDINATOR,
+  )
+  removeGroupAssignment(
+    @Query('scheduleId') scheduleId: string,
+    @Query('pastoralGroupId') pastoralGroupId: string,
+    @Request() req: any,
+  ) {
+    return this.schedulesService.removeGroupAssignment(scheduleId, pastoralGroupId, req.user);
+  }
+
   @Get('assignments/all')
   findAllAssignments(
     @Query('scheduleId') scheduleId?: string,

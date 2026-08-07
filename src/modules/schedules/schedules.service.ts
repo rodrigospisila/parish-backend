@@ -1016,6 +1016,10 @@ export class SchedulesService {
                 spouse: { select: { id: true, fullName: true } },
               },
             },
+            // Grupo escalado como unidade (pastorais por grupos)
+            pastoralGroup: {
+              select: { id: true, name: true },
+            },
             // Pedidos de troca em aberto — destacados na gestão da escala
             swapRequests: {
               where: { status: 'PENDING' },
@@ -1200,7 +1204,14 @@ export class SchedulesService {
       );
       const requiredPeople = Number(selectedPastoral?.requiredPeople || 0);
 
-      if (requiredPeople > 0) {
+      // Pastoral que escala por GRUPOS: vagas contam grupos, não pessoas —
+      // integrantes do grupo não disputam a capacidade individual.
+      const pastoralFlags = await this.prisma.communityPastoral.findUnique({
+        where: { id: resolvedCommunityPastoralId },
+        select: { scheduleByGroup: true },
+      });
+
+      if (requiredPeople > 0 && !pastoralFlags?.scheduleByGroup) {
         const assignedCount = await this.prisma.scheduleAssignment.count({
           where: {
             scheduleId,
@@ -1536,7 +1547,14 @@ export class SchedulesService {
       );
       const requiredPeople = Number(selectedPastoral?.requiredPeople || 0);
 
-      if (requiredPeople > 0) {
+      // Pastoral que escala por GRUPOS: vagas contam grupos, não pessoas —
+      // integrantes do grupo não disputam a capacidade individual.
+      const pastoralFlags = await this.prisma.communityPastoral.findUnique({
+        where: { id: resolvedCommunityPastoralId },
+        select: { scheduleByGroup: true },
+      });
+
+      if (requiredPeople > 0 && !pastoralFlags?.scheduleByGroup) {
         const assignedCount = await this.prisma.scheduleAssignment.count({
           where: {
             scheduleId: assignment.scheduleId,
@@ -2002,8 +2020,48 @@ export class SchedulesService {
         remainingPeople: requiredPeople > 0 ? Math.max(requiredPeople - assignedCount, 0) : null,
         // Regra de escala da pastoral: casais servem juntos
         scheduleCouplesTogether: schedulePastoral.communityPastoral.scheduleCouplesTogether ?? false,
+        // Regra de escala: esta pastoral escala grupos/equipes
+        scheduleByGroup: (schedulePastoral.communityPastoral as any).scheduleByGroup ?? false,
       };
     });
+
+    // Grupos das pastorais "por grupo" (contagem de membros e líder) para o
+    // coordenador escalar a EQUIPE como unidade.
+    const groupPastoralIds = (schedule.pastorals || [])
+      .filter((sp) => (sp.communityPastoral as any).scheduleByGroup)
+      .map((sp) => sp.communityPastoralId);
+    const assignedGroupIds = new Set(
+      (schedule.assignments as any[])
+        .map((assignment) => assignment.pastoralGroupId)
+        .filter((id: string | null): id is string => Boolean(id)),
+    );
+    const groups = groupPastoralIds.length
+      ? (
+          await this.prisma.pastoralGroup.findMany({
+            where: {
+              communityPastoralId: { in: groupPastoralIds },
+              deletedAt: null,
+              status: 'ACTIVE',
+            },
+            include: {
+              members: {
+                where: { isActive: true },
+                select: { role: true, member: { select: { fullName: true } } },
+              },
+            },
+            orderBy: { name: 'asc' },
+          })
+        ).map((group) => ({
+          id: group.id,
+          name: group.name,
+          communityPastoralId: group.communityPastoralId,
+          membersCount: group.members.length,
+          leaderName:
+            group.members.find((m) => /coorden|l[íi]der/i.test(m.role || ''))?.member.fullName ||
+            null,
+          alreadyAssigned: assignedGroupIds.has(group.id),
+        }))
+      : [];
 
     if (schedule.pastorals.length > 0) {
       for (const schedulePastoral of schedule.pastorals) {
@@ -2073,6 +2131,7 @@ export class SchedulesService {
         date: schedule.date,
         event: eventSummary,
         pastorals: pastoralSummaries,
+        groups,
         hasPastorals: schedule.pastorals.length > 0,
         availabilityFeatureEnabled: false,
         members: [],
@@ -2283,6 +2342,7 @@ export class SchedulesService {
       date: schedule.date,
       event: eventSummary,
       pastorals: pastoralSummaries,
+      groups,
       hasPastorals: schedule.pastorals.length > 0,
       availabilityFeatureEnabled: true,
       members,
@@ -2295,6 +2355,122 @@ export class SchedulesService {
    * quem já foi alocado neste lote para equalizar a carga.
    * dryRun=true devolve apenas a prévia; dryRun=false cria as atribuições PENDING.
    */
+  /**
+   * Escala um GRUPO/equipe inteiro (pastorais com scheduleByGroup): cria uma
+   * atribuição por membro ativo do grupo, todas marcadas com pastoralGroupId.
+   * A capacidade é contada em GRUPOS distintos (requiredPeople = nº de grupos).
+   */
+  async createGroupAssignment(
+    dto: { scheduleId: string; pastoralGroupId: string; role?: string },
+    currentUser: CurrentUser,
+  ) {
+    const hasAccess = await this.hierarchyService.hasAccessToSchedule(currentUser.id, dto.scheduleId);
+    if (!hasAccess) {
+      throw new ForbiddenException('Voce nao tem permissao para alterar esta escala');
+    }
+
+    const schedule = await this.prisma.schedule.findFirst({
+      where: { id: dto.scheduleId, deletedAt: null },
+      include: {
+        pastorals: { select: { communityPastoralId: true, requiredPeople: true, role: true } },
+        assignments: { select: { memberId: true, pastoralGroupId: true } },
+      },
+    });
+    if (!schedule) {
+      throw new NotFoundException('Escala nao encontrada');
+    }
+
+    const group = await this.prisma.pastoralGroup.findFirst({
+      where: { id: dto.pastoralGroupId, deletedAt: null },
+      include: {
+        communityPastoral: { select: { id: true, scheduleByGroup: true } },
+        members: {
+          where: { isActive: true },
+          select: { memberId: true },
+        },
+      },
+    });
+    if (!group) {
+      throw new NotFoundException('Grupo nao encontrado');
+    }
+
+    const schedulePastoral = schedule.pastorals.find(
+      (sp) => sp.communityPastoralId === group.communityPastoralId,
+    );
+    if (!schedulePastoral) {
+      throw new BadRequestException('A pastoral deste grupo nao esta vinculada a esta escala');
+    }
+
+    // Escopo do coordenador de pastoral
+    if (currentUser.role === 'PASTORAL_COORDINATOR') {
+      const scoped = await this.getScopedPastoralIds(currentUser);
+      if (scoped.length > 0 && !scoped.includes(group.communityPastoralId)) {
+        throw new ForbiddenException('Voce so pode escalar grupos das suas pastorais');
+      }
+    }
+
+    if (group.members.length === 0) {
+      throw new BadRequestException('Este grupo nao possui membros ativos');
+    }
+
+    // Capacidade em grupos distintos
+    const requiredGroups = Number(schedulePastoral.requiredPeople || 0);
+    const assignedGroupIds = new Set(
+      schedule.assignments
+        .map((a) => a.pastoralGroupId)
+        .filter((id): id is string => Boolean(id)),
+    );
+    if (assignedGroupIds.has(group.id)) {
+      throw new BadRequestException('Este grupo ja esta escalado nesta escala');
+    }
+    if (requiredGroups > 0 && assignedGroupIds.size >= requiredGroups) {
+      throw new BadRequestException('Limite de grupos atingido para esta escala');
+    }
+
+    const alreadyAssignedMemberIds = new Set(schedule.assignments.map((a) => a.memberId));
+    const role = dto.role?.trim() || schedulePastoral.role || group.name;
+    const toCreate = group.members.filter((m) => !alreadyAssignedMemberIds.has(m.memberId));
+
+    await this.prisma.scheduleAssignment.createMany({
+      data: toCreate.map((m) => ({
+        scheduleId: dto.scheduleId,
+        memberId: m.memberId,
+        role,
+        communityPastoralId: group.communityPastoralId,
+        pastoralGroupId: group.id,
+      })),
+    });
+
+    await this.auditService.log({
+      actor: { id: currentUser.id, email: currentUser.email, role: currentUser.role },
+      action: 'CREATE',
+      entity: 'ScheduleGroupAssignment',
+      entityId: `${dto.scheduleId}:${group.id}`,
+      metadata: { groupName: group.name, created: toCreate.length },
+    });
+
+    return {
+      groupId: group.id,
+      groupName: group.name,
+      created: toCreate.length,
+      skipped: group.members.length - toCreate.length,
+    };
+  }
+
+  /** Remove o grupo inteiro da escala (todas as atribuições do grupo). */
+  async removeGroupAssignment(scheduleId: string, pastoralGroupId: string, currentUser: CurrentUser) {
+    const hasAccess = await this.hierarchyService.hasAccessToSchedule(currentUser.id, scheduleId);
+    if (!hasAccess) {
+      throw new ForbiddenException('Voce nao tem permissao para alterar esta escala');
+    }
+
+    const result = await this.prisma.scheduleAssignment.deleteMany({
+      where: { scheduleId, pastoralGroupId },
+    });
+
+    return { removed: result.count };
+  }
+
   /**
    * Atualiza as vagas (requiredPeople) das pastorais já vinculadas à escala.
    * Não adiciona nem remove pastorais — só ajusta as vagas de cada uma.

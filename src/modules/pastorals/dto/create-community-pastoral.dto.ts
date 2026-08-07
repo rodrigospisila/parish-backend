@@ -37,6 +37,11 @@ export class CreateCommunityPastoralDto {
   @IsOptional()
   scheduleCouplesTogether?: boolean;
 
+  /** Regra de escala: esta pastoral escala GRUPOS/equipes (ex.: música) */
+  @IsBoolean()
+  @IsOptional()
+  scheduleByGroup?: boolean;
+
   @IsEnum(EntityStatus)
   @IsOptional()
   status?: EntityStatus;
