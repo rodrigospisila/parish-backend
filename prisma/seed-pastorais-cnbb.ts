@@ -190,6 +190,13 @@ const PASTORAIS: PastoralSeed[] = [
     description: 'Acolhida das pessoas nas celebrações e na secretaria paroquial.',
     colorHex: '#D68910',
   },
+  {
+    name: 'Ministério de Música Litúrgica',
+    kind: PastoralKind.MINISTRY,
+    description: 'Grupos de canto e música que animam as celebrações: corais, bandas e equipes de louvor.',
+    mission: 'Servir a liturgia pelo canto, ajudando a assembleia a rezar.',
+    colorHex: '#B7950B',
+  },
 ];
 
 async function main() {
