@@ -213,6 +213,15 @@ export class SchedulesController {
     return this.schedulesService.removeGroupAssignment(scheduleId, pastoralGroupId, req.user);
   }
 
+  // Líder do grupo (ou coordenação) responde a escala em nome de toda a equipe
+  @Patch('assignments/group/respond')
+  respondGroupAssignment(
+    @Body() dto: { scheduleId: string; pastoralGroupId: string; action: 'confirm' | 'decline'; reason?: string },
+    @Request() req: any,
+  ) {
+    return this.schedulesService.respondGroupAssignment(dto, req.user);
+  }
+
   @Get('assignments/all')
   findAllAssignments(
     @Query('scheduleId') scheduleId?: string,

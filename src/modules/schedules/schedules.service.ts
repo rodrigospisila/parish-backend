@@ -2554,6 +2554,8 @@ export class SchedulesService {
         memberName: string;
         score: number;
         spouseId?: string | null;
+        /** Sugestão de GRUPO (pastorais que escalam por grupo) */
+        pastoralGroupId?: string | null;
       }>;
       gaps: Array<{ role: string; missing: number }>;
       /** Pastorais da escala com as vagas efetivas (para edição na UI do rodízio) */
@@ -2566,6 +2568,8 @@ export class SchedulesService {
       allFilled?: boolean;
       /** Casados escalados sem o cônjuge por falta de vaga (política preferencial) */
       coupleWarnings?: string[];
+      /** Avisos do revezamento de grupos (ex.: grupo com escala no mesmo dia) */
+      groupWarnings?: string[];
     }> = [];
 
     for (const scheduleId of dto.scheduleIds) {
@@ -2594,9 +2598,11 @@ export class SchedulesService {
         memberName: string;
         score: number;
         spouseId?: string | null;
+        pastoralGroupId?: string | null;
       }> = [];
       const gaps: Array<{ role: string; missing: number }> = [];
       const coupleWarnings: string[] = [];
+      const groupWarnings: string[] = [];
       const pickedInThisSchedule = new Set<string>();
       const overrides = overrideMap.get(scheduleId);
       const effectiveRequired = (pastoral: any) =>
@@ -2611,7 +2617,112 @@ export class SchedulesService {
           effectiveRequired(pastoral) - (assignedByPastoral.get(pastoral.communityPastoralId) ?? 0),
         );
 
+      // Pastorais por GRUPO: vagas contam grupos distintos já escalados
+      const assignedGroupCountByPastoral = new Map<string, number>();
+      for (const candidateGroup of ((candidates as any).groups ?? []) as any[]) {
+        if (candidateGroup.alreadyAssigned) {
+          assignedGroupCountByPastoral.set(
+            candidateGroup.communityPastoralId,
+            (assignedGroupCountByPastoral.get(candidateGroup.communityPastoralId) ?? 0) + 1,
+          );
+        }
+      }
+      const groupRemainingFor = (pastoral: any) =>
+        Math.max(
+          0,
+          effectiveRequired(pastoral) -
+            (assignedGroupCountByPastoral.get(pastoral.communityPastoralId) ?? 0),
+        );
+
+      // ===== 🎵 Revezamento de GRUPOS (pastorais com scheduleByGroup) =====
+      const groupModePastorals = candidates.pastorals.filter((p: any) => p.scheduleByGroup);
+      if (groupModePastorals.length > 0) {
+        const allGroups = (((candidates as any).groups ?? []) as any[]).filter((g) =>
+          groupModePastorals.some((p: any) => p.communityPastoralId === g.communityPastoralId),
+        );
+        const allGroupIds = allGroups.map((g) => g.id);
+        // Carga dos grupos (últimos 90 dias + futuras) e conflito no mesmo dia
+        const loadSince = new Date();
+        loadSince.setDate(loadSince.getDate() - 90);
+        const groupLoadRows = allGroupIds.length
+          ? await this.prisma.scheduleAssignment.findMany({
+              where: {
+                pastoralGroupId: { in: allGroupIds },
+                schedule: { deletedAt: null, date: { gte: loadSince } },
+              },
+              select: {
+                pastoralGroupId: true,
+                scheduleId: true,
+                schedule: { select: { date: true } },
+              },
+            })
+          : [];
+        const dayKeyOf = (value: Date) =>
+          `${value.getFullYear()}-${value.getMonth()}-${value.getDate()}`;
+        const targetDayKey = dayKeyOf(new Date(candidates.date as any));
+        const groupLoad = new Map<string, Set<string>>();
+        const groupSameDay = new Set<string>();
+        for (const row of groupLoadRows) {
+          if (!row.pastoralGroupId) continue;
+          if (!groupLoad.has(row.pastoralGroupId)) groupLoad.set(row.pastoralGroupId, new Set());
+          groupLoad.get(row.pastoralGroupId)!.add(row.scheduleId);
+          if (row.scheduleId !== scheduleId && dayKeyOf(new Date(row.schedule.date)) === targetDayKey) {
+            groupSameDay.add(row.pastoralGroupId);
+          }
+        }
+
+        for (const pastoral of groupModePastorals) {
+          let remainingGroups = groupRemainingFor(pastoral);
+          if (remainingGroups <= 0) continue;
+
+          const pool = allGroups
+            .filter(
+              (g) =>
+                g.communityPastoralId === (pastoral as any).communityPastoralId &&
+                !g.alreadyAssigned &&
+                g.membersCount > 0,
+            )
+            .map((g) => ({
+              group: g,
+              conflict: groupSameDay.has(g.id),
+              load:
+                (groupLoad.get(g.id)?.size ?? 0) +
+                (timesPicked.get(`group:${g.id}`) ?? 0) * 100,
+            }))
+            .sort(
+              (a, b) =>
+                Number(a.conflict) - Number(b.conflict) ||
+                a.load - b.load ||
+                a.group.name.localeCompare(b.group.name),
+            );
+
+          for (const entry of pool) {
+            if (remainingGroups <= 0) break;
+            suggestions.push({
+              role: (pastoral as any).name || 'Grupo',
+              memberId: `group:${entry.group.id}`,
+              memberName: `🎵 ${entry.group.name} (${entry.group.membersCount} integrante${entry.group.membersCount > 1 ? 's' : ''})`,
+              score: -entry.load,
+              spouseId: null,
+              pastoralGroupId: entry.group.id,
+            });
+            timesPicked.set(`group:${entry.group.id}`, (timesPicked.get(`group:${entry.group.id}`) ?? 0) + 1);
+            if (entry.conflict) {
+              groupWarnings.push(
+                `O grupo ${entry.group.name} já serve em outra escala no mesmo dia`,
+              );
+            }
+            remainingGroups--;
+          }
+          if (remainingGroups > 0) {
+            gaps.push({ role: (pastoral as any).name || 'Grupo', missing: remainingGroups });
+          }
+        }
+      }
+
       for (const pastoral of candidates.pastorals) {
+        // Pastorais por grupo já foram tratadas pelo revezamento de grupos
+        if ((pastoral as any).scheduleByGroup) continue;
         const required = remainingFor(pastoral);
         if (required <= 0) continue;
 
@@ -2691,8 +2802,11 @@ export class SchedulesService {
           !candidates.pastorals.some((p: any) => effectiveRequired(p) > 0),
         allFilled:
           candidates.pastorals.some((p: any) => effectiveRequired(p) > 0) &&
-          candidates.pastorals.every((p: any) => remainingFor(p) === 0),
+          candidates.pastorals.every((p: any) =>
+            (p as any).scheduleByGroup ? groupRemainingFor(p) === 0 : remainingFor(p) === 0,
+          ),
         coupleWarnings,
+        groupWarnings,
       });
     }
 
@@ -2714,6 +2828,19 @@ export class SchedulesService {
     let created = 0;
     for (const item of preview) {
       for (const suggestion of item.suggestions) {
+        // Sugestão de GRUPO: escala a equipe inteira
+        if (suggestion.pastoralGroupId) {
+          try {
+            await this.createGroupAssignment(
+              { scheduleId: item.scheduleId, pastoralGroupId: suggestion.pastoralGroupId },
+              currentUser,
+            );
+            created++;
+          } catch {
+            // ignora conflitos individuais; a prévia já sinalizou lacunas
+          }
+          continue;
+        }
         try {
           await this.createAssignment(
             { scheduleId: item.scheduleId, memberId: suggestion.memberId, role: suggestion.role },
@@ -2763,6 +2890,9 @@ export class SchedulesService {
         },
       },
       include: {
+        pastoralGroup: {
+          select: { id: true, name: true },
+        },
         schedule: {
           include: {
             event: {
@@ -2826,6 +2956,17 @@ export class SchedulesService {
       take: 10,
     });
 
+    // Grupos em que o membro é líder (para responder pela equipe)
+    const groupMemberships = await this.prisma.pastoralMember.findMany({
+      where: { memberId: member.id, isActive: true, pastoralGroupId: { not: null } },
+      select: { pastoralGroupId: true, role: true },
+    });
+    const leaderGroupIds = new Set(
+      groupMemberships
+        .filter((membership) => /coorden|l[íi]der/i.test(membership.role || ''))
+        .map((membership) => membership.pastoralGroupId!),
+    );
+
     return {
       memberId: member.id,
       memberName: member.fullName,
@@ -2835,6 +2976,10 @@ export class SchedulesService {
         status: a.status,
         checkedIn: a.checkedIn,
         checkedInAt: a.checkedInAt,
+        pastoralGroup: (a as any).pastoralGroup ?? null,
+        isGroupLeader: Boolean(
+          (a as any).pastoralGroupId && leaderGroupIds.has((a as any).pastoralGroupId),
+        ),
         schedule: {
           id: a.schedule.id,
           title: a.schedule.title,
@@ -2857,6 +3002,64 @@ export class SchedulesService {
         },
       })),
     };
+  }
+
+  /**
+   * Líder do grupo responde (confirma/recusa) a escala EM NOME de toda a equipe.
+   * Também permitido aos papéis de coordenação (resposta assistida).
+   */
+  async respondGroupAssignment(
+    dto: { scheduleId: string; pastoralGroupId: string; action: 'confirm' | 'decline'; reason?: string },
+    currentUser: CurrentUser,
+  ) {
+    const isCoordinator = this.assistedResponseRoles.includes(currentUser.role);
+
+    if (!isCoordinator) {
+      const member = await this.prisma.member.findFirst({
+        where: { userId: currentUser.id },
+        select: { id: true },
+      });
+      if (!member) {
+        throw new ForbiddenException('Usuario nao possui cadastro de membro');
+      }
+      const membership = await this.prisma.pastoralMember.findFirst({
+        where: {
+          memberId: member.id,
+          pastoralGroupId: dto.pastoralGroupId,
+          isActive: true,
+        },
+        select: { role: true },
+      });
+      if (!membership || !/coorden|l[íi]der/i.test(membership.role || '')) {
+        throw new ForbiddenException('Apenas o líder do grupo pode responder pela equipe');
+      }
+    }
+
+    const data: any =
+      dto.action === 'confirm'
+        ? {
+            status: 'CONFIRMED',
+            respondedByUserId: currentUser.id,
+            respondedAt: new Date(),
+            declineReason: null,
+          }
+        : {
+            status: 'DECLINED',
+            respondedByUserId: currentUser.id,
+            respondedAt: new Date(),
+            declineReason: dto.reason?.trim() || null,
+          };
+
+    const result = await this.prisma.scheduleAssignment.updateMany({
+      where: {
+        scheduleId: dto.scheduleId,
+        pastoralGroupId: dto.pastoralGroupId,
+        checkedIn: false,
+      },
+      data,
+    });
+
+    return { updated: result.count, action: dto.action };
   }
 
   /**
