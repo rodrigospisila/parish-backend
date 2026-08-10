@@ -45,13 +45,18 @@ export class AuthService {
       parishId: user.parishId,
       communityId: user.communityId,
       createdAt: user.createdAt,
-      pastoralIds: pastoralMemberships.map((membership: any) => membership.communityPastoralId),
-      pastorals: pastoralMemberships.map((membership: any) => ({
-        id: membership.communityPastoral.id,
-        name: membership.communityPastoral.globalPastoral.name,
-        communityId: membership.communityPastoral.communityId,
-        role: membership.role,
-      })),
+      pastoralIds: pastoralMemberships
+        .map((membership: any) => membership.communityPastoralId)
+        .filter((id: string | null | undefined): id is string => !!id),
+      // Vínculos de sub-grupo (só pastoralGroupId) não têm communityPastoral — ignorar aqui
+      pastorals: pastoralMemberships
+        .filter((membership: any) => membership.communityPastoral)
+        .map((membership: any) => ({
+          id: membership.communityPastoral.id,
+          name: membership.communityPastoral.globalPastoral.name,
+          communityId: membership.communityPastoral.communityId,
+          role: membership.role,
+        })),
     };
   }
 

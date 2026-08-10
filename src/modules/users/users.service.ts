@@ -98,13 +98,16 @@ export class UsersService {
       pastoralIds: pastoralMemberships
         .map((membership: any) => membership.communityPastoralId)
         .filter((id: string | null | undefined): id is string => !!id),
-      pastorals: pastoralMemberships.map((membership: any) => ({
-        id: membership.communityPastoral.id,
-        name: membership.communityPastoral.globalPastoral.name,
-        communityId: membership.communityPastoral.communityId,
-        communityName: membership.communityPastoral.community?.name,
-        role: membership.role,
-      })),
+      // Vínculos de sub-grupo (só pastoralGroupId) não têm communityPastoral — ignorar aqui
+      pastorals: pastoralMemberships
+        .filter((membership: any) => membership.communityPastoral)
+        .map((membership: any) => ({
+          id: membership.communityPastoral.id,
+          name: membership.communityPastoral.globalPastoral.name,
+          communityId: membership.communityPastoral.communityId,
+          communityName: membership.communityPastoral.community?.name,
+          role: membership.role,
+        })),
     };
   }
 
