@@ -289,6 +289,69 @@ export class MassSchedulesService {
     return occurrences;
   }
 
+  /**
+   * Ocorrências da agenda fixa SEM escala criada no período (pendências).
+   * Considera apenas horários com pastorais vinculadas (sem pastoral não há
+   * escala a gerar). `pastoralId` filtra pendências que envolvam a pastoral.
+   */
+  async pendingOccurrences(
+    fromStr: string,
+    toStr: string,
+    currentUser: CurrentUser,
+    communityId?: string,
+    pastoralId?: string,
+  ) {
+    const occurrences = await this.expandOccurrences(fromStr, toStr, currentUser, communityId);
+    if (occurrences.length === 0) return [];
+
+    const massIds = [...new Set(occurrences.map((o) => o.massScheduleId))];
+    const [masses, existing] = await Promise.all([
+      this.prisma.massSchedule.findMany({
+        where: { id: { in: massIds } },
+        select: { id: true, pastorals: PASTORAL_INCLUDE },
+      }),
+      this.prisma.schedule.findMany({
+        where: {
+          massScheduleId: { in: massIds },
+          deletedAt: null,
+          date: {
+            gte: new Date(new Date(fromStr).getTime() - 24 * 60 * 60 * 1000),
+            lte: new Date(new Date(toStr).getTime() + 24 * 60 * 60 * 1000),
+          },
+        },
+        select: { massScheduleId: true, date: true },
+      }),
+    ]);
+
+    const pastoralsByMass = new Map(
+      masses.map((mass) => [
+        mass.id,
+        mass.pastorals.map((p) => ({
+          id: p.communityPastoralId,
+          name: p.communityPastoral?.globalPastoral?.name ?? 'Pastoral',
+          requiredPeople: p.requiredPeople,
+        })),
+      ]),
+    );
+    const covered = new Set(
+      existing.map((s) => `${s.massScheduleId}:${s.date.toISOString().slice(0, 10)}`),
+    );
+
+    return occurrences
+      .map((occurrence) => ({
+        ...occurrence,
+        date: occurrence.start.slice(0, 10),
+        time: occurrence.start.slice(11, 16),
+        pastorals: pastoralsByMass.get(occurrence.massScheduleId) ?? [],
+      }))
+      .filter((occurrence) => occurrence.pastorals.length > 0)
+      .filter((occurrence) => !covered.has(`${occurrence.massScheduleId}:${occurrence.date}`))
+      .filter(
+        (occurrence) =>
+          !pastoralId || occurrence.pastorals.some((p) => p.id === pastoralId),
+      );
+  }
+
   private toOccurrence(
     schedule: { id: string; type: MassScheduleType; notes: string | null; community: { id: string; name: string } | null },
     dayUTC: Date,

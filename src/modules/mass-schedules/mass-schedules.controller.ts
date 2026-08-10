@@ -65,6 +65,19 @@ export class MassSchedulesController {
     return this.massSchedulesService.expandOccurrences(from, to, user, communityId);
   }
 
+  // Ocorrências da agenda fixa ainda sem escala criada (pendências do coordenador)
+  @Get('pending')
+  @UseGuards(JwtAuthGuard)
+  pending(
+    @CurrentUser() user: any,
+    @Query('from') from: string,
+    @Query('to') to: string,
+    @Query('communityId') communityId?: string,
+    @Query('pastoralId') pastoralId?: string,
+  ) {
+    return this.massSchedulesService.pendingOccurrences(from, to, user, communityId, pastoralId);
+  }
+
   @Get('day/:dayOfWeek')
   findByDayOfWeek(
     @Param('dayOfWeek') dayOfWeek: string,
