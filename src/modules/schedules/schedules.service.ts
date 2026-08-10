@@ -2057,7 +2057,7 @@ export class SchedulesService {
           communityPastoralId: group.communityPastoralId,
           membersCount: group.members.length,
           leaderName:
-            group.members.find((m) => /coorden|l[íi]der/i.test(m.role || ''))?.member.fullName ||
+            group.members.find((m) => /coorden|coordin|l[íi]der/i.test(m.role || ''))?.member.fullName ||
             null,
           alreadyAssigned: assignedGroupIds.has(group.id),
         }))
@@ -2963,7 +2963,7 @@ export class SchedulesService {
     });
     const leaderGroupIds = new Set(
       groupMemberships
-        .filter((membership) => /coorden|l[íi]der/i.test(membership.role || ''))
+        .filter((membership) => /coorden|coordin|l[íi]der/i.test(membership.role || ''))
         .map((membership) => membership.pastoralGroupId!),
     );
 
@@ -3030,7 +3030,7 @@ export class SchedulesService {
         },
         select: { role: true },
       });
-      if (!membership || !/coorden|l[íi]der/i.test(membership.role || '')) {
+      if (!membership || !/coorden|coordin|l[íi]der/i.test(membership.role || '')) {
         throw new ForbiddenException('Apenas o líder do grupo pode responder pela equipe');
       }
     }
