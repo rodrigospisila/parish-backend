@@ -155,6 +155,9 @@ export class SchedulesService {
       isLeader: schedulePastoral.isLeader,
       communityPastoral: {
         id: schedulePastoral.communityPastoral?.id,
+        scheduleCouplesTogether:
+          schedulePastoral.communityPastoral?.scheduleCouplesTogether ?? false,
+        scheduleByGroup: schedulePastoral.communityPastoral?.scheduleByGroup ?? false,
         globalPastoral: schedulePastoral.communityPastoral?.globalPastoral || null,
       },
     };
