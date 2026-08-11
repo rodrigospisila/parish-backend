@@ -587,6 +587,7 @@ export class SchedulesService {
               select: {
                 id: true,
                 scheduleCouplesTogether: true,
+                scheduleByGroup: true,
                 globalPastoral: {
                   select: {
                     id: true,
@@ -699,6 +700,7 @@ export class SchedulesService {
               select: {
                 id: true,
                 scheduleCouplesTogether: true,
+                scheduleByGroup: true,
                 globalPastoral: {
                   select: {
                     id: true,
@@ -861,6 +863,7 @@ export class SchedulesService {
               select: {
                 id: true,
                 scheduleCouplesTogether: true,
+                scheduleByGroup: true,
                 globalPastoral: {
                   select: {
                     id: true,
@@ -972,6 +975,7 @@ export class SchedulesService {
               select: {
                 id: true,
                 scheduleCouplesTogether: true,
+                scheduleByGroup: true,
                 globalPastoral: {
                   select: {
                     id: true,
@@ -1967,6 +1971,7 @@ export class SchedulesService {
               select: {
                 id: true,
                 scheduleCouplesTogether: true,
+                scheduleByGroup: true,
                 globalPastoral: {
                   select: {
                     id: true,
@@ -3289,6 +3294,7 @@ export class SchedulesService {
               select: {
                 id: true,
                 scheduleCouplesTogether: true,
+                scheduleByGroup: true,
                 globalPastoral: {
                   select: {
                     id: true,
