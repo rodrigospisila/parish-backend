@@ -13,6 +13,7 @@ import { MassSchedulesService } from './mass-schedules.service';
 import { CreateMassScheduleDto } from './dto/create-mass-schedule.dto';
 import { UpdateMassScheduleDto } from './dto/update-mass-schedule.dto';
 import { GenerateScheduleFromMassDto } from './dto/generate-schedule.dto';
+import { GeneratePendingDto } from './dto/generate-pending.dto';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { RolesGuard } from '../auth/guards/roles.guard';
 import { Roles } from '../auth/decorators/roles.decorator';
@@ -63,6 +64,20 @@ export class MassSchedulesController {
     @Query('communityId') communityId?: string,
   ) {
     return this.massSchedulesService.expandOccurrences(from, to, user, communityId);
+  }
+
+  // Gera de uma vez as escalas de todas as pendências do período
+  @Post('generate-pending')
+  @UseGuards(JwtAuthGuard, RolesGuard)
+  @Roles(
+    UserRole.SYSTEM_ADMIN,
+    UserRole.DIOCESAN_ADMIN,
+    UserRole.PARISH_ADMIN,
+    UserRole.COMMUNITY_COORDINATOR,
+    UserRole.PASTORAL_COORDINATOR,
+  )
+  generatePending(@Body() dto: GeneratePendingDto, @CurrentUser() user: any) {
+    return this.massSchedulesService.generatePendingSchedules(dto, user);
   }
 
   // Ocorrências da agenda fixa ainda sem escala criada (pendências do coordenador)

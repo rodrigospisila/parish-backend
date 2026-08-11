@@ -352,6 +352,48 @@ export class MassSchedulesService {
       );
   }
 
+  /**
+   * Gera as escalas de TODAS as ocorrências pendentes do período de uma vez.
+   * Reusa generateSchedule (escopo, dedupe e cópia das pastorais por item);
+   * conflitos de corrida são ignorados, outros erros contam como falha.
+   */
+  async generatePendingSchedules(
+    dto: { from: string; to: string; communityId?: string; pastoralIds?: string[] },
+    currentUser: CurrentUser,
+  ) {
+    let pending = await this.pendingOccurrences(dto.from, dto.to, currentUser, dto.communityId);
+    if (dto.pastoralIds?.length) {
+      const wanted = new Set(dto.pastoralIds);
+      pending = pending.filter((occurrence) =>
+        occurrence.pastorals.some((pastoral) => wanted.has(pastoral.id)),
+      );
+    }
+
+    const created: { id: string; massScheduleId: string; date: string; time: string; title: string }[] = [];
+    let failed = 0;
+    for (const occurrence of pending) {
+      try {
+        const schedule = await this.generateSchedule(
+          occurrence.massScheduleId,
+          { date: occurrence.date },
+          currentUser,
+        );
+        created.push({
+          id: schedule.id,
+          massScheduleId: occurrence.massScheduleId,
+          date: occurrence.date,
+          time: occurrence.time,
+          title: schedule.title,
+        });
+      } catch (error) {
+        if (error instanceof ConflictException) continue; // outra pessoa acabou de criar
+        failed++;
+      }
+    }
+
+    return { created: created.length, failed, schedules: created };
+  }
+
   private toOccurrence(
     schedule: { id: string; type: MassScheduleType; notes: string | null; community: { id: string; name: string } | null },
     dayUTC: Date,
