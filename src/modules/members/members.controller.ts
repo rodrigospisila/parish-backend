@@ -14,6 +14,7 @@ import { MembersService } from './members.service';
 import { CreateMemberDto } from './dto/create-member.dto';
 import { UpdateMemberDto } from './dto/update-member.dto';
 import { ImportMembersDto } from './dto/import-members.dto';
+import { AddMemberCommunityDto } from './dto/add-member-community.dto';
 import { UpdateMemberAvailabilityDto } from './dto/update-member-availability.dto';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { RolesGuard } from '../auth/guards/roles.guard';
@@ -37,6 +38,81 @@ export class MembersController {
   )
   create(@Body() createMemberDto: CreateMemberDto, @CurrentUser() user: any) {
     return this.membersService.create(createMemberDto, user);
+  }
+
+  // ===== Vínculos multi-comunidade — self-service do membro logado =====
+
+  @Get('me/communities')
+  async listMyCommunities(@CurrentUser() user: any) {
+    const member = await this.membersService.requireMemberForUser(user.id);
+    return this.membersService.listCommunityLinks(member.id);
+  }
+
+  @Post('me/communities')
+  async addMyCommunity(@Body() dto: AddMemberCommunityDto, @CurrentUser() user: any) {
+    const member = await this.membersService.requireMemberForUser(user.id);
+    return this.membersService.addCommunityLink(member.id, dto.communityId, dto.consentGiven, user);
+  }
+
+  @Delete('me/communities/:communityId')
+  async removeMyCommunity(@Param('communityId') communityId: string, @CurrentUser() user: any) {
+    const member = await this.membersService.requireMemberForUser(user.id);
+    return this.membersService.removeCommunityLink(member.id, communityId, user);
+  }
+
+  // ===== Vínculos multi-comunidade — gestão =====
+
+  @Get(':id/communities')
+  async listMemberCommunities(@Param('id') id: string, @CurrentUser() user: any) {
+    await this.membersService.findOne(id, user); // valida escopo de leitura
+    return this.membersService.listCommunityLinks(id);
+  }
+
+  @Post(':id/communities')
+  @Roles(
+    UserRole.SYSTEM_ADMIN,
+    UserRole.DIOCESAN_ADMIN,
+    UserRole.PARISH_ADMIN,
+    UserRole.COMMUNITY_COORDINATOR,
+  )
+  addMemberCommunity(
+    @Param('id') id: string,
+    @Body() dto: AddMemberCommunityDto,
+    @CurrentUser() user: any,
+  ) {
+    return this.membersService.addCommunityLink(id, dto.communityId, dto.consentGiven, user, {
+      requireScope: true,
+    });
+  }
+
+  @Delete(':id/communities/:communityId')
+  @Roles(
+    UserRole.SYSTEM_ADMIN,
+    UserRole.DIOCESAN_ADMIN,
+    UserRole.PARISH_ADMIN,
+    UserRole.COMMUNITY_COORDINATOR,
+  )
+  removeMemberCommunity(
+    @Param('id') id: string,
+    @Param('communityId') communityId: string,
+    @CurrentUser() user: any,
+  ) {
+    return this.membersService.removeCommunityLink(id, communityId, user, { requireScope: true });
+  }
+
+  @Patch(':id/communities/:communityId/primary')
+  @Roles(
+    UserRole.SYSTEM_ADMIN,
+    UserRole.DIOCESAN_ADMIN,
+    UserRole.PARISH_ADMIN,
+    UserRole.COMMUNITY_COORDINATOR,
+  )
+  setMemberPrimaryCommunity(
+    @Param('id') id: string,
+    @Param('communityId') communityId: string,
+    @CurrentUser() user: any,
+  ) {
+    return this.membersService.setPrimaryCommunity(id, communityId, user);
   }
 
   @Get()

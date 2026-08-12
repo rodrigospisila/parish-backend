@@ -185,6 +185,226 @@ export class MembersService {
     });
   }
 
+  // ===== Vínculos multi-comunidade do membro (Fase 2) =====
+
+  private readonly communityLinkInclude = {
+    community: {
+      select: { id: true, name: true, parish: { select: { id: true, name: true } } },
+    },
+  } as const;
+
+  /** Resolve o Member do usuário logado (self-service de vínculos). */
+  async requireMemberForUser(userId: string) {
+    const member = await this.prisma.member.findFirst({
+      where: { userId, deletedAt: null },
+      select: { id: true, communityId: true },
+    });
+    if (!member) {
+      throw new NotFoundException('Usuário não possui cadastro de membro');
+    }
+    return member;
+  }
+
+  /** Lista os vínculos de comunidade do membro (principal + secundárias). */
+  async listCommunityLinks(memberId: string) {
+    return this.prisma.memberCommunity.findMany({
+      where: { memberId },
+      include: this.communityLinkInclude,
+      orderBy: [{ isPrimary: 'desc' }, { joinedAt: 'asc' }],
+    });
+  }
+
+  /**
+   * Cria (ou reativa) um vínculo SECUNDÁRIO. Exige consentimento LGPD —
+   * o vínculo torna o membro visível/escalável na comunidade.
+   */
+  async addCommunityLink(
+    memberId: string,
+    communityId: string,
+    consentGiven: boolean,
+    currentUser: CurrentUser,
+    opts: { requireScope?: boolean } = {},
+  ) {
+    if (consentGiven !== true) {
+      throw new BadRequestException(
+        'O consentimento (LGPD) é obrigatório para vincular a comunidade',
+      );
+    }
+
+    const member = await this.prisma.member.findFirst({
+      where: { id: memberId, deletedAt: null },
+      select: { id: true, communityId: true, fullName: true },
+    });
+    if (!member) {
+      throw new NotFoundException('Membro não encontrado');
+    }
+    if (member.communityId === communityId) {
+      throw new BadRequestException('Esta já é a comunidade principal do membro');
+    }
+
+    const community = await this.prisma.community.findFirst({
+      where: { id: communityId, deletedAt: null },
+      select: { id: true, name: true },
+    });
+    if (!community) {
+      throw new NotFoundException('Comunidade não encontrada');
+    }
+
+    if (opts.requireScope) {
+      const inScope = await this.hierarchyService.isCommunityInScope(currentUser, communityId);
+      if (!inScope) {
+        throw new ForbiddenException('Comunidade fora do seu escopo');
+      }
+    }
+
+    const link = await this.prisma.memberCommunity.upsert({
+      where: { memberId_communityId: { memberId, communityId } },
+      create: {
+        memberId,
+        communityId,
+        isPrimary: false,
+        consentGiven: true,
+        consentDate: new Date(),
+      },
+      update: { isActive: true, leftAt: null, consentGiven: true, consentDate: new Date() },
+      include: this.communityLinkInclude,
+    });
+
+    await this.auditService.log({
+      actor: { id: currentUser.id, email: currentUser.email, role: currentUser.role },
+      action: 'CREATE',
+      entity: 'MemberCommunity',
+      entityId: link.id,
+      metadata: { memberId, communityId, communityName: community.name, consentGiven: true },
+    });
+
+    return link;
+  }
+
+  /** Desativa um vínculo secundário (leftAt — preserva a trilha LGPD). */
+  async removeCommunityLink(
+    memberId: string,
+    communityId: string,
+    currentUser: CurrentUser,
+    opts: { requireScope?: boolean } = {},
+  ) {
+    const link = await this.prisma.memberCommunity.findUnique({
+      where: { memberId_communityId: { memberId, communityId } },
+    });
+    if (!link || !link.isActive) {
+      throw new NotFoundException('Vínculo não encontrado');
+    }
+    if (link.isPrimary) {
+      throw new BadRequestException(
+        'Não é possível remover o vínculo principal — defina outra comunidade principal antes',
+      );
+    }
+
+    if (opts.requireScope) {
+      const inScope = await this.hierarchyService.isCommunityInScope(currentUser, communityId);
+      if (!inScope) {
+        throw new ForbiddenException('Comunidade fora do seu escopo');
+      }
+    }
+
+    const updated = await this.prisma.memberCommunity.update({
+      where: { id: link.id },
+      data: { isActive: false, isPrimary: false, leftAt: new Date() },
+    });
+
+    await this.auditService.log({
+      actor: { id: currentUser.id, email: currentUser.email, role: currentUser.role },
+      action: 'DELETE',
+      entity: 'MemberCommunity',
+      entityId: link.id,
+      metadata: { memberId, communityId },
+    });
+
+    return updated;
+  }
+
+  /**
+   * Troca EXPLÍCITA e não-destrutiva da comunidade principal: a antiga vira
+   * secundária (permanece ativa) e o espelho Member.communityId/User é
+   * atualizado. Exige vínculo ativo prévio com a nova comunidade.
+   */
+  async setPrimaryCommunity(memberId: string, communityId: string, currentUser: CurrentUser) {
+    const member = await this.prisma.member.findFirst({
+      where: { id: memberId, deletedAt: null },
+      select: { id: true, communityId: true, userId: true },
+    });
+    if (!member) {
+      throw new NotFoundException('Membro não encontrado');
+    }
+    if (member.communityId === communityId) {
+      throw new BadRequestException('Esta já é a comunidade principal do membro');
+    }
+
+    const link = await this.prisma.memberCommunity.findUnique({
+      where: { memberId_communityId: { memberId, communityId } },
+    });
+    if (!link || !link.isActive) {
+      throw new BadRequestException(
+        'Vincule o membro a esta comunidade antes de torná-la principal',
+      );
+    }
+
+    const community = await this.prisma.community.findFirst({
+      where: { id: communityId, deletedAt: null },
+      select: { id: true, name: true, parishId: true, parish: { select: { dioceseId: true } } },
+    });
+    if (!community) {
+      throw new NotFoundException('Comunidade não encontrada');
+    }
+
+    await this.prisma.$transaction(async (tx) => {
+      await tx.member.update({ where: { id: memberId }, data: { communityId } });
+      // Rebaixa a principal antiga (continua ativa como secundária) e promove a nova
+      await this.syncPrimaryCommunityLink(tx, memberId, communityId);
+
+      // Espelha o escopo do usuário vinculado, preservando os demais vínculos
+      if (member.userId) {
+        const user = await tx.user.findUnique({
+          where: { id: member.userId },
+          select: { id: true, role: true },
+        });
+        if (user) {
+          await tx.user.update({
+            where: { id: user.id },
+            data: {
+              communityId,
+              parishId: community.parishId,
+              dioceseId: community.parish.dioceseId,
+            },
+          });
+          await tx.userCommunity.updateMany({
+            where: { userId: user.id, isPrimary: true, communityId: { not: communityId } },
+            data: { isPrimary: false },
+          });
+          await tx.userCommunity.upsert({
+            where: { userId_communityId: { userId: user.id, communityId } },
+            create: { userId: user.id, communityId, role: user.role, isPrimary: true },
+            update: { isActive: true, isPrimary: true, leftAt: null },
+          });
+        }
+      }
+    });
+
+    await this.auditService.log({
+      actor: { id: currentUser.id, email: currentUser.email, role: currentUser.role },
+      action: 'UPDATE',
+      entity: 'MemberCommunity',
+      entityId: link.id,
+      metadata: {
+        memberId,
+        newPrimaryCommunityId: communityId,
+        previousPrimaryCommunityId: member.communityId,
+      },
+    });
+
+    return this.listCommunityLinks(memberId);
+  }
+
   async ensureProfileForUser(
     tx: Prisma.TransactionClient,
     params: EnsureProfileForUserParams,
@@ -390,12 +610,17 @@ export class MembersService {
     const where: any = { ...hierarchyFilter, deletedAt: null };
 
     if (communityId) {
-      // O parâmetro não pode AMPLIAR o escopo do usuário: se a hierarquia já
-      // fixa uma comunidade diferente, a interseção é vazia.
-      if (where.communityId && where.communityId !== communityId) {
-        return [];
-      }
-      where.communityId = communityId;
+      // O parâmetro não amplia o escopo: entra como filtro ADICIONAL (AND),
+      // considerando também membros com vínculo secundário na comunidade.
+      where.AND = [
+        ...(where.AND ?? []),
+        {
+          OR: [
+            { communityId },
+            { communityLinks: { some: { communityId, isActive: true } } },
+          ],
+        },
+      ];
     }
 
     if (status) {
@@ -415,6 +640,15 @@ export class MembersService {
           select: {
             id: true,
             fullName: true,
+          },
+        },
+        communityLinks: {
+          where: { isActive: true },
+          select: {
+            id: true,
+            communityId: true,
+            isPrimary: true,
+            community: { select: { id: true, name: true } },
           },
         },
         pastoralMemberships: {

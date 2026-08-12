@@ -811,6 +811,10 @@ model MemberCommunity {
   isPrimary Boolean @default(false)
   isActive  Boolean @default(true)
 
+  // LGPD: consentimento por vínculo (o vínculo expõe o membro à comunidade)
+  consentGiven Boolean   @default(false)
+  consentDate  DateTime?
+
   joinedAt DateTime  @default(now())
   leftAt   DateTime?
 

@@ -739,7 +739,20 @@ export class PastoralsService {
       }
 
       if (communityPastoral.communityId !== member.communityId) {
-        throw new BadRequestException('Somente membros da mesma comunidade podem ser adicionados a esta pastoral');
+        // Multi-comunidade: vínculo secundário ATIVO também habilita a pastoral
+        const activeLink = await this.prisma.memberCommunity.findFirst({
+          where: {
+            memberId: dto.memberId,
+            communityId: communityPastoral.communityId,
+            isActive: true,
+          },
+          select: { id: true },
+        });
+        if (!activeLink) {
+          throw new BadRequestException(
+            'Somente membros da comunidade (ou com vínculo ativo nela) podem ser adicionados a esta pastoral',
+          );
+        }
       }
     }
 

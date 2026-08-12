@@ -37,23 +37,30 @@ describe('HierarchyService (filtros de escopo)', () => {
       expect(where).toEqual({ community: { parishId: 'p1' } });
     });
 
-    it('COMMUNITY_COORDINATOR restringe pela comunidade', () => {
+    const communityScope = (communityId: string) => ({
+      OR: [
+        { communityId },
+        { communityLinks: { some: { communityId, isActive: true } } },
+      ],
+    });
+
+    it('COMMUNITY_COORDINATOR restringe pela comunidade (principal ou vínculo secundário ativo)', () => {
       const where = service.applyMemberFilter(
         user({ role: UserRole.COMMUNITY_COORDINATOR, communityId: 'c1' }),
       );
-      expect(where).toEqual({ communityId: 'c1' });
+      expect(where).toEqual(communityScope('c1'));
     });
 
-    it('FAITHFUL restringe pela própria comunidade', () => {
+    it('FAITHFUL restringe pela própria comunidade (principal ou vínculo secundário ativo)', () => {
       const where = service.applyMemberFilter(user({ role: UserRole.FAITHFUL, communityId: 'c1' }));
-      expect(where).toEqual({ communityId: 'c1' });
+      expect(where).toEqual(communityScope('c1'));
     });
 
     it('PASTORAL_COORDINATOR enxerga todos os membros da comunidade (edição segue por canManageMember)', () => {
       const where = service.applyMemberFilter(
         user({ role: UserRole.PASTORAL_COORDINATOR, communityId: 'c1', pastoralIds: ['pa1', 'pa2'] }),
       );
-      expect(where).toEqual({ communityId: 'c1' });
+      expect(where).toEqual(communityScope('c1'));
     });
   });
 

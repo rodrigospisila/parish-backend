@@ -1092,7 +1092,18 @@ export class UsersService {
         },
       });
 
-      await this.syncUserCommunities(tx, userId, currentUser.role, undefined, communityId);
+      // Não-destrutivo: a comunidade anterior permanece como vínculo secundário
+      const activeLinks = await tx.userCommunity.findMany({
+        where: { userId, isActive: true },
+        select: { communityId: true },
+      });
+      const nextCommunityIds = [
+        communityId,
+        ...activeLinks
+          .map((link: any) => link.communityId)
+          .filter((id: string) => id !== communityId),
+      ];
+      await this.syncUserCommunities(tx, userId, currentUser.role, nextCommunityIds, communityId);
 
       await this.membersService.ensureProfileForUser(
         tx,

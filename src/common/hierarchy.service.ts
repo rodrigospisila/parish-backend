@@ -696,17 +696,18 @@ export class HierarchyService {
         where.community = { parishId: user.parishId };
         break;
       case UserRole.COMMUNITY_COORDINATOR:
-        where.communityId = user.communityId;
-        break;
       case UserRole.PASTORAL_COORDINATOR:
-        // Coordenador de pastoral enxerga TODOS os membros da comunidade —
-        // necessário para vincular cônjuges, buscar substitutos e escalar
-        // além da própria pastoral. A edição segue regida por canManageMember.
-        where.communityId = user.communityId;
-        break;
+      // Coordenador (de comunidade ou pastoral) enxerga TODOS os membros da
+      // comunidade — inclusive os de vínculo SECUNDÁRIO (multi-comunidade).
+      // A edição segue regida por canManageMember (comunidade principal).
       case UserRole.VOLUNTEER:
       case UserRole.FAITHFUL:
-        where.communityId = user.communityId;
+        if (user.communityId) {
+          where.OR = [
+            { communityId: user.communityId },
+            { communityLinks: { some: { communityId: user.communityId, isActive: true } } },
+          ];
+        }
         break;
     }
 
