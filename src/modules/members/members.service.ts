@@ -174,13 +174,25 @@ export class MembersService {
    * (multi-comunidade Fase 0): rebaixa a principal antiga e ativa/insere a nova.
    */
   private async syncPrimaryCommunityLink(db: any, memberId: string, communityId: string) {
+    // O vínculo principal herda o consentimento (LGPD) registrado no cadastro
+    const member = await db.member.findUnique({
+      where: { id: memberId },
+      select: { consentGiven: true, consentDate: true },
+    });
     await db.memberCommunity.updateMany({
       where: { memberId, isPrimary: true, communityId: { not: communityId } },
       data: { isPrimary: false },
     });
     await db.memberCommunity.upsert({
       where: { memberId_communityId: { memberId, communityId } },
-      create: { memberId, communityId, isPrimary: true },
+      create: {
+        memberId,
+        communityId,
+        isPrimary: true,
+        consentGiven: member?.consentGiven ?? false,
+        consentDate: member?.consentDate ?? null,
+      },
+      // Vínculo existente promovido: preserva o consentimento próprio do vínculo
       update: { isPrimary: true, isActive: true, leftAt: null },
     });
   }
@@ -229,6 +241,12 @@ export class MembersService {
       throw new BadRequestException(
         'O consentimento (LGPD) é obrigatório para vincular a comunidade',
       );
+    }
+
+    // Gestão: o ator precisa ter o membro no seu escopo de leitura (evita
+    // anexar/expor membros de outras paróquias sem autoridade sobre eles)
+    if (opts.requireScope) {
+      await this.findOne(memberId, currentUser);
     }
 
     const member = await this.prisma.member.findFirst({
@@ -301,16 +319,32 @@ export class MembersService {
     }
 
     if (opts.requireScope) {
+      await this.findOne(memberId, currentUser); // membro precisa estar no escopo do ator
       const inScope = await this.hierarchyService.isCommunityInScope(currentUser, communityId);
       if (!inScope) {
         throw new ForbiddenException('Comunidade fora do seu escopo');
       }
     }
 
-    const updated = await this.prisma.memberCommunity.update({
-      where: { id: link.id },
-      data: { isActive: false, isPrimary: false, leftAt: new Date() },
-    });
+    // Revogar o vínculo CESSA a exposição: sai também das pastorais e grupos
+    // daquela comunidade (o consentimento revogado cobre a comunidade inteira).
+    const [updated] = await this.prisma.$transaction([
+      this.prisma.memberCommunity.update({
+        where: { id: link.id },
+        data: { isActive: false, isPrimary: false, leftAt: new Date() },
+      }),
+      this.prisma.pastoralMember.updateMany({
+        where: {
+          memberId,
+          isActive: true,
+          OR: [
+            { communityPastoral: { communityId } },
+            { pastoralGroup: { communityPastoral: { communityId } } },
+          ],
+        },
+        data: { isActive: false, leftAt: new Date() },
+      }),
+    ]);
 
     await this.auditService.log({
       actor: { id: currentUser.id, email: currentUser.email, role: currentUser.role },
@@ -329,6 +363,15 @@ export class MembersService {
    * atualizado. Exige vínculo ativo prévio com a nova comunidade.
    */
   async setPrimaryCommunity(memberId: string, communityId: string, currentUser: CurrentUser) {
+    // Operação mais sensível dos vínculos: exige autoridade de GESTÃO sobre o
+    // membro (comunidade principal atual no escopo do ator)
+    const canManage = await this.hierarchyService.canManageMember(currentUser.id, memberId);
+    if (!canManage) {
+      throw new ForbiddenException(
+        'Você não tem permissão para alterar a comunidade principal deste membro',
+      );
+    }
+
     const member = await this.prisma.member.findFirst({
       where: { id: memberId, deletedAt: null },
       select: { id: true, communityId: true, userId: true },
@@ -338,6 +381,20 @@ export class MembersService {
     }
     if (member.communityId === communityId) {
       throw new BadRequestException('Esta já é a comunidade principal do membro');
+    }
+
+    // Mesma trava do fluxo de usuários: coordenador de pastoral fica na
+    // comunidade das pastorais que coordena
+    if (member.userId) {
+      const linkedUser = await this.prisma.user.findUnique({
+        where: { id: member.userId },
+        select: { role: true },
+      });
+      if (linkedUser?.role === UserRole.PASTORAL_COORDINATOR) {
+        throw new BadRequestException(
+          'Coordenador de pastoral não pode ter a comunidade principal trocada — as pastorais coordenadas ficam na comunidade atual',
+        );
+      }
     }
 
     const link = await this.prisma.memberCommunity.findUnique({
@@ -562,7 +619,14 @@ export class MembersService {
           cpf: normalizedCpf,
           email: normalizedEmail,
           communityId,
-          communityLinks: { create: { communityId, isPrimary: true } },
+          communityLinks: {
+            create: {
+              communityId,
+              isPrimary: true,
+              consentGiven: createMemberDto.consentGiven === true,
+              consentDate: createMemberDto.consentGiven ? new Date() : null,
+            },
+          },
           consentDate: createMemberDto.consentGiven ? new Date() : null,
         },
         include: {
