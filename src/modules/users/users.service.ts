@@ -284,26 +284,39 @@ export class UsersService {
         ? [communityId]
         : [];
 
-    await tx.userCommunity.deleteMany({
-      where: { userId },
-    });
+    // Não-destrutivo: vínculos que saíram são DESATIVADOS (leftAt) em vez de
+    // apagados — preserva histórico e vínculos secundários criados pelo membro.
+    const existingLinks = await tx.userCommunity.findMany({ where: { userId } });
+    const nextSet = new Set(nextCommunityIds);
 
-    if (!nextCommunityIds.length) {
-      return;
+    const toDeactivate = existingLinks.filter(
+      (link: any) => !nextSet.has(link.communityId) && link.isActive,
+    );
+    if (toDeactivate.length) {
+      await tx.userCommunity.updateMany({
+        where: { id: { in: toDeactivate.map((link: any) => link.id) } },
+        data: { isActive: false, isPrimary: false, leftAt: new Date() },
+      });
     }
 
-    await Promise.all(
-      nextCommunityIds.map((currentCommunityId, index) =>
-        tx.userCommunity.create({
+    for (const [index, currentCommunityId] of nextCommunityIds.entries()) {
+      const existing = existingLinks.find((link: any) => link.communityId === currentCommunityId);
+      if (existing) {
+        await tx.userCommunity.update({
+          where: { id: existing.id },
+          data: { role, isActive: true, isPrimary: index === 0, leftAt: null },
+        });
+      } else {
+        await tx.userCommunity.create({
           data: {
             userId,
             communityId: currentCommunityId,
             role,
             isPrimary: index === 0,
           },
-        }),
-      ),
-    );
+        });
+      }
+    }
   }
 
   private async clearPastoralCoordinatorLinks(tx: any, userId: string) {

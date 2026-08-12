@@ -1,4 +1,5 @@
 import {
+  IsBoolean,
   IsString,
   IsNotEmpty,
   IsOptional,
@@ -24,4 +25,9 @@ export class CreateAssignmentDto {
   @IsOptional()
   @IsString()
   notes?: string;
+
+  /** Confirma a escalação mesmo com conflito global de horário (auditado) */
+  @IsOptional()
+  @IsBoolean()
+  overrideConflict?: boolean;
 }

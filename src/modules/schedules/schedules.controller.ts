@@ -190,7 +190,7 @@ export class SchedulesController {
     UserRole.PASTORAL_COORDINATOR,
   )
   createGroupAssignment(
-    @Body() dto: { scheduleId: string; pastoralGroupId: string; role?: string },
+    @Body() dto: { scheduleId: string; pastoralGroupId: string; role?: string; overrideConflict?: boolean },
     @Request() req: any,
   ) {
     return this.schedulesService.createGroupAssignment(dto, req.user);
@@ -259,7 +259,7 @@ export class SchedulesController {
     UserRole.PASTORAL_COORDINATOR,
   )
   replaceAssignment(@Param('id') id: string, @Body() body: ReplaceAssignmentDto, @Request() req: any) {
-    return this.schedulesService.replaceAssignment(id, body.memberId, req.user);
+    return this.schedulesService.replaceAssignment(id, body.memberId, req.user, body.overrideConflict);
   }
 
   // ========== CHECK-IN ==========

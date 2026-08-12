@@ -1,4 +1,4 @@
-﻿import { Injectable, NotFoundException, BadRequestException, ForbiddenException } from '@nestjs/common';
+﻿import { Injectable, NotFoundException, BadRequestException, ForbiddenException, ConflictException } from '@nestjs/common';
 import { PrismaService } from '../../database/prisma.service';
 import { CreateScheduleDto } from './dto/create-schedule.dto';
 import { CreateStandaloneScheduleDto } from './dto/create-standalone-schedule.dto';
@@ -8,6 +8,7 @@ import { HierarchyService, CurrentUser } from '../../common/hierarchy.service';
 import { NotificationsService } from '../notifications/notifications.service';
 import { PdfService } from '../pdf/pdf.service';
 import { AuditService } from '../../common/audit.service';
+import { ScheduleConflictsService } from '../../common/schedule-conflicts.service';
 
 @Injectable()
 export class SchedulesService {
@@ -17,6 +18,7 @@ export class SchedulesService {
     private readonly notificationsService: NotificationsService,
     private readonly pdfService: PdfService,
     private readonly auditService: AuditService,
+    private readonly scheduleConflicts: ScheduleConflictsService,
   ) {}
 
   private toDateOrThrow(value: string): Date {
@@ -1260,6 +1262,16 @@ export class SchedulesService {
       throw new BadRequestException('Membro ja foi adicionado nesta escala para outra funcao');
     }
 
+    // Conflito GLOBAL (qualquer comunidade): avisa e exige confirmação explícita
+    const globalConflicts = await this.scheduleConflicts.findConflicts([memberId], scheduleId);
+    if (globalConflicts.length > 0 && !createAssignmentDto.overrideConflict) {
+      throw new ConflictException({
+        message: this.scheduleConflicts.summarize(globalConflicts),
+        code: 'GLOBAL_CONFLICT',
+        conflicts: globalConflicts,
+      });
+    }
+
     const createdAssignment = await this.prisma.scheduleAssignment.create({
       data: {
         role,
@@ -1300,6 +1312,24 @@ export class SchedulesService {
         },
       },
     });
+
+    // Override de conflito confirmado pelo coordenador: fica registrado
+    if (globalConflicts.length > 0 && currentUser) {
+      await this.auditService.log({
+        actor: { id: currentUser.id, email: currentUser.email, role: currentUser.role },
+        action: 'CREATE',
+        entity: 'ScheduleAssignment',
+        entityId: createdAssignment.id,
+        metadata: {
+          conflictOverridden: true,
+          conflicts: globalConflicts.map((conflict) => ({
+            scheduleId: conflict.scheduleId,
+            type: conflict.type,
+            communityName: conflict.communityName,
+          })),
+        },
+      });
+    }
 
     await this.notifyMember(
       memberId,
@@ -1442,7 +1472,12 @@ export class SchedulesService {
     });
   }
 
-  async replaceAssignment(id: string, newMemberId: string, currentUser?: CurrentUser) {
+  async replaceAssignment(
+    id: string,
+    newMemberId: string,
+    currentUser?: CurrentUser,
+    overrideConflict?: boolean,
+  ) {
     const assignment = await this.findOneAssignment(id, currentUser);
     const scopedPastoralIds =
       currentUser?.role === 'PASTORAL_COORDINATOR'
@@ -1611,6 +1646,19 @@ export class SchedulesService {
       throw new BadRequestException('Membro ja foi adicionado nesta escala para outra funcao');
     }
 
+    // Conflito GLOBAL (qualquer comunidade) do substituto
+    const globalConflicts = await this.scheduleConflicts.findConflicts(
+      [newMemberId],
+      assignment.scheduleId,
+    );
+    if (globalConflicts.length > 0 && !overrideConflict) {
+      throw new ConflictException({
+        message: this.scheduleConflicts.summarize(globalConflicts),
+        code: 'GLOBAL_CONFLICT',
+        conflicts: globalConflicts,
+      });
+    }
+
     const newAssignment = await this.prisma.$transaction(async (tx) => {
       await tx.scheduleAssignment.delete({
         where: { id },
@@ -1657,6 +1705,24 @@ export class SchedulesService {
         },
       });
     });
+
+    if (globalConflicts.length > 0 && currentUser) {
+      await this.auditService.log({
+        actor: { id: currentUser.id, email: currentUser.email, role: currentUser.role },
+        action: 'UPDATE',
+        entity: 'ScheduleAssignment',
+        entityId: newAssignment.id,
+        metadata: {
+          conflictOverridden: true,
+          replacedAssignmentId: id,
+          conflicts: globalConflicts.map((conflict) => ({
+            scheduleId: conflict.scheduleId,
+            type: conflict.type,
+            communityName: conflict.communityName,
+          })),
+        },
+      });
+    }
 
     await this.notifyMember(
       newMemberId,
@@ -2369,7 +2435,7 @@ export class SchedulesService {
    * A capacidade é contada em GRUPOS distintos (requiredPeople = nº de grupos).
    */
   async createGroupAssignment(
-    dto: { scheduleId: string; pastoralGroupId: string; role?: string },
+    dto: { scheduleId: string; pastoralGroupId: string; role?: string; overrideConflict?: boolean },
     currentUser: CurrentUser,
   ) {
     const hasAccess = await this.hierarchyService.hasAccessToSchedule(currentUser.id, dto.scheduleId);
@@ -2439,6 +2505,19 @@ export class SchedulesService {
     const role = dto.role?.trim() || schedulePastoral.role || group.name;
     const toCreate = group.members.filter((m) => !alreadyAssignedMemberIds.has(m.memberId));
 
+    // Conflito GLOBAL dos integrantes (qualquer comunidade)
+    const globalConflicts = await this.scheduleConflicts.findConflicts(
+      toCreate.map((m) => m.memberId),
+      dto.scheduleId,
+    );
+    if (globalConflicts.length > 0 && !dto.overrideConflict) {
+      throw new ConflictException({
+        message: this.scheduleConflicts.summarize(globalConflicts),
+        code: 'GLOBAL_CONFLICT',
+        conflicts: globalConflicts,
+      });
+    }
+
     await this.prisma.scheduleAssignment.createMany({
       data: toCreate.map((m) => ({
         scheduleId: dto.scheduleId,
@@ -2454,7 +2533,11 @@ export class SchedulesService {
       action: 'CREATE',
       entity: 'ScheduleGroupAssignment',
       entityId: `${dto.scheduleId}:${group.id}`,
-      metadata: { groupName: group.name, created: toCreate.length },
+      metadata: {
+        groupName: group.name,
+        created: toCreate.length,
+        ...(globalConflicts.length > 0 ? { conflictOverridden: true } : {}),
+      },
     });
 
     return {
@@ -2840,7 +2923,11 @@ export class SchedulesService {
         if (suggestion.pastoralGroupId) {
           try {
             await this.createGroupAssignment(
-              { scheduleId: item.scheduleId, pastoralGroupId: suggestion.pastoralGroupId },
+              {
+                scheduleId: item.scheduleId,
+                pastoralGroupId: suggestion.pastoralGroupId,
+                overrideConflict: true,
+              },
               currentUser,
             );
             created++;
@@ -2851,7 +2938,12 @@ export class SchedulesService {
         }
         try {
           await this.createAssignment(
-            { scheduleId: item.scheduleId, memberId: suggestion.memberId, role: suggestion.role },
+            {
+              scheduleId: item.scheduleId,
+              memberId: suggestion.memberId,
+              role: suggestion.role,
+              overrideConflict: true,
+            },
             currentUser,
           );
           created++;

@@ -414,6 +414,7 @@ model Community {
   userCommunities    UserCommunity[]
   users              User[]              @relation("UserCommunity") // COMMUNITY_ADMIN vinculados a esta comunidade
   members            Member[]
+  memberLinks        MemberCommunity[]
   events             Event[]
   massSchedules      MassSchedule[]
   massIntentions     MassIntention[]
@@ -644,6 +645,10 @@ model PastoralMember {
   joinedAt DateTime  @default(now())
   leftAt   DateTime?
 
+  // Proteção contra vínculos duplicados (NULLs não conflitam no Postgres:
+  // vínculo de pastoral e vínculo de grupo convivem para o mesmo membro)
+  @@unique([memberId, communityPastoralId])
+  @@unique([memberId, pastoralGroupId])
   @@index([communityPastoralId])
   @@index([pastoralGroupId])
   @@index([memberId])
@@ -782,11 +787,37 @@ model Member {
   updatedAt DateTime  @updatedAt
   deletedAt DateTime? // Soft delete
 
+  // Vínculos multi-comunidade (principal + secundárias)
+  communityLinks MemberCommunity[]
+
   @@index([communityId])
   @@index([email])
   @@index([cpf])
   @@index([deletedAt])
   @@map("members")
+}
+
+// Vínculo N:N membro↔comunidades: a comunidade principal (isPrimary) é
+// espelhada em Member.communityId durante a transição; as demais são
+// secundárias (o membro fica visível/escalável para os coordenadores delas).
+model MemberCommunity {
+  id String @id @default(cuid())
+
+  memberId    String
+  member      Member    @relation(fields: [memberId], references: [id], onDelete: Cascade)
+  communityId String
+  community   Community @relation(fields: [communityId], references: [id], onDelete: Cascade)
+
+  isPrimary Boolean @default(false)
+  isActive  Boolean @default(true)
+
+  joinedAt DateTime  @default(now())
+  leftAt   DateTime?
+
+  @@unique([memberId, communityId])
+  @@index([communityId])
+  @@index([memberId])
+  @@map("member_communities")
 }
 
 model Sacrament {
@@ -1059,6 +1090,8 @@ model ScheduleAssignment {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
+  // Um membro entra no máximo uma vez por escala (regra já validada no código)
+  @@unique([scheduleId, memberId])
   @@index([scheduleId])
   @@index([pastoralGroupId])
   @@index([memberId])

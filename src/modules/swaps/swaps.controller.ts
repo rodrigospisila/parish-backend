@@ -18,8 +18,8 @@ export class SwapsController {
   }
 
   @Patch(':id/accept')
-  accept(@Param('id') id: string, @Request() req: any) {
-    return this.service.accept(id, req.user);
+  accept(@Param('id') id: string, @Body() body: any, @Request() req: any) {
+    return this.service.accept(id, req.user, body?.overrideConflict === true);
   }
 
   @Patch(':id/reject')

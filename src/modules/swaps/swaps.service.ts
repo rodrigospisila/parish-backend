@@ -1,9 +1,10 @@
-import { Injectable, NotFoundException, ForbiddenException, BadRequestException } from '@nestjs/common';
+import { Injectable, NotFoundException, ForbiddenException, BadRequestException, ConflictException } from '@nestjs/common';
 import { SwapStatus, NotificationType } from '@prisma/client';
 import { PrismaService } from '../../database/prisma.service';
 import { CurrentUser } from '../../common/hierarchy.service';
 import { AuditService } from '../../common/audit.service';
 import { NotificationsService } from '../notifications/notifications.service';
+import { ScheduleConflictsService } from '../../common/schedule-conflicts.service';
 
 /**
  * Troca de escala entre membros / swap (roadmap 4.6).
@@ -16,6 +17,7 @@ export class SwapsService {
     private readonly prisma: PrismaService,
     private readonly auditService: AuditService,
     private readonly notificationsService: NotificationsService,
+    private readonly conflictsService: ScheduleConflictsService,
   ) {}
 
   private async resolveMember(userId: string) {
@@ -130,7 +132,7 @@ export class SwapsService {
   }
 
   /** O convidado aceita: valida conflito e transfere a atribuição. */
-  async accept(swapId: string, user: CurrentUser) {
+  async accept(swapId: string, user: CurrentUser, overrideConflict = false) {
     const member = await this.resolveMember(user.id);
     if (!member) throw new BadRequestException('Usuário não possui cadastro de membro');
 
@@ -153,6 +155,35 @@ export class SwapsService {
     });
     if (existing) throw new BadRequestException('Você já está escalado nesta escala');
 
+    // O aceitante precisa participar da pastoral da atribuição (quando houver)
+    if (swap.assignment.communityPastoralId) {
+      const pastoralMember = await this.prisma.pastoralMember.findFirst({
+        where: {
+          memberId: member.id,
+          communityPastoralId: swap.assignment.communityPastoralId,
+          isActive: true,
+        },
+      });
+      if (!pastoralMember) {
+        throw new BadRequestException(
+          'Você não participa da pastoral desta escala, então não pode assumir esta função',
+        );
+      }
+    }
+
+    // Conflito GLOBAL: o aceitante já serve em outra escala no mesmo dia/horário?
+    const conflicts = await this.conflictsService.findConflicts(
+      [member.id],
+      swap.assignment.scheduleId,
+    );
+    if (conflicts.length > 0 && !overrideConflict) {
+      throw new ConflictException({
+        message: this.conflictsService.summarize(conflicts),
+        code: 'GLOBAL_CONFLICT',
+        conflicts,
+      });
+    }
+
     const resolved = await this.prisma.$transaction(async (prisma) => {
       await prisma.scheduleAssignment.update({
         where: { id: swap.assignmentId },
@@ -169,7 +200,11 @@ export class SwapsService {
       action: 'UPDATE',
       entity: 'AssignmentSwapRequest',
       entityId: swapId,
-      metadata: { accepted: true, newMemberId: member.id },
+      metadata: {
+        accepted: true,
+        newMemberId: member.id,
+        ...(conflicts.length > 0 ? { conflictOverridden: true } : {}),
+      },
     });
     return resolved;
   }
