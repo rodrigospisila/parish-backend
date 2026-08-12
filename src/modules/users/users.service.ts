@@ -1074,12 +1074,18 @@ export class UsersService {
       throw new NotFoundException(`Usuario com ID ${userId} nao encontrado`);
     }
 
+    // SEGURANÇA: papéis de gestão não trocam a PRÓPRIA comunidade por aqui —
+    // User.communityId define o escopo administrativo (membros, usuários,
+    // finanças). A troca para gestores é feita por um administrador via /users.
+    const selfServiceRoles: UserRole[] = [UserRole.FAITHFUL, UserRole.VOLUNTEER];
     if (
-      currentUser.role === UserRole.PASTORAL_COORDINATOR &&
+      !selfServiceRoles.includes(currentUser.role) &&
       currentUser.communityId &&
       currentUser.communityId !== communityId
     ) {
-      throw new ForbiddenException('Coordenador de pastoral nao pode trocar de comunidade manualmente');
+      throw new ForbiddenException(
+        'Papéis de gestão não trocam a própria comunidade manualmente — solicite a um administrador',
+      );
     }
 
     const updatedUser = await this.prisma.$transaction(async (tx) => {

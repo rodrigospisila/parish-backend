@@ -49,6 +49,7 @@ export class DiocesesService {
         parishes: {
           include: {
             communities: {
+              where: { deletedAt: null },
               select: {
                 id: true,
                 name: true,
