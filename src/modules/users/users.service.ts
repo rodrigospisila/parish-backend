@@ -47,6 +47,7 @@ export class UsersService {
         },
       },
       communities: {
+        where: { isActive: true },
         include: {
           community: {
             select: {
@@ -715,6 +716,7 @@ export class UsersService {
         where.communities = {
           some: {
             communityId: currentUser.communityId,
+            isActive: true,
           },
         };
         where.role = {

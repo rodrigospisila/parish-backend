@@ -7,6 +7,7 @@ import { HierarchyService } from '../../common/hierarchy.service';
 import { NotificationsService } from '../notifications/notifications.service';
 import { PdfService } from '../pdf/pdf.service';
 import { AuditService } from '../../common/audit.service';
+import { ScheduleConflictsService } from '../../common/schedule-conflicts.service';
 
 describe('SchedulesService', () => {
   let service: SchedulesService;
@@ -47,6 +48,10 @@ describe('SchedulesService', () => {
         { provide: NotificationsService, useValue: notificationsService },
         { provide: PdfService, useValue: { renderTableDocument: jest.fn().mockResolvedValue(Buffer.from('pdf')) } },
         { provide: AuditService, useValue: { log: jest.fn() } },
+        {
+          provide: ScheduleConflictsService,
+          useValue: { findConflicts: jest.fn().mockResolvedValue([]), summarize: jest.fn().mockReturnValue('') },
+        },
       ],
     }).compile();
 

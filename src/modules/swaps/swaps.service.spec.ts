@@ -5,6 +5,7 @@ import { SwapsService } from './swaps.service';
 import { PrismaService } from '../../database/prisma.service';
 import { AuditService } from '../../common/audit.service';
 import { NotificationsService } from '../notifications/notifications.service';
+import { ScheduleConflictsService } from '../../common/schedule-conflicts.service';
 
 describe('SwapsService (4.6)', () => {
   let service: SwapsService;
@@ -25,6 +26,10 @@ describe('SwapsService (4.6)', () => {
         { provide: PrismaService, useValue: prisma },
         { provide: AuditService, useValue: { log: jest.fn() } },
         { provide: NotificationsService, useValue: { notifyUser: jest.fn() } },
+        {
+          provide: ScheduleConflictsService,
+          useValue: { findConflicts: jest.fn().mockResolvedValue([]), summarize: jest.fn().mockReturnValue('') },
+        },
       ],
     }).compile();
     service = module.get<SwapsService>(SwapsService);

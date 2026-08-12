@@ -393,6 +393,8 @@ export class AuthService {
           },
         },
         communities: {
+          // Vínculos desativados (leftAt) NÃO concedem escopo
+          where: { isActive: true },
           include: {
             community: {
               select: {

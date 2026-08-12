@@ -190,7 +190,14 @@ export class SchedulesController {
     UserRole.PASTORAL_COORDINATOR,
   )
   createGroupAssignment(
-    @Body() dto: { scheduleId: string; pastoralGroupId: string; role?: string; overrideConflict?: boolean },
+    @Body()
+    dto: {
+      scheduleId: string;
+      pastoralGroupId: string;
+      role?: string;
+      overrideConflict?: boolean;
+      replaceGroupId?: string;
+    },
     @Request() req: any,
   ) {
     return this.schedulesService.createGroupAssignment(dto, req.user);

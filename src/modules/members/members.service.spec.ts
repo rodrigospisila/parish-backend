@@ -16,6 +16,10 @@ describe('MembersService', () => {
       update: jest.Mock;
       create: jest.Mock;
     };
+    memberCommunity: {
+      updateMany: jest.Mock;
+      upsert: jest.Mock;
+    };
   };
   let hierarchy: {
     canManageMember: jest.Mock;
@@ -39,6 +43,10 @@ describe('MembersService', () => {
         findMany: jest.fn(),
         update: jest.fn(),
         create: jest.fn(),
+      },
+      memberCommunity: {
+        updateMany: jest.fn().mockResolvedValue({ count: 0 }),
+        upsert: jest.fn().mockResolvedValue({}),
       },
     };
     hierarchy = {

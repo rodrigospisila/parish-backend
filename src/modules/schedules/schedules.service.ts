@@ -2435,7 +2435,14 @@ export class SchedulesService {
    * A capacidade é contada em GRUPOS distintos (requiredPeople = nº de grupos).
    */
   async createGroupAssignment(
-    dto: { scheduleId: string; pastoralGroupId: string; role?: string; overrideConflict?: boolean },
+    dto: {
+      scheduleId: string;
+      pastoralGroupId: string;
+      role?: string;
+      overrideConflict?: boolean;
+      /** Troca atômica: remove este grupo na MESMA transação em que escala o novo */
+      replaceGroupId?: string;
+    },
     currentUser: CurrentUser,
   ) {
     const hasAccess = await this.hierarchyService.hasAccessToSchedule(currentUser.id, dto.scheduleId);
@@ -2487,13 +2494,23 @@ export class SchedulesService {
       throw new BadRequestException('Este grupo nao possui membros ativos');
     }
 
-    // Capacidade em grupos distintos
+    // Capacidade em grupos distintos (numa troca, o grupo substituído não conta)
     const requiredGroups = Number(schedulePastoral.requiredPeople || 0);
     const assignedGroupIds = new Set(
       schedule.assignments
         .map((a) => a.pastoralGroupId)
         .filter((id): id is string => Boolean(id)),
     );
+    const replaceGroupId = dto.replaceGroupId?.trim() || null;
+    if (replaceGroupId) {
+      if (replaceGroupId === group.id) {
+        throw new BadRequestException('Selecione um grupo diferente para a troca');
+      }
+      if (!assignedGroupIds.has(replaceGroupId)) {
+        throw new BadRequestException('O grupo a substituir nao esta escalado nesta escala');
+      }
+      assignedGroupIds.delete(replaceGroupId);
+    }
     if (assignedGroupIds.has(group.id)) {
       throw new BadRequestException('Este grupo ja esta escalado nesta escala');
     }
@@ -2501,7 +2518,11 @@ export class SchedulesService {
       throw new BadRequestException('Limite de grupos atingido para esta escala');
     }
 
-    const alreadyAssignedMemberIds = new Set(schedule.assignments.map((a) => a.memberId));
+    const alreadyAssignedMemberIds = new Set(
+      schedule.assignments
+        .filter((a) => !replaceGroupId || a.pastoralGroupId !== replaceGroupId)
+        .map((a) => a.memberId),
+    );
     const role = dto.role?.trim() || schedulePastoral.role || group.name;
     const toCreate = group.members.filter((m) => !alreadyAssignedMemberIds.has(m.memberId));
 
@@ -2518,14 +2539,23 @@ export class SchedulesService {
       });
     }
 
-    await this.prisma.scheduleAssignment.createMany({
-      data: toCreate.map((m) => ({
-        scheduleId: dto.scheduleId,
-        memberId: m.memberId,
-        role,
-        communityPastoralId: group.communityPastoralId,
-        pastoralGroupId: group.id,
-      })),
+    await this.prisma.$transaction(async (tx) => {
+      if (replaceGroupId) {
+        await tx.scheduleAssignment.deleteMany({
+          where: { scheduleId: dto.scheduleId, pastoralGroupId: replaceGroupId },
+        });
+      }
+      await tx.scheduleAssignment.createMany({
+        data: toCreate.map((m) => ({
+          scheduleId: dto.scheduleId,
+          memberId: m.memberId,
+          role,
+          communityPastoralId: group.communityPastoralId,
+          pastoralGroupId: group.id,
+        })),
+        // Corrida contra o unique (scheduleId, memberId): ignora em vez de 500
+        skipDuplicates: true,
+      });
     });
 
     await this.auditService.log({
@@ -2536,6 +2566,7 @@ export class SchedulesService {
       metadata: {
         groupName: group.name,
         created: toCreate.length,
+        ...(replaceGroupId ? { replacedGroupId: replaceGroupId } : {}),
         ...(globalConflicts.length > 0 ? { conflictOverridden: true } : {}),
       },
     });

@@ -169,7 +169,10 @@ export class ClergyMessagesService {
     const communityIds = new Set<string>();
     if (user.communityId) communityIds.add(user.communityId);
     if (member?.communityId) communityIds.add(member.communityId);
-    for (const link of user.communities ?? []) communityIds.add(link.communityId);
+    for (const link of user.communities ?? []) {
+      if ((link as any).isActive === false) continue;
+      communityIds.add(link.communityId);
+    }
 
     // Resolve paróquia/diocese a partir das comunidades quando o usuário não tem os ids no token
     let parishIds = new Set<string>();
@@ -340,7 +343,10 @@ export class ClergyMessagesService {
       const users = await this.prisma.user.findMany({
         where: {
           isActive: true,
-          OR: [{ communityId: dto.communityId }, { communities: { some: { communityId: dto.communityId } } }],
+          OR: [
+            { communityId: dto.communityId },
+            { communities: { some: { communityId: dto.communityId, isActive: true } } },
+          ],
         },
         select: { id: true },
       });

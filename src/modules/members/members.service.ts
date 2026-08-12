@@ -169,6 +169,22 @@ export class MembersService {
    * - consentGiven só pode ser concedido por aqui (quando vier true explicitamente),
    *   nunca revogado. Revogar consentimento é uma ação deliberada via /members/:id/consent.
    */
+  /**
+   * Mantém member_communities espelhando a comunidade principal do membro
+   * (multi-comunidade Fase 0): rebaixa a principal antiga e ativa/insere a nova.
+   */
+  private async syncPrimaryCommunityLink(db: any, memberId: string, communityId: string) {
+    await db.memberCommunity.updateMany({
+      where: { memberId, isPrimary: true, communityId: { not: communityId } },
+      data: { isPrimary: false },
+    });
+    await db.memberCommunity.upsert({
+      where: { memberId_communityId: { memberId, communityId } },
+      create: { memberId, communityId, isPrimary: true },
+      update: { isPrimary: true, isActive: true, leftAt: null },
+    });
+  }
+
   async ensureProfileForUser(
     tx: Prisma.TransactionClient,
     params: EnsureProfileForUserParams,
@@ -181,7 +197,7 @@ export class MembersService {
     const grantConsent = params.consentGiven === true;
 
     if (existingMemberId) {
-      return tx.member.update({
+      const member = await tx.member.update({
         where: { id: existingMemberId },
         data: {
           communityId: params.communityId,
@@ -189,6 +205,8 @@ export class MembersService {
           ...(grantConsent ? { consentGiven: true, consentDate: new Date() } : {}),
         },
       });
+      await this.syncPrimaryCommunityLink(tx, member.id, params.communityId);
+      return member;
     }
 
     const existingMember = await tx.member.findUnique({
@@ -196,7 +214,7 @@ export class MembersService {
     });
 
     if (existingMember) {
-      return tx.member.update({
+      const member = await tx.member.update({
         where: { id: existingMember.id },
         data: {
           communityId: params.communityId,
@@ -204,9 +222,11 @@ export class MembersService {
           ...(grantConsent ? { consentGiven: true, consentDate: new Date() } : {}),
         },
       });
+      await this.syncPrimaryCommunityLink(tx, member.id, params.communityId);
+      return member;
     }
 
-    return tx.member.create({
+    const created = await tx.member.create({
       data: {
         fullName: params.name,
         email: params.email,
@@ -218,6 +238,8 @@ export class MembersService {
         consentDate: grantConsent ? new Date() : null,
       },
     });
+    await this.syncPrimaryCommunityLink(tx, created.id, params.communityId);
+    return created;
   }
 
   /**
@@ -320,6 +342,7 @@ export class MembersService {
           cpf: normalizedCpf,
           email: normalizedEmail,
           communityId,
+          communityLinks: { create: { communityId, isPrimary: true } },
           consentDate: createMemberDto.consentGiven ? new Date() : null,
         },
         include: {
@@ -561,6 +584,9 @@ export class MembersService {
     }
 
     try {
+      if (updateMemberDto.communityId && updateMemberDto.communityId !== member.communityId) {
+        await this.syncPrimaryCommunityLink(this.prisma, id, updateMemberDto.communityId);
+      }
       const updatedMember = await this.prisma.member.update({
         where: { id },
         data: {
@@ -1010,6 +1036,7 @@ export class MembersService {
             email,
             phone: this.normalizeOptionalString(row.phone),
             communityId,
+            communityLinks: { create: { communityId, isPrimary: true } },
             status: 'ACTIVE',
           },
         });

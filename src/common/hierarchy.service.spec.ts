@@ -49,15 +49,11 @@ describe('HierarchyService (filtros de escopo)', () => {
       expect(where).toEqual({ communityId: 'c1' });
     });
 
-    it('PASTORAL_COORDINATOR restringe pelas pastorais que coordena', () => {
+    it('PASTORAL_COORDINATOR enxerga todos os membros da comunidade (edição segue por canManageMember)', () => {
       const where = service.applyMemberFilter(
-        user({ role: UserRole.PASTORAL_COORDINATOR, pastoralIds: ['pa1', 'pa2'] }),
+        user({ role: UserRole.PASTORAL_COORDINATOR, communityId: 'c1', pastoralIds: ['pa1', 'pa2'] }),
       );
-      expect(where).toEqual({
-        pastoralMemberships: {
-          some: { communityPastoralId: { in: ['pa1', 'pa2'] }, isActive: true },
-        },
-      });
+      expect(where).toEqual({ communityId: 'c1' });
     });
   });
 

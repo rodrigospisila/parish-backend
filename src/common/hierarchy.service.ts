@@ -13,8 +13,8 @@ export interface CurrentUser {
   parishId?: string;
   communityId?: string;
   pastoralIds?: string[];
-  /** Vínculos N:N carregados pelo JwtStrategy (validateUser) */
-  communities?: Array<{ communityId: string }>;
+  /** Vínculos N:N ATIVOS carregados pelo JwtStrategy (validateUser) */
+  communities?: Array<{ communityId: string; isActive?: boolean }>;
 }
 
 /**
@@ -406,7 +406,11 @@ export class HierarchyService {
       return true;
     }
 
-    if (user.communities?.some((link) => link.communityId === communityId)) {
+    if (
+      user.communities?.some(
+        (link) => link.communityId === communityId && link.isActive !== false,
+      )
+    ) {
       return true;
     }
 
