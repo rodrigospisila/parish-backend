@@ -46,13 +46,22 @@ export class ScheduleRemindersService {
         schedule: {
           status: 'OPEN',
           deletedAt: null,
-          event: { deletedAt: null },
+          // Escalas SEM evento (agenda fixa/avulsas) também recebem lembrete
+          OR: [{ eventId: null }, { event: { deletedAt: null } }],
           date: { gt: now, lte: windowEnd },
         },
         OR: [{ reminder24hSentAt: null }, { reminder2hSentAt: null }],
       },
       include: {
-        schedule: { select: { id: true, title: true, date: true } },
+        schedule: {
+          select: {
+            id: true,
+            title: true,
+            date: true,
+            community: { select: { id: true, name: true } },
+            event: { select: { community: { select: { id: true, name: true } } } },
+          },
+        },
         member: { select: { id: true, fullName: true, userId: true } },
       },
     });
@@ -71,9 +80,13 @@ export class ScheduleRemindersService {
       }
 
       const dateLabel = this.formatDateTimeLabel(assignment.schedule.date);
+      // Multi-comunidade: quem serve em mais de uma precisa saber DE ONDE é a escala
+      const community =
+        assignment.schedule.event?.community ?? assignment.schedule.community ?? null;
+      const communitySuffix = community ? ` · ${community.name}` : '';
       const body = isFinalReminder
-        ? `Sua escala "${assignment.schedule.title}" começa em breve (${dateLabel}). Função: ${assignment.role}.`
-        : `Você está escalado(a) amanhã: "${assignment.schedule.title}" em ${dateLabel}. Função: ${assignment.role}.`;
+        ? `Sua escala "${assignment.schedule.title}"${communitySuffix} começa em breve (${dateLabel}). Função: ${assignment.role}.`
+        : `Você está escalado(a) amanhã: "${assignment.schedule.title}"${communitySuffix} em ${dateLabel}. Função: ${assignment.role}.`;
 
       if (assignment.member.userId) {
         await this.notificationsService.notifyUser(
@@ -81,7 +94,11 @@ export class ScheduleRemindersService {
           NotificationType.SCHEDULE_REMINDER,
           'Lembrete de escala',
           body,
-          { scheduleId: assignment.schedule.id, assignmentId: assignment.id },
+          {
+            scheduleId: assignment.schedule.id,
+            assignmentId: assignment.id,
+            ...(community ? { communityId: community.id } : {}),
+          },
         );
         sent += 1;
       }

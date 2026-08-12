@@ -289,11 +289,18 @@ export class PastoralsService {
     });
   }
 
-  async findAllCommunityPastorals(communityId?: string, currentUser?: CurrentUser) {
+  async findAllCommunityPastorals(
+    communityId?: string,
+    currentUser?: CurrentUser,
+    parishId?: string,
+  ) {
     // Aplicar filtros de hierarquia
     const where: any = {};
-    
-    if (communityId) {
+
+    // parishId amplia para a paróquia inteira (agenda fixa multi-comunidade)
+    if (parishId) {
+      where.community = { parishId };
+    } else if (communityId) {
       where.communityId = communityId;
     }
     
@@ -318,13 +325,13 @@ export class PastoralsService {
         case UserRole.COMMUNITY_COORDINATOR:
         case UserRole.VOLUNTEER:
         case UserRole.FAITHFUL:
-          // Filtrar por comunidade
-          if (currentUser.communityId) {
-            where.communityId = currentUser.communityId;
-          }
-          break;
         case UserRole.PASTORAL_COORDINATOR:
-          if (currentUser.communityId) {
+          // Filtrar por comunidade; com parishId da PRÓPRIA paróquia, amplia
+          // para a paróquia inteira (agenda fixa multi-comunidade)
+          if (parishId && currentUser.parishId === parishId) {
+            delete where.communityId;
+            where.community = { parishId };
+          } else if (currentUser.communityId) {
             where.communityId = currentUser.communityId;
           }
           break;

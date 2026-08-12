@@ -24,6 +24,21 @@ export class SwapsService {
     return this.prisma.member.findFirst({ where: { userId }, select: { id: true } });
   }
 
+  /** Comunidades onde o membro tem vínculo ativo (principal + secundárias). */
+  private async memberCommunityIds(memberId: string): Promise<string[]> {
+    const member = await this.prisma.member.findUnique({
+      where: { id: memberId },
+      select: {
+        communityId: true,
+        communityLinks: { where: { isActive: true }, select: { communityId: true } },
+      },
+    });
+    if (!member) return [];
+    return [
+      ...new Set([member.communityId, ...member.communityLinks.map((link) => link.communityId)]),
+    ];
+  }
+
   /** Membro solicita repassar sua atribuição (direcionada a alguém ou aberta). */
   async requestSwap(
     dto: { assignmentId: string; targetMemberId?: string; message?: string },
@@ -89,6 +104,7 @@ export class SwapsService {
         },
       },
     };
+    const linkedCommunityIds = await this.memberCommunityIds(member.id);
     const [requested, invited] = await Promise.all([
       this.prisma.assignmentSwapRequest.findMany({
         where: { requesterId: member.id },
@@ -97,7 +113,31 @@ export class SwapsService {
       }),
       this.prisma.assignmentSwapRequest.findMany({
         where: {
-          OR: [{ targetId: member.id }, { targetId: null, status: SwapStatus.PENDING }],
+          OR: [
+            { targetId: member.id },
+            {
+              // Trocas ABERTAS: só da mesma pastoral OU de comunidade com vínculo
+              targetId: null,
+              status: SwapStatus.PENDING,
+              assignment: {
+                OR: [
+                  {
+                    communityPastoral: {
+                      members: { some: { memberId: member.id, isActive: true } },
+                    },
+                  },
+                  {
+                    schedule: {
+                      OR: [
+                        { communityId: { in: linkedCommunityIds } },
+                        { event: { communityId: { in: linkedCommunityIds } } },
+                      ],
+                    },
+                  },
+                ],
+              },
+            },
+          ],
           NOT: { requesterId: member.id },
         },
         include,
@@ -154,6 +194,27 @@ export class SwapsService {
       where: { scheduleId: swap.assignment.scheduleId, memberId: member.id },
     });
     if (existing) throw new BadRequestException('Você já está escalado nesta escala');
+
+    // Sem pastoral na atribuição: exige vínculo ativo com a comunidade da escala
+    if (!swap.assignment.communityPastoralId) {
+      const schedule = swap.assignment.schedule as any;
+      let scheduleCommunityId: string | null = schedule.communityId ?? null;
+      if (!scheduleCommunityId && schedule.eventId) {
+        const event = await this.prisma.event.findUnique({
+          where: { id: schedule.eventId },
+          select: { communityId: true },
+        });
+        scheduleCommunityId = event?.communityId ?? null;
+      }
+      if (scheduleCommunityId) {
+        const allowed = (await this.memberCommunityIds(member.id)).includes(scheduleCommunityId);
+        if (!allowed) {
+          throw new ForbiddenException(
+            'Esta troca é de uma comunidade com a qual você não tem vínculo',
+          );
+        }
+      }
+    }
 
     // O aceitante precisa participar da pastoral da atribuição (quando houver)
     if (swap.assignment.communityPastoralId) {

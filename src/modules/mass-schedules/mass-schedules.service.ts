@@ -21,6 +21,8 @@ const PASTORAL_INCLUDE = {
     communityPastoral: {
       select: {
         id: true,
+        communityId: true,
+        community: { select: { id: true, name: true } },
         globalPastoral: { select: { id: true, name: true } },
       },
     },
@@ -117,15 +119,25 @@ export class MassSchedulesService {
     for (const s of settings) byId.set(s.communityPastoralId, s);
     const ids = [...byId.keys()];
 
+    // Multi-comunidade: pastorais/ministérios de OUTRA comunidade da MESMA
+    // paróquia podem servir neste horário (ex.: música da matriz nas capelas)
+    const community = await this.prisma.community.findUnique({
+      where: { id: communityId },
+      select: { parishId: true },
+    });
     const valid = await this.prisma.communityPastoral.findMany({
-      where: { id: { in: ids }, communityId, deletedAt: null },
+      where: {
+        id: { in: ids },
+        deletedAt: null,
+        community: { parishId: community?.parishId ?? '__none__' },
+      },
       select: { id: true },
     });
     const validIds = new Set(valid.map((v) => v.id));
     const missing = ids.filter((id) => !validIds.has(id));
     if (missing.length) {
       throw new BadRequestException(
-        'Uma ou mais pastorais não pertencem à comunidade selecionada',
+        'Uma ou mais pastorais não pertencem à paróquia desta comunidade',
       );
     }
 

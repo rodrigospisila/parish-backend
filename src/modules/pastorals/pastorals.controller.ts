@@ -88,9 +88,10 @@ export class PastoralsController {
   @Get('community')
   findAllCommunityPastorals(
     @Query('communityId') communityId?: string,
+    @Query('parishId') parishId?: string,
     @Request() req?,
   ) {
-    return this.pastoralsService.findAllCommunityPastorals(communityId, req?.user);
+    return this.pastoralsService.findAllCommunityPastorals(communityId, req?.user, parishId);
   }
 
   @Get('community/:id/available-members')

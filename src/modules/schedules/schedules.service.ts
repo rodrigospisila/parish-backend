@@ -157,6 +157,8 @@ export class SchedulesService {
       isLeader: schedulePastoral.isLeader,
       communityPastoral: {
         id: schedulePastoral.communityPastoral?.id,
+        communityId: schedulePastoral.communityPastoral?.communityId ?? null,
+        community: schedulePastoral.communityPastoral?.community ?? null,
         scheduleCouplesTogether:
           schedulePastoral.communityPastoral?.scheduleCouplesTogether ?? false,
         scheduleByGroup: schedulePastoral.communityPastoral?.scheduleByGroup ?? false,
@@ -704,6 +706,8 @@ export class SchedulesService {
             communityPastoral: {
               select: {
                 id: true,
+                communityId: true,
+                community: { select: { id: true, name: true } },
                 scheduleCouplesTogether: true,
                 scheduleByGroup: true,
                 globalPastoral: {
@@ -867,6 +871,8 @@ export class SchedulesService {
             communityPastoral: {
               select: {
                 id: true,
+                communityId: true,
+                community: { select: { id: true, name: true } },
                 scheduleCouplesTogether: true,
                 scheduleByGroup: true,
                 globalPastoral: {
@@ -979,6 +985,8 @@ export class SchedulesService {
             communityPastoral: {
               select: {
                 id: true,
+                communityId: true,
+                community: { select: { id: true, name: true } },
                 scheduleCouplesTogether: true,
                 scheduleByGroup: true,
                 globalPastoral: {
@@ -1289,6 +1297,8 @@ export class SchedulesService {
             id: true,
             title: true,
             date: true,
+            community: { select: { id: true, name: true } },
+            event: { select: { community: { select: { id: true, name: true } } } },
           },
         },
         member: {
@@ -1331,12 +1341,20 @@ export class SchedulesService {
       });
     }
 
+    const createdCommunity =
+      (createdAssignment.schedule as any).event?.community ??
+      (createdAssignment.schedule as any).community ??
+      null;
     await this.notifyMember(
       memberId,
       NotificationType.ASSIGNMENT_CREATED,
       'Nova escala',
-      `Voce foi escalado(a) para "${createdAssignment.schedule.title}" em ${this.formatDateLabel(createdAssignment.schedule.date)}.`,
-      { scheduleId, assignmentId: createdAssignment.id },
+      `Voce foi escalado(a) para "${createdAssignment.schedule.title}"${createdCommunity ? ` · ${createdCommunity.name}` : ''} em ${this.formatDateLabel(createdAssignment.schedule.date)}.`,
+      {
+        scheduleId,
+        assignmentId: createdAssignment.id,
+        ...(createdCommunity ? { communityId: createdCommunity.id } : {}),
+      },
     );
 
     return createdAssignment;
@@ -1724,12 +1742,20 @@ export class SchedulesService {
       });
     }
 
+    const replacedCommunity =
+      (newAssignment.schedule as any).event?.community ??
+      (newAssignment.schedule as any).community ??
+      null;
     await this.notifyMember(
       newMemberId,
       NotificationType.ASSIGNMENT_REPLACED,
       'Voce foi escalado(a)',
-      `Voce foi escalado(a) para "${newAssignment.schedule.title}" em ${this.formatDateLabel(newAssignment.schedule.date)} (substituicao).`,
-      { scheduleId: assignment.scheduleId, assignmentId: newAssignment.id },
+      `Voce foi escalado(a) para "${newAssignment.schedule.title}"${replacedCommunity ? ` · ${replacedCommunity.name}` : ''} em ${this.formatDateLabel(newAssignment.schedule.date)} (substituicao).`,
+      {
+        scheduleId: assignment.scheduleId,
+        assignmentId: newAssignment.id,
+        ...(replacedCommunity ? { communityId: replacedCommunity.id } : {}),
+      },
     );
 
     return newAssignment;
@@ -1768,6 +1794,8 @@ export class SchedulesService {
             id: true,
             title: true,
             date: true,
+            community: { select: { id: true, name: true } },
+            event: { select: { community: { select: { id: true, name: true } } } },
           },
         },
         member: {
@@ -3253,6 +3281,8 @@ export class SchedulesService {
             id: true,
             title: true,
             date: true,
+            community: { select: { id: true, name: true } },
+            event: { select: { community: { select: { id: true, name: true } } } },
           },
         },
       },
@@ -3419,6 +3449,8 @@ export class SchedulesService {
             communityPastoral: {
               select: {
                 id: true,
+                communityId: true,
+                community: { select: { id: true, name: true } },
                 scheduleCouplesTogether: true,
                 scheduleByGroup: true,
                 globalPastoral: {
