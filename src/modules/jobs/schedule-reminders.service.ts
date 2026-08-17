@@ -48,7 +48,9 @@ export class ScheduleRemindersService {
           deletedAt: null,
           // Escalas SEM evento (agenda fixa/avulsas) também recebem lembrete
           OR: [{ eventId: null }, { event: { deletedAt: null } }],
-          date: { gt: now, lte: windowEnd },
+          // Escala sem evento grava date à meia-noite e a hora em startTime —
+          // a janela abre 24h para trás e o início efetivo é filtrado abaixo
+          date: { gt: new Date(now.getTime() - 24 * 60 * 60 * 1000), lte: windowEnd },
         },
         OR: [{ reminder24hSentAt: null }, { reminder2hSentAt: null }],
       },
@@ -58,8 +60,11 @@ export class ScheduleRemindersService {
             id: true,
             title: true,
             date: true,
+            startTime: true,
             community: { select: { id: true, name: true } },
-            event: { select: { community: { select: { id: true, name: true } } } },
+            event: {
+              select: { startDate: true, community: { select: { id: true, name: true } } },
+            },
           },
         },
         member: { select: { id: true, fullName: true, userId: true } },
@@ -69,7 +74,12 @@ export class ScheduleRemindersService {
     let sent = 0;
 
     for (const assignment of assignments) {
-      const msUntil = assignment.schedule.date.getTime() - now.getTime();
+      const startAt = this.effectiveStart(assignment.schedule);
+      const msUntil = startAt.getTime() - now.getTime();
+      // Início efetivo fora da janela (já começou ou ainda longe): pula
+      if (msUntil <= 0 || startAt.getTime() > windowEnd.getTime()) {
+        continue;
+      }
       const isFinalReminder = msUntil <= REMINDER_2H_THRESHOLD_MS;
 
       if (isFinalReminder && assignment.reminder2hSentAt) {
@@ -79,7 +89,7 @@ export class ScheduleRemindersService {
         continue;
       }
 
-      const dateLabel = this.formatDateTimeLabel(assignment.schedule.date);
+      const dateLabel = this.scheduleLabel(assignment.schedule);
       // Multi-comunidade: quem serve em mais de uma precisa saber DE ONDE é a escala
       const community =
         assignment.schedule.event?.community ?? assignment.schedule.community ?? null;
@@ -136,12 +146,21 @@ export class ScheduleRemindersService {
         schedule: {
           status: 'OPEN',
           deletedAt: null,
-          event: { deletedAt: null },
-          date: { gt: now, lte: windowEnd },
+          // Escalas SEM evento (agenda fixa/avulsas) também recebem a cobrança
+          OR: [{ eventId: null }, { event: { deletedAt: null } }],
+          date: { gt: new Date(now.getTime() - 24 * 60 * 60 * 1000), lte: windowEnd },
         },
       },
       include: {
-        schedule: { select: { id: true, title: true, date: true } },
+        schedule: {
+          select: {
+            id: true,
+            title: true,
+            date: true,
+            startTime: true,
+            event: { select: { startDate: true } },
+          },
+        },
         member: { select: { id: true, fullName: true, userId: true } },
       },
     });
@@ -149,12 +168,16 @@ export class ScheduleRemindersService {
     let sent = 0;
 
     for (const assignment of assignments) {
+      const startAt = this.effectiveStart(assignment.schedule);
+      if (startAt.getTime() <= now.getTime() || startAt.getTime() > windowEnd.getTime()) {
+        continue;
+      }
       if (assignment.member.userId) {
         await this.notificationsService.notifyUser(
           assignment.member.userId,
           NotificationType.SCHEDULE_REMINDER,
           'Confirme sua participação',
-          `Você ainda não respondeu à escala "${assignment.schedule.title}" de ${this.formatDateTimeLabel(assignment.schedule.date)}. Confirme ou recuse no app.`,
+          `Você ainda não respondeu à escala "${assignment.schedule.title}" de ${this.scheduleLabel(assignment.schedule)}. Confirme ou recuse no app.`,
           { scheduleId: assignment.schedule.id, assignmentId: assignment.id },
         );
         sent += 1;
@@ -177,5 +200,38 @@ export class ScheduleRemindersService {
     const day = date.toLocaleDateString('pt-BR');
     const time = date.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
     return `${day} às ${time}`;
+  }
+
+  /**
+   * Início EFETIVO da escala: evento > date+startTime (wall-clock da agenda
+   * fixa, gravado com date à meia-noite) > date puro.
+   * Mesma semântica do getScheduleWindow do SchedulesService.
+   */
+  private effectiveStart(schedule: {
+    date: Date;
+    startTime?: string | null;
+    event?: { startDate?: Date | null } | null;
+  }): Date {
+    if (schedule.event?.startDate) return new Date(schedule.event.startDate);
+    const match = /^(\d{1,2}):(\d{2})$/.exec(schedule.startTime?.trim() ?? '');
+    if (!match) return new Date(schedule.date);
+    const result = new Date(schedule.date);
+    result.setHours(Number(match[1]), Number(match[2]), 0, 0);
+    return result;
+  }
+
+  /** Rótulo legível: escala da agenda fixa mostra o dia (UTC) + startTime cru. */
+  private scheduleLabel(schedule: {
+    date: Date;
+    startTime?: string | null;
+    event?: { startDate?: Date | null } | null;
+  }): string {
+    const hasOwnTime =
+      !schedule.event?.startDate && /^(\d{1,2}):(\d{2})$/.test(schedule.startTime?.trim() ?? '');
+    if (hasOwnTime) {
+      const day = schedule.date.toLocaleDateString('pt-BR', { timeZone: 'UTC' });
+      return `${day} às ${schedule.startTime}`;
+    }
+    return this.formatDateTimeLabel(this.effectiveStart(schedule));
   }
 }

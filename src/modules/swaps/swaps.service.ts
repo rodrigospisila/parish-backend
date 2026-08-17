@@ -127,6 +127,9 @@ export class SwapsService {
                     },
                   },
                   {
+                    // Sem pastoral definida: vale o vínculo com a comunidade
+                    // (com pastoral, só quem participa dela pode aceitar)
+                    communityPastoralId: null,
                     schedule: {
                       OR: [
                         { communityId: { in: linkedCommunityIds } },

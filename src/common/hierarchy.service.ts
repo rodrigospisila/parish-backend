@@ -224,7 +224,22 @@ export class HierarchyService {
         parishId: user.parishId ?? undefined,
         communityId: user.communityId ?? undefined,
       };
-      return this.isCommunityInScope(currentUser, schedule.communityId);
+      if (await this.isCommunityInScope(currentUser, schedule.communityId)) {
+        return true;
+      }
+
+      // Multi-comunidade: coordenador de pastoral "de fora" (ex.: música da
+      // matriz servindo na capela) tem acesso quando a pastoral que coordena
+      // está vinculada à escala — mesma regra do hasAccessToEvent.
+      const coordinatedPastoralIds = await this.getUserPastoralIds(userId, true);
+      if (coordinatedPastoralIds.length > 0) {
+        const linkedPastoral = await this.prisma.schedulePastoral.findFirst({
+          where: { scheduleId, communityPastoralId: { in: coordinatedPastoralIds } },
+          select: { id: true },
+        });
+        if (linkedPastoral) return true;
+      }
+      return false;
     }
 
     return false;

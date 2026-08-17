@@ -304,37 +304,54 @@ export class PastoralsService {
       where.communityId = communityId;
     }
     
-    // Aplicar filtro de hierarquia baseado no role do usuÃ¡rio
+    // Aplicar filtro de hierarquia baseado no role do usuário.
+    // SEGURANÇA: o parishId do query string NUNCA amplia o escopo — papéis
+    // restritos só enxergam a própria paróquia/comunidade; sem escopo definido,
+    // a resposta é vazia (a rota inclui dados pessoais dos membros).
     if (currentUser) {
       switch (currentUser.role) {
         case UserRole.SYSTEM_ADMIN:
           // Sem filtro adicional
           break;
         case UserRole.DIOCESAN_ADMIN:
-          // Filtrar por diocese
-          if (currentUser.dioceseId) {
-            where.community = { parish: { dioceseId: currentUser.dioceseId } };
-          }
+          if (!currentUser.dioceseId) return [];
+          where.community = {
+            ...(parishId ? { parishId } : {}),
+            parish: { dioceseId: currentUser.dioceseId },
+          };
           break;
         case UserRole.PARISH_ADMIN:
-          // Filtrar por parÃ³quia
-          if (currentUser.parishId) {
-            where.community = { parishId: currentUser.parishId };
-          }
+          if (!currentUser.parishId) return [];
+          // Parâmetro de outra paróquia não vale: escopo é a própria
+          where.community = { parishId: currentUser.parishId };
           break;
         case UserRole.COMMUNITY_COORDINATOR:
         case UserRole.VOLUNTEER:
         case UserRole.FAITHFUL:
-        case UserRole.PASTORAL_COORDINATOR:
-          // Filtrar por comunidade; com parishId da PRÓPRIA paróquia, amplia
-          // para a paróquia inteira (agenda fixa multi-comunidade)
-          if (parishId && currentUser.parishId === parishId) {
+        case UserRole.PASTORAL_COORDINATOR: {
+          // parishId só vale quando é a PRÓPRIA paróquia (resolvida pelo token
+          // ou pela comunidade do usuário — agenda fixa multi-comunidade)
+          let ownParishId = currentUser.parishId ?? null;
+          if (!ownParishId && currentUser.communityId) {
+            const ownCommunity = await this.prisma.community.findUnique({
+              where: { id: currentUser.communityId },
+              select: { parishId: true },
+            });
+            ownParishId = ownCommunity?.parishId ?? null;
+          }
+          if (parishId && ownParishId && ownParishId === parishId) {
             delete where.communityId;
             where.community = { parishId };
           } else if (currentUser.communityId) {
+            delete where.community;
             where.communityId = currentUser.communityId;
+          } else {
+            return [];
           }
           break;
+        }
+        default:
+          return [];
       }
     }
     
