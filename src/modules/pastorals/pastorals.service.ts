@@ -329,6 +329,25 @@ export class PastoralsService {
         case UserRole.VOLUNTEER:
         case UserRole.FAITHFUL:
         case UserRole.PASTORAL_COORDINATOR: {
+          // Multi-comunidade: a comunidade SOLICITADA vale quando o membro tem
+          // vínculo ATIVO com ela (app com "comunidade em foco" secundária)
+          if (communityId && communityId !== currentUser.communityId) {
+            const requesterMember = await this.prisma.member.findFirst({
+              where: { userId: currentUser.id, deletedAt: null },
+              select: { id: true },
+            });
+            const activeLink = requesterMember
+              ? await this.prisma.memberCommunity.findFirst({
+                  where: { memberId: requesterMember.id, communityId, isActive: true },
+                  select: { id: true },
+                })
+              : null;
+            if (activeLink) {
+              delete where.community;
+              where.communityId = communityId;
+              break;
+            }
+          }
           // parishId só vale quando é a PRÓPRIA paróquia (resolvida pelo token
           // ou pela comunidade do usuário — agenda fixa multi-comunidade)
           let ownParishId = currentUser.parishId ?? null;

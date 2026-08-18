@@ -153,7 +153,7 @@ export class ClergyMessagesService {
    * diocese/paróquia/comunidade em que está + pastorais do seu membro +
    * mensagens direcionadas ao seu membro + as que ele mesmo enviou.
    */
-  async feed(user: CurrentUser, limit = 50) {
+  async feed(user: CurrentUser, limit = 50, focusCommunityId?: string) {
     const member = await this.prisma.member.findFirst({
       where: { userId: user.id, deletedAt: null },
       select: {
@@ -161,7 +161,10 @@ export class ClergyMessagesService {
         communityId: true,
         pastoralMemberships: {
           where: { isActive: true, leftAt: null, communityPastoralId: { not: null } },
-          select: { communityPastoralId: true },
+          select: {
+            communityPastoralId: true,
+            communityPastoral: { select: { communityId: true } },
+          },
         },
       },
     });
@@ -173,12 +176,30 @@ export class ClergyMessagesService {
       if ((link as any).isActive === false) continue;
       communityIds.add(link.communityId);
     }
+    // Vínculos do MEMBRO (secundárias) também alcançam o feed
+    if (member) {
+      const memberLinks = await this.prisma.memberCommunity.findMany({
+        where: { memberId: member.id, isActive: true },
+        select: { communityId: true },
+      });
+      for (const link of memberLinks) communityIds.add(link.communityId);
+    }
+
+    // Comunidade em foco (multi-comunidade): restringe o alcance quando o
+    // usuário pede uma comunidade à qual pertence
+    const focusApplied = Boolean(focusCommunityId && communityIds.has(focusCommunityId));
+    if (focusApplied) {
+      communityIds.clear();
+      communityIds.add(focusCommunityId!);
+    }
 
     // Resolve paróquia/diocese a partir das comunidades quando o usuário não tem os ids no token
     let parishIds = new Set<string>();
     let dioceseIds = new Set<string>();
-    if (user.parishId) parishIds.add(user.parishId);
-    if (user.dioceseId) dioceseIds.add(user.dioceseId);
+    if (!focusApplied) {
+      if (user.parishId) parishIds.add(user.parishId);
+      if (user.dioceseId) dioceseIds.add(user.dioceseId);
+    }
     if (communityIds.size > 0) {
       const communities = await this.prisma.community.findMany({
         where: { id: { in: Array.from(communityIds) } },
@@ -190,9 +211,17 @@ export class ClergyMessagesService {
       }
     }
 
-    const pastoralIds = new Set<string>(user.pastoralIds ?? []);
+    // Com foco, só as pastorais DA comunidade em foco entram no alcance
+    const pastoralIds = new Set<string>(focusApplied ? [] : (user.pastoralIds ?? []));
     for (const membership of member?.pastoralMemberships ?? []) {
-      if (membership.communityPastoralId) pastoralIds.add(membership.communityPastoralId);
+      if (!membership.communityPastoralId) continue;
+      if (
+        focusApplied &&
+        (membership as any).communityPastoral?.communityId !== focusCommunityId
+      ) {
+        continue;
+      }
+      pastoralIds.add(membership.communityPastoralId);
     }
 
     const reach: any[] = [{ senderUserId: user.id }];

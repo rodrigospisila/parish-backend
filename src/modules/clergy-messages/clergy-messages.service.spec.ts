@@ -29,6 +29,7 @@ describe('ClergyMessagesService (Palavra do Pastor)', () => {
       community: { findMany: jest.fn().mockResolvedValue([]) },
       communityPastoral: { findFirst: jest.fn() },
       member: { findFirst: jest.fn().mockResolvedValue(null), findUnique: jest.fn() },
+      memberCommunity: { findMany: jest.fn().mockResolvedValue([]) },
       pastoralMember: { findMany: jest.fn().mockResolvedValue([]) },
       user: { findMany: jest.fn().mockResolvedValue([]), findUnique: jest.fn().mockResolvedValue({ clergyTitle: null }) },
     };

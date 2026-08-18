@@ -18,8 +18,12 @@ export class ClergyMessagesController {
   }
 
   @Get()
-  feed(@Request() req: any, @Query('limit') limit?: string) {
-    return this.service.feed(req.user, limit ? Math.min(Number(limit) || 50, 100) : 50);
+  feed(
+    @Request() req: any,
+    @Query('limit') limit?: string,
+    @Query('communityId') communityId?: string,
+  ) {
+    return this.service.feed(req.user, limit ? Math.min(Number(limit) || 50, 100) : 50, communityId);
   }
 
   @Get('mine')

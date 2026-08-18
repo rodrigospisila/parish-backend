@@ -3056,6 +3056,13 @@ export class SchedulesService {
         },
         schedule: {
           include: {
+            community: {
+              select: {
+                id: true,
+                name: true,
+                parish: { select: { id: true, name: true } },
+              },
+            },
             event: {
               select: {
                 id: true,
@@ -3066,6 +3073,7 @@ export class SchedulesService {
                   select: {
                     id: true,
                     name: true,
+                    parish: { select: { id: true, name: true } },
                   },
                 },
               },
@@ -3146,6 +3154,10 @@ export class SchedulesService {
           title: a.schedule.title,
           description: a.schedule.description,
           date: a.schedule.date,
+          startTime: a.schedule.startTime,
+          endTime: a.schedule.endTime,
+          // Comunidade da escala: do evento OU da própria (agenda fixa/avulsa)
+          community: a.schedule.event?.community ?? (a.schedule as any).community ?? null,
           event: a.schedule.event,
         },
       })),
