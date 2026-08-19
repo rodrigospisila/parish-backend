@@ -169,7 +169,7 @@ export class CatechesisService {
       include: {
         stage: { select: { name: true, sacramentType: true } },
         community: { select: { name: true } },
-        _count: { select: { enrollments: true, sessions: true } },
+        _count: { select: { enrollments: { where: { status: 'ACTIVE' } }, sessions: true } },
       },
       orderBy: { year: 'desc' },
     });
@@ -397,6 +397,11 @@ export class CatechesisService {
     if (enrollment.classId === targetClassId) {
       throw new BadRequestException('A matrícula já está nesta turma');
     }
+    // Pendentes passam por aprovação; concluídas usam a renovação — transferir
+    // esses estados apagaria conclusões ou aprovaria por via lateral.
+    if (enrollment.status !== 'ACTIVE') {
+      throw new BadRequestException('Apenas matrículas ATIVAS podem ser transferidas');
+    }
 
     // A matrícula de origem fica TRANSFERRED (preserva o histórico de presença);
     // no destino, cria uma matrícula ACTIVE nova (ou reativa a existente).
@@ -516,79 +521,126 @@ export class CatechesisService {
 
     const klass = await this.prisma.catechesisClass.findFirst({
       where: { id: dto.classId, deletedAt: null, status: 'ACTIVE' },
-      include: { stage: true, _count: { select: { enrollments: { where: { status: { in: ['ACTIVE', 'PENDING_APPROVAL'] } } } } } },
+      include: { stage: true },
     });
     if (!klass) throw new NotFoundException('Turma não encontrada ou encerrada');
     await this.assertMemberCommunityLink(myMember.id, klass.communityId, user.communityId ?? myMember.communityId);
 
-    if (klass.capacity !== null && klass._count.enrollments >= klass.capacity) {
-      throw new BadRequestException('Turma sem vagas — escolha outra turma ou fale com a secretaria');
-    }
-
-    // Quem será matriculado: eu, um dependente meu, ou um filho novo
-    let targetMemberId: string;
+    // Valida a entrada do filho novo ANTES de qualquer escrita
+    let newChild: { fullName: string; birthDate: Date | null } | null = null;
     if (dto.newChild) {
       const fullName = dto.newChild.fullName?.trim();
-      if (!fullName || fullName.length < 5) {
-        throw new BadRequestException('Informe o nome completo do catequizando');
+      if (!fullName || fullName.length < 5 || fullName.length > 120) {
+        throw new BadRequestException('Informe o nome completo do catequizando (5 a 120 caracteres)');
       }
-      const child = await this.prisma.member.create({
-        data: {
-          fullName,
-          birthDate: dto.newChild.birthDate ? new Date(dto.newChild.birthDate) : null,
-          communityId: klass.communityId,
-          responsibleId: myMember.id,
-          status: 'ACTIVE',
-          consentGiven: true,
-          consentDate: new Date(),
-          communityLinks: {
-            create: { communityId: klass.communityId, isPrimary: true, consentGiven: true, consentDate: new Date() },
+      let birthDate: Date | null = null;
+      if (dto.newChild.birthDate) {
+        const raw = String(dto.newChild.birthDate).slice(0, 10);
+        birthDate = new Date(raw);
+        // Round-trip pega tanto formato inválido quanto datas impossíveis (2017-02-31)
+        if (
+          !/^\d{4}-\d{2}-\d{2}$/.test(raw) ||
+          Number.isNaN(birthDate.getTime()) ||
+          birthDate.toISOString().slice(0, 10) !== raw
+        ) {
+          throw new BadRequestException('Data de nascimento inválida — use AAAA-MM-DD');
+        }
+      }
+      newChild = { fullName, birthDate };
+    }
+
+    // Transação: vagas + cadastro do catequizando + matrícula são atômicos
+    // (sem menor órfão se algo falhar; recontagem de vagas junto da escrita).
+    const applied = await this.prisma.$transaction(async (tx) => {
+      if (klass.capacity !== null) {
+        const occupied = await tx.catechesisEnrollment.count({
+          where: this.occupiedSeatsWhere(klass.id),
+        });
+        if (occupied >= klass.capacity) {
+          throw new BadRequestException('Turma sem vagas — escolha outra turma ou fale com a secretaria');
+        }
+      }
+
+      // Quem será matriculado: eu, um dependente meu, ou um filho novo
+      let targetMemberId: string;
+      if (newChild) {
+        // Dedup: reaproveita dependente já cadastrado com o mesmo nome
+        const existingChild = await tx.member.findFirst({
+          where: {
+            responsibleId: myMember.id,
+            deletedAt: null,
+            fullName: { equals: newChild.fullName, mode: 'insensitive' },
           },
-        },
-        select: { id: true },
-      });
-      targetMemberId = child.id;
-    } else if (dto.forMemberId && dto.forMemberId !== myMember.id) {
-      const dependent = await this.prisma.member.findFirst({
-        where: { id: dto.forMemberId, responsibleId: myMember.id, deletedAt: null },
-        select: { id: true },
-      });
-      if (!dependent) {
-        throw new ForbiddenException('Você só pode inscrever a si ou aos seus dependentes');
+          select: { id: true },
+        });
+        if (existingChild) {
+          targetMemberId = existingChild.id;
+        } else {
+          const child = await tx.member.create({
+            data: {
+              fullName: newChild.fullName,
+              birthDate: newChild.birthDate,
+              communityId: klass.communityId,
+              responsibleId: myMember.id,
+              status: 'ACTIVE',
+              consentGiven: true,
+              consentDate: new Date(),
+              communityLinks: {
+                create: { communityId: klass.communityId, isPrimary: true, consentGiven: true, consentDate: new Date() },
+              },
+            },
+            select: { id: true },
+          });
+          targetMemberId = child.id;
+        }
+      } else if (dto.forMemberId && dto.forMemberId !== myMember.id) {
+        const dependent = await tx.member.findFirst({
+          where: { id: dto.forMemberId, responsibleId: myMember.id, deletedAt: null },
+          select: { id: true },
+        });
+        if (!dependent) {
+          throw new ForbiddenException('Você só pode inscrever a si ou aos seus dependentes');
+        }
+        targetMemberId = dependent.id;
+      } else {
+        targetMemberId = myMember.id;
       }
-      targetMemberId = dependent.id;
-    } else {
-      targetMemberId = myMember.id;
-    }
 
-    // Batismo: para etapas que não são de Batismo, a ausência vira pendência
-    let pendingDocuments: string | null = null;
-    if (klass.stage.sacramentType !== SacramentType.BAPTISM) {
-      const baptized = await this.prisma.sacrament.findFirst({
-        where: { memberId: targetMemberId, type: SacramentType.BAPTISM },
-        select: { id: true },
-      });
-      if (!baptized) pendingDocuments = 'Certidão de Batismo';
-    }
-
-    // Reaproveita matrícula anterior (recusada/desistente/transferida) se houver
-    const existing = await this.prisma.catechesisEnrollment.findUnique({
-      where: { classId_memberId: { classId: klass.id, memberId: targetMemberId } },
-    });
-    let enrollment;
-    if (existing) {
-      if (existing.status === 'ACTIVE' || existing.status === 'PENDING_APPROVAL') {
-        throw new BadRequestException('Este catequizando já está matriculado (ou aguardando aprovação) nesta turma');
+      // Batismo: para etapas que não são de Batismo, a ausência vira pendência
+      let pendingDocuments: string | null = null;
+      if (klass.stage.sacramentType !== SacramentType.BAPTISM) {
+        const baptized = await tx.sacrament.findFirst({
+          where: { memberId: targetMemberId, type: SacramentType.BAPTISM },
+          select: { id: true },
+        });
+        if (!baptized) pendingDocuments = 'Certidão de Batismo';
       }
-      enrollment = await this.prisma.catechesisEnrollment.update({
-        where: { id: existing.id },
-        data: { status: 'PENDING_APPROVAL', pendingDocuments, completedAt: null },
+
+      // Reaproveita matrícula anterior (recusada/desistente/transferida);
+      // CONCLUÍDA nunca é reaproveitada — apagaria o registro de conclusão.
+      const existing = await tx.catechesisEnrollment.findUnique({
+        where: { classId_memberId: { classId: klass.id, memberId: targetMemberId } },
       });
-    } else {
-      enrollment = await this.prisma.catechesisEnrollment.create({
+      if (existing) {
+        if (existing.status === 'ACTIVE' || existing.status === 'PENDING_APPROVAL') {
+          throw new BadRequestException('Este catequizando já está matriculado (ou aguardando aprovação) nesta turma');
+        }
+        if (existing.status === 'COMPLETED') {
+          throw new BadRequestException('Este catequizando já concluiu esta turma — a próxima etapa é feita pela renovação');
+        }
+        const enrollment = await tx.catechesisEnrollment.update({
+          where: { id: existing.id },
+          data: { status: 'PENDING_APPROVAL', pendingDocuments },
+        });
+        return { enrollment, targetMemberId };
+      }
+      const enrollment = await tx.catechesisEnrollment.create({
         data: { classId: klass.id, memberId: targetMemberId, status: 'PENDING_APPROVAL', pendingDocuments },
       });
-    }
+      return { enrollment, targetMemberId };
+    });
+    const { enrollment, targetMemberId } = applied;
+    const pendingDocuments = enrollment.pendingDocuments;
 
     await this.auditService.log({
       actor: this.auditActor(user),
@@ -670,11 +722,23 @@ export class CatechesisService {
 
   /** Recusa a inscrição (com motivo, auditado e comunicado à família). */
   async rejectEnrollment(enrollmentId: string, reason: string | undefined, user: CurrentUser) {
+    if (typeof reason === 'string' && reason.trim().length > 300) {
+      throw new BadRequestException('O motivo da recusa deve ter no máximo 300 caracteres');
+    }
     const enrollment = await this.prisma.catechesisEnrollment.findUnique({
       where: { id: enrollmentId },
       include: {
         class: { select: { id: true, name: true } },
-        member: { select: { fullName: true, userId: true, responsible: { select: { userId: true } } } },
+        member: {
+          select: {
+            id: true,
+            fullName: true,
+            userId: true,
+            responsibleId: true,
+            createdAt: true,
+            responsible: { select: { userId: true } },
+          },
+        },
       },
     });
     if (!enrollment) throw new NotFoundException('Inscrição não encontrada');
@@ -687,6 +751,48 @@ export class CatechesisService {
       where: { id: enrollmentId },
       data: { status: 'REJECTED' },
     });
+
+    // LGPD: se o menor foi CADASTRADO por esta inscrição online (criado junto
+    // dela, sem conta, sem outra participação), a recusa remove a finalidade da
+    // coleta — soft-delete do cadastro e desativação dos vínculos.
+    try {
+      const memberInfo = enrollment.member;
+      const createdWithApplication =
+        !memberInfo.userId &&
+        !!memberInfo.responsibleId &&
+        Math.abs(memberInfo.createdAt.getTime() - enrollment.enrolledAt.getTime()) < 10_000;
+      if (createdWithApplication) {
+        const [otherEnrollments, sacraments, pastorals] = await Promise.all([
+          this.prisma.catechesisEnrollment.count({
+            where: { memberId: memberInfo.id, id: { not: enrollmentId } },
+          }),
+          this.prisma.sacrament.count({ where: { memberId: memberInfo.id } }),
+          this.prisma.pastoralMember.count({ where: { memberId: memberInfo.id } }),
+        ]);
+        if (otherEnrollments === 0 && sacraments === 0 && pastorals === 0) {
+          await this.prisma.$transaction([
+            this.prisma.member.update({
+              where: { id: memberInfo.id },
+              data: { deletedAt: new Date() },
+            }),
+            this.prisma.memberCommunity.updateMany({
+              where: { memberId: memberInfo.id, isActive: true },
+              data: { isActive: false, leftAt: new Date() },
+            }),
+          ]);
+          await this.auditService.log({
+            actor: this.auditActor(user),
+            action: 'DELETE',
+            entity: 'Member',
+            entityId: memberInfo.id,
+            metadata: { reason: 'catechesis-application-rejected', enrollmentId },
+          });
+        }
+      }
+    } catch (error) {
+      // Limpeza é best-effort — a recusa em si já foi registrada
+    }
+
     await this.auditService.log({
       actor: this.auditActor(user),
       action: 'UPDATE',
@@ -792,35 +898,61 @@ export class CatechesisService {
       throw new BadRequestException('Só é possível renovar matrículas CONCLUÍDAS desta turma');
     }
 
-    // Capacidade do destino
-    if (target.capacity !== null) {
-      const occupied = await this.prisma.catechesisEnrollment.count({
-        where: this.occupiedSeatsWhere(target.id),
-      });
-      if (occupied + source.length > target.capacity) {
-        throw new BadRequestException(
-          `A turma de destino tem ${Math.max(0, target.capacity - occupied)} vaga(s) para ${source.length} renovação(ões)`,
-        );
-      }
-    }
+    // Pendência de batismo acompanha a renovação (mesma regra do apply):
+    // a secretaria não perde o rastreio de quem ainda deve a certidão.
+    const requiresBaptism = target.stage.sacramentType !== SacramentType.BAPTISM;
+    const baptizedIds = requiresBaptism
+      ? new Set(
+          (
+            await this.prisma.sacrament.findMany({
+              where: {
+                memberId: { in: source.map((e) => e.memberId) },
+                type: SacramentType.BAPTISM,
+              },
+              select: { memberId: true },
+            })
+          ).map((sacrament) => sacrament.memberId),
+        )
+      : new Set<string>();
 
     let renewed = 0;
     let reactivated = 0;
     await this.prisma.$transaction(async (tx) => {
+      // Capacidade checada DENTRO da transação (junto da escrita)
+      if (target.capacity !== null) {
+        const occupied = await tx.catechesisEnrollment.count({
+          where: this.occupiedSeatsWhere(target.id),
+        });
+        if (occupied + source.length > target.capacity) {
+          throw new BadRequestException(
+            `A turma de destino tem ${Math.max(0, target.capacity - occupied)} vaga(s) para ${source.length} renovação(ões)`,
+          );
+        }
+      }
       for (const enrollment of source) {
+        const pendingDocuments =
+          requiresBaptism && !baptizedIds.has(enrollment.memberId) ? 'Certidão de Batismo' : null;
         const existing = await tx.catechesisEnrollment.findUnique({
           where: { classId_memberId: { classId: target.id, memberId: enrollment.memberId } },
         });
         if (existing) {
-          if (existing.status === 'ACTIVE' || existing.status === 'PENDING_APPROVAL') continue;
+          // ACTIVE/PENDING já estão lá; COMPLETED no destino é conclusão
+          // histórica que a renovação não pode apagar — ambos são pulados.
+          if (
+            existing.status === 'ACTIVE' ||
+            existing.status === 'PENDING_APPROVAL' ||
+            existing.status === 'COMPLETED'
+          ) {
+            continue;
+          }
           await tx.catechesisEnrollment.update({
             where: { id: existing.id },
-            data: { status: 'ACTIVE', completedAt: null },
+            data: { status: 'ACTIVE', pendingDocuments },
           });
           reactivated++;
         } else {
           await tx.catechesisEnrollment.create({
-            data: { classId: target.id, memberId: enrollment.memberId },
+            data: { classId: target.id, memberId: enrollment.memberId, pendingDocuments },
           });
           renewed++;
         }
@@ -839,6 +971,17 @@ export class CatechesisService {
 
   // ===== ENCONTROS E CHAMADA =====
 
+  /**
+   * Meia-noite UTC do dia civil LOCAL do servidor (TZ do público, ex.:
+   * America/Sao_Paulo). As sessões guardam date-only como 00:00Z — comparar
+   * com meia-noite local direto (setHours) marcaria o encontro de HOJE como
+   * passado e calaria os avisos às famílias.
+   */
+  private startOfTodayUtc(): Date {
+    const now = new Date();
+    return new Date(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()));
+  }
+
   async createSession(classId: string, dto: { date: string; topic?: string }, user: CurrentUser) {
     const klass = await this.assertClassOperationalAccess(classId, user);
     const session = await this.prisma.catechesisSession.create({
@@ -847,9 +990,7 @@ export class CatechesisService {
 
     // Aviso às famílias — só para encontros FUTUROS (registro retroativo de
     // chamada não gera notificação). Best-effort: não bloqueia a criação.
-    const startOfToday = new Date();
-    startOfToday.setHours(0, 0, 0, 0);
-    if (session.date.getTime() >= startOfToday.getTime()) {
+    if (session.date.getTime() >= this.startOfTodayUtc().getTime()) {
       try {
         const enrollments = await this.prisma.catechesisEnrollment.findMany({
           where: { classId, status: 'ACTIVE' },
@@ -932,9 +1073,7 @@ export class CatechesisService {
 
     // Aviso de falta só para encontros de HOJE/futuros — backfill de chamadas
     // históricas não deve gerar rajada de pushes com datas antigas.
-    const startOfToday = new Date();
-    startOfToday.setHours(0, 0, 0, 0);
-    const notifyAbsence = session.date.getTime() >= startOfToday.getTime();
+    const notifyAbsence = session.date.getTime() >= this.startOfTodayUtc().getTime();
 
     // Aviso de falta às famílias (best-effort)
     if (becameAbsent.length && notifyAbsence) {
@@ -1133,7 +1272,8 @@ export class CatechesisService {
           stage: enrollment.class.stage,
           community: enrollment.class.community,
         },
-        nextSession: nextByClass.get(enrollment.classId) ?? null,
+        nextSession:
+          enrollment.status === 'REJECTED' ? null : nextByClass.get(enrollment.classId) ?? null,
       };
     });
   }
@@ -1150,6 +1290,11 @@ export class CatechesisService {
 
     if (enrollment.status === 'COMPLETED') {
       throw new BadRequestException('Matrícula já concluída');
+    }
+    // Pendentes precisam ser aprovadas antes — concluir direto geraria
+    // Sacrament para inscrição que nunca passou pela aprovação.
+    if (enrollment.status !== 'ACTIVE') {
+      throw new BadRequestException('Apenas matrículas ATIVAS podem ser concluídas');
     }
 
     const result = await this.prisma.$transaction(async (tx) => {
@@ -1215,7 +1360,8 @@ export class CatechesisService {
     });
 
     return {
-      total: rows.length,
+      // Recusadas nunca foram matrículas — ficam fora do total (mas na lista)
+      total: rows.filter((r) => r.status !== 'REJECTED').length,
       active: rows.filter((r) => r.status === 'ACTIVE').length,
       dropouts: rows.filter((r) => r.status === 'DROPPED_OUT').length,
       completed: rows.filter((r) => r.status === 'COMPLETED').length,
