@@ -163,6 +163,7 @@ enum NotificationType {
   SCHEDULE_CANCELLED
   TEAM_BROADCAST
   CLERGY_MESSAGE // Palavra do Pastor (mensagem/vídeo do clero)
+  CATECHESIS // Catequese: falta, novo encontro, documentos, mensagem da turma
 }
 
 // Tipos de consentimento granular (LGPD)

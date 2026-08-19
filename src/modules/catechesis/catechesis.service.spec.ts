@@ -5,6 +5,7 @@ import { CatechesisService } from './catechesis.service';
 import { PrismaService } from '../../database/prisma.service';
 import { HierarchyService } from '../../common/hierarchy.service';
 import { AuditService } from '../../common/audit.service';
+import { NotificationsService } from '../notifications/notifications.service';
 
 describe('CatechesisService (3.1)', () => {
   let service: CatechesisService;
@@ -34,6 +35,10 @@ describe('CatechesisService (3.1)', () => {
         { provide: PrismaService, useValue: prisma },
         { provide: HierarchyService, useValue: hierarchy },
         { provide: AuditService, useValue: { log: jest.fn() } },
+        {
+          provide: NotificationsService,
+          useValue: { notifyUser: jest.fn(), notifyUsers: jest.fn() },
+        },
       ],
     }).compile();
     service = module.get<CatechesisService>(CatechesisService);

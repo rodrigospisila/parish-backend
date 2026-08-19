@@ -28,6 +28,12 @@ export class CatechesisController {
     return this.service.getMyClasses(req.user);
   }
 
+  // App da família: matrículas próprias e dos dependentes
+  @Get('my-family')
+  myFamily(@Request() req: any) {
+    return this.service.getMyFamilyCatechesis(req.user);
+  }
+
   // Turmas
   @Post('classes')
   @Roles(UserRole.COMMUNITY_COORDINATOR)
@@ -81,6 +87,16 @@ export class CatechesisController {
     return this.service.transferEnrollment(id, body.targetClassId, req.user);
   }
 
+  @Patch('enrollments/:id/documents')
+  @Roles(UserRole.PASTORAL_COORDINATOR)
+  updateDocuments(
+    @Param('id') id: string,
+    @Body() body: { pendingDocuments?: string | null },
+    @Request() req: any,
+  ) {
+    return this.service.updateEnrollmentDocuments(id, body.pendingDocuments ?? null, req.user);
+  }
+
   @Patch('enrollments/:id/complete')
   @Roles(UserRole.PASTORAL_COORDINATOR)
   complete(@Param('id') id: string, @Body() dto: { date?: string; minister?: string }, @Request() req: any) {
@@ -91,6 +107,12 @@ export class CatechesisController {
   @Post('classes/:id/sessions')
   createSession(@Param('id') id: string, @Body() dto: { date: string; topic?: string }, @Request() req: any) {
     return this.service.createSession(id, dto, req.user);
+  }
+
+  // Mensagem do catequista/coordenação para as famílias da turma
+  @Post('classes/:id/notify')
+  notifyFamilies(@Param('id') id: string, @Body() body: { message: string }, @Request() req: any) {
+    return this.service.notifyClassFamilies(id, body?.message ?? '', req.user);
   }
 
   @Post('sessions/:id/attendance')

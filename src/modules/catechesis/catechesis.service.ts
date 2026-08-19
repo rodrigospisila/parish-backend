@@ -4,10 +4,11 @@ import {
   ForbiddenException,
   BadRequestException,
 } from '@nestjs/common';
-import { SacramentType, UserRole } from '@prisma/client';
+import { NotificationType, SacramentType, UserRole } from '@prisma/client';
 import { PrismaService } from '../../database/prisma.service';
 import { HierarchyService, CurrentUser } from '../../common/hierarchy.service';
 import { AuditService } from '../../common/audit.service';
+import { NotificationsService } from '../notifications/notifications.service';
 
 /**
  * Catequese e iniciação à vida cristã (roadmap 3.1).
@@ -19,7 +20,26 @@ export class CatechesisService {
     private readonly prisma: PrismaService,
     private readonly hierarchyService: HierarchyService,
     private readonly auditService: AuditService,
+    private readonly notificationsService: NotificationsService,
   ) {}
+
+  /**
+   * Destinatário do aviso de um catequizando: a própria conta quando adulto
+   * com usuário; senão a conta do RESPONSÁVEL (menores). Ambos quando existem.
+   */
+  private guardianUserIds(member: {
+    userId?: string | null;
+    responsible?: { userId?: string | null } | null;
+  }): string[] {
+    const ids = new Set<string>();
+    if (member.userId) ids.add(member.userId);
+    if (member.responsible?.userId) ids.add(member.responsible.userId);
+    return [...ids];
+  }
+
+  private formatDayLabel(date: Date): string {
+    return `${String(date.getUTCDate()).padStart(2, '0')}/${String(date.getUTCMonth() + 1).padStart(2, '0')}`;
+  }
 
   private auditActor(user: CurrentUser) {
     return { id: user.id, email: user.email, role: user.role };
@@ -384,10 +404,43 @@ export class CatechesisService {
   // ===== ENCONTROS E CHAMADA =====
 
   async createSession(classId: string, dto: { date: string; topic?: string }, user: CurrentUser) {
-    await this.assertClassOperationalAccess(classId, user);
-    return this.prisma.catechesisSession.create({
+    const klass = await this.assertClassOperationalAccess(classId, user);
+    const session = await this.prisma.catechesisSession.create({
       data: { classId, date: new Date(dto.date), topic: dto.topic ?? null },
     });
+
+    // Aviso às famílias — só para encontros FUTUROS (registro retroativo de
+    // chamada não gera notificação). Best-effort: não bloqueia a criação.
+    const startOfToday = new Date();
+    startOfToday.setHours(0, 0, 0, 0);
+    if (session.date.getTime() >= startOfToday.getTime()) {
+      try {
+        const enrollments = await this.prisma.catechesisEnrollment.findMany({
+          where: { classId, status: 'ACTIVE' },
+          select: {
+            member: {
+              select: { userId: true, responsible: { select: { userId: true } } },
+            },
+          },
+        });
+        const userIds = [
+          ...new Set(enrollments.flatMap((e) => this.guardianUserIds(e.member))),
+        ];
+        if (userIds.length) {
+          await this.notificationsService.notifyUsers(
+            userIds,
+            NotificationType.CATECHESIS,
+            'Novo encontro de catequese',
+            `${klass.name}: encontro em ${this.formatDayLabel(session.date)}${klass.time ? ` às ${klass.time}` : ''}${dto.topic ? ` — ${dto.topic}` : ''}.`,
+            { kind: 'session', classId, sessionId: session.id },
+          );
+        }
+      } catch (error) {
+        // Aviso é conveniência — falha não impede o encontro
+      }
+    }
+
+    return session;
   }
 
   async markAttendance(
@@ -402,6 +455,14 @@ export class CatechesisService {
     if (!session) throw new NotFoundException('Encontro não encontrado');
     await this.assertClassOperationalAccess(session.class.id, user);
 
+    // Estado anterior: aviso de falta só quando a marcação MUDA para ausente
+    const previous = await this.prisma.catechesisAttendance.findMany({
+      where: { sessionId, enrollmentId: { in: entries.map((e) => e.enrollmentId) } },
+      select: { enrollmentId: true, present: true },
+    });
+    const previousByEnrollment = new Map(previous.map((a) => [a.enrollmentId, a.present]));
+
+    const becameAbsent: string[] = [];
     for (const entry of entries) {
       // Atrasado conta como presente (marcação de acompanhamento)
       const late = entry.late === true;
@@ -411,8 +472,209 @@ export class CatechesisService {
         create: { sessionId, enrollmentId: entry.enrollmentId, present, late },
         update: { present, late },
       });
+      const wasPresent = previousByEnrollment.get(entry.enrollmentId);
+      if (!present && wasPresent !== false) {
+        becameAbsent.push(entry.enrollmentId);
+      }
     }
+
+    // Aviso de falta às famílias (best-effort)
+    if (becameAbsent.length) {
+      try {
+        const absents = await this.prisma.catechesisEnrollment.findMany({
+          where: { id: { in: becameAbsent } },
+          select: {
+            member: {
+              select: {
+                fullName: true,
+                userId: true,
+                responsible: { select: { userId: true } },
+              },
+            },
+            class: { select: { id: true, name: true } },
+          },
+        });
+        const dayLabel = this.formatDayLabel(session.date);
+        for (const enrollment of absents) {
+          const userIds = this.guardianUserIds(enrollment.member);
+          if (!userIds.length) continue;
+          await this.notificationsService.notifyUsers(
+            userIds,
+            NotificationType.CATECHESIS,
+            'Falta na catequese',
+            `${enrollment.member.fullName} não esteve no encontro de ${dayLabel} (${enrollment.class.name}).`,
+            { kind: 'absence', classId: enrollment.class.id, sessionId },
+          );
+        }
+      } catch (error) {
+        // Aviso é conveniência
+      }
+    }
+
     return { marked: entries.length };
+  }
+
+  /** Atualiza os documentos pendentes da matrícula e avisa a família. */
+  async updateEnrollmentDocuments(
+    enrollmentId: string,
+    pendingDocuments: string | null,
+    user: CurrentUser,
+  ) {
+    const enrollment = await this.prisma.catechesisEnrollment.findUnique({
+      where: { id: enrollmentId },
+      include: {
+        class: { select: { id: true, name: true, communityId: true } },
+        member: {
+          select: { fullName: true, userId: true, responsible: { select: { userId: true } } },
+        },
+      },
+    });
+    if (!enrollment) throw new NotFoundException('Matrícula não encontrada');
+    await this.assertCommunityScope(enrollment.class.communityId, user);
+
+    const normalized = pendingDocuments?.trim() || null;
+    const updated = await this.prisma.catechesisEnrollment.update({
+      where: { id: enrollmentId },
+      data: { pendingDocuments: normalized },
+    });
+
+    if (normalized) {
+      try {
+        const userIds = this.guardianUserIds(enrollment.member);
+        if (userIds.length) {
+          await this.notificationsService.notifyUsers(
+            userIds,
+            NotificationType.CATECHESIS,
+            'Documentos pendentes na catequese',
+            `${enrollment.member.fullName} (${enrollment.class.name}): ${normalized}. Fale com a secretaria para regularizar.`,
+            { kind: 'documents', classId: enrollment.class.id, enrollmentId },
+          );
+        }
+      } catch (error) {
+        // Aviso é conveniência
+      }
+    }
+
+    await this.auditService.log({
+      actor: this.auditActor(user),
+      action: 'UPDATE',
+      entity: 'CatechesisEnrollment',
+      entityId: enrollmentId,
+      metadata: { pendingDocuments: normalized },
+    });
+    return updated;
+  }
+
+  /** Mensagem do catequista/coordenação para as famílias da turma. */
+  async notifyClassFamilies(classId: string, message: string, user: CurrentUser) {
+    const text = message?.trim();
+    if (!text) throw new BadRequestException('Escreva a mensagem para as famílias');
+    if (text.length > 500) throw new BadRequestException('Mensagem muito longa (máx. 500 caracteres)');
+
+    const klass = await this.assertClassOperationalAccess(classId, user);
+    const enrollments = await this.prisma.catechesisEnrollment.findMany({
+      where: { classId, status: 'ACTIVE' },
+      select: {
+        member: { select: { userId: true, responsible: { select: { userId: true } } } },
+      },
+    });
+    const userIds = [...new Set(enrollments.flatMap((e) => this.guardianUserIds(e.member)))];
+    if (userIds.length) {
+      await this.notificationsService.notifyUsers(
+        userIds,
+        NotificationType.CATECHESIS,
+        `Catequese · ${klass.name}`,
+        text,
+        { kind: 'message', classId },
+      );
+    }
+
+    await this.auditService.log({
+      actor: this.auditActor(user),
+      action: 'CREATE',
+      entity: 'CatechesisClassMessage',
+      entityId: classId,
+      metadata: { notified: userIds.length },
+    });
+    return { notified: userIds.length };
+  }
+
+  /**
+   * Acompanhamento da FAMÍLIA: matrículas do próprio usuário e dos seus
+   * dependentes (responsibleId), com presença, pendências e próximo encontro.
+   */
+  async getMyFamilyCatechesis(user: CurrentUser) {
+    const member = await this.prisma.member.findFirst({
+      where: { userId: user.id, deletedAt: null },
+      select: { id: true },
+    });
+    if (!member) return [];
+
+    const enrollments = await this.prisma.catechesisEnrollment.findMany({
+      where: {
+        status: { in: ['ACTIVE', 'COMPLETED'] },
+        class: { deletedAt: null },
+        member: {
+          deletedAt: null,
+          OR: [{ id: member.id }, { responsibleId: member.id }],
+        },
+      },
+      include: {
+        member: { select: { id: true, fullName: true } },
+        class: {
+          include: {
+            stage: { select: { id: true, name: true, sacramentType: true } },
+            community: { select: { id: true, name: true } },
+          },
+        },
+        attendances: { select: { present: true, late: true } },
+      },
+      orderBy: { enrolledAt: 'desc' },
+    });
+    if (!enrollments.length) return [];
+
+    // Próximo encontro por turma
+    const classIds = [...new Set(enrollments.map((e) => e.classId))];
+    const now = new Date();
+    now.setHours(0, 0, 0, 0);
+    const nextSessions = await this.prisma.catechesisSession.findMany({
+      where: { classId: { in: classIds }, date: { gte: now } },
+      orderBy: { date: 'asc' },
+      select: { classId: true, date: true, topic: true },
+    });
+    const nextByClass = new Map<string, { date: Date; topic: string | null }>();
+    for (const session of nextSessions) {
+      if (!nextByClass.has(session.classId)) {
+        nextByClass.set(session.classId, { date: session.date, topic: session.topic });
+      }
+    }
+
+    return enrollments.map((enrollment) => {
+      const total = enrollment.attendances.length;
+      const present = enrollment.attendances.filter((a) => a.present).length;
+      return {
+        enrollmentId: enrollment.id,
+        member: {
+          ...enrollment.member,
+          isSelf: enrollment.member.id === member.id,
+        },
+        status: enrollment.status,
+        pendingDocuments: enrollment.pendingDocuments,
+        attendanceRate: total ? Math.round((present / total) * 100) : null,
+        sessions: total,
+        class: {
+          id: enrollment.class.id,
+          name: enrollment.class.name,
+          year: enrollment.class.year,
+          weekday: enrollment.class.weekday,
+          time: enrollment.class.time,
+          room: enrollment.class.room,
+          stage: enrollment.class.stage,
+          community: enrollment.class.community,
+        },
+        nextSession: nextByClass.get(enrollment.classId) ?? null,
+      };
+    });
   }
 
   // ===== CONCLUSÃO (gera Sacrament) =====
