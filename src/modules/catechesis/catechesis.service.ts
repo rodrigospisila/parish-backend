@@ -43,7 +43,13 @@ export class CatechesisService {
   // ===== ETAPAS (catálogo por paróquia) =====
 
   async createStage(
-    dto: { name: string; description?: string; ordering?: number; sacramentType?: SacramentType },
+    dto: {
+      name: string;
+      description?: string;
+      ordering?: number;
+      sacramentType?: SacramentType;
+      parishId?: string;
+    },
     user: CurrentUser,
   ) {
     if (!this.isParishManager(user.role)) {
@@ -52,8 +58,9 @@ export class CatechesisService {
     if (!user.parishId && user.role !== UserRole.SYSTEM_ADMIN) {
       throw new BadRequestException('Usuário sem paróquia vinculada');
     }
-    // SYSTEM_ADMIN precisa informar a paróquia via escopo; usamos o parishId do usuário
-    const parishId = user.parishId;
+    // SYSTEM_ADMIN (sem paróquia própria) informa a paróquia no corpo
+    const parishId =
+      user.role === UserRole.SYSTEM_ADMIN ? (dto.parishId ?? user.parishId) : user.parishId;
     if (!parishId) {
       throw new BadRequestException('parishId é obrigatório');
     }
