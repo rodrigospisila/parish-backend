@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Patch, Body, Param, Query, UseGuards, Request } from '@nestjs/common';
+import { Controller, Get, Post, Patch, Delete, Body, Param, Query, UseGuards, Request } from '@nestjs/common';
 import { CatechesisService } from './catechesis.service';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { RolesGuard } from '../auth/guards/roles.guard';
@@ -60,6 +60,12 @@ export class CatechesisController {
   @Roles(UserRole.PASTORAL_COORDINATOR)
   addCatechist(@Param('id') id: string, @Body() body: { memberId: string; role?: string }, @Request() req: any) {
     return this.service.addCatechist(id, body.memberId, body.role, req.user);
+  }
+
+  @Delete('classes/:id/catechists/:memberId')
+  @Roles(UserRole.PASTORAL_COORDINATOR)
+  removeCatechist(@Param('id') id: string, @Param('memberId') memberId: string, @Request() req: any) {
+    return this.service.removeCatechist(id, memberId, req.user);
   }
 
   // Matrícula

@@ -33,6 +33,17 @@ export class CatechesisService {
     );
   }
 
+  /** Papéis de coordenação/gestão (piso que o @Roles das rotas garantia). */
+  private isCoordinatorRole(role: UserRole) {
+    return (
+      role === UserRole.SYSTEM_ADMIN ||
+      role === UserRole.DIOCESAN_ADMIN ||
+      role === UserRole.PARISH_ADMIN ||
+      role === UserRole.COMMUNITY_COORDINATOR ||
+      role === UserRole.PASTORAL_COORDINATOR
+    );
+  }
+
   private async assertCommunityScope(communityId: string, user: CurrentUser) {
     const inScope = await this.hierarchyService.isCommunityInScope(user, communityId);
     if (!inScope) {
@@ -63,6 +74,13 @@ export class CatechesisService {
       user.role === UserRole.SYSTEM_ADMIN ? (dto.parishId ?? user.parishId) : user.parishId;
     if (!parishId) {
       throw new BadRequestException('parishId é obrigatório');
+    }
+    const parish = await this.prisma.parish.findUnique({
+      where: { id: parishId },
+      select: { id: true },
+    });
+    if (!parish) {
+      throw new NotFoundException('Paróquia não encontrada');
     }
 
     const stage = await this.prisma.catechesisStage.create({
@@ -174,6 +192,12 @@ export class CatechesisService {
       if (catechist) return klass;
     }
 
+    // Não é catequista da turma: só a COORDENAÇÃO/gestão da comunidade opera —
+    // isCommunityInScope sozinho liberaria qualquer fiel da comunidade (dados de
+    // menores + chamada), então exigimos também papel de coordenação.
+    if (!this.isCoordinatorRole(user.role)) {
+      throw new ForbiddenException('Apenas o catequista da turma ou a coordenação podem operar esta turma');
+    }
     await this.assertCommunityScope(klass.communityId, user);
     return klass;
   }
@@ -280,6 +304,24 @@ export class CatechesisService {
     });
     await this.auditService.log({ actor: this.auditActor(user), action: 'CREATE', entity: 'CatechesisCatechist', entityId: created.id });
     return created;
+  }
+
+  /** Remove o vínculo de catequista/auxiliar — encerra o acesso operacional. */
+  async removeCatechist(classId: string, memberId: string, user: CurrentUser) {
+    await this.loadClassInScope(classId, user);
+    const result = await this.prisma.catechesisCatechist.deleteMany({
+      where: { classId, memberId },
+    });
+    if (result.count === 0) {
+      throw new NotFoundException('Catequista não vinculado a esta turma');
+    }
+    await this.auditService.log({
+      actor: this.auditActor(user),
+      action: 'DELETE',
+      entity: 'CatechesisCatechist',
+      entityId: `${classId}:${memberId}`,
+    });
+    return { removed: result.count };
   }
 
   // ===== MATRÍCULA =====
