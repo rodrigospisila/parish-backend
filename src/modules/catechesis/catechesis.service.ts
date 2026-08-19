@@ -393,12 +393,43 @@ export class CatechesisService {
     await this.assertCommunityScope(enrollment.class.communityId, user);
     await this.loadClassInScope(targetClassId, user);
 
-    const updated = await this.prisma.catechesisEnrollment.update({
-      where: { id: enrollmentId },
-      data: { classId: targetClassId, status: 'TRANSFERRED' },
+    if (enrollment.classId === targetClassId) {
+      throw new BadRequestException('A matrícula já está nesta turma');
+    }
+
+    // A matrícula de origem fica TRANSFERRED (preserva o histórico de presença);
+    // no destino, cria uma matrícula ACTIVE nova (ou reativa a existente).
+    const result = await this.prisma.$transaction(async (tx) => {
+      await tx.catechesisEnrollment.update({
+        where: { id: enrollmentId },
+        data: { status: 'TRANSFERRED' },
+      });
+      const existing = await tx.catechesisEnrollment.findUnique({
+        where: { classId_memberId: { classId: targetClassId, memberId: enrollment.memberId } },
+      });
+      if (existing) {
+        return tx.catechesisEnrollment.update({
+          where: { id: existing.id },
+          data: { status: 'ACTIVE', pendingDocuments: enrollment.pendingDocuments },
+        });
+      }
+      return tx.catechesisEnrollment.create({
+        data: {
+          classId: targetClassId,
+          memberId: enrollment.memberId,
+          pendingDocuments: enrollment.pendingDocuments,
+        },
+      });
     });
-    await this.auditService.log({ actor: this.auditActor(user), action: 'UPDATE', entity: 'CatechesisEnrollment', entityId: enrollmentId, metadata: { transferredTo: targetClassId } });
-    return updated;
+
+    await this.auditService.log({
+      actor: this.auditActor(user),
+      action: 'UPDATE',
+      entity: 'CatechesisEnrollment',
+      entityId: enrollmentId,
+      metadata: { transferredTo: targetClassId, newEnrollmentId: result.id },
+    });
+    return result;
   }
 
   // ===== ENCONTROS E CHAMADA =====
@@ -455,31 +486,53 @@ export class CatechesisService {
     if (!session) throw new NotFoundException('Encontro não encontrado');
     await this.assertClassOperationalAccess(session.class.id, user);
 
+    // SEGURANÇA/INTEGRIDADE: cada matrícula da chamada precisa pertencer a ESTA
+    // turma — sem isso a chamada gravaria presença cruzada e avisaria famílias
+    // de turmas alheias.
+    const requestedIds = [...new Set(entries.map((e) => e.enrollmentId))];
+    const validEnrollments = await this.prisma.catechesisEnrollment.findMany({
+      where: { id: { in: requestedIds }, classId: session.classId },
+      select: { id: true },
+    });
+    const validIds = new Set(validEnrollments.map((e) => e.id));
+    const invalid = requestedIds.filter((id) => !validIds.has(id));
+    if (invalid.length) {
+      throw new BadRequestException('Uma ou mais matrículas não pertencem a esta turma');
+    }
+
     // Estado anterior: aviso de falta só quando a marcação MUDA para ausente
     const previous = await this.prisma.catechesisAttendance.findMany({
-      where: { sessionId, enrollmentId: { in: entries.map((e) => e.enrollmentId) } },
+      where: { sessionId, enrollmentId: { in: requestedIds } },
       select: { enrollmentId: true, present: true },
     });
     const previousByEnrollment = new Map(previous.map((a) => [a.enrollmentId, a.present]));
 
     const becameAbsent: string[] = [];
-    for (const entry of entries) {
-      // Atrasado conta como presente (marcação de acompanhamento)
-      const late = entry.late === true;
-      const present = entry.present || late;
-      await this.prisma.catechesisAttendance.upsert({
-        where: { sessionId_enrollmentId: { sessionId, enrollmentId: entry.enrollmentId } },
-        create: { sessionId, enrollmentId: entry.enrollmentId, present, late },
-        update: { present, late },
-      });
-      const wasPresent = previousByEnrollment.get(entry.enrollmentId);
-      if (!present && wasPresent !== false) {
-        becameAbsent.push(entry.enrollmentId);
-      }
-    }
+    await this.prisma.$transaction(
+      entries.map((entry) => {
+        // Atrasado conta como presente (marcação de acompanhamento)
+        const late = entry.late === true;
+        const present = entry.present || late;
+        const wasPresent = previousByEnrollment.get(entry.enrollmentId);
+        if (!present && wasPresent !== false) {
+          becameAbsent.push(entry.enrollmentId);
+        }
+        return this.prisma.catechesisAttendance.upsert({
+          where: { sessionId_enrollmentId: { sessionId, enrollmentId: entry.enrollmentId } },
+          create: { sessionId, enrollmentId: entry.enrollmentId, present, late },
+          update: { present, late },
+        });
+      }),
+    );
+
+    // Aviso de falta só para encontros de HOJE/futuros — backfill de chamadas
+    // históricas não deve gerar rajada de pushes com datas antigas.
+    const startOfToday = new Date();
+    startOfToday.setHours(0, 0, 0, 0);
+    const notifyAbsence = session.date.getTime() >= startOfToday.getTime();
 
     // Aviso de falta às famílias (best-effort)
-    if (becameAbsent.length) {
+    if (becameAbsent.length && notifyAbsence) {
       try {
         const absents = await this.prisma.catechesisEnrollment.findMany({
           where: { id: { in: becameAbsent } },
@@ -532,13 +585,16 @@ export class CatechesisService {
     if (!enrollment) throw new NotFoundException('Matrícula não encontrada');
     await this.assertCommunityScope(enrollment.class.communityId, user);
 
-    const normalized = pendingDocuments?.trim() || null;
+    const normalized =
+      typeof pendingDocuments === 'string' ? pendingDocuments.trim() || null : null;
+    const changed = normalized !== (enrollment.pendingDocuments ?? null);
     const updated = await this.prisma.catechesisEnrollment.update({
       where: { id: enrollmentId },
       data: { pendingDocuments: normalized },
     });
 
-    if (normalized) {
+    // Só avisa a família quando há pendência E ela mudou (evita spam de reedição)
+    if (normalized && changed) {
       try {
         const userIds = this.guardianUserIds(enrollment.member);
         if (userIds.length) {
