@@ -1597,6 +1597,8 @@ model CatechesisAttendance {
   enrollmentId String
   enrollment   CatechesisEnrollment @relation(fields: [enrollmentId], references: [id], onDelete: Cascade)
   present      Boolean              @default(false)
+  // Presente com atraso (conta como presença; marcação para o acompanhamento)
+  late         Boolean              @default(false)
 
   @@unique([sessionId, enrollmentId])
   @@index([sessionId])

@@ -141,6 +141,131 @@ export class CatechesisService {
     return klass;
   }
 
+  /**
+   * Acesso OPERACIONAL à turma: o catequista/auxiliar vinculado a ela (pelo
+   * app) ou quem tem escopo de gestão sobre a comunidade. Usado para chamada,
+   * encontros e painel — a gestão (matrículas, conclusão) segue restrita.
+   */
+  private async assertClassOperationalAccess(classId: string, user: CurrentUser) {
+    const klass = await this.prisma.catechesisClass.findFirst({
+      where: { id: classId, deletedAt: null },
+      include: { stage: true },
+    });
+    if (!klass) {
+      throw new NotFoundException('Turma não encontrada');
+    }
+
+    const member = await this.prisma.member.findFirst({
+      where: { userId: user.id, deletedAt: null },
+      select: { id: true },
+    });
+    if (member) {
+      const catechist = await this.prisma.catechesisCatechist.findFirst({
+        where: { classId, memberId: member.id },
+        select: { id: true },
+      });
+      if (catechist) return klass;
+    }
+
+    await this.assertCommunityScope(klass.communityId, user);
+    return klass;
+  }
+
+  /** Turmas em que o usuário logado é catequista/auxiliar (app do catequista). */
+  async getMyClasses(user: CurrentUser) {
+    const member = await this.prisma.member.findFirst({
+      where: { userId: user.id, deletedAt: null },
+      select: { id: true },
+    });
+    if (!member) return [];
+
+    const links = await this.prisma.catechesisCatechist.findMany({
+      where: { memberId: member.id, class: { deletedAt: null } },
+      include: {
+        class: {
+          include: {
+            stage: { select: { id: true, name: true, sacramentType: true } },
+            community: { select: { id: true, name: true } },
+            _count: {
+              select: {
+                enrollments: { where: { status: 'ACTIVE' } },
+                sessions: true,
+              },
+            },
+          },
+        },
+      },
+      orderBy: { class: { year: 'desc' } },
+    });
+
+    return links.map((link) => ({
+      classId: link.classId,
+      role: link.role ?? 'Catequista',
+      name: link.class.name,
+      year: link.class.year,
+      weekday: link.class.weekday,
+      time: link.class.time,
+      room: link.class.room,
+      status: link.class.status,
+      stage: link.class.stage,
+      community: link.class.community,
+      activeEnrollments: link.class._count.enrollments,
+      sessionsCount: link.class._count.sessions,
+    }));
+  }
+
+  /** Encontros da turma com o resumo da chamada (mais recentes primeiro). */
+  async listSessions(classId: string, user: CurrentUser) {
+    await this.assertClassOperationalAccess(classId, user);
+    const sessions = await this.prisma.catechesisSession.findMany({
+      where: { classId },
+      include: { attendances: { select: { present: true, late: true } } },
+      orderBy: { date: 'desc' },
+    });
+    return sessions.map((session) => ({
+      id: session.id,
+      date: session.date,
+      topic: session.topic,
+      marked: session.attendances.length,
+      present: session.attendances.filter((a) => a.present).length,
+      late: session.attendances.filter((a) => a.late).length,
+    }));
+  }
+
+  /** Chamada de um encontro (por matrícula) para edição no app. */
+  async getSessionAttendance(sessionId: string, user: CurrentUser) {
+    const session = await this.prisma.catechesisSession.findUnique({
+      where: { id: sessionId },
+      include: { class: { select: { id: true } } },
+    });
+    if (!session) throw new NotFoundException('Encontro não encontrado');
+    await this.assertClassOperationalAccess(session.class.id, user);
+
+    const [enrollments, attendances] = await Promise.all([
+      this.prisma.catechesisEnrollment.findMany({
+        where: { classId: session.class.id, status: 'ACTIVE' },
+        include: { member: { select: { id: true, fullName: true } } },
+        orderBy: { member: { fullName: 'asc' } },
+      }),
+      this.prisma.catechesisAttendance.findMany({
+        where: { sessionId },
+        select: { enrollmentId: true, present: true, late: true },
+      }),
+    ]);
+    const byEnrollment = new Map(attendances.map((a) => [a.enrollmentId, a]));
+    return {
+      sessionId,
+      date: session.date,
+      topic: session.topic,
+      students: enrollments.map((enrollment) => ({
+        enrollmentId: enrollment.id,
+        member: enrollment.member,
+        present: byEnrollment.get(enrollment.id)?.present ?? null,
+        late: byEnrollment.get(enrollment.id)?.late ?? false,
+      })),
+    };
+  }
+
   async addCatechist(classId: string, memberId: string, role: string | undefined, user: CurrentUser) {
     await this.loadClassInScope(classId, user);
     const created = await this.prisma.catechesisCatechist.create({
@@ -210,7 +335,7 @@ export class CatechesisService {
   // ===== ENCONTROS E CHAMADA =====
 
   async createSession(classId: string, dto: { date: string; topic?: string }, user: CurrentUser) {
-    await this.loadClassInScope(classId, user);
+    await this.assertClassOperationalAccess(classId, user);
     return this.prisma.catechesisSession.create({
       data: { classId, date: new Date(dto.date), topic: dto.topic ?? null },
     });
@@ -218,7 +343,7 @@ export class CatechesisService {
 
   async markAttendance(
     sessionId: string,
-    entries: Array<{ enrollmentId: string; present: boolean }>,
+    entries: Array<{ enrollmentId: string; present: boolean; late?: boolean }>,
     user: CurrentUser,
   ) {
     const session = await this.prisma.catechesisSession.findUnique({
@@ -226,13 +351,16 @@ export class CatechesisService {
       include: { class: true },
     });
     if (!session) throw new NotFoundException('Encontro não encontrado');
-    await this.assertCommunityScope(session.class.communityId, user);
+    await this.assertClassOperationalAccess(session.class.id, user);
 
     for (const entry of entries) {
+      // Atrasado conta como presente (marcação de acompanhamento)
+      const late = entry.late === true;
+      const present = entry.present || late;
       await this.prisma.catechesisAttendance.upsert({
         where: { sessionId_enrollmentId: { sessionId, enrollmentId: entry.enrollmentId } },
-        create: { sessionId, enrollmentId: entry.enrollmentId, present: entry.present },
-        update: { present: entry.present },
+        create: { sessionId, enrollmentId: entry.enrollmentId, present, late },
+        update: { present, late },
       });
     }
     return { marked: entries.length };
@@ -291,7 +419,7 @@ export class CatechesisService {
   // ===== PAINEL DO COORDENADOR =====
 
   async getClassReport(classId: string, user: CurrentUser) {
-    await this.loadClassInScope(classId, user);
+    await this.assertClassOperationalAccess(classId, user);
 
     const enrollments = await this.prisma.catechesisEnrollment.findMany({
       where: { classId },

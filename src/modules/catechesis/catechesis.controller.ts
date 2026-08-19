@@ -22,6 +22,12 @@ export class CatechesisController {
     return this.service.listStages(req.user);
   }
 
+  // App do catequista: minhas turmas (guard operacional fica no service)
+  @Get('my-classes')
+  myClasses(@Request() req: any) {
+    return this.service.getMyClasses(req.user);
+  }
+
   // Turmas
   @Post('classes')
   @Roles(UserRole.COMMUNITY_COORDINATOR)
@@ -34,10 +40,20 @@ export class CatechesisController {
     return this.service.listClasses(req.user, communityId);
   }
 
+  // Painel da turma: catequista vinculado OU escopo de gestão (service valida)
   @Get('classes/:id/report')
-  @Roles(UserRole.PASTORAL_COORDINATOR)
   classReport(@Param('id') id: string, @Request() req: any) {
     return this.service.getClassReport(id, req.user);
+  }
+
+  @Get('classes/:id/sessions')
+  listSessions(@Param('id') id: string, @Request() req: any) {
+    return this.service.listSessions(id, req.user);
+  }
+
+  @Get('sessions/:id/attendance')
+  sessionAttendance(@Param('id') id: string, @Request() req: any) {
+    return this.service.getSessionAttendance(id, req.user);
   }
 
   @Post('classes/:id/catechists')
@@ -65,18 +81,16 @@ export class CatechesisController {
     return this.service.completeEnrollment(id, dto, req.user);
   }
 
-  // Encontros e chamada
+  // Encontros e chamada — catequista da turma OU escopo de gestão (service valida)
   @Post('classes/:id/sessions')
-  @Roles(UserRole.PASTORAL_COORDINATOR)
   createSession(@Param('id') id: string, @Body() dto: { date: string; topic?: string }, @Request() req: any) {
     return this.service.createSession(id, dto, req.user);
   }
 
   @Post('sessions/:id/attendance')
-  @Roles(UserRole.PASTORAL_COORDINATOR)
   markAttendance(
     @Param('id') id: string,
-    @Body() body: { entries: Array<{ enrollmentId: string; present: boolean }> },
+    @Body() body: { entries: Array<{ enrollmentId: string; present: boolean; late?: boolean }> },
     @Request() req: any,
   ) {
     return this.service.markAttendance(id, body.entries, req.user);
