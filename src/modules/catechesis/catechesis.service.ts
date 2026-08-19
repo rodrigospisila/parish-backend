@@ -127,7 +127,7 @@ export class CatechesisService {
   // ===== TURMAS =====
 
   async createClass(
-    dto: { name: string; year: number; stageId: string; communityId: string; weekday?: number; time?: string; room?: string },
+    dto: { name: string; year: number; stageId: string; communityId: string; weekday?: number; time?: string; room?: string; capacity?: number },
     user: CurrentUser,
   ) {
     await this.assertCommunityScope(dto.communityId, user);
@@ -148,6 +148,7 @@ export class CatechesisService {
         weekday: dto.weekday ?? null,
         time: dto.time ?? null,
         room: dto.room ?? null,
+        capacity: typeof dto.capacity === 'number' && dto.capacity > 0 ? Math.floor(dto.capacity) : null,
       },
     });
     await this.auditService.log({ actor: this.auditActor(user), action: 'CREATE', entity: 'CatechesisClass', entityId: created.id });
@@ -432,6 +433,410 @@ export class CatechesisService {
     return result;
   }
 
+  // ===== INSCRIÇÃO ONLINE (Fase 3) =====
+
+  /** Vínculo do usuário com a comunidade-alvo (própria ou secundária ativa). */
+  private async assertMemberCommunityLink(memberId: string, communityId: string, userCommunityId?: string) {
+    if (userCommunityId === communityId) return;
+    const link = await this.prisma.memberCommunity.findFirst({
+      where: { memberId, communityId, isActive: true },
+      select: { id: true },
+    });
+    if (!link) {
+      throw new ForbiddenException('Você não tem vínculo com a comunidade desta turma');
+    }
+  }
+
+  /** Vagas ocupadas: matrículas ativas + inscrições aguardando aprovação. */
+  private occupiedSeatsWhere(classId: string) {
+    return { classId, status: { in: ['ACTIVE', 'PENDING_APPROVAL'] as any } };
+  }
+
+  /** Turmas abertas para inscrição na comunidade (com vagas calculadas). */
+  async listOpenClasses(user: CurrentUser, communityId?: string) {
+    const member = await this.prisma.member.findFirst({
+      where: { userId: user.id, deletedAt: null },
+      select: { id: true, communityId: true },
+    });
+    if (!member) return [];
+    const targetCommunityId = communityId ?? user.communityId ?? member.communityId;
+    if (!targetCommunityId) return [];
+    await this.assertMemberCommunityLink(member.id, targetCommunityId, user.communityId ?? member.communityId);
+
+    const classes = await this.prisma.catechesisClass.findMany({
+      where: { communityId: targetCommunityId, deletedAt: null, status: 'ACTIVE' },
+      include: {
+        stage: { select: { id: true, name: true, ordering: true, sacramentType: true } },
+        community: { select: { id: true, name: true } },
+        _count: { select: { enrollments: { where: { status: { in: ['ACTIVE', 'PENDING_APPROVAL'] } } } } },
+      },
+      orderBy: [{ year: 'desc' }, { name: 'asc' }],
+    });
+
+    return classes.map((klass) => ({
+      classId: klass.id,
+      name: klass.name,
+      year: klass.year,
+      weekday: klass.weekday,
+      time: klass.time,
+      room: klass.room,
+      stage: klass.stage,
+      community: klass.community,
+      capacity: klass.capacity,
+      occupied: klass._count.enrollments,
+      openSpots: klass.capacity === null ? null : Math.max(0, klass.capacity - klass._count.enrollments),
+    }));
+  }
+
+  /**
+   * Inscrição ONLINE pelo responsável (ou pelo próprio adulto).
+   * Nasce AGUARDANDO APROVAÇÃO; batismo ausente vira pendência de documento
+   * (não bloqueia — a secretaria confere no papel).
+   */
+  async apply(
+    dto: {
+      classId: string;
+      forMemberId?: string;
+      newChild?: { fullName: string; birthDate?: string };
+      consentGiven: boolean;
+    },
+    user: CurrentUser,
+  ) {
+    if (dto.consentGiven !== true) {
+      throw new BadRequestException('O consentimento (LGPD) é obrigatório para a inscrição');
+    }
+
+    const myMember = await this.prisma.member.findFirst({
+      where: { userId: user.id, deletedAt: null },
+      select: { id: true, communityId: true },
+    });
+    if (!myMember) {
+      throw new BadRequestException('Usuário sem cadastro de membro — procure a secretaria');
+    }
+
+    const klass = await this.prisma.catechesisClass.findFirst({
+      where: { id: dto.classId, deletedAt: null, status: 'ACTIVE' },
+      include: { stage: true, _count: { select: { enrollments: { where: { status: { in: ['ACTIVE', 'PENDING_APPROVAL'] } } } } } },
+    });
+    if (!klass) throw new NotFoundException('Turma não encontrada ou encerrada');
+    await this.assertMemberCommunityLink(myMember.id, klass.communityId, user.communityId ?? myMember.communityId);
+
+    if (klass.capacity !== null && klass._count.enrollments >= klass.capacity) {
+      throw new BadRequestException('Turma sem vagas — escolha outra turma ou fale com a secretaria');
+    }
+
+    // Quem será matriculado: eu, um dependente meu, ou um filho novo
+    let targetMemberId: string;
+    if (dto.newChild) {
+      const fullName = dto.newChild.fullName?.trim();
+      if (!fullName || fullName.length < 5) {
+        throw new BadRequestException('Informe o nome completo do catequizando');
+      }
+      const child = await this.prisma.member.create({
+        data: {
+          fullName,
+          birthDate: dto.newChild.birthDate ? new Date(dto.newChild.birthDate) : null,
+          communityId: klass.communityId,
+          responsibleId: myMember.id,
+          status: 'ACTIVE',
+          consentGiven: true,
+          consentDate: new Date(),
+          communityLinks: {
+            create: { communityId: klass.communityId, isPrimary: true, consentGiven: true, consentDate: new Date() },
+          },
+        },
+        select: { id: true },
+      });
+      targetMemberId = child.id;
+    } else if (dto.forMemberId && dto.forMemberId !== myMember.id) {
+      const dependent = await this.prisma.member.findFirst({
+        where: { id: dto.forMemberId, responsibleId: myMember.id, deletedAt: null },
+        select: { id: true },
+      });
+      if (!dependent) {
+        throw new ForbiddenException('Você só pode inscrever a si ou aos seus dependentes');
+      }
+      targetMemberId = dependent.id;
+    } else {
+      targetMemberId = myMember.id;
+    }
+
+    // Batismo: para etapas que não são de Batismo, a ausência vira pendência
+    let pendingDocuments: string | null = null;
+    if (klass.stage.sacramentType !== SacramentType.BAPTISM) {
+      const baptized = await this.prisma.sacrament.findFirst({
+        where: { memberId: targetMemberId, type: SacramentType.BAPTISM },
+        select: { id: true },
+      });
+      if (!baptized) pendingDocuments = 'Certidão de Batismo';
+    }
+
+    // Reaproveita matrícula anterior (recusada/desistente/transferida) se houver
+    const existing = await this.prisma.catechesisEnrollment.findUnique({
+      where: { classId_memberId: { classId: klass.id, memberId: targetMemberId } },
+    });
+    let enrollment;
+    if (existing) {
+      if (existing.status === 'ACTIVE' || existing.status === 'PENDING_APPROVAL') {
+        throw new BadRequestException('Este catequizando já está matriculado (ou aguardando aprovação) nesta turma');
+      }
+      enrollment = await this.prisma.catechesisEnrollment.update({
+        where: { id: existing.id },
+        data: { status: 'PENDING_APPROVAL', pendingDocuments, completedAt: null },
+      });
+    } else {
+      enrollment = await this.prisma.catechesisEnrollment.create({
+        data: { classId: klass.id, memberId: targetMemberId, status: 'PENDING_APPROVAL', pendingDocuments },
+      });
+    }
+
+    await this.auditService.log({
+      actor: this.auditActor(user),
+      action: 'CREATE',
+      entity: 'CatechesisApplication',
+      entityId: enrollment.id,
+      metadata: { classId: klass.id, memberId: targetMemberId, pendingDocuments },
+    });
+
+    // Avisa os catequistas da turma (best-effort)
+    try {
+      const catechists = await this.prisma.catechesisCatechist.findMany({
+        where: { classId: klass.id },
+        select: { member: { select: { userId: true } } },
+      });
+      const userIds = [...new Set(catechists.map((c) => c.member.userId).filter((id): id is string => !!id))];
+      if (userIds.length) {
+        const applicant = await this.prisma.member.findUnique({
+          where: { id: targetMemberId },
+          select: { fullName: true },
+        });
+        await this.notificationsService.notifyUsers(
+          userIds,
+          NotificationType.CATECHESIS,
+          'Nova inscrição na catequese',
+          `${applicant?.fullName ?? 'Um catequizando'} se inscreveu na ${klass.name} — aguardando aprovação.`,
+          { kind: 'application', classId: klass.id, enrollmentId: enrollment.id },
+        );
+      }
+    } catch (error) {
+      // Aviso é conveniência
+    }
+
+    return enrollment;
+  }
+
+  /** Aprova a inscrição (catequista da turma ou coordenação). */
+  async approveEnrollment(enrollmentId: string, user: CurrentUser) {
+    const enrollment = await this.prisma.catechesisEnrollment.findUnique({
+      where: { id: enrollmentId },
+      include: {
+        class: { select: { id: true, name: true } },
+        member: { select: { fullName: true, userId: true, responsible: { select: { userId: true } } } },
+      },
+    });
+    if (!enrollment) throw new NotFoundException('Inscrição não encontrada');
+    await this.assertClassOperationalAccess(enrollment.class.id, user);
+    if (enrollment.status !== 'PENDING_APPROVAL') {
+      throw new BadRequestException('Esta inscrição não está aguardando aprovação');
+    }
+
+    const updated = await this.prisma.catechesisEnrollment.update({
+      where: { id: enrollmentId },
+      data: { status: 'ACTIVE' },
+    });
+    await this.auditService.log({
+      actor: this.auditActor(user),
+      action: 'UPDATE',
+      entity: 'CatechesisEnrollment',
+      entityId: enrollmentId,
+      metadata: { approved: true },
+    });
+    try {
+      const userIds = this.guardianUserIds(enrollment.member);
+      if (userIds.length) {
+        await this.notificationsService.notifyUsers(
+          userIds,
+          NotificationType.CATECHESIS,
+          'Matrícula aprovada 🎉',
+          `${enrollment.member.fullName} foi aprovado(a) na ${enrollment.class.name}. Bem-vindo(a)!`,
+          { kind: 'approved', classId: enrollment.class.id, enrollmentId },
+        );
+      }
+    } catch (error) {
+      // Aviso é conveniência
+    }
+    return updated;
+  }
+
+  /** Recusa a inscrição (com motivo, auditado e comunicado à família). */
+  async rejectEnrollment(enrollmentId: string, reason: string | undefined, user: CurrentUser) {
+    const enrollment = await this.prisma.catechesisEnrollment.findUnique({
+      where: { id: enrollmentId },
+      include: {
+        class: { select: { id: true, name: true } },
+        member: { select: { fullName: true, userId: true, responsible: { select: { userId: true } } } },
+      },
+    });
+    if (!enrollment) throw new NotFoundException('Inscrição não encontrada');
+    await this.assertClassOperationalAccess(enrollment.class.id, user);
+    if (enrollment.status !== 'PENDING_APPROVAL') {
+      throw new BadRequestException('Esta inscrição não está aguardando aprovação');
+    }
+
+    const updated = await this.prisma.catechesisEnrollment.update({
+      where: { id: enrollmentId },
+      data: { status: 'REJECTED' },
+    });
+    await this.auditService.log({
+      actor: this.auditActor(user),
+      action: 'UPDATE',
+      entity: 'CatechesisEnrollment',
+      entityId: enrollmentId,
+      metadata: { rejected: true, reason: reason?.trim() || null },
+    });
+    try {
+      const userIds = this.guardianUserIds(enrollment.member);
+      if (userIds.length) {
+        await this.notificationsService.notifyUsers(
+          userIds,
+          NotificationType.CATECHESIS,
+          'Inscrição não aprovada',
+          `A inscrição de ${enrollment.member.fullName} na ${enrollment.class.name} não foi aprovada${reason?.trim() ? `: ${reason.trim()}` : ''}. Procure a secretaria para orientações.`,
+          { kind: 'rejected', classId: enrollment.class.id, enrollmentId },
+        );
+      }
+    } catch (error) {
+      // Aviso é conveniência
+    }
+    return updated;
+  }
+
+  // ===== RENOVAÇÃO EM LOTE (Fase 3) =====
+
+  /**
+   * Apoio à decisão da virada de ano: concluídos da turma, a PRÓXIMA etapa do
+   * itinerário, documentos faltantes e as turmas disponíveis do destino.
+   */
+  async renewalPreview(classId: string, user: CurrentUser) {
+    const klass = await this.loadClassInScope(classId, user);
+    const nextStage = await this.prisma.catechesisStage.findFirst({
+      where: {
+        parishId: klass.stage.parishId,
+        deletedAt: null,
+        ordering: { gt: klass.stage.ordering },
+      },
+      orderBy: { ordering: 'asc' },
+    });
+
+    const completed = await this.prisma.catechesisEnrollment.findMany({
+      where: { classId, status: 'COMPLETED' },
+      include: {
+        member: {
+          select: {
+            id: true,
+            fullName: true,
+            sacraments: { select: { type: true } },
+          },
+        },
+      },
+      orderBy: { member: { fullName: 'asc' } },
+    });
+
+    const targetClasses = nextStage
+      ? await this.prisma.catechesisClass.findMany({
+          where: { stageId: nextStage.id, communityId: klass.communityId, deletedAt: null, status: 'ACTIVE' },
+          select: { id: true, name: true, year: true, weekday: true, time: true, capacity: true },
+          orderBy: { year: 'desc' },
+        })
+      : [];
+
+    return {
+      classId,
+      stage: { id: klass.stage.id, name: klass.stage.name },
+      nextStage: nextStage
+        ? { id: nextStage.id, name: nextStage.name, sacramentType: nextStage.sacramentType }
+        : null,
+      targetClasses,
+      students: completed.map((enrollment) => {
+        const baptized = enrollment.member.sacraments.some((s) => s.type === SacramentType.BAPTISM);
+        const requiresBaptism = nextStage ? nextStage.sacramentType !== SacramentType.BAPTISM : false;
+        return {
+          enrollmentId: enrollment.id,
+          member: { id: enrollment.member.id, fullName: enrollment.member.fullName },
+          eligible: !nextStage ? false : !requiresBaptism || baptized,
+          missingDocuments: requiresBaptism && !baptized ? 'Certidão de Batismo' : null,
+        };
+      }),
+    };
+  }
+
+  /** Renova em lote: concluídos desta turma viram matrículas ATIVAS no destino. */
+  async renewClass(
+    classId: string,
+    dto: { targetClassId: string; enrollmentIds: string[] },
+    user: CurrentUser,
+  ) {
+    await this.loadClassInScope(classId, user);
+    const target = await this.loadClassInScope(dto.targetClassId, user);
+    if (dto.targetClassId === classId) {
+      throw new BadRequestException('Escolha uma turma de destino diferente');
+    }
+    const ids = [...new Set(dto.enrollmentIds ?? [])];
+    if (!ids.length) throw new BadRequestException('Selecione ao menos um catequizando');
+
+    const source = await this.prisma.catechesisEnrollment.findMany({
+      where: { id: { in: ids }, classId, status: 'COMPLETED' },
+      select: { id: true, memberId: true },
+    });
+    if (source.length !== ids.length) {
+      throw new BadRequestException('Só é possível renovar matrículas CONCLUÍDAS desta turma');
+    }
+
+    // Capacidade do destino
+    if (target.capacity !== null) {
+      const occupied = await this.prisma.catechesisEnrollment.count({
+        where: this.occupiedSeatsWhere(target.id),
+      });
+      if (occupied + source.length > target.capacity) {
+        throw new BadRequestException(
+          `A turma de destino tem ${Math.max(0, target.capacity - occupied)} vaga(s) para ${source.length} renovação(ões)`,
+        );
+      }
+    }
+
+    let renewed = 0;
+    let reactivated = 0;
+    await this.prisma.$transaction(async (tx) => {
+      for (const enrollment of source) {
+        const existing = await tx.catechesisEnrollment.findUnique({
+          where: { classId_memberId: { classId: target.id, memberId: enrollment.memberId } },
+        });
+        if (existing) {
+          if (existing.status === 'ACTIVE' || existing.status === 'PENDING_APPROVAL') continue;
+          await tx.catechesisEnrollment.update({
+            where: { id: existing.id },
+            data: { status: 'ACTIVE', completedAt: null },
+          });
+          reactivated++;
+        } else {
+          await tx.catechesisEnrollment.create({
+            data: { classId: target.id, memberId: enrollment.memberId },
+          });
+          renewed++;
+        }
+      }
+    });
+
+    await this.auditService.log({
+      actor: this.auditActor(user),
+      action: 'CREATE',
+      entity: 'CatechesisRenewal',
+      entityId: `${classId}:${target.id}`,
+      metadata: { renewed, reactivated, requested: ids.length },
+    });
+    return { renewed, reactivated, skipped: ids.length - renewed - reactivated };
+  }
+
   // ===== ENCONTROS E CHAMADA =====
 
   async createSession(classId: string, dto: { date: string; topic?: string }, user: CurrentUser) {
@@ -668,7 +1073,7 @@ export class CatechesisService {
 
     const enrollments = await this.prisma.catechesisEnrollment.findMany({
       where: {
-        status: { in: ['ACTIVE', 'COMPLETED'] },
+        status: { in: ['ACTIVE', 'COMPLETED', 'PENDING_APPROVAL', 'REJECTED'] },
         class: { deletedAt: null },
         member: {
           deletedAt: null,
@@ -814,6 +1219,7 @@ export class CatechesisService {
       active: rows.filter((r) => r.status === 'ACTIVE').length,
       dropouts: rows.filter((r) => r.status === 'DROPPED_OUT').length,
       completed: rows.filter((r) => r.status === 'COMPLETED').length,
+      pending: rows.filter((r) => r.status === 'PENDING_APPROVAL').length,
       students: rows,
     };
   }

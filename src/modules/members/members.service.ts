@@ -205,6 +205,20 @@ export class MembersService {
     },
   } as const;
 
+  /** Dependentes (menores sob responsabilidade) do usuário logado. */
+  async listMyDependents(userId: string) {
+    const member = await this.prisma.member.findFirst({
+      where: { userId, deletedAt: null },
+      select: { id: true },
+    });
+    if (!member) return [];
+    return this.prisma.member.findMany({
+      where: { responsibleId: member.id, deletedAt: null },
+      select: { id: true, fullName: true, birthDate: true },
+      orderBy: { fullName: 'asc' },
+    });
+  }
+
   /** Resolve o Member do usuário logado (self-service de vínculos). */
   async requireMemberForUser(userId: string) {
     const member = await this.prisma.member.findFirst({

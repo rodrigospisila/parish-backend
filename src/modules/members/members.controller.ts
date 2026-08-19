@@ -40,6 +40,12 @@ export class MembersController {
     return this.membersService.create(createMemberDto, user);
   }
 
+  // Dependentes do usuário logado (inscrição na catequese, etc.)
+  @Get('me/dependents')
+  async myDependents(@CurrentUser() user: any) {
+    return this.membersService.listMyDependents(user.id);
+  }
+
   // ===== Vínculos multi-comunidade — self-service do membro logado =====
 
   @Get('me/communities')

@@ -34,6 +34,54 @@ export class CatechesisController {
     return this.service.getMyFamilyCatechesis(req.user);
   }
 
+  // Inscrição online: turmas abertas + inscrever (self-service da família)
+  @Get('open-classes')
+  openClasses(@Request() req: any, @Query('communityId') communityId?: string) {
+    return this.service.listOpenClasses(req.user, communityId);
+  }
+
+  @Post('apply')
+  apply(
+    @Body()
+    dto: {
+      classId: string;
+      forMemberId?: string;
+      newChild?: { fullName: string; birthDate?: string };
+      consentGiven: boolean;
+    },
+    @Request() req: any,
+  ) {
+    return this.service.apply(dto, req.user);
+  }
+
+  // Aprovação da inscrição (catequista da turma ou coordenação — service valida)
+  @Patch('enrollments/:id/approve')
+  approve(@Param('id') id: string, @Request() req: any) {
+    return this.service.approveEnrollment(id, req.user);
+  }
+
+  @Patch('enrollments/:id/reject')
+  reject(@Param('id') id: string, @Body() body: { reason?: string }, @Request() req: any) {
+    return this.service.rejectEnrollment(id, body?.reason, req.user);
+  }
+
+  // Renovação em lote (coordenação)
+  @Get('classes/:id/renewal-preview')
+  @Roles(UserRole.PASTORAL_COORDINATOR)
+  renewalPreview(@Param('id') id: string, @Request() req: any) {
+    return this.service.renewalPreview(id, req.user);
+  }
+
+  @Post('classes/:id/renew')
+  @Roles(UserRole.PASTORAL_COORDINATOR)
+  renew(
+    @Param('id') id: string,
+    @Body() body: { targetClassId: string; enrollmentIds: string[] },
+    @Request() req: any,
+  ) {
+    return this.service.renewClass(id, body, req.user);
+  }
+
   // Turmas
   @Post('classes')
   @Roles(UserRole.COMMUNITY_COORDINATOR)
