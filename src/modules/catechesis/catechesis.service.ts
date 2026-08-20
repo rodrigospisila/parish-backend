@@ -120,8 +120,14 @@ export class CatechesisService {
 
   async listStages(user: CurrentUser) {
     const where: any = { deletedAt: null };
-    if (user.role !== UserRole.SYSTEM_ADMIN && user.parishId) {
-      where.parishId = user.parishId;
+    if (user.role !== UserRole.SYSTEM_ADMIN) {
+      if (user.parishId) {
+        where.parishId = user.parishId;
+      } else if (user.dioceseId) {
+        // Sem paróquia (ex.: admin diocesano): catálogo da própria diocese,
+        // nunca o catálogo global
+        where.parish = { dioceseId: user.dioceseId };
+      }
     }
     return this.prisma.catechesisStage.findMany({ where, orderBy: { ordering: 'asc' } });
   }
@@ -139,6 +145,15 @@ export class CatechesisService {
     });
     if (!stage) {
       throw new NotFoundException('Etapa de catequese não encontrada');
+    }
+    // A etapa é catálogo POR PARÓQUIA: turma com etapa de outra paróquia
+    // contaminaria a visão diocesana (contagem atribuída à paróquia errada)
+    const community = await this.prisma.community.findFirst({
+      where: { id: dto.communityId },
+      select: { parishId: true },
+    });
+    if (!community || community.parishId !== stage.parishId) {
+      throw new BadRequestException('A etapa escolhida pertence a outra paróquia');
     }
 
     const created = await this.prisma.catechesisClass.create({
@@ -1776,7 +1791,7 @@ export class CatechesisService {
     if (!description || description.length < 3 || description.length > 80) {
       throw new BadRequestException('Descreva a taxa (ex.: "Material 2026")');
     }
-    const amount = Number(dto.amount);
+    const amount = Math.round(Number(dto.amount) * 100) / 100;
     if (!Number.isFinite(amount) || amount <= 0 || amount > 10000) {
       throw new BadRequestException('Valor da taxa inválido');
     }
@@ -1834,6 +1849,7 @@ export class CatechesisService {
         orderBy: { member: { fullName: 'asc' } },
       }),
     ]);
+    const shownIds = new Set(enrollments.map((enrollment) => enrollment.id));
     return fees.map((fee) => {
       const paymentByEnrollment = new Map(fee.payments.map((payment) => [payment.enrollmentId, payment]));
       const students = enrollments.map((enrollment) => {
@@ -1847,12 +1863,20 @@ export class CatechesisService {
           paidAt: payment?.paidAt ?? null,
         };
       });
+      // Pagamentos de quem saiu da matriz (transferido/desistente) ficam
+      // discriminados — senão o 'arrecadado' contradiz os contadores exibidos
+      const shownPayments = fee.payments.filter((payment) => shownIds.has(payment.enrollmentId));
+      const otherPayments = fee.payments.filter(
+        (payment) => !shownIds.has(payment.enrollmentId) && !payment.waived,
+      );
       return {
         id: fee.id,
         description: fee.description,
         amount: fee.amount,
         dueDate: fee.dueDate,
-        collected: fee.payments.filter((payment) => !payment.waived).reduce((sum, payment) => sum + payment.amount, 0),
+        collected: shownPayments.filter((payment) => !payment.waived).reduce((sum, payment) => sum + payment.amount, 0),
+        othersCollected: otherPayments.reduce((sum, payment) => sum + payment.amount, 0),
+        othersCount: otherPayments.length,
         paidCount: students.filter((student) => student.status === 'PAID').length,
         waivedCount: students.filter((student) => student.status === 'WAIVED').length,
         pendingCount: students.filter((student) => student.status === 'PENDING').length,
