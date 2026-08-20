@@ -336,7 +336,57 @@ export class CatechesisService {
   }
 
   async addCatechist(classId: string, memberId: string, role: string | undefined, user: CurrentUser) {
-    await this.loadClassInScope(classId, user);
+    const klass = await this.loadClassInScope(classId, user);
+
+    const member = await this.prisma.member.findFirst({
+      where: { id: memberId, deletedAt: null },
+      select: { id: true },
+    });
+    if (!member) throw new NotFoundException('Membro não encontrado');
+
+    // REGRA: catequista precisa estar vinculado à pastoral da CATEQUESE da
+    // comunidade da turma (vínculo direto ou via sub-grupo). O vínculo à
+    // pastoral é a porta de entrada — a turma só formaliza a função.
+    const pastoralLink = await this.prisma.pastoralMember.findFirst({
+      where: {
+        memberId,
+        isActive: true,
+        leftAt: null,
+        OR: [
+          {
+            communityPastoral: {
+              communityId: klass.communityId,
+              deletedAt: null,
+              globalPastoral: { name: { contains: 'catequ', mode: 'insensitive' } },
+            },
+          },
+          {
+            pastoralGroup: {
+              deletedAt: null,
+              communityPastoral: {
+                communityId: klass.communityId,
+                deletedAt: null,
+                globalPastoral: { name: { contains: 'catequ', mode: 'insensitive' } },
+              },
+            },
+          },
+        ],
+      },
+      select: { id: true },
+    });
+    if (!pastoralLink) {
+      throw new BadRequestException(
+        'O membro precisa estar vinculado à pastoral da Catequese desta comunidade para ser catequista — vincule-o na aba Pastorais primeiro',
+      );
+    }
+
+    const existing = await this.prisma.catechesisCatechist.findUnique({
+      where: { classId_memberId: { classId, memberId } },
+    });
+    if (existing) {
+      throw new BadRequestException('Este membro já é catequista desta turma');
+    }
+
     const created = await this.prisma.catechesisCatechist.create({
       data: { classId, memberId, role: role ?? 'Catequista' },
     });
@@ -2097,6 +2147,12 @@ export class CatechesisService {
   async getClassReport(classId: string, user: CurrentUser) {
     await this.assertClassOperationalAccess(classId, user);
 
+    const catechists = await this.prisma.catechesisCatechist.findMany({
+      where: { classId },
+      include: { member: { select: { id: true, fullName: true } } },
+      orderBy: { member: { fullName: 'asc' } },
+    });
+
     const enrollments = await this.prisma.catechesisEnrollment.findMany({
       where: { classId },
       include: {
@@ -2119,6 +2175,11 @@ export class CatechesisService {
     });
 
     return {
+      catechists: catechists.map((link) => ({
+        memberId: link.member.id,
+        fullName: link.member.fullName,
+        role: link.role ?? 'Catequista',
+      })),
       // Recusadas nunca foram matrículas — ficam fora do total (mas na lista)
       total: rows.filter((r) => r.status !== 'REJECTED').length,
       active: rows.filter((r) => r.status === 'ACTIVE').length,
