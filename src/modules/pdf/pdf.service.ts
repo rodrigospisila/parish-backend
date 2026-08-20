@@ -24,8 +24,33 @@ export interface PdfTableDocumentInput {
   footer?: string;
 }
 
+export interface PdfCertificatePage {
+  /** Nome em destaque (catequizando, participante) */
+  recipientName: string;
+  /** Parágrafos do corpo (texto corrido, já formatado) */
+  bodyParagraphs: string[];
+  /** Linhas de assinatura (ex.: ['Pároco', 'Coordenação da Catequese']) */
+  signatureLines?: string[];
+}
+
+export interface PdfCertificateDocumentInput {
+  /** Título do documento (ex.: 'Certificado de Conclusão') */
+  title: string;
+  /** Nome da paróquia/organização, exibido acima do título */
+  organization: string;
+  /** Subtítulo abaixo do título (ex.: etapa e ano) */
+  subtitle?: string;
+  /** Uma página por destinatário (lote = várias páginas) */
+  pages: PdfCertificatePage[];
+  /** Texto de rodapé (ex.: data/local de emissão) */
+  footer?: string;
+  /** 'landscape' (certificado) ou 'portrait' (declaração). Default: landscape */
+  orientation?: 'landscape' | 'portrait';
+}
+
 const PAGE_MARGIN = 40;
 const ROW_PADDING = 4;
+const CERT_MARGIN = 56;
 
 /**
  * Servico generico de geracao de PDF (pdfkit).
@@ -81,6 +106,118 @@ export class PdfService {
           align: 'right',
         });
       }
+
+      doc.end();
+    });
+  }
+
+  /**
+   * Certificado/declaração: página centrada com moldura, nome em destaque e
+   * linhas de assinatura. Uma página por destinatário (suporta lote).
+   */
+  async renderCertificateDocument(input: PdfCertificateDocumentInput): Promise<Buffer> {
+    return new Promise<Buffer>((resolve, reject) => {
+      const doc = new PDFDocument({
+        size: 'A4',
+        layout: input.orientation ?? 'landscape',
+        margin: CERT_MARGIN,
+        bufferPages: true,
+      });
+      const chunks: Buffer[] = [];
+      doc.on('data', (chunk: Buffer) => chunks.push(chunk));
+      doc.on('end', () => resolve(Buffer.concat(chunks)));
+      doc.on('error', reject);
+
+      input.pages.forEach((page, index) => {
+        if (index > 0) doc.addPage();
+        const width = doc.page.width;
+        const height = doc.page.height;
+        const contentWidth = width - CERT_MARGIN * 2;
+
+        // Moldura dupla
+        doc
+          .rect(24, 24, width - 48, height - 48)
+          .lineWidth(2)
+          .strokeColor('#8a6d3b')
+          .stroke();
+        doc
+          .rect(32, 32, width - 64, height - 64)
+          .lineWidth(0.7)
+          .strokeColor('#8a6d3b')
+          .stroke()
+          .strokeColor('#000000');
+
+        doc.y = CERT_MARGIN + 8;
+        doc
+          .font('Helvetica')
+          .fontSize(12)
+          .fillColor('#555555')
+          .text(input.organization, CERT_MARGIN, doc.y, { width: contentWidth, align: 'center' });
+        doc.moveDown(0.8);
+        doc
+          .font('Helvetica-Bold')
+          .fontSize(26)
+          .fillColor('#333333')
+          .text(input.title, { width: contentWidth, align: 'center' });
+        if (input.subtitle) {
+          doc.moveDown(0.3);
+          doc
+            .font('Helvetica')
+            .fontSize(12)
+            .fillColor('#555555')
+            .text(input.subtitle, { width: contentWidth, align: 'center' });
+        }
+
+        doc.moveDown(1.4);
+        doc
+          .font('Helvetica-Bold')
+          .fontSize(20)
+          .fillColor('#000000')
+          .text(page.recipientName, { width: contentWidth, align: 'center' });
+        doc.moveDown(0.8);
+        doc.font('Helvetica').fontSize(12).fillColor('#222222');
+        for (const paragraph of page.bodyParagraphs) {
+          doc.text(paragraph, { width: contentWidth, align: 'center', lineGap: 3 });
+          doc.moveDown(0.5);
+        }
+
+        // Linhas de assinatura lado a lado, ancoradas na base da página
+        const signatures = page.signatureLines ?? [];
+        if (signatures.length) {
+          const signatureY = height - CERT_MARGIN - 46;
+          const slotWidth = contentWidth / signatures.length;
+          signatures.forEach((label, slot) => {
+            const lineWidth = Math.min(190, slotWidth - 24);
+            const centerX = CERT_MARGIN + slotWidth * slot + slotWidth / 2;
+            doc
+              .moveTo(centerX - lineWidth / 2, signatureY)
+              .lineTo(centerX + lineWidth / 2, signatureY)
+              .lineWidth(0.8)
+              .strokeColor('#333333')
+              .stroke();
+            doc
+              .font('Helvetica')
+              .fontSize(10)
+              .fillColor('#333333')
+              .text(label, centerX - slotWidth / 2 + 12, signatureY + 6, {
+                width: slotWidth - 24,
+                align: 'center',
+              });
+          });
+        }
+
+        if (input.footer) {
+          doc
+            .font('Helvetica')
+            .fontSize(8)
+            .fillColor('#777777')
+            .text(input.footer, CERT_MARGIN, height - CERT_MARGIN + 14, {
+              width: contentWidth,
+              align: 'center',
+            });
+        }
+        doc.fillColor('#000000');
+      });
 
       doc.end();
     });

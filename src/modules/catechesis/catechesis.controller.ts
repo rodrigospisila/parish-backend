@@ -1,4 +1,5 @@
-import { Controller, Get, Post, Patch, Delete, Body, Param, Query, UseGuards, Request } from '@nestjs/common';
+import { Controller, Get, Post, Patch, Delete, Body, Param, Query, UseGuards, Request, Res } from '@nestjs/common';
+import type { Response } from 'express';
 import { CatechesisService } from './catechesis.service';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { RolesGuard } from '../auth/guards/roles.guard';
@@ -63,6 +64,47 @@ export class CatechesisController {
   @Patch('enrollments/:id/reject')
   reject(@Param('id') id: string, @Body() body: { reason?: string }, @Request() req: any) {
     return this.service.rejectEnrollment(id, body?.reason, req.user);
+  }
+
+  // Papelada (PDF): certificado, lote, lista da turma e declaração.
+  // Guard no service: equipe da turma OU a própria família (individuais).
+  @Get('enrollments/:id/certificate.pdf')
+  async certificate(@Param('id') id: string, @Res() res: Response, @Request() req: any) {
+    const buffer = await this.service.generateCertificate(id, req.user);
+    this.sendPdf(res, buffer, 'certificado-catequese.pdf');
+  }
+
+  @Get('classes/:id/certificates.pdf')
+  async classCertificates(@Param('id') id: string, @Res() res: Response, @Request() req: any) {
+    const buffer = await this.service.generateClassCertificates(id, req.user);
+    this.sendPdf(res, buffer, 'certificados-turma.pdf');
+  }
+
+  @Get('classes/:id/roster.pdf')
+  async roster(@Param('id') id: string, @Res() res: Response, @Request() req: any) {
+    const buffer = await this.service.generateClassRoster(id, req.user);
+    this.sendPdf(res, buffer, 'lista-turma.pdf');
+  }
+
+  @Get('enrollments/:id/declaration.pdf')
+  async declaration(@Param('id') id: string, @Res() res: Response, @Request() req: any) {
+    const buffer = await this.service.generateEnrollmentDeclaration(id, req.user);
+    this.sendPdf(res, buffer, 'declaracao-matricula.pdf');
+  }
+
+  // Agenda do ano em lote (equipe da turma — service valida)
+  @Post('classes/:id/generate-sessions')
+  generateSessions(@Param('id') id: string, @Body() body: { dates: string[] }, @Request() req: any) {
+    return this.service.generateSessions(id, body, req.user);
+  }
+
+  private sendPdf(res: Response, buffer: Buffer, filename: string) {
+    res.set({
+      'Content-Type': 'application/pdf',
+      'Content-Disposition': `attachment; filename="${filename}"`,
+      'Content-Length': String(buffer.length),
+    });
+    res.end(buffer);
   }
 
   // Renovação em lote (coordenação)

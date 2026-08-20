@@ -9,6 +9,7 @@ import { PrismaService } from '../../database/prisma.service';
 import { HierarchyService, CurrentUser } from '../../common/hierarchy.service';
 import { AuditService } from '../../common/audit.service';
 import { NotificationsService } from '../notifications/notifications.service';
+import { PdfService } from '../pdf/pdf.service';
 
 /**
  * Catequese e iniciação à vida cristã (roadmap 3.1).
@@ -21,6 +22,7 @@ export class CatechesisService {
     private readonly hierarchyService: HierarchyService,
     private readonly auditService: AuditService,
     private readonly notificationsService: NotificationsService,
+    private readonly pdfService: PdfService,
   ) {}
 
   /**
@@ -1331,6 +1333,298 @@ export class CatechesisService {
     });
 
     return result.updated;
+  }
+
+  // ===== PAPELADA DA SECRETARIA (Fase 4) =====
+
+  /** Acesso ao documento de UMA matrícula: equipe da turma OU a própria família. */
+  private async loadEnrollmentForDocument(enrollmentId: string, user: CurrentUser) {
+    const enrollment = await this.prisma.catechesisEnrollment.findUnique({
+      where: { id: enrollmentId },
+      include: {
+        member: {
+          select: { id: true, fullName: true, userId: true, responsible: { select: { userId: true } } },
+        },
+        class: {
+          include: {
+            stage: { select: { id: true, name: true, sacramentType: true } },
+            community: { include: { parish: { select: { name: true } } } },
+          },
+        },
+        attendances: { select: { present: true } },
+      },
+    });
+    if (!enrollment) throw new NotFoundException('Matrícula não encontrada');
+
+    const isFamily = this.guardianUserIds(enrollment.member).includes(user.id);
+    if (!isFamily) {
+      await this.assertClassOperationalAccess(enrollment.class.id, user);
+    }
+    return enrollment;
+  }
+
+  private certificateBody(enrollment: {
+    completedAt: Date | null;
+    class: { name: string; year: number; stage: { name: string }; community: { name: string; parish: { name: string } } };
+  }): string[] {
+    const conclusion = (enrollment.completedAt ?? new Date()).toLocaleDateString('pt-BR', {
+      timeZone: 'America/Sao_Paulo',
+    });
+    return [
+      `concluiu a etapa "${enrollment.class.stage.name}" da catequese,`,
+      `na ${enrollment.class.name} (${enrollment.class.year}) — ${enrollment.class.community.name}, ${enrollment.class.community.parish.name},`,
+      `em ${conclusion}.`,
+      '"Ide, pois, e fazei discípulos entre todas as nações" (Mt 28,19)',
+    ];
+  }
+
+  /** Certificado de conclusão (PDF) — a família baixa o do próprio catequizando. */
+  async generateCertificate(enrollmentId: string, user: CurrentUser): Promise<Buffer> {
+    const enrollment = await this.loadEnrollmentForDocument(enrollmentId, user);
+    if (enrollment.status !== 'COMPLETED') {
+      throw new BadRequestException('Certificado disponível apenas para matrículas concluídas');
+    }
+    await this.auditService.log({
+      actor: this.auditActor(user),
+      action: 'EXPORT',
+      entity: 'CatechesisEnrollment',
+      entityId: enrollmentId,
+      metadata: { certificate: true },
+    });
+    return this.pdfService.renderCertificateDocument({
+      title: 'Certificado de Conclusão',
+      organization: enrollment.class.community.parish.name,
+      subtitle: 'Catequese — Iniciação à Vida Cristã',
+      pages: [
+        {
+          recipientName: enrollment.member.fullName,
+          bodyParagraphs: this.certificateBody(enrollment),
+          signatureLines: ['Pároco', 'Coordenação da Catequese'],
+        },
+      ],
+      footer: `Emitido pelo Parish em ${new Date().toLocaleDateString('pt-BR', { timeZone: 'America/Sao_Paulo' })}`,
+    });
+  }
+
+  /** Certificados da turma em lote (uma página por concluído). */
+  async generateClassCertificates(classId: string, user: CurrentUser): Promise<Buffer> {
+    const klass = await this.assertClassOperationalAccess(classId, user);
+    const completed = await this.prisma.catechesisEnrollment.findMany({
+      where: { classId, status: 'COMPLETED' },
+      include: {
+        member: { select: { fullName: true } },
+        class: {
+          include: {
+            stage: { select: { name: true } },
+            community: { include: { parish: { select: { name: true } } } },
+          },
+        },
+      },
+      orderBy: { member: { fullName: 'asc' } },
+    });
+    if (!completed.length) {
+      throw new BadRequestException('Nenhuma matrícula concluída nesta turma ainda');
+    }
+    await this.auditService.log({
+      actor: this.auditActor(user),
+      action: 'EXPORT',
+      entity: 'CatechesisClass',
+      entityId: classId,
+      metadata: { certificates: completed.length },
+    });
+    const parishName = completed[0].class.community.parish.name;
+    return this.pdfService.renderCertificateDocument({
+      title: 'Certificado de Conclusão',
+      organization: parishName,
+      subtitle: 'Catequese — Iniciação à Vida Cristã',
+      pages: completed.map((enrollment) => ({
+        recipientName: enrollment.member.fullName,
+        bodyParagraphs: this.certificateBody(enrollment),
+        signatureLines: ['Pároco', 'Coordenação da Catequese'],
+      })),
+      footer: `${klass.name} · Emitido pelo Parish em ${new Date().toLocaleDateString('pt-BR', { timeZone: 'America/Sao_Paulo' })}`,
+    });
+  }
+
+  /** Lista da turma (PDF) para o primeiro encontro / mural da sala. */
+  async generateClassRoster(classId: string, user: CurrentUser): Promise<Buffer> {
+    const klass = await this.assertClassOperationalAccess(classId, user);
+    const enrollments = await this.prisma.catechesisEnrollment.findMany({
+      where: { classId, status: { in: ['ACTIVE', 'PENDING_APPROVAL'] } },
+      include: {
+        member: {
+          select: {
+            fullName: true,
+            birthDate: true,
+            phone: true,
+            responsible: { select: { fullName: true, phone: true } },
+          },
+        },
+      },
+      orderBy: { member: { fullName: 'asc' } },
+    });
+    const details = await this.prisma.catechesisClass.findUniqueOrThrow({
+      where: { id: classId },
+      include: {
+        stage: { select: { name: true } },
+        community: { include: { parish: { select: { name: true } } } },
+        catechists: { include: { member: { select: { fullName: true } } } },
+      },
+    });
+    await this.auditService.log({
+      actor: this.auditActor(user),
+      action: 'EXPORT',
+      entity: 'CatechesisClass',
+      entityId: classId,
+      metadata: { roster: enrollments.length },
+    });
+    const weekLabel =
+      details.weekday !== null && details.weekday !== undefined
+        ? ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'][details.weekday]
+        : 'a definir';
+    return this.pdfService.renderTableDocument({
+      title: `Lista da turma — ${details.name} (${details.year})`,
+      subtitle: `${details.stage.name} · ${details.community.name} — ${details.community.parish.name} · ${weekLabel}${details.time ? ` às ${details.time}` : ''}${details.room ? ` · ${details.room}` : ''}`,
+      sections: [
+        {
+          heading: `Catequistas: ${details.catechists.map((c) => c.member.fullName).join(', ') || '—'}`,
+          columns: ['Catequizando', 'Nascimento', 'Responsável', 'Contato', 'Situação', 'Docs pendentes'],
+          widths: [3, 1.4, 2.4, 1.8, 1.4, 2],
+          rows: enrollments.map((enrollment) => [
+            enrollment.member.fullName,
+            enrollment.member.birthDate
+              ? enrollment.member.birthDate.toLocaleDateString('pt-BR', { timeZone: 'UTC' })
+              : '—',
+            enrollment.member.responsible?.fullName ?? '—',
+            enrollment.member.responsible?.phone ?? enrollment.member.phone ?? '—',
+            enrollment.status === 'PENDING_APPROVAL' ? 'Aguardando' : 'Ativo',
+            enrollment.pendingDocuments ?? '—',
+          ]),
+        },
+      ],
+      footer: `Emitido pelo Parish em ${new Date().toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' })}`,
+    });
+  }
+
+  /** Declaração de matrícula/frequência (pedida por escolas). */
+  async generateEnrollmentDeclaration(enrollmentId: string, user: CurrentUser): Promise<Buffer> {
+    const enrollment = await this.loadEnrollmentForDocument(enrollmentId, user);
+    if (enrollment.status !== 'ACTIVE' && enrollment.status !== 'COMPLETED') {
+      throw new BadRequestException('Declaração disponível para matrículas ativas ou concluídas');
+    }
+    const total = enrollment.attendances.length;
+    const present = enrollment.attendances.filter((a) => a.present).length;
+    const attendanceLine = total
+      ? `Frequência registrada até a presente data: ${Math.round((present / total) * 100)}% (${present} de ${total} encontros).`
+      : 'Encontros ainda não registrados no período.';
+    const statusLine =
+      enrollment.status === 'ACTIVE'
+        ? `encontra-se regularmente MATRICULADO(A) e frequente na ${enrollment.class.name} (${enrollment.class.year}), etapa "${enrollment.class.stage.name}",`
+        : `CONCLUIU a ${enrollment.class.name} (${enrollment.class.year}), etapa "${enrollment.class.stage.name}",`;
+    await this.auditService.log({
+      actor: this.auditActor(user),
+      action: 'EXPORT',
+      entity: 'CatechesisEnrollment',
+      entityId: enrollmentId,
+      metadata: { declaration: true },
+    });
+    return this.pdfService.renderCertificateDocument({
+      title: 'Declaração de Matrícula',
+      organization: enrollment.class.community.parish.name,
+      subtitle: 'Catequese — Iniciação à Vida Cristã',
+      orientation: 'portrait',
+      pages: [
+        {
+          recipientName: enrollment.member.fullName,
+          bodyParagraphs: [
+            `Declaramos, para os devidos fins, que ${enrollment.member.fullName}`,
+            statusLine,
+            `da ${enrollment.class.community.name} — ${enrollment.class.community.parish.name}.`,
+            attendanceLine,
+          ],
+          signatureLines: ['Coordenação da Catequese'],
+        },
+      ],
+      footer: `Emitido pelo Parish em ${new Date().toLocaleDateString('pt-BR', { timeZone: 'America/Sao_Paulo' })}`,
+    });
+  }
+
+  // ===== AGENDA DO ANO EM LOTE (Fase 4) =====
+
+  /**
+   * Cria os encontros do período de uma vez (datas escolhidas na prévia do
+   * front, já sem feriados). Dias que já têm encontro são pulados; as famílias
+   * recebem UM único aviso-resumo, não um push por encontro.
+   */
+  async generateSessions(classId: string, dto: { dates: string[] }, user: CurrentUser) {
+    const klass = await this.assertClassOperationalAccess(classId, user);
+
+    const raw = [...new Set(dto.dates ?? [])];
+    if (!raw.length) throw new BadRequestException('Informe as datas dos encontros');
+    if (raw.length > 100) throw new BadRequestException('No máximo 100 encontros por geração');
+
+    const dates: Date[] = [];
+    for (const value of raw) {
+      const parsed = new Date(value);
+      if (
+        !/^\d{4}-\d{2}-\d{2}$/.test(String(value)) ||
+        Number.isNaN(parsed.getTime()) ||
+        parsed.toISOString().slice(0, 10) !== value
+      ) {
+        throw new BadRequestException(`Data inválida: ${value} — use AAAA-MM-DD`);
+      }
+      dates.push(parsed);
+    }
+    dates.sort((a, b) => a.getTime() - b.getTime());
+
+    const existing = await this.prisma.catechesisSession.findMany({
+      where: { classId, date: { in: dates } },
+      select: { date: true },
+    });
+    const existingTimes = new Set(existing.map((session) => session.date.getTime()));
+    const toCreate = dates.filter((date) => !existingTimes.has(date.getTime()));
+
+    if (toCreate.length) {
+      await this.prisma.catechesisSession.createMany({
+        data: toCreate.map((date) => ({ classId, date })),
+      });
+    }
+
+    await this.auditService.log({
+      actor: this.auditActor(user),
+      action: 'CREATE',
+      entity: 'CatechesisAgenda',
+      entityId: classId,
+      metadata: { created: toCreate.length, skipped: dates.length - toCreate.length },
+    });
+
+    // Um único aviso-resumo às famílias (best-effort)
+    if (toCreate.length) {
+      try {
+        const enrollments = await this.prisma.catechesisEnrollment.findMany({
+          where: { classId, status: 'ACTIVE' },
+          select: {
+            member: { select: { userId: true, responsible: { select: { userId: true } } } },
+          },
+        });
+        const userIds = [...new Set(enrollments.flatMap((e) => this.guardianUserIds(e.member)))];
+        if (userIds.length) {
+          const first = this.formatDayLabel(toCreate[0]);
+          const last = this.formatDayLabel(toCreate[toCreate.length - 1]);
+          await this.notificationsService.notifyUsers(
+            userIds,
+            NotificationType.CATECHESIS,
+            'Agenda da catequese publicada 📅',
+            `${klass.name}: ${toCreate.length} encontro(s) agendado(s) de ${first} a ${last}${klass.time ? `, às ${klass.time}` : ''}.`,
+            { kind: 'agenda', classId },
+          );
+        }
+      } catch (error) {
+        // Aviso é conveniência
+      }
+    }
+
+    return { created: toCreate.length, skipped: dates.length - toCreate.length };
   }
 
   // ===== PAINEL DO COORDENADOR =====

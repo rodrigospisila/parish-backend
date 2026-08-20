@@ -6,6 +6,7 @@ import { PrismaService } from '../../database/prisma.service';
 import { HierarchyService } from '../../common/hierarchy.service';
 import { AuditService } from '../../common/audit.service';
 import { NotificationsService } from '../notifications/notifications.service';
+import { PdfService } from '../pdf/pdf.service';
 
 describe('CatechesisService (3.1)', () => {
   let service: CatechesisService;
@@ -38,6 +39,13 @@ describe('CatechesisService (3.1)', () => {
         {
           provide: NotificationsService,
           useValue: { notifyUser: jest.fn(), notifyUsers: jest.fn() },
+        },
+        {
+          provide: PdfService,
+          useValue: {
+            renderTableDocument: jest.fn().mockResolvedValue(Buffer.from('pdf')),
+            renderCertificateDocument: jest.fn().mockResolvedValue(Buffer.from('pdf')),
+          },
         },
       ],
     }).compile();
