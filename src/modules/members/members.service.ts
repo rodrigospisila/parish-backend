@@ -578,8 +578,25 @@ export class MembersService {
     });
   }
 
+  /** Responsável (pai/mãe) precisa existir como membro vivo e não ser a própria pessoa. */
+  private async assertValidResponsible(responsibleId: string, selfId?: string) {
+    if (selfId && responsibleId === selfId) {
+      throw new BadRequestException('O membro não pode ser responsável por si mesmo');
+    }
+    const responsible = await this.prisma.member.findFirst({
+      where: { id: responsibleId, deletedAt: null },
+      select: { id: true },
+    });
+    if (!responsible) {
+      throw new NotFoundException('Responsável não encontrado — cadastre o pai/mãe como membro primeiro');
+    }
+  }
+
   async create(createMemberDto: CreateMemberDto, currentUser?: CurrentUser) {
-    const { cpf, email, communityId, spouseId, ...rest } = createMemberDto;
+    const { cpf, email, communityId, spouseId, responsibleId, ...rest } = createMemberDto;
+    if (responsibleId) {
+      await this.assertValidResponsible(responsibleId);
+    }
     const normalizedCpf = this.normalizeCpf(cpf);
     const normalizedEmail = this.normalizeEmail(email);
 
@@ -630,6 +647,7 @@ export class MembersService {
       const member = await this.prisma.member.create({
         data: {
           ...rest,
+          responsibleId: responsibleId || null,
           cpf: normalizedCpf,
           email: normalizedEmail,
           communityId,
@@ -715,6 +733,12 @@ export class MembersService {
           },
         },
         spouse: {
+          select: {
+            id: true,
+            fullName: true,
+          },
+        },
+        responsible: {
           select: {
             id: true,
             fullName: true,
@@ -864,7 +888,10 @@ export class MembersService {
       }
     }
 
-    const { cpf, email, spouseId, ...rest } = updateMemberDto;
+    const { cpf, email, spouseId, responsibleId, ...rest } = updateMemberDto;
+    if (responsibleId) {
+      await this.assertValidResponsible(responsibleId, id);
+    }
     const normalizedCpf = this.normalizeCpf(cpf);
     const normalizedEmail = this.normalizeEmail(email);
 
@@ -903,11 +930,14 @@ export class MembersService {
         where: { id },
         data: {
           ...rest,
+          // undefined preserva; '' / null remove o vínculo
+          ...(responsibleId !== undefined ? { responsibleId: responsibleId || null } : {}),
           cpf: normalizedCpf,
           email: normalizedEmail,
         },
         include: {
           community: true,
+          responsible: { select: { id: true, fullName: true } },
           user: {
             select: {
               id: true,

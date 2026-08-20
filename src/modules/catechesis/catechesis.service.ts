@@ -462,10 +462,28 @@ export class CatechesisService {
 
     const member = await this.prisma.member.findFirst({
       where: { id: dto.memberId, deletedAt: null },
-      select: { id: true, sacraments: { select: { type: true } } },
+      select: {
+        id: true,
+        birthDate: true,
+        responsibleId: true,
+        sacraments: { select: { type: true } },
+      },
     });
     if (!member) {
       throw new NotFoundException('Catequizando (membro) não encontrado');
+    }
+
+    // REGRA: menor de idade só se matricula com pai/mãe (responsável) já
+    // cadastrado como membro e vinculado — é por esse vínculo que a família
+    // acompanha, autoriza (LGPD) e recebe os avisos no app.
+    if (member.birthDate && !member.responsibleId) {
+      const age =
+        (Date.now() - member.birthDate.getTime()) / (365.25 * 24 * 60 * 60 * 1000);
+      if (age < 18) {
+        throw new BadRequestException(
+          'Catequizando menor de idade precisa de responsável vinculado — cadastre o pai/mãe como membro e vincule no campo "Responsável" do cadastro do catequizando',
+        );
+      }
     }
 
     // Validação de batismo: cruza com o histórico sacramental (Sacrament).
