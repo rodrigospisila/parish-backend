@@ -19,7 +19,12 @@ describe('CatechesisService (3.1)', () => {
     prisma = {
       catechesisClass: { findFirst: jest.fn() },
       member: { findFirst: jest.fn() },
-      catechesisEnrollment: { create: jest.fn(), findUnique: jest.fn(), update: jest.fn() },
+      catechesisEnrollment: {
+        create: jest.fn(),
+        findUnique: jest.fn(),
+        findFirst: jest.fn().mockResolvedValue(null),
+        update: jest.fn(),
+      },
       sacrament: { create: jest.fn() },
       $transaction: jest.fn(async (cb: any) =>
         cb({
