@@ -1,4 +1,5 @@
-import { Controller, Get, Post, Patch, Delete, Body, Param, Query, UseGuards, Request, Res } from '@nestjs/common';
+import { Controller, Get, Post, Patch, Delete, Body, Param, Query, UseGuards, Request, Res, UseInterceptors, UploadedFile } from '@nestjs/common';
+import { FileInterceptor } from '@nestjs/platform-express';
 import type { Response } from 'express';
 import { CatechesisService } from './catechesis.service';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
@@ -105,6 +106,43 @@ export class CatechesisController {
       'Content-Length': String(buffer.length),
     });
     res.end(buffer);
+  }
+
+  // Documentos da matrícula: família envia, equipe confere (service valida)
+  @Post('enrollments/:id/documents')
+  @UseInterceptors(FileInterceptor('file', { limits: { fileSize: 8 * 1024 * 1024 } }))
+  submitDocument(
+    @Param('id') id: string,
+    @Body() body: { kind: string },
+    @UploadedFile() file: Express.Multer.File,
+    @Request() req: any,
+  ) {
+    return this.service.submitDocument(id, body, file, req.user);
+  }
+
+  @Get('enrollments/:id/documents')
+  listDocuments(@Param('id') id: string, @Request() req: any) {
+    return this.service.listDocuments(id, req.user);
+  }
+
+  @Get('documents/:id/file')
+  async documentFile(@Param('id') id: string, @Res() res: Response, @Request() req: any) {
+    const file = await this.service.getDocumentFile(id, req.user);
+    res.set({
+      'Content-Type': file.mimeType,
+      'Content-Disposition': `inline; filename="${file.fileName.replace(/[^\w.\-]/g, '_')}"`,
+      'Content-Length': String(file.buffer.length),
+    });
+    res.end(file.buffer);
+  }
+
+  @Patch('documents/:id/review')
+  reviewDocument(
+    @Param('id') id: string,
+    @Body() body: { approve: boolean; notes?: string },
+    @Request() req: any,
+  ) {
+    return this.service.reviewDocument(id, body, req.user);
   }
 
   // Pareceres por período (equipe escreve; equipe e família leem — service valida)

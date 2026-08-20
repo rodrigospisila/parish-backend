@@ -1434,6 +1434,10 @@ export class CatechesisService {
           },
         },
         attendances: { select: { present: true, late: true } },
+        documents: {
+          select: { id: true, kind: true, status: true, reviewNotes: true, createdAt: true },
+          orderBy: { createdAt: 'desc' },
+        },
       },
       orderBy: { enrolledAt: 'desc' },
     });
@@ -1480,6 +1484,7 @@ export class CatechesisService {
         },
         status: enrollment.status,
         pendingDocuments: enrollment.pendingDocuments,
+        documents: enrollment.documents,
         attendanceRate: total ? Math.round((present / total) * 100) : null,
         sessions: total,
         class: {
@@ -1880,6 +1885,242 @@ export class CatechesisService {
     }
 
     return { created: toCreate.length, skipped: dates.length - toCreate.length };
+  }
+
+  // ===== DOCUMENTOS DA MATRÍCULA (envio pelo app) =====
+
+  private static readonly DOCUMENT_MIME_TYPES = new Set([
+    'image/jpeg',
+    'image/png',
+    'image/webp',
+    'application/pdf',
+  ]);
+  private static readonly DOCUMENT_MAX_BYTES = 8 * 1024 * 1024;
+
+  /**
+   * Família envia o documento pendente (foto/PDF). Um envio SUBMITTED por
+   * (matrícula, tipo) — reenviar substitui. Binário vive só até a conferência.
+   */
+  async submitDocument(
+    enrollmentId: string,
+    dto: { kind: string },
+    file: { originalname?: string; mimetype?: string; size?: number; buffer?: Buffer } | undefined,
+    user: CurrentUser,
+  ) {
+    const kind = dto.kind?.trim();
+    if (!kind || kind.length < 3 || kind.length > 80) {
+      throw new BadRequestException('Informe o tipo do documento (ex.: "Certidão de Batismo")');
+    }
+    if (!file?.buffer?.length) {
+      throw new BadRequestException('Anexe o arquivo (foto ou PDF)');
+    }
+    if (!CatechesisService.DOCUMENT_MIME_TYPES.has(file.mimetype ?? '')) {
+      throw new BadRequestException('Formato não aceito — envie JPG, PNG, WebP ou PDF');
+    }
+    if (file.buffer.length > CatechesisService.DOCUMENT_MAX_BYTES) {
+      throw new BadRequestException('Arquivo muito grande — máximo de 8 MB');
+    }
+
+    // Família do catequizando OU equipe da turma (guard já cobre os dois)
+    const enrollment = await this.loadEnrollmentForDocument(enrollmentId, user);
+    if (enrollment.status !== 'ACTIVE' && enrollment.status !== 'PENDING_APPROVAL') {
+      throw new BadRequestException('Documentos só podem ser enviados para matrículas ativas ou aguardando aprovação');
+    }
+
+    // Substitui envio anterior do mesmo tipo ainda não conferido
+    const document = await this.prisma.$transaction(async (tx) => {
+      await tx.catechesisDocument.deleteMany({
+        where: { enrollmentId, kind, status: 'SUBMITTED' },
+      });
+      return tx.catechesisDocument.create({
+        data: {
+          enrollmentId,
+          kind,
+          fileName: (file.originalname ?? 'documento').slice(0, 120),
+          mimeType: file.mimetype ?? 'application/octet-stream',
+          sizeBytes: file.buffer!.length,
+          data: new Uint8Array(file.buffer!),
+        },
+        select: { id: true, kind: true, status: true, createdAt: true },
+      });
+    });
+
+    await this.auditService.log({
+      actor: this.auditActor(user),
+      action: 'CREATE',
+      entity: 'CatechesisDocument',
+      entityId: document.id,
+      metadata: { enrollmentId, kind, sizeBytes: file.buffer.length },
+    });
+
+    // Avisa a equipe da turma (best-effort)
+    try {
+      const catechists = await this.prisma.catechesisCatechist.findMany({
+        where: { classId: enrollment.class.id },
+        select: { member: { select: { userId: true } } },
+      });
+      const userIds = [...new Set(catechists.map((c) => c.member.userId).filter((id): id is string => !!id))];
+      if (userIds.length) {
+        await this.notificationsService.notifyUsers(
+          userIds,
+          NotificationType.CATECHESIS,
+          'Documento recebido 📎',
+          `${enrollment.member.fullName} enviou "${kind}" — confira na turma para dar baixa na pendência.`,
+          { kind: 'document', enrollmentId, documentId: document.id },
+        );
+      }
+    } catch (error) {
+      // Aviso é conveniência
+    }
+
+    return document;
+  }
+
+  /** Documentos da matrícula (metadados) — família ou equipe. */
+  async listDocuments(enrollmentId: string, user: CurrentUser) {
+    await this.loadEnrollmentForDocument(enrollmentId, user);
+    return this.prisma.catechesisDocument.findMany({
+      where: { enrollmentId },
+      select: {
+        id: true,
+        kind: true,
+        fileName: true,
+        mimeType: true,
+        sizeBytes: true,
+        status: true,
+        reviewNotes: true,
+        reviewedAt: true,
+        createdAt: true,
+      },
+      orderBy: { createdAt: 'desc' },
+    });
+  }
+
+  /** Binário do documento — equipe da turma OU a própria família (enquanto SUBMITTED). */
+  async getDocumentFile(documentId: string, user: CurrentUser) {
+    const document = await this.prisma.catechesisDocument.findUnique({
+      where: { id: documentId },
+      include: {
+        enrollment: {
+          include: {
+            member: {
+              select: { fullName: true, userId: true, deletedAt: true, responsible: { select: { userId: true } } },
+            },
+            class: { select: { id: true } },
+          },
+        },
+      },
+    });
+    if (!document || document.enrollment.member.deletedAt) {
+      throw new NotFoundException('Documento não encontrado');
+    }
+    const isFamily = this.guardianUserIds(document.enrollment.member).includes(user.id);
+    if (!isFamily) {
+      await this.assertClassOperationalAccess(document.enrollment.class.id, user);
+    }
+    if (!document.data) {
+      throw new NotFoundException('O arquivo já foi conferido e removido (retenção mínima)');
+    }
+    await this.auditService.log({
+      actor: this.auditActor(user),
+      action: 'EXPORT',
+      entity: 'CatechesisDocument',
+      entityId: documentId,
+      metadata: { view: true },
+    });
+    return {
+      fileName: document.fileName,
+      mimeType: document.mimeType,
+      buffer: Buffer.from(document.data),
+    };
+  }
+
+  /**
+   * Conferência: aprova (dá baixa na pendência) ou recusa (pede reenvio).
+   * Em ambos os casos o binário é APAGADO — retenção mínima (LGPD).
+   */
+  async reviewDocument(
+    documentId: string,
+    dto: { approve: boolean; notes?: string },
+    user: CurrentUser,
+  ) {
+    const notes = dto.notes?.trim().slice(0, 300) || null;
+    const document = await this.prisma.catechesisDocument.findUnique({
+      where: { id: documentId },
+      include: {
+        enrollment: {
+          include: {
+            member: {
+              select: { fullName: true, userId: true, deletedAt: true, responsible: { select: { userId: true } } },
+            },
+            class: { select: { id: true, name: true } },
+          },
+        },
+      },
+    });
+    if (!document || document.enrollment.member.deletedAt) {
+      throw new NotFoundException('Documento não encontrado');
+    }
+    await this.assertClassOperationalAccess(document.enrollment.class.id, user);
+    if (document.status !== 'SUBMITTED') {
+      throw new BadRequestException('Este documento já foi conferido');
+    }
+
+    const updated = await this.prisma.$transaction(async (tx) => {
+      const reviewed = await tx.catechesisDocument.update({
+        where: { id: documentId },
+        data: {
+          status: dto.approve ? 'VERIFIED' : 'REJECTED',
+          reviewNotes: notes,
+          reviewedById: user.id,
+          reviewedAt: new Date(),
+          data: null, // retenção mínima: o arquivo morre na conferência
+        },
+        select: { id: true, kind: true, status: true },
+      });
+
+      // Aprovado: dá baixa na pendência correspondente da matrícula
+      if (dto.approve) {
+        const pending = document.enrollment.pendingDocuments;
+        if (pending) {
+          const remaining = pending
+            .split(/[;,]/)
+            .map((part) => part.trim())
+            .filter((part) => part && part.toLowerCase() !== document.kind.toLowerCase());
+          await tx.catechesisEnrollment.update({
+            where: { id: document.enrollmentId },
+            data: { pendingDocuments: remaining.length ? remaining.join('; ') : null },
+          });
+        }
+      }
+      return reviewed;
+    });
+
+    await this.auditService.log({
+      actor: this.auditActor(user),
+      action: 'UPDATE',
+      entity: 'CatechesisDocument',
+      entityId: documentId,
+      metadata: { approved: dto.approve, notes },
+    });
+
+    try {
+      const userIds = this.guardianUserIds(document.enrollment.member);
+      if (userIds.length) {
+        await this.notificationsService.notifyUsers(
+          userIds,
+          NotificationType.CATECHESIS,
+          dto.approve ? 'Documento conferido ✓' : 'Documento recusado',
+          dto.approve
+            ? `"${document.kind}" de ${document.enrollment.member.fullName} foi conferido — pendência resolvida. Obrigado!`
+            : `"${document.kind}" de ${document.enrollment.member.fullName} foi recusado${notes ? `: ${notes}` : ''}. Envie novamente pelo app.`,
+          { kind: 'document-review', enrollmentId: document.enrollmentId, documentId },
+        );
+      }
+    } catch (error) {
+      // Aviso é conveniência
+    }
+    return updated;
   }
 
   // ===== PARECERES POR PERÍODO (Fase 5) =====
@@ -2383,6 +2624,7 @@ export class CatechesisService {
       include: {
         member: { select: { id: true, fullName: true } },
         attendances: { select: { present: true } },
+        _count: { select: { documents: { where: { status: 'SUBMITTED' } } } },
       },
     });
 
@@ -2394,6 +2636,7 @@ export class CatechesisService {
         member: e.member,
         status: e.status,
         pendingDocuments: e.pendingDocuments,
+        submittedDocs: e._count.documents,
         attendanceRate: total ? Math.round((present / total) * 100) : null,
         sessions: total,
       };

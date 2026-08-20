@@ -1572,6 +1572,7 @@ model CatechesisEnrollment {
   attendances CatechesisAttendance[]
   assessments CatechesisAssessment[]
   feePayments CatechesisFeePayment[]
+  documents   CatechesisDocument[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -1597,6 +1598,40 @@ model CatechesisSession {
   @@unique([classId, date])
   @@index([classId])
   @@map("catechesis_sessions")
+}
+
+// Situação do documento enviado pela família
+enum CatechesisDocumentStatus {
+  SUBMITTED // Enviado, aguardando conferência
+  VERIFIED // Conferido pela coordenação (binário apagado)
+  REJECTED // Recusado — reenviar (binário apagado)
+}
+
+// Documento da matrícula enviado pelo app (ex.: Certidão de Batismo).
+// RETENÇÃO MÍNIMA: o binário (data) só existe enquanto SUBMITTED — a
+// conferência (ou recusa) apaga o arquivo e preserva apenas o registro.
+model CatechesisDocument {
+  id           String               @id @default(cuid())
+  enrollmentId String
+  enrollment   CatechesisEnrollment @relation(fields: [enrollmentId], references: [id], onDelete: Cascade)
+
+  kind      String // "Certidão de Batismo" — espelha a pendência
+  fileName  String
+  mimeType  String
+  sizeBytes Int
+  data      Bytes? // null após conferência/recusa (LGPD)
+
+  status       CatechesisDocumentStatus @default(SUBMITTED)
+  reviewNotes  String?
+  reviewedById String?
+  reviewedAt   DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([enrollmentId])
+  @@index([status])
+  @@map("catechesis_documents")
 }
 
 // Conceito do parecer por período (Fase 5)
