@@ -200,6 +200,12 @@ export class CatechesisController {
     return this.service.getSessionAttendance(id, req.user);
   }
 
+  @Get('classes/:id/eligible-catechists')
+  @Roles(UserRole.PASTORAL_COORDINATOR)
+  eligibleCatechists(@Param('id') id: string, @Request() req: any) {
+    return this.service.listEligibleCatechists(id, req.user);
+  }
+
   @Post('classes/:id/catechists')
   @Roles(UserRole.PASTORAL_COORDINATOR)
   addCatechist(@Param('id') id: string, @Body() body: { memberId: string; role?: string }, @Request() req: any) {

@@ -335,6 +335,46 @@ export class CatechesisService {
     };
   }
 
+  /**
+   * Membros aptos a serem catequistas da turma: vinculados (ativos) à pastoral
+   * da Catequese da comunidade — mesma regra que o addCatechist impõe.
+   */
+  async listEligibleCatechists(classId: string, user: CurrentUser) {
+    const klass = await this.loadClassInScope(classId, user);
+    const catechesisPastoral = {
+      communityId: klass.communityId,
+      deletedAt: null,
+      globalPastoral: { name: { contains: 'catequ', mode: 'insensitive' as const } },
+    };
+    const links = await this.prisma.pastoralMember.findMany({
+      where: {
+        isActive: true,
+        leftAt: null,
+        member: { deletedAt: null },
+        OR: [
+          { communityPastoral: catechesisPastoral },
+          { pastoralGroup: { deletedAt: null, communityPastoral: catechesisPastoral } },
+        ],
+      },
+      select: { member: { select: { id: true, fullName: true } } },
+    });
+    const alreadyLinked = new Set(
+      (
+        await this.prisma.catechesisCatechist.findMany({
+          where: { classId },
+          select: { memberId: true },
+        })
+      ).map((link) => link.memberId),
+    );
+    const unique = new Map<string, string>();
+    for (const link of links) {
+      if (!alreadyLinked.has(link.member.id)) unique.set(link.member.id, link.member.fullName);
+    }
+    return [...unique.entries()]
+      .map(([id, fullName]) => ({ id, fullName }))
+      .sort((a, b) => a.fullName.localeCompare(b.fullName, 'pt-BR'));
+  }
+
   async addCatechist(classId: string, memberId: string, role: string | undefined, user: CurrentUser) {
     const klass = await this.loadClassInScope(classId, user);
 
