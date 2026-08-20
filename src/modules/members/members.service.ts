@@ -980,6 +980,13 @@ export class MembersService {
       data: { deletedAt: new Date() },
     });
 
+    // Retenção mínima (LGPD): binários de documentos da catequese enviados
+    // para matrículas deste membro morrem junto com o cadastro
+    await this.prisma.catechesisDocument.updateMany({
+      where: { enrollment: { memberId: id }, data: { not: null } },
+      data: { data: null },
+    });
+
     await this.auditService.log({
       actor: this.auditActor(currentUser),
       action: 'SOFT_DELETE',

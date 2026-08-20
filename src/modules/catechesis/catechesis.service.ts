@@ -974,6 +974,11 @@ export class CatechesisService {
               where: { memberId: memberInfo.id, isActive: true },
               data: { isActive: false, leftAt: new Date() },
             }),
+            // Binários de documentos enviados morrem junto (retenção mínima)
+            this.prisma.catechesisDocument.updateMany({
+              where: { enrollment: { memberId: memberInfo.id } },
+              data: { data: null },
+            }),
           ]);
           await this.auditService.log({
             actor: this.auditActor(user),
@@ -1908,7 +1913,7 @@ export class CatechesisService {
     user: CurrentUser,
   ) {
     const kind = dto.kind?.trim();
-    if (!kind || kind.length < 3 || kind.length > 80) {
+    if (!kind || kind.length < 2 || kind.length > 80) {
       throw new BadRequestException('Informe o tipo do documento (ex.: "Certidão de Batismo")');
     }
     if (!file?.buffer?.length) {
@@ -1927,23 +1932,37 @@ export class CatechesisService {
       throw new BadRequestException('Documentos só podem ser enviados para matrículas ativas ou aguardando aprovação');
     }
 
-    // Substitui envio anterior do mesmo tipo ainda não conferido
-    const document = await this.prisma.$transaction(async (tx) => {
-      await tx.catechesisDocument.deleteMany({
-        where: { enrollmentId, kind, status: 'SUBMITTED' },
+    // Substitui envio anterior do mesmo tipo ainda não conferido; índice único
+    // parcial no banco garante 1 SUBMITTED por (matrícula, tipo) mesmo em corrida
+    let document;
+    try {
+      document = await this.prisma.$transaction(async (tx) => {
+        // Freio de flood: teto de documentos por matrícula (linhas de até 8MB)
+        const count = await tx.catechesisDocument.count({ where: { enrollmentId } });
+        if (count >= 20) {
+          throw new BadRequestException('Limite de documentos desta matrícula atingido — fale com a coordenação');
+        }
+        await tx.catechesisDocument.deleteMany({
+          where: { enrollmentId, kind: { equals: kind, mode: 'insensitive' }, status: 'SUBMITTED' },
+        });
+        return tx.catechesisDocument.create({
+          data: {
+            enrollmentId,
+            kind,
+            fileName: (file.originalname ?? 'documento').slice(0, 120),
+            mimeType: file.mimetype ?? 'application/octet-stream',
+            sizeBytes: file.buffer!.length,
+            data: new Uint8Array(file.buffer!),
+          },
+          select: { id: true, kind: true, status: true, createdAt: true },
+        });
       });
-      return tx.catechesisDocument.create({
-        data: {
-          enrollmentId,
-          kind,
-          fileName: (file.originalname ?? 'documento').slice(0, 120),
-          mimeType: file.mimetype ?? 'application/octet-stream',
-          sizeBytes: file.buffer!.length,
-          data: new Uint8Array(file.buffer!),
-        },
-        select: { id: true, kind: true, status: true, createdAt: true },
-      });
-    });
+    } catch (error: any) {
+      if (error?.code === 'P2002') {
+        throw new BadRequestException('Documento já enviado — atualize a tela');
+      }
+      throw error;
+    }
 
     await this.auditService.log({
       actor: this.auditActor(user),
@@ -2067,8 +2086,10 @@ export class CatechesisService {
     }
 
     const updated = await this.prisma.$transaction(async (tx) => {
-      const reviewed = await tx.catechesisDocument.update({
-        where: { id: documentId },
+      // Guarda de status no próprio update: duas conferências simultâneas não
+      // se sobrescrevem — a segunda falha como "já conferido"
+      const guarded = await tx.catechesisDocument.updateMany({
+        where: { id: documentId, status: 'SUBMITTED' },
         data: {
           status: dto.approve ? 'VERIFIED' : 'REJECTED',
           reviewNotes: notes,
@@ -2076,12 +2097,20 @@ export class CatechesisService {
           reviewedAt: new Date(),
           data: null, // retenção mínima: o arquivo morre na conferência
         },
-        select: { id: true, kind: true, status: true },
       });
+      if (guarded.count === 0) {
+        throw new BadRequestException('Este documento já foi conferido');
+      }
 
-      // Aprovado: dá baixa na pendência correspondente da matrícula
+      // Aprovado: dá baixa na pendência correspondente da matrícula.
+      // Pendência RELIDA aqui dentro — duas aprovações quase simultâneas de
+      // documentos diferentes não ressuscitam pendência já baixada.
       if (dto.approve) {
-        const pending = document.enrollment.pendingDocuments;
+        const fresh = await tx.catechesisEnrollment.findUnique({
+          where: { id: document.enrollmentId },
+          select: { pendingDocuments: true },
+        });
+        const pending = fresh?.pendingDocuments;
         if (pending) {
           const remaining = pending
             .split(/[;,]/)
@@ -2093,7 +2122,7 @@ export class CatechesisService {
           });
         }
       }
-      return reviewed;
+      return { id: documentId, kind: document.kind, status: dto.approve ? 'VERIFIED' : 'REJECTED' };
     });
 
     await this.auditService.log({
@@ -2624,7 +2653,7 @@ export class CatechesisService {
       include: {
         member: { select: { id: true, fullName: true } },
         attendances: { select: { present: true } },
-        _count: { select: { documents: { where: { status: 'SUBMITTED' } } } },
+        documents: { select: { status: true } },
       },
     });
 
@@ -2636,7 +2665,8 @@ export class CatechesisService {
         member: e.member,
         status: e.status,
         pendingDocuments: e.pendingDocuments,
-        submittedDocs: e._count.documents,
+        submittedDocs: e.documents.filter((doc) => doc.status === 'SUBMITTED').length,
+        docsCount: e.documents.length,
         attendanceRate: total ? Math.round((present / total) * 100) : null,
         sessions: total,
       };
