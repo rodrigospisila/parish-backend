@@ -186,7 +186,12 @@ export class CatechesisService {
       include: {
         stage: { select: { name: true, sacramentType: true } },
         community: { select: { name: true } },
-        _count: { select: { enrollments: { where: { status: 'ACTIVE' } }, sessions: true } },
+        _count: {
+          select: {
+            enrollments: { where: { status: 'ACTIVE', member: { deletedAt: null } } },
+            sessions: true,
+          },
+        },
       },
       orderBy: { year: 'desc' },
     });
@@ -257,7 +262,7 @@ export class CatechesisService {
             community: { select: { id: true, name: true } },
             _count: {
               select: {
-                enrollments: { where: { status: 'ACTIVE' } },
+                enrollments: { where: { status: 'ACTIVE', member: { deletedAt: null } } },
                 sessions: true,
               },
             },
@@ -579,7 +584,11 @@ export class CatechesisService {
 
   /** Vagas ocupadas: matrículas ativas + inscrições aguardando aprovação. */
   private occupiedSeatsWhere(classId: string) {
-    return { classId, status: { in: ['ACTIVE', 'PENDING_APPROVAL'] as any } };
+    return {
+      classId,
+      status: { in: ['ACTIVE', 'PENDING_APPROVAL'] as any },
+      member: { deletedAt: null },
+    };
   }
 
   /** Turmas abertas para inscrição na comunidade (com vagas calculadas). */
@@ -598,7 +607,7 @@ export class CatechesisService {
       include: {
         stage: { select: { id: true, name: true, ordering: true, sacramentType: true } },
         community: { select: { id: true, name: true } },
-        _count: { select: { enrollments: { where: { status: { in: ['ACTIVE', 'PENDING_APPROVAL'] } } } } },
+        _count: { select: { enrollments: { where: { status: { in: ['ACTIVE', 'PENDING_APPROVAL'] }, member: { deletedAt: null } } } } },
       },
       orderBy: [{ year: 'desc' }, { name: 'asc' }],
     });
@@ -2297,7 +2306,8 @@ export class CatechesisService {
     });
 
     const enrollments = await this.prisma.catechesisEnrollment.findMany({
-      where: { classId },
+      // Membro soft-deletado (direito de eliminação) não aparece nem conta
+      where: { classId, member: { deletedAt: null } },
       include: {
         member: { select: { id: true, fullName: true } },
         attendances: { select: { present: true } },
