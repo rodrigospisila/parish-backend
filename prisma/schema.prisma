@@ -1525,6 +1525,7 @@ model CatechesisClass {
   catechists  CatechesisCatechist[]
   enrollments CatechesisEnrollment[]
   sessions    CatechesisSession[]
+  fees        CatechesisFee[]
 
   status EntityStatus @default(ACTIVE)
 
@@ -1569,6 +1570,8 @@ model CatechesisEnrollment {
   completedAt      DateTime?
 
   attendances CatechesisAttendance[]
+  assessments CatechesisAssessment[]
+  feePayments CatechesisFeePayment[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -1594,6 +1597,73 @@ model CatechesisSession {
   @@unique([classId, date])
   @@index([classId])
   @@map("catechesis_sessions")
+}
+
+// Conceito do parecer por período (Fase 5)
+enum CatechesisRating {
+  EXCELLENT // Ótimo
+  GOOD // Bom
+  REGULAR // Regular
+  NEEDS_ATTENTION // Precisa de atenção
+}
+
+// Parecer descritivo do catequista por período, visível à família (Fase 5)
+model CatechesisAssessment {
+  id           String               @id @default(cuid())
+  enrollmentId String
+  enrollment   CatechesisEnrollment @relation(fields: [enrollmentId], references: [id], onDelete: Cascade)
+
+  period      String // "1º semestre 2026"
+  rating      CatechesisRating?
+  notes       String // parecer descritivo
+  createdById String? // usuário (catequista) que escreveu
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([enrollmentId, period])
+  @@index([enrollmentId])
+  @@map("catechesis_assessments")
+}
+
+// Taxa de material da turma (Fase 5) — opcional: existe se a coordenação criar
+model CatechesisFee {
+  id      String          @id @default(cuid())
+  classId String
+  class   CatechesisClass @relation(fields: [classId], references: [id], onDelete: Cascade)
+
+  description String // "Material 2026"
+  amount      Float
+  dueDate     DateTime?
+
+  payments CatechesisFeePayment[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([classId])
+  @@map("catechesis_fees")
+}
+
+// Pagamento (ou isenção) da taxa por matrícula, ligado ao financeiro
+model CatechesisFeePayment {
+  id           String               @id @default(cuid())
+  feeId        String
+  fee          CatechesisFee        @relation(fields: [feeId], references: [id], onDelete: Cascade)
+  enrollmentId String
+  enrollment   CatechesisEnrollment @relation(fields: [enrollmentId], references: [id], onDelete: Cascade)
+
+  amount        Float // 0 quando isento
+  method        String? // "Dinheiro", "Pix"...
+  waived        Boolean @default(false) // isenção pastoral
+  transactionId String? // FinancialTransaction gerada (quando pago)
+
+  paidAt    DateTime @default(now())
+  createdAt DateTime @default(now())
+
+  @@unique([feeId, enrollmentId])
+  @@index([enrollmentId])
+  @@map("catechesis_fee_payments")
 }
 
 model CatechesisAttendance {

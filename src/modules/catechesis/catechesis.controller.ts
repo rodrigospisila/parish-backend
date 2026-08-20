@@ -107,6 +107,54 @@ export class CatechesisController {
     res.end(buffer);
   }
 
+  // Pareceres por período (equipe escreve; equipe e família leem — service valida)
+  @Post('enrollments/:id/assessments')
+  upsertAssessment(
+    @Param('id') id: string,
+    @Body() dto: { period: string; rating?: string; notes: string },
+    @Request() req: any,
+  ) {
+    return this.service.upsertAssessment(id, dto, req.user);
+  }
+
+  @Get('enrollments/:id/assessments')
+  listAssessments(@Param('id') id: string, @Request() req: any) {
+    return this.service.listAssessments(id, req.user);
+  }
+
+  // Taxa de material (coordenação registra; equipe consulta)
+  @Post('classes/:id/fees')
+  @Roles(UserRole.PASTORAL_COORDINATOR)
+  createFee(
+    @Param('id') id: string,
+    @Body() dto: { description: string; amount: number; dueDate?: string },
+    @Request() req: any,
+  ) {
+    return this.service.createFee(id, dto, req.user);
+  }
+
+  @Get('classes/:id/fees')
+  classFees(@Param('id') id: string, @Request() req: any) {
+    return this.service.getClassFees(id, req.user);
+  }
+
+  @Post('fees/:id/payments')
+  @Roles(UserRole.PASTORAL_COORDINATOR)
+  recordFeePayment(
+    @Param('id') id: string,
+    @Body() dto: { enrollmentId: string; method?: string; waived?: boolean },
+    @Request() req: any,
+  ) {
+    return this.service.recordFeePayment(id, dto, req.user);
+  }
+
+  // Visão diocesana: catequizandos por paróquia/etapa
+  @Get('diocese-overview')
+  @Roles(UserRole.DIOCESAN_ADMIN)
+  dioceseOverview(@Request() req: any, @Query('dioceseId') dioceseId?: string) {
+    return this.service.getDioceseOverview(req.user, dioceseId);
+  }
+
   // Renovação em lote (coordenação)
   @Get('classes/:id/renewal-preview')
   @Roles(UserRole.PASTORAL_COORDINATOR)
