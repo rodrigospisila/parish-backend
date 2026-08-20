@@ -457,6 +457,22 @@ export class CatechesisService {
     return { removed: result.count };
   }
 
+  /**
+   * Matrícula efetiva (ativa ou aguardando) do membro em OUTRA turma.
+   * Um catequizando caminha numa etapa por vez — a troca é pela transferência.
+   */
+  private async findConcurrentEnrollment(memberId: string, excludeClassIds: string[]) {
+    return this.prisma.catechesisEnrollment.findFirst({
+      where: {
+        memberId,
+        status: { in: ['ACTIVE', 'PENDING_APPROVAL'] },
+        classId: { notIn: excludeClassIds },
+        class: { deletedAt: null },
+      },
+      include: { class: { select: { name: true, year: true } } },
+    });
+  }
+
   // ===== MATRÍCULA =====
 
   async enroll(
@@ -476,6 +492,14 @@ export class CatechesisService {
     });
     if (!member) {
       throw new NotFoundException('Catequizando (membro) não encontrado');
+    }
+
+    // REGRA: uma matrícula efetiva por vez — mudar de turma é transferência
+    const concurrent = await this.findConcurrentEnrollment(dto.memberId, [dto.classId]);
+    if (concurrent) {
+      throw new BadRequestException(
+        `Este catequizando já está matriculado na ${concurrent.class.name} (${concurrent.class.year}) — use "Transferir" para trocá-lo de turma`,
+      );
     }
 
     // REGRA: menor de idade só se matricula com pai/mãe (responsável) já
@@ -531,6 +555,17 @@ export class CatechesisService {
     // esses estados apagaria conclusões ou aprovaria por via lateral.
     if (enrollment.status !== 'ACTIVE') {
       throw new BadRequestException('Apenas matrículas ATIVAS podem ser transferidas');
+    }
+    // Origem e destino participam do movimento; uma TERCEIRA matrícula efetiva
+    // é estado inválido e precisa ser resolvida antes.
+    const thirdParty = await this.findConcurrentEnrollment(enrollment.memberId, [
+      enrollment.classId,
+      targetClassId,
+    ]);
+    if (thirdParty) {
+      throw new BadRequestException(
+        `Este catequizando também está matriculado na ${thirdParty.class.name} (${thirdParty.class.year}) — resolva essa matrícula antes de transferir`,
+      );
     }
 
     // A matrícula de origem fica TRANSFERRED (preserva o histórico de presença);
@@ -740,6 +775,22 @@ export class CatechesisService {
         targetMemberId = myMember.id;
       }
 
+      // Uma matrícula efetiva por vez — vale também para a inscrição online
+      const concurrent = await tx.catechesisEnrollment.findFirst({
+        where: {
+          memberId: targetMemberId,
+          status: { in: ['ACTIVE', 'PENDING_APPROVAL'] },
+          classId: { not: klass.id },
+          class: { deletedAt: null },
+        },
+        include: { class: { select: { name: true, year: true } } },
+      });
+      if (concurrent) {
+        throw new BadRequestException(
+          `Este catequizando já está matriculado (ou aguardando aprovação) na ${concurrent.class.name} (${concurrent.class.year}) — fale com a coordenação para transferir`,
+        );
+      }
+
       // Batismo: para etapas que não são de Batismo, a ausência vira pendência
       let pendingDocuments: string | null = null;
       if (klass.stage.sacramentType !== SacramentType.BAPTISM) {
@@ -824,6 +875,16 @@ export class CatechesisService {
     await this.assertClassOperationalAccess(enrollment.class.id, user);
     if (enrollment.status !== 'PENDING_APPROVAL') {
       throw new BadRequestException('Esta inscrição não está aguardando aprovação');
+    }
+
+    // Pode ter sido matriculado noutra turma enquanto a inscrição aguardava
+    const concurrentActive = await this.findConcurrentEnrollment(enrollment.memberId, [
+      enrollment.class.id,
+    ]);
+    if (concurrentActive) {
+      throw new BadRequestException(
+        `Este catequizando já está matriculado na ${concurrentActive.class.name} (${concurrentActive.class.year}) — recuse esta inscrição ou transfira-o de turma`,
+      );
     }
 
     const updated = await this.prisma.catechesisEnrollment.update({
@@ -1064,6 +1125,17 @@ export class CatechesisService {
         }
       }
       for (const enrollment of source) {
+        // Já caminhando em outra turma (fora origem/destino)? Pula no lote.
+        const concurrent = await tx.catechesisEnrollment.findFirst({
+          where: {
+            memberId: enrollment.memberId,
+            status: { in: ['ACTIVE', 'PENDING_APPROVAL'] },
+            classId: { notIn: [classId, target.id] },
+            class: { deletedAt: null },
+          },
+          select: { id: true },
+        });
+        if (concurrent) continue;
         const pendingDocuments =
           requiresBaptism && !baptizedIds.has(enrollment.memberId) ? 'Certidão de Batismo' : null;
         const existing = await tx.catechesisEnrollment.findUnique({
