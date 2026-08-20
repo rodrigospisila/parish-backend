@@ -1877,6 +1877,91 @@ export class CatechesisService {
     return assessment;
   }
 
+  /**
+   * Parecer em LOTE: o mesmo período/conceito/texto para vários catequizandos
+   * de uma vez (ex.: fechamento de semestre). Upsert por matrícula — quem já
+   * tem parecer no período recebe o texto novo.
+   */
+  async upsertAssessmentsBatch(
+    classId: string,
+    dto: { period: string; rating?: string; notes: string; enrollmentIds: string[] },
+    user: CurrentUser,
+  ) {
+    const period = dto.period?.trim();
+    const notes = dto.notes?.trim();
+    if (!period || period.length < 3 || period.length > 60) {
+      throw new BadRequestException('Informe o período (ex.: "1º semestre 2026")');
+    }
+    if (!notes || notes.length < 5 || notes.length > 2000) {
+      throw new BadRequestException('O parecer deve ter entre 5 e 2000 caracteres');
+    }
+    let rating: CatechesisRating | null = null;
+    if (dto.rating) {
+      if (!Object.values(CatechesisRating).includes(dto.rating as CatechesisRating)) {
+        throw new BadRequestException('Conceito inválido');
+      }
+      rating = dto.rating as CatechesisRating;
+    }
+    const ids = [...new Set(dto.enrollmentIds ?? [])];
+    if (!ids.length) throw new BadRequestException('Selecione ao menos um catequizando');
+    if (ids.length > 100) throw new BadRequestException('No máximo 100 catequizandos por vez');
+
+    await this.assertClassOperationalAccess(classId, user);
+
+    // Todas as matrículas precisam ser DESTA turma, efetivas e de membros vivos
+    const enrollments = await this.prisma.catechesisEnrollment.findMany({
+      where: {
+        id: { in: ids },
+        classId,
+        status: { in: ['ACTIVE', 'COMPLETED'] },
+        member: { deletedAt: null },
+      },
+      include: {
+        member: { select: { fullName: true, userId: true, responsible: { select: { userId: true } } } },
+      },
+    });
+    if (enrollments.length !== ids.length) {
+      throw new BadRequestException('Uma ou mais matrículas não pertencem a esta turma (ou não estão ativas/concluídas)');
+    }
+
+    await this.prisma.$transaction(
+      enrollments.map((enrollment) =>
+        this.prisma.catechesisAssessment.upsert({
+          where: { enrollmentId_period: { enrollmentId: enrollment.id, period } },
+          create: { enrollmentId: enrollment.id, period, rating, notes, createdById: user.id },
+          update: { rating, notes },
+        }),
+      ),
+    );
+
+    await this.auditService.log({
+      actor: this.auditActor(user),
+      action: 'UPDATE',
+      entity: 'CatechesisAssessmentBatch',
+      entityId: classId,
+      metadata: { period, count: enrollments.length },
+    });
+
+    // Cada família recebe o aviso do próprio catequizando (best-effort)
+    try {
+      for (const enrollment of enrollments) {
+        const userIds = this.guardianUserIds(enrollment.member);
+        if (!userIds.length) continue;
+        await this.notificationsService.notifyUsers(
+          userIds,
+          NotificationType.CATECHESIS,
+          'Parecer da catequese disponível 📝',
+          `O catequista registrou o parecer de ${enrollment.member.fullName} (${period}) — veja no acompanhamento da família.`,
+          { kind: 'assessment', enrollmentId: enrollment.id },
+        );
+      }
+    } catch (error) {
+      // Aviso é conveniência
+    }
+
+    return { saved: enrollments.length };
+  }
+
   /** Pareceres da matrícula — equipe da turma OU a própria família. */
   async listAssessments(enrollmentId: string, user: CurrentUser) {
     await this.loadEnrollmentForDocument(enrollmentId, user);

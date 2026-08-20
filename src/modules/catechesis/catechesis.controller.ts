@@ -122,6 +122,16 @@ export class CatechesisController {
     return this.service.listAssessments(id, req.user);
   }
 
+  // Parecer em lote para a turma (equipe — service valida)
+  @Post('classes/:id/assessments')
+  upsertAssessmentsBatch(
+    @Param('id') id: string,
+    @Body() dto: { period: string; rating?: string; notes: string; enrollmentIds: string[] },
+    @Request() req: any,
+  ) {
+    return this.service.upsertAssessmentsBatch(id, dto, req.user);
+  }
+
   // Taxa de material (coordenação registra; equipe consulta)
   @Post('classes/:id/fees')
   @Roles(UserRole.PASTORAL_COORDINATOR)
