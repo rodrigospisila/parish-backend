@@ -207,6 +207,10 @@ export class PdfService {
         }
 
         if (input.footer) {
+          // Zera a margem inferior ao desenhar o rodapé: texto abaixo dela faz
+          // o pdfkit abrir uma página nova em branco (quebra automática).
+          const savedBottomMargin = doc.page.margins.bottom;
+          doc.page.margins.bottom = 0;
           doc
             .font('Helvetica')
             .fontSize(8)
@@ -214,7 +218,9 @@ export class PdfService {
             .text(input.footer, CERT_MARGIN, height - CERT_MARGIN + 14, {
               width: contentWidth,
               align: 'center',
+              lineBreak: false,
             });
+          doc.page.margins.bottom = savedBottomMargin;
         }
         doc.fillColor('#000000');
       });
