@@ -1591,6 +1591,7 @@ model CatechesisSession {
 
   createdAt DateTime @default(now())
 
+  @@unique([classId, date])
   @@index([classId])
   @@map("catechesis_sessions")
 }

@@ -94,17 +94,33 @@ export class PdfService {
         this.renderRow(doc, section.columns, widths, true);
 
         for (const row of section.rows) {
-          this.renderRow(doc, row, widths, false);
+          // Quebra de página no meio da tabela repete o cabeçalho de colunas
+          this.renderRow(doc, row, widths, false, section.columns);
         }
 
         doc.moveDown(1);
       }
 
+      // Rodapé em TODAS as páginas, abaixo da área útil das linhas (sem sobrepor
+      // a última linha — ensureSpace deixa as linhas irem até height - margin).
       if (input.footer) {
-        doc.font('Helvetica').fontSize(8).fillColor('#777777').text(input.footer, PAGE_MARGIN, doc.page.height - PAGE_MARGIN - 12, {
-          width: contentWidth,
-          align: 'right',
-        });
+        const range = doc.bufferedPageRange();
+        for (let i = range.start; i < range.start + range.count; i++) {
+          doc.switchToPage(i);
+          const savedBottomMargin = doc.page.margins.bottom;
+          doc.page.margins.bottom = 0;
+          doc
+            .font('Helvetica')
+            .fontSize(8)
+            .fillColor('#777777')
+            .text(input.footer, PAGE_MARGIN, doc.page.height - PAGE_MARGIN + 12, {
+              width: contentWidth,
+              align: 'right',
+              lineBreak: false,
+            });
+          doc.page.margins.bottom = savedBottomMargin;
+        }
+        doc.fillColor('#000000');
       }
 
       doc.end();
@@ -238,7 +254,13 @@ export class PdfService {
     return proportions.map((value) => (value / total) * contentWidth);
   }
 
-  private renderRow(doc: PDFKit.PDFDocument, cells: string[], widths: number[], isHeader: boolean) {
+  private renderRow(
+    doc: PDFKit.PDFDocument,
+    cells: string[],
+    widths: number[],
+    isHeader: boolean,
+    headerCells?: string[],
+  ) {
     doc.font(isHeader ? 'Helvetica-Bold' : 'Helvetica').fontSize(9);
 
     const rowHeight =
@@ -249,7 +271,11 @@ export class PdfService {
         10,
       ) + ROW_PADDING * 2;
 
-    this.ensureSpace(doc, rowHeight);
+    const pageBroke = this.ensureSpace(doc, rowHeight);
+    if (pageBroke && headerCells) {
+      this.renderRow(doc, headerCells, widths, true);
+      doc.font('Helvetica').fontSize(9);
+    }
 
     const startY = doc.y;
     let x = PAGE_MARGIN;
@@ -282,10 +308,13 @@ export class PdfService {
     doc.y = startY + rowHeight;
   }
 
-  private ensureSpace(doc: PDFKit.PDFDocument, needed: number) {
+  /** Abre página nova se o bloco não couber; retorna true quando quebrou. */
+  private ensureSpace(doc: PDFKit.PDFDocument, needed: number): boolean {
     const bottom = doc.page.height - PAGE_MARGIN;
     if (doc.y + needed > bottom) {
       doc.addPage();
+      return true;
     }
+    return false;
   }
 }

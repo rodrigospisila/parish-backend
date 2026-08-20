@@ -1343,7 +1343,7 @@ export class CatechesisService {
       where: { id: enrollmentId },
       include: {
         member: {
-          select: { id: true, fullName: true, userId: true, responsible: { select: { userId: true } } },
+          select: { id: true, fullName: true, userId: true, deletedAt: true, responsible: { select: { userId: true } } },
         },
         class: {
           include: {
@@ -1354,7 +1354,10 @@ export class CatechesisService {
         attendances: { select: { present: true } },
       },
     });
-    if (!enrollment) throw new NotFoundException('Matrícula não encontrada');
+    // Membro soft-deletado (direito de eliminação LGPD) não emite mais documentos
+    if (!enrollment || enrollment.member.deletedAt) {
+      throw new NotFoundException('Matrícula não encontrada');
+    }
 
     const isFamily = this.guardianUserIds(enrollment.member).includes(user.id);
     if (!isFamily) {
@@ -1410,7 +1413,7 @@ export class CatechesisService {
   async generateClassCertificates(classId: string, user: CurrentUser): Promise<Buffer> {
     const klass = await this.assertClassOperationalAccess(classId, user);
     const completed = await this.prisma.catechesisEnrollment.findMany({
-      where: { classId, status: 'COMPLETED' },
+      where: { classId, status: 'COMPLETED', member: { deletedAt: null } },
       include: {
         member: { select: { fullName: true } },
         class: {
@@ -1450,7 +1453,7 @@ export class CatechesisService {
   async generateClassRoster(classId: string, user: CurrentUser): Promise<Buffer> {
     const klass = await this.assertClassOperationalAccess(classId, user);
     const enrollments = await this.prisma.catechesisEnrollment.findMany({
-      where: { classId, status: { in: ['ACTIVE', 'PENDING_APPROVAL'] } },
+      where: { classId, status: { in: ['ACTIVE', 'PENDING_APPROVAL'] }, member: { deletedAt: null } },
       include: {
         member: {
           select: {
@@ -1563,6 +1566,7 @@ export class CatechesisService {
     if (!raw.length) throw new BadRequestException('Informe as datas dos encontros');
     if (raw.length > 100) throw new BadRequestException('No máximo 100 encontros por geração');
 
+    const currentYear = new Date().getFullYear();
     const dates: Date[] = [];
     for (const value of raw) {
       const parsed = new Date(value);
@@ -1573,20 +1577,36 @@ export class CatechesisService {
       ) {
         throw new BadRequestException(`Data inválida: ${value} — use AAAA-MM-DD`);
       }
+      const year = parsed.getUTCFullYear();
+      if (year < currentYear - 1 || year > currentYear + 2) {
+        throw new BadRequestException(
+          `Data fora da janela permitida (${currentYear - 1} a ${currentYear + 2}): ${value}`,
+        );
+      }
       dates.push(parsed);
     }
     dates.sort((a, b) => a.getTime() - b.getTime());
 
+    // Dedup por DIA CIVIL: encontros legados podem ter hora embutida (pré-Fase 3)
+    // e igualdade exata de timestamp não os casaria, dobrando o dia na agenda.
+    const rangeStart = dates[0];
+    const rangeEnd = new Date(dates[dates.length - 1].getTime() + 24 * 60 * 60 * 1000);
     const existing = await this.prisma.catechesisSession.findMany({
-      where: { classId, date: { in: dates } },
+      where: { classId, date: { gte: rangeStart, lt: rangeEnd } },
       select: { date: true },
     });
-    const existingTimes = new Set(existing.map((session) => session.date.getTime()));
-    const toCreate = dates.filter((date) => !existingTimes.has(date.getTime()));
+    const existingDays = new Set(existing.map((session) => session.date.toISOString().slice(0, 10)));
+    const toCreate = dates.filter((date) => !existingDays.has(date.toISOString().slice(0, 10)));
 
+    // Teto por turma: freio de flood de linhas/push (agenda real cabe folgada)
     if (toCreate.length) {
+      const sessionCount = await this.prisma.catechesisSession.count({ where: { classId } });
+      if (sessionCount + toCreate.length > 500) {
+        throw new BadRequestException('Limite de encontros da turma atingido — fale com o suporte');
+      }
       await this.prisma.catechesisSession.createMany({
         data: toCreate.map((date) => ({ classId, date })),
+        skipDuplicates: true,
       });
     }
 
@@ -1598,8 +1618,11 @@ export class CatechesisService {
       metadata: { created: toCreate.length, skipped: dates.length - toCreate.length },
     });
 
-    // Um único aviso-resumo às famílias (best-effort)
-    if (toCreate.length) {
+    // Um único aviso-resumo às famílias (best-effort) — e só para agendas com
+    // datas de HOJE em diante: lançamento retroativo (backfill de chamadas) não
+    // deve anunciar "encontros agendados" que já passaram.
+    const upcoming = toCreate.filter((date) => date.getTime() >= this.startOfTodayUtc().getTime());
+    if (upcoming.length) {
       try {
         const enrollments = await this.prisma.catechesisEnrollment.findMany({
           where: { classId, status: 'ACTIVE' },
@@ -1609,13 +1632,13 @@ export class CatechesisService {
         });
         const userIds = [...new Set(enrollments.flatMap((e) => this.guardianUserIds(e.member)))];
         if (userIds.length) {
-          const first = this.formatDayLabel(toCreate[0]);
-          const last = this.formatDayLabel(toCreate[toCreate.length - 1]);
+          const first = this.formatDayLabel(upcoming[0]);
+          const last = this.formatDayLabel(upcoming[upcoming.length - 1]);
           await this.notificationsService.notifyUsers(
             userIds,
             NotificationType.CATECHESIS,
             'Agenda da catequese publicada 📅',
-            `${klass.name}: ${toCreate.length} encontro(s) agendado(s) de ${first} a ${last}${klass.time ? `, às ${klass.time}` : ''}.`,
+            `${klass.name}: ${upcoming.length} encontro(s) agendado(s) de ${first} a ${last}${klass.time ? `, às ${klass.time}` : ''}.`,
             { kind: 'agenda', classId },
           );
         }
