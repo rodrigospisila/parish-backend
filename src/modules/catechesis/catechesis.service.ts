@@ -1937,9 +1937,16 @@ export class CatechesisService {
     let document;
     try {
       document = await this.prisma.$transaction(async (tx) => {
-        // Freio de flood: teto de documentos por matrícula (linhas de até 8MB)
-        const count = await tx.catechesisDocument.count({ where: { enrollmentId } });
-        if (count >= 20) {
+        // Freio de flood: o que pesa são os binários (SUBMITTED, até 8MB cada);
+        // conferidos/recusados já não têm arquivo e não travam a matrícula
+        const submittedCount = await tx.catechesisDocument.count({
+          where: { enrollmentId, status: 'SUBMITTED' },
+        });
+        if (submittedCount >= 10) {
+          throw new BadRequestException('Há 10 documentos aguardando conferência nesta matrícula — aguarde a coordenação conferir antes de enviar mais');
+        }
+        const totalCount = await tx.catechesisDocument.count({ where: { enrollmentId } });
+        if (totalCount >= 100) {
           throw new BadRequestException('Limite de documentos desta matrícula atingido — fale com a coordenação');
         }
         await tx.catechesisDocument.deleteMany({
