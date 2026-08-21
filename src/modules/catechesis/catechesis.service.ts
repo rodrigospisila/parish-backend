@@ -1443,6 +1443,7 @@ export class CatechesisService {
           select: { id: true, kind: true, status: true, reviewNotes: true, createdAt: true },
           orderBy: { createdAt: 'desc' },
         },
+        _count: { select: { assessments: true } },
       },
       orderBy: { enrolledAt: 'desc' },
     });
@@ -1490,6 +1491,7 @@ export class CatechesisService {
         status: enrollment.status,
         pendingDocuments: enrollment.pendingDocuments,
         documents: enrollment.documents,
+        assessmentsCount: enrollment._count.assessments,
         attendanceRate: total ? Math.round((present / total) * 100) : null,
         sessions: total,
         class: {
@@ -2318,6 +2320,22 @@ export class CatechesisService {
     }
 
     return { saved: enrollments.length };
+  }
+
+  /** Frequência detalhada da matrícula (por encontro) — equipe OU família. */
+  async getEnrollmentAttendance(enrollmentId: string, user: CurrentUser) {
+    await this.loadEnrollmentForDocument(enrollmentId, user);
+    const attendances = await this.prisma.catechesisAttendance.findMany({
+      where: { enrollmentId },
+      include: { session: { select: { date: true, topic: true } } },
+      orderBy: { session: { date: 'desc' } },
+    });
+    return attendances.map((attendance) => ({
+      date: attendance.session.date,
+      topic: attendance.session.topic,
+      present: attendance.present,
+      late: attendance.late,
+    }));
   }
 
   /** Pareceres da matrícula — equipe da turma OU a própria família. */

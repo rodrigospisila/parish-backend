@@ -125,6 +125,12 @@ export class CatechesisController {
     return this.service.listDocuments(id, req.user);
   }
 
+  // Frequência detalhada por encontro (família ou equipe — service valida)
+  @Get('enrollments/:id/attendance')
+  enrollmentAttendance(@Param('id') id: string, @Request() req: any) {
+    return this.service.getEnrollmentAttendance(id, req.user);
+  }
+
   @Get('documents/:id/file')
   async documentFile(@Param('id') id: string, @Res() res: Response, @Request() req: any) {
     const file = await this.service.getDocumentFile(id, req.user);
