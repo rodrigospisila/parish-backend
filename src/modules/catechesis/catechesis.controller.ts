@@ -93,6 +93,27 @@ export class CatechesisController {
     this.sendPdf(res, buffer, 'declaracao-matricula.pdf');
   }
 
+  // Corrigir/excluir encontro (equipe da turma — service valida)
+  @Patch('sessions/:id')
+  updateSession(
+    @Param('id') id: string,
+    @Body() dto: { date?: string; topic?: string },
+    @Request() req: any,
+  ) {
+    return this.service.updateSession(id, dto, req.user);
+  }
+
+  @Delete('sessions/:id')
+  deleteSession(@Param('id') id: string, @Request() req: any) {
+    return this.service.deleteSession(id, req.user);
+  }
+
+  // Aviso direcionado a UMA família (equipe da turma — service valida)
+  @Post('enrollments/:id/notify')
+  notifyFamily(@Param('id') id: string, @Body() body: { message: string }, @Request() req: any) {
+    return this.service.notifyEnrollmentFamily(id, body?.message, req.user);
+  }
+
   // Agenda do ano em lote (equipe da turma — service valida)
   @Post('classes/:id/generate-sessions')
   generateSessions(@Param('id') id: string, @Body() body: { dates: string[] }, @Request() req: any) {

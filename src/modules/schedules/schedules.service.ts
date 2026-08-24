@@ -1085,6 +1085,19 @@ export class SchedulesService {
       }
     }
 
+    // Casal escalado JUNTO na mesma escala: exposto para a UI rotular o par
+    {
+      const scheduledMemberIds = new Set(
+        (schedule.assignments as any[]).map((a) => a.member?.id).filter(Boolean),
+      );
+      for (const assignment of schedule.assignments as any[]) {
+        assignment.coupleWith =
+          assignment.member?.spouseId && scheduledMemberIds.has(assignment.member.spouseId)
+            ? assignment.member.spouse?.fullName ?? null
+            : null;
+      }
+    }
+
     return this.normalizeSchedulePayload(schedule);
   }
 
@@ -3037,8 +3050,9 @@ export class SchedulesService {
       };
     }
 
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
+    // Dia civil local em meia-noite UTC — compatível com datas date-only
+    const now = new Date();
+    const today = new Date(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()));
 
     // Buscar escalas futuras
     const upcomingAssignments = await this.prisma.scheduleAssignment.findMany({
@@ -3137,6 +3151,23 @@ export class SchedulesService {
         .map((membership) => membership.pastoralGroupId!),
     );
 
+    // Cônjuge escalado nas MESMAS escalas → badge "servindo em casal"
+    const coupleScheduleIds = new Set<string>();
+    let spouseName: string | null = null;
+    if ((member as any).spouseId) {
+      const scheduleIds = [...upcomingAssignments, ...pastAssignments].map((a) => a.scheduleId);
+      if (scheduleIds.length) {
+        const spouseAssignments = await this.prisma.scheduleAssignment.findMany({
+          where: { memberId: (member as any).spouseId, scheduleId: { in: scheduleIds } },
+          select: { scheduleId: true, member: { select: { fullName: true } } },
+        });
+        for (const sa of spouseAssignments) {
+          coupleScheduleIds.add(sa.scheduleId);
+          spouseName = sa.member.fullName;
+        }
+      }
+    }
+
     return {
       memberId: member.id,
       memberName: member.fullName,
@@ -3146,6 +3177,7 @@ export class SchedulesService {
         status: a.status,
         checkedIn: a.checkedIn,
         checkedInAt: a.checkedInAt,
+        coupleWith: coupleScheduleIds.has(a.scheduleId) ? spouseName : null,
         pastoralGroup: (a as any).pastoralGroup ?? null,
         isGroupLeader: Boolean(
           (a as any).pastoralGroupId && leaderGroupIds.has((a as any).pastoralGroupId),

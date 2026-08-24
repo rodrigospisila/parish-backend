@@ -823,7 +823,7 @@ export class CatechesisService {
         }
         const enrollment = await tx.catechesisEnrollment.update({
           where: { id: existing.id },
-          data: { status: 'PENDING_APPROVAL', pendingDocuments },
+          data: { status: 'PENDING_APPROVAL', pendingDocuments, rejectionReason: null },
         });
         return { enrollment, targetMemberId };
       }
@@ -952,7 +952,7 @@ export class CatechesisService {
 
     const updated = await this.prisma.catechesisEnrollment.update({
       where: { id: enrollmentId },
-      data: { status: 'REJECTED' },
+      data: { status: 'REJECTED', rejectionReason: reason?.trim() || null },
     });
 
     // LGPD: se o menor foi CADASTRADO por esta inscrição online (criado junto
@@ -1239,6 +1239,105 @@ export class CatechesisService {
     return session;
   }
 
+  /** Corrige data/tema de um encontro criado por engano. */
+  async updateSession(
+    sessionId: string,
+    dto: { date?: string; topic?: string },
+    user: CurrentUser,
+  ) {
+    const session = await this.prisma.catechesisSession.findUnique({
+      where: { id: sessionId },
+      include: { class: { select: { id: true } } },
+    });
+    if (!session) throw new NotFoundException('Encontro não encontrado');
+    await this.assertClassOperationalAccess(session.class.id, user);
+
+    const data: { date?: Date; topic?: string | null } = {};
+    if (dto.date !== undefined) {
+      const parsed = new Date(dto.date);
+      if (
+        !/^\d{4}-\d{2}-\d{2}$/.test(String(dto.date)) ||
+        Number.isNaN(parsed.getTime()) ||
+        parsed.toISOString().slice(0, 10) !== dto.date
+      ) {
+        throw new BadRequestException('Data inválida — use AAAA-MM-DD');
+      }
+      data.date = parsed;
+    }
+    if (dto.topic !== undefined) {
+      data.topic = dto.topic?.trim().slice(0, 120) || null;
+    }
+    if (!Object.keys(data).length) {
+      throw new BadRequestException('Informe a data e/ou o tema');
+    }
+    try {
+      const updated = await this.prisma.catechesisSession.update({
+        where: { id: sessionId },
+        data,
+      });
+      await this.auditService.log({
+        actor: this.auditActor(user),
+        action: 'UPDATE',
+        entity: 'CatechesisSession',
+        entityId: sessionId,
+        metadata: { date: dto.date, topic: dto.topic },
+      });
+      return updated;
+    } catch (error: any) {
+      if (error?.code === 'P2002') {
+        throw new BadRequestException('Já existe um encontro nesta data');
+      }
+      throw error;
+    }
+  }
+
+  /** Exclui um encontro (a chamada dele cai junto — cascade). */
+  async deleteSession(sessionId: string, user: CurrentUser) {
+    const session = await this.prisma.catechesisSession.findUnique({
+      where: { id: sessionId },
+      include: { class: { select: { id: true } }, _count: { select: { attendances: true } } },
+    });
+    if (!session) throw new NotFoundException('Encontro não encontrado');
+    await this.assertClassOperationalAccess(session.class.id, user);
+    await this.prisma.catechesisSession.delete({ where: { id: sessionId } });
+    await this.auditService.log({
+      actor: this.auditActor(user),
+      action: 'DELETE',
+      entity: 'CatechesisSession',
+      entityId: sessionId,
+      metadata: { date: session.date, attendances: session._count.attendances },
+    });
+    return { deleted: true };
+  }
+
+  /** Aviso direcionado a UMA família (não à turma inteira). */
+  async notifyEnrollmentFamily(enrollmentId: string, message: string, user: CurrentUser) {
+    const text = message?.trim();
+    if (!text || text.length < 3 || text.length > 500) {
+      throw new BadRequestException('Escreva o aviso (até 500 caracteres)');
+    }
+    const enrollment = await this.loadEnrollmentForTeam(enrollmentId, user);
+    const userIds = this.guardianUserIds(enrollment.member);
+    if (!userIds.length) {
+      return { notified: 0 };
+    }
+    await this.notificationsService.notifyUsers(
+      userIds,
+      NotificationType.CATECHESIS,
+      `Aviso da catequese — ${enrollment.class.name}`,
+      text,
+      { kind: 'family-message', enrollmentId },
+    );
+    await this.auditService.log({
+      actor: this.auditActor(user),
+      action: 'CREATE',
+      entity: 'CatechesisFamilyNotice',
+      entityId: enrollmentId,
+      metadata: { length: text.length },
+    });
+    return { notified: userIds.length };
+  }
+
   async markAttendance(
     sessionId: string,
     entries: Array<{ enrollmentId: string; present: boolean; late?: boolean }>,
@@ -1507,6 +1606,17 @@ export class CatechesisService {
       feesByClass.set(fee.classId, list);
     }
 
+    // Matrículas efetivas primeiro; recusadas ficam por último (histórico)
+    const statusOrder: Record<string, number> = {
+      ACTIVE: 0,
+      PENDING_APPROVAL: 1,
+      COMPLETED: 2,
+      REJECTED: 3,
+    };
+    enrollments.sort(
+      (a, b) => (statusOrder[a.status] ?? 9) - (statusOrder[b.status] ?? 9),
+    );
+
     return enrollments.map((enrollment) => {
       const total = enrollment.attendances.length;
       const present = enrollment.attendances.filter((a) => a.present).length;
@@ -1518,6 +1628,7 @@ export class CatechesisService {
         },
         status: enrollment.status,
         pendingDocuments: enrollment.pendingDocuments,
+        rejectionReason: enrollment.rejectionReason,
         documents: enrollment.documents,
         assessmentsCount: enrollment._count.assessments,
         attendanceRate: total ? Math.round((present / total) * 100) : null,
@@ -2707,7 +2818,14 @@ export class CatechesisService {
       // Membro soft-deletado (direito de eliminação) não aparece nem conta
       where: { classId, member: { deletedAt: null } },
       include: {
-        member: { select: { id: true, fullName: true } },
+        member: {
+          select: {
+            id: true,
+            fullName: true,
+            phone: true,
+            responsible: { select: { fullName: true, phone: true } },
+          },
+        },
         attendances: {
           // Frequência = encontros já ocorridos; agenda futura não dilui o %
           where: { session: { date: { lte: this.startOfTodayUtc() } } },
@@ -2722,9 +2840,16 @@ export class CatechesisService {
       const present = e.attendances.filter((a) => a.present).length;
       return {
         enrollmentId: e.id,
-        member: e.member,
+        member: { id: e.member.id, fullName: e.member.fullName },
+        // Contato para a equipe da turma (mesmo dado da lista em PDF)
+        contact: e.member.responsible
+          ? { name: e.member.responsible.fullName, phone: e.member.responsible.phone ?? null }
+          : e.member.phone
+            ? { name: null, phone: e.member.phone }
+            : null,
         status: e.status,
         pendingDocuments: e.pendingDocuments,
+        rejectionReason: e.rejectionReason,
         submittedDocs: e.documents.filter((doc) => doc.status === 'SUBMITTED').length,
         docsCount: e.documents.length,
         attendanceRate: total ? Math.round((present / total) * 100) : null,

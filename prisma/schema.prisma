@@ -1566,6 +1566,7 @@ model CatechesisEnrollment {
 
   status           CatechesisEnrollmentStatus @default(ACTIVE)
   pendingDocuments String?
+  rejectionReason  String? // motivo da recusa, visível à família no app
   enrolledAt       DateTime                   @default(now())
   completedAt      DateTime?
 
