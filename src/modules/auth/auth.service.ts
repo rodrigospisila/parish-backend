@@ -97,9 +97,18 @@ export class AuthService {
     const now = new Date();
 
     // Usar transação para criar User e Member juntos
+    // Escopo GEOGRÁFICO derivado da comunidade: sem isso o perfil mostra
+    // "Paróquia: Não informada" e o seletor de comunidade abre vazio
+    const communityScope = communityId
+      ? await this.prisma.community.findUnique({
+          where: { id: communityId },
+          select: { parishId: true, parish: { select: { dioceseId: true } } },
+        })
+      : null;
+
     const result = await this.prisma.$transaction(async (tx) => {
-      // Criar usuário — sempre FAITHFUL e sem escopo administrativo
-      // (dioceseId/parishId são atribuídos apenas pela gestão via /users)
+      // Criar usuário — sempre FAITHFUL e sem escopo administrativo de GESTÃO
+      // (o papel continua FAITHFUL; parishId/dioceseId aqui são localização)
       const user = await tx.user.create({
         data: {
           email,
@@ -108,6 +117,8 @@ export class AuthService {
           phone,
           role: UserRole.FAITHFUL,
           communityId,
+          parishId: communityScope?.parishId ?? null,
+          dioceseId: communityScope?.parish?.dioceseId ?? null,
           acceptedTermsAt: acceptedTerms ? now : null,
           acceptedTermsVersion: acceptedTerms ? CURRENT_POLICY_VERSION : null,
         },

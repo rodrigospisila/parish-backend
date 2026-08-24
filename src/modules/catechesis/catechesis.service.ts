@@ -293,7 +293,14 @@ export class CatechesisService {
     await this.assertClassOperationalAccess(classId, user);
     const sessions = await this.prisma.catechesisSession.findMany({
       where: { classId },
-      include: { attendances: { select: { present: true, late: true } } },
+      include: {
+        attendances: {
+          // Badge alinhado ao modal da chamada: só matrículas ATIVAS de
+          // membros vivos (registros históricos/excluídos não inflam o X/Y)
+          where: { enrollment: { status: 'ACTIVE', member: { deletedAt: null } } },
+          select: { present: true, late: true },
+        },
+      },
       orderBy: { date: 'desc' },
     });
     return sessions.map((session) => ({
@@ -317,7 +324,8 @@ export class CatechesisService {
 
     const [enrollments, attendances] = await Promise.all([
       this.prisma.catechesisEnrollment.findMany({
-        where: { classId: session.class.id, status: 'ACTIVE' },
+        // Membro soft-deletado (direito de eliminação) não aparece na chamada
+        where: { classId: session.class.id, status: 'ACTIVE', member: { deletedAt: null } },
         include: { member: { select: { id: true, fullName: true } } },
         orderBy: { member: { fullName: 'asc' } },
       }),
@@ -1260,7 +1268,7 @@ export class CatechesisService {
     // Estado anterior: aviso de falta só quando a marcação MUDA para ausente
     const previous = await this.prisma.catechesisAttendance.findMany({
       where: { sessionId, enrollmentId: { in: requestedIds } },
-      select: { enrollmentId: true, present: true },
+      select: { enrollmentId: true, present: true, late: true },
     });
     const previousByEnrollment = new Map(previous.map((a) => [a.enrollmentId, a.present]));
 
@@ -1281,6 +1289,23 @@ export class CatechesisService {
         });
       }),
     );
+
+    // Chamada é sobrescrevível por qualquer catequista da turma — a auditoria
+    // registra quem gravou e o antes/depois (sem isso a sobrescrita é invisível)
+    await this.auditService.log({
+      actor: this.auditActor(user),
+      action: 'UPDATE',
+      entity: 'CatechesisSessionAttendance',
+      entityId: sessionId,
+      before: { entries: previous },
+      after: {
+        entries: entries.map((entry) => ({
+          enrollmentId: entry.enrollmentId,
+          present: entry.present || entry.late === true,
+          late: entry.late === true,
+        })),
+      },
+    });
 
     // Aviso de falta só para encontros de HOJE/futuros — backfill de chamadas
     // históricas não deve gerar rajada de pushes com datas antigas.
@@ -1438,7 +1463,10 @@ export class CatechesisService {
             community: { select: { id: true, name: true } },
           },
         },
-        attendances: { select: { present: true, late: true } },
+        attendances: {
+          where: { session: { date: { lte: this.startOfTodayUtc() } } },
+          select: { present: true, late: true },
+        },
         documents: {
           select: { id: true, kind: true, status: true, reviewNotes: true, createdAt: true },
           orderBy: { createdAt: 'desc' },
@@ -1595,7 +1623,10 @@ export class CatechesisService {
             community: { include: { parish: { select: { name: true } } } },
           },
         },
-        attendances: { select: { present: true } },
+        attendances: {
+          where: { session: { date: { lte: this.startOfTodayUtc() } } },
+          select: { present: true },
+        },
       },
     });
     // Membro soft-deletado (direito de eliminação LGPD) não emite mais documentos
@@ -2677,7 +2708,11 @@ export class CatechesisService {
       where: { classId, member: { deletedAt: null } },
       include: {
         member: { select: { id: true, fullName: true } },
-        attendances: { select: { present: true } },
+        attendances: {
+          // Frequência = encontros já ocorridos; agenda futura não dilui o %
+          where: { session: { date: { lte: this.startOfTodayUtc() } } },
+          select: { present: true },
+        },
         documents: { select: { status: true } },
       },
     });
