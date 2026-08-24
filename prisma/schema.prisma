@@ -1712,6 +1712,10 @@ model CatechesisAttendance {
   // Presente com atraso (conta como presença; marcação para o acompanhamento)
   late         Boolean              @default(false)
 
+  // Quem marcou/alterou por último (auditoria leve de presença)
+  markedById String?
+  updatedAt  DateTime @updatedAt
+
   @@unique([sessionId, enrollmentId])
   @@index([sessionId])
   @@index([enrollmentId])

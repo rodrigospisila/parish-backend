@@ -331,14 +331,31 @@ export class CatechesisService {
       }),
       this.prisma.catechesisAttendance.findMany({
         where: { sessionId },
-        select: { enrollmentId: true, present: true, late: true },
+        select: { enrollmentId: true, present: true, late: true, markedById: true, updatedAt: true },
       }),
     ]);
     const byEnrollment = new Map(attendances.map((a) => [a.enrollmentId, a]));
+
+    // Última marcação: quem fez a chamada e quando (auditoria leve visível)
+    let lastMarked: { byName: string | null; at: Date } | null = null;
+    if (attendances.length) {
+      const latest = attendances.reduce((max, a) => (a.updatedAt > max.updatedAt ? a : max));
+      let byName: string | null = null;
+      if (latest.markedById) {
+        const author = await this.prisma.user.findUnique({
+          where: { id: latest.markedById },
+          select: { name: true },
+        });
+        byName = author?.name ?? null;
+      }
+      lastMarked = { byName, at: latest.updatedAt };
+    }
+
     return {
       sessionId,
       date: session.date,
       topic: session.topic,
+      lastMarked,
       students: enrollments.map((enrollment) => ({
         enrollmentId: enrollment.id,
         member: enrollment.member,
@@ -1324,7 +1341,7 @@ export class CatechesisService {
               NotificationType.CATECHESIS,
               'Encontro remarcado 📅',
               `${session.class.name}: o encontro de ${this.formatDayLabel(session.date)} mudou para ${this.formatDayLabel(updated.date)}${session.class.time ? ` às ${session.class.time}` : ''}.`,
-              { kind: 'session-moved', sessionId },
+              { kind: 'session-moved', sessionId, classId: session.classId },
             );
           }
         } catch (error) {
@@ -1458,8 +1475,8 @@ export class CatechesisService {
         }
         return this.prisma.catechesisAttendance.upsert({
           where: { sessionId_enrollmentId: { sessionId, enrollmentId: entry.enrollmentId } },
-          create: { sessionId, enrollmentId: entry.enrollmentId, present, late },
-          update: { present, late },
+          create: { sessionId, enrollmentId: entry.enrollmentId, present, late, markedById: user.id },
+          update: { present, late, markedById: user.id },
         });
       }),
     );
@@ -1661,10 +1678,14 @@ export class CatechesisService {
       select: { classId: true, date: true, topic: true },
     });
     const nextByClass = new Map<string, { date: Date; topic: string | null }>();
+    const agendaByClass = new Map<string, Array<{ date: Date; topic: string | null }>>();
     for (const session of nextSessions) {
       if (!nextByClass.has(session.classId)) {
         nextByClass.set(session.classId, { date: session.date, topic: session.topic });
       }
+      const agenda = agendaByClass.get(session.classId) ?? [];
+      if (agenda.length < 12) agenda.push({ date: session.date, topic: session.topic });
+      agendaByClass.set(session.classId, agenda);
     }
 
     // Taxas de material das turmas + situação de cada matrícula (Fase 5)
@@ -1720,6 +1741,9 @@ export class CatechesisService {
         },
         nextSession:
           enrollment.status === 'REJECTED' ? null : nextByClass.get(enrollment.classId) ?? null,
+        // Agenda dos próximos encontros da turma (até 12) para a família
+        upcomingSessions:
+          enrollment.status === 'ACTIVE' ? agendaByClass.get(enrollment.classId) ?? [] : [],
         // Taxas só para matrículas efetivas (pendente/recusada não deve cobrança)
         fees:
           enrollment.status === 'ACTIVE' || enrollment.status === 'COMPLETED'
@@ -1731,6 +1755,9 @@ export class CatechesisService {
                   amount: fee.amount,
                   dueDate: fee.dueDate,
                   status: payment ? (payment.waived ? 'WAIVED' : 'PAID') : 'PENDING',
+                  paymentId: payment?.id ?? null,
+                  paidAt: payment?.paidAt ?? null,
+                  method: payment?.method ?? null,
                 };
               })
             : [],
@@ -2647,6 +2674,7 @@ export class CatechesisService {
           amount: payment?.amount ?? null,
           method: payment?.method ?? null,
           paidAt: payment?.paidAt ?? null,
+          paymentId: payment?.id ?? null,
         };
       });
       // Pagamentos de quem saiu da matriz (transferido/desistente) ficam
@@ -2769,6 +2797,236 @@ export class CatechesisService {
       // Aviso é conveniência
     }
     return payment;
+  }
+
+  /** Recibo do pagamento da taxa (PDF) — família do catequizando ou equipe. */
+  async generateFeeReceipt(paymentId: string, user: CurrentUser): Promise<Buffer> {
+    const payment = await this.prisma.catechesisFeePayment.findUnique({
+      where: { id: paymentId },
+      include: {
+        fee: { include: { class: { include: { community: { include: { parish: { select: { name: true } } } } } } } },
+        enrollment: {
+          include: {
+            member: {
+              select: { fullName: true, userId: true, deletedAt: true, responsible: { select: { userId: true } } },
+            },
+          },
+        },
+      },
+    });
+    if (!payment || payment.enrollment.member.deletedAt) {
+      throw new NotFoundException('Pagamento não encontrado');
+    }
+    if (payment.waived) {
+      throw new BadRequestException('Isenção não gera recibo');
+    }
+    const isFamily = this.guardianUserIds(payment.enrollment.member).includes(user.id);
+    if (!isFamily) {
+      await this.assertClassOperationalAccess(payment.fee.class.id, user);
+    }
+    await this.auditService.log({
+      actor: this.auditActor(user),
+      action: 'EXPORT',
+      entity: 'CatechesisFeePayment',
+      entityId: paymentId,
+      metadata: { receipt: true },
+    });
+    const paidAt = payment.paidAt.toLocaleDateString('pt-BR', { timeZone: 'America/Sao_Paulo' });
+    return this.pdfService.renderCertificateDocument({
+      title: 'Recibo de Pagamento',
+      organization: payment.fee.class.community.parish.name,
+      subtitle: `Catequese — ${payment.fee.class.name}`,
+      orientation: 'portrait',
+      pages: [
+        {
+          recipientName: payment.enrollment.member.fullName,
+          bodyParagraphs: [
+            `Recebemos o valor de R$ ${payment.amount.toFixed(2).replace('.', ',')}`,
+            `referente a "${payment.fee.description}",`,
+            `pago em ${paidAt}${payment.method ? ` (${payment.method})` : ''}.`,
+            `Recibo nº ${payment.id.slice(-8).toUpperCase()}`,
+          ],
+          signatureLines: ['Coordenação da Catequese'],
+        },
+      ],
+      footer: `Emitido pelo Parish em ${new Date().toLocaleDateString('pt-BR', { timeZone: 'America/Sao_Paulo' })}`,
+    });
+  }
+
+  /** Exportação CSV das taxas da turma (conferência financeira). */
+  async exportClassFeesCsv(classId: string, user: CurrentUser): Promise<string> {
+    const fees = await this.getClassFees(classId, user);
+    const lines = ['taxa;valor;catequizando;situacao;valor_pago;forma;data'];
+    for (const fee of fees) {
+      for (const student of fee.students) {
+        lines.push(
+          [
+            fee.description,
+            fee.amount.toFixed(2).replace('.', ','),
+            student.fullName,
+            student.status === 'PAID' ? 'Pago' : student.status === 'WAIVED' ? 'Isento' : 'Pendente',
+            student.amount != null ? student.amount.toFixed(2).replace('.', ',') : '',
+            student.method ?? '',
+            student.paidAt ? new Date(student.paidAt).toLocaleDateString('pt-BR', { timeZone: 'America/Sao_Paulo' }) : '',
+          ]
+            .map((cell) => String(cell).replace(/;/g, ','))
+            .join(';'),
+        );
+      }
+    }
+    await this.auditService.log({
+      actor: this.auditActor(user),
+      action: 'EXPORT',
+      entity: 'CatechesisClassFees',
+      entityId: classId,
+      metadata: { rows: lines.length - 1 },
+    });
+    return '\uFEFF' + lines.join('\r\n');
+  }
+
+  /** Planejamento de temas em lote: define o tema de vários encontros de uma vez. */
+  async updateSessionTopics(
+    classId: string,
+    items: Array<{ sessionId: string; topic: string }>,
+    user: CurrentUser,
+  ) {
+    await this.assertClassOperationalAccess(classId, user);
+    const clean = (items ?? [])
+      .map((item) => ({ sessionId: item.sessionId, topic: (item.topic ?? '').trim().slice(0, 120) }))
+      .filter((item) => item.sessionId);
+    if (!clean.length) throw new BadRequestException('Informe os temas');
+    if (clean.length > 100) throw new BadRequestException('No máximo 100 encontros por vez');
+
+    const ids = clean.map((item) => item.sessionId);
+    const sessions = await this.prisma.catechesisSession.findMany({
+      where: { id: { in: ids }, classId },
+      select: { id: true },
+    });
+    if (sessions.length !== ids.length) {
+      throw new BadRequestException('Um ou mais encontros não pertencem a esta turma');
+    }
+    await this.prisma.$transaction(
+      clean.map((item) =>
+        this.prisma.catechesisSession.update({
+          where: { id: item.sessionId },
+          data: { topic: item.topic || null },
+        }),
+      ),
+    );
+    await this.auditService.log({
+      actor: this.auditActor(user),
+      action: 'UPDATE',
+      entity: 'CatechesisSessionTopics',
+      entityId: classId,
+      metadata: { count: clean.length },
+    });
+    return { updated: clean.length };
+  }
+
+  /** Avisos já ENVIADOS às famílias da turma (histórico do catequista). */
+  async listSentNotices(classId: string, user: CurrentUser) {
+    await this.assertClassOperationalAccess(classId, user);
+    const enrollmentIds = (
+      await this.prisma.catechesisEnrollment.findMany({
+        where: { classId },
+        select: { id: true },
+      })
+    ).map((e) => e.id);
+
+    // Notificações persistidas: turma inteira (kind message/agenda) ou por
+    // família (family-message) — agrupadas por conteúdo+minuto (1 envio = N linhas)
+    const notices = await this.prisma.notification.findMany({
+      where: {
+        type: NotificationType.CATECHESIS,
+        AND: [{ data: { path: ['classId'], equals: classId } }],
+      },
+      select: { title: true, body: true, createdAt: true, data: true },
+      orderBy: { createdAt: 'desc' },
+      take: 400,
+    });
+    // family-message de todas as matrículas da turma
+    const familyNotices = enrollmentIds.length
+      ? await this.prisma.notification.findMany({
+          where: {
+            type: NotificationType.CATECHESIS,
+            AND: [{ data: { path: ['kind'], equals: 'family-message' } }],
+            createdAt: { gte: new Date(Date.now() - 1000 * 60 * 60 * 24 * 180) },
+          },
+          select: { title: true, body: true, createdAt: true, data: true },
+          orderBy: { createdAt: 'desc' },
+          take: 400,
+        })
+      : [];
+    const enrollmentSet = new Set(enrollmentIds);
+    const all = [
+      ...notices,
+      ...familyNotices.filter((n) => enrollmentSet.has(((n.data as any) ?? {}).enrollmentId)),
+    ];
+    const seen = new Set<string>();
+    const grouped: Array<{ title: string; body: string; sentAt: Date; kind: string }> = [];
+    for (const notice of all) {
+      const key = `${notice.title}|${notice.body}|${notice.createdAt.toISOString().slice(0, 16)}`;
+      if (seen.has(key)) continue;
+      seen.add(key);
+      grouped.push({
+        title: notice.title,
+        body: notice.body,
+        sentAt: notice.createdAt,
+        kind: ((notice.data as any) ?? {}).kind ?? 'aviso',
+      });
+    }
+    grouped.sort((a, b) => b.sentAt.getTime() - a.sentAt.getTime());
+    return grouped.slice(0, 100);
+  }
+
+  /** Panorama da catequese da COMUNIDADE: pendências consolidadas entre turmas. */
+  async getCommunityOverview(user: CurrentUser, communityId?: string) {
+    const targetCommunityId = communityId ?? user.communityId;
+    if (!targetCommunityId) throw new BadRequestException('Informe a comunidade');
+    await this.assertCommunityScope(targetCommunityId, user);
+
+    const classes = await this.prisma.catechesisClass.findMany({
+      where: { communityId: targetCommunityId, deletedAt: null, status: 'ACTIVE' },
+      include: {
+        stage: { select: { name: true } },
+        enrollments: {
+          where: { member: { deletedAt: null } },
+          select: {
+            status: true,
+            pendingDocuments: true,
+            documents: { where: { status: 'SUBMITTED' }, select: { id: true } },
+          },
+        },
+        sessions: {
+          where: { date: { lte: this.startOfTodayUtc() } },
+          select: { id: true, date: true, _count: { select: { attendances: true } } },
+          orderBy: { date: 'desc' },
+          take: 10,
+        },
+        fees: { include: { payments: { select: { enrollmentId: true } } } },
+      },
+      orderBy: { name: 'asc' },
+    });
+
+    return classes.map((klass) => {
+      const active = klass.enrollments.filter((e) => e.status === 'ACTIVE');
+      const activeCount = active.length;
+      const feesPending = klass.fees.reduce((sum, fee) => {
+        const payers = new Set(fee.payments.map((payment) => payment.enrollmentId));
+        return sum + Math.max(0, activeCount - [...payers].length);
+      }, 0);
+      return {
+        classId: klass.id,
+        name: klass.name,
+        stage: klass.stage.name,
+        active: activeCount,
+        pendingApproval: klass.enrollments.filter((e) => e.status === 'PENDING_APPROVAL').length,
+        documentsToReview: klass.enrollments.reduce((sum, e) => sum + e.documents.length, 0),
+        pendingDocumentsCount: active.filter((e) => e.pendingDocuments).length,
+        pastSessionsWithoutAttendance: klass.sessions.filter((sess) => sess._count.attendances === 0).length,
+        feesPendingCount: feesPending,
+      };
+    });
   }
 
   // ===== VISÃO DIOCESANA (Fase 5) =====

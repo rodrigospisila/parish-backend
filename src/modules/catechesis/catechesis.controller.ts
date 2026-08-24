@@ -223,6 +223,47 @@ export class CatechesisController {
     return this.service.recordFeePayment(id, dto, req.user);
   }
 
+  // Recibo do pagamento da taxa (família ou equipe — service valida)
+  @Get('fees/payments/:id/receipt.pdf')
+  async feeReceipt(@Param('id') id: string, @Res() res: Response, @Request() req: any) {
+    const buffer = await this.service.generateFeeReceipt(id, req.user);
+    this.sendPdf(res, buffer, 'recibo-taxa.pdf');
+  }
+
+  // Exportação financeira das taxas da turma (CSV)
+  @Get('classes/:id/fees/export.csv')
+  async feesCsv(@Param('id') id: string, @Res() res: Response, @Request() req: any) {
+    const csv = await this.service.exportClassFeesCsv(id, req.user);
+    res.set({
+      'Content-Type': 'text/csv; charset=utf-8',
+      'Content-Disposition': 'attachment; filename="taxas-turma.csv"',
+    });
+    res.end(csv);
+  }
+
+  // Planejamento de temas em lote (equipe — service valida)
+  @Post('classes/:id/sessions/topics')
+  updateTopics(
+    @Param('id') id: string,
+    @Body() body: { items: Array<{ sessionId: string; topic: string }> },
+    @Request() req: any,
+  ) {
+    return this.service.updateSessionTopics(id, body?.items, req.user);
+  }
+
+  // Histórico de avisos enviados às famílias (equipe — service valida)
+  @Get('classes/:id/sent-notices')
+  sentNotices(@Param('id') id: string, @Request() req: any) {
+    return this.service.listSentNotices(id, req.user);
+  }
+
+  // Panorama da comunidade: pendências consolidadas entre turmas (coordenação)
+  @Get('community-overview')
+  @Roles(UserRole.PASTORAL_COORDINATOR)
+  communityOverview(@Request() req: any, @Query('communityId') communityId?: string) {
+    return this.service.getCommunityOverview(req.user, communityId);
+  }
+
   // Visão diocesana: catequizandos por paróquia/etapa
   @Get('diocese-overview')
   @Roles(UserRole.DIOCESAN_ADMIN)
