@@ -1247,7 +1247,10 @@ export class CatechesisService {
   ) {
     const session = await this.prisma.catechesisSession.findUnique({
       where: { id: sessionId },
-      include: { class: { select: { id: true } } },
+      include: {
+        class: { select: { id: true, name: true, time: true } },
+        _count: { select: { attendances: true } },
+      },
     });
     if (!session) throw new NotFoundException('Encontro não encontrado');
     await this.assertClassOperationalAccess(session.class.id, user);
@@ -1270,6 +1273,28 @@ export class CatechesisService {
     if (!Object.keys(data).length) {
       throw new BadRequestException('Informe a data e/ou o tema');
     }
+
+    const movingDate = data.date && data.date.getTime() !== session.date.getTime();
+
+    // Mover encontro COM chamada mexe na frequência (o % só conta encontros
+    // já ocorridos) — decisão de coordenação, não de auxiliar
+    if (movingDate && session._count.attendances > 0 && !this.isCoordinatorRole(user.role)) {
+      throw new ForbiddenException(
+        'Este encontro já tem chamada feita — apenas a coordenação pode mudar a data',
+      );
+    }
+
+    // Duplicata por DIA CIVIL (encontros legados podem ter hora embutida)
+    if (movingDate) {
+      const dayStart = data.date!;
+      const dayEnd = new Date(dayStart.getTime() + 24 * 60 * 60 * 1000);
+      const clash = await this.prisma.catechesisSession.findFirst({
+        where: { classId: session.class.id, id: { not: sessionId }, date: { gte: dayStart, lt: dayEnd } },
+        select: { id: true },
+      });
+      if (clash) throw new BadRequestException('Já existe um encontro nesta data');
+    }
+
     try {
       const updated = await this.prisma.catechesisSession.update({
         where: { id: sessionId },
@@ -1280,8 +1305,32 @@ export class CatechesisService {
         action: 'UPDATE',
         entity: 'CatechesisSession',
         entityId: sessionId,
-        metadata: { date: dto.date, topic: dto.topic },
+        before: { date: session.date, topic: session.topic },
+        after: { date: dto.date ?? session.date, topic: dto.topic ?? session.topic },
       });
+
+      // Encontro FUTURO remarcado: as famílias foram avisadas da data original
+      // no createSession — avisa a mudança (best-effort)
+      if (movingDate && updated.date.getTime() >= this.startOfTodayUtc().getTime()) {
+        try {
+          const enrollments = await this.prisma.catechesisEnrollment.findMany({
+            where: { classId: session.class.id, status: 'ACTIVE', member: { deletedAt: null } },
+            select: { member: { select: { userId: true, responsible: { select: { userId: true } } } } },
+          });
+          const userIds = [...new Set(enrollments.flatMap((e) => this.guardianUserIds(e.member)))];
+          if (userIds.length) {
+            await this.notificationsService.notifyUsers(
+              userIds,
+              NotificationType.CATECHESIS,
+              'Encontro remarcado 📅',
+              `${session.class.name}: o encontro de ${this.formatDayLabel(session.date)} mudou para ${this.formatDayLabel(updated.date)}${session.class.time ? ` às ${session.class.time}` : ''}.`,
+              { kind: 'session-moved', sessionId },
+            );
+          }
+        } catch (error) {
+          // Aviso é conveniência
+        }
+      }
       return updated;
     } catch (error: any) {
       if (error?.code === 'P2002') {
@@ -1295,17 +1344,29 @@ export class CatechesisService {
   async deleteSession(sessionId: string, user: CurrentUser) {
     const session = await this.prisma.catechesisSession.findUnique({
       where: { id: sessionId },
-      include: { class: { select: { id: true } }, _count: { select: { attendances: true } } },
+      include: {
+        class: { select: { id: true } },
+        attendances: { select: { enrollmentId: true, present: true, late: true } },
+      },
     });
     if (!session) throw new NotFoundException('Encontro não encontrado');
     await this.assertClassOperationalAccess(session.class.id, user);
+
+    // Excluir encontro com chamada apaga presenças/faltas reais (frequência
+    // alimenta conclusão/sacramento) — só a coordenação, e com snapshot no audit
+    if (session.attendances.length > 0 && !this.isCoordinatorRole(user.role)) {
+      throw new ForbiddenException(
+        'Este encontro já tem chamada feita — apenas a coordenação pode excluí-lo',
+      );
+    }
+
     await this.prisma.catechesisSession.delete({ where: { id: sessionId } });
     await this.auditService.log({
       actor: this.auditActor(user),
       action: 'DELETE',
       entity: 'CatechesisSession',
       entityId: sessionId,
-      metadata: { date: session.date, attendances: session._count.attendances },
+      before: { date: session.date, attendances: session.attendances },
     });
     return { deleted: true };
   }
@@ -1321,6 +1382,20 @@ export class CatechesisService {
     if (!userIds.length) {
       return { notified: 0 };
     }
+
+    // Freio de spam/custo (push→e-mail→SMS): no máximo 5 avisos/dia por família
+    const sentToday = await this.prisma.notification.count({
+      where: {
+        userId: { in: userIds },
+        type: NotificationType.CATECHESIS,
+        createdAt: { gte: this.startOfTodayUtc() },
+        AND: [{ data: { path: ['kind'], equals: 'family-message' } }],
+      },
+    });
+    if (sentToday >= 5 * userIds.length) {
+      throw new BadRequestException('Limite de avisos do dia para esta família atingido');
+    }
+
     await this.notificationsService.notifyUsers(
       userIds,
       NotificationType.CATECHESIS,
@@ -1333,7 +1408,7 @@ export class CatechesisService {
       action: 'CREATE',
       entity: 'CatechesisFamilyNotice',
       entityId: enrollmentId,
-      metadata: { length: text.length },
+      metadata: { length: text.length, notifiedUserIds: userIds },
     });
     return { notified: userIds.length };
   }

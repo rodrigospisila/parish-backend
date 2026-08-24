@@ -1085,14 +1085,21 @@ export class SchedulesService {
       }
     }
 
-    // Casal escalado JUNTO na mesma escala: exposto para a UI rotular o par
+    // Casal escalado JUNTO na mesma escala: exposto para a UI rotular o par.
+    // Quem recusou/expirou não está 'servindo' — fica fora do par.
     {
+      const activeStatuses = new Set(['PENDING', 'CONFIRMED']);
       const scheduledMemberIds = new Set(
-        (schedule.assignments as any[]).map((a) => a.member?.id).filter(Boolean),
+        (schedule.assignments as any[])
+          .filter((a) => activeStatuses.has(a.status))
+          .map((a) => a.member?.id)
+          .filter(Boolean),
       );
       for (const assignment of schedule.assignments as any[]) {
         assignment.coupleWith =
-          assignment.member?.spouseId && scheduledMemberIds.has(assignment.member.spouseId)
+          activeStatuses.has(assignment.status) &&
+          assignment.member?.spouseId &&
+          scheduledMemberIds.has(assignment.member.spouseId)
             ? assignment.member.spouse?.fullName ?? null
             : null;
       }
@@ -3158,7 +3165,11 @@ export class SchedulesService {
       const scheduleIds = [...upcomingAssignments, ...pastAssignments].map((a) => a.scheduleId);
       if (scheduleIds.length) {
         const spouseAssignments = await this.prisma.scheduleAssignment.findMany({
-          where: { memberId: (member as any).spouseId, scheduleId: { in: scheduleIds } },
+          where: {
+            memberId: (member as any).spouseId,
+            scheduleId: { in: scheduleIds },
+            status: { in: ['PENDING', 'CONFIRMED'] },
+          },
           select: { scheduleId: true, member: { select: { fullName: true } } },
         });
         for (const sa of spouseAssignments) {
@@ -3200,6 +3211,7 @@ export class SchedulesService {
         status: a.status,
         checkedIn: a.checkedIn,
         checkedInAt: a.checkedInAt,
+        coupleWith: coupleScheduleIds.has(a.scheduleId) ? spouseName : null,
         schedule: {
           id: a.schedule.id,
           title: a.schedule.title,
