@@ -2231,6 +2231,7 @@ export class SchedulesService {
     if (!candidateIds.length) {
       return {
         scheduleId: schedule.id,
+        startTime: (schedule as any).startTime ?? null,
         title: schedule.title,
         date: schedule.date,
         event: eventSummary,
@@ -3522,6 +3523,7 @@ export class SchedulesService {
 
       return {
         scheduleId: schedule.id,
+        startTime: (schedule as any).startTime ?? null,
         title: schedule.title,
         date: schedule.date,
         event: normalizedSchedule.event,
