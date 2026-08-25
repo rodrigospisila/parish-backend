@@ -244,7 +244,7 @@ export class TitheService {
     // Trocar a CHAVE é a operação sensível (desvio de dízimo): exige a senha
     // atual de quem está logado, mesmo com token válido
     const keyChanged = (pixKey ?? null) !== (current.pixKey ?? null) || (pixKeyType ?? null) !== (current.pixKeyType ?? null);
-    if (keyChanged && current.pixKey) {
+    if (keyChanged) {
       const password = (dto.currentPassword ?? '').trim();
       if (!password) throw new BadRequestException('Informe sua senha atual para trocar a chave Pix');
       const account = await this.prisma.user.findUnique({ where: { id: user.id }, select: { password: true } });
@@ -273,10 +273,11 @@ export class TitheService {
         },
       });
       let cancelled = 0;
-      if (receiverChanged || disabling) {
+      // Só a chave muda o destino do dinheiro; nome/cidade no BR Code são cosméticos
+      if (keyChanged || disabling) {
         const result = await tx.titheIntent.updateMany({
           where: { parishId: target, status: 'CREATED' },
-          data: { status: 'CANCELLED', note: disabling && !receiverChanged ? 'Dízimo pelo app desativado pela paróquia' : KEY_CHANGED_NOTE },
+          data: { status: 'CANCELLED', note: disabling && !keyChanged ? 'Dízimo pelo app desativado pela paróquia' : KEY_CHANGED_NOTE },
         });
         cancelled = result.count;
       }
@@ -511,21 +512,15 @@ export class TitheService {
   async getIntent(id: string, user: CurrentUser) {
     const { intent } = await this.loadOwnIntent(id, user);
     if (intent.status === 'CREATED') {
-      // O código é recalculado a partir da configuração ATUAL da paróquia; se a
-      // chave mudou (ou o dízimo foi desativado), o Pix antigo é encerrado
+      // A CHAVE embutida no código precisa ser a chave atual da paróquia (e o
+      // dízimo precisa estar ativo); nome/cidade antigos não invalidam o Pix
       const parish = await this.prisma.parish.findUnique({ where: { id: intent.parishId }, select: this.parishConfigSelect });
-      const usable = !!parish?.titheEnabled && !!parish.pixKey && !!parish.pixMerchantName && !!parish.pixMerchantCity;
-      const fresh = usable
-        ? buildPixBrCode({
-            key: parish!.pixKey!,
-            merchantName: parish!.pixMerchantName!,
-            merchantCity: parish!.pixMerchantCity!,
-            amount: intent.amount,
-            txid: intent.txid,
-            description: `${intent.kind === 'TITHE' ? 'Dizimo' : 'Oferta'} ${intent.referenceMonth}`,
-          })
-        : null;
-      if (!fresh || fresh !== intent.brCode) {
+      const usable = this.parishUsable(parish);
+      const code = intent.brCode ?? '';
+      const match = /BR\.GOV\.BCB\.PIX01(\d{2})/i.exec(code);
+      const embeddedKey = match ? code.slice(match.index + match[0].length, match.index + match[0].length + Number(match[1])) : '';
+      const sameKey = usable && embeddedKey.toLowerCase() === (parish!.pixKey ?? '').toLowerCase();
+      if (!usable || !sameKey) {
         await this.prisma.titheIntent.updateMany({
           where: { id, status: 'CREATED' },
           data: { status: 'CANCELLED', note: usable ? KEY_CHANGED_NOTE : 'Dízimo pelo app desativado pela paróquia' },
@@ -592,7 +587,7 @@ export class TitheService {
           recipients.map((u) => u.id),
           NotificationType.TITHE,
           'Pix de dízimo a conferir',
-          `${safeName(member.fullName)} informou um Pix de R$ ${intent.amount.toFixed(2).replace('.', ',')} (${intent.referenceMonth}, id ${intent.txid}). Confira no extrato e confirme no Financeiro.`,
+          `${intent.anonymous ? 'Um fiel (oferta anônima)' : safeName(member.fullName)} informou um Pix de R$ ${intent.amount.toFixed(2).replace('.', ',')} (${intent.referenceMonth}, id ${intent.txid}). Confira no extrato e confirme no Financeiro.`,
           { kind: 'tithe-declared', intentId: id },
         );
       }
@@ -676,6 +671,7 @@ export class TitheService {
       status: i.status,
       txid: i.txid,
       note: i.note,
+      canReopen: i.status === 'CANCELLED' && i.note !== SELF_CANCEL_NOTE,
       contestNote: i.contestNote ?? null,
       contestedAt: i.contestedAt ?? null,
       declaredAt: i.declaredAt,
@@ -716,7 +712,10 @@ export class TitheService {
     if (intent.status === 'CANCELLED') throw new BadRequestException('Este Pix foi cancelado');
     // Data do pagamento = dia em que caiu no extrato (date-only, 00:00Z), com
     // fallback no dia em que o fiel avisou — não o instante da conferência
-    const toCivilDay = (value: Date) => new Date(Date.UTC(value.getUTCFullYear(), value.getUTCMonth(), value.getUTCDate()));
+    const toCivilDay = (value: Date) => {
+      const day = new Intl.DateTimeFormat('sv-SE', { timeZone: 'America/Sao_Paulo', year: 'numeric', month: '2-digit', day: '2-digit' }).format(value);
+      return new Date(`${day}T00:00:00.000Z`);
+    };
     let paidAt: Date;
     if (dto.date) {
       const raw = String(dto.date).slice(0, 10);
@@ -856,8 +855,11 @@ export class TitheService {
   /** Tesouraria reabre um Pix que ela mesma encerrou (achou no extrato depois). */
   async reopenIntent(id: string, user: CurrentUser) {
     const intent = await this.loadIntentForFinance(id, user);
-    if (!cancelledByTreasury(intent)) {
-      throw new BadRequestException('Só é possível reabrir um Pix encerrado pela tesouraria');
+    // Qualquer encerramento que não seja do próprio fiel pode ser reaberto pela
+    // tesouraria (não localizado, expirado, chave trocada): o código pago no
+    // banco continua válido e precisa de um caminho de conciliação
+    if (intent.status !== 'CANCELLED' || intent.note === SELF_CANCEL_NOTE) {
+      throw new BadRequestException('Só é possível reabrir um Pix encerrado pela tesouraria ou pelo sistema');
     }
     const moved = await this.prisma.titheIntent.updateMany({
       where: { id, status: 'CANCELLED' },
@@ -904,7 +906,7 @@ export class TitheService {
           recipients,
           NotificationType.TITHE,
           'Pix contestado pelo fiel',
-          `${safeName(member.fullName)} diz que pagou o Pix de R$ ${intent.amount.toFixed(2).replace('.', ',')} (id ${intent.txid}): "${note}". Confira de novo no Financeiro.`,
+          `${intent.anonymous ? 'Um fiel (oferta anônima)' : safeName(member.fullName)} diz que pagou o Pix de R$ ${intent.amount.toFixed(2).replace('.', ',')} (id ${intent.txid}): "${note}". Confira de novo no Financeiro.`,
           { kind: 'tithe-contested', intentId: id },
         );
       }
@@ -947,8 +949,11 @@ export class TitheService {
     const member = await this.resolveMember(user);
     const parish = await this.parishFor(member.community.parishId);
     if (!this.parishUsable(parish)) throw new BadRequestException('Sua paróquia ainda não ativou o dízimo pelo app');
-    const registration = await this.ensureRegistration(member.id);
-    const txid = `DZ${registration}`.slice(0, 25);
+    // Identificador estável e imutável (derivado do membro): não cria dizimista
+    // nem mexe no nº de registro que a secretaria controla
+    const tither = await this.prisma.tither.findUnique({ where: { memberId: member.id }, select: { registrationNumber: true } });
+    const registration = tither?.registrationNumber ?? null;
+    const txid = `DZ${member.id.slice(-12).toUpperCase().replace(/[^A-Z0-9]/g, '')}`.slice(0, 25);
     const brCode = buildPixBrCode({
       key: parish!.pixKey!,
       merchantName: parish!.pixMerchantName!,
@@ -969,7 +974,7 @@ export class TitheService {
       logo: await this.fetchLogo(parish?.logoUrl),
       title: 'Meu Pix do Dízimo',
       organization: parish?.name ?? 'Paróquia',
-      subtitle: `Dizimista nº ${qr.registrationNumber}`,
+      subtitle: qr.registrationNumber ? `Dizimista nº ${qr.registrationNumber}` : `Identificador ${qr.txid}`,
       orientation: 'portrait',
       pages: [
         {
@@ -1121,8 +1126,15 @@ export class TitheService {
       select: { fullName: true, community: { select: { name: true, parish: { select: { name: true, logoUrl: true } } } }, tither: { select: { registrationNumber: true, contributions: { where: { referenceMonth: { startsWith: `${year}-` } }, orderBy: { referenceMonth: 'asc' } } } } },
     });
     if (!member) throw new NotFoundException('Membro não encontrado');
+    // Pela tesouraria, ofertas anônimas ficam fora (o txid permitiria desanonimizar)
     const offerings = await this.prisma.titheIntent.findMany({
-      where: { memberId: targetMemberId, kind: 'OFFERING', status: 'CONFIRMED', referenceMonth: { startsWith: `${year}-` } },
+      where: {
+        memberId: targetMemberId,
+        kind: 'OFFERING',
+        status: 'CONFIRMED',
+        referenceMonth: { startsWith: `${year}-` },
+        ...(memberId ? { anonymous: false } : {}),
+      },
       orderBy: { confirmedAt: 'asc' },
       select: { referenceMonth: true, amount: true, amountPaid: true, confirmedAt: true, txid: true },
     });
@@ -1155,7 +1167,7 @@ export class TitheService {
       subtitle: `${safeName(member.fullName)}${member.tither?.registrationNumber ? ` · dizimista nº ${member.tither.registrationNumber}` : ''} · ${member.community.name} — ${member.community.parish.name}`,
       sections: [{ columns: ['Referência', 'Tipo', 'Valor', 'Meio', 'Data', 'Comprovante'], widths: [1.1, 1, 1, 1.2, 1, 1.6], rows }],
       signatureLines: ['Tesouraria Paroquial'],
-      footer: 'Declaração para fins de acompanhamento pessoal — dízimo não é dedutível no Imposto de Renda. Emitido pelo Parish.',
+      footer: `${memberId ? 'Ofertas anônimas não constam. ' : ''}Declaração para fins de acompanhamento pessoal — dízimo não é dedutível no Imposto de Renda. Emitido pelo Parish.`,
     });
   }
 
@@ -1171,6 +1183,8 @@ export class TitheService {
     if (!intent || intent.member.deletedAt) throw new NotFoundException('Pix não encontrado');
     const isOwner = intent.member.userId === user.id;
     if (!isOwner) await this.loadIntentForFinance(id, user);
+    // Oferta anônima: o comprovante identifica o doador — só ele pode emitir
+    if (intent.anonymous && !isOwner) throw new ForbiddenException('Comprovante de oferta anônima só para quem doou');
     if (intent.status !== 'CONFIRMED') throw new BadRequestException('Comprovante só após a confirmação da tesouraria');
     await this.auditService.log({
       actor: this.auditActor(user),
@@ -1179,7 +1193,7 @@ export class TitheService {
       entityId: id,
       metadata: { receipt: true },
     });
-    const money = `R$ ${intent.amount.toFixed(2).replace('.', ',')}`;
+    const money = `R$ ${(intent.amountPaid ?? intent.amount).toFixed(2).replace('.', ',')}`;
     const day = (value: Date | null) =>
       value ? value.toLocaleDateString('pt-BR', { timeZone: 'America/Sao_Paulo' }) : '—';
     let logo: Buffer | null = null;
