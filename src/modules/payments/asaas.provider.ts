@@ -9,6 +9,8 @@ import {
   ProviderAuthorization,
   ProviderCharge,
   ProviderCredentials,
+  ProviderSetupInput,
+  ProviderSetupResult,
   ProviderSubscription,
   ProviderWebhookEvent,
   WebhookRequest,
@@ -65,7 +67,7 @@ export class AsaasProvider implements PaymentProvider {
     this.base = BASE[credentials.env];
   }
 
-  private async request<T>(method: 'GET' | 'POST' | 'DELETE', path: string, body?: unknown): Promise<T> {
+  private async request<T>(method: 'GET' | 'POST' | 'PUT' | 'DELETE', path: string, body?: unknown): Promise<T> {
     const headers: Record<string, string> = {
       access_token: this.credentials.apiKey,
       'User-Agent': USER_AGENT,
@@ -129,6 +131,7 @@ export class AsaasProvider implements PaymentProvider {
       netValue: typeof payment.netValue === 'number' ? payment.netValue : null,
       paidAt: payment.clientPaymentDate ?? payment.paymentDate ?? null,
       subscriptionRef: payment.subscription ?? null,
+      customerRef: payment.customer ?? null,
       dueDate: payment.dueDate ?? null,
       raw: payment,
     };
@@ -226,7 +229,8 @@ export class AsaasProvider implements PaymentProvider {
         status: auth.status ?? 'CREATED',
         qrPayload: auth.payload ?? auth.immediateQrCode?.payload ?? null,
         qrImageBase64: auth.encodedImage ?? auth.immediateQrCode?.encodedImage ?? null,
-        expiresAt: auth.immediateQrCode?.expirationDate ?? null,
+        // O sandbox não devolve a validade do QR imediato: assume os 24h pedidos
+        expiresAt: auth.immediateQrCode?.expirationDate ?? new Date(Date.now() + 86400 * 1000).toISOString(),
         firstPaymentRef: auth.immediateQrCode?.paymentId ?? auth.paymentId ?? null,
         raw: auth,
       };
@@ -281,6 +285,82 @@ export class AsaasProvider implements PaymentProvider {
       subscriptionRef: auth?.subscriptionId ?? auth?.subscription?.id ?? (typeof auth?.subscription === 'string' ? auth.subscription : null),
       raw: auth,
     };
+  }
+
+  /** Eventos que o Parish precisa receber. */
+  static readonly WEBHOOK_EVENTS = [
+    'PAYMENT_CREATED',
+    'PAYMENT_UPDATED',
+    'PAYMENT_CONFIRMED',
+    'PAYMENT_RECEIVED',
+    'PAYMENT_OVERDUE',
+    'PAYMENT_DELETED',
+    'PAYMENT_REFUNDED',
+    'PIX_AUTOMATIC_RECURRING_AUTHORIZATION_CREATED',
+    'PIX_AUTOMATIC_RECURRING_AUTHORIZATION_ACTIVATED',
+    'PIX_AUTOMATIC_RECURRING_AUTHORIZATION_CANCELLED',
+    'PIX_AUTOMATIC_RECURRING_AUTHORIZATION_EXPIRED',
+    'PIX_AUTOMATIC_RECURRING_AUTHORIZATION_REFUSED',
+  ];
+
+  /**
+   * Deixa a conta pronta para o Parish (idempotente): sem chave Pix ativa o
+   * Asaas responde "Chave Pix não encontrada" ao gerar QR; o webhook é
+   * cadastrado/atualizado com a URL da paróquia e o token atual.
+   */
+  async ensureSetup(input: ProviderSetupInput): Promise<ProviderSetupResult> {
+    const notes: string[] = [];
+    // 1) chave Pix (aleatória/EVP)
+    let pixKey: string | null = null;
+    let pixKeyReady = false;
+    try {
+      const keys = await this.request<{ data?: Array<{ key?: string; status?: string }> }>('GET', '/pix/addressKeys?limit=20');
+      const active = (keys?.data ?? []).find((k) => k.status === 'ACTIVE');
+      if (active) {
+        pixKey = active.key ?? null;
+        pixKeyReady = true;
+      } else {
+        const pending = (keys?.data ?? []).find((k) => k.status === 'AWAITING_ACTIVATION' || k.status === 'AWAITING_ACCOUNT_DELETION');
+        if (!pending) {
+          const created = await this.request<{ key?: string; status?: string }>('POST', '/pix/addressKeys', { type: 'EVP' });
+          pixKey = created?.key ?? null;
+          pixKeyReady = created?.status === 'ACTIVE';
+          notes.push(pixKeyReady ? 'Chave Pix aleatória criada na conta Asaas' : 'Chave Pix aleatória solicitada — o Asaas ativa em instantes');
+        } else {
+          pixKey = pending.key ?? null;
+          notes.push('Chave Pix ainda em ativação no Asaas');
+        }
+      }
+    } catch (error) {
+      notes.push(`Chave Pix: ${String((error as Error)?.message ?? error).slice(0, 160)}`);
+    }
+    // 2) webhook
+    let webhookRegistered = false;
+    let webhookId: string | null = null;
+    try {
+      const list = await this.request<{ data?: Array<{ id: string; url?: string }> }>('GET', '/webhooks?limit=50');
+      const existing = (list?.data ?? []).find((w) => w.url === input.webhookUrl);
+      const body = {
+        name: 'Parish — dízimo',
+        url: input.webhookUrl,
+        email: input.contactEmail,
+        enabled: true,
+        interrupted: false,
+        apiVersion: 3,
+        authToken: input.webhookToken,
+        sendType: 'SEQUENTIALLY',
+        events: AsaasProvider.WEBHOOK_EVENTS,
+      };
+      const saved = existing
+        ? await this.request<{ id: string }>('PUT', `/webhooks/${encodeURIComponent(existing.id)}`, body)
+        : await this.request<{ id: string }>('POST', '/webhooks', body);
+      webhookId = saved?.id ?? existing?.id ?? null;
+      webhookRegistered = !!webhookId;
+      notes.push(existing ? 'Webhook do Asaas atualizado com o token atual' : 'Webhook cadastrado no Asaas');
+    } catch (error) {
+      notes.push(`Webhook: ${String((error as Error)?.message ?? error).slice(0, 160)}`);
+    }
+    return { pixKeyReady, pixKey, webhookRegistered, webhookId, notes };
   }
 
   async refund(providerRef: string, amount?: number, reason?: string): Promise<{ status: string }> {

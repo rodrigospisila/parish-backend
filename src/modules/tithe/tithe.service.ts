@@ -10,7 +10,7 @@ import { PdfService } from '../pdf/pdf.service';
 import { buildPixBrCode, normalizeAscii, normalizePixKey, validatePixKey } from './pix-brcode';
 import { PaymentsService } from '../payments/payments.service';
 import { AsaasProvider } from '../payments/asaas.provider';
-import { PAID_STATUSES, PaymentProvider, ProviderCharge, WebhookRequest } from '../payments/payment-provider.interface';
+import { PAID_STATUSES, PaymentProvider, ProviderCharge, WebhookRequest, ProviderSetupResult } from '../payments/payment-provider.interface';
 import { maskSecret } from '../payments/payment-crypto';
 
 const FINANCE_ROLES: UserRole[] = [
@@ -478,8 +478,58 @@ export class TitheService {
         // aviso é conveniência
       }
     }
+    // Asaas: deixa a conta pronta (chave Pix + webhook) sem o admin sair do Parish
+    const providerSetup = paymentProvider && providerApiKeyEnc && (providerChanged || apiKeyGiven)
+      ? await this.runProviderSetup(target, user)
+      : null;
     const config = await this.getConfig(user, target);
-    return { ...config, cancelledOpenIntents, closedSchedules };
+    return { ...config, cancelledOpenIntents, closedSchedules, providerSetup };
+  }
+
+  /**
+   * Prepara a conta do provedor para o Parish (idempotente, best-effort):
+   * chave Pix ativa e webhook com a URL/token da paróquia. Nunca falha o
+   * cadastro — o resultado volta para a tela.
+   */
+  async runProviderSetup(parishId: string, user: CurrentUser): Promise<ProviderSetupResult | null> {
+    const parish = await this.parishFor(parishId);
+    if (!parish || !this.paymentsService.hasProvider(parish) || !parish.providerWebhookToken) return null;
+    let provider: PaymentProvider;
+    try {
+      provider = this.paymentsService.forParish(parish);
+    } catch (error) {
+      return { pixKeyReady: false, webhookRegistered: false, notes: [String((error as Error)?.message ?? error).slice(0, 160)] };
+    }
+    if (!provider.ensureSetup) return null;
+    const webhookUrl = this.webhookUrl(parish.paymentProvider, parish.id);
+    if (!webhookUrl) return null;
+    let result: ProviderSetupResult;
+    try {
+      result = await provider.ensureSetup({
+        webhookUrl,
+        webhookToken: parish.providerWebhookToken,
+        contactEmail: user.email ?? 'contato@parish.app',
+      });
+    } catch (error) {
+      result = { pixKeyReady: false, webhookRegistered: false, notes: [String((error as Error)?.message ?? error).slice(0, 160)] };
+    }
+    await this.auditService.log({
+      actor: this.auditActor(user),
+      action: 'UPDATE',
+      entity: 'ParishTitheConfig',
+      entityId: parishId,
+      metadata: { providerSetup: { pixKeyReady: result.pixKeyReady, webhookRegistered: result.webhookRegistered, notes: result.notes } },
+    });
+    return result;
+  }
+
+  /** Administração pede para conferir/refazer o setup do provedor. */
+  async providerSetup(user: CurrentUser, parishId?: string) {
+    const target = this.resolveParishId(user, parishId);
+    await this.assertParishAdmin(user, target);
+    const result = await this.runProviderSetup(target, user);
+    if (!result) throw new BadRequestException('A paróquia não tem provedor configurado (ou o provedor não tem setup automático)');
+    return result;
   }
 
   /**
@@ -1746,12 +1796,37 @@ export class TitheService {
     }
     // Cobrança gerada por uma recorrência (assinatura/Pix Automático): cria o Pix do mês
     const subscriptionRef = event.subscriptionRef ?? charge.subscriptionRef ?? null;
-    const schedule = subscriptionRef
-      ? await this.prisma.titheSchedule.findFirst({
-          where: { parishId: parish.id, providerSubscriptionRef: subscriptionRef },
-          include: { member: { select: { id: true, userId: true, communityId: true, fullName: true } } },
-        })
+    const scheduleInclude = { member: { select: { id: true, userId: true, communityId: true, fullName: true } } } as const;
+    let schedule = subscriptionRef
+      ? await this.prisma.titheSchedule.findFirst({ where: { parishId: parish.id, providerSubscriptionRef: subscriptionRef }, include: scheduleInclude })
       : null;
+    // A assinatura do Pix Automático nasce no provedor e pode chegar aqui antes
+    // de ser conhecida: casa pelo cliente (um dízimo automático aberto por membro)
+    if (!schedule && subscriptionRef && charge.customerRef) {
+      const customer = await this.prisma.memberProviderCustomer.findFirst({
+        where: { parishId: parish.id, provider: provider.name, providerCustomerId: charge.customerRef },
+        select: { memberId: true },
+      });
+      if (customer) {
+        schedule = await this.prisma.titheSchedule.findFirst({
+          where: {
+            parishId: parish.id,
+            memberId: customer.memberId,
+            mode: 'PIX_AUTOMATIC',
+            status: { in: ['ACTIVE', 'PENDING_AUTHORIZATION'] },
+            providerSubscriptionRef: null,
+          },
+          include: scheduleInclude,
+        });
+        if (schedule) {
+          // Cobrança da assinatura = autorização ativa no banco
+          await this.prisma.titheSchedule.update({
+            where: { id: schedule.id },
+            data: { providerSubscriptionRef: subscriptionRef, status: 'ACTIVE', authorizationPayload: null, lastError: null },
+          });
+        }
+      }
+    }
     // Fica pendente para reprocessar: o Pix pode estar sendo criado neste instante
     if (!schedule) throw new Error(`Cobrança ${event.providerRef} sem Pix correspondente`);
     await this.intentFromScheduleCharge(provider, parish, schedule, event.providerRef, charge);
@@ -2073,7 +2148,9 @@ export class TitheService {
     const token = this.paymentsService.newWebhookToken();
     await this.prisma.parish.update({ where: { id: target }, data: { providerWebhookToken: token } });
     await this.auditService.log({ actor: this.auditActor(user), action: 'UPDATE', entity: 'ParishTitheConfig', entityId: target, metadata: { webhookTokenRotated: true } });
-    return { providerWebhookToken: token };
+    // Token novo vai direto para o provedor: sem janela de 403 na fila de eventos
+    const providerSetup = await this.runProviderSetup(target, user);
+    return { providerWebhookToken: token, providerSetup };
   }
 
   /**
@@ -2087,7 +2164,8 @@ export class TitheService {
         status: 'CREATED',
         method: 'GATEWAY',
         scheduleId: null,
-        OR: [{ qrExpiresAt: { lt: now } }, { qrExpiresAt: null, createdAt: { lt: cutoff } }],
+        // Pelo QR ou pelos 7 dias — o QR do Asaas dura um ano, e Pix esquecido não fica na fila
+        OR: [{ qrExpiresAt: { lt: now } }, { createdAt: { lt: cutoff } }],
       },
       select: { id: true, parishId: true, providerRef: true },
       take: 500,

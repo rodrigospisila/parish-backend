@@ -230,4 +230,12 @@ export class TitheController {
   rotateWebhookToken(@Body() body: { parishId?: string }, @Request() req: any) {
     return this.service.rotateWebhookToken(req.user, body?.parishId || undefined);
   }
+
+  /** Confere/refaz o setup da conta no provedor (chave Pix, webhook). */
+  @Post('config/provider-setup')
+  @Roles(UserRole.PARISH_ADMIN)
+  @Throttle({ default: { limit: 3, ttl: 60_000 } })
+  providerSetup(@Body() body: { parishId?: string }, @Request() req: any) {
+    return this.service.providerSetup(req.user, body?.parishId || undefined);
+  }
 }

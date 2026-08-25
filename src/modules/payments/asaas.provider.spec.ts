@@ -106,6 +106,34 @@ describe('AsaasProvider', () => {
   });
 });
 
+describe('AsaasProvider.ensureSetup', () => {
+  const creds = { apiKey: '$aact_hmlg_test', env: 'sandbox' as const, webhookSecret: 'tok' };
+
+  it('cria a chave Pix EVP quando não há ativa e cadastra o webhook (idempotente)', async () => {
+    let keys: any[] = [];
+    let hooks: any[] = [];
+    const { impl, calls } = fakeFetch({
+      'GET /pix/addressKeys': () => ({ body: { data: keys } }),
+      'POST /pix/addressKeys': () => { keys = [{ key: 'evp-1', status: 'ACTIVE' }]; return { body: keys[0] }; },
+      'GET /webhooks': () => ({ body: { data: hooks } }),
+      'POST /webhooks': (init) => { const b = JSON.parse(String(init!.body)); hooks = [{ id: 'wh_1', url: b.url }]; return { body: { id: 'wh_1', ...b } }; },
+      'PUT /webhooks/wh_1': () => ({ body: { id: 'wh_1' } }),
+    });
+    const p = new AsaasProvider(creds, impl);
+    const input = { webhookUrl: 'https://parish.app/api/v1/tithe/webhooks/asaas/p1', webhookToken: 'a'.repeat(64), contactEmail: 'adm@parish.app' };
+    const first = await p.ensureSetup(input);
+    expect(first).toMatchObject({ pixKeyReady: true, pixKey: 'evp-1', webhookRegistered: true, webhookId: 'wh_1' });
+    const posted = JSON.parse(String(calls.find((c) => c.url.endsWith('/webhooks') && c.init?.method === 'POST')!.init!.body));
+    expect(posted).toMatchObject({ url: input.webhookUrl, authToken: input.webhookToken, enabled: true, apiVersion: 3, sendType: 'SEQUENTIALLY' });
+    expect(posted.events).toEqual(expect.arrayContaining(['PAYMENT_RECEIVED', 'PIX_AUTOMATIC_RECURRING_AUTHORIZATION_ACTIVATED']));
+    // segunda vez: chave já ativa, webhook existente é atualizado (PUT), nada duplicado
+    const second = await p.ensureSetup(input);
+    expect(second).toMatchObject({ pixKeyReady: true, webhookRegistered: true, webhookId: 'wh_1' });
+    expect(calls.filter((c) => c.init?.method === 'POST')).toHaveLength(2);
+    expect(calls.filter((c) => c.init?.method === 'PUT')).toHaveLength(1);
+  });
+});
+
 describe('MercadoPagoProvider', () => {
   const creds = { apiKey: 'APP_USR-token', env: 'production' as const, webhookSecret: 'segredo-mp' };
 

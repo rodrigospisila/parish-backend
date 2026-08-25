@@ -38,8 +38,27 @@ export interface ProviderCharge {
   paidAt?: string | null;
   /** Assinatura de origem (cobrança gerada por recorrência) */
   subscriptionRef?: string | null;
+  /** Cliente no provedor (casa a cobrança com o membro quando a assinatura ainda não é conhecida) */
+  customerRef?: string | null;
   dueDate?: string | null;
   raw?: unknown;
+}
+
+export interface ProviderSetupInput {
+  webhookUrl: string;
+  webhookToken: string;
+  /** E-mail que o provedor avisa quando o webhook falha */
+  contactEmail: string;
+}
+
+export interface ProviderSetupResult {
+  /** Conta com chave Pix ativa (sem ela o provedor não emite QR) */
+  pixKeyReady: boolean;
+  pixKey?: string | null;
+  /** Webhook apontando para o Parish, com o token atual */
+  webhookRegistered: boolean;
+  webhookId?: string | null;
+  notes: string[];
 }
 
 export interface ProviderWebhookEvent {
@@ -134,6 +153,8 @@ export interface PaymentProvider {
   cancelCharge(providerRef: string): Promise<void>;
   /** Estado atual de uma autorização de recorrência (quando o provedor tem o conceito). */
   getAuthorization?(authorizationRef: string): Promise<ProviderAuthorization>;
+  /** Prepara a conta do provedor para o Parish (chave Pix, webhook) — idempotente. */
+  ensureSetup?(input: ProviderSetupInput): Promise<ProviderSetupResult>;
   refund(providerRef: string, amount?: number, reason?: string): Promise<{ status: string }>;
 }
 
