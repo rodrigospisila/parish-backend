@@ -2,6 +2,7 @@ import { ForbiddenException, Injectable } from '@nestjs/common';
 import { ScheduleStatus, UserRole } from '@prisma/client';
 import { PrismaService } from '../../database/prisma.service';
 import { CurrentUser, HierarchyService } from '../../common/hierarchy.service';
+import { isRoleAtLeast } from '../auth/constants/role-hierarchy';
 
 export interface CoordinatorOverview {
   scope: { communityIds: string[]; pastoralScoped: boolean; pastoralIds: string[] };
@@ -15,6 +16,8 @@ export interface CoordinatorOverview {
   swaps: { pending: number };
   pastorals: { joinRequests: number };
   prayers: { pendingModeration: number };
+  /** Orações só são moderáveis a partir de COMMUNITY_COORDINATOR */
+  canModeratePrayers: boolean;
   total: number;
 }
 
@@ -75,6 +78,7 @@ export class DashboardService {
       swaps: { pending: 0 },
       pastorals: { joinRequests: 0 },
       prayers: { pendingModeration: 0 },
+      canModeratePrayers: isRoleAtLeast(user.role, UserRole.COMMUNITY_COORDINATOR),
       total: 0,
     };
     if (!communityIds.length) return empty;
@@ -82,12 +86,31 @@ export class DashboardService {
     const today = this.startOfTodayUtc();
     const inSevenDays = new Date(today.getTime() + 7 * 24 * 60 * 60 * 1000);
     const classWhere = { communityId: { in: communityIds }, deletedAt: null, status: 'ACTIVE' as const };
+    // Escala viva, de evento vivo (arquivar evento/escala não pode deixar pendência fantasma)
     const scheduleScope = {
       date: { gte: today },
       status: { not: ScheduleStatus.CANCELLED },
+      deletedAt: null,
       OR: [{ communityId: { in: communityIds } }, { event: { communityId: { in: communityIds } } }],
+      AND: [{ OR: [{ eventId: null }, { event: { deletedAt: null } }] }],
     };
     const pastoralFilter = pastoralScoped ? { communityPastoralId: { in: pastoralIds } } : {};
+    // "Esta semana" no recorte das pastorais do coordenador de pastoral (mesma
+    // regra da lista de escalas dele)
+    const upcomingScope = pastoralScoped
+      ? {
+          ...scheduleScope,
+          AND: [
+            ...scheduleScope.AND,
+            {
+              OR: [
+                { event: { eventPastorals: { some: { communityPastoralId: { in: pastoralIds } } } } },
+                { pastorals: { some: { communityPastoralId: { in: pastoralIds } } } },
+              ],
+            },
+          ],
+        }
+      : scheduleScope;
 
     const [
       pendingApprovals,
@@ -109,24 +132,33 @@ export class DashboardService {
         where: { date: { lte: today }, attendances: { none: {} }, class: classWhere },
       }),
       this.prisma.catechesisMessage.count({
-        where: { fromTeam: false, readAt: null, enrollment: { class: classWhere } },
+        where: {
+          fromTeam: false,
+          readAt: null,
+          enrollment: { class: classWhere, status: { in: ['ACTIVE', 'PENDING_APPROVAL'] } },
+        },
       }),
       this.prisma.scheduleAssignment.count({ where: { status: 'PENDING', schedule: scheduleScope, ...pastoralFilter } }),
       this.prisma.scheduleAssignment.count({ where: { status: 'DECLINED', schedule: scheduleScope, ...pastoralFilter } }),
-      this.prisma.schedule.count({ where: { ...scheduleScope, date: { gte: today, lt: inSevenDays } } }),
+      this.prisma.schedule.count({ where: { ...upcomingScope, date: { gte: today, lt: inSevenDays } } }),
       this.prisma.assignmentSwapRequest.count({
         where: { status: 'PENDING', assignment: { schedule: scheduleScope, ...pastoralFilter } },
       }),
       this.prisma.pastoralJoinRequest.count({
         where: {
           status: 'PENDING',
+          member: { deletedAt: null },
           communityPastoral: {
             communityId: { in: communityIds },
+            deletedAt: null,
             ...(pastoralScoped ? { id: { in: pastoralIds } } : {}),
           },
         },
       }),
-      this.prisma.prayerRequest.count({ where: { status: 'PENDING', communityId: { in: communityIds } } }),
+      // Quem não pode moderar não recebe pendência que não consegue resolver
+      empty.canModeratePrayers
+        ? this.prisma.prayerRequest.count({ where: { status: 'PENDING', communityId: { in: communityIds } } })
+        : Promise.resolve(0),
     ]);
 
     const overview: CoordinatorOverview = {
@@ -136,6 +168,7 @@ export class DashboardService {
       swaps: { pending: pendingSwaps },
       pastorals: { joinRequests },
       prayers: { pendingModeration },
+      canModeratePrayers: empty.canModeratePrayers,
       total: 0,
     };
     overview.total =

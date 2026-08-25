@@ -56,7 +56,7 @@ export class PastoralsService {
       },
     });
 
-    if (!pastoral) {
+    if (!pastoral || pastoral.deletedAt) {
       throw new NotFoundException('Pastoral comunitaria nao encontrada');
     }
 

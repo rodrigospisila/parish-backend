@@ -3159,16 +3159,26 @@ export class SchedulesService {
     );
 
     // Cônjuge escalado nas MESMAS escalas → badge "servindo em casal"
+    // Só é "casal" quando os dois servem na MESMA pastoral e ela escala casais
+    // juntos — a mesma condição que a recusa em casal honra no backend
     const coupleScheduleIds = new Set<string>();
     let spouseName: string | null = null;
     if ((member as any).spouseId) {
       const scheduleIds = [...upcomingAssignments, ...pastAssignments].map((a) => a.scheduleId);
-      if (scheduleIds.length) {
+      const own = scheduleIds.length
+        ? await this.prisma.scheduleAssignment.findMany({
+            where: { memberId: member.id, scheduleId: { in: scheduleIds }, communityPastoralId: { not: null } },
+            select: { scheduleId: true, communityPastoralId: true },
+          })
+        : [];
+      const pairs = own.map((a) => ({ scheduleId: a.scheduleId, communityPastoralId: a.communityPastoralId as string }));
+      if (pairs.length) {
         const spouseAssignments = await this.prisma.scheduleAssignment.findMany({
           where: {
             memberId: (member as any).spouseId,
-            scheduleId: { in: scheduleIds },
             status: { in: ['PENDING', 'CONFIRMED'] },
+            communityPastoral: { scheduleCouplesTogether: true },
+            OR: pairs,
           },
           select: { scheduleId: true, member: { select: { fullName: true } } },
         });
@@ -3423,11 +3433,19 @@ export class SchedulesService {
     // Recusa em casal (pastoral "casais servem juntos"): o cônjuge escalado na
     // mesma escala é recusado junto, com rastro de quem decidiu
     let coupleDeclined: string | null = null;
-    if (declineCouple && assignment.member.spouseId && assignment.communityPastoral?.scheduleCouplesTogether) {
+    if (
+      declineCouple &&
+      assignment.member.spouseId &&
+      assignment.communityPastoralId &&
+      assignment.communityPastoral?.scheduleCouplesTogether
+    ) {
+      // Só o cônjuge escalado na MESMA pastoral — na mesma escala ele pode
+      // servir em outra pastoral, sem regra de casal
       const spouseAssignment = await this.prisma.scheduleAssignment.findFirst({
         where: {
           scheduleId: assignment.scheduleId,
           memberId: assignment.member.spouseId,
+          communityPastoralId: assignment.communityPastoralId,
           status: { in: ['PENDING', 'CONFIRMED'] },
         },
         include: { member: { select: { fullName: true, userId: true } } },

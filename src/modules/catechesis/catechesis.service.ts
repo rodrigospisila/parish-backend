@@ -3112,19 +3112,40 @@ export class CatechesisService {
     return { enrollment, isTeam: true };
   }
 
-  /** Equipe da turma (catequistas com usuário); sem equipe, a coordenação da comunidade. */
+  /**
+   * Equipe da turma (catequistas com usuário e cadastro vivo); sem ela, a
+   * coordenação ATUAL da pastoral da Catequese; por último, a coordenação da
+   * comunidade. Nunca todos os coordenadores de pastoral — a prévia da
+   * mensagem fala de uma criança e não pode virar broadcast.
+   */
   private async classTeamUserIds(classId: string, communityId: string): Promise<string[]> {
     const catechists = await this.prisma.catechesisCatechist.findMany({
-      where: { classId },
+      where: { classId, member: { deletedAt: null } },
       select: { member: { select: { userId: true } } },
     });
     const ids = catechists.map((c) => c.member.userId).filter((id): id is string => !!id);
     if (ids.length) return [...new Set(ids)];
-    const coordinators = await this.prisma.user.findMany({
-      where: { communityId, role: { in: ['COMMUNITY_COORDINATOR', 'PASTORAL_COORDINATOR'] }, isActive: true },
+    const pastoralCoordinators = await this.prisma.pastoralCoordinator.findMany({
+      where: {
+        isCurrent: true,
+        communityPastoral: {
+          communityId,
+          deletedAt: null,
+          globalPastoral: { name: { contains: 'catequ', mode: 'insensitive' } },
+        },
+      },
+      select: { member: { select: { userId: true, deletedAt: true } } },
+    });
+    const coordinatorIds = pastoralCoordinators
+      .filter((c) => !c.member.deletedAt)
+      .map((c) => c.member.userId)
+      .filter((id): id is string => !!id);
+    if (coordinatorIds.length) return [...new Set(coordinatorIds)];
+    const communityCoordinators = await this.prisma.user.findMany({
+      where: { communityId, role: 'COMMUNITY_COORDINATOR', isActive: true },
       select: { id: true },
     });
-    return coordinators.map((u) => u.id);
+    return communityCoordinators.map((u) => u.id);
   }
 
   /** Abre a conversa (família ou equipe) e marca como lidas as mensagens do outro lado. */

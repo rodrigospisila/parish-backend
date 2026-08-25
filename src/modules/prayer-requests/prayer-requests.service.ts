@@ -213,13 +213,38 @@ export class PrayerRequestsService {
     return requests.map((request) => maskAnonymous(request));
   }
 
-  async findPending(communityId?: string) {
+  /** Comunidades que o moderador alcança (null = todas, só SYSTEM_ADMIN). */
+  private async moderationScope(user?: CurrentUser): Promise<string[] | null> {
+    if (!user || user.role === UserRole.SYSTEM_ADMIN) return null;
+    if (user.role === UserRole.DIOCESAN_ADMIN && user.dioceseId) {
+      const rows = await this.prisma.community.findMany({
+        where: { parish: { dioceseId: user.dioceseId } },
+        select: { id: true },
+      });
+      return rows.map((c) => c.id);
+    }
+    if (user.role === UserRole.PARISH_ADMIN && user.parishId) {
+      const rows = await this.prisma.community.findMany({ where: { parishId: user.parishId }, select: { id: true } });
+      return rows.map((c) => c.id);
+    }
+    const linked = (user.communities ?? []).filter((c) => c.isActive !== false).map((c) => c.communityId);
+    return [...new Set([user.communityId, ...linked].filter((id): id is string => !!id))];
+  }
+
+  async findPending(communityId?: string, currentUser?: CurrentUser) {
     const where: any = {
       status: PrayerRequestStatus.PENDING,
     };
 
+    // Moderação é por escopo: coordenador vê só a(s) sua(s) comunidade(s)
+    const scope = await this.moderationScope(currentUser);
     if (communityId) {
+      if (scope && !scope.includes(communityId)) {
+        throw new ForbiddenException('Comunidade fora do seu escopo de moderação');
+      }
       where.communityId = communityId;
+    } else if (scope) {
+      where.communityId = { in: scope };
     }
 
     return this.prisma.prayerRequest.findMany({
@@ -289,8 +314,19 @@ export class PrayerRequestsService {
 
   // ========== MODERAÇÃO ==========
 
-  async approve(id: string) {
+  private async assertCanModerate(prayerRequest: { communityId?: string | null; community?: { id: string } | null }, user?: CurrentUser) {
+    if (!user) return;
+    const communityId = prayerRequest.communityId ?? prayerRequest.community?.id;
+    if (!communityId) return;
+    const scope = await this.moderationScope(user);
+    if (scope && !scope.includes(communityId)) {
+      throw new ForbiddenException('Você não modera pedidos desta comunidade');
+    }
+  }
+
+  async approve(id: string, currentUser?: CurrentUser) {
     const prayerRequest = await this.findOne(id);
+    await this.assertCanModerate(prayerRequest as any, currentUser);
 
     if (prayerRequest.status === PrayerRequestStatus.APPROVED) {
       throw new ForbiddenException('Pedido já foi aprovado');
@@ -304,8 +340,9 @@ export class PrayerRequestsService {
     });
   }
 
-  async reject(id: string) {
+  async reject(id: string, currentUser?: CurrentUser) {
     const prayerRequest = await this.findOne(id);
+    await this.assertCanModerate(prayerRequest as any, currentUser);
 
     if (prayerRequest.status === PrayerRequestStatus.REJECTED) {
       throw new ForbiddenException('Pedido já foi rejeitado');

@@ -59,8 +59,8 @@ export class PrayerRequestsController {
     UserRole.PARISH_ADMIN,
     UserRole.COMMUNITY_COORDINATOR,
   )
-  findPending(@Query('communityId') communityId?: string) {
-    return this.prayerRequestsService.findPending(communityId);
+  findPending(@CurrentUser() user: any, @Query('communityId') communityId?: string) {
+    return this.prayerRequestsService.findPending(communityId, user);
   }
 
   @Get('stats')
@@ -110,8 +110,8 @@ export class PrayerRequestsController {
     UserRole.PARISH_ADMIN,
     UserRole.COMMUNITY_COORDINATOR,
   )
-  approve(@Param('id') id: string) {
-    return this.prayerRequestsService.approve(id);
+  approve(@Param('id') id: string, @CurrentUser() user: any) {
+    return this.prayerRequestsService.approve(id, user);
   }
 
   @Patch(':id/reject')
@@ -121,8 +121,8 @@ export class PrayerRequestsController {
     UserRole.PARISH_ADMIN,
     UserRole.COMMUNITY_COORDINATOR,
   )
-  reject(@Param('id') id: string) {
-    return this.prayerRequestsService.reject(id);
+  reject(@Param('id') id: string, @CurrentUser() user: any) {
+    return this.prayerRequestsService.reject(id, user);
   }
 
   // ========== CONTADOR DE ORAÇÕES ==========

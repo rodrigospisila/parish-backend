@@ -56,8 +56,8 @@ export class JoinRequestsService {
   /** Fiel pede para participar. Reenviar após recusa reabre o mesmo pedido. */
   async requestJoin(communityPastoralId: string, user: CurrentUser, rawMessage?: string) {
     const member = await this.resolveMember(user);
-    const pastoral = await this.prisma.communityPastoral.findUnique({
-      where: { id: communityPastoralId },
+    const pastoral = await this.prisma.communityPastoral.findFirst({
+      where: { id: communityPastoralId, deletedAt: null },
       include: { globalPastoral: { select: { name: true } }, community: { select: { id: true, name: true } } },
     });
     if (!pastoral || pastoral.status !== 'ACTIVE') {
@@ -127,7 +127,8 @@ export class JoinRequestsService {
   /** Pedidos de uma pastoral (coordenação). status: PENDING (default) | ALL */
   async listForPastoral(communityPastoralId: string, user: CurrentUser, status?: string) {
     await this.pastoralsService.ensurePastoralAccess(communityPastoralId, user);
-    const where: any = { communityPastoralId };
+    // Membro eliminado (LGPD) não aparece — nem seus dados de contato
+    const where: any = { communityPastoralId, member: { deletedAt: null } };
     if (status !== 'ALL') where.status = status && ['PENDING', 'APPROVED', 'REJECTED'].includes(status) ? status : 'PENDING';
     return this.prisma.pastoralJoinRequest.findMany({
       where,
@@ -153,12 +154,40 @@ export class JoinRequestsService {
 
     const reason = (rawReason ?? '').replace(/[\r\n\t]+/g, ' ').trim().slice(0, 300) || null;
     if (approve) {
+      // Revalida o que o pedido exigiu: membro vivo/ativo e ainda vinculado à
+      // comunidade da pastoral (o vínculo pode ter sido revogado no meio-tempo)
+      const member = await this.prisma.member.findFirst({
+        where: { id: request.memberId, deletedAt: null, status: 'ACTIVE' },
+        select: { id: true, communityId: true },
+      });
+      const pastoralCommunityId = request.communityPastoral.communityId;
+      const stillLinked =
+        !!member &&
+        (member.communityId === pastoralCommunityId ||
+          !!(await this.prisma.memberCommunity.findFirst({
+            where: { memberId: member.id, communityId: pastoralCommunityId, isActive: true },
+            select: { id: true },
+          })));
+      if (!stillLinked) {
+        await this.prisma.pastoralJoinRequest.update({
+          where: { id: requestId },
+          data: {
+            status: 'REJECTED',
+            rejectionReason: 'Cadastro inativo ou sem vínculo com a comunidade',
+            reviewedByUserId: user.id,
+            reviewedAt: new Date(),
+          },
+        });
+        throw new BadRequestException('O membro não está mais ativo nesta comunidade — pedido encerrado');
+      }
+      // Reingresso via "quero participar" é SEMPRE como membro comum: um vínculo
+      // inativo antigo com papel de coordenação não volta com esse papel
       await this.prisma.pastoralMember.upsert({
         where: {
           memberId_communityPastoralId: { memberId: request.memberId, communityPastoralId: request.communityPastoralId },
         },
         create: { memberId: request.memberId, communityPastoralId: request.communityPastoralId, role: 'Membro', isActive: true },
-        update: { isActive: true, leftAt: null },
+        update: { isActive: true, leftAt: null, role: 'Membro', joinedAt: new Date() },
       });
     }
 
