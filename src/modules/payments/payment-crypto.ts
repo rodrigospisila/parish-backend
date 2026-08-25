@@ -19,6 +19,16 @@ function loadKey(): Buffer {
   return key;
 }
 
+/** Motivo pelo qual a criptografia não está pronta (null quando está). */
+export function paymentsCryptoProblem(): string | null {
+  try {
+    loadKey();
+    return null;
+  } catch (error) {
+    return String((error as Error)?.message ?? error);
+  }
+}
+
 export function isPaymentsCryptoConfigured(): boolean {
   try {
     loadKey();

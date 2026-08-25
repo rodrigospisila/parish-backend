@@ -1,7 +1,7 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { AsaasProvider } from './asaas.provider';
 import { MercadoPagoProvider } from './mercadopago.provider';
-import { decryptSecret, encryptSecret, generateWebhookToken, isPaymentsCryptoConfigured } from './payment-crypto';
+import { decryptSecret, encryptSecret, generateWebhookToken, isPaymentsCryptoConfigured, paymentsCryptoProblem } from './payment-crypto';
 import { PaymentProvider, ProviderName } from './payment-provider.interface';
 
 export interface ParishProviderConfig {
@@ -22,9 +22,15 @@ export class PaymentsService {
     return isPaymentsCryptoConfigured();
   }
 
+  /** Motivo exato de a criptografia não estar pronta (ausente × formato inválido). */
+  cryptoProblem(): string | null {
+    return paymentsCryptoProblem();
+  }
+
   encryptApiKey(apiKey: string): string {
-    if (!this.isConfigured()) {
-      throw new BadRequestException('Servidor sem PAYMENTS_ENCRYPTION_KEY — configure a chave de criptografia antes de cadastrar um provedor');
+    const problem = this.cryptoProblem();
+    if (problem) {
+      throw new BadRequestException(`Servidor sem criptografia de segredos: ${problem}`);
     }
     return encryptSecret(apiKey.trim());
   }

@@ -239,6 +239,7 @@ export class TitheService {
       providerApiKeyMasked: null,
       webhookUrl: providerApiKeyEnc ? this.webhookUrl(parish.paymentProvider, parish.id) : null,
       paymentsCryptoReady: this.paymentsService.isConfigured(),
+      paymentsCryptoProblem: this.paymentsService.cryptoProblem(),
     };
   }
 
