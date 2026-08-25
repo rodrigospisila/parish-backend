@@ -35,6 +35,8 @@ export interface PdfCertificatePage {
   bodyParagraphs: string[];
   /** Linhas de assinatura (ex.: ['Pároco', 'Coordenação da Catequese']) */
   signatureLines?: string[];
+  /** QR Code (PNG) centrado abaixo do texto — ex.: Pix fixo do dizimista */
+  qrImage?: Buffer | null;
 }
 
 export interface PdfCertificateDocumentInput {
@@ -232,6 +234,16 @@ export class PdfService {
         for (const paragraph of page.bodyParagraphs) {
           doc.text(paragraph, { width: contentWidth, align: 'center', lineGap: 3 });
           doc.moveDown(0.5);
+        }
+        if (page.qrImage) {
+          try {
+            const size = input.orientation === 'portrait' ? 200 : 160;
+            const top = doc.y + 4;
+            doc.image(page.qrImage, (width - size) / 2, top, { fit: [size, size] });
+            doc.y = top + size + 12;
+          } catch {
+            // imagem inválida — segue sem o QR
+          }
         }
 
         // Linhas de assinatura lado a lado, ancoradas na base da página

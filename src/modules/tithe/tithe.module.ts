@@ -6,10 +6,11 @@ import { TitheService } from './tithe.service';
 import { TitheController } from './tithe.controller';
 import { TitheExpiryService } from './tithe-expiry.service';
 import { TitheThrottlerGuard } from './tithe-throttler.guard';
+import { TitheReminderService } from './tithe-reminder.service';
 
 @Module({
   imports: [CommonModule, NotificationsModule],
-  providers: [TitheService, PdfService, TitheExpiryService, TitheThrottlerGuard],
+  providers: [TitheService, PdfService, TitheExpiryService, TitheThrottlerGuard, TitheReminderService],
   controllers: [TitheController],
 })
 export class TitheModule {}

@@ -816,6 +816,10 @@ model Member {
   pastoralJoinRequests PastoralJoinRequest[]
   titheIntents         TitheIntent[]
 
+  // Dízimo: lembrete mensal opt-in (dia 1..28) e dedupe do mês já lembrado
+  titheReminderDay       Int?
+  titheReminderSentMonth String?
+
   @@map("members")
 }
 
@@ -2124,6 +2128,13 @@ model TitheIntent {
   providerRef String?
   // Observação da tesouraria (ex.: motivo de "não localizado")
   note String?
+  // Valor que de fato caiu no extrato (pode diferir do gerado)
+  amountPaid Float?
+  // Oferta anônima: nome não aparece à tesouraria nem no lançamento
+  anonymous Boolean @default(false)
+  // Contestação do fiel após "não localizado"
+  contestNote String?
+  contestedAt DateTime?
 
   declaredAt        DateTime?
   confirmedAt       DateTime?

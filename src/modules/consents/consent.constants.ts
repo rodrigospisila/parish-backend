@@ -18,6 +18,8 @@ export const ESSENTIAL_NOTIFICATION_TYPES: ReadonlySet<NotificationType> = new S
   NotificationType.ASSIGNMENT_REPLACED,
   NotificationType.SCHEDULE_CANCELLED,
   NotificationType.SCHEDULE_REMINDER,
+  // Dízimo: confirmação/conferência de um pagamento feito pelo fiel é transacional
+  NotificationType.TITHE,
 ]);
 
 /**
