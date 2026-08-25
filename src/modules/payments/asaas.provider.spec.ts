@@ -54,6 +54,23 @@ describe('AsaasProvider', () => {
     expect(calls[1].init!.body).toBeUndefined();
   });
 
+  it('cartão e boleto: página hospedada, PDF e linha digitável (sem QR)', async () => {
+    const { impl, calls } = fakeFetch({
+      'POST /payments': (init) => {
+        const b = JSON.parse(String(init!.body));
+        return { body: { id: `pay_${b.billingType}`, status: 'PENDING', billingType: b.billingType, value: b.value, invoiceUrl: `https://sandbox.asaas.com/i/${b.billingType}`, bankSlipUrl: b.billingType === 'BOLETO' ? 'https://sandbox.asaas.com/b/pdf/x' : null } };
+      },
+      'GET /payments/pay_BOLETO/identificationField': () => ({ body: { identificationField: '46191110000000000000013043259012415540000002500' } }),
+    });
+    const p = new AsaasProvider(creds, impl);
+    const card = await p.createCharge({ providerCustomerId: 'cus_1', method: 'CARD', amount: 25, dueDate: '2026-09-05', description: 'Dizimo', externalRef: 'i1', idempotencyKey: 'i1' });
+    expect(card).toMatchObject({ providerRef: 'pay_CREDIT_CARD', method: 'CARD', paymentUrl: 'https://sandbox.asaas.com/i/CREDIT_CARD', qrPayload: null });
+    const boleto = await p.createCharge({ providerCustomerId: 'cus_1', method: 'BOLETO', amount: 25, dueDate: '2026-09-05', description: 'Dizimo', externalRef: 'i2', idempotencyKey: 'i2' });
+    expect(boleto).toMatchObject({ providerRef: 'pay_BOLETO', method: 'BOLETO', boletoUrl: 'https://sandbox.asaas.com/b/pdf/x', boletoLine: '46191110000000000000013043259012415540000002500' });
+    // nenhuma chamada ao pixQrCode para cartão/boleto
+    expect(calls.some((c) => c.url.includes('/pixQrCode'))).toBe(false);
+  });
+
   it('mapeia status e erros do provedor', async () => {
     expect(mapAsaasStatus('CONFIRMED')).toBe('confirmed');
     expect(mapAsaasStatus('RECEIVED')).toBe('received');

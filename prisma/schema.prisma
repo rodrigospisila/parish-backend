@@ -2138,6 +2138,12 @@ model TitheIntent {
   // Identificador do Pix (campo txid do BR Code, até 25 alfanuméricos)
   txid   String  @unique
   brCode String?
+  // Meio escolhido pelo fiel no provedor (D3.4): PIX | CARD | BOLETO
+  paymentMethod  String    @default("PIX")
+  // Página de pagamento do provedor (cartão/boleto), PDF do boleto e linha digitável
+  paymentUrl     String?
+  boletoUrl      String?
+  boletoLine     String?
   // Provedor (D3): referência da cobrança, status bruto, validade do QR, taxa/valor cobrado
   providerRef    String?   @unique
   providerStatus String?

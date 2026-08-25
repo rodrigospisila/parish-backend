@@ -103,6 +103,7 @@ export class MercadoPagoProvider implements PaymentProvider {
     return {
       providerRef: String(payment.id),
       status: mapMercadoPagoStatus(payment.status),
+      method: 'PIX',
       qrPayload: tx.qr_code ?? null,
       qrImageBase64: tx.qr_code_base64 ?? null,
       expiresAt: payment.date_of_expiration ?? null,
@@ -115,6 +116,9 @@ export class MercadoPagoProvider implements PaymentProvider {
   }
 
   async createCharge(input: CreateChargeInput): Promise<ProviderCharge> {
+    if (input.method && input.method !== 'PIX') {
+      throw new PaymentProviderError('Cartão e boleto pelo Parish estão disponíveis apenas com o provedor Asaas');
+    }
     if (!input.payerEmail) throw new PaymentProviderError('Mercado Pago exige o e-mail do pagador');
     const payment = await this.request<any>(
       'POST',

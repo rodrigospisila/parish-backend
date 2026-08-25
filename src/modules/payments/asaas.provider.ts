@@ -5,6 +5,7 @@ import {
   EnsureCustomerInput,
   FetchLike,
   PaymentProvider,
+  PaymentMethod,
   PaymentProviderError,
   ProviderAuthorization,
   ProviderCharge,
@@ -119,10 +120,32 @@ export class AsaasProvider implements PaymentProvider {
     return { providerCustomerId: created.id };
   }
 
-  private mapCharge(payment: any, qr?: { payload?: string; encodedImage?: string; expirationDate?: string }): ProviderCharge {
+  private static methodFromBillingType(billingType: string | null | undefined): PaymentMethod | null {
+    switch ((billingType ?? '').toUpperCase()) {
+      case 'PIX':
+        return 'PIX';
+      case 'CREDIT_CARD':
+      case 'DEBIT_CARD':
+        return 'CARD';
+      case 'BOLETO':
+        return 'BOLETO';
+      default:
+        return null;
+    }
+  }
+
+  private mapCharge(
+    payment: any,
+    qr?: { payload?: string; encodedImage?: string; expirationDate?: string },
+    boletoLine?: string | null,
+  ): ProviderCharge {
     return {
       providerRef: payment.id,
       status: mapAsaasStatus(payment.status, payment.deleted === true),
+      method: AsaasProvider.methodFromBillingType(payment.billingType),
+      paymentUrl: payment.invoiceUrl ?? null,
+      boletoUrl: payment.bankSlipUrl ?? null,
+      boletoLine: boletoLine ?? null,
       qrPayload: qr?.payload ?? null,
       qrImageBase64: qr?.encodedImage ?? null,
       expiresAt: qr?.expirationDate ?? null,
@@ -139,16 +162,33 @@ export class AsaasProvider implements PaymentProvider {
 
   async createCharge(input: CreateChargeInput): Promise<ProviderCharge> {
     if (!input.providerCustomerId) throw new PaymentProviderError('Cliente Asaas não informado');
+    const method: PaymentMethod = input.method ?? 'PIX';
+    // Cartão sem dados do cartão: o Asaas devolve a página hospedada (invoiceUrl)
+    // onde o pagador digita o cartão — o Parish nunca vê o número
+    const billingType = method === 'CARD' ? 'CREDIT_CARD' : method === 'BOLETO' ? 'BOLETO' : 'PIX';
     const payment = await this.request<any>('POST', '/payments', {
       customer: input.providerCustomerId,
-      billingType: 'PIX',
+      billingType,
       value: Math.round(input.amount * 100) / 100,
       dueDate: input.dueDate,
       description: input.description.slice(0, 500),
       externalReference: input.externalRef,
     });
-    const qr = await this.request<{ payload: string; encodedImage: string; expirationDate: string }>('GET', `/payments/${payment.id}/pixQrCode`);
-    return this.mapCharge(payment, qr);
+    if (method === 'PIX') {
+      const qr = await this.request<{ payload: string; encodedImage: string; expirationDate: string }>('GET', `/payments/${payment.id}/pixQrCode`);
+      return this.mapCharge(payment, qr);
+    }
+    if (method === 'BOLETO') {
+      let line: string | null = null;
+      try {
+        const field = await this.request<{ identificationField?: string }>('GET', `/payments/${payment.id}/identificationField`);
+        line = field?.identificationField ?? null;
+      } catch {
+        line = null; // o PDF/página continuam disponíveis
+      }
+      return this.mapCharge(payment, undefined, line);
+    }
+    return this.mapCharge(payment);
   }
 
   async getCharge(providerRef: string): Promise<ProviderCharge> {

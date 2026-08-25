@@ -6,6 +6,9 @@
 
 export type ProviderName = 'ASAAS' | 'MERCADOPAGO';
 
+/** Meio de pagamento escolhido pelo fiel (cartão/boleto só onde o provedor tem página hospedada). */
+export type PaymentMethod = 'PIX' | 'CARD' | 'BOLETO';
+
 export type ChargeStatus =
   | 'pending'
   | 'confirmed' // pago, saldo ainda não disponível (Asaas CONFIRMED)
@@ -27,6 +30,13 @@ export interface ProviderCredentials {
 export interface ProviderCharge {
   providerRef: string;
   status: ChargeStatus;
+  /** Meio da cobrança no provedor (quando informado) */
+  method?: PaymentMethod | null;
+  /** Página de pagamento hospedada (cartão/boleto) */
+  paymentUrl?: string | null;
+  /** PDF do boleto e linha digitável */
+  boletoUrl?: string | null;
+  boletoLine?: string | null;
   /** Pix copia e cola gerado pelo provedor */
   qrPayload?: string | null;
   /** PNG em base64 (sem prefixo data:) */
@@ -110,6 +120,8 @@ export interface EnsureCustomerInput {
 
 export interface CreateChargeInput {
   providerCustomerId?: string | null;
+  /** PIX (padrão), CARD ou BOLETO */
+  method?: PaymentMethod;
   amount: number;
   /** AAAA-MM-DD */
   dueDate: string;

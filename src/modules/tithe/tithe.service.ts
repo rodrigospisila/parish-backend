@@ -700,6 +700,12 @@ export class TitheService {
               available: gatewayReady && !needsCpf && !needsEmail,
               needsCpf,
               needsEmail,
+              // Meios além do Pix: só Asaas (página hospedada de cartão e boleto)
+              methods: gatewayReady && !needsCpf && !needsEmail
+                ? parish.paymentProvider === 'ASAAS'
+                  ? ['PIX', 'CARD', 'BOLETO']
+                  : ['PIX']
+                : ['PIX'],
               feePolicy: parish.feePolicy,
               feeFixed: parish.feeFixed,
               feePercent: parish.feePercent,
@@ -720,7 +726,7 @@ export class TitheService {
   /** Gera o Pix (BR Code + QR) para o valor/mês escolhidos. */
   async createIntent(
     user: CurrentUser,
-    dto: { amount: number; referenceMonth?: string; kind?: string; anonymous?: boolean },
+    dto: { amount: number; referenceMonth?: string; kind?: string; anonymous?: boolean; paymentMethod?: string },
   ) {
     const member = await this.resolveMember(user);
     const parish = await this.prisma.parish.findUnique({
@@ -756,6 +762,19 @@ export class TitheService {
     // confirmação automática. Senão (ou se o provedor falhar), Pix estático.
     const canUseGateway =
       this.paymentsService.hasProvider(parish) && (parish.paymentProvider !== 'ASAAS' || !!member.cpf) && (parish.paymentProvider !== 'MERCADOPAGO' || !!member.email);
+    // Cartão e boleto (D3.4): só pela página hospedada do Asaas — sem fallback
+    // para o Pix estático, porque não é o que o fiel pediu
+    const paymentMethod: 'PIX' | 'CARD' | 'BOLETO' =
+      dto.paymentMethod === 'CARD' ? 'CARD' : dto.paymentMethod === 'BOLETO' ? 'BOLETO' : 'PIX';
+    if (paymentMethod !== 'PIX' && (!canUseGateway || parish.paymentProvider !== 'ASAAS')) {
+      throw new BadRequestException(
+        canUseGateway
+          ? 'Cartão e boleto estão disponíveis apenas com o provedor Asaas'
+          : member.cpf
+            ? 'Sua paróquia ainda não ativou cartão e boleto — contribua por Pix'
+            : 'Cartão e boleto precisam do seu CPF no cadastro — peça à secretaria',
+      );
+    }
     const { fee, charged } = canUseGateway ? this.computeFee(parish, amount) : { fee: 0, charged: amount };
     let intent = await this.prisma.titheIntent.create({
       data: {
@@ -767,6 +786,7 @@ export class TitheService {
         kind,
         anonymous,
         method: canUseGateway ? 'GATEWAY' : 'PIX_STATIC',
+        paymentMethod,
         txid,
         brCode: canUseGateway
           ? null
@@ -786,16 +806,19 @@ export class TitheService {
       try {
         const provider = this.paymentsService.forParish(parish);
         const customerId = await this.providerCustomerId(provider, member, parish);
+        // Boleto precisa de prazo de compensação; Pix/cartão vencem em 3 dias
+        const dueDays = paymentMethod === 'BOLETO' ? 5 : 3;
         const charge = await provider.createCharge({
           providerCustomerId: customerId,
+          method: paymentMethod,
           amount: charged,
-          dueDate: this.plusDays(3),
+          dueDate: this.plusDays(dueDays),
           description: `${description} - ${parish.name}`.slice(0, 120),
           externalRef: intent.id,
           idempotencyKey: intent.id,
           payerEmail: member.email,
           payerCpf: member.cpf,
-          expiresInSec: 3 * 24 * 60 * 60,
+          expiresInSec: dueDays * 24 * 60 * 60,
         });
         intent = await this.prisma.titheIntent.update({
           where: { id: intent.id },
@@ -803,10 +826,27 @@ export class TitheService {
             providerRef: charge.providerRef,
             providerStatus: charge.status,
             brCode: charge.qrPayload ?? null,
-            qrExpiresAt: charge.expiresAt ? new Date(charge.expiresAt) : null,
+            paymentUrl: charge.paymentUrl ?? null,
+            boletoUrl: charge.boletoUrl ?? null,
+            boletoLine: charge.boletoLine ?? null,
+            qrExpiresAt: charge.expiresAt
+              ? new Date(charge.expiresAt)
+              : paymentMethod !== 'PIX'
+                ? new Date(`${this.plusDays(dueDays)}T23:59:59.000-03:00`)
+                : null,
           },
         });
       } catch (error) {
+        if (paymentMethod !== 'PIX') {
+          // Sem página de pagamento não há cartão/boleto: encerra e explica
+          await this.prisma.titheIntent.update({
+            where: { id: intent.id },
+            data: { status: 'CANCELLED', note: 'Provedor indisponível ao gerar a cobrança' },
+          });
+          throw new BadRequestException(
+            `Não foi possível gerar a cobrança por ${paymentMethod === 'CARD' ? 'cartão' : 'boleto'} agora: ${String((error as Error)?.message ?? error).slice(0, 160)}`,
+          );
+        }
         // Provedor fora do ar: o fiel não fica sem Pix — volta ao estático da paróquia
         intent = await this.prisma.titheIntent.update({
           where: { id: intent.id },
@@ -838,7 +878,7 @@ export class TitheService {
       action: 'CREATE',
       entity: 'TitheIntent',
       entityId: intent.id,
-      metadata: { amount, referenceMonth, kind, txid },
+      metadata: { amount, referenceMonth, kind, txid, paymentMethod },
     });
     return this.presentIntent(intent, true);
   }
@@ -858,6 +898,11 @@ export class TitheService {
       contestNote: intent.contestNote ?? null,
       canContest: cancelledByTreasury(intent) && !intent.contestedAt,
       method: intent.method ?? 'PIX_STATIC',
+      // Meio escolhido (D3.4) e o que o fiel precisa para pagar fora do Pix
+      paymentMethod: intent.paymentMethod ?? 'PIX',
+      paymentUrl: intent.paymentUrl ?? null,
+      boletoUrl: intent.boletoUrl ?? null,
+      boletoLine: intent.boletoLine ?? null,
       feeAmount: intent.feeAmount ?? 0,
       chargedAmount: intent.chargedAmount ?? null,
       qrExpiresAt: intent.qrExpiresAt ?? null,
@@ -1070,6 +1115,8 @@ export class TitheService {
       contestedAt: i.contestedAt ?? null,
       // Provedor (D3): a tesouraria precisa saber que a confirmação é automática
       method: i.method ?? 'PIX_STATIC',
+      paymentMethod: i.paymentMethod ?? 'PIX',
+      paymentUrl: i.paymentUrl ?? null,
       providerStatus: i.providerStatus ?? null,
       providerRef: i.providerRef ?? null,
       chargedAmount: i.chargedAmount ?? null,
@@ -1242,6 +1289,7 @@ export class TitheService {
       memberId: string;
       communityId: string | null;
       parishId: string;
+      paymentMethod?: string | null;
       member: { fullName: string; communityId: string | null };
       parish: { dioceseId: string };
     },
@@ -1283,7 +1331,8 @@ export class TitheService {
         },
       });
       if (moved.count !== 1) throw new BadRequestException('Este Pix já foi confirmado ou encerrado');
-      const origin = opts.source === 'provider' ? 'Pix provedor' : 'Pix app';
+      const methodLabel = intent.paymentMethod === 'CARD' ? 'Cartão' : intent.paymentMethod === 'BOLETO' ? 'Boleto' : 'Pix';
+      const origin = opts.source === 'provider' ? `${methodLabel} provedor` : 'Pix app';
       const financial = await tx.financialTransaction.create({
         data: {
           type: TransactionType.INCOME,
@@ -1312,7 +1361,7 @@ export class TitheService {
           amount: opts.paidAmount,
           date: opts.paidAt,
           referenceMonth: opts.paidMonth,
-          method: 'PIX',
+          method: methodLabel === 'Pix' ? 'PIX' : methodLabel,
           receiptNumber: opts.receiptNumber || intent.txid,
           financialTransactionId: financial.id,
         },
@@ -2558,7 +2607,7 @@ export class TitheService {
           bodyParagraphs: [
             `Contribuiu com ${money}`,
             `referente a ${intent.referenceMonth},`,
-            `via Pix (id ${intent.txid}), confirmado em ${day(intent.confirmedAt)}.`,
+            `via ${intent.paymentMethod === 'CARD' ? 'cartão' : intent.paymentMethod === 'BOLETO' ? 'boleto' : 'Pix'} (id ${intent.txid}), confirmado em ${day(intent.confirmedAt)}.`,
             'Deus lhe pague pela generosidade.',
           ],
           signatureLines: ['Tesouraria Paroquial'],
