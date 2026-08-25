@@ -15,7 +15,9 @@ export class AuditController {
   constructor(private readonly auditService: AuditService) {}
 
   @Get()
-  @Roles(UserRole.PARISH_ADMIN)
+  // A trilha carrega chaves Pix, valores e txid de todas as paróquias: só o
+  // administrador do sistema lê (escopo por paróquia fica para a onda D4)
+  @Roles(UserRole.SYSTEM_ADMIN)
   findAll(
     @Query('entity') entity?: string,
     @Query('entityId') entityId?: string,

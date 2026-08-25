@@ -134,7 +134,8 @@ export class NotificationsService {
       return false;
     }
 
-    return this.messagingService.trySendSms(phone, `${title}: ${body}`);
+    // SMS é cobrado por segmento: corpo limitado (título + resumo)
+    return this.messagingService.trySendSms(phone, `${title}: ${body}`.slice(0, 300));
   }
 
   async notifyUsers(
@@ -176,7 +177,8 @@ export class NotificationsService {
         return false;
       }
 
-      return this.messagingService.trySendSms(phone, `${title}: ${body}`);
+      // SMS é cobrado por segmento: corpo limitado (título + resumo)
+    return this.messagingService.trySendSms(phone, `${title}: ${body}`.slice(0, 300));
     } catch (error) {
       this.logger.warn(`Falha ao enviar SMS ao membro ${memberId}: ${error}`);
       return false;

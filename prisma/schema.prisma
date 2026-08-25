@@ -385,6 +385,9 @@ model Parish {
   pixMerchantName String? // nome do recebedor no BR Code (ASCII, até 25)
   pixMerchantCity String? // cidade do recebedor (ASCII, até 15)
   titheMessage    String? // convite/explicação exibido ao fiel
+  // Rastro da última troca da chave (exibido à administração; aviso aos demais admins)
+  pixKeyChangedAt       DateTime?
+  pixKeyChangedByUserId String?
   titheIntents    TitheIntent[]
 
   // Audit

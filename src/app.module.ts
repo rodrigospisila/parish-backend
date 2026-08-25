@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { ScheduleModule } from '@nestjs/schedule';
+import { ThrottlerModule } from '@nestjs/throttler';
 import { APP_PIPE } from '@nestjs/core';
 import { ValidationPipe } from '@nestjs/common';
 import { AppController } from './app.controller';
@@ -49,6 +50,8 @@ import { CommonModule } from './common/common.module';
       envFilePath: '.env',
     }),
     ScheduleModule.forRoot(),
+    // Limite padrão (só vale onde um ThrottlerGuard é aplicado — hoje, o dízimo)
+    ThrottlerModule.forRoot([{ ttl: 60_000, limit: 60 }]),
     PrismaModule,
     CommonModule,
     AuthModule,

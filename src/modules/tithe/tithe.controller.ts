@@ -4,11 +4,13 @@ import { UserRole } from '@prisma/client';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { RolesGuard } from '../auth/guards/roles.guard';
 import { Roles } from '../auth/decorators/roles.decorator';
+import { Throttle } from '@nestjs/throttler';
 import { TitheService } from './tithe.service';
+import { TitheThrottlerGuard } from './tithe-throttler.guard';
 
 /** Dízimo online (Fase 1: Pix da paróquia + conciliação pela tesouraria). */
 @Controller('tithe')
-@UseGuards(JwtAuthGuard, RolesGuard)
+@UseGuards(JwtAuthGuard, RolesGuard, TitheThrottlerGuard)
 export class TitheController {
   constructor(private readonly service: TitheService) {}
 
@@ -20,6 +22,7 @@ export class TitheController {
   }
 
   @Post('intents')
+  @Throttle({ default: { limit: 10, ttl: 60_000 } })
   createIntent(
     @Body() body: { amount: number; referenceMonth?: string; kind?: string },
     @Request() req: any,
@@ -44,6 +47,7 @@ export class TitheController {
   }
 
   @Post('intents/:id/declare')
+  @Throttle({ default: { limit: 10, ttl: 60_000 } })
   declare(@Param('id') id: string, @Request() req: any) {
     return this.service.declareIntent(id, req.user);
   }
@@ -88,6 +92,7 @@ export class TitheController {
 
   @Patch('config')
   @Roles(UserRole.PARISH_ADMIN)
+  @Throttle({ default: { limit: 5, ttl: 60_000 } })
   updateConfig(
     @Body()
     body: {
@@ -98,6 +103,7 @@ export class TitheController {
       pixMerchantName?: string | null;
       pixMerchantCity?: string | null;
       titheMessage?: string | null;
+      currentPassword?: string;
     },
     @Request() req: any,
   ) {

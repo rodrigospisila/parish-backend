@@ -9,6 +9,8 @@ async function bootstrap() {
   validateEnv();
 
   const app = await NestFactory.create(AppModule);
+  // Atrás do proxy do Railway: req.ip vem do X-Forwarded-For (throttling por IP)
+  app.getHttpAdapter().getInstance().set('trust proxy', 1);
 
   // Global prefix (o /health fica fora do prefixo para o healthcheck do Railway)
   const apiPrefix = process.env.API_PREFIX || 'api/v1';

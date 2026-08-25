@@ -1,6 +1,7 @@
 import { BadRequestException, ForbiddenException, Injectable, NotFoundException } from '@nestjs/common';
 import { NotificationType, TransactionType, UserRole } from '@prisma/client';
 import * as QRCode from 'qrcode';
+import * as bcrypt from 'bcrypt';
 import { PrismaService } from '../../database/prisma.service';
 import { CurrentUser, HierarchyService } from '../../common/hierarchy.service';
 import { AuditService } from '../../common/audit.service';
@@ -21,6 +22,24 @@ const MAX_OPEN_INTENTS = 5;
 const MAX_INTENTS_PER_DAY = 10;
 const MAX_DECLARES_PER_DAY = 5;
 const RENOTIFY_MINUTES = 10;
+
+/** Nome vindo do cadastro (texto livre) nunca entra cru em push/SMS/PDF/lançamento. */
+const safeName = (value: string | null | undefined): string =>
+  String(value ?? '')
+    .replace(/[\u0000-\u001F\u007F]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .slice(0, 80) || 'Fiel';
+
+/** Chave mascarada para avisos (nunca a chave inteira num push/SMS). */
+const maskKey = (key: string | null | undefined): string => {
+  const value = String(key ?? '');
+  if (value.length <= 6) return value ? `${value[0]}…` : '—';
+  return `${value.slice(0, 3)}…${value.slice(-2)}`;
+};
+
+const OPEN_STATUSES = ['CREATED', 'DECLARED'] as const;
+const KEY_CHANGED_NOTE = 'Chave Pix da paróquia foi alterada — gere um novo Pix';
 
 /**
  * Dízimo online — Fase 1 (Pix da própria paróquia, sem gateway):
@@ -79,6 +98,8 @@ export class TitheService {
     pixMerchantName: true,
     pixMerchantCity: true,
     titheMessage: true,
+    pixKeyChangedAt: true,
+    pixKeyChangedByUserId: true,
   } as const;
 
   // ===== CONFIGURAÇÃO (administração paroquial) =====
@@ -114,7 +135,14 @@ export class TitheService {
             description: 'Dizimo',
           })
         : null;
-    return { ...parish, brCodePreview: preview };
+    let lastChange: { at: Date; byName: string | null } | null = null;
+    if (parish.pixKeyChangedAt) {
+      const by = parish.pixKeyChangedByUserId
+        ? await this.prisma.user.findUnique({ where: { id: parish.pixKeyChangedByUserId }, select: { name: true } })
+        : null;
+      lastChange = { at: parish.pixKeyChangedAt, byName: by?.name ?? null };
+    }
+    return { ...parish, brCodePreview: preview, lastChange };
   }
 
   async updateConfig(
@@ -127,11 +155,15 @@ export class TitheService {
       pixMerchantName?: string | null;
       pixMerchantCity?: string | null;
       titheMessage?: string | null;
+      currentPassword?: string;
     },
   ) {
     const target = this.resolveParishId(user, dto.parishId);
     await this.assertParishAdmin(user, target);
-    const current = await this.prisma.parish.findUnique({ where: { id: target }, select: this.parishConfigSelect });
+    const current = await this.prisma.parish.findUnique({
+      where: { id: target },
+      select: { ...this.parishConfigSelect, dioceseId: true },
+    });
     if (!current) throw new NotFoundException('Paróquia não encontrada');
 
     const pixKeyType = dto.pixKeyType !== undefined ? (dto.pixKeyType ?? '').trim().toUpperCase() || null : current.pixKeyType;
@@ -158,11 +190,48 @@ export class TitheService {
       throw new BadRequestException('Para ativar, informe chave Pix, nome do recebedor e cidade');
     }
 
-    const updated = await this.prisma.parish.update({
-      where: { id: target },
-      data: { pixKey, pixKeyType, pixMerchantName, pixMerchantCity, titheMessage, titheEnabled },
-      select: this.parishConfigSelect,
+    // Trocar a CHAVE é a operação sensível (desvio de dízimo): exige a senha
+    // atual de quem está logado, mesmo com token válido
+    const keyChanged = (pixKey ?? null) !== (current.pixKey ?? null) || (pixKeyType ?? null) !== (current.pixKeyType ?? null);
+    if (keyChanged && current.pixKey) {
+      const password = (dto.currentPassword ?? '').trim();
+      if (!password) throw new BadRequestException('Informe sua senha atual para trocar a chave Pix');
+      const account = await this.prisma.user.findUnique({ where: { id: user.id }, select: { password: true } });
+      const valid = account ? await bcrypt.compare(password, account.password) : false;
+      if (!valid) throw new BadRequestException('Senha atual incorreta');
+    }
+    // Qualquer mudança no recebedor (ou desativar) invalida os Pix ainda não
+    // informados: o código antigo apontaria para a chave antiga
+    const receiverChanged =
+      keyChanged ||
+      (pixMerchantName ?? null) !== (current.pixMerchantName ?? null) ||
+      (pixMerchantCity ?? null) !== (current.pixMerchantCity ?? null);
+    const disabling = current.titheEnabled && !titheEnabled;
+
+    const { cancelledOpenIntents } = await this.prisma.$transaction(async (tx) => {
+      await tx.parish.update({
+        where: { id: target },
+        data: {
+          pixKey,
+          pixKeyType,
+          pixMerchantName,
+          pixMerchantCity,
+          titheMessage,
+          titheEnabled,
+          ...(keyChanged ? { pixKeyChangedAt: new Date(), pixKeyChangedByUserId: user.id } : {}),
+        },
+      });
+      let cancelled = 0;
+      if (receiverChanged || disabling) {
+        const result = await tx.titheIntent.updateMany({
+          where: { parishId: target, status: 'CREATED' },
+          data: { status: 'CANCELLED', note: disabling && !receiverChanged ? 'Dízimo pelo app desativado pela paróquia' : KEY_CHANGED_NOTE },
+        });
+        cancelled = result.count;
+      }
+      return { cancelledOpenIntents: cancelled };
     });
+
     await this.auditService.log({
       actor: this.auditActor(user),
       action: 'UPDATE',
@@ -176,8 +245,39 @@ export class TitheService {
         pixMerchantCity: current.pixMerchantCity,
       },
       after: { titheEnabled, pixKey, pixKeyType, pixMerchantName, pixMerchantCity },
+      metadata: { keyChanged, cancelledOpenIntents },
     });
-    return this.getConfig(user, target);
+
+    // Troca de chave avisa os DEMAIS administradores (paróquia e diocese):
+    // se ninguém reconhece a mudança, desativa-se o dízimo na hora
+    if (keyChanged) {
+      try {
+        const admins = await this.prisma.user.findMany({
+          where: {
+            isActive: true,
+            id: { not: user.id },
+            OR: [
+              { parishId: target, role: UserRole.PARISH_ADMIN },
+              { dioceseId: current.dioceseId, role: UserRole.DIOCESAN_ADMIN },
+            ],
+          },
+          select: { id: true },
+        });
+        if (admins.length) {
+          await this.notificationsService.notifyUsers(
+            admins.map((a) => a.id),
+            NotificationType.TITHE,
+            'Chave Pix do dízimo alterada',
+            `${safeName(user.email ?? 'Um administrador')} trocou a chave Pix da paróquia de ${maskKey(current.pixKey)} para ${maskKey(pixKey)}. Se você não reconhece esta alteração, desative o dízimo online agora no Financeiro.`,
+            { kind: 'tithe-key-changed', parishId: target },
+          );
+        }
+      } catch {
+        // aviso é conveniência
+      }
+    }
+    const config = await this.getConfig(user, target);
+    return { ...config, cancelledOpenIntents };
   }
 
   // ===== FIEL =====
@@ -344,6 +444,29 @@ export class TitheService {
 
   async getIntent(id: string, user: CurrentUser) {
     const { intent } = await this.loadOwnIntent(id, user);
+    if (intent.status === 'CREATED') {
+      // O código é recalculado a partir da configuração ATUAL da paróquia; se a
+      // chave mudou (ou o dízimo foi desativado), o Pix antigo é encerrado
+      const parish = await this.prisma.parish.findUnique({ where: { id: intent.parishId }, select: this.parishConfigSelect });
+      const usable = !!parish?.titheEnabled && !!parish.pixKey && !!parish.pixMerchantName && !!parish.pixMerchantCity;
+      const fresh = usable
+        ? buildPixBrCode({
+            key: parish!.pixKey!,
+            merchantName: parish!.pixMerchantName!,
+            merchantCity: parish!.pixMerchantCity!,
+            amount: intent.amount,
+            txid: intent.txid,
+            description: `${intent.kind === 'TITHE' ? 'Dizimo' : 'Oferta'} ${intent.referenceMonth}`,
+          })
+        : null;
+      if (!fresh || fresh !== intent.brCode) {
+        await this.prisma.titheIntent.updateMany({
+          where: { id, status: 'CREATED' },
+          data: { status: 'CANCELLED', note: usable ? KEY_CHANGED_NOTE : 'Dízimo pelo app desativado pela paróquia' },
+        });
+        throw new BadRequestException('Este Pix ficou desatualizado — gere um novo');
+      }
+    }
     return this.presentIntent(intent, intent.status === 'CREATED' || intent.status === 'DECLARED');
   }
 
@@ -376,7 +499,6 @@ export class TitheService {
         declaredAt: { gte: new Date(now.getTime() - RENOTIFY_MINUTES * 60 * 1000) },
       },
     });
-    if (recentlyNotified > 0) return this.presentIntent(updated);
     await this.auditService.log({
       actor: this.auditActor(user),
       action: 'UPDATE',
@@ -384,7 +506,9 @@ export class TitheService {
       entityId: id,
       before: { status: 'CREATED' },
       after: { status: 'DECLARED' },
+      metadata: { notifiedTreasury: recentlyNotified === 0 },
     });
+    if (recentlyNotified > 0) return this.presentIntent(updated);
     // Tesouraria da comunidade/paróquia recebe para conciliar (best-effort)
     try {
       const recipients = await this.prisma.user.findMany({
@@ -402,7 +526,7 @@ export class TitheService {
           recipients.map((u) => u.id),
           NotificationType.TITHE,
           'Pix de dízimo a conferir',
-          `${member.fullName} informou um Pix de R$ ${intent.amount.toFixed(2).replace('.', ',')} (${intent.referenceMonth}, id ${intent.txid}). Confira no extrato e confirme no Financeiro.`,
+          `${safeName(member.fullName)} informou um Pix de R$ ${intent.amount.toFixed(2).replace('.', ',')} (${intent.referenceMonth}, id ${intent.txid}). Confira no extrato e confirme no Financeiro.`,
           { kind: 'tithe-declared', intentId: id },
         );
       }
@@ -543,7 +667,7 @@ export class TitheService {
           type: TransactionType.INCOME,
           category,
           amount: intent.amount,
-          description: `${category} ${intent.referenceMonth} — ${intent.member.fullName} (Pix app ${intent.txid})`,
+          description: `${category} ${intent.referenceMonth} — ${safeName(intent.member.fullName)} (Pix app ${intent.txid})`,
           date: paidAt,
           communityId: intent.communityId ?? intent.member.communityId,
           parishId: intent.parishId,
@@ -679,7 +803,7 @@ export class TitheService {
       orientation: 'portrait',
       pages: [
         {
-          recipientName: intent.member.fullName,
+          recipientName: safeName(intent.member.fullName),
           bodyParagraphs: [
             `Contribuiu com ${money}`,
             `referente a ${intent.referenceMonth},`,
