@@ -3354,13 +3354,19 @@ export class SchedulesService {
    * O próprio membro recusa, ou um coordenador recusa em nome dele
    * (auditado em respondedByUserId/respondedAt).
    */
-  async declineAssignment(assignmentId: string, currentUser: CurrentUser, reason?: string) {
+  async declineAssignment(
+    assignmentId: string,
+    currentUser: CurrentUser,
+    reason?: string,
+    declineCouple = false,
+  ) {
     const assignment = await this.prisma.scheduleAssignment.findUnique({
       where: { id: assignmentId },
       include: {
         member: {
-          select: { id: true, userId: true, fullName: true },
+          select: { id: true, userId: true, fullName: true, spouseId: true },
         },
+        communityPastoral: { select: { scheduleCouplesTogether: true } },
       },
     });
 
@@ -3414,7 +3420,60 @@ export class SchedulesService {
       );
     }
 
-    return updatedAssignment;
+    // Recusa em casal (pastoral "casais servem juntos"): o cônjuge escalado na
+    // mesma escala é recusado junto, com rastro de quem decidiu
+    let coupleDeclined: string | null = null;
+    if (declineCouple && assignment.member.spouseId && assignment.communityPastoral?.scheduleCouplesTogether) {
+      const spouseAssignment = await this.prisma.scheduleAssignment.findFirst({
+        where: {
+          scheduleId: assignment.scheduleId,
+          memberId: assignment.member.spouseId,
+          status: { in: ['PENDING', 'CONFIRMED'] },
+        },
+        include: { member: { select: { fullName: true, userId: true } } },
+      });
+      if (spouseAssignment) {
+        const trimmedReason = reason?.trim();
+        await this.prisma.scheduleAssignment.update({
+          where: { id: spouseAssignment.id },
+          data: {
+            status: 'DECLINED',
+            respondedAt: new Date(),
+            respondedByUserId: currentUser.id,
+            declineReason: `Recusa em casal com ${assignment.member.fullName}${trimmedReason ? ` — ${trimmedReason}` : ''}`,
+          },
+        });
+        coupleDeclined = spouseAssignment.member.fullName;
+        await this.auditService.log({
+          actor: { id: currentUser.id, email: currentUser.email, role: currentUser.role },
+          action: 'UPDATE',
+          entity: 'ScheduleAssignment',
+          entityId: spouseAssignment.id,
+          before: { status: spouseAssignment.status },
+          after: { status: 'DECLINED', coupleDeclineFrom: assignment.id },
+        });
+        if (spouseAssignment.member.userId && spouseAssignment.member.userId !== currentUser.id) {
+          await this.notificationsService.notifyUsers(
+            [spouseAssignment.member.userId],
+            NotificationType.ASSIGNMENT_DECLINED,
+            'Escala recusada em casal',
+            `${assignment.member.fullName} recusou a escala "${updatedAssignment.schedule.title}" (${this.formatDateLabel(updatedAssignment.schedule.date)}) por vocês dois.`,
+            { scheduleId: updatedAssignment.scheduleId, assignmentId: spouseAssignment.id },
+          );
+        }
+        if (coordinatorUserIds.length > 0) {
+          await this.notificationsService.notifyUsers(
+            coordinatorUserIds,
+            NotificationType.ASSIGNMENT_DECLINED,
+            'Recusa em casal',
+            `${spouseAssignment.member.fullName} também recusou "${updatedAssignment.schedule.title}" (casal com ${assignment.member.fullName}) — o par precisa de substituição.`,
+            { scheduleId: updatedAssignment.scheduleId, assignmentId: spouseAssignment.id },
+          );
+        }
+      }
+    }
+
+    return { ...updatedAssignment, coupleDeclined };
   }
 
   // ========== RELATÃ“RIOS ==========

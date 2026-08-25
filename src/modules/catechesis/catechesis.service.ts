@@ -1668,7 +1668,13 @@ export class CatechesisService {
           select: { id: true, kind: true, status: true, reviewNotes: true, createdAt: true },
           orderBy: { createdAt: 'desc' },
         },
-        _count: { select: { assessments: true } },
+        _count: {
+          select: {
+            assessments: true,
+            // Mensagens da equipe ainda não lidas pela família
+            messages: { where: { fromTeam: true, readAt: null } },
+          },
+        },
       },
       orderBy: { enrolledAt: 'desc' },
     });
@@ -1733,6 +1739,7 @@ export class CatechesisService {
         rejectionReason: enrollment.rejectionReason,
         documents: enrollment.documents,
         assessmentsCount: enrollment._count.assessments,
+        unreadMessages: enrollment._count.messages,
         attendanceRate: total ? Math.round((present / total) * 100) : null,
         sessions: total,
         class: {
@@ -3081,6 +3088,161 @@ export class CatechesisService {
     });
   }
 
+  // ===== CONVERSA FAMÍLIA ↔ EQUIPE (Onda 4) =====
+  // Um fio por MATRÍCULA: só os responsáveis e a equipe da turma leem.
+  // Sem grupo aberto; tudo auditado; retenção acompanha a matrícula.
+
+  private async resolveConversationSide(enrollmentId: string, user: CurrentUser) {
+    const enrollment = await this.prisma.catechesisEnrollment.findUnique({
+      where: { id: enrollmentId },
+      include: {
+        member: {
+          select: { fullName: true, userId: true, deletedAt: true, responsible: { select: { userId: true } } },
+        },
+        class: { select: { id: true, name: true, communityId: true, deletedAt: true } },
+      },
+    });
+    if (!enrollment || enrollment.member.deletedAt || enrollment.class.deletedAt) {
+      throw new NotFoundException('Matrícula não encontrada');
+    }
+    if (this.guardianUserIds(enrollment.member).includes(user.id)) {
+      return { enrollment, isTeam: false };
+    }
+    await this.assertClassOperationalAccess(enrollment.classId, user);
+    return { enrollment, isTeam: true };
+  }
+
+  /** Equipe da turma (catequistas com usuário); sem equipe, a coordenação da comunidade. */
+  private async classTeamUserIds(classId: string, communityId: string): Promise<string[]> {
+    const catechists = await this.prisma.catechesisCatechist.findMany({
+      where: { classId },
+      select: { member: { select: { userId: true } } },
+    });
+    const ids = catechists.map((c) => c.member.userId).filter((id): id is string => !!id);
+    if (ids.length) return [...new Set(ids)];
+    const coordinators = await this.prisma.user.findMany({
+      where: { communityId, role: { in: ['COMMUNITY_COORDINATOR', 'PASTORAL_COORDINATOR'] }, isActive: true },
+      select: { id: true },
+    });
+    return coordinators.map((u) => u.id);
+  }
+
+  /** Abre a conversa (família ou equipe) e marca como lidas as mensagens do outro lado. */
+  async listMessages(enrollmentId: string, user: CurrentUser) {
+    const { enrollment, isTeam } = await this.resolveConversationSide(enrollmentId, user);
+    const messages = await this.prisma.catechesisMessage.findMany({
+      where: { enrollmentId },
+      include: { author: { select: { name: true } } },
+      orderBy: { createdAt: 'desc' },
+      take: 200,
+    });
+    await this.prisma.catechesisMessage.updateMany({
+      where: { enrollmentId, fromTeam: !isTeam, readAt: null },
+      data: { readAt: new Date() },
+    });
+    return {
+      enrollmentId,
+      isTeam,
+      student: enrollment.member.fullName,
+      className: enrollment.class.name,
+      canWrite: enrollment.status === 'ACTIVE' || enrollment.status === 'PENDING_APPROVAL',
+      messages: messages.reverse().map((m) => ({
+        id: m.id,
+        body: m.body,
+        fromTeam: m.fromTeam,
+        authorName: m.author.name,
+        mine: m.authorUserId === user.id,
+        createdAt: m.createdAt,
+        readAt: m.readAt,
+      })),
+    };
+  }
+
+  async sendMessage(enrollmentId: string, rawBody: string, user: CurrentUser) {
+    const { enrollment, isTeam } = await this.resolveConversationSide(enrollmentId, user);
+    if (enrollment.status !== 'ACTIVE' && enrollment.status !== 'PENDING_APPROVAL') {
+      throw new BadRequestException('Esta matrícula não está mais ativa — a conversa fica só para leitura');
+    }
+    const body = String(rawBody ?? '')
+      .replace(/\r\n?/g, '\n')
+      .replace(/[\u0000-\u0008\u000B-\u001F]/g, '')
+      .trim();
+    if (!body) throw new BadRequestException('Escreva a mensagem');
+    if (body.length > 1000) throw new BadRequestException('Mensagem muito longa (máx. 1000 caracteres)');
+    if (!isTeam) {
+      // Freio de volume por família — a equipe lê tudo, não é canal de spam
+      const since = new Date(Date.now() - 24 * 60 * 60 * 1000);
+      const sentToday = await this.prisma.catechesisMessage.count({
+        where: { enrollmentId, fromTeam: false, createdAt: { gte: since } },
+      });
+      if (sentToday >= 20) throw new BadRequestException('Limite de 20 mensagens por dia nesta conversa');
+    }
+    const message = await this.prisma.catechesisMessage.create({
+      data: { enrollmentId, authorUserId: user.id, fromTeam: isTeam, body },
+      include: { author: { select: { name: true } } },
+    });
+    await this.auditService.log({
+      actor: this.auditActor(user),
+      action: 'CREATE',
+      entity: 'CatechesisMessage',
+      entityId: message.id,
+      metadata: { enrollmentId, fromTeam: isTeam, length: body.length },
+    });
+    // Push ao outro lado é conveniência — não derruba o envio
+    try {
+      const recipients = isTeam
+        ? this.guardianUserIds(enrollment.member)
+        : await this.classTeamUserIds(enrollment.classId, enrollment.class.communityId);
+      const targets = recipients.filter((id) => id !== user.id);
+      if (targets.length) {
+        const preview = body.length > 120 ? `${body.slice(0, 117)}…` : body;
+        await this.notificationsService.notifyUsers(
+          targets,
+          NotificationType.CATECHESIS,
+          isTeam
+            ? `Mensagem da catequese — ${enrollment.member.fullName}`
+            : `Mensagem da família — ${enrollment.member.fullName}`,
+          preview,
+          { kind: 'chat', enrollmentId, classId: enrollment.classId },
+        );
+      }
+    } catch {
+      // sem push, a mensagem segue visível na conversa
+    }
+    return {
+      id: message.id,
+      body: message.body,
+      fromTeam: message.fromTeam,
+      authorName: message.author.name,
+      mine: true,
+      createdAt: message.createdAt,
+      readAt: null,
+    };
+  }
+
+  /** Conversas da turma (equipe): última mensagem e não lidas por matrícula. */
+  async listClassConversations(classId: string, user: CurrentUser) {
+    await this.assertClassOperationalAccess(classId, user);
+    const enrollments = await this.prisma.catechesisEnrollment.findMany({
+      where: { classId, status: { in: ['ACTIVE', 'PENDING_APPROVAL'] }, member: { deletedAt: null } },
+      select: {
+        id: true,
+        member: { select: { fullName: true } },
+        messages: { orderBy: { createdAt: 'desc' }, take: 1, select: { body: true, fromTeam: true, createdAt: true } },
+        _count: { select: { messages: { where: { fromTeam: false, readAt: null } } } },
+      },
+      orderBy: { member: { fullName: 'asc' } },
+    });
+    return enrollments
+      .map((e) => ({
+        enrollmentId: e.id,
+        student: e.member.fullName,
+        lastMessage: e.messages[0] ?? null,
+        unread: e._count.messages,
+      }))
+      .sort((a, b) => (b.lastMessage?.createdAt.getTime() ?? 0) - (a.lastMessage?.createdAt.getTime() ?? 0));
+  }
+
   // ===== BRASÃO DA PARÓQUIA NOS PDFs =====
   private readonly logoCache = new Map<string, { buffer: Buffer | null; at: number }>();
 
@@ -3241,6 +3403,7 @@ export class CatechesisService {
             responsible: { select: { fullName: true, phone: true } },
           },
         },
+        messages: { where: { fromTeam: false, readAt: null }, select: { id: true } },
         attendances: {
           // Frequência = encontros já ocorridos; agenda futura não dilui o %
           where: { session: { date: { lte: this.startOfTodayUtc() } } },
@@ -3266,6 +3429,7 @@ export class CatechesisService {
         pendingDocuments: e.pendingDocuments,
         rejectionReason: e.rejectionReason,
         submittedDocs: e.documents.filter((doc) => doc.status === 'SUBMITTED').length,
+        unreadMessages: e.messages.length,
         docsCount: e.documents.length,
         attendanceRate: total ? Math.round((present / total) * 100) : null,
         sessions: total,

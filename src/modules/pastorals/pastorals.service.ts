@@ -36,7 +36,7 @@ export class PastoralsService {
     return this.hierarchyService.getUserPastoralIds(currentUser.id, true);
   }
 
-  private async ensurePastoralAccess(communityPastoralId: string, currentUser?: CurrentUser) {
+  async ensurePastoralAccess(communityPastoralId: string, currentUser?: CurrentUser) {
     if (!currentUser) {
       return;
     }

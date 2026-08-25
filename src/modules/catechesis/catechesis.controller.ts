@@ -223,6 +223,22 @@ export class CatechesisController {
     return this.service.recordFeePayment(id, dto, req.user);
   }
 
+  // Conversa família ↔ equipe por matrícula (Onda 4) — service decide o lado
+  @Get('enrollments/:id/messages')
+  listMessages(@Param('id') id: string, @Request() req: any) {
+    return this.service.listMessages(id, req.user);
+  }
+
+  @Post('enrollments/:id/messages')
+  sendMessage(@Param('id') id: string, @Body() body: { body: string }, @Request() req: any) {
+    return this.service.sendMessage(id, body?.body, req.user);
+  }
+
+  @Get('classes/:id/conversations')
+  classConversations(@Param('id') id: string, @Request() req: any) {
+    return this.service.listClassConversations(id, req.user);
+  }
+
   // Recibo do pagamento da taxa (família ou equipe — service valida)
   @Get('fees/payments/:id/receipt.pdf')
   async feeReceipt(@Param('id') id: string, @Res() res: Response, @Request() req: any) {

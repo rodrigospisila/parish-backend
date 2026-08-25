@@ -164,6 +164,7 @@ enum NotificationType {
   TEAM_BROADCAST
   CLERGY_MESSAGE // Palavra do Pastor (mensagem/vídeo do clero)
   CATECHESIS // Catequese: falta, novo encontro, documentos, mensagem da turma
+  PASTORAL_JOIN_REQUEST // "Quero participar": pedido de ingresso numa pastoral (Onda 4)
 }
 
 // Tipos de consentimento granular (LGPD)
@@ -246,6 +247,8 @@ model User {
 
   @@index([email])
   @@index([role])
+  catechesisMessages CatechesisMessage[]
+
   @@map("users")
 }
 
@@ -588,6 +591,8 @@ model CommunityPastoral {
   @@unique([globalPastoralId, communityId])
   @@index([communityId])
   @@index([deletedAt])
+  joinRequests PastoralJoinRequest[]
+
   @@map("community_pastorals")
 }
 
@@ -795,6 +800,8 @@ model Member {
   @@index([email])
   @@index([cpf])
   @@index([deletedAt])
+  pastoralJoinRequests PastoralJoinRequest[]
+
   @@map("members")
 }
 
@@ -1582,6 +1589,8 @@ model CatechesisEnrollment {
   @@index([classId])
   @@index([memberId])
   @@index([status])
+  messages    CatechesisMessage[]
+
   @@map("catechesis_enrollments")
 }
 
@@ -2305,4 +2314,57 @@ model ClergyMessage {
   @@index([memberId])
   @@index([deletedAt])
   @@map("clergy_messages")
+}
+
+// ============================================
+// ONDA 4 — "Quero participar" (pastorais) e conversa família ↔ equipe (catequese)
+// ============================================
+
+enum JoinRequestStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+// Pedido de ingresso do fiel numa pastoral da comunidade; a coordenação aprova/recusa
+model PastoralJoinRequest {
+  id                  String            @id @default(cuid())
+  communityPastoralId String
+  communityPastoral   CommunityPastoral @relation(fields: [communityPastoralId], references: [id], onDelete: Cascade)
+  memberId            String
+  member              Member            @relation(fields: [memberId], references: [id], onDelete: Cascade)
+  status              JoinRequestStatus @default(PENDING)
+  // Recado do fiel ao pedir (opcional) e motivo da recusa (opcional)
+  message         String?
+  rejectionReason String?
+  reviewedByUserId String?
+  reviewedAt       DateTime?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Um pedido por (pastoral, membro): reenviar reabre o mesmo registro
+  @@unique([communityPastoralId, memberId])
+  @@index([communityPastoralId, status])
+  @@index([memberId])
+  @@map("pastoral_join_requests")
+}
+
+// Conversa por MATRÍCULA entre a família (responsáveis) e a equipe da turma.
+// Só esses dois lados leem; não há grupo aberto. Retenção: enquanto a matrícula existir.
+model CatechesisMessage {
+  id           String               @id @default(cuid())
+  enrollmentId String
+  enrollment   CatechesisEnrollment @relation(fields: [enrollmentId], references: [id], onDelete: Cascade)
+  authorUserId String
+  author       User                 @relation(fields: [authorUserId], references: [id], onDelete: Cascade)
+  // true = escrita pela equipe (catequista/coordenação); false = pela família
+  fromTeam Boolean
+  body     String
+  // Lida pelo OUTRO lado (equipe lê a da família e vice-versa)
+  readAt    DateTime?
+  createdAt DateTime  @default(now())
+
+  @@index([enrollmentId, createdAt])
+  @@index([enrollmentId, fromTeam, readAt])
+  @@map("catechesis_messages")
 }

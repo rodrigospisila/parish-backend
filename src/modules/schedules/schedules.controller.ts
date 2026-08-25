@@ -57,8 +57,12 @@ export class SchedulesController {
    * PATCH /schedules/assignments/:id/decline
    */
   @Patch('assignments/:id/decline')
-  async declineAssignment(@Param('id') id: string, @Body() body: { reason?: string }, @Request() req: any) {
-    return this.schedulesService.declineAssignment(id, req.user, body?.reason);
+  async declineAssignment(
+    @Param('id') id: string,
+    @Body() body: { reason?: string; declineCouple?: boolean },
+    @Request() req: any,
+  ) {
+    return this.schedulesService.declineAssignment(id, req.user, body?.reason, body?.declineCouple === true);
   }
 
   // ========== SCHEDULES ==========
