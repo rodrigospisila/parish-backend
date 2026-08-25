@@ -165,6 +165,7 @@ enum NotificationType {
   CLERGY_MESSAGE // Palavra do Pastor (mensagem/vídeo do clero)
   CATECHESIS // Catequese: falta, novo encontro, documentos, mensagem da turma
   PASTORAL_JOIN_REQUEST // "Quero participar": pedido de ingresso numa pastoral (Onda 4)
+  TITHE // Dízimo online: Pix declarado/confirmado (projeto Dízimo)
 }
 
 // Tipos de consentimento granular (LGPD)
@@ -376,6 +377,15 @@ model Parish {
   // Santos padroeiros + mensagens do clero
   saintPatronages SaintPatronage[]
   clergyMessages  ClergyMessage[]
+
+  // Dízimo online (Fase 1 — Pix da própria paróquia, sem gateway)
+  titheEnabled    Boolean @default(false)
+  pixKey          String?
+  pixKeyType      String? // CPF | CNPJ | EMAIL | PHONE | RANDOM
+  pixMerchantName String? // nome do recebedor no BR Code (ASCII, até 25)
+  pixMerchantCity String? // cidade do recebedor (ASCII, até 15)
+  titheMessage    String? // convite/explicação exibido ao fiel
+  titheIntents    TitheIntent[]
 
   // Audit
   createdAt DateTime @default(now())
@@ -801,6 +811,7 @@ model Member {
   @@index([cpf])
   @@index([deletedAt])
   pastoralJoinRequests PastoralJoinRequest[]
+  titheIntents         TitheIntent[]
 
   @@map("members")
 }
@@ -2059,11 +2070,71 @@ model TitheContribution {
   // Liga ao financeiro (categoria "Dízimo")
   financialTransactionId String?
 
+  // Contribuição originada de um Pix pelo app (Dízimo online)
+  intent TitheIntent?
+
   createdAt DateTime @default(now())
 
   @@index([titherId])
   @@index([referenceMonth])
   @@map("tithe_contributions")
+}
+
+// ============================================
+// DÍZIMO ONLINE — intenção de contribuição pelo app (Pix da paróquia)
+// ============================================
+
+enum TitheIntentKind {
+  TITHE // dízimo mensal
+  OFFERING // oferta avulsa
+}
+
+enum TitheIntentStatus {
+  CREATED // Pix gerado, ainda não declarado
+  DECLARED // fiel marcou "já fiz o Pix" — aguarda conferência da tesouraria
+  CONFIRMED // tesouraria conferiu: virou contribuição + lançamento financeiro
+  CANCELLED // cancelado pelo fiel ou não localizado pela tesouraria
+}
+
+enum TitheIntentMethod {
+  PIX_STATIC // BR Code com a chave da paróquia (Fase 1)
+  GATEWAY // provedor de pagamento com webhook (Fase 2)
+}
+
+model TitheIntent {
+  id          String            @id @default(cuid())
+  memberId    String
+  member      Member            @relation(fields: [memberId], references: [id], onDelete: Cascade)
+  parishId    String
+  parish      Parish            @relation(fields: [parishId], references: [id], onDelete: Cascade)
+  communityId String?
+  amount      Float
+  // Mês de referência "2026-08" (dízimo) — ofertas usam o mês do pagamento
+  referenceMonth String
+  kind           TitheIntentKind   @default(TITHE)
+  method         TitheIntentMethod @default(PIX_STATIC)
+  status         TitheIntentStatus @default(CREATED)
+  // Identificador do Pix (campo txid do BR Code, até 25 alfanuméricos)
+  txid   String  @unique
+  brCode String?
+  // Fase 2: referência no provedor
+  providerRef String?
+  // Observação da tesouraria (ex.: motivo de "não localizado")
+  note String?
+
+  declaredAt        DateTime?
+  confirmedAt       DateTime?
+  confirmedByUserId String?
+  contributionId    String?            @unique
+  contribution      TitheContribution? @relation(fields: [contributionId], references: [id], onDelete: SetNull)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([memberId, createdAt])
+  @@index([parishId, status])
+  @@index([communityId, status])
+  @@map("tithe_intents")
 }
 
 // ============================================

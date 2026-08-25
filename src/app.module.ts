@@ -39,6 +39,7 @@ import { ClergyMessagesModule } from './modules/clergy-messages/clergy-messages.
 import { GeocodingModule } from './modules/geocoding/geocoding.module';
 import { MassesModule } from './modules/masses/masses.module';
 import { DashboardModule } from './modules/dashboard/dashboard.module';
+import { TitheModule } from './modules/tithe/tithe.module';
 import { CommonModule } from './common/common.module';
 
 @Module({
@@ -83,6 +84,7 @@ import { CommonModule } from './common/common.module';
     GeocodingModule,
     MassesModule,
     DashboardModule,
+    TitheModule,
   ],
   controllers: [AppController],
   providers: [
