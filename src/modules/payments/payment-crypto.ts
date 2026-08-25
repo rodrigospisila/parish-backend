@@ -1,4 +1,4 @@
-import { createCipheriv, createDecipheriv, randomBytes, timingSafeEqual } from 'crypto';
+import { createCipheriv, createDecipheriv, createHash, randomBytes, timingSafeEqual } from 'crypto';
 
 /**
  * Segredos de provedor (API key da paróquia) em repouso: AES-256-GCM com a
@@ -12,11 +12,18 @@ function loadKey(): Buffer {
   if (!raw) {
     throw new Error('PAYMENTS_ENCRYPTION_KEY não configurada — gere 32 bytes (openssl rand -hex 32) e defina no ambiente');
   }
-  const key = /^[0-9a-fA-F]{64}$/.test(raw) ? Buffer.from(raw, 'hex') : Buffer.from(raw, 'base64');
-  if (key.length !== 32) {
-    throw new Error('PAYMENTS_ENCRYPTION_KEY inválida — precisa ter exatamente 32 bytes (hex de 64 caracteres)');
+  // 64 hex = os 32 bytes crus; base64 de 32 bytes também; qualquer outro
+  // segredo forte (32+ caracteres) vira chave por SHA-256 — o valor gerado
+  // pelo admin não precisa ter um formato específico
+  if (/^[0-9a-fA-F]{64}$/.test(raw)) return Buffer.from(raw, 'hex');
+  if (/^[A-Za-z0-9+/]{43}=?$/.test(raw)) {
+    const decoded = Buffer.from(raw, 'base64');
+    if (decoded.length === 32) return decoded;
   }
-  return key;
+  if (raw.length < 32) {
+    throw new Error('PAYMENTS_ENCRYPTION_KEY curta demais — use 64 caracteres hex (openssl rand -hex 32) ou um segredo com pelo menos 32 caracteres');
+  }
+  return createHash('sha256').update(raw, 'utf8').digest();
 }
 
 /** Motivo pelo qual a criptografia não está pronta (null quando está). */
