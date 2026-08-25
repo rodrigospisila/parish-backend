@@ -1,4 +1,4 @@
-import { buildPixBrCode, crc16Ccitt, normalizeAscii, normalizeTxid, validatePixKey } from './pix-brcode';
+import { buildPixBrCode, crc16Ccitt, normalizeAscii, normalizePixKey, normalizeTxid, validatePixKey } from './pix-brcode';
 
 describe('Pix BR Code (copia e cola)', () => {
   it('reproduz o exemplo oficial do Manual do BCB (chave aleatória, R$ 1,00, txid ***)', () => {
@@ -45,6 +45,33 @@ describe('Pix BR Code (copia e cola)', () => {
     // o CRC fecha o payload (4 hexa após 6304)
     expect(payload.slice(-8, -4)).toBe('6304');
     expect(payload.slice(-4)).toMatch(/^[0-9A-F]{4}$/);
+  });
+
+  it('chave longa: descrição é cortada/omitida e o campo 26 nunca passa de 99', () => {
+    const key = 'tesouraria.paroquia.nossa.senhora.aparecida.pontagrossa@gmail.com'; // 65 chars
+    const payload = buildPixBrCode({ key, merchantName: 'Paroquia', merchantCity: 'CIDADE', amount: 10, txid: 'ABC', description: 'Dizimo 2026-08' });
+    const len26 = Number(payload.slice(8, 10));
+    expect(payload.slice(6, 8)).toBe('26');
+    expect(len26).toBeLessThanOrEqual(99);
+    expect(payload.slice(10, 10 + len26)).toContain(key);
+    // chave no limite do DICT (77) ainda cabe sem descrição
+    const maxKey = 'a'.repeat(65) + '@paroquia.br';
+    expect(maxKey).toHaveLength(77);
+    expect(() => buildPixBrCode({ key: maxKey, merchantName: 'P', merchantCity: 'C', description: 'x' })).not.toThrow();
+    expect(() => buildPixBrCode({ key: 'a'.repeat(78), merchantName: 'P', merchantCity: 'C' })).toThrow();
+    expect(() => buildPixBrCode({ key: 'josé@paroquia.org', merchantName: 'P', merchantCity: 'C' })).toThrow();
+  });
+
+  it('CNPJ alfanumérico e normalização de e-mail/aleatória', () => {
+    expect(validatePixKey('CNPJ', '12ABC34501DE35')).toBeNull();
+    expect(validatePixKey('CNPJ', '12abc34501de35')).toBeNull();
+    expect(normalizePixKey('CNPJ', '12abc34501de35')).toBe('12ABC34501DE35');
+    expect(validatePixKey('CNPJ', '12ABC34501DEXX')).not.toBeNull();
+    expect(normalizePixKey('EMAIL', 'Tesouraria@ParoquiaSantaRita.org')).toBe('tesouraria@paroquiasantarita.org');
+    expect(validatePixKey('EMAIL', 'Tesouraria@ParoquiaSantaRita.org')).toBeNull();
+    expect(validatePixKey('EMAIL', 'josé@paroquia.org')).not.toBeNull();
+    expect(validatePixKey('EMAIL', 'a'.repeat(70) + '@paroquia.br')).not.toBeNull();
+    expect(normalizePixKey('RANDOM', '123E4567-E12B-12D1-A456-426655440000')).toBe('123e4567-e12b-12d1-a456-426655440000');
   });
 
   it('valida a chave conforme o tipo', () => {

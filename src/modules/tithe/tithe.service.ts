@@ -6,7 +6,7 @@ import { CurrentUser, HierarchyService } from '../../common/hierarchy.service';
 import { AuditService } from '../../common/audit.service';
 import { NotificationsService } from '../notifications/notifications.service';
 import { PdfService } from '../pdf/pdf.service';
-import { buildPixBrCode, normalizeAscii, validatePixKey } from './pix-brcode';
+import { buildPixBrCode, normalizeAscii, normalizePixKey, validatePixKey } from './pix-brcode';
 
 const FINANCE_ROLES: UserRole[] = [
   UserRole.SYSTEM_ADMIN,
@@ -17,6 +17,10 @@ const FINANCE_ROLES: UserRole[] = [
 
 const MAX_AMOUNT = 50000;
 const MAX_OPEN_INTENTS = 5;
+// Freios por membro em 24h (cancelar não libera vaga; declarar não vira spam)
+const MAX_INTENTS_PER_DAY = 10;
+const MAX_DECLARES_PER_DAY = 5;
+const RENOTIFY_MINUTES = 10;
 
 /**
  * Dízimo online — Fase 1 (Pix da própria paróquia, sem gateway):
@@ -130,8 +134,10 @@ export class TitheService {
     const current = await this.prisma.parish.findUnique({ where: { id: target }, select: this.parishConfigSelect });
     if (!current) throw new NotFoundException('Paróquia não encontrada');
 
-    const pixKey = dto.pixKey !== undefined ? (dto.pixKey ?? '').trim() || null : current.pixKey;
     const pixKeyType = dto.pixKeyType !== undefined ? (dto.pixKeyType ?? '').trim().toUpperCase() || null : current.pixKeyType;
+    const rawKey = dto.pixKey !== undefined ? (dto.pixKey ?? '').trim() || null : current.pixKey;
+    // Grava no formato do DICT (minúsculas para e-mail/aleatória, CNPJ maiúsculo)
+    const pixKey = rawKey ? normalizePixKey(pixKeyType, rawKey) : null;
     const pixMerchantName =
       dto.pixMerchantName !== undefined
         ? normalizeAscii(dto.pixMerchantName ?? '', 25) || null
@@ -265,11 +271,16 @@ export class TitheService {
     if (!/^\d{4}-(0[1-9]|1[0-2])$/.test(referenceMonth)) {
       throw new BadRequestException('Mês de referência inválido (use AAAA-MM)');
     }
-    const open = await this.prisma.titheIntent.count({
-      where: { memberId: member.id, status: { in: ['CREATED', 'DECLARED'] } },
-    });
+    const since = new Date(Date.now() - 24 * 60 * 60 * 1000);
+    const [open, createdToday] = await Promise.all([
+      this.prisma.titheIntent.count({ where: { memberId: member.id, status: { in: ['CREATED', 'DECLARED'] } } }),
+      this.prisma.titheIntent.count({ where: { memberId: member.id, createdAt: { gte: since } } }),
+    ]);
     if (open >= MAX_OPEN_INTENTS) {
       throw new BadRequestException('Você tem Pix em aberto demais — aguarde a conferência ou cancele os antigos');
+    }
+    if (createdToday >= MAX_INTENTS_PER_DAY) {
+      throw new BadRequestException('Limite diário de Pix gerados atingido — tente amanhã');
     }
 
     const txid = this.newTxid();
@@ -342,10 +353,30 @@ export class TitheService {
     if (intent.status !== 'CREATED') {
       throw new BadRequestException('Este Pix já foi informado ou encerrado');
     }
-    const updated = await this.prisma.titheIntent.update({
-      where: { id },
-      data: { status: 'DECLARED', declaredAt: new Date() },
+    const since = new Date(Date.now() - 24 * 60 * 60 * 1000);
+    const declaredToday = await this.prisma.titheIntent.count({
+      where: { memberId: member.id, declaredAt: { gte: since } },
     });
+    if (declaredToday >= MAX_DECLARES_PER_DAY) {
+      throw new BadRequestException('Limite diário de Pix informados atingido — a tesouraria já foi avisada dos anteriores');
+    }
+    // Transição atômica: só sai de CREATED uma vez (dois toques não duplicam)
+    const now = new Date();
+    const moved = await this.prisma.titheIntent.updateMany({
+      where: { id, status: 'CREATED' },
+      data: { status: 'DECLARED', declaredAt: now },
+    });
+    if (moved.count !== 1) throw new BadRequestException('Este Pix já foi informado ou encerrado');
+    const updated = await this.prisma.titheIntent.findUniqueOrThrow({ where: { id } });
+    // Um aviso por membro a cada 10 min — vários Pix seguidos não viram spam
+    const recentlyNotified = await this.prisma.titheIntent.count({
+      where: {
+        memberId: member.id,
+        id: { not: id },
+        declaredAt: { gte: new Date(now.getTime() - RENOTIFY_MINUTES * 60 * 1000) },
+      },
+    });
+    if (recentlyNotified > 0) return this.presentIntent(updated);
     await this.auditService.log({
       actor: this.auditActor(user),
       action: 'UPDATE',
@@ -387,10 +418,14 @@ export class TitheService {
       throw new BadRequestException('Contribuição já confirmada — fale com a tesouraria');
     }
     if (intent.status === 'CANCELLED') return this.presentIntent(intent);
-    const updated = await this.prisma.titheIntent.update({
-      where: { id },
+    const moved = await this.prisma.titheIntent.updateMany({
+      where: { id, status: { in: ['CREATED', 'DECLARED'] } },
       data: { status: 'CANCELLED', note: 'Cancelado pelo fiel' },
     });
+    if (moved.count !== 1) {
+      throw new BadRequestException('Este Pix já foi confirmado pela tesouraria — fale com a secretaria');
+    }
+    const updated = await this.prisma.titheIntent.findUniqueOrThrow({ where: { id } });
     await this.auditService.log({
       actor: this.auditActor(user),
       action: 'UPDATE',
@@ -463,9 +498,14 @@ export class TitheService {
       },
     });
     if (!intent || intent.member.deletedAt) throw new NotFoundException('Pix não encontrado');
-    const canManage =
-      user.role === UserRole.SYSTEM_ADMIN || (await this.hierarchyService.canManageMember(user.id, intent.memberId));
-    if (!canManage) throw new ForbiddenException('Fora do seu escopo');
+    // Mesmo recorte da listagem, sobre a FOTOGRAFIA do Pix (comunidade/paróquia
+    // que recebeu), não sobre onde o membro está hoje
+    const scope = await this.financeScope(user);
+    const inScope =
+      user.role === UserRole.SYSTEM_ADMIN ||
+      (scope.parishIds ? scope.parishIds.includes(intent.parishId) : false) ||
+      (scope.communityIds ? !!intent.communityId && scope.communityIds.includes(intent.communityId) : false);
+    if (!inScope) throw new ForbiddenException('Fora do seu escopo');
     return intent;
   }
 
@@ -474,16 +514,30 @@ export class TitheService {
     const intent = await this.loadIntentForFinance(id, user);
     if (intent.status === 'CONFIRMED') throw new BadRequestException('Já confirmado');
     if (intent.status === 'CANCELLED') throw new BadRequestException('Este Pix foi cancelado');
-    const paidAt = dto.date ? new Date(dto.date) : new Date();
-    if (Number.isNaN(paidAt.getTime())) throw new BadRequestException('Data inválida');
-    const category = intent.kind === 'OFFERING' ? 'Ofertas' : 'Dízimo';
+    // Data do pagamento = dia em que caiu no extrato (date-only, 00:00Z), com
+    // fallback no dia em que o fiel avisou — não o instante da conferência
+    const toCivilDay = (value: Date) => new Date(Date.UTC(value.getUTCFullYear(), value.getUTCMonth(), value.getUTCDate()));
+    let paidAt: Date;
+    if (dto.date) {
+      const raw = String(dto.date).slice(0, 10);
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(raw)) throw new BadRequestException('Data inválida (use AAAA-MM-DD)');
+      paidAt = new Date(`${raw}T00:00:00.000Z`);
+      if (Number.isNaN(paidAt.getTime())) throw new BadRequestException('Data inválida');
+      if (paidAt.getTime() > Date.now() + 24 * 60 * 60 * 1000) throw new BadRequestException('Data no futuro');
+    } else {
+      paidAt = toCivilDay(intent.declaredAt ?? new Date());
+    }
+    const isOffering = intent.kind === 'OFFERING';
+    const category = isOffering ? 'Ofertas' : 'Dízimo';
 
     const result = await this.prisma.$transaction(async (tx) => {
-      const tither = await tx.tither.upsert({
-        where: { memberId: intent.memberId },
-        create: { memberId: intent.memberId },
-        update: { status: 'ACTIVE' },
+      // Transição atômica ANTES de criar qualquer registro: duas confirmações
+      // simultâneas não geram dois lançamentos
+      const moved = await tx.titheIntent.updateMany({
+        where: { id, status: { in: ['CREATED', 'DECLARED'] } },
+        data: { status: 'CONFIRMED', confirmedAt: new Date(), confirmedByUserId: user.id, note: null },
       });
+      if (moved.count !== 1) throw new BadRequestException('Este Pix já foi confirmado ou encerrado');
       const financial = await tx.financialTransaction.create({
         data: {
           type: TransactionType.INCOME,
@@ -491,10 +545,20 @@ export class TitheService {
           amount: intent.amount,
           description: `${category} ${intent.referenceMonth} — ${intent.member.fullName} (Pix app ${intent.txid})`,
           date: paidAt,
-          communityId: intent.member.communityId,
+          communityId: intent.communityId ?? intent.member.communityId,
           parishId: intent.parishId,
           dioceseId: intent.parish.dioceseId,
         },
+      });
+      // Oferta avulsa é receita, não dízimo: não cria/reativa dizimista nem
+      // entra na contagem mensal de contribuições
+      if (isOffering) {
+        return tx.titheIntent.findUniqueOrThrow({ where: { id } });
+      }
+      const tither = await tx.tither.upsert({
+        where: { memberId: intent.memberId },
+        create: { memberId: intent.memberId },
+        update: { status: 'ACTIVE' },
       });
       const contribution = await tx.titheContribution.create({
         data: {
@@ -507,16 +571,7 @@ export class TitheService {
           financialTransactionId: financial.id,
         },
       });
-      return tx.titheIntent.update({
-        where: { id },
-        data: {
-          status: 'CONFIRMED',
-          confirmedAt: new Date(),
-          confirmedByUserId: user.id,
-          contributionId: contribution.id,
-          note: null,
-        },
-      });
+      return tx.titheIntent.update({ where: { id }, data: { contributionId: contribution.id } });
     });
 
     await this.auditService.log({
@@ -549,10 +604,12 @@ export class TitheService {
     const intent = await this.loadIntentForFinance(id, user);
     if (intent.status === 'CONFIRMED') throw new BadRequestException('Já confirmado');
     const reason = (rawReason ?? '').replace(/[\r\n\t]+/g, ' ').trim().slice(0, 300) || 'Pix não localizado no extrato';
-    const updated = await this.prisma.titheIntent.update({
-      where: { id },
+    const moved = await this.prisma.titheIntent.updateMany({
+      where: { id, status: { in: ['CREATED', 'DECLARED'] } },
       data: { status: 'CANCELLED', note: reason },
     });
+    if (moved.count !== 1) throw new BadRequestException('Este Pix já foi confirmado ou encerrado');
+    const updated = await this.prisma.titheIntent.findUniqueOrThrow({ where: { id } });
     await this.auditService.log({
       actor: this.auditActor(user),
       action: 'UPDATE',
