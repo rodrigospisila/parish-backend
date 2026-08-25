@@ -272,7 +272,61 @@ export class CatechesisService {
       orderBy: { class: { year: 'desc' } },
     });
 
+    // Pendências POR TURMA com as mesmas regras do painel da coordenação
+    // (dashboard.service): o painel soma, aqui o catequista vê onde está.
+    const classIds = links.map((link) => link.classId);
+    const today = this.startOfTodayUtc();
+    const [enrollments, openSessions] = classIds.length
+      ? await Promise.all([
+          this.prisma.catechesisEnrollment.findMany({
+            where: { classId: { in: classIds }, member: { deletedAt: null } },
+            select: {
+              classId: true,
+              status: true,
+              _count: {
+                select: {
+                  messages: { where: { fromTeam: false, readAt: null } },
+                  documents: { where: { status: 'SUBMITTED' } },
+                },
+              },
+            },
+          }),
+          this.prisma.catechesisSession.groupBy({
+            by: ['classId'],
+            where: { classId: { in: classIds }, date: { lte: today }, attendances: { none: {} } },
+            _count: { _all: true },
+          }),
+        ])
+      : [[], []];
+    const emptyPending = () => ({
+      pendingApprovals: 0,
+      unreadFamilyMessages: 0,
+      documentsToReview: 0,
+      sessionsWithoutAttendance: 0,
+    });
+    const pendingByClass = new Map<string, ReturnType<typeof emptyPending>>();
+    const bucket = (classId: string) => {
+      let entry = pendingByClass.get(classId);
+      if (!entry) {
+        entry = emptyPending();
+        pendingByClass.set(classId, entry);
+      }
+      return entry;
+    };
+    for (const enrollment of enrollments) {
+      const entry = bucket(enrollment.classId);
+      if (enrollment.status === 'PENDING_APPROVAL') entry.pendingApprovals += 1;
+      if (enrollment.status === 'ACTIVE' || enrollment.status === 'PENDING_APPROVAL') {
+        entry.unreadFamilyMessages += enrollment._count.messages;
+      }
+      entry.documentsToReview += enrollment._count.documents;
+    }
+    for (const session of openSessions) {
+      bucket(session.classId).sessionsWithoutAttendance = session._count._all;
+    }
+
     return links.map((link) => ({
+      ...(pendingByClass.get(link.classId) ?? emptyPending()),
       classId: link.classId,
       role: link.role ?? 'Catequista',
       name: link.class.name,
@@ -3051,6 +3105,7 @@ export class CatechesisService {
             status: true,
             pendingDocuments: true,
             documents: { where: { status: 'SUBMITTED' }, select: { id: true } },
+            _count: { select: { messages: { where: { fromTeam: false, readAt: null } } } },
           },
         },
         // Sem limite: o número de chamadas em aberto precisa cair conforme
@@ -3081,6 +3136,10 @@ export class CatechesisService {
         active: activeCount,
         pendingApproval: klass.enrollments.filter((e) => e.status === 'PENDING_APPROVAL').length,
         documentsToReview: klass.enrollments.reduce((sum, e) => sum + e.documents.length, 0),
+        // Mesma regra do painel: só matrículas ativas ou aguardando aprovação
+        unreadFamilyMessages: klass.enrollments
+          .filter((e) => e.status === 'ACTIVE' || e.status === 'PENDING_APPROVAL')
+          .reduce((sum, e) => sum + e._count.messages, 0),
         pendingDocumentsCount: active.filter((e) => e.pendingDocuments).length,
         pastSessionsWithoutAttendance: klass.sessions.filter((sess) => sess._count.attendances === 0).length,
         feesPendingCount: feesPending,
