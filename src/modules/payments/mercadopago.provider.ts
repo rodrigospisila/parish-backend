@@ -20,17 +20,19 @@ const BASE = 'https://api.mercadopago.com';
 export function mapMercadoPagoStatus(status: string | null | undefined): ChargeStatus {
   switch ((status ?? '').toLowerCase()) {
     case 'pending':
-    case 'in_process':
     case 'authorized':
       return 'pending';
+    case 'in_process':
+      return 'in_review';
     case 'approved':
       return 'received';
     case 'cancelled':
     case 'rejected':
       return 'cancelled';
     case 'refunded':
-    case 'charged_back':
       return 'refunded';
+    case 'charged_back':
+      return 'disputed';
     default:
       return 'unknown';
   }

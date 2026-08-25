@@ -14,6 +14,8 @@ export type ChargeStatus =
   | 'confirmed' // pago, saldo ainda não disponível (Asaas CONFIRMED)
   | 'received' // pago e disponível
   | 'overdue'
+  | 'in_review' // cartão em análise de risco no provedor
+  | 'disputed' // estorno/chargeback em andamento (ainda não definitivo)
   | 'refunded'
   | 'cancelled'
   | 'unknown';

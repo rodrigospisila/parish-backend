@@ -53,14 +53,37 @@ const MONTHS_AHEAD = 1;
 
 const monthIndex = (month: string) => Number(month.slice(0, 4)) * 12 + Number(month.slice(5, 7)) - 1;
 
+/** Prefixos das notas de encerramento feitas pelo SISTEMA/provedor (não pela tesouraria). */
+const SYSTEM_NOTE_PREFIXES = [
+  'Pix expirado',
+  'Cobrança expirada',
+  'Cobrança cancelada no provedor',
+  'Provedor indisponível',
+  'Provedor de pagamento alterado',
+  'Estornado pelo provedor',
+  'Dízimo pelo app desativado',
+];
+const isSystemNote = (note: string | null | undefined) =>
+  !!note && (note.startsWith(KEY_CHANGED_NOTE) || SYSTEM_NOTE_PREFIXES.some((prefix) => note.startsWith(prefix)));
+
 /** Cancelamento que o FIEL pode contestar: só os feitos pela tesouraria. */
 const cancelledByTreasury = (intent: { status: string; note: string | null }) =>
-  intent.status === 'CANCELLED' &&
-  !!intent.note &&
-  intent.note !== SELF_CANCEL_NOTE &&
-  !intent.note.startsWith('Pix expirado') &&
-  !intent.note.startsWith(KEY_CHANGED_NOTE) &&
-  !intent.note.startsWith('Dízimo pelo app desativado');
+  intent.status === 'CANCELLED' && !!intent.note && intent.note !== SELF_CANCEL_NOTE && !isSystemNote(intent.note);
+
+/** Rótulo do meio escolhido no provedor (cartão/boleto) — Pix por padrão. */
+const appMethodLabel = (method: string | null | undefined) => (method === 'CARD' ? 'Cartão' : method === 'BOLETO' ? 'Boleto' : 'Pix');
+
+/**
+ * A tesouraria só reabre o que ainda pode ser conciliado: não o que o fiel
+ * cancelou, não o que foi estornado no provedor, nem cobrança que nunca
+ * existiu no provedor (não há o que pagar).
+ */
+const canReopenIntent = (i: { status: string; note: string | null; method?: string | null; providerRef?: string | null; providerStatus?: string | null }) =>
+  i.status === 'CANCELLED' &&
+  i.note !== SELF_CANCEL_NOTE &&
+  i.providerStatus !== 'refunded' &&
+  !String(i.note ?? '').startsWith('Estornado pelo provedor') &&
+  !(i.method === 'GATEWAY' && !i.providerRef);
 
 /**
  * Dízimo online — Fase 1 (Pix da própria paróquia, sem gateway):
@@ -407,7 +430,7 @@ export class TitheService {
             : 'Dízimo pelo app desativado pela paróquia'
           : keyChanged
             ? KEY_CHANGED_NOTE
-            : 'Provedor de pagamento alterado — gere outro Pix';
+            : 'Provedor de pagamento alterado — gere outra cobrança';
         const result = await tx.titheIntent.updateMany({
           where: { parishId: target, status: 'CREATED', method: { in: staleMethods } },
           data: { status: 'CANCELLED', note },
@@ -495,6 +518,15 @@ export class TitheService {
   async runProviderSetup(parishId: string, user: CurrentUser): Promise<ProviderSetupResult | null> {
     const parish = await this.parishFor(parishId);
     if (!parish || !this.paymentsService.hasProvider(parish) || !parish.providerWebhookToken) return null;
+    // Fora de produção a URL pública precisa ser explícita: uma instância local
+    // com a mesma conta Asaas sobrescreveria o webhook de produção
+    if (!process.env.PUBLIC_API_URL && process.env.NODE_ENV !== 'production') {
+      return {
+        pixKeyReady: false,
+        webhookRegistered: false,
+        notes: ['PUBLIC_API_URL não definida neste ambiente — webhook não cadastrado para não sobrescrever o de produção'],
+      };
+    }
     let provider: PaymentProvider;
     try {
       provider = this.paymentsService.forParish(parish);
@@ -785,6 +817,8 @@ export class TitheService {
             : 'Cartão e boleto precisam do seu CPF no cadastro — peça à secretaria',
       );
     }
+    // Cartão: valor mínimo maior fecha a janela de teste de cartões roubados (chargeback pago pela paróquia)
+    if (paymentMethod === 'CARD' && amount < 5) throw new BadRequestException('Pagamento por cartão a partir de R$ 5,00');
     const { fee, charged } = canUseGateway ? this.computeFee(parish, amount) : { fee: 0, charged: amount };
     let intent = await this.prisma.titheIntent.create({
       data: {
@@ -839,10 +873,11 @@ export class TitheService {
             paymentUrl: charge.paymentUrl ?? null,
             boletoUrl: charge.boletoUrl ?? null,
             boletoLine: charge.boletoLine ?? null,
+            // Boleto: folga de compensação (até 2 dias úteis) antes de considerar vencido
             qrExpiresAt: charge.expiresAt
               ? new Date(charge.expiresAt)
               : paymentMethod !== 'PIX'
-                ? new Date(`${this.plusDays(dueDays)}T23:59:59.000-03:00`)
+                ? new Date(`${this.plusDays(paymentMethod === 'BOLETO' ? dueDays + 3 : dueDays)}T23:59:59.000-03:00`)
                 : null,
           },
         });
@@ -1120,15 +1155,16 @@ export class TitheService {
       status: i.status,
       txid: i.txid,
       note: i.note,
-      canReopen: i.status === 'CANCELLED' && i.note !== SELF_CANCEL_NOTE,
+      canReopen: canReopenIntent(i),
       contestNote: i.contestNote ?? null,
       contestedAt: i.contestedAt ?? null,
-      // Provedor (D3): a tesouraria precisa saber que a confirmação é automática
+      // Provedor (D3): a tesouraria precisa saber que a confirmação é automática.
+      // Oferta anônima: a página do provedor identifica o pagador — não sai daqui
       method: i.method ?? 'PIX_STATIC',
       paymentMethod: i.paymentMethod ?? 'PIX',
-      paymentUrl: i.paymentUrl ?? null,
+      paymentUrl: i.anonymous ? null : i.paymentUrl ?? null,
       providerStatus: i.providerStatus ?? null,
-      providerRef: i.providerRef ?? null,
+      providerRef: i.anonymous ? null : i.providerRef ?? null,
       chargedAmount: i.chargedAmount ?? null,
       feeAmount: i.feeAmount ?? 0,
       declaredAt: i.declaredAt,
@@ -1143,7 +1179,8 @@ export class TitheService {
     if (intent.method !== 'GATEWAY' || !intent.providerRef) {
       throw new BadRequestException('Este Pix não é do provedor — confira no extrato e confirme manualmente');
     }
-    await this.syncIntentWithProvider(intent.id, { allowCancelled: true });
+    // Também CONFIRMED: é como a tesouraria detecta estorno/chargeback sem esperar o webhook
+    await this.syncIntentWithProvider(intent.id, { allowCancelled: true, allowConfirmed: true });
     const fresh = await this.prisma.titheIntent.findUniqueOrThrow({ where: { id }, include: this.financeListInclude });
     await this.auditService.log({
       actor: this.auditActor(user),
@@ -1185,6 +1222,11 @@ export class TitheService {
     const intent = await this.loadIntentForFinance(id, user);
     if (intent.status === 'CONFIRMED') throw new BadRequestException('Já confirmado');
     if (intent.status === 'CANCELLED') throw new BadRequestException('Este Pix foi cancelado');
+    // Cobrança do provedor confirma pelo provedor (webhook/consulta); a mão só
+    // quando o provedor reportou divergência de valor
+    if (intent.method === 'GATEWAY' && intent.providerRef && intent.providerStatus !== 'mismatch') {
+      throw new BadRequestException('Cobrança do provedor: use “Consultar provedor” — a confirmação é automática');
+    }
     // Data do pagamento = dia em que caiu no extrato (date-only, 00:00Z), com
     // fallback no dia em que o fiel avisou — não o instante da conferência
     const toCivilDay = (value: Date) => {
@@ -1341,7 +1383,7 @@ export class TitheService {
         },
       });
       if (moved.count !== 1) throw new BadRequestException('Este Pix já foi confirmado ou encerrado');
-      const methodLabel = intent.paymentMethod === 'CARD' ? 'Cartão' : intent.paymentMethod === 'BOLETO' ? 'Boleto' : 'Pix';
+      const methodLabel = appMethodLabel(intent.paymentMethod);
       const origin = opts.source === 'provider' ? `${methodLabel} provedor` : 'Pix app';
       const financial = await tx.financialTransaction.create({
         data: {
@@ -1460,13 +1502,17 @@ export class TitheService {
   } as const;
 
   /** Consulta o provedor e aplica o estado real (pago → liquida; expirado → encerra). */
-  private async syncIntentWithProvider(intentId: string, opts: { allowCancelled?: boolean } = {}) {
+  private async syncIntentWithProvider(intentId: string, opts: { allowCancelled?: boolean; allowConfirmed?: boolean } = {}) {
     const intent = await this.prisma.titheIntent.findUniqueOrThrow({
       where: { id: intentId },
       include: this.intentForSettlementInclude,
     });
     if (intent.method !== 'GATEWAY' || !intent.providerRef) return intent;
-    const syncable = intent.status === 'CREATED' || intent.status === 'DECLARED' || (opts.allowCancelled && intent.status === 'CANCELLED');
+    const syncable =
+      intent.status === 'CREATED' ||
+      intent.status === 'DECLARED' ||
+      (opts.allowCancelled && intent.status === 'CANCELLED') ||
+      (opts.allowConfirmed && intent.status === 'CONFIRMED');
     if (!syncable) return intent;
     const parish = await this.prisma.parish.findUnique({ where: { id: intent.parishId }, select: this.parishConfigSelect });
     if (!parish || !this.paymentsService.hasProvider(parish)) return intent;
@@ -1495,7 +1541,13 @@ export class TitheService {
       const refMismatch = !!charge.externalRef && charge.externalRef !== intent.id && charge.externalRef !== intent.scheduleId;
       if (valueMismatch || refMismatch) {
         if (intent.providerStatus !== 'mismatch') {
-          await this.prisma.titheIntent.update({ where: { id: intent.id }, data: { providerStatus: 'mismatch' } });
+          await this.prisma.titheIntent.update({
+            where: { id: intent.id },
+            data: {
+              providerStatus: 'mismatch',
+              note: `Provedor informa pagamento${typeof charge.value === 'number' ? ` de ${money(charge.value)}` : ''} (ref ${charge.providerRef}${charge.externalRef ? `, vínculo ${charge.externalRef}` : ''}); esperado ${money(expected)} — concilie manualmente`,
+            },
+          });
           await this.auditService.log({
             actor: null,
             action: 'UPDATE',
@@ -1568,6 +1620,21 @@ export class TitheService {
     }
     if (charge.status === 'refunded' && intent.status === 'CONFIRMED') {
       await this.reverseSettlement(intent, parish);
+      return reload();
+    }
+    if (charge.status === 'disputed') {
+      // Estorno pedido/chargeback em disputa: ainda pode voltar — avisa uma vez e marca
+      if (intent.providerStatus !== 'disputed') {
+        await this.prisma.titheIntent.update({ where: { id: intent.id }, data: { providerStatus: 'disputed' } });
+        if (intent.status === 'CONFIRMED') {
+          await this.notifyTreasury(
+            intent,
+            'Estorno/chargeback em disputa',
+            `O provedor abriu um estorno ou chargeback sobre o pagamento ${intent.txid} (${money(intent.amountPaid ?? intent.amount)}, ${intent.referenceMonth}). Se for confirmado, a contribuição será revertida automaticamente; acompanhe no painel do provedor.`,
+            { kind: 'tithe-disputed', intentId: intent.id },
+          );
+        }
+      }
       return reload();
     }
     if (charge.status === 'cancelled' && intent.status === 'CREATED') {
@@ -1686,7 +1753,7 @@ export class TitheService {
 
   private async runWebhookEvent(
     provider: PaymentProvider,
-    parish: { id: string; name: string; paymentProvider: string | null },
+    parish: { id: string; name: string; paymentProvider: string | null; feePolicy: string; feeFixed: number; feePercent: number },
     event: ReturnType<PaymentProvider['parseWebhook']>,
     recordId: string,
   ) {
@@ -1754,7 +1821,7 @@ export class TitheService {
 
   private async processWebhookEvent(
     provider: PaymentProvider,
-    parish: { id: string; name: string; paymentProvider: string | null },
+    parish: { id: string; name: string; paymentProvider: string | null; feePolicy: string; feeFixed: number; feePercent: number },
     event: ReturnType<PaymentProvider['parseWebhook']>,
   ) {
     if (event.kind === 'authorization') {
@@ -1879,11 +1946,29 @@ export class TitheService {
           include: scheduleInclude,
         });
         if (schedule) {
-          // Cobrança da assinatura = autorização ativa no banco
-          await this.prisma.titheSchedule.update({
-            where: { id: schedule.id },
-            data: { providerSubscriptionRef: subscriptionRef, status: 'ACTIVE', authorizationPayload: null, lastError: null },
-          });
+          // Só vincula se a cobrança for MESMO desta recorrência: valor esperado,
+          // vínculo (quando vier) e, se o provedor souber, a assinatura da autorização
+          let matches = true;
+          const expected = this.computeFee(parish, schedule.amount).charged;
+          if (typeof charge.value === 'number' && Math.abs(charge.value - expected) > 0.01) matches = false;
+          if (charge.externalRef && charge.externalRef !== schedule.id) matches = false;
+          if (matches && provider.getAuthorization && schedule.providerAuthorizationRef) {
+            try {
+              const real = await provider.getAuthorization(schedule.providerAuthorizationRef);
+              if (real.subscriptionRef && real.subscriptionRef !== subscriptionRef) matches = false;
+            } catch {
+              // provedor fora do ar: valor e vínculo já conferidos
+            }
+          }
+          if (!matches) {
+            schedule = null;
+          } else {
+            // Cobrança da assinatura = autorização ativa no banco
+            await this.prisma.titheSchedule.update({
+              where: { id: schedule.id },
+              data: { providerSubscriptionRef: subscriptionRef, status: 'ACTIVE', authorizationPayload: null, lastError: null },
+            });
+          }
         }
       }
     }
@@ -2224,8 +2309,14 @@ export class TitheService {
         status: 'CREATED',
         method: 'GATEWAY',
         scheduleId: null,
-        // Pelo QR ou pelos 7 dias — o QR do Asaas dura um ano, e Pix esquecido não fica na fila
-        OR: [{ qrExpiresAt: { lt: now } }, { createdAt: { lt: cutoff } }],
+        // Pela validade da cobrança; os 7 dias valem quando não há validade ou
+        // ela é longa demais (o QR Pix do Asaas dura um ano). Boleto respeita o
+        // vencimento + compensação
+        OR: [
+          { qrExpiresAt: { lt: now } },
+          { qrExpiresAt: null, createdAt: { lt: cutoff } },
+          { qrExpiresAt: { gt: new Date(now.getTime() + 30 * 24 * 60 * 60 * 1000) }, createdAt: { lt: cutoff } },
+        ],
       },
       select: { id: true, parishId: true, providerRef: true },
       take: 500,
@@ -2236,11 +2327,13 @@ export class TitheService {
         // Antes de encerrar, confere se não foi pago (o webhook pode ter falhado)
         const synced = await this.syncIntentWithProvider(intent.id);
         if (synced.status !== 'CREATED') continue;
+        // Cartão em análise de risco ou cobrança em disputa: o provedor decide, não o prazo
+        if (synced.providerStatus === 'in_review' || synced.providerStatus === 'disputed') continue;
         await this.cancelProviderCharge(intent.parishId, intent.providerRef);
       }
       const moved = await this.prisma.titheIntent.updateMany({
         where: { id: intent.id, status: 'CREATED' },
-        data: { status: 'CANCELLED', note: 'Pix expirado — gere outro quando for contribuir' },
+        data: { status: 'CANCELLED', note: 'Cobrança expirada — gere outra quando for contribuir' },
       });
       count += moved.count;
     }
@@ -2255,6 +2348,13 @@ export class TitheService {
     // banco continua válido e precisa de um caminho de conciliação
     if (intent.status !== 'CANCELLED' || intent.note === SELF_CANCEL_NOTE) {
       throw new BadRequestException('Só é possível reabrir um Pix encerrado pela tesouraria ou pelo sistema');
+    }
+    if (!canReopenIntent(intent)) {
+      throw new BadRequestException(
+        intent.providerStatus === 'refunded' || String(intent.note ?? '').startsWith('Estornado')
+          ? 'Pagamento estornado pelo provedor — não pode ser reaberto'
+          : 'Esta cobrança não chegou a existir no provedor — peça ao fiel para gerar outra',
+      );
     }
     const moved = await this.prisma.titheIntent.updateMany({
       where: { id, status: 'CANCELLED' },
@@ -2466,7 +2566,7 @@ export class TitheService {
     const [intents, manual] = await Promise.all([
       this.prisma.titheIntent.findMany({
         where: { status: 'CONFIRMED', referenceMonth, communityId: { in: communityIds } },
-        select: { communityId: true, kind: true, amount: true, amountPaid: true },
+        select: { communityId: true, kind: true, amount: true, amountPaid: true, paymentMethod: true },
       }),
       // Contribuições lançadas à mão (envelope/dinheiro/Pix no balcão) — sem intent
       this.prisma.titheContribution.findMany({
@@ -2482,7 +2582,7 @@ export class TitheService {
       row.total = Math.round((row.total + amount) * 100) / 100;
       agg.set(key, row);
     };
-    for (const i of intents) add(i.communityId ?? '', i.kind === 'OFFERING' ? 'Ofertas' : 'Dízimo', 'Pix pelo app', i.amountPaid ?? i.amount);
+    for (const i of intents) add(i.communityId ?? '', i.kind === 'OFFERING' ? 'Ofertas' : 'Dízimo', `${appMethodLabel(i.paymentMethod)} pelo app`, i.amountPaid ?? i.amount);
     for (const c of manual) add(c.tither.member.communityId ?? '', 'Dízimo', c.method || 'manual', c.amount);
     const rows = [...agg.values()].sort((a, b) => a.community.localeCompare(b.community) || a.kind.localeCompare(b.kind));
     const totals = rows.reduce((acc, r) => ({ count: acc.count + r.count, total: Math.round((acc.total + r.total) * 100) / 100 }), { count: 0, total: 0 });
@@ -2531,7 +2631,7 @@ export class TitheService {
         ...(memberId ? { anonymous: false } : {}),
       },
       orderBy: { confirmedAt: 'asc' },
-      select: { referenceMonth: true, amount: true, amountPaid: true, confirmedAt: true, txid: true },
+      select: { referenceMonth: true, amount: true, amountPaid: true, confirmedAt: true, txid: true, paymentMethod: true },
     });
     const day = (v: Date | null | undefined) => (v ? v.toLocaleDateString('pt-BR', { timeZone: 'America/Sao_Paulo' }) : '—');
     const money = (v: number) => `R$ ${v.toFixed(2).replace('.', ',')}`;
@@ -2543,7 +2643,7 @@ export class TitheService {
     }
     for (const o of offerings) {
       const v = o.amountPaid ?? o.amount;
-      rows.push([o.referenceMonth, 'Oferta', money(v), 'Pix pelo app', day(o.confirmedAt), o.txid]);
+      rows.push([o.referenceMonth, 'Oferta', money(v), `${appMethodLabel(o.paymentMethod)} pelo app`, day(o.confirmedAt), o.txid]);
       total += v;
     }
     rows.sort((a, b) => a[0].localeCompare(b[0]));

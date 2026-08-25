@@ -25,13 +25,27 @@ const BASE = {
 
 const USER_AGENT = 'Parish/1.0 (dizimo)';
 
+/** Só links https do próprio Asaas chegam ao fiel (o app abre e compartilha sem outra validação). */
+export function safeAsaasUrl(value: unknown): string | null {
+  if (typeof value !== 'string' || !value) return null;
+  try {
+    const url = new URL(value);
+    if (url.protocol !== 'https:') return null;
+    if (url.hostname !== 'asaas.com' && !url.hostname.endsWith('.asaas.com')) return null;
+    return url.toString();
+  } catch {
+    return null;
+  }
+}
+
 /** Mapeia o status da cobrança Asaas para o status agnóstico. */
 export function mapAsaasStatus(status: string | null | undefined, deleted = false): ChargeStatus {
   if (deleted) return 'cancelled';
   switch ((status ?? '').toUpperCase()) {
     case 'PENDING':
-    case 'AWAITING_RISK_ANALYSIS':
       return 'pending';
+    case 'AWAITING_RISK_ANALYSIS':
+      return 'in_review';
     case 'CONFIRMED':
       return 'confirmed';
     case 'RECEIVED':
@@ -40,12 +54,15 @@ export function mapAsaasStatus(status: string | null | undefined, deleted = fals
     case 'OVERDUE':
       return 'overdue';
     case 'REFUNDED':
+      return 'refunded';
+    // Estorno pedido/em andamento e chargeback em disputa: ainda pode reverter —
+    // a tesouraria é avisada, mas a contribuição só cai quando for definitivo
     case 'REFUND_REQUESTED':
     case 'REFUND_IN_PROGRESS':
     case 'CHARGEBACK_REQUESTED':
     case 'CHARGEBACK_DISPUTE':
     case 'AWAITING_CHARGEBACK_REVERSAL':
-      return 'refunded';
+      return 'disputed';
     default:
       return 'unknown';
   }
@@ -143,8 +160,8 @@ export class AsaasProvider implements PaymentProvider {
       providerRef: payment.id,
       status: mapAsaasStatus(payment.status, payment.deleted === true),
       method: AsaasProvider.methodFromBillingType(payment.billingType),
-      paymentUrl: payment.invoiceUrl ?? null,
-      boletoUrl: payment.bankSlipUrl ?? null,
+      paymentUrl: safeAsaasUrl(payment.invoiceUrl),
+      boletoUrl: safeAsaasUrl(payment.bankSlipUrl),
       boletoLine: boletoLine ?? null,
       qrPayload: qr?.payload ?? null,
       qrImageBase64: qr?.encodedImage ?? null,
@@ -336,6 +353,14 @@ export class AsaasProvider implements PaymentProvider {
     'PAYMENT_OVERDUE',
     'PAYMENT_DELETED',
     'PAYMENT_REFUNDED',
+    'PAYMENT_PARTIALLY_REFUNDED',
+    'PAYMENT_REFUND_IN_PROGRESS',
+    'PAYMENT_CHARGEBACK_REQUESTED',
+    'PAYMENT_CHARGEBACK_DISPUTE',
+    'PAYMENT_AWAITING_CHARGEBACK_REVERSAL',
+    'PAYMENT_AWAITING_RISK_ANALYSIS',
+    'PAYMENT_APPROVED_BY_RISK_ANALYSIS',
+    'PAYMENT_REPROVED_BY_RISK_ANALYSIS',
     'PIX_AUTOMATIC_RECURRING_AUTHORIZATION_CREATED',
     'PIX_AUTOMATIC_RECURRING_AUTHORIZATION_ACTIVATED',
     'PIX_AUTOMATIC_RECURRING_AUTHORIZATION_CANCELLED',
@@ -360,7 +385,8 @@ export class AsaasProvider implements PaymentProvider {
         pixKey = active.key ?? null;
         pixKeyReady = true;
       } else {
-        const pending = (keys?.data ?? []).find((k) => k.status === 'AWAITING_ACTIVATION' || k.status === 'AWAITING_ACCOUNT_DELETION');
+        // Só "aguardando ativação" conta como chave a caminho; em exclusão/erro é como não ter
+        const pending = (keys?.data ?? []).find((k) => k.status === 'AWAITING_ACTIVATION');
         if (!pending) {
           const created = await this.request<{ key?: string; status?: string }>('POST', '/pix/addressKeys', { type: 'EVP' });
           pixKey = created?.key ?? null;

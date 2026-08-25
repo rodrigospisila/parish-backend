@@ -76,6 +76,8 @@ describe('AsaasProvider', () => {
     expect(mapAsaasStatus('RECEIVED')).toBe('received');
     expect(mapAsaasStatus('OVERDUE')).toBe('overdue');
     expect(mapAsaasStatus('REFUNDED')).toBe('refunded');
+    expect(mapAsaasStatus('CHARGEBACK_REQUESTED')).toBe('disputed');
+    expect(mapAsaasStatus('AWAITING_RISK_ANALYSIS')).toBe('in_review');
     expect(mapAsaasStatus('PENDING', true)).toBe('cancelled');
     const { impl } = fakeFetch({ 'GET /payments/pay_x': () => ({ status: 401, body: { errors: [{ description: 'invalid_access_token' }] } }) });
     await expect(new AsaasProvider(creds, impl).getCharge('pay_x')).rejects.toThrow(/invalid_access_token/);
