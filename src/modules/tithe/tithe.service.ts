@@ -8,6 +8,10 @@ import { AuditService } from '../../common/audit.service';
 import { NotificationsService } from '../notifications/notifications.service';
 import { PdfService } from '../pdf/pdf.service';
 import { buildPixBrCode, normalizeAscii, normalizePixKey, validatePixKey } from './pix-brcode';
+import { PaymentsService } from '../payments/payments.service';
+import { AsaasProvider } from '../payments/asaas.provider';
+import { PAID_STATUSES, PaymentProvider, ProviderCharge, WebhookRequest } from '../payments/payment-provider.interface';
+import { maskSecret } from '../payments/payment-crypto';
 
 const FINANCE_ROLES: UserRole[] = [
   UserRole.SYSTEM_ADMIN,
@@ -71,6 +75,7 @@ export class TitheService {
     private readonly auditService: AuditService,
     private readonly notificationsService: NotificationsService,
     private readonly pdfService: PdfService,
+    private readonly paymentsService: PaymentsService,
   ) {}
 
   private auditActor(user: CurrentUser) {
@@ -94,6 +99,9 @@ export class TitheService {
         fullName: true,
         communityId: true,
         titheReminderDay: true,
+        cpf: true,
+        email: true,
+        phone: true,
         community: { select: { id: true, name: true, parishId: true } },
       },
     });
@@ -151,7 +159,28 @@ export class TitheService {
     titheMessage: true,
     pixKeyChangedAt: true,
     pixKeyChangedByUserId: true,
+    paymentProvider: true,
+    providerEnv: true,
+    providerApiKeyEnc: true,
+    providerWebhookToken: true,
+    providerConfiguredAt: true,
+    feePolicy: true,
+    feeFixed: true,
+    feePercent: true,
   } as const;
+
+  /** Taxa estimada e valor cobrado conforme a política da paróquia. */
+  private computeFee(parish: { feePolicy: string; feeFixed: number; feePercent: number }, amount: number) {
+    const fee = Math.round((parish.feeFixed + (amount * parish.feePercent) / 100) * 100) / 100;
+    const charged = parish.feePolicy === 'PASS_THROUGH' ? Math.round((amount + fee) * 100) / 100 : amount;
+    return { fee, charged };
+  }
+
+  private webhookUrl(provider: string | null, parishId: string): string | null {
+    if (!provider) return null;
+    const base = (process.env.PUBLIC_API_URL ?? 'https://parish-backend-production.up.railway.app/api/v1').replace(/\/$/, '');
+    return `${base}/tithe/webhooks/${provider.toLowerCase()}/${parishId}`;
+  }
 
   // ===== CONFIGURAÇÃO (administração paroquial) =====
 
@@ -193,7 +222,16 @@ export class TitheService {
         : null;
       lastChange = { at: parish.pixKeyChangedAt, byName: by?.name ?? null };
     }
-    return { ...parish, brCodePreview: preview, lastChange };
+    const { providerApiKeyEnc, ...safe } = parish;
+    return {
+      ...safe,
+      brCodePreview: preview,
+      lastChange,
+      providerConfigured: !!providerApiKeyEnc,
+      providerApiKeyMasked: null,
+      webhookUrl: providerApiKeyEnc ? this.webhookUrl(parish.paymentProvider, parish.id) : null,
+      paymentsCryptoReady: this.paymentsService.isConfigured(),
+    };
   }
 
   async updateConfig(
@@ -207,6 +245,12 @@ export class TitheService {
       pixMerchantCity?: string | null;
       titheMessage?: string | null;
       currentPassword?: string;
+      paymentProvider?: string | null;
+      providerEnv?: string | null;
+      providerApiKey?: string | null;
+      feePolicy?: string | null;
+      feeFixed?: number | null;
+      feePercent?: number | null;
     },
   ) {
     const target = this.resolveParishId(user, dto.parishId);
@@ -241,10 +285,26 @@ export class TitheService {
       throw new BadRequestException('Para ativar, informe chave Pix, nome do recebedor e cidade');
     }
 
+    // Provedor de pagamento (D3): mudar provedor/chave de API também é sensível
+    const providerRequested = dto.paymentProvider !== undefined;
+    const paymentProvider = providerRequested
+      ? ['ASAAS', 'MERCADOPAGO'].includes(String(dto.paymentProvider ?? '').toUpperCase())
+        ? String(dto.paymentProvider).toUpperCase()
+        : null
+      : current.paymentProvider;
+    const providerEnv = dto.providerEnv !== undefined ? (dto.providerEnv === 'production' ? 'production' : 'sandbox') : current.providerEnv;
+    const apiKeyGiven = typeof dto.providerApiKey === 'string' && dto.providerApiKey.trim().length > 0;
+    let providerApiKeyEnc = paymentProvider ? current.providerApiKeyEnc : null;
+    if (apiKeyGiven && paymentProvider) providerApiKeyEnc = this.paymentsService.encryptApiKey(dto.providerApiKey!);
+    const providerChanged = apiKeyGiven || (paymentProvider ?? null) !== (current.paymentProvider ?? null);
+    const feePolicy = dto.feePolicy !== undefined ? (dto.feePolicy === 'PASS_THROUGH' ? 'PASS_THROUGH' : 'ABSORB') : current.feePolicy;
+    const feeFixed = dto.feeFixed !== undefined && dto.feeFixed !== null ? Math.max(0, Math.min(50, Number(dto.feeFixed) || 0)) : current.feeFixed;
+    const feePercent = dto.feePercent !== undefined && dto.feePercent !== null ? Math.max(0, Math.min(10, Number(dto.feePercent) || 0)) : current.feePercent;
+
     // Trocar a CHAVE é a operação sensível (desvio de dízimo): exige a senha
     // atual de quem está logado, mesmo com token válido
     const keyChanged = (pixKey ?? null) !== (current.pixKey ?? null) || (pixKeyType ?? null) !== (current.pixKeyType ?? null);
-    if (keyChanged) {
+    if (keyChanged || providerChanged) {
       const password = (dto.currentPassword ?? '').trim();
       if (!password) throw new BadRequestException('Informe sua senha atual para trocar a chave Pix');
       const account = await this.prisma.user.findUnique({ where: { id: user.id }, select: { password: true } });
@@ -270,6 +330,16 @@ export class TitheService {
           titheMessage,
           titheEnabled,
           ...(keyChanged ? { pixKeyChangedAt: new Date(), pixKeyChangedByUserId: user.id } : {}),
+          paymentProvider,
+          providerEnv: paymentProvider ? providerEnv ?? 'sandbox' : null,
+          providerApiKeyEnc,
+          providerWebhookToken: paymentProvider
+            ? current.providerWebhookToken ?? this.paymentsService.newWebhookToken()
+            : null,
+          ...(providerChanged ? { providerConfiguredAt: paymentProvider ? new Date() : null } : {}),
+          feePolicy,
+          feeFixed,
+          feePercent,
         },
       });
       let cancelled = 0;
@@ -296,8 +366,8 @@ export class TitheService {
         pixMerchantName: current.pixMerchantName,
         pixMerchantCity: current.pixMerchantCity,
       },
-      after: { titheEnabled, pixKey, pixKeyType, pixMerchantName, pixMerchantCity },
-      metadata: { keyChanged, cancelledOpenIntents },
+      after: { titheEnabled, pixKey, pixKeyType, pixMerchantName, pixMerchantCity, paymentProvider, providerEnv, feePolicy },
+      metadata: { keyChanged, providerChanged, apiKeyRotated: apiKeyGiven, cancelledOpenIntents },
     });
 
     // Troca de chave avisa os DEMAIS administradores (paróquia e diocese):
@@ -341,6 +411,11 @@ export class TitheService {
       where: { id: member.community.parishId },
       select: this.parishConfigSelect,
     });
+    const schedule = await this.prisma.titheSchedule.findFirst({
+      where: { memberId: member.id, status: { in: ['PENDING_AUTHORIZATION', 'ACTIVE', 'PAUSED'] } },
+      orderBy: { createdAt: 'desc' },
+    });
+    const gatewayReady = !!parish && this.paymentsService.hasProvider(parish) && parish.titheEnabled;
     const [tither, intents] = await Promise.all([
       this.prisma.tither.findUnique({
         where: { memberId: member.id },
@@ -403,6 +478,31 @@ export class TitheService {
       monthsBack: MONTHS_BACK,
       monthsAhead: MONTHS_AHEAD,
       persistentQrAvailable: this.parishUsable(parish),
+      // Provedor (D3): confirmação automática e dízimo recorrente
+      gateway: parish
+        ? {
+            provider: gatewayReady ? parish.paymentProvider : null,
+            available: gatewayReady && (parish.paymentProvider !== 'ASAAS' || !!member.cpf),
+            needsCpf: gatewayReady && parish.paymentProvider === 'ASAAS' && !member.cpf,
+            feePolicy: parish.feePolicy,
+            feeFixed: parish.feeFixed,
+            feePercent: parish.feePercent,
+            recurringAvailable: gatewayReady && parish.paymentProvider === 'ASAAS' && !!member.cpf,
+          }
+        : null,
+      schedule: schedule
+        ? {
+            id: schedule.id,
+            amount: schedule.amount,
+            dayOfMonth: schedule.dayOfMonth,
+            mode: schedule.mode,
+            status: schedule.status,
+            nextDueDate: schedule.nextDueDate,
+            authorizationPayload: schedule.status === 'PENDING_AUTHORIZATION' ? schedule.authorizationPayload : null,
+            authorizationExpires: schedule.authorizationExpires,
+            lastError: schedule.lastError,
+          }
+        : null,
     };
   }
 
@@ -447,15 +547,12 @@ export class TitheService {
 
     const txid = this.newTxid();
     const description = `${kind === 'TITHE' ? 'Dizimo' : 'Oferta'} ${referenceMonth}`;
-    const brCode = buildPixBrCode({
-      key: parish.pixKey,
-      merchantName: parish.pixMerchantName,
-      merchantCity: parish.pixMerchantCity,
-      amount,
-      txid,
-      description,
-    });
-    const intent = await this.prisma.titheIntent.create({
+    // Provedor configurado + identidade do pagador: cobrança dinâmica com
+    // confirmação automática. Senão (ou se o provedor falhar), Pix estático.
+    const canUseGateway =
+      this.paymentsService.hasProvider(parish) && (parish.paymentProvider !== 'ASAAS' || !!member.cpf) && (parish.paymentProvider !== 'MERCADOPAGO' || !!member.email);
+    const { fee, charged } = canUseGateway ? this.computeFee(parish, amount) : { fee: 0, charged: amount };
+    let intent = await this.prisma.titheIntent.create({
       data: {
         memberId: member.id,
         parishId: parish.id,
@@ -464,11 +561,73 @@ export class TitheService {
         referenceMonth,
         kind,
         anonymous,
-        method: 'PIX_STATIC',
+        method: canUseGateway ? 'GATEWAY' : 'PIX_STATIC',
         txid,
-        brCode,
+        brCode: canUseGateway
+          ? null
+          : buildPixBrCode({
+              key: parish.pixKey,
+              merchantName: parish.pixMerchantName,
+              merchantCity: parish.pixMerchantCity,
+              amount,
+              txid,
+              description,
+            }),
+        feeAmount: canUseGateway ? fee : 0,
+        chargedAmount: canUseGateway ? charged : null,
       },
     });
+    if (canUseGateway) {
+      try {
+        const provider = this.paymentsService.forParish(parish);
+        const customerId = await this.providerCustomerId(provider, member);
+        const charge = await provider.createCharge({
+          providerCustomerId: customerId,
+          amount: charged,
+          dueDate: this.plusDays(3),
+          description: `${description} - ${parish.name}`.slice(0, 120),
+          externalRef: intent.id,
+          idempotencyKey: intent.id,
+          payerEmail: member.email,
+          payerCpf: member.cpf,
+          expiresInSec: 3 * 24 * 60 * 60,
+        });
+        intent = await this.prisma.titheIntent.update({
+          where: { id: intent.id },
+          data: {
+            providerRef: charge.providerRef,
+            providerStatus: charge.status,
+            brCode: charge.qrPayload ?? null,
+            qrExpiresAt: charge.expiresAt ? new Date(charge.expiresAt) : null,
+          },
+        });
+      } catch (error) {
+        // Provedor fora do ar: o fiel não fica sem Pix — volta ao estático da paróquia
+        intent = await this.prisma.titheIntent.update({
+          where: { id: intent.id },
+          data: {
+            method: 'PIX_STATIC',
+            feeAmount: 0,
+            chargedAmount: null,
+            brCode: buildPixBrCode({
+              key: parish.pixKey,
+              merchantName: parish.pixMerchantName,
+              merchantCity: parish.pixMerchantCity,
+              amount,
+              txid,
+              description,
+            }),
+          },
+        });
+        await this.auditService.log({
+          actor: this.auditActor(user),
+          action: 'UPDATE',
+          entity: 'TitheIntent',
+          entityId: intent.id,
+          metadata: { providerFallback: true, error: String((error as Error)?.message ?? error).slice(0, 300) },
+        });
+      }
+    }
     await this.auditService.log({
       actor: this.auditActor(user),
       action: 'CREATE',
@@ -493,6 +652,11 @@ export class TitheService {
       anonymous: !!intent.anonymous,
       contestNote: intent.contestNote ?? null,
       canContest: cancelledByTreasury(intent) && !intent.contestedAt,
+      method: intent.method ?? 'PIX_STATIC',
+      feeAmount: intent.feeAmount ?? 0,
+      chargedAmount: intent.chargedAmount ?? null,
+      qrExpiresAt: intent.qrExpiresAt ?? null,
+      providerStatus: intent.providerStatus ?? null,
       declaredAt: intent.declaredAt,
       confirmedAt: intent.confirmedAt,
       createdAt: intent.createdAt,
@@ -511,6 +675,11 @@ export class TitheService {
 
   async getIntent(id: string, user: CurrentUser) {
     const { intent } = await this.loadOwnIntent(id, user);
+    if (intent.method === 'GATEWAY' && (intent.status === 'CREATED' || intent.status === 'DECLARED')) {
+      // Sem depender do webhook: consulta o provedor e liquida se já foi pago
+      const synced = await this.syncIntentWithProvider(intent.id);
+      return this.presentIntent(synced, synced.status === 'CREATED' || synced.status === 'DECLARED');
+    }
     if (intent.status === 'CREATED') {
       // A CHAVE embutida no código precisa ser a chave atual da paróquia (e o
       // dízimo precisa estar ativo); nome/cidade antigos não invalidam o Pix
@@ -741,55 +910,13 @@ export class TitheService {
     const paidMonth = dto.referenceMonth ? this.validateReferenceMonth(dto.referenceMonth) : intent.referenceMonth;
     const who = intent.anonymous ? 'Oferta anônima' : safeName(intent.member.fullName);
 
-    const result = await this.prisma.$transaction(async (tx) => {
-      // Transição atômica ANTES de criar qualquer registro: duas confirmações
-      // simultâneas não geram dois lançamentos
-      const moved = await tx.titheIntent.updateMany({
-        where: { id, status: { in: ['CREATED', 'DECLARED'] } },
-        data: {
-          status: 'CONFIRMED',
-          confirmedAt: new Date(),
-          confirmedByUserId: user.id,
-          note: null,
-          amountPaid: paidAmount,
-          referenceMonth: paidMonth,
-        },
-      });
-      if (moved.count !== 1) throw new BadRequestException('Este Pix já foi confirmado ou encerrado');
-      const financial = await tx.financialTransaction.create({
-        data: {
-          type: TransactionType.INCOME,
-          category,
-          amount: paidAmount,
-          description: `${category} ${paidMonth} — ${who} (Pix app ${intent.txid})`,
-          date: paidAt,
-          communityId: intent.communityId ?? intent.member.communityId,
-          parishId: intent.parishId,
-          dioceseId: intent.parish.dioceseId,
-        },
-      });
-      // Oferta avulsa é receita, não dízimo: não cria/reativa dizimista nem
-      // entra na contagem mensal de contribuições
-      if (isOffering) {
-        return tx.titheIntent.findUniqueOrThrow({ where: { id } });
-      }
-      const tither = await tx.tither.upsert({
-        where: { memberId: intent.memberId },
-        create: { memberId: intent.memberId },
-        update: { status: 'ACTIVE' },
-      });
-      const contribution = await tx.titheContribution.create({
-        data: {
-          titherId: tither.id,
-          amount: paidAmount,
-          date: paidAt,
-          referenceMonth: paidMonth,
-          method: 'PIX',
-          receiptNumber: (dto.receiptNumber ?? '').trim() || intent.txid,
-          financialTransactionId: financial.id,
-        },
-      });
-      return tx.titheIntent.update({ where: { id }, data: { contributionId: contribution.id } });
+    const result = await this.settleIntent(intent, {
+      paidAt,
+      paidAmount,
+      paidMonth,
+      byUserId: user.id,
+      receiptNumber: (dto.receiptNumber ?? '').trim() || undefined,
+      source: 'treasury',
     });
 
     await this.auditService.log({
@@ -850,6 +977,479 @@ export class TitheService {
       }
     }
     return this.presentIntent(updated);
+  }
+
+  /**
+   * Liquidação: transição atômica + lançamento financeiro (+ contribuição do
+   * dizimista quando é dízimo). Usada pela tesouraria e pelo provedor.
+   */
+  private async settleIntent(
+    intent: {
+      id: string;
+      txid: string;
+      kind: string;
+      anonymous: boolean;
+      memberId: string;
+      communityId: string | null;
+      parishId: string;
+      member: { fullName: string; communityId: string | null };
+      parish: { dioceseId: string };
+    },
+    opts: { paidAt: Date; paidAmount: number; paidMonth: string; byUserId: string | null; receiptNumber?: string; source: 'treasury' | 'provider' },
+  ) {
+    const isOffering = intent.kind === 'OFFERING';
+    const category = isOffering ? 'Ofertas' : 'Dízimo';
+    const who = intent.anonymous ? 'Oferta anônima' : safeName(intent.member.fullName);
+    const id = intent.id;
+    return this.prisma.$transaction(async (tx) => {
+      // Transição atômica ANTES de criar qualquer registro: duas confirmações
+      // simultâneas (tesouraria + webhook) não geram dois lançamentos
+      const moved = await tx.titheIntent.updateMany({
+        where: { id, status: { in: ['CREATED', 'DECLARED'] } },
+        data: {
+          status: 'CONFIRMED',
+          confirmedAt: new Date(),
+          confirmedByUserId: opts.byUserId,
+          note: null,
+          amountPaid: opts.paidAmount,
+          referenceMonth: opts.paidMonth,
+          ...(opts.source === 'provider' ? { providerStatus: 'paid' } : {}),
+        },
+      });
+      if (moved.count !== 1) throw new BadRequestException('Este Pix já foi confirmado ou encerrado');
+      const origin = opts.source === 'provider' ? 'Pix provedor' : 'Pix app';
+      const financial = await tx.financialTransaction.create({
+        data: {
+          type: TransactionType.INCOME,
+          category,
+          amount: opts.paidAmount,
+          description: `${category} ${opts.paidMonth} — ${who} (${origin} ${intent.txid})`,
+          date: opts.paidAt,
+          communityId: intent.communityId ?? intent.member.communityId,
+          parishId: intent.parishId,
+          dioceseId: intent.parish.dioceseId,
+        },
+      });
+      // Oferta avulsa é receita, não dízimo: não cria/reativa dizimista nem
+      // entra na contagem mensal de contribuições
+      if (isOffering) {
+        return tx.titheIntent.findUniqueOrThrow({ where: { id } });
+      }
+      const tither = await tx.tither.upsert({
+        where: { memberId: intent.memberId },
+        create: { memberId: intent.memberId },
+        update: { status: 'ACTIVE' },
+      });
+      const contribution = await tx.titheContribution.create({
+        data: {
+          titherId: tither.id,
+          amount: opts.paidAmount,
+          date: opts.paidAt,
+          referenceMonth: opts.paidMonth,
+          method: 'PIX',
+          receiptNumber: opts.receiptNumber || intent.txid,
+          financialTransactionId: financial.id,
+        },
+      });
+      return tx.titheIntent.update({ where: { id }, data: { contributionId: contribution.id } });
+    });
+  }
+
+  private plusDays(days: number): string {
+    return new Intl.DateTimeFormat('sv-SE', { timeZone: 'America/Sao_Paulo', year: 'numeric', month: '2-digit', day: '2-digit' }).format(
+      new Date(Date.now() + days * 24 * 60 * 60 * 1000),
+    );
+  }
+
+  /** Cliente do membro no provedor (criado uma vez e guardado). */
+  private async providerCustomerId(
+    provider: PaymentProvider,
+    member: { id: string; fullName: string; cpf: string | null; email: string | null; phone: string | null },
+  ): Promise<string> {
+    const cached = await this.prisma.memberProviderCustomer.findUnique({
+      where: { memberId_provider: { memberId: member.id, provider: provider.name } },
+    });
+    if (cached) return cached.providerCustomerId;
+    const { providerCustomerId } = await provider.ensureCustomer({
+      cpfCnpj: member.cpf,
+      name: safeName(member.fullName),
+      email: member.email,
+      phone: member.phone,
+      externalRef: member.id,
+    });
+    await this.prisma.memberProviderCustomer.upsert({
+      where: { memberId_provider: { memberId: member.id, provider: provider.name } },
+      create: { memberId: member.id, provider: provider.name, providerCustomerId },
+      update: { providerCustomerId },
+    });
+    return providerCustomerId;
+  }
+
+  private intentForSettlementInclude = {
+    member: { select: { id: true, fullName: true, userId: true, communityId: true, deletedAt: true } },
+    parish: { select: { id: true, name: true, dioceseId: true, ...{} } },
+  } as const;
+
+  /** Consulta o provedor e aplica o estado real (pago → liquida; expirado → encerra). */
+  private async syncIntentWithProvider(intentId: string) {
+    const intent = await this.prisma.titheIntent.findUniqueOrThrow({
+      where: { id: intentId },
+      include: this.intentForSettlementInclude,
+    });
+    if (intent.method !== 'GATEWAY' || !intent.providerRef) return intent;
+    if (intent.status !== 'CREATED' && intent.status !== 'DECLARED') return intent;
+    const parish = await this.prisma.parish.findUnique({ where: { id: intent.parishId }, select: this.parishConfigSelect });
+    if (!parish || !this.paymentsService.hasProvider(parish)) return intent;
+    let charge: ProviderCharge;
+    try {
+      charge = await this.paymentsService.forParish(parish).getCharge(intent.providerRef);
+    } catch {
+      return intent; // provedor fora do ar: mantém o estado local
+    }
+    return this.applyProviderCharge(intent, charge, parish);
+  }
+
+  /** Aplica o status do provedor a um Pix (liquidação idempotente). */
+  private async applyProviderCharge(
+    intent: any,
+    charge: ProviderCharge,
+    parish: { id: string; name: string },
+  ) {
+    if (PAID_STATUSES.has(charge.status) && (intent.status === 'CREATED' || intent.status === 'DECLARED')) {
+      const paidAt = charge.paidAt ? new Date(charge.paidAt) : new Date();
+      const paidAtDay = Number.isNaN(paidAt.getTime()) ? new Date() : paidAt;
+      let settled;
+      try {
+        settled = await this.settleIntent(intent, {
+          paidAt: paidAtDay,
+          // O que vale como dízimo é o valor pedido; a taxa repassada não é contribuição
+          paidAmount: intent.amount,
+          paidMonth: intent.referenceMonth,
+          byUserId: null,
+          receiptNumber: charge.providerRef,
+          source: 'provider',
+        });
+      } catch {
+        return this.prisma.titheIntent.findUniqueOrThrow({ where: { id: intent.id }, include: this.intentForSettlementInclude });
+      }
+      await this.auditService.log({
+        actor: null,
+        action: 'UPDATE',
+        entity: 'TitheIntent',
+        entityId: intent.id,
+        before: { status: intent.status },
+        after: { status: 'CONFIRMED', providerRef: charge.providerRef },
+        metadata: { source: 'provider', providerStatus: charge.status, netValue: charge.netValue ?? null },
+      });
+      if (intent.member.userId) {
+        try {
+          await this.notificationsService.notifyUsers(
+            [intent.member.userId],
+            NotificationType.TITHE,
+            'Contribuição confirmada 🙏',
+            `${intent.kind === 'OFFERING' ? 'Sua oferta' : 'Seu dízimo'} de R$ ${intent.amount.toFixed(2).replace('.', ',')} (${intent.referenceMonth}) foi recebido por ${safeName(parish.name)}. Deus lhe pague!`,
+            { kind: 'tithe-confirmed', intentId: intent.id },
+          );
+        } catch {
+          // best-effort
+        }
+      }
+      return this.prisma.titheIntent.findUniqueOrThrow({ where: { id: intent.id }, include: this.intentForSettlementInclude });
+    }
+    if ((charge.status === 'overdue' || charge.status === 'cancelled') && intent.status === 'CREATED') {
+      await this.prisma.titheIntent.updateMany({
+        where: { id: intent.id, status: 'CREATED' },
+        data: { status: 'CANCELLED', note: 'Pix expirou no provedor — gere outro', providerStatus: charge.status },
+      });
+    } else if (charge.status !== intent.providerStatus) {
+      await this.prisma.titheIntent.update({ where: { id: intent.id }, data: { providerStatus: charge.status } });
+    }
+    return this.prisma.titheIntent.findUniqueOrThrow({ where: { id: intent.id }, include: this.intentForSettlementInclude });
+  }
+
+  // ===== WEBHOOK DO PROVEDOR =====
+
+  async handleWebhook(providerName: string, parishId: string, request: WebhookRequest) {
+    const parish = await this.prisma.parish.findUnique({ where: { id: parishId }, select: this.parishConfigSelect });
+    if (!parish || !this.paymentsService.hasProvider(parish) || parish.paymentProvider !== providerName) {
+      throw new NotFoundException('Webhook não configurado para esta paróquia');
+    }
+    const provider = this.paymentsService.forParish(parish);
+    if (!provider.verifyWebhook(request, parish.providerWebhookToken ?? '')) {
+      throw new ForbiddenException('Assinatura do webhook inválida');
+    }
+    const event = provider.parseWebhook(request.body);
+    // Idempotência: o mesmo evento pode chegar mais de uma vez
+    const existing = await this.prisma.paymentWebhookEvent.findUnique({
+      where: { provider_eventId: { provider: provider.name, eventId: event.eventId } },
+    });
+    if (existing?.processedAt) return { received: true, duplicate: true };
+    const record =
+      existing ??
+      (await this.prisma.paymentWebhookEvent.create({
+        data: { provider: provider.name, eventId: event.eventId, parishId, eventName: event.eventName, payload: (request.body ?? {}) as any },
+      }));
+    try {
+      await this.processWebhookEvent(provider, parish, event);
+      await this.prisma.paymentWebhookEvent.update({ where: { id: record.id }, data: { processedAt: new Date(), error: null } });
+      return { received: true, processed: true };
+    } catch (error) {
+      await this.prisma.paymentWebhookEvent.update({
+        where: { id: record.id },
+        data: { error: String((error as Error)?.message ?? error).slice(0, 500) },
+      });
+      // 200 mesmo assim: o evento ficou gravado para reprocessamento; retentativa
+      // do provedor não corrige um erro nosso
+      return { received: true, processed: false };
+    }
+  }
+
+  private async processWebhookEvent(
+    provider: PaymentProvider,
+    parish: { id: string; name: string; paymentProvider: string | null },
+    event: ReturnType<PaymentProvider['parseWebhook']>,
+  ) {
+    if (event.kind === 'authorization' && event.authorizationRef) {
+      const schedule = await this.prisma.titheSchedule.findFirst({
+        where: { parishId: parish.id, providerAuthorizationRef: event.authorizationRef },
+        include: { member: { select: { userId: true } } },
+      });
+      if (!schedule) return;
+      const status = String(event.authorizationStatus ?? '').toUpperCase();
+      const next =
+        status === 'ACTIVE' || status === 'ACTIVATED'
+          ? 'ACTIVE'
+          : status === 'CANCELLED'
+            ? 'CANCELLED'
+            : status === 'EXPIRED' || status === 'REFUSED'
+              ? 'FAILED'
+              : null;
+      if (next) {
+        await this.prisma.titheSchedule.update({
+          where: { id: schedule.id },
+          data: {
+            status: next,
+            providerSubscriptionRef: event.subscriptionRef ?? schedule.providerSubscriptionRef,
+            lastError: next === 'FAILED' ? `Autorização ${status.toLowerCase()} no banco` : null,
+            authorizationPayload: next === 'ACTIVE' ? null : schedule.authorizationPayload,
+            ...(next === 'CANCELLED' ? { cancelledAt: new Date() } : {}),
+          },
+        });
+        if (schedule.member.userId) {
+          await this.notificationsService.notifyUsers(
+            [schedule.member.userId],
+            NotificationType.TITHE,
+            next === 'ACTIVE' ? 'Dízimo automático ativado ✅' : 'Dízimo automático não ativado',
+            next === 'ACTIVE'
+              ? 'Seu banco autorizou o Pix Automático — o dízimo será debitado todo mês, sem você precisar fazer nada.'
+              : 'A autorização não foi concluída no seu banco. Você pode tentar de novo pelo app.',
+            { kind: 'tithe-schedule', scheduleId: schedule.id },
+          );
+        }
+      }
+      return;
+    }
+    if (event.kind !== 'charge' || !event.providerRef) return;
+
+    let intent = await this.prisma.titheIntent.findFirst({
+      where: { parishId: parish.id, OR: [{ providerRef: event.providerRef }, ...(event.externalRef ? [{ id: event.externalRef }] : [])] },
+      include: this.intentForSettlementInclude,
+    });
+    // Cobrança gerada por uma recorrência (assinatura/Pix Automático): cria o Pix do mês
+    if (!intent && event.subscriptionRef) {
+      const schedule = await this.prisma.titheSchedule.findFirst({
+        where: { parishId: parish.id, providerSubscriptionRef: event.subscriptionRef },
+        include: { member: { select: { id: true, communityId: true, userId: true, fullName: true } } },
+      });
+      if (!schedule) return;
+      const charge = await provider.getCharge(event.providerRef);
+      let qrPayload = charge.qrPayload ?? null;
+      let qrExpiresAt = charge.expiresAt ?? null;
+      if (!qrPayload && provider instanceof AsaasProvider) {
+        try {
+          const qr = await provider.getChargeQr(event.providerRef);
+          qrPayload = qr.payload;
+          qrExpiresAt = qr.expiresAt;
+        } catch {
+          qrPayload = null;
+        }
+      }
+      const referenceMonth = (charge.dueDate ?? new Date().toISOString()).slice(0, 7);
+      intent = await this.prisma.titheIntent.create({
+        data: {
+          memberId: schedule.memberId,
+          parishId: parish.id,
+          communityId: schedule.member.communityId,
+          amount: charge.value ?? schedule.amount,
+          referenceMonth,
+          kind: 'TITHE',
+          method: 'GATEWAY',
+          txid: this.newTxid(),
+          brCode: qrPayload,
+          providerRef: event.providerRef,
+          providerStatus: charge.status,
+          qrExpiresAt: qrExpiresAt ? new Date(qrExpiresAt) : null,
+          chargedAmount: charge.value ?? schedule.amount,
+          scheduleId: schedule.id,
+        },
+        include: this.intentForSettlementInclude,
+      });
+      await this.prisma.titheSchedule.update({
+        where: { id: schedule.id },
+        data: { nextDueDate: charge.dueDate ? new Date(`${charge.dueDate}T00:00:00.000Z`) : schedule.nextDueDate },
+      });
+      if (schedule.mode === 'PIX_SUBSCRIPTION' && schedule.member.userId && !PAID_STATUSES.has(charge.status)) {
+        await this.notificationsService.notifyUsers(
+          [schedule.member.userId],
+          NotificationType.TITHE,
+          'Seu dízimo do mês está pronto 💛',
+          `O Pix de ${referenceMonth} (R$ ${(charge.value ?? schedule.amount).toFixed(2).replace('.', ',')}) já está disponível no app — é só pagar.`,
+          { kind: 'tithe-charge', intentId: intent.id },
+        );
+      }
+      if (!PAID_STATUSES.has(charge.status)) return;
+      await this.applyProviderCharge(intent, charge, parish);
+      return;
+    }
+    if (!intent) return;
+    // Nunca confia só no evento: reconsulta a cobrança antes de creditar
+    const charge = await provider.getCharge(event.providerRef);
+    await this.applyProviderCharge(intent, charge, parish);
+  }
+
+  // ===== RECORRÊNCIA (dízimo automático) =====
+
+  async createSchedule(user: CurrentUser, dto: { amount: number; dayOfMonth: number; mode?: string }) {
+    const member = await this.resolveMember(user);
+    const parish = await this.parishFor(member.community.parishId);
+    if (!parish?.titheEnabled || !this.paymentsService.hasProvider(parish)) {
+      throw new BadRequestException('Sua paróquia ainda não ativou o dízimo automático');
+    }
+    if (parish.paymentProvider !== 'ASAAS') throw new BadRequestException('Dízimo automático disponível apenas com o provedor Asaas');
+    if (!member.cpf) throw new BadRequestException('Cadastre seu CPF no perfil para ativar o dízimo automático');
+    const amount = Math.round(Number(dto.amount) * 100) / 100;
+    if (!Number.isFinite(amount) || amount < 1 || amount > MAX_AMOUNT) throw new BadRequestException('Valor inválido');
+    const day = Number(dto.dayOfMonth);
+    if (!Number.isInteger(day) || day < 1 || day > 28) throw new BadRequestException('Escolha um dia entre 1 e 28');
+    const mode = dto.mode === 'PIX_SUBSCRIPTION' ? 'PIX_SUBSCRIPTION' : 'PIX_AUTOMATIC';
+    const open = await this.prisma.titheSchedule.findFirst({
+      where: { memberId: member.id, status: { in: ['PENDING_AUTHORIZATION', 'ACTIVE', 'PAUSED'] } },
+    });
+    if (open) throw new BadRequestException('Você já tem um dízimo automático — cancele-o antes de criar outro');
+
+    // Primeira cobrança: próximo dia escolhido (pelo menos amanhã)
+    const now = new Date();
+    const brt = new Intl.DateTimeFormat('sv-SE', { timeZone: 'America/Sao_Paulo', year: 'numeric', month: '2-digit', day: '2-digit' }).format(now);
+    const [y, m, d] = brt.split('-').map(Number);
+    let start = new Date(Date.UTC(y, m - 1, day));
+    if (day <= d) start = new Date(Date.UTC(y, m, day));
+    const startDate = start.toISOString().slice(0, 10);
+
+    const schedule = await this.prisma.titheSchedule.create({
+      data: { memberId: member.id, parishId: parish.id, amount, dayOfMonth: day, mode, provider: parish.paymentProvider!, nextDueDate: start },
+    });
+    try {
+      const provider = this.paymentsService.forParish(parish);
+      const customerId = await this.providerCustomerId(provider, member);
+      const sub = await provider.createSubscription({
+        providerCustomerId: customerId,
+        amount,
+        cycle: 'MONTHLY',
+        startDate,
+        description: `Dizimo mensal - ${normalizeAscii(parish.name, 20)}`,
+        externalRef: schedule.id,
+        mode: mode === 'PIX_AUTOMATIC' ? 'pix_automatic' : 'pix_subscription',
+      });
+      const updated = await this.prisma.titheSchedule.update({
+        where: { id: schedule.id },
+        data: {
+          providerSubscriptionRef: sub.providerRef ?? null,
+          providerAuthorizationRef: sub.authorizationRef ?? null,
+          authorizationPayload: sub.qrPayload ?? null,
+          authorizationExpires: sub.expiresAt ? new Date(sub.expiresAt) : null,
+          status: mode === 'PIX_AUTOMATIC' ? 'PENDING_AUTHORIZATION' : 'ACTIVE',
+          nextDueDate: sub.nextDueDate ? new Date(`${sub.nextDueDate}T00:00:00.000Z`) : start,
+        },
+      });
+      await this.auditService.log({
+        actor: this.auditActor(user),
+        action: 'CREATE',
+        entity: 'TitheSchedule',
+        entityId: schedule.id,
+        metadata: { amount, dayOfMonth: day, mode, provider: parish.paymentProvider },
+      });
+      const qrDataUrl = updated.authorizationPayload
+        ? await QRCode.toDataURL(updated.authorizationPayload, { margin: 1, width: 360, errorCorrectionLevel: 'M' })
+        : null;
+      return { ...this.presentSchedule(updated), qrDataUrl };
+    } catch (error) {
+      await this.prisma.titheSchedule.update({
+        where: { id: schedule.id },
+        data: { status: 'FAILED', lastError: String((error as Error)?.message ?? error).slice(0, 300) },
+      });
+      throw new BadRequestException(`Não foi possível ativar o dízimo automático: ${String((error as Error)?.message ?? error).slice(0, 200)}`);
+    }
+  }
+
+  private presentSchedule(schedule: any) {
+    return {
+      id: schedule.id,
+      amount: schedule.amount,
+      dayOfMonth: schedule.dayOfMonth,
+      mode: schedule.mode,
+      status: schedule.status,
+      nextDueDate: schedule.nextDueDate,
+      authorizationPayload: schedule.status === 'PENDING_AUTHORIZATION' ? schedule.authorizationPayload : null,
+      authorizationExpires: schedule.authorizationExpires,
+      lastError: schedule.lastError,
+    };
+  }
+
+  async getMySchedule(user: CurrentUser) {
+    const member = await this.resolveMember(user);
+    const schedule = await this.prisma.titheSchedule.findFirst({
+      where: { memberId: member.id, status: { in: ['PENDING_AUTHORIZATION', 'ACTIVE', 'PAUSED'] } },
+      orderBy: { createdAt: 'desc' },
+    });
+    if (!schedule) return null;
+    const qrDataUrl = schedule.status === 'PENDING_AUTHORIZATION' && schedule.authorizationPayload
+      ? await QRCode.toDataURL(schedule.authorizationPayload, { margin: 1, width: 360, errorCorrectionLevel: 'M' })
+      : null;
+    return { ...this.presentSchedule(schedule), qrDataUrl };
+  }
+
+  async cancelSchedule(user: CurrentUser, id: string) {
+    const member = await this.resolveMember(user);
+    const schedule = await this.prisma.titheSchedule.findFirst({ where: { id, memberId: member.id } });
+    if (!schedule) throw new NotFoundException('Dízimo automático não encontrado');
+    if (schedule.status === 'CANCELLED') return this.presentSchedule(schedule);
+    const parish = await this.parishFor(schedule.parishId);
+    if (parish && this.paymentsService.hasProvider(parish) && (schedule.providerSubscriptionRef || schedule.providerAuthorizationRef)) {
+      try {
+        await this.paymentsService.forParish(parish).cancelSubscription({
+          providerRef: schedule.providerSubscriptionRef,
+          authorizationRef: schedule.providerAuthorizationRef,
+        });
+      } catch (error) {
+        throw new BadRequestException(`O provedor não conseguiu cancelar agora: ${String((error as Error)?.message ?? error).slice(0, 200)}`);
+      }
+    }
+    const updated = await this.prisma.titheSchedule.update({
+      where: { id },
+      data: { status: 'CANCELLED', cancelledAt: new Date(), authorizationPayload: null },
+    });
+    await this.auditService.log({ actor: this.auditActor(user), action: 'UPDATE', entity: 'TitheSchedule', entityId: id, before: { status: schedule.status }, after: { status: 'CANCELLED' } });
+    return this.presentSchedule(updated);
+  }
+
+  /** Regenera o token do webhook (administração). */
+  async rotateWebhookToken(user: CurrentUser, parishId?: string) {
+    const target = this.resolveParishId(user, parishId);
+    await this.assertParishAdmin(user, target);
+    const token = this.paymentsService.newWebhookToken();
+    await this.prisma.parish.update({ where: { id: target }, data: { providerWebhookToken: token } });
+    await this.auditService.log({ actor: this.auditActor(user), action: 'UPDATE', entity: 'ParishTitheConfig', entityId: target, metadata: { webhookTokenRotated: true } });
+    return { providerWebhookToken: token };
   }
 
   /** Tesouraria reabre um Pix que ela mesma encerrou (achou no extrato depois). */

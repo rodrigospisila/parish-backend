@@ -39,6 +39,12 @@ export function validateEnv(): void {
     throw new Error('[SEGURANÇA] DATABASE_URL não definida.');
   }
 
+  // Provedores de pagamento (dízimo D3): opcional — sem a chave, o cadastro de
+  // provedor é recusado com mensagem clara em vez de derrubar o servidor
+  if (!process.env.PAYMENTS_ENCRYPTION_KEY) {
+    console.warn('[AVISO] PAYMENTS_ENCRYPTION_KEY não definida — provedores de pagamento do dízimo ficam indisponíveis.');
+  }
+
   // Em produção, CORS aberto ("*") não é aceitável com credenciais
   if (process.env.NODE_ENV === 'production') {
     const corsOrigin = process.env.CORS_ORIGIN?.trim();

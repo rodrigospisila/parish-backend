@@ -388,7 +388,19 @@ model Parish {
   // Rastro da última troca da chave (exibido à administração; aviso aos demais admins)
   pixKeyChangedAt       DateTime?
   pixKeyChangedByUserId String?
+  // Provedor de pagamento (D3): Pix dinâmico com confirmação automática e recorrência
+  paymentProvider      String? // ASAAS | MERCADOPAGO
+  providerEnv          String? // sandbox | production
+  providerApiKeyEnc    String? // AES-256-GCM (PAYMENTS_ENCRYPTION_KEY)
+  providerWebhookToken String? // token que o provedor envia no webhook
+  providerConfiguredAt DateTime?
+  // Política de taxa: a paróquia absorve ou repassa ao fiel (cobrir a taxa)
+  feePolicy  String @default("ABSORB") // ABSORB | PASS_THROUGH
+  feeFixed   Float  @default(0)
+  feePercent Float  @default(0)
   titheIntents    TitheIntent[]
+  titheSchedules  TitheSchedule[]
+  webhookEvents   PaymentWebhookEvent[]
 
   // Audit
   createdAt DateTime @default(now())
@@ -819,6 +831,8 @@ model Member {
   // Dízimo: lembrete mensal opt-in (dia 1..28) e dedupe do mês já lembrado
   titheReminderDay       Int?
   titheReminderSentMonth String?
+  providerCustomers MemberProviderCustomer[]
+  titheSchedules    TitheSchedule[]
 
   @@map("members")
 }
@@ -2124,8 +2138,14 @@ model TitheIntent {
   // Identificador do Pix (campo txid do BR Code, até 25 alfanuméricos)
   txid   String  @unique
   brCode String?
-  // Fase 2: referência no provedor
-  providerRef String?
+  // Provedor (D3): referência da cobrança, status bruto, validade do QR, taxa/valor cobrado
+  providerRef    String?   @unique
+  providerStatus String?
+  qrExpiresAt    DateTime?
+  feeAmount      Float     @default(0)
+  chargedAmount  Float?
+  scheduleId     String?
+  schedule       TitheSchedule? @relation(fields: [scheduleId], references: [id], onDelete: SetNull)
   // Observação da tesouraria (ex.: motivo de "não localizado")
   note String?
   // Valor que de fato caiu no extrato (pode diferir do gerado)
@@ -2452,4 +2472,84 @@ model CatechesisMessage {
   @@index([enrollmentId, createdAt])
   @@index([enrollmentId, fromTeam, readAt])
   @@map("catechesis_messages")
+}
+
+// ============================================
+// DÍZIMO D3 — provedor de pagamento, recorrência e eventos de webhook
+// ============================================
+
+// Cliente do membro no provedor (Asaas cus_…) — um por provedor
+model MemberProviderCustomer {
+  id                 String @id @default(cuid())
+  memberId           String
+  member             Member @relation(fields: [memberId], references: [id], onDelete: Cascade)
+  provider           String // ASAAS | MERCADOPAGO
+  providerCustomerId String
+  createdAt          DateTime @default(now())
+
+  @@unique([memberId, provider])
+  @@map("member_provider_customers")
+}
+
+enum TitheScheduleMode {
+  PIX_AUTOMATIC // Pix Automático (débito autorizado no banco do fiel)
+  PIX_SUBSCRIPTION // assinatura clássica: um Pix por mês para o fiel pagar
+}
+
+enum TitheScheduleStatus {
+  PENDING_AUTHORIZATION // aguardando o fiel autorizar no banco (Pix Automático)
+  ACTIVE
+  PAUSED
+  CANCELLED
+  FAILED
+}
+
+// Dízimo recorrente do fiel
+model TitheSchedule {
+  id       String   @id @default(cuid())
+  memberId String
+  member   Member   @relation(fields: [memberId], references: [id], onDelete: Cascade)
+  parishId String
+  parish   Parish   @relation(fields: [parishId], references: [id], onDelete: Cascade)
+  amount     Float
+  dayOfMonth Int
+  mode       TitheScheduleMode
+  status     TitheScheduleStatus @default(PENDING_AUTHORIZATION)
+  provider   String // ASAAS | MERCADOPAGO
+  // Referências no provedor: assinatura e/ou autorização de Pix Automático
+  providerSubscriptionRef  String?
+  providerAuthorizationRef String?
+  // QR de autorização (primeiro pagamento) enquanto pendente
+  authorizationPayload  String?
+  authorizationExpires  DateTime?
+  nextDueDate DateTime?
+  lastError   String?
+  cancelledAt DateTime?
+  intents     TitheIntent[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([memberId, status])
+  @@index([parishId, status])
+  @@index([providerSubscriptionRef])
+  @@index([providerAuthorizationRef])
+  @@map("tithe_schedules")
+}
+
+// Eventos de webhook recebidos (idempotência + rastreabilidade)
+model PaymentWebhookEvent {
+  id          String   @id @default(cuid())
+  provider    String
+  eventId     String
+  parishId    String
+  parish      Parish   @relation(fields: [parishId], references: [id], onDelete: Cascade)
+  eventName   String
+  payload     Json
+  receivedAt  DateTime @default(now())
+  processedAt DateTime?
+  error       String?
+
+  @@unique([provider, eventId])
+  @@index([parishId, receivedAt])
+  @@map("payment_webhook_events")
 }

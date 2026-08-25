@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Patch, Post, Query, Request, Res, UseGuards } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Patch, Post, Query, Request, Res, UseGuards } from '@nestjs/common';
 import type { Response } from 'express';
 import { UserRole } from '@prisma/client';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
@@ -41,6 +41,24 @@ export class TitheController {
   @Patch('my/preferences')
   preferences(@Body() body: { reminderDay?: number | null }, @Request() req: any) {
     return this.service.updatePreferences(req.user, body ?? {});
+  }
+
+  // ===== dízimo automático (recorrência pelo provedor) =====
+
+  @Get('schedules/mine')
+  mySchedule(@Request() req: any) {
+    return this.service.getMySchedule(req.user);
+  }
+
+  @Post('schedules')
+  @Throttle({ default: { limit: 5, ttl: 60_000 } })
+  createSchedule(@Body() body: { amount: number; dayOfMonth: number; mode?: string }, @Request() req: any) {
+    return this.service.createSchedule(req.user, body ?? ({} as any));
+  }
+
+  @Delete('schedules/:id')
+  cancelSchedule(@Param('id') id: string, @Request() req: any) {
+    return this.service.cancelSchedule(req.user, id);
   }
 
   @Post('intents')
@@ -185,9 +203,22 @@ export class TitheController {
       pixMerchantCity?: string | null;
       titheMessage?: string | null;
       currentPassword?: string;
+      paymentProvider?: string | null;
+      providerEnv?: string | null;
+      providerApiKey?: string | null;
+      feePolicy?: string | null;
+      feeFixed?: number | null;
+      feePercent?: number | null;
     },
     @Request() req: any,
   ) {
     return this.service.updateConfig(req.user, body ?? {});
+  }
+
+  @Post('config/webhook-token')
+  @Roles(UserRole.PARISH_ADMIN)
+  @Throttle({ default: { limit: 3, ttl: 60_000 } })
+  rotateWebhookToken(@Body() body: { parishId?: string }, @Request() req: any) {
+    return this.service.rotateWebhookToken(req.user, body?.parishId || undefined);
   }
 }
