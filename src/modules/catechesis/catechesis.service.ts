@@ -337,9 +337,12 @@ export class CatechesisService {
     const byEnrollment = new Map(attendances.map((a) => [a.enrollmentId, a]));
 
     // Última marcação: quem fez a chamada e quando (auditoria leve visível)
+    // Linhas anteriores à migração têm updatedAt = instante da migração e sem
+    // autor — não representam uma chamada real, ficam fora
     let lastMarked: { byName: string | null; at: Date } | null = null;
-    if (attendances.length) {
-      const latest = attendances.reduce((max, a) => (a.updatedAt > max.updatedAt ? a : max));
+    const authored = attendances.filter((a) => a.markedById);
+    if (authored.length) {
+      const latest = authored.reduce((max, a) => (a.updatedAt > max.updatedAt ? a : max));
       let byName: string | null = null;
       if (latest.markedById) {
         const author = await this.prisma.user.findUnique({
@@ -726,6 +729,9 @@ export class CatechesisService {
       const fullName = dto.newChild.fullName?.trim();
       if (!fullName || fullName.length < 5 || fullName.length > 120) {
         throw new BadRequestException('Informe o nome completo do catequizando (5 a 120 caracteres)');
+      }
+      if (/[\r\n\t]/.test(fullName)) {
+        throw new BadRequestException('O nome não pode conter quebras de linha');
       }
       let birthDate: Date | null = null;
       if (dto.newChild.birthDate) {
@@ -1418,7 +1424,7 @@ export class CatechesisService {
       NotificationType.CATECHESIS,
       `Aviso da catequese — ${enrollment.class.name}`,
       text,
-      { kind: 'family-message', enrollmentId },
+      { kind: 'family-message', enrollmentId, classId: enrollment.classId },
     );
     await this.auditService.log({
       actor: this.auditActor(user),
@@ -2856,23 +2862,52 @@ export class CatechesisService {
   /** Exportação CSV das taxas da turma (conferência financeira). */
   async exportClassFeesCsv(classId: string, user: CurrentUser): Promise<string> {
     const fees = await this.getClassFees(classId, user);
+    // Célula CSV segura: sem quebra de linha, fórmula neutralizada (=,+,-,@,TAB)
+    // e sempre entre aspas — o nome do catequizando é texto livre da família
+    const csvCell = (value: unknown): string => {
+      let text = String(value ?? '').replace(/[\r\n]+/g, ' ');
+      if (/^[=+\-@\t]/.test(text)) text = `'${text}`;
+      return `"${text.replace(/"/g, '""')}"`;
+    };
+    const money = (value: number) => value.toFixed(2).replace('.', ',');
+    const day = (value: Date | string | null) =>
+      value ? new Date(value).toLocaleDateString('pt-BR', { timeZone: 'America/Sao_Paulo' }) : '';
     const lines = ['taxa;valor;catequizando;situacao;valor_pago;forma;data'];
+    const row = (cells: unknown[]) => lines.push(cells.map(csvCell).join(';'));
     for (const fee of fees) {
       for (const student of fee.students) {
-        lines.push(
-          [
-            fee.description,
-            fee.amount.toFixed(2).replace('.', ','),
-            student.fullName,
-            student.status === 'PAID' ? 'Pago' : student.status === 'WAIVED' ? 'Isento' : 'Pendente',
-            student.amount != null ? student.amount.toFixed(2).replace('.', ',') : '',
-            student.method ?? '',
-            student.paidAt ? new Date(student.paidAt).toLocaleDateString('pt-BR', { timeZone: 'America/Sao_Paulo' }) : '',
-          ]
-            .map((cell) => String(cell).replace(/;/g, ','))
-            .join(';'),
-        );
+        row([
+          fee.description,
+          money(fee.amount),
+          student.fullName,
+          student.status === 'PAID' ? 'Pago' : student.status === 'WAIVED' ? 'Isento' : 'Pendente',
+          student.amount != null ? money(student.amount) : '',
+          student.method ?? '',
+          day(student.paidAt),
+        ]);
       }
+    }
+    // Pagamentos de quem saiu da turma entram no CSV — senão a soma não
+    // fecha com as receitas 'Catequese' lançadas no Financeiro
+    const shownIds = new Set(fees.flatMap((fee) => fee.students.map((student) => student.enrollmentId)));
+    const otherPayments = await this.prisma.catechesisFeePayment.findMany({
+      where: { fee: { classId }, enrollmentId: { notIn: [...shownIds] } },
+      include: {
+        fee: { select: { description: true, amount: true } },
+        enrollment: { select: { member: { select: { fullName: true } } } },
+      },
+      orderBy: { paidAt: 'asc' },
+    });
+    for (const payment of otherPayments) {
+      row([
+        payment.fee.description,
+        money(payment.fee.amount),
+        payment.enrollment.member.fullName,
+        payment.waived ? 'Isento (saiu da turma)' : 'Pago (saiu da turma)',
+        payment.waived ? '' : money(payment.amount),
+        payment.method ?? '',
+        day(payment.paidAt),
+      ]);
     }
     await this.auditService.log({
       actor: this.auditActor(user),
@@ -2933,23 +2968,34 @@ export class CatechesisService {
       })
     ).map((e) => e.id);
 
-    // Notificações persistidas: turma inteira (kind message/agenda) ou por
-    // família (family-message) — agrupadas por conteúdo+minuto (1 envio = N linhas)
+    // Só o que a EQUIPE mandou às famílias: aviso da turma, agenda publicada,
+    // remarcação — 'application' (vai para os catequistas) e os automáticos
+    // por aluno (falta, taxa, documentos...) ficam fora. Prisma JSON não tem
+    // 'in': um OR por kind.
+    const familyKinds = ['message', 'agenda', 'session-moved', 'family-message'];
     const notices = await this.prisma.notification.findMany({
       where: {
         type: NotificationType.CATECHESIS,
-        AND: [{ data: { path: ['classId'], equals: classId } }],
+        AND: [
+          { data: { path: ['classId'], equals: classId } },
+          { OR: familyKinds.map((kind) => ({ data: { path: ['kind'], equals: kind } })) },
+        ],
       },
       select: { title: true, body: true, createdAt: true, data: true },
       orderBy: { createdAt: 'desc' },
       take: 400,
     });
-    // family-message de todas as matrículas da turma
+    // family-message anteriores (sem classId no data): recorte por matrícula
+    // NO BANCO — um take global cortava o histórico desta turma pelo volume
+    // das outras paróquias
     const familyNotices = enrollmentIds.length
       ? await this.prisma.notification.findMany({
           where: {
             type: NotificationType.CATECHESIS,
-            AND: [{ data: { path: ['kind'], equals: 'family-message' } }],
+            AND: [
+              { data: { path: ['kind'], equals: 'family-message' } },
+              { OR: enrollmentIds.map((id) => ({ data: { path: ['enrollmentId'], equals: id } })) },
+            ],
             createdAt: { gte: new Date(Date.now() - 1000 * 60 * 60 * 24 * 180) },
           },
           select: { title: true, body: true, createdAt: true, data: true },
@@ -2957,11 +3003,7 @@ export class CatechesisService {
           take: 400,
         })
       : [];
-    const enrollmentSet = new Set(enrollmentIds);
-    const all = [
-      ...notices,
-      ...familyNotices.filter((n) => enrollmentSet.has(((n.data as any) ?? {}).enrollmentId)),
-    ];
+    const all = [...notices, ...familyNotices];
     const seen = new Set<string>();
     const grouped: Array<{ title: string; body: string; sentAt: Date; kind: string }> = [];
     for (const notice of all) {
@@ -2992,16 +3034,17 @@ export class CatechesisService {
         enrollments: {
           where: { member: { deletedAt: null } },
           select: {
+            id: true,
             status: true,
             pendingDocuments: true,
             documents: { where: { status: 'SUBMITTED' }, select: { id: true } },
           },
         },
+        // Sem limite: o número de chamadas em aberto precisa cair conforme
+        // a equipe regulariza (com take:10 ficava travado em 10)
         sessions: {
           where: { date: { lte: this.startOfTodayUtc() } },
-          select: { id: true, date: true, _count: { select: { attendances: true } } },
-          orderBy: { date: 'desc' },
-          take: 10,
+          select: { id: true, _count: { select: { attendances: true } } },
         },
         fees: { include: { payments: { select: { enrollmentId: true } } } },
       },
@@ -3011,9 +3054,12 @@ export class CatechesisService {
     return classes.map((klass) => {
       const active = klass.enrollments.filter((e) => e.status === 'ACTIVE');
       const activeCount = active.length;
+      // Mesma base de getClassFees (ACTIVE+COMPLETED): pagamento de quem saiu
+      // da turma não abate pendência de quem ficou
+      const shown = klass.enrollments.filter((e) => e.status === 'ACTIVE' || e.status === 'COMPLETED');
       const feesPending = klass.fees.reduce((sum, fee) => {
         const payers = new Set(fee.payments.map((payment) => payment.enrollmentId));
-        return sum + Math.max(0, activeCount - [...payers].length);
+        return sum + shown.filter((e) => !payers.has(e.id)).length;
       }, 0);
       return {
         classId: klass.id,

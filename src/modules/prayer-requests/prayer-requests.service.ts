@@ -40,7 +40,8 @@ export class PrayerRequestsService {
   ) {}
 
   async create(createPrayerRequestDto: CreatePrayerRequestDto, currentUser?: CurrentUser) {
-    const { communityId, memberId, ...rest } = createPrayerRequestDto;
+    const { communityId, memberId: requestedMemberId, ...rest } = createPrayerRequestDto;
+
 
     // Verificar se a comunidade existe
     const community = await this.prisma.community.findUnique({
@@ -60,8 +61,27 @@ export class PrayerRequestsService {
       }
     }
 
-    // Verificar se o membro existe (se fornecido)
-    if (memberId) {
+    // Autor = membro do usuário logado. O memberId do corpo só vale para a
+    // coordenação (cadastrar em nome de alguém); fiel nunca escolhe o autor
+    let memberId: string | undefined = undefined;
+    if (currentUser) {
+      const canPickAuthor = isRoleAtLeast(currentUser.role, UserRole.PASTORAL_COORDINATOR);
+      if (requestedMemberId && canPickAuthor) {
+        memberId = requestedMemberId;
+      } else {
+        const own = await this.prisma.member.findFirst({
+          where: { userId: currentUser.id, deletedAt: null },
+          select: { id: true },
+        });
+        memberId = own?.id;
+      }
+    } else {
+      memberId = requestedMemberId;
+    }
+
+    // Verificar se o membro existe — só quando veio do corpo (o próprio
+    // membro do usuário acabou de ser lido do banco)
+    if (memberId && memberId === requestedMemberId) {
       const member = await this.prisma.member.findUnique({
         where: { id: memberId },
       });
@@ -308,6 +328,7 @@ export class PrayerRequestsService {
       throw new ForbiddenException('Apenas pedidos aprovados podem receber orações');
     }
 
+    // Só o contador: a linha completa exporia memberId de pedido anônimo
     return this.prisma.prayerRequest.update({
       where: { id },
       data: {
@@ -315,6 +336,7 @@ export class PrayerRequestsService {
           increment: 1,
         },
       },
+      select: { id: true, prayerCount: true },
     });
   }
 

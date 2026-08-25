@@ -11,7 +11,7 @@ describe('PrayerRequestsService (blindagem - Fase 0)', () => {
   let prisma: {
     prayerRequest: { findMany: jest.Mock; findUnique: jest.Mock; create: jest.Mock };
     community: { findUnique: jest.Mock };
-    member: { findUnique: jest.Mock };
+    member: { findUnique: jest.Mock; findFirst: jest.Mock };
   };
   let hierarchy: { isCommunityInScope: jest.Mock };
   let audit: { log: jest.Mock };
@@ -20,7 +20,7 @@ describe('PrayerRequestsService (blindagem - Fase 0)', () => {
     prisma = {
       prayerRequest: { findMany: jest.fn(), findUnique: jest.fn(), create: jest.fn() },
       community: { findUnique: jest.fn() },
-      member: { findUnique: jest.fn() },
+      member: { findUnique: jest.fn(), findFirst: jest.fn() },
     };
     hierarchy = { isCommunityInScope: jest.fn() };
     audit = { log: jest.fn().mockResolvedValue(undefined) };
@@ -104,6 +104,7 @@ describe('PrayerRequestsService (blindagem - Fase 0)', () => {
     it('permite criar na própria comunidade, com status PENDING e auditoria', async () => {
       prisma.community.findUnique.mockResolvedValue({ id: 'community-a' });
       hierarchy.isCommunityInScope.mockResolvedValue(true);
+      prisma.member.findFirst.mockResolvedValue({ id: 'member-own' });
       prisma.prayerRequest.create.mockResolvedValue({
         id: 'pr-1',
         isAnonymous: false,
@@ -112,12 +113,14 @@ describe('PrayerRequestsService (blindagem - Fase 0)', () => {
 
       const faithful = { id: 'u1', role: UserRole.FAITHFUL, communityId: 'community-a' } as any;
       await service.create(
-        { communityId: 'community-a', title: 't', description: 'd', category: 'HEALTH' } as any,
+        // memberId alheio no corpo é ignorado para fiel: autor é o próprio membro
+        { communityId: 'community-a', title: 't', description: 'd', category: 'HEALTH', memberId: 'member-other' } as any,
         faithful,
       );
 
       const createCall = prisma.prayerRequest.create.mock.calls[0][0];
       expect(createCall.data.status).toBe(PrayerRequestStatus.PENDING);
+      expect(createCall.data.memberId).toBe('member-own');
       expect(audit.log).toHaveBeenCalledWith(
         expect.objectContaining({ action: 'CREATE', entity: 'PrayerRequest' }),
       );
