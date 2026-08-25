@@ -1,4 +1,5 @@
-import { Body, Controller, Headers, HttpCode, Param, Post, Query, Req } from '@nestjs/common';
+import { Body, Controller, Headers, HttpCode, Param, Post, Query, Req, UseGuards } from '@nestjs/common';
+import { Throttle, ThrottlerGuard } from '@nestjs/throttler';
 import type { Request } from 'express';
 import { TitheService } from './tithe.service';
 
@@ -8,6 +9,9 @@ import { TitheService } from './tithe.service';
  * registrar o evento: o reprocessamento é feito a partir do evento gravado.
  */
 @Controller('tithe/webhooks')
+// Sem JWT: limite generoso por IP (os provedores reenviam em lote) contra abuso anônimo
+@UseGuards(ThrottlerGuard)
+@Throttle({ default: { limit: 300, ttl: 60_000 } })
 export class TitheWebhookController {
   constructor(private readonly service: TitheService) {}
 

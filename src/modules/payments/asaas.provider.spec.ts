@@ -72,8 +72,12 @@ describe('AsaasProvider', () => {
     expect(p.verifyWebhook({ headers: {}, body }, creds.webhookSecret)).toBe(false);
     expect(p.parseWebhook(body)).toMatchObject({ eventId: 'evt_1', kind: 'charge', providerRef: 'pay_1', externalRef: 'intent-1', status: 'received', subscriptionRef: 'sub_9' });
     expect(p.parseWebhook({ id: 'evt_2', event: 'PAYMENT_DELETED', payment: { id: 'pay_2', status: 'PENDING' } }).status).toBe('cancelled');
-    expect(p.parseWebhook({ id: 'evt_3', event: 'PIX_AUTOMATIC_RECURRING_AUTHORIZATION_ACTIVATED', pixAutomaticAuthorization: { id: 'aut_1', status: 'ACTIVE', subscriptionId: 'sub_1' } }))
-      .toMatchObject({ kind: 'authorization', authorizationRef: 'aut_1', authorizationStatus: 'ACTIVE', subscriptionRef: 'sub_1' });
+    // Formato da doc "Eventos para Pix Automático": objeto em `authorization` (sem id de evento)
+    expect(p.parseWebhook({ event: 'PIX_AUTOMATIC_RECURRING_AUTHORIZATION_ACTIVATED', authorization: { id: 'aut_1', status: 'ACTIVE', customerId: 'cus_1', frequency: 'MONTHLY', value: 2 }, paymentId: 'pay_first' }))
+      .toMatchObject({ kind: 'authorization', authorizationRef: 'aut_1', authorizationStatus: 'ACTIVE', paymentId: 'pay_first', eventId: 'aut_1:PIX_AUTOMATIC_RECURRING_AUTHORIZATION_ACTIVATED:pay_first' });
+    // Formato da página de fluxos: `pixAutomaticAuthorization` como string (id)
+    expect(p.parseWebhook({ id: 'evt_4', event: 'PIX_AUTOMATIC_RECURRING_AUTHORIZATION_CANCELLED', pixAutomaticAuthorization: 'aut_2' }))
+      .toMatchObject({ eventId: 'evt_4', kind: 'authorization', authorizationRef: 'aut_2', authorizationStatus: 'CANCELLED', paymentId: null });
   });
 
   it('Pix Automático: autorização com paymentCreationMode SUBSCRIPTION e QR imediato', async () => {
@@ -82,6 +86,9 @@ describe('AsaasProvider', () => {
       'POST /subscriptions': () => ({ body: { id: 'sub_1', status: 'ACTIVE', nextDueDate: '2026-09-10' } }),
       'DELETE /pix/automatic/authorizations/aut_1': () => ({ body: { status: 'CANCELLED' } }),
       'DELETE /subscriptions/sub_1': () => ({ body: { deleted: true } }),
+      'DELETE /subscriptions/sub_gone': () => ({ status: 404, body: { errors: [{ description: 'not found' }] } }),
+      'DELETE /payments/pay_1': () => ({ body: { deleted: true } }),
+      'GET /pix/automatic/authorizations/aut_1': () => ({ body: { id: 'aut_1', status: 'ACTIVE', subscriptionId: 'sub_from_auth' } }),
     });
     const p = new AsaasProvider(creds, impl);
     const auto = await p.createSubscription({ providerCustomerId: 'cus_1', amount: 100, cycle: 'MONTHLY', startDate: '2026-09-10', description: 'Dizimo mensal', externalRef: 'sched-1', mode: 'pix_automatic' });
@@ -91,6 +98,11 @@ describe('AsaasProvider', () => {
     expect(classic).toMatchObject({ providerRef: 'sub_1', status: 'ACTIVE', nextDueDate: '2026-09-10' });
     await p.cancelSubscription({ providerRef: 'sub_1', authorizationRef: 'aut_1' });
     expect(calls.filter((c) => c.init?.method === 'DELETE')).toHaveLength(2);
+    // "não encontrado" no cancelamento = já não cobra: não é erro
+    await expect(p.cancelSubscription({ providerRef: 'sub_gone' })).resolves.toBeUndefined();
+    await expect(p.cancelCharge('pay_1')).resolves.toBeUndefined();
+    // A assinatura nasce na ativação: é lida da própria autorização
+    expect(await p.getAuthorization('aut_1')).toMatchObject({ authorizationRef: 'aut_1', status: 'ACTIVE', subscriptionRef: 'sub_from_auth' });
   });
 });
 

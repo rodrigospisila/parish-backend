@@ -188,6 +188,15 @@ export class MercadoPagoProvider implements PaymentProvider {
     throw new PaymentProviderError('Recorrência por Pix não é suportada no Mercado Pago via API — use Asaas para o dízimo automático');
   }
 
+  async cancelCharge(providerRef: string): Promise<void> {
+    try {
+      await this.request('PUT', `/v1/payments/${encodeURIComponent(providerRef)}`, { status: 'cancelled' });
+    } catch (error) {
+      if (error instanceof PaymentProviderError && error.status === 404) return;
+      throw error;
+    }
+  }
+
   async cancelSubscription(refs: { providerRef?: string | null }): Promise<void> {
     if (!refs.providerRef) return;
     await this.request('PUT', `/preapproval/${encodeURIComponent(refs.providerRef)}`, { status: 'cancelled' });

@@ -53,7 +53,16 @@ export interface ProviderWebhookEvent {
   subscriptionRef?: string | null;
   authorizationRef?: string | null;
   authorizationStatus?: string | null;
+  /** Cobrança ligada ao evento de autorização (1º pagamento do Pix Automático) */
+  paymentId?: string | null;
   raw: unknown;
+}
+
+export interface ProviderAuthorization {
+  authorizationRef: string;
+  status: string;
+  subscriptionRef?: string | null;
+  raw?: unknown;
 }
 
 export interface ProviderSubscription {
@@ -67,6 +76,8 @@ export interface ProviderSubscription {
   qrImageBase64?: string | null;
   expiresAt?: string | null;
   nextDueDate?: string | null;
+  /** Cobrança do QR imediato (Pix Automático), quando o provedor informa */
+  firstPaymentRef?: string | null;
   raw?: unknown;
 }
 
@@ -119,6 +130,10 @@ export interface PaymentProvider {
   parseWebhook(body: unknown): ProviderWebhookEvent;
   createSubscription(input: CreateSubscriptionInput): Promise<ProviderSubscription>;
   cancelSubscription(refs: { providerRef?: string | null; authorizationRef?: string | null }): Promise<void>;
+  /** Cancela uma cobrança ainda não paga (o QR deixa de aceitar pagamento). Tolera "já cancelada". */
+  cancelCharge(providerRef: string): Promise<void>;
+  /** Estado atual de uma autorização de recorrência (quando o provedor tem o conceito). */
+  getAuthorization?(authorizationRef: string): Promise<ProviderAuthorization>;
   refund(providerRef: string, amount?: number, reason?: string): Promise<{ status: string }>;
 }
 

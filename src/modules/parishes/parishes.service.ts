@@ -3,6 +3,9 @@ import { PrismaService } from '../../database/prisma.service';
 import { CreateParishDto } from './dto/create-parish.dto';
 import { UpdateParishDto } from './dto/update-parish.dto';
 
+/** Segredos do provedor de pagamento nunca saem pela API de paróquias (só o módulo do dízimo os usa). */
+const PARISH_SECRETS = { providerApiKeyEnc: true, providerWebhookToken: true } as const;
+
 @Injectable()
 export class ParishesService {
   constructor(private readonly prisma: PrismaService) {}
@@ -10,6 +13,7 @@ export class ParishesService {
   async create(createParishDto: CreateParishDto) {
     return this.prisma.parish.create({
       data: createParishDto,
+      omit: PARISH_SECRETS,
       include: {
         diocese: {
           select: {
@@ -41,6 +45,7 @@ export class ParishesService {
 
     return this.prisma.parish.findMany({
       where,
+      omit: PARISH_SECRETS,
       include: {
         diocese: {
           select: {
@@ -69,6 +74,7 @@ export class ParishesService {
   async findOne(id: string) {
     const parish = await this.prisma.parish.findUnique({
       where: { id },
+      omit: PARISH_SECRETS,
       include: {
         diocese: true,
         communities: true,
@@ -98,6 +104,7 @@ export class ParishesService {
     return this.prisma.parish.update({
       where: { id },
       data: updateParishDto,
+      omit: PARISH_SECRETS,
       include: {
         diocese: {
           select: {

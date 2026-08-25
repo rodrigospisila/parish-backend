@@ -136,6 +136,14 @@ export class TitheController {
     return this.service.reopenIntent(id, req.user);
   }
 
+  /** Consulta o provedor sobre um Pix dinâmico (sem esperar o webhook). */
+  @Post('intents/:id/sync')
+  @Roles(UserRole.COMMUNITY_COORDINATOR)
+  @Throttle({ default: { limit: 20, ttl: 60_000 } })
+  sync(@Param('id') id: string, @Request() req: any) {
+    return this.service.syncIntentForFinance(id, req.user);
+  }
+
   @Get('report')
   @Roles(UserRole.COMMUNITY_COORDINATOR)
   report(@Request() req: any, @Query('referenceMonth') referenceMonth?: string, @Query('communityId') communityId?: string) {
@@ -206,6 +214,7 @@ export class TitheController {
       paymentProvider?: string | null;
       providerEnv?: string | null;
       providerApiKey?: string | null;
+      providerWebhookSecret?: string | null;
       feePolicy?: string | null;
       feeFixed?: number | null;
       feePercent?: number | null;

@@ -33,16 +33,25 @@ export class PaymentsService {
     return generateWebhookToken();
   }
 
+  /**
+   * Mercado Pago gera a assinatura secreta do webhook no painel dele (o admin
+   * cola no Parish); Asaas aceita um token que o Parish gera e o admin cola lá.
+   */
+  webhookSecretManagedByAdmin(provider: string | null | undefined): boolean {
+    return provider === 'MERCADOPAGO';
+  }
+
   hasProvider(config: ParishProviderConfig): config is ParishProviderConfig & { paymentProvider: ProviderName } {
     return (config.paymentProvider === 'ASAAS' || config.paymentProvider === 'MERCADOPAGO') && !!config.providerApiKeyEnc;
   }
 
-  forParish(config: ParishProviderConfig): PaymentProvider {
+  forParish(config: ParishProviderConfig, opts: { verifyOnly?: boolean } = {}): PaymentProvider {
     if (!this.hasProvider(config)) {
       throw new BadRequestException('A paróquia não tem provedor de pagamento configurado');
     }
     const env = config.providerEnv === 'production' ? 'production' : 'sandbox';
-    const apiKey = decryptSecret(config.providerApiKeyEnc!);
+    // verifyOnly: só para validar webhook — não decifra a chave de API
+    const apiKey = opts.verifyOnly ? '' : decryptSecret(config.providerApiKeyEnc!);
     const credentials = { apiKey, env, webhookSecret: config.providerWebhookToken } as const;
     switch (config.paymentProvider) {
       case 'ASAAS':

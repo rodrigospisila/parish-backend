@@ -35,6 +35,8 @@ export class TitheReminderService {
         titheReminderDay: day,
         OR: [{ titheReminderSentMonth: null }, { titheReminderSentMonth: { not: month } }],
         community: { parish: { titheEnabled: true } },
+        // Quem tem Pix Automático ativo não precisa ser lembrado: o banco debita sozinho
+        titheSchedules: { none: { status: 'ACTIVE', mode: 'PIX_AUTOMATIC' } },
       },
       select: { id: true, userId: true, fullName: true, tither: { select: { id: true } } },
       take: 2000,

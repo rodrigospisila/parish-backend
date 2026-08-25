@@ -6,6 +6,7 @@ import {
   FetchLike,
   PaymentProvider,
   PaymentProviderError,
+  ProviderAuthorization,
   ProviderCharge,
   ProviderCredentials,
   ProviderSubscription,
@@ -182,14 +183,21 @@ export class AsaasProvider implements PaymentProvider {
       };
     }
     if (eventName.startsWith('PIX_AUTOMATIC_RECURRING_AUTHORIZATION_')) {
-      const auth = b.pixAutomaticAuthorization ?? {};
+      // Doc "Eventos para Pix Automático": objeto em `authorization`; a página de
+      // fluxos de webhook traz `pixAutomaticAuthorization` como string (id) com
+      // `paymentId` ao lado. Aceita as duas formas.
+      const raw = b.authorization ?? b.pixAutomaticAuthorization ?? null;
+      const auth: any = typeof raw === 'string' ? { id: raw } : (raw ?? {});
+      const authorizationRef: string | null = auth.id ?? null;
+      const paymentId: string | null = b.paymentId ?? b.payment?.id ?? auth.paymentId ?? auth.immediateQrCode?.paymentId ?? null;
       return {
-        eventId: String(b.id ?? `${auth.id}:${eventName}`),
+        eventId: String(b.id ?? (authorizationRef ? `${authorizationRef}:${eventName}:${paymentId ?? ''}` : `${eventName}:${Date.now()}`)),
         eventName,
         kind: 'authorization',
-        authorizationRef: auth.id ?? null,
+        authorizationRef,
         authorizationStatus: auth.status ?? eventName.replace('PIX_AUTOMATIC_RECURRING_AUTHORIZATION_', ''),
-        subscriptionRef: auth.subscriptionId ?? null,
+        subscriptionRef: auth.subscriptionId ?? auth.subscription?.id ?? (typeof auth.subscription === 'string' ? auth.subscription : null),
+        paymentId,
         raw: body,
       };
     }
@@ -216,9 +224,10 @@ export class AsaasProvider implements PaymentProvider {
         providerRef: auth.subscriptionId ?? null,
         authorizationRef: auth.id,
         status: auth.status ?? 'CREATED',
-        qrPayload: auth.payload ?? null,
-        qrImageBase64: auth.encodedImage ?? null,
+        qrPayload: auth.payload ?? auth.immediateQrCode?.payload ?? null,
+        qrImageBase64: auth.encodedImage ?? auth.immediateQrCode?.encodedImage ?? null,
         expiresAt: auth.immediateQrCode?.expirationDate ?? null,
+        firstPaymentRef: auth.immediateQrCode?.paymentId ?? auth.paymentId ?? null,
         raw: auth,
       };
     }
@@ -240,13 +249,38 @@ export class AsaasProvider implements PaymentProvider {
     };
   }
 
+  /** DELETE idempotente: "não encontrado" significa que já não existe/cobra — objetivo atingido. */
+  private async deleteTolerant(path: string): Promise<void> {
+    try {
+      await this.request('DELETE', path);
+    } catch (error) {
+      if (error instanceof PaymentProviderError && error.status === 404) return;
+      throw error;
+    }
+  }
+
   async cancelSubscription(refs: { providerRef?: string | null; authorizationRef?: string | null }): Promise<void> {
     if (refs.authorizationRef) {
-      await this.request('DELETE', `/pix/automatic/authorizations/${encodeURIComponent(refs.authorizationRef)}`);
+      await this.deleteTolerant(`/pix/automatic/authorizations/${encodeURIComponent(refs.authorizationRef)}`);
     }
     if (refs.providerRef) {
-      await this.request('DELETE', `/subscriptions/${encodeURIComponent(refs.providerRef)}`);
+      await this.deleteTolerant(`/subscriptions/${encodeURIComponent(refs.providerRef)}`);
     }
+  }
+
+  async cancelCharge(providerRef: string): Promise<void> {
+    await this.deleteTolerant(`/payments/${encodeURIComponent(providerRef)}`);
+  }
+
+  /** GET /pix/automatic/authorizations/{id} — estado real da autorização (e a assinatura criada na ativação). */
+  async getAuthorization(authorizationRef: string): Promise<ProviderAuthorization> {
+    const auth = await this.request<any>('GET', `/pix/automatic/authorizations/${encodeURIComponent(authorizationRef)}`);
+    return {
+      authorizationRef: auth?.id ?? authorizationRef,
+      status: String(auth?.status ?? ''),
+      subscriptionRef: auth?.subscriptionId ?? auth?.subscription?.id ?? (typeof auth?.subscription === 'string' ? auth.subscription : null),
+      raw: auth,
+    };
   }
 
   async refund(providerRef: string, amount?: number, reason?: string): Promise<{ status: string }> {

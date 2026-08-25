@@ -2484,10 +2484,13 @@ model MemberProviderCustomer {
   memberId           String
   member             Member @relation(fields: [memberId], references: [id], onDelete: Cascade)
   provider           String // ASAAS | MERCADOPAGO
+  // Cliente é por conta do provedor: paróquia + ambiente (sandbox/produção)
+  providerEnv        String @default("sandbox")
+  parishId           String @default("")
   providerCustomerId String
   createdAt          DateTime @default(now())
 
-  @@unique([memberId, provider])
+  @@unique([memberId, provider, providerEnv, parishId])
   @@map("member_provider_customers")
 }
 
@@ -2533,6 +2536,8 @@ model TitheSchedule {
   @@index([parishId, status])
   @@index([providerSubscriptionRef])
   @@index([providerAuthorizationRef])
+  // + índice único parcial (SQL da migração tithe_d3_fixes): um dízimo
+  // automático aberto (PENDING_AUTHORIZATION/ACTIVE/PAUSED) por membro
   @@map("tithe_schedules")
 }
 
@@ -2548,6 +2553,7 @@ model PaymentWebhookEvent {
   receivedAt  DateTime @default(now())
   processedAt DateTime?
   error       String?
+  attempts    Int       @default(0)
 
   @@unique([provider, eventId])
   @@index([parishId, receivedAt])
