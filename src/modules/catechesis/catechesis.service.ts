@@ -1839,7 +1839,7 @@ export class CatechesisService {
         class: {
           include: {
             stage: { select: { id: true, name: true, sacramentType: true } },
-            community: { include: { parish: { select: { name: true } } } },
+            community: { include: { parish: { select: { name: true, logoUrl: true } } } },
           },
         },
         attendances: {
@@ -1862,7 +1862,7 @@ export class CatechesisService {
 
   private certificateBody(enrollment: {
     completedAt: Date | null;
-    class: { name: string; year: number; stage: { name: string }; community: { name: string; parish: { name: string } } };
+    class: { name: string; year: number; stage: { name: string }; community: { name: string; parish: { name: string; logoUrl?: string | null } } };
   }): string[] {
     const conclusion = (enrollment.completedAt ?? new Date()).toLocaleDateString('pt-BR', {
       timeZone: 'America/Sao_Paulo',
@@ -1889,6 +1889,7 @@ export class CatechesisService {
       metadata: { certificate: true },
     });
     return this.pdfService.renderCertificateDocument({
+      logo: await this.loadParishLogo(enrollment.class.community.parish.logoUrl),
       title: 'Certificado de Conclusão',
       organization: enrollment.class.community.parish.name,
       subtitle: 'Catequese — Iniciação à Vida Cristã',
@@ -1913,7 +1914,7 @@ export class CatechesisService {
         class: {
           include: {
             stage: { select: { name: true } },
-            community: { include: { parish: { select: { name: true } } } },
+            community: { include: { parish: { select: { name: true, logoUrl: true } } } },
           },
         },
       },
@@ -1931,6 +1932,7 @@ export class CatechesisService {
     });
     const parishName = completed[0].class.community.parish.name;
     return this.pdfService.renderCertificateDocument({
+      logo: await this.loadParishLogo(completed[0].class.community.parish.logoUrl),
       title: 'Certificado de Conclusão',
       organization: parishName,
       subtitle: 'Catequese — Iniciação à Vida Cristã',
@@ -1964,7 +1966,7 @@ export class CatechesisService {
       where: { id: classId },
       include: {
         stage: { select: { name: true } },
-        community: { include: { parish: { select: { name: true } } } },
+        community: { include: { parish: { select: { name: true, logoUrl: true } } } },
         catechists: { include: { member: { select: { fullName: true } } } },
       },
     });
@@ -1980,6 +1982,8 @@ export class CatechesisService {
         ? ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'][details.weekday]
         : 'a definir';
     return this.pdfService.renderTableDocument({
+      logo: await this.loadParishLogo(details.community.parish.logoUrl),
+      signatureLines: ['Catequista', 'Coordenação da Catequese'],
       title: `Lista da turma — ${details.name} (${details.year})`,
       subtitle: `${details.stage.name} · ${details.community.name} — ${details.community.parish.name} · ${weekLabel}${details.time ? ` às ${details.time}` : ''}${details.room ? ` · ${details.room}` : ''}`,
       sections: [
@@ -2026,6 +2030,7 @@ export class CatechesisService {
       metadata: { declaration: true },
     });
     return this.pdfService.renderCertificateDocument({
+      logo: await this.loadParishLogo(enrollment.class.community.parish.logoUrl),
       title: 'Declaração de Matrícula',
       organization: enrollment.class.community.parish.name,
       subtitle: 'Catequese — Iniciação à Vida Cristã',
@@ -2810,7 +2815,7 @@ export class CatechesisService {
     const payment = await this.prisma.catechesisFeePayment.findUnique({
       where: { id: paymentId },
       include: {
-        fee: { include: { class: { include: { community: { include: { parish: { select: { name: true } } } } } } } },
+        fee: { include: { class: { include: { community: { include: { parish: { select: { name: true, logoUrl: true } } } } } } } },
         enrollment: {
           include: {
             member: {
@@ -2839,6 +2844,7 @@ export class CatechesisService {
     });
     const paidAt = payment.paidAt.toLocaleDateString('pt-BR', { timeZone: 'America/Sao_Paulo' });
     return this.pdfService.renderCertificateDocument({
+      logo: await this.loadParishLogo(payment.fee.class.community.parish.logoUrl),
       title: 'Recibo de Pagamento',
       organization: payment.fee.class.community.parish.name,
       subtitle: `Catequese — ${payment.fee.class.name}`,
@@ -3075,6 +3081,36 @@ export class CatechesisService {
     });
   }
 
+  // ===== BRASÃO DA PARÓQUIA NOS PDFs =====
+  private readonly logoCache = new Map<string, { buffer: Buffer | null; at: number }>();
+
+  /**
+   * Baixa o brasão da paróquia (logoUrl) para desenhar nos PDFs, com cache em
+   * memória (1h) e fallback silencioso: sem logo, sem rede ou arquivo grande
+   * demais → documento sai sem brasão, nunca falha.
+   */
+  private async loadParishLogo(logoUrl?: string | null): Promise<Buffer | null> {
+    if (!logoUrl || !/^https:\/\//i.test(logoUrl)) return null;
+    const cached = this.logoCache.get(logoUrl);
+    if (cached && Date.now() - cached.at < 60 * 60 * 1000) return cached.buffer;
+    let buffer: Buffer | null = null;
+    try {
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), 4000);
+      const response = await fetch(logoUrl, { signal: controller.signal });
+      clearTimeout(timer);
+      const type = response.headers.get('content-type') ?? '';
+      if (response.ok && /image\/(png|jpe?g)/i.test(type)) {
+        const bytes = Buffer.from(await response.arrayBuffer());
+        if (bytes.length > 0 && bytes.length <= 2 * 1024 * 1024) buffer = bytes;
+      }
+    } catch {
+      buffer = null;
+    }
+    this.logoCache.set(logoUrl, { buffer, at: Date.now() });
+    return buffer;
+  }
+
   // ===== VISÃO DIOCESANA (Fase 5) =====
 
   /**
@@ -3095,7 +3131,7 @@ export class CatechesisService {
         ordering: true,
         sacramentType: true,
         parishId: true,
-        parish: { select: { name: true } },
+        parish: { select: { name: true, logoUrl: true } },
         classes: {
           where: { deletedAt: null, status: 'ACTIVE' },
           select: { id: true },

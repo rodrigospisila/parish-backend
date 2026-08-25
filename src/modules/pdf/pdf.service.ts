@@ -22,6 +22,10 @@ export interface PdfTableDocumentInput {
   sections: PdfSection[];
   /** Texto de rodape (ex.: data de emissao) */
   footer?: string;
+  /** Brasão/logo (PNG ou JPEG) desenhado no cabeçalho, se houver */
+  logo?: Buffer | null;
+  /** Linhas de assinatura ao final (ex.: ['Catequista', 'Coordenação']) */
+  signatureLines?: string[];
 }
 
 export interface PdfCertificatePage {
@@ -46,6 +50,8 @@ export interface PdfCertificateDocumentInput {
   footer?: string;
   /** 'landscape' (certificado) ou 'portrait' (declaração). Default: landscape */
   orientation?: 'landscape' | 'portrait';
+  /** Brasão/logo (PNG ou JPEG) acima do nome da organização, se houver */
+  logo?: Buffer | null;
 }
 
 const PAGE_MARGIN = 40;
@@ -70,6 +76,7 @@ export class PdfService {
 
       const contentWidth = doc.page.width - PAGE_MARGIN * 2;
 
+      this.drawLogo(doc, input.logo, (doc.page.width - 48) / 2, PAGE_MARGIN, 48);
       doc.font('Helvetica-Bold').fontSize(16).text(input.title, { align: 'center' });
       if (input.subtitle) {
         doc.moveDown(0.2);
@@ -99,6 +106,32 @@ export class PdfService {
         }
 
         doc.moveDown(1);
+      }
+
+      // Bloco de assinaturas no fim do documento (lista da turma assinada
+      // pelo catequista e pela coordenação)
+      const signatures = input.signatureLines ?? [];
+      if (signatures.length) {
+        this.ensureSpace(doc, 70);
+        const signatureY = doc.y + 36;
+        const slotWidth = contentWidth / signatures.length;
+        signatures.forEach((label, slot) => {
+          const lineWidth = Math.min(190, slotWidth - 24);
+          const centerX = PAGE_MARGIN + slotWidth * slot + slotWidth / 2;
+          doc
+            .moveTo(centerX - lineWidth / 2, signatureY)
+            .lineTo(centerX + lineWidth / 2, signatureY)
+            .lineWidth(0.8)
+            .strokeColor('#333333')
+            .stroke();
+          doc
+            .font('Helvetica')
+            .fontSize(9)
+            .fillColor('#333333')
+            .text(label, centerX - lineWidth / 2, signatureY + 4, { width: lineWidth, align: 'center' });
+        });
+        doc.fillColor('#000000');
+        doc.y = signatureY + 24;
       }
 
       // Rodapé em TODAS as páginas, abaixo da área útil das linhas (sem sobrepor
@@ -164,6 +197,10 @@ export class PdfService {
           .strokeColor('#000000');
 
         doc.y = CERT_MARGIN + 8;
+        if (input.logo) {
+          const logoSize = input.orientation === 'portrait' ? 64 : 56;
+          this.drawLogo(doc, input.logo, (width - logoSize) / 2, doc.y - 8, logoSize);
+        }
         doc
           .font('Helvetica')
           .fontSize(12)
@@ -309,6 +346,20 @@ export class PdfService {
   }
 
   /** Abre página nova se o bloco não couber; retorna true quando quebrou. */
+  /**
+   * Desenha o brasão centrado em (x, y) com a altura dada e avança o cursor.
+   * Imagem inválida/corrompida não derruba o documento — segue sem o logo.
+   */
+  private drawLogo(doc: PDFKit.PDFDocument, logo: Buffer | null | undefined, x: number, y: number, size: number) {
+    if (!logo) return;
+    try {
+      doc.image(logo, x, y, { fit: [size, size], align: 'center', valign: 'center' });
+      doc.y = y + size + 8;
+    } catch {
+      // formato não suportado pelo pdfkit (ex.: SVG/WebP) — sem logo
+    }
+  }
+
   private ensureSpace(doc: PDFKit.PDFDocument, needed: number): boolean {
     const bottom = doc.page.height - PAGE_MARGIN;
     if (doc.y + needed > bottom) {
