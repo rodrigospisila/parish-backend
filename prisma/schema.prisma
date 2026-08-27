@@ -401,6 +401,7 @@ model Parish {
   titheIntents    TitheIntent[]
   titheSchedules  TitheSchedule[]
   titheCampaigns  TitheCampaign[]
+  financialStatements FinancialStatement[]
   webhookEvents   PaymentWebhookEvent[]
 
   // Audit
@@ -416,6 +417,7 @@ model Community {
   name    String
   address String
   titheCampaigns TitheCampaign[]
+  financialStatements FinancialStatement[]
   city    String
   state   String
   zipCode String
@@ -1384,6 +1386,8 @@ model FinancialTransaction {
 
   // Bank account (optional)
   accountName String?
+  // Centro de custo (D4.3): Pastoral, Obras, Administrativo, Caridade… (livre, sugerido pela paróquia)
+  costCenter  String?
 
   // Relations
   communityId String?
@@ -1406,7 +1410,44 @@ model FinancialTransaction {
   @@index([communityId])
   @@index([campaignId])
   @@index([titheIntentId])
+  @@index([parishId, date])
   @@map("financial_transactions")
+}
+
+// ===== Transparência (D4.3): balancete mensal com aprovação e publicação =====
+enum FinancialStatementStatus {
+  DRAFT // gerado, em revisão
+  APPROVED // aprovado pelo Conselho de Assuntos Econômicos (registrado pela administração)
+  PUBLISHED // visível aos fiéis no app/web
+}
+
+model FinancialStatement {
+  id          String   @id @default(cuid())
+  parishId    String
+  parish      Parish   @relation(fields: [parishId], references: [id], onDelete: Cascade)
+  // null = paróquia inteira; senão o balancete da comunidade
+  communityId String?
+  community   Community? @relation(fields: [communityId], references: [id], onDelete: Cascade)
+  // Chave de unicidade sem NULL: 'PARISH' ou o id da comunidade
+  scopeKey       String
+  referenceMonth String // AAAA-MM
+  status         FinancialStatementStatus @default(DRAFT)
+  // Fotografia dos totais (sem dado individual): receitas/despesas por categoria e centro de custo, campanhas, saldo
+  snapshot       Json
+  notes          String?
+  generatedAt       DateTime  @default(now())
+  generatedByUserId String?
+  approvedAt        DateTime?
+  approvedByUserId  String?
+  approvedByName    String?
+  publishedAt       DateTime?
+  publishedByUserId String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([parishId, scopeKey, referenceMonth])
+  @@index([parishId, status])
+  @@map("financial_statements")
 }
 
 // ============================================

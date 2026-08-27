@@ -62,8 +62,12 @@ export class TitheAgentService {
       or.push({ cpf: { in: [digits, formatted] } });
     }
     if (digits.length >= 8 && /^[\d()\-\s+]+$/.test(term)) {
-      // Telefone gravado com ou sem máscara: casa pelos últimos 8 dígitos
-      or.push({ phone: { contains: digits.slice(-8) } });
+      // Telefone gravado com ou sem máscara ("99876-5432", "998765432"): casa
+      // pelos últimos 8 dígitos nas formas contígua e com hífen
+      const last8 = digits.slice(-8);
+      const variants = new Set<string>([last8, `${last8.slice(0, 4)}-${last8.slice(4)}`]);
+      if (digits.length >= 9) variants.add(`${digits.slice(-9, -4)}-${digits.slice(-4)}`);
+      for (const v of variants) or.push({ phone: { contains: v } });
     }
     if (/^\d{1,8}$/.test(term)) or.push({ tither: { registrationNumber: term } });
     if (/[^\d()\-\s+.]/.test(term)) or.push({ fullName: { contains: term, mode: 'insensitive' } });

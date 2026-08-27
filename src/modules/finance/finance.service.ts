@@ -34,7 +34,7 @@ export class FinanceService {
   // ===== TRANSAÇÕES (receitas/despesas) =====
 
   async createTransaction(
-    dto: { type: TransactionType; category: string; amount: number; description?: string; date: string; communityId?: string; accountName?: string },
+    dto: { type: TransactionType; category: string; amount: number; description?: string; date: string; communityId?: string; accountName?: string; costCenter?: string | null },
     user: CurrentUser,
   ) {
     if (!this.canManageFinance(user.role)) throw new ForbiddenException('Sem permissão financeira');
@@ -52,6 +52,7 @@ export class FinanceService {
         description: dto.description ?? null,
         date: new Date(dto.date),
         accountName: dto.accountName ?? null,
+        costCenter: typeof dto.costCenter === 'string' ? dto.costCenter.replace(/[\r\n\t]+/g, ' ').trim().slice(0, 60) || null : null,
         communityId: dto.communityId ?? null,
         parishId: user.parishId ?? null,
         dioceseId: user.dioceseId ?? null,
