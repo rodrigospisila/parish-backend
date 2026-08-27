@@ -13,10 +13,12 @@ import { TitheCampaignsService } from './campaigns.service';
 import { TitheCampaignsController } from './campaigns.controller';
 import { TitheAgentService } from './agent.service';
 import { TitheAgentController } from './agent.controller';
+import { TitheRetentionService } from './retention.service';
+import { TitheRetentionController } from './retention.controller';
 
 @Module({
   imports: [CommonModule, NotificationsModule, PaymentsModule],
-  providers: [TitheService, PdfService, TitheExpiryService, TitheThrottlerGuard, TitheReminderService, TitheCampaignsService, TitheAgentService],
-  controllers: [TitheController, TitheWebhookController, TitheCampaignsController, TitheAgentController],
+  providers: [TitheService, PdfService, TitheExpiryService, TitheThrottlerGuard, TitheReminderService, TitheCampaignsService, TitheAgentService, TitheRetentionService],
+  controllers: [TitheController, TitheWebhookController, TitheCampaignsController, TitheAgentController, TitheRetentionController],
 })
 export class TitheModule {}

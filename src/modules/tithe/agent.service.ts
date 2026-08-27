@@ -72,6 +72,8 @@ export class TitheAgentService {
     if (/^\d{1,8}$/.test(term)) or.push({ tither: { registrationNumber: term } });
     if (/[^\d()\-\s+.]/.test(term)) or.push({ fullName: { contains: term, mode: 'insensitive' } });
     if (!or.length) return [];
+    const current = this.tithe.currentMonth();
+    const currentIndex = Number(current.slice(0, 4)) * 12 + Number(current.slice(5, 7)) - 1;
     const members = await this.prisma.member.findMany({
       where: { deletedAt: null, ...scopeWhere, OR: or },
       include: {
@@ -96,6 +98,10 @@ export class TitheAgentService {
       cpfMasked: maskCpf(m.cpf),
       phoneMasked: maskPhone(m.phone),
       lastContribution: m.tither?.contributions[0] ?? null,
+      // Quanto tempo sem contribuir (meses de referência) — o agente sabe quem está voltando
+      monthsSinceLast: m.tither?.contributions[0]
+        ? Math.max(0, currentIndex - (Number(m.tither.contributions[0].referenceMonth.slice(0, 4)) * 12 + Number(m.tither.contributions[0].referenceMonth.slice(5, 7)) - 1))
+        : null,
     }));
   }
 

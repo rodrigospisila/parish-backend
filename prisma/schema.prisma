@@ -838,6 +838,7 @@ model Member {
   providerCustomers MemberProviderCustomer[]
   titheSchedules    TitheSchedule[]
   titheCampaignPledges TitheCampaignPledge[]
+  titheRetentionActions TitheRetentionAction[]
 
   @@map("members")
 }
@@ -2669,6 +2670,29 @@ model TitheCampaign {
   @@index([parishId, status])
   @@index([communityId, status])
   @@map("tithe_campaigns")
+}
+
+// Ação pastoral registrada pela tesouraria/pastoral do dízimo com um dizimista (D4.4)
+enum TitheRetentionActionType {
+  THANKS // agradecimento/acolhida
+  MESSAGE // mensagem (WhatsApp, e-mail, bilhete)
+  CALL // ligação
+  VISIT // visita pastoral
+  NOTE // anotação interna
+}
+
+model TitheRetentionAction {
+  id        String                   @id @default(cuid())
+  memberId  String
+  member    Member                   @relation(fields: [memberId], references: [id], onDelete: Cascade)
+  userId    String?
+  userName  String?
+  type      TitheRetentionActionType
+  note      String?
+  createdAt DateTime                 @default(now())
+
+  @@index([memberId, createdAt])
+  @@map("tithe_retention_actions")
 }
 
 // Promessa do fiel para uma campanha (o cumprimento é calculado pelas contribuições confirmadas)
