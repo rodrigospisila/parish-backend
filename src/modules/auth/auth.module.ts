@@ -20,8 +20,10 @@ import { ConsentsModule } from '../consents/consents.module';
     MembersModule,
     MessagingModule,
     ConsentsModule,
+    // Alertas de novo dispositivo (push) — D4.7
+    NotificationsModule,
     JwtModule.registerAsync({
-      imports: [ConfigModule, NotificationsModule],
+      imports: [ConfigModule],
       useFactory: async (configService: ConfigService) => ({
         secret: configService.get('JWT_SECRET'),
         signOptions: {
