@@ -13,6 +13,7 @@ import { AsaasProvider } from '../payments/asaas.provider';
 import { PAID_STATUSES, PaymentProvider, ProviderCharge, WebhookRequest, ProviderSetupResult } from '../payments/payment-provider.interface';
 import { maskSecret } from '../payments/payment-crypto';
 import { TitheWhatsAppService } from './whatsapp.service';
+import { TitheGuestService } from './guest.service';
 
 const FINANCE_ROLES: UserRole[] = [
   UserRole.SYSTEM_ADMIN,
@@ -113,6 +114,7 @@ export class TitheService {
     private readonly pdfService: PdfService,
     private readonly paymentsService: PaymentsService,
     @Inject(forwardRef(() => TitheWhatsAppService)) private readonly whatsapp: TitheWhatsAppService,
+    @Inject(forwardRef(() => TitheGuestService)) private readonly guests: TitheGuestService,
   ) {}
 
   auditActor(user: CurrentUser) {
@@ -756,6 +758,8 @@ export class TitheService {
       monthsBack: MONTHS_BACK,
       monthsAhead: MONTHS_AHEAD,
       persistentQrAvailable: this.parishUsable(parish),
+      // Link público de doação (D4.6) para o fiel compartilhar com visitantes
+      donationUrl: parish && this.parishUsable(parish) && process.env.PUBLIC_WEB_URL ? `${process.env.PUBLIC_WEB_URL.replace(/\/$/, '')}/doar/${parish.id}` : null,
       // Provedor (D3): confirmação automática e dízimo recorrente
       gateway: parish
         ? (() => {
@@ -1986,6 +1990,8 @@ export class TitheService {
       await this.applyProviderCharge(intent, charge, parish);
       return;
     }
+    // Oferta de visitante (página pública) paga no provedor
+    if (await this.guests.settleByProvider(parish.id, event.providerRef, charge)) return;
     // Cobrança gerada por uma recorrência (assinatura/Pix Automático): cria o Pix do mês
     const subscriptionRef = event.subscriptionRef ?? charge.subscriptionRef ?? null;
     const scheduleInclude = { member: { select: { id: true, userId: true, communityId: true, fullName: true } } } as const;

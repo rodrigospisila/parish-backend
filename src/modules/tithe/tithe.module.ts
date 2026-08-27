@@ -5,6 +5,9 @@ import { PaymentsModule } from '../payments/payments.module';
 import { MessagingModule } from '../messaging/messaging.module';
 import { TitheWhatsAppService } from './whatsapp.service';
 import { TitheWhatsAppController } from './tithe-whatsapp.controller';
+import { TitheGuestService } from './guest.service';
+import { TitheGuestController } from './guest.controller';
+import { TitheGuestPublicController } from './guest-public.controller';
 import { PdfService } from '../pdf/pdf.service';
 import { TitheService } from './tithe.service';
 import { TitheController } from './tithe.controller';
@@ -21,7 +24,7 @@ import { TitheRetentionController } from './retention.controller';
 
 @Module({
   imports: [CommonModule, NotificationsModule, PaymentsModule, MessagingModule],
-  providers: [TitheService, PdfService, TitheExpiryService, TitheThrottlerGuard, TitheReminderService, TitheCampaignsService, TitheAgentService, TitheRetentionService, TitheWhatsAppService],
-  controllers: [TitheController, TitheWebhookController, TitheCampaignsController, TitheAgentController, TitheRetentionController, TitheWhatsAppController],
+  providers: [TitheService, PdfService, TitheExpiryService, TitheThrottlerGuard, TitheReminderService, TitheCampaignsService, TitheAgentService, TitheRetentionService, TitheWhatsAppService, TitheGuestService],
+  controllers: [TitheController, TitheWebhookController, TitheCampaignsController, TitheAgentController, TitheRetentionController, TitheWhatsAppController, TitheGuestController, TitheGuestPublicController],
 })
 export class TitheModule {}

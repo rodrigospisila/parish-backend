@@ -404,6 +404,7 @@ model Parish {
   titheSchedules  TitheSchedule[]
   titheCampaigns  TitheCampaign[]
   financialStatements FinancialStatement[]
+  guestGifts      TitheGuestGift[]
   webhookEvents   PaymentWebhookEvent[]
 
   // Audit
@@ -2669,6 +2670,7 @@ model TitheCampaign {
   intents      TitheIntent[]
   transactions FinancialTransaction[]
   pledges      TitheCampaignPledge[]
+  guestGifts   TitheGuestGift[]
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
@@ -2698,6 +2700,54 @@ model TitheRetentionAction {
 
   @@index([memberId, createdAt])
   @@map("tithe_retention_actions")
+}
+
+// Oferta de visitante (D4.6): sem cadastro no Parish, pela página pública; recibo por e-mail
+enum TitheGuestGiftStatus {
+  CREATED
+  DECLARED
+  CONFIRMED
+  CANCELLED
+}
+
+model TitheGuestGift {
+  id          String   @id @default(cuid())
+  parishId    String
+  parish      Parish   @relation(fields: [parishId], references: [id], onDelete: Cascade)
+  campaignId  String?
+  campaign    TitheCampaign? @relation(fields: [campaignId], references: [id], onDelete: SetNull)
+  name        String
+  email       String
+  cpf         String?
+  amount      Float
+  message     String?
+  status      TitheGuestGiftStatus @default(CREATED)
+  method      TitheIntentMethod    @default(PIX_STATIC)
+  paymentMethod String @default("PIX")
+  txid        String   @unique
+  brCode      String?
+  paymentUrl  String?
+  boletoUrl   String?
+  boletoLine  String?
+  providerRef    String?   @unique
+  providerStatus String?
+  qrExpiresAt    DateTime?
+  amountPaid     Float?
+  // Token público para acompanhar/receber o comprovante sem login
+  receiptToken   String    @unique
+  receiptSentAt  DateTime?
+  declaredAt     DateTime?
+  confirmedAt    DateTime?
+  confirmedByUserId String?
+  financialTransactionId String?
+  note           String?
+  createdByIp    String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([parishId, status])
+  @@index([email, createdAt])
+  @@map("tithe_guest_gifts")
 }
 
 // Promessa do fiel para uma campanha (o cumprimento é calculado pelas contribuições confirmadas)
