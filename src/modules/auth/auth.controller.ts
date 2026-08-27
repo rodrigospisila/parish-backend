@@ -1,4 +1,5 @@
 import { Controller, Post, Body, HttpCode, HttpStatus, UseGuards, Headers, Ip } from '@nestjs/common';
+import { Throttle, ThrottlerGuard } from '@nestjs/throttler';
 import { AuthService } from './auth.service';
 import { OtpService } from './otp.service';
 import { PasswordResetService } from './password-reset.service';
@@ -25,8 +26,11 @@ export class AuthController {
     return this.authService.register(registerDto);
   }
 
+  /** Freio por IP contra teste de senhas (o `trust proxy` do main.ts garante o IP real atrás do Railway). */
   @Post('login')
   @HttpCode(HttpStatus.OK)
+  @UseGuards(ThrottlerGuard)
+  @Throttle({ default: { limit: 20, ttl: 60_000 } })
   async login(@Body() loginDto: LoginDto, @Headers() headers: Record<string, string | undefined>, @Ip() ip: string) {
     return this.authService.login(loginDto, {
       ip,

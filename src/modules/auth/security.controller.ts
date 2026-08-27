@@ -14,7 +14,11 @@ const metaFrom = (headers: Record<string, string | undefined>, ip: string) => ({
   deviceName: headers['x-device-name'] ?? null,
 });
 
-/** Segundo fator, dispositivos e atividade da conta (D4.7). */
+/**
+ * Segundo fator, dispositivos e atividade da conta (D4.7).
+ * `@Throttle` só limita onde o `ThrottlerGuard` está aplicado — por isso ele
+ * acompanha cada rota que confere código ou senha.
+ */
 @Controller('auth')
 export class SecurityController {
   constructor(
@@ -38,27 +42,30 @@ export class SecurityController {
   }
 
   @Post('2fa/setup')
-  @UseGuards(JwtAuthGuard)
+  @UseGuards(JwtAuthGuard, ThrottlerGuard)
   @Throttle({ default: { limit: 5, ttl: 60_000 } })
   setup(@Request() req: any) {
     return this.security.setup(req.user.id);
   }
 
+  /** Ativa o 2FA; as outras sessões caem e o chamador recebe tokens novos. */
   @Post('2fa/enable')
-  @UseGuards(JwtAuthGuard)
+  @UseGuards(JwtAuthGuard, ThrottlerGuard)
   @Throttle({ default: { limit: 10, ttl: 60_000 } })
-  enable(@Body() body: { code: string }, @Request() req: any) {
-    return this.security.enable(req.user.id, String(body?.code ?? ''));
+  async enable(@Body() body: { code: string }, @Request() req: any) {
+    const result = await this.security.enable(req.user.id, String(body?.code ?? ''));
+    const tokens = await this.authService.reissueSession(req.user.id);
+    return { ...result, ...tokens };
   }
 
   @Post('2fa/disable')
-  @UseGuards(JwtAuthGuard)
+  @UseGuards(JwtAuthGuard, ThrottlerGuard)
   @Throttle({ default: { limit: 5, ttl: 60_000 } })
   disable(@Body() body: { password: string; code: string }, @Request() req: any) {
     return this.security.disable(req.user.id, String(body?.password ?? ''), String(body?.code ?? ''));
   }
 
-  /** Administração redefine o 2FA de alguém do seu escopo (perdeu o celular). */
+  /** Administração redefine o 2FA de alguém abaixo dela no seu escopo (perdeu o celular). */
   @Post('2fa/reset/:userId')
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles(UserRole.PARISH_ADMIN)
@@ -72,10 +79,14 @@ export class SecurityController {
     return this.security.listDevices(req.user.id, metaFrom(headers, ip));
   }
 
+  /** Esquece um aparelho e encerra as sessões; quem pediu (de outro aparelho) recebe tokens novos. */
   @Delete('devices/:id')
   @UseGuards(JwtAuthGuard)
-  forget(@Param('id') id: string, @Request() req: any) {
-    return this.security.forgetDevice(req.user.id, id);
+  async forget(@Param('id') id: string, @Request() req: any, @Headers() headers: Record<string, string | undefined>, @Ip() ip: string) {
+    const result = await this.security.forgetDevice(req.user.id, id, metaFrom(headers, ip));
+    if (result.current) return result;
+    const tokens = await this.authService.reissueSession(req.user.id);
+    return { ...result, ...tokens };
   }
 
   @Get('activity')

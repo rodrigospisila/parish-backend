@@ -246,6 +246,10 @@ export class AuthService {
     const isPasswordValid = await bcrypt.compare(password, user.password);
 
     if (!isPasswordValid) {
+      // Fica na atividade da conta: o titular vê tentativas com senha errada
+      void this.auditService
+        .log({ actor: { id: user.id, email: user.email, role: user.role }, action: 'LOGIN_FAILED', entity: 'User', entityId: user.id, ip: meta.ip ?? null, metadata: { reason: 'password', userAgent: meta.userAgent ?? null } })
+        .catch(() => undefined);
       throw new UnauthorizedException('Credenciais inválidas');
     }
 
@@ -256,12 +260,33 @@ export class AuthService {
 
   /** Segunda etapa do login (2FA): confere o código e emite a sessão. */
   async twoFactorLogin(challengeToken: string, code: string, meta: LoginMeta = {}) {
-    const userId = this.security.verifyChallenge(challengeToken);
-    const ok = await this.security.verifySecondFactor(userId, code);
-    if (!ok) throw new UnauthorizedException('Código do autenticador inválido');
-    const user = await this.prisma.user.findUnique({ where: { id: userId }, include: this.sessionInclude });
+    const challenge = this.security.verifyChallenge(challengeToken);
+    const ok = await this.security.verifySecondFactor(challenge.userId, code);
+    if (!ok) {
+      void this.auditService
+        .log({ actor: { id: challenge.userId }, action: 'TWO_FACTOR_LOGIN_FAILED', entity: 'User', entityId: challenge.userId, ip: meta.ip ?? null, metadata: { userAgent: meta.userAgent ?? null } })
+        .catch(() => undefined);
+      throw new UnauthorizedException('Código do autenticador inválido');
+    }
+    const user = await this.prisma.user.findUnique({ where: { id: challenge.userId }, include: this.sessionInclude });
     if (!user || !user.isActive) throw new UnauthorizedException('Usuário inativo');
+    // Desafio é de uso único: depois da sessão emitida, não serve mais
+    this.security.consumeChallenge(challenge);
     return this.completeLogin(user, meta);
+  }
+
+  /**
+   * Reemite a sessão do próprio usuário depois de uma ação que encerra as
+   * demais (ativar 2FA, esquecer outro aparelho): as sessões antigas caem e
+   * o cliente que pediu a ação troca para os tokens novos.
+   */
+  async reissueSession(userId: string) {
+    const user = await this.prisma.user.findUnique({
+      where: { id: userId },
+      select: { id: true, email: true, role: true, isActive: true, dioceseId: true, parishId: true, communityId: true },
+    });
+    if (!user || !user.isActive) throw new UnauthorizedException('Usuário inativo');
+    return this.generateTokens(user.id, user.email, user.role, user.dioceseId ?? undefined, user.parishId ?? undefined, user.communityId ?? undefined);
   }
 
   private sessionInclude = {
@@ -287,6 +312,16 @@ export class AuthService {
   private async completeLogin(user: any, meta: LoginMeta) {
     await this.prisma.user.update({ where: { id: user.id }, data: { lastLogin: new Date() } });
     const device = await this.security.registerDevice({ id: user.id, email: user.email, name: user.name }, meta);
+    void this.auditService
+      .log({
+        actor: { id: user.id, email: user.email, role: user.role },
+        action: user.twoFactorEnabled ? 'TWO_FACTOR_LOGIN' : 'LOGIN',
+        entity: 'User',
+        entityId: user.id,
+        ip: meta.ip ?? null,
+        metadata: { newDevice: device.isNew, device: meta.deviceName ?? null, userAgent: meta.userAgent ?? null },
+      })
+      .catch(() => undefined);
     const tokens = await this.generateTokens(
       user.id,
       user.email,
@@ -376,9 +411,10 @@ export class AuthService {
       },
     );
 
-    // Gerar refresh token (jti próprio, garante unicidade do token persistido)
+    // Gerar refresh token (jti próprio, garante unicidade do token persistido;
+    // `typ` impede que sirva como Bearer mesmo se os segredos coincidirem)
     const refreshToken = this.jwtService.sign(
-      { ...basePayload, jti: randomUUID() },
+      { ...basePayload, typ: 'refresh', jti: randomUUID() },
       {
         secret: this.configService.get('JWT_REFRESH_SECRET'),
         expiresIn: this.configService.get('JWT_REFRESH_EXPIRES_IN') || '7d',
@@ -418,6 +454,7 @@ export class AuthService {
         parishId: true,
         communityId: true,
         primaryCommunityId: true,
+        sessionsRevokedAt: true,
         member: {
           select: {
             id: true,

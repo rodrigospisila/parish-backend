@@ -212,14 +212,15 @@ export class TitheGuestService {
             paymentUrl: charge.paymentUrl ?? null,
             boletoUrl: charge.boletoUrl ?? null,
             boletoLine: charge.boletoLine ?? null,
-            qrExpiresAt: charge.expiresAt ? new Date(charge.expiresAt) : new Date(`${this.plusDays(dueDays)}T23:59:59.000-03:00`),
+            qrExpiresAt: this.providerExpiry(charge.expiresAt, new Date(`${this.plusDays(dueDays)}T23:59:59.000-03:00`)),
           },
           include: { campaign: { select: { id: true, name: true } } },
         });
       } catch (error) {
         if (paymentMethod !== 'PIX') {
-          await this.prisma.titheGuestGift.update({ where: { id: gift.id }, data: { status: 'CANCELLED', note: 'Provedor indisponível' } });
-          throw new BadRequestException(`Não foi possível gerar a cobrança agora: ${String((error as Error)?.message ?? error).slice(0, 160)}`);
+          // Oferta que nem chegou a existir para o visitante: não guarda CPF/e-mail dela
+          await this.prisma.titheGuestGift.update({ where: { id: gift.id }, data: { status: 'CANCELLED', note: 'Provedor indisponível', cpf: null, message: null } });
+          throw new BadRequestException(this.publicProviderError(error));
         }
         // Provedor fora do ar: Pix estático da paróquia
         gift = await this.prisma.titheGuestGift.update({
@@ -240,6 +241,24 @@ export class TitheGuestService {
     return new Intl.DateTimeFormat('sv-SE', { timeZone: 'America/Sao_Paulo', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date(Date.now() + days * 24 * 60 * 60 * 1000));
   }
 
+  /**
+   * Validade informada pelo provedor. O Asaas devolve "AAAA-MM-DD HH:mm:ss" no
+   * horário de Brasília, sem fuso — lido como UTC, o Pix "expiraria" 3 h antes.
+   */
+  private providerExpiry(raw: string | null | undefined, fallback: Date): Date {
+    if (!raw) return fallback;
+    const value = String(raw).trim();
+    const hasZone = /(Z|[+-]\d{2}:?\d{2})$/.test(value);
+    const parsed = new Date(hasZone ? value : `${value.replace(' ', 'T')}-03:00`);
+    return Number.isNaN(parsed.getTime()) ? fallback : parsed;
+  }
+
+  /** Mensagens do provedor podem carregar detalhes internos — o público recebe um texto neutro. */
+  private publicProviderError(error: unknown): string {
+    this.logger.warn(`Provedor falhou ao criar cobrança de visitante: ${String((error as Error)?.message ?? error)}`);
+    return 'Não foi possível gerar a cobrança agora. Tente de novo em alguns minutos ou escolha Pix.';
+  }
+
   private async byToken(token: string) {
     if (!token || token.length < 16) throw new NotFoundException('Oferta não encontrada');
     const gift = await this.prisma.titheGuestGift.findUnique({ where: { receiptToken: token }, include: { campaign: { select: { id: true, name: true } }, parish: { select: { id: true, name: true, logoUrl: true, dioceseId: true } } } });
@@ -247,15 +266,23 @@ export class TitheGuestService {
     return gift;
   }
 
-  /** Situação da oferta (público, pelo token); com provedor, sincroniza. */
+  /**
+   * Situação da oferta (público, pelo token); com provedor, sincroniza — no
+   * máximo uma consulta ao provedor a cada 20 s por oferta (o webhook é o
+   * caminho principal; a página pública faz polling e não pode virar
+   * amplificador contra a cota da API da paróquia).
+   */
   async status(token: string) {
     let gift = await this.byToken(token);
-    if (gift.method === 'GATEWAY' && gift.providerRef && (gift.status === 'CREATED' || gift.status === 'DECLARED')) {
+    const recentlySynced = Date.now() - gift.updatedAt.getTime() < 20_000;
+    if (gift.method === 'GATEWAY' && gift.providerRef && (gift.status === 'CREATED' || gift.status === 'DECLARED') && !recentlySynced) {
       const parish = await this.tithe.parishFor(gift.parishId);
       if (parish && this.paymentsService.hasProvider(parish)) {
         try {
           const charge = await this.paymentsService.forParish(parish).getCharge(gift.providerRef);
           await this.applyCharge(gift.id, charge);
+          // Marca a consulta (updatedAt) mesmo sem mudança de estado — é o relógio do cooldown
+          await this.prisma.titheGuestGift.update({ where: { id: gift.id }, data: { updatedAt: new Date() } });
           gift = await this.byToken(token);
         } catch {
           // provedor fora do ar: estado local
@@ -325,11 +352,67 @@ export class TitheGuestService {
       await this.settle(giftId, { paidAmount: expected, paidAt: this.tithe['civilDate'](charge.paidAt), byUserId: null, source: 'provider' });
       return;
     }
+    if (charge.status === 'refunded' && gift.status === 'CONFIRMED') {
+      await this.reverse(gift);
+      return;
+    }
+    if (charge.status === 'disputed' && gift.status === 'CONFIRMED' && gift.providerStatus !== 'disputed') {
+      // Chargeback/contestação em andamento: o dinheiro pode voltar — tesouraria precisa saber (uma vez)
+      await this.prisma.titheGuestGift.update({ where: { id: giftId }, data: { providerStatus: 'disputed' } });
+      await this.tithe.notifyTreasury(
+        { communityId: null, parishId: gift.parishId },
+        'Oferta de visitante contestada',
+        `A oferta ${gift.txid} (${money(gift.amountPaid ?? gift.amount)}, ${safeName(gift.name)}) está em contestação/chargeback no provedor. Se o estorno se confirmar, o lançamento será revertido automaticamente.`,
+        { kind: 'tithe-guest-disputed', giftId: gift.id },
+      );
+      return;
+    }
     if (charge.status === 'cancelled' && gift.status === 'CREATED') {
       await this.prisma.titheGuestGift.updateMany({ where: { id: giftId, status: 'CREATED' }, data: { status: 'CANCELLED', note: 'Cobrança cancelada no provedor', providerStatus: charge.status } });
     } else if (charge.status !== gift.providerStatus) {
       await this.prisma.titheGuestGift.update({ where: { id: giftId }, data: { providerStatus: charge.status } });
     }
+  }
+
+  /**
+   * Estorno/chargeback confirmado pelo provedor de uma oferta já liquidada:
+   * a oferta volta a CANCELLED, o lançamento de entrada é anulado por uma
+   * saída de mesmo valor (rastro contábil) e o comprovante deixa de valer.
+   */
+  private async reverse(gift: { id: string; parishId: string; campaignId: string | null; name: string; txid: string; paymentMethod: string; amount: number; amountPaid: number | null; financialTransactionId: string | null }) {
+    const amount = gift.amountPaid ?? gift.amount;
+    const parish = await this.prisma.parish.findUnique({ where: { id: gift.parishId }, select: { dioceseId: true } });
+    const campaign = gift.campaignId ? await this.prisma.titheCampaign.findUnique({ where: { id: gift.campaignId }, select: { name: true } }) : null;
+    const reversed = await this.prisma.$transaction(async (tx) => {
+      const moved = await tx.titheGuestGift.updateMany({
+        where: { id: gift.id, status: 'CONFIRMED' },
+        data: { status: 'CANCELLED', note: 'Estornado pelo provedor', providerStatus: 'refunded' },
+      });
+      if (moved.count !== 1) return false;
+      await tx.financialTransaction.create({
+        data: {
+          type: TransactionType.EXPENSE,
+          category: 'Ofertas',
+          amount,
+          description: `Estorno ${campaign ? `campanha ${campaign.name}` : 'oferta de visitante'} — ${safeName(gift.name)} (${appMethodLabel(gift.paymentMethod)} provedor ${gift.txid})`,
+          date: this.tithe['civilDate'](null),
+          communityId: null,
+          parishId: gift.parishId,
+          dioceseId: parish?.dioceseId ?? null,
+          campaignId: gift.campaignId,
+          reversalOfId: gift.financialTransactionId,
+        },
+      });
+      return true;
+    });
+    if (!reversed) return;
+    await this.auditService.log({ actor: null, action: 'UPDATE', entity: 'TitheGuestGift', entityId: gift.id, before: { status: 'CONFIRMED' }, after: { status: 'CANCELLED', providerStatus: 'refunded' }, metadata: { source: 'provider', reversedAmount: amount } });
+    await this.tithe.notifyTreasury(
+      { communityId: null, parishId: gift.parishId },
+      'Oferta de visitante estornada',
+      `A oferta ${gift.txid} (${money(amount)}, ${safeName(gift.name)}) foi estornada no provedor: um lançamento de saída anulou a entrada e o comprovante deixou de valer.`,
+      { kind: 'tithe-guest-refunded', giftId: gift.id },
+    );
   }
 
   /** Chamado pelo webhook quando a cobrança não é de um TitheIntent: devolve true se era oferta de visitante. */
@@ -375,7 +458,9 @@ export class TitheGuestService {
   /** Comprovante em PDF (público, pelo token — só depois de confirmada). */
   async receiptPdf(token: string): Promise<Buffer> {
     const gift = await this.byToken(token);
-    if (gift.status !== 'CONFIRMED') throw new BadRequestException('Comprovante disponível depois da confirmação');
+    if (gift.status !== 'CONFIRMED') {
+      throw new BadRequestException(gift.providerStatus === 'refunded' ? 'Esta oferta foi estornada — o comprovante não é mais válido' : 'Comprovante disponível depois da confirmação');
+    }
     return this.pdfService.renderCertificateDocument({
       logo: await this.tithe.fetchLogo(gift.parish.logoUrl),
       title: 'Comprovante de Oferta',

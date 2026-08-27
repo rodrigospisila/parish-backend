@@ -91,7 +91,17 @@ export class UsersService {
   }
 
   private serializeUser(user: any) {
-    const { password, ...userWithoutPassword } = user;
+    // Nunca expor material de autenticação: hash da senha, segredo TOTP,
+    // códigos de recuperação e estado interno de sessão
+    const {
+      password,
+      twoFactorSecret,
+      twoFactorBackupCodes,
+      twoFactorLastStep,
+      twoFactorSetupAt,
+      sessionsRevokedAt,
+      ...userWithoutPassword
+    } = user;
     const pastoralMemberships = userWithoutPassword.member?.pastoralMemberships || [];
 
     return {
@@ -1040,6 +1050,8 @@ export class UsersService {
         forcePasswordChange: false,
       },
     });
+    // Outras sessões deixam de se renovar (a atual segue até o access token expirar)
+    await this.prisma.refreshToken.deleteMany({ where: { userId: id } });
 
     await this.auditService.log({
       actor: { id: currentUser.id, email: currentUser.email, role: currentUser.role },
@@ -1153,8 +1165,12 @@ export class UsersService {
       data: {
         password: hashedPassword,
         forcePasswordChange: true,
+        // Senha redefinida pela administração: toda sessão anterior cai na hora
+        // (`iat` truncado ao segundo — ver JwtStrategy)
+        sessionsRevokedAt: new Date(Math.floor(Date.now() / 1000) * 1000),
       },
     });
+    await this.prisma.refreshToken.deleteMany({ where: { userId: id } });
 
     await this.auditService.log({
       actor: { id: currentUser.id, email: currentUser.email, role: currentUser.role },

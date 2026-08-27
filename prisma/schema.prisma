@@ -211,7 +211,9 @@ model User {
   twoFactorSecret  String? // cifrado (PAYMENTS_ENCRYPTION_KEY) — TOTP RFC 6238
   twoFactorEnabledAt   DateTime?
   twoFactorLastStep    Int? // último intervalo TOTP aceito (anti-replay)
-  twoFactorBackupCodes String[] @default([]) // hashes SHA-256 dos códigos de recuperação
+  twoFactorBackupCodes String[] @default([]) // HMAC-SHA256 (chave do servidor) dos códigos de recuperação
+  twoFactorSetupAt     DateTime? // quando o segredo pendente foi gerado (expira em 15 min)
+  sessionsRevokedAt    DateTime? // access tokens emitidos antes disto são recusados
   devices UserDevice[]
 
   // Push notifications (Expo push token)

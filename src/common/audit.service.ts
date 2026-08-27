@@ -16,7 +16,17 @@ export type AuditAction =
   | 'CONSENT_CHANGE'
   | 'PASSWORD_RESET'
   | 'PASSWORD_CHANGE'
-  | 'REGISTER';
+  | 'REGISTER'
+  // Governança de acesso (D4.7): sessão e segundo fator
+  | 'LOGIN'
+  | 'LOGIN_FAILED'
+  | 'TWO_FACTOR_SETUP'
+  | 'TWO_FACTOR_ENABLED'
+  | 'TWO_FACTOR_DISABLED'
+  | 'TWO_FACTOR_RESET'
+  | 'TWO_FACTOR_LOGIN'
+  | 'TWO_FACTOR_LOGIN_FAILED'
+  | 'TWO_FACTOR_BACKUP_USED';
 
 export interface AuditActor {
   id?: string;
