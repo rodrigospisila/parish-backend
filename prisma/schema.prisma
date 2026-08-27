@@ -2132,6 +2132,7 @@ enum TitheIntentStatus {
 enum TitheIntentMethod {
   PIX_STATIC // BR Code com a chave da paróquia (Fase 1)
   GATEWAY // provedor de pagamento com webhook (Fase 2)
+  MANUAL // registrado presencialmente pela tesouraria/agente (D4.2): envelope, dinheiro, maquininha…
 }
 
 model TitheIntent {

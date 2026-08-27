@@ -70,8 +70,18 @@ const isSystemNote = (note: string | null | undefined) =>
 const cancelledByTreasury = (intent: { status: string; note: string | null }) =>
   intent.status === 'CANCELLED' && !!intent.note && intent.note !== SELF_CANCEL_NOTE && !isSystemNote(intent.note);
 
-/** Rótulo do meio escolhido no provedor (cartão/boleto) — Pix por padrão. */
-const appMethodLabel = (method: string | null | undefined) => (method === 'CARD' ? 'Cartão' : method === 'BOLETO' ? 'Boleto' : 'Pix');
+/** Rótulo do meio (provedor: cartão/boleto; presencial: dinheiro, envelope, maquininha…) — Pix por padrão. */
+export const PAYMENT_METHOD_LABELS: Record<string, string> = {
+  PIX: 'Pix',
+  CARD: 'Cartão',
+  BOLETO: 'Boleto',
+  CASH: 'Dinheiro',
+  ENVELOPE: 'Envelope',
+  POS: 'Maquininha',
+  TRANSFER: 'Transferência',
+  CHECK: 'Cheque',
+};
+export const appMethodLabel = (method: string | null | undefined) => PAYMENT_METHOD_LABELS[method ?? ''] ?? 'Pix';
 
 /**
  * A tesouraria só reabre o que ainda pode ser conciliado: não o que o fiel
@@ -111,7 +121,7 @@ export class TitheService {
     return FINANCE_ROLES.includes(role);
   }
 
-  private currentMonth(): string {
+  currentMonth(): string {
     const now = new Date();
     return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}`;
   }
@@ -136,7 +146,7 @@ export class TitheService {
     return member;
   }
 
-  private validateReferenceMonth(raw: string | undefined): string {
+  validateReferenceMonth(raw: string | undefined): string {
     const referenceMonth = (raw ?? this.currentMonth()).trim();
     if (!/^\d{4}-(0[1-9]|1[0-2])$/.test(referenceMonth)) {
       throw new BadRequestException('Mês de referência inválido (use AAAA-MM)');
@@ -761,7 +771,7 @@ export class TitheService {
     };
   }
 
-  private newTxid(): string {
+  newTxid(): string {
     const stamp = Date.now().toString(36).toUpperCase();
     const rand = Math.random().toString(36).slice(2, 8).toUpperCase();
     return `PAR${stamp}${rand}`.replace(/[^A-Z0-9]/g, '').slice(0, 25);
@@ -949,7 +959,7 @@ export class TitheService {
     return this.presentIntent({ ...intent, campaign: campaign ? { id: campaign.id, name: campaign.name } : null }, true);
   }
 
-  private async presentIntent(intent: any, withQr = false) {
+  async presentIntent(intent: any, withQr = false) {
     const base = {
       id: intent.id,
       amount: intent.amount,
@@ -1358,7 +1368,7 @@ export class TitheService {
    * Liquidação: transição atômica + lançamento financeiro (+ contribuição do
    * dizimista quando é dízimo). Usada pela tesouraria e pelo provedor.
    */
-  private async settleIntent(
+  async settleIntent(
     intent: {
       id: string;
       txid: string;
@@ -1379,7 +1389,7 @@ export class TitheService {
       paidMonth: string;
       byUserId: string | null;
       receiptNumber?: string;
-      source: 'treasury' | 'provider';
+      source: 'treasury' | 'provider' | 'agent';
       /** Taxa real informada pelo provedor (valor − líquido) */
       feeAmount?: number | null;
     },
@@ -1412,7 +1422,7 @@ export class TitheService {
       });
       if (moved.count !== 1) throw new BadRequestException('Este Pix já foi confirmado ou encerrado');
       const methodLabel = appMethodLabel(intent.paymentMethod);
-      const origin = opts.source === 'provider' ? `${methodLabel} provedor` : 'Pix app';
+      const origin = opts.source === 'provider' ? `${methodLabel} provedor` : opts.source === 'agent' ? `${methodLabel} presencial` : 'Pix app';
       const financial = await tx.financialTransaction.create({
         data: {
           type: TransactionType.INCOME,
@@ -2603,7 +2613,7 @@ export class TitheService {
     const [intents, manual] = await Promise.all([
       this.prisma.titheIntent.findMany({
         where: { status: 'CONFIRMED', referenceMonth, communityId: { in: communityIds } },
-        select: { communityId: true, kind: true, amount: true, amountPaid: true, paymentMethod: true },
+        select: { communityId: true, kind: true, amount: true, amountPaid: true, paymentMethod: true, method: true },
       }),
       // Contribuições lançadas à mão (envelope/dinheiro/Pix no balcão) — sem intent
       this.prisma.titheContribution.findMany({
@@ -2619,7 +2629,9 @@ export class TitheService {
       row.total = Math.round((row.total + amount) * 100) / 100;
       agg.set(key, row);
     };
-    for (const i of intents) add(i.communityId ?? '', i.kind === 'OFFERING' ? 'Ofertas' : 'Dízimo', `${appMethodLabel(i.paymentMethod)} pelo app`, i.amountPaid ?? i.amount);
+    for (const i of intents) {
+      add(i.communityId ?? '', i.kind === 'OFFERING' ? 'Ofertas' : 'Dízimo', `${appMethodLabel(i.paymentMethod)} ${i.method === 'MANUAL' ? 'presencial' : 'pelo app'}`, i.amountPaid ?? i.amount);
+    }
     for (const c of manual) add(c.tither.member.communityId ?? '', 'Dízimo', c.method || 'manual', c.amount);
     const rows = [...agg.values()].sort((a, b) => a.community.localeCompare(b.community) || a.kind.localeCompare(b.kind));
     const totals = rows.reduce((acc, r) => ({ count: acc.count + r.count, total: Math.round((acc.total + r.total) * 100) / 100 }), { count: 0, total: 0 });
@@ -2668,7 +2680,7 @@ export class TitheService {
         ...(memberId ? { anonymous: false } : {}),
       },
       orderBy: { confirmedAt: 'asc' },
-      select: { referenceMonth: true, amount: true, amountPaid: true, confirmedAt: true, txid: true, paymentMethod: true },
+      select: { referenceMonth: true, amount: true, amountPaid: true, confirmedAt: true, txid: true, paymentMethod: true, method: true },
     });
     const day = (v: Date | null | undefined) => (v ? v.toLocaleDateString('pt-BR', { timeZone: 'America/Sao_Paulo' }) : '—');
     const money = (v: number) => `R$ ${v.toFixed(2).replace('.', ',')}`;
@@ -2680,7 +2692,7 @@ export class TitheService {
     }
     for (const o of offerings) {
       const v = o.amountPaid ?? o.amount;
-      rows.push([o.referenceMonth, 'Oferta', money(v), `${appMethodLabel(o.paymentMethod)} pelo app`, day(o.confirmedAt), o.txid]);
+      rows.push([o.referenceMonth, 'Oferta', money(v), `${appMethodLabel(o.paymentMethod)} ${o.method === 'MANUAL' ? 'presencial' : 'pelo app'}`, day(o.confirmedAt), o.txid]);
       total += v;
     }
     rows.sort((a, b) => a[0].localeCompare(b[0]));
@@ -2755,7 +2767,7 @@ export class TitheService {
           bodyParagraphs: [
             `Contribuiu com ${money}`,
             intent.campaign ? `para a campanha “${intent.campaign.name}”,` : `referente a ${intent.referenceMonth},`,
-            `via ${intent.paymentMethod === 'CARD' ? 'cartão' : intent.paymentMethod === 'BOLETO' ? 'boleto' : 'Pix'} (id ${intent.txid}), confirmado em ${day(intent.confirmedAt)}.`,
+            `via ${intent.method === 'MANUAL' ? `${appMethodLabel(intent.paymentMethod).toLowerCase()} (presencial)` : appMethodLabel(intent.paymentMethod) === 'Pix' ? 'Pix' : appMethodLabel(intent.paymentMethod).toLowerCase()} (id ${intent.txid}), confirmado em ${day(intent.confirmedAt)}.`,
             'Deus lhe pague pela generosidade.',
           ],
           signatureLines: ['Tesouraria Paroquial'],
