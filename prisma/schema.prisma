@@ -395,6 +395,8 @@ model Parish {
   providerWebhookToken String? // token que o provedor envia no webhook
   providerConfiguredAt DateTime?
   // Política de taxa: a paróquia absorve ou repassa ao fiel (cobrir a taxa)
+  // WhatsApp como canal (D4.5): Pix do mês e "PAGUEI" pelo WhatsApp (Twilio)
+  whatsappEnabled Boolean @default(false)
   feePolicy  String @default("ABSORB") // ABSORB | PASS_THROUGH
   feeFixed   Float  @default(0)
   feePercent Float  @default(0)
@@ -835,6 +837,9 @@ model Member {
   // Dízimo: lembrete mensal opt-in (dia 1..28) e dedupe do mês já lembrado
   titheReminderDay       Int?
   titheReminderSentMonth String?
+  // Opt-in para receber o Pix do mês pelo WhatsApp (D4.5)
+  whatsappOptIn   Boolean   @default(false)
+  whatsappOptInAt DateTime?
   providerCustomers MemberProviderCustomer[]
   titheSchedules    TitheSchedule[]
   titheCampaignPledges TitheCampaignPledge[]

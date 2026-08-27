@@ -2,6 +2,9 @@ import { Module } from '@nestjs/common';
 import { CommonModule } from '../../common/common.module';
 import { NotificationsModule } from '../notifications/notifications.module';
 import { PaymentsModule } from '../payments/payments.module';
+import { MessagingModule } from '../messaging/messaging.module';
+import { TitheWhatsAppService } from './whatsapp.service';
+import { TitheWhatsAppController } from './tithe-whatsapp.controller';
 import { PdfService } from '../pdf/pdf.service';
 import { TitheService } from './tithe.service';
 import { TitheController } from './tithe.controller';
@@ -17,8 +20,8 @@ import { TitheRetentionService } from './retention.service';
 import { TitheRetentionController } from './retention.controller';
 
 @Module({
-  imports: [CommonModule, NotificationsModule, PaymentsModule],
-  providers: [TitheService, PdfService, TitheExpiryService, TitheThrottlerGuard, TitheReminderService, TitheCampaignsService, TitheAgentService, TitheRetentionService],
-  controllers: [TitheController, TitheWebhookController, TitheCampaignsController, TitheAgentController, TitheRetentionController],
+  imports: [CommonModule, NotificationsModule, PaymentsModule, MessagingModule],
+  providers: [TitheService, PdfService, TitheExpiryService, TitheThrottlerGuard, TitheReminderService, TitheCampaignsService, TitheAgentService, TitheRetentionService, TitheWhatsAppService],
+  controllers: [TitheController, TitheWebhookController, TitheCampaignsController, TitheAgentController, TitheRetentionController, TitheWhatsAppController],
 })
 export class TitheModule {}

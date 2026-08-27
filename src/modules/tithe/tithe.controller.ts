@@ -39,7 +39,7 @@ export class TitheController {
   }
 
   @Patch('my/preferences')
-  preferences(@Body() body: { reminderDay?: number | null }, @Request() req: any) {
+  preferences(@Body() body: { reminderDay?: number | null; whatsappOptIn?: boolean }, @Request() req: any) {
     return this.service.updatePreferences(req.user, body ?? {});
   }
 
@@ -218,6 +218,7 @@ export class TitheController {
       feePolicy?: string | null;
       feeFixed?: number | null;
       feePercent?: number | null;
+      whatsappEnabled?: boolean;
     },
     @Request() req: any,
   ) {

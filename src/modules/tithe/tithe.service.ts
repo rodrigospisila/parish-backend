@@ -1,4 +1,4 @@
-import { BadRequestException, ForbiddenException, Injectable, NotFoundException } from '@nestjs/common';
+import { BadRequestException, ForbiddenException, Inject, Injectable, NotFoundException, forwardRef } from '@nestjs/common';
 import { NotificationType, TransactionType, UserRole } from '@prisma/client';
 import * as QRCode from 'qrcode';
 import * as bcrypt from 'bcrypt';
@@ -12,6 +12,7 @@ import { PaymentsService } from '../payments/payments.service';
 import { AsaasProvider } from '../payments/asaas.provider';
 import { PAID_STATUSES, PaymentProvider, ProviderCharge, WebhookRequest, ProviderSetupResult } from '../payments/payment-provider.interface';
 import { maskSecret } from '../payments/payment-crypto';
+import { TitheWhatsAppService } from './whatsapp.service';
 
 const FINANCE_ROLES: UserRole[] = [
   UserRole.SYSTEM_ADMIN,
@@ -111,6 +112,7 @@ export class TitheService {
     private readonly notificationsService: NotificationsService,
     private readonly pdfService: PdfService,
     private readonly paymentsService: PaymentsService,
+    @Inject(forwardRef(() => TitheWhatsAppService)) private readonly whatsapp: TitheWhatsAppService,
   ) {}
 
   auditActor(user: CurrentUser) {
@@ -134,6 +136,7 @@ export class TitheService {
         fullName: true,
         communityId: true,
         titheReminderDay: true,
+        whatsappOptIn: true,
         cpf: true,
         email: true,
         phone: true,
@@ -202,6 +205,7 @@ export class TitheService {
     feePolicy: true,
     feeFixed: true,
     feePercent: true,
+    whatsappEnabled: true,
   } as const;
 
   /** Taxa estimada e valor cobrado conforme a política da paróquia. */
@@ -273,6 +277,8 @@ export class TitheService {
       webhookUrl: providerApiKeyEnc ? this.webhookUrl(parish.paymentProvider, parish.id) : null,
       paymentsCryptoReady: this.paymentsService.isConfigured(),
       paymentsCryptoProblem: this.paymentsService.cryptoProblem(),
+      // WhatsApp (D4.5): o canal depende do Twilio do servidor + opção da paróquia
+      whatsappConfigured: this.whatsapp.serverConfigured(),
     };
   }
 
@@ -294,6 +300,7 @@ export class TitheService {
       feePolicy?: string | null;
       feeFixed?: number | null;
       feePercent?: number | null;
+      whatsappEnabled?: boolean;
     },
   ) {
     const target = this.resolveParishId(user, dto.parishId);
@@ -424,6 +431,7 @@ export class TitheService {
           feePolicy,
           feeFixed,
           feePercent,
+          ...(dto.whatsappEnabled !== undefined ? { whatsappEnabled: !!dto.whatsappEnabled } : {}),
         },
       });
       let cancelled = 0;
@@ -739,6 +747,12 @@ export class TitheService {
       suggestedAmount: lastAmount,
       currentMonth: this.currentMonth(),
       reminderDay: member.titheReminderDay ?? null,
+      // WhatsApp (D4.5): Pix do mês pelo WhatsApp — opt-in do fiel
+      whatsapp: {
+        available: !!parish && parish.whatsappEnabled && this.whatsapp.serverConfigured(),
+        optIn: member.whatsappOptIn,
+        hasPhone: !!member.phone,
+      },
       monthsBack: MONTHS_BACK,
       monthsAhead: MONTHS_AHEAD,
       persistentQrAvailable: this.parishUsable(parish),
@@ -1367,6 +1381,7 @@ export class TitheService {
   /**
    * Liquidação: transição atômica + lançamento financeiro (+ contribuição do
    * dizimista quando é dízimo). Usada pela tesouraria e pelo provedor.
+   * Depois, se o fiel optou pelo WhatsApp, agradece por lá (best-effort).
    */
   async settleIntent(
     intent: {
@@ -1461,6 +1476,9 @@ export class TitheService {
         },
       });
       return tx.titheIntent.update({ where: { id }, data: { contributionId: contribution.id } });
+    }).then(async (settled) => {
+      await this.whatsapp.tryThank(id);
+      return settled;
     });
   }
 
@@ -1524,7 +1542,7 @@ export class TitheService {
   }
 
   /** Aviso à tesouraria (coordenação da comunidade + administração paroquial), best-effort. */
-  private async notifyTreasury(
+  async notifyTreasury(
     intent: { communityId: string | null; parishId: string; member?: { communityId: string | null } | null },
     title: string,
     body: string,
@@ -2459,16 +2477,45 @@ export class TitheService {
   }
 
   /** Preferências do fiel: dia do lembrete mensal (1..28) ou null para desligar. */
-  async updatePreferences(user: CurrentUser, dto: { reminderDay?: number | null }) {
+  async updatePreferences(user: CurrentUser, dto: { reminderDay?: number | null; whatsappOptIn?: boolean }) {
     const member = await this.resolveMember(user);
-    let reminderDay: number | null = null;
-    if (dto.reminderDay !== undefined && dto.reminderDay !== null) {
-      const day = Number(dto.reminderDay);
-      if (!Number.isInteger(day) || day < 1 || day > 28) throw new BadRequestException('Escolha um dia entre 1 e 28');
-      reminderDay = day;
+    const data: { titheReminderDay?: number | null; whatsappOptIn?: boolean; whatsappOptInAt?: Date | null } = {};
+    let reminderDay: number | null = member.titheReminderDay ?? null;
+    if (dto.reminderDay !== undefined) {
+      reminderDay = null;
+      if (dto.reminderDay !== null) {
+        const day = Number(dto.reminderDay);
+        if (!Number.isInteger(day) || day < 1 || day > 28) throw new BadRequestException('Escolha um dia entre 1 e 28');
+        reminderDay = day;
+      }
+      data.titheReminderDay = reminderDay;
     }
-    await this.prisma.member.update({ where: { id: member.id }, data: { titheReminderDay: reminderDay } });
-    return { reminderDay };
+    let whatsappOptIn = member.whatsappOptIn;
+    if (dto.whatsappOptIn !== undefined) {
+      const wanted = !!dto.whatsappOptIn;
+      if (wanted) {
+        const parish = await this.parishFor(member.community.parishId);
+        if (!parish?.whatsappEnabled || !this.whatsapp.serverConfigured()) throw new BadRequestException('Sua paróquia ainda não ativou o WhatsApp do dízimo');
+        if (!member.phone) throw new BadRequestException('Cadastre um celular no seu perfil para receber o Pix pelo WhatsApp');
+        // Sem dia de lembrete o Pix do mês não tem quando ser enviado
+        if (!reminderDay) {
+          reminderDay = 10;
+          data.titheReminderDay = reminderDay;
+        }
+      }
+      whatsappOptIn = wanted;
+      data.whatsappOptIn = wanted;
+      data.whatsappOptInAt = wanted ? new Date() : null;
+    }
+    if (Object.keys(data).length) await this.prisma.member.update({ where: { id: member.id }, data });
+    await this.auditService.log({
+      actor: this.auditActor(user),
+      action: 'UPDATE',
+      entity: 'Member',
+      entityId: member.id,
+      metadata: { tithePreferences: { reminderDay, whatsappOptIn } },
+    });
+    return { reminderDay, whatsappOptIn };
   }
 
   /** Nº de dizimista estável (gera se não houver) — vira o txid do QR fixo. */
