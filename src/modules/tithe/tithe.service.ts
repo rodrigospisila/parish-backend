@@ -103,11 +103,11 @@ export class TitheService {
     private readonly paymentsService: PaymentsService,
   ) {}
 
-  private auditActor(user: CurrentUser) {
+  auditActor(user: CurrentUser) {
     return { id: user.id, email: user.email, role: user.role };
   }
 
-  private canManage(role: UserRole) {
+  canManage(role: UserRole) {
     return FINANCE_ROLES.includes(role);
   }
 
@@ -116,7 +116,7 @@ export class TitheService {
     return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}`;
   }
 
-  private async resolveMember(user: CurrentUser) {
+  async resolveMember(user: CurrentUser) {
     const member = await this.prisma.member.findFirst({
       where: { userId: user.id, deletedAt: null },
       select: {
@@ -163,11 +163,11 @@ export class TitheService {
     return users.map((u) => u.id);
   }
 
-  private async parishFor(parishId: string) {
+  async parishFor(parishId: string) {
     return this.prisma.parish.findUnique({ where: { id: parishId }, select: this.parishConfigSelect });
   }
 
-  private parishUsable(parish: { titheEnabled: boolean; pixKey: string | null; pixMerchantName: string | null; pixMerchantCity: string | null } | null) {
+  parishUsable(parish: { titheEnabled: boolean; pixKey: string | null; pixMerchantName: string | null; pixMerchantCity: string | null } | null) {
     return !!parish?.titheEnabled && !!parish.pixKey && !!parish.pixMerchantName && !!parish.pixMerchantCity;
   }
 
@@ -209,7 +209,7 @@ export class TitheService {
 
   // ===== CONFIGURAÇÃO (administração paroquial) =====
 
-  private async assertParishAdmin(user: CurrentUser, parishId: string) {
+  async assertParishAdmin(user: CurrentUser, parishId: string) {
     if (user.role === UserRole.SYSTEM_ADMIN) return;
     if (user.role === UserRole.DIOCESAN_ADMIN) {
       const parish = await this.prisma.parish.findUnique({ where: { id: parishId }, select: { dioceseId: true } });
@@ -219,7 +219,7 @@ export class TitheService {
     throw new ForbiddenException('Somente a administração da paróquia configura o dízimo online');
   }
 
-  private resolveParishId(user: CurrentUser, parishId?: string): string {
+  resolveParishId(user: CurrentUser, parishId?: string): string {
     const target = parishId || user.parishId;
     if (!target) throw new BadRequestException('Informe a paróquia');
     return target;
@@ -698,6 +698,8 @@ export class TitheService {
           chargedAmount: true,
           qrExpiresAt: true,
           providerStatus: true,
+          campaignId: true,
+          campaign: { select: { id: true, name: true } },
           declaredAt: true,
           confirmedAt: true,
           createdAt: true,
@@ -768,7 +770,7 @@ export class TitheService {
   /** Gera o Pix (BR Code + QR) para o valor/mês escolhidos. */
   async createIntent(
     user: CurrentUser,
-    dto: { amount: number; referenceMonth?: string; kind?: string; anonymous?: boolean; paymentMethod?: string },
+    dto: { amount: number; referenceMonth?: string; kind?: string; anonymous?: boolean; paymentMethod?: string; campaignId?: string | null },
   ) {
     const member = await this.resolveMember(user);
     const parish = await this.prisma.parish.findUnique({
@@ -782,10 +784,27 @@ export class TitheService {
     if (!Number.isFinite(amount) || amount < 1 || amount > MAX_AMOUNT) {
       throw new BadRequestException(`Informe um valor entre R$ 1,00 e R$ ${MAX_AMOUNT.toLocaleString('pt-BR')}`);
     }
-    const kind = dto.kind === 'OFFERING' ? 'OFFERING' : 'TITHE';
+    // Campanha/fundo (D4.1): oferta com finalidade — precisa estar ativa e visível para a comunidade do fiel
+    let campaign: { id: string; name: string; allowAnonymous: boolean } | null = null;
+    if (dto.campaignId) {
+      const now = new Date();
+      const found = await this.prisma.titheCampaign.findFirst({
+        where: {
+          id: dto.campaignId,
+          parishId: parish.id,
+          status: 'ACTIVE',
+          OR: [{ communityId: null }, { communityId: member.communityId }],
+          AND: [{ OR: [{ endsAt: null }, { endsAt: { gte: now } }] }, { OR: [{ startsAt: null }, { startsAt: { lte: now } }] }],
+        },
+        select: { id: true, name: true, allowAnonymous: true },
+      });
+      if (!found) throw new BadRequestException('Campanha encerrada ou indisponível para a sua comunidade');
+      campaign = found;
+    }
+    const kind = campaign || dto.kind === 'OFFERING' ? 'OFFERING' : 'TITHE';
     const referenceMonth = this.validateReferenceMonth(dto.referenceMonth);
     // Só oferta pode ser anônima — dízimo é vínculo do dizimista com a paróquia
-    const anonymous = kind === 'OFFERING' && dto.anonymous === true;
+    const anonymous = kind === 'OFFERING' && dto.anonymous === true && (!campaign || campaign.allowAnonymous);
     const since = new Date(Date.now() - 24 * 60 * 60 * 1000);
     const [open, createdToday] = await Promise.all([
       this.prisma.titheIntent.count({ where: { memberId: member.id, status: { in: ['CREATED', 'DECLARED'] } } }),
@@ -799,7 +818,7 @@ export class TitheService {
     }
 
     const txid = this.newTxid();
-    const description = `${kind === 'TITHE' ? 'Dizimo' : 'Oferta'} ${referenceMonth}`;
+    const description = campaign ? normalizeAscii(campaign.name, 20) || 'Campanha' : `${kind === 'TITHE' ? 'Dizimo' : 'Oferta'} ${referenceMonth}`;
     // Provedor configurado + identidade do pagador: cobrança dinâmica com
     // confirmação automática. Senão (ou se o provedor falhar), Pix estático.
     const canUseGateway =
@@ -829,6 +848,7 @@ export class TitheService {
         referenceMonth,
         kind,
         anonymous,
+        campaignId: campaign?.id ?? null,
         method: canUseGateway ? 'GATEWAY' : 'PIX_STATIC',
         paymentMethod,
         txid,
@@ -923,7 +943,7 @@ export class TitheService {
       action: 'CREATE',
       entity: 'TitheIntent',
       entityId: intent.id,
-      metadata: { amount, referenceMonth, kind, txid, paymentMethod },
+      metadata: { amount, referenceMonth, kind, txid, paymentMethod, campaignId: campaign?.id ?? null },
     });
     return this.presentIntent(intent, true);
   }
@@ -943,6 +963,8 @@ export class TitheService {
       contestNote: intent.contestNote ?? null,
       canContest: cancelledByTreasury(intent) && !intent.contestedAt,
       method: intent.method ?? 'PIX_STATIC',
+      campaignId: intent.campaignId ?? null,
+      campaign: intent.campaign ? { id: intent.campaign.id, name: intent.campaign.name } : null,
       // Meio escolhido (D3.4) e o que o fiel precisa para pagar fora do Pix
       paymentMethod: intent.paymentMethod ?? 'PIX',
       paymentUrl: intent.paymentUrl ?? null,
@@ -1100,7 +1122,7 @@ export class TitheService {
 
   // ===== TESOURARIA =====
 
-  private async financeScope(user: CurrentUser): Promise<{ communityIds?: string[]; parishIds?: string[] }> {
+  async financeScope(user: CurrentUser): Promise<{ communityIds?: string[]; parishIds?: string[] }> {
     if (user.role === UserRole.SYSTEM_ADMIN) return {};
     if (user.role === UserRole.DIOCESAN_ADMIN && user.dioceseId) {
       const parishes = await this.prisma.parish.findMany({ where: { dioceseId: user.dioceseId }, select: { id: true } });
@@ -1130,7 +1152,7 @@ export class TitheService {
     if (filters.referenceMonth) where.referenceMonth = filters.referenceMonth;
     const intents = await this.prisma.titheIntent.findMany({
       where: { ...where, member: { deletedAt: null } },
-      include: { member: { select: { id: true, fullName: true, community: { select: { name: true } } } } },
+      include: this.financeListInclude,
       orderBy: [{ status: 'asc' }, { declaredAt: 'desc' }, { createdAt: 'desc' }],
       take: 300,
     });
@@ -1139,6 +1161,7 @@ export class TitheService {
 
   private financeListInclude = {
     member: { select: { id: true, fullName: true, community: { select: { name: true } } } },
+    campaign: { select: { id: true, name: true } },
   } as const;
 
   private presentForFinance(i: any) {
@@ -1156,6 +1179,7 @@ export class TitheService {
       txid: i.txid,
       note: i.note,
       canReopen: canReopenIntent(i),
+      campaign: i.campaign ? { id: i.campaign.id, name: i.campaign.name } : null,
       contestNote: i.contestNote ?? null,
       contestedAt: i.contestedAt ?? null,
       // Provedor (D3): a tesouraria precisa saber que a confirmação é automática.
@@ -1199,6 +1223,7 @@ export class TitheService {
       include: {
         member: { select: { id: true, fullName: true, userId: true, communityId: true, deletedAt: true } },
         parish: { select: { id: true, name: true, dioceseId: true } },
+        campaign: { select: { id: true, name: true } },
       },
     });
     if (!intent || intent.member.deletedAt) throw new NotFoundException('Pix não encontrado');
@@ -1342,6 +1367,8 @@ export class TitheService {
       communityId: string | null;
       parishId: string;
       paymentMethod?: string | null;
+      campaignId?: string | null;
+      campaign?: { name: string } | null;
       member: { fullName: string; communityId: string | null };
       parish: { dioceseId: string };
     },
@@ -1390,11 +1417,14 @@ export class TitheService {
           type: TransactionType.INCOME,
           category,
           amount: opts.paidAmount,
-          description: `${category} ${opts.paidMonth} — ${who} (${origin} ${intent.txid})`,
+          description: intent.campaign
+            ? `Campanha ${intent.campaign.name} — ${who} (${origin} ${intent.txid})`
+            : `${category} ${opts.paidMonth} — ${who} (${origin} ${intent.txid})`,
           date: opts.paidAt,
           communityId: intent.communityId ?? intent.member.communityId,
           parishId: intent.parishId,
           dioceseId: intent.parish.dioceseId,
+          campaignId: intent.campaignId ?? null,
         },
       });
       // Oferta avulsa é receita, não dízimo: não cria/reativa dizimista nem
@@ -1499,6 +1529,7 @@ export class TitheService {
   private intentForSettlementInclude = {
     member: { select: { id: true, fullName: true, userId: true, communityId: true, deletedAt: true } },
     parish: { select: { id: true, name: true, dioceseId: true, ...{} } },
+    campaign: { select: { id: true, name: true } },
   } as const;
 
   /** Consulta o provedor e aplica o estado real (pago → liquida; expirado → encerra). */
@@ -1674,6 +1705,7 @@ export class TitheService {
           communityId: intent.communityId ?? intent.member.communityId,
           parishId: intent.parishId,
           dioceseId: intent.parish.dioceseId,
+          campaignId: intent.campaignId ?? null,
         },
       });
       return true;
@@ -2529,7 +2561,7 @@ export class TitheService {
     });
   }
 
-  private async fetchLogo(logoUrl?: string | null): Promise<Buffer | null> {
+  async fetchLogo(logoUrl?: string | null): Promise<Buffer | null> {
     if (!logoUrl || !/^https:\/\//i.test(logoUrl)) return null;
     try {
       const controller = new AbortController();
@@ -2673,6 +2705,7 @@ export class TitheService {
       include: {
         member: { select: { id: true, fullName: true, userId: true, deletedAt: true } },
         parish: { select: { name: true, logoUrl: true } },
+        campaign: { select: { name: true } },
       },
     });
     if (!intent || intent.member.deletedAt) throw new NotFoundException('Pix não encontrado');
@@ -2716,7 +2749,7 @@ export class TitheService {
           recipientName: safeName(intent.member.fullName),
           bodyParagraphs: [
             `Contribuiu com ${money}`,
-            `referente a ${intent.referenceMonth},`,
+            intent.campaign ? `para a campanha “${intent.campaign.name}”,` : `referente a ${intent.referenceMonth},`,
             `via ${intent.paymentMethod === 'CARD' ? 'cartão' : intent.paymentMethod === 'BOLETO' ? 'boleto' : 'Pix'} (id ${intent.txid}), confirmado em ${day(intent.confirmedAt)}.`,
             'Deus lhe pague pela generosidade.',
           ],

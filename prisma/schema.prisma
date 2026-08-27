@@ -400,6 +400,7 @@ model Parish {
   feePercent Float  @default(0)
   titheIntents    TitheIntent[]
   titheSchedules  TitheSchedule[]
+  titheCampaigns  TitheCampaign[]
   webhookEvents   PaymentWebhookEvent[]
 
   // Audit
@@ -414,6 +415,7 @@ model Community {
   id      String  @id @default(cuid())
   name    String
   address String
+  titheCampaigns TitheCampaign[]
   city    String
   state   String
   zipCode String
@@ -833,6 +835,7 @@ model Member {
   titheReminderSentMonth String?
   providerCustomers MemberProviderCustomer[]
   titheSchedules    TitheSchedule[]
+  titheCampaignPledges TitheCampaignPledge[]
 
   @@map("members")
 }
@@ -1387,6 +1390,10 @@ model FinancialTransaction {
   parishId    String?
   dioceseId   String?
 
+  // Campanha/fundo (D4.1): lançamento com finalidade
+  campaignId String?
+  campaign   TitheCampaign? @relation(fields: [campaignId], references: [id], onDelete: SetNull)
+
   // Audit
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -1394,6 +1401,7 @@ model FinancialTransaction {
   @@index([type])
   @@index([date])
   @@index([communityId])
+  @@index([campaignId])
   @@map("financial_transactions")
 }
 
@@ -2152,6 +2160,9 @@ model TitheIntent {
   chargedAmount  Float?
   scheduleId     String?
   schedule       TitheSchedule? @relation(fields: [scheduleId], references: [id], onDelete: SetNull)
+  // Campanha/fundo (D4.1): oferta com finalidade
+  campaignId     String?
+  campaign       TitheCampaign? @relation(fields: [campaignId], references: [id], onDelete: SetNull)
   // Observação da tesouraria (ex.: motivo de "não localizado")
   note String?
   // Valor que de fato caiu no extrato (pode diferir do gerado)
@@ -2564,4 +2575,69 @@ model PaymentWebhookEvent {
   @@unique([provider, eventId])
   @@index([parishId, receivedAt])
   @@map("payment_webhook_events")
+}
+
+// ===== Fundos e campanhas (Dízimo D4.1) =====
+enum TitheCampaignKind {
+  CAMPAIGN // coleta com meta e prazo (ex.: reforma do telhado)
+  FUND // finalidade permanente (ex.: caridade, obras)
+}
+
+enum TitheCampaignStatus {
+  DRAFT
+  ACTIVE
+  CLOSED
+}
+
+enum TitheCampaignPledgeStatus {
+  OPEN
+  CANCELLED
+}
+
+model TitheCampaign {
+  id          String              @id @default(cuid())
+  parishId    String
+  parish      Parish              @relation(fields: [parishId], references: [id], onDelete: Cascade)
+  // null = paróquia inteira; senão só a comunidade vê e contribui
+  communityId String?
+  community   Community?          @relation(fields: [communityId], references: [id], onDelete: SetNull)
+  kind        TitheCampaignKind   @default(CAMPAIGN)
+  status      TitheCampaignStatus @default(DRAFT)
+  // Código curto (txid do QR próprio: CP + código)
+  code        String              @unique
+  name        String
+  description String?
+  goalAmount  Float?
+  startsAt    DateTime?
+  endsAt      DateTime?
+  allowAnonymous   Boolean @default(true)
+  suggestedAmounts Json?
+  createdByUserId  String?
+  closedAt         DateTime?
+  intents      TitheIntent[]
+  transactions FinancialTransaction[]
+  pledges      TitheCampaignPledge[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([parishId, status])
+  @@index([communityId, status])
+  @@map("tithe_campaigns")
+}
+
+// Promessa do fiel para uma campanha (o cumprimento é calculado pelas contribuições confirmadas)
+model TitheCampaignPledge {
+  id         String                    @id @default(cuid())
+  campaignId String
+  campaign   TitheCampaign             @relation(fields: [campaignId], references: [id], onDelete: Cascade)
+  memberId   String
+  member     Member                    @relation(fields: [memberId], references: [id], onDelete: Cascade)
+  amount     Float
+  note       String?
+  status     TitheCampaignPledgeStatus @default(OPEN)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@unique([campaignId, memberId])
+  @@map("tithe_campaign_pledges")
 }

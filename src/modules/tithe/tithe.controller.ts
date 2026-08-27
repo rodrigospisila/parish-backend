@@ -64,7 +64,7 @@ export class TitheController {
   @Post('intents')
   @Throttle({ default: { limit: 10, ttl: 60_000 } })
   createIntent(
-    @Body() body: { amount: number; referenceMonth?: string; kind?: string; anonymous?: boolean; paymentMethod?: string },
+    @Body() body: { amount: number; referenceMonth?: string; kind?: string; anonymous?: boolean; paymentMethod?: string; campaignId?: string | null },
     @Request() req: any,
   ) {
     return this.service.createIntent(req.user, body ?? ({} as any));
