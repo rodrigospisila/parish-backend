@@ -30,7 +30,7 @@ const RENOTIFY_MINUTES = 10;
 const WEBHOOK_MAX_ATTEMPTS = 10;
 
 /** Nome vindo do cadastro (texto livre) nunca entra cru em push/SMS/PDF/lançamento. */
-const safeName = (value: string | null | undefined): string =>
+export const safeName = (value: string | null | undefined): string =>
   String(value ?? '')
     .replace(/[\u0000-\u001F\u007F]/g, ' ')
     .replace(/\s+/g, ' ')
@@ -1426,6 +1426,7 @@ export class TitheService {
           parishId: intent.parishId,
           dioceseId: intent.parish.dioceseId,
           campaignId: intent.campaignId ?? null,
+          titheIntentId: id,
         },
       });
       // Oferta avulsa é receita, não dízimo: não cria/reativa dizimista nem
@@ -1701,12 +1702,15 @@ export class TitheService {
           type: TransactionType.EXPENSE,
           category,
           amount,
-          description: `Estorno ${category} ${intent.referenceMonth} — ${who} (Pix provedor ${intent.txid})`,
+          description: intent.campaign
+            ? `Estorno campanha ${intent.campaign.name} — ${who} (Pix provedor ${intent.txid})`
+            : `Estorno ${category} ${intent.referenceMonth} — ${who} (Pix provedor ${intent.txid})`,
           date: this.civilDate(null),
           communityId: intent.communityId ?? intent.member.communityId,
           parishId: intent.parishId,
           dioceseId: intent.parish.dioceseId,
           campaignId: intent.campaignId ?? null,
+          titheIntentId: intent.id,
         },
       });
       return true;

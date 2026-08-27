@@ -1393,6 +1393,9 @@ model FinancialTransaction {
   // Campanha/fundo (D4.1): lançamento com finalidade
   campaignId String?
   campaign   TitheCampaign? @relation(fields: [campaignId], references: [id], onDelete: SetNull)
+  // Origem: Pix/cobrança do app que gerou o lançamento (null = manual); estorno aponta o lançamento estornado
+  titheIntentId String?
+  reversalOfId  String?
 
   // Audit
   createdAt DateTime @default(now())
@@ -1402,6 +1405,7 @@ model FinancialTransaction {
   @@index([date])
   @@index([communityId])
   @@index([campaignId])
+  @@index([titheIntentId])
   @@map("financial_transactions")
 }
 

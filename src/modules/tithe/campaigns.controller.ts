@@ -82,6 +82,14 @@ export class TitheCampaignsController {
     return this.service.addEntry(req.user, id, body ?? ({} as any));
   }
 
+  /** Estorna um lançamento manual (cria a saída correspondente; nunca apaga). */
+  @Delete(':id/entries/:entryId')
+  @Roles(UserRole.COMMUNITY_COORDINATOR)
+  @Throttle({ default: { limit: 20, ttl: 60_000 } })
+  reverseEntry(@Param('id') id: string, @Param('entryId') entryId: string, @Request() req: any) {
+    return this.service.reverseEntry(req.user, id, entryId);
+  }
+
   @Get(':id/report')
   @Roles(UserRole.COMMUNITY_COORDINATOR)
   report(@Param('id') id: string, @Request() req: any) {
