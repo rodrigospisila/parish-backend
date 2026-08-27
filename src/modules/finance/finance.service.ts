@@ -34,13 +34,34 @@ export class FinanceService {
   // ===== TRANSAÇÕES (receitas/despesas) =====
 
   async createTransaction(
-    dto: { type: TransactionType; category: string; amount: number; description?: string; date: string; communityId?: string; accountName?: string; costCenter?: string | null },
+    dto: { type: TransactionType; category: string; amount: number; description?: string; date: string; communityId?: string; parishId?: string; accountName?: string; costCenter?: string | null },
     user: CurrentUser,
   ) {
     if (!this.canManageFinance(user.role)) throw new ForbiddenException('Sem permissão financeira');
+    // Paróquia/diocese do lançamento: da comunidade quando informada (admins sem
+    // paróquia própria não podem gerar lançamento "sem dono"), senão do usuário
+    // ou de um parishId explícito dentro do escopo
+    let parishId: string | null = user.parishId ?? null;
+    let dioceseId: string | null = user.dioceseId ?? null;
     if (dto.communityId) {
       const inScope = await this.hierarchyService.isCommunityInScope(user, dto.communityId);
       if (!inScope) throw new ForbiddenException('Comunidade fora do seu escopo');
+      const community = await this.prisma.community.findUnique({
+        where: { id: dto.communityId },
+        select: { parishId: true, parish: { select: { dioceseId: true } } },
+      });
+      if (community) {
+        parishId = community.parishId;
+        dioceseId = community.parish?.dioceseId ?? dioceseId;
+      }
+    } else if (dto.parishId && dto.parishId !== parishId) {
+      const parish = await this.prisma.parish.findUnique({ where: { id: dto.parishId }, select: { id: true, dioceseId: true } });
+      if (!parish) throw new NotFoundException('Paróquia não encontrada');
+      const allowed =
+        user.role === UserRole.SYSTEM_ADMIN || (user.role === UserRole.DIOCESAN_ADMIN && parish.dioceseId === user.dioceseId);
+      if (!allowed) throw new ForbiddenException('Paróquia fora do seu escopo');
+      parishId = parish.id;
+      dioceseId = parish.dioceseId ?? dioceseId;
     }
     if (dto.amount <= 0) throw new BadRequestException('Valor deve ser positivo');
 
@@ -54,8 +75,8 @@ export class FinanceService {
         accountName: dto.accountName ?? null,
         costCenter: typeof dto.costCenter === 'string' ? dto.costCenter.replace(/[\r\n\t]+/g, ' ').trim().slice(0, 60) || null : null,
         communityId: dto.communityId ?? null,
-        parishId: user.parishId ?? null,
-        dioceseId: user.dioceseId ?? null,
+        parishId,
+        dioceseId,
       },
     });
     await this.auditService.log({ actor: { id: user.id, email: user.email, role: user.role }, action: 'CREATE', entity: 'FinancialTransaction', entityId: tx.id, metadata: { type: dto.type, category: dto.category } });
