@@ -945,7 +945,8 @@ export class TitheService {
       entityId: intent.id,
       metadata: { amount, referenceMonth, kind, txid, paymentMethod, campaignId: campaign?.id ?? null },
     });
-    return this.presentIntent(intent, true);
+    // O app mostra o nome da campanha no modal sem consulta extra
+    return this.presentIntent({ ...intent, campaign: campaign ? { id: campaign.id, name: campaign.name } : null }, true);
   }
 
   private async presentIntent(intent: any, withQr = false) {
