@@ -9,6 +9,7 @@ import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
 import * as bcrypt from 'bcrypt';
 import { PrismaService } from '../../database/prisma.service';
+import { LoginMeta, SessionSecurityService } from './session-security.service';
 import { LoginDto } from './dto/login.dto';
 import { RegisterDto } from './dto/register.dto';
 import { ConsentType, UserRole } from '@prisma/client';
@@ -28,6 +29,7 @@ export class AuthService {
     private readonly otpService: OtpService,
     private readonly auditService: AuditService,
     private readonly consentsService: ConsentsService,
+    private readonly security: SessionSecurityService,
   ) {}
 
   private mapUserResponse(user: any) {
@@ -41,6 +43,7 @@ export class AuthService {
       role: user.role,
       isActive: user.isActive,
       forcePasswordChange: user.forcePasswordChange,
+      twoFactorEnabled: !!user.twoFactorEnabled,
       dioceseId: user.dioceseId,
       parishId: user.parishId,
       communityId: user.communityId,
@@ -199,7 +202,7 @@ export class AuthService {
     };
   }
 
-  async login(loginDto: LoginDto) {
+  async login(loginDto: LoginDto, meta: LoginMeta = {}) {
     const { email, password } = loginDto;
 
     // Buscar usuário
@@ -246,26 +249,53 @@ export class AuthService {
       throw new UnauthorizedException('Credenciais inválidas');
     }
 
-    // Atualizar último login
-    await this.prisma.user.update({
-      where: { id: user.id },
-      data: { lastLogin: new Date() },
-    });
+    // Segundo fator ativo: não emite sessão ainda — devolve o desafio
+    if (user.twoFactorEnabled) return this.security.challenge(user);
+    return this.completeLogin(user, meta);
+  }
 
-    // Gerar tokens
+  /** Segunda etapa do login (2FA): confere o código e emite a sessão. */
+  async twoFactorLogin(challengeToken: string, code: string, meta: LoginMeta = {}) {
+    const userId = this.security.verifyChallenge(challengeToken);
+    const ok = await this.security.verifySecondFactor(userId, code);
+    if (!ok) throw new UnauthorizedException('Código do autenticador inválido');
+    const user = await this.prisma.user.findUnique({ where: { id: userId }, include: this.sessionInclude });
+    if (!user || !user.isActive) throw new UnauthorizedException('Usuário inativo');
+    return this.completeLogin(user, meta);
+  }
+
+  private sessionInclude = {
+    member: {
+      include: {
+        pastoralMemberships: {
+          where: { isActive: true },
+          include: {
+            communityPastoral: {
+              select: {
+                id: true,
+                communityId: true,
+                globalPastoral: { select: { id: true, name: true } },
+              },
+            },
+          },
+        },
+      },
+    },
+  } as const;
+
+  /** Emite a sessão: último login, aparelho conhecido (alerta se novo) e tokens. */
+  private async completeLogin(user: any, meta: LoginMeta) {
+    await this.prisma.user.update({ where: { id: user.id }, data: { lastLogin: new Date() } });
+    const device = await this.security.registerDevice({ id: user.id, email: user.email, name: user.name }, meta);
     const tokens = await this.generateTokens(
-      user.id, 
-      user.email, 
-      user.role, 
+      user.id,
+      user.email,
+      user.role,
       user.dioceseId ?? undefined,
       user.parishId ?? undefined,
-      user.communityId ?? undefined
+      user.communityId ?? undefined,
     );
-
-    return {
-      user: this.mapUserResponse(user),
-      ...tokens,
-    };
+    return { user: this.mapUserResponse(user), ...tokens, newDevice: device.isNew };
   }
 
   async refreshToken(refreshToken: string) {

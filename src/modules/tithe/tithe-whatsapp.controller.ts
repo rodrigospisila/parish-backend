@@ -4,6 +4,17 @@ import { Throttle, ThrottlerGuard } from '@nestjs/throttler';
 import { MessagingService } from '../messaging/messaging.service';
 import { TitheWhatsAppService } from './whatsapp.service';
 
+/** Limite por remetente (10 mensagens/min): o IP é do Twilio, compartilhado por todas as paróquias. */
+const senderHits = new Map<string, number[]>();
+const senderAllowed = (from: string, limit = 10, windowMs = 60_000) => {
+  const now = Date.now();
+  const hits = (senderHits.get(from) ?? []).filter((t) => now - t < windowMs);
+  hits.push(now);
+  senderHits.set(from, hits);
+  if (senderHits.size > 5000) senderHits.clear();
+  return hits.length <= limit;
+};
+
 const escapeXml = (value: string) => value.replace(/[<>&'"]/g, (c) => ({ '<': '&lt;', '>': '&gt;', '&': '&amp;', "'": '&apos;', '"': '&quot;' })[c] as string);
 
 /**
@@ -33,16 +44,21 @@ export class TitheWhatsAppController {
     @Res() res: Response,
   ) {
     // A URL assinada é a configurada no console do Twilio: tenta a pública e a do proxy
-    const path = req.originalUrl.split('?')[0];
+    // O Twilio assina a URL exata configurada no console (com query, se houver)
+    const full = req.originalUrl;
+    const path = full.split('?')[0];
     const candidates = new Set<string>();
     const publicBase = (process.env.PUBLIC_API_URL ?? '').replace(/\/api\/v1\/?$/, '').replace(/\/$/, '');
-    if (publicBase) candidates.add(`${publicBase}${path}`);
-    candidates.add(`${req.protocol}://${req.get('host')}${path}`);
-    candidates.add(`https://${req.get('host')}${path}`);
+    for (const suffix of new Set([full, path])) {
+      if (publicBase) candidates.add(`${publicBase}${suffix}`);
+      candidates.add(`${req.protocol}://${req.get('host')}${suffix}`);
+      candidates.add(`https://${req.get('host')}${suffix}`);
+    }
     const valid = [...candidates].some((url) => this.messaging.validateTwilioSignature(url, body ?? {}, signature));
     if (!valid) throw new ForbiddenException('Assinatura do Twilio inválida');
     const from = String(body?.From ?? '').replace(/^whatsapp:/, '');
     const text = String(body?.Body ?? '');
+    if (!senderAllowed(from)) throw new ForbiddenException('Muitas mensagens — aguarde um minuto');
     const reply = await this.service.handleInbound(from, text);
     res.setHeader('Content-Type', 'text/xml; charset=utf-8');
     res.send(reply ? `<?xml version="1.0" encoding="UTF-8"?><Response><Message>${escapeXml(reply)}</Message></Response>` : '<?xml version="1.0" encoding="UTF-8"?><Response></Response>');

@@ -129,7 +129,8 @@ export class TitheRetentionService {
       if (scope.communityIds && !scope.communityIds.includes(filters.communityId)) throw new ForbiddenException('Comunidade fora do seu escopo');
     }
     const tithers = await this.prisma.tither.findMany({
-      where: { member: { deletedAt: null, ...scopeWhere, ...(filters.communityId ? { communityId: filters.communityId } : {}) } },
+      // Falecidos, transferidos e anonimizados saem do universo: não cabe "ligar" para eles
+      where: { member: { deletedAt: null, status: { notIn: ['DECEASED', 'TRANSFERRED', 'ANONYMIZED'] }, ...scopeWhere, ...(filters.communityId ? { communityId: filters.communityId } : {}) } },
       select: {
         registrationNumber: true,
         member: {
@@ -143,6 +144,7 @@ export class TitheRetentionService {
         },
         contributions: { select: { referenceMonth: true, amount: true }, orderBy: { referenceMonth: 'desc' }, take: 36 },
       },
+      orderBy: { member: { fullName: 'asc' } },
       take: 5000,
     });
     const currentIndex = monthIndex(this.tithe.currentMonth());
@@ -181,19 +183,26 @@ export class TitheRetentionService {
       const list = contributions.filter((c) => c.referenceMonth === month);
       return { month, total: round2(list.reduce((sum, c) => sum + c.amount, 0)), contributors: new Set(list.map((c) => c.tither.memberId)).size };
     });
-    const last3 = monthly.slice(-3).reduce((sum, m) => sum + m.total, 0);
-    const prev3 = monthly.slice(-6, -3).reduce((sum, m) => sum + m.total, 0);
+    // O mês corrente ainda está em andamento: a tendência compara janelas fechadas
+    const closed = monthly.slice(0, -1);
+    const last3 = closed.slice(-3).reduce((sum, m) => sum + m.total, 0);
+    const prev3 = closed.slice(-6, -3).reduce((sum, m) => sum + m.total, 0);
     return {
       total: rows.length,
       stages: STAGES.map((s) => ({ stage: s, label: STAGE_LABELS[s], count: stages[s], suggestedAction: SUGGESTED_ACTIONS[s] })),
       needingAttention: rows.filter((r) => r.stage === 'COOLING' || r.stage === 'LAPSED').length,
-      monthly,
-      trend: { last3: round2(last3), prev3: round2(prev3), deltaPercent: prev3 > 0 ? Math.round(((last3 - prev3) / prev3) * 1000) / 10 : null },
+      monthly: monthly.map((m, i) => ({ ...m, partial: i === monthly.length - 1 })),
+      trend: {
+        last3: round2(last3),
+        prev3: round2(prev3),
+        deltaPercent: prev3 > 0 ? Math.round(((last3 - prev3) / prev3) * 1000) / 10 : null,
+        window: 'meses fechados (sem o mês atual)',
+      },
     };
   }
 
   /** Lista individual (dado restrito) com filtro por estágio e busca por nome. */
-  async list(user: CurrentUser, filters: { communityId?: string; stage?: string; q?: string }) {
+  async list(user: CurrentUser, filters: { communityId?: string; stage?: string; q?: string; all?: boolean }) {
     const rows = await this.rows(user, filters);
     const stage = (filters.stage ?? '').toUpperCase();
     const q = text(filters.q, 60).toLowerCase();
@@ -201,11 +210,11 @@ export class TitheRetentionService {
     return rows
       .filter((r) => (!STAGES.includes(stage as RetentionStage) || r.stage === stage) && (!q || r.fullName.toLowerCase().includes(q)))
       .sort((a, b) => order[a.stage] - order[b.stage] || (b.monthsSince ?? 0) - (a.monthsSince ?? 0) || a.fullName.localeCompare(b.fullName, 'pt-BR'))
-      .slice(0, 1000);
+      .slice(0, filters.all ? undefined : 1000);
   }
 
   async csv(user: CurrentUser, filters: { communityId?: string; stage?: string }): Promise<string> {
-    const rows = await this.list(user, filters);
+    const rows = await this.list(user, { ...filters, all: true });
     await this.auditService.log({ actor: this.tithe.auditActor(user), action: 'EXPORT', entity: 'TitheRetention', entityId: filters.communityId ?? 'scope', metadata: { rows: rows.length, stage: filters.stage ?? null } });
     const lines = [['Dizimista', 'Comunidade', 'Nº', 'Estágio', 'Último mês', 'Meses sem contribuir', 'Meses contribuindo', 'Último valor', 'Média (6m)', 'Tendência', 'Ação sugerida', 'Última ação', 'Quando'].map(csvCell).join(';')];
     for (const r of rows) {
@@ -234,7 +243,7 @@ export class TitheRetentionService {
 
   private async assertMember(user: CurrentUser, memberId: string) {
     const scopeWhere = await this.memberScopeWhere(user);
-    const member = await this.prisma.member.findFirst({ where: { id: memberId, deletedAt: null, ...scopeWhere }, select: { id: true, fullName: true } });
+    const member = await this.prisma.member.findFirst({ where: { id: memberId, deletedAt: null, status: { notIn: ['DECEASED', 'ANONYMIZED'] }, ...scopeWhere }, select: { id: true, fullName: true } });
     if (!member) throw new NotFoundException('Dizimista não encontrado no seu escopo');
     return member;
   }
@@ -245,8 +254,9 @@ export class TitheRetentionService {
     const type = String(dto.type ?? '').toUpperCase() as ActionType;
     if (!ACTION_TYPES.includes(type)) throw new BadRequestException('Tipo de ação inválido');
     const note = text(dto.note, 500) || null;
+    const actor = await this.prisma.user.findUnique({ where: { id: user.id }, select: { name: true } });
     const action = await this.prisma.titheRetentionAction.create({
-      data: { memberId: member.id, userId: user.id, userName: safeName(user.email ?? null) || null, type, note },
+      data: { memberId: member.id, userId: user.id, userName: safeName(actor?.name ?? null) || null, type, note },
     });
     await this.auditService.log({ actor: this.tithe.auditActor(user), action: 'CREATE', entity: 'TitheRetentionAction', entityId: action.id, metadata: { memberId, type } });
     return { id: action.id, type: action.type, note: action.note, at: action.createdAt, by: action.userName };

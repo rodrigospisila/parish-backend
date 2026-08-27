@@ -9,6 +9,9 @@ import { AuthController } from './auth.controller';
 import { JwtStrategy } from './strategies/jwt.strategy';
 import { MembersModule } from '../members/members.module';
 import { MessagingModule } from '../messaging/messaging.module';
+import { NotificationsModule } from '../notifications/notifications.module';
+import { SessionSecurityService } from './session-security.service';
+import { SecurityController } from './security.controller';
 import { ConsentsModule } from '../consents/consents.module';
 
 @Module({
@@ -18,7 +21,7 @@ import { ConsentsModule } from '../consents/consents.module';
     MessagingModule,
     ConsentsModule,
     JwtModule.registerAsync({
-      imports: [ConfigModule],
+      imports: [ConfigModule, NotificationsModule],
       useFactory: async (configService: ConfigService) => ({
         secret: configService.get('JWT_SECRET'),
         signOptions: {
@@ -28,8 +31,8 @@ import { ConsentsModule } from '../consents/consents.module';
       inject: [ConfigService],
     }),
   ],
-  controllers: [AuthController],
-  providers: [AuthService, OtpService, PasswordResetService, JwtStrategy],
+  controllers: [AuthController, SecurityController],
+  providers: [AuthService, OtpService, PasswordResetService, JwtStrategy, SessionSecurityService],
   exports: [AuthService],
 })
 export class AuthModule {}

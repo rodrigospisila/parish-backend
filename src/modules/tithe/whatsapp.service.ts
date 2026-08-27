@@ -36,14 +36,29 @@ export class TitheWhatsAppService {
     return this.messaging.whatsappConfigured;
   }
 
+  /** O celular precisa virar E.164 para o Twilio (DDD + número). */
+  phoneUsable(phone: string | null | undefined): boolean {
+    return !!phone && !!this.messaging.normalizePhone(phone);
+  }
+
+  /** Dígitos nacionais (DDD + número) sem o +55 — para comparação exata. */
+  private nationalDigits(phone: string | null | undefined): string | null {
+    const e164 = phone ? this.messaging.normalizePhone(phone) : null;
+    return e164 ? e164.replace(/^\+55/, '') : null;
+  }
+
+  /**
+   * Acha o membro pelo número: candidatos pelos últimos 8 dígitos, depois
+   * igualdade exata de DDD+número em memória; só quem está em paróquia com
+   * o canal ligado; se sobrar mais de um, não age (homônimos de número).
+   */
   private async memberByPhone(rawPhone: string) {
-    const digits = rawPhone.replace(/\D/g, '');
-    if (digits.length < 8) return null;
-    const last8 = digits.slice(-8);
-    const variants = [last8, `${last8.slice(0, 4)}-${last8.slice(4)}`];
-    if (digits.length >= 9) variants.push(`${digits.slice(-9, -4)}-${digits.slice(-4)}`);
-    return this.prisma.member.findFirst({
-      where: { deletedAt: null, OR: variants.map((v) => ({ phone: { contains: v } })) },
+    const wanted = this.nationalDigits(rawPhone);
+    if (!wanted) return null;
+    const last8 = wanted.slice(-8);
+    const variants = [last8, `${last8.slice(0, 4)}-${last8.slice(4)}`, `${wanted.slice(-9, -4)}-${wanted.slice(-4)}`];
+    const candidates = await this.prisma.member.findMany({
+      where: { deletedAt: null, status: { notIn: ['DECEASED', 'ANONYMIZED'] }, OR: variants.map((v) => ({ phone: { contains: v } })) },
       select: {
         id: true,
         fullName: true,
@@ -51,10 +66,18 @@ export class TitheWhatsAppService {
         phone: true,
         communityId: true,
         whatsappOptIn: true,
+        titheReminderDay: true,
         community: { select: { parishId: true, parish: { select: { name: true, whatsappEnabled: true } } } },
       },
-      orderBy: { whatsappOptIn: 'desc' },
+      take: 10,
     });
+    const exact = candidates.filter((m) => this.nationalDigits(m.phone) === wanted && m.community?.parish.whatsappEnabled);
+    if (exact.length === 1) return exact[0];
+    if (exact.length > 1) {
+      const opted = exact.filter((m) => m.whatsappOptIn);
+      return opted.length === 1 ? opted[0] : null;
+    }
+    return null;
   }
 
   /**
@@ -80,6 +103,8 @@ export class TitheWhatsAppService {
       return this.messaging.trySendWhatsApp(
         member.phone,
         `Olá, ${name}! Aqui é a ${safeName(parish.name)}. Lembrete do dízimo de ${monthLabel(referenceMonth)}: contribua pelo app Parish — leva menos de um minuto. Para não receber mais, responda SAIR.`,
+        { '1': name, '2': monthLabel(referenceMonth), '3': safeName(parish.name) },
+        'reminder',
       );
     }
     // Reaproveita um Pix do mês ainda aberto; senão cria (estático, sem cair nos limites do app)
@@ -117,6 +142,7 @@ export class TitheWhatsAppService {
       member.phone,
       `Olá, ${name}! Seu dízimo de ${monthLabel(referenceMonth)} na ${safeName(parish.name)}: ${money(amount)}.\n\nPix copia e cola:\n${intent.brCode}\n\nConfira o recebedor (${parish.pixMerchantName}) antes de pagar. Depois de pagar, responda PAGUEI. Quer outro valor? Use o app Parish. Para não receber mais, responda SAIR.`,
       { '1': name, '2': monthLabel(referenceMonth), '3': money(amount), '4': intent.brCode ?? '' },
+      'pix',
     );
     await this.auditService.log({ actor: null, action: 'UPDATE', entity: 'TitheIntent', entityId: intent.id, metadata: { whatsapp: 'monthly-pix', sent } });
     return sent;
@@ -144,6 +170,8 @@ export class TitheWhatsAppService {
       await this.messaging.trySendWhatsApp(
         intent.member.phone,
         `Deus lhe pague, ${firstName(intent.member.fullName)}! 🙏 ${intent.kind === 'OFFERING' ? 'Sua oferta' : 'Seu dízimo'} de ${value} (${intent.campaign ? intent.campaign.name : monthLabel(intent.referenceMonth)}) foi recebido pela ${safeName(intent.parish.name)}. O comprovante está no app.`,
+        { '1': firstName(intent.member.fullName), '2': value, '3': intent.campaign ? intent.campaign.name : monthLabel(intent.referenceMonth) },
+        'thanks',
       );
     } catch (error) {
       this.logger.warn(`Agradecimento WhatsApp falhou: ${String(error)}`);
@@ -165,21 +193,33 @@ export class TitheWhatsAppService {
     }
     if (['QUERO', 'ENTRAR', 'SIM', 'VOLTAR'].includes(text)) {
       if (!member.community?.parish.whatsappEnabled) return `${name}, sua paróquia ainda não ativou o WhatsApp do dízimo. Use o app Parish.`;
-      await this.prisma.member.update({ where: { id: member.id }, data: { whatsappOptIn: true, whatsappOptInAt: new Date() } });
+      // Sem dia de lembrete o Pix do mês não teria quando sair
+      await this.prisma.member.update({
+        where: { id: member.id },
+        data: { whatsappOptIn: true, whatsappOptInAt: new Date(), ...(member.titheReminderDay ? {} : { titheReminderDay: 10 }) },
+      });
       await this.auditService.log({ actor: null, action: 'UPDATE', entity: 'Member', entityId: member.id, metadata: { whatsappOptIn: true, via: 'whatsapp' } });
       return `Combinado, ${name}! Todo mês, no dia do seu lembrete, você recebe o Pix do dízimo por aqui. Responda SAIR quando quiser parar.`;
     }
     if (['PAGUEI', 'PAGO', 'FEITO', 'JA PAGUEI', 'JÁ PAGUEI'].includes(text)) {
+      // Só o Pix estático do mês enviado por aqui: cobrança do provedor confirma sozinha; cartão/boleto não é "PAGUEI"
       const intent = await this.prisma.titheIntent.findFirst({
-        where: { memberId: member.id, status: 'CREATED', createdAt: { gte: new Date(Date.now() - 45 * 24 * 60 * 60 * 1000) } },
-        orderBy: { createdAt: 'desc' },
+        where: { memberId: member.id, status: 'CREATED', method: 'PIX_STATIC', createdAt: { gte: new Date(Date.now() - 45 * 24 * 60 * 60 * 1000) } },
+        orderBy: [{ note: 'desc' }, { createdAt: 'desc' }],
         include: { member: { select: { fullName: true, communityId: true } } },
       });
       if (!intent) return `${name}, não achei um Pix em aberto seu. Se pagou pelo app, toque em "Já fiz o Pix" lá; se precisa de um novo, responda PIX.`;
+      // Mesmos freios do app: no máximo 5 avisos por dia e um alerta à tesouraria a cada 10 min
+      const since = new Date(Date.now() - 24 * 60 * 60 * 1000);
+      const declaredToday = await this.prisma.titheIntent.count({ where: { memberId: member.id, declaredAt: { gte: since } } });
+      if (declaredToday >= 5) return `${name}, você já avisou vários pagamentos hoje — a tesouraria vai conferir todos. Deus lhe pague!`;
       const moved = await this.prisma.titheIntent.updateMany({ where: { id: intent.id, status: 'CREATED' }, data: { status: 'DECLARED', declaredAt: new Date() } });
       if (moved.count === 1) {
         await this.auditService.log({ actor: null, action: 'UPDATE', entity: 'TitheIntent', entityId: intent.id, before: { status: 'CREATED' }, after: { status: 'DECLARED' }, metadata: { via: 'whatsapp' } });
-        await this.tithe.notifyTreasury(
+        const recentlyNotified = await this.prisma.titheIntent.count({
+          where: { memberId: member.id, id: { not: intent.id }, declaredAt: { gte: new Date(Date.now() - 10 * 60 * 1000) } },
+        });
+        if (recentlyNotified === 0) await this.tithe.notifyTreasury(
           { communityId: intent.communityId, parishId: intent.parishId, member: { communityId: intent.member.communityId } },
           'Pix de dízimo a conferir',
           `${safeName(intent.member.fullName)} avisou pelo WhatsApp que pagou o Pix de ${money(intent.amount)} (${intent.referenceMonth}, id ${intent.txid}). Confira no extrato e confirme no Financeiro.`,
@@ -189,6 +229,12 @@ export class TitheWhatsAppService {
       return `Obrigado, ${name}! Avisamos a tesouraria; assim que conferirem, você recebe a confirmação. Deus lhe pague! 🙏`;
     }
     if (['PIX', 'DIZIMO', 'DÍZIMO', 'CONTRIBUIR'].includes(text)) {
+      if (!member.whatsappOptIn) return `${name}, para receber o Pix por aqui responda QUERO primeiro (ou use o app Parish).`;
+      // Freio: um Pix novo por dia via WhatsApp (o do mês é reaproveitado enquanto estiver aberto)
+      const createdToday = await this.prisma.titheIntent.count({
+        where: { memberId: member.id, note: 'Enviado pelo WhatsApp', createdAt: { gte: new Date(Date.now() - 24 * 60 * 60 * 1000) }, status: { not: 'CREATED' } },
+      });
+      if (createdToday >= 3) return `${name}, já enviamos o Pix de hoje. Se precisar de outro valor, use o app Parish.`;
       const sent = await this.sendMonthlyPix(member.id, this.tithe.currentMonth());
       return sent ? '' : `${name}, não consegui gerar o Pix agora. Use o app Parish para contribuir.`;
     }

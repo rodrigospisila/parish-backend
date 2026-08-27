@@ -1,4 +1,4 @@
-import { BadRequestException, ForbiddenException, Injectable, Logger, NotFoundException } from '@nestjs/common';
+import { BadRequestException, ForbiddenException, Inject, Injectable, Logger, NotFoundException, forwardRef } from '@nestjs/common';
 import { TransactionType } from '@prisma/client';
 import { randomBytes } from 'crypto';
 import * as QRCode from 'qrcode';
@@ -42,7 +42,8 @@ export class TitheGuestService {
 
   constructor(
     private readonly prisma: PrismaService,
-    private readonly tithe: TitheService,
+    // Ciclo TitheService ⇄ TitheGuestService: forwardRef dos DOIS lados
+    @Inject(forwardRef(() => TitheService)) private readonly tithe: TitheService,
     private readonly auditService: AuditService,
     private readonly emailService: EmailService,
     private readonly pdfService: PdfService,

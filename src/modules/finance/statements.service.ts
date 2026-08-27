@@ -34,6 +34,8 @@ export interface StatementSnapshot {
   generatedAt: string;
   income: { total: number; count: number; byCategory: Array<{ name: string; total: number; count: number }>; byCostCenter: Array<{ name: string; total: number; count: number }> };
   expense: { total: number; count: number; byCategory: Array<{ name: string; total: number; count: number }>; byCostCenter: Array<{ name: string; total: number; count: number }> };
+  /** Estornos de receita (Pix estornado, lançamento desfeito): deduzem a receita, não são despesa */
+  reversals: { total: number; count: number };
   balance: number;
   campaigns: Array<{ id: string; name: string; total: number }>;
   communities: Array<{ id: string | null; name: string; income: number; expense: number }>;
@@ -79,11 +81,12 @@ export class StatementsService {
     return value;
   }
 
+  /** As datas dos lançamentos são dias civis gravados em UTC (00:00Z legado ou 12:00Z): o mês vai de 1º 00:00Z ao próximo 1º 00:00Z. */
   private monthRange(referenceMonth: string) {
     const [y, m] = referenceMonth.split('-').map(Number);
-    const from = new Date(`${referenceMonth}-01T00:00:00.000-03:00`);
+    const from = new Date(`${referenceMonth}-01T00:00:00.000Z`);
     const next = m === 12 ? `${y + 1}-01` : `${y}-${String(m + 1).padStart(2, '0')}`;
-    const to = new Date(`${next}-01T00:00:00.000-03:00`);
+    const to = new Date(`${next}-01T00:00:00.000Z`);
     return { from, to };
   }
 
@@ -144,7 +147,7 @@ export class StatementsService {
     const [transactions, communities] = await Promise.all([
       this.prisma.financialTransaction.findMany({
         where: { parishId, ...(communityId ? { communityId } : {}), date: { gte: from, lt: to } },
-        select: { type: true, category: true, costCenter: true, amount: true, communityId: true, campaignId: true, campaign: { select: { id: true, name: true } } },
+        select: { type: true, category: true, costCenter: true, amount: true, communityId: true, campaignId: true, titheIntentId: true, reversalOfId: true, campaign: { select: { id: true, name: true } } },
       }),
       this.prisma.community.findMany({ where: { parishId }, select: { id: true, name: true } }),
     ]);
@@ -164,10 +167,28 @@ export class StatementsService {
     let expense = 0;
     let incomeCount = 0;
     let expenseCount = 0;
+    let reversalTotal = 0;
+    let reversalCount = 0;
     for (const t of transactions) {
       const isIncome = t.type === TransactionType.INCOME;
+      const isReversal = !isIncome && !!(t.titheIntentId || t.reversalOfId);
       const category = (t.category || 'Outros').trim();
       const cc = (t.costCenter || 'Sem centro de custo').trim();
+      if (isReversal) {
+        // Estorno de receita: sai da receita, não vira despesa
+        reversalTotal = round2(reversalTotal + t.amount);
+        reversalCount += 1;
+        if (t.campaign) {
+          const row = campaigns.get(t.campaign.id) ?? { id: t.campaign.id, name: t.campaign.name, total: 0 };
+          row.total = round2(row.total - t.amount);
+          campaigns.set(t.campaign.id, row);
+        }
+        const key = t.communityId ?? '';
+        const c = byCommunity.get(key) ?? { income: 0, expense: 0 };
+        c.income = round2(c.income - t.amount);
+        byCommunity.set(key, c);
+        continue;
+      }
       if (isIncome) {
         income = round2(income + t.amount);
         incomeCount += 1;
@@ -195,9 +216,10 @@ export class StatementsService {
     return {
       referenceMonth,
       generatedAt: new Date().toISOString(),
-      income: { total: income, count: incomeCount, byCategory: list(incomeCat), byCostCenter: list(incomeCc) },
+      income: { total: round2(income - reversalTotal), count: incomeCount, byCategory: list(incomeCat), byCostCenter: list(incomeCc) },
       expense: { total: expense, count: expenseCount, byCategory: list(expenseCat), byCostCenter: list(expenseCc) },
-      balance: round2(income - expense),
+      reversals: { total: reversalTotal, count: reversalCount },
+      balance: round2(income - reversalTotal - expense),
       campaigns: [...campaigns.values()].sort((a, b) => b.total - a.total),
       communities: [...byCommunity.entries()]
         .map(([id, v]) => ({ id: id || null, name: nameOf.get(id) ?? (id ? '—' : 'Paróquia (sem comunidade)'), ...v }))
@@ -215,8 +237,10 @@ export class StatementsService {
       await this.assertScope(user, parishId, filters.communityId);
       where.communityId = filters.communityId;
     } else if (!this.isParishAdmin(user.role) && user.role !== UserRole.SYSTEM_ADMIN && user.role !== UserRole.DIOCESAN_ADMIN) {
-      // Coordenação: só os da própria comunidade (+ os publicados da paróquia, para leitura)
-      where.OR = [{ communityId: user.communityId ?? '' }, { communityId: null, status: 'PUBLISHED' }];
+      // Coordenação: os das suas comunidades (vínculo principal e ativos) + os publicados da paróquia, para leitura
+      const linked = ((user as any).communities ?? []).filter((c: any) => c.isActive !== false).map((c: any) => c.communityId);
+      const mine = [...new Set([user.communityId, ...linked].filter((id): id is string => !!id))];
+      where.OR = [{ communityId: { in: mine.length ? mine : [''] } }, { communityId: null, status: 'PUBLISHED' }];
     } else {
       await this.assertScope(user, parishId, null);
     }
@@ -278,17 +302,20 @@ export class StatementsService {
   }
 
   /** Aprovação em nome do Conselho de Assuntos Econômicos: só a administração paroquial registra. */
-  async approve(user: CurrentUser, id: string, dto: { approvedByName?: string | null }) {
+  async approve(user: CurrentUser, id: string, dto: { approvedByName?: string | null; generatedAt?: string | null }) {
     const statement = await this.load(user, id);
     await this.assertScope(user, statement.parishId, statement.communityId);
     if (!this.isParishAdmin(user.role)) throw new ForbiddenException('A aprovação do balancete é registrada pela administração paroquial (em nome do CAEP)');
     if (statement.status !== 'DRAFT') throw new BadRequestException(statement.status === 'PUBLISHED' ? 'Balancete já publicado' : 'Balancete já aprovado');
     const approvedByName = text(dto.approvedByName, 120) || 'Conselho de Assuntos Econômicos Paroquiais';
-    const saved = await this.prisma.financialStatement.update({
-      where: { id },
+    // Aprova exatamente a fotografia que foi lida (regenerar entre a leitura e o clique invalida)
+    const generatedAt = dto.generatedAt ? new Date(dto.generatedAt) : null;
+    const moved = await this.prisma.financialStatement.updateMany({
+      where: { id, status: 'DRAFT', ...(generatedAt && !Number.isNaN(generatedAt.getTime()) ? { generatedAt } : {}) },
       data: { status: 'APPROVED', approvedAt: new Date(), approvedByUserId: user.id, approvedByName },
-      include: this.include,
     });
+    if (moved.count !== 1) throw new BadRequestException('O balancete foi regenerado depois que você o abriu — recarregue e confira antes de aprovar');
+    const saved = await this.prisma.financialStatement.findUniqueOrThrow({ where: { id }, include: this.include });
     await this.auditService.log({ actor: this.actor(user), action: 'UPDATE', entity: 'FinancialStatement', entityId: id, before: { status: 'DRAFT' }, after: { status: 'APPROVED', approvedByName } });
     return this.present(saved);
   }
@@ -300,11 +327,12 @@ export class StatementsService {
     if (!this.isParishAdmin(user.role)) throw new ForbiddenException('A publicação do balancete é da administração paroquial');
     if (statement.status === 'PUBLISHED') return this.present(statement);
     if (statement.status !== 'APPROVED') throw new BadRequestException('Aprove o balancete (CAEP) antes de publicar');
-    const saved = await this.prisma.financialStatement.update({
-      where: { id },
+    const moved = await this.prisma.financialStatement.updateMany({
+      where: { id, status: 'APPROVED' },
       data: { status: 'PUBLISHED', publishedAt: new Date(), publishedByUserId: user.id },
-      include: this.include,
     });
+    if (moved.count !== 1) throw new BadRequestException('O balancete mudou de situação — recarregue');
+    const saved = await this.prisma.financialStatement.findUniqueOrThrow({ where: { id }, include: this.include });
     await this.auditService.log({ actor: this.actor(user), action: 'UPDATE', entity: 'FinancialStatement', entityId: id, before: { status: 'APPROVED' }, after: { status: 'PUBLISHED' } });
     try {
       const members = await this.prisma.member.findMany({
@@ -364,18 +392,23 @@ export class StatementsService {
         where: { parishId: statement.parishId, ...(statement.communityId ? { communityId: statement.communityId } : {}), date: { gte: from, lt: to } },
         orderBy: { date: 'asc' },
         take: 20000,
-        select: { id: true, date: true, type: true, category: true, costCenter: true, description: true, amount: true, communityId: true, accountName: true, campaign: { select: { name: true } } },
+        select: { id: true, date: true, type: true, category: true, costCenter: true, description: true, amount: true, communityId: true, accountName: true, titheIntentId: true, reversalOfId: true, campaign: { select: { name: true } } },
       }),
       this.prisma.community.findMany({ where: { parishId: statement.parishId }, select: { id: true, name: true } }),
     ]);
     const nameOf = new Map(communities.map((c) => [c.id, c.name]));
     const lines = [['Data', 'Tipo', 'Categoria', 'Centro de custo', 'Comunidade', 'Campanha', 'Conta', 'Descrição', 'Entrada', 'Saída', 'Id'].map(csvCell).join(';')];
+    let entradas = 0;
+    let saidas = 0;
     for (const t of transactions) {
       const isIncome = t.type === TransactionType.INCOME;
+      const isReversal = !isIncome && !!(t.titheIntentId || t.reversalOfId);
+      if (isIncome) entradas = round2(entradas + t.amount);
+      else saidas = round2(saidas + t.amount);
       lines.push(
         [
           day(t.date),
-          isIncome ? 'Receita' : 'Despesa',
+          isIncome ? 'Receita' : isReversal ? 'Estorno de receita' : 'Despesa',
           t.category,
           t.costCenter ?? '',
           nameOf.get(t.communityId ?? '') ?? (t.communityId ? '—' : 'Paróquia'),
@@ -390,8 +423,16 @@ export class StatementsService {
           .join(';'),
       );
     }
+    // Totais das linhas exportadas (não da fotografia): o arquivo sempre fecha
+    lines.push(['', 'Totais', '', '', '', '', '', '', entradas.toFixed(2).replace('.', ','), saidas.toFixed(2).replace('.', ','), ''].map(csvCell).join(';'));
     const snap = statement.snapshot as unknown as StatementSnapshot;
-    lines.push(['', 'Totais', '', '', '', '', '', '', snap.income.total.toFixed(2).replace('.', ','), snap.expense.total.toFixed(2).replace('.', ','), ''].map(csvCell).join(';'));
+    const snapIncome = round2(snap.income.total + (snap.reversals?.total ?? 0));
+    if (Math.abs(snapIncome - entradas) > 0.01 || Math.abs(snap.expense.total + (snap.reversals?.total ?? 0) - saidas) > 0.01) {
+      lines.push(['', 'Atenção', '', '', '', '', '', 'Lançamentos mudaram desde a geração do balancete — regenere antes de aprovar', '', '', ''].map(csvCell).join(';'));
+    }
+    if (transactions.length >= 20000) {
+      lines.push(['', 'Atenção', '', '', '', '', '', 'Exportação truncada em 20.000 lançamentos', '', '', ''].map(csvCell).join(';'));
+    }
     await this.auditService.log({ actor: this.actor(user), action: 'EXPORT', entity: 'FinancialStatement', entityId: id, metadata: { rows: transactions.length } });
     return { filename: `balancete-${statement.referenceMonth}${statement.communityId ? '-comunidade' : ''}.csv`, csv: '\uFEFF' + lines.join('\r\n') };
   }

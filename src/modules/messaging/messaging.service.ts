@@ -18,8 +18,9 @@ export class MessagingService {
   private readonly authToken: string | undefined;
   /** Remetente WhatsApp (ex.: whatsapp:+14155238886 no sandbox) */
   private readonly whatsappFrom: string | undefined;
-  /** Template aprovado (Content SID) para mensagens iniciadas pela paróquia fora da janela de 24h */
+  /** Templates aprovados (Content SID) para mensagens iniciadas pela paróquia fora da janela de 24h */
   private readonly whatsappContentSid: string | undefined;
+  private readonly whatsappContentSids: Record<string, string | undefined> = {};
 
   constructor(private readonly configService: ConfigService) {
     const accountSid = this.configService.get<string>('TWILIO_ACCOUNT_SID');
@@ -29,6 +30,11 @@ export class MessagingService {
     const wa = this.configService.get<string>('TWILIO_WHATSAPP_FROM');
     this.whatsappFrom = wa ? (wa.startsWith('whatsapp:') ? wa : `whatsapp:${wa}`) : undefined;
     this.whatsappContentSid = this.configService.get<string>('TWILIO_WHATSAPP_CONTENT_SID') || undefined;
+    this.whatsappContentSids = {
+      pix: this.whatsappContentSid,
+      reminder: this.configService.get<string>('TWILIO_WHATSAPP_CONTENT_SID_REMINDER') || undefined,
+      thanks: this.configService.get<string>('TWILIO_WHATSAPP_CONTENT_SID_THANKS') || undefined,
+    };
     if (accountSid && authToken) {
       this.twilioClient = twilio(accountSid, authToken);
     }
@@ -49,7 +55,7 @@ export class MessagingService {
    * definido e `variables` informadas, usa o template aprovado (obrigatório
    * fora da janela de 24h em produção); senão manda texto (sandbox/janela).
    */
-  async trySendWhatsApp(to: string, body: string, variables?: Record<string, string>): Promise<boolean> {
+  async trySendWhatsApp(to: string, body: string, variables?: Record<string, string>, purpose: 'pix' | 'reminder' | 'thanks' = 'pix'): Promise<boolean> {
     const e164 = this.normalizePhone(to);
     if (!e164) return false;
     if (!this.whatsappConfigured) {
@@ -58,8 +64,9 @@ export class MessagingService {
     }
     try {
       const target = `whatsapp:${e164}`;
-      if (this.whatsappContentSid && variables) {
-        await this.twilioClient!.messages.create({ from: this.whatsappFrom!, to: target, contentSid: this.whatsappContentSid, contentVariables: JSON.stringify(variables) });
+      const contentSid = this.whatsappContentSids[purpose];
+      if (contentSid && variables) {
+        await this.twilioClient!.messages.create({ from: this.whatsappFrom!, to: target, contentSid, contentVariables: JSON.stringify(variables) });
       } else {
         await this.twilioClient!.messages.create({ body, from: this.whatsappFrom!, to: target });
       }

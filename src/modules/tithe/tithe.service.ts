@@ -63,14 +63,15 @@ const SYSTEM_NOTE_PREFIXES = [
   'Provedor indisponível',
   'Provedor de pagamento alterado',
   'Estornado pelo provedor',
+  'Lançamento presencial desfeito',
   'Dízimo pelo app desativado',
 ];
 const isSystemNote = (note: string | null | undefined) =>
   !!note && (note.startsWith(KEY_CHANGED_NOTE) || SYSTEM_NOTE_PREFIXES.some((prefix) => note.startsWith(prefix)));
 
 /** Cancelamento que o FIEL pode contestar: só os feitos pela tesouraria. */
-const cancelledByTreasury = (intent: { status: string; note: string | null }) =>
-  intent.status === 'CANCELLED' && !!intent.note && intent.note !== SELF_CANCEL_NOTE && !isSystemNote(intent.note);
+const cancelledByTreasury = (intent: { status: string; note: string | null; method?: string | null }) =>
+  intent.status === 'CANCELLED' && intent.method !== 'MANUAL' && !!intent.note && intent.note !== SELF_CANCEL_NOTE && !isSystemNote(intent.note);
 
 /** Rótulo do meio (provedor: cartão/boleto; presencial: dinheiro, envelope, maquininha…) — Pix por padrão. */
 export const PAYMENT_METHOD_LABELS: Record<string, string> = {
@@ -92,6 +93,7 @@ export const appMethodLabel = (method: string | null | undefined) => PAYMENT_MET
  */
 const canReopenIntent = (i: { status: string; note: string | null; method?: string | null; providerRef?: string | null; providerStatus?: string | null }) =>
   i.status === 'CANCELLED' &&
+  i.method !== 'MANUAL' &&
   i.note !== SELF_CANCEL_NOTE &&
   i.providerStatus !== 'refunded' &&
   !String(i.note ?? '').startsWith('Estornado pelo provedor') &&
@@ -1283,15 +1285,17 @@ export class TitheService {
     }
     // Data do pagamento = dia em que caiu no extrato (date-only, 00:00Z), com
     // fallback no dia em que o fiel avisou — não o instante da conferência
+    // Convenção única do módulo: dia civil (Brasília) gravado às 12:00Z — o
+    // balancete e os filtros por dia não escorregam de mês/dia com o fuso
     const toCivilDay = (value: Date) => {
       const day = new Intl.DateTimeFormat('sv-SE', { timeZone: 'America/Sao_Paulo', year: 'numeric', month: '2-digit', day: '2-digit' }).format(value);
-      return new Date(`${day}T00:00:00.000Z`);
+      return new Date(`${day}T12:00:00.000Z`);
     };
     let paidAt: Date;
     if (dto.date) {
       const raw = String(dto.date).slice(0, 10);
       if (!/^\d{4}-\d{2}-\d{2}$/.test(raw)) throw new BadRequestException('Data inválida (use AAAA-MM-DD)');
-      paidAt = new Date(`${raw}T00:00:00.000Z`);
+      paidAt = new Date(`${raw}T12:00:00.000Z`);
       if (Number.isNaN(paidAt.getTime())) throw new BadRequestException('Data inválida');
       if (paidAt.getTime() > Date.now() + 24 * 60 * 60 * 1000) throw new BadRequestException('Data no futuro');
     } else {
@@ -1431,7 +1435,8 @@ export class TitheService {
           status: 'CONFIRMED',
           confirmedAt: new Date(),
           confirmedByUserId: opts.byUserId,
-          note: null,
+          // A tesouraria limpa a nota de "não localizado"; o agente preserva a observação do balcão
+          ...(opts.source === 'agent' ? {} : { note: null }),
           amountPaid: opts.paidAmount,
           referenceMonth: opts.paidMonth,
           ...(opts.source === 'provider'
@@ -2502,7 +2507,9 @@ export class TitheService {
       if (wanted) {
         const parish = await this.parishFor(member.community.parishId);
         if (!parish?.whatsappEnabled || !this.whatsapp.serverConfigured()) throw new BadRequestException('Sua paróquia ainda não ativou o WhatsApp do dízimo');
-        if (!member.phone) throw new BadRequestException('Cadastre um celular no seu perfil para receber o Pix pelo WhatsApp');
+        if (!member.phone || !this.whatsapp.phoneUsable(member.phone)) {
+          throw new BadRequestException('Cadastre um celular com DDD no seu perfil para receber o Pix pelo WhatsApp');
+        }
         // Sem dia de lembrete o Pix do mês não tem quando ser enviado
         if (!reminderDay) {
           reminderDay = 10;

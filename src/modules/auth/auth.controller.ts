@@ -1,11 +1,4 @@
-import {
-  Controller,
-  Post,
-  Body,
-  HttpCode,
-  HttpStatus,
-  UseGuards,
-} from '@nestjs/common';
+import { Controller, Post, Body, HttpCode, HttpStatus, UseGuards, Headers, Ip } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { OtpService } from './otp.service';
 import { PasswordResetService } from './password-reset.service';
@@ -34,8 +27,13 @@ export class AuthController {
 
   @Post('login')
   @HttpCode(HttpStatus.OK)
-  async login(@Body() loginDto: LoginDto) {
-    return this.authService.login(loginDto);
+  async login(@Body() loginDto: LoginDto, @Headers() headers: Record<string, string | undefined>, @Ip() ip: string) {
+    return this.authService.login(loginDto, {
+      ip,
+      userAgent: headers['user-agent'] ?? null,
+      deviceId: headers['x-device-id'] ?? null,
+      deviceName: headers['x-device-name'] ?? null,
+    });
   }
 
   @Post('refresh')

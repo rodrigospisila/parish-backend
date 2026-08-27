@@ -96,7 +96,30 @@ export class AuditService {
     }
   }
 
-  async findAll(query: AuditQuery) {
+  /**
+   * Auditoria escopada (D4.7): a administração paroquial vê o que a própria
+   * equipe fez (atores da paróquia); a diocesana, a diocese; a coordenação, a
+   * comunidade. Sem filtro por entidade sensível de outro escopo.
+   */
+  async findScoped(
+    user: { id: string; role: string; parishId?: string | null; dioceseId?: string | null; communityId?: string | null },
+    query: AuditQuery,
+  ) {
+    let actorWhere: Record<string, unknown> | null = null;
+    if (user.role === 'SYSTEM_ADMIN') actorWhere = {};
+    else if (user.role === 'DIOCESAN_ADMIN' && user.dioceseId) actorWhere = { dioceseId: user.dioceseId };
+    else if (user.role === 'PARISH_ADMIN' && user.parishId) actorWhere = { parishId: user.parishId };
+    else if (user.role === 'COMMUNITY_COORDINATOR' && user.communityId) actorWhere = { communityId: user.communityId };
+    if (!actorWhere) return { total: 0, page: 1, pageSize: 25, items: [] };
+    const actors = actorWhere && Object.keys(actorWhere).length
+      ? (await this.prisma.user.findMany({ where: actorWhere, select: { id: true }, take: 5000 })).map((u) => u.id)
+      : null;
+    const scopedQuery: AuditQuery & { actorIds?: string[] } = { ...query };
+    if (actors) scopedQuery.actorIds = actors.length ? actors : ['__none__'];
+    return this.findAll(scopedQuery as AuditQuery);
+  }
+
+  async findAll(query: AuditQuery & { actorIds?: string[] }) {
     const page = Math.max(1, Number(query.page) || 1);
     const pageSize = Math.min(100, Math.max(1, Number(query.pageSize) || 25));
 
@@ -110,6 +133,9 @@ export class AuditService {
     }
     if (query.actorUserId) {
       where.actorUserId = query.actorUserId;
+    }
+    if (query.actorIds) {
+      where.actorUserId = { in: query.actorIds };
     }
     if (query.action) {
       where.action = query.action;

@@ -208,7 +208,11 @@ model User {
 
   // 2FA
   twoFactorEnabled Boolean @default(false)
-  twoFactorSecret  String?
+  twoFactorSecret  String? // cifrado (PAYMENTS_ENCRYPTION_KEY) — TOTP RFC 6238
+  twoFactorEnabledAt   DateTime?
+  twoFactorLastStep    Int? // último intervalo TOTP aceito (anti-replay)
+  twoFactorBackupCodes String[] @default([]) // hashes SHA-256 dos códigos de recuperação
+  devices UserDevice[]
 
   // Push notifications (Expo push token)
   pushToken          String?
@@ -251,6 +255,22 @@ model User {
   catechesisMessages CatechesisMessage[]
 
   @@map("users")
+}
+
+// Dispositivos conhecidos por usuário (D4.7): login em aparelho novo avisa o dono da conta
+model UserDevice {
+  id          String   @id @default(cuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  fingerprint String
+  label       String?
+  lastIp      String?
+  firstSeenAt DateTime @default(now())
+  lastSeenAt  DateTime @default(now())
+  revokedAt   DateTime?
+
+  @@unique([userId, fingerprint])
+  @@map("user_devices")
 }
 
 model RefreshToken {

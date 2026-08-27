@@ -33,9 +33,12 @@ export class TitheReminderService {
     const members = await this.prisma.member.findMany({
       where: {
         deletedAt: null,
-        userId: { not: null },
         titheReminderDay: day,
-        OR: [{ titheReminderSentMonth: null }, { titheReminderSentMonth: { not: month } }],
+        AND: [
+          // Push precisa de usuário no app; WhatsApp só do celular + opt-in
+          { OR: [{ userId: { not: null } }, { whatsappOptIn: true }] },
+          { OR: [{ titheReminderSentMonth: null }, { titheReminderSentMonth: { not: month } }] },
+        ],
         community: { parish: { titheEnabled: true } },
         // Quem tem Pix Automático ativo não precisa ser lembrado: o banco debita sozinho
         titheSchedules: { none: { status: 'ACTIVE', mode: 'PIX_AUTOMATIC' } },

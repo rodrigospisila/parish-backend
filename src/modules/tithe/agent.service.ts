@@ -75,24 +75,32 @@ export class TitheAgentService {
     const current = this.tithe.currentMonth();
     const currentIndex = Number(current.slice(0, 4)) * 12 + Number(current.slice(5, 7)) - 1;
     const members = await this.prisma.member.findMany({
-      where: { deletedAt: null, ...scopeWhere, OR: or },
+      where: { deletedAt: null, status: { notIn: ['DECEASED', 'ANONYMIZED'] }, ...scopeWhere, OR: or },
       include: {
-        community: { select: { id: true, name: true } },
+        community: { select: { id: true, name: true, parishId: true } },
         tither: {
           select: {
             registrationNumber: true,
             status: true,
-            contributions: { orderBy: { date: 'desc' }, take: 1, select: { referenceMonth: true, amount: true, date: true, method: true } },
+            contributions: { orderBy: { referenceMonth: 'desc' }, take: 1, select: { referenceMonth: true, amount: true, date: true, method: true } },
           },
         },
       },
       orderBy: { fullName: 'asc' },
       take: 20,
     });
+    await this.auditService.log({
+      actor: this.tithe.auditActor(user),
+      action: 'READ_SENSITIVE',
+      entity: 'Member',
+      entityId: 'agent-search',
+      metadata: { q: term.slice(0, 40), results: members.length },
+    });
     return members.map((m) => ({
       id: m.id,
       fullName: m.fullName,
       community: m.community ? { id: m.community.id, name: m.community.name } : null,
+      parishId: m.community?.parishId ?? null,
       registrationNumber: m.tither?.registrationNumber ?? null,
       titherStatus: m.tither?.status ?? null,
       cpfMasked: maskCpf(m.cpf),
@@ -152,7 +160,6 @@ export class TitheAgentService {
       if (!campaign) throw new BadRequestException('Campanha encerrada ou indisponível para a comunidade do fiel');
     }
     const kind = campaign || dto.kind === 'OFFERING' ? 'OFFERING' : 'TITHE';
-    const referenceMonth = this.tithe.validateReferenceMonth(dto.referenceMonth);
     let paidAt = new Date(`${civilDay(new Date())}T12:00:00.000Z`);
     if (dto.date) {
       const raw = String(dto.date).slice(0, 10);
@@ -164,6 +171,10 @@ export class TitheAgentService {
       if (paidAt.getTime() > Date.now() + 24 * 60 * 60 * 1000) throw new BadRequestException('Data no futuro');
       if (paidAt.getTime() < Date.now() - 366 * 24 * 60 * 60 * 1000) throw new BadRequestException('Data muito antiga (mais de um ano)');
     }
+    // Oferta retroativa sem mês informado: mês do pagamento (o extrato anual fica no ano certo)
+    const referenceMonth = this.tithe.validateReferenceMonth(
+      typeof dto.referenceMonth === 'string' && dto.referenceMonth ? dto.referenceMonth : kind === 'OFFERING' ? civilDay(paidAt).slice(0, 7) : undefined,
+    );
     const note = text(dto.note, 200) || null;
     const receiptNumber = text(dto.receiptNumber, 40) || undefined;
     const txid = this.tithe.newTxid();
@@ -185,23 +196,29 @@ export class TitheAgentService {
         declaredAt: paidAt,
       },
     });
-    await this.tithe.settleIntent(
-      {
-        id: intent.id,
-        txid,
-        kind,
-        anonymous: false,
-        memberId: member.id,
-        communityId: member.communityId,
-        parishId: parish.id,
-        paymentMethod: method,
-        campaignId: campaign?.id ?? null,
-        campaign,
-        member: { fullName: member.fullName, communityId: member.communityId },
-        parish: { dioceseId: parish.dioceseId },
-      },
-      { paidAt, paidAmount: amount, paidMonth: referenceMonth, byUserId: user.id, receiptNumber, source: 'agent' },
-    );
+    try {
+      await this.tithe.settleIntent(
+        {
+          id: intent.id,
+          txid,
+          kind,
+          anonymous: false,
+          memberId: member.id,
+          communityId: member.communityId,
+          parishId: parish.id,
+          paymentMethod: method,
+          campaignId: campaign?.id ?? null,
+          campaign,
+          member: { fullName: member.fullName, communityId: member.communityId },
+          parish: { dioceseId: parish.dioceseId },
+        },
+        { paidAt, paidAmount: amount, paidMonth: referenceMonth, byUserId: user.id, receiptNumber, source: 'agent' },
+      );
+    } catch (error) {
+      // Nada de registro "pela metade" no histórico do fiel
+      await this.prisma.titheIntent.updateMany({ where: { id: intent.id, status: 'CREATED' }, data: { status: 'CANCELLED', note: 'Lançamento presencial desfeito pela tesouraria' } });
+      throw error;
+    }
     const settled = await this.prisma.titheIntent.findUniqueOrThrow({ where: { id: intent.id }, include: { campaign: { select: { id: true, name: true } } } });
     await this.auditService.log({
       actor: this.tithe.auditActor(user),
@@ -244,6 +261,7 @@ export class TitheAgentService {
       kind: i.kind,
       referenceMonth: i.referenceMonth,
       paymentMethod: i.paymentMethod,
+      txid: i.txid,
       campaign: i.campaign ? { id: i.campaign.id, name: i.campaign.name } : null,
       status: i.status,
       confirmedAt: i.confirmedAt,
@@ -269,7 +287,7 @@ export class TitheAgentService {
     await this.prisma.$transaction(async (tx) => {
       const moved = await tx.titheIntent.updateMany({
         where: { id, status: 'CONFIRMED' },
-        data: { status: 'CANCELLED', note: `Lançamento presencial desfeito por ${safeName(user.email ?? 'tesouraria')}`, contributionId: null },
+        data: { status: 'CANCELLED', note: 'Lançamento presencial desfeito pela tesouraria', contributionId: null },
       });
       if (moved.count !== 1) throw new BadRequestException('Este lançamento já foi desfeito');
       if (intent.contributionId) await tx.titheContribution.deleteMany({ where: { id: intent.contributionId } });

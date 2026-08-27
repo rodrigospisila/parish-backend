@@ -3,6 +3,21 @@ import { TransactionType, UserRole } from '@prisma/client';
 import { PrismaService } from '../../database/prisma.service';
 import { HierarchyService, CurrentUser } from '../../common/hierarchy.service';
 import { AuditService } from '../../common/audit.service';
+import { isRoleAtLeast } from '../auth/constants/role-hierarchy';
+
+/**
+ * Dia civil (Brasília) como instante estável às 12:00Z — a mesma convenção do
+ * dízimo, para o balancete e os filtros por dia não escorregarem com o fuso.
+ * Aceita 'AAAA-MM-DD' ou um instante completo (convertido para o dia em Brasília).
+ */
+export function civilDate(value: unknown, offsetHours = 12): Date {
+  const raw = String(value ?? '').trim();
+  if (/^\d{4}-\d{2}-\d{2}$/.test(raw)) return new Date(`${raw}T${String(offsetHours).padStart(2, '0')}:00:00.000Z`);
+  const parsed = new Date(raw);
+  if (Number.isNaN(parsed.getTime())) throw new BadRequestException('Data inválida (use AAAA-MM-DD)');
+  const day = new Intl.DateTimeFormat('sv-SE', { timeZone: 'America/Sao_Paulo', year: 'numeric', month: '2-digit', day: '2-digit' }).format(parsed);
+  return new Date(`${day}T${String(offsetHours).padStart(2, '0')}:00:00.000Z`);
+}
 
 /**
  * Recursos financeiros e dízimo (roadmap 4.3).
@@ -64,6 +79,18 @@ export class FinanceService {
       dioceseId = parish.dioceseId ?? dioceseId;
     }
     if (dto.amount <= 0) throw new BadRequestException('Valor deve ser positivo');
+    // Coordenação lança na própria comunidade; ninguém cria lançamento "sem dono"
+    let communityId = dto.communityId ?? null;
+    if (!communityId && !isRoleAtLeast(user.role, UserRole.PARISH_ADMIN)) {
+      communityId = user.communityId ?? null;
+      if (!communityId) throw new BadRequestException('Informe a comunidade do lançamento');
+      if (!parishId) {
+        const community = await this.prisma.community.findUnique({ where: { id: communityId }, select: { parishId: true, parish: { select: { dioceseId: true } } } });
+        parishId = community?.parishId ?? null;
+        dioceseId = community?.parish?.dioceseId ?? dioceseId;
+      }
+    }
+    if (!parishId) throw new BadRequestException('Informe a comunidade ou a paróquia do lançamento');
 
     const tx = await this.prisma.financialTransaction.create({
       data: {
@@ -71,10 +98,10 @@ export class FinanceService {
         category: dto.category,
         amount: dto.amount,
         description: dto.description ?? null,
-        date: new Date(dto.date),
+        date: civilDate(dto.date),
         accountName: dto.accountName ?? null,
         costCenter: typeof dto.costCenter === 'string' ? dto.costCenter.replace(/[\r\n\t]+/g, ' ').trim().slice(0, 60) || null : null,
-        communityId: dto.communityId ?? null,
+        communityId,
         parishId,
         dioceseId,
       },
@@ -95,9 +122,13 @@ export class FinanceService {
       else if (user.parishId) where.parishId = user.parishId;
     }
     if (filters.from || filters.to) {
+      // 'até' é o dia inteiro: lançamentos gravados às 12:00Z do próprio dia entram
+      const from = filters.from ? civilDate(filters.from, 0) : null;
+      const toRaw = filters.to ? String(filters.to).slice(0, 10) : null;
+      const to = toRaw && /^\d{4}-\d{2}-\d{2}$/.test(toRaw) ? new Date(new Date(`${toRaw}T00:00:00.000Z`).getTime() + 24 * 60 * 60 * 1000) : filters.to ? new Date(filters.to) : null;
       where.date = {
-        ...(filters.from ? { gte: new Date(filters.from) } : {}),
-        ...(filters.to ? { lte: new Date(filters.to) } : {}),
+        ...(from ? { gte: from } : {}),
+        ...(to ? { lt: to } : {}),
       };
     }
     return this.prisma.financialTransaction.findMany({ where, orderBy: { date: 'desc' } });
@@ -154,7 +185,10 @@ export class FinanceService {
     user: CurrentUser,
   ) {
     if (!this.canManageFinance(user.role)) throw new ForbiddenException('Sem permissão');
-    const tither = await this.prisma.tither.findUnique({ where: { id: dto.titherId }, include: { member: true } });
+    const tither = await this.prisma.tither.findUnique({
+      where: { id: dto.titherId },
+      include: { member: { include: { community: { select: { parishId: true, parish: { select: { dioceseId: true } } } } } } },
+    });
     if (!tither) throw new NotFoundException('Dizimista não encontrado');
     const canManage = await this.hierarchyService.canManageMember(user.id, tither.memberId);
     if (!canManage && user.role !== UserRole.SYSTEM_ADMIN) {
@@ -170,16 +204,18 @@ export class FinanceService {
           category: 'Dízimo',
           amount: dto.amount,
           description: `Dízimo ${dto.referenceMonth}`,
-          date: new Date(dto.date),
+          date: civilDate(dto.date),
           communityId: tither.member.communityId,
-          parishId: user.parishId ?? null,
+          // Paróquia/diocese do dizimista (não do token de quem lança)
+          parishId: tither.member.community?.parishId ?? user.parishId ?? null,
+          dioceseId: tither.member.community?.parish?.dioceseId ?? user.dioceseId ?? null,
         },
       });
       const contribution = await prisma.titheContribution.create({
         data: {
           titherId: dto.titherId,
           amount: dto.amount,
-          date: new Date(dto.date),
+          date: civilDate(dto.date),
           referenceMonth: dto.referenceMonth,
           method: dto.method,
           receiptNumber: dto.receiptNumber ?? null,
