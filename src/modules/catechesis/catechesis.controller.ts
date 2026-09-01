@@ -316,6 +316,13 @@ export class CatechesisController {
     return this.service.listClasses(req.user, communityId);
   }
 
+  // Editar a turma (inclui o limite de vagas)
+  @Patch('classes/:id')
+  @Roles(UserRole.COMMUNITY_COORDINATOR)
+  updateClass(@Param('id') id: string, @Body() dto: any, @Request() req: any) {
+    return this.service.updateClass(id, dto, req.user);
+  }
+
   // Painel da turma: catequista vinculado OU escopo de gestão (service valida)
   @Get('classes/:id/report')
   classReport(@Param('id') id: string, @Request() req: any) {

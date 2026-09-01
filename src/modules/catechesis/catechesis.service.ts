@@ -172,6 +172,65 @@ export class CatechesisService {
     return created;
   }
 
+  /**
+   * Edita os dados operacionais da turma — inclusive o limite de vagas. Só os
+   * campos enviados mudam; `capacity: null` remove o limite. Não move a turma
+   * de etapa nem de comunidade (isso mudaria contagem diocesana e histórico).
+   */
+  async updateClass(
+    classId: string,
+    dto: { name?: string; year?: number; weekday?: number | null; time?: string | null; room?: string | null; capacity?: number | null },
+    user: CurrentUser,
+  ) {
+    const klass = await this.loadClassInScope(classId, user);
+    await this.assertCommunityScope(klass.communityId, user);
+
+    const data: any = {};
+    if (dto.name !== undefined) {
+      const name = String(dto.name).trim();
+      if (name.length < 2) throw new BadRequestException('Informe o nome da turma');
+      data.name = name.slice(0, 120);
+    }
+    if (dto.year !== undefined) {
+      const year = Math.floor(Number(dto.year));
+      if (!Number.isFinite(year) || year < 2000 || year > 2100) throw new BadRequestException('Ano inválido');
+      data.year = year;
+    }
+    if (dto.weekday !== undefined) {
+      if (dto.weekday === null) data.weekday = null;
+      else {
+        const weekday = Math.floor(Number(dto.weekday));
+        if (!Number.isInteger(weekday) || weekday < 0 || weekday > 6) throw new BadRequestException('Dia da semana inválido');
+        data.weekday = weekday;
+      }
+    }
+    if (dto.time !== undefined) data.time = dto.time ? String(dto.time).slice(0, 20) : null;
+    if (dto.room !== undefined) data.room = dto.room ? String(dto.room).slice(0, 80) : null;
+
+    let capacityWarning: string | null = null;
+    if (dto.capacity !== undefined) {
+      if (dto.capacity === null) {
+        data.capacity = null;
+      } else {
+        const capacity = Math.floor(Number(dto.capacity));
+        if (!Number.isFinite(capacity) || capacity < 1) throw new BadRequestException('As vagas devem ser um número inteiro maior que zero (ou vazio para sem limite)');
+        data.capacity = capacity;
+        // Reduzir abaixo do já matriculado é permitido (ninguém é removido),
+        // mas a coordenação precisa saber que a turma nasce "lotada".
+        const occupied = await this.prisma.catechesisEnrollment.count({ where: this.occupiedSeatsWhere(classId) });
+        if (occupied > capacity) {
+          capacityWarning = `A turma já tem ${occupied} matriculado(s)/aguardando — o novo limite de ${capacity} não remove ninguém, mas nenhuma vaga fica aberta até cair abaixo de ${capacity}.`;
+        }
+      }
+    }
+
+    if (Object.keys(data).length === 0) throw new BadRequestException('Nada para atualizar');
+
+    const updated = await this.prisma.catechesisClass.update({ where: { id: classId }, data });
+    await this.auditService.log({ actor: this.auditActor(user), action: 'UPDATE', entity: 'CatechesisClass', entityId: classId, metadata: { fields: Object.keys(data) } });
+    return { ...updated, capacityWarning };
+  }
+
   async listClasses(user: CurrentUser, communityId?: string) {
     const where: any = { deletedAt: null };
     if (communityId) {
@@ -181,7 +240,7 @@ export class CatechesisService {
       if (user.communityId) where.communityId = user.communityId;
       else if (user.parishId) where.community = { parishId: user.parishId };
     }
-    return this.prisma.catechesisClass.findMany({
+    const classes = await this.prisma.catechesisClass.findMany({
       where,
       include: {
         stage: { select: { name: true, sacramentType: true } },
@@ -194,6 +253,28 @@ export class CatechesisService {
         },
       },
       orderBy: { year: 'desc' },
+    });
+
+    // Ocupação para o limite de vagas = matriculados ATIVOS + inscrições
+    // aguardando aprovação (a mesma regra que a matrícula respeita).
+    const classIds = classes.map((klass) => klass.id);
+    const occupancy = classIds.length
+      ? await this.prisma.catechesisEnrollment.groupBy({
+          by: ['classId'],
+          where: { classId: { in: classIds }, status: { in: ['ACTIVE', 'PENDING_APPROVAL'] }, member: { deletedAt: null } },
+          _count: { _all: true },
+        })
+      : [];
+    const occupiedByClass = new Map(occupancy.map((row) => [row.classId, row._count._all]));
+
+    return classes.map((klass) => {
+      const occupied = occupiedByClass.get(klass.id) ?? 0;
+      return {
+        ...klass,
+        occupied,
+        openSpots: klass.capacity === null ? null : Math.max(0, klass.capacity - occupied),
+        isFull: klass.capacity !== null && occupied >= klass.capacity,
+      };
     });
   }
 
@@ -558,7 +639,7 @@ export class CatechesisService {
   // ===== MATRÍCULA =====
 
   async enroll(
-    dto: { classId: string; memberId: string; pendingDocuments?: string; requireBaptism?: boolean },
+    dto: { classId: string; memberId: string; pendingDocuments?: string; requireBaptism?: boolean; overrideCapacity?: boolean },
     user: CurrentUser,
   ) {
     const klass = await this.loadClassInScope(dto.classId, user);
@@ -610,14 +691,35 @@ export class CatechesisService {
       }
     }
 
-    const enrollment = await this.prisma.catechesisEnrollment.create({
-      data: {
-        classId: dto.classId,
-        memberId: dto.memberId,
-        pendingDocuments: dto.pendingDocuments ?? null,
-      },
+    // REGRA: respeita o limite de vagas também na matrícula manual (secretaria).
+    // A coordenação pode forçar uma vaga extra conscientemente (overrideCapacity),
+    // e a contagem acontece DENTRO da transação (sem estouro por concorrência).
+    const enrollment = await this.prisma.$transaction(async (tx) => {
+      if (klass.capacity !== null && !dto.overrideCapacity) {
+        const occupied = await tx.catechesisEnrollment.count({
+          where: { ...this.occupiedSeatsWhere(dto.classId), memberId: { not: dto.memberId } },
+        });
+        if (occupied >= klass.capacity) {
+          throw new BadRequestException(
+            `Turma lotada (${occupied}/${klass.capacity} vagas). Aumente o limite em "Editar turma", escolha outra turma ou marque "matricular mesmo assim".`,
+          );
+        }
+      }
+      return tx.catechesisEnrollment.create({
+        data: {
+          classId: dto.classId,
+          memberId: dto.memberId,
+          pendingDocuments: dto.pendingDocuments ?? null,
+        },
+      });
     });
-    await this.auditService.log({ actor: this.auditActor(user), action: 'CREATE', entity: 'CatechesisEnrollment', entityId: enrollment.id });
+    await this.auditService.log({
+      actor: this.auditActor(user),
+      action: 'CREATE',
+      entity: 'CatechesisEnrollment',
+      entityId: enrollment.id,
+      metadata: dto.overrideCapacity && klass.capacity !== null ? { overrodeCapacity: true } : undefined,
+    });
     return enrollment;
   }
 
@@ -652,7 +754,20 @@ export class CatechesisService {
 
     // A matrícula de origem fica TRANSFERRED (preserva o histórico de presença);
     // no destino, cria uma matrícula ACTIVE nova (ou reativa a existente).
+    const target = await this.prisma.catechesisClass.findUnique({
+      where: { id: targetClassId },
+      select: { capacity: true, name: true },
+    });
     const result = await this.prisma.$transaction(async (tx) => {
+      // Vagas do destino conferidas junto da escrita (o catequizando ainda não ocupa lá)
+      if (target?.capacity != null) {
+        const occupied = await tx.catechesisEnrollment.count({
+          where: { ...this.occupiedSeatsWhere(targetClassId), memberId: { not: enrollment.memberId } },
+        });
+        if (occupied >= target.capacity) {
+          throw new BadRequestException(`A turma de destino está lotada (${occupied}/${target.capacity} vagas)`);
+        }
+      }
       await tx.catechesisEnrollment.update({
         where: { id: enrollmentId },
         data: { status: 'TRANSFERRED' },
