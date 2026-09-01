@@ -24,6 +24,13 @@ export class CatechesisController {
     return this.service.listStages(req.user);
   }
 
+  // Editar etapa (nome, ordem, sacramento e cor do "tempo")
+  @Patch('stages/:id')
+  @Roles(UserRole.PARISH_ADMIN)
+  updateStage(@Param('id') id: string, @Body() dto: any, @Request() req: any) {
+    return this.service.updateStage(id, dto, req.user);
+  }
+
   // App do catequista: minhas turmas (guard operacional fica no service)
   @Get('my-classes')
   myClasses(@Request() req: any) {

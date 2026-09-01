@@ -112,10 +112,59 @@ export class CatechesisService {
         description: dto.description ?? null,
         ordering: dto.ordering ?? 0,
         sacramentType: dto.sacramentType ?? null,
+        color: this.parseStageColor((dto as any).color),
       },
     });
     await this.auditService.log({ actor: this.auditActor(user), action: 'CREATE', entity: 'CatechesisStage', entityId: stage.id });
     return stage;
+  }
+
+  /** Cor da etapa: hex #rrggbb ou nada (null limpa). */
+  private parseStageColor(value: unknown): string | null {
+    if (value === undefined || value === null || value === '') return null;
+    const color = String(value).trim().toLowerCase();
+    if (!/^#[0-9a-f]{6}$/.test(color)) {
+      throw new BadRequestException('Cor inválida — use o formato #rrggbb');
+    }
+    return color;
+  }
+
+  /** Edita a etapa (nome, ordem, descrição, sacramento e cor). */
+  async updateStage(
+    stageId: string,
+    dto: { name?: string; description?: string | null; ordering?: number; sacramentType?: SacramentType | null; color?: string | null },
+    user: CurrentUser,
+  ) {
+    const stage = await this.prisma.catechesisStage.findFirst({
+      where: { id: stageId, deletedAt: null },
+      include: { parish: { select: { dioceseId: true } } },
+    });
+    if (!stage) throw new NotFoundException('Etapa de catequese não encontrada');
+    const allowed =
+      user.role === UserRole.SYSTEM_ADMIN ||
+      (user.role === UserRole.DIOCESAN_ADMIN && user.dioceseId === stage.parish.dioceseId) ||
+      (this.isParishManager(user.role) && user.parishId === stage.parishId);
+    if (!allowed) throw new ForbiddenException('Etapa fora do seu escopo');
+
+    const data: any = {};
+    if (dto.name !== undefined) {
+      const name = String(dto.name).trim();
+      if (name.length < 2) throw new BadRequestException('Informe o nome da etapa');
+      data.name = name.slice(0, 120);
+    }
+    if (dto.description !== undefined) data.description = dto.description ? String(dto.description).slice(0, 300) : null;
+    if (dto.ordering !== undefined) {
+      const ordering = Math.floor(Number(dto.ordering));
+      if (!Number.isInteger(ordering) || ordering < 0 || ordering > 99) throw new BadRequestException('Ordem inválida');
+      data.ordering = ordering;
+    }
+    if (dto.sacramentType !== undefined) data.sacramentType = dto.sacramentType || null;
+    if (dto.color !== undefined) data.color = this.parseStageColor(dto.color);
+    if (Object.keys(data).length === 0) throw new BadRequestException('Nada para atualizar');
+
+    const updated = await this.prisma.catechesisStage.update({ where: { id: stageId }, data });
+    await this.auditService.log({ actor: this.auditActor(user), action: 'UPDATE', entity: 'CatechesisStage', entityId: stageId, metadata: { fields: Object.keys(data) } });
+    return updated;
   }
 
   async listStages(user: CurrentUser) {
@@ -253,7 +302,7 @@ export class CatechesisService {
     const classes = await this.prisma.catechesisClass.findMany({
       where,
       include: {
-        stage: { select: { name: true, sacramentType: true } },
+        stage: { select: { name: true, sacramentType: true, color: true } },
         community: { select: { name: true } },
         _count: {
           select: {
@@ -349,7 +398,7 @@ export class CatechesisService {
       include: {
         class: {
           include: {
-            stage: { select: { id: true, name: true, sacramentType: true } },
+            stage: { select: { id: true, name: true, sacramentType: true, color: true } },
             community: { select: { id: true, name: true } },
             _count: {
               select: {
@@ -883,7 +932,7 @@ export class CatechesisService {
     const classes = await this.prisma.catechesisClass.findMany({
       where: { communityId: targetCommunityId, deletedAt: null, status: 'ACTIVE' },
       include: {
-        stage: { select: { id: true, name: true, ordering: true, sacramentType: true } },
+        stage: { select: { id: true, name: true, ordering: true, sacramentType: true, color: true } },
         community: { select: { id: true, name: true } },
         _count: { select: { enrollments: { where: { status: { in: ['ACTIVE', 'PENDING_APPROVAL'] }, member: { deletedAt: null } } } } },
       },
@@ -1881,7 +1930,7 @@ export class CatechesisService {
         member: { select: { id: true, fullName: true } },
         class: {
           include: {
-            stage: { select: { id: true, name: true, sacramentType: true } },
+            stage: { select: { id: true, name: true, sacramentType: true, color: true } },
             community: { select: { id: true, name: true } },
           },
         },
@@ -2070,7 +2119,7 @@ export class CatechesisService {
         },
         class: {
           include: {
-            stage: { select: { id: true, name: true, sacramentType: true } },
+            stage: { select: { id: true, name: true, sacramentType: true, color: true } },
             community: { include: { parish: { select: { name: true, logoUrl: true } } } },
           },
         },

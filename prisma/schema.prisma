@@ -1612,6 +1612,8 @@ model CatechesisStage {
   name          String
   description   String?
   ordering      Int            @default(0)
+  // Cor da etapa (hex #rrggbb) — diferencia os "tempos" em cards e listas
+  color         String?
   parishId      String
   parish        Parish         @relation(fields: [parishId], references: [id], onDelete: Cascade)
   // Sacramento gerado automaticamente na conclusão da etapa (opcional)
