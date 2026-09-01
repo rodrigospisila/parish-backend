@@ -156,6 +156,16 @@ export class CatechesisService {
       throw new BadRequestException('A etapa escolhida pertence a outra paróquia');
     }
 
+    // Mesma regra do updateClass: inteiro >= 1 ou sem limite — 0/0,5 gravaria
+    // uma turma que nasce "lotada" em silêncio
+    let capacity: number | null = null;
+    if (dto.capacity !== undefined && dto.capacity !== null) {
+      capacity = Math.floor(Number(dto.capacity));
+      if (!Number.isFinite(capacity) || capacity < 1) {
+        throw new BadRequestException('As vagas devem ser um número inteiro maior que zero (ou vazio para sem limite)');
+      }
+    }
+
     const created = await this.prisma.catechesisClass.create({
       data: {
         name: dto.name,
@@ -165,7 +175,7 @@ export class CatechesisService {
         weekday: dto.weekday ?? null,
         time: dto.time ?? null,
         room: dto.room ?? null,
-        capacity: typeof dto.capacity === 'number' && dto.capacity > 0 ? Math.floor(dto.capacity) : null,
+        capacity,
       },
     });
     await this.auditService.log({ actor: this.auditActor(user), action: 'CREATE', entity: 'CatechesisClass', entityId: created.id });
@@ -692,9 +702,22 @@ export class CatechesisService {
     }
 
     // REGRA: respeita o limite de vagas também na matrícula manual (secretaria).
-    // A coordenação pode forçar uma vaga extra conscientemente (overrideCapacity),
-    // e a contagem acontece DENTRO da transação (sem estouro por concorrência).
+    // A coordenação pode forçar uma vaga extra conscientemente (overrideCapacity).
     const enrollment = await this.prisma.$transaction(async (tx) => {
+      // Trava a linha da turma: matrículas simultâneas na mesma turma se
+      // serializam e a contagem de vagas não estoura o limite por corrida
+      await tx.$queryRaw`SELECT id FROM catechesis_classes WHERE id = ${dto.classId} FOR UPDATE`;
+      // Linha única (classId, memberId): quem já passou por esta turma tem
+      // registro — reativar em vez de criar (o create estouraria P2002 → 500)
+      const existing = await tx.catechesisEnrollment.findUnique({
+        where: { classId_memberId: { classId: dto.classId, memberId: dto.memberId } },
+      });
+      if (existing && (existing.status === 'ACTIVE' || existing.status === 'PENDING_APPROVAL')) {
+        throw new BadRequestException('Este catequizando já está matriculado nesta turma');
+      }
+      if (existing && existing.status === 'COMPLETED') {
+        throw new BadRequestException('Este catequizando já concluiu esta turma — para a etapa seguinte, use a renovação');
+      }
       if (klass.capacity !== null && !dto.overrideCapacity) {
         const occupied = await tx.catechesisEnrollment.count({
           where: { ...this.occupiedSeatsWhere(dto.classId), memberId: { not: dto.memberId } },
@@ -704,6 +727,13 @@ export class CatechesisService {
             `Turma lotada (${occupied}/${klass.capacity} vagas). Aumente o limite em "Editar turma", escolha outra turma ou marque "matricular mesmo assim".`,
           );
         }
+      }
+      if (existing) {
+        // REJECTED/DROPPED_OUT/TRANSFERRED: a rematrícula reativa o registro
+        return tx.catechesisEnrollment.update({
+          where: { id: existing.id },
+          data: { status: 'ACTIVE', pendingDocuments: dto.pendingDocuments ?? null, rejectionReason: null },
+        });
       }
       return tx.catechesisEnrollment.create({
         data: {
@@ -759,6 +789,18 @@ export class CatechesisService {
       select: { capacity: true, name: true },
     });
     const result = await this.prisma.$transaction(async (tx) => {
+      // Serializa matrículas concorrentes na turma de destino (vagas sob trava)
+      await tx.$queryRaw`SELECT id FROM catechesis_classes WHERE id = ${targetClassId} FOR UPDATE`;
+      const existing = await tx.catechesisEnrollment.findUnique({
+        where: { classId_memberId: { classId: targetClassId, memberId: enrollment.memberId } },
+      });
+      // Conclusão no destino é registro histórico (certificado/renovação):
+      // reativá-la apagaria a prova de conclusão — mesma regra do apply/renovação
+      if (existing && existing.status === 'COMPLETED') {
+        throw new BadRequestException(
+          'Este catequizando já concluiu a turma de destino — a transferência apagaria essa conclusão',
+        );
+      }
       // Vagas do destino conferidas junto da escrita (o catequizando ainda não ocupa lá)
       if (target?.capacity != null) {
         const occupied = await tx.catechesisEnrollment.count({
@@ -772,13 +814,10 @@ export class CatechesisService {
         where: { id: enrollmentId },
         data: { status: 'TRANSFERRED' },
       });
-      const existing = await tx.catechesisEnrollment.findUnique({
-        where: { classId_memberId: { classId: targetClassId, memberId: enrollment.memberId } },
-      });
       if (existing) {
         return tx.catechesisEnrollment.update({
           where: { id: existing.id },
-          data: { status: 'ACTIVE', pendingDocuments: enrollment.pendingDocuments },
+          data: { status: 'ACTIVE', pendingDocuments: enrollment.pendingDocuments, rejectionReason: null },
         });
       }
       return tx.catechesisEnrollment.create({
@@ -921,6 +960,9 @@ export class CatechesisService {
     // Transação: vagas + cadastro do catequizando + matrícula são atômicos
     // (sem menor órfão se algo falhar; recontagem de vagas junto da escrita).
     const applied = await this.prisma.$transaction(async (tx) => {
+      // Trava a linha da turma: duas inscrições simultâneas na última vaga se
+      // serializam — a segunda espera a trava e já conta a primeira
+      await tx.$queryRaw`SELECT id FROM catechesis_classes WHERE id = ${klass.id} FOR UPDATE`;
       if (klass.capacity !== null) {
         const occupied = await tx.catechesisEnrollment.count({
           where: this.occupiedSeatsWhere(klass.id),
@@ -1318,6 +1360,8 @@ export class CatechesisService {
     let renewed = 0;
     let reactivated = 0;
     await this.prisma.$transaction(async (tx) => {
+      // Trava a linha da turma de destino (vagas sob trava, sem corrida)
+      await tx.$queryRaw`SELECT id FROM catechesis_classes WHERE id = ${target.id} FOR UPDATE`;
       // Capacidade checada DENTRO da transação (junto da escrita)
       if (target.capacity !== null) {
         const occupied = await tx.catechesisEnrollment.count({
