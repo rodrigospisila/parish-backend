@@ -1688,6 +1688,10 @@ model CatechesisEnrollment {
   status           CatechesisEnrollmentStatus @default(ACTIVE)
   pendingDocuments String?
   rejectionReason  String? // motivo da recusa, visível à família no app
+  // Catecumenato: catequizando (7+) ainda NÃO batizado — faz 1 ano de catequese
+  // antes de receber o Batismo; não há certidão a cobrar. O painel calcula
+  // "apto ao Batismo" e o aviso some quando o Batismo entra nos sacramentos.
+  unbaptized       Boolean                    @default(false)
   enrolledAt       DateTime                   @default(now())
   completedAt      DateTime?
 

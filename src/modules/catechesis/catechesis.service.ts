@@ -649,7 +649,7 @@ export class CatechesisService {
   // ===== MATRÍCULA =====
 
   async enroll(
-    dto: { classId: string; memberId: string; pendingDocuments?: string; requireBaptism?: boolean; overrideCapacity?: boolean },
+    dto: { classId: string; memberId: string; pendingDocuments?: string; requireBaptism?: boolean; overrideCapacity?: boolean; unbaptized?: boolean },
     user: CurrentUser,
   ) {
     const klass = await this.loadClassInScope(dto.classId, user);
@@ -690,8 +690,12 @@ export class CatechesisService {
 
     // Validação de batismo: cruza com o histórico sacramental (Sacrament).
     // Exigida por padrão para etapas cujo sacramento gerado não é o Batismo.
-    const requireBaptism =
-      dto.requireBaptism ?? (klass.stage.sacramentType !== SacramentType.BAPTISM);
+    // Catecumenato (unbaptized): a criança declaradamente NÃO batizada entra
+    // na catequese mesmo assim — 1 ano de preparação antes do Batismo, sem
+    // certidão a cobrar; o painel acompanha até o Batismo ser registrado.
+    const requireBaptism = dto.unbaptized
+      ? false
+      : (dto.requireBaptism ?? (klass.stage.sacramentType !== SacramentType.BAPTISM));
     if (requireBaptism) {
       const isBaptized = member.sacraments.some((s) => s.type === SacramentType.BAPTISM);
       if (!isBaptized) {
@@ -732,7 +736,7 @@ export class CatechesisService {
         // REJECTED/DROPPED_OUT/TRANSFERRED: a rematrícula reativa o registro
         return tx.catechesisEnrollment.update({
           where: { id: existing.id },
-          data: { status: 'ACTIVE', pendingDocuments: dto.pendingDocuments ?? null, rejectionReason: null },
+          data: { status: 'ACTIVE', pendingDocuments: dto.pendingDocuments ?? null, rejectionReason: null, unbaptized: dto.unbaptized === true },
         });
       }
       return tx.catechesisEnrollment.create({
@@ -740,6 +744,7 @@ export class CatechesisService {
           classId: dto.classId,
           memberId: dto.memberId,
           pendingDocuments: dto.pendingDocuments ?? null,
+          unbaptized: dto.unbaptized === true,
         },
       });
     });
@@ -817,7 +822,8 @@ export class CatechesisService {
       if (existing) {
         return tx.catechesisEnrollment.update({
           where: { id: existing.id },
-          data: { status: 'ACTIVE', pendingDocuments: enrollment.pendingDocuments, rejectionReason: null },
+          // A preparação para o Batismo acompanha o catequizando na troca de turma
+          data: { status: 'ACTIVE', pendingDocuments: enrollment.pendingDocuments, rejectionReason: null, unbaptized: enrollment.unbaptized },
         });
       }
       return tx.catechesisEnrollment.create({
@@ -825,6 +831,7 @@ export class CatechesisService {
           classId: targetClassId,
           memberId: enrollment.memberId,
           pendingDocuments: enrollment.pendingDocuments,
+          unbaptized: enrollment.unbaptized,
         },
       });
     });
@@ -1334,7 +1341,7 @@ export class CatechesisService {
 
     const source = await this.prisma.catechesisEnrollment.findMany({
       where: { id: { in: ids }, classId, status: 'COMPLETED' },
-      select: { id: true, memberId: true },
+      select: { id: true, memberId: true, unbaptized: true },
     });
     if (source.length !== ids.length) {
       throw new BadRequestException('Só é possível renovar matrículas CONCLUÍDAS desta turma');
@@ -1342,8 +1349,10 @@ export class CatechesisService {
 
     // Pendência de batismo acompanha a renovação (mesma regra do apply):
     // a secretaria não perde o rastreio de quem ainda deve a certidão.
+    // Catecúmenos (unbaptized) também: o flag segue até o Batismo aparecer
+    // nos sacramentos — por isso a consulta roda também quando há algum.
     const requiresBaptism = target.stage.sacramentType !== SacramentType.BAPTISM;
-    const baptizedIds = requiresBaptism
+    const baptizedIds = requiresBaptism || source.some((e) => e.unbaptized)
       ? new Set(
           (
             await this.prisma.sacrament.findMany({
@@ -1385,8 +1394,11 @@ export class CatechesisService {
           select: { id: true },
         });
         if (concurrent) continue;
+        // Catecúmeno segue em preparação (sem cobrar certidão que não existe);
+        // quem consta como batizado sem certidão continua com a pendência
+        const stillUnbaptized = enrollment.unbaptized && !baptizedIds.has(enrollment.memberId);
         const pendingDocuments =
-          requiresBaptism && !baptizedIds.has(enrollment.memberId) ? 'Certidão de Batismo' : null;
+          !stillUnbaptized && requiresBaptism && !baptizedIds.has(enrollment.memberId) ? 'Certidão de Batismo' : null;
         const existing = await tx.catechesisEnrollment.findUnique({
           where: { classId_memberId: { classId: target.id, memberId: enrollment.memberId } },
         });
@@ -1402,12 +1414,12 @@ export class CatechesisService {
           }
           await tx.catechesisEnrollment.update({
             where: { id: existing.id },
-            data: { status: 'ACTIVE', pendingDocuments },
+            data: { status: 'ACTIVE', pendingDocuments, unbaptized: stillUnbaptized },
           });
           reactivated++;
         } else {
           await tx.catechesisEnrollment.create({
-            data: { classId: target.id, memberId: enrollment.memberId, pendingDocuments },
+            data: { classId: target.id, memberId: enrollment.memberId, pendingDocuments, unbaptized: stillUnbaptized },
           });
           renewed++;
         }
@@ -3640,6 +3652,9 @@ export class CatechesisService {
             fullName: true,
             phone: true,
             responsible: { select: { fullName: true, phone: true } },
+            // Catecumenato: o aviso "em preparação p/ Batismo" some sozinho
+            // quando o Batismo é registrado nos sacramentos do membro
+            sacraments: { where: { type: SacramentType.BAPTISM }, select: { id: true } },
           },
         },
         messages: { where: { fromTeam: false, readAt: null }, select: { id: true } },
@@ -3652,9 +3667,27 @@ export class CatechesisService {
       },
     });
 
+    // Catecumenato: desde quando cada não-batizado caminha na catequese
+    // (primeira matrícula efetiva em QUALQUER turma) — 1 ano => apto ao Batismo
+    const catechumenMemberIds = enrollments
+      .filter((e) => e.unbaptized && e.member.sacraments.length === 0)
+      .map((e) => e.memberId);
+    const firstEnrollments = catechumenMemberIds.length
+      ? await this.prisma.catechesisEnrollment.groupBy({
+          by: ['memberId'],
+          where: { memberId: { in: catechumenMemberIds }, status: { in: ['ACTIVE', 'COMPLETED', 'TRANSFERRED'] } },
+          _min: { enrolledAt: true },
+        })
+      : [];
+    const catechesisSince = new Map(firstEnrollments.map((g) => [g.memberId, g._min.enrolledAt]));
+    const YEAR_MS = 365 * 24 * 60 * 60 * 1000;
+
     const rows = enrollments.map((e) => {
       const total = e.attendances.length;
       const present = e.attendances.filter((a) => a.present).length;
+      // "unbaptized" só enquanto o Batismo não consta nos sacramentos
+      const catechumen = e.unbaptized && e.member.sacraments.length === 0;
+      const baptismSince = catechumen ? (catechesisSince.get(e.memberId) ?? e.enrolledAt) : null;
       return {
         enrollmentId: e.id,
         member: { id: e.member.id, fullName: e.member.fullName },
@@ -3667,6 +3700,9 @@ export class CatechesisService {
         status: e.status,
         pendingDocuments: e.pendingDocuments,
         rejectionReason: e.rejectionReason,
+        unbaptized: catechumen,
+        baptismSince,
+        baptismReady: !!baptismSince && Date.now() - baptismSince.getTime() >= YEAR_MS,
         submittedDocs: e.documents.filter((doc) => doc.status === 'SUBMITTED').length,
         unreadMessages: e.messages.length,
         docsCount: e.documents.length,
