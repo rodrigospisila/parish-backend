@@ -3345,6 +3345,25 @@ export class CatechesisService {
       clearTimeout(timer);
     }
     if (!response.ok) {
+      // O corpo do erro da API diz o motivo real (créditos, chave, modelo) —
+      // sem ele, "HTTP 400" não orienta ninguém
+      let apiMessage = '';
+      try {
+        const err: any = await response.json();
+        apiMessage = String(err?.error?.message ?? '');
+      } catch {
+        // corpo não-JSON
+      }
+      this.logger.warn(`Auto-check: API da IA respondeu HTTP ${response.status}${apiMessage ? ` — ${apiMessage.slice(0, 200)}` : ''}`);
+      if (/credit balance/i.test(apiMessage)) {
+        return { status: 'SKIPPED', notes: 'Conta Anthropic sem créditos — adicione em console.anthropic.com (Settings → Billing) e reenvie o documento' };
+      }
+      if (response.status === 401) {
+        return { status: 'SKIPPED', notes: 'Chave da IA inválida — confira a variável ANTHROPIC_API_KEY no Railway' };
+      }
+      if (response.status === 404) {
+        return { status: 'SKIPPED', notes: 'Modelo de IA não encontrado — confira a variável DOC_CHECK_MODEL' };
+      }
       return { status: 'SKIPPED', notes: `Conferência automática indisponível (HTTP ${response.status}) — confira manualmente` };
     }
     const payload: any = await response.json();
