@@ -353,9 +353,12 @@ export class CatechesisController {
   }
 
   // Virada de ano: cria a turma sucessora (mesma etapa, ano seguinte),
-  // herdando dados e catequistas — mantidos ou ajustados
+  // herdando dados e catequistas — mantidos ou ajustados. Piso PASTORAL:
+  // é quem opera o encerramento (painel/concluir/distribuir são dela), e o
+  // rollover só CLONA uma turma existente da própria comunidade — turma nova
+  // "do zero" continua exigindo coordenação de comunidade (POST /classes)
   @Post('classes/:id/rollover')
-  @Roles(UserRole.COMMUNITY_COORDINATOR)
+  @Roles(UserRole.PASTORAL_COORDINATOR)
   rolloverClass(
     @Param('id') id: string,
     @Body() dto: { year?: number; name?: string; weekday?: number | null; time?: string | null; room?: string | null; capacity?: number | null; catechistMemberIds?: string[] },
