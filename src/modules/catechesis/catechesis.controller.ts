@@ -15,7 +15,10 @@ export class CatechesisController {
   // Etapas (catálogo por paróquia)
   @Post('stages')
   @Roles(UserRole.PARISH_ADMIN)
-  createStage(@Body() dto: any, @Request() req: any) {
+  createStage(
+    @Body() dto: { name: string; description?: string; ordering?: number; sacramentType?: any; parishId?: string; color?: string },
+    @Request() req: any,
+  ) {
     return this.service.createStage(dto, req.user);
   }
 
@@ -28,7 +31,11 @@ export class CatechesisController {
   // ajustada pela coordenação da própria paróquia (pastoral/comunidade)
   @Patch('stages/:id')
   @Roles(UserRole.PASTORAL_COORDINATOR)
-  updateStage(@Param('id') id: string, @Body() dto: any, @Request() req: any) {
+  updateStage(
+    @Param('id') id: string,
+    @Body() dto: { name?: string; description?: string | null; ordering?: number; sacramentType?: any; color?: string | null },
+    @Request() req: any,
+  ) {
     return this.service.updateStage(id, dto, req.user);
   }
 
@@ -306,16 +313,37 @@ export class CatechesisController {
   @Roles(UserRole.PASTORAL_COORDINATOR)
   renew(
     @Param('id') id: string,
-    @Body() body: { targetClassId: string; enrollmentIds: string[] },
+    @Body() body: { targetClassId: string; enrollmentIds: string[]; overrideCapacity?: boolean },
     @Request() req: any,
   ) {
     return this.service.renewClass(id, body, req.user);
   }
 
+  // Conclusão em lote da turma: uma data/ministro, resultado parcial por matrícula
+  @Post('classes/:id/complete-batch')
+  @Roles(UserRole.PASTORAL_COORDINATOR)
+  completeBatch(
+    @Param('id') id: string,
+    @Body() dto: { enrollmentIds: string[]; date?: string; minister?: string },
+    @Request() req: any,
+  ) {
+    return this.service.completeClassBatch(id, dto, req.user);
+  }
+
+  // Painel "Encerramento do ano" da comunidade (coordenação)
+  @Get('year-end-overview')
+  @Roles(UserRole.PASTORAL_COORDINATOR)
+  yearEndOverview(@Request() req: any, @Query('communityId') communityId?: string) {
+    return this.service.getYearEndOverview(req.user, communityId);
+  }
+
   // Turmas
   @Post('classes')
   @Roles(UserRole.COMMUNITY_COORDINATOR)
-  createClass(@Body() dto: any, @Request() req: any) {
+  createClass(
+    @Body() dto: { name: string; year: number; stageId: string; communityId: string; weekday?: number; time?: string; room?: string; capacity?: number },
+    @Request() req: any,
+  ) {
     return this.service.createClass(dto, req.user);
   }
 
@@ -327,7 +355,11 @@ export class CatechesisController {
   // Editar a turma (inclui o limite de vagas)
   @Patch('classes/:id')
   @Roles(UserRole.COMMUNITY_COORDINATOR)
-  updateClass(@Param('id') id: string, @Body() dto: any, @Request() req: any) {
+  updateClass(
+    @Param('id') id: string,
+    @Body() dto: { name?: string; year?: number; weekday?: number | null; time?: string | null; room?: string | null; capacity?: number | null },
+    @Request() req: any,
+  ) {
     return this.service.updateClass(id, dto, req.user);
   }
 
@@ -368,7 +400,10 @@ export class CatechesisController {
   // Matrícula
   @Post('enrollments')
   @Roles(UserRole.PASTORAL_COORDINATOR)
-  enroll(@Body() dto: any, @Request() req: any) {
+  enroll(
+    @Body() dto: { classId: string; memberId: string; pendingDocuments?: string; requireBaptism?: boolean; overrideCapacity?: boolean; unbaptized?: boolean },
+    @Request() req: any,
+  ) {
     return this.service.enroll(dto, req.user);
   }
 
