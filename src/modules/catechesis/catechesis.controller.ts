@@ -352,6 +352,18 @@ export class CatechesisController {
     return this.service.listClasses(req.user, communityId);
   }
 
+  // Virada de ano: cria a turma sucessora (mesma etapa, ano seguinte),
+  // herdando dados e catequistas — mantidos ou ajustados
+  @Post('classes/:id/rollover')
+  @Roles(UserRole.COMMUNITY_COORDINATOR)
+  rolloverClass(
+    @Param('id') id: string,
+    @Body() dto: { year?: number; name?: string; weekday?: number | null; time?: string | null; room?: string | null; capacity?: number | null; catechistMemberIds?: string[] },
+    @Request() req: any,
+  ) {
+    return this.service.rolloverClass(id, dto, req.user);
+  }
+
   // Editar a turma (inclui o limite de vagas)
   @Patch('classes/:id')
   @Roles(UserRole.COMMUNITY_COORDINATOR)

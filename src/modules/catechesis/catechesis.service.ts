@@ -308,6 +308,137 @@ export class CatechesisService {
     return { ...updated, capacityWarning };
   }
 
+  /**
+   * Virada de ano da TURMA: cria a sucessora do ano seguinte na MESMA etapa e
+   * comunidade, herdando dia/horário/sala/vagas (editáveis) e a equipe de
+   * catequistas — mantida ou ajustada via catechistMemberIds. É o passo que
+   * prepara o grid do ano novo ANTES de distribuir os concluídos.
+   */
+  async rolloverClass(
+    classId: string,
+    dto: {
+      year?: number;
+      name?: string;
+      weekday?: number | null;
+      time?: string | null;
+      room?: string | null;
+      capacity?: number | null;
+      catechistMemberIds?: string[];
+    },
+    user: CurrentUser,
+  ) {
+    const source = await this.loadClassInScope(classId, user);
+
+    let year = source.year + 1;
+    if (dto.year !== undefined) {
+      year = Math.floor(Number(dto.year));
+      if (!Number.isFinite(year) || year < 2000 || year > 2100) throw new BadRequestException('Ano inválido');
+    }
+    if (year <= source.year) {
+      throw new BadRequestException('A turma nova deve ser de um ano posterior ao da turma atual');
+    }
+    const name = (dto.name !== undefined ? String(dto.name).trim() : source.name).slice(0, 120);
+    if (name.length < 2) throw new BadRequestException('Informe o nome da turma');
+
+    // Sucessora já criada? Não duplicar em silêncio — o coordenador pode ter
+    // feito a virada em outra aba/dia
+    const clash = await this.prisma.catechesisClass.findFirst({
+      where: {
+        communityId: source.communityId,
+        stageId: source.stageId,
+        year,
+        deletedAt: null,
+        name: { equals: name, mode: 'insensitive' },
+      },
+      select: { id: true, name: true },
+    });
+    if (clash) {
+      throw new BadRequestException(`Já existe a turma "${clash.name}" de ${year} nesta etapa — abra-a ou escolha outro nome`);
+    }
+
+    let capacity: number | null = source.capacity;
+    if (dto.capacity !== undefined) {
+      if (dto.capacity === null) capacity = null;
+      else {
+        capacity = Math.floor(Number(dto.capacity));
+        if (!Number.isFinite(capacity) || capacity < 1) {
+          throw new BadRequestException('As vagas devem ser um número inteiro maior que zero (ou vazio para sem limite)');
+        }
+      }
+    }
+    let weekday: number | null = source.weekday;
+    if (dto.weekday !== undefined) {
+      if (dto.weekday === null) weekday = null;
+      else {
+        weekday = Math.floor(Number(dto.weekday));
+        if (!Number.isInteger(weekday) || weekday < 0 || weekday > 6) throw new BadRequestException('Dia da semana inválido');
+      }
+    }
+    const time = dto.time !== undefined ? (dto.time ? String(dto.time).slice(0, 20) : null) : source.time;
+    const room = dto.room !== undefined ? (dto.room ? String(dto.room).slice(0, 80) : null) : source.room;
+
+    // Equipe: por padrão copia os catequistas atuais (com a mesma função);
+    // catechistMemberIds substitui a lista. Cada um é revalidado contra a
+    // pastoral — quem saiu da Catequese não entra na turma nova (reportado).
+    const currentLinks = await this.prisma.catechesisCatechist.findMany({
+      where: { classId, member: { deletedAt: null } },
+      select: { memberId: true, role: true, member: { select: { fullName: true } } },
+    });
+    const roleByMember = new Map(currentLinks.map((link) => [link.memberId, link.role ?? 'Catequista']));
+    const nameByMember = new Map(currentLinks.map((link) => [link.memberId, link.member.fullName]));
+    let wanted: string[];
+    if (dto.catechistMemberIds !== undefined) {
+      if (!Array.isArray(dto.catechistMemberIds) || dto.catechistMemberIds.some((id) => typeof id !== 'string')) {
+        throw new BadRequestException('catechistMemberIds deve ser uma lista de membros');
+      }
+      wanted = [...new Set(dto.catechistMemberIds)];
+      // Só catequistas da turma de origem — adicionar gente nova é pelo
+      // "+ Catequista" da turma criada (que valida membro e pastoral)
+      const unknown = wanted.filter((id) => !roleByMember.has(id));
+      if (unknown.length) {
+        throw new BadRequestException('Só os catequistas da turma atual podem ser mantidos aqui — para adicionar novos, use "+ Catequista" na turma criada');
+      }
+    } else {
+      wanted = currentLinks.map((link) => link.memberId);
+    }
+
+    const created = await this.prisma.catechesisClass.create({
+      data: {
+        name,
+        year,
+        stageId: source.stageId,
+        communityId: source.communityId,
+        weekday,
+        time,
+        room,
+        capacity,
+      },
+    });
+
+    let catechists = 0;
+    const skippedCatechists: string[] = [];
+    for (const memberId of wanted) {
+      const link = await this.catechesisPastoralLink(memberId, source.communityId);
+      if (!link) {
+        skippedCatechists.push(nameByMember.get(memberId) ?? memberId);
+        continue;
+      }
+      await this.prisma.catechesisCatechist.create({
+        data: { classId: created.id, memberId, role: roleByMember.get(memberId) ?? 'Catequista' },
+      });
+      catechists++;
+    }
+
+    await this.auditService.log({
+      actor: this.auditActor(user),
+      action: 'CREATE',
+      entity: 'CatechesisClass',
+      entityId: created.id,
+      metadata: { rolloverFrom: classId, year, catechists, skippedCatechists: skippedCatechists.length },
+    });
+    return { ...created, catechists, skippedCatechists };
+  }
+
   async listClasses(user: CurrentUser, communityId?: string) {
     const where: any = { deletedAt: null };
     if (communityId) {
@@ -620,6 +751,38 @@ export class CatechesisService {
       .sort((a, b) => a.fullName.localeCompare(b.fullName, 'pt-BR'));
   }
 
+  /** Vínculo ATIVO do membro à pastoral da Catequese da comunidade (direto ou
+   * via sub-grupo) — a porta de entrada para ser catequista de turma. */
+  private async catechesisPastoralLink(memberId: string, communityId: string) {
+    return this.prisma.pastoralMember.findFirst({
+      where: {
+        memberId,
+        isActive: true,
+        leftAt: null,
+        OR: [
+          {
+            communityPastoral: {
+              communityId,
+              deletedAt: null,
+              globalPastoral: { name: { contains: 'catequ', mode: 'insensitive' } },
+            },
+          },
+          {
+            pastoralGroup: {
+              deletedAt: null,
+              communityPastoral: {
+                communityId,
+                deletedAt: null,
+                globalPastoral: { name: { contains: 'catequ', mode: 'insensitive' } },
+              },
+            },
+          },
+        ],
+      },
+      select: { id: true },
+    });
+  }
+
   async addCatechist(classId: string, memberId: string, role: string | undefined, user: CurrentUser) {
     const klass = await this.loadClassInScope(classId, user);
 
@@ -632,33 +795,7 @@ export class CatechesisService {
     // REGRA: catequista precisa estar vinculado à pastoral da CATEQUESE da
     // comunidade da turma (vínculo direto ou via sub-grupo). O vínculo à
     // pastoral é a porta de entrada — a turma só formaliza a função.
-    const pastoralLink = await this.prisma.pastoralMember.findFirst({
-      where: {
-        memberId,
-        isActive: true,
-        leftAt: null,
-        OR: [
-          {
-            communityPastoral: {
-              communityId: klass.communityId,
-              deletedAt: null,
-              globalPastoral: { name: { contains: 'catequ', mode: 'insensitive' } },
-            },
-          },
-          {
-            pastoralGroup: {
-              deletedAt: null,
-              communityPastoral: {
-                communityId: klass.communityId,
-                deletedAt: null,
-                globalPastoral: { name: { contains: 'catequ', mode: 'insensitive' } },
-              },
-            },
-          },
-        ],
-      },
-      select: { id: true },
-    });
+    const pastoralLink = await this.catechesisPastoralLink(memberId, klass.communityId);
     if (!pastoralLink) {
       throw new BadRequestException(
         'O membro precisa estar vinculado à pastoral da Catequese desta comunidade para ser catequista — vincule-o na aba Pastorais primeiro',
@@ -3809,6 +3946,11 @@ export class CatechesisService {
         const placed = placedClassesByMember.get(e.memberId);
         return !!placed && [...placed].some((cid) => cid !== klass.id);
       }).length;
+      // Virada de ano: a sucessora desta turma (MESMA etapa, ano seguinte) já
+      // existe? Orienta o passo "criar as turmas do ano novo" antes do board
+      const hasNextYearClass = classes.some(
+        (c2) => c2.id !== klass.id && c2.stage.id === klass.stage.id && c2.year === klass.year + 1,
+      );
       return {
         classId: klass.id,
         name: klass.name,
@@ -3818,6 +3960,7 @@ export class CatechesisService {
         completed: completedRows.length,
         relocated,
         toRelocate: completedRows.length - relocated,
+        hasNextYearClass,
       };
     });
   }
