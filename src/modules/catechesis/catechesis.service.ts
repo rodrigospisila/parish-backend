@@ -475,14 +475,24 @@ export class CatechesisService {
     // Ocupação para o limite de vagas = matriculados ATIVOS + inscrições
     // aguardando aprovação (a mesma regra que a matrícula respeita).
     const classIds = classes.map((klass) => klass.id);
-    const occupancy = classIds.length
-      ? await this.prisma.catechesisEnrollment.groupBy({
-          by: ['classId'],
-          where: { classId: { in: classIds }, status: { in: ['ACTIVE', 'PENDING_APPROVAL'] }, member: { deletedAt: null } },
-          _count: { _all: true },
-        })
-      : [];
+    const [occupancy, completedCounts] = classIds.length
+      ? await Promise.all([
+          this.prisma.catechesisEnrollment.groupBy({
+            by: ['classId'],
+            where: { classId: { in: classIds }, status: { in: ['ACTIVE', 'PENDING_APPROVAL'] }, member: { deletedAt: null } },
+            _count: { _all: true },
+          }),
+          // Concluídos por turma: a lista/cards mostram o selo "Concluída"
+          // quando o ano terminou (0 efetivos, N concluídos)
+          this.prisma.catechesisEnrollment.groupBy({
+            by: ['classId'],
+            where: { classId: { in: classIds }, status: 'COMPLETED', member: { deletedAt: null } },
+            _count: { _all: true },
+          }),
+        ])
+      : [[], []];
     const occupiedByClass = new Map(occupancy.map((row) => [row.classId, row._count._all]));
+    const completedByClass = new Map(completedCounts.map((row) => [row.classId, row._count._all]));
 
     return classes.map((klass) => {
       const occupied = occupiedByClass.get(klass.id) ?? 0;
@@ -491,6 +501,7 @@ export class CatechesisService {
         occupied,
         openSpots: klass.capacity === null ? null : Math.max(0, klass.capacity - occupied),
         isFull: klass.capacity !== null && occupied >= klass.capacity,
+        completedCount: completedByClass.get(klass.id) ?? 0,
       };
     });
   }
