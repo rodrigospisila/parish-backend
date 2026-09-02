@@ -3100,24 +3100,33 @@ export class CatechesisService {
       throw new BadRequestException(`"${requirement.kind}" não aceita batismo de outra denominação nesta turma`);
     }
 
-    const document = await this.prisma.$transaction(async (tx) => {
-      await tx.catechesisDocument.deleteMany({
-        where: { enrollmentId, kind: { equals: kind, mode: 'insensitive' }, status: 'SUBMITTED' },
+    let document;
+    try {
+      document = await this.prisma.$transaction(async (tx) => {
+        await tx.catechesisDocument.deleteMany({
+          where: { enrollmentId, kind: { equals: kind, mode: 'insensitive' }, status: 'SUBMITTED' },
+        });
+        return tx.catechesisDocument.create({
+          data: {
+            enrollmentId,
+            kind: requirement.kind,
+            fileName: '—',
+            mimeType: 'text/plain',
+            sizeBytes: 0,
+            data: null,
+            declaration: dto.declaration as any,
+            denomination: dto.declaration === 'OTHER_DENOMINATION' ? denomination : null,
+          },
+          select: { id: true, kind: true, status: true, declaration: true, denomination: true, createdAt: true },
+        });
       });
-      return tx.catechesisDocument.create({
-        data: {
-          enrollmentId,
-          kind: requirement.kind,
-          fileName: '—',
-          mimeType: 'text/plain',
-          sizeBytes: 0,
-          data: null,
-          declaration: dto.declaration as any,
-          denomination: dto.declaration === 'OTHER_DENOMINATION' ? denomination : null,
-        },
-        select: { id: true, kind: true, status: true, declaration: true, denomination: true, createdAt: true },
-      });
-    });
+    } catch (error: any) {
+      // Índice único parcial (1 SUBMITTED por matrícula+tipo) sob corrida
+      if (error?.code === 'P2002') {
+        throw new BadRequestException('Já existe um envio aguardando conferência para este documento — atualize a tela');
+      }
+      throw error;
+    }
 
     await this.auditService.log({
       actor: this.auditActor(user),
