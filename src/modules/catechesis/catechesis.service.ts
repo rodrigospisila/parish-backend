@@ -2282,7 +2282,7 @@ export class CatechesisService {
           select: { present: true, late: true },
         },
         documents: {
-          select: { id: true, kind: true, status: true, reviewNotes: true, createdAt: true },
+          select: { id: true, kind: true, status: true, reviewNotes: true, declaration: true, denomination: true, createdAt: true },
           orderBy: { createdAt: 'desc' },
         },
         _count: {
