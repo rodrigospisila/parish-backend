@@ -274,7 +274,9 @@ export class CatechesisService {
     ) {
       throw new BadRequestException('Data da janela de inscrições inválida — use AAAA-MM-DD');
     }
-    return endOfDay ? new Date(`${value}T23:59:59.999Z`) : parsed;
+    // Ancorado no fuso do público (BRT, -03 fixo desde 2019): meia-noite UTC
+    // abriria às 21h da VÉSPERA e fecharia 20:59 do último dia no Brasil
+    return endOfDay ? new Date(`${value}T23:59:59.999-03:00`) : new Date(`${value}T00:00:00-03:00`);
   }
 
   async updateClass(
@@ -671,7 +673,8 @@ export class CatechesisService {
     };
     for (const enrollment of enrollments) {
       const entry = bucket(enrollment.classId);
-      if (enrollment.status === 'PENDING_APPROVAL') entry.pendingApprovals += 1;
+      // Fila de espera também pede decisão (aceitar +1 vaga ou recusar)
+      if (enrollment.status === 'PENDING_APPROVAL' || enrollment.status === 'WAITLISTED') entry.pendingApprovals += 1;
       if (enrollment.status === 'ACTIVE' || enrollment.status === 'PENDING_APPROVAL') {
         entry.unreadFamilyMessages += enrollment._count.messages;
       }
@@ -1021,21 +1024,26 @@ export class CatechesisService {
           );
         }
       }
+      let created;
       if (existing) {
-        // REJECTED/DROPPED_OUT/TRANSFERRED: a rematrícula reativa o registro
-        return tx.catechesisEnrollment.update({
+        // REJECTED/DROPPED_OUT/TRANSFERRED/WAITLISTED: a rematrícula reativa o registro
+        created = await tx.catechesisEnrollment.update({
           where: { id: existing.id },
-          data: { status: 'ACTIVE', pendingDocuments: dto.pendingDocuments ?? null, rejectionReason: null, unbaptized: dto.unbaptized === true },
+          data: { status: 'ACTIVE', pendingDocuments: dto.pendingDocuments ?? null, rejectionReason: null, unbaptized: dto.unbaptized === true, waitlistedAt: null },
+        });
+      } else {
+        created = await tx.catechesisEnrollment.create({
+          data: {
+            classId: dto.classId,
+            memberId: dto.memberId,
+            pendingDocuments: dto.pendingDocuments ?? null,
+            unbaptized: dto.unbaptized === true,
+          },
         });
       }
-      return tx.catechesisEnrollment.create({
-        data: {
-          classId: dto.classId,
-          memberId: dto.memberId,
-          pendingDocuments: dto.pendingDocuments ?? null,
-          unbaptized: dto.unbaptized === true,
-        },
-      });
+      // Matriculado: filas de espera em outras turmas encerram
+      await this.clearOtherWaitlists(tx, [dto.memberId], dto.classId);
+      return created;
     });
     await this.auditService.log({
       actor: this.auditActor(user),
@@ -1124,21 +1132,26 @@ export class CatechesisService {
       if (guarded.count === 0) {
         throw new BadRequestException('Apenas matrículas ATIVAS podem ser transferidas');
       }
+      let moved;
       if (existing) {
-        return tx.catechesisEnrollment.update({
+        moved = await tx.catechesisEnrollment.update({
           where: { id: existing.id },
           // A preparação para o Batismo acompanha o catequizando na troca de turma
-          data: { status: 'ACTIVE', pendingDocuments: enrollment.pendingDocuments, rejectionReason: null, unbaptized: enrollment.unbaptized },
+          data: { status: 'ACTIVE', pendingDocuments: enrollment.pendingDocuments, rejectionReason: null, unbaptized: enrollment.unbaptized, waitlistedAt: null },
+        });
+      } else {
+        moved = await tx.catechesisEnrollment.create({
+          data: {
+            classId: targetClassId,
+            memberId: enrollment.memberId,
+            pendingDocuments: enrollment.pendingDocuments,
+            unbaptized: enrollment.unbaptized,
+          },
         });
       }
-      return tx.catechesisEnrollment.create({
-        data: {
-          classId: targetClassId,
-          memberId: enrollment.memberId,
-          pendingDocuments: enrollment.pendingDocuments,
-          unbaptized: enrollment.unbaptized,
-        },
-      });
+      // Vaga garantida no destino: filas em outras turmas encerram
+      await this.clearOtherWaitlists(tx, [enrollment.memberId], targetClassId);
+      return moved;
     });
 
     await this.auditService.log({
@@ -1163,6 +1176,39 @@ export class CatechesisService {
     if (!link) {
       throw new ForbiddenException('Você não tem vínculo com a comunidade desta turma');
     }
+  }
+
+  /** Posições da fila de espera por turma: ordem de entrada na fila
+   * (waitlistedAt; fallback enrolledAt para linhas antigas) com desempate
+   * determinístico por id. Map enrollmentId → posição (1 = próximo). */
+  private async waitlistPositionsFor(classIds: string[]): Promise<Map<string, number>> {
+    const positions = new Map<string, number>();
+    if (!classIds.length) return positions;
+    const queue = await this.prisma.catechesisEnrollment.findMany({
+      where: { classId: { in: classIds }, status: 'WAITLISTED', member: { deletedAt: null } },
+      select: { id: true, classId: true, waitlistedAt: true, enrolledAt: true },
+    });
+    const key = (row: { waitlistedAt: Date | null; enrolledAt: Date; id: string }) =>
+      `${(row.waitlistedAt ?? row.enrolledAt).toISOString()}|${row.id}`;
+    queue.sort((a, b) => (key(a) < key(b) ? -1 : 1));
+    const counters = new Map<string, number>();
+    for (const row of queue) {
+      const position = (counters.get(row.classId) ?? 0) + 1;
+      counters.set(row.classId, position);
+      positions.set(row.id, position);
+    }
+    return positions;
+  }
+
+  /** Vaga preenchida em uma turma: encerra as filas de espera do membro nas
+   * DEMAIS turmas — entradas fantasmas nunca aprovariam (concorrente barra)
+   * e inflariam waitlistCount/posições das outras famílias. */
+  private async clearOtherWaitlists(tx: any, memberIds: string[], exceptClassId: string) {
+    if (!memberIds.length) return;
+    await tx.catechesisEnrollment.updateMany({
+      where: { memberId: { in: memberIds }, status: 'WAITLISTED', classId: { not: exceptClassId } },
+      data: { status: 'REJECTED', rejectionReason: 'Vaga preenchida em outra turma', waitlistedAt: null },
+    });
   }
 
   /** Inscrições online desta turma estão abertas agora? (chave geral + janela) */
@@ -1425,12 +1471,19 @@ export class CatechesisService {
         }
         const enrollment = await tx.catechesisEnrollment.update({
           where: { id: existing.id },
-          data: { status: nextStatus, pendingDocuments, rejectionReason: null },
+          // waitlistedAt = AGORA: reativação com o enrolledAt antigo furaria a fila
+          data: { status: nextStatus, pendingDocuments, rejectionReason: null, waitlistedAt: waitlist ? new Date() : null },
         });
         return { enrollment, targetMemberId };
       }
       const enrollment = await tx.catechesisEnrollment.create({
-        data: { classId: klass.id, memberId: targetMemberId, status: nextStatus, pendingDocuments },
+        data: {
+          classId: klass.id,
+          memberId: targetMemberId,
+          status: nextStatus,
+          pendingDocuments,
+          waitlistedAt: waitlist ? new Date() : null,
+        },
       });
       return { enrollment, targetMemberId };
     });
@@ -1514,11 +1567,13 @@ export class CatechesisService {
       // turma cheia (+1 vaga acima do limite, auditado).
       const guarded = await tx.catechesisEnrollment.updateMany({
         where: { id: enrollmentId, status: { in: ['PENDING_APPROVAL', 'WAITLISTED'] } },
-        data: { status: 'ACTIVE' },
+        data: { status: 'ACTIVE', waitlistedAt: null },
       });
       if (guarded.count === 0) {
         throw new BadRequestException('Esta inscrição não está aguardando aprovação');
       }
+      // Vaga garantida aqui: as filas do membro nas OUTRAS turmas encerram
+      await this.clearOtherWaitlists(tx, [enrollment.memberId], enrollment.class.id);
       return tx.catechesisEnrollment.findUnique({ where: { id: enrollmentId } });
     });
     await this.auditService.log({
@@ -1575,7 +1630,7 @@ export class CatechesisService {
 
     const guarded = await this.prisma.catechesisEnrollment.updateMany({
       where: { id: enrollmentId, status: { in: ['PENDING_APPROVAL', 'WAITLISTED'] } },
-      data: { status: 'REJECTED', rejectionReason: reason?.trim() || null },
+      data: { status: 'REJECTED', rejectionReason: reason?.trim() || null, waitlistedAt: null },
     });
     if (guarded.count === 0) {
       throw new BadRequestException('Esta inscrição não está aguardando aprovação');
@@ -1817,6 +1872,7 @@ export class CatechesisService {
 
     let renewed = 0;
     let reactivated = 0;
+    const promotedMemberIds: string[] = [];
     const skippedDetails: Array<{ enrollmentId: string; member: string; reason: string }> = [];
     await this.prisma.$transaction(async (tx) => {
       // Trava a turma de destino e RELÊ status/capacity sob a trava — o
@@ -1907,16 +1963,20 @@ export class CatechesisService {
           }
           await tx.catechesisEnrollment.update({
             where: { id: existing.id },
-            data: { status: 'ACTIVE', pendingDocuments, unbaptized: stillUnbaptized },
+            data: { status: 'ACTIVE', pendingDocuments, unbaptized: stillUnbaptized, waitlistedAt: null },
           });
           reactivated++;
+          promotedMemberIds.push(enrollment.memberId);
         } else {
           await tx.catechesisEnrollment.create({
             data: { classId: target.id, memberId: enrollment.memberId, pendingDocuments, unbaptized: stillUnbaptized },
           });
           renewed++;
+          promotedMemberIds.push(enrollment.memberId);
         }
       }
+      // Renovados ganharam vaga: filas de espera deles em outras turmas encerram
+      await this.clearOtherWaitlists(tx, promotedMemberIds, target.id);
     });
 
     await this.auditService.log({
@@ -2450,26 +2510,12 @@ export class CatechesisService {
       (a, b) => (statusOrder[a.status] ?? 9) - (statusOrder[b.status] ?? 9),
     );
 
-    // Posição na fila de espera (ordem de chegada) por matrícula WAITLISTED
+    // Posição na fila de espera (ordem de ENTRADA NA FILA, com desempate
+    // determinístico por id) por matrícula WAITLISTED
     const waitlistedRows = enrollments.filter((e) => e.status === 'WAITLISTED');
-    const waitlistPositions = new Map<string, number>();
-    if (waitlistedRows.length) {
-      const queue = await this.prisma.catechesisEnrollment.findMany({
-        where: {
-          classId: { in: [...new Set(waitlistedRows.map((e) => e.classId))] },
-          status: 'WAITLISTED',
-          member: { deletedAt: null },
-        },
-        select: { id: true, classId: true },
-        orderBy: { enrolledAt: 'asc' },
-      });
-      const counters = new Map<string, number>();
-      for (const row of queue) {
-        const position = (counters.get(row.classId) ?? 0) + 1;
-        counters.set(row.classId, position);
-        waitlistPositions.set(row.id, position);
-      }
-    }
+    const waitlistPositions = waitlistedRows.length
+      ? await this.waitlistPositionsFor([...new Set(waitlistedRows.map((e) => e.classId))])
+      : new Map<string, number>();
 
     return enrollments.map((enrollment) => {
       const total = enrollment.attendances.length;
@@ -4967,6 +5013,11 @@ export class CatechesisService {
     const catechesisSince = new Map(firstEnrollments.map((g) => [g.memberId, g._min.enrolledAt]));
     const YEAR_MS = 365 * 24 * 60 * 60 * 1000;
 
+    // Quem decide o aceite precisa ver a ordem da fila (a família vê a posição)
+    const waitlistPositions = enrollments.some((e) => e.status === 'WAITLISTED')
+      ? await this.waitlistPositionsFor([classId])
+      : new Map<string, number>();
+
     const rows = enrollments.map((e) => {
       const total = e.attendances.length;
       const present = e.attendances.filter((a) => a.present).length;
@@ -4985,6 +5036,7 @@ export class CatechesisService {
         status: e.status,
         pendingDocuments: e.pendingDocuments,
         rejectionReason: e.rejectionReason,
+        waitlistPosition: e.status === 'WAITLISTED' ? waitlistPositions.get(e.id) ?? null : null,
         unbaptized: catechumen,
         baptismSince,
         baptismReady: !!baptismSince && Date.now() - baptismSince.getTime() >= YEAR_MS,

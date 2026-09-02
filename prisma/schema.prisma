@@ -1710,6 +1710,9 @@ model CatechesisEnrollment {
   // antes de receber o Batismo; não há certidão a cobrar. O painel calcula
   // "apto ao Batismo" e o aviso some quando o Batismo entra nos sacramentos.
   unbaptized       Boolean                    @default(false)
+  // Instante de ENTRADA NA FILA de espera (ordem justa): enrolledAt não serve —
+  // reativar matrícula antiga furaria a fila com a data original
+  waitlistedAt     DateTime?
   enrolledAt       DateTime                   @default(now())
   completedAt      DateTime?
 

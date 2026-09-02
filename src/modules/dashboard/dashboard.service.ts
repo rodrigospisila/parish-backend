@@ -125,7 +125,8 @@ export class DashboardService {
       pendingModeration,
     ] = await Promise.all([
       this.prisma.catechesisEnrollment.count({
-        where: { status: 'PENDING_APPROVAL', member: { deletedAt: null }, class: classWhere },
+        // Fila de espera também aguarda decisão da coordenação (aceitar/recusar)
+        where: { status: { in: ['PENDING_APPROVAL', 'WAITLISTED'] }, member: { deletedAt: null }, class: classWhere },
       }),
       this.prisma.catechesisDocument.count({ where: { status: 'SUBMITTED', enrollment: { class: classWhere } } }),
       this.prisma.catechesisSession.count({
