@@ -7,6 +7,7 @@ import {
 import { CatechesisRating, NotificationType, SacramentType, TransactionType, UserRole } from '@prisma/client';
 import { PrismaService } from '../../database/prisma.service';
 import { HierarchyService, CurrentUser } from '../../common/hierarchy.service';
+import { isRoleAtLeast } from '../auth/constants/role-hierarchy';
 import { AuditService } from '../../common/audit.service';
 import { NotificationsService } from '../notifications/notifications.service';
 import { PdfService } from '../pdf/pdf.service';
@@ -140,11 +141,28 @@ export class CatechesisService {
       include: { parish: { select: { dioceseId: true } } },
     });
     if (!stage) throw new NotFoundException('Etapa de catequese não encontrada');
-    const allowed =
+
+    // Paróquia do usuário: coordenações podem ter só a comunidade no perfil
+    let userParishId = user.parishId ?? null;
+    if (!userParishId && user.communityId) {
+      const community = await this.prisma.community.findUnique({ where: { id: user.communityId }, select: { parishId: true } });
+      userParishId = community?.parishId ?? null;
+    }
+    const sameParish = userParishId === stage.parishId;
+    const managerAllowed =
       user.role === UserRole.SYSTEM_ADMIN ||
       (user.role === UserRole.DIOCESAN_ADMIN && user.dioceseId === stage.parish.dioceseId) ||
-      (this.isParishManager(user.role) && user.parishId === stage.parishId);
-    if (!allowed) throw new ForbiddenException('Etapa fora do seu escopo');
+      (this.isParishManager(user.role) && sameParish);
+    // Estrutura (nome/ordem/sacramento/descrição) é da administração paroquial;
+    // a COR é apresentação — a coordenação (comunidade/pastoral) da própria
+    // paróquia pode ajustar, como faz na planilha
+    const structural =
+      dto.name !== undefined || dto.description !== undefined || dto.ordering !== undefined || dto.sacramentType !== undefined;
+    if (structural && !managerAllowed) {
+      throw new ForbiddenException('Só a administração paroquial edita as etapas');
+    }
+    const colorAllowed = managerAllowed || (sameParish && isRoleAtLeast(user.role, UserRole.PASTORAL_COORDINATOR));
+    if (!structural && !colorAllowed) throw new ForbiddenException('Etapa fora do seu escopo');
 
     const data: any = {};
     if (dto.name !== undefined) {

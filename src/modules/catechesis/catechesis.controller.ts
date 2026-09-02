@@ -24,9 +24,10 @@ export class CatechesisController {
     return this.service.listStages(req.user);
   }
 
-  // Editar etapa (nome, ordem, sacramento e cor do "tempo")
+  // Editar etapa: estrutura é PARISH_ADMIN+ (service valida); a COR pode ser
+  // ajustada pela coordenação da própria paróquia (pastoral/comunidade)
   @Patch('stages/:id')
-  @Roles(UserRole.PARISH_ADMIN)
+  @Roles(UserRole.PASTORAL_COORDINATOR)
   updateStage(@Param('id') id: string, @Body() dto: any, @Request() req: any) {
     return this.service.updateStage(id, dto, req.user);
   }
