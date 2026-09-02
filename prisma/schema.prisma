@@ -1604,6 +1604,13 @@ enum CatechesisEnrollmentStatus {
   DROPPED_OUT
   PENDING_APPROVAL // Inscrição online aguardando a coordenação
   REJECTED // Inscrição não aprovada
+  WAITLISTED // Fila de espera (turma cheia) — NÃO ocupa vaga; aceite abre +1
+}
+
+// Comportamento da inscrição online quando a turma está cheia
+enum CatechesisFullBehavior {
+  WAITLIST // aceita o pedido numa fila de espera (a coordenação decide)
+  BLOCK // recusa na hora: a turma não aceita mais inscrições no ano
 }
 
 // Catálogo de etapas por paróquia (ex.: "1ª Eucaristia - Ano 1", "Crisma")
@@ -1639,6 +1646,14 @@ model CatechesisClass {
   room    String?
   // Vagas da turma (null = sem limite); inscrição online respeita o limite
   capacity Int?
+
+  // Inscrições online: chave geral + janela opcional (null = sem restrição).
+  // Fim de ano: fecha as turmas do ano corrente e abre as do ano novo.
+  enrollmentOpen     Boolean   @default(true)
+  enrollmentOpensAt  DateTime?
+  enrollmentClosesAt DateTime?
+  // Turma cheia: fila de espera (padrão) ou bloqueio da inscrição
+  fullBehavior CatechesisFullBehavior @default(WAITLIST)
 
   stageId     String
   stage       CatechesisStage @relation(fields: [stageId], references: [id], onDelete: Cascade)

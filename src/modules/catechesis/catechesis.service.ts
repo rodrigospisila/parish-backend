@@ -262,15 +262,56 @@ export class CatechesisService {
    * campos enviados mudam; `capacity: null` remove o limite. Não move a turma
    * de etapa nem de comunidade (isso mudaria contagem diocesana e histórico).
    */
+  /** Data AAAA-MM-DD da janela de inscrições (fim: inclui o dia inteiro). */
+  private static parseWindowDate(raw: unknown, endOfDay: boolean): Date | null {
+    if (raw === null || raw === '') return null;
+    const value = String(raw).slice(0, 10);
+    const parsed = new Date(value);
+    if (
+      !/^\d{4}-\d{2}-\d{2}$/.test(value) ||
+      Number.isNaN(parsed.getTime()) ||
+      parsed.toISOString().slice(0, 10) !== value
+    ) {
+      throw new BadRequestException('Data da janela de inscrições inválida — use AAAA-MM-DD');
+    }
+    return endOfDay ? new Date(`${value}T23:59:59.999Z`) : parsed;
+  }
+
   async updateClass(
     classId: string,
-    dto: { name?: string; year?: number; weekday?: number | null; time?: string | null; room?: string | null; capacity?: number | null },
+    dto: {
+      name?: string;
+      year?: number;
+      weekday?: number | null;
+      time?: string | null;
+      room?: string | null;
+      capacity?: number | null;
+      enrollmentOpen?: boolean;
+      enrollmentOpensAt?: string | null;
+      enrollmentClosesAt?: string | null;
+      fullBehavior?: string;
+    },
     user: CurrentUser,
   ) {
     const klass = await this.loadClassInScope(classId, user);
     await this.assertCommunityScope(klass.communityId, user);
 
     const data: any = {};
+    // Inscrições online: chave geral, janela por data e comportamento de cheia
+    if (dto.enrollmentOpen !== undefined) data.enrollmentOpen = dto.enrollmentOpen === true;
+    if (dto.enrollmentOpensAt !== undefined) data.enrollmentOpensAt = CatechesisService.parseWindowDate(dto.enrollmentOpensAt, false);
+    if (dto.enrollmentClosesAt !== undefined) data.enrollmentClosesAt = CatechesisService.parseWindowDate(dto.enrollmentClosesAt, true);
+    if (dto.fullBehavior !== undefined) {
+      if (dto.fullBehavior !== 'WAITLIST' && dto.fullBehavior !== 'BLOCK') {
+        throw new BadRequestException('Comportamento de turma cheia inválido — use WAITLIST ou BLOCK');
+      }
+      data.fullBehavior = dto.fullBehavior;
+    }
+    const effectiveOpens = data.enrollmentOpensAt !== undefined ? data.enrollmentOpensAt : klass.enrollmentOpensAt;
+    const effectiveCloses = data.enrollmentClosesAt !== undefined ? data.enrollmentClosesAt : klass.enrollmentClosesAt;
+    if (effectiveOpens && effectiveCloses && effectiveOpens.getTime() > effectiveCloses.getTime()) {
+      throw new BadRequestException('A abertura das inscrições precisa ser antes do encerramento');
+    }
     if (dto.name !== undefined) {
       const name = String(dto.name).trim();
       if (name.length < 2) throw new BadRequestException('Informe o nome da turma');
@@ -431,6 +472,9 @@ export class CatechesisService {
           time,
           room,
           capacity,
+          // A sucessora herda o comportamento de turma cheia e nasce com as
+          // inscrições ABERTAS, sem janela (o ano novo começa aceitando)
+          fullBehavior: source.fullBehavior,
         },
       });
       if (team.length) {
@@ -1121,6 +1165,19 @@ export class CatechesisService {
     }
   }
 
+  /** Inscrições online desta turma estão abertas agora? (chave geral + janela) */
+  private static enrollmentWindowOpen(klass: {
+    enrollmentOpen: boolean;
+    enrollmentOpensAt: Date | null;
+    enrollmentClosesAt: Date | null;
+  }): boolean {
+    if (!klass.enrollmentOpen) return false;
+    const now = Date.now();
+    if (klass.enrollmentOpensAt && now < klass.enrollmentOpensAt.getTime()) return false;
+    if (klass.enrollmentClosesAt && now > klass.enrollmentClosesAt.getTime()) return false;
+    return true;
+  }
+
   /** Vagas ocupadas: matrículas ativas + inscrições aguardando aprovação. */
   private occupiedSeatsWhere(classId: string) {
     return {
@@ -1151,19 +1208,43 @@ export class CatechesisService {
       orderBy: [{ year: 'desc' }, { name: 'asc' }],
     });
 
-    return classes.map((klass) => ({
-      classId: klass.id,
-      name: klass.name,
-      year: klass.year,
-      weekday: klass.weekday,
-      time: klass.time,
-      room: klass.room,
-      stage: klass.stage,
-      community: klass.community,
-      capacity: klass.capacity,
-      occupied: klass._count.enrollments,
-      openSpots: klass.capacity === null ? null : Math.max(0, klass.capacity - klass._count.enrollments),
-    }));
+    // Só turmas com inscrições ABERTAS (chave/janela do coordenador) — fim de
+    // ano: as de 2026 fechadas somem e as de 2027 aparecem
+    const open = classes.filter((klass) => CatechesisService.enrollmentWindowOpen(klass));
+
+    // Tamanho da fila de espera por turma (WAITLISTED não ocupa vaga)
+    const openIds = open.map((klass) => klass.id);
+    const waitlists = openIds.length
+      ? await this.prisma.catechesisEnrollment.groupBy({
+          by: ['classId'],
+          where: { classId: { in: openIds }, status: 'WAITLISTED', member: { deletedAt: null } },
+          _count: { _all: true },
+        })
+      : [];
+    const waitlistByClass = new Map(waitlists.map((row) => [row.classId, row._count._all]));
+
+    return open.map((klass) => {
+      const occupied = klass._count.enrollments;
+      const full = klass.capacity !== null && occupied >= klass.capacity;
+      // OPEN = tem vaga · WAITLIST = cheia com fila · FULL_CLOSED = cheia e a
+      // turma não aceita mais inscrições no ano (o app mostra desabilitada)
+      const acceptingMode = !full ? 'OPEN' : klass.fullBehavior === 'WAITLIST' ? 'WAITLIST' : 'FULL_CLOSED';
+      return {
+        classId: klass.id,
+        name: klass.name,
+        year: klass.year,
+        weekday: klass.weekday,
+        time: klass.time,
+        room: klass.room,
+        stage: klass.stage,
+        community: klass.community,
+        capacity: klass.capacity,
+        occupied,
+        openSpots: klass.capacity === null ? null : Math.max(0, klass.capacity - occupied),
+        acceptingMode,
+        waitlistCount: waitlistByClass.get(klass.id) ?? 0,
+      };
+    });
   }
 
   /**
@@ -1197,6 +1278,10 @@ export class CatechesisService {
       include: { stage: true },
     });
     if (!klass) throw new NotFoundException('Turma não encontrada ou encerrada');
+    // Janela de inscrições da turma (o coordenador abre/fecha, com datas)
+    if (!CatechesisService.enrollmentWindowOpen(klass)) {
+      throw new BadRequestException('As inscrições desta turma estão encerradas — fale com a secretaria ou escolha outra turma');
+    }
     await this.assertMemberCommunityLink(myMember.id, klass.communityId, user.communityId ?? myMember.communityId);
 
     // Valida a entrada do filho novo ANTES de qualquer escrita
@@ -1231,12 +1316,20 @@ export class CatechesisService {
       // Trava a linha da turma: duas inscrições simultâneas na última vaga se
       // serializam — a segunda espera a trava e já conta a primeira
       await tx.$queryRaw`SELECT id FROM catechesis_classes WHERE id = ${klass.id} FOR UPDATE`;
+      // Turma cheia: FILA DE ESPERA (padrão — a coordenação aceita abrindo
+      // +1 vaga, ou recusa) ou BLOQUEIO, conforme o parâmetro da turma
+      let waitlist = false;
       if (klass.capacity !== null) {
         const occupied = await tx.catechesisEnrollment.count({
           where: this.occupiedSeatsWhere(klass.id),
         });
         if (occupied >= klass.capacity) {
-          throw new BadRequestException('Turma sem vagas — escolha outra turma ou fale com a secretaria');
+          if (klass.fullBehavior === 'BLOCK') {
+            throw new BadRequestException(
+              `A ${klass.name} já está cheia e não aceita mais inscrições neste ano — escolha outra turma ou fale com a secretaria`,
+            );
+          }
+          waitlist = true;
         }
       }
 
@@ -1316,6 +1409,7 @@ export class CatechesisService {
 
       // Reaproveita matrícula anterior (recusada/desistente/transferida);
       // CONCLUÍDA nunca é reaproveitada — apagaria o registro de conclusão.
+      const nextStatus = waitlist ? 'WAITLISTED' : 'PENDING_APPROVAL';
       const existing = await tx.catechesisEnrollment.findUnique({
         where: { classId_memberId: { classId: klass.id, memberId: targetMemberId } },
       });
@@ -1323,17 +1417,20 @@ export class CatechesisService {
         if (existing.status === 'ACTIVE' || existing.status === 'PENDING_APPROVAL') {
           throw new BadRequestException('Este catequizando já está matriculado (ou aguardando aprovação) nesta turma');
         }
+        if (existing.status === 'WAITLISTED') {
+          throw new BadRequestException('Este catequizando já está na fila de espera desta turma');
+        }
         if (existing.status === 'COMPLETED') {
           throw new BadRequestException('Este catequizando já concluiu esta turma — a próxima etapa é feita pela renovação');
         }
         const enrollment = await tx.catechesisEnrollment.update({
           where: { id: existing.id },
-          data: { status: 'PENDING_APPROVAL', pendingDocuments, rejectionReason: null },
+          data: { status: nextStatus, pendingDocuments, rejectionReason: null },
         });
         return { enrollment, targetMemberId };
       }
       const enrollment = await tx.catechesisEnrollment.create({
-        data: { classId: klass.id, memberId: targetMemberId, status: 'PENDING_APPROVAL', pendingDocuments },
+        data: { classId: klass.id, memberId: targetMemberId, status: nextStatus, pendingDocuments },
       });
       return { enrollment, targetMemberId };
     });
@@ -1363,8 +1460,10 @@ export class CatechesisService {
         await this.notificationsService.notifyUsers(
           userIds,
           NotificationType.CATECHESIS,
-          'Nova inscrição na catequese',
-          `${applicant?.fullName ?? 'Um catequizando'} se inscreveu na ${klass.name} — aguardando aprovação.`,
+          enrollment.status === 'WAITLISTED' ? 'Fila de espera na catequese' : 'Nova inscrição na catequese',
+          enrollment.status === 'WAITLISTED'
+            ? `${applicant?.fullName ?? 'Um catequizando'} entrou na FILA DE ESPERA da ${klass.name} (turma cheia) — aceite abre +1 vaga.`
+            : `${applicant?.fullName ?? 'Um catequizando'} se inscreveu na ${klass.name} — aguardando aprovação.`,
           { kind: 'application', classId: klass.id, enrollmentId: enrollment.id },
         );
       }
@@ -1386,9 +1485,10 @@ export class CatechesisService {
     });
     if (!enrollment) throw new NotFoundException('Inscrição não encontrada');
     await this.assertClassOperationalAccess(enrollment.class.id, user);
-    if (enrollment.status !== 'PENDING_APPROVAL') {
+    if (enrollment.status !== 'PENDING_APPROVAL' && enrollment.status !== 'WAITLISTED') {
       throw new BadRequestException('Esta inscrição não está aguardando aprovação');
     }
+    const fromWaitlist = enrollment.status === 'WAITLISTED';
 
     // Pode ter sido matriculado noutra turma enquanto a inscrição aguardava —
     // checagem e escrita na MESMA transação, serializadas pelo lock do membro
@@ -1409,9 +1509,11 @@ export class CatechesisService {
         );
       }
       // Compare-and-set: aprovar só o que AINDA aguarda (aprovação dupla ou
-      // corrida com recusa/conclusão não sobrescreve estado)
+      // corrida com recusa/conclusão não sobrescreve estado). Aceite da FILA
+      // DE ESPERA é decisão consciente da coordenação: entra mesmo com a
+      // turma cheia (+1 vaga acima do limite, auditado).
       const guarded = await tx.catechesisEnrollment.updateMany({
-        where: { id: enrollmentId, status: 'PENDING_APPROVAL' },
+        where: { id: enrollmentId, status: { in: ['PENDING_APPROVAL', 'WAITLISTED'] } },
         data: { status: 'ACTIVE' },
       });
       if (guarded.count === 0) {
@@ -1424,7 +1526,7 @@ export class CatechesisService {
       action: 'UPDATE',
       entity: 'CatechesisEnrollment',
       entityId: enrollmentId,
-      metadata: { approved: true },
+      metadata: { approved: true, ...(fromWaitlist ? { fromWaitlist: true, overrodeCapacity: true } : {}) },
     });
     try {
       const userIds = this.guardianUserIds(enrollment.member);
@@ -1466,14 +1568,19 @@ export class CatechesisService {
     });
     if (!enrollment) throw new NotFoundException('Inscrição não encontrada');
     await this.assertClassOperationalAccess(enrollment.class.id, user);
-    if (enrollment.status !== 'PENDING_APPROVAL') {
+    // Recusa vale para inscrição pendente E para a fila de espera
+    if (enrollment.status !== 'PENDING_APPROVAL' && enrollment.status !== 'WAITLISTED') {
       throw new BadRequestException('Esta inscrição não está aguardando aprovação');
     }
 
-    const updated = await this.prisma.catechesisEnrollment.update({
-      where: { id: enrollmentId },
+    const guarded = await this.prisma.catechesisEnrollment.updateMany({
+      where: { id: enrollmentId, status: { in: ['PENDING_APPROVAL', 'WAITLISTED'] } },
       data: { status: 'REJECTED', rejectionReason: reason?.trim() || null },
     });
+    if (guarded.count === 0) {
+      throw new BadRequestException('Esta inscrição não está aguardando aprovação');
+    }
+    const updated = await this.prisma.catechesisEnrollment.findUnique({ where: { id: enrollmentId } });
 
     // LGPD: se o menor foi CADASTRADO por esta inscrição online (criado junto
     // dela, sem conta, sem outra participação), a recusa remove a finalidade da
@@ -2262,7 +2369,7 @@ export class CatechesisService {
 
     const enrollments = await this.prisma.catechesisEnrollment.findMany({
       where: {
-        status: { in: ['ACTIVE', 'COMPLETED', 'PENDING_APPROVAL', 'REJECTED'] },
+        status: { in: ['ACTIVE', 'COMPLETED', 'PENDING_APPROVAL', 'WAITLISTED', 'REJECTED'] },
         class: { deletedAt: null },
         member: {
           deletedAt: null,
@@ -2335,12 +2442,34 @@ export class CatechesisService {
     const statusOrder: Record<string, number> = {
       ACTIVE: 0,
       PENDING_APPROVAL: 1,
-      COMPLETED: 2,
-      REJECTED: 3,
+      WAITLISTED: 2,
+      COMPLETED: 3,
+      REJECTED: 4,
     };
     enrollments.sort(
       (a, b) => (statusOrder[a.status] ?? 9) - (statusOrder[b.status] ?? 9),
     );
+
+    // Posição na fila de espera (ordem de chegada) por matrícula WAITLISTED
+    const waitlistedRows = enrollments.filter((e) => e.status === 'WAITLISTED');
+    const waitlistPositions = new Map<string, number>();
+    if (waitlistedRows.length) {
+      const queue = await this.prisma.catechesisEnrollment.findMany({
+        where: {
+          classId: { in: [...new Set(waitlistedRows.map((e) => e.classId))] },
+          status: 'WAITLISTED',
+          member: { deletedAt: null },
+        },
+        select: { id: true, classId: true },
+        orderBy: { enrolledAt: 'asc' },
+      });
+      const counters = new Map<string, number>();
+      for (const row of queue) {
+        const position = (counters.get(row.classId) ?? 0) + 1;
+        counters.set(row.classId, position);
+        waitlistPositions.set(row.id, position);
+      }
+    }
 
     return enrollments.map((enrollment) => {
       const total = enrollment.attendances.length;
@@ -2354,6 +2483,8 @@ export class CatechesisService {
         status: enrollment.status,
         pendingDocuments: enrollment.pendingDocuments,
         rejectionReason: enrollment.rejectionReason,
+        // Fila de espera: posição por ordem de chegada (1 = próximo)
+        waitlistPosition: waitlistPositions.get(enrollment.id) ?? null,
         documents: enrollment.documents,
         assessmentsCount: enrollment._count.assessments,
         unreadMessages: enrollment._count.messages,
@@ -4871,12 +5002,13 @@ export class CatechesisService {
         fullName: link.member.fullName,
         role: link.role ?? 'Catequista',
       })),
-      // Recusadas nunca foram matrículas — ficam fora do total (mas na lista)
-      total: rows.filter((r) => r.status !== 'REJECTED').length,
+      // Recusadas/fila nunca foram matrículas — ficam fora do total (mas na lista)
+      total: rows.filter((r) => r.status !== 'REJECTED' && r.status !== 'WAITLISTED').length,
       active: rows.filter((r) => r.status === 'ACTIVE').length,
       dropouts: rows.filter((r) => r.status === 'DROPPED_OUT').length,
       completed: rows.filter((r) => r.status === 'COMPLETED').length,
       pending: rows.filter((r) => r.status === 'PENDING_APPROVAL').length,
+      waitlisted: rows.filter((r) => r.status === 'WAITLISTED').length,
       students: rows,
     };
   }

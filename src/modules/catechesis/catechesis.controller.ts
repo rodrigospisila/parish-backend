@@ -400,7 +400,18 @@ export class CatechesisController {
   @Roles(UserRole.COMMUNITY_COORDINATOR)
   updateClass(
     @Param('id') id: string,
-    @Body() dto: { name?: string; year?: number; weekday?: number | null; time?: string | null; room?: string | null; capacity?: number | null },
+    @Body() dto: {
+      name?: string;
+      year?: number;
+      weekday?: number | null;
+      time?: string | null;
+      room?: string | null;
+      capacity?: number | null;
+      enrollmentOpen?: boolean;
+      enrollmentOpensAt?: string | null;
+      enrollmentClosesAt?: string | null;
+      fullBehavior?: string;
+    },
     @Request() req: any,
   ) {
     return this.service.updateClass(id, dto, req.user);
