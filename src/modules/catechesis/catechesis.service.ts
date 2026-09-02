@@ -778,6 +778,24 @@ export class CatechesisService {
       // Trava a linha da turma: matrículas simultâneas na mesma turma se
       // serializam e a contagem de vagas não estoura o limite por corrida
       await tx.$queryRaw`SELECT id FROM catechesis_classes WHERE id = ${dto.classId} FOR UPDATE`;
+      // Lock por membro + recheck do "uma matrícula efetiva por vez" DENTRO da
+      // transação — a checagem pré-transação não via commits concorrentes de
+      // outras turmas (o FOR UPDATE acima só serializa esta turma)
+      await this.lockMembers(tx, [dto.memberId]);
+      const concurrentNow = await tx.catechesisEnrollment.findFirst({
+        where: {
+          memberId: dto.memberId,
+          status: { in: ['ACTIVE', 'PENDING_APPROVAL'] },
+          classId: { not: dto.classId },
+          class: { deletedAt: null },
+        },
+        include: { class: { select: { name: true, year: true } } },
+      });
+      if (concurrentNow) {
+        throw new BadRequestException(
+          `Este catequizando já está matriculado na ${concurrentNow.class.name} (${concurrentNow.class.year}) — use "Transferir" para trocá-lo de turma`,
+        );
+      }
       // Linha única (classId, memberId): quem já passou por esta turma tem
       // registro — reativar em vez de criar (o create estouraria P2002 → 500)
       const existing = await tx.catechesisEnrollment.findUnique({
@@ -847,23 +865,33 @@ export class CatechesisService {
     if (enrollment.status !== 'ACTIVE') {
       throw new BadRequestException('Apenas matrículas ATIVAS podem ser transferidas');
     }
-    // Origem e destino participam do movimento; uma TERCEIRA matrícula efetiva
-    // é estado inválido e precisa ser resolvida antes.
-    const thirdParty = await this.findConcurrentEnrollment(enrollment.memberId, [
-      enrollment.classId,
-      targetClassId,
-    ]);
-    if (thirdParty) {
-      throw new BadRequestException(
-        `Este catequizando também está matriculado na ${thirdParty.class.name} (${thirdParty.class.year}) — resolva essa matrícula antes de transferir`,
-      );
-    }
-
     // A matrícula de origem fica TRANSFERRED (preserva o histórico de presença);
     // no destino, cria uma matrícula ACTIVE nova (ou reativa a existente).
     const result = await this.prisma.$transaction(async (tx) => {
-      // Serializa matrículas concorrentes na turma de destino (vagas sob trava)
-      await tx.$queryRaw`SELECT id FROM catechesis_classes WHERE id = ${targetClassId} FOR UPDATE`;
+      // Serializa matrículas concorrentes na turma de destino — e relê status/
+      // capacity SOB a trava (o snapshot pré-lock podia estar desatualizado)
+      const [fresh] = await tx.$queryRaw<Array<{ status: string; capacity: number | null }>>`
+        SELECT status, capacity FROM catechesis_classes WHERE id = ${targetClassId} FOR UPDATE`;
+      if (!fresh || fresh.status !== 'ACTIVE') {
+        throw new BadRequestException('A turma de destino está encerrada');
+      }
+      // Serializa por MEMBRO: transferências/matrículas simultâneas em turmas
+      // diferentes não se enxergavam (uma TERCEIRA matrícula efetiva nascia)
+      await this.lockMembers(tx, [enrollment.memberId]);
+      const thirdParty = await tx.catechesisEnrollment.findFirst({
+        where: {
+          memberId: enrollment.memberId,
+          status: { in: ['ACTIVE', 'PENDING_APPROVAL'] },
+          classId: { notIn: [enrollment.classId, targetClassId] },
+          class: { deletedAt: null },
+        },
+        include: { class: { select: { name: true, year: true } } },
+      });
+      if (thirdParty) {
+        throw new BadRequestException(
+          `Este catequizando também está matriculado na ${thirdParty.class.name} (${thirdParty.class.year}) — resolva essa matrícula antes de transferir`,
+        );
+      }
       const existing = await tx.catechesisEnrollment.findUnique({
         where: { classId_memberId: { classId: targetClassId, memberId: enrollment.memberId } },
       });
@@ -875,18 +903,23 @@ export class CatechesisService {
         );
       }
       // Vagas do destino conferidas junto da escrita (o catequizando ainda não ocupa lá)
-      if (target?.capacity != null) {
+      if (fresh.capacity != null) {
         const occupied = await tx.catechesisEnrollment.count({
           where: { ...this.occupiedSeatsWhere(targetClassId), memberId: { not: enrollment.memberId } },
         });
-        if (occupied >= target.capacity) {
-          throw new BadRequestException(`A turma de destino está lotada (${occupied}/${target.capacity} vagas)`);
+        if (occupied >= fresh.capacity) {
+          throw new BadRequestException(`A turma de destino está lotada (${occupied}/${fresh.capacity} vagas)`);
         }
       }
-      await tx.catechesisEnrollment.update({
-        where: { id: enrollmentId },
+      // Compare-and-set: se uma conclusão commitou nesse meio-tempo, NÃO
+      // sobrescrever COMPLETED com TRANSFERRED (o sacramento ficaria órfão)
+      const guarded = await tx.catechesisEnrollment.updateMany({
+        where: { id: enrollmentId, status: 'ACTIVE' },
         data: { status: 'TRANSFERRED' },
       });
+      if (guarded.count === 0) {
+        throw new BadRequestException('Apenas matrículas ATIVAS podem ser transferidas');
+      }
       if (existing) {
         return tx.catechesisEnrollment.update({
           where: { id: existing.id },
@@ -1092,7 +1125,10 @@ export class CatechesisService {
         targetMemberId = myMember.id;
       }
 
-      // Uma matrícula efetiva por vez — vale também para a inscrição online
+      // Uma matrícula efetiva por vez — vale também para a inscrição online.
+      // Lock por membro: inscrições simultâneas em turmas DIFERENTES não se
+      // serializavam pelo FOR UPDATE da turma
+      await this.lockMembers(tx, [targetMemberId]);
       const concurrent = await tx.catechesisEnrollment.findFirst({
         where: {
           memberId: targetMemberId,
@@ -1194,19 +1230,34 @@ export class CatechesisService {
       throw new BadRequestException('Esta inscrição não está aguardando aprovação');
     }
 
-    // Pode ter sido matriculado noutra turma enquanto a inscrição aguardava
-    const concurrentActive = await this.findConcurrentEnrollment(enrollment.memberId, [
-      enrollment.class.id,
-    ]);
-    if (concurrentActive) {
-      throw new BadRequestException(
-        `Este catequizando já está matriculado na ${concurrentActive.class.name} (${concurrentActive.class.year}) — recuse esta inscrição ou transfira-o de turma`,
-      );
-    }
-
-    const updated = await this.prisma.catechesisEnrollment.update({
-      where: { id: enrollmentId },
-      data: { status: 'ACTIVE' },
+    // Pode ter sido matriculado noutra turma enquanto a inscrição aguardava —
+    // checagem e escrita na MESMA transação, serializadas pelo lock do membro
+    const updated = await this.prisma.$transaction(async (tx) => {
+      await this.lockMembers(tx, [enrollment.memberId]);
+      const concurrentActive = await tx.catechesisEnrollment.findFirst({
+        where: {
+          memberId: enrollment.memberId,
+          status: { in: ['ACTIVE', 'PENDING_APPROVAL'] },
+          classId: { not: enrollment.class.id },
+          class: { deletedAt: null },
+        },
+        include: { class: { select: { name: true, year: true } } },
+      });
+      if (concurrentActive) {
+        throw new BadRequestException(
+          `Este catequizando já está matriculado na ${concurrentActive.class.name} (${concurrentActive.class.year}) — recuse esta inscrição ou transfira-o de turma`,
+        );
+      }
+      // Compare-and-set: aprovar só o que AINDA aguarda (aprovação dupla ou
+      // corrida com recusa/conclusão não sobrescreve estado)
+      const guarded = await tx.catechesisEnrollment.updateMany({
+        where: { id: enrollmentId, status: 'PENDING_APPROVAL' },
+        data: { status: 'ACTIVE' },
+      });
+      if (guarded.count === 0) {
+        throw new BadRequestException('Esta inscrição não está aguardando aprovação');
+      }
+      return tx.catechesisEnrollment.findUnique({ where: { id: enrollmentId } });
     });
     await this.auditService.log({
       actor: this.auditActor(user),
@@ -1406,7 +1457,7 @@ export class CatechesisService {
           select: {
             memberId: true,
             status: true,
-            class: { select: { id: true, name: true, year: true } },
+            class: { select: { id: true, name: true, year: true, community: { select: { parishId: true } } } },
           },
         })
       : [];
@@ -1433,8 +1484,12 @@ export class CatechesisService {
           eligible: !nextStage ? false : !requiresBaptism || baptized || catechumen,
           unbaptized: catechumen,
           missingDocuments: !catechumen && requiresBaptism && !baptized ? 'Certidão de Batismo' : null,
+          // Turma de OUTRA paróquia não é nomeada para a coordenação daqui
+          // (LGPD) — o board mostra só "em outra paróquia"
           alreadyEnrolledIn: placement
-            ? { classId: placement.class.id, className: placement.class.name, year: placement.class.year, status: placement.status }
+            ? placement.class.community.parishId === klass.stage.parishId
+              ? { classId: placement.class.id, className: placement.class.name, year: placement.class.year, status: placement.status }
+              : { status: placement.status, outsideParish: true }
             : null,
         };
       }),
@@ -1463,7 +1518,7 @@ export class CatechesisService {
         'A renovação leva para uma etapa posterior do itinerário — para trocar de turma na mesma etapa, use a transferência',
       );
     }
-    const ids = [...new Set(dto.enrollmentIds ?? [])];
+    const ids = [...new Set(this.assertEnrollmentIds(dto.enrollmentIds ?? []))];
     if (!ids.length) throw new BadRequestException('Selecione ao menos um catequizando');
 
     const source = await this.prisma.catechesisEnrollment.findMany({
@@ -1497,23 +1552,20 @@ export class CatechesisService {
     let reactivated = 0;
     const skippedDetails: Array<{ enrollmentId: string; member: string; reason: string }> = [];
     await this.prisma.$transaction(async (tx) => {
-      // Trava a linha da turma de destino (vagas sob trava, sem corrida)
-      await tx.$queryRaw`SELECT id FROM catechesis_classes WHERE id = ${target.id} FOR UPDATE`;
-      // Capacidade checada DENTRO da transação (junto da escrita). A
-      // coordenação pode forçar vagas extras conscientemente — auditado,
-      // mesma válvula do enroll (melhor que editar o limite e esquecer).
-      if (target.capacity !== null && !dto.overrideCapacity) {
-        const occupied = await tx.catechesisEnrollment.count({
-          where: this.occupiedSeatsWhere(target.id),
-        });
-        if (occupied + source.length > target.capacity) {
-          throw new BadRequestException(
-            `A turma de destino tem ${Math.max(0, target.capacity - occupied)} vaga(s) para ${source.length} renovação(ões)`,
-          );
-        }
+      // Trava a turma de destino e RELÊ status/capacity sob a trava — o
+      // snapshot pré-lock podia estar desatualizado (limite reduzido ou
+      // turma encerrada entre a leitura e a transação)
+      const [freshTarget] = await tx.$queryRaw<Array<{ status: string; capacity: number | null }>>`
+        SELECT status, capacity FROM catechesis_classes WHERE id = ${target.id} FOR UPDATE`;
+      if (!freshTarget || freshTarget.status !== 'ACTIVE') {
+        throw new BadRequestException('A turma de destino está encerrada');
       }
-      // Consultas por aluno batcheadas ANTES do laço: menos tempo sob a trava
+      // Serializa por MEMBRO os caminhos que criam matrícula efetiva —
+      // renovações/matrículas simultâneas em turmas diferentes não se
+      // enxergavam (ids ordenados dentro do lockMembers: lotes não deadlockam)
       const memberIds = source.map((e) => e.memberId);
+      await this.lockMembers(tx, memberIds);
+      // Consultas por aluno batcheadas ANTES do laço: menos tempo sob a trava
       const [concurrents, existingTargets] = await Promise.all([
         tx.catechesisEnrollment.findMany({
           where: {
@@ -1522,7 +1574,10 @@ export class CatechesisService {
             classId: { notIn: [classId, target.id] },
             class: { deletedAt: null },
           },
-          select: { memberId: true, class: { select: { name: true, year: true } } },
+          select: {
+            memberId: true,
+            class: { select: { name: true, year: true, community: { select: { parishId: true } } } },
+          },
         }),
         tx.catechesisEnrollment.findMany({
           where: { classId: target.id, memberId: { in: memberIds } },
@@ -1532,15 +1587,37 @@ export class CatechesisService {
       const concurrentByMember = new Map(concurrents.map((c) => [c.memberId, c]));
       const existingByMember = new Map(existingTargets.map((e) => [e.memberId, e]));
 
+      // Vagas: só quem vai CONSUMIR vaga nova conta — quem será pulado (já no
+      // destino/concorrente) não pode segurar vaga fantasma, senão o retry de
+      // uma coluna parcialmente gravada dá "lotada" falsa e induz override.
+      // A coordenação pode forçar conscientemente (overrideCapacity, auditado).
+      const needed = source.filter((e) => {
+        if (concurrentByMember.has(e.memberId)) return false;
+        const existing = existingByMember.get(e.memberId);
+        return !(existing && (existing.status === 'ACTIVE' || existing.status === 'PENDING_APPROVAL' || existing.status === 'COMPLETED'));
+      }).length;
+      if (freshTarget.capacity !== null && !dto.overrideCapacity && needed > 0) {
+        const occupied = await tx.catechesisEnrollment.count({
+          where: this.occupiedSeatsWhere(target.id),
+        });
+        if (occupied + needed > freshTarget.capacity) {
+          throw new BadRequestException(
+            `A turma de destino tem ${Math.max(0, freshTarget.capacity - occupied)} vaga(s) para ${needed} renovação(ões)`,
+          );
+        }
+      }
+
       for (const enrollment of source) {
         // Já caminhando em outra turma (fora origem/destino)? Pula no lote —
-        // e agora DIZ isso no retorno, em vez de sumir na contagem.
+        // e agora DIZ isso no retorno, em vez de sumir na contagem. Turma de
+        // OUTRA paróquia não é nomeada (LGPD): motivo genérico.
         const concurrent = concurrentByMember.get(enrollment.memberId);
         if (concurrent) {
+          const sameParish = concurrent.class.community.parishId === origin.stage.parishId;
           skippedDetails.push({
             enrollmentId: enrollment.id,
             member: enrollment.member.fullName,
-            reason: `Já está na ${concurrent.class.name} (${concurrent.class.year})`,
+            reason: sameParish ? `Já está na ${concurrent.class.name} (${concurrent.class.year})` : 'Já está em outra turma (outra paróquia)',
           });
           continue;
         }
@@ -2160,7 +2237,8 @@ export class CatechesisService {
 
   // ===== CONCLUSÃO (gera Sacrament) =====
 
-  /** Data da conclusão: AAAA-MM-DD, nunca futura; sem valor → hoje. */
+  /** Data da conclusão: AAAA-MM-DD, entre 1900 e HOJE (dia civil do fuso da
+   * paróquia — comparar com meia-noite UTC aceitava "amanhã" depois das 21h). */
   private parseCompletionDate(raw?: string): Date {
     if (!raw) return new Date();
     const value = String(raw).slice(0, 10);
@@ -2172,10 +2250,44 @@ export class CatechesisService {
     ) {
       throw new BadRequestException('Data da conclusão inválida — use AAAA-MM-DD');
     }
-    if (parsed.getTime() > Date.now()) {
+    if (value < '1900-01-01') {
+      throw new BadRequestException('Data da conclusão inválida (anterior a 1900)');
+    }
+    const todayLocal = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Sao_Paulo' }).format(new Date());
+    if (value > todayLocal) {
       throw new BadRequestException('A data da conclusão não pode ser futura');
     }
     return parsed;
+  }
+
+  /** Ministro do sacramento: string limpa (registro oficial + PDF) ou nada. */
+  private parseMinister(raw: unknown): string | null {
+    if (raw === undefined || raw === null || raw === '') return null;
+    if (typeof raw !== 'string') throw new BadRequestException('Ministro inválido — informe um texto');
+    const clean = raw.replace(/[\p{Cc}\p{Cf}]/gu, ' ').replace(/\s+/g, ' ').trim().slice(0, 120);
+    return clean || null;
+  }
+
+  /** enrollmentIds precisa ser lista de strings — número/objeto derrubava com 500. */
+  private assertEnrollmentIds(value: unknown): string[] {
+    if (!Array.isArray(value) || value.some((id) => typeof id !== 'string')) {
+      throw new BadRequestException('enrollmentIds deve ser uma lista de matrículas');
+    }
+    return value as string[];
+  }
+
+  /**
+   * Advisory lock POR MEMBRO dentro da transação: serializa os caminhos que
+   * criam/reativam matrícula efetiva (enroll/apply/transfer/renew) e o
+   * Sacrament automático entre turmas diferentes do mesmo membro — o FOR
+   * UPDATE da turma não cobre turmas distintas. Sempre DEPOIS do lock da
+   * turma e com ids ordenados (lotes não se deadlockam).
+   */
+  private async lockMembers(tx: any, memberIds: string[]) {
+    for (const memberId of [...memberIds].sort()) {
+      // ::text porque o Prisma não deserializa retorno `void`
+      await tx.$queryRaw`SELECT pg_advisory_xact_lock(hashtext(${'parish:member:' + memberId}))::text`;
+    }
   }
 
   /**
@@ -2204,6 +2316,10 @@ export class CatechesisService {
       let sacramentId: string | null = null;
       let sacramentCreated = false;
       if (stage.sacramentType) {
+        // Serializa o dedup entre TURMAS diferentes do mesmo membro (o CAS
+        // acima só serializa a mesma matrícula): sem isso, duas conclusões
+        // simultâneas passariam ambas pelo findFirst vazio e duplicariam
+        await this.lockMembers(tx, [enrollment.memberId]);
         const existing =
           stage.sacramentType === SacramentType.MARRIAGE
             ? null
@@ -2252,7 +2368,7 @@ export class CatechesisService {
     }
 
     const completedAt = this.parseCompletionDate(dto.date);
-    const minister = dto.minister ? String(dto.minister).trim().slice(0, 120) || null : null;
+    const minister = this.parseMinister(dto.minister);
     const result = await this.completeOne(
       enrollment,
       enrollment.class.stage,
@@ -2284,11 +2400,11 @@ export class CatechesisService {
     user: CurrentUser,
   ) {
     const klass = await this.loadClassInScope(classId, user);
-    const ids = [...new Set(dto.enrollmentIds ?? [])];
+    const ids = [...new Set(this.assertEnrollmentIds(dto.enrollmentIds ?? []))];
     if (!ids.length) throw new BadRequestException('Selecione ao menos um catequizando');
     if (ids.length > 200) throw new BadRequestException('Lote grande demais (máximo de 200 matrículas por vez)');
     const completedAt = this.parseCompletionDate(dto.date);
-    const minister = dto.minister ? String(dto.minister).trim().slice(0, 120) || null : null;
+    const minister = this.parseMinister(dto.minister);
 
     const community = await this.prisma.community.findUnique({
       where: { id: klass.communityId },
@@ -2340,11 +2456,31 @@ export class CatechesisService {
           metadata: { completed: true, batchClassId: classId, sacramentId: result.sacramentId, sacramentCreated: result.sacramentCreated },
         });
       } catch (error: any) {
-        skipped.push({
-          enrollmentId: id,
-          member: enrollment.member.fullName,
-          reason: error?.message ?? 'Falha ao concluir',
+        // Só regra de negócio vira "pulado" (ex.: perdeu a corrida do CAS).
+        // Erro de infraestrutura (conexão, timeout, deadlock) ABORTA o lote e
+        // devolve o parcial — insistir nos 199 restantes com o pool degradado
+        // levaria minutos, e a mensagem interna do banco não é para a tela.
+        if (error instanceof BadRequestException) {
+          skipped.push({ enrollmentId: id, member: enrollment.member.fullName, reason: error.message });
+          continue;
+        }
+        const remaining = ids.slice(ids.indexOf(id));
+        await this.auditService.log({
+          actor: this.auditActor(user),
+          action: 'UPDATE',
+          entity: 'CatechesisClass',
+          entityId: classId,
+          metadata: { batchComplete: { requested: ids.length, completed, sacraments, skipped: skipped.length, aborted: true, remaining: remaining.length } },
         });
+        return {
+          requested: ids.length,
+          completed,
+          sacraments,
+          skipped,
+          aborted: true,
+          remaining,
+          reason: 'Falha temporária ao gravar — os já concluídos estão salvos; tente novamente os restantes',
+        };
       }
     }
 
