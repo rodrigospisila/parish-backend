@@ -233,9 +233,14 @@ export class CatechesisService {
       }
     }
 
+    // Nome trimado na gravação — espaços nas pontas criavam "duplicatas"
+    // invisíveis que escapam de qualquer checagem por igualdade
+    const name = String(dto.name ?? '').trim();
+    if (name.length < 2) throw new BadRequestException('Informe o nome da turma');
+
     const created = await this.prisma.catechesisClass.create({
       data: {
-        name: dto.name,
+        name: name.slice(0, 120),
         year: dto.year,
         stageId: dto.stageId,
         communityId: dto.communityId,
@@ -337,24 +342,8 @@ export class CatechesisService {
     if (year <= source.year) {
       throw new BadRequestException('A turma nova deve ser de um ano posterior ao da turma atual');
     }
-    const name = (dto.name !== undefined ? String(dto.name).trim() : source.name).slice(0, 120);
+    const name = (dto.name !== undefined ? String(dto.name).trim() : source.name.trim()).slice(0, 120);
     if (name.length < 2) throw new BadRequestException('Informe o nome da turma');
-
-    // Sucessora já criada? Não duplicar em silêncio — o coordenador pode ter
-    // feito a virada em outra aba/dia
-    const clash = await this.prisma.catechesisClass.findFirst({
-      where: {
-        communityId: source.communityId,
-        stageId: source.stageId,
-        year,
-        deletedAt: null,
-        name: { equals: name, mode: 'insensitive' },
-      },
-      select: { id: true, name: true },
-    });
-    if (clash) {
-      throw new BadRequestException(`Já existe a turma "${clash.name}" de ${year} nesta etapa — abra-a ou escolha outro nome`);
-    }
 
     let capacity: number | null = source.capacity;
     if (dto.capacity !== undefined) {
@@ -402,20 +391,8 @@ export class CatechesisService {
       wanted = currentLinks.map((link) => link.memberId);
     }
 
-    const created = await this.prisma.catechesisClass.create({
-      data: {
-        name,
-        year,
-        stageId: source.stageId,
-        communityId: source.communityId,
-        weekday,
-        time,
-        room,
-        capacity,
-      },
-    });
-
-    let catechists = 0;
+    // Elegibilidade lida ANTES da transação (encurta a janela sob o lock)
+    const team: Array<{ memberId: string; role: string }> = [];
     const skippedCatechists: string[] = [];
     for (const memberId of wanted) {
       const link = await this.catechesisPastoralLink(memberId, source.communityId);
@@ -423,20 +400,52 @@ export class CatechesisService {
         skippedCatechists.push(nameByMember.get(memberId) ?? memberId);
         continue;
       }
-      await this.prisma.catechesisCatechist.create({
-        data: { classId: created.id, memberId, role: roleByMember.get(memberId) ?? 'Catequista' },
-      });
-      catechists++;
+      team.push({ memberId, role: roleByMember.get(memberId) ?? 'Catequista' });
     }
+
+    // Turma + equipe numa transação (falha no meio não deixa turma meio
+    // montada), com advisory lock por (comunidade, etapa, ano) — duplo clique
+    // ou duas abas fazendo a virada não criam duas sucessoras
+    const created = await this.prisma.$transaction(async (tx) => {
+      await tx.$queryRaw`SELECT pg_advisory_xact_lock(hashtext(${'parish:class-rollover:' + source.communityId + ':' + source.stageId + ':' + year}))::text`;
+      // Clash SOB o lock, com nomes normalizados — nomes históricos podem ter
+      // espaços nas pontas (o createClass antigo não trimava)
+      const siblings = await tx.catechesisClass.findMany({
+        where: { communityId: source.communityId, stageId: source.stageId, year, deletedAt: null },
+        select: { name: true },
+      });
+      const norm = (value: string) => value.trim().toLowerCase();
+      if (siblings.some((sibling) => norm(sibling.name) === norm(name))) {
+        throw new BadRequestException(`Já existe a turma "${name}" de ${year} nesta etapa — abra-a ou escolha outro nome`);
+      }
+      const klass = await tx.catechesisClass.create({
+        data: {
+          name,
+          year,
+          stageId: source.stageId,
+          communityId: source.communityId,
+          weekday,
+          time,
+          room,
+          capacity,
+        },
+      });
+      if (team.length) {
+        await tx.catechesisCatechist.createMany({
+          data: team.map((member) => ({ classId: klass.id, memberId: member.memberId, role: member.role })),
+        });
+      }
+      return klass;
+    });
 
     await this.auditService.log({
       actor: this.auditActor(user),
       action: 'CREATE',
       entity: 'CatechesisClass',
       entityId: created.id,
-      metadata: { rolloverFrom: classId, year, catechists, skippedCatechists: skippedCatechists.length },
+      metadata: { rolloverFrom: classId, year, catechists: team.length, skippedCatechists: skippedCatechists.length },
     });
-    return { ...created, catechists, skippedCatechists };
+    return { ...created, catechists: team.length, skippedCatechists };
   }
 
   async listClasses(user: CurrentUser, communityId?: string) {
@@ -3946,10 +3955,12 @@ export class CatechesisService {
         const placed = placedClassesByMember.get(e.memberId);
         return !!placed && [...placed].some((cid) => cid !== klass.id);
       }).length;
-      // Virada de ano: a sucessora desta turma (MESMA etapa, ano seguinte) já
-      // existe? Orienta o passo "criar as turmas do ano novo" antes do board
+      // Virada de ano: a sucessora DESTA turma (mesma etapa, ano seguinte,
+      // MESMO nome — critério do clash do rollover) já existe? Comparar só a
+      // etapa marcava ✓ para a Turma B quando apenas a A tinha virado.
+      const norm = (value: string) => value.trim().toLowerCase();
       const hasNextYearClass = classes.some(
-        (c2) => c2.id !== klass.id && c2.stage.id === klass.stage.id && c2.year === klass.year + 1,
+        (c2) => c2.stage.id === klass.stage.id && c2.year === klass.year + 1 && norm(c2.name) === norm(klass.name),
       );
       return {
         classId: klass.id,
