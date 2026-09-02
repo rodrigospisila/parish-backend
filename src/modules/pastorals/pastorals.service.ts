@@ -289,6 +289,30 @@ export class PastoralsService {
     });
   }
 
+  /** Pastorais em que o usuário é coordenador ATUAL (vínculos self-service). */
+  async findCoordinatedByMe(userId: string) {
+    const links = await this.prisma.pastoralCoordinator.findMany({
+      where: {
+        isCurrent: true,
+        member: { userId, deletedAt: null },
+        communityPastoral: { deletedAt: null },
+      },
+      select: {
+        communityPastoral: {
+          select: {
+            id: true,
+            communityId: true,
+            community: { select: { id: true, name: true } },
+            globalPastoral: { select: { id: true, name: true } },
+          },
+        },
+      },
+    });
+    // Coordenações duplicadas (histórico) não repetem a pastoral
+    const unique = new Map(links.map((link) => [link.communityPastoral.id, link.communityPastoral]));
+    return [...unique.values()];
+  }
+
   async findAllCommunityPastorals(
     communityId?: string,
     currentUser?: CurrentUser,

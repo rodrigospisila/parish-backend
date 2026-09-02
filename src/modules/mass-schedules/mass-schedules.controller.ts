@@ -149,6 +149,43 @@ export class MassSchedulesController {
     return this.massSchedulesService.generateSchedule(id, dto, user);
   }
 
+  // Vínculo de UMA pastoral ao horário fixo. Piso PASTORAL: o coordenador
+  // vincula/desvincula apenas a própria pastoral (o service valida); a
+  // gestão continua podendo tudo (aqui ou pelo Editar/pastoralSettings).
+  @Post(':id/pastorals')
+  @UseGuards(JwtAuthGuard, RolesGuard)
+  @Roles(
+    UserRole.SYSTEM_ADMIN,
+    UserRole.DIOCESAN_ADMIN,
+    UserRole.PARISH_ADMIN,
+    UserRole.COMMUNITY_COORDINATOR,
+    UserRole.PASTORAL_COORDINATOR,
+  )
+  linkPastoral(
+    @Param('id') id: string,
+    @Body() dto: { communityPastoralId: string; requiredPeople?: number },
+    @CurrentUser() user: any,
+  ) {
+    return this.massSchedulesService.linkPastoral(id, dto, user);
+  }
+
+  @Delete(':id/pastorals/:communityPastoralId')
+  @UseGuards(JwtAuthGuard, RolesGuard)
+  @Roles(
+    UserRole.SYSTEM_ADMIN,
+    UserRole.DIOCESAN_ADMIN,
+    UserRole.PARISH_ADMIN,
+    UserRole.COMMUNITY_COORDINATOR,
+    UserRole.PASTORAL_COORDINATOR,
+  )
+  unlinkPastoral(
+    @Param('id') id: string,
+    @Param('communityPastoralId') communityPastoralId: string,
+    @CurrentUser() user: any,
+  ) {
+    return this.massSchedulesService.unlinkPastoral(id, communityPastoralId, user);
+  }
+
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.massSchedulesService.findOne(id);

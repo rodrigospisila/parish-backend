@@ -473,6 +473,104 @@ export class MassSchedulesService {
     return schedule;
   }
 
+  /** O usuário é coordenador ATUAL desta pastoral da comunidade? */
+  private async isCurrentPastoralCoordinator(userId: string, communityPastoralId: string) {
+    const link = await this.prisma.pastoralCoordinator.findFirst({
+      where: {
+        communityPastoralId,
+        isCurrent: true,
+        member: { userId, deletedAt: null },
+      },
+      select: { id: true },
+    });
+    return !!link;
+  }
+
+  /**
+   * Quem pode mexer no vínculo de UMA pastoral com o horário fixo: a gestão
+   * (coordenação de comunidade ou acima, no escopo) mexe em qualquer uma; o
+   * COORDENADOR DE PASTORAL apenas na pastoral que coordena — é ele quem sabe
+   * onde a própria equipe serve, sem poder tocar nas demais.
+   */
+  private async assertPastoralLinkPermission(
+    schedule: { communityId: string },
+    communityPastoralId: string,
+    currentUser: CurrentUser,
+  ) {
+    const managing = ([
+      UserRole.SYSTEM_ADMIN,
+      UserRole.DIOCESAN_ADMIN,
+      UserRole.PARISH_ADMIN,
+      UserRole.COMMUNITY_COORDINATOR,
+    ] as UserRole[]).includes(currentUser.role as UserRole);
+    if (managing) {
+      await this.assertCommunityInScope(schedule.communityId, currentUser);
+      return;
+    }
+    if (currentUser.role === UserRole.PASTORAL_COORDINATOR) {
+      const coordinates = await this.isCurrentPastoralCoordinator(currentUser.id, communityPastoralId);
+      if (coordinates) return;
+      throw new ForbiddenException('Você só pode vincular ou desvincular a pastoral que coordena');
+    }
+    throw new ForbiddenException('Sem permissão para vincular pastorais');
+  }
+
+  /** Vincula UMA pastoral ao horário fixo (upsert — atualiza as vagas se já vinculada). */
+  async linkPastoral(
+    massScheduleId: string,
+    dto: { communityPastoralId: string; requiredPeople?: number },
+    currentUser: CurrentUser,
+  ) {
+    if (!dto?.communityPastoralId || typeof dto.communityPastoralId !== 'string') {
+      throw new BadRequestException('Informe a pastoral (communityPastoralId)');
+    }
+    const schedule = await this.findOne(massScheduleId);
+    await this.assertPastoralLinkPermission(schedule, dto.communityPastoralId, currentUser);
+
+    // Mesma regra do buildPastoralCreate: pastoral/ministério da MESMA paróquia
+    const community = await this.prisma.community.findUnique({
+      where: { id: schedule.communityId },
+      select: { parishId: true },
+    });
+    const pastoral = await this.prisma.communityPastoral.findFirst({
+      where: {
+        id: dto.communityPastoralId,
+        deletedAt: null,
+        community: { parishId: community?.parishId ?? '__none__' },
+      },
+      select: { id: true },
+    });
+    if (!pastoral) {
+      throw new BadRequestException('A pastoral não pertence à paróquia desta comunidade');
+    }
+
+    const requiredPeople = Math.max(0, Math.floor(Number(dto.requiredPeople ?? 0)) || 0);
+    return this.prisma.massSchedulePastoral.upsert({
+      where: {
+        massScheduleId_communityPastoralId: {
+          massScheduleId,
+          communityPastoralId: dto.communityPastoralId,
+        },
+      },
+      update: { requiredPeople },
+      create: { massScheduleId, communityPastoralId: dto.communityPastoralId, requiredPeople },
+      ...PASTORAL_INCLUDE,
+    });
+  }
+
+  /** Remove o vínculo de UMA pastoral com o horário fixo. */
+  async unlinkPastoral(massScheduleId: string, communityPastoralId: string, currentUser: CurrentUser) {
+    const schedule = await this.findOne(massScheduleId);
+    await this.assertPastoralLinkPermission(schedule, communityPastoralId, currentUser);
+    const result = await this.prisma.massSchedulePastoral.deleteMany({
+      where: { massScheduleId, communityPastoralId },
+    });
+    if (result.count === 0) {
+      throw new NotFoundException('Esta pastoral não está vinculada a este horário');
+    }
+    return { removed: result.count };
+  }
+
   async update(id: string, updateMassScheduleDto: UpdateMassScheduleDto, currentUser?: CurrentUser) {
     const schedule = await this.findOne(id); // Verifica se existe
     await this.assertCommunityInScope(schedule.communityId, currentUser);

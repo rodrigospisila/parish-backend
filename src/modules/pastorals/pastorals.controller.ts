@@ -94,6 +94,14 @@ export class PastoralsController {
     return this.pastoralsService.findAllCommunityPastorals(communityId, req?.user, parishId);
   }
 
+  // Pastorais em que o usuário é coordenador ATUAL — base dos vínculos
+  // self-service (ex.: vincular a própria pastoral a um horário da Agenda
+  // Fixa). Rota estática ANTES de community/:id para não colidir.
+  @Get('community/coordinated-by-me')
+  findCoordinatedByMe(@Request() req) {
+    return this.pastoralsService.findCoordinatedByMe(req.user.id);
+  }
+
   @Get('community/:id/available-members')
   @UseGuards(RolesGuard)
   @Roles(
