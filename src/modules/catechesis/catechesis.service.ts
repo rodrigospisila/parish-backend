@@ -2988,6 +2988,327 @@ export class CatechesisService {
    * Família envia o documento pendente (foto/PDF). Um envio SUBMITTED por
    * (matrícula, tipo) — reenviar substitui. Binário vive só até a conferência.
    */
+  // ===== DOCUMENTOS DA INSCRIÇÃO: requisitos por turma, declarações e
+  // conferência automática =====
+
+  /** Padrão quando a turma não configurou nada (o coordenador pode mudar). */
+  private static readonly DEFAULT_DOC_REQUIREMENTS = [
+    { kind: 'Certidão de nascimento', required: true, allowNotHave: false, allowOtherDenomination: false, ordering: 0 },
+    { kind: 'CPF', required: false, allowNotHave: true, allowOtherDenomination: false, ordering: 1 },
+    { kind: 'Certidão de Batismo', required: false, allowNotHave: true, allowOtherDenomination: true, ordering: 2 },
+  ];
+
+  /** Requisitos de documentos da turma (padrões quando não configurados). */
+  async getClassDocRequirements(classId: string, _user: CurrentUser) {
+    const klass = await this.prisma.catechesisClass.findFirst({
+      where: { id: classId, deletedAt: null },
+      select: { id: true },
+    });
+    if (!klass) throw new NotFoundException('Turma não encontrada');
+    const stored = await this.prisma.catechesisClassDocRequirement.findMany({
+      where: { classId },
+      orderBy: { ordering: 'asc' },
+    });
+    if (stored.length) return stored.map((req) => ({ ...req, isDefault: false }));
+    return CatechesisService.DEFAULT_DOC_REQUIREMENTS.map((req) => ({ ...req, id: null, classId, isDefault: true }));
+  }
+
+  /** Substitui os requisitos de documentos da turma (coordenação). */
+  async setClassDocRequirements(
+    classId: string,
+    dto: { items: Array<{ kind: string; required?: boolean; allowNotHave?: boolean; allowOtherDenomination?: boolean }> },
+    user: CurrentUser,
+  ) {
+    await this.loadClassInScope(classId, user);
+    if (!Array.isArray(dto?.items)) throw new BadRequestException('items deve ser uma lista de documentos');
+    if (dto.items.length > 12) throw new BadRequestException('Máximo de 12 documentos por turma');
+    const seen = new Set<string>();
+    const items = dto.items.map((item, index) => {
+      const kind = String(item?.kind ?? '').trim();
+      if (kind.length < 2 || kind.length > 80) {
+        throw new BadRequestException('Cada documento precisa de um nome entre 2 e 80 caracteres');
+      }
+      const key = kind.toLowerCase();
+      if (seen.has(key)) throw new BadRequestException(`Documento repetido: ${kind}`);
+      seen.add(key);
+      return {
+        classId,
+        kind,
+        required: item.required === true,
+        allowNotHave: item.allowNotHave === true,
+        allowOtherDenomination: item.allowOtherDenomination === true,
+        ordering: index,
+      };
+    });
+    await this.prisma.$transaction(async (tx) => {
+      await tx.catechesisClassDocRequirement.deleteMany({ where: { classId } });
+      if (items.length) await tx.catechesisClassDocRequirement.createMany({ data: items });
+    });
+    await this.auditService.log({
+      actor: this.auditActor(user),
+      action: 'UPDATE',
+      entity: 'CatechesisClass',
+      entityId: classId,
+      metadata: { docRequirements: items.map((i) => ({ kind: i.kind, required: i.required })) },
+    });
+    return this.getClassDocRequirements(classId, user);
+  }
+
+  /** Requisito da turma para um `kind` (cadastrado ou padrão). */
+  private async findDocRequirement(classId: string, kind: string) {
+    const stored = await this.prisma.catechesisClassDocRequirement.findMany({ where: { classId } });
+    const list = stored.length ? stored : CatechesisService.DEFAULT_DOC_REQUIREMENTS;
+    const key = kind.trim().toLowerCase();
+    return list.find((req) => req.kind.trim().toLowerCase() === key) ?? null;
+  }
+
+  /**
+   * Declaração SEM arquivo: o responsável (ou a secretaria no balcão) informa
+   * que o catequizando NÃO TEM o documento, ou que o batismo é de OUTRA
+   * denominação (informando qual). Entra no mesmo fluxo de conferência — a
+   * equipe aceita ou recusa.
+   */
+  async submitDeclaration(
+    enrollmentId: string,
+    dto: { kind: string; declaration: string; denomination?: string },
+    user: CurrentUser,
+  ) {
+    const kind = dto.kind?.trim();
+    if (!kind || kind.length < 2 || kind.length > 80) {
+      throw new BadRequestException('Informe o tipo do documento');
+    }
+    if (dto.declaration !== 'NOT_HAVE' && dto.declaration !== 'OTHER_DENOMINATION') {
+      throw new BadRequestException('Declaração inválida');
+    }
+    const denomination = dto.denomination ? String(dto.denomination).trim().slice(0, 80) : null;
+    if (dto.declaration === 'OTHER_DENOMINATION' && (!denomination || denomination.length < 2)) {
+      throw new BadRequestException('Informe a denominação em que o batismo foi realizado');
+    }
+
+    const enrollment = await this.loadEnrollmentForDocument(enrollmentId, user);
+    if (enrollment.status !== 'ACTIVE' && enrollment.status !== 'PENDING_APPROVAL') {
+      throw new BadRequestException('Documentos só podem ser enviados para matrículas ativas ou aguardando aprovação');
+    }
+    const requirement = await this.findDocRequirement(enrollment.class.id, kind);
+    if (!requirement) {
+      throw new BadRequestException('Este documento não está na lista da turma — envie o arquivo ou fale com a coordenação');
+    }
+    if (dto.declaration === 'NOT_HAVE' && !requirement.allowNotHave) {
+      throw new BadRequestException(`"${requirement.kind}" é ${requirement.required ? 'obrigatório' : 'exigido com arquivo'} nesta turma — não aceita a declaração de que não tem`);
+    }
+    if (dto.declaration === 'OTHER_DENOMINATION' && !requirement.allowOtherDenomination) {
+      throw new BadRequestException(`"${requirement.kind}" não aceita batismo de outra denominação nesta turma`);
+    }
+
+    const document = await this.prisma.$transaction(async (tx) => {
+      await tx.catechesisDocument.deleteMany({
+        where: { enrollmentId, kind: { equals: kind, mode: 'insensitive' }, status: 'SUBMITTED' },
+      });
+      return tx.catechesisDocument.create({
+        data: {
+          enrollmentId,
+          kind: requirement.kind,
+          fileName: '—',
+          mimeType: 'text/plain',
+          sizeBytes: 0,
+          data: null,
+          declaration: dto.declaration as any,
+          denomination: dto.declaration === 'OTHER_DENOMINATION' ? denomination : null,
+        },
+        select: { id: true, kind: true, status: true, declaration: true, denomination: true, createdAt: true },
+      });
+    });
+
+    await this.auditService.log({
+      actor: this.auditActor(user),
+      action: 'CREATE',
+      entity: 'CatechesisDocument',
+      entityId: document.id,
+      metadata: { enrollmentId, kind: requirement.kind, declaration: dto.declaration, denomination },
+    });
+
+    try {
+      const catechists = await this.prisma.catechesisCatechist.findMany({
+        where: { classId: enrollment.class.id },
+        select: { member: { select: { userId: true } } },
+      });
+      const userIds = [...new Set(catechists.map((c) => c.member.userId).filter((id): id is string => !!id))];
+      if (userIds.length) {
+        await this.notificationsService.notifyUsers(
+          userIds,
+          NotificationType.CATECHESIS,
+          'Declaração de documento 📎',
+          dto.declaration === 'NOT_HAVE'
+            ? `${enrollment.member.fullName}: declarado que não tem "${requirement.kind}" — aceite ou recuse na turma.`
+            : `${enrollment.member.fullName}: batismo em outra denominação (${denomination}) — aceite ou recuse na turma.`,
+          { kind: 'document', enrollmentId, documentId: document.id },
+        );
+      }
+    } catch {
+      // aviso é conveniência
+    }
+    return document;
+  }
+
+  private static normalizeName(value: string): string {
+    return value
+      .normalize('NFD')
+      .replace(/[̀-ͯ]/g, '')
+      .toLowerCase()
+      .replace(/[^a-z0-9\s]/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim();
+  }
+
+  /**
+   * Conferência automática (best-effort, assíncrona): a IA lê o arquivo e o
+   * resultado (tipo do documento, nome e nascimento x cadastro) fica gravado
+   * como APOIO à conferência humana — nunca aprova nem recusa sozinha.
+   */
+  private async runDocumentAutoCheck(documentId: string) {
+    const document = await this.prisma.catechesisDocument.findUnique({
+      where: { id: documentId },
+      include: {
+        enrollment: { include: { member: { select: { fullName: true, birthDate: true } } } },
+      },
+    });
+    if (!document || !document.data || document.status !== 'SUBMITTED') return;
+
+    let status: 'MATCH' | 'MISMATCH' | 'UNREADABLE' | 'SKIPPED' = 'SKIPPED';
+    let notes = 'Conferência automática indisponível';
+    try {
+      const apiKey = process.env.ANTHROPIC_API_KEY;
+      if (!apiKey) {
+        notes = 'Conferência automática desativada (ANTHROPIC_API_KEY não configurada) — confira manualmente';
+      } else {
+        const result = await this.checkDocumentWithAI(
+          apiKey,
+          Buffer.from(document.data),
+          document.mimeType,
+          document.kind,
+          document.enrollment.member.fullName,
+          document.enrollment.member.birthDate,
+        );
+        status = result.status;
+        notes = result.notes;
+      }
+    } catch (error: any) {
+      notes = 'Conferência automática falhou — confira manualmente';
+    }
+    // O documento pode ter sido conferido/substituído nesse meio-tempo — só
+    // grava se ainda está aguardando
+    await this.prisma.catechesisDocument.updateMany({
+      where: { id: documentId, status: 'SUBMITTED' },
+      data: { autoCheckStatus: status, autoCheckNotes: notes.slice(0, 300) },
+    });
+  }
+
+  private async checkDocumentWithAI(
+    apiKey: string,
+    buffer: Buffer,
+    mimeType: string,
+    kind: string,
+    fullName: string,
+    birthDate: Date | null,
+  ): Promise<{ status: 'MATCH' | 'MISMATCH' | 'UNREADABLE' | 'SKIPPED'; notes: string }> {
+    const isPdf = mimeType === 'application/pdf';
+    const isImage = /^image\/(jpeg|png|webp)$/.test(mimeType);
+    if (!isPdf && !isImage) {
+      return { status: 'SKIPPED', notes: 'Formato sem conferência automática — confira manualmente' };
+    }
+    // Limite de imagem da API (5MB); PDFs até o nosso teto de upload
+    if (isImage && buffer.length > 5 * 1024 * 1024) {
+      return { status: 'SKIPPED', notes: 'Arquivo grande demais para a conferência automática — confira manualmente' };
+    }
+
+    const contentBlock = isPdf
+      ? { type: 'document', source: { type: 'base64', media_type: 'application/pdf', data: buffer.toString('base64') } }
+      : { type: 'image', source: { type: 'base64', media_type: mimeType, data: buffer.toString('base64') } };
+
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 60_000);
+    let response: Response;
+    try {
+      response = await fetch('https://api.anthropic.com/v1/messages', {
+        method: 'POST',
+        signal: controller.signal,
+        headers: {
+          'content-type': 'application/json',
+          'x-api-key': apiKey,
+          'anthropic-version': '2023-06-01',
+        },
+        body: JSON.stringify({
+          model: process.env.DOC_CHECK_MODEL || 'claude-haiku-4-5-20251001',
+          max_tokens: 400,
+          messages: [
+            {
+              role: 'user',
+              content: [
+                contentBlock,
+                {
+                  type: 'text',
+                  text:
+                    `Este arquivo foi enviado como "${kind}" na matrícula da catequese de uma paróquia brasileira. ` +
+                    `Analise o documento e responda APENAS um JSON válido, sem comentários, no formato: ` +
+                    `{"legivel": boolean, "tipo_documento": string, "eh_do_tipo_esperado": boolean, ` +
+                    `"nome": string|null, "data_nascimento": "AAAA-MM-DD"|null}. ` +
+                    `"nome" é o nome completo da pessoa a quem o documento pertence (a criança, não pais/padrinhos); ` +
+                    `"data_nascimento" só se o documento trouxer. Se não der para ler, "legivel": false.`,
+                },
+              ],
+            },
+          ],
+        }),
+      });
+    } finally {
+      clearTimeout(timer);
+    }
+    if (!response.ok) {
+      return { status: 'SKIPPED', notes: `Conferência automática indisponível (HTTP ${response.status}) — confira manualmente` };
+    }
+    const payload: any = await response.json();
+    const text: string = payload?.content?.find((c: any) => c.type === 'text')?.text ?? '';
+    const jsonMatch = text.match(/\{[\s\S]*\}/);
+    if (!jsonMatch) return { status: 'UNREADABLE', notes: 'Não foi possível interpretar o documento — confira manualmente' };
+    let parsed: any;
+    try {
+      parsed = JSON.parse(jsonMatch[0]);
+    } catch {
+      return { status: 'UNREADABLE', notes: 'Não foi possível interpretar o documento — confira manualmente' };
+    }
+
+    if (parsed.legivel === false || !parsed.nome) {
+      return { status: 'UNREADABLE', notes: 'Documento pouco legível ou sem nome identificável — confira manualmente' };
+    }
+
+    const problems: string[] = [];
+    const okays: string[] = [];
+    if (parsed.eh_do_tipo_esperado === false) {
+      problems.push(`parece ser "${String(parsed.tipo_documento ?? 'outro documento').slice(0, 60)}", não "${kind}"`);
+    } else {
+      okays.push('tipo confere');
+    }
+    const docName = CatechesisService.normalizeName(String(parsed.nome));
+    const memberName = CatechesisService.normalizeName(fullName);
+    const nameMatches = docName === memberName || docName.includes(memberName) || memberName.includes(docName);
+    if (nameMatches) okays.push('nome confere');
+    else problems.push(`nome no documento ("${String(parsed.nome).slice(0, 60)}") difere do cadastro ("${fullName}")`);
+
+    const docBirth = typeof parsed.data_nascimento === 'string' ? parsed.data_nascimento.slice(0, 10) : null;
+    if (docBirth && birthDate) {
+      const memberBirth = birthDate.toISOString().slice(0, 10);
+      if (docBirth === memberBirth) okays.push('nascimento confere');
+      else problems.push(`nascimento no documento (${docBirth}) difere do cadastro (${memberBirth})`);
+    } else if (docBirth && !birthDate) {
+      okays.push(`nascimento no documento: ${docBirth} (cadastro sem data para comparar)`);
+    }
+
+    if (problems.length) {
+      return { status: 'MISMATCH', notes: `⚠ ${problems.join('; ')}` };
+    }
+    return { status: 'MATCH', notes: `✓ ${okays.join(' · ')}` };
+  }
+
   async submitDocument(
     enrollmentId: string,
     dto: { kind: string },
@@ -3061,6 +3382,9 @@ export class CatechesisService {
       metadata: { enrollmentId, kind, sizeBytes: file.buffer.length },
     });
 
+    // Conferência automática em segundo plano (não atrasa o envio)
+    void this.runDocumentAutoCheck(document.id).catch(() => {});
+
     // Avisa a equipe da turma (best-effort)
     try {
       const catechists = await this.prisma.catechesisCatechist.findMany({
@@ -3096,6 +3420,10 @@ export class CatechesisService {
         mimeType: true,
         sizeBytes: true,
         status: true,
+        declaration: true,
+        denomination: true,
+        autoCheckStatus: true,
+        autoCheckNotes: true,
         reviewNotes: true,
         reviewedAt: true,
         createdAt: true,
@@ -3208,6 +3536,41 @@ export class CatechesisService {
           await tx.catechesisEnrollment.update({
             where: { id: document.enrollmentId },
             data: { pendingDocuments: remaining.length ? remaining.join('; ') : null },
+          });
+        }
+
+        const kindIsBaptism = CatechesisService.normalizeName(document.kind).includes('batismo');
+        // Batismo de OUTRA denominação ACEITO: vale como batismo — registra o
+        // sacramento (dedup por membro; a Igreja reconhece batismos trinitários)
+        // e a matrícula deixa de ser catecumenato
+        if (document.declaration === 'OTHER_DENOMINATION') {
+          await this.lockMembers(tx, [document.enrollment.memberId]);
+          const existing = await tx.sacrament.findFirst({
+            where: { memberId: document.enrollment.memberId, type: SacramentType.BAPTISM },
+            select: { id: true },
+          });
+          if (!existing) {
+            await tx.sacrament.create({
+              data: {
+                memberId: document.enrollment.memberId,
+                type: SacramentType.BAPTISM,
+                date: new Date(),
+                place: document.denomination ? `Outra denominação: ${document.denomination}` : 'Outra denominação',
+                notes: `Batismo em outra denominação${document.denomination ? ` (${document.denomination})` : ''} — aceito pela coordenação da catequese (data do registro, não da celebração)`,
+              },
+            });
+          }
+          await tx.catechesisEnrollment.updateMany({
+            where: { id: document.enrollmentId, unbaptized: true },
+            data: { unbaptized: false },
+          });
+        }
+        // "NÃO TEM batismo" aceito: é o catecumenato — a matrícula entra em
+        // preparação para o Batismo (1 ano de catequese, sem certidão a cobrar)
+        if (document.declaration === 'NOT_HAVE' && kindIsBaptism) {
+          await tx.catechesisEnrollment.updateMany({
+            where: { id: document.enrollmentId, unbaptized: false },
+            data: { unbaptized: true },
           });
         }
       }

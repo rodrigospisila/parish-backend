@@ -1645,10 +1645,11 @@ model CatechesisClass {
   communityId String
   community   Community       @relation(fields: [communityId], references: [id], onDelete: Cascade)
 
-  catechists  CatechesisCatechist[]
-  enrollments CatechesisEnrollment[]
-  sessions    CatechesisSession[]
-  fees        CatechesisFee[]
+  catechists      CatechesisCatechist[]
+  enrollments     CatechesisEnrollment[]
+  sessions        CatechesisSession[]
+  fees            CatechesisFee[]
+  docRequirements CatechesisClassDocRequirement[]
 
   status EntityStatus @default(ACTIVE)
 
@@ -1751,6 +1752,18 @@ model CatechesisDocument {
   sizeBytes Int
   data      Bytes? // null após conferência/recusa (LGPD)
 
+  // Declaração SEM arquivo: "não tem" o documento, ou batismo de OUTRA
+  // denominação (qual em `denomination`) — a equipe aceita/recusa no mesmo
+  // fluxo de conferência dos arquivos
+  declaration  CatechesisDocDeclaration?
+  denomination String?
+
+  // Conferência automática (IA): o documento é do tipo pedido e o nome/data
+  // de nascimento batem com o cadastro do catequizando? Auxiliar — a decisão
+  // final continua sendo da equipe
+  autoCheckStatus CatechesisDocAutoCheck?
+  autoCheckNotes  String?
+
   status       CatechesisDocumentStatus @default(SUBMITTED)
   reviewNotes  String?
   reviewedById String?
@@ -1762,6 +1775,40 @@ model CatechesisDocument {
   @@index([enrollmentId])
   @@index([status])
   @@map("catechesis_documents")
+}
+
+enum CatechesisDocDeclaration {
+  NOT_HAVE // responsável declara que o catequizando não tem o documento
+  OTHER_DENOMINATION // batismo em outra denominação cristã (informa qual)
+}
+
+enum CatechesisDocAutoCheck {
+  MATCH // documento do tipo pedido, nome e nascimento conferem
+  MISMATCH // alguma divergência com o cadastro
+  UNREADABLE // não deu para ler/extrair os dados
+  SKIPPED // conferência automática indisponível (sem chave/erro/arquivo grande)
+}
+
+// Documentos que a TURMA pede na inscrição — o coordenador define quais e se
+// são obrigatórios; sem cadastro, valem os padrões (certidão de nascimento
+// obrigatória; CPF e batismo opcionais com "não tenho").
+model CatechesisClassDocRequirement {
+  id      String          @id @default(cuid())
+  classId String
+  class   CatechesisClass @relation(fields: [classId], references: [id], onDelete: Cascade)
+
+  kind                   String
+  required               Boolean @default(false)
+  allowNotHave           Boolean @default(false) // responsável pode declarar que não tem
+  allowOtherDenomination Boolean @default(false) // batismo de outra denominação (informa qual)
+  ordering               Int     @default(0)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([classId, kind])
+  @@index([classId])
+  @@map("catechesis_class_doc_requirements")
 }
 
 // Conceito do parecer por período (Fase 5)

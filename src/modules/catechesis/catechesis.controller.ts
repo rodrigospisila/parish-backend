@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Patch, Delete, Body, Param, Query, UseGuards, Request, Res, UseInterceptors, UploadedFile } from '@nestjs/common';
+import { Controller, Get, Post, Patch, Put, Delete, Body, Param, Query, UseGuards, Request, Res, UseInterceptors, UploadedFile } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
 import type { Response } from 'express';
 import { CatechesisService } from './catechesis.service';
@@ -159,6 +159,34 @@ export class CatechesisController {
   @Get('enrollments/:id/documents')
   listDocuments(@Param('id') id: string, @Request() req: any) {
     return this.service.listDocuments(id, req.user);
+  }
+
+  // Declaração SEM arquivo: "não tem" ou batismo de outra denominação —
+  // família ou equipe (service valida contra os requisitos da turma)
+  @Post('enrollments/:id/documents/declaration')
+  submitDeclaration(
+    @Param('id') id: string,
+    @Body() dto: { kind: string; declaration: string; denomination?: string },
+    @Request() req: any,
+  ) {
+    return this.service.submitDeclaration(id, dto, req.user);
+  }
+
+  // Requisitos de documentos da inscrição: leitura para qualquer autenticado
+  // (a família precisa ver o que a turma pede); edição pela coordenação
+  @Get('classes/:id/doc-requirements')
+  classDocRequirements(@Param('id') id: string, @Request() req: any) {
+    return this.service.getClassDocRequirements(id, req.user);
+  }
+
+  @Put('classes/:id/doc-requirements')
+  @Roles(UserRole.PASTORAL_COORDINATOR)
+  setClassDocRequirements(
+    @Param('id') id: string,
+    @Body() dto: { items: Array<{ kind: string; required?: boolean; allowNotHave?: boolean; allowOtherDenomination?: boolean }> },
+    @Request() req: any,
+  ) {
+    return this.service.setClassDocRequirements(id, dto, req.user);
   }
 
   // Frequência detalhada por encontro (família ou equipe — service valida)
