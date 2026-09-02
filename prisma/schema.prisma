@@ -1750,7 +1750,7 @@ model CatechesisDocument {
   fileName  String
   mimeType  String
   sizeBytes Int
-  data      Bytes? // null após conferência/recusa (LGPD)
+  data      Bytes? // aceito fica ARMAZENADO (prontuário; cascade com a matrícula); null quando recusado ou conferido antes de 02/09/2026
 
   // Declaração SEM arquivo: "não tem" o documento, ou batismo de OUTRA
   // denominação (qual em `denomination`) — a equipe aceita/recusa no mesmo

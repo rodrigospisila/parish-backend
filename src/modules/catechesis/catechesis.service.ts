@@ -3492,7 +3492,12 @@ export class CatechesisService {
   /** Documentos da matrícula (metadados) — família ou equipe. */
   async listDocuments(enrollmentId: string, user: CurrentUser) {
     await this.loadEnrollmentForDocument(enrollmentId, user);
-    return this.prisma.catechesisDocument.findMany({
+    // hasFile sem carregar os binários: aceitos ficam armazenados; recusados
+    // e os conferidos ANTES da mudança de política não têm mais arquivo
+    const withFile = await this.prisma.$queryRaw<Array<{ id: string }>>`
+      SELECT id FROM catechesis_documents WHERE "enrollmentId" = ${enrollmentId} AND data IS NOT NULL`;
+    const hasFile = new Set(withFile.map((row) => row.id));
+    const docs = await this.prisma.catechesisDocument.findMany({
       where: { enrollmentId },
       select: {
         id: true,
@@ -3511,6 +3516,7 @@ export class CatechesisService {
       },
       orderBy: { createdAt: 'desc' },
     });
+    return docs.map((doc) => ({ ...doc, hasFile: hasFile.has(doc.id) }));
   }
 
   /** Binário do documento — equipe da turma OU a própria família (enquanto SUBMITTED). */
@@ -3536,7 +3542,7 @@ export class CatechesisService {
       await this.assertClassOperationalAccess(document.enrollment.class.id, user);
     }
     if (!document.data) {
-      throw new NotFoundException('O arquivo já foi conferido e removido (retenção mínima)');
+      throw new NotFoundException('O arquivo não está mais armazenado (documento recusado, ou conferido antes de os arquivos passarem a ficar guardados)');
     }
     await this.auditService.log({
       actor: this.auditActor(user),
@@ -3586,19 +3592,29 @@ export class CatechesisService {
     const updated = await this.prisma.$transaction(async (tx) => {
       // Guarda de status no próprio update: duas conferências simultâneas não
       // se sobrescrevem — a segunda falha como "já conferido"
+      // Política de retenção (decisão de produto de 02/09/2026): documento
+      // ACEITO fica ARMAZENADO — é o prontuário da matrícula (morre junto
+      // dela/do membro via cascade, e na recusa de inscrição online). Documento
+      // RECUSADO é apagado na hora: não serve e muitas vezes é arquivo errado,
+      // de terceiro — junto morrem as notas do auto-check, que citam dados
+      // lidos do documento.
       const guarded = await tx.catechesisDocument.updateMany({
         where: { id: documentId, status: 'SUBMITTED' },
-        data: {
-          status: dto.approve ? 'VERIFIED' : 'REJECTED',
-          reviewNotes: notes,
-          reviewedById: user.id,
-          reviewedAt: new Date(),
-          data: null, // retenção mínima: o arquivo morre na conferência
-          // As notas do auto-check citam dados LIDOS do documento (nome/data —
-          // às vezes de terceiro, no anexo errado): morrem junto do binário.
-          // O status (MATCH/MISMATCH/…) fica como histórico.
-          autoCheckNotes: null,
-        },
+        data: dto.approve
+          ? {
+              status: 'VERIFIED',
+              reviewNotes: notes,
+              reviewedById: user.id,
+              reviewedAt: new Date(),
+            }
+          : {
+              status: 'REJECTED',
+              reviewNotes: notes,
+              reviewedById: user.id,
+              reviewedAt: new Date(),
+              data: null,
+              autoCheckNotes: null,
+            },
       });
       if (guarded.count === 0) {
         throw new BadRequestException('Este documento já foi conferido');
