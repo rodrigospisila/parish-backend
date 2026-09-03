@@ -260,6 +260,18 @@ model User {
   @@map("users")
 }
 
+// Matriz do SYSTEM_ADMIN: módulo do painel DESATIVADO para um papel.
+// Ausência de linha = módulo disponível (comportamento padrão do papel).
+model ModuleAccessOverride {
+  id        String   @id @default(cuid())
+  moduleKey String
+  role      UserRole
+  createdAt DateTime @default(now())
+
+  @@unique([moduleKey, role])
+  @@map("module_access_overrides")
+}
+
 // Foto de perfil (tabela separada: o binário nunca vaza em includes de User)
 model UserAvatar {
   userId    String   @id

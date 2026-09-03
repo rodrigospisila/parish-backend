@@ -21,6 +21,7 @@ import { SchedulesModule } from './modules/schedules/schedules.module';
 import { PrayerRequestsModule } from './modules/prayer-requests/prayer-requests.module';
 import { MassIntentionsModule } from './modules/mass-intentions/mass-intentions.module';
 import { PastoralsModule } from './modules/pastorals/pastorals.module';
+import { SettingsModule } from './modules/settings/settings.module';
 import { NotificationsModule } from './modules/notifications/notifications.module';
 import { JobsModule } from './modules/jobs/jobs.module';
 import { ConsentsModule } from './modules/consents/consents.module';
@@ -88,6 +89,7 @@ import { CommonModule } from './common/common.module';
     MassesModule,
     DashboardModule,
     TitheModule,
+    SettingsModule,
   ],
   controllers: [AppController],
   providers: [
