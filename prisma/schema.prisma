@@ -2634,7 +2634,10 @@ model CatechesisMessage {
   body     String
   // Lida pelo OUTRO lado (equipe lê a da família e vice-versa)
   readAt    DateTime?
-  createdAt DateTime  @default(now())
+  // Entregue = notificação criada para o outro lado (null: ninguém para receber
+  // ou o push falhou — a mensagem segue visível na conversa)
+  deliveredAt DateTime?
+  createdAt   DateTime  @default(now())
 
   @@index([enrollmentId, createdAt])
   @@index([enrollmentId, fromTeam, readAt])

@@ -4857,6 +4857,7 @@ export class CatechesisService {
         mine: m.authorUserId === user.id,
         createdAt: m.createdAt,
         readAt: m.readAt,
+        deliveredAt: m.deliveredAt,
       })),
     };
   }
@@ -4892,6 +4893,7 @@ export class CatechesisService {
       metadata: { enrollmentId, fromTeam: isTeam, length: body.length },
     });
     // Push ao outro lado é conveniência — não derruba o envio
+    let deliveredAt: Date | null = null;
     try {
       const recipients = isTeam
         ? this.guardianUserIds(enrollment.member)
@@ -4908,9 +4910,16 @@ export class CatechesisService {
           preview,
           { kind: 'chat', enrollmentId, classId: enrollment.classId },
         );
+        // Notificação criada para o outro lado = entregue (tick duplo)
+        deliveredAt = new Date();
+        await this.prisma.catechesisMessage.update({
+          where: { id: message.id },
+          data: { deliveredAt },
+        });
       }
     } catch {
-      // sem push, a mensagem segue visível na conversa
+      // sem push, a mensagem segue visível na conversa (fica só no tick simples)
+      deliveredAt = null;
     }
     return {
       id: message.id,
@@ -4920,6 +4929,7 @@ export class CatechesisService {
       mine: true,
       createdAt: message.createdAt,
       readAt: null,
+      deliveredAt,
     };
   }
 
