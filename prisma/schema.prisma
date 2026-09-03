@@ -1909,6 +1909,14 @@ model CatechesisAttendance {
   present      Boolean              @default(false)
   // Presente com atraso (conta como presença; marcação para o acompanhamento)
   late         Boolean              @default(false)
+  // Falta justificada (só faz sentido com present=false); atestado opcional
+  // anexado à falta — apagados juntos quando a marcação deixa de ser justificada
+  justified     Boolean @default(false)
+  justification String?
+  certificateName String?
+  certificateMime String?
+  certificateSize Int?
+  certificateData Bytes?
 
   // Quem marcou/alterou por último (auditoria leve de presença)
   markedById String?

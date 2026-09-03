@@ -505,9 +505,52 @@ export class CatechesisController {
   @Post('sessions/:id/attendance')
   markAttendance(
     @Param('id') id: string,
-    @Body() body: { entries: Array<{ enrollmentId: string; present: boolean; late?: boolean }> },
+    @Body() body: { entries: Array<{ enrollmentId: string; present: boolean; late?: boolean; justified?: boolean }> },
     @Request() req: any,
   ) {
     return this.service.markAttendance(id, body.entries, req.user);
+  }
+
+  // Folha de presença (alunos × encontros) — equipe da turma (service valida)
+  @Get('classes/:id/attendance-grid')
+  attendanceGrid(@Param('id') id: string, @Request() req: any) {
+    return this.service.getAttendanceGrid(id, req.user);
+  }
+
+  // Atestado da falta justificada
+  @Post('sessions/:sessionId/attendance/:enrollmentId/certificate')
+  @UseInterceptors(FileInterceptor('file', { limits: { fileSize: 8 * 1024 * 1024 } }))
+  attachAbsenceCertificate(
+    @Param('sessionId') sessionId: string,
+    @Param('enrollmentId') enrollmentId: string,
+    @UploadedFile() file: Express.Multer.File,
+    @Request() req: any,
+  ) {
+    return this.service.attachAbsenceCertificate(sessionId, enrollmentId, file, req.user);
+  }
+
+  @Get('sessions/:sessionId/attendance/:enrollmentId/certificate')
+  async absenceCertificate(
+    @Param('sessionId') sessionId: string,
+    @Param('enrollmentId') enrollmentId: string,
+    @Res() res: Response,
+    @Request() req: any,
+  ) {
+    const file = await this.service.getAbsenceCertificate(sessionId, enrollmentId, req.user);
+    res.set({
+      'Content-Type': file.mimeType,
+      'Content-Disposition': `inline; filename="${file.fileName.replace(/[^\w.\-]/g, '_')}"`,
+      'Content-Length': String(file.buffer.length),
+    });
+    res.end(file.buffer);
+  }
+
+  @Delete('sessions/:sessionId/attendance/:enrollmentId/certificate')
+  removeAbsenceCertificate(
+    @Param('sessionId') sessionId: string,
+    @Param('enrollmentId') enrollmentId: string,
+    @Request() req: any,
+  ) {
+    return this.service.removeAbsenceCertificate(sessionId, enrollmentId, req.user);
   }
 }

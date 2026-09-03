@@ -762,7 +762,15 @@ export class CatechesisService {
       }),
       this.prisma.catechesisAttendance.findMany({
         where: { sessionId },
-        select: { enrollmentId: true, present: true, late: true, markedById: true, updatedAt: true },
+        select: {
+          enrollmentId: true,
+          present: true,
+          late: true,
+          justified: true,
+          certificateName: true,
+          markedById: true,
+          updatedAt: true,
+        },
       }),
     ]);
     const byEnrollment = new Map(attendances.map((a) => [a.enrollmentId, a]));
@@ -795,8 +803,173 @@ export class CatechesisService {
         member: enrollment.member,
         present: byEnrollment.get(enrollment.id)?.present ?? null,
         late: byEnrollment.get(enrollment.id)?.late ?? false,
+        justified: byEnrollment.get(enrollment.id)?.justified ?? false,
+        hasCertificate: !!byEnrollment.get(enrollment.id)?.certificateName,
       })),
     };
+  }
+
+  /** Folha de presença da turma: alunos × encontros, como o formulário de papel. */
+  async getAttendanceGrid(classId: string, user: CurrentUser) {
+    await this.assertClassOperationalAccess(classId, user);
+    const [sessions, enrollments, marks] = await Promise.all([
+      this.prisma.catechesisSession.findMany({
+        where: { classId },
+        select: { id: true, date: true, topic: true },
+        orderBy: { date: 'asc' },
+      }),
+      this.prisma.catechesisEnrollment.findMany({
+        // Concluídos continuam na folha (histórico do ano); soft-deletados não
+        where: { classId, status: { in: ['ACTIVE', 'COMPLETED'] }, member: { deletedAt: null } },
+        select: { id: true, status: true, member: { select: { id: true, fullName: true } } },
+        orderBy: { member: { fullName: 'asc' } },
+      }),
+      this.prisma.catechesisAttendance.findMany({
+        where: { session: { classId } },
+        select: {
+          sessionId: true,
+          enrollmentId: true,
+          present: true,
+          late: true,
+          justified: true,
+          certificateName: true,
+        },
+      }),
+    ]);
+    return {
+      classId,
+      sessions,
+      students: enrollments.map((enrollment) => ({
+        enrollmentId: enrollment.id,
+        status: enrollment.status,
+        member: enrollment.member,
+      })),
+      marks: marks.map((mark) => ({
+        sessionId: mark.sessionId,
+        enrollmentId: mark.enrollmentId,
+        present: mark.present,
+        late: mark.late,
+        justified: mark.justified,
+        hasCertificate: !!mark.certificateName,
+      })),
+    };
+  }
+
+  /** Carrega a marcação validando encontro × matrícula × turma (e o acesso da equipe). */
+  private async loadAttendanceCell(sessionId: string, enrollmentId: string, user: CurrentUser) {
+    const session = await this.prisma.catechesisSession.findUnique({
+      where: { id: sessionId },
+      select: { id: true, date: true, classId: true },
+    });
+    if (!session) throw new NotFoundException('Encontro não encontrado');
+    await this.assertClassOperationalAccess(session.classId, user);
+    const enrollment = await this.prisma.catechesisEnrollment.findUnique({
+      where: { id: enrollmentId },
+      select: { id: true, classId: true, member: { select: { fullName: true, userId: true, responsible: { select: { userId: true } } } } },
+    });
+    if (!enrollment || enrollment.classId !== session.classId) {
+      throw new BadRequestException('A matrícula não pertence à turma deste encontro');
+    }
+    return { session, enrollment };
+  }
+
+  /** Anexa o atestado à falta — a marcação vira falta justificada. */
+  async attachAbsenceCertificate(
+    sessionId: string,
+    enrollmentId: string,
+    file: { originalname?: string; mimetype?: string; buffer?: Buffer } | undefined,
+    user: CurrentUser,
+  ) {
+    if (!file?.buffer?.length) throw new BadRequestException('Anexe o atestado (foto ou PDF)');
+    if (!CatechesisService.DOCUMENT_MIME_TYPES.has(file.mimetype ?? '')) {
+      throw new BadRequestException('Formato não aceito — envie JPG, PNG, WebP ou PDF');
+    }
+    if (file.buffer.length > CatechesisService.DOCUMENT_MAX_BYTES) {
+      throw new BadRequestException('Arquivo muito grande — máximo de 8 MB');
+    }
+    const { session } = await this.loadAttendanceCell(sessionId, enrollmentId, user);
+    const attendance = await this.prisma.catechesisAttendance.upsert({
+      where: { sessionId_enrollmentId: { sessionId, enrollmentId } },
+      create: {
+        sessionId,
+        enrollmentId,
+        present: false,
+        late: false,
+        justified: true,
+        certificateName: (file.originalname ?? 'atestado').slice(0, 120),
+        certificateMime: file.mimetype ?? 'application/octet-stream',
+        certificateSize: file.buffer.length,
+        certificateData: new Uint8Array(file.buffer),
+        markedById: user.id,
+      },
+      update: {
+        present: false,
+        late: false,
+        justified: true,
+        certificateName: (file.originalname ?? 'atestado').slice(0, 120),
+        certificateMime: file.mimetype ?? 'application/octet-stream',
+        certificateSize: file.buffer.length,
+        certificateData: new Uint8Array(file.buffer),
+        markedById: user.id,
+      },
+      select: { id: true },
+    });
+    await this.auditService.log({
+      actor: this.auditActor(user),
+      action: 'UPDATE',
+      entity: 'CatechesisAttendance',
+      entityId: attendance.id,
+      metadata: { kind: 'absence-certificate', sessionId, enrollmentId, sizeBytes: file.buffer.length, date: session.date },
+    });
+    return { justified: true, hasCertificate: true };
+  }
+
+  /** Baixa o atestado — equipe da turma ou a família do catequizando. */
+  async getAbsenceCertificate(sessionId: string, enrollmentId: string, user: CurrentUser) {
+    const attendance = await this.prisma.catechesisAttendance.findUnique({
+      where: { sessionId_enrollmentId: { sessionId, enrollmentId } },
+      select: {
+        certificateName: true,
+        certificateMime: true,
+        certificateData: true,
+        session: { select: { classId: true } },
+        enrollment: {
+          select: { member: { select: { userId: true, responsible: { select: { userId: true } } } } },
+        },
+      },
+    });
+    if (!attendance?.certificateData) throw new NotFoundException('Sem atestado anexado a esta falta');
+    const guardians = this.guardianUserIds(attendance.enrollment.member);
+    if (!guardians.includes(user.id)) {
+      await this.assertClassOperationalAccess(attendance.session.classId, user);
+    }
+    return {
+      fileName: attendance.certificateName ?? 'atestado',
+      mimeType: attendance.certificateMime ?? 'application/octet-stream',
+      buffer: Buffer.from(attendance.certificateData),
+    };
+  }
+
+  /** Remove o atestado (a falta continua justificada — desmarque na chamada se for o caso). */
+  async removeAbsenceCertificate(sessionId: string, enrollmentId: string, user: CurrentUser) {
+    const { session } = await this.loadAttendanceCell(sessionId, enrollmentId, user);
+    const existing = await this.prisma.catechesisAttendance.findUnique({
+      where: { sessionId_enrollmentId: { sessionId, enrollmentId } },
+      select: { id: true, certificateName: true },
+    });
+    if (!existing?.certificateName) throw new NotFoundException('Sem atestado anexado a esta falta');
+    await this.prisma.catechesisAttendance.update({
+      where: { id: existing.id },
+      data: { certificateName: null, certificateMime: null, certificateSize: null, certificateData: null, markedById: user.id },
+    });
+    await this.auditService.log({
+      actor: this.auditActor(user),
+      action: 'UPDATE',
+      entity: 'CatechesisAttendance',
+      entityId: existing.id,
+      metadata: { kind: 'absence-certificate-removed', sessionId, enrollmentId, date: session.date },
+    });
+    return { removed: true };
   }
 
   /**
@@ -2240,7 +2413,7 @@ export class CatechesisService {
 
   async markAttendance(
     sessionId: string,
-    entries: Array<{ enrollmentId: string; present: boolean; late?: boolean }>,
+    entries: Array<{ enrollmentId: string; present: boolean; late?: boolean; justified?: boolean }>,
     user: CurrentUser,
   ) {
     const session = await this.prisma.catechesisSession.findUnique({
@@ -2272,19 +2445,27 @@ export class CatechesisService {
     const previousByEnrollment = new Map(previous.map((a) => [a.enrollmentId, a.present]));
 
     const becameAbsent: string[] = [];
+    const justifiedByEnrollment = new Map<string, boolean>();
     await this.prisma.$transaction(
       entries.map((entry) => {
         // Atrasado conta como presente (marcação de acompanhamento)
         const late = entry.late === true;
         const present = entry.present || late;
+        // Justificada só existe na falta; sair de justificada apaga o motivo e
+        // o atestado (o anexo pertence à falta justificada)
+        const justified = !present && entry.justified === true;
+        justifiedByEnrollment.set(entry.enrollmentId, justified);
         const wasPresent = previousByEnrollment.get(entry.enrollmentId);
         if (!present && wasPresent !== false) {
           becameAbsent.push(entry.enrollmentId);
         }
+        const clearJustification = justified
+          ? {}
+          : { justification: null, certificateName: null, certificateMime: null, certificateSize: null, certificateData: null };
         return this.prisma.catechesisAttendance.upsert({
           where: { sessionId_enrollmentId: { sessionId, enrollmentId: entry.enrollmentId } },
-          create: { sessionId, enrollmentId: entry.enrollmentId, present, late, markedById: user.id },
-          update: { present, late, markedById: user.id },
+          create: { sessionId, enrollmentId: entry.enrollmentId, present, late, justified, markedById: user.id },
+          update: { present, late, justified, markedById: user.id, ...clearJustification },
         });
       }),
     );
@@ -2302,6 +2483,7 @@ export class CatechesisService {
           enrollmentId: entry.enrollmentId,
           present: entry.present || entry.late === true,
           late: entry.late === true,
+          justified: !(entry.present || entry.late === true) && entry.justified === true,
         })),
       },
     });
@@ -2316,6 +2498,7 @@ export class CatechesisService {
         const absents = await this.prisma.catechesisEnrollment.findMany({
           where: { id: { in: becameAbsent } },
           select: {
+            id: true,
             member: {
               select: {
                 fullName: true,
@@ -2330,11 +2513,14 @@ export class CatechesisService {
         for (const enrollment of absents) {
           const userIds = this.guardianUserIds(enrollment.member);
           if (!userIds.length) continue;
+          const justified = justifiedByEnrollment.get(enrollment.id) === true;
           await this.notificationsService.notifyUsers(
             userIds,
             NotificationType.CATECHESIS,
-            'Falta na catequese',
-            `${enrollment.member.fullName} não esteve no encontro de ${dayLabel} (${enrollment.class.name}).`,
+            justified ? 'Falta justificada na catequese' : 'Falta na catequese',
+            justified
+              ? `A falta de ${enrollment.member.fullName} no encontro de ${dayLabel} (${enrollment.class.name}) foi registrada como justificada.`
+              : `${enrollment.member.fullName} não esteve no encontro de ${dayLabel} (${enrollment.class.name}).`,
             { kind: 'absence', classId: enrollment.class.id, sessionId },
           );
         }
@@ -4190,7 +4376,13 @@ export class CatechesisService {
     await this.loadEnrollmentForDocument(enrollmentId, user);
     const attendances = await this.prisma.catechesisAttendance.findMany({
       where: { enrollmentId },
-      include: { session: { select: { date: true, topic: true } } },
+      // select explícito: include puxaria o binário do atestado em cada linha
+      select: {
+        present: true,
+        late: true,
+        justified: true,
+        session: { select: { date: true, topic: true } },
+      },
       orderBy: { session: { date: 'desc' } },
     });
     return attendances.map((attendance) => ({
@@ -4198,6 +4390,7 @@ export class CatechesisService {
       topic: attendance.session.topic,
       present: attendance.present,
       late: attendance.late,
+      justified: attendance.justified,
     }));
   }
 
