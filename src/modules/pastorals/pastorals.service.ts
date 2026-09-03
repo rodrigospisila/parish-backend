@@ -422,6 +422,12 @@ export class PastoralsService {
         subGroups: {
           where: { deletedAt: null },
         },
+        // Pedidos "quero participar" aguardando decisão — alerta nos cards
+        _count: {
+          select: {
+            joinRequests: { where: { status: 'PENDING', member: { deletedAt: null } } },
+          },
+        },
       },
       orderBy: {
         globalPastoral: {
