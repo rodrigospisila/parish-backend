@@ -1713,6 +1713,10 @@ model CatechesisEnrollment {
   // Instante de ENTRADA NA FILA de espera (ordem justa): enrolledAt não serve —
   // reativar matrícula antiga furaria a fila com a data original
   waitlistedAt     DateTime?
+  // Uso de imagem (fotos/vídeos dos encontros e eventos): true = autorizado,
+  // false = negado, null = não respondido (matrícula antiga ou feita no papel)
+  imageConsent     Boolean?
+  imageConsentAt   DateTime?
   enrolledAt       DateTime                   @default(now())
   completedAt      DateTime?
 

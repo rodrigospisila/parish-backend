@@ -1495,12 +1495,18 @@ export class CatechesisService {
       forMemberId?: string;
       newChild?: { fullName: string; birthDate?: string };
       consentGiven: boolean;
+      imageConsent?: boolean;
     },
     user: CurrentUser,
   ) {
     if (dto.consentGiven !== true) {
       throw new BadRequestException('O consentimento (LGPD) é obrigatório para a inscrição');
     }
+    // Uso de imagem: resposta EXPLÍCITA (autorizo/não autorizo) — negar não
+    // impede a inscrição, mas a equipe precisa saber quem não pode aparecer.
+    // Apps antigos não enviam o campo: a matrícula fica "não respondido" (null)
+    const imageConsent = typeof dto.imageConsent === 'boolean' ? dto.imageConsent : null;
+    const imageConsentAt = imageConsent === null ? null : new Date();
 
     const myMember = await this.prisma.member.findFirst({
       where: { userId: user.id, deletedAt: null },
@@ -1663,7 +1669,13 @@ export class CatechesisService {
         const enrollment = await tx.catechesisEnrollment.update({
           where: { id: existing.id },
           // waitlistedAt = AGORA: reativação com o enrolledAt antigo furaria a fila
-          data: { status: nextStatus, pendingDocuments, rejectionReason: null, waitlistedAt: waitlist ? new Date() : null },
+          data: {
+            status: nextStatus,
+            pendingDocuments,
+            rejectionReason: null,
+            waitlistedAt: waitlist ? new Date() : null,
+            ...(imageConsent === null ? {} : { imageConsent, imageConsentAt }),
+          },
         });
         return { enrollment, targetMemberId };
       }
@@ -1674,6 +1686,8 @@ export class CatechesisService {
           status: nextStatus,
           pendingDocuments,
           waitlistedAt: waitlist ? new Date() : null,
+          imageConsent,
+          imageConsentAt,
         },
       });
       return { enrollment, targetMemberId };
@@ -2762,6 +2776,8 @@ export class CatechesisService {
         rejectionReason: enrollment.rejectionReason,
         // Fila de espera: posição por ordem de chegada (1 = próximo)
         waitlistPosition: waitlistPositions.get(enrollment.id) ?? null,
+        // Uso de imagem respondido na inscrição (null = não respondido)
+        imageConsent: enrollment.imageConsent,
         documents: enrollment.documents,
         assessmentsCount: enrollment._count.assessments,
         unreadMessages: enrollment._count.messages,
@@ -5384,6 +5400,8 @@ export class CatechesisService {
         docsCount: e.documents.length,
         attendanceRate: total ? Math.round((present / total) * 100) : null,
         sessions: total,
+        // Uso de imagem: null = não respondido (matrícula antiga/no papel)
+        imageConsent: e.imageConsent,
       };
     });
 

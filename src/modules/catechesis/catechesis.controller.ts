@@ -65,6 +65,8 @@ export class CatechesisController {
       forMemberId?: string;
       newChild?: { fullName: string; birthDate?: string };
       consentGiven: boolean;
+      /** Uso de imagem: true autoriza, false nega (resposta explícita do responsável) */
+      imageConsent?: boolean;
     },
     @Request() req: any,
   ) {
