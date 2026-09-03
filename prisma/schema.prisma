@@ -1781,6 +1781,10 @@ model CatechesisDocument {
   // final continua sendo da equipe
   autoCheckStatus CatechesisDocAutoCheck?
   autoCheckNotes  String?
+  // Valores LIDOS do documento (estruturados): permitem oferecer ao
+  // responsável "corrigir o cadastro conforme o documento"; morrem na recusa
+  extractedName      String?
+  extractedBirthDate DateTime?
 
   status       CatechesisDocumentStatus @default(SUBMITTED)
   reviewNotes  String?

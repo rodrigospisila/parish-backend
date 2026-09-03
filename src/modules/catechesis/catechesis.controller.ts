@@ -206,6 +206,13 @@ export class CatechesisController {
     res.end(file.buffer);
   }
 
+  // Corrigir o cadastro do catequizando conforme o LIDO do documento —
+  // família da matrícula ou equipe (service valida; auditado; reconfere)
+  @Post('documents/:id/apply-correction')
+  applyDocumentCorrection(@Param('id') id: string, @Request() req: any) {
+    return this.service.applyDocumentCorrection(id, req.user);
+  }
+
   @Patch('documents/:id/review')
   reviewDocument(
     @Param('id') id: string,

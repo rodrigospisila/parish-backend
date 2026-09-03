@@ -2467,7 +2467,19 @@ export class CatechesisService {
           select: { present: true, late: true },
         },
         documents: {
-          select: { id: true, kind: true, status: true, reviewNotes: true, declaration: true, denomination: true, createdAt: true },
+          select: {
+            id: true,
+            kind: true,
+            status: true,
+            reviewNotes: true,
+            declaration: true,
+            denomination: true,
+            autoCheckStatus: true,
+            autoCheckNotes: true,
+            extractedName: true,
+            extractedBirthDate: true,
+            createdAt: true,
+          },
           orderBy: { createdAt: 'desc' },
         },
         _count: {
@@ -3437,6 +3449,8 @@ export class CatechesisService {
 
     let status: 'MATCH' | 'MISMATCH' | 'UNREADABLE' | 'SKIPPED' = 'SKIPPED';
     let notes = 'Conferência automática indisponível';
+    let extractedName: string | null = null;
+    let extractedBirthDate: Date | null = null;
     try {
       const apiKey = process.env.ANTHROPIC_API_KEY;
       if (!apiKey) {
@@ -3452,6 +3466,8 @@ export class CatechesisService {
         );
         status = result.status;
         notes = result.notes;
+        extractedName = result.extractedName ?? null;
+        extractedBirthDate = result.extractedBirthDate ?? null;
       }
     } catch (error: any) {
       this.logger.warn(`Auto-check (IA) do documento ${documentId}: ${error?.message ?? error}`);
@@ -3465,7 +3481,12 @@ export class CatechesisService {
       try {
         await this.prisma.catechesisDocument.updateMany({
           where: { id: documentId, status: 'SUBMITTED' },
-          data: { autoCheckStatus: status, autoCheckNotes: notes.slice(0, 300) },
+          data: {
+            autoCheckStatus: status,
+            autoCheckNotes: notes.slice(0, 300),
+            extractedName: extractedName ? extractedName.slice(0, 120) : null,
+            extractedBirthDate,
+          },
         });
         return;
       } catch (error: any) {
@@ -3482,7 +3503,12 @@ export class CatechesisService {
     kind: string,
     fullName: string,
     birthDate: Date | null,
-  ): Promise<{ status: 'MATCH' | 'MISMATCH' | 'UNREADABLE' | 'SKIPPED'; notes: string }> {
+  ): Promise<{
+    status: 'MATCH' | 'MISMATCH' | 'UNREADABLE' | 'SKIPPED';
+    notes: string;
+    extractedName?: string | null;
+    extractedBirthDate?: Date | null;
+  }> {
     const isPdf = mimeType === 'application/pdf';
     const isImage = /^image\/(jpeg|png|webp)$/.test(mimeType);
     if (!isPdf && !isImage) {
@@ -3598,10 +3624,16 @@ export class CatechesisService {
       okays.push(`nascimento no documento: ${docBirth} (cadastro sem data para comparar)`);
     }
 
+    // Valores extraídos estruturados: o responsável pode corrigir o cadastro
+    // conforme o documento com um toque
+    const extractedName = String(parsed.nome).trim().slice(0, 120) || null;
+    const validBirth = docBirth && /^\d{4}-\d{2}-\d{2}$/.test(docBirth) && !Number.isNaN(new Date(docBirth).getTime());
+    const extractedBirthDate = validBirth ? new Date(docBirth) : null;
+
     if (problems.length) {
-      return { status: 'MISMATCH', notes: `⚠ ${problems.join('; ')}` };
+      return { status: 'MISMATCH', notes: `⚠ ${problems.join('; ')}`, extractedName, extractedBirthDate };
     }
-    return { status: 'MATCH', notes: `✓ ${okays.join(' · ')}` };
+    return { status: 'MATCH', notes: `✓ ${okays.join(' · ')}`, extractedName, extractedBirthDate };
   }
 
   async submitDocument(
@@ -3724,6 +3756,8 @@ export class CatechesisService {
         denomination: true,
         autoCheckStatus: true,
         autoCheckNotes: true,
+        extractedName: true,
+        extractedBirthDate: true,
         reviewNotes: true,
         reviewedAt: true,
         createdAt: true,
@@ -3731,6 +3765,73 @@ export class CatechesisService {
       orderBy: { createdAt: 'desc' },
     });
     return docs.map((doc) => ({ ...doc, hasFile: hasFile.has(doc.id) }));
+  }
+
+  /**
+   * Corrige o CADASTRO do catequizando conforme o que a conferência automática
+   * LEU do documento (nome e/ou nascimento) — oferecido ao responsável no app
+   * e à equipe no balcão. Auditado; o auto-check reexecuta na sequência (o
+   * badge deve virar "confere").
+   */
+  async applyDocumentCorrection(documentId: string, user: CurrentUser) {
+    const document = await this.prisma.catechesisDocument.findUnique({
+      where: { id: documentId },
+      include: {
+        enrollment: {
+          include: {
+            member: {
+              select: { id: true, fullName: true, birthDate: true, userId: true, deletedAt: true, responsible: { select: { userId: true } } },
+            },
+            class: { select: { id: true } },
+          },
+        },
+      },
+    });
+    if (!document || document.enrollment.member.deletedAt) {
+      throw new NotFoundException('Documento não encontrado');
+    }
+    const isFamily = this.guardianUserIds(document.enrollment.member).includes(user.id);
+    if (!isFamily) {
+      await this.assertClassOperationalAccess(document.enrollment.class.id, user);
+    }
+    if (document.status !== 'SUBMITTED') {
+      throw new BadRequestException('Este documento já foi conferido — fale com a coordenação para corrigir o cadastro');
+    }
+    const extractedName = document.extractedName ? CatechesisService.cleanKind(document.extractedName).slice(0, 120) : null;
+    const extractedBirthDate = document.extractedBirthDate ?? null;
+    if ((!extractedName || extractedName.length < 5) && !extractedBirthDate) {
+      throw new BadRequestException('A conferência automática não extraiu dados utilizáveis deste documento');
+    }
+
+    const member = document.enrollment.member;
+    const data: any = {};
+    if (extractedName && extractedName.length >= 5 && extractedName !== member.fullName) data.fullName = extractedName;
+    if (extractedBirthDate && (!member.birthDate || member.birthDate.getTime() !== extractedBirthDate.getTime())) {
+      data.birthDate = extractedBirthDate;
+    }
+    if (Object.keys(data).length === 0) {
+      throw new BadRequestException('O cadastro já está igual ao documento');
+    }
+
+    const updated = await this.prisma.member.update({
+      where: { id: member.id },
+      data,
+      select: { id: true, fullName: true, birthDate: true },
+    });
+    await this.auditService.log({
+      actor: this.auditActor(user),
+      action: 'UPDATE',
+      entity: 'Member',
+      entityId: member.id,
+      metadata: {
+        correctionFromDocument: documentId,
+        before: { fullName: member.fullName, birthDate: member.birthDate },
+        after: { fullName: updated.fullName, birthDate: updated.birthDate },
+      },
+    });
+    // Reconfere: com o cadastro corrigido, o badge deve virar "confere"
+    this.enqueueAutoCheck(documentId);
+    return { member: updated, applied: Object.keys(data) };
   }
 
   /** Binário do documento — equipe da turma OU a própria família (enquanto SUBMITTED). */
@@ -3828,6 +3929,8 @@ export class CatechesisService {
               reviewedAt: new Date(),
               data: null,
               autoCheckNotes: null,
+              extractedName: null,
+              extractedBirthDate: null,
             },
       });
       if (guarded.count === 0) {
