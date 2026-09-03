@@ -5405,7 +5405,14 @@ export class CatechesisService {
       };
     });
 
+    // Identidade da turma para o cabeçalho do app (nome · ano · dia/horário)
+    const klass = await this.prisma.catechesisClass.findUnique({
+      where: { id: classId },
+      select: { id: true, name: true, year: true, weekday: true, time: true, room: true },
+    });
+
     return {
+      class: klass,
       catechists: catechists.map((link) => ({
         memberId: link.member.id,
         fullName: link.member.fullName,
