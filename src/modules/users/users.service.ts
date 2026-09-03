@@ -1184,4 +1184,36 @@ export class UsersService {
       tempPassword,
     };
   }
+
+  // ===== FOTO DE PERFIL =====
+
+  private static readonly AVATAR_MIME_TYPES = new Set(['image/jpeg', 'image/png', 'image/webp']);
+
+  async setMyAvatar(userId: string, file: { mimetype?: string; buffer?: Buffer } | undefined) {
+    if (!file?.buffer?.length) throw new BadRequestException('Envie a foto (JPG, PNG ou WebP)');
+    if (!UsersService.AVATAR_MIME_TYPES.has(file.mimetype ?? '')) {
+      throw new BadRequestException('Formato não aceito — envie JPG, PNG ou WebP');
+    }
+    const avatar = await this.prisma.userAvatar.upsert({
+      where: { userId },
+      create: { userId, mimeType: file.mimetype!, data: new Uint8Array(file.buffer) },
+      update: { mimeType: file.mimetype!, data: new Uint8Array(file.buffer) },
+      select: { updatedAt: true },
+    });
+    return { updatedAt: avatar.updatedAt };
+  }
+
+  async removeMyAvatar(userId: string) {
+    await this.prisma.userAvatar.deleteMany({ where: { userId } });
+    return { removed: true };
+  }
+
+  async getAvatarFile(userId: string) {
+    const avatar = await this.prisma.userAvatar.findUnique({
+      where: { userId },
+      select: { mimeType: true, data: true },
+    });
+    if (!avatar) throw new NotFoundException('Sem foto de perfil');
+    return { mimeType: avatar.mimeType, buffer: Buffer.from(avatar.data) };
+  }
 }

@@ -8,7 +8,12 @@ import {
   Delete,
   UseGuards,
   Request,
+  Res,
+  UseInterceptors,
+  UploadedFile,
 } from '@nestjs/common';
+import { FileInterceptor } from '@nestjs/platform-express';
+import type { Response } from 'express';
 import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
@@ -77,6 +82,31 @@ export class UsersController {
   @Delete('me')
   deleteMe(@Request() req) {
     return this.usersService.deleteOwnAccount(req.user.id);
+  }
+
+  /** Foto de perfil do próprio usuário. IMPORTANTE: antes de :id. */
+  @Post('me/avatar')
+  @UseInterceptors(FileInterceptor('file', { limits: { fileSize: 3 * 1024 * 1024 } }))
+  setMyAvatar(@UploadedFile() file: Express.Multer.File, @Request() req) {
+    return this.usersService.setMyAvatar(req.user.id, file);
+  }
+
+  @Delete('me/avatar')
+  removeMyAvatar(@Request() req) {
+    return this.usersService.removeMyAvatar(req.user.id);
+  }
+
+  /** Foto de perfil de um usuário (qualquer autenticado — exibida em avatares). */
+  @Get(':id/avatar')
+  async avatar(@Param('id') id: string, @Res() res: Response) {
+    const file = await this.usersService.getAvatarFile(id);
+    res.set({
+      'Content-Type': file.mimeType,
+      'Content-Length': String(file.buffer.length),
+      // O cliente re-busca com ?t=<versão> após trocar a foto
+      'Cache-Control': 'private, max-age=3600',
+    });
+    res.end(file.buffer);
   }
 
   @Get(':id')

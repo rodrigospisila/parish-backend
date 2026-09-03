@@ -255,8 +255,20 @@ model User {
   @@index([email])
   @@index([role])
   catechesisMessages CatechesisMessage[]
+  avatar             UserAvatar?
 
   @@map("users")
+}
+
+// Foto de perfil (tabela separada: o binário nunca vaza em includes de User)
+model UserAvatar {
+  userId    String   @id
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  mimeType  String
+  data      Bytes
+  updatedAt DateTime @updatedAt
+
+  @@map("user_avatars")
 }
 
 // Dispositivos conhecidos por usuário (D4.7): login em aparelho novo avisa o dono da conta
