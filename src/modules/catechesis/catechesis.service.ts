@@ -2413,7 +2413,7 @@ export class CatechesisService {
 
   async markAttendance(
     sessionId: string,
-    entries: Array<{ enrollmentId: string; present: boolean; late?: boolean; justified?: boolean }>,
+    entries: Array<{ enrollmentId: string; present: boolean; late?: boolean; justified?: boolean; clear?: boolean }>,
     user: CurrentUser,
   ) {
     const session = await this.prisma.catechesisSession.findUnique({
@@ -2446,8 +2446,19 @@ export class CatechesisService {
 
     const becameAbsent: string[] = [];
     const justifiedByEnrollment = new Map<string, boolean>();
-    await this.prisma.$transaction(
-      entries.map((entry) => {
+    // clear = desfazer um lançamento por engano: a linha some (volta a "sem
+    // chamada"), atestado incluso; não é falta, não avisa família
+    const toClear = entries.filter((entry) => entry.clear === true);
+    const toMark = entries.filter((entry) => entry.clear !== true);
+    await this.prisma.$transaction([
+      ...(toClear.length
+        ? [
+            this.prisma.catechesisAttendance.deleteMany({
+              where: { sessionId, enrollmentId: { in: toClear.map((entry) => entry.enrollmentId) } },
+            }),
+          ]
+        : []),
+      ...toMark.map((entry) => {
         // Atrasado conta como presente (marcação de acompanhamento)
         const late = entry.late === true;
         const present = entry.present || late;
@@ -2468,7 +2479,7 @@ export class CatechesisService {
           update: { present, late, justified, markedById: user.id, ...clearJustification },
         });
       }),
-    );
+    ]);
 
     // Chamada é sobrescrevível por qualquer catequista da turma — a auditoria
     // registra quem gravou e o antes/depois (sem isso a sobrescrita é invisível)
@@ -2479,12 +2490,16 @@ export class CatechesisService {
       entityId: sessionId,
       before: { entries: previous },
       after: {
-        entries: entries.map((entry) => ({
-          enrollmentId: entry.enrollmentId,
-          present: entry.present || entry.late === true,
-          late: entry.late === true,
-          justified: !(entry.present || entry.late === true) && entry.justified === true,
-        })),
+        entries: entries.map((entry) =>
+          entry.clear === true
+            ? { enrollmentId: entry.enrollmentId, cleared: true }
+            : {
+                enrollmentId: entry.enrollmentId,
+                present: entry.present || entry.late === true,
+                late: entry.late === true,
+                justified: !(entry.present || entry.late === true) && entry.justified === true,
+              },
+        ),
       },
     });
 

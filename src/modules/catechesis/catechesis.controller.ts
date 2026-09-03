@@ -505,7 +505,7 @@ export class CatechesisController {
   @Post('sessions/:id/attendance')
   markAttendance(
     @Param('id') id: string,
-    @Body() body: { entries: Array<{ enrollmentId: string; present: boolean; late?: boolean; justified?: boolean }> },
+    @Body() body: { entries: Array<{ enrollmentId: string; present: boolean; late?: boolean; justified?: boolean; clear?: boolean }> },
     @Request() req: any,
   ) {
     return this.service.markAttendance(id, body.entries, req.user);
