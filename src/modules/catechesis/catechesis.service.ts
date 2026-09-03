@@ -524,7 +524,7 @@ export class CatechesisService {
     // Ocupação para o limite de vagas = matriculados ATIVOS + inscrições
     // aguardando aprovação (a mesma regra que a matrícula respeita).
     const classIds = classes.map((klass) => klass.id);
-    const [occupancy, completedCounts] = classIds.length
+    const [occupancy, completedCounts, pendingCounts, docsToReview] = classIds.length
       ? await Promise.all([
           this.prisma.catechesisEnrollment.groupBy({
             by: ['classId'],
@@ -538,10 +538,26 @@ export class CatechesisService {
             where: { classId: { in: classIds }, status: 'COMPLETED', member: { deletedAt: null } },
             _count: { _all: true },
           }),
+          // Pendências acionáveis POR TURMA na própria lista — o painel do
+          // Início diz "1 inscrição aguardando", a lista mostra ONDE
+          this.prisma.catechesisEnrollment.groupBy({
+            by: ['classId'],
+            where: { classId: { in: classIds }, status: { in: ['PENDING_APPROVAL', 'WAITLISTED'] }, member: { deletedAt: null } },
+            _count: { _all: true },
+          }),
+          this.prisma.catechesisDocument.findMany({
+            where: { status: 'SUBMITTED', enrollment: { classId: { in: classIds }, member: { deletedAt: null } } },
+            select: { enrollment: { select: { classId: true } } },
+          }),
         ])
-      : [[], []];
+      : [[], [], [], []];
     const occupiedByClass = new Map(occupancy.map((row) => [row.classId, row._count._all]));
     const completedByClass = new Map(completedCounts.map((row) => [row.classId, row._count._all]));
+    const pendingByClass = new Map(pendingCounts.map((row) => [row.classId, row._count._all]));
+    const docsByClass = new Map<string, number>();
+    for (const doc of docsToReview) {
+      docsByClass.set(doc.enrollment.classId, (docsByClass.get(doc.enrollment.classId) ?? 0) + 1);
+    }
 
     return classes.map((klass) => {
       const occupied = occupiedByClass.get(klass.id) ?? 0;
@@ -551,6 +567,8 @@ export class CatechesisService {
         openSpots: klass.capacity === null ? null : Math.max(0, klass.capacity - occupied),
         isFull: klass.capacity !== null && occupied >= klass.capacity,
         completedCount: completedByClass.get(klass.id) ?? 0,
+        pendingApprovalCount: pendingByClass.get(klass.id) ?? 0,
+        docsToReviewCount: docsByClass.get(klass.id) ?? 0,
       };
     });
   }
