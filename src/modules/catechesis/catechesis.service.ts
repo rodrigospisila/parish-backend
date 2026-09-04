@@ -506,6 +506,15 @@ export class CatechesisService {
       if (user.communityId) where.communityId = user.communityId;
       else if (user.parishId) where.community = { parishId: user.parishId };
     }
+    // Fiel/voluntário CATEQUISTA: só as próprias turmas (onde estiver a turma —
+    // o vínculo de equipe vale mais que a comunidade principal do usuário)
+    if (user.role === UserRole.FAITHFUL || user.role === UserRole.VOLUNTEER) {
+      if (!communityId) {
+        delete where.communityId;
+        delete where.community;
+      }
+      where.catechists = { some: { member: { userId: user.id, deletedAt: null } } };
+    }
     const classes = await this.prisma.catechesisClass.findMany({
       where,
       include: {
