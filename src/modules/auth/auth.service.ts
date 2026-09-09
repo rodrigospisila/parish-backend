@@ -153,6 +153,34 @@ export class AuthService {
       // Garante o perfil de Member (somente para roles elegiveis e quando ha comunidade
       // definida) - mesma regra usada em UsersService, centralizada em MembersService.
       if (communityId) {
+        // Telefone VERIFICADO por SMS + membro pré-cadastrado sem conta com o
+        // mesmo telefone (ex.: "Responsável – <catequizando>" importado da
+        // planilha): a conta nova ADOTA esse membro em vez de criar outro —
+        // assume o nome real e herda os dependentes/matrículas vinculados.
+        // Só no caminho verificado: telefone digitado à mão não adota ninguém.
+        let adoptedMemberId: string | undefined = user.member?.id;
+        if (!adoptedMemberId && verifiedPhoneToken && phone) {
+          // Prefere o membro da comunidade escolhida; senão, o mais antigo com o telefone
+          const orphan =
+            (await tx.member.findFirst({
+              where: { phone, userId: null, deletedAt: null, communityId },
+              orderBy: { createdAt: 'asc' },
+              select: { id: true },
+            })) ??
+            (await tx.member.findFirst({
+              where: { phone, userId: null, deletedAt: null },
+              orderBy: { createdAt: 'asc' },
+              select: { id: true },
+            }));
+          if (orphan) {
+            await tx.member.update({
+              where: { id: orphan.id },
+              data: { userId: user.id, fullName: name, email },
+            });
+            adoptedMemberId = orphan.id;
+          }
+        }
+
         const member = await this.membersService.ensureProfileForUser(
           tx,
           {
@@ -164,7 +192,7 @@ export class AuthService {
             communityId,
             consentGiven,
           },
-          user.member?.id,
+          adoptedMemberId,
         );
 
         // Registra o consentimento granular de tratamento de dados (LGPD)
