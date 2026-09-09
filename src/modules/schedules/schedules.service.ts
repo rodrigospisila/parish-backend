@@ -1,4 +1,12 @@
-﻿import { Injectable, NotFoundException, BadRequestException, ForbiddenException, ConflictException } from '@nestjs/common';
+﻿import {
+  Injectable,
+  NotFoundException,
+  BadRequestException,
+  ForbiddenException,
+  ConflictException,
+  HttpException,
+  Logger,
+} from '@nestjs/common';
 import { PrismaService } from '../../database/prisma.service';
 import { CreateScheduleDto } from './dto/create-schedule.dto';
 import { CreateStandaloneScheduleDto } from './dto/create-standalone-schedule.dto';
@@ -11,8 +19,18 @@ import { PdfService } from '../pdf/pdf.service';
 import { AuditService } from '../../common/audit.service';
 import { ScheduleConflictsService } from '../../common/schedule-conflicts.service';
 
+/** Dados mínimos da atribuição recém-criada para avisar o membro */
+interface CreatedAssignmentNotice {
+  id: string;
+  memberId: string;
+  scheduleId: string;
+  schedule: { title: string; date: Date; startTime: string | null; community?: any; event?: any };
+}
+
 @Injectable()
 export class SchedulesService {
+  private readonly logger = new Logger(SchedulesService.name);
+
   constructor(
     private readonly prisma: PrismaService,
     private readonly hierarchyService: HierarchyService,
@@ -1129,7 +1147,11 @@ export class SchedulesService {
 
   // ========== ASSIGNMENTS ==========
 
-  async createAssignment(createAssignmentDto: CreateAssignmentDto, currentUser?: CurrentUser) {
+  async createAssignment(
+    createAssignmentDto: CreateAssignmentDto,
+    currentUser?: CurrentUser,
+    options?: { skipNotify?: boolean },
+  ) {
     const {
       scheduleId,
       memberId,
@@ -1141,9 +1163,9 @@ export class SchedulesService {
         ? await this.getScopedPastoralIds(currentUser)
         : [];
 
-    // Verificar se a escala existe
-    const schedule = await this.prisma.schedule.findUnique({
-      where: { id: scheduleId },
+    // Verificar se a escala existe (excluída não recebe convocação)
+    const schedule = await this.prisma.schedule.findFirst({
+      where: { id: scheduleId, deletedAt: null },
       include: {
         pastorals: {
           select: {
@@ -1363,23 +1385,28 @@ export class SchedulesService {
       });
     }
 
+    // No lote a notificação é disparada depois do laço (em paralelo)
+    if (!options?.skipNotify) {
+      await this.notifyAssignmentCreated(createdAssignment);
+    }
+
+    return createdAssignment;
+  }
+
+  private async notifyAssignmentCreated(createdAssignment: CreatedAssignmentNotice) {
     const createdCommunity =
-      (createdAssignment.schedule as any).event?.community ??
-      (createdAssignment.schedule as any).community ??
-      null;
+      createdAssignment.schedule.event?.community ?? createdAssignment.schedule.community ?? null;
     await this.notifyMember(
-      memberId,
+      createdAssignment.memberId,
       NotificationType.ASSIGNMENT_CREATED,
       'Nova escala',
       `Voce foi escalado(a) para "${createdAssignment.schedule.title}"${createdCommunity ? ` · ${createdCommunity.name}` : ''} em ${this.formatDateLabel(createdAssignment.schedule.date)}${createdAssignment.schedule.startTime ? ` às ${createdAssignment.schedule.startTime}` : ''}.`,
       {
-        scheduleId,
+        scheduleId: createdAssignment.scheduleId,
         assignmentId: createdAssignment.id,
         ...(createdCommunity ? { communityId: createdCommunity.id } : {}),
       },
     );
-
-    return createdAssignment;
   }
 
   /**
@@ -1390,12 +1417,20 @@ export class SchedulesService {
    * sem abortar os demais.
    */
   async createAssignmentsBulk(scheduleId: string, dto: BulkAssignmentsDto, currentUser?: CurrentUser) {
-    const schedule = await this.prisma.schedule.findUnique({
-      where: { id: scheduleId },
-      select: { id: true, status: true, pastorals: { select: { communityPastoralId: true } } },
+    const schedule = await this.prisma.schedule.findFirst({
+      where: { id: scheduleId, deletedAt: null },
+      select: { id: true, status: true, date: true, pastorals: { select: { communityPastoralId: true } } },
     });
     if (!schedule) {
       throw new NotFoundException(`Escala com ID ${scheduleId} não encontrada`);
+    }
+    // As mesmas regras da convocação individual, mas ANTES do laço: um lote
+    // inteiro "pulado" não pode parecer sucesso
+    if (schedule.status !== ScheduleStatus.OPEN) {
+      throw new BadRequestException('Escala não está aberta para convocação');
+    }
+    if (schedule.date.getTime() < Date.now()) {
+      throw new BadRequestException('Não é possível convocar para uma escala com data/hora passada');
     }
     if (currentUser) {
       const hasAccess = await this.hierarchyService.hasAccessToSchedule(currentUser.id, scheduleId);
@@ -1404,22 +1439,34 @@ export class SchedulesService {
       }
     }
 
-    const scopedPastoralIds =
-      currentUser?.role === 'PASTORAL_COORDINATOR' ? await this.getScopedPastoralIds(currentUser) : [];
+    // Coordenador de pastoral: só as pastorais que COORDENA (o token traz todas
+    // as que ele frequenta; ser membro do coral não autoriza convocar o coral)
     const schedulePastoralIds = schedule.pastorals.map((sp) => sp.communityPastoralId);
-    const allowedPastoralIds = scopedPastoralIds.length
-      ? schedulePastoralIds.filter((id) => scopedPastoralIds.includes(id))
-      : schedulePastoralIds;
+    let allowedPastoralIds = schedulePastoralIds;
+    if (currentUser?.role === 'PASTORAL_COORDINATOR') {
+      const coordinated = await this.hierarchyService.getUserPastoralIds(currentUser.id, true);
+      allowedPastoralIds = schedulePastoralIds.filter((id) => coordinated.includes(id));
+      if (!allowedPastoralIds.length) {
+        throw new ForbiddenException('Você não coordena nenhuma pastoral desta escala');
+      }
+    }
     const communityPastoralId = dto.communityPastoralId?.trim() || (allowedPastoralIds.length === 1 ? allowedPastoralIds[0] : '');
     if (!communityPastoralId) {
       throw new BadRequestException(
         allowedPastoralIds.length === 0
-          ? 'A escala não tem pastoral vinculada (ou você não coordena nenhuma delas)'
+          ? 'A escala não tem pastoral vinculada'
           : 'Esta escala tem mais de uma pastoral. Informe qual pastoral convocar',
       );
     }
     if (!allowedPastoralIds.includes(communityPastoralId)) {
       throw new ForbiddenException('Você não pode convocar esta pastoral nesta escala');
+    }
+    const pastoralFlags = await this.prisma.communityPastoral.findUnique({
+      where: { id: communityPastoralId },
+      select: { scheduleByGroup: true },
+    });
+    if (pastoralFlags?.scheduleByGroup) {
+      throw new BadRequestException('Esta pastoral escala por grupos/equipes — use a escalação de grupo');
     }
 
     const alreadyAssigned = new Set(
@@ -1437,7 +1484,8 @@ export class SchedulesService {
     });
 
     const created: { memberId: string; fullName: string; assignmentId: string }[] = [];
-    const skipped: { memberId: string; fullName: string; reason: string }[] = [];
+    const skipped: { memberId: string; fullName: string; reason: string; conflict?: boolean }[] = [];
+    const toNotify: CreatedAssignmentNotice[] = [];
     let capReached = false;
     for (const pm of pastoralMembers) {
       const fullName = pm.member.fullName;
@@ -1453,26 +1501,39 @@ export class SchedulesService {
         const assignment = await this.createAssignment(
           { scheduleId, memberId: pm.memberId, role: dto.role, communityPastoralId, overrideConflict: dto.overrideConflict },
           currentUser,
+          { skipNotify: true },
         );
         created.push({ memberId: pm.memberId, fullName, assignmentId: assignment.id });
+        toNotify.push(assignment);
       } catch (error: any) {
-        const response = typeof error?.getResponse === 'function' ? error.getResponse() : null;
+        if (!(error instanceof HttpException)) {
+          // Falha de infraestrutura (banco, rede): não vaza detalhe interno ao toast
+          this.logger.error(`Convocação em lote: falha ao escalar ${pm.memberId} na escala ${scheduleId}`, error?.stack ?? String(error));
+          skipped.push({ memberId: pm.memberId, fullName, reason: 'erro interno ao escalar' });
+          continue;
+        }
+        const response = error.getResponse();
         const message: string =
-          (response && typeof response === 'object' && (response as any).message) || error?.message || 'não foi possível escalar';
+          (typeof response === 'object' && response && (response as any).message) || error.message || 'não foi possível escalar';
         if (/limite de membros/i.test(message)) capReached = true;
+        const isConflict = typeof response === 'object' && !!response && (response as any).code === 'GLOBAL_CONFLICT';
         skipped.push({
           memberId: pm.memberId,
           fullName,
-          reason: (response as any)?.code === 'GLOBAL_CONFLICT' ? `conflito de horário: ${message}` : message,
+          reason: isConflict ? `conflito de horário: ${message}` : message,
+          ...(isConflict ? { conflict: true } : {}),
         });
       }
     }
+
+    // Avisos em paralelo, fora do laço (push/e-mail não seguram a resposta por membro)
+    await Promise.allSettled(toNotify.map((assignment) => this.notifyAssignmentCreated(assignment)));
 
     // Membros informados que não pertencem (mais) à pastoral
     if (dto.memberIds?.length) {
       const known = new Set(pastoralMembers.map((pm) => pm.memberId));
       for (const memberId of dto.memberIds) {
-        if (!known.has(memberId)) skipped.push({ memberId, fullName: memberId, reason: 'não é membro ativo desta pastoral' });
+        if (!known.has(memberId)) skipped.push({ memberId, fullName: 'membro desconhecido', reason: 'não é membro ativo desta pastoral' });
       }
     }
 
