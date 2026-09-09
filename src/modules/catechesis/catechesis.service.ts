@@ -376,6 +376,7 @@ export class CatechesisService {
       enrollmentClosesAt?: string | null;
       fullBehavior?: string;
       capacity?: number | null;
+      capacityFromOccupied?: boolean;
       onlyWithoutCapacity?: boolean;
     },
     user: CurrentUser,
@@ -399,15 +400,16 @@ export class CatechesisService {
       }
       data.fullBehavior = dto.fullBehavior;
     }
+    const capacityFromOccupied = dto.capacityFromOccupied === true;
     let capacity: number | null | undefined;
-    if (dto.capacity !== undefined) {
+    if (!capacityFromOccupied && dto.capacity !== undefined) {
       if (dto.capacity === null) capacity = null;
       else {
         capacity = Math.floor(Number(dto.capacity));
         if (!Number.isFinite(capacity) || capacity < 1) throw new BadRequestException('As vagas devem ser um número inteiro maior que zero (ou vazio para sem limite)');
       }
     }
-    if (Object.keys(data).length === 0 && capacity === undefined) throw new BadRequestException('Nada para atualizar');
+    if (Object.keys(data).length === 0 && capacity === undefined && !capacityFromOccupied) throw new BadRequestException('Nada para atualizar');
 
     const where = {
       communityId,
@@ -421,7 +423,9 @@ export class CatechesisService {
       select: { id: true, name: true, capacity: true, enrollmentOpensAt: true, enrollmentClosesAt: true },
       orderBy: { name: 'asc' },
     });
-    if (!classes.length) return { updated: 0, capacityUpdated: 0, overfull: [] as { classId: string; name: string; occupied: number }[] };
+    if (!classes.length) {
+      return { updated: 0, capacityUpdated: 0, emptySkipped: 0, overfull: [] as { classId: string; name: string; occupied: number }[] };
+    }
 
     // Só uma das datas enviada: a outra (já gravada) não pode invertê-la
     for (const klass of classes) {
@@ -433,25 +437,49 @@ export class CatechesisService {
     }
 
     const classIds = classes.map((c) => c.id);
-    const capacityTargets =
-      capacity === undefined ? [] : classes.filter((c) => !dto.onlyWithoutCapacity || c.capacity === null).map((c) => c.id);
+    const touchesCapacity = capacity !== undefined || capacityFromOccupied;
+    const capacityTargets = touchesCapacity
+      ? classes.filter((c) => !dto.onlyWithoutCapacity || c.capacity === null).map((c) => c.id)
+      : [];
 
-    await this.prisma.$transaction([
-      ...(Object.keys(data).length ? [this.prisma.catechesisClass.updateMany({ where: { id: { in: classIds } }, data })] : []),
-      ...(capacityTargets.length ? [this.prisma.catechesisClass.updateMany({ where: { id: { in: capacityTargets } }, data: { capacity } })] : []),
-    ]);
-
-    // Turmas que já ultrapassam a nova capacidade (ninguém é removido; a coordenação precisa saber)
-    const overfull: { classId: string; name: string; occupied: number }[] = [];
-    if (capacity) {
-      const occupiedByClass = await this.prisma.catechesisEnrollment.groupBy({
+    // Ocupação atual (matriculados + aguardando) das turmas que terão vagas alteradas
+    const occupiedByClass = new Map<string, number>();
+    if (capacityTargets.length && (capacityFromOccupied || capacity)) {
+      const rows = await this.prisma.catechesisEnrollment.groupBy({
         by: ['classId'],
         where: { classId: { in: capacityTargets }, status: { in: ['ACTIVE', 'PENDING_APPROVAL'] }, member: { deletedAt: null } },
         _count: { _all: true },
       });
+      for (const row of rows) occupiedByClass.set(row.classId, row._count._all);
+    }
+
+    // "Congelar no tamanho de hoje": vagas = ocupação de cada turma; turma vazia
+    // não recebe limite (0 vaga bloquearia a turma inteira) e é só reportada
+    let emptySkipped = 0;
+    const capacityUpdates = capacityFromOccupied
+      ? capacityTargets.flatMap((id) => {
+          const occupied = occupiedByClass.get(id) ?? 0;
+          if (occupied < 1) {
+            emptySkipped += 1;
+            return [];
+          }
+          return [this.prisma.catechesisClass.update({ where: { id }, data: { capacity: occupied } })];
+        })
+      : capacityTargets.length
+        ? [this.prisma.catechesisClass.updateMany({ where: { id: { in: capacityTargets } }, data: { capacity } })]
+        : [];
+
+    await this.prisma.$transaction([
+      ...(Object.keys(data).length ? [this.prisma.catechesisClass.updateMany({ where: { id: { in: classIds } }, data })] : []),
+      ...capacityUpdates,
+    ]);
+
+    // Limite fixo abaixo do já matriculado: ninguém é removido, a coordenação precisa saber
+    const overfull: { classId: string; name: string; occupied: number }[] = [];
+    if (capacity) {
       const nameById = new Map(classes.map((c) => [c.id, c.name]));
-      for (const row of occupiedByClass) {
-        if (row._count._all > capacity) overfull.push({ classId: row.classId, name: nameById.get(row.classId) ?? row.classId, occupied: row._count._all });
+      for (const [classId, occupied] of occupiedByClass) {
+        if (occupied > capacity) overfull.push({ classId, name: nameById.get(classId) ?? classId, occupied });
       }
     }
 
@@ -462,13 +490,18 @@ export class CatechesisService {
       entityId: `enrollment-window:${communityId}:${year}`,
       metadata: {
         classIds,
-        fields: [...Object.keys(data), ...(capacity !== undefined ? ['capacity'] : [])],
+        fields: [...Object.keys(data), ...(touchesCapacity ? ['capacity'] : [])],
         stageId: dto.stageId ?? null,
-        capacity: capacity ?? null,
+        capacity: capacityFromOccupied ? 'occupied' : capacity ?? null,
         onlyWithoutCapacity: !!dto.onlyWithoutCapacity,
       },
     });
-    return { updated: classIds.length, capacityUpdated: capacityTargets.length, overfull };
+    return {
+      updated: classIds.length,
+      capacityUpdated: capacityFromOccupied ? capacityTargets.length - emptySkipped : capacityTargets.length,
+      emptySkipped,
+      overfull,
+    };
   }
 
   /**

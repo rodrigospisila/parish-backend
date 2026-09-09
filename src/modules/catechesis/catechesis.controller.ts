@@ -418,6 +418,8 @@ export class CatechesisController {
       enrollmentClosesAt?: string | null;
       fullBehavior?: string;
       capacity?: number | null;
+      /** Vagas = matriculados atuais de cada turma (congela no tamanho de hoje) */
+      capacityFromOccupied?: boolean;
       onlyWithoutCapacity?: boolean;
     },
     @Request() req: any,
