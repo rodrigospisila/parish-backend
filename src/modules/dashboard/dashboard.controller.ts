@@ -17,4 +17,11 @@ export class DashboardController {
   coordinator(@Request() req: any, @Query('communityId') communityId?: string) {
     return this.service.getCoordinatorOverview(req.user, communityId || undefined);
   }
+
+  /** Indicadores e gráficos do painel "Início" (mesmo escopo do endpoint acima). */
+  @Get('coordinator/insights')
+  @Roles(UserRole.PASTORAL_COORDINATOR)
+  insights(@Request() req: any, @Query('communityId') communityId?: string) {
+    return this.service.getCoordinatorInsights(req.user, communityId || undefined);
+  }
 }
