@@ -16,6 +16,7 @@ import { SchedulesService } from './schedules.service';
 import { CreateScheduleDto } from './dto/create-schedule.dto';
 import { CreateStandaloneScheduleDto } from './dto/create-standalone-schedule.dto';
 import { CreateAssignmentDto } from './dto/create-assignment.dto';
+import { BulkAssignmentsDto } from './dto/bulk-assignments.dto';
 import { ReplaceAssignmentDto } from './dto/replace-assignment.dto';
 import { UpdateScheduleStatusDto } from './dto/update-schedule-status.dto';
 import { UpdateSchedulePastoralsDto } from './dto/update-schedule-pastorals.dto';
@@ -182,6 +183,20 @@ export class SchedulesController {
   )
   createAssignment(@Body() createAssignmentDto: CreateAssignmentDto, @Request() req: any) {
     return this.schedulesService.createAssignment(createAssignmentDto, req.user);
+  }
+
+  // Convoca toda a pastoral (ou a lista informada) de uma vez — reunião de pastoral, mutirão
+  @Post(':id/assignments/bulk')
+  @UseGuards(RolesGuard)
+  @Roles(
+    UserRole.SYSTEM_ADMIN,
+    UserRole.DIOCESAN_ADMIN,
+    UserRole.PARISH_ADMIN,
+    UserRole.COMMUNITY_COORDINATOR,
+    UserRole.PASTORAL_COORDINATOR,
+  )
+  createAssignmentsBulk(@Param('id') id: string, @Body() dto: BulkAssignmentsDto, @Request() req: any) {
+    return this.schedulesService.createAssignmentsBulk(id, dto, req.user);
   }
 
   @Post('assignments/group')
