@@ -272,6 +272,15 @@ model ModuleAccessOverride {
   @@map("module_access_overrides")
 }
 
+// Configurações do SYSTEM_ADMIN: recurso do APLICATIVO desativado (global).
+// Ausência de linha = recurso visível no Início do app.
+model MobileFeatureOverride {
+  featureKey String   @id
+  createdAt  DateTime @default(now())
+
+  @@map("mobile_feature_overrides")
+}
+
 // Foto de perfil (tabela separada: o binário nunca vaza em includes de User)
 model UserAvatar {
   userId    String   @id

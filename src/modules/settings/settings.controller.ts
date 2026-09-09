@@ -25,4 +25,16 @@ export class SettingsController {
   ) {
     return this.service.setModuleAccess(body?.disabled ?? [], req.user);
   }
+
+  /** Recursos do Início do app desligados — o app consulta ao abrir (qualquer autenticado). */
+  @Get('mobile-features')
+  getMobileFeatures() {
+    return this.service.getMobileFeatures();
+  }
+
+  @Put('mobile-features')
+  @Roles(UserRole.SYSTEM_ADMIN)
+  setMobileFeatures(@Body() body: { disabled: string[] }, @Request() req: any) {
+    return this.service.setMobileFeatures(body?.disabled ?? [], req.user);
+  }
 }

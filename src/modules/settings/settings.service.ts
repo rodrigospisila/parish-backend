@@ -29,6 +29,22 @@ export const CONFIGURABLE_MODULE_KEYS = [
   'audit',
 ] as const;
 
+/** Recursos do Início do APLICATIVO que o SYSTEM_ADMIN pode desligar (global). */
+export const MOBILE_FEATURE_KEYS = [
+  'calendar',
+  'my-schedule',
+  'pastorals',
+  'liturgy',
+  'nearby-masses',
+  'tithe',
+  'prayer-wall',
+  'catechesis',
+  'next-celebration',
+  'pastoral-word',
+  'upcoming-events',
+  'mass-schedules',
+] as const;
+
 const CONFIGURABLE_ROLES: UserRole[] = [
   UserRole.DIOCESAN_ADMIN,
   UserRole.PARISH_ADMIN,
@@ -92,6 +108,37 @@ export class SettingsService {
       action: 'UPDATE',
       entity: 'ModuleAccessOverride',
       entityId: 'matrix',
+      before: { disabled: before },
+      after: { disabled: cleaned },
+    });
+    return { disabled: cleaned };
+  }
+
+  /** Recursos do app desligados — qualquer autenticado (o Início do app consulta). */
+  async getMobileFeatures() {
+    const rows = await this.prisma.mobileFeatureOverride.findMany({ select: { featureKey: true } });
+    return { features: [...MOBILE_FEATURE_KEYS], disabled: rows.map((r) => r.featureKey) };
+  }
+
+  /** Substitui a lista de recursos desligados (só SYSTEM_ADMIN — guard na rota). */
+  async setMobileFeatures(disabled: string[], user: CurrentUser) {
+    const valid = new Set<string>(MOBILE_FEATURE_KEYS);
+    const cleaned = [...new Set((Array.isArray(disabled) ? disabled : []).map(String))];
+    for (const key of cleaned) {
+      if (!valid.has(key)) throw new BadRequestException(`Recurso desconhecido: ${key}`);
+    }
+    const before = (await this.prisma.mobileFeatureOverride.findMany({ select: { featureKey: true } })).map((r) => r.featureKey);
+    await this.prisma.$transaction([
+      this.prisma.mobileFeatureOverride.deleteMany({}),
+      ...(cleaned.length
+        ? [this.prisma.mobileFeatureOverride.createMany({ data: cleaned.map((featureKey) => ({ featureKey })) })]
+        : []),
+    ]);
+    await this.auditService.log({
+      actor: { id: user.id, email: user.email, role: user.role },
+      action: 'UPDATE',
+      entity: 'MobileFeatureOverride',
+      entityId: 'list',
       before: { disabled: before },
       after: { disabled: cleaned },
     });
