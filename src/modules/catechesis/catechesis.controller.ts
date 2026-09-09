@@ -404,6 +404,27 @@ export class CatechesisController {
     return this.service.rolloverClass(id, dto, req.user);
   }
 
+  // Janela de inscrições (e vagas) de TODAS as turmas de um ano/comunidade de
+  // uma vez — declarado antes de `classes/:id` para a rota literal vencer
+  @Patch('classes/enrollment-window')
+  @Roles(UserRole.PASTORAL_COORDINATOR)
+  setEnrollmentWindow(
+    @Body() dto: {
+      communityId?: string;
+      year: number;
+      stageId?: string | null;
+      enrollmentOpen?: boolean;
+      enrollmentOpensAt?: string | null;
+      enrollmentClosesAt?: string | null;
+      fullBehavior?: string;
+      capacity?: number | null;
+      onlyWithoutCapacity?: boolean;
+    },
+    @Request() req: any,
+  ) {
+    return this.service.setEnrollmentWindow(dto, req.user);
+  }
+
   // Editar a turma (inclui o limite de vagas)
   @Patch('classes/:id')
   @Roles(UserRole.COMMUNITY_COORDINATOR)

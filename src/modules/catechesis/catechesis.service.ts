@@ -360,6 +360,118 @@ export class CatechesisService {
   }
 
   /**
+   * Janela de inscrições em lote: aplica chave geral, datas, regra de turma
+   * cheia e (opcionalmente) vagas a todas as turmas ativas de um ano da
+   * comunidade — com filtro de etapa. Só os campos enviados mudam; a
+   * validação é a mesma da edição individual. Devolve quantas turmas mudaram
+   * e quais ficaram "lotadas" pela nova capacidade.
+   */
+  async setEnrollmentWindow(
+    dto: {
+      communityId?: string;
+      year: number;
+      stageId?: string | null;
+      enrollmentOpen?: boolean;
+      enrollmentOpensAt?: string | null;
+      enrollmentClosesAt?: string | null;
+      fullBehavior?: string;
+      capacity?: number | null;
+      onlyWithoutCapacity?: boolean;
+    },
+    user: CurrentUser,
+  ) {
+    const communityId = dto.communityId ?? user.communityId;
+    if (!communityId) throw new BadRequestException('Informe a comunidade');
+    await this.assertCommunityScope(communityId, user);
+    const year = Math.floor(Number(dto.year));
+    if (!Number.isFinite(year) || year < 2000 || year > 2100) throw new BadRequestException('Ano inválido');
+
+    const data: any = {};
+    if (dto.enrollmentOpen !== undefined) data.enrollmentOpen = dto.enrollmentOpen === true;
+    if (dto.enrollmentOpensAt !== undefined) data.enrollmentOpensAt = CatechesisService.parseWindowDate(dto.enrollmentOpensAt, false);
+    if (dto.enrollmentClosesAt !== undefined) data.enrollmentClosesAt = CatechesisService.parseWindowDate(dto.enrollmentClosesAt, true);
+    if (data.enrollmentOpensAt && data.enrollmentClosesAt && data.enrollmentOpensAt.getTime() > data.enrollmentClosesAt.getTime()) {
+      throw new BadRequestException('A abertura das inscrições precisa ser antes do encerramento');
+    }
+    if (dto.fullBehavior !== undefined) {
+      if (dto.fullBehavior !== 'WAITLIST' && dto.fullBehavior !== 'BLOCK') {
+        throw new BadRequestException('Comportamento de turma cheia inválido — use WAITLIST ou BLOCK');
+      }
+      data.fullBehavior = dto.fullBehavior;
+    }
+    let capacity: number | null | undefined;
+    if (dto.capacity !== undefined) {
+      if (dto.capacity === null) capacity = null;
+      else {
+        capacity = Math.floor(Number(dto.capacity));
+        if (!Number.isFinite(capacity) || capacity < 1) throw new BadRequestException('As vagas devem ser um número inteiro maior que zero (ou vazio para sem limite)');
+      }
+    }
+    if (Object.keys(data).length === 0 && capacity === undefined) throw new BadRequestException('Nada para atualizar');
+
+    const where = {
+      communityId,
+      year,
+      deletedAt: null,
+      status: 'ACTIVE' as const,
+      ...(dto.stageId ? { stageId: dto.stageId } : {}),
+    };
+    const classes = await this.prisma.catechesisClass.findMany({
+      where,
+      select: { id: true, name: true, capacity: true, enrollmentOpensAt: true, enrollmentClosesAt: true },
+      orderBy: { name: 'asc' },
+    });
+    if (!classes.length) return { updated: 0, capacityUpdated: 0, overfull: [] as { classId: string; name: string; occupied: number }[] };
+
+    // Só uma das datas enviada: a outra (já gravada) não pode invertê-la
+    for (const klass of classes) {
+      const opens = data.enrollmentOpensAt !== undefined ? data.enrollmentOpensAt : klass.enrollmentOpensAt;
+      const closes = data.enrollmentClosesAt !== undefined ? data.enrollmentClosesAt : klass.enrollmentClosesAt;
+      if (opens && closes && opens.getTime() > closes.getTime()) {
+        throw new BadRequestException(`Na turma "${klass.name}" a abertura ficaria depois do encerramento — informe as duas datas`);
+      }
+    }
+
+    const classIds = classes.map((c) => c.id);
+    const capacityTargets =
+      capacity === undefined ? [] : classes.filter((c) => !dto.onlyWithoutCapacity || c.capacity === null).map((c) => c.id);
+
+    await this.prisma.$transaction([
+      ...(Object.keys(data).length ? [this.prisma.catechesisClass.updateMany({ where: { id: { in: classIds } }, data })] : []),
+      ...(capacityTargets.length ? [this.prisma.catechesisClass.updateMany({ where: { id: { in: capacityTargets } }, data: { capacity } })] : []),
+    ]);
+
+    // Turmas que já ultrapassam a nova capacidade (ninguém é removido; a coordenação precisa saber)
+    const overfull: { classId: string; name: string; occupied: number }[] = [];
+    if (capacity) {
+      const occupiedByClass = await this.prisma.catechesisEnrollment.groupBy({
+        by: ['classId'],
+        where: { classId: { in: capacityTargets }, status: { in: ['ACTIVE', 'PENDING_APPROVAL'] }, member: { deletedAt: null } },
+        _count: { _all: true },
+      });
+      const nameById = new Map(classes.map((c) => [c.id, c.name]));
+      for (const row of occupiedByClass) {
+        if (row._count._all > capacity) overfull.push({ classId: row.classId, name: nameById.get(row.classId) ?? row.classId, occupied: row._count._all });
+      }
+    }
+
+    await this.auditService.log({
+      actor: this.auditActor(user),
+      action: 'UPDATE',
+      entity: 'CatechesisClass',
+      entityId: `enrollment-window:${communityId}:${year}`,
+      metadata: {
+        classIds,
+        fields: [...Object.keys(data), ...(capacity !== undefined ? ['capacity'] : [])],
+        stageId: dto.stageId ?? null,
+        capacity: capacity ?? null,
+        onlyWithoutCapacity: !!dto.onlyWithoutCapacity,
+      },
+    });
+    return { updated: classIds.length, capacityUpdated: capacityTargets.length, overfull };
+  }
+
+  /**
    * Virada de ano da TURMA: cria a sucessora do ano seguinte na MESMA etapa e
    * comunidade, herdando dia/horário/sala/vagas (editáveis) e a equipe de
    * catequistas — mantida ou ajustada via catechistMemberIds. É o passo que
