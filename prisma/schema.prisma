@@ -803,6 +803,10 @@ model Member {
   // Classificação funcional (tag para filtros/relatórios)
   memberType MemberType?
 
+  // Observações internas da coordenação (ex.: tamanho de camiseta, restrições);
+  // apagadas na anonimização
+  notes String?
+
   // Contato de emergência
   emergencyContactName     String?
   emergencyContactPhone    String?

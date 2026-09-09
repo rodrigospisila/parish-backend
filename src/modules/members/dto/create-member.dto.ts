@@ -5,6 +5,7 @@ import {
   IsEnum,
   IsBoolean,
   IsDateString,
+  MaxLength,
 } from 'class-validator';
 import { MemberStatus, MemberType, Gender, MaritalStatus } from '@prisma/client';
 
@@ -52,6 +53,11 @@ export class CreateMemberDto {
   @IsString()
   @IsOptional()
   occupation?: string;
+
+  @IsString()
+  @IsOptional()
+  @MaxLength(2000)
+  notes?: string;
 
   @IsString()
   @IsOptional()

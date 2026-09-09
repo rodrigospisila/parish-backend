@@ -976,7 +976,8 @@ export class DashboardService {
           name: row.fullName,
           date: this.isoDate(date),
           isToday: offset === 0,
-          age: date.getUTCFullYear() - row.birthDate.getUTCFullYear(),
+          // Ano 1900 = "só dia/mês conhecidos" (cadastros vindos de planilha sem ano)
+          age: row.birthDate.getUTCFullYear() <= 1900 ? null : date.getUTCFullYear() - row.birthDate.getUTCFullYear(),
           offset,
         };
       })

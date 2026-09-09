@@ -1064,6 +1064,7 @@ export class MembersService {
       'motherName',
       'occupation',
       'birthDate',
+      'notes',
     ];
 
     const anonymized = await this.prisma.member.update({
@@ -1086,6 +1087,7 @@ export class MembersService {
         motherName: null,
         occupation: null,
         birthDate: null,
+        notes: null,
         status: MemberStatus.ANONYMIZED,
         consentGiven: false,
         consentDate: null,
