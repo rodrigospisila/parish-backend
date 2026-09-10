@@ -374,9 +374,10 @@ export class CatechesisController {
     return this.service.getYearEndOverview(req.user, communityId);
   }
 
-  // Turmas
+  // Turmas — o coordenador da pastoral de catequese cria e edita as turmas
+  // da própria comunidade (o service valida o escopo)
   @Post('classes')
-  @Roles(UserRole.COMMUNITY_COORDINATOR)
+  @Roles(UserRole.PASTORAL_COORDINATOR)
   createClass(
     @Body() dto: { name: string; year: number; stageId: string; communityId: string; weekday?: number; time?: string; room?: string; capacity?: number },
     @Request() req: any,
@@ -391,9 +392,7 @@ export class CatechesisController {
 
   // Virada de ano: cria a turma sucessora (mesma etapa, ano seguinte),
   // herdando dados e catequistas — mantidos ou ajustados. Piso PASTORAL:
-  // é quem opera o encerramento (painel/concluir/distribuir são dela), e o
-  // rollover só CLONA uma turma existente da própria comunidade — turma nova
-  // "do zero" continua exigindo coordenação de comunidade (POST /classes)
+  // é quem opera o encerramento (painel/concluir/distribuir são dela)
   @Post('classes/:id/rollover')
   @Roles(UserRole.PASTORAL_COORDINATOR)
   rolloverClass(
@@ -462,9 +461,10 @@ export class CatechesisController {
     return this.service.setEnrollmentWindow(dto, req.user);
   }
 
-  // Editar a turma (inclui o limite de vagas)
+  // Editar a turma (inclui o limite de vagas e a janela de inscrições) —
+  // coordenador de pastoral (Catequese) também, dentro do escopo da comunidade
   @Patch('classes/:id')
-  @Roles(UserRole.COMMUNITY_COORDINATOR)
+  @Roles(UserRole.PASTORAL_COORDINATOR)
   updateClass(
     @Param('id') id: string,
     @Body() dto: {
