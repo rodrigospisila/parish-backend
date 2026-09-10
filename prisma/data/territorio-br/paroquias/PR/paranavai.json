@@ -1,0 +1,5214 @@
+{
+  "diocese": {
+    "name": "Diocese de Paranavaí",
+    "type": "Diocese",
+    "slug": "paranavai",
+    "city": "Paranavaí",
+    "state": "PR",
+    "address": "Rua Francisco Vieira Borges, 373 - Jardim América",
+    "zipCode": "87705-180",
+    "phone": "(44) 3423-1045",
+    "email": "curiaparanavai1@hotmail.com",
+    "website": "https://diocesedeparanavai.org.br",
+    "bishopName": "Dom Mário Spaki",
+    "sources": [
+      {
+        "url": "https://diocesedeparanavai.org.br/contato/",
+        "title": "Contato — Diocese de Paranavaí",
+        "accessedAt": "2026-09-09"
+      },
+      {
+        "url": "https://diocesedeparanavai.org.br/paroquias/",
+        "title": "Paróquias — Diocese de Paranavaí",
+        "accessedAt": "2026-09-09"
+      },
+      {
+        "url": "https://www.catholic-hierarchy.org/diocese/dprai.html",
+        "title": "Diocese of Paranavaí — Catholic-Hierarchy",
+        "accessedAt": "2026-09-09"
+      },
+      {
+        "url": "https://pt.wikipedia.org/wiki/Diocese_de_Paranava%C3%AD",
+        "title": "Diocese de Paranavaí — Wikipédia (bispo Dom Mário Spaki)",
+        "accessedAt": "2026-09-09"
+      }
+    ],
+    "confidence": "alta"
+  },
+  "parishes": [
+    {
+      "slug": "maria-mae-da-igreja-paranavai",
+      "name": "Catedral Maria Mãe da Igreja",
+      "city": "Paranavaí",
+      "state": "PR",
+      "neighborhood": "Jardim Iguaçu",
+      "address": "Avenida John Kennedy, 700",
+      "zipCode": null,
+      "phone": "(44) 3141-4076",
+      "email": null,
+      "website": "https://catedralparanavai.org.br",
+      "priestName": "Pe. Osvaldo Marcelo Alves Vieira",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=1",
+          "title": "Catedral Maria Mãe da Igreja — Diocese de Paranavaí",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://diocesedeparanavai.org.br/paroquias/",
+          "title": "Paróquias da Diocese de Paranavaí — Decanato de Paranavaí",
+          "accessedAt": "2026-09-09"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Catedral Maria Mãe da Igreja",
+          "address": "Avenida John Kennedy, 700",
+          "neighborhood": "Jardim Iguaçu",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=1",
+              "title": "Catedral Maria Mãe da Igreja — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Sagrado Coração de Jesus (Jardim Monte Cristo)",
+          "address": null,
+          "neighborhood": "Jardim Monte Cristo",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=1",
+              "title": "Catedral Maria Mãe da Igreja — Comunidades",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São Pedro (Zona Leste)",
+          "address": null,
+          "neighborhood": "Zona Leste",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=1",
+              "title": "Catedral Maria Mãe da Igreja — Comunidades",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Catedral Maria Mãe da Igreja",
+          "dayOfWeek": 0,
+          "time": "09:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=1",
+              "title": "Catedral Maria Mãe da Igreja — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral Maria Mãe da Igreja",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=1",
+              "title": "Catedral Maria Mãe da Igreja — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral Maria Mãe da Igreja",
+          "dayOfWeek": 1,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=1",
+              "title": "Catedral Maria Mãe da Igreja — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral Maria Mãe da Igreja",
+          "dayOfWeek": 2,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=1",
+              "title": "Catedral Maria Mãe da Igreja — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral Maria Mãe da Igreja",
+          "dayOfWeek": 3,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=1",
+              "title": "Catedral Maria Mãe da Igreja — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral Maria Mãe da Igreja",
+          "dayOfWeek": 3,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=1",
+              "title": "Catedral Maria Mãe da Igreja — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral Maria Mãe da Igreja",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=1",
+              "title": "Catedral Maria Mãe da Igreja — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral Maria Mãe da Igreja",
+          "dayOfWeek": 4,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=1",
+              "title": "Catedral Maria Mãe da Igreja — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral Maria Mãe da Igreja",
+          "dayOfWeek": 4,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Somente na 1ª quinta-feira do mês. Adoração ao Santíssimo.",
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=1",
+              "title": "Catedral Maria Mãe da Igreja — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Catedral Maria Mãe da Igreja",
+          "dayOfWeek": 5,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=1",
+              "title": "Catedral Maria Mãe da Igreja — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral Maria Mãe da Igreja",
+          "dayOfWeek": 5,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Somente na 1ª sexta-feira do mês. Missa Votiva ao Sagrado Coração de Jesus.",
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=1",
+              "title": "Catedral Maria Mãe da Igreja — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Catedral Maria Mãe da Igreja",
+          "dayOfWeek": 6,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=1",
+              "title": "Catedral Maria Mãe da Igreja — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral Maria Mãe da Igreja",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=1",
+              "title": "Catedral Maria Mãe da Igreja — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-aparecida-paranavai",
+      "name": "Paróquia Nossa Senhora Aparecida",
+      "city": "Paranavaí",
+      "state": "PR",
+      "neighborhood": "Jardim Ipe",
+      "address": "Rua Takeshi Mitsuyasu, 834",
+      "zipCode": null,
+      "phone": "(44) 3446-2750",
+      "email": "paroquiansaipe@hotmail.com",
+      "website": "https://www.facebook.com/nsaparecidapvai",
+      "priestName": "Pe. Matheus Canônico Urgnani",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=2",
+          "title": "Paróquia Nossa Senhora Aparecida — Diocese de Paranavaí",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://diocesedeparanavai.org.br/paroquias/",
+          "title": "Paróquias da Diocese de Paranavaí — Decanato de Paranavaí",
+          "accessedAt": "2026-09-09"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=2",
+              "title": "Paróquia Nossa Senhora Aparecida — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 1,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=2",
+              "title": "Paróquia Nossa Senhora Aparecida — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 2,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=2",
+              "title": "Paróquia Nossa Senhora Aparecida — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=2",
+              "title": "Paróquia Nossa Senhora Aparecida — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=2",
+              "title": "Paróquia Nossa Senhora Aparecida — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=2",
+              "title": "Paróquia Nossa Senhora Aparecida — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": "Somente na 1ª sexta-feira do mês.",
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=2",
+              "title": "Paróquia Nossa Senhora Aparecida — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=2",
+              "title": "Paróquia Nossa Senhora Aparecida — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-das-gracas-paranavai",
+      "name": "Paróquia Nossa Senhora das Graças",
+      "city": "Paranavaí",
+      "state": "PR",
+      "neighborhood": "Distrito de Graciosa",
+      "address": "Avenida Principal, S/N",
+      "zipCode": null,
+      "phone": "(44) 3428-1118",
+      "email": "paroquiadasgracas@hotmail.com",
+      "website": "https://www.facebook.com/paroquiagraciosa",
+      "priestName": "Frei Edmilson Borges de Carvalho O. Carm.",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=3",
+          "title": "Paróquia Nossa Senhora das Graças — Diocese de Paranavaí",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://diocesedeparanavai.org.br/paroquias/",
+          "title": "Paróquias da Diocese de Paranavaí — Decanato de Paranavaí",
+          "accessedAt": "2026-09-09"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "08:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=3",
+              "title": "Paróquia Nossa Senhora das Graças — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=3",
+              "title": "Paróquia Nossa Senhora das Graças — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-aparecida-loanda",
+      "name": "Paróquia Nossa Senhora Aparecida",
+      "city": "Loanda",
+      "state": "PR",
+      "neighborhood": "Centro",
+      "address": "Avenida Brasil, 1069",
+      "zipCode": null,
+      "phone": "(44) 3425-1729",
+      "email": "mitrapvai03@hotmail.com",
+      "website": "https://www.facebook.com/ParoquiaNossaSenhoraAparecida.Loanda",
+      "priestName": "Pe. Marcelo Aparecido Santiago",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=4",
+          "title": "Paróquia Nossa Senhora Aparecida — Diocese de Paranavaí",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://diocesedeparanavai.org.br/paroquias/",
+          "title": "Paróquias da Diocese de Paranavaí — Decanato de Loanda",
+          "accessedAt": "2026-09-09"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=4",
+              "title": "Paróquia Nossa Senhora Aparecida — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=4",
+              "title": "Paróquia Nossa Senhora Aparecida — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 1,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=4",
+              "title": "Paróquia Nossa Senhora Aparecida — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 2,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=4",
+              "title": "Paróquia Nossa Senhora Aparecida — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "16:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=4",
+              "title": "Paróquia Nossa Senhora Aparecida — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=4",
+              "title": "Paróquia Nossa Senhora Aparecida — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=4",
+              "title": "Paróquia Nossa Senhora Aparecida — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=4",
+              "title": "Paróquia Nossa Senhora Aparecida — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=4",
+              "title": "Paróquia Nossa Senhora Aparecida — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-de-fatima-santa-isabel-do-ivai",
+      "name": "Paróquia Nossa Senhora de Fátima",
+      "city": "Santa Isabel do Ivaí",
+      "state": "PR",
+      "neighborhood": "Distrito São José do Ivaí",
+      "address": "Rua Bahia, S/N",
+      "zipCode": null,
+      "phone": "(44) 99723-0088",
+      "email": "paroquiasaojosedoivai@hotmail.com",
+      "website": null,
+      "priestName": "Pe. José Mário Fernandes",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=5",
+          "title": "Paróquia Nossa Senhora de Fátima — Diocese de Paranavaí",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://diocesedeparanavai.org.br/paroquias/",
+          "title": "Paróquias da Diocese de Paranavaí — Decanato de Loanda",
+          "accessedAt": "2026-09-09"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=5",
+              "title": "Paróquia Nossa Senhora de Fátima — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=5",
+              "title": "Paróquia Nossa Senhora de Fátima — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-aparecida-paraiso-do-norte",
+      "name": "Paróquia Nossa Senhora Aparecida",
+      "city": "Paraíso do Norte",
+      "state": "PR",
+      "neighborhood": "Centro",
+      "address": "Rua Joaquim Nabuco, 423",
+      "zipCode": null,
+      "phone": "(44) 3431-1300",
+      "email": "paroquia05nsaparecida@hotmail.com",
+      "website": "https://www.facebook.com/paroquiadeparaiso",
+      "priestName": "Pe. Amarildo Isidorio da Silva",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=6",
+          "title": "Paróquia Nossa Senhora Aparecida — Diocese de Paranavaí",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://diocesedeparanavai.org.br/paroquias/",
+          "title": "Paróquias da Diocese de Paranavaí — Decanato de Paraíso do Norte",
+          "accessedAt": "2026-09-09"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=6",
+              "title": "Paróquia Nossa Senhora Aparecida — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=6",
+              "title": "Paróquia Nossa Senhora Aparecida — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=6",
+              "title": "Paróquia Nossa Senhora Aparecida — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=6",
+              "title": "Paróquia Nossa Senhora Aparecida — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=6",
+              "title": "Paróquia Nossa Senhora Aparecida — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=6",
+              "title": "Paróquia Nossa Senhora Aparecida — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-de-fatima-paranavai",
+      "name": "Paróquia Nossa Senhora de Fátima",
+      "city": "Paranavaí",
+      "state": "PR",
+      "neighborhood": "Distrito Sumare (Sumare)",
+      "address": "Rua Angelo Bigoto, 1118",
+      "zipCode": null,
+      "phone": "(44) 3424-2433",
+      "email": "paroquiansrafatima_sumare@hotmail.com",
+      "website": "https://www.facebook.com/profile.php?id=100064812185406",
+      "priestName": "Pe. Nilton Dalberto Reami",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=7",
+          "title": "Paróquia Nossa Senhora de Fátima — Diocese de Paranavaí",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://diocesedeparanavai.org.br/paroquias/",
+          "title": "Paróquias da Diocese de Paranavaí — Decanato de Paranavaí",
+          "accessedAt": "2026-09-09"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora de Fátima",
+          "address": "Rua Angelo Bigoto, 1118",
+          "neighborhood": "Distrito Sumare (Sumare)",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=7",
+              "title": "Paróquia Nossa Senhora de Fátima — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Sagrado Coração de Jesus",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=7",
+              "title": "Paróquia Nossa Senhora de Fátima — Comunidades",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora de Fátima",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=7",
+              "title": "Paróquia Nossa Senhora de Fátima — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora de Fátima",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=7",
+              "title": "Paróquia Nossa Senhora de Fátima — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora de Fátima",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=7",
+              "title": "Paróquia Nossa Senhora de Fátima — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-do-carmo-paranavai",
+      "name": "Paróquia Nossa Senhora do Carmo",
+      "city": "Paranavaí",
+      "state": "PR",
+      "neighborhood": "Jardim Sao Jorge",
+      "address": "Rua Leodegario Gomes Patriota, 435",
+      "zipCode": null,
+      "phone": "(44) 3424-7166",
+      "email": "paroquiacarmopvai@hotmail.com",
+      "website": "https://www.facebook.com/paroquiadocarmoparanavaioficial",
+      "priestName": "Pe. Elfrem Soares do Nascimento",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=8",
+          "title": "Paróquia Nossa Senhora do Carmo — Diocese de Paranavaí",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://diocesedeparanavai.org.br/paroquias/",
+          "title": "Paróquias da Diocese de Paranavaí — Decanato de Paranavaí",
+          "accessedAt": "2026-09-09"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora do Carmo",
+          "address": "Rua Leodegario Gomes Patriota, 435",
+          "neighborhood": "Jardim Sao Jorge",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=8",
+              "title": "Paróquia Nossa Senhora do Carmo — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São Pedro (Vila Rural Águia Dourada)",
+          "address": null,
+          "neighborhood": "Vila Rural Águia Dourada",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=8",
+              "title": "Paróquia Nossa Senhora do Carmo — Comunidades",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora do Carmo",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=8",
+              "title": "Paróquia Nossa Senhora do Carmo — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Carmo",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=8",
+              "title": "Paróquia Nossa Senhora do Carmo — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Carmo",
+          "dayOfWeek": 1,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=8",
+              "title": "Paróquia Nossa Senhora do Carmo — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Carmo",
+          "dayOfWeek": 2,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=8",
+              "title": "Paróquia Nossa Senhora do Carmo — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Carmo",
+          "dayOfWeek": 3,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=8",
+              "title": "Paróquia Nossa Senhora do Carmo — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Carmo",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=8",
+              "title": "Paróquia Nossa Senhora do Carmo — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Carmo",
+          "dayOfWeek": 5,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=8",
+              "title": "Paróquia Nossa Senhora do Carmo — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Comunidade São Pedro (Vila Rural Águia Dourada)",
+          "dayOfWeek": 5,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Somente na última sexta-feira do mês na Comunidade São Pedro (Vila Rural Águia Dourada)",
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=8",
+              "title": "Paróquia Nossa Senhora do Carmo — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Carmo",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=8",
+              "title": "Paróquia Nossa Senhora do Carmo — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "santa-rita-de-cassia-paranavai",
+      "name": "Paróquia Santa Rita de Cássia",
+      "city": "Paranavaí",
+      "state": "PR",
+      "neighborhood": "Parque Morumbi",
+      "address": "Avenida Domingos Sanches, 635",
+      "zipCode": null,
+      "phone": "(44) 3423-7241",
+      "email": "psantaritamorumbi@gmail.com",
+      "website": "https://www.facebook.com/p.santaritadecassia.3",
+      "priestName": "Pe. Zenilton dos Santos de Oliveira",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=9",
+          "title": "Paróquia Santa Rita de Cássia — Diocese de Paranavaí",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://diocesedeparanavai.org.br/paroquias/",
+          "title": "Paróquias da Diocese de Paranavaí — Decanato de Paranavaí",
+          "accessedAt": "2026-09-09"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Santa Rita de Cássia",
+          "address": "Avenida Domingos Sanches, 635",
+          "neighborhood": "Parque Morumbi",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=9",
+              "title": "Paróquia Santa Rita de Cássia — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade das Águas",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=9",
+              "title": "Paróquia Santa Rita de Cássia — Comunidades",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Santa Rita de Cássia",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=9",
+              "title": "Paróquia Santa Rita de Cássia — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Santa Rita de Cássia",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=9",
+              "title": "Paróquia Santa Rita de Cássia — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Santa Rita de Cássia",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=9",
+              "title": "Paróquia Santa Rita de Cássia — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "sao-jose-operario-paranavai",
+      "name": "Paróquia São José Operário",
+      "city": "Paranavaí",
+      "state": "PR",
+      "neighborhood": "Vila Alta",
+      "address": "Rua Job Jacob de Freitas, 4025",
+      "zipCode": null,
+      "phone": "(44) 92002-4663",
+      "email": "paroquiasaojosepvai@hotmail.com",
+      "website": "https://www.facebook.com/paroquiasaojoseoperariopvai",
+      "priestName": "Pe. Paulo Alves Martins",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=10",
+          "title": "Paróquia São José Operário — Diocese de Paranavaí",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://diocesedeparanavai.org.br/paroquias/",
+          "title": "Paróquias da Diocese de Paranavaí — Decanato de Paranavaí",
+          "accessedAt": "2026-09-09"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São José Operário",
+          "address": "Rua Job Jacob de Freitas, 4025",
+          "neighborhood": "Vila Alta",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=10",
+              "title": "Paróquia São José Operário — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Asilo Lar Vincentino",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=10",
+              "title": "Paróquia São José Operário — Comunidades",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São José Operário",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=10",
+              "title": "Paróquia São José Operário — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São José Operário",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=10",
+              "title": "Paróquia São José Operário — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São José Operário",
+          "dayOfWeek": 3,
+          "time": "20:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=10",
+              "title": "Paróquia São José Operário — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São José Operário",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=10",
+              "title": "Paróquia São José Operário — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "sao-paulo-paranavai",
+      "name": "Paróquia São Paulo",
+      "city": "Paranavaí",
+      "state": "PR",
+      "neighborhood": "Jardim Alvorada",
+      "address": "Rua Luiz Spigolon, 2854",
+      "zipCode": null,
+      "phone": "(44) 3422-8087",
+      "email": "paroquiasaopaulopvai@hotmail.com",
+      "website": "https://www.facebook.com/saopauloparanavai",
+      "priestName": "Pe. Pedro Antonio de França Junior",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=11",
+          "title": "Paróquia São Paulo — Diocese de Paranavaí",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://diocesedeparanavai.org.br/paroquias/",
+          "title": "Paróquias da Diocese de Paranavaí — Decanato de Paranavaí",
+          "accessedAt": "2026-09-09"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "10:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=11",
+              "title": "Paróquia São Paulo — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=11",
+              "title": "Paróquia São Paulo — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=11",
+              "title": "Paróquia São Paulo — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=11",
+              "title": "Paróquia São Paulo — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "sao-francisco-de-assis-paranavai",
+      "name": "Quase-paróquia São Francisco de Assis",
+      "city": "Paranavaí",
+      "state": "PR",
+      "neighborhood": "Jardim das Nacoes I",
+      "address": "Rua Aprigio Pereira da Silva, 945",
+      "zipCode": null,
+      "phone": "(44) 3900-0937",
+      "email": "csaofranciscodeassis20@gmail.com",
+      "website": null,
+      "priestName": "Pe. Rivaldo Francisco Brandão",
+      "foundedYear": 2021,
+      "sources": [
+        {
+          "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=12",
+          "title": "Quase-paróquia São Francisco de Assis — Diocese de Paranavaí",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://diocesedeparanavai.org.br/paroquias/",
+          "title": "Paróquias da Diocese de Paranavaí — Decanato de Paranavaí",
+          "accessedAt": "2026-09-09"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=12",
+              "title": "Quase-paróquia São Francisco de Assis — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=12",
+              "title": "Quase-paróquia São Francisco de Assis — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=12",
+              "title": "Quase-paróquia São Francisco de Assis — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Somente na 1º sexta-feira do mês, em honra ao Sagrado Coração de Jesus",
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=12",
+              "title": "Quase-paróquia São Francisco de Assis — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=12",
+              "title": "Quase-paróquia São Francisco de Assis — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-do-carmo-e-paroquia-sao-sebastiao-paranavai",
+      "name": "Santuário Nossa Senhora do Carmo e Paróquia São Sebastião",
+      "city": "Paranavaí",
+      "state": "PR",
+      "neighborhood": "Centro",
+      "address": "Rua Getulio Vargas, 717",
+      "zipCode": null,
+      "phone": "(44) 3421-0400",
+      "email": "ps.sebastiao@hotmail.com",
+      "website": "https://santuariodocarmo.org.br",
+      "priestName": "Frei Gentil Lima O. Carm.",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=13",
+          "title": "Santuário Nossa Senhora do Carmo e Paróquia São Sebastião — Diocese de Paranavaí",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://diocesedeparanavai.org.br/paroquias/",
+          "title": "Paróquias da Diocese de Paranavaí — Decanato de Paranavaí",
+          "accessedAt": "2026-09-09"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Santuário Nossa Senhora do Carmo",
+          "address": "Rua Getulio Vargas, 717",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=13",
+              "title": "Santuário Nossa Senhora do Carmo e Paróquia São Sebastião — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São Vicente (Jardim São Vicente)",
+          "address": null,
+          "neighborhood": "Jardim São Vicente",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=13",
+              "title": "Santuário Nossa Senhora do Carmo e Paróquia São Sebastião — Comunidades",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nossa Senhora Aparecida",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=13",
+              "title": "Santuário Nossa Senhora do Carmo e Paróquia São Sebastião — Comunidades",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São Judas Tadeu",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=13",
+              "title": "Santuário Nossa Senhora do Carmo e Paróquia São Sebastião — Comunidades",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Santa Terezinha do Menino Jesus",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=13",
+              "title": "Santuário Nossa Senhora do Carmo e Paróquia São Sebastião — Comunidades",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Santuário Nossa Senhora do Carmo",
+          "dayOfWeek": 0,
+          "time": "07:30",
+          "type": "MASS",
+          "notes": "Missa com Transmissão pelo Youtube: https://www.youtube.com/@SantuariodoCarmoParanavai",
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=13",
+              "title": "Santuário Nossa Senhora do Carmo e Paróquia São Sebastião — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Comunidade São Vicente (Jardim São Vicente)",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": "Na Comunidade São Vicente (Jardim São Vicente)",
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=13",
+              "title": "Santuário Nossa Senhora do Carmo e Paróquia São Sebastião — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Santuário Nossa Senhora do Carmo",
+          "dayOfWeek": 0,
+          "time": "10:00",
+          "type": "MASS",
+          "notes": "Missa das crianças.",
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=13",
+              "title": "Santuário Nossa Senhora do Carmo e Paróquia São Sebastião — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Santuário Nossa Senhora do Carmo",
+          "dayOfWeek": 0,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=13",
+              "title": "Santuário Nossa Senhora do Carmo e Paróquia São Sebastião — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Santuário Nossa Senhora do Carmo",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=13",
+              "title": "Santuário Nossa Senhora do Carmo e Paróquia São Sebastião — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Santuário Nossa Senhora do Carmo",
+          "dayOfWeek": 1,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Missa celebrada na Capela do Santíssimo.",
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=13",
+              "title": "Santuário Nossa Senhora do Carmo e Paróquia São Sebastião — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Santuário Nossa Senhora do Carmo",
+          "dayOfWeek": 2,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": "Missa celebrada na Capela do Santíssimo.",
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=13",
+              "title": "Santuário Nossa Senhora do Carmo e Paróquia São Sebastião — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Santuário Nossa Senhora do Carmo",
+          "dayOfWeek": 2,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Missa celebrada na Capela do Santíssimo.",
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=13",
+              "title": "Santuário Nossa Senhora do Carmo e Paróquia São Sebastião — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Santuário Nossa Senhora do Carmo",
+          "dayOfWeek": 3,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": "Missa celebrada na Capela do Santíssimo.",
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=13",
+              "title": "Santuário Nossa Senhora do Carmo e Paróquia São Sebastião — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Santuário Nossa Senhora do Carmo",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Missa celebrada na Capela do Santíssimo.",
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=13",
+              "title": "Santuário Nossa Senhora do Carmo e Paróquia São Sebastião — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Santuário Nossa Senhora do Carmo",
+          "dayOfWeek": 4,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": "Missa celebrada na Capela do Santíssimo.",
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=13",
+              "title": "Santuário Nossa Senhora do Carmo e Paróquia São Sebastião — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Santuário Nossa Senhora do Carmo",
+          "dayOfWeek": 4,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Missa celebrada na Capela do Santíssimo.",
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=13",
+              "title": "Santuário Nossa Senhora do Carmo e Paróquia São Sebastião — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Santuário Nossa Senhora do Carmo",
+          "dayOfWeek": 5,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": "Missa celebrada na Capela do Santíssimo.",
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=13",
+              "title": "Santuário Nossa Senhora do Carmo e Paróquia São Sebastião — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Santuário Nossa Senhora do Carmo",
+          "dayOfWeek": 5,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Missa celebrada na Capela do Santíssimo.",
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=13",
+              "title": "Santuário Nossa Senhora do Carmo e Paróquia São Sebastião — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Comunidade São Vicente (Jardim São Vicente)",
+          "dayOfWeek": 5,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Somente na 1ª sexta-feira do mês na Comunidade São Vicente (Jardim São Vicente), missa em louvor ao Sagrado Coração de Jesus.",
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=13",
+              "title": "Santuário Nossa Senhora do Carmo e Paróquia São Sebastião — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Santuário Nossa Senhora do Carmo",
+          "dayOfWeek": 6,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": "Missa celebrada na Capela do Santíssimo.",
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=13",
+              "title": "Santuário Nossa Senhora do Carmo e Paróquia São Sebastião — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Santuário Nossa Senhora do Carmo",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Missa celebrada na Capela do Santíssimo.",
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=13",
+              "title": "Santuário Nossa Senhora do Carmo e Paróquia São Sebastião — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-de-guadalupe-loanda",
+      "name": "Paróquia Nossa Senhora de Guadalupe",
+      "city": "Loanda",
+      "state": "PR",
+      "neighborhood": "Vila Nova",
+      "address": "Rua XV de Novembro, S/N",
+      "zipCode": null,
+      "phone": "(44) 3430-0186",
+      "email": "guadalupeparoquia@yahoo.com.br",
+      "website": "https://www.facebook.com/paroquiaguadalupeloanda",
+      "priestName": "Pe. Claudiomar Cardoso",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=14",
+          "title": "Paróquia Nossa Senhora de Guadalupe — Diocese de Paranavaí",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://diocesedeparanavai.org.br/paroquias/",
+          "title": "Paróquias da Diocese de Paranavaí — Decanato de Loanda",
+          "accessedAt": "2026-09-09"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=14",
+              "title": "Paróquia Nossa Senhora de Guadalupe — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=14",
+              "title": "Paróquia Nossa Senhora de Guadalupe — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Missa com benção da água e dos objetos.",
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=14",
+              "title": "Paróquia Nossa Senhora de Guadalupe — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=14",
+              "title": "Paróquia Nossa Senhora de Guadalupe — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-dos-navegantes-porto-rico",
+      "name": "Paróquia Nossa Senhora dos Navegantes",
+      "city": "Porto Rico",
+      "state": "PR",
+      "neighborhood": "Centro",
+      "address": "Rua Waldemar T. de Farias, S/N",
+      "zipCode": null,
+      "phone": "(44) 3427-1240",
+      "email": "paroquia.portorico@outlook.com",
+      "website": "https://www.facebook.com/profile.php?id=100090316071256",
+      "priestName": "Pe. Adão Dias Martins",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=15",
+          "title": "Paróquia Nossa Senhora dos Navegantes — Diocese de Paranavaí",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://diocesedeparanavai.org.br/paroquias/",
+          "title": "Paróquias da Diocese de Paranavaí — Decanato de Loanda",
+          "accessedAt": "2026-09-09"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=15",
+              "title": "Paróquia Nossa Senhora dos Navegantes — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "10:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=15",
+              "title": "Paróquia Nossa Senhora dos Navegantes — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=15",
+              "title": "Paróquia Nossa Senhora dos Navegantes — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 2,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Terço dos homens.",
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=15",
+              "title": "Paróquia Nossa Senhora dos Navegantes — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Grupo de oração após a missa.",
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=15",
+              "title": "Paróquia Nossa Senhora dos Navegantes — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=15",
+              "title": "Paróquia Nossa Senhora dos Navegantes — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "santa-cruz-santa-cruz-de-monte-castelo",
+      "name": "Paróquia Santa Cruz",
+      "city": "Santa Cruz de Monte Castelo",
+      "state": "PR",
+      "neighborhood": "Centro",
+      "address": "Praça do Expedicionário José Perez Martins, S/N",
+      "zipCode": null,
+      "phone": null,
+      "email": "paroquiasantacruz10@hotmail.com",
+      "website": "https://www.facebook.com/profile.php?id=100009643514218",
+      "priestName": "Pe. Maycon Renan da Silva Santos Boni",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=16",
+          "title": "Paróquia Santa Cruz — Diocese de Paranavaí",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://diocesedeparanavai.org.br/paroquias/",
+          "title": "Paróquias da Diocese de Paranavaí — Decanato de Loanda",
+          "accessedAt": "2026-09-09"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=16",
+              "title": "Paróquia Santa Cruz — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "17:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=16",
+              "title": "Paróquia Santa Cruz — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "16:00",
+          "type": "MASS",
+          "notes": "Somente na 1ª sexta-feira do mês. Missa do Sagrado Coração de Jesus.",
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=16",
+              "title": "Paróquia Santa Cruz — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": "Somente no 4º sábado do mês. Missa com as crianças.",
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=16",
+              "title": "Paróquia Santa Cruz — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "20:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=16",
+              "title": "Paróquia Santa Cruz — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "santa-isabel-mae-do-precursor-santa-isabel-do-ivai",
+      "name": "Paróquia Santa Isabel, Mãe do Precursor",
+      "city": "Santa Isabel do Ivaí",
+      "state": "PR",
+      "neighborhood": "Centro",
+      "address": "Praça Dr. Eduardo Otto, 11",
+      "zipCode": null,
+      "phone": "(44) 3453-1385",
+      "email": "paroquiasantaisabel09@bol.com.br",
+      "website": "https://www.facebook.com/PadroeiraSantaIsabel",
+      "priestName": "Pe. Antônio Marcos Garibaldi",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=17",
+          "title": "Paróquia Santa Isabel, Mãe do Precursor — Diocese de Paranavaí",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://diocesedeparanavai.org.br/paroquias/",
+          "title": "Paróquias da Diocese de Paranavaí — Decanato de Loanda",
+          "accessedAt": "2026-09-09"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=17",
+              "title": "Paróquia Santa Isabel, Mãe do Precursor — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=17",
+              "title": "Paróquia Santa Isabel, Mãe do Precursor — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 1,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Somente na 2ª segunda-feira do mês. Grupo Chama Viva - Área Alta.",
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=17",
+              "title": "Paróquia Santa Isabel, Mãe do Precursor — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=17",
+              "title": "Paróquia Santa Isabel, Mãe do Precursor — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Somente na 4ª quinta-feira do mês. AMOVOSI - Área Baixa.",
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=17",
+              "title": "Paróquia Santa Isabel, Mãe do Precursor — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=17",
+              "title": "Paróquia Santa Isabel, Mãe do Precursor — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=17",
+              "title": "Paróquia Santa Isabel, Mãe do Precursor — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "santa-monica-santa-monica",
+      "name": "Paróquia Santa Mônica",
+      "city": "Santa Mônica",
+      "state": "PR",
+      "neighborhood": "Centro",
+      "address": "Avenida XV de Novembro, S/N",
+      "zipCode": null,
+      "phone": "(44) 3455-1255",
+      "email": "paroquiasantamonica@hotmail.com",
+      "website": "https://www.facebook.com/profile.php?id=100068994976739",
+      "priestName": "Pe. José Mário Fernandes",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=18",
+          "title": "Paróquia Santa Mônica — Diocese de Paranavaí",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://diocesedeparanavai.org.br/paroquias/",
+          "title": "Paróquias da Diocese de Paranavaí — Decanato de Loanda",
+          "accessedAt": "2026-09-09"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=18",
+              "title": "Paróquia Santa Mônica — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Somente na 1ª quinta-feira do mês.",
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=18",
+              "title": "Paróquia Santa Mônica — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "santa-terezinha-do-menino-jesus-planaltina-do-parana",
+      "name": "Paróquia Santa Terezinha do Menino Jesus",
+      "city": "Planaltina do Paraná",
+      "state": "PR",
+      "neighborhood": "Centro",
+      "address": "Praça Giacomo Madalozzo, 231",
+      "zipCode": null,
+      "phone": "(44) 99920-3558",
+      "email": "st.terezinha@hotmail.com",
+      "website": "https://www.facebook.com/paroquiaplanaltinapr",
+      "priestName": "Pe. Inácio Schiroff",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=19",
+          "title": "Paróquia Santa Terezinha do Menino Jesus — Diocese de Paranavaí",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://diocesedeparanavai.org.br/paroquias/",
+          "title": "Paróquias da Diocese de Paranavaí — Decanato de Loanda",
+          "accessedAt": "2026-09-09"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=19",
+              "title": "Paróquia Santa Terezinha do Menino Jesus — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=19",
+              "title": "Paróquia Santa Terezinha do Menino Jesus — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=19",
+              "title": "Paróquia Santa Terezinha do Menino Jesus — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "sao-paulo-apostolo-querencia-do-norte",
+      "name": "Paróquia São Paulo Apóstolo",
+      "city": "Querência do Norte",
+      "state": "PR",
+      "neighborhood": "Centro",
+      "address": "Avenida Valdemar dos Santos, 714",
+      "zipCode": null,
+      "phone": "(44) 3462-1535",
+      "email": "paroquiaspauloapostolo@hotmail.com",
+      "website": "https://www.facebook.com/paroquiaspaulo",
+      "priestName": "Pe. Gilmar da Silva",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=20",
+          "title": "Paróquia São Paulo Apóstolo — Diocese de Paranavaí",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://diocesedeparanavai.org.br/paroquias/",
+          "title": "Paróquias da Diocese de Paranavaí — Decanato de Loanda",
+          "accessedAt": "2026-09-09"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=20",
+              "title": "Paróquia São Paulo Apóstolo — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=20",
+              "title": "Paróquia São Paulo Apóstolo — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=20",
+              "title": "Paróquia São Paulo Apóstolo — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=20",
+              "title": "Paróquia São Paulo Apóstolo — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=20",
+              "title": "Paróquia São Paulo Apóstolo — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "sao-pedro-sao-pedro-do-parana",
+      "name": "Paróquia São Pedro",
+      "city": "São Pedro do Paraná",
+      "state": "PR",
+      "neighborhood": "Centro",
+      "address": "Avenida Paraná, 213",
+      "zipCode": null,
+      "phone": "(44) 3464-1082",
+      "email": "paroquiasp1@hotmail.com",
+      "website": "https://www.facebook.com/paroquiasp",
+      "priestName": "Pe. Elfrem Soares do Nascimento",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=21",
+          "title": "Paróquia São Pedro — Diocese de Paranavaí",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://diocesedeparanavai.org.br/paroquias/",
+          "title": "Paróquias da Diocese de Paranavaí — Decanato de Loanda",
+          "accessedAt": "2026-09-09"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "10:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=21",
+              "title": "Paróquia São Pedro — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=21",
+              "title": "Paróquia São Pedro — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=21",
+              "title": "Paróquia São Pedro — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-de-fatima-amapora",
+      "name": "Paróquia Nossa Senhora de Fátima",
+      "city": "Amaporã",
+      "state": "PR",
+      "neighborhood": "Centro",
+      "address": "Praça Dom Elizeu de Morais Pimentel, S/N",
+      "zipCode": null,
+      "phone": "(44) 99142-5075",
+      "email": "paroquia_ns_fatima@yahoo.com.br",
+      "website": "https://www.facebook.com/nossasenhoradefatimaamapora",
+      "priestName": "Pe. Benjamim Alves Barbosa",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=22",
+          "title": "Paróquia Nossa Senhora de Fátima — Diocese de Paranavaí",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://diocesedeparanavai.org.br/paroquias/",
+          "title": "Paróquias da Diocese de Paranavaí — Decanato de Paraíso do Norte",
+          "accessedAt": "2026-09-09"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora de Fátima",
+          "address": "Praça Dom Elizeu de Morais Pimentel, S/N",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=22",
+              "title": "Paróquia Nossa Senhora de Fátima — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nossa Senhora Aparecida (Assentamento Rozeli Nunes)",
+          "address": null,
+          "neighborhood": "Assentamento Rozeli Nunes",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=22",
+              "title": "Paróquia Nossa Senhora de Fátima — Comunidades",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora de Fátima",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=22",
+              "title": "Paróquia Nossa Senhora de Fátima — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora de Fátima",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=22",
+              "title": "Paróquia Nossa Senhora de Fátima — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "santo-antonio-de-padua-tamboara",
+      "name": "Paróquia Santo Antônio de Pádua",
+      "city": "Tamboara",
+      "state": "PR",
+      "neighborhood": "Centro",
+      "address": "Praça Alfredo Luis Beltrame, 1711",
+      "zipCode": null,
+      "phone": "(44) 3460-1206",
+      "email": "mitrapvai07@bol.com.br",
+      "website": "https://www.facebook.com/ParoquiaTamboaraPR",
+      "priestName": "Pe. Isaías Manoel da Silva",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=23",
+          "title": "Paróquia Santo Antônio de Pádua — Diocese de Paranavaí",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://diocesedeparanavai.org.br/paroquias/",
+          "title": "Paróquias da Diocese de Paranavaí — Decanato de Paraíso do Norte",
+          "accessedAt": "2026-09-09"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "08:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=23",
+              "title": "Paróquia Santo Antônio de Pádua — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=23",
+              "title": "Paróquia Santo Antônio de Pádua — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=23",
+              "title": "Paróquia Santo Antônio de Pádua — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=23",
+              "title": "Paróquia Santo Antônio de Pádua — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "sao-carlos-borromeu-sao-carlos-do-ivai",
+      "name": "Paróquia São Carlos Borromeu",
+      "city": "São Carlos do Ivaí",
+      "state": "PR",
+      "neighborhood": "Centro",
+      "address": "Rua Marechal Deodoro, 674",
+      "zipCode": null,
+      "phone": "(44) 3438-1202",
+      "email": "paroquiasaocarlos@hotmail.com",
+      "website": "https://www.facebook.com/redesaocarlosborromeu",
+      "priestName": "Pe. Gustavo Paulo da Silva",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=24",
+          "title": "Paróquia São Carlos Borromeu — Diocese de Paranavaí",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://diocesedeparanavai.org.br/paroquias/",
+          "title": "Paróquias da Diocese de Paranavaí — Decanato de Paraíso do Norte",
+          "accessedAt": "2026-09-09"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=24",
+              "title": "Paróquia São Carlos Borromeu — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=24",
+              "title": "Paróquia São Carlos Borromeu — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=24",
+              "title": "Paróquia São Carlos Borromeu — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Somente na 4ª quinta-feira do mês.",
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=24",
+              "title": "Paróquia São Carlos Borromeu — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Somente na 1ª sexta-feira do mês.",
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=24",
+              "title": "Paróquia São Carlos Borromeu — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=24",
+              "title": "Paróquia São Carlos Borromeu — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "sao-joao-batista-sao-joao-do-caiua",
+      "name": "Paróquia São João Batista",
+      "city": "São João do Caiuá",
+      "state": "PR",
+      "neighborhood": "Centro",
+      "address": "Praça Padre Tadeu Wizikroski, S/N",
+      "zipCode": null,
+      "phone": "(44) 99899-8217",
+      "email": null,
+      "website": "https://www.facebook.com/sjbatistaonline",
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=25",
+          "title": "Paróquia São João Batista — Diocese de Paranavaí",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://diocesedeparanavai.org.br/paroquias/",
+          "title": "Paróquias da Diocese de Paranavaí — Decanato de Paraíso do Norte",
+          "accessedAt": "2026-09-09"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São João Batista",
+          "address": "Praça Padre Tadeu Wizikroski, S/N",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=25",
+              "title": "Paróquia São João Batista — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nossa Senhora Aparecida (Assentamento Taperivá)",
+          "address": null,
+          "neighborhood": "Assentamento Taperivá",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=25",
+              "title": "Paróquia São João Batista — Comunidades",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Santa Honesta",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=25",
+              "title": "Paróquia São João Batista — Comunidades",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São João Batista",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=25",
+              "title": "Paróquia São João Batista — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São João Batista",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=25",
+              "title": "Paróquia São João Batista — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São João Batista",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=25",
+              "title": "Paróquia São João Batista — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São João Batista",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=25",
+              "title": "Paróquia São João Batista — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "sao-joao-batista-mirador",
+      "name": "Paróquia São João Batista",
+      "city": "Mirador",
+      "state": "PR",
+      "neighborhood": "Centro",
+      "address": "Avenida Rocha Pombo, S/N",
+      "zipCode": null,
+      "phone": "(44) 99103-9240",
+      "email": "saojoaobatistademirador@gmail.com",
+      "website": "https://www.facebook.com/redesaocarlosborromeu",
+      "priestName": "Pe. Amarildo Isidorio da Silva",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=26",
+          "title": "Paróquia São João Batista — Diocese de Paranavaí",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://diocesedeparanavai.org.br/paroquias/",
+          "title": "Paróquias da Diocese de Paranavaí — Decanato de Paraíso do Norte",
+          "accessedAt": "2026-09-09"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=26",
+              "title": "Paróquia São João Batista — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=26",
+              "title": "Paróquia São João Batista — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "20:00",
+          "type": "MASS",
+          "notes": "Somente na 1ª sexta-feira do mês.",
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=26",
+              "title": "Paróquia São João Batista — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "santo-antonio-de-padua-alto-parana",
+      "name": "Santuário Santo Antônio de Pádua",
+      "city": "Alto Paraná",
+      "state": "PR",
+      "neighborhood": "Centro",
+      "address": "Praça Dom Benjamin de Souza Gomes, S/N",
+      "zipCode": null,
+      "phone": "(44) 3447-1167",
+      "email": "paroquia.altoparana@gmail.com",
+      "website": "https://www.facebook.com/paroquiasantoantonioaltoparana",
+      "priestName": "Pe. Sílvio César Pereira",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=27",
+          "title": "Santuário Santo Antônio de Pádua — Diocese de Paranavaí",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://diocesedeparanavai.org.br/paroquias/",
+          "title": "Paróquias da Diocese de Paranavaí — Decanato de Paraíso do Norte",
+          "accessedAt": "2026-09-09"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=27",
+              "title": "Santuário Santo Antônio de Pádua — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=27",
+              "title": "Santuário Santo Antônio de Pádua — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=27",
+              "title": "Santuário Santo Antônio de Pádua — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=27",
+              "title": "Santuário Santo Antônio de Pádua — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-da-gloria-itauna-do-sul",
+      "name": "Paróquia Nossa Senhora da Glória",
+      "city": "Itaúna do Sul",
+      "state": "PR",
+      "neighborhood": "Centro",
+      "address": "Rua Paraná, 592",
+      "zipCode": null,
+      "phone": "(44) 3436-1350",
+      "email": "paroquiaitaunadosul@hotmail.com",
+      "website": "https://www.facebook.com/paroquiansradagloriais",
+      "priestName": "Pe. Benedito Bernardino da Silva",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=28",
+          "title": "Paróquia Nossa Senhora da Glória — Diocese de Paranavaí",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://diocesedeparanavai.org.br/paroquias/",
+          "title": "Paróquias da Diocese de Paranavaí — Decanato de Terra Rica",
+          "accessedAt": "2026-09-09"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora da Glória",
+          "address": "Rua Paraná, 592",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=28",
+              "title": "Paróquia Nossa Senhora da Glória — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São João Batista (SP/PR)",
+          "address": null,
+          "neighborhood": "SP/PR",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=28",
+              "title": "Paróquia Nossa Senhora da Glória — Comunidades",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora da Glória",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=28",
+              "title": "Paróquia Nossa Senhora da Glória — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Glória",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=28",
+              "title": "Paróquia Nossa Senhora da Glória — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Glória",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Somente na 1ª sexta-feira do mês.",
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=28",
+              "title": "Paróquia Nossa Senhora da Glória — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Glória",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=28",
+              "title": "Paróquia Nossa Senhora da Glória — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "santa-helena-marilena",
+      "name": "Paróquia Santa Helena",
+      "city": "Marilena",
+      "state": "PR",
+      "neighborhood": "Centro",
+      "address": "Rua Natal, 550",
+      "zipCode": null,
+      "phone": "(44) 3448-1478",
+      "email": "stahelenamarilena@gmail.com",
+      "website": "https://www.facebook.com/paroquia.santa.helena.marilena.parana",
+      "priestName": "Pe. Aguiner da Silva Missais",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=29",
+          "title": "Paróquia Santa Helena — Diocese de Paranavaí",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://diocesedeparanavai.org.br/paroquias/",
+          "title": "Paróquias da Diocese de Paranavaí — Decanato de Terra Rica",
+          "accessedAt": "2026-09-09"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=29",
+              "title": "Paróquia Santa Helena — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=29",
+              "title": "Paróquia Santa Helena — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=29",
+              "title": "Paróquia Santa Helena — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=29",
+              "title": "Paróquia Santa Helena — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "santa-terezinha-do-menino-jesus-guairaca",
+      "name": "Paróquia Santa Terezinha do Menino Jesus",
+      "city": "Guairaçá",
+      "state": "PR",
+      "neighborhood": "Centro",
+      "address": "Rua Francisco Vieira, 885",
+      "zipCode": null,
+      "phone": "(44) 3442-1214",
+      "email": null,
+      "website": "https://www.facebook.com/santaterezinhaguairaca",
+      "priestName": "Pe. Orlando Ribeiro",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=30",
+          "title": "Paróquia Santa Terezinha do Menino Jesus — Diocese de Paranavaí",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://diocesedeparanavai.org.br/paroquias/",
+          "title": "Paróquias da Diocese de Paranavaí — Decanato de Terra Rica",
+          "accessedAt": "2026-09-09"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Santa Terezinha do Menino Jesus",
+          "address": "Rua Francisco Vieira, 885",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=30",
+              "title": "Paróquia Santa Terezinha do Menino Jesus — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São Francisco",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=30",
+              "title": "Paróquia Santa Terezinha do Menino Jesus — Comunidades",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Santa Terezinha do Menino Jesus",
+          "dayOfWeek": 0,
+          "time": "09:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=30",
+              "title": "Paróquia Santa Terezinha do Menino Jesus — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Santa Terezinha do Menino Jesus",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=30",
+              "title": "Paróquia Santa Terezinha do Menino Jesus — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Santa Terezinha do Menino Jesus",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=30",
+              "title": "Paróquia Santa Terezinha do Menino Jesus — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Santa Terezinha do Menino Jesus",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=30",
+              "title": "Paróquia Santa Terezinha do Menino Jesus — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "santo-antonio-de-padua-santo-antonio-do-caiua",
+      "name": "Paróquia Santo Antônio de Pádua",
+      "city": "Santo Antônio do Caiuá",
+      "state": "PR",
+      "neighborhood": "Centro",
+      "address": "Praça Dom Benjamim de S. Gomes, 330",
+      "zipCode": null,
+      "phone": "(44) 99103-9944",
+      "email": "paroquia.antonio@hotmail.com",
+      "website": "https://www.facebook.com/SantoAntdepadua",
+      "priestName": "Pe. José Bezerra da Silva Neto",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=31",
+          "title": "Paróquia Santo Antônio de Pádua — Diocese de Paranavaí",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://diocesedeparanavai.org.br/paroquias/",
+          "title": "Paróquias da Diocese de Paranavaí — Decanato de Terra Rica",
+          "accessedAt": "2026-09-09"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=31",
+              "title": "Paróquia Santo Antônio de Pádua — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": "Somente no último domingo do mês.",
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=31",
+              "title": "Paróquia Santo Antônio de Pádua — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=31",
+              "title": "Paróquia Santo Antônio de Pádua — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "santo-antonio-de-padua-terra-rica",
+      "name": "Paróquia Santo Antônio de Pádua",
+      "city": "Terra Rica",
+      "state": "PR",
+      "neighborhood": "Centro",
+      "address": "Praça Padre Nestor Welter, 26",
+      "zipCode": null,
+      "phone": "(44) 3441-1149",
+      "email": "psantoantonio.terrarica@gmail.com",
+      "website": "https://www.facebook.com/p.santoantoniotr",
+      "priestName": "Pe. Ilson Luiz da Graça",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=32",
+          "title": "Paróquia Santo Antônio de Pádua — Diocese de Paranavaí",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://diocesedeparanavai.org.br/paroquias/",
+          "title": "Paróquias da Diocese de Paranavaí — Decanato de Terra Rica",
+          "accessedAt": "2026-09-09"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Santo Antônio de Pádua",
+          "address": "Praça Padre Nestor Welter, 26",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=32",
+              "title": "Paróquia Santo Antônio de Pádua — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Beata Elena Guerra",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=32",
+              "title": "Paróquia Santo Antônio de Pádua — Comunidades",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Santo Antônio de Pádua",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=32",
+              "title": "Paróquia Santo Antônio de Pádua — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Santo Antônio de Pádua",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=32",
+              "title": "Paróquia Santo Antônio de Pádua — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Santo Antônio de Pádua",
+          "dayOfWeek": 3,
+          "time": "16:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=32",
+              "title": "Paróquia Santo Antônio de Pádua — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Santo Antônio de Pádua",
+          "dayOfWeek": 5,
+          "time": "16:00",
+          "type": "MASS",
+          "notes": "Somente na 1ª sexta-feira do mês.",
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=32",
+              "title": "Paróquia Santo Antônio de Pádua — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Santo Antônio de Pádua",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=32",
+              "title": "Paróquia Santo Antônio de Pádua — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "sao-jose-diamante-do-norte",
+      "name": "Paróquia São José",
+      "city": "Diamante do Norte",
+      "state": "PR",
+      "neighborhood": "Centro",
+      "address": "Avenida Goiás, 426",
+      "zipCode": null,
+      "phone": "(44) 99842-0740",
+      "email": "psj.diamante@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Gilney Guevara Lopes",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=33",
+          "title": "Paróquia São José — Diocese de Paranavaí",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://diocesedeparanavai.org.br/paroquias/",
+          "title": "Paróquias da Diocese de Paranavaí — Decanato de Terra Rica",
+          "accessedAt": "2026-09-09"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=33",
+              "title": "Paróquia São José — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=33",
+              "title": "Paróquia São José — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=33",
+              "title": "Paróquia São José — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Somente na 1ª sexta-feira do mês.",
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=33",
+              "title": "Paróquia São José — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=33",
+              "title": "Paróquia São José — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "sao-pio-x-terra-rica",
+      "name": "Paróquia São Pio X",
+      "city": "Terra Rica",
+      "state": "PR",
+      "neighborhood": "Distrito Adhemar de Barros",
+      "address": "Avenida Iporã, 180",
+      "zipCode": null,
+      "phone": "(44) 3449-1167",
+      "email": null,
+      "website": "https://www.facebook.com/ParoquiaSaoPioXAdhemar",
+      "priestName": "Pe. Vicente Bento",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=34",
+          "title": "Paróquia São Pio X — Diocese de Paranavaí",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://diocesedeparanavai.org.br/paroquias/",
+          "title": "Paróquias da Diocese de Paranavaí — Decanato de Terra Rica",
+          "accessedAt": "2026-09-09"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=34",
+              "title": "Paróquia São Pio X — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=34",
+              "title": "Paróquia São Pio X — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "sao-pio-x-e-santa-rita-de-cassia-nova-londrina",
+      "name": "Paróquia São Pio X e Santa Rita de Cássia",
+      "city": "Nova Londrina",
+      "state": "PR",
+      "neighborhood": "Centro",
+      "address": "Praça da Matriz, 506",
+      "zipCode": null,
+      "phone": "(44) 99713-3722",
+      "email": null,
+      "website": "https://www.facebook.com/ParoquiaSPioXESRitaDeCassia",
+      "priestName": "Frei Francisco Luiz Ferreira OAD",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=35",
+          "title": "Paróquia São Pio X e Santa Rita de Cássia — Diocese de Paranavaí",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://diocesedeparanavai.org.br/paroquias/",
+          "title": "Paróquias da Diocese de Paranavaí — Decanato de Terra Rica",
+          "accessedAt": "2026-09-09"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=35",
+              "title": "Paróquia São Pio X e Santa Rita de Cássia — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "10:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=35",
+              "title": "Paróquia São Pio X e Santa Rita de Cássia — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=35",
+              "title": "Paróquia São Pio X e Santa Rita de Cássia — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 1,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=35",
+              "title": "Paróquia São Pio X e Santa Rita de Cássia — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=35",
+              "title": "Paróquia São Pio X e Santa Rita de Cássia — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Somente na última quarta-feira do mês. Missa por cura e libertação.",
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=35",
+              "title": "Paróquia São Pio X e Santa Rita de Cássia — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=35",
+              "title": "Paróquia São Pio X e Santa Rita de Cássia — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=35",
+              "title": "Paróquia São Pio X e Santa Rita de Cássia — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=35",
+              "title": "Paróquia São Pio X e Santa Rita de Cássia — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "sao-benedito-nova-alianca-do-ivai",
+      "name": "Capela São Benedito",
+      "city": "Nova Aliança do Ivaí",
+      "state": "PR",
+      "neighborhood": "Centro",
+      "address": "Avenida Francisco Pires de Lemos, s/n",
+      "zipCode": null,
+      "phone": "(44) 99171-9227",
+      "email": "capelasaobenedito.nai@gmail.com",
+      "website": null,
+      "priestName": "Pe. José Eraldo Germano da Silva",
+      "foundedYear": 1959,
+      "sources": [
+        {
+          "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=36",
+          "title": "Capela São Benedito — Diocese de Paranavaí",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://diocesedeparanavai.org.br/paroquias/",
+          "title": "Paróquias da Diocese de Paranavaí — Decanato de Paraíso do Norte",
+          "accessedAt": "2026-09-09"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=36",
+              "title": "Capela São Benedito — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=36",
+              "title": "Capela São Benedito — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=36",
+              "title": "Capela São Benedito — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=36",
+              "title": "Capela São Benedito — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=36",
+              "title": "Capela São Benedito — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeparanavai.org.br/paroquia/?paroquiaid=36",
+              "title": "Capela São Benedito — Horários de Missa",
+              "accessedAt": "2026-09-09"
+            },
+            {
+              "url": "https://diocesedeparanavai.org.br/horarios-de-missa/",
+              "title": "Horários de Missa — Diocese de Paranavaí",
+              "accessedAt": "2026-09-09"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    }
+  ],
+  "coverage": {
+    "parishesFound": 36,
+    "parishesExpected": 34,
+    "notes": "Site oficial lista 36 unidades em 4 decanatos (Paranavaí, Loanda, Paraíso do Norte, Terra Rica): 34 paróquias/santuários + 1 quase-paróquia (São Francisco de Assis, Paranavaí) + 1 capela com página própria (Capela São Benedito, Nova Aliança do Ivaí). Catholic-Hierarchy (dados de 2023) registra 34 paróquias. Comunidades listadas em 11 paróquias; horários de todas as 36 unidades (matriz)."
+  }
+}

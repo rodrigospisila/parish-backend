@@ -1,0 +1,5535 @@
+{
+  "diocese": {
+    "name": "Arquidiocese de Cascavel",
+    "type": "Arquidiocese",
+    "slug": "cascavel",
+    "city": "Cascavel",
+    "state": "PR",
+    "address": "Rua Maranhão, 1595 - Centro",
+    "zipCode": "85805-051",
+    "phone": "(45) 3225-2324",
+    "email": null,
+    "website": "https://arquicascavel.org.br",
+    "bishopName": "Dom José Mário Scalon Angonese",
+    "sources": [
+      {
+        "url": "https://arquicascavel.org.br/paroquias",
+        "title": "Paróquias – Arquidiocese de Cascavel (rodapé com dados da Cúria Metropolitana; lido via snapshot do Wayback Machine 2026-01-20)",
+        "accessedAt": "2026-09-10"
+      },
+      {
+        "url": "https://www.catholic-hierarchy.org/diocese/dcasc.html",
+        "title": "Archdiocese of Cascavel – Catholic-Hierarchy (40 paróquias em 2023)",
+        "accessedAt": "2026-09-10"
+      },
+      {
+        "url": "https://gcatholic.org/dioceses/diocese/casc0.htm",
+        "title": "Metropolitan Archdiocese of Cascavel – GCatholic (40 paróquias, 31/12/2022)",
+        "accessedAt": "2026-09-10"
+      },
+      {
+        "url": "https://pt.wikipedia.org/wiki/Arquidiocese_de_Cascavel",
+        "title": "Arquidiocese de Cascavel – Wikipédia (17 municípios)",
+        "accessedAt": "2026-09-10"
+      }
+    ],
+    "confidence": "alta"
+  },
+  "parishes": [
+    {
+      "slug": "nossa-senhora-aparecida-cascavel",
+      "name": "Catedral Nossa Senhora Aparecida",
+      "city": "Cascavel",
+      "state": "PR",
+      "neighborhood": "Centro",
+      "address": "Rua Rio Grande do Sul, 590 - Centro",
+      "zipCode": "85801-000",
+      "phone": "(45) 3223-1160",
+      "email": "cascavelcatedral@gmail.com",
+      "website": null,
+      "priestName": "Pe. Divo de Conto",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://arquicascavel.org.br/paroquias/catedral-nossa-senhora-aparecida-de-cascavel",
+          "title": "Catedral Nossa Senhora Aparecida – Arquidiocese de Cascavel (lida via snapshot do Wayback Machine, 2025-11/2026-05)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://web.archive.org/web/2026/https://arquicascavel.org.br/paroquias/catedral-nossa-senhora-aparecida-de-cascavel",
+          "title": "Snapshot Wayback Machine da página oficial",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://arquicascavel.org.br/paroquias/551-cascavel-centro",
+          "title": "Paróquias – Cascavel Centro – Arquidiocese de Cascavel (snapshot Wayback Machine 2020-10-01)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://missahora.com.br/parana/cascavel/catedral-metropolitana-nossa-senhora-aparecida/",
+          "title": "Catedral Metropolitana Nossa Senhora Aparecida – missahora.com.br (corrobora horários)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Catedral Nossa Senhora Aparecida",
+          "address": "Rua Rio Grande do Sul, 590",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/catedral-nossa-senhora-aparecida-de-cascavel"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Catedral Nossa Senhora Aparecida",
+          "dayOfWeek": 1,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/catedral-nossa-senhora-aparecida-de-cascavel",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral Nossa Senhora Aparecida",
+          "dayOfWeek": 2,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/catedral-nossa-senhora-aparecida-de-cascavel",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral Nossa Senhora Aparecida",
+          "dayOfWeek": 3,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/catedral-nossa-senhora-aparecida-de-cascavel",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral Nossa Senhora Aparecida",
+          "dayOfWeek": 4,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/catedral-nossa-senhora-aparecida-de-cascavel",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral Nossa Senhora Aparecida",
+          "dayOfWeek": 5,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/catedral-nossa-senhora-aparecida-de-cascavel",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral Nossa Senhora Aparecida",
+          "dayOfWeek": 1,
+          "time": "12:15",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/catedral-nossa-senhora-aparecida-de-cascavel",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral Nossa Senhora Aparecida",
+          "dayOfWeek": 2,
+          "time": "12:15",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/catedral-nossa-senhora-aparecida-de-cascavel",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral Nossa Senhora Aparecida",
+          "dayOfWeek": 3,
+          "time": "12:15",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/catedral-nossa-senhora-aparecida-de-cascavel",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral Nossa Senhora Aparecida",
+          "dayOfWeek": 4,
+          "time": "12:15",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/catedral-nossa-senhora-aparecida-de-cascavel",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral Nossa Senhora Aparecida",
+          "dayOfWeek": 5,
+          "time": "12:15",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/catedral-nossa-senhora-aparecida-de-cascavel",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral Nossa Senhora Aparecida",
+          "dayOfWeek": 1,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/catedral-nossa-senhora-aparecida-de-cascavel",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral Nossa Senhora Aparecida",
+          "dayOfWeek": 2,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/catedral-nossa-senhora-aparecida-de-cascavel",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral Nossa Senhora Aparecida",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/catedral-nossa-senhora-aparecida-de-cascavel",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral Nossa Senhora Aparecida",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/catedral-nossa-senhora-aparecida-de-cascavel",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral Nossa Senhora Aparecida",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/catedral-nossa-senhora-aparecida-de-cascavel",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral Nossa Senhora Aparecida",
+          "dayOfWeek": 4,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": "Missa da Saúde",
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/catedral-nossa-senhora-aparecida-de-cascavel",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral Nossa Senhora Aparecida",
+          "dayOfWeek": 6,
+          "time": "12:15",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/catedral-nossa-senhora-aparecida-de-cascavel",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral Nossa Senhora Aparecida",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/catedral-nossa-senhora-aparecida-de-cascavel",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral Nossa Senhora Aparecida",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/catedral-nossa-senhora-aparecida-de-cascavel",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral Nossa Senhora Aparecida",
+          "dayOfWeek": 0,
+          "time": "10:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/catedral-nossa-senhora-aparecida-de-cascavel",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral Nossa Senhora Aparecida",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/catedral-nossa-senhora-aparecida-de-cascavel",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral Nossa Senhora Aparecida",
+          "dayOfWeek": 3,
+          "time": "12:15",
+          "type": "CONFESSION",
+          "notes": "confissões durante a missa",
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/catedral-nossa-senhora-aparecida-de-cascavel",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral Nossa Senhora Aparecida",
+          "dayOfWeek": 4,
+          "time": "15:00",
+          "type": "CONFESSION",
+          "notes": "confissões durante a missa",
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/catedral-nossa-senhora-aparecida-de-cascavel",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral Nossa Senhora Aparecida",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "CONFESSION",
+          "notes": "confissões durante a missa",
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/catedral-nossa-senhora-aparecida-de-cascavel",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral Nossa Senhora Aparecida",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "CONFESSION",
+          "notes": "confissões durante a missa",
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/catedral-nossa-senhora-aparecida-de-cascavel",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "santo-antonio-cascavel",
+      "name": "Paróquia Santo Antônio",
+      "city": "Cascavel",
+      "state": "PR",
+      "neighborhood": "Centro",
+      "address": "Av. Brasil, 7875 - Centro",
+      "zipCode": "85801-002",
+      "phone": "(45) 3226-5405",
+      "email": "paroquiasantoantoniocvel@gmail.com",
+      "website": null,
+      "priestName": "Pe. Ronald Lobo, SVD",
+      "foundedYear": 1962,
+      "sources": [
+        {
+          "url": "https://arquicascavel.org.br/paroquias/parquia-santo-antnio-3",
+          "title": "Paróquia Santo Antônio – Arquidiocese de Cascavel (lida via snapshot do Wayback Machine, 2025-11/2026-05)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://web.archive.org/web/2026/https://arquicascavel.org.br/paroquias/parquia-santo-antnio-3",
+          "title": "Snapshot Wayback Machine da página oficial",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://arquicascavel.org.br/paroquias/551-cascavel-centro",
+          "title": "Paróquias – Cascavel Centro – Arquidiocese de Cascavel (snapshot Wayback Machine 2020-10-01)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://arquicascavel.org.br/paroquias/parquia-santo-antnio",
+          "title": "Paróquia Santo Antônio (2ª página, com o telefone) – Arquidiocese de Cascavel (snapshot Wayback 2025-12)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://missahora.com.br/parana/cascavel/paroquia-santo-antonio/",
+          "title": "Paróquia Santo Antônio – missahora.com.br",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/igreja.php?k=Yw6CW",
+          "title": "Paróquia Santo Antônio – horariodemissa.com.br (atualizado 16/08/2014)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Santo Antônio",
+          "address": "Av. Brasil, 7875",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-santo-antnio-3"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Santo Antônio",
+          "dayOfWeek": 1,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "missahora.com.br (sem data); diverge de horariodemissa.com.br 2014 (dom 8h30, qua 19h30, sáb 19h30)",
+          "sources": [
+            {
+              "url": "https://missahora.com.br/parana/cascavel/paroquia-santo-antonio/",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Santo Antônio",
+          "dayOfWeek": 2,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "missahora.com.br (sem data); diverge de horariodemissa.com.br 2014 (dom 8h30, qua 19h30, sáb 19h30)",
+          "sources": [
+            {
+              "url": "https://missahora.com.br/parana/cascavel/paroquia-santo-antonio/",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Santo Antônio",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "missahora.com.br (sem data); diverge de horariodemissa.com.br 2014 (dom 8h30, qua 19h30, sáb 19h30)",
+          "sources": [
+            {
+              "url": "https://missahora.com.br/parana/cascavel/paroquia-santo-antonio/",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Santo Antônio",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "missahora.com.br (sem data); diverge de horariodemissa.com.br 2014 (dom 8h30, qua 19h30, sáb 19h30)",
+          "sources": [
+            {
+              "url": "https://missahora.com.br/parana/cascavel/paroquia-santo-antonio/",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Santo Antônio",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "missahora.com.br (sem data); diverge de horariodemissa.com.br 2014 (dom 8h30, qua 19h30, sáb 19h30)",
+          "sources": [
+            {
+              "url": "https://missahora.com.br/parana/cascavel/paroquia-santo-antonio/",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Santo Antônio",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "missahora.com.br (sem data); diverge de horariodemissa.com.br 2014 (dom 8h30, qua 19h30, sáb 19h30)",
+          "sources": [
+            {
+              "url": "https://missahora.com.br/parana/cascavel/paroquia-santo-antonio/",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Santo Antônio",
+          "dayOfWeek": 0,
+          "time": "10:00",
+          "type": "MASS",
+          "notes": "missahora.com.br (sem data)",
+          "sources": [
+            {
+              "url": "https://missahora.com.br/parana/cascavel/paroquia-santo-antonio/",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Santo Antônio",
+          "dayOfWeek": 0,
+          "time": "17:30",
+          "type": "MASS",
+          "notes": "missahora.com.br (sem data)",
+          "sources": [
+            {
+              "url": "https://missahora.com.br/parana/cascavel/paroquia-santo-antonio/",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Santo Antônio",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "missahora.com.br (sem data)",
+          "sources": [
+            {
+              "url": "https://missahora.com.br/parana/cascavel/paroquia-santo-antonio/",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-do-perpetuo-socorro-rito-ucraniano-cascavel",
+      "name": "Paróquia Nossa Senhora do Perpétuo Socorro (Rito Ucraniano)",
+      "city": "Cascavel",
+      "state": "PR",
+      "neighborhood": "Jardim São Cristóvão",
+      "address": "Rua Mato Grosso, 373 - Jardim São Cristóvão",
+      "zipCode": "85813-020",
+      "phone": "(45) 3227-3782",
+      "email": "hromadacvel@hotmail.com",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-do-perpetuo-socorro-rito-ucraniano",
+          "title": "Paróquia Nossa Senhora do Perpetuo Socorro (Rito Ucraniano) – Arquidiocese de Cascavel (lida via snapshot do Wayback Machine, 2025-11/2026-05)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://web.archive.org/web/2026/https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-do-perpetuo-socorro-rito-ucraniano",
+          "title": "Snapshot Wayback Machine da página oficial",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://arquicascavel.org.br/paroquias/549-cascavel-oeste",
+          "title": "Paróquias – Cascavel Oeste – Arquidiocese de Cascavel (snapshot Wayback Machine 2020-10-01)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [],
+      "status": "outra-jurisdicao",
+      "jurisdictionNote": "Eparquia ucraniana (listada no site da Arquidiocese de Cascavel)"
+    },
+    {
+      "slug": "militar-santo-inacio-de-loyola-cascavel",
+      "name": "Paróquia Militar Santo Inácio de Loyola",
+      "city": "Cascavel",
+      "state": "PR",
+      "neighborhood": "Região do Lago",
+      "address": "Rua Bom Jesus, 779 - Região do Lago",
+      "zipCode": "85812-290",
+      "phone": "(45) 3035-6148",
+      "email": "paroquiamilitarcascavel@gmail.com",
+      "website": null,
+      "priestName": "Pe. Carlos Otávio Rodrigues da Silva (capelão militar)",
+      "foundedYear": 2009,
+      "sources": [
+        {
+          "url": "https://arquicascavel.org.br/paroquias/parquia-militar-santo-incio-de-loyola",
+          "title": "Paróquia Militar Santo Inácio de Loyola – Arquidiocese de Cascavel (lida via snapshot do Wayback Machine, 2025-11/2026-05)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://web.archive.org/web/2026/https://arquicascavel.org.br/paroquias/parquia-militar-santo-incio-de-loyola",
+          "title": "Snapshot Wayback Machine da página oficial",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://arquicascavel.org.br/paroquias/551-cascavel-centro",
+          "title": "Paróquias – Cascavel Centro – Arquidiocese de Cascavel (snapshot Wayback Machine 2020-10-01)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [],
+      "status": "outra-jurisdicao",
+      "jurisdictionNote": "Ordinariado Militar do Brasil (listada no site da Arquidiocese de Cascavel)"
+    },
+    {
+      "slug": "nossa-senhora-das-gracas-cascavel",
+      "name": "Paróquia Nossa Senhora das Graças",
+      "city": "Cascavel",
+      "state": "PR",
+      "neighborhood": "Coqueiral",
+      "address": "Rua Padre Ricardo, 1287 - Coqueiral",
+      "zipCode": "85807-070",
+      "phone": "(45) 3326-1653",
+      "email": "paroquiansgracas2022@gmail.com",
+      "website": null,
+      "priestName": "Pe. Valdecir Freitas Camilo",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-das-graas",
+          "title": "Paróquia Nossa Senhora das Graças – Arquidiocese de Cascavel (lida via snapshot do Wayback Machine, 2025-11/2026-05)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://web.archive.org/web/2026/https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-das-graas",
+          "title": "Snapshot Wayback Machine da página oficial",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-de-fatima-cancelli-cascavel",
+      "name": "Paróquia Nossa Senhora de Fátima - Cancelli",
+      "city": "Cascavel",
+      "state": "PR",
+      "neighborhood": "Cancelli",
+      "address": "Rua Salgado Filho, 3354 - Cancelli",
+      "zipCode": "85813-740",
+      "phone": "(45) 3223-8117",
+      "email": "fatima.cancelli@gmail.com",
+      "website": null,
+      "priestName": "Pe. Wagno Leandro Ludgero",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-de-ftima-cancelli",
+          "title": "Paróquia Nossa Senhora de Fátima - Cancelli – Arquidiocese de Cascavel",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://arquicascavel.org.br/paroquias/551-cascavel-centro",
+          "title": "Paróquias – Cascavel Centro – Arquidiocese de Cascavel (snapshot Wayback Machine 2020-10-01)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://missahora.com.br/parana/cascavel/paroquia-nossa-senhora-de-fatima-cancelli/",
+          "title": "Paróquia Nossa Senhora de Fátima Cancelli – missahora.com.br",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora de Fátima",
+          "address": "Rua Salgado Filho, 3354",
+          "neighborhood": "Cancelli",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-de-ftima-cancelli"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora de Fátima",
+          "dayOfWeek": 1,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "missahora.com.br (sem data)",
+          "sources": [
+            {
+              "url": "https://missahora.com.br/parana/cascavel/paroquia-nossa-senhora-de-fatima-cancelli/",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora de Fátima",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "missahora.com.br (sem data)",
+          "sources": [
+            {
+              "url": "https://missahora.com.br/parana/cascavel/paroquia-nossa-senhora-de-fatima-cancelli/",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora de Fátima",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "missahora.com.br (sem data)",
+          "sources": [
+            {
+              "url": "https://missahora.com.br/parana/cascavel/paroquia-nossa-senhora-de-fatima-cancelli/",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora de Fátima",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "missahora.com.br (sem data)",
+          "sources": [
+            {
+              "url": "https://missahora.com.br/parana/cascavel/paroquia-nossa-senhora-de-fatima-cancelli/",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora de Fátima",
+          "dayOfWeek": 2,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": "missahora.com.br (sem data)",
+          "sources": [
+            {
+              "url": "https://missahora.com.br/parana/cascavel/paroquia-nossa-senhora-de-fatima-cancelli/",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora de Fátima",
+          "dayOfWeek": 4,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": "missahora.com.br (sem data)",
+          "sources": [
+            {
+              "url": "https://missahora.com.br/parana/cascavel/paroquia-nossa-senhora-de-fatima-cancelli/",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora de Fátima",
+          "dayOfWeek": 0,
+          "time": "09:30",
+          "type": "MASS",
+          "notes": "missahora.com.br (sem data)",
+          "sources": [
+            {
+              "url": "https://missahora.com.br/parana/cascavel/paroquia-nossa-senhora-de-fatima-cancelli/",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora de Fátima",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "missahora.com.br (sem data)",
+          "sources": [
+            {
+              "url": "https://missahora.com.br/parana/cascavel/paroquia-nossa-senhora-de-fatima-cancelli/",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-do-perpetuo-socorro-cascavel",
+      "name": "Paróquia Nossa Senhora do Perpétuo Socorro",
+      "city": "Cascavel",
+      "state": "PR",
+      "neighborhood": "Neva",
+      "address": "Rua Pio XII, 1161 - Neva",
+      "zipCode": "85802-170",
+      "phone": "(45) 3225-3836",
+      "email": "paroquia@ac-nspsocorro.org.br",
+      "website": null,
+      "priestName": "Pe. Gilmar Petry",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-do-perptuo-socorro",
+          "title": "Paróquia Nossa Senhora do Perpétuo Socorro – Arquidiocese de Cascavel",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://arquicascavel.org.br/paroquias/551-cascavel-centro",
+          "title": "Paróquias – Cascavel Centro – Arquidiocese de Cascavel (snapshot Wayback Machine 2020-10-01)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-cristovao-cascavel",
+      "name": "Paróquia São Cristóvão",
+      "city": "Cascavel",
+      "state": "PR",
+      "neighborhood": "São Cristóvão",
+      "address": "Av. Brasil, 3300",
+      "zipCode": "85816-290",
+      "phone": "(45) 3227-3937",
+      "email": "saocristovaopr@hotmail.com",
+      "website": "https://paroquiasaocristovao.org",
+      "priestName": "Pe. Nelson Francisco Mariano, CS",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://arquicascavel.org.br/paroquias/parquia-so-cristvo",
+          "title": "Paróquia São Cristóvão – Arquidiocese de Cascavel",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://arquicascavel.org.br/paroquias/551-cascavel-centro",
+          "title": "Paróquias – Cascavel Centro – Arquidiocese de Cascavel (snapshot Wayback Machine 2020-10-01)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://paroquiasaocristovao.org/missas/",
+          "title": "Horários de Missa – site oficial da Paróquia São Cristóvão",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/igreja.php?k=nZb1a",
+          "title": "Paróquia São Cristovão – horariodemissa.com.br (atualizado 15/05/2014)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Cristóvão",
+          "address": "Av. Brasil, 3300",
+          "neighborhood": "São Cristóvão",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-cristvo"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São Cristóvão",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://paroquiasaocristovao.org/missas/",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Cristóvão",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://paroquiasaocristovao.org/missas/",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Cristóvão",
+          "dayOfWeek": 0,
+          "time": "10:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://paroquiasaocristovao.org/missas/",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Cristóvão",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://paroquiasaocristovao.org/missas/",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Cristóvão",
+          "dayOfWeek": 1,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://paroquiasaocristovao.org/missas/",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Cristóvão",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://paroquiasaocristovao.org/missas/",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Cristóvão",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://paroquiasaocristovao.org/missas/",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Cristóvão",
+          "dayOfWeek": 3,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://paroquiasaocristovao.org/missas/",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Cristóvão",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://paroquiasaocristovao.org/missas/",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "sao-joao-batista-cascavel",
+      "name": "Paróquia São João Batista",
+      "city": "Cascavel",
+      "state": "PR",
+      "neighborhood": "Centro",
+      "address": "Rua Minas Gerais, 1380 - Centro",
+      "zipCode": "85812-030",
+      "phone": null,
+      "email": "paroquia@ac-saojoaobatista.org.br",
+      "website": null,
+      "priestName": "Pe. Eucácio Franciano Alba",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://arquicascavel.org.br/paroquias/parquia-so-joo-batista",
+          "title": "Paróquia São João Batista – Arquidiocese de Cascavel",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://arquicascavel.org.br/paroquias/551-cascavel-centro",
+          "title": "Paróquias – Cascavel Centro – Arquidiocese de Cascavel (snapshot Wayback Machine 2020-10-01)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://www.horariomissa.org/igreja/sao-joao-batista/351/",
+          "title": "São João Batista – horariomissa.org (colaborativo, sem data)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São João Batista",
+          "address": "Rua Minas Gerais, 1380",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-joo-batista"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São João Batista",
+          "dayOfWeek": 1,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "horariomissa.org (colaborativo, sem data)",
+          "sources": [
+            {
+              "url": "https://www.horariomissa.org/igreja/sao-joao-batista/351/",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São João Batista",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "horariomissa.org (colaborativo, sem data)",
+          "sources": [
+            {
+              "url": "https://www.horariomissa.org/igreja/sao-joao-batista/351/",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São João Batista",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "horariomissa.org (colaborativo, sem data)",
+          "sources": [
+            {
+              "url": "https://www.horariomissa.org/igreja/sao-joao-batista/351/",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São João Batista",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "horariomissa.org (colaborativo, sem data)",
+          "sources": [
+            {
+              "url": "https://www.horariomissa.org/igreja/sao-joao-batista/351/",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São João Batista",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "horariomissa.org (colaborativo, sem data)",
+          "sources": [
+            {
+              "url": "https://www.horariomissa.org/igreja/sao-joao-batista/351/",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São João Batista",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": "horariomissa.org: \"na Capela\" (capela não identificada)",
+          "sources": [
+            {
+              "url": "https://www.horariomissa.org/igreja/sao-joao-batista/351/",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São João Batista",
+          "dayOfWeek": 0,
+          "time": "09:30",
+          "type": "MASS",
+          "notes": "horariomissa.org (colaborativo, sem data)",
+          "sources": [
+            {
+              "url": "https://www.horariomissa.org/igreja/sao-joao-batista/351/",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São João Batista",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "horariomissa.org (colaborativo, sem data)",
+          "sources": [
+            {
+              "url": "https://www.horariomissa.org/igreja/sao-joao-batista/351/",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "sao-paulo-apostolo-cascavel",
+      "name": "Paróquia São Paulo Apóstolo",
+      "city": "Cascavel",
+      "state": "PR",
+      "neighborhood": "Parque São Paulo",
+      "address": "Rua Gen. Osório, 1298 - Parque São Paulo",
+      "zipCode": "85802-070",
+      "phone": "(45) 3223-7576",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Tamrat Markos Mitore, IMC",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://arquicascavel.org.br/paroquias/parquia-so-paulo-apstolo",
+          "title": "Paróquia São Paulo Apóstolo – Arquidiocese de Cascavel",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://arquicascavel.org.br/paroquias/551-cascavel-centro",
+          "title": "Paróquias – Cascavel Centro – Arquidiocese de Cascavel (snapshot Wayback Machine 2020-10-01)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://missahora.com.br/parana/cascavel/paroquia-sao-paulo-apostolo/",
+          "title": "Paróquia São Paulo Apóstolo – missahora.com.br",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Paulo Apóstolo",
+          "address": "Rua Gen. Osório, 1298",
+          "neighborhood": "Parque São Paulo",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-paulo-apstolo"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São Paulo Apóstolo",
+          "dayOfWeek": 1,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "missahora.com.br (sem data)",
+          "sources": [
+            {
+              "url": "https://missahora.com.br/parana/cascavel/paroquia-sao-paulo-apostolo/",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Paulo Apóstolo",
+          "dayOfWeek": 2,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "missahora.com.br (sem data)",
+          "sources": [
+            {
+              "url": "https://missahora.com.br/parana/cascavel/paroquia-sao-paulo-apostolo/",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Paulo Apóstolo",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "missahora.com.br (sem data)",
+          "sources": [
+            {
+              "url": "https://missahora.com.br/parana/cascavel/paroquia-sao-paulo-apostolo/",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Paulo Apóstolo",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "missahora.com.br (sem data)",
+          "sources": [
+            {
+              "url": "https://missahora.com.br/parana/cascavel/paroquia-sao-paulo-apostolo/",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Paulo Apóstolo",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "missahora.com.br (sem data)",
+          "sources": [
+            {
+              "url": "https://missahora.com.br/parana/cascavel/paroquia-sao-paulo-apostolo/",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Paulo Apóstolo",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "missahora.com.br (sem data)",
+          "sources": [
+            {
+              "url": "https://missahora.com.br/parana/cascavel/paroquia-sao-paulo-apostolo/",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Paulo Apóstolo",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": "missahora.com.br (sem data)",
+          "sources": [
+            {
+              "url": "https://missahora.com.br/parana/cascavel/paroquia-sao-paulo-apostolo/",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Paulo Apóstolo",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "missahora.com.br (sem data)",
+          "sources": [
+            {
+              "url": "https://missahora.com.br/parana/cascavel/paroquia-sao-paulo-apostolo/",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-do-caravaggio-cascavel",
+      "name": "Paróquia Nossa Senhora do Caravaggio",
+      "city": "Cascavel",
+      "state": "PR",
+      "neighborhood": "Maria Luiza",
+      "address": "Rua Manoel Antônio de Oliveira, 1192 - Maria Luiza",
+      "zipCode": null,
+      "phone": "(45) 3223-7245",
+      "email": "paroquia@ac-nscaravaggio.org.br",
+      "website": "https://ac-nscaravaggio.org.br",
+      "priestName": null,
+      "foundedYear": 1982,
+      "sources": [
+        {
+          "url": "https://arquicascavel.org.br/paroquias/551-cascavel-centro",
+          "title": "Paróquias – Cascavel Centro – Arquidiocese de Cascavel (snapshot Wayback Machine 2020-10-01)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://ac-nscaravaggio.org.br/contato.php",
+          "title": "Fale conosco – site oficial da Paróquia Nossa Senhora Caravaggio",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://ac-nscaravaggio.org.br/historia.php",
+          "title": "Histórico – site oficial (paróquia instalada em 17/10/1982)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/igreja.php?k=tAL5F",
+          "title": "Paróquia Nossa Senhora de Caravaggio – horariodemissa.com.br (atualizado 27/05/2013)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "imaculado-coracao-de-maria-cascavel",
+      "name": "Paróquia Imaculado Coração de Maria",
+      "city": "Cascavel",
+      "state": "PR",
+      "neighborhood": "Periolo",
+      "address": "Rua Jaraguá, 182 - Periolo",
+      "zipCode": "85817-130",
+      "phone": "(45) 3227-1911",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://arquicascavel.org.br/paroquias/parquia-imaculado-corao-de-maria",
+          "title": "Paróquia Imaculado Coração de Maria – Arquidiocese de Cascavel",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://arquicascavel.org.br/paroquias/550-cascavel-leste",
+          "title": "Paróquias – Cascavel Leste – Arquidiocese de Cascavel (snapshot Wayback Machine 2020-09-24)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-consolata-cascavel",
+      "name": "Paróquia Nossa Senhora Consolata",
+      "city": "Cascavel",
+      "state": "PR",
+      "neighborhood": "Brasília",
+      "address": "Rua Gláuber Rocha, 979 - Brasília",
+      "zipCode": "85815-230",
+      "phone": "(45) 3324-5013",
+      "email": "pnsconsolata@gmail.com",
+      "website": null,
+      "priestName": "Pe. Lianor Moreschi",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-consolata-2",
+          "title": "Paróquia Nossa Senhora Consolata – Arquidiocese de Cascavel",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://arquicascavel.org.br/paroquias/550-cascavel-leste",
+          "title": "Paróquias – Cascavel Leste – Arquidiocese de Cascavel (snapshot Wayback Machine 2020-09-24)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora Consolata",
+          "address": "Rua Gláuber Rocha, 979",
+          "neighborhood": "Brasília",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-consolata-2"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora do Rosário",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-consolata-2"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "santa-rita-de-cassia-cascavel",
+      "name": "Paróquia Santa Rita de Cássia",
+      "city": "Cascavel",
+      "state": "PR",
+      "neighborhood": "Morumbi",
+      "address": "Rua Serra da Esperança, 1465 - Morumbi",
+      "zipCode": "85817-690",
+      "phone": "(45) 3227-0864",
+      "email": "santarita.cascavel@gmail.com",
+      "website": null,
+      "priestName": "Pe. Marcelo Luiz Dallmagro (administrador paroquial)",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://arquicascavel.org.br/paroquias/parquia-santa-rita-de-cssia",
+          "title": "Paróquia Santa Rita de Cássia – Arquidiocese de Cascavel",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://arquicascavel.org.br/paroquias/549-cascavel-oeste",
+          "title": "Paróquias – Cascavel Oeste – Arquidiocese de Cascavel (snapshot Wayback Machine 2020-10-01)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Santa Rita de Cássia",
+          "address": "Rua Serra da Esperança, 1465",
+          "neighborhood": "Morumbi",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-santa-rita-de-cssia"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora de Fátima",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-santa-rita-de-cssia"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora Aparecida",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-santa-rita-de-cssia"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São José",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-santa-rita-de-cssia"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Francisco de Assis",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-santa-rita-de-cssia"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "santo-agostinho-cascavel",
+      "name": "Paróquia Santo Agostinho",
+      "city": "Cascavel",
+      "state": "PR",
+      "neighborhood": "Jardim Floresta",
+      "address": "Rua das Garças, 458 - Jardim Floresta",
+      "zipCode": "85814-510",
+      "phone": "(45) 3099-0792",
+      "email": "paroquiastagostinho@gmail.com",
+      "website": null,
+      "priestName": "Pe. Edvaldo Neto",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://arquicascavel.org.br/paroquias/parquia-santo-agostinho",
+          "title": "Paróquia Santo Agostinho – Arquidiocese de Cascavel (lida via snapshot do Wayback Machine, 2025-11/2026-05)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://web.archive.org/web/2026/https://arquicascavel.org.br/paroquias/parquia-santo-agostinho",
+          "title": "Snapshot Wayback Machine da página oficial",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://arquicascavel.org.br/paroquias/550-cascavel-leste",
+          "title": "Paróquias – Cascavel Leste – Arquidiocese de Cascavel (snapshot Wayback Machine 2020-09-24)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Santo Agostinho",
+          "address": "Rua das Garças, 458",
+          "neighborhood": "Jardim Floresta",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-santo-agostinho"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora do Rocio – Florais do Paraná e Riviera",
+          "address": null,
+          "neighborhood": "Florais do Paraná",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-santo-agostinho"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora de Guadalupe – Sanga Funda",
+          "address": null,
+          "neighborhood": "Sanga Funda",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-santo-agostinho"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "santo-inacio-de-loyola-cascavel",
+      "name": "Paróquia Santo Inácio de Loyola",
+      "city": "Cascavel",
+      "state": "PR",
+      "neighborhood": "Brasmadeira",
+      "address": "Av. Piquiri, 1607 - Brasmadeira",
+      "zipCode": "85813-160",
+      "phone": "(45) 3323-3018",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://arquicascavel.org.br/paroquias/parquia-santo-incio-de-loyola",
+          "title": "Paróquia Santo Inácio de Loyola – Arquidiocese de Cascavel",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://arquicascavel.org.br/paroquias/550-cascavel-leste",
+          "title": "Paróquias – Cascavel Leste – Arquidiocese de Cascavel (snapshot Wayback Machine 2020-09-24)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "santa-terezinha-do-menino-jesus-cascavel",
+      "name": "Paróquia Santa Terezinha do Menino Jesus",
+      "city": "Cascavel",
+      "state": "PR",
+      "neighborhood": "Jardim Clarito",
+      "address": "Rua Pintassilgo, 1127 - Jardim Clarito",
+      "zipCode": "85814-770",
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://arquicascavel.org.br/paroquias/550-cascavel-leste",
+          "title": "Paróquias – Cascavel Leste – Arquidiocese de Cascavel (snapshot Wayback Machine 2020-09-24)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://www.econodata.com.br/consulta-empresa/17083371000187-paroquia-santa-terezinha-do-menino-jesus",
+          "title": "Cadastro CNPJ 17.083.371/0001-87 – Paróquia Santa Terezinha do Menino Jesus (endereço/CEP)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://www.facebook.com/paroquiasantaterezinhacascavel/",
+          "title": "Paróquia Santa Terezinha do Menino Jesus - Clarito – Facebook (página oficial; não lida)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-de-fatima-santa-felicidade-cascavel",
+      "name": "Paróquia Nossa Senhora de Fátima - Santa Felicidade",
+      "city": "Cascavel",
+      "state": "PR",
+      "neighborhood": "Santa Felicidade",
+      "address": "Rua Cabo Clodoaldo Ursulano, 1085 - Santa Felicidade",
+      "zipCode": "85803-450",
+      "phone": "(45) 3324-2420",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Laurindo Zeni, SAC",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-de-ftima-santa-felicidade",
+          "title": "Paróquia Nossa Senhora de Fátima - Santa Felicidade – Arquidiocese de Cascavel (lida via snapshot do Wayback Machine, 2025-11/2026-05)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://web.archive.org/web/2026/https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-de-ftima-santa-felicidade",
+          "title": "Snapshot Wayback Machine da página oficial",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://arquicascavel.org.br/paroquias/550-cascavel-leste",
+          "title": "Paróquias – Cascavel Leste – Arquidiocese de Cascavel (snapshot Wayback Machine 2020-09-24)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "santa-luzia-cascavel",
+      "name": "Paróquia Santa Luzia",
+      "city": "Cascavel",
+      "state": "PR",
+      "neighborhood": "Cascavel Velho",
+      "address": "Rua Suíça, 1887 - Cascavel Velho",
+      "zipCode": "85818-300",
+      "phone": "(45) 3227-2723",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Gustavo Luis Pegoraro Marmentini",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://arquicascavel.org.br/paroquias/parquia-santa-luzia",
+          "title": "Paróquia Santa Luzia – Arquidiocese de Cascavel (lida via snapshot do Wayback Machine, 2025-11/2026-05)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://web.archive.org/web/2026/https://arquicascavel.org.br/paroquias/parquia-santa-luzia",
+          "title": "Snapshot Wayback Machine da página oficial",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://arquicascavel.org.br/paroquias/550-cascavel-leste",
+          "title": "Paróquias – Cascavel Leste – Arquidiocese de Cascavel (snapshot Wayback Machine 2020-09-24)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-rainha-dos-apostolos-cascavel",
+      "name": "Paróquia Nossa Senhora Rainha dos Apóstolos",
+      "city": "Cascavel",
+      "state": "PR",
+      "neighborhood": "Santa Felicidade",
+      "address": "Rua Andrea Galafassei, 296 - Santa Felicidade",
+      "zipCode": "85803-170",
+      "phone": "(45) 3324-0892",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Sinicley da Silva, SAC",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-rainha-dos-apstolos",
+          "title": "Paróquia Nossa Senhora Rainha dos Apóstolos – Arquidiocese de Cascavel",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://arquicascavel.org.br/paroquias/549-cascavel-oeste",
+          "title": "Paróquias – Cascavel Oeste – Arquidiocese de Cascavel (snapshot Wayback Machine 2020-10-01)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/igreja.php?k=EhrJn",
+          "title": "Paróquia Nossa Senhora Rainha dos Apóstolos – horariodemissa.com.br (atualizado 25/05/2014)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora Rainha dos Apóstolos",
+          "address": "Rua Andrea Galafassei, 296",
+          "neighborhood": "Santa Felicidade",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-rainha-dos-apstolos"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora Rainha dos Apóstolos",
+          "dayOfWeek": 0,
+          "time": "07:30",
+          "type": "MASS",
+          "notes": "horariodemissa.com.br, atualizado em 25/05/2014",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=EhrJn",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora Rainha dos Apóstolos",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": "horariodemissa.com.br, atualizado em 25/05/2014",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=EhrJn",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora Rainha dos Apóstolos",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "horariodemissa.com.br, atualizado em 25/05/2014",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=EhrJn",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora Rainha dos Apóstolos",
+          "dayOfWeek": 3,
+          "time": "20:00",
+          "type": "MASS",
+          "notes": "horariodemissa.com.br, atualizado em 25/05/2014",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=EhrJn",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora Rainha dos Apóstolos",
+          "dayOfWeek": 5,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": "horariodemissa.com.br, atualizado em 25/05/2014",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=EhrJn",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora Rainha dos Apóstolos",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "horariodemissa.com.br, atualizado em 25/05/2014",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=EhrJn",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora Rainha dos Apóstolos",
+          "dayOfWeek": 1,
+          "time": "19:30",
+          "type": "ROSARY",
+          "notes": "Terço dos Homens, capela ao lado – horariodemissa.com.br, 25/05/2014",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=EhrJn",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "santa-cruz-cascavel",
+      "name": "Paróquia Santa Cruz",
+      "city": "Cascavel",
+      "state": "PR",
+      "neighborhood": "Santa Cruz",
+      "address": "Rua Nhambiquaras, 1083 - Santa Cruz",
+      "zipCode": "85806-050",
+      "phone": "(45) 3040-3338",
+      "email": "paroquia.santacruz@outlook.com",
+      "website": null,
+      "priestName": "Pe. Lucas Gustavo Ruzicki",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://arquicascavel.org.br/paroquias/parquia-santa-cruz",
+          "title": "Paróquia Santa Cruz – Arquidiocese de Cascavel (lida via snapshot do Wayback Machine, 2025-11/2026-05)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://web.archive.org/web/2026/https://arquicascavel.org.br/paroquias/parquia-santa-cruz",
+          "title": "Snapshot Wayback Machine da página oficial",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://arquicascavel.org.br/paroquias/549-cascavel-oeste",
+          "title": "Paróquias – Cascavel Oeste – Arquidiocese de Cascavel (snapshot Wayback Machine 2020-10-01)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Santa Cruz",
+          "address": "Rua Nhambiquaras, 1083",
+          "neighborhood": "Santa Cruz",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-santa-cruz"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Santa Inês",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-santa-cruz"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Santa Gemma",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-santa-cruz"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora da Salette – Linha San Martín",
+          "address": null,
+          "neighborhood": "Linha San Martín",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-santa-cruz"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "santa-tereza-de-avila-santa-tereza-do-oeste",
+      "name": "Paróquia Santa Tereza de Ávila",
+      "city": "Santa Tereza do Oeste",
+      "state": "PR",
+      "neighborhood": "Centro",
+      "address": "Av. Assunção, 146 - Centro",
+      "zipCode": "85825-000",
+      "phone": "(45) 3231-1193",
+      "email": "paroquiasteresadavila@gmail.com",
+      "website": null,
+      "priestName": "Pe. Claudir Vicente",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://arquicascavel.org.br/paroquias/parquia-santa-tereza-de-vila",
+          "title": "Paróquia Santa Tereza de Ávila – Arquidiocese de Cascavel (lida via snapshot do Wayback Machine, 2025-11/2026-05)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://web.archive.org/web/2026/https://arquicascavel.org.br/paroquias/parquia-santa-tereza-de-vila",
+          "title": "Snapshot Wayback Machine da página oficial",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://arquicascavel.org.br/paroquias/549-cascavel-oeste",
+          "title": "Paróquias – Cascavel Oeste – Arquidiocese de Cascavel (snapshot Wayback Machine 2020-10-01)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Santa Tereza de Ávila",
+          "address": "Av. Assunção, 146",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-santa-tereza-de-vila"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora Desatadora dos Nós",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-santa-tereza-de-vila"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Imaculada Conceição de Maria",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-santa-tereza-de-vila"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Santa Cecília",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-santa-tereza-de-vila"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Luiz",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-santa-tereza-de-vila"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora Aparecida",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-santa-tereza-de-vila"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora das Graças",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-santa-tereza-de-vila"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Santa Rita de Cássia",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-santa-tereza-de-vila"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Miguel Arcanjo",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-santa-tereza-de-vila"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "sao-francisco-de-assis-cascavel",
+      "name": "Paróquia São Francisco de Assis",
+      "city": "Cascavel",
+      "state": "PR",
+      "neighborhood": "Jardim Guarujá",
+      "address": "Av. Gralha Azul, 808 - Guarujá",
+      "zipCode": "85804-470",
+      "phone": "(45) 3228-1654",
+      "email": "franciscopazebem@gmail.com",
+      "website": null,
+      "priestName": "Frei Aloísio Antônio de Oliveira, OFMConv (vigário paroquial)",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://arquicascavel.org.br/paroquias/parquia-so-francisco-de-assis",
+          "title": "Paróquia São Francisco de Assis – Arquidiocese de Cascavel",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://arquicascavel.org.br/paroquias/549-cascavel-oeste",
+          "title": "Paróquias – Cascavel Oeste – Arquidiocese de Cascavel (snapshot Wayback Machine 2020-10-01)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Francisco de Assis",
+          "address": "Av. Gralha Azul, 808",
+          "neighborhood": "Jardim Guarujá",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-francisco-de-assis"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Sebastião",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-francisco-de-assis"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Maximiliano Maria Kolbe",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-francisco-de-assis"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Santa Paula",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-francisco-de-assis"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora de Fátima",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-francisco-de-assis"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Paulo",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-francisco-de-assis"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São Francisco de Assis",
+          "dayOfWeek": 5,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": "1ª sexta-feira do mês",
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-francisco-de-assis",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Francisco de Assis",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-francisco-de-assis",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Francisco de Assis",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-francisco-de-assis",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Francisco de Assis",
+          "dayOfWeek": 0,
+          "time": "08:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-francisco-de-assis",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Francisco de Assis",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-francisco-de-assis",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "sao-jose-operario-cascavel",
+      "name": "Paróquia São José Operário",
+      "city": "Cascavel",
+      "state": "PR",
+      "neighborhood": "Recanto Tropical",
+      "address": "Av. Manaus, 4344 - Recanto Tropical",
+      "zipCode": "85807-170",
+      "phone": "(45) 3226-4660",
+      "email": "sjoperar@gmail.com",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://arquicascavel.org.br/paroquias/parquia-so-jos-operrio",
+          "title": "Paróquia São José Operário – Arquidiocese de Cascavel",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://arquicascavel.org.br/paroquias/549-cascavel-oeste",
+          "title": "Paróquias – Cascavel Oeste – Arquidiocese de Cascavel (snapshot Wayback Machine 2020-10-01)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São José Operário",
+          "address": "Av. Manaus, 4344",
+          "neighborhood": "Recanto Tropical",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-jos-operrio"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora Rainha da Paz – Parque Verde",
+          "address": null,
+          "neighborhood": "Parque Verde",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-jos-operrio"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora de Lourdes – Sede Alvorada",
+          "address": null,
+          "neighborhood": "Sede Alvorada",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-jos-operrio"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São José – Linha Novo Horizonte",
+          "address": null,
+          "neighborhood": "Linha Novo Horizonte",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-jos-operrio"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Pedro – Linha São Pedro Lopei",
+          "address": null,
+          "neighborhood": "Linha São Pedro Lopei",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-jos-operrio"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "sao-pedro-apostolo-cascavel",
+      "name": "Paróquia São Pedro Apóstolo",
+      "city": "Cascavel",
+      "state": "PR",
+      "neighborhood": "Alto Alegre",
+      "address": "Rua Costa e Silva, 187 - Alto Alegre",
+      "zipCode": "85805-060",
+      "phone": "(45) 3226-2813",
+      "email": "saopedro.secretaria@gmail.com",
+      "website": null,
+      "priestName": "Pe. Rogélio José Pimentel",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://arquicascavel.org.br/paroquias/parquia-so-pedro-apstolo",
+          "title": "Paróquia São Pedro Apóstolo – Arquidiocese de Cascavel (lida via snapshot do Wayback Machine, 2025-11/2026-05)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://web.archive.org/web/2026/https://arquicascavel.org.br/paroquias/parquia-so-pedro-apstolo",
+          "title": "Snapshot Wayback Machine da página oficial",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://arquicascavel.org.br/paroquias/549-cascavel-oeste",
+          "title": "Paróquias – Cascavel Oeste – Arquidiocese de Cascavel (snapshot Wayback Machine 2020-10-01)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Pedro Apóstolo",
+          "address": "Rua Costa e Silva, 187",
+          "neighborhood": "Alto Alegre",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-pedro-apstolo"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Paulo da Cruz",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-pedro-apstolo"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora do Rosário",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-pedro-apstolo"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-aparecida-diamante-do-sul",
+      "name": "Paróquia Nossa Senhora Aparecida",
+      "city": "Diamante do Sul",
+      "state": "PR",
+      "neighborhood": "Centro",
+      "address": "Av. Ivan Ferreira do Amaral, s/n - Centro",
+      "zipCode": "85408-000",
+      "phone": "(45) 3230-1143",
+      "email": "aparecida_paroquia@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Mauro Carlos Machado da Silva (administrador paroquial)",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-aparecida-3",
+          "title": "Paróquia Nossa Senhora Aparecida – Arquidiocese de Cascavel",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://arquicascavel.org.br/paroquias/548-guaraniacu",
+          "title": "Paróquias – Decanato Guaraniaçu – Arquidiocese de Cascavel (snapshot Wayback Machine 2020-10-01)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora Aparecida",
+          "address": "Av. Ivan Ferreira do Amaral, s/n",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-aparecida-3"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora Aparecida",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-aparecida-3"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Cristóvão",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-aparecida-3"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Sagrado Coração de Jesus",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-aparecida-3"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Anjo da Guarda",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-aparecida-3"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Brás",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-aparecida-3"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Santo Antônio / São Roque",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-aparecida-3"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São José",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-aparecida-3"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Santa Catarina",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-aparecida-3"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Santo Antônio",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-aparecida-3"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Bom Jesus",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-aparecida-3"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora de Lourdes",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-aparecida-3"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-aparecida-tres-barras-do-parana",
+      "name": "Paróquia Nossa Senhora Aparecida",
+      "city": "Três Barras do Paraná",
+      "state": "PR",
+      "neighborhood": "Centro",
+      "address": "Av. Brasil, 144 - Centro",
+      "zipCode": "85485-000",
+      "phone": "(45) 3235-1216",
+      "email": "paroquiansraaparecida@gmail.com",
+      "website": null,
+      "priestName": "Pe. Claudio Moratelli",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-aparecida",
+          "title": "Paróquia Nossa Senhora Aparecida – Arquidiocese de Cascavel (lida via snapshot do Wayback Machine, 2025-11/2026-05)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://web.archive.org/web/2026/https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-aparecida",
+          "title": "Snapshot Wayback Machine da página oficial",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://arquicascavel.org.br/paroquias/548-guaraniacu",
+          "title": "Paróquias – Decanato Guaraniaçu – Arquidiocese de Cascavel (snapshot Wayback Machine 2020-10-01)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora Aparecida",
+          "address": "Av. Brasil, 144",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-aparecida"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora de Fátima – Alto Alegre",
+          "address": null,
+          "neighborhood": "Alto Alegre",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-aparecida"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora de Fátima – Alto Barra",
+          "address": null,
+          "neighborhood": "Alto Barra",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-aparecida"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São José Operário – Alto Campo",
+          "address": null,
+          "neighborhood": "Alto Campo",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-aparecida"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Santa Luzia – Alto Palmares",
+          "address": null,
+          "neighborhood": "Alto Palmares",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-aparecida"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São João Batista – Barra Bonita",
+          "address": null,
+          "neighborhood": "Barra Bonita",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-aparecida"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora do Perpétuo Socorro – Cruz Alta",
+          "address": null,
+          "neighborhood": "Cruz Alta",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-aparecida"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora da Medianeira – Flor da Serra",
+          "address": null,
+          "neighborhood": "Flor da Serra",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-aparecida"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Senhor Bom Jesus – Flor do Adelaide",
+          "address": null,
+          "neighborhood": "Flor do Adelaide",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-aparecida"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Santo Antônio – Flores da Cunha",
+          "address": null,
+          "neighborhood": "Flores da Cunha",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-aparecida"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Jorge – Barra Grande",
+          "address": null,
+          "neighborhood": "Barra Grande",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-aparecida"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Senhor Bom Jesus – Igreja Amarela",
+          "address": null,
+          "neighborhood": "Igreja Amarela",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-aparecida"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Luiz – Itaguaçu",
+          "address": null,
+          "neighborhood": "Itaguaçu",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-aparecida"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Francisco – Jardim Floresta",
+          "address": null,
+          "neighborhood": "Jardim Floresta",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-aparecida"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Cristóvão – Linha Kennedy",
+          "address": null,
+          "neighborhood": "Linha Kennedy",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-aparecida"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Sagrado Coração de Jesus – Linha Nova",
+          "address": null,
+          "neighborhood": "Linha Nova",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-aparecida"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Santa Tereza D'Ávila – Linha São Paulo",
+          "address": null,
+          "neighborhood": "Linha São Paulo",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-aparecida"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora de Fátima – Linha Nossa Senhora de Fátima",
+          "address": null,
+          "neighborhood": "Linha Nossa Senhora de Fátima",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-aparecida"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Sagrada Família – Novo Horizonte",
+          "address": null,
+          "neighborhood": "Novo Horizonte",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-aparecida"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora das Graças – Palmital",
+          "address": null,
+          "neighborhood": "Palmital",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-aparecida"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Roque – Pica Pau",
+          "address": null,
+          "neighborhood": "Pica Pau",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-aparecida"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora do Rosário – Rosário do Oeste",
+          "address": null,
+          "neighborhood": "Rosário do Oeste",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-aparecida"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Santa Bárbara",
+          "address": null,
+          "neighborhood": "Santa Bárbara",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-aparecida"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Santa Genoveva",
+          "address": null,
+          "neighborhood": "Santa Genoveva",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-aparecida"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Santa Terezinha",
+          "address": null,
+          "neighborhood": "Santa Terezinha",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-aparecida"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Santo Antônio",
+          "address": null,
+          "neighborhood": "Santo Antônio",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-aparecida"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Santo Izidoro",
+          "address": null,
+          "neighborhood": "Santo Izidoro",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-aparecida"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Bento",
+          "address": null,
+          "neighborhood": "São Bento",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-aparecida"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São José",
+          "address": null,
+          "neighborhood": "São José",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-aparecida"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Luiz",
+          "address": null,
+          "neighborhood": "São Luiz",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-aparecida"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Pedro",
+          "address": null,
+          "neighborhood": "São Pedro",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-aparecida"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Santa Luzia – Sertãozinho",
+          "address": null,
+          "neighborhood": "Sertãozinho",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-aparecida"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Santa Luzia – Trigolândia",
+          "address": null,
+          "neighborhood": "Trigolândia",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-aparecida"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São José Marello – Vila Rural",
+          "address": null,
+          "neighborhood": "Vila Rural",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-aparecida"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-de-fatima-guaraniacu",
+      "name": "Paróquia Nossa Senhora de Fátima",
+      "city": "Guaraniaçu",
+      "state": "PR",
+      "neighborhood": "Jardim Imperial",
+      "address": "Rua Santa Catarina, 137 - Lot. Jardim Imperial",
+      "zipCode": "85400-000",
+      "phone": "(45) 3232-1315",
+      "email": "fatimaparoquia@gmail.com",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-de-ftima",
+          "title": "Paróquia Nossa Senhora de Fátima – Arquidiocese de Cascavel (lida via snapshot do Wayback Machine, 2025-11/2026-05)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://web.archive.org/web/2026/https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-de-ftima",
+          "title": "Snapshot Wayback Machine da página oficial",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://arquicascavel.org.br/paroquias/548-guaraniacu",
+          "title": "Paróquias – Decanato Guaraniaçu – Arquidiocese de Cascavel (snapshot Wayback Machine 2020-10-01)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora de Fátima",
+          "address": "Rua Santa Catarina, 137",
+          "neighborhood": "Jardim Imperial",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-de-ftima"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora de Fátima",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-de-ftima"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Francisco de Assis",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-de-ftima"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Santa Clara",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-de-ftima"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Santa Luzia e São Roque",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-de-ftima"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora do Perpétuo Socorro",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-de-ftima"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Paulo Apóstolo",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-de-ftima"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Roque",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-de-ftima"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Santo Izidoro",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-de-ftima"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Santo Antônio",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-de-ftima"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora do Carmo",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-de-ftima"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora Aparecida",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-de-ftima"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora das Graças",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-de-ftima"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Santa Luzia",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-de-ftima"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Senhor Bom Jesus",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-de-ftima"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Santa Maria dos Anjos",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-de-ftima"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Pedro",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-de-ftima"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Gonçalo",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-de-ftima"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São José",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-de-ftima"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Luiz",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-de-ftima"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Santa Rosa de Lima",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-de-ftima"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora da Salette",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-de-ftima"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Miguel Arcanjo",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-de-ftima"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora de Caravaggio",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-de-ftima"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Brás",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-de-ftima"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora do Rosário",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-de-ftima"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São João Batista",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-de-ftima"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Judas Tadeu",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-de-ftima"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Sebastião",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-de-ftima"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "santo-antonio-ibema",
+      "name": "Paróquia Santo Antônio",
+      "city": "Ibema",
+      "state": "PR",
+      "neighborhood": "Centro",
+      "address": "Rua Lino Beno Lenz, 191 - Centro",
+      "zipCode": "85478-000",
+      "phone": "(45) 3238-1293",
+      "email": "p.santo.antonio@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Diony Alexandre Januário",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://arquicascavel.org.br/paroquias/parquia-santo-antnio-2",
+          "title": "Paróquia Santo Antônio – Arquidiocese de Cascavel (lida via snapshot do Wayback Machine, 2025-11/2026-05)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://web.archive.org/web/2026/https://arquicascavel.org.br/paroquias/parquia-santo-antnio-2",
+          "title": "Snapshot Wayback Machine da página oficial",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://arquicascavel.org.br/paroquias/548-guaraniacu",
+          "title": "Paróquias – Decanato Guaraniaçu – Arquidiocese de Cascavel (snapshot Wayback Machine 2020-10-01)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Santo Antônio",
+          "address": "Rua Lino Beno Lenz, 191",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-santo-antnio-2"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora Aparecida – Linha Cristópolis",
+          "address": null,
+          "neighborhood": "Linha Cristópolis",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-santo-antnio-2"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora Aparecida – Linha Nova Esperança",
+          "address": null,
+          "neighborhood": "Linha Nova Esperança",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-santo-antnio-2"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora Aparecida – Agro Ibema",
+          "address": null,
+          "neighborhood": "Agro Ibema",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-santo-antnio-2"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Bom Jesus – Linha Tapui",
+          "address": null,
+          "neighborhood": "Linha Tapui",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-santo-antnio-2"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São João Batista – Linha Pouso Alegre",
+          "address": null,
+          "neighborhood": "Linha Pouso Alegre",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-santo-antnio-2"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora de Fátima – Bairro Fátima",
+          "address": null,
+          "neighborhood": "Bairro Fátima",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-santo-antnio-2"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Santa Terezinha – Assentamento Santa Terezinha",
+          "address": null,
+          "neighborhood": "Assentamento Santa Terezinha",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-santo-antnio-2"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "sao-sebastiao-campo-bonito",
+      "name": "Paróquia São Sebastião",
+      "city": "Campo Bonito",
+      "state": "PR",
+      "neighborhood": "Centro",
+      "address": "Rua São Francisco de Assis, 1198 - Centro",
+      "zipCode": "85450-000",
+      "phone": "(45) 3233-1052",
+      "email": "paroquia.cb@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Daniel Vieira da Silva",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://arquicascavel.org.br/paroquias/parquia-so-sebastio",
+          "title": "Paróquia São Sebastião – Arquidiocese de Cascavel (lida via snapshot do Wayback Machine, 2025-11/2026-05)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://web.archive.org/web/2026/https://arquicascavel.org.br/paroquias/parquia-so-sebastio",
+          "title": "Snapshot Wayback Machine da página oficial",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://arquicascavel.org.br/paroquias/548-guaraniacu",
+          "title": "Paróquias – Decanato Guaraniaçu – Arquidiocese de Cascavel (snapshot Wayback Machine 2020-10-01)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Sebastião",
+          "address": "Rua São Francisco de Assis, 1198",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-sebastio"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Francisco de Assis",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-sebastio"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Cristóvão",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-sebastio"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São José",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-sebastio"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora da Salette",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-sebastio"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Santa Clara",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-sebastio"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Maximiliano Kolbe",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-sebastio"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Bom Jesus",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-sebastio"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Santa Bárbara",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-sebastio"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Pedro",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-sebastio"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Cristo Rei",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-sebastio"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora de Lourdes",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-sebastio"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Sebastião",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-sebastio"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora Aparecida",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-sebastio"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora das Graças",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-sebastio"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Pedro e São Paulo",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-sebastio"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "sao-sebastiao-catanduvas",
+      "name": "Paróquia São Sebastião",
+      "city": "Catanduvas",
+      "state": "PR",
+      "neighborhood": null,
+      "address": "Av. Paraná, 423",
+      "zipCode": "85470-000",
+      "phone": "(45) 3234-1234",
+      "email": "paroquiasebastiao@gmail.com",
+      "website": null,
+      "priestName": "Pe. Odair Marques dos Santos",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://arquicascavel.org.br/paroquias/parquia-so-sebastio-2",
+          "title": "Paróquia São Sebastião – Arquidiocese de Cascavel",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://arquicascavel.org.br/paroquias/548-guaraniacu",
+          "title": "Paróquias – Decanato Guaraniaçu – Arquidiocese de Cascavel (snapshot Wayback Machine 2020-10-01)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/igreja.php?k=7npuJ",
+          "title": "Paróquia São Sebastião – Catanduvas – horariodemissa.com.br (atualizado 16/09/2018)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Sebastião",
+          "address": "Av. Paraná, 423",
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-sebastio-2"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Marcos – Comunidade São Marcos",
+          "address": null,
+          "neighborhood": "Comunidade São Marcos",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-sebastio-2"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora Aparecida – Comunidade Varguinhas",
+          "address": null,
+          "neighborhood": "Varguinhas",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-sebastio-2"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Santa Ana – Comunidade Rio da Ilha",
+          "address": null,
+          "neighborhood": "Rio da Ilha",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-sebastio-2"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora das Graças – Comunidade Nova Colônia",
+          "address": null,
+          "neighborhood": "Nova Colônia",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-sebastio-2"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Roque – Comunidade São Roque",
+          "address": null,
+          "neighborhood": "Comunidade São Roque",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-sebastio-2"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Santa Luzia – Comunidade Ibiracema",
+          "address": null,
+          "neighborhood": "Ibiracema",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-sebastio-2"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora de Fátima – Comunidade Nova Esperança",
+          "address": null,
+          "neighborhood": "Nova Esperança",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-sebastio-2"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Cristo Rei – Vila Santa Cruz",
+          "address": null,
+          "neighborhood": "Vila Santa Cruz",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-sebastio-2"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Francisco de Assis – Comunidade Cajati",
+          "address": null,
+          "neighborhood": "Cajati",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-sebastio-2"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora do Caravaggio – Linha Caravaggio",
+          "address": null,
+          "neighborhood": "Linha Caravaggio",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-sebastio-2"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Pedro – Comunidade Alto Santana",
+          "address": null,
+          "neighborhood": "Alto Santana",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-sebastio-2"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Santa Ana – Comunidade Santana",
+          "address": null,
+          "neighborhood": "Santana",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-sebastio-2"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Santa Izabel – Comunidade Corvo Branco",
+          "address": null,
+          "neighborhood": "Corvo Branco",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-sebastio-2"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São João Batista – Comunidade Passo Liso",
+          "address": null,
+          "neighborhood": "Passo Liso",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-sebastio-2"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora do Perpétuo Socorro – Comunidade Manucelli",
+          "address": null,
+          "neighborhood": "Manucelli",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-sebastio-2"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Imaculada Conceição – Bairro Alto Alegre",
+          "address": null,
+          "neighborhood": "Alto Alegre",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-sebastio-2"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 0,
+          "time": "08:30",
+          "type": "MASS",
+          "notes": "horariodemissa.com.br, atualizado em 16/09/2018",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=7npuJ",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "horariodemissa.com.br, atualizado em 16/09/2018",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=7npuJ",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "horariodemissa.com.br, atualizado em 16/09/2018",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=7npuJ",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-consolata-cafelandia",
+      "name": "Paróquia Nossa Senhora Consolata",
+      "city": "Cafelândia",
+      "state": "PR",
+      "neighborhood": "Centro",
+      "address": "Rua Padre Luís Luíse, 529 - Centro",
+      "zipCode": "85415-000",
+      "phone": "(45) 3241-1248",
+      "email": "prconsolata@gmail.com",
+      "website": null,
+      "priestName": "Pe. Wilson José Ronfini",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-consolata",
+          "title": "Paróquia Nossa Senhora Consolata – Arquidiocese de Cascavel",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://arquicascavel.org.br/paroquias/547-corbelia",
+          "title": "Paróquias – Decanato Corbélia – Arquidiocese de Cascavel (snapshot Wayback Machine 2020-10-01)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora Consolata",
+          "address": "Rua Padre Luís Luíse, 529",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-consolata"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Valentim",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-consolata"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São José",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-consolata"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Santa Luzia",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-consolata"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora Aparecida",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-consolata"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-da-penha-corbelia",
+      "name": "Paróquia Nossa Senhora da Penha",
+      "city": "Corbélia",
+      "state": "PR",
+      "neighborhood": "Nossa Senhora da Penha (distrito)",
+      "address": "Av. Pres. Juscelino, 1211 - Nossa Senhora da Penha",
+      "zipCode": "85420-000",
+      "phone": "(45) 3247-1141",
+      "email": "paroquia.n.sra.penha@gmail.com",
+      "website": null,
+      "priestName": "Pe. Eduardo Bobki",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-da-penha",
+          "title": "Paróquia Nossa Senhora da Penha – Arquidiocese de Cascavel",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://arquicascavel.org.br/paroquias/547-corbelia",
+          "title": "Paróquias – Decanato Corbélia – Arquidiocese de Cascavel (snapshot Wayback Machine 2020-10-01)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora da Penha",
+          "address": "Av. Pres. Juscelino, 1211",
+          "neighborhood": "Nossa Senhora da Penha (distrito)",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-da-penha"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Bom Jesus da Lapa",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-da-penha"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora Aparecida",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-da-penha"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Roque",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-da-penha"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora da Salette",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-da-penha"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "sagrado-coracao-de-jesus-iguatu",
+      "name": "Paróquia Sagrado Coração de Jesus",
+      "city": "Iguatu",
+      "state": "PR",
+      "neighborhood": null,
+      "address": "Rua Pio XII, 35",
+      "zipCode": "85423-000",
+      "phone": "(45) 3248-1139",
+      "email": "paroquiaiguatu@yahoo.com.br",
+      "website": null,
+      "priestName": "Pe. Paul Miki Ihekwoaba",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://arquicascavel.org.br/paroquias/parquia-sagrado-corao-de-jesus",
+          "title": "Paróquia Sagrado Coração de Jesus – Arquidiocese de Cascavel",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://arquicascavel.org.br/paroquias/547-corbelia",
+          "title": "Paróquias – Decanato Corbélia – Arquidiocese de Cascavel (snapshot Wayback Machine 2020-10-01)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Sagrado Coração de Jesus",
+          "address": "Rua Pio XII, 35",
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-sagrado-corao-de-jesus"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora Aparecida",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-sagrado-corao-de-jesus"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Miguel Arcanjo",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-sagrado-corao-de-jesus"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "santa-ana-anahy",
+      "name": "Paróquia Santa Ana",
+      "city": "Anahy",
+      "state": "PR",
+      "neighborhood": null,
+      "address": "Rua Bandeirantes, s/n",
+      "zipCode": "85425-000",
+      "phone": "(45) 3249-1106",
+      "email": "par.santaana@gmail.com",
+      "website": null,
+      "priestName": "Pe. Irineu Nicolau Back (administrador paroquial)",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://arquicascavel.org.br/paroquias/parquia-santa-ana-anahy",
+          "title": "Paróquia Santa Ana - Anahy – Arquidiocese de Cascavel (lida via snapshot do Wayback Machine, 2025-11/2026-05)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://web.archive.org/web/2026/https://arquicascavel.org.br/paroquias/parquia-santa-ana-anahy",
+          "title": "Snapshot Wayback Machine da página oficial",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://arquicascavel.org.br/paroquias/547-corbelia",
+          "title": "Paróquias – Decanato Corbélia – Arquidiocese de Cascavel (snapshot Wayback Machine 2020-10-01)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Santa Ana",
+          "address": "Rua Bandeirantes, s/n",
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-santa-ana-anahy"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São José",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-santa-ana-anahy"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Sebastião",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-santa-ana-anahy"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora de Fátima",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-santa-ana-anahy"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "sao-judas-tadeu-corbelia",
+      "name": "Paróquia São Judas Tadeu",
+      "city": "Corbélia",
+      "state": "PR",
+      "neighborhood": "Centro",
+      "address": "Rua Rosa, 354 - Centro",
+      "zipCode": "85420-000",
+      "phone": "(45) 3242-1346",
+      "email": "parsaojudas@gmail.com",
+      "website": null,
+      "priestName": "Pe. Josemar José Weiznmann",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://arquicascavel.org.br/paroquias/parquia-so-judas-tadeu",
+          "title": "Paróquia São Judas Tadeu – Arquidiocese de Cascavel",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://arquicascavel.org.br/paroquias/547-corbelia",
+          "title": "Paróquias – Decanato Corbélia – Arquidiocese de Cascavel (snapshot Wayback Machine 2020-10-01)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Judas Tadeu",
+          "address": "Rua Rosa, 354",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-judas-tadeu"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Roque",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-judas-tadeu"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Santa Luzia",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-judas-tadeu"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora Aparecida",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-judas-tadeu"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora da Salete",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-judas-tadeu"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Santa Catarina",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-judas-tadeu"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Miguel",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-judas-tadeu"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Rainha da Paz",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-judas-tadeu"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São José",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-judas-tadeu"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Santo Antônio",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-judas-tadeu"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Santa Rosa",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-judas-tadeu"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora de Fátima",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-judas-tadeu"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Pedro",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-judas-tadeu"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "sao-pedro-apostolo-cafelandia",
+      "name": "Paróquia São Pedro Apóstolo",
+      "city": "Cafelândia",
+      "state": "PR",
+      "neighborhood": "Centro",
+      "address": "Rua Cecília Roecker, 326 - Centro",
+      "zipCode": "85415-000",
+      "phone": "(45) 3241-3346",
+      "email": "paroquiasaopedrocafelandia@gmail.com",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://arquicascavel.org.br/paroquias/parquia-so-pedro-apstolo-2",
+          "title": "Paróquia São Pedro Apóstolo – Arquidiocese de Cascavel (lida via snapshot do Wayback Machine, 2025-11/2026-05)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://web.archive.org/web/2026/https://arquicascavel.org.br/paroquias/parquia-so-pedro-apstolo-2",
+          "title": "Snapshot Wayback Machine da página oficial",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://arquicascavel.org.br/paroquias/547-corbelia",
+          "title": "Paróquias – Decanato Corbélia – Arquidiocese de Cascavel (snapshot Wayback Machine 2020-10-01)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-da-salette-braganey",
+      "name": "Paróquia Nossa Senhora da Salette",
+      "city": "Braganey",
+      "state": "PR",
+      "neighborhood": "Centro",
+      "address": "Rua Tigre, 1234",
+      "zipCode": "85430-000",
+      "phone": "(45) 3245-1005",
+      "email": "pnssalette@gmail.com",
+      "website": null,
+      "priestName": "Pe. Leonir Nardi",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-da-salette",
+          "title": "Paróquia Nossa Senhora da Salette – Arquidiocese de Cascavel (lida via snapshot do Wayback Machine, 2025-11/2026-05)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://web.archive.org/web/2026/https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-da-salette",
+          "title": "Snapshot Wayback Machine da página oficial",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://arquicascavel.org.br/paroquias/547-corbelia",
+          "title": "Paróquias – Decanato Corbélia – Arquidiocese de Cascavel (snapshot Wayback Machine 2020-10-01)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Santuário Nossa Senhora da Salette (matriz)",
+          "address": "Rua Tigre, 1234",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-da-salette"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Senhor Bom Jesus",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-da-salette"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Santo Antônio",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-da-salette"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Miguel",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-da-salette"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora da Saúde",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-da-salette"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora Aparecida",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-da-salette"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Sebastião",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-da-salette"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "cristo-rei-lindoeste",
+      "name": "Paróquia Cristo Rei",
+      "city": "Lindoeste",
+      "state": "PR",
+      "neighborhood": "Centro",
+      "address": "Rua Minas Gerais, 717 - Centro",
+      "zipCode": "85826-000",
+      "phone": "(45) 3237-1204",
+      "email": "paroquiacristoreilindoeste@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Marcos Pires",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://arquicascavel.org.br/paroquias/parquia-cristo-rei",
+          "title": "Paróquia Cristo Rei – Arquidiocese de Cascavel",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://arquicascavel.org.br/paroquias/546-cap-leonidas-marques",
+          "title": "Paróquias – Decanato Capitão Leônidas Marques – Arquidiocese de Cascavel (snapshot Wayback Machine 2020-09-25)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Cristo Rei",
+          "address": "Rua Minas Gerais, 717",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-cristo-rei"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Sebastião",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-cristo-rei"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São José",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-cristo-rei"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Santa Izabel",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-cristo-rei"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Francisco",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-cristo-rei"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora Aparecida – Comunidade Capão Verde",
+          "address": null,
+          "neighborhood": "Capão Verde",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-cristo-rei"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São João Batista",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-cristo-rei"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Brás",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-cristo-rei"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Vicente",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-cristo-rei"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Gabriel",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-cristo-rei"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Paulo da Cruz",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-cristo-rei"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora de Lourdes",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-cristo-rei"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora Aparecida – Vila Góes",
+          "address": null,
+          "neighborhood": "Vila Góes",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-cristo-rei"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora das Graças",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-cristo-rei"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora de Fátima",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-cristo-rei"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Roque",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-cristo-rei"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Pedro",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-cristo-rei"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Santa Luzia",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-cristo-rei"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-aparecida-boa-vista-da-aparecida",
+      "name": "Paróquia Nossa Senhora Aparecida",
+      "city": "Boa Vista da Aparecida",
+      "state": "PR",
+      "neighborhood": "Centro",
+      "address": "Av. Eugênio Trevisan, 164 - Centro",
+      "zipCode": "85780-000",
+      "phone": "(45) 3287-1231",
+      "email": "paroquiabva@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Nilton Cezar Pedro",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-aparecida-2",
+          "title": "Paróquia Nossa Senhora Aparecida – Arquidiocese de Cascavel (lida via snapshot do Wayback Machine, 2025-11/2026-05)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://web.archive.org/web/2026/https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-aparecida-2",
+          "title": "Snapshot Wayback Machine da página oficial",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://arquicascavel.org.br/paroquias/546-cap-leonidas-marques",
+          "title": "Paróquias – Decanato Capitão Leônidas Marques – Arquidiocese de Cascavel (snapshot Wayback Machine 2020-09-25)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora Aparecida",
+          "address": "Av. Eugênio Trevisan, 164",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-aparecida-2"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Santa Luzia",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-aparecida-2"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Santo Antônio",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-aparecida-2"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Bom Jesus",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-aparecida-2"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora do Carmo",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-aparecida-2"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Sant'Ana",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-aparecida-2"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Sebastião",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-aparecida-2"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Cristo Rei",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-aparecida-2"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São José",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-aparecida-2"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Roque",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-aparecida-2"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Francisco",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-aparecida-2"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Francisco de Assis",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-aparecida-2"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora do Monte Bérico",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-aparecida-2"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Cristóvão",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-aparecida-2"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Imaculada Conceição de Maria",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-aparecida-2"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Miguel",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-aparecida-2"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-da-salette-capitao-leonidas-marques",
+      "name": "Paróquia Nossa Senhora da Salette",
+      "city": "Capitão Leônidas Marques",
+      "state": "PR",
+      "neighborhood": null,
+      "address": "Rua Demétrio Paulo Paini, 103",
+      "zipCode": "85790-000",
+      "phone": "(45) 3286-1336",
+      "email": "paroquia.capitao@hotmail.com",
+      "website": null,
+      "priestName": "Frei Luis Antonio Ceriolli, OFMCap",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-da-salette-2",
+          "title": "Paróquia Nossa Senhora da Salette – Arquidiocese de Cascavel (lida via snapshot do Wayback Machine, 2025-11/2026-05)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://web.archive.org/web/2026/https://arquicascavel.org.br/paroquias/parquia-nossa-senhora-da-salette-2",
+          "title": "Snapshot Wayback Machine da página oficial",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://arquicascavel.org.br/paroquias/546-cap-leonidas-marques",
+          "title": "Paróquias – Decanato Capitão Leônidas Marques – Arquidiocese de Cascavel (snapshot Wayback Machine 2020-09-25)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-roque-santa-lucia",
+      "name": "Paróquia São Roque",
+      "city": "Santa Lúcia",
+      "state": "PR",
+      "neighborhood": null,
+      "address": "Av. do Rosário, 221",
+      "zipCode": "85795-000",
+      "phone": "(45) 3288-1338",
+      "email": "paroquia-saoroque@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Anderson Pereira dos Santos",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://arquicascavel.org.br/paroquias/parquia-so-roque",
+          "title": "Paróquia São Roque – Arquidiocese de Cascavel",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://arquicascavel.org.br/paroquias/546-cap-leonidas-marques",
+          "title": "Paróquias – Decanato Capitão Leônidas Marques – Arquidiocese de Cascavel (snapshot Wayback Machine 2020-09-25)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Roque",
+          "address": "Av. do Rosário, 221",
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-roque"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora do Olmo",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-roque"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Valentim",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-roque"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Brás",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-roque"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Pedro",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-roque"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora Aparecida",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-roque"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora das Dores",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-roque"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora de Lourdes",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-roque"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora dos Navegantes",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-roque"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Miguel",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-roque"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Santa Catarina",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-roque"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Santo Antônio",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquicascavel.org.br/paroquias/parquia-so-roque"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    }
+  ],
+  "coverage": {
+    "parishesFound": 42,
+    "parishesExpected": 40,
+    "notes": "42 registros: 40 paróquias da arquidiocese (bate com catholic-hierarchy/gcatholic, 2022-2023) + 2 paróquias listadas no site oficial mas de outras circunscrições (Paróquia Militar Santo Inácio de Loyola = Ordinariato Militar; Paróquia N. Sra. do Perpétuo Socorro de Rito Ucraniano = Eparquia de Curitiba). Lista-base: páginas de decanato do site oficial (snapshot 2020) + páginas individuais atuais (40 lidas; Caravaggio via site paroquial oficial; Santa Terezinha do Menino Jesus sem página atual — confiança media). Horários: só 3 paróquias têm horário em fonte oficial (Catedral, São Cristóvão, São Francisco de Assis); demais horários vêm de agregadores (baixa) ou não foram encontrados."
+  }
+}

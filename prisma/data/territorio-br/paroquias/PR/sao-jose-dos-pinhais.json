@@ -1,0 +1,6047 @@
+{
+  "diocese": {
+    "name": "Diocese de São José dos Pinhais",
+    "type": "Diocese",
+    "slug": "sao-jose-dos-pinhais",
+    "city": "São José dos Pinhais",
+    "state": "PR",
+    "address": "Rua Mendes Leitão, 2694 – Centro",
+    "zipCode": "83005-150",
+    "phone": "(41) 3035-9800",
+    "email": "diocese@diocesesjp.org.br",
+    "website": "https://www.diocesesjp.org.br",
+    "bishopName": "Dom Celso Antônio Marchiori",
+    "sources": [
+      {
+        "url": "https://www.diocesesjp.org.br/",
+        "title": "Diocese de São José dos Pinhais – site oficial (em manutenção em 09/09/2026; página exibe endereço e telefone da Cúria)",
+        "accessedAt": "2026-09-09"
+      },
+      {
+        "url": "https://cnbbs2.org.br/arquidiocese/sao-jose-dos-pinhais/",
+        "title": "Diocese de São José dos Pinhais | CNBB Regional Sul 2 (endereço, telefone, e-mail)",
+        "accessedAt": "2026-09-09"
+      },
+      {
+        "url": "https://www.catholic-hierarchy.org/diocese/dsjdp.html",
+        "title": "São José dos Pinhais (Diocese) [Catholic-Hierarchy] – bispo Celso Antônio Marchiori; 42 paróquias (2023)",
+        "accessedAt": "2026-09-09"
+      },
+      {
+        "url": "https://gcatholic.org/dioceses/diocese/zjosD.htm",
+        "title": "Diocese of São José dos Pinhais – GCatholic (42 paróquias em 2022)",
+        "accessedAt": "2026-09-09"
+      },
+      {
+        "url": "https://gcatholic.org/churches/local/zjosD.htm",
+        "title": "Churches in the Diocese of São José dos Pinhais – GCatholic (41 igrejas por cidade)",
+        "accessedAt": "2026-09-09"
+      },
+      {
+        "url": "https://pt.wikipedia.org/wiki/Diocese_de_S%C3%A3o_Jos%C3%A9_dos_Pinhais",
+        "title": "Diocese de São José dos Pinhais – Wikipédia (criação 06/12/2006, 14 municípios)",
+        "accessedAt": "2026-09-09"
+      }
+    ],
+    "confidence": "alta"
+  },
+  "parishes": [
+    {
+      "slug": "sao-jose-sao-jose-dos-pinhais",
+      "name": "Catedral São José",
+      "city": "São José dos Pinhais",
+      "state": "PR",
+      "neighborhood": "Centro",
+      "address": "Praça Oito de Janeiro, s/nº – Centro (secretaria: Rua Dona Izabel, a Redentora, 1332 – Centro)",
+      "zipCode": null,
+      "phone": "(41) 98519-7111",
+      "email": "financeirocatedralsjp@gmail.com",
+      "website": "https://www.catedralsaojose.com.br",
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.catedralsaojose.com.br/",
+          "title": "Catedral São José dos Pinhais – site oficial",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://www.catedralsaojose.com.br/horarios/",
+          "title": "Horários – Catedral São José dos Pinhais",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://www.diocesesjp.org.br/paroquias/sao-jose-dos-pinhais/catedral-sao-jose",
+          "title": "Diocese de São José dos Pinhais – Catedral São José (página oficial; site em manutenção, dados via índice de busca)",
+          "accessedAt": "2026-09-09"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Catedral São José",
+          "address": "Praça Oito de Janeiro, s/nº – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.catedralsaojose.com.br/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Sagrado Coração de Jesus (São Domingos)",
+          "address": "Rua Mato Grosso esquina com Rua João Ernesto Killian – São Domingos",
+          "neighborhood": "São Domingos",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.catedralsaojose.com.br/horarios/"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Catedral São José",
+          "dayOfWeek": 1,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.catedralsaojose.com.br/horarios/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral São José",
+          "dayOfWeek": 2,
+          "time": "12:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.catedralsaojose.com.br/horarios/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral São José",
+          "dayOfWeek": 2,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.catedralsaojose.com.br/horarios/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral São José",
+          "dayOfWeek": 3,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": "Missa com novena de N. Sra. do Perpétuo Socorro",
+          "sources": [
+            {
+              "url": "https://www.catedralsaojose.com.br/horarios/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral São José",
+          "dayOfWeek": 3,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": "Missa com novena de N. Sra. do Perpétuo Socorro",
+          "sources": [
+            {
+              "url": "https://www.catedralsaojose.com.br/horarios/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral São José",
+          "dayOfWeek": 3,
+          "time": "12:00",
+          "type": "MASS",
+          "notes": "Missa com novena de N. Sra. do Perpétuo Socorro",
+          "sources": [
+            {
+              "url": "https://www.catedralsaojose.com.br/horarios/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral São José",
+          "dayOfWeek": 3,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": "Missa com novena de N. Sra. do Perpétuo Socorro",
+          "sources": [
+            {
+              "url": "https://www.catedralsaojose.com.br/horarios/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral São José",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Missa com novena de N. Sra. do Perpétuo Socorro",
+          "sources": [
+            {
+              "url": "https://www.catedralsaojose.com.br/horarios/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral São José",
+          "dayOfWeek": 4,
+          "time": "12:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.catedralsaojose.com.br/horarios/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral São José",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.catedralsaojose.com.br/horarios/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral São José",
+          "dayOfWeek": 5,
+          "time": "12:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.catedralsaojose.com.br/horarios/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral São José",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.catedralsaojose.com.br/horarios/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral São José",
+          "dayOfWeek": 6,
+          "time": "16:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.catedralsaojose.com.br/horarios/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral São José",
+          "dayOfWeek": 0,
+          "time": "07:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.catedralsaojose.com.br/horarios/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral São José",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.catedralsaojose.com.br/horarios/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral São José",
+          "dayOfWeek": 0,
+          "time": "11:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.catedralsaojose.com.br/horarios/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral São José",
+          "dayOfWeek": 0,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.catedralsaojose.com.br/horarios/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Capela Sagrado Coração de Jesus (São Domingos)",
+          "dayOfWeek": 6,
+          "time": "17:00",
+          "type": "ROSARY",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.catedralsaojose.com.br/horarios/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Capela Sagrado Coração de Jesus (São Domingos)",
+          "dayOfWeek": 6,
+          "time": "17:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.catedralsaojose.com.br/horarios/"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-aparecida-xingu-sao-jose-dos-pinhais",
+      "name": "Paróquia Nossa Senhora Aparecida (Xingu)",
+      "city": "São José dos Pinhais",
+      "state": "PR",
+      "neighborhood": "Xingu",
+      "address": null,
+      "zipCode": "83010-350",
+      "phone": "(41) 3282-3595",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesesjp.org.br/paroquias/sao-jose-dos-pinhais/paroquia-nossa-senhora-aparecida-xingu",
+          "title": "Diocese de São José dos Pinhais – Paróquia N. Sra. Aparecida (Xingú) (site em manutenção; dados via índice de busca)",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://gcatholic.org/churches/local/zjosD.htm",
+          "title": "GCatholic – igrejas da diocese (duas paróquias N. Sra. Aparecida em SJP)",
+          "accessedAt": "2026-09-09"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-aparecida-guatupe-sao-jose-dos-pinhais",
+      "name": "Paróquia Nossa Senhora Aparecida (Guatupê)",
+      "city": "São José dos Pinhais",
+      "state": "PR",
+      "neighborhood": "Jardim Aparecida (Guatupê)",
+      "address": "Rua José João Rodrigues, 117 – Jardim Aparecida, Guatupê",
+      "zipCode": "83060-196",
+      "phone": "(41) 3385-4955",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesesjp.org.br/paroquias/sao-jose-dos-pinhais/paroquia-nossa-senhora-aparecida-guatupe",
+          "title": "Diocese de São José dos Pinhais – Paróquia N. Sra. Aparecida - Guatupê (site em manutenção; dados via índice de busca)",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/igreja.php?k=aV6QX",
+          "title": "Horário de Missa – Paróquia Nossa Senhora Aparecida – Guatupê (agregador)",
+          "accessedAt": "2026-09-09"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Missa e novena de N. Sra. do Perpétuo Socorro",
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/sao-jose-dos-pinhais/paroquia-nossa-senhora-aparecida-guatupe"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/sao-jose-dos-pinhais/paroquia-nossa-senhora-aparecida-guatupe"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": "Agregador horariodemissa.com.br informa domingo 08:00 e 19:30 — divergente",
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/sao-jose-dos-pinhais/paroquia-nossa-senhora-aparecida-guatupe"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-de-fatima-sao-jose-dos-pinhais",
+      "name": "Paróquia Nossa Senhora de Fátima",
+      "city": "São José dos Pinhais",
+      "state": "PR",
+      "neighborhood": null,
+      "address": "Rua Onofre Holthman, 1200",
+      "zipCode": null,
+      "phone": "(41) 99259-1605",
+      "email": "paroquiadefatimasjp@gmail.com",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesesjp.org.br/paroquias/sao-jose-dos-pinhais/paroquia-nossa-senhora-de-fatima",
+          "title": "Diocese de São José dos Pinhais – Paróquia N. Sra. de Fátima (site em manutenção; dados via índice de busca)",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://www.facebook.com/paroquiadefatimasjp/",
+          "title": "Paróquia Nossa Senhora de Fátima - SJP (Facebook oficial)",
+          "accessedAt": "2026-09-09"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "08:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/sao-jose-dos-pinhais/paroquia-nossa-senhora-de-fatima"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/sao-jose-dos-pinhais/paroquia-nossa-senhora-de-fatima"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/sao-jose-dos-pinhais/paroquia-nossa-senhora-de-fatima"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/sao-jose-dos-pinhais/paroquia-nossa-senhora-de-fatima"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/sao-jose-dos-pinhais/paroquia-nossa-senhora-de-fatima"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/sao-jose-dos-pinhais/paroquia-nossa-senhora-de-fatima"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-do-monte-claro-sao-jose-dos-pinhais",
+      "name": "Paróquia Nossa Senhora do Monte Claro",
+      "city": "São José dos Pinhais",
+      "state": "PR",
+      "neighborhood": "Parque da Fonte",
+      "address": "Rua Tavares de Lyra, 1684 – Parque da Fonte",
+      "zipCode": "83050-000",
+      "phone": "(41) 3382-3130",
+      "email": null,
+      "website": "https://paroquiamonteclaro.org.br",
+      "priestName": "Pe. Clayton Scabia",
+      "foundedYear": 1984,
+      "sources": [
+        {
+          "url": "https://paroquiamonteclaro.org.br/",
+          "title": "Paróquia Nossa Senhora do Monte Claro – site oficial",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://www.diocesesjp.org.br/paroquias/sao-jose-dos-pinhais/paroquia-nossa-senhora-do-monte-claro",
+          "title": "Diocese de São José dos Pinhais – Paróquia N. Sra. do Monte Claro (criada em 19/06/1984; pároco Pe. Clayton Scabia; site em manutenção, dados via índice de busca)",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://paroquiamonteclaro.org.br/capela-nossa-senhora-da-luz-dos-pinhais/",
+          "title": "Capela Nossa Senhora da Luz dos Pinhais – Paróquia N. Sra. do Monte Claro",
+          "accessedAt": "2026-09-09"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora do Monte Claro",
+          "address": "Rua Tavares de Lyra, 1684 – Parque da Fonte",
+          "neighborhood": "Parque da Fonte",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://paroquiamonteclaro.org.br/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Divino Espírito Santo (Aviação)",
+          "address": "Rua Cruzeiro do Sul, 735 – Aviação",
+          "neighborhood": "Aviação",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/sao-jose-dos-pinhais/paroquia-nossa-senhora-do-monte-claro"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Capela Nossa Senhora da Luz dos Pinhais (Afonso Pena)",
+          "address": "Rua Francisca de Souza Cortês – Afonso Pena",
+          "neighborhood": "Afonso Pena",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://paroquiamonteclaro.org.br/capela-nossa-senhora-da-luz-dos-pinhais/"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora do Monte Claro",
+          "dayOfWeek": 1,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://paroquiamonteclaro.org.br/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Monte Claro",
+          "dayOfWeek": 2,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://paroquiamonteclaro.org.br/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Monte Claro",
+          "dayOfWeek": 3,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://paroquiamonteclaro.org.br/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Monte Claro",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://paroquiamonteclaro.org.br/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Monte Claro",
+          "dayOfWeek": 4,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://paroquiamonteclaro.org.br/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Monte Claro",
+          "dayOfWeek": 5,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://paroquiamonteclaro.org.br/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Monte Claro",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://paroquiamonteclaro.org.br/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Monte Claro",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://paroquiamonteclaro.org.br/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Monte Claro",
+          "dayOfWeek": 0,
+          "time": "10:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://paroquiamonteclaro.org.br/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Monte Claro",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://paroquiamonteclaro.org.br/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Capela Divino Espírito Santo (Aviação)",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/sao-jose-dos-pinhais/paroquia-nossa-senhora-do-monte-claro"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-rainha-da-paz-sao-jose-dos-pinhais",
+      "name": "Paróquia Nossa Senhora Rainha da Paz",
+      "city": "São José dos Pinhais",
+      "state": "PR",
+      "neighborhood": "Borda do Campo",
+      "address": "Rua Joana Persegona Zen, 78 – Borda do Campo",
+      "zipCode": "83075-310",
+      "phone": "(41) 98495-6004",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": 1998,
+      "sources": [
+        {
+          "url": "https://www.diocesesjp.org.br/paroquias/sao-jose-dos-pinhais/paroquia-nossa-senhora-rainha-da-paz",
+          "title": "Diocese de São José dos Pinhais – Paróquia N. Sra. Rainha da Paz (criada em 25/12/1998; site em manutenção, dados via índice de busca)",
+          "accessedAt": "2026-09-09"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "20:00",
+          "type": "MASS",
+          "notes": "Missa e novena",
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/sao-jose-dos-pinhais/paroquia-nossa-senhora-rainha-da-paz"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/sao-jose-dos-pinhais/paroquia-nossa-senhora-rainha-da-paz"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/sao-jose-dos-pinhais/paroquia-nossa-senhora-rainha-da-paz"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "sagrado-coracao-de-jesus-sao-jose-dos-pinhais",
+      "name": "Paróquia Sagrado Coração de Jesus",
+      "city": "São José dos Pinhais",
+      "state": "PR",
+      "neighborhood": "Colônia Murici",
+      "address": "Rua Dr. Murici, 8907 – Colônia Murici",
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesesjp.org.br/paroquias/sao-jose-dos-pinhais/paroquia-sagrado-coracao-de-jesus",
+          "title": "Diocese de São José dos Pinhais – Paróquia Sagrado Coração de Jesus (site em manutenção; dados via índice de busca)",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://www.facebook.com/people/Par%C3%B3quia-Sagrado-Cora%C3%A7%C3%A3o-de-Jesus-Col%C3%B4nia-Murici/100069101392358/",
+          "title": "Paróquia Sagrado Coração de Jesus - Colônia Murici (Facebook oficial)",
+          "accessedAt": "2026-09-09"
+        }
+      ],
+      "confidence": "media",
+      "communities": [
+        {
+          "name": "Matriz Sagrado Coração de Jesus",
+          "address": "Rua Dr. Murici, 8907 – Colônia Murici",
+          "neighborhood": "Colônia Murici",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/sao-jose-dos-pinhais/paroquia-sagrado-coracao-de-jesus"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Comunidade Costeira",
+          "address": "Rua Dr. Murici – Costeira",
+          "neighborhood": "Costeira",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/sao-jose-dos-pinhais/paroquia-sagrado-coracao-de-jesus"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "name": "Comunidade Roça Velha",
+          "address": "Rua Professor Júlio Carvalho Gomes, 5200 – Roça Velha",
+          "neighborhood": "Roça Velha",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/sao-jose-dos-pinhais/paroquia-sagrado-coracao-de-jesus"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Sagrado Coração de Jesus",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://horarios.ninja/01752516/Par%C3%B3quia_Sagrado_Cora%C3%A7%C3%A3o_de_Jesus_-_Col%C3%B4nia_Murici"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Sagrado Coração de Jesus",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://horarios.ninja/01752516/Par%C3%B3quia_Sagrado_Cora%C3%A7%C3%A3o_de_Jesus_-_Col%C3%B4nia_Murici"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "santa-rita-de-cassia-sao-jose-dos-pinhais",
+      "name": "Paróquia Santa Rita de Cássia",
+      "city": "São José dos Pinhais",
+      "state": "PR",
+      "neighborhood": "Quissisana",
+      "address": "Rua Joana Jess Micrute, 388 – Quissisana",
+      "zipCode": "83085-100",
+      "phone": "(41) 98864-0454",
+      "email": "paroquiasantarita@diocesesjp.org.br",
+      "website": "http://www.paroquiasantaritadecassia.com.br",
+      "priestName": "Pe. Caique Maick Vieira",
+      "foundedYear": 2019,
+      "sources": [
+        {
+          "url": "http://www.paroquiasantaritadecassia.com.br/",
+          "title": "Paróquia Santa Rita de Cássia - Quissisana – site oficial (ereção canônica 10/02/2019)",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://www.diocesesjp.org.br/paroquias/sao-jose-dos-pinhais/paroquia-santa-rita-de-cassia",
+          "title": "Diocese de São José dos Pinhais – Paróquia Santa Rita de Cássia (site em manutenção; dados via índice de busca)",
+          "accessedAt": "2026-09-09"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Santa Rita de Cássia",
+          "address": "Rua Joana Jess Micrute, 388 – Quissisana",
+          "neighborhood": "Quissisana",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "http://www.paroquiasantaritadecassia.com.br/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nossa Senhora do Perpétuo Socorro",
+          "address": "Rua Almirante Alexandrino, 4200 – Quissisana",
+          "neighborhood": "Quissisana",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://www.paroquiasantaritadecassia.com.br/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nossa Senhora dos Anjos",
+          "address": "Rua João Maria da Rocha, 120 – Quissisana",
+          "neighborhood": "Quissisana",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://www.paroquiasantaritadecassia.com.br/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Santo Antônio",
+          "address": "Rua Antônio Raposo Tavares, 345 – Quissisana",
+          "neighborhood": "Quissisana",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://www.paroquiasantaritadecassia.com.br/"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Santa Rita de Cássia",
+          "dayOfWeek": 1,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "http://www.paroquiasantaritadecassia.com.br/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Santa Rita de Cássia",
+          "dayOfWeek": 2,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "http://www.paroquiasantaritadecassia.com.br/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Santa Rita de Cássia",
+          "dayOfWeek": 3,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "http://www.paroquiasantaritadecassia.com.br/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Santa Rita de Cássia",
+          "dayOfWeek": 4,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "http://www.paroquiasantaritadecassia.com.br/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Santa Rita de Cássia",
+          "dayOfWeek": 5,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "http://www.paroquiasantaritadecassia.com.br/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Santa Rita de Cássia",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Missa vespertina (vigília)",
+          "sources": [
+            {
+              "url": "http://www.paroquiasantaritadecassia.com.br/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Santa Rita de Cássia",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "http://www.paroquiasantaritadecassia.com.br/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Comunidade Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 0,
+          "time": "07:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "http://www.paroquiasantaritadecassia.com.br/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Comunidade Nossa Senhora dos Anjos",
+          "dayOfWeek": 0,
+          "time": "10:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "http://www.paroquiasantaritadecassia.com.br/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Capela Santo Antônio",
+          "dayOfWeek": 6,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "http://www.paroquiasantaritadecassia.com.br/"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "santo-antonio-sao-jose-dos-pinhais",
+      "name": "Paróquia Santo Antônio",
+      "city": "São José dos Pinhais",
+      "state": "PR",
+      "neighborhood": "Colônia Rio Grande",
+      "address": "Rua Francisco Dal'Negro, 3519 – Colônia Rio Grande",
+      "zipCode": "83025-320",
+      "phone": "(41) 3587-1411",
+      "email": "parsantonio@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Cesar Augusto Cordeiro de Barros, SDS",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesesjp.org.br/clero-2/item/128-pe-cesar-augusto-cordeiro-de-barros-sds",
+          "title": "Diocese de São José dos Pinhais – Pe. Cesar Augusto Cordeiro de Barros, SDS (pároco da Paróquia Santo Antônio; endereço R. Francisco Dal'Negro, 3519; site em manutenção, dados via índice de busca)",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://www.facebook.com/paroquiasantoantonio.sjp/",
+          "title": "Paróquia Santo Antônio - São José dos Pinhais (Facebook oficial)",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://salvatorianos.org.br/paroquias/",
+          "title": "Paróquias – Salvatorianos (Paróquia Santo Antônio, São José dos Pinhais-PR)",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://gcatholic.org/churches/local/zjosD.htm",
+          "title": "GCatholic – igrejas da diocese",
+          "accessedAt": "2026-09-09"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.facebook.com/paroquiasantoantonio.sjp/"
+            },
+            {
+              "url": "https://wanderlog.com/place/details/598337/par%C3%B3quia-santo-ant%C3%B4nio-bairro-santo-ant%C3%B4nio-s%C3%A3o-jos%C3%A9-dos-pinhais"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "08:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.facebook.com/paroquiasantoantonio.sjp/"
+            },
+            {
+              "url": "https://wanderlog.com/place/details/598337/par%C3%B3quia-santo-ant%C3%B4nio-bairro-santo-ant%C3%B4nio-s%C3%A3o-jos%C3%A9-dos-pinhais"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.facebook.com/paroquiasantoantonio.sjp/"
+            },
+            {
+              "url": "https://wanderlog.com/place/details/598337/par%C3%B3quia-santo-ant%C3%B4nio-bairro-santo-ant%C3%B4nio-s%C3%A3o-jos%C3%A9-dos-pinhais"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "sao-cristovao-sao-jose-dos-pinhais",
+      "name": "Paróquia São Cristóvão",
+      "city": "São José dos Pinhais",
+      "state": "PR",
+      "neighborhood": "São Cristóvão",
+      "address": "Rua Darcy Setim, 328 – São Cristóvão",
+      "zipCode": null,
+      "phone": "(41) 3282-0744",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Kristóforus Muit",
+      "foundedYear": 1971,
+      "sources": [
+        {
+          "url": "https://www.diocesesjp.org.br/paroquias/sao-jose-dos-pinhais/paroquia-sao-cristovao",
+          "title": "Diocese de São José dos Pinhais – Paróquia São Cristóvão (criada em 12/10/1971; site em manutenção, dados via índice de busca)",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://missahora.com.br/parana/sao-jose-dos-pinhais/paroquia-sao-cristovao/",
+          "title": "Paróquia São Cristóvão - São José dos Pinhais | Horários da Missa (agregador; terça 07:00)",
+          "accessedAt": "2026-09-09"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 1,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/sao-jose-dos-pinhais/paroquia-sao-cristovao"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 2,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/sao-jose-dos-pinhais/paroquia-sao-cristovao"
+            },
+            {
+              "url": "https://missahora.com.br/parana/sao-jose-dos-pinhais/paroquia-sao-cristovao/"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/sao-jose-dos-pinhais/paroquia-sao-cristovao"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/sao-jose-dos-pinhais/paroquia-sao-cristovao"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/sao-jose-dos-pinhais/paroquia-sao-cristovao"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/sao-jose-dos-pinhais/paroquia-sao-cristovao"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/sao-jose-dos-pinhais/paroquia-sao-cristovao"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "10:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/sao-jose-dos-pinhais/paroquia-sao-cristovao"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/sao-jose-dos-pinhais/paroquia-sao-cristovao"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "sao-marcos-sao-jose-dos-pinhais",
+      "name": "Paróquia São Marcos",
+      "city": "São José dos Pinhais",
+      "state": "PR",
+      "neighborhood": "São Marcos",
+      "address": "Rua Alberto Bonk, 808 – São Marcos",
+      "zipCode": "83090-040",
+      "phone": "(41) 3383-2504",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Celmo Suchek de Lima",
+      "foundedYear": 2009,
+      "sources": [
+        {
+          "url": "https://www.diocesesjp.org.br/paroquias/sao-jose-dos-pinhais/paroquia-sao-marcos",
+          "title": "Diocese de São José dos Pinhais – Paróquia São Marcos (criada em 04/12/2009; site em manutenção, dados via índice de busca)",
+          "accessedAt": "2026-09-09"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 1,
+          "time": "19:00",
+          "type": "ROSARY",
+          "notes": "Terço das mulheres",
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/sao-jose-dos-pinhais/paroquia-sao-marcos"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 2,
+          "time": "19:00",
+          "type": "ROSARY",
+          "notes": "Terço dos homens",
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/sao-jose-dos-pinhais/paroquia-sao-marcos"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "sao-pedro-sao-jose-dos-pinhais",
+      "name": "Paróquia São Pedro",
+      "city": "São José dos Pinhais",
+      "state": "PR",
+      "neighborhood": "São Pedro",
+      "address": "Rua Professora Olívia Nogueira, 261 – São Pedro",
+      "zipCode": null,
+      "phone": "(41) 3882-1394",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Raju Devarakonda",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesesjp.org.br/paroquias/sao-jose-dos-pinhais/paroquia-sao-pedro",
+          "title": "Diocese de São José dos Pinhais – Paróquia São Pedro (site em manutenção; dados via índice de busca)",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://www.instagram.com/paroquiasaopedrosjp/",
+          "title": "Paróquia São Pedro SJP (Instagram oficial)",
+          "accessedAt": "2026-09-09"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 2,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/sao-jose-dos-pinhais/paroquia-sao-pedro"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/sao-jose-dos-pinhais/paroquia-sao-pedro"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/sao-jose-dos-pinhais/paroquia-sao-pedro"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/sao-jose-dos-pinhais/paroquia-sao-pedro"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "10:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/sao-jose-dos-pinhais/paroquia-sao-pedro"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/sao-jose-dos-pinhais/paroquia-sao-pedro"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "senhor-bom-jesus-sao-jose-dos-pinhais",
+      "name": "Paróquia Senhor Bom Jesus",
+      "city": "São José dos Pinhais",
+      "state": "PR",
+      "neighborhood": "Jardim Brasília",
+      "address": "Rua Josephina Françoise Haluch, 55 – Jardim Brasília",
+      "zipCode": "83025-140",
+      "phone": "(41) 3081-4335 / (41) 3081-4336",
+      "email": null,
+      "website": "https://bomjesussjp.com.br",
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://bomjesussjp.com.br/",
+          "title": "Paróquia do Senhor Bom Jesus – São José dos Pinhais (site oficial)",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://bomjesussjp.com.br/horarios-diversos/",
+          "title": "Horários diversos – Paróquia do Senhor Bom Jesus",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://www.diocesesjp.org.br/paroquias/sao-jose-dos-pinhais/paroquia-senhor-bom-jesus",
+          "title": "Diocese de São José dos Pinhais – Paróquia Senhor Bom Jesus (site em manutenção; dados via índice de busca)",
+          "accessedAt": "2026-09-09"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Senhor Bom Jesus",
+          "address": "Rua Josephina Françoise Haluch, 55 – Jardim Brasília",
+          "neighborhood": "Jardim Brasília",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://bomjesussjp.com.br/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Guadalupe",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://bomjesussjp.com.br/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São Miguel",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://bomjesussjp.com.br/"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Senhor Bom Jesus",
+          "dayOfWeek": 1,
+          "time": "19:00",
+          "type": "ROSARY",
+          "notes": "Terço dos homens",
+          "sources": [
+            {
+              "url": "https://bomjesussjp.com.br/horarios-diversos/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Senhor Bom Jesus",
+          "dayOfWeek": 2,
+          "time": "18:30",
+          "type": "ROSARY",
+          "notes": "Terço das mulheres e novena do Senhor Bom Jesus",
+          "sources": [
+            {
+              "url": "https://bomjesussjp.com.br/horarios-diversos/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Senhor Bom Jesus",
+          "dayOfWeek": 2,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": "Missa ou Celebração da Palavra (site: 'Missa ou Celebração')",
+          "sources": [
+            {
+              "url": "https://bomjesussjp.com.br/horarios-diversos/"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Senhor Bom Jesus",
+          "dayOfWeek": 3,
+          "time": "16:00",
+          "type": "MASS",
+          "notes": "Novena de N. Sra. do Perpétuo Socorro",
+          "sources": [
+            {
+              "url": "https://bomjesussjp.com.br/horarios-diversos/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Senhor Bom Jesus",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Novena de N. Sra. do Perpétuo Socorro",
+          "sources": [
+            {
+              "url": "https://bomjesussjp.com.br/horarios-diversos/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Senhor Bom Jesus",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://bomjesussjp.com.br/horarios-diversos/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Senhor Bom Jesus",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "ADORATION",
+          "notes": "Adoração e bênção do Santíssimo",
+          "sources": [
+            {
+              "url": "https://bomjesussjp.com.br/horarios-diversos/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Senhor Bom Jesus",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Novena da Divina Misericórdia / São José",
+          "sources": [
+            {
+              "url": "https://bomjesussjp.com.br/horarios-diversos/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Senhor Bom Jesus",
+          "dayOfWeek": 6,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://bomjesussjp.com.br/horarios-diversos/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Senhor Bom Jesus",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://bomjesussjp.com.br/horarios-diversos/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Senhor Bom Jesus",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://bomjesussjp.com.br/horarios-diversos/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Senhor Bom Jesus",
+          "dayOfWeek": 0,
+          "time": "10:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://bomjesussjp.com.br/horarios-diversos/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Senhor Bom Jesus",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://bomjesussjp.com.br/horarios-diversos/"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "sao-francisco-de-assis-e-santa-clara-sao-jose-dos-pinhais",
+      "name": "Quase-Paróquia São Francisco de Assis e Santa Clara",
+      "city": "São José dos Pinhais",
+      "state": "PR",
+      "neighborhood": "Costeira",
+      "address": "Rua Henrique Bortolan, 275 – Costeira",
+      "zipCode": "83015-470",
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Paulo Sérgio Correia, PODP",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesesjp.org.br/paroquias/sao-jose-dos-pinhais/quase-paroquia-sao-francisco-de-assis-e-santa-clara-sjp",
+          "title": "Diocese de São José dos Pinhais – Quase-Paróquia São Francisco de Assis e Santa Clara - SJP (site em manutenção; dados via índice de busca)",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://www.facebook.com/saofranciscoesantaclara/",
+          "title": "Quase-Paróquia São Francisco e Santa Clara (Facebook oficial)",
+          "accessedAt": "2026-09-09"
+        }
+      ],
+      "confidence": "media",
+      "communities": [
+        {
+          "name": "Matriz São Francisco de Assis e Santa Clara",
+          "address": "Rua Henrique Bortolan, 275 – Costeira",
+          "neighborhood": "Costeira",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/sao-jose-dos-pinhais/quase-paroquia-sao-francisco-de-assis-e-santa-clara-sjp"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Capela Nossa Senhora da Conceição (Colônia Mergulhão)",
+          "address": null,
+          "neighborhood": "Colônia Mergulhão",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/sao-jose-dos-pinhais/quase-paroquia-sao-francisco-de-assis-e-santa-clara-sjp"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Capela Nossa Senhora do Carmo e São Cristóvão (Costeira do Cupim)",
+          "address": null,
+          "neighborhood": "Costeira do Cupim",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/sao-jose-dos-pinhais/quase-paroquia-sao-francisco-de-assis-e-santa-clara-sjp"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-dos-remedios-araucaria",
+      "name": "Paróquia Santuário Nossa Senhora dos Remédios",
+      "city": "Araucária",
+      "state": "PR",
+      "neighborhood": "Centro",
+      "address": "Praça Dr. Vicente Machado, s/nº – Centro (secretaria no subsolo da igreja)",
+      "zipCode": null,
+      "phone": "(41) 3642-1291 / (41) 98495-2467",
+      "email": "pnsremedios@yahoo.com.br",
+      "website": "https://www.santuariodosremedios.com.br",
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.santuariodosremedios.com.br/",
+          "title": "Santuário Nossa Senhora dos Remédios – site oficial (elevado a santuário em 30/10/2011)",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://www.diocesesjp.org.br/paroquias/araucaria/paroquia-n-sra-dos-remedios",
+          "title": "Diocese de São José dos Pinhais – Paróquia N. Sra. dos Remédios (site em manutenção; dados via índice de busca)",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/igreja.php?k=puupj",
+          "title": "Horário de Missa – Santuário Nossa Senhora dos Remédios – Araucária (agregador)",
+          "accessedAt": "2026-09-09"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Santuário Nossa Senhora dos Remédios",
+          "address": "Praça Dr. Vicente Machado, s/nº – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.santuariodosremedios.com.br/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Campina das Palmeiras",
+          "address": null,
+          "neighborhood": "Campina das Palmeiras",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.santuariodosremedios.com.br/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Campo Redondo",
+          "address": null,
+          "neighborhood": "Campo Redondo",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.santuariodosremedios.com.br/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Espigão Alto",
+          "address": null,
+          "neighborhood": "Espigão Alto",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.santuariodosremedios.com.br/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Fazendinha",
+          "address": null,
+          "neighborhood": "Fazendinha",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.santuariodosremedios.com.br/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Fonte Nova",
+          "address": null,
+          "neighborhood": "Fonte Nova",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.santuariodosremedios.com.br/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Jardim Iguaçu",
+          "address": null,
+          "neighborhood": "Jardim Iguaçu",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.santuariodosremedios.com.br/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Mato Dentro",
+          "address": null,
+          "neighborhood": "Mato Dentro",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.santuariodosremedios.com.br/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Onças",
+          "address": null,
+          "neighborhood": "Onças",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.santuariodosremedios.com.br/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Palmital",
+          "address": null,
+          "neighborhood": "Palmital",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.santuariodosremedios.com.br/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São Sebastião",
+          "address": null,
+          "neighborhood": "São Sebastião",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.santuariodosremedios.com.br/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Seminário",
+          "address": null,
+          "neighborhood": "Seminário",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.santuariodosremedios.com.br/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Tietê",
+          "address": null,
+          "neighborhood": "Tietê",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.santuariodosremedios.com.br/"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Santuário Nossa Senhora dos Remédios",
+          "dayOfWeek": 3,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=puupj"
+            },
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/araucaria/paroquia-n-sra-dos-remedios"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Santuário Nossa Senhora dos Remédios",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=puupj"
+            },
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/araucaria/paroquia-n-sra-dos-remedios"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Santuário Nossa Senhora dos Remédios",
+          "dayOfWeek": 4,
+          "time": "12:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=puupj"
+            },
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/araucaria/paroquia-n-sra-dos-remedios"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Santuário Nossa Senhora dos Remédios",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=puupj"
+            },
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/araucaria/paroquia-n-sra-dos-remedios"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Santuário Nossa Senhora dos Remédios",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=puupj"
+            },
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/araucaria/paroquia-n-sra-dos-remedios"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Santuário Nossa Senhora dos Remédios",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/araucaria/paroquia-n-sra-dos-remedios"
+            },
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=puupj"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Santuário Nossa Senhora dos Remédios",
+          "dayOfWeek": 0,
+          "time": "10:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/araucaria/paroquia-n-sra-dos-remedios"
+            },
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=puupj"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Santuário Nossa Senhora dos Remédios",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/araucaria/paroquia-n-sra-dos-remedios"
+            },
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=puupj"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-das-dores-araucaria",
+      "name": "Paróquia Nossa Senhora das Dores",
+      "city": "Araucária",
+      "state": "PR",
+      "neighborhood": "Vila Angélica",
+      "address": "Avenida das Araucárias, 3437 – Vila Angélica",
+      "zipCode": "83707-067",
+      "phone": "(41) 3643-7137",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesesjp.org.br/paroquias/araucaria/paroquia-n-sra-das-dores",
+          "title": "Diocese de São José dos Pinhais – Paróquia N. Sra. das Dores (site em manutenção; dados via índice de busca; site paroquial nsadasdores.com.br fora do ar)",
+          "accessedAt": "2026-09-09"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "17:30",
+          "type": "CONFESSION",
+          "notes": "Confissões das 17h30 às 18h",
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/araucaria/paroquia-n-sra-das-dores"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": "Novena de N. Sra. das Graças com missa",
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/araucaria/paroquia-n-sra-das-dores"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-do-perpetuo-socorro-araucaria",
+      "name": "Paróquia Nossa Senhora do Perpétuo Socorro",
+      "city": "Araucária",
+      "state": "PR",
+      "neighborhood": "Fazenda Velha",
+      "address": "Rua Pedro Gawlak, 174 – Fazenda Velha",
+      "zipCode": "83704-560",
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesesjp.org.br/paroquias/araucaria/paroquia-n-sra-do-perpetuo-socorro",
+          "title": "Diocese de São José dos Pinhais – Paróquia N. Sra. do Perpétuo Socorro (Araucária) (site em manutenção; dados via índice de busca)",
+          "accessedAt": "2026-09-09"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Missa e novena de N. Sra. do Perpétuo Socorro",
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/araucaria/paroquia-n-sra-do-perpetuo-socorro"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Novena de N. Sra. das Graças",
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/araucaria/paroquia-n-sra-do-perpetuo-socorro"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/araucaria/paroquia-n-sra-do-perpetuo-socorro"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/araucaria/paroquia-n-sra-do-perpetuo-socorro"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "senhor-bom-jesus-araucaria",
+      "name": "Paróquia Senhor Bom Jesus",
+      "city": "Araucária",
+      "state": "PR",
+      "neighborhood": "Costeira",
+      "address": "Rua Bernardino Lemos, 20 – Costeira",
+      "zipCode": "83709-160",
+      "phone": "(41) 3607-1111",
+      "email": null,
+      "website": null,
+      "priestName": "Frei Moacir Chiodi, OAD",
+      "foundedYear": 2009,
+      "sources": [
+        {
+          "url": "https://www.diocesesjp.org.br/paroquias/araucaria/paroquia-senhor-bom-jesus",
+          "title": "Diocese de São José dos Pinhais – Paróquia Senhor Bom Jesus (Araucária) (criada em 06/08/2009; site em manutenção, dados via índice de busca)",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://www.facebook.com/paroquiaSenhorBomJesusCosteiraAraucaria/",
+          "title": "Paróquia Senhor Bom Jesus - Costeira - Araucária (Facebook oficial)",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://opopularpr.com.br/paroquia-senhor-bom-jesus-atualiza-programacao-de-missas-e-grupos-de-oracoes/",
+          "title": "Paróquia Senhor Bom Jesus atualiza programação de missas – O Popular do Paraná",
+          "accessedAt": "2026-09-09"
+        }
+      ],
+      "confidence": "media",
+      "communities": [
+        {
+          "name": "Matriz Senhor Bom Jesus",
+          "address": "Rua Bernardino Lemos, 20 – Costeira",
+          "neighborhood": "Costeira",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/araucaria/paroquia-senhor-bom-jesus"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Comunidade Jardim D'Ampezzo",
+          "address": "Rua Brinco de Cigana, 289 – Jardim D'Ampezzo",
+          "neighborhood": "Jardim D'Ampezzo",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/araucaria/paroquia-senhor-bom-jesus"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "name": "Comunidade Jardim Tupy",
+          "address": "Rua Primavera, 1560 – Jardim Tupy",
+          "neighborhood": "Jardim Tupy",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/araucaria/paroquia-senhor-bom-jesus"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Senhor Bom Jesus",
+          "dayOfWeek": 1,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://opopularpr.com.br/paroquia-senhor-bom-jesus-atualiza-programacao-de-missas-e-grupos-de-oracoes/"
+            },
+            {
+              "url": "https://www.facebook.com/paroquiaSenhorBomJesusCosteiraAraucaria/"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Senhor Bom Jesus",
+          "dayOfWeek": 3,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://opopularpr.com.br/paroquia-senhor-bom-jesus-atualiza-programacao-de-missas-e-grupos-de-oracoes/"
+            },
+            {
+              "url": "https://www.facebook.com/paroquiaSenhorBomJesusCosteiraAraucaria/"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Senhor Bom Jesus",
+          "dayOfWeek": 4,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://opopularpr.com.br/paroquia-senhor-bom-jesus-atualiza-programacao-de-missas-e-grupos-de-oracoes/"
+            },
+            {
+              "url": "https://www.facebook.com/paroquiaSenhorBomJesusCosteiraAraucaria/"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Senhor Bom Jesus",
+          "dayOfWeek": 5,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://opopularpr.com.br/paroquia-senhor-bom-jesus-atualiza-programacao-de-missas-e-grupos-de-oracoes/"
+            },
+            {
+              "url": "https://www.facebook.com/paroquiaSenhorBomJesusCosteiraAraucaria/"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Senhor Bom Jesus",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://opopularpr.com.br/paroquia-senhor-bom-jesus-atualiza-programacao-de-missas-e-grupos-de-oracoes/"
+            },
+            {
+              "url": "https://www.facebook.com/paroquiaSenhorBomJesusCosteiraAraucaria/"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Senhor Bom Jesus",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://opopularpr.com.br/paroquia-senhor-bom-jesus-atualiza-programacao-de-missas-e-grupos-de-oracoes/"
+            },
+            {
+              "url": "https://www.facebook.com/paroquiaSenhorBomJesusCosteiraAraucaria/"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Senhor Bom Jesus",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://opopularpr.com.br/paroquia-senhor-bom-jesus-atualiza-programacao-de-missas-e-grupos-de-oracoes/"
+            },
+            {
+              "url": "https://www.facebook.com/paroquiaSenhorBomJesusCosteiraAraucaria/"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-aparecida-fazenda-rio-grande",
+      "name": "Paróquia Nossa Senhora Aparecida (Jardim Veneza)",
+      "city": "Fazenda Rio Grande",
+      "state": "PR",
+      "neighborhood": "Veneza",
+      "address": "Rua João Quirino Leal, 1383 – Veneza",
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesesjp.org.br/paroquias/fazenda-rio-grande/paroquia-n-sra-aparecida-jardim-veneza",
+          "title": "Diocese de São José dos Pinhais – Paróquia N. Sra. Aparecida (Jardim Veneza) (site em manutenção; dados via índice de busca)",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://www.facebook.com/aparecidafazendariogrande/",
+          "title": "Paróquia Nossa Senhora Aparecida - Jardim Veneza (Facebook oficial)",
+          "accessedAt": "2026-09-09"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Missa e novena de N. Sra. do Perpétuo Socorro",
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/fazenda-rio-grande/paroquia-n-sra-aparecida-jardim-veneza"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/fazenda-rio-grande/paroquia-n-sra-aparecida-jardim-veneza"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-da-luz-fazenda-rio-grande",
+      "name": "Paróquia Nossa Senhora da Luz",
+      "city": "Fazenda Rio Grande",
+      "state": "PR",
+      "neighborhood": "Gralha Azul",
+      "address": "Rua Quero-Quero, 842 – Gralha Azul",
+      "zipCode": null,
+      "phone": "(41) 3608-1810",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Leonardo E. Cruz Peres",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesesjp.org.br/paroquias/fazenda-rio-grande/paroquia-n-sra-da-luz",
+          "title": "Diocese de São José dos Pinhais – Paróquia Nossa Senhora da Luz (site em manutenção; dados via índice de busca)",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://www.facebook.com/SenhoradaLuzFRG/",
+          "title": "Paróquia Nossa Senhora da Luz - FRG (Facebook oficial)",
+          "accessedAt": "2026-09-09"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-gabriel-da-virgem-dolorosa-fazenda-rio-grande",
+      "name": "Paróquia São Gabriel da Virgem Dolorosa",
+      "city": "Fazenda Rio Grande",
+      "state": "PR",
+      "neighborhood": "Pioneiros",
+      "address": "Rua Farid Stephens, 20 – Pioneiros",
+      "zipCode": null,
+      "phone": "(41) 3627-1391",
+      "email": "parsgabriel@yahoo.com.br",
+      "website": "https://paroquiasaogabrielfrg.com.br",
+      "priestName": "Pe. Valter de Jesus Souza",
+      "foundedYear": 1978,
+      "sources": [
+        {
+          "url": "https://paroquiasaogabrielfrg.com.br/",
+          "title": "Paróquia São Gabriel da Virgem Dolorosa – site oficial",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://www.diocesesjp.org.br/paroquias/fazenda-rio-grande/paroquia-sao-gabriel-da-virgem-dolorosa",
+          "title": "Diocese de São José dos Pinhais – Paróquia São Gabriel da Virgem Dolorosa (criada em 28/02/1978; pároco Pe. Valter de Jesus Souza; site em manutenção, dados via índice de busca)",
+          "accessedAt": "2026-09-09"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Gabriel da Virgem Dolorosa",
+          "address": "Rua Farid Stephens, 20 – Pioneiros",
+          "neighborhood": "Pioneiros",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://paroquiasaogabrielfrg.com.br/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nossa Senhora Aparecida",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://paroquiasaogabrielfrg.com.br/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nossa Senhora do Perpétuo Socorro",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://paroquiasaogabrielfrg.com.br/"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-das-gracas-fazenda-rio-grande",
+      "name": "Paróquia Nossa Senhora das Graças",
+      "city": "Fazenda Rio Grande",
+      "state": "PR",
+      "neighborhood": "Estados",
+      "address": "Rua Paranavaí, 116 – Estados",
+      "zipCode": "83830-236",
+      "phone": "(41) 4121-0849",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesesjp.org.br/paroquias/fazenda-rio-grande/paroquia-n-sra-das-gracas",
+          "title": "Diocese de São José dos Pinhais – Paróquia N. Sra. das Graças (FRG) (site em manutenção; dados via índice de busca)",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://www.facebook.com/nsgracasfrg",
+          "title": "Paróquia Nossa Senhora das Graças - FRG (Facebook oficial)",
+          "accessedAt": "2026-09-09"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "16:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/fazenda-rio-grande/paroquia-n-sra-das-gracas"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "20:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/fazenda-rio-grande/paroquia-n-sra-das-gracas"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/fazenda-rio-grande/paroquia-n-sra-das-gracas"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "08:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/fazenda-rio-grande/paroquia-n-sra-das-gracas"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-de-fatima-fazenda-rio-grande",
+      "name": "Paróquia Nossa Senhora de Fátima",
+      "city": "Fazenda Rio Grande",
+      "state": "PR",
+      "neighborhood": "Eucaliptos",
+      "address": "Av. Paineiras, 539 – Eucaliptos",
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesesjp.org.br/paroquias/fazenda-rio-grande/paroquia-n-sra-de-fatima",
+          "title": "Diocese de São José dos Pinhais – Paróquia N. Sra. de Fátima (FRG) (site em manutenção; dados via índice de busca)",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://www.instagram.com/pascomsenhoradefatimafrg/",
+          "title": "Paróquia Nossa Senhora de Fátima - FRG (Instagram oficial)",
+          "accessedAt": "2026-09-09"
+        }
+      ],
+      "confidence": "media",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora de Fátima",
+          "address": "Av. Paineiras, 539 – Eucaliptos",
+          "neighborhood": "Eucaliptos",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/fazenda-rio-grande/paroquia-n-sra-de-fatima"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Capela São João Batista (Eucaliptos)",
+          "address": "Rua Gerivá, 252 – Eucaliptos",
+          "neighborhood": "Eucaliptos",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/fazenda-rio-grande/paroquia-n-sra-de-fatima"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora de Fátima",
+          "dayOfWeek": 1,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/fazenda-rio-grande/paroquia-n-sra-de-fatima"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora de Fátima",
+          "dayOfWeek": 2,
+          "time": "06:15",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/fazenda-rio-grande/paroquia-n-sra-de-fatima"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora de Fátima",
+          "dayOfWeek": 2,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/fazenda-rio-grande/paroquia-n-sra-de-fatima"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora de Fátima",
+          "dayOfWeek": 3,
+          "time": "06:15",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/fazenda-rio-grande/paroquia-n-sra-de-fatima"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora de Fátima",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/fazenda-rio-grande/paroquia-n-sra-de-fatima"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora de Fátima",
+          "dayOfWeek": 4,
+          "time": "06:15",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/fazenda-rio-grande/paroquia-n-sra-de-fatima"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora de Fátima",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/fazenda-rio-grande/paroquia-n-sra-de-fatima"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora de Fátima",
+          "dayOfWeek": 5,
+          "time": "06:15",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/fazenda-rio-grande/paroquia-n-sra-de-fatima"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora de Fátima",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/fazenda-rio-grande/paroquia-n-sra-de-fatima"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora de Fátima",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/fazenda-rio-grande/paroquia-n-sra-de-fatima"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora de Fátima",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/fazenda-rio-grande/paroquia-n-sra-de-fatima"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora de Fátima",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/fazenda-rio-grande/paroquia-n-sra-de-fatima"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Capela São João Batista (Eucaliptos)",
+          "dayOfWeek": 6,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/fazenda-rio-grande/paroquia-n-sra-de-fatima"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "senhor-bom-jesus-dos-passos-piraquara",
+      "name": "Paróquia Senhor Bom Jesus dos Passos",
+      "city": "Piraquara",
+      "state": "PR",
+      "neighborhood": "Centro",
+      "address": "Avenida Getúlio Vargas, 377 – Centro",
+      "zipCode": null,
+      "phone": "(41) 3673-1694",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesesjp.org.br/paroquias/piraquara/paroquia-senhor-bom-jesus-dos-passos",
+          "title": "Diocese de São José dos Pinhais – Paróquia Senhor Bom Jesus dos Passos (site em manutenção; dados via índice de busca)",
+          "accessedAt": "2026-09-09"
+        }
+      ],
+      "confidence": "media",
+      "communities": [
+        {
+          "name": "Matriz Senhor Bom Jesus dos Passos",
+          "address": "Avenida Getúlio Vargas, 377 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/piraquara/paroquia-senhor-bom-jesus-dos-passos"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Capela Nossa Senhora Aparecida",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/piraquara/paroquia-senhor-bom-jesus-dos-passos"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Capela Nossa Senhora das Graças",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/piraquara/paroquia-senhor-bom-jesus-dos-passos"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Capela Nossa Senhora de Fátima",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/piraquara/paroquia-senhor-bom-jesus-dos-passos"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Capela Nossa Senhora do Pilar",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/piraquara/paroquia-senhor-bom-jesus-dos-passos"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Capela Nossa Senhora do Rocio",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/piraquara/paroquia-senhor-bom-jesus-dos-passos"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Capela Nossa Senhora dos Remédios",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/piraquara/paroquia-senhor-bom-jesus-dos-passos"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Capela Santa Clara",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/piraquara/paroquia-senhor-bom-jesus-dos-passos"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Capela São João Batista",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/piraquara/paroquia-senhor-bom-jesus-dos-passos"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Senhor Bom Jesus dos Passos",
+          "dayOfWeek": 3,
+          "time": "08:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/piraquara/paroquia-senhor-bom-jesus-dos-passos"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Senhor Bom Jesus dos Passos",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/piraquara/paroquia-senhor-bom-jesus-dos-passos"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Senhor Bom Jesus dos Passos",
+          "dayOfWeek": 5,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/piraquara/paroquia-senhor-bom-jesus-dos-passos"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Senhor Bom Jesus dos Passos",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/piraquara/paroquia-senhor-bom-jesus-dos-passos"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Senhor Bom Jesus dos Passos",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/piraquara/paroquia-senhor-bom-jesus-dos-passos"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Senhor Bom Jesus dos Passos",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/piraquara/paroquia-senhor-bom-jesus-dos-passos"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-auxiliadora-piraquara",
+      "name": "Paróquia Nossa Senhora Auxiliadora",
+      "city": "Piraquara",
+      "state": "PR",
+      "neighborhood": "Jardim Holandês",
+      "address": "Rua Betonex, 322 – Jardim Holandês",
+      "zipCode": null,
+      "phone": "(41) 3667-0678",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesesjp.org.br/paroquias/piraquara/paroquia-n-sra-auxiliadora",
+          "title": "Diocese de São José dos Pinhais – Paróquia N. Sra. Auxiliadora (site em manutenção; dados via índice de busca)",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/igreja.php?k=tVHD6",
+          "title": "Horário de Missa – Paróquia de Nossa Senhora Auxiliadora – Piraquara (agregador; telefone e horários)",
+          "accessedAt": "2026-09-09"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=tVHD6"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=tVHD6"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=tVHD6"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "20:00",
+          "type": "CONFESSION",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=tVHD6"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=tVHD6"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=tVHD6"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=tVHD6"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-do-perpetuo-socorro-piraquara",
+      "name": "Paróquia Nossa Senhora do Perpétuo Socorro",
+      "city": "Piraquara",
+      "state": "PR",
+      "neighborhood": "Jardim Primavera",
+      "address": "Rua Pe. Hubert Alfred Roebig, 41 – Jardim Primavera",
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesesjp.org.br/paroquias/piraquara/paroquia-n-sra-do-perpetuo-socorro",
+          "title": "Diocese de São José dos Pinhais – Paróquia N. Sra. do Perpétuo Socorro (Piraquara) (site em manutenção; dados via índice de busca)",
+          "accessedAt": "2026-09-09"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Missa e novena de N. Sra. do Perpétuo Socorro",
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/piraquara/paroquia-n-sra-do-perpetuo-socorro"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "07:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/piraquara/paroquia-n-sra-do-perpetuo-socorro"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "sao-sebastiao-quatro-barras",
+      "name": "Paróquia São Sebastião",
+      "city": "Quatro Barras",
+      "state": "PR",
+      "neighborhood": "Centro",
+      "address": "Av. São Sebastião, s/nº – Centro",
+      "zipCode": null,
+      "phone": "(41) 3672-1144",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Newton José Furtado Pereira",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesesjp.org.br/paroquias/quatro-barras/paroquia-sao-sebastiao",
+          "title": "Diocese de São José dos Pinhais – Paróquia São Sebastião (Quatro Barras) (site em manutenção; dados via índice de busca)",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://www.facebook.com/paroquiasaosebastiaoquatrobarras/",
+          "title": "Paróquia São Sebastião - Quatro Barras/PR (Facebook oficial; pároco e horários)",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "http://paroquiasaosebastiaoqb.blogspot.com/",
+          "title": "Paróquia São Sebastião - Quatro Barras (blog paroquial; última postagem 26/03/2013 — lista de capelas)",
+          "accessedAt": "2026-09-09"
+        }
+      ],
+      "confidence": "media",
+      "communities": [
+        {
+          "name": "Matriz São Sebastião",
+          "address": "Av. São Sebastião, s/nº – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/quatro-barras/paroquia-sao-sebastiao"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Capela Nossa Senhora Aparecida (Jardim Menino Deus)",
+          "address": null,
+          "neighborhood": "Jardim Menino Deus",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://paroquiasaosebastiaoqb.blogspot.com/"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Capela Maria José (Colônia Maria José)",
+          "address": null,
+          "neighborhood": "Colônia Maria José",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://paroquiasaosebastiaoqb.blogspot.com/"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Capela Santo Antônio (Borda do Campo)",
+          "address": null,
+          "neighborhood": "Borda do Campo",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://paroquiasaosebastiaoqb.blogspot.com/"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Capela Sant'Ana (Gralha Azul)",
+          "address": null,
+          "neighborhood": "Gralha Azul",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://paroquiasaosebastiaoqb.blogspot.com/"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Capela Nossa Senhora de Fátima (Pinheirinho)",
+          "address": null,
+          "neighborhood": "Pinheirinho",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://paroquiasaosebastiaoqb.blogspot.com/"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Capela São Pedro (Rio do Meio)",
+          "address": null,
+          "neighborhood": "Rio do Meio",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://paroquiasaosebastiaoqb.blogspot.com/"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Capela São Luís Orione (Campininha)",
+          "address": null,
+          "neighborhood": "Campininha",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://paroquiasaosebastiaoqb.blogspot.com/"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Capela Nossa Senhora da Luz (Palmitalzinho)",
+          "address": null,
+          "neighborhood": "Palmitalzinho",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://paroquiasaosebastiaoqb.blogspot.com/"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Missa com novena",
+          "sources": [
+            {
+              "url": "https://www.facebook.com/paroquiasaosebastiaoquatrobarras/"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 4,
+          "time": "12:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.facebook.com/paroquiasaosebastiaoquatrobarras/"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.facebook.com/paroquiasaosebastiaoquatrobarras/"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 0,
+          "time": "10:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.facebook.com/paroquiasaosebastiaoquatrobarras/"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.facebook.com/paroquiasaosebastiaoquatrobarras/"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "senhor-bom-jesus-mandirituba",
+      "name": "Paróquia Senhor Bom Jesus",
+      "city": "Mandirituba",
+      "state": "PR",
+      "neighborhood": "Centro",
+      "address": "Av. Brasil, 237 – Centro (secretaria: Rua Anita Muller Palú, 130 – Centro)",
+      "zipCode": "83800-068",
+      "phone": "(41) 3626-1185 / (41) 98857-0798",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. João Maria Rodrigues Stech",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesesjp.org.br/paroquias/mandirituba/paroquia-senhor-bom-jesus",
+          "title": "Diocese de São José dos Pinhais – Paróquia Senhor Bom Jesus (Mandirituba) (site em manutenção; dados via índice de busca)",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://www.facebook.com/paroquiamandirituba/",
+          "title": "Paróquia Senhor Bom Jesus de Mandirituba (Facebook oficial)",
+          "accessedAt": "2026-09-09"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "07:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/mandirituba/paroquia-senhor-bom-jesus"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "07:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/mandirituba/paroquia-senhor-bom-jesus"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/mandirituba/paroquia-senhor-bom-jesus"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/mandirituba/paroquia-senhor-bom-jesus"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "sao-benedito-mandirituba",
+      "name": "Paróquia São Benedito",
+      "city": "Mandirituba",
+      "state": "PR",
+      "neighborhood": "Areia Branca dos Assis",
+      "address": "Rua Cândido Alves Machado Fagundes, 1 – Areia Branca dos Assis",
+      "zipCode": "83810-000",
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesesjp.org.br/paroquias/mandirituba/paroquia-sao-benedito-areia-branca-dos-assis-mandirituba",
+          "title": "Diocese de São José dos Pinhais – Paróquia São Benedito - Areia Branca dos Assis - Mandirituba (site em manutenção; dados via índice de busca)",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://www.facebook.com/igrejasaobeneditoaba/",
+          "title": "Paróquia São Benedito | Areia Branca dos Assis (Facebook oficial)",
+          "accessedAt": "2026-09-09"
+        }
+      ],
+      "confidence": "media",
+      "communities": [
+        {
+          "name": "Matriz São Benedito",
+          "address": "Rua Cândido Alves Machado Fagundes, 1 – Areia Branca dos Assis",
+          "neighborhood": "Areia Branca dos Assis",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/mandirituba/paroquia-sao-benedito-areia-branca-dos-assis-mandirituba"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Capela Divino Espírito Santo",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/mandirituba/paroquia-sao-benedito-areia-branca-dos-assis-mandirituba"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Capela São José Operário",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/mandirituba/paroquia-sao-benedito-areia-branca-dos-assis-mandirituba"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São Benedito",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Missa e novena de N. Sra. do Perpétuo Socorro",
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/mandirituba/paroquia-sao-benedito-areia-branca-dos-assis-mandirituba"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São Benedito",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/mandirituba/paroquia-sao-benedito-areia-branca-dos-assis-mandirituba"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "imaculada-conceicao-contenda",
+      "name": "Paróquia Imaculada Conceição (Catanduvas do Sul)",
+      "city": "Contenda",
+      "state": "PR",
+      "neighborhood": "Catanduvas do Sul",
+      "address": "Praça 02 de Maio, 208 – Catanduvas do Sul",
+      "zipCode": "83740-000",
+      "phone": "(41) 3638-1161",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesesjp.org.br/paroquias/catanduvas-do-sul/paroquia-imaculada-conceicao",
+          "title": "Diocese de São José dos Pinhais – Paróquia Imaculada Conceição - Catanduvas do Sul (site em manutenção; dados via índice de busca)",
+          "accessedAt": "2026-09-09"
+        }
+      ],
+      "confidence": "media",
+      "communities": [
+        {
+          "name": "Matriz Imaculada Conceição",
+          "address": "Praça 02 de Maio, 208 – Catanduvas do Sul",
+          "neighborhood": "Catanduvas do Sul",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesesjp.org.br/paroquias/catanduvas-do-sul/paroquia-imaculada-conceicao"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Capela São João Batista (Rio do Poço)",
+          "address": null,
+          "neighborhood": "Rio do Poço",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesesjp.org.br/paroquias/catanduvas-do-sul/paroquia-imaculada-conceicao"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Capela São Sebastião (Cachoeira – Quitandinha)",
+          "address": null,
+          "neighborhood": "Cachoeira",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesesjp.org.br/paroquias/catanduvas-do-sul/paroquia-imaculada-conceicao"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Imaculada Conceição",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Novena de N. Sra. das Graças e missa",
+          "sources": [
+            {
+              "url": "https://diocesesjp.org.br/paroquias/catanduvas-do-sul/paroquia-imaculada-conceicao"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Imaculada Conceição",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesesjp.org.br/paroquias/catanduvas-do-sul/paroquia-imaculada-conceicao"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "sao-sebastiao-contenda",
+      "name": "Paróquia São Sebastião",
+      "city": "Contenda",
+      "state": "PR",
+      "neighborhood": "Centro",
+      "address": "Rua Cassemiro Leviski, 150 – Centro (secretaria: Travessa Álvaro Pallu, 497)",
+      "zipCode": null,
+      "phone": "(41) 3634-1118",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Hélio Forte Claro",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesesjp.org.br/paroquias/sao-jose-dos-pinhais/paroquia-sao-sebastiao",
+          "title": "Diocese de São José dos Pinhais – Paróquia São Sebastião (URL na categoria 'sao-jose-dos-pinhais', mas endereço em Contenda; site em manutenção, dados via índice de busca)",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://www.diocesesjp.org.br/clero-2/item/98-pe-helio-forte-claro",
+          "title": "Diocese de São José dos Pinhais – Pe. Hélio Forte Claro (pároco)",
+          "accessedAt": "2026-09-09"
+        }
+      ],
+      "confidence": "media",
+      "communities": [
+        {
+          "name": "Matriz São Sebastião",
+          "address": "Rua Cassemiro Leviski, 150 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/sao-jose-dos-pinhais/paroquia-sao-sebastiao"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Capela Nossa Senhora da Salete (Passo do Ouro)",
+          "address": null,
+          "neighborhood": "Passo do Ouro",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/sao-jose-dos-pinhais/paroquia-sao-sebastiao"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Capela Santo Antônio (Santo Antônio)",
+          "address": null,
+          "neighborhood": "Santo Antônio",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/sao-jose-dos-pinhais/paroquia-sao-sebastiao"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Capela São Francisco e Santa Terezinha (Rio do Cacho)",
+          "address": null,
+          "neighborhood": "Rio do Cacho",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/sao-jose-dos-pinhais/paroquia-sao-sebastiao"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 6,
+          "time": "16:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/sao-jose-dos-pinhais/paroquia-sao-sebastiao"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/sao-jose-dos-pinhais/paroquia-sao-sebastiao"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "santo-antonio-lapa",
+      "name": "Paróquia Santo Antônio",
+      "city": "Lapa",
+      "state": "PR",
+      "neighborhood": "Centro",
+      "address": "Praça General Carneiro, 84 – Centro",
+      "zipCode": null,
+      "phone": "(41) 3622-1484",
+      "email": "secretaria@santoantoniolapa.com.br",
+      "website": "https://santoantoniolapa.com.br",
+      "priestName": "Pe. Elves Allano Perrony",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://santoantoniolapa.com.br/",
+          "title": "Paróquia de Santo Antônio - Lapa – site oficial",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://santoantoniolapa.com.br/horario-das-celebracoes.html",
+          "title": "Horário das Celebrações – Paróquia de Santo Antônio (Lapa)",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://santoantoniolapa.com.br/capelas-da-paroquia-santo-antonio-da-lapa",
+          "title": "Capelas da Paróquia Santo Antônio da Lapa (34 capelas em 7 setores)",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://www.diocesesjp.org.br/paroquias/lapa/paroquia-santo-antonio",
+          "title": "Diocese de São José dos Pinhais – Paróquia Santo Antônio (Lapa) (pároco Pe. Elves Allano Perrony; site em manutenção, dados via índice de busca)",
+          "accessedAt": "2026-09-09"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz de Santo Antônio",
+          "address": "Praça General Carneiro, 84 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://santoantoniolapa.com.br/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santuário de São Benedito",
+          "address": null,
+          "neighborhood": "Centro",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://santoantoniolapa.com.br/horario-das-celebracoes.html"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Sebastião (Espigãozinho)",
+          "address": null,
+          "neighborhood": "Espigãozinho",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://santoantoniolapa.com.br/capelas-da-paroquia-santo-antonio-da-lapa"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora Aparecida (Faxinal dos Pintos)",
+          "address": null,
+          "neighborhood": "Faxinal dos Pintos",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://santoantoniolapa.com.br/capelas-da-paroquia-santo-antonio-da-lapa"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora das Dores (Campina das Dores)",
+          "address": null,
+          "neighborhood": "Campina das Dores",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://santoantoniolapa.com.br/capelas-da-paroquia-santo-antonio-da-lapa"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela do Menino Jesus (Espigão Branco)",
+          "address": null,
+          "neighborhood": "Espigão Branco",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://santoantoniolapa.com.br/capelas-da-paroquia-santo-antonio-da-lapa"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Francisco de Assis (Pedra Lisa)",
+          "address": null,
+          "neighborhood": "Pedra Lisa",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://santoantoniolapa.com.br/capelas-da-paroquia-santo-antonio-da-lapa"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Senhor Bom Jesus (Fazenda dos Forjos)",
+          "address": null,
+          "neighborhood": "Fazenda dos Forjos",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://santoantoniolapa.com.br/capelas-da-paroquia-santo-antonio-da-lapa"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São João Batista (Floresta São João)",
+          "address": null,
+          "neighborhood": "Floresta São João",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://santoantoniolapa.com.br/capelas-da-paroquia-santo-antonio-da-lapa"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora Aparecida (Paiquerê)",
+          "address": null,
+          "neighborhood": "Paiquerê",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://santoantoniolapa.com.br/capelas-da-paroquia-santo-antonio-da-lapa"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela João Paulo II (Comunidade João Paulo II)",
+          "address": null,
+          "neighborhood": "João Paulo II",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://santoantoniolapa.com.br/capelas-da-paroquia-santo-antonio-da-lapa"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Imaculada Conceição (Faxinal dos Correas)",
+          "address": null,
+          "neighborhood": "Faxinal dos Correas",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://santoantoniolapa.com.br/capelas-da-paroquia-santo-antonio-da-lapa"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São João Batista (Colônia Johannesdorf)",
+          "address": null,
+          "neighborhood": "Colônia Johannesdorf",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://santoantoniolapa.com.br/capelas-da-paroquia-santo-antonio-da-lapa"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora da Luz (Capão Bonito)",
+          "address": null,
+          "neighborhood": "Capão Bonito",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://santoantoniolapa.com.br/capelas-da-paroquia-santo-antonio-da-lapa"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora do Perpétuo Socorro (Vista Alegre)",
+          "address": null,
+          "neighborhood": "Vista Alegre",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://santoantoniolapa.com.br/capelas-da-paroquia-santo-antonio-da-lapa"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Sebastião (Santo Amaro)",
+          "address": null,
+          "neighborhood": "Santo Amaro",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://santoantoniolapa.com.br/capelas-da-paroquia-santo-antonio-da-lapa"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Sagrado Coração de Jesus (São Bento I)",
+          "address": null,
+          "neighborhood": "São Bento I",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://santoantoniolapa.com.br/capelas-da-paroquia-santo-antonio-da-lapa"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora do Perpétuo Socorro (São Bento II)",
+          "address": null,
+          "neighborhood": "São Bento II",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://santoantoniolapa.com.br/capelas-da-paroquia-santo-antonio-da-lapa"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora das Graças (Pinheiros)",
+          "address": null,
+          "neighborhood": "Pinheiros",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://santoantoniolapa.com.br/capelas-da-paroquia-santo-antonio-da-lapa"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela do Divino Espírito Santo (Pedrinhas)",
+          "address": null,
+          "neighborhood": "Pedrinhas",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://santoantoniolapa.com.br/capelas-da-paroquia-santo-antonio-da-lapa"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora das Graças (Marafigo)",
+          "address": null,
+          "neighborhood": "Marafigo",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://santoantoniolapa.com.br/capelas-da-paroquia-santo-antonio-da-lapa"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Senhor Bom Jesus (Colônia Municipal)",
+          "address": null,
+          "neighborhood": "Colônia Municipal",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://santoantoniolapa.com.br/capelas-da-paroquia-santo-antonio-da-lapa"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Sebastião (Faxinal dos Pretos)",
+          "address": null,
+          "neighborhood": "Faxinal dos Pretos",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://santoantoniolapa.com.br/capelas-da-paroquia-santo-antonio-da-lapa"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Miguel (Passa Dois)",
+          "address": null,
+          "neighborhood": "Passa Dois",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://santoantoniolapa.com.br/capelas-da-paroquia-santo-antonio-da-lapa"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora Aparecida (Km 202)",
+          "address": null,
+          "neighborhood": "Km 202",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://santoantoniolapa.com.br/capelas-da-paroquia-santo-antonio-da-lapa"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora Aparecida (Capão Alto)",
+          "address": null,
+          "neighborhood": "Capão Alto",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://santoantoniolapa.com.br/capelas-da-paroquia-santo-antonio-da-lapa"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora de Fátima (Estação Nova)",
+          "address": null,
+          "neighborhood": "Estação Nova",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://santoantoniolapa.com.br/capelas-da-paroquia-santo-antonio-da-lapa"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela de São José (Vila São José)",
+          "address": null,
+          "neighborhood": "Vila São José",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://santoantoniolapa.com.br/capelas-da-paroquia-santo-antonio-da-lapa"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Santa Teresinha do Menino Jesus (Vila do Príncipe)",
+          "address": null,
+          "neighborhood": "Vila do Príncipe",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://santoantoniolapa.com.br/capelas-da-paroquia-santo-antonio-da-lapa"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora Aparecida (Cohapar)",
+          "address": null,
+          "neighborhood": "Cohapar",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://santoantoniolapa.com.br/capelas-da-paroquia-santo-antonio-da-lapa"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela do Menino Jesus (Vila José Lacerda)",
+          "address": null,
+          "neighborhood": "Vila José Lacerda",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://santoantoniolapa.com.br/capelas-da-paroquia-santo-antonio-da-lapa"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora dos Milagres (Milagres)",
+          "address": null,
+          "neighborhood": "Milagres",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://santoantoniolapa.com.br/capelas-da-paroquia-santo-antonio-da-lapa"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Sebastião (Vila Esperança)",
+          "address": null,
+          "neighborhood": "Vila Esperança",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://santoantoniolapa.com.br/capelas-da-paroquia-santo-antonio-da-lapa"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Benedito (I Faxinal)",
+          "address": null,
+          "neighborhood": "I Faxinal",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://santoantoniolapa.com.br/capelas-da-paroquia-santo-antonio-da-lapa"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São João Batista (Faxinal dos Dias)",
+          "address": null,
+          "neighborhood": "Faxinal dos Dias",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://santoantoniolapa.com.br/capelas-da-paroquia-santo-antonio-da-lapa"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora da Conceição e Caridade (Pedra Alta)",
+          "address": null,
+          "neighborhood": "Pedra Alta",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://santoantoniolapa.com.br/capelas-da-paroquia-santo-antonio-da-lapa"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz de Santo Antônio",
+          "dayOfWeek": 1,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://santoantoniolapa.com.br/horario-das-celebracoes.html"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz de Santo Antônio",
+          "dayOfWeek": 2,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Com bênção dos pães",
+          "sources": [
+            {
+              "url": "https://santoantoniolapa.com.br/horario-das-celebracoes.html"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz de Santo Antônio",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://santoantoniolapa.com.br/horario-das-celebracoes.html"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz de Santo Antônio",
+          "dayOfWeek": 5,
+          "time": "14:30",
+          "type": "MASS",
+          "notes": "Em honra ao Sagrado Coração de Jesus",
+          "sources": [
+            {
+              "url": "https://santoantoniolapa.com.br/horario-das-celebracoes.html"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Santuário de São Benedito",
+          "dayOfWeek": 3,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": "Novena de N. Sra. do Perpétuo Socorro",
+          "sources": [
+            {
+              "url": "https://santoantoniolapa.com.br/horario-das-celebracoes.html"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Santuário de São Benedito",
+          "dayOfWeek": 3,
+          "time": "14:30",
+          "type": "MASS",
+          "notes": "Novena de N. Sra. do Perpétuo Socorro",
+          "sources": [
+            {
+              "url": "https://santoantoniolapa.com.br/horario-das-celebracoes.html"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Santuário de São Benedito",
+          "dayOfWeek": 3,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": "Novena de N. Sra. do Perpétuo Socorro",
+          "sources": [
+            {
+              "url": "https://santoantoniolapa.com.br/horario-das-celebracoes.html"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Santuário de São Benedito",
+          "dayOfWeek": 3,
+          "time": "20:00",
+          "type": "MASS",
+          "notes": "Novena de N. Sra. do Perpétuo Socorro",
+          "sources": [
+            {
+              "url": "https://santoantoniolapa.com.br/horario-das-celebracoes.html"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Santuário de São Benedito",
+          "dayOfWeek": 6,
+          "time": "16:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://santoantoniolapa.com.br/horario-das-celebracoes.html"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Santuário de São Benedito",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://santoantoniolapa.com.br/horario-das-celebracoes.html"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Santuário de São Benedito",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://santoantoniolapa.com.br/horario-das-celebracoes.html"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Santuário de São Benedito",
+          "dayOfWeek": 0,
+          "time": "10:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://santoantoniolapa.com.br/horario-das-celebracoes.html"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Santuário de São Benedito",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://santoantoniolapa.com.br/horario-das-celebracoes.html"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Capela Nossa Senhora das Dores (Campina das Dores)",
+          "dayOfWeek": 0,
+          "time": "09:30",
+          "type": "MASS",
+          "notes": "Frequência (semanal/mensal) não explícita na fonte",
+          "sources": [
+            {
+              "url": "https://santoantoniolapa.com.br/capelas-da-paroquia-santo-antonio-da-lapa"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Capela do Menino Jesus (Espigão Branco)",
+          "dayOfWeek": 0,
+          "time": "09:30",
+          "type": "MASS",
+          "notes": "Frequência (semanal/mensal) não explícita na fonte",
+          "sources": [
+            {
+              "url": "https://santoantoniolapa.com.br/capelas-da-paroquia-santo-antonio-da-lapa"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Capela São Francisco de Assis (Pedra Lisa)",
+          "dayOfWeek": 0,
+          "time": "09:30",
+          "type": "MASS",
+          "notes": "Frequência (semanal/mensal) não explícita na fonte",
+          "sources": [
+            {
+              "url": "https://santoantoniolapa.com.br/capelas-da-paroquia-santo-antonio-da-lapa"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Capela São João Batista (Floresta São João)",
+          "dayOfWeek": 0,
+          "time": "09:30",
+          "type": "MASS",
+          "notes": "Frequência (semanal/mensal) não explícita na fonte",
+          "sources": [
+            {
+              "url": "https://santoantoniolapa.com.br/capelas-da-paroquia-santo-antonio-da-lapa"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Capela Nossa Senhora Aparecida (Paiquerê)",
+          "dayOfWeek": 0,
+          "time": "09:30",
+          "type": "MASS",
+          "notes": "Frequência (semanal/mensal) não explícita na fonte",
+          "sources": [
+            {
+              "url": "https://santoantoniolapa.com.br/capelas-da-paroquia-santo-antonio-da-lapa"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Capela Imaculada Conceição (Faxinal dos Correas)",
+          "dayOfWeek": 0,
+          "time": "09:30",
+          "type": "MASS",
+          "notes": "Frequência (semanal/mensal) não explícita na fonte",
+          "sources": [
+            {
+              "url": "https://santoantoniolapa.com.br/capelas-da-paroquia-santo-antonio-da-lapa"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Capela Nossa Senhora da Luz (Capão Bonito)",
+          "dayOfWeek": 0,
+          "time": "10:15",
+          "type": "MASS",
+          "notes": "Frequência (semanal/mensal) não explícita na fonte",
+          "sources": [
+            {
+              "url": "https://santoantoniolapa.com.br/capelas-da-paroquia-santo-antonio-da-lapa"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Capela Nossa Senhora do Perpétuo Socorro (Vista Alegre)",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Frequência (semanal/mensal) não explícita na fonte",
+          "sources": [
+            {
+              "url": "https://santoantoniolapa.com.br/capelas-da-paroquia-santo-antonio-da-lapa"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Capela São Sebastião (Santo Amaro)",
+          "dayOfWeek": 0,
+          "time": "10:00",
+          "type": "MASS",
+          "notes": "Frequência (semanal/mensal) não explícita na fonte",
+          "sources": [
+            {
+              "url": "https://santoantoniolapa.com.br/capelas-da-paroquia-santo-antonio-da-lapa"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Capela Sagrado Coração de Jesus (São Bento I)",
+          "dayOfWeek": 0,
+          "time": "09:30",
+          "type": "MASS",
+          "notes": "Frequência (semanal/mensal) não explícita na fonte",
+          "sources": [
+            {
+              "url": "https://santoantoniolapa.com.br/capelas-da-paroquia-santo-antonio-da-lapa"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Capela Nossa Senhora do Perpétuo Socorro (São Bento II)",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": "Frequência (semanal/mensal) não explícita na fonte",
+          "sources": [
+            {
+              "url": "https://santoantoniolapa.com.br/capelas-da-paroquia-santo-antonio-da-lapa"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Capela do Divino Espírito Santo (Pedrinhas)",
+          "dayOfWeek": 0,
+          "time": "10:00",
+          "type": "MASS",
+          "notes": "Frequência (semanal/mensal) não explícita na fonte",
+          "sources": [
+            {
+              "url": "https://santoantoniolapa.com.br/capelas-da-paroquia-santo-antonio-da-lapa"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Capela Nossa Senhora das Graças (Marafigo)",
+          "dayOfWeek": 0,
+          "time": "09:30",
+          "type": "MASS",
+          "notes": "Frequência (semanal/mensal) não explícita na fonte",
+          "sources": [
+            {
+              "url": "https://santoantoniolapa.com.br/capelas-da-paroquia-santo-antonio-da-lapa"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Capela Senhor Bom Jesus (Colônia Municipal)",
+          "dayOfWeek": 0,
+          "time": "10:00",
+          "type": "MASS",
+          "notes": "Frequência (semanal/mensal) não explícita na fonte",
+          "sources": [
+            {
+              "url": "https://santoantoniolapa.com.br/capelas-da-paroquia-santo-antonio-da-lapa"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Capela São Sebastião (Faxinal dos Pretos)",
+          "dayOfWeek": 0,
+          "time": "10:00",
+          "type": "MASS",
+          "notes": "Frequência (semanal/mensal) não explícita na fonte",
+          "sources": [
+            {
+              "url": "https://santoantoniolapa.com.br/capelas-da-paroquia-santo-antonio-da-lapa"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Capela São Miguel (Passa Dois)",
+          "dayOfWeek": 0,
+          "time": "09:30",
+          "type": "MASS",
+          "notes": "Frequência (semanal/mensal) não explícita na fonte",
+          "sources": [
+            {
+              "url": "https://santoantoniolapa.com.br/capelas-da-paroquia-santo-antonio-da-lapa"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Capela Nossa Senhora Aparecida (Km 202)",
+          "dayOfWeek": 0,
+          "time": "09:30",
+          "type": "MASS",
+          "notes": "Frequência (semanal/mensal) não explícita na fonte",
+          "sources": [
+            {
+              "url": "https://santoantoniolapa.com.br/capelas-da-paroquia-santo-antonio-da-lapa"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Capela de São José (Vila São José)",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": "Frequência (semanal/mensal) não explícita na fonte",
+          "sources": [
+            {
+              "url": "https://santoantoniolapa.com.br/capelas-da-paroquia-santo-antonio-da-lapa"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Capela Santa Teresinha do Menino Jesus (Vila do Príncipe)",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": "Frequência (semanal/mensal) não explícita na fonte",
+          "sources": [
+            {
+              "url": "https://santoantoniolapa.com.br/capelas-da-paroquia-santo-antonio-da-lapa"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Capela Nossa Senhora Aparecida (Cohapar)",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": "Frequência (semanal/mensal) não explícita na fonte",
+          "sources": [
+            {
+              "url": "https://santoantoniolapa.com.br/capelas-da-paroquia-santo-antonio-da-lapa"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Capela do Menino Jesus (Vila José Lacerda)",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": "Frequência (semanal/mensal) não explícita na fonte",
+          "sources": [
+            {
+              "url": "https://santoantoniolapa.com.br/capelas-da-paroquia-santo-antonio-da-lapa"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Capela Nossa Senhora dos Milagres (Milagres)",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Frequência (semanal/mensal) não explícita na fonte",
+          "sources": [
+            {
+              "url": "https://santoantoniolapa.com.br/capelas-da-paroquia-santo-antonio-da-lapa"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Capela São Benedito (I Faxinal)",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": "Frequência (semanal/mensal) não explícita na fonte",
+          "sources": [
+            {
+              "url": "https://santoantoniolapa.com.br/capelas-da-paroquia-santo-antonio-da-lapa"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Capela São João Batista (Faxinal dos Dias)",
+          "dayOfWeek": 0,
+          "time": "09:30",
+          "type": "MASS",
+          "notes": "Frequência (semanal/mensal) não explícita na fonte",
+          "sources": [
+            {
+              "url": "https://santoantoniolapa.com.br/capelas-da-paroquia-santo-antonio-da-lapa"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Capela Nossa Senhora da Conceição e Caridade (Pedra Alta)",
+          "dayOfWeek": 0,
+          "time": "10:00",
+          "type": "MASS",
+          "notes": "Frequência (semanal/mensal) não explícita na fonte",
+          "sources": [
+            {
+              "url": "https://santoantoniolapa.com.br/capelas-da-paroquia-santo-antonio-da-lapa"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "santos-reis-lapa",
+      "name": "Paróquia Santos Reis",
+      "city": "Lapa",
+      "state": "PR",
+      "neighborhood": "Pracinha Santos Reis",
+      "address": "Rodovia BR-476, km 241 – Pracinha Santos Reis",
+      "zipCode": null,
+      "phone": "(41) 98769-1939",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesesjp.org.br/paroquias/lapa/paroquia-santos-reis",
+          "title": "Diocese de São José dos Pinhais – Paróquia Santos Reis (Lapa) (site em manutenção; dados via índice de busca)",
+          "accessedAt": "2026-09-09"
+        }
+      ],
+      "confidence": "media",
+      "communities": [
+        {
+          "name": "Matriz Santos Reis",
+          "address": "Rodovia BR-476, km 241 – Pracinha Santos Reis",
+          "neighborhood": "Pracinha Santos Reis",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/lapa/paroquia-santos-reis"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Capela do Imaculado Coração de Maria (II Faxinal)",
+          "address": null,
+          "neighborhood": "II Faxinal",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/lapa/paroquia-santos-reis"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Capela de Nossa Senhora Aparecida (Mato Preto – Santa Regina)",
+          "address": null,
+          "neighborhood": "Mato Preto",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/lapa/paroquia-santos-reis"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Capela de Santo Antônio (Mato Preto – Povinho)",
+          "address": null,
+          "neighborhood": "Mato Preto",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/lapa/paroquia-santos-reis"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Capela de São Pedro e São Paulo (Mato Preto – Paiol)",
+          "address": null,
+          "neighborhood": "Mato Preto",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/lapa/paroquia-santos-reis"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Capela Nossa Senhora do Desterro e Divino Espírito Santo (Mato Preto – Machado)",
+          "address": null,
+          "neighborhood": "Mato Preto",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/lapa/paroquia-santos-reis"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Capela de Nossa Senhora de Fátima (Rio da Areia)",
+          "address": null,
+          "neighborhood": "Rio da Areia",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/lapa/paroquia-santos-reis"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Capela de Nossa Senhora Aparecida e São João Batista (Barreiro Grande)",
+          "address": null,
+          "neighborhood": "Barreiro Grande",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/lapa/paroquia-santos-reis"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Capela de Nossa Senhora dos Milagres (Barra dos Mellos)",
+          "address": null,
+          "neighborhood": "Barra dos Mellos",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/lapa/paroquia-santos-reis"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Capela de Santo Antônio (Bonito)",
+          "address": null,
+          "neighborhood": "Bonito",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/lapa/paroquia-santos-reis"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Capela da Sagrada Família (Carqueja)",
+          "address": null,
+          "neighborhood": "Carqueja",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/lapa/paroquia-santos-reis"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Santos Reis",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Novena de N. Sra. do Perpétuo Socorro",
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/lapa/paroquia-santos-reis"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Santos Reis",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/lapa/paroquia-santos-reis"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "imaculada-conceicao-lapa",
+      "name": "Paróquia Imaculada Conceição (Mariental)",
+      "city": "Lapa",
+      "state": "PR",
+      "neighborhood": "Mariental",
+      "address": "BR-476 (Rodovia do Xisto), km 186 – Mariental",
+      "zipCode": null,
+      "phone": "(41) 3639-1145",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesesjp.org.br/paroquias/mariental/paroquia-imaculada-conceicao",
+          "title": "Diocese de São José dos Pinhais – Paróquia Imaculada Conceição - Mariental (site em manutenção; dados via índice de busca)",
+          "accessedAt": "2026-09-09"
+        }
+      ],
+      "confidence": "media",
+      "communities": [
+        {
+          "name": "Matriz Imaculada Conceição",
+          "address": "BR-476 (Rodovia do Xisto), km 186 – Mariental",
+          "neighborhood": "Mariental",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/mariental/paroquia-imaculada-conceicao"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Capela Nossa Senhora do Perpétuo Socorro (Feixo)",
+          "address": null,
+          "neighborhood": "Feixo",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/mariental/paroquia-imaculada-conceicao"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Capela Imaculada Conceição (Lagoão)",
+          "address": null,
+          "neighborhood": "Lagoão",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/mariental/paroquia-imaculada-conceicao"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Capela Santa Bárbara (Pavão)",
+          "address": null,
+          "neighborhood": "Pavão",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/mariental/paroquia-imaculada-conceicao"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Capela Nossa Senhora do Rosário (Alves Cardoso)",
+          "address": null,
+          "neighborhood": "Alves Cardoso",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/mariental/paroquia-imaculada-conceicao"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Imaculada Conceição",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/mariental/paroquia-imaculada-conceicao"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Imaculada Conceição",
+          "dayOfWeek": 0,
+          "time": "08:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/mariental/paroquia-imaculada-conceicao"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "cristo-rei-campo-do-tenente",
+      "name": "Paróquia Cristo Rei",
+      "city": "Campo do Tenente",
+      "state": "PR",
+      "neighborhood": null,
+      "address": "Rua Miguel Komarchewski, 1057",
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesesjp.org.br/paroquias/campo-do-tenente/paroquia-cristo-rei",
+          "title": "Diocese de São José dos Pinhais – Paróquia Cristo Rei – Campo do Tenente (site em manutenção; dados via índice de busca)",
+          "accessedAt": "2026-09-09"
+        }
+      ],
+      "confidence": "media",
+      "communities": [
+        {
+          "name": "Matriz Cristo Rei",
+          "address": "Rua Miguel Komarchewski, 1057",
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/campo-do-tenente/paroquia-cristo-rei"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Capela Nossa Senhora Aparecida (Pau de Casca)",
+          "address": null,
+          "neighborhood": "Pau de Casca",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/campo-do-tenente/paroquia-cristo-rei"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Capela Senhor Bom Jesus (Buriti)",
+          "address": null,
+          "neighborhood": "Buriti",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/campo-do-tenente/paroquia-cristo-rei"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Capela Santa Terezinha (Rio da Várzea)",
+          "address": null,
+          "neighborhood": "Rio da Várzea",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/campo-do-tenente/paroquia-cristo-rei"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Capela Imaculada Conceição (Rio dos Patos)",
+          "address": null,
+          "neighborhood": "Rio dos Patos",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/campo-do-tenente/paroquia-cristo-rei"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Capela São José (Rodeio)",
+          "address": null,
+          "neighborhood": "Rodeio",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/campo-do-tenente/paroquia-cristo-rei"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Capela Divino Espírito Santo (Rio Vermelho)",
+          "address": null,
+          "neighborhood": "Rio Vermelho",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/campo-do-tenente/paroquia-cristo-rei"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Capela Nossa Senhora da Luz (Lageado)",
+          "address": null,
+          "neighborhood": "Lageado",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/campo-do-tenente/paroquia-cristo-rei"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Capela Nossa Senhora do Perpétuo Socorro (Serrinha)",
+          "address": null,
+          "neighborhood": "Serrinha",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/campo-do-tenente/paroquia-cristo-rei"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Capela São Sebastião (Bela Vista)",
+          "address": null,
+          "neighborhood": "Bela Vista",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/campo-do-tenente/paroquia-cristo-rei"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Capela Santa Rita (Vila Rural)",
+          "address": null,
+          "neighborhood": "Vila Rural",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/campo-do-tenente/paroquia-cristo-rei"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Capela Senhor Bom Jesus (Buriti)",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": "Frequência (semanal/mensal) não explícita na fonte",
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/campo-do-tenente/paroquia-cristo-rei"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Capela Santa Terezinha (Rio da Várzea)",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": "Frequência (semanal/mensal) não explícita na fonte",
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/campo-do-tenente/paroquia-cristo-rei"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Capela Imaculada Conceição (Rio dos Patos)",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Frequência (semanal/mensal) não explícita na fonte",
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/campo-do-tenente/paroquia-cristo-rei"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Capela São José (Rodeio)",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": "Frequência (semanal/mensal) não explícita na fonte",
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/campo-do-tenente/paroquia-cristo-rei"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Capela Divino Espírito Santo (Rio Vermelho)",
+          "dayOfWeek": 0,
+          "time": "09:30",
+          "type": "MASS",
+          "notes": "Frequência (semanal/mensal) não explícita na fonte",
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/campo-do-tenente/paroquia-cristo-rei"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Capela Nossa Senhora da Luz (Lageado)",
+          "dayOfWeek": 0,
+          "time": "09:15",
+          "type": "MASS",
+          "notes": "Frequência (semanal/mensal) não explícita na fonte",
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/campo-do-tenente/paroquia-cristo-rei"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Capela Nossa Senhora do Perpétuo Socorro (Serrinha)",
+          "dayOfWeek": 0,
+          "time": "09:20",
+          "type": "MASS",
+          "notes": "Frequência (semanal/mensal) não explícita na fonte",
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/campo-do-tenente/paroquia-cristo-rei"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Capela São Sebastião (Bela Vista)",
+          "dayOfWeek": 6,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": "Frequência (semanal/mensal) não explícita na fonte",
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/campo-do-tenente/paroquia-cristo-rei"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "senhor-bom-jesus-da-cana-verde-quitandinha",
+      "name": "Paróquia Senhor Bom Jesus da Cana Verde",
+      "city": "Quitandinha",
+      "state": "PR",
+      "neighborhood": "Centro",
+      "address": "Rua Abílio Alves da Rocha, 41 – Centro",
+      "zipCode": null,
+      "phone": "(41) 3623-1240 / (41) 99946-7734",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesesjp.org.br/paroquias/quitandinha/paroquia-senhor-bom-jesus-da-cana-verde",
+          "title": "Diocese de São José dos Pinhais – Paróquia Senhor Bom Jesus da Cana Verde (site em manutenção; dados via índice de busca)",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://www.facebook.com/paroquiasbjcv/",
+          "title": "Paróquia Senhor Bom Jesus da Cana Verde - Quitandinha PR (Facebook oficial)",
+          "accessedAt": "2026-09-09"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "12:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/quitandinha/paroquia-senhor-bom-jesus-da-cana-verde"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/quitandinha/paroquia-senhor-bom-jesus-da-cana-verde"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/quitandinha/paroquia-senhor-bom-jesus-da-cana-verde"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/quitandinha/paroquia-senhor-bom-jesus-da-cana-verde"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/quitandinha/paroquia-senhor-bom-jesus-da-cana-verde"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-das-gracas-pien",
+      "name": "Paróquia Nossa Senhora das Graças",
+      "city": "Piên",
+      "state": "PR",
+      "neighborhood": "Centro",
+      "address": "Avenida Brasil – Centro",
+      "zipCode": null,
+      "phone": "(41) 3632-1099",
+      "email": "paroquiansg@yahoo.com.br",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesesjp.org.br/paroquias/pien/paroquia-n-sra-das-gracas",
+          "title": "Diocese de São José dos Pinhais – Paróquia N. Sra. das Graças (Piên) (site em manutenção; dados via índice de busca)",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://www.facebook.com/santuarionossasenhoradasgracaspien/",
+          "title": "Santuário Nossa Senhora das Graças | Piên PR (Facebook oficial; telefone/e-mail)",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://gcatholic.org/churches/brazil/55762.htm",
+          "title": "Igreja Nossa Senhora das Graças, Piên – GCatholic",
+          "accessedAt": "2026-09-09"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-da-conceicao-agudos-do-sul",
+      "name": "Paróquia Nossa Senhora da Conceição",
+      "city": "Agudos do Sul",
+      "state": "PR",
+      "neighborhood": "Centro",
+      "address": "Rua Rui Barbosa, 425 – Centro",
+      "zipCode": null,
+      "phone": "(41) 3624-1240",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Fabiano de Lima",
+      "foundedYear": 1957,
+      "sources": [
+        {
+          "url": "https://www.diocesesjp.org.br/paroquias/agudos-do-sul/paroquia-n-sra-da-conceicao",
+          "title": "Diocese de São José dos Pinhais – Paróquia Nossa Senhora da Conceição - Agudos do Sul (criada em 21/11/1957; pároco Pe. Fabiano de Lima; site em manutenção, dados via índice de busca)",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://www.facebook.com/pascompnsdc/",
+          "title": "Paróquia Nossa Senhora da Conceição | Agudos do Sul (Facebook oficial)",
+          "accessedAt": "2026-09-09"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 1,
+          "time": "19:00",
+          "type": "ROSARY",
+          "notes": "Terço das mulheres",
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/agudos-do-sul/paroquia-n-sra-da-conceicao"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 2,
+          "time": "19:00",
+          "type": "ROSARY",
+          "notes": "Terço dos homens",
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/agudos-do-sul/paroquia-n-sra-da-conceicao"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/agudos-do-sul/paroquia-n-sra-da-conceicao"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "ADORATION",
+          "notes": "Adoração ao Santíssimo",
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/agudos-do-sul/paroquia-n-sra-da-conceicao"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/agudos-do-sul/paroquia-n-sra-da-conceicao"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/agudos-do-sul/paroquia-n-sra-da-conceicao"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "senhor-bom-jesus-da-coluna-rio-negro",
+      "name": "Paróquia Senhor Bom Jesus da Coluna",
+      "city": "Rio Negro",
+      "state": "PR",
+      "neighborhood": "Centro",
+      "address": "Rua Dr. Vicente Machado, 131 – Centro",
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesesjp.org.br/paroquias/rio-negro/paroquia-senhor-bom-jesus-da-coluna",
+          "title": "Diocese de São José dos Pinhais – Paróquia Senhor Bom Jesus da Coluna - Rio Negro (site em manutenção; dados via índice de busca)",
+          "accessedAt": "2026-09-09"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "14:30",
+          "type": "MASS",
+          "notes": "Missa e novena de N. Sra. do Perpétuo Socorro",
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/rio-negro/paroquia-senhor-bom-jesus-da-coluna"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": "Missa e novena de N. Sra. do Perpétuo Socorro",
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/rio-negro/paroquia-senhor-bom-jesus-da-coluna"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/rio-negro/paroquia-senhor-bom-jesus-da-coluna"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "08:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/rio-negro/paroquia-senhor-bom-jesus-da-coluna"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/rio-negro/paroquia-senhor-bom-jesus-da-coluna"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-aparecida-rio-negro",
+      "name": "Paróquia Nossa Senhora Aparecida",
+      "city": "Rio Negro",
+      "state": "PR",
+      "neighborhood": "Bom Jesus",
+      "address": "Av. Afonso Petschow, 2840 – Bom Jesus",
+      "zipCode": "83883-268",
+      "phone": "(47) 3645-0364 / (47) 3642-6541",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Orlando Leal",
+      "foundedYear": 1979,
+      "sources": [
+        {
+          "url": "https://www.diocesesjp.org.br/paroquias/rio-negro/paroquia-n-sra-aparecida",
+          "title": "Diocese de São José dos Pinhais – Paróquia N. Sra. Aparecida - Rio Negro (site em manutenção; dados via índice de busca)",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://diocesesjp.org.br/clero-2/item/33-pe-orlando-leal",
+          "title": "Diocese de São José dos Pinhais – Pe. Orlando Leal (pároco)",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://gcatholic.org/churches/america-south/55768.htm",
+          "title": "Igreja Nossa Senhora Aparecida, Rio Negro – GCatholic (paróquia criada em 10/06/1979)",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://www.facebook.com/paroquiaaparecidarionegro/",
+          "title": "Paróquia Nossa Senhora Aparecida | Rio Negro PR (Facebook oficial)",
+          "accessedAt": "2026-09-09"
+        }
+      ],
+      "confidence": "media",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora Aparecida",
+          "address": "Av. Afonso Petschow, 2840 – Bom Jesus",
+          "neighborhood": "Bom Jesus",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/rio-negro/paroquia-n-sra-aparecida"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Capela Divino Espírito Santo",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/rio-negro/paroquia-n-sra-aparecida"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Capela Santa Terezinha",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/rio-negro/paroquia-n-sra-aparecida"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Capela São Judas Tadeu",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/rio-negro/paroquia-n-sra-aparecida"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Capela São João Batista",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesesjp.org.br/paroquias/rio-negro/paroquia-n-sra-aparecida"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora Aparecida",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.facebook.com/paroquiaaparecidarionegro/"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora Aparecida",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.facebook.com/paroquiaaparecidarionegro/"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora Aparecida",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.facebook.com/paroquiaaparecidarionegro/"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora Aparecida",
+          "dayOfWeek": 0,
+          "time": "08:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.facebook.com/paroquiaaparecidarionegro/"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-das-dores-tijucas-do-sul",
+      "name": "Paróquia Nossa Senhora das Dores",
+      "city": "Tijucas do Sul",
+      "state": "PR",
+      "neighborhood": "Centro",
+      "address": "Rua Presidente Médici, 437 – Centro",
+      "zipCode": "83190-000",
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesesjp.org.br/paroquias/tijucas-do-sul/paroquia-n-sra-das-dores",
+          "title": "Diocese de São José dos Pinhais – Paróquia Nossa Senhora das Dores – Tijucas do Sul (site em manutenção; dados via índice de busca)",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://www.instagram.com/senhoradasdoresparoquia/",
+          "title": "Paróquia N.Sra das Dores - Tijucas do Sul (Instagram oficial)",
+          "accessedAt": "2026-09-09"
+        },
+        {
+          "url": "https://sites.google.com/view/pnsradores/",
+          "title": "Nossa Senhora das Dores (Google Site; horários — proveniência incerta)",
+          "accessedAt": "2026-09-09"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 1,
+          "time": "07:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://sites.google.com/view/pnsradores/"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 2,
+          "time": "07:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://sites.google.com/view/pnsradores/"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "07:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://sites.google.com/view/pnsradores/"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Comunidade Esperança (local não identificado)",
+          "sources": [
+            {
+              "url": "https://sites.google.com/view/pnsradores/"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "16:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://sites.google.com/view/pnsradores/"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "07:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://sites.google.com/view/pnsradores/"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "10:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://sites.google.com/view/pnsradores/"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://sites.google.com/view/pnsradores/"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    }
+  ],
+  "coverage": {
+    "parishesFound": 41,
+    "parishesExpected": 42,
+    "notes": "catholic-hierarchy/gcatholic informam 42 paróquias (2022/2023). Encontradas 41 unidades com página oficial no site diocesano (40 paróquias + 1 quase-paróquia), todas confirmadas por URL oficial indexada e cruzadas com a lista de 41 igrejas do gcatholic; a intranet diocesana (chancelaria) exibe 45 pastas, provavelmente incluindo santuários/reitorias. O site oficial (diocesesjp.org.br) estava em manutenção em 09/09/2026: detalhes vieram do índice de busca das páginas oficiais (confiança media), de 7 sites paroquiais próprios lidos diretamente (alta) e de redes sociais/agregadores (media/baixa). Sem decanatos/foranias publicados. Horários mensais e Celebrações da Palavra não foram importados — ver RELATORIO-sao-jose-dos-pinhais.md."
+  }
+}

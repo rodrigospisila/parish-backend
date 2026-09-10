@@ -1,0 +1,575 @@
+{
+  "diocese": {
+    "name": "Diocese de Paranaguá",
+    "type": "Diocese",
+    "slug": "paranagua",
+    "city": "Paranaguá",
+    "state": "PR",
+    "address": "Largo Iria Corrêa, 31 – Centro Histórico",
+    "zipCode": "83203-115",
+    "phone": "(41) 3422-8553",
+    "email": "secretaria@diocesedeparanagua.org.br",
+    "website": "https://diocesedeparanagua.org.br",
+    "bishopName": "Dom Paulo Alves Romão",
+    "sources": [
+      { "url": "https://diocesedeparanagua.org.br/", "title": "Diocese de Paranaguá – Portal oficial (rodapé com endereço/contato)", "accessedAt": "2026-09-09" },
+      { "url": "https://diocesedeparanagua.org.br/bispodiocesano/", "title": "Bispo Diocesano – Dom Paulo Alves Romão (nomeado 20/08/2025, posse 27/09/2025)", "accessedAt": "2026-09-09" },
+      { "url": "https://diocesedeparanagua.org.br/paroquias/", "title": "Paróquias – Diocese de Paranaguá (4 regiões pastorais, 25 unidades)", "accessedAt": "2026-09-09" },
+      { "url": "https://www.catholic-hierarchy.org/diocese/dprua.html", "title": "Paranaguá (Diocese) [Catholic-Hierarchy] – 20 paróquias (2023)", "accessedAt": "2026-09-09" },
+      { "url": "https://gcatholic.org/dioceses/diocese/para5.htm", "title": "Diocese of Paranaguá – GCatholic", "accessedAt": "2026-09-09" },
+      { "url": "https://pt.wikipedia.org/wiki/Diocese_de_Paranagu%C3%A1", "title": "Diocese de Paranaguá – Wikipédia (21 paróquias, 13 municípios)", "accessedAt": "2026-09-09" }
+    ],
+    "confidence": "alta"
+  },
+  "parishes": [
+    {
+      "slug": "nossa-senhora-do-perpetuo-socorro-adrianopolis",
+      "name": "Paróquia Nossa Senhora do Perpétuo Socorro",
+      "city": "Adrianópolis", "state": "PR", "neighborhood": "Centro",
+      "address": "Rua Hilmo Antonio Mottin, 24 – Centro", "zipCode": "83490-000",
+      "phone": "(41) 3678-1212", "email": "paroquiadrianopolis@gmail.com", "website": null,
+      "priestName": "Pe. Daniel Willeman, MIC", "foundedYear": null,
+      "sources": [{ "url": "https://diocesedeparanagua.org.br/paranagua/", "title": "Paróquia Nossa Senhora do Perpétuo Socorro – Diocese de Paranaguá", "accessedAt": "2026-09-09" }],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "santo-antonio-bocaiuva-do-sul",
+      "name": "Paróquia Santo Antônio",
+      "city": "Bocaiúva do Sul", "state": "PR", "neighborhood": "Centro",
+      "address": "Praça Santo Antônio, 45 – Centro", "zipCode": "83450-000",
+      "phone": "(41) 3658-1248", "email": "paroquiabocaiuva@ig.com.br", "website": null,
+      "priestName": "Pe. Jimmi Mathew K. Kaval, CSJP", "foundedYear": null,
+      "sources": [{ "url": "https://diocesedeparanagua.org.br/paroquia-santo-antonio/", "title": "Paróquia Santo Antônio – Diocese de Paranaguá", "accessedAt": "2026-09-09" }],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 1, "time": "06:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/paroquia-santo-antonio/" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 2, "time": "06:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/paroquia-santo-antonio/" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 2, "time": "18:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/paroquia-santo-antonio/" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 3, "time": "06:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/paroquia-santo-antonio/" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 3, "time": "09:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/paroquia-santo-antonio/" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 3, "time": "18:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/paroquia-santo-antonio/" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 3, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/paroquia-santo-antonio/" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 4, "time": "06:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/paroquia-santo-antonio/" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 4, "time": "18:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/paroquia-santo-antonio/" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 5, "time": "06:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/paroquia-santo-antonio/" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 5, "time": "18:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/paroquia-santo-antonio/" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 6, "time": "18:00", "type": "MASS", "notes": "Celebrada no Centro Pastoral", "sources": [{ "url": "https://diocesedeparanagua.org.br/paroquia-santo-antonio/" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "08:00", "type": "MASS", "notes": "Celebrada no Centro Pastoral", "sources": [{ "url": "https://diocesedeparanagua.org.br/paroquia-santo-antonio/" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "10:00", "type": "MASS", "notes": "Celebrada no Centro Pastoral", "sources": [{ "url": "https://diocesedeparanagua.org.br/paroquia-santo-antonio/" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "sao-francisco-de-assis-tunas-do-parana",
+      "name": "Paróquia São Francisco de Assis",
+      "city": "Tunas do Paraná", "state": "PR", "neighborhood": "Centro",
+      "address": "Av. Lucídio Florêncio Ribeiro, 907 – Centro", "zipCode": "83480-000",
+      "phone": "(41) 3659-1867", "email": "paroquiasaofranciscotunas@gmail.com", "website": null,
+      "priestName": "Pe. Thomas P. Scaria, CSJP", "foundedYear": null,
+      "sources": [{ "url": "https://diocesedeparanagua.org.br/3-paroquia-sao-francisco-de-assis/", "title": "Paróquia São Francisco de Assis – Diocese de Paranaguá", "accessedAt": "2026-09-09" }],
+      "confidence": "alta",
+      "communities": [
+        { "name": "Matriz São Francisco de Assis", "address": "Av. Lucídio Florêncio Ribeiro, 907 – Centro", "neighborhood": "Centro", "isMatriz": true, "sources": [{ "url": "https://diocesedeparanagua.org.br/3-paroquia-sao-francisco-de-assis/" }], "confidence": "alta" },
+        { "name": "Comunidade São Sebastião (Ouro Fino)", "address": null, "neighborhood": "Ouro Fino", "isMatriz": false, "sources": [{ "url": "https://diocesedeparanagua.org.br/3-paroquia-sao-francisco-de-assis/" }], "confidence": "alta" },
+        { "name": "Comunidade São Domingos (Km 40)", "address": null, "neighborhood": "Km 40", "isMatriz": false, "sources": [{ "url": "https://diocesedeparanagua.org.br/3-paroquia-sao-francisco-de-assis/" }], "confidence": "alta" },
+        { "name": "Comunidade Senhor Bom Jesus (Morro Grande)", "address": null, "neighborhood": "Morro Grande", "isMatriz": false, "sources": [{ "url": "https://diocesedeparanagua.org.br/3-paroquia-sao-francisco-de-assis/" }], "confidence": "alta" },
+        { "name": "Comunidade Senhor Bom Jesus (Pocinhas)", "address": null, "neighborhood": "Pocinhas", "isMatriz": false, "sources": [{ "url": "https://diocesedeparanagua.org.br/3-paroquia-sao-francisco-de-assis/" }], "confidence": "alta" },
+        { "name": "Comunidade São Miguel Arcanjo (Pacas)", "address": null, "neighborhood": "Pacas", "isMatriz": false, "sources": [{ "url": "https://diocesedeparanagua.org.br/3-paroquia-sao-francisco-de-assis/" }], "confidence": "alta" },
+        { "name": "Comunidade São João Batista (Colônia Marquês)", "address": null, "neighborhood": "Colônia Marquês", "isMatriz": false, "sources": [{ "url": "https://diocesedeparanagua.org.br/3-paroquia-sao-francisco-de-assis/" }], "confidence": "alta" },
+        { "name": "Comunidade São Miguel Arcanjo (Tigre)", "address": null, "neighborhood": "Tigre", "isMatriz": false, "sources": [{ "url": "https://diocesedeparanagua.org.br/3-paroquia-sao-francisco-de-assis/" }], "confidence": "alta" },
+        { "name": "Comunidade Santo Antônio (Campinhos)", "address": null, "neighborhood": "Campinhos", "isMatriz": false, "sources": [{ "url": "https://diocesedeparanagua.org.br/3-paroquia-sao-francisco-de-assis/" }], "confidence": "alta" },
+        { "name": "Comunidade São João XXIII (João XXIII)", "address": null, "neighborhood": "João XXIII", "isMatriz": false, "sources": [{ "url": "https://diocesedeparanagua.org.br/3-paroquia-sao-francisco-de-assis/" }], "confidence": "alta" },
+        { "name": "Comunidade Santo Expedito (Barra Bonita)", "address": null, "neighborhood": "Barra Bonita", "isMatriz": false, "sources": [{ "url": "https://diocesedeparanagua.org.br/3-paroquia-sao-francisco-de-assis/" }], "confidence": "alta" },
+        { "name": "Comunidade Nossa Senhora Aparecida (Ribeirão das Pedras)", "address": null, "neighborhood": "Ribeirão das Pedras", "isMatriz": false, "sources": [{ "url": "https://diocesedeparanagua.org.br/3-paroquia-sao-francisco-de-assis/" }], "confidence": "alta" }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "sao-joao-batista-campina-grande-do-sul",
+      "name": "Paróquia São João Batista",
+      "city": "Campina Grande do Sul", "state": "PR", "neighborhood": "Jardim da Colina",
+      "address": "Avenida São João, 582 – Jardim da Colina", "zipCode": "83430-000",
+      "phone": "(41) 3676-1074", "email": "campinaparoquiasjb@gmail.com", "website": null,
+      "priestName": "Pe. Anderson Flaviano Ulatoski", "foundedYear": null,
+      "sources": [{ "url": "https://diocesedeparanagua.org.br/4-paroquia-sao-joao-batista/", "title": "Paróquia São João Batista (Campina Grande do Sul) – Diocese de Paranaguá", "accessedAt": "2026-09-09" }],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 3, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/4-paroquia-sao-joao-batista/" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "08:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/4-paroquia-sao-joao-batista/" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/4-paroquia-sao-joao-batista/" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-de-fatima-campina-grande-do-sul",
+      "name": "Paróquia Santuário Nossa Senhora de Fátima",
+      "city": "Campina Grande do Sul", "state": "PR", "neighborhood": "Jardim Paulista",
+      "address": "Avenida Alderico Bandeira de Lima, 1218 – Jardim Paulista", "zipCode": "83430-000",
+      "phone": "(41) 3679-2815 / (41) 99767-1407", "email": "santuariodefatimapr@gmail.com", "website": null,
+      "priestName": "Pe. José Messias Almeida Santos", "foundedYear": null,
+      "sources": [{ "url": "https://diocesedeparanagua.org.br/5-paroquia-santuario-nossa-senhora-de-fatima/", "title": "Paróquia Santuário Nossa Senhora de Fátima – Diocese de Paranaguá", "accessedAt": "2026-09-09" }],
+      "confidence": "alta",
+      "communities": [
+        { "name": "Matriz Santuário Nossa Senhora de Fátima", "address": "Avenida Alderico Bandeira de Lima, 1218 – Jardim Paulista", "neighborhood": "Jardim Paulista", "isMatriz": true, "sources": [{ "url": "https://diocesedeparanagua.org.br/5-paroquia-santuario-nossa-senhora-de-fatima/" }], "confidence": "alta" },
+        { "name": "Comunidade São José", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeparanagua.org.br/5-paroquia-santuario-nossa-senhora-de-fatima/" }], "confidence": "alta" },
+        { "name": "Comunidade Nossa Senhora da Luz", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeparanagua.org.br/5-paroquia-santuario-nossa-senhora-de-fatima/" }], "confidence": "alta" }
+      ],
+      "schedules": [
+        { "community": "Matriz Santuário Nossa Senhora de Fátima", "dayOfWeek": 3, "time": "15:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/5-paroquia-santuario-nossa-senhora-de-fatima/" }], "confidence": "alta" },
+        { "community": "Matriz Santuário Nossa Senhora de Fátima", "dayOfWeek": 4, "time": "06:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/5-paroquia-santuario-nossa-senhora-de-fatima/" }], "confidence": "alta" },
+        { "community": "Matriz Santuário Nossa Senhora de Fátima", "dayOfWeek": 4, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/5-paroquia-santuario-nossa-senhora-de-fatima/" }], "confidence": "alta" },
+        { "community": "Matriz Santuário Nossa Senhora de Fátima", "dayOfWeek": 6, "time": "16:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/5-paroquia-santuario-nossa-senhora-de-fatima/" }], "confidence": "alta" },
+        { "community": "Matriz Santuário Nossa Senhora de Fátima", "dayOfWeek": 0, "time": "07:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/5-paroquia-santuario-nossa-senhora-de-fatima/" }], "confidence": "alta" },
+        { "community": "Matriz Santuário Nossa Senhora de Fátima", "dayOfWeek": 0, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/5-paroquia-santuario-nossa-senhora-de-fatima/" }], "confidence": "alta" },
+        { "community": "Comunidade São José", "dayOfWeek": 3, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/5-paroquia-santuario-nossa-senhora-de-fatima/" }], "confidence": "alta" },
+        { "community": "Comunidade São José", "dayOfWeek": 0, "time": "09:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/5-paroquia-santuario-nossa-senhora-de-fatima/" }], "confidence": "alta" },
+        { "community": "Comunidade Nossa Senhora da Luz", "dayOfWeek": 3, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/5-paroquia-santuario-nossa-senhora-de-fatima/" }], "confidence": "alta" },
+        { "community": "Comunidade Nossa Senhora da Luz", "dayOfWeek": 0, "time": "10:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/5-paroquia-santuario-nossa-senhora-de-fatima/" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-da-saude-campina-grande-do-sul",
+      "name": "Reitoria Nossa Senhora da Saúde",
+      "city": "Campina Grande do Sul", "state": "PR", "neighborhood": "Araçatuba",
+      "address": "Rodovia do Caqui (PR-506), km 04 – Araçatuba", "zipCode": "83430-000",
+      "phone": "(41) 98540-9521", "email": null, "website": null,
+      "priestName": "Pe. Eliel de Oliveira Venâncio", "foundedYear": null,
+      "sources": [{ "url": "https://diocesedeparanagua.org.br/6-seminario-diocesano-senhora-do-rocio-e-reitoria-nossa-senhora-da-saude/", "title": "Seminário Diocesano Senhora do Rocio e Reitoria Nossa Senhora da Saúde (Área Pastoral Nossa Senhora da Saúde) – Diocese de Paranaguá", "accessedAt": "2026-09-09" }],
+      "confidence": "alta",
+      "communities": [
+        { "name": "Matriz Nossa Senhora da Saúde", "address": "Rodovia do Caqui (PR-506), km 04 – Araçatuba", "neighborhood": "Araçatuba", "isMatriz": true, "sources": [{ "url": "https://diocesedeparanagua.org.br/6-seminario-diocesano-senhora-do-rocio-e-reitoria-nossa-senhora-da-saude/" }], "confidence": "alta" },
+        { "name": "Comunidade Nossa Senhora Aparecida", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeparanagua.org.br/6-seminario-diocesano-senhora-do-rocio-e-reitoria-nossa-senhora-da-saude/" }], "confidence": "alta" },
+        { "name": "Comunidade Nossa Senhora da Guia", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeparanagua.org.br/6-seminario-diocesano-senhora-do-rocio-e-reitoria-nossa-senhora-da-saude/" }], "confidence": "alta" },
+        { "name": "Comunidade Divina Misericórdia", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeparanagua.org.br/6-seminario-diocesano-senhora-do-rocio-e-reitoria-nossa-senhora-da-saude/" }], "confidence": "alta" },
+        { "name": "Comunidade Sagrado Coração de Jesus", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeparanagua.org.br/6-seminario-diocesano-senhora-do-rocio-e-reitoria-nossa-senhora-da-saude/" }], "confidence": "alta" },
+        { "name": "Comunidade Santa Rita de Cássia", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeparanagua.org.br/6-seminario-diocesano-senhora-do-rocio-e-reitoria-nossa-senhora-da-saude/" }], "confidence": "alta" }
+      ],
+      "schedules": [
+        { "community": "Matriz Nossa Senhora da Saúde", "dayOfWeek": 4, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/6-seminario-diocesano-senhora-do-rocio-e-reitoria-nossa-senhora-da-saude/" }], "confidence": "alta" },
+        { "community": "Matriz Nossa Senhora da Saúde", "dayOfWeek": 0, "time": "09:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/6-seminario-diocesano-senhora-do-rocio-e-reitoria-nossa-senhora-da-saude/" }], "confidence": "alta" },
+        { "community": "Matriz Nossa Senhora da Saúde", "dayOfWeek": 0, "time": "18:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/6-seminario-diocesano-senhora-do-rocio-e-reitoria-nossa-senhora-da-saude/" }], "confidence": "alta" },
+        { "community": "Comunidade Nossa Senhora Aparecida", "dayOfWeek": 3, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/6-seminario-diocesano-senhora-do-rocio-e-reitoria-nossa-senhora-da-saude/" }], "confidence": "alta" },
+        { "community": "Comunidade Nossa Senhora Aparecida", "dayOfWeek": 0, "time": "08:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/6-seminario-diocesano-senhora-do-rocio-e-reitoria-nossa-senhora-da-saude/" }], "confidence": "alta" },
+        { "community": "Comunidade Sagrado Coração de Jesus", "dayOfWeek": 6, "time": "17:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/6-seminario-diocesano-senhora-do-rocio-e-reitoria-nossa-senhora-da-saude/" }], "confidence": "alta" },
+        { "community": "Comunidade Santa Rita de Cássia", "dayOfWeek": 6, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/6-seminario-diocesano-senhora-do-rocio-e-reitoria-nossa-senhora-da-saude/" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-da-guia-cerro-azul",
+      "name": "Paróquia Nossa Senhora da Guia",
+      "city": "Cerro Azul", "state": "PR", "neighborhood": "Centro",
+      "address": "Praça Monsenhor Celso – Centro", "zipCode": "83570-000",
+      "phone": "(41) 3662-1296", "email": "paroquiacierroazul@gmail.com", "website": null,
+      "priestName": "Pe. Eugênio Alexandre, C.Ss.R", "foundedYear": null,
+      "sources": [{ "url": "https://diocesedeparanagua.org.br/7-paroquia-nossa-senhora-da-guia/", "title": "Paróquia Nossa Senhora da Guia – Diocese de Paranaguá", "accessedAt": "2026-09-09" }],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 3, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/7-paroquia-nossa-senhora-da-guia/" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "08:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/7-paroquia-nossa-senhora-da-guia/" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/7-paroquia-nossa-senhora-da-guia/" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-aparecida-e-sao-joao-batista-doutor-ulysses",
+      "name": "Paróquia Nossa Senhora Aparecida e São João Batista",
+      "city": "Doutor Ulysses", "state": "PR", "neighborhood": "Vila Nova",
+      "address": "Avenida São João – Vila Nova", "zipCode": "83590-000",
+      "phone": "(41) 3168-9969", "email": "nsaparecidaesjoaobatista@gmail.com", "website": null,
+      "priestName": "Pe. José Antônio Simão", "foundedYear": null,
+      "sources": [{ "url": "https://diocesedeparanagua.org.br/8-paroquia-nossa-senhora-aparecida-e-sao-joao-batista/", "title": "Paróquia Nossa Senhora Aparecida e São João Batista – Diocese de Paranaguá", "accessedAt": "2026-09-09" }],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 4, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/8-paroquia-nossa-senhora-aparecida-e-sao-joao-batista/" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 6, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/8-paroquia-nossa-senhora-aparecida-e-sao-joao-batista/" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/8-paroquia-nossa-senhora-aparecida-e-sao-joao-batista/" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-do-porto-morretes",
+      "name": "Paróquia Nossa Senhora do Porto",
+      "city": "Morretes", "state": "PR", "neighborhood": "Centro",
+      "address": "Rua Cel. Modesto, 10 – Centro", "zipCode": "83350-000",
+      "phone": "(41) 98750-6306", "email": "igrejamatrizmorretes@gmail.com", "website": null,
+      "priestName": "Pe. Luiz Gonzaga Peres", "foundedYear": null,
+      "sources": [{ "url": "https://diocesedeparanagua.org.br/9-paroquia-nossa-senhora-do-porto/", "title": "Paróquia Nossa Senhora do Porto – Diocese de Paranaguá", "accessedAt": "2026-09-09" }],
+      "confidence": "alta",
+      "communities": [
+        { "name": "Matriz Nossa Senhora do Porto", "address": "Rua Cel. Modesto, 10 – Centro", "neighborhood": "Centro", "isMatriz": true, "sources": [{ "url": "https://diocesedeparanagua.org.br/9-paroquia-nossa-senhora-do-porto/" }], "confidence": "alta" },
+        { "name": "Capela São Benedito", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeparanagua.org.br/9-paroquia-nossa-senhora-do-porto/" }], "confidence": "alta" }
+      ],
+      "schedules": [
+        { "community": "Matriz Nossa Senhora do Porto", "dayOfWeek": 6, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/9-paroquia-nossa-senhora-do-porto/" }], "confidence": "alta" },
+        { "community": "Matriz Nossa Senhora do Porto", "dayOfWeek": 0, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/9-paroquia-nossa-senhora-do-porto/" }], "confidence": "alta" },
+        { "community": "Capela São Benedito", "dayOfWeek": 3, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/9-paroquia-nossa-senhora-do-porto/" }], "confidence": "alta" },
+        { "community": "Capela São Benedito", "dayOfWeek": 0, "time": "09:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/9-paroquia-nossa-senhora-do-porto/" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-do-pilar-antonina",
+      "name": "Paróquia Santuário Nossa Senhora do Pilar",
+      "city": "Antonina", "state": "PR", "neighborhood": "Centro",
+      "address": "Praça Coronel Macedo – Centro", "zipCode": "83370-000",
+      "phone": "(41) 98730-1121", "email": "matrizpilarantonina@gmail.com", "website": null,
+      "priestName": "Pe. Valdemir Ferreira de Proença", "foundedYear": null,
+      "sources": [{ "url": "https://diocesedeparanagua.org.br/10-paroquia-santuario-nossa-senhora-do-pilar/", "title": "Paróquia Santuário Nossa Senhora do Pilar – Diocese de Paranaguá", "accessedAt": "2026-09-09" }],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 3, "time": "15:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/10-paroquia-santuario-nossa-senhora-do-pilar/" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 6, "time": "08:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/10-paroquia-santuario-nossa-senhora-do-pilar/" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "08:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/10-paroquia-santuario-nossa-senhora-do-pilar/" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/10-paroquia-santuario-nossa-senhora-do-pilar/" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "senhor-bom-jesus-dos-perdoes-guaraquecaba",
+      "name": "Paróquia Senhor Bom Jesus dos Perdões",
+      "city": "Guaraqueçaba", "state": "PR", "neighborhood": null,
+      "address": "Rod. Dep. Miguel Bufara – Caixa Postal 21", "zipCode": "83390-000",
+      "phone": "(41) 99883-4715", "email": "bomjesusperdoes@gmail.com", "website": null,
+      "priestName": "Pe. Gilberto R. de Oliveira Filho, CM", "foundedYear": null,
+      "sources": [{ "url": "https://diocesedeparanagua.org.br/11-paroquia-senhor-bom-jesus-dos-perdoes/", "title": "Paróquia Senhor Bom Jesus dos Perdões – Diocese de Paranaguá", "accessedAt": "2026-09-09" }],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 0, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/11-paroquia-senhor-bom-jesus-dos-perdoes/" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "sao-pedro-e-sao-paulo-pontal-do-parana",
+      "name": "Paróquia São Pedro e São Paulo",
+      "city": "Pontal do Paraná", "state": "PR", "neighborhood": "Pontal do Sul",
+      "address": "Rua do Guapé – Pontal do Sul", "zipCode": "83255-000",
+      "phone": "(41) 99730-0350", "email": "paroquiasaopedrosaopaulo2@gmail.com", "website": null,
+      "priestName": "Pe. Emerson Sandro de Azevedo", "foundedYear": null,
+      "sources": [{ "url": "https://diocesedeparanagua.org.br/12-paroquia-sao-pedro-e-sao-paulo/", "title": "Paróquia São Pedro e São Paulo – Diocese de Paranaguá", "accessedAt": "2026-09-09" }],
+      "confidence": "alta",
+      "communities": [
+        { "name": "Matriz São Pedro e São Paulo", "address": "Rua do Guapé – Pontal do Sul", "neighborhood": "Pontal do Sul", "isMatriz": true, "sources": [{ "url": "https://diocesedeparanagua.org.br/12-paroquia-sao-pedro-e-sao-paulo/" }], "confidence": "alta" },
+        { "name": "Comunidade Sagrado Coração de Jesus", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeparanagua.org.br/12-paroquia-sao-pedro-e-sao-paulo/" }], "confidence": "alta" },
+        { "name": "Comunidade Nossa Senhora Aparecida", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeparanagua.org.br/12-paroquia-sao-pedro-e-sao-paulo/" }], "confidence": "alta" },
+        { "name": "Comunidade Nossa Senhora de Fátima", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeparanagua.org.br/12-paroquia-sao-pedro-e-sao-paulo/" }], "confidence": "alta" },
+        { "name": "Comunidade São José Operário", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeparanagua.org.br/12-paroquia-sao-pedro-e-sao-paulo/" }], "confidence": "alta" },
+        { "name": "Comunidade Gruta", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeparanagua.org.br/12-paroquia-sao-pedro-e-sao-paulo/" }], "confidence": "alta" },
+        { "name": "Comunidade Ilha do Mel – Encantadas", "address": null, "neighborhood": "Ilha do Mel", "isMatriz": false, "sources": [{ "url": "https://diocesedeparanagua.org.br/12-paroquia-sao-pedro-e-sao-paulo/" }], "confidence": "alta" },
+        { "name": "Comunidade Ilha do Mel – Nova Brasília", "address": null, "neighborhood": "Ilha do Mel", "isMatriz": false, "sources": [{ "url": "https://diocesedeparanagua.org.br/12-paroquia-sao-pedro-e-sao-paulo/" }], "confidence": "alta" }
+      ],
+      "schedules": [
+        { "community": "Matriz São Pedro e São Paulo", "dayOfWeek": 0, "time": "10:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/12-paroquia-sao-pedro-e-sao-paulo/" }], "confidence": "alta" },
+        { "community": "Matriz São Pedro e São Paulo", "dayOfWeek": 0, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/12-paroquia-sao-pedro-e-sao-paulo/" }], "confidence": "alta" },
+        { "community": "Comunidade Sagrado Coração de Jesus", "dayOfWeek": 3, "time": "15:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/12-paroquia-sao-pedro-e-sao-paulo/" }], "confidence": "alta" },
+        { "community": "Comunidade Sagrado Coração de Jesus", "dayOfWeek": 0, "time": "08:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/12-paroquia-sao-pedro-e-sao-paulo/" }], "confidence": "alta" },
+        { "community": "Comunidade Nossa Senhora Aparecida", "dayOfWeek": 6, "time": "18:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/12-paroquia-sao-pedro-e-sao-paulo/" }], "confidence": "alta" },
+        { "community": "Comunidade Nossa Senhora de Fátima", "dayOfWeek": 6, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/12-paroquia-sao-pedro-e-sao-paulo/" }], "confidence": "alta" },
+        { "community": "Comunidade São José Operário", "dayOfWeek": 3, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/12-paroquia-sao-pedro-e-sao-paulo/" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-do-bom-sucesso-guaratuba",
+      "name": "Paróquia Nossa Senhora do Bom Sucesso",
+      "city": "Guaratuba", "state": "PR", "neighborhood": "Centro",
+      "address": "Av. 29 de Abril, 51 – Centro", "zipCode": "83280-000",
+      "phone": "(41) 3135-0246", "email": "secretaria@paroquiaguaratuba.com.br", "website": null,
+      "priestName": "Pe. Óliton Ferreira Gomes, C.Ss.R", "foundedYear": null,
+      "sources": [{ "url": "https://diocesedeparanagua.org.br/13-paroquia-nossa-senhora-do-bom-sucesso/", "title": "Paróquia Nossa Senhora do Bom Sucesso – Diocese de Paranaguá", "accessedAt": "2026-09-09" }],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 4, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/13-paroquia-nossa-senhora-do-bom-sucesso/" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 5, "time": "15:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/13-paroquia-nossa-senhora-do-bom-sucesso/" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "10:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/13-paroquia-nossa-senhora-do-bom-sucesso/" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/13-paroquia-nossa-senhora-do-bom-sucesso/" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "sao-francisco-de-assis-guaratuba",
+      "name": "Paróquia São Francisco de Assis",
+      "city": "Guaratuba", "state": "PR", "neighborhood": "Cohapar",
+      "address": "Rua Engenheiro Beltrão, 186 – Cohapar", "zipCode": "83280-000",
+      "phone": "(41) 3472-3510", "email": "paroquiasaofranciscogtba@hotmail.com", "website": null,
+      "priestName": "Pe. Antonio Carlos da Silva", "foundedYear": null,
+      "sources": [{ "url": "https://diocesedeparanagua.org.br/14-paroquia-sao-francisco-de-assis/", "title": "Paróquia São Francisco de Assis (Guaratuba) – Diocese de Paranaguá", "accessedAt": "2026-09-09" }],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 2, "time": "06:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/14-paroquia-sao-francisco-de-assis/" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 3, "time": "06:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/14-paroquia-sao-francisco-de-assis/" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 4, "time": "06:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/14-paroquia-sao-francisco-de-assis/" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 4, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/14-paroquia-sao-francisco-de-assis/" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 5, "time": "06:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/14-paroquia-sao-francisco-de-assis/" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "09:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/14-paroquia-sao-francisco-de-assis/" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/14-paroquia-sao-francisco-de-assis/" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "sao-pedro-apostolo-matinhos",
+      "name": "Paróquia São Pedro Apóstolo",
+      "city": "Matinhos", "state": "PR", "neighborhood": "Centro",
+      "address": "Rua Ernesto Postarek, 131 – Centro", "zipCode": "83260-000",
+      "phone": "(41) 3453-1241 / (41) 99646-4761", "email": "secretariasaopedromts@gmail.com", "website": null,
+      "priestName": "Pe. Osvaldo Reginato", "foundedYear": null,
+      "sources": [{ "url": "https://diocesedeparanagua.org.br/15-paroquia-sao-pedro-apostolo/", "title": "Paróquia São Pedro Apóstolo – Diocese de Paranaguá", "accessedAt": "2026-09-09" }],
+      "confidence": "alta",
+      "communities": [
+        { "name": "Matriz São Pedro Apóstolo", "address": "Rua Ernesto Postarek, 131 – Centro", "neighborhood": "Centro", "isMatriz": true, "sources": [{ "url": "https://diocesedeparanagua.org.br/15-paroquia-sao-pedro-apostolo/" }], "confidence": "alta" },
+        { "name": "Igrejinha de São Pedro", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeparanagua.org.br/15-paroquia-sao-pedro-apostolo/" }], "confidence": "alta" },
+        { "name": "Comunidade Albatroz", "address": null, "neighborhood": "Albatroz", "isMatriz": false, "sources": [{ "url": "https://diocesedeparanagua.org.br/15-paroquia-sao-pedro-apostolo/" }], "confidence": "alta" },
+        { "name": "Comunidade Perequê", "address": null, "neighborhood": "Perequê", "isMatriz": false, "sources": [{ "url": "https://diocesedeparanagua.org.br/15-paroquia-sao-pedro-apostolo/" }], "confidence": "alta" },
+        { "name": "Comunidade Riviera", "address": null, "neighborhood": "Riviera", "isMatriz": false, "sources": [{ "url": "https://diocesedeparanagua.org.br/15-paroquia-sao-pedro-apostolo/" }], "confidence": "alta" },
+        { "name": "Comunidade Cohapar II", "address": null, "neighborhood": "Cohapar II", "isMatriz": false, "sources": [{ "url": "https://diocesedeparanagua.org.br/15-paroquia-sao-pedro-apostolo/" }], "confidence": "alta" }
+      ],
+      "schedules": [
+        { "community": "Matriz São Pedro Apóstolo", "dayOfWeek": 1, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/15-paroquia-sao-pedro-apostolo/" }], "confidence": "alta" },
+        { "community": "Matriz São Pedro Apóstolo", "dayOfWeek": 3, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/15-paroquia-sao-pedro-apostolo/" }], "confidence": "alta" },
+        { "community": "Matriz São Pedro Apóstolo", "dayOfWeek": 5, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/15-paroquia-sao-pedro-apostolo/" }], "confidence": "alta" },
+        { "community": "Matriz São Pedro Apóstolo", "dayOfWeek": 6, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/15-paroquia-sao-pedro-apostolo/" }], "confidence": "alta" },
+        { "community": "Matriz São Pedro Apóstolo", "dayOfWeek": 0, "time": "08:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/15-paroquia-sao-pedro-apostolo/" }], "confidence": "alta" },
+        { "community": "Matriz São Pedro Apóstolo", "dayOfWeek": 0, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/15-paroquia-sao-pedro-apostolo/" }], "confidence": "alta" },
+        { "community": "Igrejinha de São Pedro", "dayOfWeek": 4, "time": "18:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/15-paroquia-sao-pedro-apostolo/" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "santana-matinhos",
+      "name": "Paróquia Sant'Ana",
+      "city": "Matinhos", "state": "PR", "neighborhood": "Caiobá",
+      "address": "Rua Alvorada, 405 – Caiobá", "zipCode": "83260-000",
+      "phone": "(41) 3452-7579", "email": "santaanacaioba@gmail.com", "website": null,
+      "priestName": "Pe. Lyle Diaz Rodriguez, C.Ss.R", "foundedYear": null,
+      "sources": [{ "url": "https://diocesedeparanagua.org.br/16-paroquia-santana/", "title": "Paróquia Sant'Ana – Diocese de Paranaguá", "accessedAt": "2026-09-09" }],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 3, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/16-paroquia-santana/" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 6, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/16-paroquia-santana/" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/16-paroquia-santana/" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "sao-jose-pontal-do-parana",
+      "name": "Paróquia Santuário São José",
+      "city": "Pontal do Paraná", "state": "PR", "neighborhood": "Praia de Leste",
+      "address": "Rua Dom Alfredo Ernesto Novak, 167 – Praia de Leste", "zipCode": "83255-000",
+      "phone": "(41) 99521-9916", "email": "paroquiasaojoseesaosebastiao@hotmail.com", "website": null,
+      "priestName": "Pe. Denildo da Silva", "foundedYear": null,
+      "sources": [{ "url": "https://diocesedeparanagua.org.br/17-paroquia-sao-jose-e-sao-sebastiao/", "title": "Paróquia Santuário São José (Praia de Leste) – Diocese de Paranaguá", "accessedAt": "2026-09-09" }],
+      "confidence": "alta",
+      "communities": [
+        { "name": "Santuário São José", "address": "Rua Dom Alfredo Ernesto Novak, 167 – Praia de Leste", "neighborhood": "Praia de Leste", "isMatriz": true, "sources": [{ "url": "https://diocesedeparanagua.org.br/17-paroquia-sao-jose-e-sao-sebastiao/" }], "confidence": "alta" },
+        { "name": "Capela São Pedro e São Paulo", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeparanagua.org.br/17-paroquia-sao-jose-e-sao-sebastiao/" }], "confidence": "alta" },
+        { "name": "Capela Santa Teresinha", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeparanagua.org.br/17-paroquia-sao-jose-e-sao-sebastiao/" }], "confidence": "alta" },
+        { "name": "Capela Santa Cruz", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeparanagua.org.br/17-paroquia-sao-jose-e-sao-sebastiao/" }], "confidence": "alta" },
+        { "name": "Capela Santo Antônio", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeparanagua.org.br/17-paroquia-sao-jose-e-sao-sebastiao/" }], "confidence": "alta" }
+      ],
+      "schedules": [
+        { "community": "Santuário São José", "dayOfWeek": 3, "time": "16:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/17-paroquia-sao-jose-e-sao-sebastiao/" }], "confidence": "alta" },
+        { "community": "Santuário São José", "dayOfWeek": 6, "time": "20:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/17-paroquia-sao-jose-e-sao-sebastiao/" }], "confidence": "alta" },
+        { "community": "Santuário São José", "dayOfWeek": 0, "time": "09:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/17-paroquia-sao-jose-e-sao-sebastiao/" }], "confidence": "alta" },
+        { "community": "Santuário São José", "dayOfWeek": 0, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/17-paroquia-sao-jose-e-sao-sebastiao/" }], "confidence": "alta" },
+        { "community": "Capela São Pedro e São Paulo", "dayOfWeek": 0, "time": "10:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/17-paroquia-sao-jose-e-sao-sebastiao/" }], "confidence": "alta" },
+        { "community": "Capela Santa Teresinha", "dayOfWeek": 6, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/17-paroquia-sao-jose-e-sao-sebastiao/" }], "confidence": "alta" },
+        { "community": "Capela Santa Teresinha", "dayOfWeek": 0, "time": "08:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/17-paroquia-sao-jose-e-sao-sebastiao/" }], "confidence": "alta" },
+        { "community": "Capela Santa Cruz", "dayOfWeek": 3, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/17-paroquia-sao-jose-e-sao-sebastiao/" }], "confidence": "alta" },
+        { "community": "Capela Santa Cruz", "dayOfWeek": 0, "time": "10:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/17-paroquia-sao-jose-e-sao-sebastiao/" }], "confidence": "alta" },
+        { "community": "Capela Santo Antônio", "dayOfWeek": 6, "time": "18:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/17-paroquia-sao-jose-e-sao-sebastiao/" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-do-rosario-paranagua",
+      "name": "Catedral Nossa Senhora do Rosário",
+      "city": "Paranaguá", "state": "PR", "neighborhood": "Centro Histórico",
+      "address": "Rua Professor Cleto, 26 – Centro Histórico", "zipCode": "83203-030",
+      "phone": "(41) 3423-2293", "email": "catedral.nsrosario@gmail.com", "website": null,
+      "priestName": "Pe. Emerson Zella", "foundedYear": null,
+      "sources": [{ "url": "https://diocesedeparanagua.org.br/18-paroquia-nossa-senhora-do-rosario/", "title": "Paróquia Catedral Nossa Senhora do Rosário – Diocese de Paranaguá", "accessedAt": "2026-09-09" }],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 1, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/18-paroquia-nossa-senhora-do-rosario/" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 2, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/18-paroquia-nossa-senhora-do-rosario/" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 3, "time": "07:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/18-paroquia-nossa-senhora-do-rosario/" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 3, "time": "15:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/18-paroquia-nossa-senhora-do-rosario/" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 3, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/18-paroquia-nossa-senhora-do-rosario/" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 4, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/18-paroquia-nossa-senhora-do-rosario/" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 5, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/18-paroquia-nossa-senhora-do-rosario/" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "07:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/18-paroquia-nossa-senhora-do-rosario/" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "10:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/18-paroquia-nossa-senhora-do-rosario/" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/18-paroquia-nossa-senhora-do-rosario/" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-dos-navegantes-paranagua",
+      "name": "Paróquia Nossa Senhora dos Navegantes",
+      "city": "Paranaguá", "state": "PR", "neighborhood": "Ilha dos Valadares",
+      "address": "Praça da Matriz – Ilha dos Valadares", "zipCode": "83252-000",
+      "phone": "(41) 3422-5165", "email": "pnavegantes2005@hotmail.com", "website": null,
+      "priestName": "Pe. Jueberton Enil M. da Silva, IMCIM", "foundedYear": null,
+      "sources": [{ "url": "https://diocesedeparanagua.org.br/19-paroquia-nossa-sra-dos-navegantes/", "title": "Paróquia Nossa Senhora dos Navegantes – Diocese de Paranaguá", "accessedAt": "2026-09-09" }],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 3, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/19-paroquia-nossa-sra-dos-navegantes/" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "09:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/19-paroquia-nossa-sra-dos-navegantes/" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/19-paroquia-nossa-sra-dos-navegantes/" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-do-rocio-paranagua",
+      "name": "Santuário Estadual Nossa Senhora do Rocio",
+      "city": "Paranaguá", "state": "PR", "neighborhood": "Rocio",
+      "address": "Praça Padre Thomaz Sheehan, 211 – Rocio", "zipCode": "83302-970",
+      "phone": "(41) 3423-2020 / (41) 98721-1509", "email": "secretaria@santuariodorocio.com", "website": null,
+      "priestName": "Pe. Dirson Ferreira Gonçalves, C.Ss.R", "foundedYear": null,
+      "sources": [{ "url": "https://diocesedeparanagua.org.br/20-santuario-estadual-nossa-sra-do-rocio/", "title": "Santuário Estadual Nossa Senhora do Rocio – Diocese de Paranaguá", "accessedAt": "2026-09-09" }],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 1, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/20-santuario-estadual-nossa-sra-do-rocio/" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 2, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/20-santuario-estadual-nossa-sra-do-rocio/" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 3, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/20-santuario-estadual-nossa-sra-do-rocio/" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 4, "time": "18:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/20-santuario-estadual-nossa-sra-do-rocio/" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 4, "time": "20:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/20-santuario-estadual-nossa-sra-do-rocio/" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 5, "time": "06:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/20-santuario-estadual-nossa-sra-do-rocio/" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 5, "time": "15:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/20-santuario-estadual-nossa-sra-do-rocio/" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 5, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/20-santuario-estadual-nossa-sra-do-rocio/" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 6, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/20-santuario-estadual-nossa-sra-do-rocio/" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "09:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/20-santuario-estadual-nossa-sra-do-rocio/" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "11:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/20-santuario-estadual-nossa-sra-do-rocio/" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "17:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/20-santuario-estadual-nossa-sra-do-rocio/" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/20-santuario-estadual-nossa-sra-do-rocio/" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "santa-josefina-bakhita-paranagua",
+      "name": "Paróquia Santa Josefina Bakhita",
+      "city": "Paranaguá", "state": "PR", "neighborhood": "Jardim Vale do Sol",
+      "address": "Rua Aurélio Romoaldo Moro, 69 – Jardim Vale do Sol", "zipCode": "83218-512",
+      "phone": "(41) 3424-2358", "email": "secretariadabakhita@yahoo.com.br", "website": null,
+      "priestName": "Pe. João Mário Temóteo", "foundedYear": null,
+      "sources": [{ "url": "https://diocesedeparanagua.org.br/21-paroquia-santa-josefina-bakhita/", "title": "Paróquia Santa Josefina Bakhita – Diocese de Paranaguá", "accessedAt": "2026-09-09" }],
+      "confidence": "alta",
+      "communities": [
+        { "name": "Matriz Santa Josefina Bakhita", "address": "Rua Aurélio Romoaldo Moro, 69 – Jardim Vale do Sol", "neighborhood": "Jardim Vale do Sol", "isMatriz": true, "sources": [{ "url": "https://diocesedeparanagua.org.br/21-paroquia-santa-josefina-bakhita/" }], "confidence": "alta" },
+        { "name": "Comunidade Nossa Senhora Auxiliadora", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeparanagua.org.br/21-paroquia-santa-josefina-bakhita/" }], "confidence": "alta" },
+        { "name": "Comunidade São José Operário", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeparanagua.org.br/21-paroquia-santa-josefina-bakhita/" }], "confidence": "alta" }
+      ],
+      "schedules": [
+        { "community": "Matriz Santa Josefina Bakhita", "dayOfWeek": 4, "time": "20:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/21-paroquia-santa-josefina-bakhita/" }], "confidence": "alta" },
+        { "community": "Matriz Santa Josefina Bakhita", "dayOfWeek": 0, "time": "08:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/21-paroquia-santa-josefina-bakhita/" }], "confidence": "alta" },
+        { "community": "Comunidade Nossa Senhora Auxiliadora", "dayOfWeek": 0, "time": "10:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/21-paroquia-santa-josefina-bakhita/" }], "confidence": "alta" },
+        { "community": "Comunidade São José Operário", "dayOfWeek": 0, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/21-paroquia-santa-josefina-bakhita/" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "sao-joao-batista-paranagua",
+      "name": "Paróquia São João Batista",
+      "city": "Paranaguá", "state": "PR", "neighborhood": "Parque São João",
+      "address": "Rua Pe. José Roberto Souza Alvim, 284 – Parque São João", "zipCode": "83212-020",
+      "phone": "(41) 3423-7253", "email": "secretaria@saojoaobatista.org.br", "website": null,
+      "priestName": "Pe. Osvaldo Cabianchi Garcia", "foundedYear": null,
+      "sources": [{ "url": "https://diocesedeparanagua.org.br/22-paroquia-sao-joao-batista/", "title": "Paróquia São João Batista (Paranaguá) – Diocese de Paranaguá", "accessedAt": "2026-09-09" }],
+      "confidence": "alta",
+      "communities": [
+        { "name": "Matriz São João Batista", "address": "Rua Pe. José Roberto Souza Alvim, 284 – Parque São João", "neighborhood": "Parque São João", "isMatriz": true, "sources": [{ "url": "https://diocesedeparanagua.org.br/22-paroquia-sao-joao-batista/" }], "confidence": "alta" },
+        { "name": "Comunidade São João Maria Vianney", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeparanagua.org.br/22-paroquia-sao-joao-batista/" }], "confidence": "alta" },
+        { "name": "Comunidade Sagrado Coração de Jesus", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeparanagua.org.br/22-paroquia-sao-joao-batista/" }], "confidence": "alta" },
+        { "name": "Comunidade São Judas Tadeu", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeparanagua.org.br/22-paroquia-sao-joao-batista/" }], "confidence": "alta" }
+      ],
+      "schedules": [
+        { "community": "Matriz São João Batista", "dayOfWeek": 4, "time": "20:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/22-paroquia-sao-joao-batista/" }], "confidence": "alta" },
+        { "community": "Matriz São João Batista", "dayOfWeek": 0, "time": "08:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/22-paroquia-sao-joao-batista/" }], "confidence": "alta" },
+        { "community": "Matriz São João Batista", "dayOfWeek": 0, "time": "20:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/22-paroquia-sao-joao-batista/" }], "confidence": "alta" },
+        { "community": "Comunidade São João Maria Vianney", "dayOfWeek": 3, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/22-paroquia-sao-joao-batista/" }], "confidence": "alta" },
+        { "community": "Comunidade São João Maria Vianney", "dayOfWeek": 0, "time": "10:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/22-paroquia-sao-joao-batista/" }], "confidence": "alta" },
+        { "community": "Comunidade Sagrado Coração de Jesus", "dayOfWeek": 5, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/22-paroquia-sao-joao-batista/" }], "confidence": "alta" },
+        { "community": "Comunidade Sagrado Coração de Jesus", "dayOfWeek": 0, "time": "18:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/22-paroquia-sao-joao-batista/" }], "confidence": "alta" },
+        { "community": "Comunidade São Judas Tadeu", "dayOfWeek": 6, "time": "18:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/22-paroquia-sao-joao-batista/" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "sao-cristovao-paranagua",
+      "name": "Paróquia São Cristóvão",
+      "city": "Paranaguá", "state": "PR", "neighborhood": "Jardim Iguaçu",
+      "address": "Rua Pe. Adelir Antônio de Carli, 180 – Jardim Iguaçu", "zipCode": "83210-006",
+      "phone": "(41) 3425-5555", "email": "pscristovaopgua@gmail.com", "website": null,
+      "priestName": "Pe. Thiago Alves Trigo", "foundedYear": null,
+      "sources": [{ "url": "https://diocesedeparanagua.org.br/23-paroquia-sao-cristovao/", "title": "Paróquia São Cristóvão – Diocese de Paranaguá", "accessedAt": "2026-09-09" }],
+      "confidence": "alta",
+      "communities": [
+        { "name": "Matriz São Cristóvão", "address": "Rua Pe. Adelir Antônio de Carli, 180 – Jardim Iguaçu", "neighborhood": "Jardim Iguaçu", "isMatriz": true, "sources": [{ "url": "https://diocesedeparanagua.org.br/23-paroquia-sao-cristovao/" }], "confidence": "alta" },
+        { "name": "Comunidade Santa Rita", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeparanagua.org.br/23-paroquia-sao-cristovao/" }], "confidence": "alta" },
+        { "name": "Comunidade Nossa Senhora do Carmo", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeparanagua.org.br/23-paroquia-sao-cristovao/" }], "confidence": "alta" },
+        { "name": "Comunidade Nossa Senhora das Graças", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeparanagua.org.br/23-paroquia-sao-cristovao/" }], "confidence": "alta" },
+        { "name": "Comunidade Divino Espírito Santo", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeparanagua.org.br/23-paroquia-sao-cristovao/" }], "confidence": "alta" },
+        { "name": "Comunidade Santíssimo Redentor", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeparanagua.org.br/23-paroquia-sao-cristovao/" }], "confidence": "alta" }
+      ],
+      "schedules": [
+        { "community": "Matriz São Cristóvão", "dayOfWeek": 3, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/23-paroquia-sao-cristovao/" }], "confidence": "alta" },
+        { "community": "Matriz São Cristóvão", "dayOfWeek": 0, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/23-paroquia-sao-cristovao/" }], "confidence": "alta" },
+        { "community": "Comunidade Santa Rita", "dayOfWeek": 6, "time": "18:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/23-paroquia-sao-cristovao/" }], "confidence": "alta" },
+        { "community": "Comunidade Nossa Senhora do Carmo", "dayOfWeek": 6, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/23-paroquia-sao-cristovao/" }], "confidence": "alta" },
+        { "community": "Comunidade Nossa Senhora das Graças", "dayOfWeek": 0, "time": "08:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/23-paroquia-sao-cristovao/" }], "confidence": "alta" },
+        { "community": "Comunidade Divino Espírito Santo", "dayOfWeek": 0, "time": "09:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/23-paroquia-sao-cristovao/" }], "confidence": "alta" },
+        { "community": "Comunidade Santíssimo Redentor", "dayOfWeek": 0, "time": "18:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/23-paroquia-sao-cristovao/" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-da-paz-paranagua",
+      "name": "Paróquia Nossa Senhora da Paz",
+      "city": "Paranaguá", "state": "PR", "neighborhood": "Jardim Alvorada",
+      "address": "Rua Maneco Viana, 1042 – Jardim Alvorada", "zipCode": "83206-250",
+      "phone": "(41) 3423-3373", "email": "pazpns@gmail.com", "website": null,
+      "priestName": "Pe. Thiago Moisés da Silva", "foundedYear": null,
+      "sources": [{ "url": "https://diocesedeparanagua.org.br/24-paroquia-nossa-senhora-da-paz/", "title": "Paróquia Nossa Senhora da Paz – Diocese de Paranaguá", "accessedAt": "2026-09-09" }],
+      "confidence": "alta",
+      "communities": [
+        { "name": "Matriz Nossa Senhora da Paz", "address": "Rua Maneco Viana, 1042 – Jardim Alvorada", "neighborhood": "Jardim Alvorada", "isMatriz": true, "sources": [{ "url": "https://diocesedeparanagua.org.br/24-paroquia-nossa-senhora-da-paz/" }], "confidence": "alta" },
+        { "name": "Comunidade Nossa Senhora de Fátima", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeparanagua.org.br/24-paroquia-nossa-senhora-da-paz/" }], "confidence": "alta" },
+        { "name": "Comunidade Nossa Senhora Aparecida", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeparanagua.org.br/24-paroquia-nossa-senhora-da-paz/" }], "confidence": "alta" },
+        { "name": "Comunidade Senhor Bom Jesus", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeparanagua.org.br/24-paroquia-nossa-senhora-da-paz/" }], "confidence": "alta" }
+      ],
+      "schedules": [
+        { "community": "Matriz Nossa Senhora da Paz", "dayOfWeek": 4, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/24-paroquia-nossa-senhora-da-paz/" }], "confidence": "alta" },
+        { "community": "Matriz Nossa Senhora da Paz", "dayOfWeek": 6, "time": "20:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/24-paroquia-nossa-senhora-da-paz/" }], "confidence": "alta" },
+        { "community": "Matriz Nossa Senhora da Paz", "dayOfWeek": 0, "time": "08:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/24-paroquia-nossa-senhora-da-paz/" }], "confidence": "alta" },
+        { "community": "Matriz Nossa Senhora da Paz", "dayOfWeek": 0, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/24-paroquia-nossa-senhora-da-paz/" }], "confidence": "alta" },
+        { "community": "Comunidade Nossa Senhora de Fátima", "dayOfWeek": 2, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/24-paroquia-nossa-senhora-da-paz/" }], "confidence": "alta" },
+        { "community": "Comunidade Nossa Senhora de Fátima", "dayOfWeek": 6, "time": "18:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/24-paroquia-nossa-senhora-da-paz/" }], "confidence": "alta" },
+        { "community": "Comunidade Nossa Senhora Aparecida", "dayOfWeek": 3, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/24-paroquia-nossa-senhora-da-paz/" }], "confidence": "alta" },
+        { "community": "Comunidade Nossa Senhora Aparecida", "dayOfWeek": 0, "time": "18:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/24-paroquia-nossa-senhora-da-paz/" }], "confidence": "alta" },
+        { "community": "Comunidade Senhor Bom Jesus", "dayOfWeek": 2, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/24-paroquia-nossa-senhora-da-paz/" }], "confidence": "alta" },
+        { "community": "Comunidade Senhor Bom Jesus", "dayOfWeek": 0, "time": "09:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/24-paroquia-nossa-senhora-da-paz/" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "sao-francisco-das-chagas-paranagua",
+      "name": "Santuário São Francisco das Chagas",
+      "city": "Paranaguá", "state": "PR", "neighborhood": "Centro Histórico",
+      "address": "Rua XV de Novembro – Centro Histórico", "zipCode": "83203-010",
+      "phone": "(41) 3423-4234", "email": "santuariosaofranciscodaschagas@gmail.com", "website": null,
+      "priestName": "Pe. Mateus Rafael da Silva, IMCIM", "foundedYear": null,
+      "sources": [{ "url": "https://diocesedeparanagua.org.br/25-santuario-sao-francisco-das-chagas/", "title": "Santuário São Francisco das Chagas – Diocese de Paranaguá", "accessedAt": "2026-09-09" }],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 1, "time": "12:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/25-santuario-sao-francisco-das-chagas/" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 2, "time": "12:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/25-santuario-sao-francisco-das-chagas/" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 3, "time": "12:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/25-santuario-sao-francisco-das-chagas/" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 4, "time": "12:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/25-santuario-sao-francisco-das-chagas/" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 5, "time": "12:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/25-santuario-sao-francisco-das-chagas/" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 6, "time": "07:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/25-santuario-sao-francisco-das-chagas/" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 6, "time": "18:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/25-santuario-sao-francisco-das-chagas/" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "11:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/25-santuario-sao-francisco-das-chagas/" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "18:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeparanagua.org.br/25-santuario-sao-francisco-das-chagas/" }], "confidence": "alta" }
+      ]
+    }
+  ],
+  "coverage": {
+    "parishesFound": 25,
+    "parishesExpected": 21,
+    "notes": "O site oficial (diocesedeparanagua.org.br/paroquias/) lista 25 unidades em 4 regiões pastorais (Serra 8, Marumbi 3, Litoral 6, Paranaguá 8): 24 paróquias/santuários paroquiais + 1 área pastoral/reitoria (Nossa Senhora da Saúde, Campina Grande do Sul). Wikipédia informa 21 paróquias e catholic-hierarchy 20 (2023); a lista oficial é mais recente e foi adotada integralmente. Todas as 25 páginas oficiais foram lidas; horários mensais (1º/2º/3º/4º domingo ou sexta do mês) e Celebrações da Palavra não foram importados como horários fixos — ver RELATORIO-paranagua.md."
+  }
+}

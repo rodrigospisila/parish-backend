@@ -1,0 +1,1310 @@
+{
+  "diocese": {
+    "name": "Diocese de Guarapuava",
+    "type": "Diocese",
+    "slug": "guarapuava",
+    "city": "Guarapuava",
+    "state": "PR",
+    "address": "Rua Wilson Luiz Silvério Martins, 243 – Bairro Santana", "zipCode": "85070-670",
+    "phone": "(42) 3623-5984", "email": "contato@diopuava.org", "website": "https://diopuava.org/",
+    "bishopName": "Dom Amilton Manoel da Silva, CP",
+    "foundedYear": 1965,
+    "sources": [
+      { "url": "https://diopuava.org/", "title": "Diocese de Guarapuava PR – site oficial (rodapé com endereço, telefone e e-mail)", "accessedAt": "2026-09-09" },
+      { "url": "https://diopuava.org/bispo-diocesano/", "title": "Bispo Diocesano – Diocese de Guarapuava PR", "accessedAt": "2026-09-09" },
+      { "url": "https://diopuava.org/a-diocese/historico/", "title": "Histórico – Diocese de Guarapuava PR (criação 16/12/1965; 47 paróquias; 1.021 comunidades; 4 decanatos; 31 municípios)", "accessedAt": "2026-09-09" },
+      { "url": "https://www.catholic-hierarchy.org/diocese/dgurp.html", "title": "Diocese of Guarapuava – Catholic-Hierarchy (47 paróquias, 2023; bispo nomeado 06/05/2020)", "accessedAt": "2026-09-09" },
+      { "url": "https://pt.wikipedia.org/wiki/Diocese_de_Guarapuava", "title": "Diocese de Guarapuava – Wikipédia", "accessedAt": "2026-09-09" }
+    ],
+    "confidence": "alta"
+  },
+  "parishes": [
+    {
+      "slug": "nossa-senhora-de-belem-guarapuava",
+      "name": "Catedral e Santuário Diocesano Nossa Senhora de Belém",
+      "city": "Guarapuava", "state": "PR", "neighborhood": "Centro",
+      "address": "Rua Visconde de Guarapuava, 236 – Centro", "zipCode": "85010-240",
+      "phone": "(42) 3623-1282 / (42) 98871-3889", "email": "catedraldiopuava@gmail.com", "website": null,
+      "priestName": "Padre Valdecir Badzinski; Padre Agostinho Orley Grande; Padre Herick Rogger P. Vitchemechen",
+      "foundedYear": 1818,
+      "sources": [
+        { "url": "https://diopuava.org/decanato-centro/catedral-e-santuario-diocesano-nossa-senhora-de-belem/", "title": "Catedral e Santuário Diocesano Nossa Senhora de Belém – Diocese de Guarapuava PR", "accessedAt": "2026-09-09" },
+        { "url": "https://diopuava.org/paroquias/", "title": "Paróquias – Diocese de Guarapuava PR (Decanato Centro)", "accessedAt": "2026-09-09" }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 0, "time": "07:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "title": "Horários de Missas – Diocese de Guarapuava PR", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "09:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "title": "Horários de Missas – Diocese de Guarapuava PR", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "10:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "title": "Horários de Missas – Diocese de Guarapuava PR", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "title": "Horários de Missas – Diocese de Guarapuava PR", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 6, "time": "07:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "title": "Horários de Missas – Diocese de Guarapuava PR", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 6, "time": "09:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "title": "Horários de Missas – Diocese de Guarapuava PR", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 6, "time": "10:30", "type": "MASS", "notes": "Conforme página diocesana de horários (sábado com os mesmos horários do domingo); confirmar com a paróquia", "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "title": "Horários de Missas – Diocese de Guarapuava PR", "accessedAt": "2026-09-09" }], "confidence": "media" },
+        { "community": "Matriz", "dayOfWeek": 6, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "title": "Horários de Missas – Diocese de Guarapuava PR", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 1, "time": "07:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "title": "Horários de Missas – Diocese de Guarapuava PR", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 1, "time": "12:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "title": "Horários de Missas – Diocese de Guarapuava PR", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 1, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "title": "Horários de Missas – Diocese de Guarapuava PR", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 2, "time": "07:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "title": "Horários de Missas – Diocese de Guarapuava PR", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 2, "time": "12:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "title": "Horários de Missas – Diocese de Guarapuava PR", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 2, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "title": "Horários de Missas – Diocese de Guarapuava PR", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 3, "time": "07:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "title": "Horários de Missas – Diocese de Guarapuava PR", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 3, "time": "12:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "title": "Horários de Missas – Diocese de Guarapuava PR", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 3, "time": "15:00", "type": "MASS", "notes": "Novena Perpétua (listada entre as missas na página diocesana)", "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "title": "Horários de Missas – Diocese de Guarapuava PR", "accessedAt": "2026-09-09" }], "confidence": "media" },
+        { "community": "Matriz", "dayOfWeek": 3, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "title": "Horários de Missas – Diocese de Guarapuava PR", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 4, "time": "07:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "title": "Horários de Missas – Diocese de Guarapuava PR", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 4, "time": "12:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "title": "Horários de Missas – Diocese de Guarapuava PR", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 4, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "title": "Horários de Missas – Diocese de Guarapuava PR", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 5, "time": "07:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "title": "Horários de Missas – Diocese de Guarapuava PR", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 5, "time": "12:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "title": "Horários de Missas – Diocese de Guarapuava PR", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 5, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "title": "Horários de Missas – Diocese de Guarapuava PR", "accessedAt": "2026-09-09" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "santa-terezinha-guarapuava",
+      "name": "Paróquia Santa Terezinha",
+      "city": "Guarapuava", "state": "PR", "neighborhood": null,
+      "address": "Rua Tiradentes, 2007", "zipCode": "85010-310",
+      "phone": "(42) 3623-5192 / (42) 99992-0067", "email": "sterezinha@diopuava.org.br", "website": "https://paroquiastaterezinha.com.br",
+      "priestName": "Padre Ajay Kullu, SVD; Padre Estanislau Talma, SVD; Padre Andrzej Piasecki, SVD",
+      "foundedYear": 1960,
+      "sources": [
+        { "url": "https://diopuava.org/decanato-centro/paroquia-santa-terezinha/", "title": "Paróquia Santa Terezinha – Diocese de Guarapuava PR", "accessedAt": "2026-09-09" },
+        { "url": "https://paroquiastaterezinha.com.br/", "title": "Paróquia Santa Terezinha – site oficial (horários; notícias de 2025)", "accessedAt": "2026-09-09" }
+      ],
+      "confidence": "alta",
+      "communities": [
+        { "name": "Matriz Santa Terezinha", "address": "Rua Tiradentes, 2007", "neighborhood": null, "isMatriz": true, "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-santa-terezinha/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "name": "Comunidade Sagrado Coração de Jesus", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-santa-terezinha/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "name": "Comunidade Menino Jesus", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-santa-terezinha/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "name": "Comunidade Verbo Divino", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-santa-terezinha/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "name": "Comunidade São Francisco de Assis", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-santa-terezinha/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "name": "Comunidade Santa Margarida Maria de Alacoque", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-santa-terezinha/", "accessedAt": "2026-09-09" }], "confidence": "alta" }
+      ],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 2, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-santa-terezinha/", "accessedAt": "2026-09-09" }, { "url": "https://paroquiastaterezinha.com.br/", "accessedAt": "2026-09-09" }, { "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 3, "time": "15:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-santa-terezinha/", "accessedAt": "2026-09-09" }, { "url": "https://paroquiastaterezinha.com.br/", "accessedAt": "2026-09-09" }, { "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 3, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-santa-terezinha/", "accessedAt": "2026-09-09" }, { "url": "https://paroquiastaterezinha.com.br/", "accessedAt": "2026-09-09" }, { "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 4, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-santa-terezinha/", "accessedAt": "2026-09-09" }, { "url": "https://paroquiastaterezinha.com.br/", "accessedAt": "2026-09-09" }, { "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 5, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-santa-terezinha/", "accessedAt": "2026-09-09" }, { "url": "https://paroquiastaterezinha.com.br/", "accessedAt": "2026-09-09" }, { "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 6, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-santa-terezinha/", "accessedAt": "2026-09-09" }, { "url": "https://paroquiastaterezinha.com.br/", "accessedAt": "2026-09-09" }, { "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "09:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-santa-terezinha/", "accessedAt": "2026-09-09" }, { "url": "https://paroquiastaterezinha.com.br/", "accessedAt": "2026-09-09" }, { "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-santa-terezinha/", "accessedAt": "2026-09-09" }, { "url": "https://paroquiastaterezinha.com.br/", "accessedAt": "2026-09-09" }, { "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 1, "time": "19:00", "type": "MASS", "notes": "Consta só na página diocesana de horários ('segunda a sábado: 19h'); a página da paróquia e o site próprio não listam missa às segundas", "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "baixa" }
+      ]
+    },
+    {
+      "slug": "santa-cruz-e-nossa-senhora-das-dores-guarapuava",
+      "name": "Paróquia Santa Cruz e Nossa Senhora das Dores",
+      "city": "Guarapuava", "state": "PR", "neighborhood": "Santa Cruz",
+      "address": "Rua Padre Salvador Renna, 961 – Santa Cruz", "zipCode": "85015-430",
+      "phone": "(42) 3623-1801 / (42) 98803-7562", "email": "santacruz@diopuava.org.br", "website": null,
+      "priestName": "Padre Carlos de Oliveira Egler; Padre Everton Pavilaqui; Padre Cristovam Iubel",
+      "foundedYear": 1964,
+      "sources": [
+        { "url": "https://diopuava.org/decanato-centro/paroquia-santa-cruz-e-nossa-senhora-das-dores-guarapuava-pr/", "title": "Paróquia Santa Cruz e Nossa Senhora das Dores – Diocese de Guarapuava PR", "accessedAt": "2026-09-09" }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 0, "time": "10:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 3, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 4, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 5, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 6, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "santana-guarapuava",
+      "name": "Paróquia Sant'Ana",
+      "city": "Guarapuava", "state": "PR", "neighborhood": "Santana",
+      "address": "Rua Rosa Lustosa de Siqueira, 1105 – Santana", "zipCode": "85070-100",
+      "phone": "(42) 98808-9263", "email": "psantanagpuava@gmail.com", "website": null,
+      "priestName": "Padre Thiago Santos Souza",
+      "foundedYear": 1968,
+      "sources": [
+        { "url": "https://diopuava.org/decanato-centro/paroquia-santana/", "title": "Paróquia Sant'ana – Guarapuava-PR – Diocese de Guarapuava PR", "accessedAt": "2026-09-09" }
+      ],
+      "confidence": "alta",
+      "communities": [
+        { "name": "Matriz Sant'Ana", "address": "Rua Rosa Lustosa de Siqueira, 1105 – Santana", "neighborhood": "Santana", "isMatriz": true, "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-santana/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "name": "Comunidade São João Batista – Guabiroba", "address": null, "neighborhood": "Guabiroba", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-santana/", "accessedAt": "2026-09-09" }], "confidence": "media" }
+      ],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 0, "time": "08:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }, { "url": "https://diopuava.org/decanato-centro/paroquia-santana/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "10:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }, { "url": "https://diopuava.org/decanato-centro/paroquia-santana/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }, { "url": "https://diopuava.org/decanato-centro/paroquia-santana/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 6, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }, { "url": "https://diopuava.org/decanato-centro/paroquia-santana/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 3, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }, { "url": "https://diopuava.org/decanato-centro/paroquia-santana/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 1, "time": "15:00", "type": "MASS", "notes": "Consta só na página da paróquia, cujo bloco de celebrações está duplicado com o da Paróquia Santo Antônio (Manoel Ribas); validar", "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-santana/", "accessedAt": "2026-09-09" }], "confidence": "baixa" },
+        { "community": "Matriz", "dayOfWeek": 3, "time": "15:00", "type": "MASS", "notes": "Consta só na página da paróquia (bloco duplicado com Manoel Ribas); validar", "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-santana/", "accessedAt": "2026-09-09" }], "confidence": "baixa" },
+        { "community": "Matriz", "dayOfWeek": 5, "time": "15:00", "type": "MASS", "notes": "Consta só na página da paróquia (bloco duplicado com Manoel Ribas); validar", "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-santana/", "accessedAt": "2026-09-09" }], "confidence": "baixa" }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-aparecida-guarapuava",
+      "name": "Paróquia e Santuário Nossa Senhora Aparecida",
+      "city": "Guarapuava", "state": "PR", "neighborhood": "Bonsucesso",
+      "address": "Rua Alípio Marcondes, 212 – Bonsucesso", "zipCode": "85055-180",
+      "phone": "(42) 3624-1991 / (42) 99924-3924", "email": "santuario.nsa@hotmail.com", "website": null,
+      "priestName": "Padre Acácio Evêncio de Oliveira; Padre José Dolores Ugalde Goméz",
+      "foundedYear": 1975,
+      "sources": [
+        { "url": "https://diopuava.org/decanato-centro/paroquia-e-santuario-nossa-senhora-aparecida/", "title": "Paróquia e Santuário Nossa Senhora Aparecida – Diocese de Guarapuava PR", "accessedAt": "2026-09-09" }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 1, "time": "12:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-e-santuario-nossa-senhora-aparecida/", "accessedAt": "2026-09-09" }, { "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 1, "time": "19:00", "type": "ROSARY", "notes": "Terço das Mulheres", "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-e-santuario-nossa-senhora-aparecida/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 3, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-e-santuario-nossa-senhora-aparecida/", "accessedAt": "2026-09-09" }, { "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 4, "time": "12:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-e-santuario-nossa-senhora-aparecida/", "accessedAt": "2026-09-09" }, { "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 4, "time": "19:30", "type": "ROSARY", "notes": "Terço dos Homens", "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-e-santuario-nossa-senhora-aparecida/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 4, "time": "19:30", "type": "ADORATION", "notes": "Adoração ao Santíssimo, junto ao Terço dos Homens", "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-e-santuario-nossa-senhora-aparecida/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 5, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-e-santuario-nossa-senhora-aparecida/", "accessedAt": "2026-09-09" }, { "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 6, "time": "07:00", "type": "ROSARY", "notes": "Terço dos Homens", "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-e-santuario-nossa-senhora-aparecida/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 6, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-e-santuario-nossa-senhora-aparecida/", "accessedAt": "2026-09-09" }, { "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "07:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-e-santuario-nossa-senhora-aparecida/", "accessedAt": "2026-09-09" }, { "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "09:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-e-santuario-nossa-senhora-aparecida/", "accessedAt": "2026-09-09" }, { "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-e-santuario-nossa-senhora-aparecida/", "accessedAt": "2026-09-09" }, { "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "sao-joao-bosco-guarapuava",
+      "name": "Paróquia São João Bosco",
+      "city": "Guarapuava", "state": "PR", "neighborhood": "Vila Carli",
+      "address": "Rua Padre Honorino João Muraro, 208 – Vila Carli", "zipCode": "85040-180",
+      "phone": "(42) 3624-2131 / (42) 98442-3754", "email": "gvapdbosco@dombosco.net", "website": null,
+      "priestName": "Padre Tarcízio Paulo Odelli, SDB; Padre Nívio Jesus da Silva Hammes, SDB; Padre Heitor Girardi, SDB; Padre José Rodolpho Hess, SDB",
+      "foundedYear": 1977,
+      "sources": [
+        { "url": "https://diopuava.org/decanato-centro/paroquia-sao-joao-bosco/", "title": "Paróquia São João Bosco – Diocese de Guarapuava PR", "accessedAt": "2026-09-09" }
+      ],
+      "confidence": "alta",
+      "communities": [
+        { "name": "Matriz São João Bosco", "address": "Rua Padre Honorino João Muraro, 208 – Vila Carli", "neighborhood": "Vila Carli", "isMatriz": true, "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-sao-joao-bosco/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "name": "Comunidade Maria Mãe da Igreja", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-sao-joao-bosco/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "name": "Comunidade São Domingos Sávio", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-sao-joao-bosco/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "name": "Comunidade Auxílio dos Cristãos", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-sao-joao-bosco/", "accessedAt": "2026-09-09" }], "confidence": "alta" }
+      ],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 5, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-sao-joao-bosco/", "accessedAt": "2026-09-09" }, { "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 6, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-sao-joao-bosco/", "accessedAt": "2026-09-09" }, { "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "10:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-sao-joao-bosco/", "accessedAt": "2026-09-09" }, { "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-sao-joao-bosco/", "accessedAt": "2026-09-09" }, { "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 2, "time": "19:30", "type": "MASS", "notes": "Consta só na página diocesana de horários; a página da paróquia não lista terça-feira", "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "media" }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-de-fatima-guarapuava",
+      "name": "Paróquia Nossa Senhora de Fátima",
+      "city": "Guarapuava", "state": "PR", "neighborhood": "Primavera",
+      "address": "Av. Bandeirantes, 906 – Bairro Primavera", "zipCode": "85050-000",
+      "phone": "(42) 98858-2297", "email": "secretaria.nossa.fatima@gmail.com", "website": null,
+      "priestName": "Padre Jonas da Silva; Padre Crispin Luhinzo Mugalihya",
+      "foundedYear": 1989,
+      "sources": [
+        { "url": "https://diopuava.org/decanato-centro/paroquia-nossa-senhora-de-fatima/", "title": "Paróquia Nossa Senhora De Fátima – Guarapuava PR – Diocese de Guarapuava PR", "accessedAt": "2026-09-09" }
+      ],
+      "confidence": "alta",
+      "communities": [
+        { "name": "Matriz Nossa Senhora de Fátima", "address": "Av. Bandeirantes, 906 – Bairro Primavera", "neighborhood": "Primavera", "isMatriz": true, "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-nossa-senhora-de-fatima/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "name": "Comunidade Nossa Senhora de Fátima – Invernadinha", "address": null, "neighborhood": "Invernadinha", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-nossa-senhora-de-fatima/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "name": "Comunidade Nossa Senhora das Graças – Saltinho", "address": null, "neighborhood": "Saltinho", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-nossa-senhora-de-fatima/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "name": "Comunidade Nossa Senhora Aparecida – Matinhos", "address": null, "neighborhood": "Matinhos", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-nossa-senhora-de-fatima/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "name": "Comunidade Nossa Senhora das Graças – Assentamento São Pedro", "address": null, "neighborhood": "Assentamento São Pedro", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-nossa-senhora-de-fatima/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "name": "Comunidade São João Batista – Guairaca", "address": null, "neighborhood": "Guairaca", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-nossa-senhora-de-fatima/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "name": "Comunidade Imaculada Conceição – Mato Dentro", "address": null, "neighborhood": "Mato Dentro", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-nossa-senhora-de-fatima/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "name": "Comunidade Santa Rita de Cássia – Lagoa Rica", "address": null, "neighborhood": "Lagoa Rica", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-nossa-senhora-de-fatima/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "name": "Comunidade São Miguel – Rio do Corvo", "address": null, "neighborhood": "Rio do Corvo", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-nossa-senhora-de-fatima/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "name": "Comunidade São Sebastião – Faxinal dos Fiuzas", "address": null, "neighborhood": "Faxinal dos Fiuzas", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-nossa-senhora-de-fatima/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "name": "Comunidade Divino Espírito Santo – Marrecas de Cima", "address": null, "neighborhood": "Marrecas de Cima", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-nossa-senhora-de-fatima/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "name": "Comunidade Sagrado Coração de Jesus – Morada Nova", "address": null, "neighborhood": "Morada Nova", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-nossa-senhora-de-fatima/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "name": "Comunidade Santo Antônio – Morro Grande", "address": null, "neighborhood": "Morro Grande", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-nossa-senhora-de-fatima/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "name": "Comunidade Senhor Bom Jesus – Cará Pintado", "address": null, "neighborhood": "Cará Pintado", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-nossa-senhora-de-fatima/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "name": "Comunidade São Pedro – Guairaca", "address": null, "neighborhood": "Guairaca", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-nossa-senhora-de-fatima/", "accessedAt": "2026-09-09" }], "confidence": "alta" }
+      ],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 3, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-nossa-senhora-de-fatima/", "accessedAt": "2026-09-09" }, { "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 6, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-nossa-senhora-de-fatima/", "accessedAt": "2026-09-09" }, { "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-nossa-senhora-de-fatima/", "accessedAt": "2026-09-09" }, { "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "08:00", "type": "MASS", "notes": "Página da paróquia: 8h; página diocesana de horários: 8h30 — fontes divergem", "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-nossa-senhora-de-fatima/", "accessedAt": "2026-09-09" }], "confidence": "baixa" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "08:30", "type": "MASS", "notes": "Página diocesana de horários: 8h30; página da paróquia: 8h — fontes divergem", "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "baixa" }
+      ]
+    },
+    {
+      "slug": "divino-espirito-santo-guarapuava",
+      "name": "Paróquia Divino Espírito Santo",
+      "city": "Guarapuava", "state": "PR", "neighborhood": "Vila Bela",
+      "address": "Rua Francisco Demário, 405", "zipCode": "85027-150",
+      "phone": "(42) 99838-0301 / (42) 98833-3321", "email": "cssguarapuava@gmail.com", "website": null,
+      "priestName": "Padre Sebastião dos Santos Teixeira, CSS; Padre Agripino Mendoza Ozorio, CSS; Padre Pablino Torres Britez, CSS",
+      "foundedYear": 1991,
+      "sources": [
+        { "url": "https://diopuava.org/decanato-centro/paroquia-divino-espirito-santo-guarapuava-pr/", "title": "Paróquia Divino Espírito Santo – Guarapuava PR – Diocese de Guarapuava PR", "accessedAt": "2026-09-09" }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 0, "time": "07:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "09:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 2, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 3, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 4, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 5, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "santos-anjos-guarapuava",
+      "name": "Paróquia Santos Anjos",
+      "city": "Guarapuava", "state": "PR", "neighborhood": "São Cristóvão",
+      "address": "Av. Ipiranga, 168 – Bairro São Cristóvão", "zipCode": "85060-030",
+      "phone": "(42) 3624-3365", "email": "parsantosanjos@gmail.com", "website": null,
+      "priestName": "Frei Roberto Mauro Buhrer, FMM",
+      "foundedYear": 1996,
+      "sources": [
+        { "url": "https://diopuava.org/decanato-centro/paroquia-santos-anjos/", "title": "Paróquia Santos Anjos – Guarapuava-PR – Diocese de Guarapuava PR", "accessedAt": "2026-09-09" }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 3, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-santos-anjos/", "accessedAt": "2026-09-09" }, { "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 6, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-santos-anjos/", "accessedAt": "2026-09-09" }, { "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "08:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-santos-anjos/", "accessedAt": "2026-09-09" }, { "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "10:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-santos-anjos/", "accessedAt": "2026-09-09" }, { "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "17:00", "type": "MASS", "notes": "Página da paróquia: 17h; página diocesana de horários: 19h — fontes divergem", "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-santos-anjos/", "accessedAt": "2026-09-09" }], "confidence": "baixa" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "19:00", "type": "MASS", "notes": "Página diocesana de horários: 19h; página da paróquia: 17h — fontes divergem", "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "baixa" }
+      ]
+    },
+    {
+      "slug": "sao-pedro-e-sao-paulo-guarapuava",
+      "name": "Paróquia São Pedro e São Paulo",
+      "city": "Guarapuava", "state": "PR", "neighborhood": "Industrial",
+      "address": "Rua Visconde de Taunay, 602 – Bairro Industrial", "zipCode": "85053-100",
+      "phone": "(42) 99917-4918", "email": "apostolo.apostolo@hotmail.com", "website": null,
+      "priestName": "Padre José dos Santos Rodrigues",
+      "foundedYear": 2006,
+      "sources": [
+        { "url": "https://diopuava.org/decanato-centro/paroquia-sao-pedro-e-sao-paulo-guarapuava-pr/", "title": "Paróquia São Pedro e São Paulo – Guarapuava Pr – Diocese de Guarapuava PR", "accessedAt": "2026-09-09" }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 0, "time": "08:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 6, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 3, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "bom-jesus-guarapuava",
+      "name": "Paróquia Bom Jesus",
+      "city": "Guarapuava", "state": "PR", "neighborhood": "Trianon",
+      "address": "Rua das Violetas, 93 – Trianon", "zipCode": "85012-180",
+      "phone": "(42) 3622-1505 / (42) 97602-2084", "email": "bomjesusp@yahoo.com.br", "website": null,
+      "priestName": "Frei Ernani Tiago Alves, FMM",
+      "foundedYear": 2008,
+      "sources": [
+        { "url": "https://diopuava.org/decanato-centro/paroquia-bom-jesus/", "title": "Paróquia Bom Jesus – Guarapuava PR – Diocese de Guarapuava PR", "accessedAt": "2026-09-09" }
+      ],
+      "confidence": "alta",
+      "communities": [
+        { "name": "Matriz Bom Jesus", "address": "Rua das Violetas, 93 – Trianon", "neighborhood": "Trianon", "isMatriz": true, "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-bom-jesus/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "name": "Comunidade Nossa Senhora Aparecida – Vila Jordão", "address": "Localidade de Afonso Camargo – Vila Jordão", "neighborhood": "Vila Jordão", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-bom-jesus/", "accessedAt": "2026-09-09" }], "confidence": "alta" }
+      ],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 1, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-bom-jesus/", "accessedAt": "2026-09-09" }, { "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 2, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-bom-jesus/", "accessedAt": "2026-09-09" }, { "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 3, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-bom-jesus/", "accessedAt": "2026-09-09" }, { "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 4, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-bom-jesus/", "accessedAt": "2026-09-09" }, { "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 5, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-bom-jesus/", "accessedAt": "2026-09-09" }, { "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 6, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-bom-jesus/", "accessedAt": "2026-09-09" }, { "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "09:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-bom-jesus/", "accessedAt": "2026-09-09" }, { "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "11:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-bom-jesus/", "accessedAt": "2026-09-09" }, { "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-bom-jesus/", "accessedAt": "2026-09-09" }, { "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-do-perpetuo-socorro-guarapuava",
+      "name": "Paróquia Nossa Senhora do Perpétuo Socorro",
+      "city": "Guarapuava", "state": "PR", "neighborhood": "Alto da XV",
+      "address": "Rua João Lacerda Caldas, 249 – Alto da XV", "zipCode": "85065-190",
+      "phone": "(42) 3622-3936 / (42) 99809-2302", "email": "perpetuo.socorro.puava@hotmail.com", "website": null,
+      "priestName": "Padre Frei Célio Ferreira, OM",
+      "foundedYear": 2023,
+      "sources": [
+        { "url": "https://diopuava.org/decanato-centro/paroquia-nossa-senhora-perpetuo-socorro/", "title": "Paróquia Nossa Senhora Perpétuo Socorro – Guarapuava PR – Diocese de Guarapuava PR (comunidade desde 10/03/1968; elevada a paróquia em 26/09/2023)", "accessedAt": "2026-09-09" }
+      ],
+      "confidence": "alta",
+      "communities": [
+        { "name": "Matriz Nossa Senhora do Perpétuo Socorro", "address": "Rua João Lacerda Caldas, 249 – Alto da XV", "neighborhood": "Alto da XV", "isMatriz": true, "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-nossa-senhora-perpetuo-socorro/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "name": "Comunidade São Francisco de Paula", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-nossa-senhora-perpetuo-socorro/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "name": "Comunidade Santo Antônio de Pádua", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-nossa-senhora-perpetuo-socorro/", "accessedAt": "2026-09-09" }], "confidence": "alta" }
+      ],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 6, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-nossa-senhora-perpetuo-socorro/", "accessedAt": "2026-09-09" }, { "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-nossa-senhora-perpetuo-socorro/", "accessedAt": "2026-09-09" }, { "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 3, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-nossa-senhora-perpetuo-socorro/", "accessedAt": "2026-09-09" }, { "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "08:00", "type": "MASS", "notes": "Página da paróquia: 8h; página diocesana de horários: 7h30 — fontes divergem", "sources": [{ "url": "https://diopuava.org/decanato-centro/paroquia-nossa-senhora-perpetuo-socorro/", "accessedAt": "2026-09-09" }], "confidence": "baixa" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "07:30", "type": "MASS", "notes": "Página diocesana de horários: 7h30; página da paróquia: 8h — fontes divergem", "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "baixa" }
+      ]
+    },
+    {
+      "slug": "sao-luiz-gonzaga-e-beato-carlo-acutis-guarapuava",
+      "name": "Paróquia São Luiz Gonzaga e Beato Carlo Acutis",
+      "city": "Guarapuava", "state": "PR", "neighborhood": "Morro Alto",
+      "address": "Rua Bernardino Roseira de Lacerda, 607 – Bairro Morro Alto", "zipCode": "85065-690",
+      "phone": "(42) 93300-8656", "email": "comunidade-sluiz@hotmail.com", "website": null,
+      "priestName": "Padre Erico Gabriel Gurkowski",
+      "foundedYear": 2022,
+      "sources": [
+        { "url": "https://diopuava.org/decanato-centro/paroquia-sao-luiz-gonzaga-e-beato-carlo-acutis-guarapuava-pr/", "title": "Paróquia São Luiz Gonzaga e Beato Carlo Acutis – Guarapuava Pr – Diocese de Guarapuava PR", "accessedAt": "2026-09-09" }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 0, "time": "08:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 3, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "imaculada-conceicao-de-maria-guarapuava",
+      "name": "Paróquia Imaculada Conceição de Maria",
+      "city": "Guarapuava", "state": "PR", "neighborhood": "Distrito de Palmeirinha",
+      "address": "Rua XV de Novembro, 93 – Distrito de Palmeirinha", "zipCode": "85118-000",
+      "phone": "(42) 3663-1153 / (42) 98841-8020", "email": "paroquiapalmeirinha@hotmail.com", "website": "http://igrejapalmeirinha.com.br",
+      "priestName": "Padre Osmar Duarte do Nascimento",
+      "foundedYear": 1978,
+      "sources": [
+        { "url": "https://diopuava.org/decanato-centro/paroquia-imaculada-conceicao-de-maria-guarapuava-pr/", "title": "Paróquia Imaculada Conceição de Maria – Guarapuava – PR – Diocese de Guarapuava PR", "accessedAt": "2026-09-09" }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 0, "time": "08:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 3, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 4, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 5, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 6, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "sao-joao-batista-prudentopolis",
+      "name": "Paróquia São João Batista",
+      "city": "Prudentópolis", "state": "PR", "neighborhood": "Centro",
+      "address": "Rua Cândido de Abreu, 1312 – Centro", "zipCode": "84400-000",
+      "phone": "(42) 3446-1450 / (42) 3446-4473 / (42) 98431-1466 / (42) 98858-0299", "email": "paroquia.sjb19@gmail.com", "website": null,
+      "priestName": "Padre Itamar Abreu Turco; Padre Elizeu Nahm; Padre José Alir Moreira; Padre Emerson Luiz Ramos",
+      "foundedYear": 1906,
+      "sources": [
+        { "url": "https://diopuava.org/decanato-pinhao/paroquia-sao-joao-batista-prudentopolis-pr/", "title": "Paróquia São João Batista – Prudentópolis PR – Diocese de Guarapuava PR", "accessedAt": "2026-09-09" },
+        { "url": "https://diopuava.org/santuario-nossa-senhora-das-gracas-prudentopolis-pr/", "title": "Santuário Nossa Senhora das Graças – Prudentópolis – PR (mesmo endereço, telefone e e-mail da paróquia)", "accessedAt": "2026-09-09" }
+      ],
+      "confidence": "alta",
+      "communities": [
+        { "name": "Matriz São João Batista", "address": "Rua Cândido de Abreu, 1312 – Centro", "neighborhood": "Centro", "isMatriz": true, "sources": [{ "url": "https://diopuava.org/decanato-pinhao/paroquia-sao-joao-batista-prudentopolis-pr/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "name": "Santuário Nossa Senhora das Graças", "address": "Rua Cândido de Abreu, 1312 – Centro", "neighborhood": "Centro", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/santuario-nossa-senhora-das-gracas-prudentopolis-pr/", "accessedAt": "2026-09-09" }], "confidence": "alta" }
+      ],
+      "schedules": [
+        { "community": "Santuário Nossa Senhora das Graças", "dayOfWeek": 0, "time": "08:00", "type": "MASS", "notes": "Bloco 'Prudentópolis – Santuário Nossa Senhora das Graças' da página diocesana de horários", "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Santuário Nossa Senhora das Graças", "dayOfWeek": 0, "time": "10:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Santuário Nossa Senhora das Graças", "dayOfWeek": 0, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Santuário Nossa Senhora das Graças", "dayOfWeek": 6, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Santuário Nossa Senhora das Graças", "dayOfWeek": 1, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Santuário Nossa Senhora das Graças", "dayOfWeek": 3, "time": "14:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Santuário Nossa Senhora das Graças", "dayOfWeek": 3, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Santuário Nossa Senhora das Graças", "dayOfWeek": 4, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Santuário Nossa Senhora das Graças", "dayOfWeek": 5, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "divino-espirito-santo-pinhao",
+      "name": "Paróquia Divino Espírito Santo",
+      "city": "Pinhão", "state": "PR", "neighborhood": "São João",
+      "address": "Rua XV de Dezembro, 269 – Bairro São João", "zipCode": "85172-000",
+      "phone": "(42) 3677-1126 / (42) 99985-6290", "email": "paroquiadesdepinhao@gmail.com", "website": null,
+      "priestName": "Padre Tadeusz Stanislaw Semmerling; Padre Marcos Rogério de Morais Cardoso; Padre Valdir Sloboda",
+      "foundedYear": 1951,
+      "sources": [
+        { "url": "https://diopuava.org/decanato-pinhao/paroquia-divino-espirito-santo-pinhao-pr/", "title": "Paróquia Divino Espírito Santo – Pinhão PR – Diocese de Guarapuava PR", "accessedAt": "2026-09-09" }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 0, "time": "08:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 6, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 1, "time": "12:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 3, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 4, "time": "15:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "sao-miguel-arcanjo-guarapuava",
+      "name": "Paróquia São Miguel Arcanjo",
+      "city": "Guarapuava", "state": "PR", "neighborhood": "Entre Rios – Colônia Vitória",
+      "address": "Avenida Bento Munhoz da Rocha Netto, s/nº – Colônia Vitória – Entre Rios", "zipCode": "85139-400",
+      "phone": "(42) 99811-6531", "email": "paroquiasaomiguel@hotmail.com.br", "website": null,
+      "priestName": "Padre Reonaldo Pereira da Cruz",
+      "foundedYear": 1964,
+      "sources": [
+        { "url": "https://diopuava.org/decanato-pinhao/paroquia-sao-miguel-arcanjo-entre-rios/", "title": "Paróquia São Miguel Arcanjo – Entre Rios – Diocese de Guarapuava PR", "accessedAt": "2026-09-09" }
+      ],
+      "confidence": "alta",
+      "communities": [
+        { "name": "Matriz São Miguel Arcanjo", "address": "Avenida Bento Munhoz da Rocha Netto, s/nº – Colônia Vitória – Entre Rios", "neighborhood": "Colônia Vitória", "isMatriz": true, "sources": [{ "url": "https://diopuava.org/decanato-pinhao/paroquia-sao-miguel-arcanjo-entre-rios/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "name": "Comunidade Banhado Grande (Antigo)", "address": null, "neighborhood": "Banhado Grande", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pinhao/paroquia-sao-miguel-arcanjo-entre-rios/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "name": "Comunidade Banhado Grande (Novo)", "address": null, "neighborhood": "Banhado Grande", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pinhao/paroquia-sao-miguel-arcanjo-entre-rios/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "name": "Comunidade Banhados", "address": null, "neighborhood": "Banhados", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pinhao/paroquia-sao-miguel-arcanjo-entre-rios/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "name": "Comunidade Barreiros", "address": null, "neighborhood": "Barreiros", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pinhao/paroquia-sao-miguel-arcanjo-entre-rios/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "name": "Comunidade Entre Rios", "address": null, "neighborhood": "Entre Rios", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pinhao/paroquia-sao-miguel-arcanjo-entre-rios/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "name": "Comunidade Vila São José", "address": null, "neighborhood": "Vila São José", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pinhao/paroquia-sao-miguel-arcanjo-entre-rios/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "name": "Comunidade Paiol de Telha", "address": null, "neighborhood": "Paiol de Telha", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pinhao/paroquia-sao-miguel-arcanjo-entre-rios/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "name": "Comunidade Colônia Socorro", "address": null, "neighborhood": "Colônia Socorro", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pinhao/paroquia-sao-miguel-arcanjo-entre-rios/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "name": "Comunidade Colônia Cachoeira", "address": null, "neighborhood": "Colônia Cachoeira", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pinhao/paroquia-sao-miguel-arcanjo-entre-rios/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "name": "Comunidade Colônia Samambaia", "address": null, "neighborhood": "Colônia Samambaia", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pinhao/paroquia-sao-miguel-arcanjo-entre-rios/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "name": "Comunidade Colônia Jordãozinho", "address": null, "neighborhood": "Colônia Jordãozinho", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pinhao/paroquia-sao-miguel-arcanjo-entre-rios/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "name": "Comunidade Colônia Vitória", "address": null, "neighborhood": "Colônia Vitória", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pinhao/paroquia-sao-miguel-arcanjo-entre-rios/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "name": "Comunidade Encontro das Águas", "address": null, "neighborhood": "Encontro das Águas", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pinhao/paroquia-sao-miguel-arcanjo-entre-rios/", "accessedAt": "2026-09-09" }], "confidence": "alta" }
+      ],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 3, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/decanato-pinhao/paroquia-sao-miguel-arcanjo-entre-rios/", "accessedAt": "2026-09-09" }, { "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "08:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/decanato-pinhao/paroquia-sao-miguel-arcanjo-entre-rios/", "accessedAt": "2026-09-09" }, { "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "10:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/decanato-pinhao/paroquia-sao-miguel-arcanjo-entre-rios/", "accessedAt": "2026-09-09" }, { "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 1, "time": "18:00", "type": "ROSARY", "notes": "Terço dos Homens", "sources": [{ "url": "https://diopuava.org/decanato-pinhao/paroquia-sao-miguel-arcanjo-entre-rios/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 4, "time": "17:30", "type": "ROSARY", "notes": "Terço com as OMA, em língua alemã", "sources": [{ "url": "https://diopuava.org/decanato-pinhao/paroquia-sao-miguel-arcanjo-entre-rios/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 4, "time": "18:30", "type": "ADORATION", "notes": "Adoração ao Santíssimo", "sources": [{ "url": "https://diopuava.org/decanato-pinhao/paroquia-sao-miguel-arcanjo-entre-rios/", "accessedAt": "2026-09-09" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "sao-pedro-apostolo-foz-do-jordao",
+      "name": "Paróquia São Pedro Apóstolo",
+      "city": "Foz do Jordão", "state": "PR", "neighborhood": null,
+      "address": "Rua Padre Emílio Barbieri, 415", "zipCode": "85145-000",
+      "phone": "(42) 98858-2472", "email": "matrizfozsaopedro@gmail.com", "website": null,
+      "priestName": "Padre Cícero Pereira de Sousa",
+      "foundedYear": 1964,
+      "sources": [
+        { "url": "https://diopuava.org/decanato-pinhao/paroquia-sao-pedro-apostolo-foz-do-jordao-pr/", "title": "Paróquia São Pedro Apóstolo – Foz do Jordão PR – Diocese de Guarapuava PR", "accessedAt": "2026-09-09" }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 0, "time": "09:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 3, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 6, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "santa-clara-candoi",
+      "name": "Paróquia Santa Clara",
+      "city": "Candói", "state": "PR", "neighborhood": null,
+      "address": "Av. XV de Novembro, 1020", "zipCode": "85140-000",
+      "phone": "(42) 3638-1116", "email": "paroquiacandoisc@outlook.com", "website": null,
+      "priestName": "Padre Anselmo Freski de Oliveira",
+      "foundedYear": 1995,
+      "sources": [
+        { "url": "https://diopuava.org/decanato-pinhao/paroquia-santa-clara-candoi-pr/", "title": "Paróquia Santa Clara – Candói PR – Diocese de Guarapuava PR", "accessedAt": "2026-09-09" }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 0, "time": "09:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 6, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-aparecida-inacio-martins",
+      "name": "Paróquia Nossa Senhora Aparecida",
+      "city": "Inácio Martins", "state": "PR", "neighborhood": null,
+      "address": "Rua Marechal Floriano Peixoto, 234", "zipCode": "85155-000",
+      "phone": "(42) 3667-1321", "email": "pnsa31@gmail.com", "website": null,
+      "priestName": "Padre Roman Marcin Gora",
+      "foundedYear": 1975,
+      "sources": [
+        { "url": "https://diopuava.org/decanato-pinhao/paroquia-nossa-senhora-aparecida-inacio-martins-pr/", "title": "Paróquia Nossa Senhora Aparecida – Inácio Martins PR – Diocese de Guarapuava PR", "accessedAt": "2026-09-09" }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 0, "time": "09:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 6, "time": "19:00", "type": "MASS", "notes": "2º, 3º e 4º sábados do mês; no 1º sábado a missa é às 16h", "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 3, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 4, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-aparecida-turvo",
+      "name": "Paróquia Nossa Senhora Aparecida",
+      "city": "Turvo", "state": "PR", "neighborhood": "Centro",
+      "address": "Av. Nossa Senhora Aparecida, s/n – Centro", "zipCode": "85150-000",
+      "phone": "(42) 3642-2324 / (42) 99862-5515", "email": "paroquiaturvopr@hotmail.com", "website": null,
+      "priestName": "Padre Valter Malicka Musiau, MIC; Padre Cristoffer Fenando Ribeiro de Jesus, MIC; Padre Edmund Grabowski, MIC",
+      "foundedYear": 1980,
+      "sources": [
+        { "url": "https://diopuava.org/decanato-pinhao/paroquia-nossa-senhora-aparecida-turvo-pr/", "title": "Paróquia Nossa Senhora Aparecida – Turvo PR – Diocese de Guarapuava PR", "accessedAt": "2026-09-09" }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 0, "time": "08:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 1, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 2, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 3, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 4, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 5, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 6, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-de-belem-reserva-do-iguacu",
+      "name": "Paróquia Nossa Senhora de Belém",
+      "city": "Reserva do Iguaçu", "state": "PR", "neighborhood": null,
+      "address": "Rua João José Ribeiro, s/n", "zipCode": "85195-000",
+      "phone": "(42) 99987-8627", "email": "belemri_paroquia1998@hotmail.com", "website": null,
+      "priestName": "Padre Agenor Batista",
+      "foundedYear": 1998,
+      "sources": [
+        { "url": "https://diopuava.org/decanato-pinhao/paroquia-nossa-senhora-de-belem-reserva-do-iguacu-pr/", "title": "Paróquia Nossa Senhora de Belém – Reserva do Iguaçu PR – Diocese de Guarapuava PR (nova matriz inaugurada em 19/07/2026)", "accessedAt": "2026-09-09" },
+        { "url": "https://diopuava.org/santuarios/santuario-nossa-senhora-aparecida-passo-da-reserva/", "title": "Santuário Nossa Senhora Aparecida – Passo da Reserva (mesmo telefone da paróquia)", "accessedAt": "2026-09-09" }
+      ],
+      "confidence": "alta",
+      "communities": [
+        { "name": "Matriz Nossa Senhora de Belém", "address": "Rua João José Ribeiro, s/n", "neighborhood": null, "isMatriz": true, "sources": [{ "url": "https://diopuava.org/decanato-pinhao/paroquia-nossa-senhora-de-belem-reserva-do-iguacu-pr/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "name": "Santuário Nossa Senhora Aparecida – Passo da Reserva", "address": "Rodovia PR-459, a 4 km de Reserva do Iguaçu", "neighborhood": "Passo da Reserva", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/santuarios/santuario-nossa-senhora-aparecida-passo-da-reserva/", "accessedAt": "2026-09-09" }], "confidence": "alta" }
+      ],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 0, "time": "09:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "15:00", "type": "MASS", "notes": "Local não especificado na página diocesana (pode ser no Santuário do Passo da Reserva)", "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "media" },
+        { "community": "Matriz", "dayOfWeek": 3, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-aparecida-campina-do-simao",
+      "name": "Paróquia Nossa Senhora Aparecida",
+      "city": "Campina do Simão", "state": "PR", "neighborhood": null,
+      "address": "Rua Padre Valentim Nogly, 918", "zipCode": "85148-000",
+      "phone": "(42) 99802-8641", "email": "paraparecida@gmail.com", "website": null,
+      "priestName": "Padre Luiz Talacz, SVD",
+      "foundedYear": 2007,
+      "sources": [
+        { "url": "https://diopuava.org/decanato-pinhao/paroquia-nossa-senhora-aparecida-campina-do-simao-pr/", "title": "Paróquia Nossa Senhora Aparecida – Campina do Simão PR – Diocese de Guarapuava PR", "accessedAt": "2026-09-09" }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 0, "time": "08:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "sao-sebastiao-goioxim",
+      "name": "Paróquia São Sebastião",
+      "city": "Goioxim", "state": "PR", "neighborhood": null,
+      "address": "Rua 07 de Setembro, 150", "zipCode": "85162-000",
+      "phone": "(42) 99134-1454", "email": "psebastiaogoio@hotmail.com", "website": null,
+      "priestName": "Padre Altair Fernandes Correa",
+      "foundedYear": 2007,
+      "sources": [
+        { "url": "https://diopuava.org/decanato-pinhao/paroquia-sao-sebastiao-goioxim-pr/", "title": "Paróquia São Sebastião – Goioxim PR – Diocese de Guarapuava PR", "accessedAt": "2026-09-09" }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 0, "time": "08:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 6, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 3, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 4, "time": "16:00", "type": "MASS", "notes": "Na última quinta-feira do mês a missa é às 19h", "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "sao-jose-guarapuava",
+      "name": "Paróquia São José",
+      "city": "Guarapuava", "state": "PR", "neighborhood": "Distrito do Guará",
+      "address": "Rua Vereador Eduardo Horst, 800 – Distrito do Guará", "zipCode": "85110-000",
+      "phone": "(42) 98828-9427", "email": "saojoseparoquia27@gmail.com", "website": null,
+      "priestName": "Frei Ailton Santos de Castro, FMM; Frei Luiz Fiorentin, FMM",
+      "foundedYear": 2022,
+      "sources": [
+        { "url": "https://diopuava.org/decanato-pinhao/paroquia-sao-jose-guara/", "title": "Paróquia São José – Guará – Diocese de Guarapuava PR", "accessedAt": "2026-09-09" }
+      ],
+      "confidence": "alta",
+      "communities": [
+        { "name": "Matriz São José – Vila Guará", "address": "Rua Vereador Eduardo Horst, 800 – Distrito do Guará", "neighborhood": "Vila Guará", "isMatriz": true, "sources": [{ "url": "https://diopuava.org/decanato-pinhao/paroquia-sao-jose-guara/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "name": "Comunidade Anunciação de Nossa Senhora", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pinhao/paroquia-sao-jose-guara/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "name": "Comunidade Assunção de Nossa Senhora – Rio das Mortes", "address": null, "neighborhood": "Rio das Mortes", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pinhao/paroquia-sao-jose-guara/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "name": "Comunidade São Sebastião – Rio das Pedras", "address": null, "neighborhood": "Rio das Pedras", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pinhao/paroquia-sao-jose-guara/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "name": "Comunidade Nossa Senhora de Belém – Faxinal dos Elias", "address": null, "neighborhood": "Faxinal dos Elias", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pinhao/paroquia-sao-jose-guara/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "name": "Comunidade São Sebastião – Navio", "address": null, "neighborhood": "Navio", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pinhao/paroquia-sao-jose-guara/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "name": "Comunidade São João Batista – Alto da Serra", "address": null, "neighborhood": "Alto da Serra", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pinhao/paroquia-sao-jose-guara/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "name": "Comunidade Nossa Senhora Aparecida – Assentamento 13", "address": null, "neighborhood": "Assentamento 13", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pinhao/paroquia-sao-jose-guara/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "name": "Comunidade São João Batista – Bananas", "address": null, "neighborhood": "Bananas", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pinhao/paroquia-sao-jose-guara/", "accessedAt": "2026-09-09" }], "confidence": "alta" }
+      ],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 0, "time": "09:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 3, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "santana-e-sao-joaquim-pitanga",
+      "name": "Paróquia Sant'Ana e São Joaquim",
+      "city": "Pitanga", "state": "PR", "neighborhood": "Centro",
+      "address": "Av. Getúlio Vargas, 170 – Centro", "zipCode": "85200-023",
+      "phone": "(42) 3646-1242 / (42) 99956-9702", "email": "matrizsantana@hotmail.com", "website": null,
+      "priestName": "Padre João Rafael da Silva Alves; Padre Miroslaw Antoni Rietz; Padre Márcio André da Silva",
+      "foundedYear": 1933,
+      "sources": [
+        { "url": "https://diopuava.org/decanato-pitanga/paroquia-santana-e-sao-joaquim-pitanga-pr/", "title": "Paróquia Sant'ana e São Joaquim – Pitanga PR – Diocese de Guarapuava PR", "accessedAt": "2026-09-09" }
+      ],
+      "confidence": "alta",
+      "communities": [
+        { "name": "Matriz Sant'Ana e São Joaquim", "address": "Av. Getúlio Vargas, 170 – Centro", "neighborhood": "Centro", "isMatriz": true, "sources": [{ "url": "https://diopuava.org/decanato-pitanga/paroquia-santana-e-sao-joaquim-pitanga-pr/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "name": "Comunidade Santo Antônio", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pitanga/paroquia-santana-e-sao-joaquim-pitanga-pr/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "name": "Comunidade Santa Teresinha", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pitanga/paroquia-santana-e-sao-joaquim-pitanga-pr/", "accessedAt": "2026-09-09" }], "confidence": "alta" }
+      ],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 0, "time": "08:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 6, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 3, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "santo-antonio-manoel-ribas",
+      "name": "Paróquia Santo Antônio",
+      "city": "Manoel Ribas", "state": "PR", "neighborhood": null,
+      "address": "Rua Ivan Ferreira do Amaral Filho, 584", "zipCode": "85260-000",
+      "phone": "(43) 99956-7722", "email": "paroquiasantoantoniomr@yahoo.com.br", "website": null,
+      "priestName": "Padre Francisco Anchieta Cardoso de Muniz, MIC; Padre Jair Batista de Souza, MIC; Padre Márcio André da Silva",
+      "foundedYear": 1951,
+      "sources": [
+        { "url": "https://diopuava.org/decanato-pitanga/paroquia-santo-antonio-manoel-ribas-pr/", "title": "Paróquia Santo Antônio – Manoel Ribas PR – Diocese de Guarapuava PR", "accessedAt": "2026-09-09" }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 0, "time": "07:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "09:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 1, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 2, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 3, "time": "15:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 3, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 4, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 5, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 6, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-imaculada-conceicao-palmital",
+      "name": "Paróquia Nossa Senhora Imaculada Conceição",
+      "city": "Palmital", "state": "PR", "neighborhood": "Centro",
+      "address": "Av. Maximiliano Vicentim, 1125 – Centro", "zipCode": "85270-000",
+      "phone": "(42) 99845-0204", "email": "paroquiapalmital@hotmail.com", "website": null,
+      "priestName": "Padre André Ricardo Santos Lima",
+      "foundedYear": 1953,
+      "sources": [
+        { "url": "https://diopuava.org/decanato-pitanga/paroquia-nossa-senhora-imaculada-conceicao-palmital-pr", "title": "Paróquia Nossa Senhora Imaculada Conceição – Palmital PR – Diocese de Guarapuava PR", "accessedAt": "2026-09-09" }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 0, "time": "09:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 6, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 3, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-da-salete-manoel-ribas",
+      "name": "Paróquia e Santuário Nossa Senhora da Salete",
+      "city": "Manoel Ribas", "state": "PR", "neighborhood": "Barra Santa Salete",
+      "address": "Rua Principal, s/nº – Barra Santa Salete", "zipCode": "85260-000",
+      "phone": "(43) 99960-1442", "email": "santuario.barrasantasalete@outlook.com", "website": null,
+      "priestName": "Padre Avelino Oestreich, MIC",
+      "foundedYear": 1955,
+      "sources": [
+        { "url": "https://diopuava.org/decanato-pitanga/paroquia-e-santuario-nossa-senhora-da-salete-manoel-ribas-pr/", "title": "Paróquia e Santuário Nossa Senhora Da Salete – Manoel Ribas PR – Diocese de Guarapuava PR", "accessedAt": "2026-09-09" }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 0, "time": "09:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-09" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "senhor-bom-jesus-candido-de-abreu",
+      "name": "Paróquia Senhor Bom Jesus",
+      "city": "Cândido de Abreu", "state": "PR", "neighborhood": null,
+      "address": "Rua Dom Antonio Mazarotto, 255", "zipCode": "84470-000",
+      "phone": "(43) 99874-4726", "email": "psbomjesus@hotmail.com", "website": null,
+      "priestName": "Padre Adriano Wierzyski Toczek; Padre Mateus Gonçalves da Silva",
+      "foundedYear": 1964,
+      "sources": [
+        { "url": "https://diopuava.org/decanato-pitanga/paroquia-senhor-bom-jesus-candido-de-abreu-pr/", "title": "Paróquia Senhor Bom Jesus – Cândido de Abreu PR – Diocese de Guarapuava PR (criada em 08/12/1964; 42 capelas rurais não nomeadas)", "accessedAt": "2026-09-10" },
+        { "url": "https://diopuava.org/paroquias/", "title": "Paróquias – Diocese de Guarapuava PR (Decanato Pitanga)", "accessedAt": "2026-09-10" }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 0, "time": "08:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 6, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 4, "time": "06:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 4, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 5, "time": "10:00", "type": "MASS", "notes": "Somente na 1ª sexta-feira do mês", "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-10" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-do-rosario-rosario-do-ivai",
+      "name": "Paróquia Nossa Senhora do Rosário",
+      "city": "Rosário do Ivaí", "state": "PR", "neighborhood": null,
+      "address": "Av. Ivaiporã, 134", "zipCode": "86850-000",
+      "phone": "(43) 99923-3305", "email": "nossasenhoradorosariop@yahoo.com.br", "website": null,
+      "priestName": "Padre Paulo Fernando Francini",
+      "foundedYear": 1974,
+      "sources": [
+        { "url": "https://diopuava.org/decanato-pitanga/paroquia-nossa-senhora-do-rosario-rosario-do-ivai-pr/", "title": "Paróquia Nossa Senhora Do Rosário – Rosário do Ivaí PR – Diocese de Guarapuava PR (criada em 15/04/1974; o histórico ainda cita Frei Margon Maykon Milleo e Frei Itacir Fontana, FMM, como padres)", "accessedAt": "2026-09-10" },
+        { "url": "https://diopuava.org/paroquias/", "title": "Paróquias – Diocese de Guarapuava PR (Decanato Pitanga)", "accessedAt": "2026-09-10" }
+      ],
+      "confidence": "alta",
+      "communities": [
+        { "name": "Matriz Nossa Senhora do Rosário", "address": "Av. Ivaiporã, 134", "neighborhood": null, "isMatriz": true, "sources": [{ "url": "https://diopuava.org/decanato-pitanga/paroquia-nossa-senhora-do-rosario-rosario-do-ivai-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Nossa Senhora Aparecida – Vila União", "address": null, "neighborhood": "Vila União", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pitanga/paroquia-nossa-senhora-do-rosario-rosario-do-ivai-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Nossa Senhora Aparecida – Campineiro do Sul", "address": null, "neighborhood": "Campineiro do Sul", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pitanga/paroquia-nossa-senhora-do-rosario-rosario-do-ivai-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Nossa Senhora Aparecida – Sabugueiro", "address": null, "neighborhood": "Sabugueiro", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pitanga/paroquia-nossa-senhora-do-rosario-rosario-do-ivai-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Nossa Senhora Aparecida – Água da Canoa", "address": null, "neighborhood": "Água da Canoa", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pitanga/paroquia-nossa-senhora-do-rosario-rosario-do-ivai-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade São Sebastião – Pé de Galinha", "address": null, "neighborhood": "Pé de Galinha", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pitanga/paroquia-nossa-senhora-do-rosario-rosario-do-ivai-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade São Sebastião – Guairaca", "address": null, "neighborhood": "Guairaca", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pitanga/paroquia-nossa-senhora-do-rosario-rosario-do-ivai-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade São Sebastião – Três Morros", "address": null, "neighborhood": "Três Morros", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pitanga/paroquia-nossa-senhora-do-rosario-rosario-do-ivai-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Nossa Senhora de Lourdes – Bairro 250", "address": null, "neighborhood": "Bairro 250", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pitanga/paroquia-nossa-senhora-do-rosario-rosario-do-ivai-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Nossa Senhora de Lourdes – Sulfurosa", "address": null, "neighborhood": "Sulfurosa", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pitanga/paroquia-nossa-senhora-do-rosario-rosario-do-ivai-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Nossa Senhora de Lourdes – Água Doce", "address": null, "neighborhood": "Água Doce", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pitanga/paroquia-nossa-senhora-do-rosario-rosario-do-ivai-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Nossa Senhora de Fátima – Caneleira", "address": null, "neighborhood": "Caneleira", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pitanga/paroquia-nossa-senhora-do-rosario-rosario-do-ivai-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Nossa Senhora de Fátima – Vila Rural", "address": null, "neighborhood": "Vila Rural", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pitanga/paroquia-nossa-senhora-do-rosario-rosario-do-ivai-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Santo Antônio – Ismailton", "address": null, "neighborhood": "Ismailton", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pitanga/paroquia-nossa-senhora-do-rosario-rosario-do-ivai-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Nossa Senhora do Carmo – Barra da Escrita", "address": null, "neighborhood": "Barra da Escrita", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pitanga/paroquia-nossa-senhora-do-rosario-rosario-do-ivai-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Imaculada Conceição – Boa Vista da Santa Cruz", "address": null, "neighborhood": "Boa Vista da Santa Cruz", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pitanga/paroquia-nossa-senhora-do-rosario-rosario-do-ivai-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Nossa Senhora da Salete – Painerinha", "address": null, "neighborhood": "Painerinha", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pitanga/paroquia-nossa-senhora-do-rosario-rosario-do-ivai-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade São Pedro – Água São Pedro", "address": null, "neighborhood": "Água São Pedro", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pitanga/paroquia-nossa-senhora-do-rosario-rosario-do-ivai-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Santa Luzia – Balsa", "address": null, "neighborhood": "Balsa", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pitanga/paroquia-nossa-senhora-do-rosario-rosario-do-ivai-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" }
+      ],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 0, "time": "08:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/decanato-pitanga/paroquia-nossa-senhora-do-rosario-rosario-do-ivai-pr/", "accessedAt": "2026-09-10" }, { "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 6, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/decanato-pitanga/paroquia-nossa-senhora-do-rosario-rosario-do-ivai-pr/", "accessedAt": "2026-09-10" }, { "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 3, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/decanato-pitanga/paroquia-nossa-senhora-do-rosario-rosario-do-ivai-pr/", "accessedAt": "2026-09-10" }, { "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 5, "time": "19:00", "type": "MASS", "notes": "Somente na 1ª sexta-feira do mês (nas demais quintas e sextas há missa nas casas, sem local fixo)", "sources": [{ "url": "https://diopuava.org/decanato-pitanga/paroquia-nossa-senhora-do-rosario-rosario-do-ivai-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "sao-pedro-apostolo-nova-tebas",
+      "name": "Paróquia São Pedro Apóstolo",
+      "city": "Nova Tebas", "state": "PR", "neighborhood": null,
+      "address": "Rua Sparta, 490 – Caixa Postal 03", "zipCode": "85250-000",
+      "phone": "(42) 99868-6083", "email": "paroquiant@yahoo.com.br", "website": null,
+      "priestName": "Padre Felipe Geraldo Madureira",
+      "foundedYear": 1975,
+      "sources": [
+        { "url": "https://diopuava.org/decanato-pitanga/paroquia-sao-pedro-apostolo-nova-tebas-pr/", "title": "Paróquia São Pedro Apóstolo – Nova Tebas PR – Diocese de Guarapuava PR (criada em 06/07/1975; 24 comunidades não nomeadas)", "accessedAt": "2026-09-10" },
+        { "url": "https://diopuava.org/paroquias/", "title": "Paróquias – Diocese de Guarapuava PR (Decanato Pitanga)", "accessedAt": "2026-09-10" }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 0, "time": "09:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 6, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 3, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-10" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-aparecida-altamira-do-parana",
+      "name": "Paróquia Nossa Senhora Aparecida",
+      "city": "Altamira do Paraná", "state": "PR", "neighborhood": null,
+      "address": "Av. Jaime Canet, 70 – Caixa Postal 43", "zipCode": "85280-000",
+      "phone": "(44) 99800-2746", "email": "paroquia_nsaparecida@hotmail.com", "website": null,
+      "priestName": "Padre Joaquim Bernardo da Rocha",
+      "foundedYear": 1975,
+      "sources": [
+        { "url": "https://diopuava.org/decanato-pitanga/paroquia-nossa-senhora-aparecida-altamira-do-parana-pr/", "title": "Paróquia Nossa Senhora Aparecida – Altamira do Paraná PR – Diocese de Guarapuava PR (criada em 09/08/1975; 11 comunidades não nomeadas)", "accessedAt": "2026-09-10" },
+        { "url": "https://diopuava.org/paroquias/", "title": "Paróquias – Diocese de Guarapuava PR (Decanato Pitanga)", "accessedAt": "2026-09-10" }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 0, "time": "09:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 6, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 3, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 5, "time": "15:00", "type": "MASS", "notes": "Somente na 1ª sexta-feira do mês", "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-10" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "santo-antonio-de-padua-mato-rico",
+      "name": "Paróquia Santo Antônio de Pádua",
+      "city": "Mato Rico", "state": "PR", "neighborhood": null,
+      "address": "Av. das Araucárias, 1610", "zipCode": "85240-100",
+      "phone": "(42) 99862-7319", "email": "mrpsantoantonio@gmail.com", "website": null,
+      "priestName": "Padre Lori Olenik",
+      "foundedYear": 1979,
+      "sources": [
+        { "url": "https://diopuava.org/decanato-pitanga/paroquia-santo-antonio-de-padua-mato-rico-pr/", "title": "Paróquia Santo Antônio de Pádua – Mato Rico PR – Diocese de Guarapuava PR (criada em 23/06/1979; 21 comunidades não nomeadas)", "accessedAt": "2026-09-10" },
+        { "url": "https://diopuava.org/paroquias/", "title": "Paróquias – Diocese de Guarapuava PR (Decanato Pitanga)", "accessedAt": "2026-09-10" }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 0, "time": "09:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-10" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "santa-maria-imaculada-conceicao-santa-maria-do-oeste",
+      "name": "Paróquia Santa Maria Imaculada Conceição",
+      "city": "Santa Maria do Oeste", "state": "PR", "neighborhood": null,
+      "address": "Rua da Gruta, s/nº", "zipCode": "85230-000",
+      "phone": "(42) 92000-4662", "email": "paroquiasantamaria36@hotmail.com", "website": null,
+      "priestName": "Padre Sebastião Pereira; Padre Paulo Sérgio Vieira",
+      "foundedYear": 1991,
+      "sources": [
+        { "url": "https://diopuava.org/decanato-pitanga/paroquia-santa-maria-imaculada-conceicao-santa-maria-do-oeste-pr/", "title": "Paróquia Santa Maria Imaculada Conceição – Santa Maria do Oeste PR – Diocese de Guarapuava PR (fundação 25/03/1991; 39 comunidades não nomeadas)", "accessedAt": "2026-09-10" },
+        { "url": "https://diopuava.org/paroquias/", "title": "Paróquias – Diocese de Guarapuava PR (Decanato Pitanga)", "accessedAt": "2026-09-10" }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 0, "time": "07:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "09:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 6, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 3, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 5, "time": "19:00", "type": "MASS", "notes": "Somente na 1ª sexta-feira do mês", "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-10" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "sao-pedro-apostolo-laranjal",
+      "name": "Paróquia São Pedro Apóstolo",
+      "city": "Laranjal", "state": "PR", "neighborhood": null,
+      "address": "Avenida Paraná, 463", "zipCode": "85275-000",
+      "phone": "(42) 99988-5338", "email": "laranjalsaopedro@gmail.com", "website": null,
+      "priestName": "Padre Piotr Miroslaw Pochopien",
+      "foundedYear": 1997,
+      "sources": [
+        { "url": "https://diopuava.org/decanato-pitanga/paroquia-sao-pedro-apostolo-laranjal-pr/", "title": "Paróquia São Pedro Apóstolo – Laranjal PR – Diocese de Guarapuava PR (criada em 30/08/1997; página cita 18 comunidades e nomeia 15)", "accessedAt": "2026-09-10" },
+        { "url": "https://diopuava.org/paroquias/", "title": "Paróquias – Diocese de Guarapuava PR (Decanato Pitanga)", "accessedAt": "2026-09-10" }
+      ],
+      "confidence": "alta",
+      "communities": [
+        { "name": "Matriz São Pedro Apóstolo", "address": "Avenida Paraná, 463", "neighborhood": null, "isMatriz": true, "sources": [{ "url": "https://diopuava.org/decanato-pitanga/paroquia-sao-pedro-apostolo-laranjal-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Água Verde", "address": null, "neighborhood": "Água Verde", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pitanga/paroquia-sao-pedro-apostolo-laranjal-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Chapadão", "address": null, "neighborhood": "Chapadão", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pitanga/paroquia-sao-pedro-apostolo-laranjal-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Lageado Preto", "address": null, "neighborhood": "Lageado Preto", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pitanga/paroquia-sao-pedro-apostolo-laranjal-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Mirim", "address": null, "neighborhood": "Mirim", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pitanga/paroquia-sao-pedro-apostolo-laranjal-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Rio da Gralha", "address": null, "neighborhood": "Rio da Gralha", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pitanga/paroquia-sao-pedro-apostolo-laranjal-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Rio das Flores", "address": null, "neighborhood": "Rio das Flores", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pitanga/paroquia-sao-pedro-apostolo-laranjal-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Zoca", "address": null, "neighborhood": "Zoca", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pitanga/paroquia-sao-pedro-apostolo-laranjal-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Pedra Branca", "address": null, "neighborhood": "Pedra Branca", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pitanga/paroquia-sao-pedro-apostolo-laranjal-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Rocio", "address": null, "neighborhood": "Rocio", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pitanga/paroquia-sao-pedro-apostolo-laranjal-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Laranjal Cornélio", "address": null, "neighborhood": "Laranjal Cornélio", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pitanga/paroquia-sao-pedro-apostolo-laranjal-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Rio das Conchas", "address": null, "neighborhood": "Rio das Conchas", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pitanga/paroquia-sao-pedro-apostolo-laranjal-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Pinhal Grande", "address": null, "neighborhood": "Pinhal Grande", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pitanga/paroquia-sao-pedro-apostolo-laranjal-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Rio das Tunas", "address": null, "neighborhood": "Rio das Tunas", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pitanga/paroquia-sao-pedro-apostolo-laranjal-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Alto Schereiner", "address": null, "neighborhood": "Alto Schereiner", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pitanga/paroquia-sao-pedro-apostolo-laranjal-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Água Nova", "address": null, "neighborhood": "Água Nova", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pitanga/paroquia-sao-pedro-apostolo-laranjal-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" }
+      ],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 6, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/decanato-pitanga/paroquia-sao-pedro-apostolo-laranjal-pr/", "accessedAt": "2026-09-10" }, { "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "09:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/decanato-pitanga/paroquia-sao-pedro-apostolo-laranjal-pr/", "accessedAt": "2026-09-10" }, { "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 3, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/decanato-pitanga/paroquia-sao-pedro-apostolo-laranjal-pr/", "accessedAt": "2026-09-10" }, { "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 5, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/decanato-pitanga/paroquia-sao-pedro-apostolo-laranjal-pr/", "accessedAt": "2026-09-10" }, { "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-10" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "sao-roque-boa-ventura-de-sao-roque",
+      "name": "Paróquia São Roque",
+      "city": "Boa Ventura de São Roque", "state": "PR", "neighborhood": null,
+      "address": "Av. São Roque, 75 – Caixa Postal 12", "zipCode": "85225-000",
+      "phone": "(42) 99805-7357", "email": "paroquiasaoroquebv@hotmail.com / paroquiasaoroque47@gmail.com", "website": null,
+      "priestName": "Padre Erondi Alves da Silva",
+      "foundedYear": 1999,
+      "sources": [
+        { "url": "https://diopuava.org/decanato-pitanga/paroquia-sao-roque-boa-ventura-de-sao-roque-pr/", "title": "Paróquia São Roque – Boa Ventura de São Roque PR – Diocese de Guarapuava PR (criada em 28/07/1999, fundação 16/08/1999; 22–24 comunidades não nomeadas)", "accessedAt": "2026-09-10" },
+        { "url": "https://diopuava.org/paroquias/", "title": "Paróquias – Diocese de Guarapuava PR (Decanato Pitanga)", "accessedAt": "2026-09-10" }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 0, "time": "08:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 6, "time": "19:00", "type": "MASS", "notes": "Somente no 2º e no 4º sábados do mês", "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 3, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 5, "time": "15:00", "type": "MASS", "notes": "Somente na 1ª sexta-feira do mês", "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-10" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "imaculada-conceicao-rio-branco-do-ivai",
+      "name": "Paróquia Imaculada Conceição",
+      "city": "Rio Branco do Ivaí", "state": "PR", "neighborhood": null,
+      "address": "Rua Rio Iguaçu, 390", "zipCode": "86848-000",
+      "phone": "(43) 99925-8119", "email": "parimacon@hotmail.com", "website": "https://paroquia-imaculada-conceicao-catholic-church.negocio.site",
+      "priestName": "Padre Jair dos Santos Arruda",
+      "foundedYear": 2007,
+      "sources": [
+        { "url": "https://diopuava.org/decanato-pitanga/paroquia-imaculada-conceicao-rio-branco-do-ivai-pr/", "title": "Paróquia Imaculada Conceição – Rio Branco do Ivaí PR – Diocese de Guarapuava PR (criada em 07/11/2007; 7 comunidades não nomeadas; matriz atual inaugurada em 08/2016)", "accessedAt": "2026-09-10" },
+        { "url": "https://diopuava.org/paroquias/", "title": "Paróquias – Diocese de Guarapuava PR (Decanato Pitanga)", "accessedAt": "2026-09-10" }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 0, "time": "08:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 6, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 3, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 5, "time": "19:00", "type": "MASS", "notes": "Somente na 1ª sexta-feira do mês", "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-10" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-do-perpetuo-socorro-pitanga",
+      "name": "Paróquia Nossa Senhora do Perpétuo Socorro",
+      "city": "Pitanga", "state": "PR", "neighborhood": "Pitanguinha",
+      "address": "Rua Matilde Martins Orane, 561 – Bairro Pitanguinha", "zipCode": "85201-528",
+      "phone": "(42) 99937-9770", "email": "paroquiapitanguinha@gmail.com", "website": null,
+      "priestName": "Padre Paulo Carlos de Souza; Padre Messias Batista de França",
+      "foundedYear": 2008,
+      "sources": [
+        { "url": "https://diopuava.org/decanato-pitanga/paroquia-nossa-senhora-do-perpetuo-socorro-pitanga-pr/", "title": "Paróquia Nossa Senhora do Perpétuo Socorro – Pitanga PR – Diocese de Guarapuava PR (criada em 01/05/2008; página cita 28 comunidades e nomeia 26, incluindo a matriz)", "accessedAt": "2026-09-10" },
+        { "url": "https://diopuava.org/paroquias/", "title": "Paróquias – Diocese de Guarapuava PR (Decanato Pitanga)", "accessedAt": "2026-09-10" }
+      ],
+      "confidence": "alta",
+      "communities": [
+        { "name": "Matriz Nossa Senhora do Perpétuo Socorro", "address": "Rua Matilde Martins Orane, 561 – Bairro Pitanguinha", "neighborhood": "Pitanguinha", "isMatriz": true, "sources": [{ "url": "https://diopuava.org/decanato-pitanga/paroquia-nossa-senhora-do-perpetuo-socorro-pitanga-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Sagrado Coração de Jesus – Alta Cruz", "address": null, "neighborhood": "Alta Cruz", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pitanga/paroquia-nossa-senhora-do-perpetuo-socorro-pitanga-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Nossa Senhora da Luz – Água Fria", "address": null, "neighborhood": "Água Fria", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pitanga/paroquia-nossa-senhora-do-perpetuo-socorro-pitanga-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Santo Antônio – Arroio Grande", "address": null, "neighborhood": "Arroio Grande", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pitanga/paroquia-nossa-senhora-do-perpetuo-socorro-pitanga-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Divino Espírito Santo – Borboleta Berardi", "address": null, "neighborhood": "Borboleta Berardi", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pitanga/paroquia-nossa-senhora-do-perpetuo-socorro-pitanga-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade São Pedro – Borboleta Sávio", "address": null, "neighborhood": "Borboleta Sávio", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pitanga/paroquia-nossa-senhora-do-perpetuo-socorro-pitanga-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade São Roque – Borboleta São Roque", "address": null, "neighborhood": "Borboleta São Roque", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pitanga/paroquia-nossa-senhora-do-perpetuo-socorro-pitanga-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade São Pedro – Barreiro Grande", "address": null, "neighborhood": "Barreiro Grande", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pitanga/paroquia-nossa-senhora-do-perpetuo-socorro-pitanga-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade São José – Corumbataí", "address": null, "neighborhood": "Corumbataí", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pitanga/paroquia-nossa-senhora-do-perpetuo-socorro-pitanga-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Senhor Bom Jesus e Santa Rita – Linha Cantu", "address": null, "neighborhood": "Linha Cantu", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pitanga/paroquia-nossa-senhora-do-perpetuo-socorro-pitanga-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade São Judas Tadeu – Parque Industrial", "address": null, "neighborhood": "Parque Industrial", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pitanga/paroquia-nossa-senhora-do-perpetuo-socorro-pitanga-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Nossa Senhora Aparecida – Parque São Basílio", "address": null, "neighborhood": "Parque São Basílio", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pitanga/paroquia-nossa-senhora-do-perpetuo-socorro-pitanga-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade São João Batista – Rio Bandeira", "address": null, "neighborhood": "Rio Bandeira", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pitanga/paroquia-nossa-senhora-do-perpetuo-socorro-pitanga-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Menino Jesus – Rio XV de Cima", "address": null, "neighborhood": "Rio XV de Cima", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pitanga/paroquia-nossa-senhora-do-perpetuo-socorro-pitanga-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Santo Antônio – Rio XV de Baixo", "address": null, "neighborhood": "Rio XV de Baixo", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pitanga/paroquia-nossa-senhora-do-perpetuo-socorro-pitanga-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Divino Espírito Santo – Rio Taquaruçu de Baixo", "address": null, "neighborhood": "Rio Taquaruçu de Baixo", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pitanga/paroquia-nossa-senhora-do-perpetuo-socorro-pitanga-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Santa Luzia – Rio Quieto", "address": null, "neighborhood": "Rio Quieto", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pitanga/paroquia-nossa-senhora-do-perpetuo-socorro-pitanga-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Nossa Senhora Aparecida – Rio Voraz de Cima", "address": null, "neighborhood": "Rio Voraz de Cima", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pitanga/paroquia-nossa-senhora-do-perpetuo-socorro-pitanga-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade São Sebastião – Rio Voraz de Baixo", "address": null, "neighborhood": "Rio Voraz de Baixo", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pitanga/paroquia-nossa-senhora-do-perpetuo-socorro-pitanga-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Santa Bárbara – Rio Ernesto", "address": null, "neighborhood": "Rio Ernesto", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pitanga/paroquia-nossa-senhora-do-perpetuo-socorro-pitanga-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Nossa Senhora Aparecida – Quatro de Junho", "address": null, "neighborhood": "Quatro de Junho", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pitanga/paroquia-nossa-senhora-do-perpetuo-socorro-pitanga-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Nossa Senhora das Graças – Serra da Palmeira", "address": null, "neighborhood": "Serra da Palmeira", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pitanga/paroquia-nossa-senhora-do-perpetuo-socorro-pitanga-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Nossa Senhora Aparecida – Gamelão", "address": null, "neighborhood": "Gamelão", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pitanga/paroquia-nossa-senhora-do-perpetuo-socorro-pitanga-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade São Sebastião e São João Batista – Arroio Grande", "address": null, "neighborhood": "Arroio Grande", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pitanga/paroquia-nossa-senhora-do-perpetuo-socorro-pitanga-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Santo Antônio – Olho D'Água", "address": null, "neighborhood": "Olho D'Água", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pitanga/paroquia-nossa-senhora-do-perpetuo-socorro-pitanga-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Senhor Bom Jesus – Barra do Espírito Santo", "address": null, "neighborhood": "Barra do Espírito Santo", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-pitanga/paroquia-nossa-senhora-do-perpetuo-socorro-pitanga-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" }
+      ],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 0, "time": "08:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 6, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 3, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 5, "time": "15:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-10" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "santana-laranjeiras-do-sul",
+      "name": "Paróquia Sant'Ana",
+      "city": "Laranjeiras do Sul", "state": "PR", "neighborhood": null,
+      "address": "Rua XV de Novembro, 2071", "zipCode": "85301-050",
+      "phone": "(42) 99107-9906 / (42) 99108-0218 / (42) 99108-3881", "email": "paroquiasant_ana@yahoo.com.br", "website": null,
+      "priestName": "Padre Sebastião José Gulart; Padre Casemiro Heupa; Padre Aroldo Schinemann Filho; Padre Rodrigo Antunes de Lima",
+      "foundedYear": 1933,
+      "sources": [
+        { "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santana-laranjeiras-do-sul-pr/", "title": "Paróquia Sant'Ana – Laranjeiras do Sul PR – Diocese de Guarapuava PR (criada em 24/11/1933; 44 comunidades nomeadas)", "accessedAt": "2026-09-10" },
+        { "url": "https://diopuava.org/paroquias/", "title": "Paróquias – Diocese de Guarapuava PR (Decanato Laranjeiras; decano Padre Sebastião José Gulart)", "accessedAt": "2026-09-10" }
+      ],
+      "confidence": "alta",
+      "communities": [
+        { "name": "Matriz Sant'Ana", "address": "Rua XV de Novembro, 2071", "neighborhood": null, "isMatriz": true, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santana-laranjeiras-do-sul-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Santuário Nossa Senhora Aparecida", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santana-laranjeiras-do-sul-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Santo Antônio de Pádua – Água Verde", "address": null, "neighborhood": "Água Verde", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santana-laranjeiras-do-sul-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Santa Terezinha – Vila Palmeiras", "address": null, "neighborhood": "Vila Palmeiras", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santana-laranjeiras-do-sul-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade São Paulo – Envernada Grande", "address": null, "neighborhood": "Envernada Grande", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santana-laranjeiras-do-sul-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade São Francisco de Assis – São Francisco", "address": null, "neighborhood": "São Francisco", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santana-laranjeiras-do-sul-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade São João Batista – Alto São João", "address": null, "neighborhood": "Alto São João", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santana-laranjeiras-do-sul-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade São João Batista – Vila Becker", "address": null, "neighborhood": "Vila Becker", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santana-laranjeiras-do-sul-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Santo Antônio – Km 127", "address": null, "neighborhood": "Km 127", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santana-laranjeiras-do-sul-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Nossa Senhora Aparecida – Km 130", "address": null, "neighborhood": "Km 130", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santana-laranjeiras-do-sul-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade São Roque – Gramadinho", "address": null, "neighborhood": "Gramadinho", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santana-laranjeiras-do-sul-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Santa Luzia – Rio Laranjeiras", "address": null, "neighborhood": "Rio Laranjeiras", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santana-laranjeiras-do-sul-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Sagrado Coração de Jesus – Passo Liso", "address": null, "neighborhood": "Passo Liso", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santana-laranjeiras-do-sul-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade São Roque – Boa Vista Passo Liso", "address": null, "neighborhood": "Boa Vista Passo Liso", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santana-laranjeiras-do-sul-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade São Miguel – Rio Quati", "address": null, "neighborhood": "Rio Quati", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santana-laranjeiras-do-sul-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Nossa Senhora Medianeira – Rio do Tigre", "address": null, "neighborhood": "Rio do Tigre", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santana-laranjeiras-do-sul-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Santa Rita de Cássia – Alto Alegre", "address": null, "neighborhood": "Alto Alegre", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santana-laranjeiras-do-sul-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Nossa Senhora das Graças – Linha São José", "address": null, "neighborhood": "Linha São José", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santana-laranjeiras-do-sul-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade São Pedro – Interior", "address": null, "neighborhood": "Interior", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santana-laranjeiras-do-sul-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Nossa Senhora de Fátima – Flor do Pinho", "address": null, "neighborhood": "Flor do Pinho", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santana-laranjeiras-do-sul-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Nossa Senhora de Fátima – Rio do Leão", "address": null, "neighborhood": "Rio do Leão", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santana-laranjeiras-do-sul-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade São Sebastião – Faxinal Grande", "address": null, "neighborhood": "Faxinal Grande", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santana-laranjeiras-do-sul-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade São Sebastião – Xagú Mariano", "address": null, "neighborhood": "Xagú Mariano", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santana-laranjeiras-do-sul-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade São Sebastião – Rincão Grande", "address": null, "neighborhood": "Rincão Grande", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santana-laranjeiras-do-sul-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Nossa Senhora da Saúde – Colônia Santo Antônio", "address": null, "neighborhood": "Colônia Santo Antônio", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santana-laranjeiras-do-sul-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Nossa Senhora da Salete – Colônia União", "address": null, "neighborhood": "Colônia União", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santana-laranjeiras-do-sul-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Santuário Senhor Bom Jesus", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santana-laranjeiras-do-sul-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade São Miguel – São Miguel", "address": null, "neighborhood": "São Miguel", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santana-laranjeiras-do-sul-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Nossa Senhora dos Remédios – Vera Cruz", "address": null, "neighborhood": "Vera Cruz", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santana-laranjeiras-do-sul-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Santo Antônio – Barro Preto", "address": null, "neighborhood": "Barro Preto", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santana-laranjeiras-do-sul-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Nossa Senhora Aparecida – Km 08", "address": null, "neighborhood": "Km 08", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santana-laranjeiras-do-sul-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Divino Espírito Santo – Linha Divino", "address": null, "neighborhood": "Linha Divino", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santana-laranjeiras-do-sul-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Nossa Senhora do Rocio – Vila Rural", "address": null, "neighborhood": "Vila Rural", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santana-laranjeiras-do-sul-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Nossa Senhora do Perpétuo Socorro – Vila Nogueira", "address": null, "neighborhood": "Vila Nogueira", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santana-laranjeiras-do-sul-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade São Pedro – Cidade", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santana-laranjeiras-do-sul-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Nossa Senhora Aparecida – Erval Grande", "address": null, "neighborhood": "Erval Grande", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santana-laranjeiras-do-sul-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Nossa Senhora Aparecida – Criciúma", "address": null, "neighborhood": "Criciúma", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santana-laranjeiras-do-sul-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade São Marcos – Jardim Panorama", "address": null, "neighborhood": "Jardim Panorama", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santana-laranjeiras-do-sul-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Santos Mártires – Assentamento 08 de Junho", "address": null, "neighborhood": "Assentamento 08 de Junho", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santana-laranjeiras-do-sul-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade São Frei Galvão – Bancário", "address": null, "neighborhood": "Bancário", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santana-laranjeiras-do-sul-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Santo Izidoro – Recanto da Natureza", "address": null, "neighborhood": "Recanto da Natureza", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santana-laranjeiras-do-sul-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade São Lucas – Rio Verde", "address": null, "neighborhood": "Rio Verde", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santana-laranjeiras-do-sul-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Nossa Senhora do Perpétuo Socorro – Cristo Rei", "address": null, "neighborhood": "Cristo Rei", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santana-laranjeiras-do-sul-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade São Judas Tadeu – Linha Paulo Pechinsk", "address": null, "neighborhood": "Linha Paulo Pechinsk", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santana-laranjeiras-do-sul-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Santo Expedito – Assentamento Passo Liso", "address": null, "neighborhood": "Assentamento Passo Liso", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santana-laranjeiras-do-sul-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" }
+      ],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 1, "time": "06:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santana-laranjeiras-do-sul-pr/", "accessedAt": "2026-09-10" }, { "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 1, "time": "16:00", "type": "MASS", "notes": "Somente na 1ª segunda-feira do mês", "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 2, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santana-laranjeiras-do-sul-pr/", "accessedAt": "2026-09-10" }, { "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 3, "time": "19:00", "type": "MASS", "notes": "Página da paróquia: 'de terça a sábado às 19h'; a página diocesana de horários lista só terça e sábado — validar", "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santana-laranjeiras-do-sul-pr/", "accessedAt": "2026-09-10" }], "confidence": "media" },
+        { "community": "Matriz", "dayOfWeek": 4, "time": "19:00", "type": "MASS", "notes": "Página da paróquia: 'de terça a sábado às 19h'; a página diocesana de horários lista só terça e sábado — validar", "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santana-laranjeiras-do-sul-pr/", "accessedAt": "2026-09-10" }], "confidence": "media" },
+        { "community": "Matriz", "dayOfWeek": 5, "time": "19:00", "type": "MASS", "notes": "Página da paróquia: 'de terça a sábado às 19h'; a página diocesana de horários lista só terça e sábado — validar", "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santana-laranjeiras-do-sul-pr/", "accessedAt": "2026-09-10" }], "confidence": "media" },
+        { "community": "Matriz", "dayOfWeek": 6, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santana-laranjeiras-do-sul-pr/", "accessedAt": "2026-09-10" }, { "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "07:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santana-laranjeiras-do-sul-pr/", "accessedAt": "2026-09-10" }, { "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "10:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santana-laranjeiras-do-sul-pr/", "accessedAt": "2026-09-10" }, { "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santana-laranjeiras-do-sul-pr/", "accessedAt": "2026-09-10" }, { "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-10" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-do-monte-claro-virmond",
+      "name": "Paróquia Nossa Senhora do Monte Claro",
+      "city": "Virmond", "state": "PR", "neighborhood": null,
+      "address": "Av. XV de Novembro, s/n", "zipCode": "85390-000",
+      "phone": "(42) 98411-1254", "email": "paroquiamontec@gmail.com", "website": null,
+      "priestName": "Padre Claudemir da Silveira Didek",
+      "foundedYear": 1951,
+      "sources": [
+        { "url": "https://diopuava.org/decanato-laranjeiras/paroquia-nossa-senhora-do-monte-claro-virmond-pr/", "title": "Paróquia Nossa Senhora do Monte Claro – Virmond PR – Diocese de Guarapuava PR (fundada em 15/08/1951; 8–10 comunidades não nomeadas)", "accessedAt": "2026-09-10" },
+        { "url": "https://diopuava.org/paroquias/", "title": "Paróquias – Diocese de Guarapuava PR (Decanato Laranjeiras)", "accessedAt": "2026-09-10" }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 0, "time": "08:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 6, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 3, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-10" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "imaculado-coracao-de-maria-marquinho",
+      "name": "Paróquia Imaculado Coração de Maria",
+      "city": "Marquinho", "state": "PR", "neighborhood": null,
+      "address": "Rua Napoleão Padilha, 65", "zipCode": "85168-000",
+      "phone": "(42) 93300-8680", "email": "paromaria2@gmail.com", "website": null,
+      "priestName": "Padre Edinaldo Mendes Tonete",
+      "foundedYear": 1954,
+      "sources": [
+        { "url": "https://diopuava.org/decanato-laranjeiras/paroquia-imaculado-coracao-de-maria-marquinho-pr/", "title": "Paróquia Imaculado Coração de Maria – Marquinho PR – Diocese de Guarapuava PR (fundação 01/04/1954; 18 comunidades não nomeadas)", "accessedAt": "2026-09-10" },
+        { "url": "https://diopuava.org/paroquias/", "title": "Paróquias – Diocese de Guarapuava PR (Decanato Laranjeiras)", "accessedAt": "2026-09-10" }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 0, "time": "08:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 6, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 1, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 2, "time": "06:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 3, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 4, "time": "15:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 5, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-10" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "imaculado-coracao-de-maria-quedas-do-iguacu",
+      "name": "Paróquia Imaculado Coração de Maria",
+      "city": "Quedas do Iguaçu", "state": "PR", "neighborhood": null,
+      "address": "Avenida Pinheirais, 676", "zipCode": "85460-000",
+      "phone": "(46) 99908-7196", "email": "paroquiaquedas@gmail.com", "website": "https://paroquiaquedas.com.br",
+      "priestName": "Padre Andrzej Bogdan Wojteczek, SChr; Padre Kazimierz Przegendza, SChr; Padre Franciszek Adamczyk, SChr",
+      "foundedYear": 1954,
+      "sources": [
+        { "url": "https://diopuava.org/decanato-laranjeiras/paroquia-imaculado-coracao-de-maria-quedas-do-iguacu-pr/", "title": "Paróquia Imaculado Coração de Maria – Quedas do Iguaçu PR – Diocese de Guarapuava PR (criada em 01/10/1954; 51 comunidades não nomeadas; Sociedade de Cristo)", "accessedAt": "2026-09-10" },
+        { "url": "https://diopuava.org/paroquias/", "title": "Paróquias – Diocese de Guarapuava PR (Decanato Laranjeiras)", "accessedAt": "2026-09-10" }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 0, "time": "08:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "09:30", "type": "MASS", "notes": "Somente no 3º domingo do mês", "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 6, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 3, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 5, "time": "18:00", "type": "MASS", "notes": "Somente na 1ª sexta-feira do mês", "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-10" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "imaculada-conceicao-porto-barreiro",
+      "name": "Paróquia Imaculada Conceição",
+      "city": "Porto Barreiro", "state": "PR", "neighborhood": "Centro",
+      "address": "Rua das Acácias, 910 – Centro", "zipCode": "85345-000",
+      "phone": "(42) 92001-8993", "email": "imaculadaauxiliadora@gmail.com", "website": null,
+      "priestName": "Padre Mário Zavirski",
+      "foundedYear": 1973,
+      "sources": [
+        { "url": "https://diopuava.org/decanato-laranjeiras/paroquia-imaculada-conceicao-porto-barreiro-pr/", "title": "Paróquia Imaculada Conceição – Porto Barreiro PR – Diocese de Guarapuava PR (criada em 30/09/1973 como N. Sra. Auxiliadora; sede transferida para Porto Barreiro em 2005; nome atual desde 2022; 18 comunidades não nomeadas)", "accessedAt": "2026-09-10" },
+        { "url": "https://diopuava.org/paroquias/", "title": "Paróquias – Diocese de Guarapuava PR (Decanato Laranjeiras)", "accessedAt": "2026-09-10" }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 0, "time": "09:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 3, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 5, "time": "18:30", "type": "MASS", "notes": "Somente na 1ª sexta-feira do mês", "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-10" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "sao-joao-batista-nova-laranjeiras",
+      "name": "Paróquia São João Batista",
+      "city": "Nova Laranjeiras", "state": "PR", "neighborhood": null,
+      "address": "Rua São João Batista, 1581", "zipCode": "85350-000",
+      "phone": "(42) 98886-5177", "email": "paroquiasaojoaobatista90@gmail.com", "website": null,
+      "priestName": "Padre Benediktus Jemiun, SVD; Padre Dominic Mundri, SVD",
+      "foundedYear": 1974,
+      "sources": [
+        { "url": "https://diopuava.org/decanato-laranjeiras/paroquia-sao-joao-batista-nova-laranjeiras-pr/", "title": "Paróquia São João Batista – Nova Laranjeiras PR – Diocese de Guarapuava PR (criada em 09/11/1974; 38–39 capelas não nomeadas, 6 em comunidades indígenas)", "accessedAt": "2026-09-10" },
+        { "url": "https://diopuava.org/paroquias/", "title": "Paróquias – Diocese de Guarapuava PR (Decanato Laranjeiras)", "accessedAt": "2026-09-10" }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 0, "time": "08:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 6, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 3, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-10" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "imaculada-conceicao-cantagalo",
+      "name": "Paróquia Imaculada Conceição",
+      "city": "Cantagalo", "state": "PR", "neighborhood": null,
+      "address": "Av. Epaminondas Fritz, 486", "zipCode": "85160-000",
+      "phone": "(42) 3636-1260", "email": "paroquiadecgalo@yahoo.com.br", "website": null,
+      "priestName": "Padre José de Paulo Bessa",
+      "foundedYear": 1984,
+      "sources": [
+        { "url": "https://diopuava.org/decanato-laranjeiras/paroquia-imaculada-conceicao-cantagalo-pr/", "title": "Paróquia Imaculada Conceição – Cantagalo PR – Diocese de Guarapuava PR (criada em 12/02/1984, desmembrada da Paróquia Sant'Ana de Laranjeiras do Sul; 16–24 comunidades não nomeadas)", "accessedAt": "2026-09-10" },
+        { "url": "https://diopuava.org/paroquias/", "title": "Paróquias – Diocese de Guarapuava PR (Decanato Laranjeiras)", "accessedAt": "2026-09-10" }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 0, "time": "08:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 6, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 3, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 4, "time": "09:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-10" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "santo-antonio-de-padua-rio-bonito-do-iguacu",
+      "name": "Paróquia Santo Antônio de Pádua",
+      "city": "Rio Bonito do Iguaçu", "state": "PR", "neighborhood": null,
+      "address": "Rua XV de Novembro, 775", "zipCode": "85340-000",
+      "phone": "(42) 3653-1120", "email": "paroquiariobonitodoiguacu@gmail.com", "website": null,
+      "priestName": "Padre Cristian dos Santos Jardim; Padre Mário Zavirski",
+      "foundedYear": 1995,
+      "sources": [
+        { "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santo-antonio-de-padua-rio-bonito-do-iguacu-pr/", "title": "Paróquia Santo Antônio de Pádua – Rio Bonito do Iguaçu PR – Diocese de Guarapuava PR (criada em 13/06/1995; 46 comunidades nomeadas)", "accessedAt": "2026-09-10" },
+        { "url": "https://diopuava.org/paroquias/", "title": "Paróquias – Diocese de Guarapuava PR (Decanato Laranjeiras)", "accessedAt": "2026-09-10" }
+      ],
+      "confidence": "alta",
+      "communities": [
+        { "name": "Matriz Santo Antônio de Pádua", "address": "Rua XV de Novembro, 775", "neighborhood": null, "isMatriz": true, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santo-antonio-de-padua-rio-bonito-do-iguacu-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Santo Afonso – Nova Santa Rosa", "address": null, "neighborhood": "Nova Santa Rosa", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santo-antonio-de-padua-rio-bonito-do-iguacu-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Nossa Senhora das Graças – Alta Floresta", "address": null, "neighborhood": "Alta Floresta", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santo-antonio-de-padua-rio-bonito-do-iguacu-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Nossa Senhora Consoladora – Primeira Conquista", "address": null, "neighborhood": "Primeira Conquista", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santo-antonio-de-padua-rio-bonito-do-iguacu-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Nossa Senhora dos Navegantes – Alagado", "address": null, "neighborhood": "Alagado", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santo-antonio-de-padua-rio-bonito-do-iguacu-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Nossa Senhora dos Navegantes – Açude Seco", "address": null, "neighborhood": "Açude Seco", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santo-antonio-de-padua-rio-bonito-do-iguacu-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade São João Maria Vianney", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santo-antonio-de-padua-rio-bonito-do-iguacu-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Santa Rita de Cássia – Alto Alegre", "address": null, "neighborhood": "Alto Alegre", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santo-antonio-de-padua-rio-bonito-do-iguacu-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade São José – Alto do Trevo", "address": null, "neighborhood": "Alto do Trevo", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santo-antonio-de-padua-rio-bonito-do-iguacu-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Nossa Senhora das Graças – Alto Iguaçu", "address": null, "neighborhood": "Alto Iguaçu", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santo-antonio-de-padua-rio-bonito-do-iguacu-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Nossa Senhora Aparecida – Alto Rio Bonito", "address": null, "neighborhood": "Alto Rio Bonito", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santo-antonio-de-padua-rio-bonito-do-iguacu-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade São Cristóvão – Arapongas", "address": null, "neighborhood": "Arapongas", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santo-antonio-de-padua-rio-bonito-do-iguacu-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Nossa Senhora da Salete – Assentinho", "address": null, "neighborhood": "Assentinho", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santo-antonio-de-padua-rio-bonito-do-iguacu-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Nossa Senhora Aparecida – Barra Mansa do Iguaçu", "address": null, "neighborhood": "Barra Mansa do Iguaçu", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santo-antonio-de-padua-rio-bonito-do-iguacu-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Santo Antônio – Barraginha", "address": null, "neighborhood": "Barraginha", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santo-antonio-de-padua-rio-bonito-do-iguacu-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Santa Luzia – Bela Vista do Iguaçu", "address": null, "neighborhood": "Bela Vista do Iguaçu", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santo-antonio-de-padua-rio-bonito-do-iguacu-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade São Roque – Camargo Filho", "address": null, "neighborhood": "Camargo Filho", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santo-antonio-de-padua-rio-bonito-do-iguacu-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade São Sebastião – Campo do Bugre", "address": null, "neighborhood": "Campo do Bugre", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santo-antonio-de-padua-rio-bonito-do-iguacu-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Imaculada Conceição – Centro Novo", "address": null, "neighborhood": "Centro Novo", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santo-antonio-de-padua-rio-bonito-do-iguacu-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Santa Bárbara – Juriti", "address": null, "neighborhood": "Juriti", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santo-antonio-de-padua-rio-bonito-do-iguacu-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade São Roque – Linha Bandeirantes", "address": null, "neighborhood": "Linha Bandeirantes", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santo-antonio-de-padua-rio-bonito-do-iguacu-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Santo Antônio – Linha Bartoski", "address": null, "neighborhood": "Linha Bartoski", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santo-antonio-de-padua-rio-bonito-do-iguacu-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Senhor Bom Jesus – Linha Nova", "address": null, "neighborhood": "Linha Nova", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santo-antonio-de-padua-rio-bonito-do-iguacu-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Nossa Senhora de Fátima – Linha Rosa", "address": null, "neighborhood": "Linha Rosa", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santo-antonio-de-padua-rio-bonito-do-iguacu-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Nossa Senhora Aparecida", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santo-antonio-de-padua-rio-bonito-do-iguacu-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Nossa Senhora de Guadalupe", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santo-antonio-de-padua-rio-bonito-do-iguacu-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Imaculado Coração de Maria – Nova Conquista", "address": null, "neighborhood": "Nova Conquista", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santo-antonio-de-padua-rio-bonito-do-iguacu-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade São João Batista – Nova Estrela", "address": null, "neighborhood": "Nova Estrela", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santo-antonio-de-padua-rio-bonito-do-iguacu-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Santo Expedito – Paraíso", "address": null, "neighborhood": "Paraíso", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santo-antonio-de-padua-rio-bonito-do-iguacu-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Santa Terezinha – Pinhalzinho", "address": null, "neighborhood": "Pinhalzinho", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santo-antonio-de-padua-rio-bonito-do-iguacu-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Cristo Rei – Quatro Encruzo", "address": null, "neighborhood": "Quatro Encruzo", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santo-antonio-de-padua-rio-bonito-do-iguacu-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade São Sebastião – Rio do Leão", "address": null, "neighborhood": "Rio do Leão", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santo-antonio-de-padua-rio-bonito-do-iguacu-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Santa Bárbara – Rio Lambari", "address": null, "neighborhood": "Rio Lambari", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santo-antonio-de-padua-rio-bonito-do-iguacu-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Santo Antônio – Rio Lambedor", "address": null, "neighborhood": "Rio Lambedor", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santo-antonio-de-padua-rio-bonito-do-iguacu-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Sagrado Coração de Jesus", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santo-antonio-de-padua-rio-bonito-do-iguacu-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade São Francisco de Assis", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santo-antonio-de-padua-rio-bonito-do-iguacu-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade São Sebastião – Irmã Dulce", "address": null, "neighborhood": "Irmã Dulce", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santo-antonio-de-padua-rio-bonito-do-iguacu-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade São Jorge – Campos Verdes", "address": null, "neighborhood": "Campos Verdes", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santo-antonio-de-padua-rio-bonito-do-iguacu-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade São Vicente de Paulo", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santo-antonio-de-padua-rio-bonito-do-iguacu-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Santa Águeda – Nova Aliança", "address": null, "neighborhood": "Nova Aliança", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santo-antonio-de-padua-rio-bonito-do-iguacu-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Nossa Senhora do Rocio", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santo-antonio-de-padua-rio-bonito-do-iguacu-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Nossa Senhora Aparecida – Boa Esperança", "address": null, "neighborhood": "Boa Esperança", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santo-antonio-de-padua-rio-bonito-do-iguacu-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Nossa Senhora das Graças – Dez de Maio", "address": null, "neighborhood": "Dez de Maio", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santo-antonio-de-padua-rio-bonito-do-iguacu-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Santíssima Trindade – Nova União", "address": null, "neighborhood": "Nova União", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santo-antonio-de-padua-rio-bonito-do-iguacu-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade São José – Charqueado", "address": null, "neighborhood": "Charqueado", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santo-antonio-de-padua-rio-bonito-do-iguacu-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Santa Dulce / São Sebastião", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santo-antonio-de-padua-rio-bonito-do-iguacu-pr/", "accessedAt": "2026-09-10" }], "confidence": "media" },
+        { "name": "Comunidade Santa Bárbara – Ponte Alta", "address": null, "neighborhood": "Ponte Alta", "isMatriz": false, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santo-antonio-de-padua-rio-bonito-do-iguacu-pr/", "accessedAt": "2026-09-10" }], "confidence": "alta" }
+      ],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 6, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santo-antonio-de-padua-rio-bonito-do-iguacu-pr/", "accessedAt": "2026-09-10" }, { "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "08:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/decanato-laranjeiras/paroquia-santo-antonio-de-padua-rio-bonito-do-iguacu-pr/", "accessedAt": "2026-09-10" }, { "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-10" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-da-luz-espigao-alto-do-iguacu",
+      "name": "Paróquia Nossa Senhora da Luz",
+      "city": "Espigão Alto do Iguaçu", "state": "PR", "neighborhood": null,
+      "address": "Rua Belo Horizonte, 421", "zipCode": "85465-000",
+      "phone": "(46) 99942-2007", "email": "parnsdaluzesp@gmail.com", "website": null,
+      "priestName": "Padre Marek Figurski; Padre Wieslaw Morawski",
+      "foundedYear": 1996,
+      "sources": [
+        { "url": "https://diopuava.org/decanato-laranjeiras/paroquia-nossa-senhora-da-luz-espigao-alto-do-iguacu-pr/", "title": "Paróquia Nossa Senhora da Luz – Espigão Alto do Iguaçu PR – Diocese de Guarapuava PR (criada em 26/09/1996; 21 comunidades não nomeadas)", "accessedAt": "2026-09-10" },
+        { "url": "https://diopuava.org/paroquias/", "title": "Paróquias – Diocese de Guarapuava PR (Decanato Laranjeiras)", "accessedAt": "2026-09-10" }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 0, "time": "08:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "19:00", "type": "MASS", "notes": "Somente no 1º domingo do mês", "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 3, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 5, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diopuava.org/horarios-de-missas/", "accessedAt": "2026-09-10" }], "confidence": "alta" }
+      ]
+    }
+  ],
+  "coverage": {
+    "parishesFound": 48,
+    "parishesExpected": 47,
+    "notes": "Lista oficial (diopuava.org/paroquias) traz 53 unidades em 4 decanatos (Centro 15, Pinhão 13, Pitanga 15, Laranjeiras 10); 5 são paróquias de rito ucraniano (Assunção de Nossa Senhora – Guarapuava; São Josafat e Catedral Imaculada Conceição – Prudentópolis; Nossa Senhora da Glória – Pitanga; São José – Cantagalo) pertencentes às Eparquias ucranianas e foram excluídas deste arquivo. Restam 48 paróquias latinas; o esperado de 47 (catholic-hierarchy 2023 e histórico diocesano) não inclui a Paróquia N. Sra. do Perpétuo Socorro de Guarapuava, elevada em 26/09/2023. Horários: página diocesana de horários (todos os decanatos) + páginas das paróquias; horários mensais (1ª sexta etc.) gravados com nota; horários por data do mês (dia 12/19/22/27) não gravados. Comunidades só onde a página oficial as nomeia (10 paróquias novas sem lista ficaram com communities: [])."
+  }
+}

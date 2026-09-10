@@ -1,0 +1,2708 @@
+{
+  "diocese": {
+    "name": "Diocese de Toledo",
+    "type": "Diocese",
+    "slug": "toledo",
+    "city": "Toledo",
+    "state": "PR",
+    "address": "Rua General Rondon, 2006 - Jardim La Salle",
+    "zipCode": null,
+    "phone": "(45) 3252-1417",
+    "email": "curia@diocesetoledo.org",
+    "website": "https://www.diocesetoledo.org",
+    "bishopName": "Dom João Carlos Seneme, C.S.S.",
+    "sources": [
+      {
+        "url": "https://www.diocesetoledo.org/paroquias",
+        "title": "Paróquias – Diocese de Toledo (listagem por decanato, endpoint POST /paroquias/list)",
+        "accessedAt": "2026-09-10"
+      },
+      {
+        "url": "https://www.diocesetoledo.org/contato",
+        "title": "Contato – Diocese de Toledo",
+        "accessedAt": "2026-09-10"
+      },
+      {
+        "url": "https://www.catholic-hierarchy.org/diocese/dtolo.html",
+        "title": "Diocese of Toledo (Brazil) – Catholic-Hierarchy",
+        "accessedAt": "2026-09-10"
+      },
+      {
+        "url": "https://gcatholic.org/dioceses/diocese/tole2.htm",
+        "title": "Diocese of Toledo, Brazil – GCatholic",
+        "accessedAt": "2026-09-10"
+      },
+      {
+        "url": "https://pt.wikipedia.org/wiki/Diocese_de_Toledo",
+        "title": "Diocese de Toledo – Wikipédia",
+        "accessedAt": "2026-09-10"
+      }
+    ],
+    "confidence": "alta"
+  },
+  "parishes": [
+    {
+      "slug": "cristo-rei-toledo",
+      "name": "Catedral Cristo Rei",
+      "city": "Toledo",
+      "state": "PR",
+      "neighborhood": "Centro",
+      "address": "Largo São Vicente de Paulo, 1210 - Centro",
+      "zipCode": "85900-215",
+      "phone": "(45) 3252-1419 / (45) 98417-1078",
+      "email": "secretaria@catedraltoledo.com.br",
+      "website": null,
+      "priestName": "Pe. Hélio José Bamberg",
+      "foundedYear": 1952,
+      "sources": [
+        {
+          "url": "https://www.diocesetoledo.org/paroquias/ler/234",
+          "title": "Paróquia Cristo Rei - Catedral - Toledo – Diocese de Toledo",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Catedral Cristo Rei",
+          "address": "Largo São Vicente de Paulo, 1210",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/234"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Catedral Cristo Rei",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/234",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral Cristo Rei",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/234",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral Cristo Rei",
+          "dayOfWeek": 1,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/234",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral Cristo Rei",
+          "dayOfWeek": 5,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": "1ª sexta-feira do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/234",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral Cristo Rei",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/234",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "sao-pedro-e-sao-paulo-toledo",
+      "name": "Paróquia São Pedro e São Paulo",
+      "city": "Toledo",
+      "state": "PR",
+      "neighborhood": "Vila Operária",
+      "address": "Av. Maripá, 3459 - Vila Operária",
+      "zipCode": "85909-220",
+      "phone": "(45) 3252-3952 / (45) 99926-0720",
+      "email": "saopedro.saopaulo@outlook.com",
+      "website": null,
+      "priestName": "Pe. Juarez Pereira de Oliveira",
+      "foundedYear": 1977,
+      "sources": [
+        {
+          "url": "https://www.diocesetoledo.org/paroquias/ler/257",
+          "title": "Paróquia São Pedro e São Paulo - Toledo – Diocese de Toledo",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/257",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "20:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/257",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "20:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/257",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "sagrada-familia-toledo",
+      "name": "Paróquia Sagrada Família",
+      "city": "Toledo",
+      "state": "PR",
+      "neighborhood": "Jardim Panorama",
+      "address": "Rua Willy Barth, 1771 - Jardim Panorama",
+      "zipCode": "85911-150",
+      "phone": "(45) 3277-2298 / (45) 98818-5146",
+      "email": "sagradafamilia@diocesetoledo.org",
+      "website": null,
+      "priestName": "Pe. André Fatega",
+      "foundedYear": 1998,
+      "sources": [
+        {
+          "url": "https://www.diocesetoledo.org/paroquias/ler/258",
+          "title": "Paróquia Sagrada Família - Toledo – Diocese de Toledo",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/258",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/258",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/258",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/258",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/258",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "menino-deus-toledo",
+      "name": "Paróquia Menino Deus",
+      "city": "Toledo",
+      "state": "PR",
+      "neighborhood": "Jardim Porto Alegre",
+      "address": "Rua Porto União, 901 - Jardim Porto Alegre",
+      "zipCode": "85906-060",
+      "phone": "(45) 3278-5454 / (45) 99922-0066",
+      "email": "meninodeus@diocesetoledo.org",
+      "website": null,
+      "priestName": "Pe. Geraldo Marino Ferreira",
+      "foundedYear": 1971,
+      "sources": [
+        {
+          "url": "https://www.diocesetoledo.org/paroquias/ler/259",
+          "title": "Paróquia Menino Deus - Toledo – Diocese de Toledo",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "07:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/259",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/259",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/259",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": "1ª sexta-feira do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/259",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/259",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "sao-francisco-de-assis-toledo",
+      "name": "Paróquia São Francisco de Assis",
+      "city": "Toledo",
+      "state": "PR",
+      "neighborhood": "Jardim Coopagro",
+      "address": "Rua Eduardo Gatto, 311 - Jardim Coopagro",
+      "zipCode": "85903-370",
+      "phone": "(45) 3252-8086 / (45) 99977-7965",
+      "email": "parfrancisco@diocesetoledo.org",
+      "website": null,
+      "priestName": "Pe. Laudemir da Rocha",
+      "foundedYear": 2000,
+      "sources": [
+        {
+          "url": "https://www.diocesetoledo.org/paroquias/ler/260",
+          "title": "Paróquia São Francisco de Assis - Toledo – Diocese de Toledo",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/260",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/260",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": "1ª sexta-feira do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/260",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/260",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "sao-cristovao-toledo",
+      "name": "Paróquia São Cristóvão",
+      "city": "Toledo",
+      "state": "PR",
+      "neighborhood": "Vila Industrial",
+      "address": "Rua Almirante Barroso, 3569 - Vila Industrial",
+      "zipCode": "85905-010",
+      "phone": "(45) 3252-2271 / (45) 99905-8471",
+      "email": "scristovaosecretaria@diocesetoledo.org",
+      "website": null,
+      "priestName": "Pe. Marcos Denck da Silva",
+      "foundedYear": 1977,
+      "sources": [
+        {
+          "url": "https://www.diocesetoledo.org/paroquias/ler/262",
+          "title": "Paróquia São Cristóvão - Toledo – Diocese de Toledo",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/262",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "10:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/262",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/262",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/262",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/262",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": "1ª sexta-feira do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/262",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/262",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-de-fatima-vila-nova-toledo",
+      "name": "Paróquia Nossa Senhora de Fátima",
+      "city": "Toledo",
+      "state": "PR",
+      "neighborhood": "Vila Nova (distrito)",
+      "address": "Av. Rio Pardo, 263 - Vila Nova",
+      "zipCode": "85926-000",
+      "phone": "(45) 3269-1241 / (45) 3269-1269",
+      "email": "fatima@diocesetoledo.org",
+      "website": null,
+      "priestName": "Pe. Inácio Afonso Scherer",
+      "foundedYear": 1965,
+      "sources": [
+        {
+          "url": "https://www.diocesetoledo.org/paroquias/ler/263",
+          "title": "Paróquia Nossa Senhora de Fátima - Vila Nova – Diocese de Toledo",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": "1º e 3º domingos do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/263",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "2º e 4º sábados do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/263",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "sao-pedro-sao-pedro-do-iguacu",
+      "name": "Paróquia São Pedro",
+      "city": "São Pedro do Iguaçu",
+      "state": "PR",
+      "neighborhood": null,
+      "address": "Rua Teresina, 436",
+      "zipCode": "85929-000",
+      "phone": "(45) 3255-1123 / (45) 99982-8003",
+      "email": "paroquiasaopedro24@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Jociel Cristiano de Almeida",
+      "foundedYear": 1976,
+      "sources": [
+        {
+          "url": "https://www.diocesetoledo.org/paroquias/ler/264",
+          "title": "Paróquia São Pedro - São Pedro do Iguaçu – Diocese de Toledo",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/264",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/264",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-aparecida-ouro-verde-do-oeste",
+      "name": "Paróquia Nossa Senhora Aparecida",
+      "city": "Ouro Verde do Oeste",
+      "state": "PR",
+      "neighborhood": null,
+      "address": "Rua Amazonas, 378",
+      "zipCode": "85921-000",
+      "phone": "(45) 99927-5170",
+      "email": "paroquiaaparecida@diocesetoledo.org",
+      "website": null,
+      "priestName": "Frei Juarez Bastiani, OAD",
+      "foundedYear": 1975,
+      "sources": [
+        {
+          "url": "https://www.diocesetoledo.org/paroquias/ler/265",
+          "title": "Paróquia Nossa Senhora Aparecida - Ouro Verde do Oeste – Diocese de Toledo",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/265",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/265",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/265",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/265",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": "1ª sexta-feira do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/265",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/265",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "santa-rita-de-cassia-toledo",
+      "name": "Paróquia Santa Rita de Cássia",
+      "city": "Toledo",
+      "state": "PR",
+      "neighborhood": "Jardim América",
+      "address": "Rua General Câmara, 1354 - Jardim América",
+      "zipCode": "85908-180",
+      "phone": "(45) 3252-8625 / (45) 99103-9745",
+      "email": "paroquiasrctoledo@gmail.com",
+      "website": null,
+      "priestName": "Frei Gabriel de Moura Lima, FMM",
+      "foundedYear": 2015,
+      "sources": [
+        {
+          "url": "https://www.diocesetoledo.org/paroquias/ler/288",
+          "title": "Paróquia Santa Rita de Cássia - Toledo – Diocese de Toledo",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/288",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/288",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": "1ª sexta-feira do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/288",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/288",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "sagrada-familia-dez-de-maio-toledo",
+      "name": "Paróquia Sagrada Família",
+      "city": "Toledo",
+      "state": "PR",
+      "neighborhood": "Dez de Maio (distrito)",
+      "address": "Rua Tremônia, 177 - Dez de Maio",
+      "zipCode": "85920-000",
+      "phone": "(45) 3274-1171 / (45) 99946-0170",
+      "email": "par.sagradafamilia@diocesetoledo.org",
+      "website": null,
+      "priestName": "Pe. Ademir Alves Teixeira",
+      "foundedYear": 1958,
+      "sources": [
+        {
+          "url": "https://www.diocesetoledo.org/paroquias/ler/295",
+          "title": "Paróquia Sagrada Família - Dez de Maio – Diocese de Toledo",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "08:30",
+          "type": "MASS",
+          "notes": "1º e 3º domingos do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/295",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/295",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "2º e 4º sábados do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/295",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-aparecida-toledo",
+      "name": "Paróquia Nossa Senhora Aparecida",
+      "city": "Toledo",
+      "state": "PR",
+      "neighborhood": "Jardim Pancera",
+      "address": "Rua Vinicius de Moraes, 807 - Jardim Pancera",
+      "zipCode": "85902-630",
+      "phone": "(45) 3252-9961 / (45) 99921-0871",
+      "email": "capelapancera@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Roberto Lopes de Souza",
+      "foundedYear": 2022,
+      "sources": [
+        {
+          "url": "https://www.diocesetoledo.org/paroquias/ler/441",
+          "title": "Paróquia Nossa Senhora Aparecida - Toledo – Diocese de Toledo",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/441",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "com adoração ao Santíssimo",
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/441",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": "1ª sexta-feira do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/441",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "20:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/441",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "sagrado-coracao-de-jesus-marechal-candido-rondon",
+      "name": "Paróquia Sagrado Coração de Jesus",
+      "city": "Marechal Cândido Rondon",
+      "state": "PR",
+      "neighborhood": "Centro",
+      "address": "Rua Mem de Sá, 800 - Centro",
+      "zipCode": "85960-000",
+      "phone": "(45) 3254-2675 / (45) 99998-1115",
+      "email": "sagcoracaojesus@diocesetoledo.org",
+      "website": null,
+      "priestName": "Pe. Sérgio Augusto Rodrigues",
+      "foundedYear": 1962,
+      "sources": [
+        {
+          "url": "https://www.diocesetoledo.org/paroquias/ler/267",
+          "title": "Paróquia Sagrado Coração de Jesus - M. C. Rondon – Diocese de Toledo",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "08:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/267",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/267",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/267",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "16:00",
+          "type": "MASS",
+          "notes": "1ª sexta-feira do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/267",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/267",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "maria-mae-da-igreja-marechal-candido-rondon",
+      "name": "Paróquia Maria Mãe da Igreja",
+      "city": "Marechal Cândido Rondon",
+      "state": "PR",
+      "neighborhood": "Jardim Botafogo",
+      "address": "Rua Belém, 870 - Jardim Botafogo",
+      "zipCode": "85960-000",
+      "phone": "(45) 3284-2786 / (45) 99821-3535",
+      "email": "pmmigreja@diocesetoledo.org",
+      "website": null,
+      "priestName": "Pe. Anderson Tomadon Sgarbossa",
+      "foundedYear": 2007,
+      "sources": [
+        {
+          "url": "https://www.diocesetoledo.org/paroquias/ler/268",
+          "title": "Paróquia Maria Mãe da Igreja - M. C. Rondon – Diocese de Toledo",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/268",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/268",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/268",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-aparecida-mercedes",
+      "name": "Paróquia Nossa Senhora Aparecida",
+      "city": "Mercedes",
+      "state": "PR",
+      "neighborhood": "Centro",
+      "address": "Av. João XXIII, 820 - Centro",
+      "zipCode": "85998-000",
+      "phone": "(45) 3256-1162",
+      "email": "paraparecida@diocesetoledo.org",
+      "website": null,
+      "priestName": "Pe. Dionisius Rangga, SVD",
+      "foundedYear": 1966,
+      "sources": [
+        {
+          "url": "https://www.diocesetoledo.org/paroquias/ler/269",
+          "title": "Paróquia Nossa Senhora Aparecida - Mercedes – Diocese de Toledo",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/269",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/269",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "1ª sexta-feira do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/269",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/269",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "santa-margarida-marechal-candido-rondon",
+      "name": "Paróquia Santa Margarida",
+      "city": "Marechal Cândido Rondon",
+      "state": "PR",
+      "neighborhood": "Vila Margarida (distrito)",
+      "address": "Rua Ari José Hoff, 5370 - Vila Margarida",
+      "zipCode": "85974-000",
+      "phone": "(45) 3283-1041 / (45) 3284-1041",
+      "email": "margarida@diocesetoledo.org",
+      "website": null,
+      "priestName": "Pe. José Emanuel Beffa",
+      "foundedYear": 1978,
+      "sources": [
+        {
+          "url": "https://www.diocesetoledo.org/paroquias/ler/270",
+          "title": "Paróquia Santa Margarida - V. Margarida - M. C. Rondon – Diocese de Toledo",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "08:30",
+          "type": "MASS",
+          "notes": "1º e 3º domingos do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/270",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "2º e 4º sábados do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/270",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "sao-luiz-gonzaga-pato-bragado",
+      "name": "Paróquia São Luiz Gonzaga",
+      "city": "Pato Bragado",
+      "state": "PR",
+      "neighborhood": null,
+      "address": "Rua Willy Barth, 2861",
+      "zipCode": "85948-000",
+      "phone": "(45) 3282-1344 / (45) 92001-1202",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Antônio Carlos Pereira da Silva",
+      "foundedYear": 1969,
+      "sources": [
+        {
+          "url": "https://www.diocesetoledo.org/paroquias/ler/271",
+          "title": "Paróquia São Luiz Gonzaga - Pato Bragado – Diocese de Toledo",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": "1º, 3º e 4º domingos do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/271",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "20:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/271",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": "1ª sexta-feira do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/271",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "2º e 4º sábados do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/271",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "cristo-rei-entre-rios-do-oeste",
+      "name": "Paróquia Cristo Rei",
+      "city": "Entre Rios do Oeste",
+      "state": "PR",
+      "neighborhood": null,
+      "address": "Rua Dr. José Montaury, 621",
+      "zipCode": "85988-000",
+      "phone": "(45) 3257-1137 / (45) 99941-6184",
+      "email": "cristorei_er@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Antônio Carlos Pereira da Silva",
+      "foundedYear": 1980,
+      "sources": [
+        {
+          "url": "https://www.diocesetoledo.org/paroquias/ler/272",
+          "title": "Paróquia Cristo Rei - Entre Rios do Oeste – Diocese de Toledo",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/272",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/272",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-da-gloria-quatro-pontes",
+      "name": "Paróquia Nossa Senhora da Glória",
+      "city": "Quatro Pontes",
+      "state": "PR",
+      "neighborhood": null,
+      "address": "Av. Santa Maria, 375",
+      "zipCode": "85940-000",
+      "phone": "(45) 3279-1112",
+      "email": "gloria@diocesetoledo.org",
+      "website": null,
+      "priestName": "Pe. Solano Alcioni Tambosi",
+      "foundedYear": 1955,
+      "sources": [
+        {
+          "url": "https://www.diocesetoledo.org/paroquias/ler/273",
+          "title": "Paróquia Nossa Senhora da Glória - Quatro Pontes – Diocese de Toledo",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/273",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/273",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/273",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-das-gracas-novo-sarandi-toledo",
+      "name": "Paróquia Nossa Senhora das Graças",
+      "city": "Toledo",
+      "state": "PR",
+      "neighborhood": "Novo Sarandi (distrito)",
+      "address": "Rua Fortaleza, 254 - Novo Sarandi",
+      "zipCode": "85927-000",
+      "phone": "(45) 3273-1300 / (45) 99820-0546",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Ângelo Virgilio Pellá",
+      "foundedYear": 1967,
+      "sources": [
+        {
+          "url": "https://www.diocesetoledo.org/paroquias/ler/274",
+          "title": "Paróquia Nossa Senhora das Graças - Novo Sarandi - Toledo – Diocese de Toledo",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": "2º e 4º domingos do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/274",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "1º e 3º sábados do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/274",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "santa-rosa-de-lima-nova-santa-rosa",
+      "name": "Paróquia Santa Rosa de Lima",
+      "city": "Nova Santa Rosa",
+      "state": "PR",
+      "neighborhood": null,
+      "address": "Rua Tuparandi, 451",
+      "zipCode": "85930-000",
+      "phone": "(45) 3253-1454",
+      "email": "santarosadelima@diocesetoledo.org",
+      "website": null,
+      "priestName": "Pe. Jairo Itamar dos Santos",
+      "foundedYear": 1970,
+      "sources": [
+        {
+          "url": "https://www.diocesetoledo.org/paroquias/ler/275",
+          "title": "Paróquia Santa Rosa de Lima - Nova Santa Rosa – Diocese de Toledo",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Santa Rosa de Lima",
+          "address": "Rua Tuparandi, 451",
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/275"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Santo Américo",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/275"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Capela Santo Américo",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/275",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Santa Rosa de Lima",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/275",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Santa Rosa de Lima",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "1ª sexta-feira do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/275",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Santa Rosa de Lima",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/275",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-aparecida-guaira",
+      "name": "Paróquia Nossa Senhora Aparecida",
+      "city": "Guaíra",
+      "state": "PR",
+      "neighborhood": "Centro",
+      "address": "Rua João Guimarães Rosa, 685 - Centro",
+      "zipCode": "85980-000",
+      "phone": "(44) 3642-1912 / (44) 99600-1105",
+      "email": "aparecida@diocesetoledo.org",
+      "website": null,
+      "priestName": "Pe. Valdeci Gaias",
+      "foundedYear": 1967,
+      "sources": [
+        {
+          "url": "https://www.diocesetoledo.org/paroquias/ler/283",
+          "title": "Paróquia Nossa Senhora Aparecida - Guaíra – Diocese de Toledo",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/283",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/283",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/283",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": "1ª sexta-feira do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/283",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/283",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-aparecida-terra-roxa",
+      "name": "Paróquia Nossa Senhora Aparecida",
+      "city": "Terra Roxa",
+      "state": "PR",
+      "neighborhood": null,
+      "address": "Av. Presidente Costa e Silva, 324",
+      "zipCode": "85990-000",
+      "phone": "(44) 3645-1460 / (44) 99993-0003",
+      "email": "nsaparecida_dtoledo@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Erno Aloísio Schlindwein, SAC",
+      "foundedYear": 1961,
+      "sources": [
+        {
+          "url": "https://www.diocesetoledo.org/paroquias/ler/284",
+          "title": "Paróquia Nossa Senhora Aparecida - Terra Roxa – Diocese de Toledo",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "08:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/284",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/284",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/284",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/284",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "08:30",
+          "type": "MASS",
+          "notes": "1ª sexta-feira do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/284",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/284",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-de-fatima-maripa",
+      "name": "Paróquia Nossa Senhora de Fátima",
+      "city": "Maripá",
+      "state": "PR",
+      "neighborhood": null,
+      "address": "Rua Francisco Ferrer, 748",
+      "zipCode": "85955-000",
+      "phone": "(44) 3687-1221 / (44) 99767-0128",
+      "email": "nsfatima@diocesetoledo.org",
+      "website": null,
+      "priestName": "Frei Levi J. Botke, FMM (administrador paroquial)",
+      "foundedYear": 1995,
+      "sources": [
+        {
+          "url": "https://www.diocesetoledo.org/paroquias/ler/285",
+          "title": "Paróquia Nossa Senhora de Fátima - Maripá – Diocese de Toledo",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/285",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/285",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-dos-navegantes-guaira",
+      "name": "Paróquia Nossa Senhora dos Navegantes",
+      "city": "Guaíra",
+      "state": "PR",
+      "neighborhood": "Centro",
+      "address": "Praça João XXIII, 100 - Centro",
+      "zipCode": "85980-000",
+      "phone": "(44) 3642-1869 / (44) 99179-1869",
+      "email": "navegantes@diocesetoledo.org",
+      "website": null,
+      "priestName": "Pe. Jauri Strieder",
+      "foundedYear": 1955,
+      "sources": [
+        {
+          "url": "https://www.diocesetoledo.org/paroquias/ler/286",
+          "title": "Paróquia Nossa Senhora dos Navegantes - Guaíra – Diocese de Toledo",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/286",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/286",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": "1ª sexta-feira do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/286",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/286",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "sao-vicente-palotti-palotina",
+      "name": "Paróquia São Vicente Palotti",
+      "city": "Palotina",
+      "state": "PR",
+      "neighborhood": "Centro",
+      "address": "Av. Independência, 830 - Centro",
+      "zipCode": "85950-013",
+      "phone": "(44) 3649-5105 / (44) 99825-2728",
+      "email": "paroquiasvp@diocesetoledo.org",
+      "website": null,
+      "priestName": "Pe. Moacir José Piovesan, SAC",
+      "foundedYear": 1958,
+      "sources": [
+        {
+          "url": "https://www.diocesetoledo.org/paroquias/ler/287",
+          "title": "Paróquia São Vicente Palotti - Palotina – Diocese de Toledo",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "08:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/287",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "2º e 4º domingos do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/287",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 1,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/287",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/287",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "16:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/287",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "16:00",
+          "type": "MASS",
+          "notes": "1ª sexta-feira do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/287",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "16:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/287",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/287",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-de-lourdes-tupassi",
+      "name": "Paróquia Nossa Senhora de Lourdes",
+      "city": "Tupãssi",
+      "state": "PR",
+      "neighborhood": null,
+      "address": "Rua Nossa Senhora de Lourdes, 135",
+      "zipCode": "85945-000",
+      "phone": "(44) 3544-1455 / (44) 99914-9564",
+      "email": "nslourdes@diocesetoledo.org",
+      "website": null,
+      "priestName": "Pe. Vanderlei R. Ghelere",
+      "foundedYear": 1971,
+      "sources": [
+        {
+          "url": "https://www.diocesetoledo.org/paroquias/ler/277",
+          "title": "Paróquia Nossa Senhora de Lourdes - Tupãssi – Diocese de Toledo",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/277",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/277",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "1ª sexta-feira do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/277",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/277",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-do-carmo-assis-chateaubriand",
+      "name": "Paróquia Nossa Senhora do Carmo",
+      "city": "Assis Chateaubriand",
+      "state": "PR",
+      "neighborhood": null,
+      "address": "Praça João XXIII, 315",
+      "zipCode": "85937-006",
+      "phone": "(44) 3528-4526 / (44) 99979-0862",
+      "email": "nscarmo@diocesetoledo.org",
+      "website": null,
+      "priestName": "Pe. Lucimar Antônio Castellani",
+      "foundedYear": 1964,
+      "sources": [
+        {
+          "url": "https://www.diocesetoledo.org/paroquias/ler/278",
+          "title": "Paróquia Nossa Senhora do Carmo - Assis Chateaubriand – Diocese de Toledo",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/278",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/278",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "com bênção da saúde",
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/278",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": "1ª sexta-feira do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/278",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/278",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "santo-inacio-de-loyola-jesuitas",
+      "name": "Paróquia Santo Inácio de Loyola",
+      "city": "Jesuítas",
+      "state": "PR",
+      "neighborhood": null,
+      "address": "Av. Santo Inácio, 210",
+      "zipCode": "85835-016",
+      "phone": "(44) 98812-8542",
+      "email": "paroquiasantoinacio@diocesetoledo.org",
+      "website": null,
+      "priestName": "Pe. Valdecir Caires Trajano",
+      "foundedYear": 1966,
+      "sources": [
+        {
+          "url": "https://www.diocesetoledo.org/paroquias/ler/279",
+          "title": "Paróquia Santo Inácio de Loyola - Jesuítas – Diocese de Toledo",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/279",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/279",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": "1ª sexta-feira do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/279",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/279",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "santo-antonio-formosa-do-oeste",
+      "name": "Paróquia Santo Antônio",
+      "city": "Formosa do Oeste",
+      "state": "PR",
+      "neighborhood": "Centro",
+      "address": "Av. Recife, 307 - Centro",
+      "zipCode": "85830-000",
+      "phone": "(44) 3526-1184",
+      "email": "psantoantoniofsa@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Claudemir Ricardo Pioner",
+      "foundedYear": 1965,
+      "sources": [
+        {
+          "url": "https://www.diocesetoledo.org/paroquias/ler/280",
+          "title": "Paróquia Santo Antonio - Formosa do Oeste – Diocese de Toledo",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "08:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/280",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/280",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": "1ª sexta-feira do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/280",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/280",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "sao-francisco-de-assis-assis-chateaubriand",
+      "name": "Paróquia São Francisco de Assis",
+      "city": "Assis Chateaubriand",
+      "state": "PR",
+      "neighborhood": "Centro",
+      "address": "Av. Tupãssi, 1950 - Centro",
+      "zipCode": "85935-000",
+      "phone": "(44) 3528-4525 / (44) 99123-9835",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Leonardo Ribeiro de Castro",
+      "foundedYear": 1974,
+      "sources": [
+        {
+          "url": "https://www.diocesetoledo.org/paroquias/ler/281",
+          "title": "Paróquia São Francisco de Assis - Assis Chateaubriand – Diocese de Toledo",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/281",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/281",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/281",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "1ª sexta-feira do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/281",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/281",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "sao-roque-nova-aurora",
+      "name": "Paróquia São Roque",
+      "city": "Nova Aurora",
+      "state": "PR",
+      "neighborhood": "Centro",
+      "address": "Praça João Paulo II, 216 - Centro",
+      "zipCode": "85410-000",
+      "phone": "(45) 3243-1289 / (45) 99803-1289",
+      "email": "saoroque@diocesetoledo.org",
+      "website": null,
+      "priestName": "Pe. Nelton Hemkemeier",
+      "foundedYear": 1964,
+      "sources": [
+        {
+          "url": "https://www.diocesetoledo.org/paroquias/ler/282",
+          "title": "Paróquia São Roque - Nova Aurora – Diocese de Toledo",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/282",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "20:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/282",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": "1ª sexta-feira do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/282",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesetoledo.org/paroquias/ler/282",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    }
+  ],
+  "coverage": {
+    "parishesFound": 32,
+    "parishesExpected": 32,
+    "notes": "Site oficial lista 32 paróquias em 4 decanatos (Toledo 12, Rondon 9, Palotina 5, Assis 6); catholic-hierarchy/gcatholic: 32 (2022). Wikipédia (desatualizada) fala em 28. Todas as 32 páginas oficiais foram lidas: endereço, telefone, e-mail, pároco, data de criação e horários de missa. O site não lista comunidades/capelas (exceto Capela Santo Américo em Nova Santa Rosa)."
+  }
+}

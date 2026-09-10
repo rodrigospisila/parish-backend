@@ -1,0 +1,704 @@
+{
+  "diocese": {
+    "name": "Diocese de União da Vitória",
+    "type": "Diocese",
+    "slug": "uniao-da-vitoria",
+    "city": "União da Vitória",
+    "state": "PR",
+    "address": "Rua Manoel Estevão, 275 – Caixa Postal 78",
+    "zipCode": "84600-235",
+    "phone": "(42) 3522-3595",
+    "email": "mitra@dioceseunivitoria.org.br",
+    "website": "https://www.dioceseunivitoria.org.br",
+    "bishopName": "Sede vacante (administrador diocesano: Pe. Antônio Carlos Rodrigues, desde 22/01/2026)",
+    "foundedYear": 1976,
+    "sources": [
+      { "url": "https://www.dioceseunivitoria.org.br/a-diocese/", "title": "A Diocese – Diocese de União da Vitória (endereço/telefone da Mitra; administrador diocesano Pe. Antônio Carlos Rodrigues; vigário geral Pe. Mário Fernando Glaab; chanceler Pe. Sidnei José Reitz; ecônomo Pe. Evaldo Przywitowski Karpinski)", "accessedAt": "2026-09-10" },
+      { "url": "https://www.dioceseunivitoria.org.br/paroquias/", "title": "Paróquias – Diocese de União da Vitória (25 paróquias em 5 setores: Catedral, Sagrada Família, São Mateus, Bituruna, Rio Azul)", "accessedAt": "2026-09-10" },
+      { "url": "https://www.dioceseunivitoria.org.br/paroquias-setores/", "title": "Setores – Diocese de União da Vitória", "accessedAt": "2026-09-10" },
+      { "url": "https://pt.wikipedia.org/wiki/Diocese_de_Uni%C3%A3o_da_Vit%C3%B3ria", "title": "Diocese de União da Vitória – Wikipédia (criação 03/12/1976; 25 paróquias e cerca de 450 comunidades; 13 municípios; sede vacante desde 2025)", "accessedAt": "2026-09-10" },
+      { "url": "https://gcatholic.org/dioceses/diocese/unia0.htm", "title": "Diocese of União da Vitória – GCatholic (25 paróquias em 31/12/2022; Dom Walter Jorge Pinto 09/01/2019–07/11/2025; sede vacante)", "accessedAt": "2026-09-10" }
+    ],
+    "confidence": "alta"
+  },
+  "parishes": [
+    {
+      "slug": "sagrado-coracao-de-jesus-uniao-da-vitoria",
+      "name": "Catedral Sagrado Coração de Jesus e Nossa Senhora Aparecida",
+      "city": "União da Vitória", "state": "PR", "neighborhood": "Centro",
+      "address": "Av. Getúlio Vargas, 15 – Centro", "zipCode": "84600-170",
+      "phone": "(42) 3522-1091", "email": null, "website": null,
+      "priestName": "Pe. Sidnei José Reitz (pároco); Pe. Aquiles Ramos Berton (vigário paroquial); Pe. Ronaldo A. Rodrigues (vigário paroquial)",
+      "foundedYear": 1917,
+      "sources": [
+        { "url": "https://www.dioceseunivitoria.org.br/paroquias/par-catedral/", "title": "Catedral Sagrado Coração de Jesus e Nossa Senhora Aparecida – Diocese de União da Vitória (paróquia criada em 25/09/1917; catedral inaugurada em 1926)", "accessedAt": "2026-09-10" },
+        { "url": "https://www.dioceseunivitoria.org.br/paroquias/", "title": "Paróquias – Diocese de União da Vitória (Setor Catedral)", "accessedAt": "2026-09-10" }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 1, "time": "07:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/par-catedral/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 1, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/par-catedral/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 2, "time": "07:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/par-catedral/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 2, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/par-catedral/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 3, "time": "07:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/par-catedral/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 3, "time": "16:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/par-catedral/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 3, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/par-catedral/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 4, "time": "07:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/par-catedral/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 4, "time": "15:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/par-catedral/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 4, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/par-catedral/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 5, "time": "07:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/par-catedral/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 5, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/par-catedral/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 6, "time": "07:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/par-catedral/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 6, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/par-catedral/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "07:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/par-catedral/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "10:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/par-catedral/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/par-catedral/", "accessedAt": "2026-09-10" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-de-fatima-uniao-da-vitoria",
+      "name": "Paróquia Nossa Senhora de Fátima",
+      "city": "União da Vitória", "state": "PR", "neighborhood": "São Bernardo",
+      "address": "Rua Frei Policarpo, 1472 – Bairro São Bernardo", "zipCode": "84600-408",
+      "phone": "(42) 3523-3060", "email": null, "website": null,
+      "priestName": "Pe. Mário Fernando Glaab (pároco); Pe. José Chipanski (colaborador)",
+      "foundedYear": 1973,
+      "sources": [
+        { "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-nossa-senhora-de-fatima/", "title": "Paróquia Nossa Senhora de Fátima – Diocese de União da Vitória (criada em 11/01/1973, instalada em 11/02/1973)", "accessedAt": "2026-09-10" },
+        { "url": "https://www.dioceseunivitoria.org.br/paroquias/", "title": "Paróquias – Diocese de União da Vitória (Setor Catedral)", "accessedAt": "2026-09-10" }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 3, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-nossa-senhora-de-fatima/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 5, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-nossa-senhora-de-fatima/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 6, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-nossa-senhora-de-fatima/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "09:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-nossa-senhora-de-fatima/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-nossa-senhora-de-fatima/", "accessedAt": "2026-09-10" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "sao-judas-tadeu-uniao-da-vitoria",
+      "name": "Paróquia São Judas Tadeu",
+      "city": "União da Vitória", "state": "PR", "neighborhood": "Centro",
+      "address": "Rua Carlos Cavalcanti, 999 – Centro – Caixa Postal 115", "zipCode": "84600-460",
+      "phone": "(42) 3522-5102", "email": null, "website": null,
+      "priestName": "Pe. Emílio Bortolini Neto",
+      "foundedYear": 2001,
+      "sources": [
+        { "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-judas-tadeu/", "title": "Paróquia São Judas Tadeu – Diocese de União da Vitória (decreto de 25/12/2001, instalação em 30/12/2001)", "accessedAt": "2026-09-10" },
+        { "url": "https://www.dioceseunivitoria.org.br/paroquias/", "title": "Paróquias – Diocese de União da Vitória (Setor Catedral)", "accessedAt": "2026-09-10" }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 2, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-judas-tadeu/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 3, "time": "16:00", "type": "MASS", "notes": "Missa com Novena de Nossa Senhora do Perpétuo Socorro", "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-judas-tadeu/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 4, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-judas-tadeu/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 5, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-judas-tadeu/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 6, "time": "18:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-judas-tadeu/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "09:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-judas-tadeu/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "17:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-judas-tadeu/", "accessedAt": "2026-09-10" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-do-rocio-uniao-da-vitoria",
+      "name": "Paróquia Nossa Senhora do Rocio",
+      "city": "União da Vitória", "state": "PR", "neighborhood": "Rocio",
+      "address": "Rua Emílio Kroni, s/nº – Bairro do Rocio – Caixa Postal 105", "zipCode": "84600-733",
+      "phone": "(42) 3522-4241", "email": null, "website": null,
+      "priestName": "Pe. Emerson Gonçalves de Toledo",
+      "foundedYear": 1970,
+      "sources": [
+        { "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-nossa-senhora-do-rocio/", "title": "Paróquia Nossa Senhora do Rocio – Diocese de União da Vitória (criada em 13/03/1970, Decreto nº 55, desmembrada da Paróquia Sagrado Coração de Jesus)", "accessedAt": "2026-09-10" },
+        { "url": "https://www.dioceseunivitoria.org.br/paroquias/", "title": "Paróquias – Diocese de União da Vitória (Setor Catedral)", "accessedAt": "2026-09-10" }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 3, "time": "16:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-nossa-senhora-do-rocio/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 4, "time": "18:30", "type": "ADORATION", "notes": "Adoração ao Santíssimo, seguida da missa das 19h", "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-nossa-senhora-do-rocio/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 4, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-nossa-senhora-do-rocio/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 5, "time": "16:00", "type": "MASS", "notes": "Somente na 1ª sexta-feira do mês", "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-nossa-senhora-do-rocio/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 6, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-nossa-senhora-do-rocio/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "09:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-nossa-senhora-do-rocio/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-nossa-senhora-do-rocio/", "accessedAt": "2026-09-10" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-das-dores-uniao-da-vitoria",
+      "name": "Paróquia Nossa Senhora das Dores",
+      "city": "União da Vitória", "state": "PR", "neighborhood": "Limeira",
+      "address": "Rua Mal. Deodoro, 91 – Bairro Limeira", "zipCode": "84601-266",
+      "phone": "(42) 3522-6210", "email": null, "website": null,
+      "priestName": "Pe. Frei José de Jesus, MsS",
+      "foundedYear": 2001,
+      "sources": [
+        { "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-nossa-senhora-das-dores/", "title": "Paróquia Nossa Senhora das Dores – Diocese de União da Vitória (criada em 16/03/2001, elevada a paróquia em 2006, desmembrada da Paróquia N. Sra. do Rocio)", "accessedAt": "2026-09-10" },
+        { "url": "https://www.dioceseunivitoria.org.br/paroquias/", "title": "Paróquias – Diocese de União da Vitória (Setor Catedral)", "accessedAt": "2026-09-10" }
+      ],
+      "confidence": "alta",
+      "communities": [
+        { "name": "Matriz Nossa Senhora das Dores", "address": "Rua Mal. Deodoro, 91 – Bairro Limeira", "neighborhood": "Cidade Limeira", "isMatriz": true, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-nossa-senhora-das-dores/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Bela Vista", "address": null, "neighborhood": "Bela Vista", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-nossa-senhora-das-dores/", "accessedAt": "2026-09-10" }], "confidence": "media" },
+        { "name": "Capela São Francisco de Assis – Rio D'Areia", "address": null, "neighborhood": "Rio D'Areia", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-nossa-senhora-das-dores/", "accessedAt": "2026-09-10" }], "confidence": "alta" }
+      ],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 3, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-nossa-senhora-das-dores/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "09:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-nossa-senhora-das-dores/", "accessedAt": "2026-09-10" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "sao-miguel-arcanjo-porto-vitoria",
+      "name": "Paróquia São Miguel Arcanjo",
+      "city": "Porto Vitória", "state": "PR", "neighborhood": null,
+      "address": "Rua Ermínio Moser, 599", "zipCode": "84610-000",
+      "phone": "(42) 98406-2878", "email": null, "website": null,
+      "priestName": "Pe. Douglas da Silva Ribasz (administrador paroquial)",
+      "foundedYear": 1981,
+      "sources": [
+        { "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-miguel-arcanjo/", "title": "Paróquia São Miguel Arcanjo – Porto Vitória – Diocese de União da Vitória (criada em 29/01/1981; 13 capelas, só a Capela São José nomeada)", "accessedAt": "2026-09-10" },
+        { "url": "https://www.dioceseunivitoria.org.br/paroquias/", "title": "Paróquias – Diocese de União da Vitória (Setor Catedral)", "accessedAt": "2026-09-10" }
+      ],
+      "confidence": "alta",
+      "communities": [
+        { "name": "Matriz São Miguel Arcanjo", "address": "Rua Ermínio Moser, 599", "neighborhood": null, "isMatriz": true, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-miguel-arcanjo/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Capela São José", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-miguel-arcanjo/", "accessedAt": "2026-09-10" }], "confidence": "media" }
+      ],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 2, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-miguel-arcanjo/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 3, "time": "19:00", "type": "MASS", "notes": "Missa com Novena de Nossa Senhora do Perpétuo Socorro", "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-miguel-arcanjo/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 6, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-miguel-arcanjo/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-miguel-arcanjo/", "accessedAt": "2026-09-10" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "sagrada-familia-de-nazare-uniao-da-vitoria",
+      "name": "Paróquia Sagrada Família de Nazaré",
+      "city": "União da Vitória", "state": "PR", "neighborhood": "Sagrada Família",
+      "address": "Avenida São Cristóvão, s/nº – Bairro Sagrada Família", "zipCode": "84603-012",
+      "phone": "(42) 3524-2162", "email": null, "website": null,
+      "priestName": "Pe. Evaldo Karpinski",
+      "foundedYear": 1979,
+      "sources": [
+        { "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sagrada-familia-de-nazare/", "title": "Paróquia Sagrada Família de Nazaré – Diocese de União da Vitória (criada em 03/08/1979, instalada em 12/08/1979; Congregação da Sagrada Família de Nazaré)", "accessedAt": "2026-09-10" },
+        { "url": "https://www.dioceseunivitoria.org.br/paroquias/", "title": "Paróquias – Diocese de União da Vitória (Setor Sagrada Família)", "accessedAt": "2026-09-10" }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 4, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sagrada-familia-de-nazare/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 6, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sagrada-familia-de-nazare/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "09:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sagrada-familia-de-nazare/", "accessedAt": "2026-09-10" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "sao-cristovao-e-nossa-senhora-da-salette-uniao-da-vitoria",
+      "name": "Paróquia São Cristóvão e Nossa Senhora da Salette",
+      "city": "União da Vitória", "state": "PR", "neighborhood": "Salette",
+      "address": "Rua Papa João XXIII, 257 – Bairro Salette", "zipCode": "84603-179",
+      "phone": "(42) 3524-2284", "email": null, "website": null,
+      "priestName": "Pe. Rafael Cosme Tessitori, MS (vigário; pároco não informado na página)",
+      "foundedYear": 1956,
+      "sources": [
+        { "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-cristovao-e-nossa-senhora-da-salete/", "title": "Paróquia São Cristóvão e Nossa Senhora da Salette – Diocese de União da Vitória (criada em 19/03/1956; Missionários Saletinos)", "accessedAt": "2026-09-10" },
+        { "url": "https://www.dioceseunivitoria.org.br/paroquias/", "title": "Paróquias – Diocese de União da Vitória (Setor Sagrada Família)", "accessedAt": "2026-09-10" }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 6, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-cristovao-e-nossa-senhora-da-salete/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "08:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-cristovao-e-nossa-senhora-da-salete/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-cristovao-e-nossa-senhora-da-salete/", "accessedAt": "2026-09-10" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "sao-sebastiao-martir-uniao-da-vitoria",
+      "name": "Paróquia São Sebastião Mártir",
+      "city": "União da Vitória", "state": "PR", "neighborhood": "São Sebastião",
+      "address": "Rua Francisco Caus, 351 – Bairro São Sebastião", "zipCode": "84604-435",
+      "phone": "(42) 99812-6682", "email": null, "website": null,
+      "priestName": "Pe. Antônio Oliveira Rocha, FN (pároco); Pe. Rui Ari Azevedo Pinheiro de Lima, FN (vigário)",
+      "foundedYear": 2005,
+      "sources": [
+        { "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-sebastiao-martir/", "title": "Paróquia São Sebastião Mártir – Diocese de União da Vitória (decreto de 17/11/2005, criada em 19/11/2005; 10 comunidades nomeadas; sem horários publicados)", "accessedAt": "2026-09-10" },
+        { "url": "https://www.dioceseunivitoria.org.br/paroquias/", "title": "Paróquias – Diocese de União da Vitória (Setor Sagrada Família)", "accessedAt": "2026-09-10" }
+      ],
+      "confidence": "alta",
+      "communities": [
+        { "name": "Matriz São Sebastião Mártir", "address": "Rua Francisco Caus, 351 – Bairro São Sebastião", "neighborhood": "São Sebastião", "isMatriz": true, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-sebastiao-martir/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Nossa Senhora das Vitórias", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-sebastiao-martir/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Nossa Senhora das Graças", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-sebastiao-martir/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Santo Antônio", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-sebastiao-martir/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade São José", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-sebastiao-martir/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Nossa Senhora Aparecida", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-sebastiao-martir/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Santo Antônio – Rio Vermelho", "address": null, "neighborhood": "Rio Vermelho", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-sebastiao-martir/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Nossa Senhora da Piedade – Fazenda dos Marianos (Serra da Esperança)", "address": null, "neighborhood": "Serra da Esperança", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-sebastiao-martir/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Fortaleza", "address": null, "neighborhood": "Fortaleza", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-sebastiao-martir/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Loteamento São Vicente", "address": null, "neighborhood": "Loteamento São Vicente", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-sebastiao-martir/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade São Luíz – Rio Guabiroba", "address": null, "neighborhood": "Rio Guabiroba", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-sebastiao-martir/", "accessedAt": "2026-09-10" }], "confidence": "alta" }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "sagrado-coracao-de-jesus-cruz-machado",
+      "name": "Paróquia Sagrado Coração de Jesus",
+      "city": "Cruz Machado", "state": "PR", "neighborhood": null,
+      "address": "Av. Getúlio Vargas, 110 – Caixa Postal 26", "zipCode": "84620-000",
+      "phone": "(42) 98887-8700", "email": null, "website": null,
+      "priestName": "Pe. Anderson Spegiorin, SChr",
+      "foundedYear": 1935,
+      "sources": [
+        { "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sagrado-coracao-de-jesus-2/", "title": "Paróquia Sagrado Coração de Jesus – Cruz Machado – Diocese de União da Vitória (criada em 25/03/1935; Sociedade de Cristo)", "accessedAt": "2026-09-10" },
+        { "url": "https://www.dioceseunivitoria.org.br/paroquias/", "title": "Paróquias – Diocese de União da Vitória (Setor Sagrada Família)", "accessedAt": "2026-09-10" }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 3, "time": "19:00", "type": "MASS", "notes": "Novena de Nossa Senhora do Perpétuo Socorro (listada entre os horários de missa; confirmar se há missa)", "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sagrado-coracao-de-jesus-2/", "accessedAt": "2026-09-10" }], "confidence": "media" },
+        { "community": "Matriz", "dayOfWeek": 6, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sagrado-coracao-de-jesus-2/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "09:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sagrado-coracao-de-jesus-2/", "accessedAt": "2026-09-10" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "sao-carlos-borromeu-paula-freitas",
+      "name": "Paróquia São Carlos Borromeu",
+      "city": "Paula Freitas", "state": "PR", "neighborhood": null,
+      "address": "Av. São Carlos, 87", "zipCode": "84630-000",
+      "phone": "(42) 3562-1216", "email": null, "website": null,
+      "priestName": "Pe. Joviano José Salvatti",
+      "foundedYear": 1981,
+      "sources": [
+        { "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-carlos-borromeu/", "title": "Paróquia São Carlos Borromeu – Paula Freitas – Diocese de União da Vitória (criada em 15/03/1981, desmembrada da Paróquia São Cristóvão; 14 capelas nomeadas)", "accessedAt": "2026-09-10" },
+        { "url": "https://www.dioceseunivitoria.org.br/paroquias/", "title": "Paróquias – Diocese de União da Vitória (Setor Sagrada Família)", "accessedAt": "2026-09-10" }
+      ],
+      "confidence": "alta",
+      "communities": [
+        { "name": "Matriz São Carlos Borromeu", "address": "Av. São Carlos, 87", "neighborhood": null, "isMatriz": true, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-carlos-borromeu/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Capela Nossa Senhora Aparecida – Loteamento Jardim Maria Anísia", "address": null, "neighborhood": "Loteamento Jardim Maria Anísia", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-carlos-borromeu/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Capela São José e Imaculada Conceição – Rondinha", "address": null, "neighborhood": "Rondinha", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-carlos-borromeu/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Capela São Pedro – Cachoeira", "address": null, "neighborhood": "Cachoeira", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-carlos-borromeu/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Capela Santa Rosa de Lima – Vila Rural", "address": null, "neighborhood": "Vila Rural", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-carlos-borromeu/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Capela Divino Espírito Santo – Rio das Antas", "address": null, "neighborhood": "Rio das Antas", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-carlos-borromeu/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Capela Nossa Senhora da Salette – Colônia Macacos", "address": null, "neighborhood": "Colônia Macacos", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-carlos-borromeu/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Capela Nossa Senhora do Rosário – Palmital da Jararaca", "address": null, "neighborhood": "Palmital da Jararaca", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-carlos-borromeu/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Capela Nossa Senhora da Glória – Faxinal", "address": null, "neighborhood": "Faxinal", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-carlos-borromeu/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Capela Santo Antônio – Poço Preto", "address": null, "neighborhood": "Poço Preto", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-carlos-borromeu/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Capela Divino Espírito Santo – Vargem Grande", "address": null, "neighborhood": "Vargem Grande", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-carlos-borromeu/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Capela São Sebastião – Carazinho", "address": null, "neighborhood": "Carazinho", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-carlos-borromeu/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Capela Nossa Senhora da Saúde – Cerro do Leão", "address": null, "neighborhood": "Cerro do Leão", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-carlos-borromeu/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Capela São João Batista – Bela Vista", "address": null, "neighborhood": "Bela Vista", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-carlos-borromeu/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Capela Sagrado Coração de Jesus – Ronda Jararaca", "address": null, "neighborhood": "Ronda Jararaca", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-carlos-borromeu/", "accessedAt": "2026-09-10" }], "confidence": "alta" }
+      ],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 3, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-carlos-borromeu/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 6, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-carlos-borromeu/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "09:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-carlos-borromeu/", "accessedAt": "2026-09-10" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "santana-cruz-machado",
+      "name": "Paróquia Sant'Ana",
+      "city": "Cruz Machado", "state": "PR", "neighborhood": "Distrito de Santana",
+      "address": "Praça da Matriz, 01 – Santana", "zipCode": "84623-000",
+      "phone": "(42) 99850-1150", "email": null, "website": null,
+      "priestName": "Pe. José Carlos Emanoel dos Santos (pároco); Pe. Fabiano Bulcovski (vigário)",
+      "foundedYear": 1956,
+      "sources": [
+        { "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-santana/", "title": "Paróquia Sant'Ana – Santana, Cruz Machado – Diocese de União da Vitória (criada em 25/01/1956; 34 comunidades não nomeadas; Sociedade de Cristo desde 1964)", "accessedAt": "2026-09-10" },
+        { "url": "https://www.dioceseunivitoria.org.br/paroquias/", "title": "Paróquias – Diocese de União da Vitória (Setor Sagrada Família)", "accessedAt": "2026-09-10" }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 3, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-santana/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 5, "time": "14:30", "type": "MASS", "notes": "Somente na 1ª sexta-feira do mês", "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-santana/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "08:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-santana/", "accessedAt": "2026-09-10" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "sao-mateus-sao-mateus-do-sul",
+      "name": "Paróquia São Mateus",
+      "city": "São Mateus do Sul", "state": "PR", "neighborhood": null,
+      "address": "Rua Ozy Mendonça de Lima, 256", "zipCode": "83900-000",
+      "phone": "(42) 3532-1465", "email": null, "website": null,
+      "priestName": "Pe. João Francisco Sieklicki (pároco); Pe. Daniel da Rosa (vigário)",
+      "foundedYear": 1926,
+      "sources": [
+        { "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-mateus/", "title": "Paróquia São Mateus – São Mateus do Sul – Diocese de União da Vitória (elevada a paróquia em 1926; 24 capelas nomeadas)", "accessedAt": "2026-09-10" },
+        { "url": "https://www.dioceseunivitoria.org.br/paroquias/", "title": "Paróquias – Diocese de União da Vitória (Setor São Mateus)", "accessedAt": "2026-09-10" }
+      ],
+      "confidence": "alta",
+      "communities": [
+        { "name": "Matriz São Mateus", "address": "Rua Ozy Mendonça de Lima, 256", "neighborhood": null, "isMatriz": true, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-mateus/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Capela Aliança Velha", "address": null, "neighborhood": "Aliança Velha", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-mateus/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Capela Anta Ruiva", "address": null, "neighborhood": "Anta Ruiva", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-mateus/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Capela Arroio da Cruz", "address": null, "neighborhood": "Arroio da Cruz", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-mateus/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Capela Cambará do Sul I", "address": null, "neighborhood": "Cambará do Sul", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-mateus/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Capela Cambará do Sul II", "address": null, "neighborhood": "Cambará do Sul", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-mateus/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Capela Colônia Iguaçu", "address": null, "neighborhood": "Colônia Iguaçu", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-mateus/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Capela Divisa", "address": null, "neighborhood": "Divisa", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-mateus/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Capela Fartura do Potinga", "address": null, "neighborhood": "Fartura do Potinga", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-mateus/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Capela Fazenda Água Branca", "address": null, "neighborhood": "Fazenda Água Branca", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-mateus/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Capela Jardim Santa Cruz", "address": null, "neighborhood": "Jardim Santa Cruz", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-mateus/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Capela Lageado", "address": null, "neighborhood": "Lageado", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-mateus/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Capela Lageadinho", "address": null, "neighborhood": "Lageadinho", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-mateus/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Capela Nova Tesoura", "address": null, "neighborhood": "Nova Tesoura", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-mateus/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Capela Pimenteira", "address": null, "neighborhood": "Pimenteira", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-mateus/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Capela Porto Ribeiro", "address": null, "neighborhood": "Porto Ribeiro", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-mateus/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Capela Retiro", "address": null, "neighborhood": "Retiro", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-mateus/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Capela Santana", "address": null, "neighborhood": "Santana", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-mateus/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Capela São Miguel da Roseira", "address": null, "neighborhood": "São Miguel da Roseira", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-mateus/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Capela Tesoura", "address": null, "neighborhood": "Tesoura", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-mateus/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Capela Terra Vermelha", "address": null, "neighborhood": "Terra Vermelha", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-mateus/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Capela Vargem Grande", "address": null, "neighborhood": "Vargem Grande", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-mateus/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Capela Vila Amaral", "address": null, "neighborhood": "Vila Amaral", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-mateus/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Capela Vila Americana", "address": null, "neighborhood": "Vila Americana", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-mateus/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Capela Vila Palmeirinha", "address": null, "neighborhood": "Vila Palmeirinha", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-mateus/", "accessedAt": "2026-09-10" }], "confidence": "alta" }
+      ],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 3, "time": "18:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-mateus/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 4, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-mateus/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 5, "time": "19:00", "type": "MASS", "notes": "Somente na 1ª sexta-feira do mês", "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-mateus/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 6, "time": "18:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-mateus/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "09:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-mateus/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-mateus/", "accessedAt": "2026-09-10" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-do-perpetuo-socorro-sao-mateus-do-sul",
+      "name": "Paróquia Nossa Senhora do Perpétuo Socorro",
+      "city": "São Mateus do Sul", "state": "PR", "neighborhood": null,
+      "address": "Rua Ozy Mendonça Lima, 1445", "zipCode": "83902-057",
+      "phone": "(42) 3532-2376", "email": null, "website": null,
+      "priestName": "Pe. Iomar Otto (pároco); Pe. Ivo Jablonski (vigário paroquial)",
+      "foundedYear": 1988,
+      "sources": [
+        { "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-nossa-senhora-do-perpetuo-socorro/", "title": "Paróquia Nossa Senhora do Perpétuo Socorro – São Mateus do Sul – Diocese de União da Vitória (criada em 21/08/1988; 19 comunidades nomeadas)", "accessedAt": "2026-09-10" },
+        { "url": "https://www.dioceseunivitoria.org.br/paroquias/", "title": "Paróquias – Diocese de União da Vitória (Setor São Mateus)", "accessedAt": "2026-09-10" }
+      ],
+      "confidence": "alta",
+      "communities": [
+        { "name": "Matriz Nossa Senhora do Perpétuo Socorro", "address": "Rua Ozy Mendonça Lima, 1445", "neighborhood": null, "isMatriz": true, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-nossa-senhora-do-perpetuo-socorro/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Espigãozinho", "address": null, "neighborhood": "Espigãozinho", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-nossa-senhora-do-perpetuo-socorro/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Água Branca", "address": null, "neighborhood": "Água Branca", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-nossa-senhora-do-perpetuo-socorro/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Emboque", "address": null, "neighborhood": "Emboque", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-nossa-senhora-do-perpetuo-socorro/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Vila Nepomuceno", "address": null, "neighborhood": "Vila Nepomuceno", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-nossa-senhora-do-perpetuo-socorro/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Paiol Grande", "address": null, "neighborhood": "Paiol Grande", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-nossa-senhora-do-perpetuo-socorro/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Papuã", "address": null, "neighborhood": "Papuã", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-nossa-senhora-do-perpetuo-socorro/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Dois Irmãos", "address": null, "neighborhood": "Dois Irmãos", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-nossa-senhora-do-perpetuo-socorro/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Caitá", "address": null, "neighborhood": "Caitá", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-nossa-senhora-do-perpetuo-socorro/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Faxinal dos Ilhéus", "address": null, "neighborhood": "Faxinal dos Ilhéus", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-nossa-senhora-do-perpetuo-socorro/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Rio das Pedras A", "address": null, "neighborhood": "Rio das Pedras", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-nossa-senhora-do-perpetuo-socorro/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Rio das Pedras B", "address": null, "neighborhood": "Rio das Pedras", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-nossa-senhora-do-perpetuo-socorro/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Turvo Barracas", "address": null, "neighborhood": "Turvo Barracas", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-nossa-senhora-do-perpetuo-socorro/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Turvo de Baixo", "address": null, "neighborhood": "Turvo de Baixo", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-nossa-senhora-do-perpetuo-socorro/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Estiva dos Vidal", "address": null, "neighborhood": "Estiva dos Vidal", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-nossa-senhora-do-perpetuo-socorro/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Estiva", "address": null, "neighborhood": "Estiva", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-nossa-senhora-do-perpetuo-socorro/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Taquaral do Bugre", "address": null, "neighborhood": "Taquaral do Bugre", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-nossa-senhora-do-perpetuo-socorro/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Tijuco Preto", "address": null, "neighborhood": "Tijuco Preto", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-nossa-senhora-do-perpetuo-socorro/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Faxinal dos Elias", "address": null, "neighborhood": "Faxinal dos Elias", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-nossa-senhora-do-perpetuo-socorro/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Comunidade Escola Fazenda Maria Clara", "address": null, "neighborhood": "Fazenda Maria Clara", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-nossa-senhora-do-perpetuo-socorro/", "accessedAt": "2026-09-10" }], "confidence": "alta" }
+      ],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 0, "time": "08:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-nossa-senhora-do-perpetuo-socorro/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 1, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-nossa-senhora-do-perpetuo-socorro/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 2, "time": "19:00", "type": "MASS", "notes": "Terço dos Homens (listado entre os horários de missa; confirmar se há missa)", "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-nossa-senhora-do-perpetuo-socorro/", "accessedAt": "2026-09-10" }], "confidence": "media" },
+        { "community": "Matriz", "dayOfWeek": 3, "time": "15:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-nossa-senhora-do-perpetuo-socorro/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 3, "time": "19:00", "type": "MASS", "notes": "Missa com Novena de Nossa Senhora do Perpétuo Socorro", "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-nossa-senhora-do-perpetuo-socorro/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 4, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-nossa-senhora-do-perpetuo-socorro/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 5, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-nossa-senhora-do-perpetuo-socorro/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 6, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-nossa-senhora-do-perpetuo-socorro/", "accessedAt": "2026-09-10" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-aparecida-e-czestochowa-sao-mateus-do-sul",
+      "name": "Paróquia Nossa Senhora Aparecida e Czestochowa",
+      "city": "São Mateus do Sul", "state": "PR", "neighborhood": "Vila Nepomuceno",
+      "address": "Rua Alexandre Naldony, 972 – Vila Nepomuceno", "zipCode": "83900-000",
+      "phone": "(42) 3532-5843", "email": null, "website": null,
+      "priestName": "Pe. José Levi Godoy",
+      "foundedYear": 2006,
+      "sources": [
+        { "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-nossa-senhora-aparecida-e-czestochowa/", "title": "Paróquia Nossa Senhora Aparecida e Czestochowa – São Mateus do Sul – Diocese de União da Vitória (criada em 26/06/2006)", "accessedAt": "2026-09-10" },
+        { "url": "https://www.dioceseunivitoria.org.br/paroquias/", "title": "Paróquias – Diocese de União da Vitória (Setor São Mateus)", "accessedAt": "2026-09-10" }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 3, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-nossa-senhora-aparecida-e-czestochowa/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 6, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-nossa-senhora-aparecida-e-czestochowa/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "09:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-nossa-senhora-aparecida-e-czestochowa/", "accessedAt": "2026-09-10" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "sao-joao-batista-sao-joao-do-triunfo",
+      "name": "Paróquia São João Batista",
+      "city": "São João do Triunfo", "state": "PR", "neighborhood": null,
+      "address": "Rua XV de Novembro, 105 – Caixa Postal 02", "zipCode": "84150-000",
+      "phone": "(42) 3447-1291", "email": null, "website": null,
+      "priestName": "Pe. Mauro Sérgio Portela dos Santos (administrador paroquial); Pe. Alisson Marlon de Moura (vigário)",
+      "foundedYear": 1900,
+      "sources": [
+        { "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-joao-batista/", "title": "Paróquia São João Batista – São João do Triunfo – Diocese de União da Vitória (criada em 08/06/1900)", "accessedAt": "2026-09-10" },
+        { "url": "https://www.dioceseunivitoria.org.br/paroquias/", "title": "Paróquias – Diocese de União da Vitória (Setor São Mateus)", "accessedAt": "2026-09-10" }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 3, "time": "14:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-joao-batista/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 3, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-joao-batista/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 5, "time": "19:00", "type": "MASS", "notes": "Somente na 1ª sexta-feira do mês (Apostolado da Oração)", "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-joao-batista/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 6, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-joao-batista/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "09:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-joao-batista/", "accessedAt": "2026-09-10" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-do-rosario-mallet",
+      "name": "Paróquia e Santuário Diocesano Nossa Senhora do Rosário",
+      "city": "Mallet", "state": "PR", "neighborhood": "Distrito de Rio Claro do Sul",
+      "address": "Rua XV de Novembro, 276 – Rio Claro do Sul", "zipCode": "84577-000",
+      "phone": "(42) 3516-1175", "email": null, "website": null,
+      "priestName": "Pe. Antônio Carlos Rodrigues (pároco); Pe. Nelson José Kovalski (administrador paroquial)",
+      "foundedYear": 1896,
+      "sources": [
+        { "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-e-santuario-diocesano-nossa-senhora-do-rosario/", "title": "Paróquia e Santuário Diocesano Nossa Senhora do Rosário – Rio Claro do Sul, Mallet – Diocese de União da Vitória (criada em 16/12/1896; santuário diocesano desde 1997; 14 capelas não nomeadas)", "accessedAt": "2026-09-10" },
+        { "url": "https://www.dioceseunivitoria.org.br/paroquias/", "title": "Paróquias – Diocese de União da Vitória (Setor São Mateus)", "accessedAt": "2026-09-10" }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 3, "time": "15:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-e-santuario-diocesano-nossa-senhora-do-rosario/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 4, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-e-santuario-diocesano-nossa-senhora-do-rosario/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 5, "time": "19:00", "type": "MASS", "notes": "Somente na 1ª sexta-feira do mês", "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-e-santuario-diocesano-nossa-senhora-do-rosario/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "09:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-e-santuario-diocesano-nossa-senhora-do-rosario/", "accessedAt": "2026-09-10" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "sao-jose-castissimo-esposo-da-virgem-maria-antonio-olinto",
+      "name": "Paróquia São José Castíssimo Esposo da Virgem Maria",
+      "city": "Antônio Olinto", "state": "PR", "neighborhood": null,
+      "address": "Rua Gasparina Simas Milleo – Caixa Postal 02", "zipCode": "83980-000",
+      "phone": "(42) 3533-1297", "email": null, "website": null,
+      "priestName": "Pe. José Damião dos Santos Souza (administrador paroquial)",
+      "foundedYear": 1978,
+      "sources": [
+        { "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-jose-castissimo-esposo-da-virgem-maria/", "title": "Paróquia São José Castíssimo Esposo da Virgem Maria – Antônio Olinto – Diocese de União da Vitória (criada em 20/08/1978; 19 capelas rurais nomeadas)", "accessedAt": "2026-09-10" },
+        { "url": "https://www.dioceseunivitoria.org.br/paroquias/", "title": "Paróquias – Diocese de União da Vitória (Setor São Mateus)", "accessedAt": "2026-09-10" }
+      ],
+      "confidence": "alta",
+      "communities": [
+        { "name": "Matriz São José Castíssimo Esposo da Virgem Maria", "address": "Rua Gasparina Simas Milleo", "neighborhood": null, "isMatriz": true, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-jose-castissimo-esposo-da-virgem-maria/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Capela Aliança Nova", "address": null, "neighborhood": "Aliança Nova", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-jose-castissimo-esposo-da-virgem-maria/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Capela Campina", "address": null, "neighborhood": "Campina", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-jose-castissimo-esposo-da-virgem-maria/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Capela Pedroso", "address": null, "neighborhood": "Pedroso", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-jose-castissimo-esposo-da-virgem-maria/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Capela Avencal", "address": null, "neighborhood": "Avencal", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-jose-castissimo-esposo-da-virgem-maria/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Capela Mato Preto", "address": null, "neighborhood": "Mato Preto", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-jose-castissimo-esposo-da-virgem-maria/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Capela Lavador", "address": null, "neighborhood": "Lavador", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-jose-castissimo-esposo-da-virgem-maria/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Capela Butiá dos Soares", "address": null, "neighborhood": "Butiá dos Soares", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-jose-castissimo-esposo-da-virgem-maria/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Capela Butiá", "address": null, "neighborhood": "Butiá", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-jose-castissimo-esposo-da-virgem-maria/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Capela Água Vermelha", "address": null, "neighborhood": "Água Vermelha", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-jose-castissimo-esposo-da-virgem-maria/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Capela Amaro", "address": null, "neighborhood": "Amaro", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-jose-castissimo-esposo-da-virgem-maria/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Capela Água Amarela de Cima", "address": null, "neighborhood": "Água Amarela de Cima", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-jose-castissimo-esposo-da-virgem-maria/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Capela Água Amarela do Meio", "address": null, "neighborhood": "Água Amarela do Meio", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-jose-castissimo-esposo-da-virgem-maria/", "accessedAt": "2026-09-10" }], "confidence": "media" },
+        { "name": "Capela Água Amarela de Baixo", "address": null, "neighborhood": "Água Amarela de Baixo", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-jose-castissimo-esposo-da-virgem-maria/", "accessedAt": "2026-09-10" }], "confidence": "media" },
+        { "name": "Capela São Luiz", "address": null, "neighborhood": "São Luiz", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-jose-castissimo-esposo-da-virgem-maria/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Capela Imbuial", "address": null, "neighborhood": "Imbuial", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-jose-castissimo-esposo-da-virgem-maria/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Capela Posto Train", "address": null, "neighborhood": "Posto Train", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-jose-castissimo-esposo-da-virgem-maria/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Capela Serrinha", "address": null, "neighborhood": "Serrinha", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-jose-castissimo-esposo-da-virgem-maria/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Capela Lagoa da Cruz", "address": null, "neighborhood": "Lagoa da Cruz", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-jose-castissimo-esposo-da-virgem-maria/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Capela Cerro Lindo", "address": null, "neighborhood": "Cerro Lindo", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-jose-castissimo-esposo-da-virgem-maria/", "accessedAt": "2026-09-10" }], "confidence": "alta" }
+      ],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 3, "time": "18:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-jose-castissimo-esposo-da-virgem-maria/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 5, "time": "18:00", "type": "MASS", "notes": "Somente na 1ª sexta-feira do mês", "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-jose-castissimo-esposo-da-virgem-maria/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 6, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-jose-castissimo-esposo-da-virgem-maria/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "09:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-jose-castissimo-esposo-da-virgem-maria/", "accessedAt": "2026-09-10" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "santa-barbara-bituruna",
+      "name": "Paróquia Santa Bárbara",
+      "city": "Bituruna", "state": "PR", "neighborhood": null,
+      "address": "Av. Bento Munhoz da Rocha – Caixa Postal 42", "zipCode": "84640-000",
+      "phone": "(42) 93505-9635", "email": null, "website": null,
+      "priestName": "Pe. Diego Ronaldo Nakalski (administrador paroquial); Pe. Francisco Marcelo S. de Lara (vigário)",
+      "foundedYear": 1958,
+      "sources": [
+        { "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-santa-barbara/", "title": "Paróquia Santa Bárbara – Bituruna – Diocese de União da Vitória (criada em 09/11/1958; 15 capelas e 37 locais de atendimento não nomeados)", "accessedAt": "2026-09-10" },
+        { "url": "https://www.dioceseunivitoria.org.br/paroquias/", "title": "Paróquias – Diocese de União da Vitória (Setor Bituruna)", "accessedAt": "2026-09-10" }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 3, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-santa-barbara/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 4, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-santa-barbara/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 5, "time": "19:00", "type": "MASS", "notes": "Somente na 1ª sexta-feira do mês", "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-santa-barbara/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 6, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-santa-barbara/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "08:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-santa-barbara/", "accessedAt": "2026-09-10" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "santo-antonio-bituruna",
+      "name": "Paróquia Santo Antônio",
+      "city": "Bituruna", "state": "PR", "neighborhood": "Distrito de Santo Antônio do Iratim",
+      "address": "Rua Silvio Sebben, s/n – Caixa Postal 70 – Santo Antônio do Iratim", "zipCode": "84650-000",
+      "phone": "(42) 3511-1113", "email": null, "website": null,
+      "priestName": "Pe. Ermildo Vicente Krasovski",
+      "foundedYear": 1999,
+      "sources": [
+        { "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-santo-antonio/", "title": "Paróquia Santo Antônio – Santo Antônio do Iratim, Bituruna – Diocese de União da Vitória (criada em 30/01/1999; 14 capelas nomeadas)", "accessedAt": "2026-09-10" },
+        { "url": "https://www.dioceseunivitoria.org.br/paroquias/", "title": "Paróquias – Diocese de União da Vitória (Setor Bituruna)", "accessedAt": "2026-09-10" }
+      ],
+      "confidence": "alta",
+      "communities": [
+        { "name": "Matriz Santo Antônio", "address": "Rua Silvio Sebben, s/n – Santo Antônio do Iratim", "neighborhood": "Santo Antônio do Iratim", "isMatriz": true, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-santo-antonio/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Capela Bom Jesus – Boa Esperança", "address": null, "neighborhood": "Boa Esperança", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-santo-antonio/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Capela São José – Boa Esperança", "address": null, "neighborhood": "Boa Esperança", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-santo-antonio/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Capela Nossa Senhora de Fátima – Iratinzinho", "address": null, "neighborhood": "Iratinzinho", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-santo-antonio/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Capela São Sebastião – Salto Bonito", "address": null, "neighborhood": "Salto Bonito", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-santo-antonio/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Capela Santa Ana – Saltinho", "address": null, "neighborhood": "Saltinho", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-santo-antonio/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Capela Nossa Senhora das Graças – São Vicente", "address": null, "neighborhood": "São Vicente", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-santo-antonio/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Capela Santo Estanislau – Santo Augusto", "address": null, "neighborhood": "Santo Augusto", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-santo-antonio/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Capela São Luis Gonzaga – Empossado", "address": null, "neighborhood": "Empossado", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-santo-antonio/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Capela São João Batista – Cascata", "address": null, "neighborhood": "Cascata", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-santo-antonio/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Capela Cristo Rei – Augusto Loureiro", "address": null, "neighborhood": "Augusto Loureiro", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-santo-antonio/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Capela Divino Espírito Santo – Rio das Antas", "address": null, "neighborhood": "Rio das Antas", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-santo-antonio/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Capela São Brás – Assentamento 12 de Abril", "address": null, "neighborhood": "Assentamento 12 de Abril", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-santo-antonio/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Capela São Miguel Arcanjo – Assentamento 12 de Abril", "address": null, "neighborhood": "Assentamento 12 de Abril", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-santo-antonio/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Capela São Jorge – Assentamento 12 de Abril", "address": null, "neighborhood": "Assentamento 12 de Abril", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-santo-antonio/", "accessedAt": "2026-09-10" }], "confidence": "alta" }
+      ],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 0, "time": "09:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-santo-antonio/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 3, "time": "15:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-santo-antonio/", "accessedAt": "2026-09-10" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-das-gracas-e-sao-jose-general-carneiro",
+      "name": "Paróquia Nossa Senhora das Graças e São José",
+      "city": "General Carneiro", "state": "PR", "neighborhood": null,
+      "address": "Av. Getúlio Vargas, 191 – Caixa Postal 27", "zipCode": "84660-000",
+      "phone": "(42) 3552-1248", "email": null, "website": null,
+      "priestName": "Pe. João Ari Schulz",
+      "foundedYear": 1970,
+      "sources": [
+        { "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-nossa-senhora-das-gracas-e-sao-jose/", "title": "Paróquia Nossa Senhora das Graças e São José – General Carneiro – Diocese de União da Vitória (criada em 06/01/1970; transferida da Diocese de Palmas em 1984; 4 capelas nomeadas + comunidade em formação no bairro São Miguel)", "accessedAt": "2026-09-10" },
+        { "url": "https://www.dioceseunivitoria.org.br/paroquias/", "title": "Paróquias – Diocese de União da Vitória (Setor Bituruna)", "accessedAt": "2026-09-10" }
+      ],
+      "confidence": "alta",
+      "communities": [
+        { "name": "Matriz Nossa Senhora das Graças e São José", "address": "Av. Getúlio Vargas, 191", "neighborhood": null, "isMatriz": true, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-nossa-senhora-das-gracas-e-sao-jose/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Capela São Sebastião – Iratim", "address": null, "neighborhood": "Iratim", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-nossa-senhora-das-gracas-e-sao-jose/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Capela São José – Jangada do Sul", "address": null, "neighborhood": "Jangada do Sul", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-nossa-senhora-das-gracas-e-sao-jose/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Capela Nossa Senhora Aparecida – Planalto", "address": null, "neighborhood": "Planalto", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-nossa-senhora-das-gracas-e-sao-jose/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Capela São João – Bairro São João", "address": null, "neighborhood": "São João", "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-nossa-senhora-das-gracas-e-sao-jose/", "accessedAt": "2026-09-10" }], "confidence": "alta" }
+      ],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 3, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-nossa-senhora-das-gracas-e-sao-jose/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 6, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-nossa-senhora-das-gracas-e-sao-jose/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "08:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-nossa-senhora-das-gracas-e-sao-jose/", "accessedAt": "2026-09-10" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "sagrado-coracao-de-jesus-rio-azul",
+      "name": "Paróquia Sagrado Coração de Jesus",
+      "city": "Rio Azul", "state": "PR", "neighborhood": "Centro",
+      "address": "Rua XIV de Julho, 272 – Centro", "zipCode": "84560-655",
+      "phone": "(42) 3463-1255 / (42) 98887-4991", "email": null, "website": null,
+      "priestName": "Pe. Mateus Lau Nurak (pároco); Pe. Jean Bosco N. Mfunami, SVD (vigário)",
+      "foundedYear": 1932,
+      "sources": [
+        { "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sagrado-coracao-de-jesus/", "title": "Paróquia Sagrado Coração de Jesus – Rio Azul – Diocese de União da Vitória (criada em 22/12/1932)", "accessedAt": "2026-09-10" },
+        { "url": "https://www.dioceseunivitoria.org.br/paroquias/", "title": "Paróquias – Diocese de União da Vitória (Setor Rio Azul)", "accessedAt": "2026-09-10" }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 2, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sagrado-coracao-de-jesus/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 3, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sagrado-coracao-de-jesus/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 4, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sagrado-coracao-de-jesus/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 5, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sagrado-coracao-de-jesus/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 6, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sagrado-coracao-de-jesus/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "08:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sagrado-coracao-de-jesus/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sagrado-coracao-de-jesus/", "accessedAt": "2026-09-10" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "senhor-bom-jesus-reboucas",
+      "name": "Paróquia Senhor Bom Jesus",
+      "city": "Rebouças", "state": "PR", "neighborhood": null,
+      "address": "Rua Clara Barbosa da Costa, 207", "zipCode": "84550-000",
+      "phone": "(42) 3457-1221", "email": null, "website": "https://familiasbj.blogspot.com",
+      "priestName": "Pe. Antonio Kolodzieiski (pároco); Pe. Marcelo Antonio Rosa (vigário)",
+      "foundedYear": 1946,
+      "sources": [
+        { "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-senhor-bom-jesus/", "title": "Paróquia Senhor Bom Jesus – Rebouças – Diocese de União da Vitória (criada em 21/04/1946; 22 capelas rurais não nomeadas; na sede: Santuário Santo Antônio, Capela Santa Clara e Capela Todos os Santos)", "accessedAt": "2026-09-10" },
+        { "url": "https://www.dioceseunivitoria.org.br/paroquias/", "title": "Paróquias – Diocese de União da Vitória (Setor Rio Azul)", "accessedAt": "2026-09-10" }
+      ],
+      "confidence": "alta",
+      "communities": [
+        { "name": "Matriz Senhor Bom Jesus", "address": "Rua Clara Barbosa da Costa, 207", "neighborhood": null, "isMatriz": true, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-senhor-bom-jesus/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Santuário Santo Antônio", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-senhor-bom-jesus/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Capela Santa Clara", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-senhor-bom-jesus/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "name": "Capela Todos os Santos", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-senhor-bom-jesus/", "accessedAt": "2026-09-10" }], "confidence": "alta" }
+      ],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 3, "time": "15:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-senhor-bom-jesus/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 4, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-senhor-bom-jesus/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 5, "time": "19:00", "type": "MASS", "notes": "Somente na 1ª sexta-feira do mês", "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-senhor-bom-jesus/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 6, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-senhor-bom-jesus/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "08:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-senhor-bom-jesus/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-senhor-bom-jesus/", "accessedAt": "2026-09-10" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "sao-joaquim-e-senhora-santana-paulo-frontin",
+      "name": "Paróquia São Joaquim e Senhora Sant'Ana",
+      "city": "Paulo Frontin", "state": "PR", "neighborhood": null,
+      "address": "Rua Alexandre Popia, 69 – Caixa Postal 43", "zipCode": "84635-000",
+      "phone": "(42) 3543-1110", "email": "paroquiasaojoaquimesantana@gmail.com", "website": null,
+      "priestName": "Pe. Alcione Zanin",
+      "foundedYear": 1978,
+      "sources": [
+        { "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-joaquim-e-senhora-santana/", "title": "Paróquia São Joaquim e Senhora Sant'Ana – Paulo Frontin – Diocese de União da Vitória (decreto de 28/02/1978, lido em 04/03/1978; primeira paróquia criada após a instalação da diocese)", "accessedAt": "2026-09-10" },
+        { "url": "https://www.dioceseunivitoria.org.br/paroquias/", "title": "Paróquias – Diocese de União da Vitória (Setor Rio Azul)", "accessedAt": "2026-09-10" }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 3, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-joaquim-e-senhora-santana/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 4, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-joaquim-e-senhora-santana/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 5, "time": "15:00", "type": "MASS", "notes": "Somente na 1ª sexta-feira do mês; missa e adoração do Apostolado da Oração", "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-joaquim-e-senhora-santana/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 6, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-joaquim-e-senhora-santana/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "09:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-joaquim-e-senhora-santana/", "accessedAt": "2026-09-10" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "sao-pedro-apostolo-mallet",
+      "name": "Paróquia São Pedro Apóstolo",
+      "city": "Mallet", "state": "PR", "neighborhood": null,
+      "address": "Rua Marechal Floriano Peixoto, 179", "zipCode": "84570-000",
+      "phone": "(42) 3542-1208", "email": null, "website": null,
+      "priestName": "Pe. Henryk Bazis, SChr",
+      "foundedYear": 1951,
+      "sources": [
+        { "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-pedro-apostolo/", "title": "Paróquia São Pedro Apóstolo – Mallet – Diocese de União da Vitória (criada em 15/08/1951, desmembrada de Rio Claro do Sul)", "accessedAt": "2026-09-10" },
+        { "url": "https://www.dioceseunivitoria.org.br/paroquias/", "title": "Paróquias – Diocese de União da Vitória (Setor Rio Azul)", "accessedAt": "2026-09-10" }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        { "community": "Matriz", "dayOfWeek": 3, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-pedro-apostolo/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 5, "time": "19:00", "type": "MASS", "notes": "Somente na 1ª sexta-feira do mês", "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-pedro-apostolo/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 6, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-pedro-apostolo/", "accessedAt": "2026-09-10" }], "confidence": "alta" },
+        { "community": "Matriz", "dayOfWeek": 0, "time": "08:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://www.dioceseunivitoria.org.br/paroquias/paroquia-sao-pedro-apostolo/", "accessedAt": "2026-09-10" }], "confidence": "alta" }
+      ]
+    }
+  ],
+  "coverage": {
+    "parishesFound": 25,
+    "parishesExpected": 25,
+    "notes": "Lista oficial (dioceseunivitoria.org.br/paroquias) traz 25 paróquias em 5 setores (Catedral 6, Sagrada Família 6, São Mateus 6, Bituruna 3, Rio Azul 4), coincidindo com Wikipédia (25) e GCatholic (25 em 2022); catholic-hierarchy respondeu HTTP 429 em 3 tentativas. Todas as 25 páginas oficiais foram lidas (nome, endereço, CEP, telefone, clero, data de criação, horários). E-mails paroquiais estão ofuscados no site (proteção Cloudflare) e ficaram null, exceto Paulo Frontin. Comunidades só onde a página as nomeia (11 paróquias); 13 municípios cobertos. Horários mensais (1ª sexta-feira etc.) gravados com nota; batizados e cursos não gravados. Sede vacante desde 07/11/2025; administrador diocesano Pe. Antônio Carlos Rodrigues."
+  }
+}
