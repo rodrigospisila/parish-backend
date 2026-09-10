@@ -113,6 +113,21 @@ const isNonParishUnit = (name: string) =>
   /^(Capela|Igreja|Capelania|Miss[ãa]o|Orat[óo]rio|Comunidade|Mosteiro|Convento|Monjas|Monges|Abadia|Carmelo|Semin[áa]rio)\b/i.test(name.trim());
 
 /**
+ * Nome de comunidade que na verdade é lixo de raspagem: rótulo de seção
+ * ("Horário das Missas:", "Missas na matriz"), linha de endereço ou nome com a
+ * hora grudada ("Capela Santo Expedito- 09h30h - 19h na Igreja Matriz"). Não
+ * vira comunidade, e o horário que aponta para ela vai para a matriz.
+ */
+const isJunkCommunityName = (name: string) => {
+  const n = (name ?? '').trim();
+  return !n
+    || /\d{1,2}\s?h(\d{2})?\b|\d{1,2}:\d{2}/.test(n)
+    || /^(missas?|celebra|hor[áa]rio|atividades)\b/i.test(n)
+    || /^(r|rua|av|avenida)[.:]\s/i.test(n)
+    || /^(nossa|senhora|s[ãa]o|santa|santo|de|da|do)$/i.test(n);
+};
+
+/**
  * Homônimas na mesma cidade (ex.: três "Paróquia Santo Antônio" em Curitiba)
  * recebem o bairro/distrito no nome — mesma convenção do seed de Ponta Grossa
  * ("Paróquia Imaculada Conceição (Uvaranas)") — para não se fundirem na carga
@@ -181,7 +196,7 @@ async function importDioceseFile(file: string) {
       if (!dup) { stats.parishes += 1; console.log(`  + ${p.name} — ${p.city} [${p.confidence ?? '?'}]`); }
     }
 
-    const listed = (p.communities ?? []).filter((c) => alive(c.status) && ok(c.confidence ?? p.confidence));
+    const listed = (p.communities ?? []).filter((c) => alive(c.status) && ok(c.confidence ?? p.confidence) && !isJunkCommunityName(c.name));
     // A igreja-matriz precisa existir: sem lista, ou com lista só de capelas
     // (nenhuma marcada como matriz), ela é criada — senão as missas da matriz
     // cairiam na primeira capela da lista
@@ -216,7 +231,7 @@ async function importDioceseFile(file: string) {
       const type = (['MASS', 'CONFESSION', 'ADORATION', 'ROSARY'].includes((s.type ?? '').toUpperCase()) ? (s.type as string).toUpperCase() : 'MASS') as MassScheduleType;
       const wanted = normalize(s.community ?? 'Matriz');
       let target = matriz;
-      if (wanted && wanted !== 'matriz') {
+      if (wanted && wanted !== 'matriz' && !isJunkCommunityName(s.community ?? '')) {
         // Procurar a comunidade nomeada SEMPRE vem primeiro: há paróquia com
         // santuário além da matriz ("Santuário da Boa Morte" em Rio Claro), e
         // desviar pelo nome mandaria as missas do santuário para a matriz.
