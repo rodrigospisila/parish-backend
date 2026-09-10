@@ -513,9 +513,10 @@ model Community {
   news               News[]
 
   // Fase 3
-  catechesisClasses CatechesisClass[]
-  pastoralPlans     PastoralPlan[]
-  documents         PastoralDocument[]
+  catechesisClasses          CatechesisClass[]
+  catechesisEnrollmentPresets CatechesisEnrollmentPreset[]
+  pastoralPlans              PastoralPlan[]
+  documents                  PastoralDocument[]
 
   // Fase 4
   schedules          Schedule[]
@@ -1664,6 +1665,7 @@ model CatechesisStage {
   sacramentType SacramentType?
 
   classes CatechesisClass[]
+  enrollmentPresets CatechesisEnrollmentPreset[]
 
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
@@ -1672,6 +1674,35 @@ model CatechesisStage {
   @@index([parishId])
   @@index([deletedAt])
   @@map("catechesis_stages")
+}
+
+// Padrão da janela de inscrições por comunidade + ano (opcionalmente por
+// etapa): turmas novas do ano — criadas à mão ou pela virada — nascem com
+// estes valores; cada turma continua ajustável depois. Campo nulo = "não
+// definido" (a turma usa o padrão do sistema).
+model CatechesisEnrollmentPreset {
+  id          String           @id @default(cuid())
+  year        Int
+  communityId String
+  community   Community        @relation(fields: [communityId], references: [id], onDelete: Cascade)
+  stageId     String?
+  stage       CatechesisStage? @relation(fields: [stageId], references: [id], onDelete: Cascade)
+  // Chave única precisa de valor: "all" para o padrão geral, senão o stageId
+  scopeKey    String           @default("all")
+
+  enrollmentOpen     Boolean?
+  enrollmentOpensAt  DateTime?
+  enrollmentClosesAt DateTime?
+  fullBehavior       CatechesisFullBehavior?
+  // Herdado só quando a turma é criada sem limite informado
+  capacity Int?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([communityId, year, scopeKey])
+  @@index([communityId, year])
+  @@map("catechesis_enrollment_presets")
 }
 
 model CatechesisClass {

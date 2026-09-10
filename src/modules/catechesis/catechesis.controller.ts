@@ -404,6 +404,41 @@ export class CatechesisController {
     return this.service.rolloverClass(id, dto, req.user);
   }
 
+  // Padrão da janela de inscrições por comunidade/ano: turmas novas do ano
+  // nascem com ele (ajustáveis depois)
+  @Get('enrollment-presets')
+  @Roles(UserRole.PASTORAL_COORDINATOR)
+  listEnrollmentPresets(@Request() req: any, @Query('communityId') communityId?: string) {
+    return this.service.listEnrollmentPresets(req.user, communityId || undefined);
+  }
+
+  @Put('enrollment-presets')
+  @Roles(UserRole.PASTORAL_COORDINATOR)
+  upsertEnrollmentPreset(
+    @Body() dto: {
+      communityId?: string;
+      year: number;
+      stageId?: string | null;
+      enrollmentOpen?: boolean | null;
+      enrollmentOpensAt?: string | null;
+      enrollmentClosesAt?: string | null;
+      fullBehavior?: string | null;
+      capacity?: number | null;
+      /** Também aplica os mesmos ajustes às turmas já existentes do ano */
+      applyToExisting?: boolean;
+      onlyWithoutCapacity?: boolean;
+    },
+    @Request() req: any,
+  ) {
+    return this.service.upsertEnrollmentPreset(dto, req.user);
+  }
+
+  @Delete('enrollment-presets/:id')
+  @Roles(UserRole.PASTORAL_COORDINATOR)
+  deleteEnrollmentPreset(@Param('id') id: string, @Request() req: any) {
+    return this.service.deleteEnrollmentPreset(id, req.user);
+  }
+
   // Janela de inscrições (e vagas) de TODAS as turmas de um ano/comunidade de
   // uma vez — declarado antes de `classes/:id` para a rota literal vencer
   @Patch('classes/enrollment-window')

@@ -241,6 +241,10 @@ export class CatechesisService {
     const name = String(dto.name ?? '').trim();
     if (name.length < 2) throw new BadRequestException('Informe o nome da turma');
 
+    // Padrão do ano (comunidade/etapa): a turma nasce herdando a janela de
+    // inscrições e, se não veio limite, as vagas — ajustável depois por turma
+    const preset = await this.resolveEnrollmentPreset(dto.communityId, dto.year, dto.stageId);
+
     const created = await this.prisma.catechesisClass.create({
       data: {
         name: name.slice(0, 120),
@@ -250,7 +254,11 @@ export class CatechesisService {
         weekday: dto.weekday ?? null,
         time: dto.time ?? null,
         room: dto.room ?? null,
-        capacity,
+        capacity: dto.capacity !== undefined && dto.capacity !== null ? capacity : preset.capacity ?? null,
+        enrollmentOpen: preset.enrollmentOpen ?? true,
+        enrollmentOpensAt: preset.enrollmentOpensAt ?? null,
+        enrollmentClosesAt: preset.enrollmentClosesAt ?? null,
+        fullBehavior: preset.fullBehavior ?? 'WAITLIST',
       },
     });
     await this.auditService.log({ actor: this.auditActor(user), action: 'CREATE', entity: 'CatechesisClass', entityId: created.id });
@@ -504,6 +512,146 @@ export class CatechesisService {
     };
   }
 
+  // ===== PADRÃO DA JANELA DE INSCRIÇÕES (por comunidade/ano) =====
+
+  /**
+   * Padrão efetivo para uma turma nova: o da etapa completa o geral campo a
+   * campo (nulo = não definido). Sem padrão, tudo nulo — a turma usa o
+   * comportamento de sempre (aberta, sem janela, fila de espera, sem limite).
+   */
+  private async resolveEnrollmentPreset(communityId: string, year: number, stageId: string | null) {
+    const presets = await this.prisma.catechesisEnrollmentPreset.findMany({
+      where: { communityId, year, OR: [{ scopeKey: 'all' }, ...(stageId ? [{ stageId }] : [])] },
+    });
+    const general = presets.find((p) => p.scopeKey === 'all');
+    const specific = stageId ? presets.find((p) => p.stageId === stageId) : undefined;
+    const pick = <K extends 'enrollmentOpen' | 'enrollmentOpensAt' | 'enrollmentClosesAt' | 'fullBehavior' | 'capacity'>(key: K) =>
+      (specific?.[key] ?? general?.[key] ?? null) as NonNullable<(typeof presets)[number]>[K] | null;
+    return {
+      enrollmentOpen: pick('enrollmentOpen'),
+      enrollmentOpensAt: pick('enrollmentOpensAt'),
+      enrollmentClosesAt: pick('enrollmentClosesAt'),
+      fullBehavior: pick('fullBehavior'),
+      capacity: pick('capacity'),
+    };
+  }
+
+  async listEnrollmentPresets(user: CurrentUser, communityId?: string) {
+    const targetCommunityId = communityId ?? user.communityId;
+    if (!targetCommunityId) throw new BadRequestException('Informe a comunidade');
+    await this.assertCommunityScope(targetCommunityId, user);
+    return this.prisma.catechesisEnrollmentPreset.findMany({
+      where: { communityId: targetCommunityId },
+      include: { stage: { select: { id: true, name: true } } },
+      orderBy: [{ year: 'desc' }, { scopeKey: 'asc' }],
+    });
+  }
+
+  /**
+   * Cria/atualiza o padrão de (comunidade, ano[, etapa]). Só os campos
+   * enviados mudam; `null` limpa o campo. Com `applyToExisting`, os mesmos
+   * ajustes vão para as turmas já existentes do ano (mesma regra do lote).
+   */
+  async upsertEnrollmentPreset(
+    dto: {
+      communityId?: string;
+      year: number;
+      stageId?: string | null;
+      enrollmentOpen?: boolean | null;
+      enrollmentOpensAt?: string | null;
+      enrollmentClosesAt?: string | null;
+      fullBehavior?: string | null;
+      capacity?: number | null;
+      applyToExisting?: boolean;
+      onlyWithoutCapacity?: boolean;
+    },
+    user: CurrentUser,
+  ) {
+    const communityId = dto.communityId ?? user.communityId;
+    if (!communityId) throw new BadRequestException('Informe a comunidade');
+    await this.assertCommunityScope(communityId, user);
+    const year = Math.floor(Number(dto.year));
+    if (!Number.isFinite(year) || year < 2000 || year > 2100) throw new BadRequestException('Ano inválido');
+    const stageId = dto.stageId ? String(dto.stageId) : null;
+    if (stageId) {
+      const stage = await this.prisma.catechesisStage.findFirst({ where: { id: stageId, deletedAt: null }, select: { id: true } });
+      if (!stage) throw new NotFoundException('Etapa de catequese não encontrada');
+    }
+
+    const data: any = {};
+    if (dto.enrollmentOpen !== undefined) data.enrollmentOpen = dto.enrollmentOpen === null ? null : dto.enrollmentOpen === true;
+    if (dto.enrollmentOpensAt !== undefined) data.enrollmentOpensAt = CatechesisService.parseWindowDate(dto.enrollmentOpensAt, false);
+    if (dto.enrollmentClosesAt !== undefined) data.enrollmentClosesAt = CatechesisService.parseWindowDate(dto.enrollmentClosesAt, true);
+    if (dto.fullBehavior !== undefined) {
+      if (dto.fullBehavior !== null && dto.fullBehavior !== 'WAITLIST' && dto.fullBehavior !== 'BLOCK') {
+        throw new BadRequestException('Comportamento de turma cheia inválido — use WAITLIST ou BLOCK');
+      }
+      data.fullBehavior = dto.fullBehavior;
+    }
+    if (dto.capacity !== undefined) {
+      if (dto.capacity === null) data.capacity = null;
+      else {
+        const capacity = Math.floor(Number(dto.capacity));
+        if (!Number.isFinite(capacity) || capacity < 1) throw new BadRequestException('As vagas devem ser um número inteiro maior que zero (ou vazio para sem limite)');
+        data.capacity = capacity;
+      }
+    }
+    if (Object.keys(data).length === 0) throw new BadRequestException('Nada para guardar no padrão');
+
+    const scopeKey = stageId ?? 'all';
+    const existing = await this.prisma.catechesisEnrollmentPreset.findUnique({
+      where: { communityId_year_scopeKey: { communityId, year, scopeKey } },
+    });
+    const opens = data.enrollmentOpensAt !== undefined ? data.enrollmentOpensAt : existing?.enrollmentOpensAt ?? null;
+    const closes = data.enrollmentClosesAt !== undefined ? data.enrollmentClosesAt : existing?.enrollmentClosesAt ?? null;
+    if (opens && closes && opens.getTime() > closes.getTime()) {
+      throw new BadRequestException('A abertura das inscrições precisa ser antes do encerramento');
+    }
+
+    const preset = existing
+      ? await this.prisma.catechesisEnrollmentPreset.update({ where: { id: existing.id }, data })
+      : await this.prisma.catechesisEnrollmentPreset.create({ data: { communityId, year, stageId, scopeKey, ...data } });
+
+    let applied: Awaited<ReturnType<CatechesisService['setEnrollmentWindow']>> | null = null;
+    if (dto.applyToExisting) {
+      const windowDto: Parameters<CatechesisService['setEnrollmentWindow']>[0] = { communityId, year, stageId };
+      if (dto.enrollmentOpen !== undefined && dto.enrollmentOpen !== null) windowDto.enrollmentOpen = dto.enrollmentOpen;
+      if (dto.enrollmentOpensAt !== undefined) windowDto.enrollmentOpensAt = dto.enrollmentOpensAt;
+      if (dto.enrollmentClosesAt !== undefined) windowDto.enrollmentClosesAt = dto.enrollmentClosesAt;
+      if (dto.fullBehavior !== undefined && dto.fullBehavior !== null) windowDto.fullBehavior = dto.fullBehavior;
+      if (dto.capacity !== undefined) {
+        windowDto.capacity = dto.capacity;
+        windowDto.onlyWithoutCapacity = dto.onlyWithoutCapacity !== false;
+      }
+      const hasWindowChange = Object.keys(windowDto).length > 3;
+      if (hasWindowChange) applied = await this.setEnrollmentWindow(windowDto, user);
+    }
+
+    await this.auditService.log({
+      actor: this.auditActor(user),
+      action: existing ? 'UPDATE' : 'CREATE',
+      entity: 'CatechesisEnrollmentPreset',
+      entityId: preset.id,
+      metadata: { communityId, year, stageId, fields: Object.keys(data), applyToExisting: !!dto.applyToExisting },
+    });
+    return { preset, applied };
+  }
+
+  async deleteEnrollmentPreset(id: string, user: CurrentUser) {
+    const preset = await this.prisma.catechesisEnrollmentPreset.findUnique({ where: { id } });
+    if (!preset) throw new NotFoundException('Padrão não encontrado');
+    await this.assertCommunityScope(preset.communityId, user);
+    await this.prisma.catechesisEnrollmentPreset.delete({ where: { id } });
+    await this.auditService.log({
+      actor: this.auditActor(user),
+      action: 'DELETE',
+      entity: 'CatechesisEnrollmentPreset',
+      entityId: id,
+      metadata: { communityId: preset.communityId, year: preset.year, stageId: preset.stageId },
+    });
+    return { deleted: true };
+  }
+
   /**
    * Virada de ano da TURMA: cria a sucessora do ano seguinte na MESMA etapa e
    * comunidade, herdando dia/horário/sala/vagas (editáveis) e a equipe de
@@ -594,6 +742,11 @@ export class CatechesisService {
       team.push({ memberId, role: roleByMember.get(memberId) ?? 'Catequista' });
     }
 
+    // Padrão do ano novo (comunidade/etapa), se a coordenação já o definiu:
+    // janela de inscrições e vagas (quando não informadas) vêm dele
+    const preset = await this.resolveEnrollmentPreset(source.communityId, year, source.stageId);
+    if (dto.capacity === undefined && preset.capacity !== null) capacity = preset.capacity;
+
     // Turma + equipe numa transação (falha no meio não deixa turma meio
     // montada), com advisory lock por (comunidade, etapa, ano) — duplo clique
     // ou duas abas fazendo a virada não criam duas sucessoras
@@ -619,9 +772,12 @@ export class CatechesisService {
           time,
           room,
           capacity,
-          // A sucessora herda o comportamento de turma cheia e nasce com as
-          // inscrições ABERTAS, sem janela (o ano novo começa aceitando)
-          fullBehavior: source.fullBehavior,
+          // Sem padrão do ano: herda o comportamento de turma cheia e nasce
+          // com as inscrições ABERTAS, sem janela (o ano novo começa aceitando)
+          fullBehavior: preset.fullBehavior ?? source.fullBehavior,
+          enrollmentOpen: preset.enrollmentOpen ?? true,
+          enrollmentOpensAt: preset.enrollmentOpensAt ?? null,
+          enrollmentClosesAt: preset.enrollmentClosesAt ?? null,
         },
       });
       if (team.length) {
