@@ -1,0 +1,1940 @@
+{
+  "diocese": {
+    "name": "Diocese de Cruz Alta",
+    "type": "Diocese",
+    "slug": "cruz-alta",
+    "city": "Cruz Alta",
+    "state": "RS",
+    "address": "Rua Duque de Caxias, 729",
+    "zipCode": "98005-200",
+    "phone": "(55) 3322-5320",
+    "email": "diocese@diocesecruzalta.com.br",
+    "website": "https://diocesecruzalta.com.br",
+    "bishopName": "Dom Nélio Domingos Zortea",
+    "sources": [
+      {
+        "url": "https://diocesecruzalta.com.br/locais",
+        "title": "Diocese de Cruz Alta — \"Guia de Locais\": índice oficial das paróquias por região pastoral (Cruz Alta 6, Espumoso 6, Ijuí 7, Panambi 5, Soledade 6 + Capelania Militar)",
+        "accessedAt": "2026-09-10"
+      },
+      {
+        "url": "https://web.archive.org/web/20260203031717/https://diocesecruzalta.com.br/locais",
+        "title": "Arquivo da Internet — cópia de 03/02/2026 do \"Guia de Locais\" do site oficial (usada porque o servidor devolve 403/desafio JavaScript a clientes automatizados)",
+        "accessedAt": "2026-09-10"
+      },
+      {
+        "url": "https://web.archive.org/web/20260201165808/https://diocesecruzalta.com.br/locais-sitemap.xml",
+        "title": "Arquivo da Internet — locais-sitemap.xml do site oficial (cópia de 01/02/2026): 32 URLs de paróquias/locais",
+        "accessedAt": "2026-09-10"
+      },
+      {
+        "url": "https://www.catholic-hierarchy.org/diocese/dczal.html",
+        "title": "catholic-hierarchy.org — Cruz Alta (Diocese): 31 paróquias (estatística de 2023); bispo Nélio Domingos Zortea desde 29/03/2023",
+        "accessedAt": "2026-09-10"
+      },
+      {
+        "url": "https://www.cnbb.org.br/dioceses/",
+        "title": "CNBB — Dioceses (Diocese de Cruz Alta, Regional Sul 3)",
+        "accessedAt": "2026-09-10"
+      },
+      {
+        "url": "https://pt.wikipedia.org/wiki/Diocese_de_Cruz_Alta",
+        "title": "Wikipédia — Diocese de Cruz Alta (criada em 27/05/1971 pela bula Cum Christus)",
+        "accessedAt": "2026-09-10"
+      },
+      {
+        "url": "https://www.diocesenet.com.br/home/paroquia-sao-joao-batista/",
+        "title": "Diocese de Cachoeira do Sul — \"Paróquia São João Batista\" (Lagoão), publicada em 18/03/2025: a paróquia deixou a Diocese de Cruz Alta e passou ao território da Diocese de Cachoeira do Sul; a página de Lagoão no site de Cruz Alta responde 404 em 10/09/2026",
+        "accessedAt": "2026-09-10"
+      }
+    ],
+    "confidence": "alta"
+  },
+  "parishes": [
+    {
+      "slug": "divino-espirito-santo-cruz-alta",
+      "name": "Catedral Divino Espírito Santo",
+      "city": "Cruz Alta",
+      "state": "RS",
+      "neighborhood": null,
+      "address": "Rua Duque de Caxias, 729",
+      "zipCode": null,
+      "phone": "(55) 3322-1258",
+      "email": "mdca0002@diocesecruzalta.com.br",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesecruzalta.com.br/locais/paroquia-divino-espirito-santo-catedral",
+          "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesecruzalta.com.br/locais",
+          "title": "Diocese de Cruz Alta — \"Guia de Locais\": índice oficial das paróquias por região pastoral (Cruz Alta 6, Espumoso 6, Ijuí 7, Panambi 5, Soledade 6 + Capelania Militar)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 2,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesecruzalta.com.br/locais/paroquia-divino-espirito-santo-catedral",
+              "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": "Com a Bênção da Saúde",
+          "sources": [
+            {
+              "url": "https://diocesecruzalta.com.br/locais/paroquia-divino-espirito-santo-catedral",
+              "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesecruzalta.com.br/locais/paroquia-divino-espirito-santo-catedral",
+              "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesecruzalta.com.br/locais/paroquia-divino-espirito-santo-catedral",
+              "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesecruzalta.com.br/locais/paroquia-divino-espirito-santo-catedral",
+              "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesecruzalta.com.br/locais/paroquia-divino-espirito-santo-catedral",
+              "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "10:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesecruzalta.com.br/locais/paroquia-divino-espirito-santo-catedral",
+              "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesecruzalta.com.br/locais/paroquia-divino-espirito-santo-catedral",
+              "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "imaculada-conceicao-cruz-alta",
+      "name": "Paróquia Imaculada Conceição",
+      "city": "Cruz Alta",
+      "state": "RS",
+      "neighborhood": null,
+      "address": "Rua Pedro Fumagalli, 260",
+      "zipCode": null,
+      "phone": "(55) 3324-3970",
+      "email": "mdca0036@diocesecruzalta.com.br",
+      "website": null,
+      "priestName": "Pe. Eliseu Lucas Alves de Oliveira",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesecruzalta.com.br/locais/paroquia-imaculada-conceicao",
+          "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesecruzalta.com.br/locais",
+          "title": "Diocese de Cruz Alta — \"Guia de Locais\": índice oficial das paróquias por região pastoral (Cruz Alta 6, Espumoso 6, Ijuí 7, Panambi 5, Soledade 6 + Capelania Militar)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-aparecida-boa-vista-do-incra",
+      "name": "Paróquia Nossa Senhora Aparecida",
+      "city": "Boa Vista do Incra",
+      "state": "RS",
+      "neighborhood": null,
+      "address": "Rua Heraclides de Lima Gomes, s/n",
+      "zipCode": null,
+      "phone": "(55) 3613-1207",
+      "email": "mdca0031@diocesecruzalta.com.br",
+      "website": null,
+      "priestName": "Pe. Estacínio Rucci Rocnieski",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesecruzalta.com.br/locais/paroquia-nossa-senhora-aparecida",
+          "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesecruzalta.com.br/locais",
+          "title": "Diocese de Cruz Alta — \"Guia de Locais\": índice oficial das paróquias por região pastoral (Cruz Alta 6, Espumoso 6, Ijuí 7, Panambi 5, Soledade 6 + Capelania Militar)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-do-rosario-de-fatima-cruz-alta",
+      "name": "Paróquia Nossa Senhora do Rosário de Fátima",
+      "city": "Cruz Alta",
+      "state": "RS",
+      "neighborhood": null,
+      "address": "Rua Mariz e Barros, 302",
+      "zipCode": null,
+      "phone": "(55) 3322-1557",
+      "email": "mdca0003@diocesecruzalta.com.br",
+      "website": null,
+      "priestName": "Pe. Gelson Paulo Bays",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesecruzalta.com.br/locais/paroquia-nossa-senhora-do-rosario-de-fatima",
+          "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesecruzalta.com.br/locais",
+          "title": "Diocese de Cruz Alta — \"Guia de Locais\": índice oficial das paróquias por região pastoral (Cruz Alta 6, Espumoso 6, Ijuí 7, Panambi 5, Soledade 6 + Capelania Militar)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "16:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesecruzalta.com.br/locais/paroquia-nossa-senhora-do-rosario-de-fatima",
+              "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesecruzalta.com.br/locais/paroquia-nossa-senhora-do-rosario-de-fatima",
+              "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesecruzalta.com.br/locais/paroquia-nossa-senhora-do-rosario-de-fatima",
+              "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Todo dia 13 de cada mês (recorrência mensal por data, não semanal)",
+          "sources": [
+            {
+              "url": "https://diocesecruzalta.com.br/locais/paroquia-nossa-senhora-do-rosario-de-fatima",
+              "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "sao-jose-pejucara",
+      "name": "Paróquia São José",
+      "city": "Pejuçara",
+      "state": "RS",
+      "neighborhood": null,
+      "address": "Rua Antônio Alves Ramos, 1227",
+      "zipCode": null,
+      "phone": "(55) 3377-1116",
+      "email": "mdca0020@diocesecruzalta.com.br",
+      "website": null,
+      "priestName": "Pe. Tiago Megier",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesecruzalta.com.br/locais/paroquia-sao-jose-pejucara",
+          "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesecruzalta.com.br/locais",
+          "title": "Diocese de Cruz Alta — \"Guia de Locais\": índice oficial das paróquias por região pastoral (Cruz Alta 6, Espumoso 6, Ijuí 7, Panambi 5, Soledade 6 + Capelania Militar)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesecruzalta.com.br/locais/paroquia-sao-jose-pejucara",
+              "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "08:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesecruzalta.com.br/locais/paroquia-sao-jose-pejucara",
+              "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "sao-pedro-apostolo-fortaleza-dos-valos",
+      "name": "Paróquia São Pedro Apóstolo",
+      "city": "Fortaleza dos Valos",
+      "state": "RS",
+      "neighborhood": null,
+      "address": "Rua Papa João XXIII, 218",
+      "zipCode": null,
+      "phone": "(55) 3328-1194",
+      "email": "mdca0014@diocesecruzalta.com.br",
+      "website": null,
+      "priestName": "Pe. Estacínio Rucci Rocnieski",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesecruzalta.com.br/locais/paroquia-sao-pedro-apostolo-fortaleza-dos-valos",
+          "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesecruzalta.com.br/locais",
+          "title": "Diocese de Cruz Alta — \"Guia de Locais\": índice oficial das paróquias por região pastoral (Cruz Alta 6, Espumoso 6, Ijuí 7, Panambi 5, Soledade 6 + Capelania Militar)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesecruzalta.com.br/locais/paroquia-sao-pedro-apostolo-fortaleza-dos-valos",
+              "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "cristo-rei-ijui",
+      "name": "Paróquia Cristo Rei",
+      "city": "Ijuí",
+      "state": "RS",
+      "neighborhood": "Assis Brasil",
+      "address": "Rua Monsenhor Busanello, 111",
+      "zipCode": null,
+      "phone": "(55) 3332-6061",
+      "email": "mdca0033@diocesecruzalta.com.br",
+      "website": null,
+      "priestName": "Pe. Edson Menegazzi",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesecruzalta.com.br/locais/paroquia-cristo-rei-ijui",
+          "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesecruzalta.com.br/locais",
+          "title": "Diocese de Cruz Alta — \"Guia de Locais\": índice oficial das paróquias por região pastoral (Cruz Alta 6, Espumoso 6, Ijuí 7, Panambi 5, Soledade 6 + Capelania Militar)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesecruzalta.com.br/locais/paroquia-cristo-rei-ijui",
+              "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "08:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesecruzalta.com.br/locais/paroquia-cristo-rei-ijui",
+              "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": "1ª sexta-feira do mês (recorrência mensal)",
+          "sources": [
+            {
+              "url": "https://diocesecruzalta.com.br/locais/paroquia-cristo-rei-ijui",
+              "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "divino-espirito-santo-joia",
+      "name": "Paróquia Divino Espírito Santo",
+      "city": "Jóia",
+      "state": "RS",
+      "neighborhood": null,
+      "address": "Rua Edmar Kruel, 170",
+      "zipCode": null,
+      "phone": "(55) 3318-1343",
+      "email": "mdca0023@diocesecruzalta.com.br",
+      "website": null,
+      "priestName": "Pe. Cleverson Nelson Portolan",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesecruzalta.com.br/locais/paroquia-divino-espirito-santo-joia",
+          "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesecruzalta.com.br/locais",
+          "title": "Diocese de Cruz Alta — \"Guia de Locais\": índice oficial das paróquias por região pastoral (Cruz Alta 6, Espumoso 6, Ijuí 7, Panambi 5, Soledade 6 + Capelania Militar)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesecruzalta.com.br/locais/paroquia-divino-espirito-santo-joia",
+              "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Primeira sexta-feira do mês (recorrência mensal)",
+          "sources": [
+            {
+              "url": "https://diocesecruzalta.com.br/locais/paroquia-divino-espirito-santo-joia",
+              "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-da-natividade-ijui",
+      "name": "Paróquia Nossa Senhora da Natividade",
+      "city": "Ijuí",
+      "state": "RS",
+      "neighborhood": null,
+      "address": "Praça da República, 14 (Caixa Postal 32)",
+      "zipCode": null,
+      "phone": "(55) 3332-1568",
+      "email": "mdca0004@diocesecruzalta.com.br",
+      "website": null,
+      "priestName": "Pe. Silvio Jorge Mazzarolo",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesecruzalta.com.br/locais/paroquia-nossa-senhora-da-natividade-ijui",
+          "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesecruzalta.com.br/locais",
+          "title": "Diocese de Cruz Alta — \"Guia de Locais\": índice oficial das paróquias por região pastoral (Cruz Alta 6, Espumoso 6, Ijuí 7, Panambi 5, Soledade 6 + Capelania Militar)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sagrado-coracao-de-jesus-ijui",
+      "name": "Paróquia Sagrado Coração de Jesus",
+      "city": "Ijuí",
+      "state": "RS",
+      "neighborhood": "Vila Santana",
+      "address": "Caixa Postal 666 — Vila Santana",
+      "zipCode": null,
+      "phone": "(55) 3332-1580",
+      "email": "mdca0034@diocesecruzalta.com.br",
+      "website": null,
+      "priestName": "Pe. Gilberto Schimanoski",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesecruzalta.com.br/locais/paroquia-sagrado-coracao-de-jesus-ijui",
+          "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesecruzalta.com.br/locais",
+          "title": "Diocese de Cruz Alta — \"Guia de Locais\": índice oficial das paróquias por região pastoral (Cruz Alta 6, Espumoso 6, Ijuí 7, Panambi 5, Soledade 6 + Capelania Militar)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-geraldo-magela-ijui",
+      "name": "Paróquia São Geraldo Magela",
+      "city": "Ijuí",
+      "state": "RS",
+      "neighborhood": null,
+      "address": "Rua São Francisco, 591",
+      "zipCode": null,
+      "phone": "(55) 3332-4620",
+      "email": "mdca0005@diocesecruzalta.com.br",
+      "website": null,
+      "priestName": "Frei Clair José Zampieron",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesecruzalta.com.br/locais/paroquia-sao-geraldo-magela-ijui",
+          "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesecruzalta.com.br/locais",
+          "title": "Diocese de Cruz Alta — \"Guia de Locais\": índice oficial das paróquias por região pastoral (Cruz Alta 6, Espumoso 6, Ijuí 7, Panambi 5, Soledade 6 + Capelania Militar)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 2,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesecruzalta.com.br/locais/paroquia-sao-geraldo-magela-ijui",
+              "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": "Missa da Saúde",
+          "sources": [
+            {
+              "url": "https://diocesecruzalta.com.br/locais/paroquia-sao-geraldo-magela-ijui",
+              "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesecruzalta.com.br/locais/paroquia-sao-geraldo-magela-ijui",
+              "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "08:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesecruzalta.com.br/locais/paroquia-sao-geraldo-magela-ijui",
+              "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesecruzalta.com.br/locais/paroquia-sao-geraldo-magela-ijui",
+              "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "sao-jose-augusto-pestana",
+      "name": "Paróquia São José",
+      "city": "Augusto Pestana",
+      "state": "RS",
+      "neighborhood": null,
+      "address": "Rua Bento Gonçalves, 97",
+      "zipCode": null,
+      "phone": "(55) 3334-1091",
+      "email": "mdca0008@diocesecruzalta.com.br",
+      "website": null,
+      "priestName": "Pe. Cristiano Segabinazzi",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesecruzalta.com.br/locais/paroquia-sao-jose-augusto-pestana",
+          "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesecruzalta.com.br/locais",
+          "title": "Diocese de Cruz Alta — \"Guia de Locais\": índice oficial das paróquias por região pastoral (Cruz Alta 6, Espumoso 6, Ijuí 7, Panambi 5, Soledade 6 + Capelania Militar)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-pedro-apostolo-ajuricaba",
+      "name": "Paróquia São Pedro Apóstolo",
+      "city": "Ajuricaba",
+      "state": "RS",
+      "neighborhood": null,
+      "address": "Avenida da Matriz, 672",
+      "zipCode": null,
+      "phone": "(55) 3387-1345",
+      "email": "mdca0006@diocesecruzalta.com.br",
+      "website": null,
+      "priestName": "Pe. Magnus Camargo da Silva",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesecruzalta.com.br/locais/paroquia-sao-pedro-apostolo-ajuricaba",
+          "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesecruzalta.com.br/locais",
+          "title": "Diocese de Cruz Alta — \"Guia de Locais\": índice oficial das paróquias por região pastoral (Cruz Alta 6, Espumoso 6, Ijuí 7, Panambi 5, Soledade 6 + Capelania Militar)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesecruzalta.com.br/locais/paroquia-sao-pedro-apostolo-ajuricaba",
+              "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "08:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesecruzalta.com.br/locais/paroquia-sao-pedro-apostolo-ajuricaba",
+              "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "sagrado-coracao-de-jesus-saldanha-marinho",
+      "name": "Paróquia Sagrado Coração de Jesus",
+      "city": "Saldanha Marinho",
+      "state": "RS",
+      "neighborhood": null,
+      "address": "Rua Jacó Limberger, 331",
+      "zipCode": null,
+      "phone": "(55) 3373-1208",
+      "email": "mdca0030@diocesecruzalta.com.br",
+      "website": null,
+      "priestName": "Pe. João Alberto Bagolin",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesecruzalta.com.br/locais/paroquia-sagrado-coracao-de-jesus-saldanha-marinho",
+          "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesecruzalta.com.br/locais",
+          "title": "Diocese de Cruz Alta — \"Guia de Locais\": índice oficial das paróquias por região pastoral (Cruz Alta 6, Espumoso 6, Ijuí 7, Panambi 5, Soledade 6 + Capelania Militar)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "santa-barbara-santa-barbara-do-sul",
+      "name": "Paróquia Santa Bárbara",
+      "city": "Santa Bárbara do Sul",
+      "state": "RS",
+      "neighborhood": null,
+      "address": "Avenida Presidente Vargas, 127 (Caixa Postal 02)",
+      "zipCode": null,
+      "phone": "(55) 3372-1219",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. João Alberto Bagolin",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesecruzalta.com.br/locais/paroquia-santa-barbara-santa-barbara-do-sul",
+          "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesecruzalta.com.br/locais",
+          "title": "Diocese de Cruz Alta — \"Guia de Locais\": índice oficial das paróquias por região pastoral (Cruz Alta 6, Espumoso 6, Ijuí 7, Panambi 5, Soledade 6 + Capelania Militar)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesecruzalta.com.br/locais/paroquia-santa-barbara-santa-barbara-do-sul",
+              "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "santa-terezinha-condor",
+      "name": "Paróquia Santa Terezinha",
+      "city": "Condor",
+      "state": "RS",
+      "neighborhood": null,
+      "address": "Rua Borges de Medeiros, 157",
+      "zipCode": null,
+      "phone": "(55) 3379-1151",
+      "email": "mdca0028@diocesecruzalta.com.br",
+      "website": null,
+      "priestName": "Pe. Darci Serafin Rodrigues",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesecruzalta.com.br/locais/paroquia-santa-terezinha-condor",
+          "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesecruzalta.com.br/locais",
+          "title": "Diocese de Cruz Alta — \"Guia de Locais\": índice oficial das paróquias por região pastoral (Cruz Alta 6, Espumoso 6, Ijuí 7, Panambi 5, Soledade 6 + Capelania Militar)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Apenas 1º, 2º e 3º sábado do mês (recorrência mensal)",
+          "sources": [
+            {
+              "url": "https://diocesecruzalta.com.br/locais/paroquia-santa-terezinha-condor",
+              "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": "Apenas no último domingo do mês (recorrência mensal)",
+          "sources": [
+            {
+              "url": "https://diocesecruzalta.com.br/locais/paroquia-santa-terezinha-condor",
+              "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "sao-joao-batista-panambi",
+      "name": "Paróquia São João Batista",
+      "city": "Panambi",
+      "state": "RS",
+      "neighborhood": null,
+      "address": "Rua Otto Kepler, 710",
+      "zipCode": null,
+      "phone": "(55) 3375-4552",
+      "email": "mdca0019@diocesecruzalta.com.br",
+      "website": null,
+      "priestName": "Pe. Cleiton Turella Moraes",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesecruzalta.com.br/locais/paroquia-sao-joao-batista-panambi",
+          "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesecruzalta.com.br/locais",
+          "title": "Diocese de Cruz Alta — \"Guia de Locais\": índice oficial das paróquias por região pastoral (Cruz Alta 6, Espumoso 6, Ijuí 7, Panambi 5, Soledade 6 + Capelania Militar)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "08:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesecruzalta.com.br/locais/paroquia-sao-joao-batista-panambi",
+              "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": "Pontuação ambígua na fonte: pode ser a \"Missa da Saúde\" das sextas-feiras",
+          "sources": [
+            {
+              "url": "https://diocesecruzalta.com.br/locais/paroquia-sao-joao-batista-panambi",
+              "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 2,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "1ª terça-feira do mês, missa com Bênção dos pães (recorrência mensal)",
+          "sources": [
+            {
+              "url": "https://diocesecruzalta.com.br/locais/paroquia-sao-joao-batista-panambi",
+              "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "sao-jose-chapada",
+      "name": "Paróquia São José",
+      "city": "Chapada",
+      "state": "RS",
+      "neighborhood": null,
+      "address": "Rua Sete de Setembro, 492 (Caixa Postal 40)",
+      "zipCode": null,
+      "phone": "(54) 3333-1008",
+      "email": "mdca0011@diocesecruzalta.com.br",
+      "website": null,
+      "priestName": "Pe. Silveste Ottonelli",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesecruzalta.com.br/locais/paroquia-sao-jose-chapada",
+          "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesecruzalta.com.br/locais",
+          "title": "Diocese de Cruz Alta — \"Guia de Locais\": índice oficial das paróquias por região pastoral (Cruz Alta 6, Espumoso 6, Ijuí 7, Panambi 5, Soledade 6 + Capelania Militar)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesecruzalta.com.br/locais/paroquia-sao-jose-chapada",
+              "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "08:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesecruzalta.com.br/locais/paroquia-sao-jose-chapada",
+              "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": "1ª sexta-feira do mês, missa do Apostolado da Oração (recorrência mensal)",
+          "sources": [
+            {
+              "url": "https://diocesecruzalta.com.br/locais/paroquia-sao-jose-chapada",
+              "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": "2ª quarta-feira do mês, missa da saúde (recorrência mensal)",
+          "sources": [
+            {
+              "url": "https://diocesecruzalta.com.br/locais/paroquia-sao-jose-chapada",
+              "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-da-conceicao-tunas",
+      "name": "Paróquia Nossa Senhora da Conceição",
+      "city": "Tunas",
+      "state": "RS",
+      "neighborhood": null,
+      "address": "Rua da Matriz, 01",
+      "zipCode": null,
+      "phone": "(51) 3767-1051",
+      "email": "mdca0026@diocesecruzalta.com.br",
+      "website": null,
+      "priestName": "Pe. Flávio Antônio Rohr",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesecruzalta.com.br/locais/paroquia-nossa-senhora-da-conceicao-tunas",
+          "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesecruzalta.com.br/locais",
+          "title": "Diocese de Cruz Alta — \"Guia de Locais\": índice oficial das paróquias por região pastoral (Cruz Alta 6, Espumoso 6, Ijuí 7, Panambi 5, Soledade 6 + Capelania Militar)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Comunidade Menino Deus — Jacuizinho",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesecruzalta.com.br/locais/paroquia-nossa-senhora-da-conceicao-tunas",
+              "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesecruzalta.com.br/locais/paroquia-nossa-senhora-da-conceicao-tunas",
+              "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Comunidade Menino Deus — Jacuizinho",
+          "dayOfWeek": 6,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesecruzalta.com.br/locais/paroquia-nossa-senhora-da-conceicao-tunas",
+              "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-de-lourdes-ibiruba",
+      "name": "Paróquia Nossa Senhora de Lourdes",
+      "city": "Ibirubá",
+      "state": "RS",
+      "neighborhood": null,
+      "address": "Rua Diniz Dias, 777",
+      "zipCode": null,
+      "phone": "(54) 3324-1630",
+      "email": "mdca0015@diocesecruzalta.com.br",
+      "website": null,
+      "priestName": "Pe. Miguel Rosati",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesecruzalta.com.br/locais/paroquia-nossa-senhora-de-lourdes",
+          "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesecruzalta.com.br/locais",
+          "title": "Diocese de Cruz Alta — \"Guia de Locais\": índice oficial das paróquias por região pastoral (Cruz Alta 6, Espumoso 6, Ijuí 7, Panambi 5, Soledade 6 + Capelania Militar)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-dos-navegantes-salto-do-jacui",
+      "name": "Paróquia Nossa Senhora dos Navegantes",
+      "city": "Salto do Jacuí",
+      "state": "RS",
+      "neighborhood": null,
+      "address": "Rua Pio XII, 1875",
+      "zipCode": null,
+      "phone": "(55) 3327-1320",
+      "email": "mdca0021@diocesecruzalta.com.br",
+      "website": null,
+      "priestName": "Pe. Sandro Gianluppi",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesecruzalta.com.br/locais/paroquia-nossa-senhora-dos-navegantes-salto-do-jacui",
+          "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesecruzalta.com.br/locais",
+          "title": "Diocese de Cruz Alta — \"Guia de Locais\": índice oficial das paróquias por região pastoral (Cruz Alta 6, Espumoso 6, Ijuí 7, Panambi 5, Soledade 6 + Capelania Militar)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-jorge-espumoso",
+      "name": "Paróquia São Jorge",
+      "city": "Espumoso",
+      "state": "RS",
+      "neighborhood": null,
+      "address": "Rua Duque de Caxias, 506 (Caixa Postal 56)",
+      "zipCode": null,
+      "phone": "(54) 3383-1064",
+      "email": "mdca0012@diocesecruzalta.com.br",
+      "website": null,
+      "priestName": "Pe. Marcos Rogério Denardi",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesecruzalta.com.br/locais/paroquia-sao-jorge-espumoso",
+          "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesecruzalta.com.br/locais",
+          "title": "Diocese de Cruz Alta — \"Guia de Locais\": índice oficial das paróquias por região pastoral (Cruz Alta 6, Espumoso 6, Ijuí 7, Panambi 5, Soledade 6 + Capelania Militar)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesecruzalta.com.br/locais/paroquia-sao-jorge-espumoso",
+              "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "08:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesecruzalta.com.br/locais/paroquia-sao-jorge-espumoso",
+              "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "17:00",
+          "type": "ADORATION",
+          "notes": "1ª sexta-feira do mês: adoração e confissão (recorrência mensal)",
+          "sources": [
+            {
+              "url": "https://diocesecruzalta.com.br/locais/paroquia-sao-jorge-espumoso",
+              "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "17:00",
+          "type": "CONFESSION",
+          "notes": "1ª sexta-feira do mês: adoração e confissão (recorrência mensal)",
+          "sources": [
+            {
+              "url": "https://diocesecruzalta.com.br/locais/paroquia-sao-jorge-espumoso",
+              "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "17:30",
+          "type": "MASS",
+          "notes": "1ª sexta-feira do mês (recorrência mensal)",
+          "sources": [
+            {
+              "url": "https://diocesecruzalta.com.br/locais/paroquia-sao-jorge-espumoso",
+              "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "sao-marcos-alto-alegre",
+      "name": "Paróquia São Marcos",
+      "city": "Alto Alegre",
+      "state": "RS",
+      "neighborhood": null,
+      "address": "Rua Riciere Morgan, 228",
+      "zipCode": null,
+      "phone": "(54) 3382-1045",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Luiz Bruno Kolling",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesecruzalta.com.br/locais/paroquia-sao-marcos-alto-alegre",
+          "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesecruzalta.com.br/locais",
+          "title": "Diocese de Cruz Alta — \"Guia de Locais\": índice oficial das paróquias por região pastoral (Cruz Alta 6, Espumoso 6, Ijuí 7, Panambi 5, Soledade 6 + Capelania Militar)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesecruzalta.com.br/locais/paroquia-sao-marcos-alto-alegre",
+              "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "sao-sebastiao-campos-borges",
+      "name": "Paróquia São Sebastião",
+      "city": "Campos Borges",
+      "state": "RS",
+      "neighborhood": null,
+      "address": "Rua Maurício Cardoso, 67",
+      "zipCode": null,
+      "phone": "(54) 3326-1065",
+      "email": "mdca0010@diocesecruzalta.com.br",
+      "website": null,
+      "priestName": "Pe. Luiz Carlos Campos",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesecruzalta.com.br/locais/paroquia-sao-sebastiao-campos-borges",
+          "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesecruzalta.com.br/locais",
+          "title": "Diocese de Cruz Alta — \"Guia de Locais\": índice oficial das paróquias por região pastoral (Cruz Alta 6, Espumoso 6, Ijuí 7, Panambi 5, Soledade 6 + Capelania Militar)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesecruzalta.com.br/locais/paroquia-sao-sebastiao-campos-borges",
+              "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-aparecida-ibirapuita",
+      "name": "Paróquia Nossa Senhora Aparecida",
+      "city": "Ibirapuitã",
+      "state": "RS",
+      "neighborhood": null,
+      "address": "Rua Frei Nicásio Muraro, 85",
+      "zipCode": null,
+      "phone": "(54) 3380-1022",
+      "email": "mdca0016@diocesecruzalta.com.br",
+      "website": null,
+      "priestName": "Pe. Daniel Soares Chagas",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesecruzalta.com.br/locais/paroquia-nossa-senhora-aparecida-ibirapuita",
+          "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesecruzalta.com.br/locais",
+          "title": "Diocese de Cruz Alta — \"Guia de Locais\": índice oficial das paróquias por região pastoral (Cruz Alta 6, Espumoso 6, Ijuí 7, Panambi 5, Soledade 6 + Capelania Militar)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesecruzalta.com.br/locais/paroquia-nossa-senhora-aparecida-ibirapuita",
+              "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesecruzalta.com.br/locais/paroquia-nossa-senhora-aparecida-ibirapuita",
+              "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "16:00",
+          "type": "MASS",
+          "notes": "1ª sexta-feira do mês, missa do Apostolado da Oração (recorrência mensal)",
+          "sources": [
+            {
+              "url": "https://diocesecruzalta.com.br/locais/paroquia-nossa-senhora-aparecida-ibirapuita",
+              "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "16:00",
+          "type": "MASS",
+          "notes": "2ª quinta-feira do mês, Missa da Saúde (recorrência mensal)",
+          "sources": [
+            {
+              "url": "https://diocesecruzalta.com.br/locais/paroquia-nossa-senhora-aparecida-ibirapuita",
+              "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-da-soledade-soledade",
+      "name": "Paróquia Nossa Senhora da Soledade",
+      "city": "Soledade",
+      "state": "RS",
+      "neighborhood": null,
+      "address": "Largo da Matriz, 75 (Caixa Postal 07)",
+      "zipCode": null,
+      "phone": "(54) 3381-3690",
+      "email": null,
+      "website": null,
+      "priestName": "Frei Alcides Cantídio Soares",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesecruzalta.com.br/locais/paroquia-nossa-senhora-da-soledade",
+          "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesecruzalta.com.br/locais",
+          "title": "Diocese de Cruz Alta — \"Guia de Locais\": índice oficial das paróquias por região pastoral (Cruz Alta 6, Espumoso 6, Ijuí 7, Panambi 5, Soledade 6 + Capelania Militar)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-do-rosario-sao-jose-do-herval",
+      "name": "Paróquia Nossa Senhora do Rosário",
+      "city": "São José do Herval",
+      "state": "RS",
+      "neighborhood": null,
+      "address": "Rua Duque de Caxias, 178",
+      "zipCode": null,
+      "phone": "(54) 3325-1140",
+      "email": "mdca0024@diocesecruzalta.com.br",
+      "website": null,
+      "priestName": "Frei Paulo Zanata",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesecruzalta.com.br/locais/paroquia-nossa-senhora-do-rosario-sao-jose-do-herval",
+          "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesecruzalta.com.br/locais",
+          "title": "Diocese de Cruz Alta — \"Guia de Locais\": índice oficial das paróquias por região pastoral (Cruz Alta 6, Espumoso 6, Ijuí 7, Panambi 5, Soledade 6 + Capelania Militar)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesecruzalta.com.br/locais/paroquia-nossa-senhora-do-rosario-sao-jose-do-herval",
+              "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesecruzalta.com.br/locais/paroquia-nossa-senhora-do-rosario-sao-jose-do-herval",
+              "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "16:00",
+          "type": "MASS",
+          "notes": "A fonte diz \"celebração com bênção da saúde\" — pode não ser missa",
+          "sources": [
+            {
+              "url": "https://diocesecruzalta.com.br/locais/paroquia-nossa-senhora-do-rosario-sao-jose-do-herval",
+              "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-dos-navegantes-mormaco",
+      "name": "Paróquia Nossa Senhora dos Navegantes",
+      "city": "Mormaço",
+      "state": "RS",
+      "neighborhood": null,
+      "address": "Rua Wilibaldo Koenig, 801",
+      "zipCode": null,
+      "phone": "(54) 3393-1124",
+      "email": "mdca0038@diocesecruzalta.com.br",
+      "website": null,
+      "priestName": "Pe. Daniel Soares Chagas",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesecruzalta.com.br/locais/paroquia-nossa-senhora-dos-navegantes",
+          "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesecruzalta.com.br/locais",
+          "title": "Diocese de Cruz Alta — \"Guia de Locais\": índice oficial das paróquias por região pastoral (Cruz Alta 6, Espumoso 6, Ijuí 7, Panambi 5, Soledade 6 + Capelania Militar)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-medianeira-barros-cassal",
+      "name": "Paróquia Nossa Senhora Medianeira",
+      "city": "Barros Cassal",
+      "state": "RS",
+      "neighborhood": null,
+      "address": "Rua Maurício Cardoso, 1324 (Caixa Postal 13)",
+      "zipCode": null,
+      "phone": "(54) 3384-1114",
+      "email": "mdca0009@diocesecruzalta.com.br",
+      "website": null,
+      "priestName": "Frei Antônio Pilatti",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesecruzalta.com.br/locais/paroquia-nossa-senhora-medianeira-barros-cassal",
+          "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesecruzalta.com.br/locais",
+          "title": "Diocese de Cruz Alta — \"Guia de Locais\": índice oficial das paróquias por região pastoral (Cruz Alta 6, Espumoso 6, Ijuí 7, Panambi 5, Soledade 6 + Capelania Militar)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Missa da Saúde",
+          "sources": [
+            {
+              "url": "https://diocesecruzalta.com.br/locais/paroquia-nossa-senhora-medianeira-barros-cassal",
+              "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesecruzalta.com.br/locais/paroquia-nossa-senhora-medianeira-barros-cassal",
+              "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesecruzalta.com.br/locais/paroquia-nossa-senhora-medianeira-barros-cassal",
+              "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "santa-terezinha-fontoura-xavier",
+      "name": "Paróquia Santa Terezinha",
+      "city": "Fontoura Xavier",
+      "state": "RS",
+      "neighborhood": null,
+      "address": "Rua 25 de Abril, 58 (Caixa Postal 10)",
+      "zipCode": null,
+      "phone": "(54) 3389-1228",
+      "email": "mdca0013@diocesecruzalta.com.br",
+      "website": null,
+      "priestName": "Frei Rafael de Lima",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesecruzalta.com.br/locais/paroquia-santa-terezinha",
+          "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesecruzalta.com.br/locais",
+          "title": "Diocese de Cruz Alta — \"Guia de Locais\": índice oficial das paróquias por região pastoral (Cruz Alta 6, Espumoso 6, Ijuí 7, Panambi 5, Soledade 6 + Capelania Militar)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesecruzalta.com.br/locais/paroquia-santa-terezinha",
+              "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesecruzalta.com.br/locais/paroquia-santa-terezinha",
+              "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": "Primeira sexta-feira de cada mês, missa da saúde (recorrência mensal)",
+          "sources": [
+            {
+              "url": "https://diocesecruzalta.com.br/locais/paroquia-santa-terezinha",
+              "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-de-fatima-cruz-alta",
+      "name": "Santuário Diocesano Nossa Senhora de Fátima",
+      "city": "Cruz Alta",
+      "state": "RS",
+      "neighborhood": null,
+      "address": null,
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesecruzalta.com.br/locais/santuario-diocesano-nossa-senhora-de-fatima",
+          "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesecruzalta.com.br/locais",
+          "title": "Diocese de Cruz Alta — \"Guia de Locais\": índice oficial das paróquias por região pastoral (Cruz Alta 6, Espumoso 6, Ijuí 7, Panambi 5, Soledade 6 + Capelania Militar)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 1,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesecruzalta.com.br/locais/santuario-diocesano-nossa-senhora-de-fatima",
+              "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "16:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesecruzalta.com.br/locais/santuario-diocesano-nossa-senhora-de-fatima",
+              "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "16:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesecruzalta.com.br/locais/santuario-diocesano-nossa-senhora-de-fatima",
+              "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "16:00",
+          "type": "MASS",
+          "notes": "Todo dia 13 de cada mês (recorrência mensal por data, não semanal)",
+          "sources": [
+            {
+              "url": "https://diocesecruzalta.com.br/locais/santuario-diocesano-nossa-senhora-de-fatima",
+              "title": "Diocese de Cruz Alta — ficha oficial da paróquia (endereço, pároco, telefone, e-mail, horários de missa e de atendimento)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    }
+  ],
+  "coverage": {
+    "parishesFound": 31,
+    "parishesExpected": 31,
+    "notes": "O \"Guia de Locais\" oficial lista 32 entradas: 30 paróquias, o Santuário Diocesano Nossa Senhora de Fátima e a Capelania Militar. Foram gravadas 31 entradas (30 paróquias + o Santuário, que tem missas públicas próprias); a Capelania Militar (Rua General Osório, 1050, Cruz Alta, (55) 3322-6566) NÃO entrou por não ser paróquia. O catholic-hierarchy.org informa 31 paróquias (estatística de 2023) e a diferença está explicada: a Paróquia São João Batista de Lagoão saiu da Diocese de Cruz Alta e passou à Diocese de Cachoeira do Sul em 2025 (a página de Lagoão no site de Cruz Alta responde 404 e a paróquia aparece no site de Cachoeira do Sul desde 18/03/2025). Regiões pastorais: Cruz Alta 6, Ijuí 7, Panambi 5, Espumoso 6, Soledade 6. Endereço, telefone, e-mail e pároco vêm da ficha oficial de cada paróquia; CEP e ano de criação não são publicados. Comunidades/capelas não são listadas pelo site (só a de Jacuizinho, citada nos horários de Tunas). Horários com recorrência mensal ficaram com confiança 'baixa'."
+  }
+}
