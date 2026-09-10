@@ -367,6 +367,25 @@
             }
           ],
           "confidence": "alta"
+        },
+        {
+          "name": "Comunidades rurais",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesejau.org.br/paroquia/paroquia-nossa-senhora-aparecida-2/",
+              "title": "Paróquia Nossa Senhora Aparecida | Diocese de Jaú",
+              "accessedAt": "2026-09-10"
+            },
+            {
+              "url": "https://diocesejau.org.br/wp-json/paroquias/v1/cidades-paroquias",
+              "title": "Lista oficial de paróquias por cidade — API do site da Diocese de Jaú (51 registros)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
         }
       ],
       "schedules": [
@@ -554,6 +573,26 @@
           "community": "Capela Nossa Senhora do Livramento",
           "dayOfWeek": 0,
           "time": "07:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesejau.org.br/paroquia/paroquia-nossa-senhora-aparecida-2/",
+              "title": "Paróquia Nossa Senhora Aparecida | Diocese de Jaú",
+              "accessedAt": "2026-09-10"
+            },
+            {
+              "url": "https://diocesejau.org.br/wp-json/paroquias/v1/cidades-paroquias",
+              "title": "Lista oficial de paróquias por cidade — API do site da Diocese de Jaú (51 registros)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Comunidades rurais",
+          "dayOfWeek": 2,
+          "time": "20:00",
           "type": "MASS",
           "notes": null,
           "sources": [

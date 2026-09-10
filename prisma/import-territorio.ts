@@ -242,7 +242,7 @@ async function main() {
       for (const f of files) await importDioceseFile(join(dir, f));
     }
   }
-  console.log(`\nResumo${DRY ? ' (dry run)' : ''}: dioceses +${stats.dioceses}, paróquias +${stats.parishes}, comunidades +${stats.communities}, horários +${stats.schedules}; ignorados por confiança baixa: ${stats.skippedLow}; inativos/extintos: ${stats.skippedInactive}; entradas inválidas: ${stats.skippedInvalid}`);
+  console.log(`\nResumo${DRY ? ' (dry run)' : ''}: dioceses +${stats.dioceses}, paróquias +${stats.parishes}, comunidades +${stats.communities}, horários +${stats.schedules}; ignorados por confiança baixa: ${stats.skippedLow}; fora da carga por status (extinta, outra jurisdição, não paroquial): ${stats.skippedInactive}; entradas inválidas: ${stats.skippedInvalid}`);
   if (stats.misses.length) {
     console.log(`\n${stats.misses.length} horário(s) de capela não localizada (ignorados):`);
     stats.misses.slice(0, 30).forEach((m) => console.log('  -', m));

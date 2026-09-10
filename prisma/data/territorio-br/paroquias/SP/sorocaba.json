@@ -246,7 +246,7 @@
           "confidence": "alta"
         },
         {
-          "name": "Comunidade São Vicente (Asilo) – Paróquia Nossa Senhora das Dores (Araçoiaba da Serra)",
+          "name": "Comunidade São Vicente (Asilo)",
           "address": null,
           "neighborhood": null,
           "isMatriz": false,
@@ -1902,7 +1902,7 @@
       "neighborhood": "Centro",
       "address": "Rua Manoel Novaes, s/n",
       "zipCode": "18535-000",
-      "phone": "Paróquia Senhor Bom Jesus e São Roque (Jumirim/SP)",
+      "phone": null,
       "email": "psbj@bol.com.br",
       "website": null,
       "priestName": "Pe. Miguel Angelo Bayer Meneghelli",
@@ -2033,7 +2033,7 @@
       "state": "SP",
       "neighborhood": "Centro",
       "address": "Praça Cel. João Rosa, 300",
-      "zipCode": null,
+      "zipCode": "18170-021",
       "phone": "(15) 3244-2558",
       "email": "paroquianspiedade@uol.com.br",
       "website": null,
@@ -10576,20 +10576,6 @@
             }
           ],
           "confidence": "alta"
-        },
-        {
-          "name": "Paróquia São José (Cerrado)",
-          "address": null,
-          "neighborhood": null,
-          "isMatriz": false,
-          "sources": [
-            {
-              "url": "https://arquidiocesesorocaba.org.br/paroquias/paroquia-sao-jose-cerrado/",
-              "title": "Horário de Missa — Paróquia São José – Cerrado | Arquidiocese de Sorocaba",
-              "accessedAt": "2026-09-10"
-            }
-          ],
-          "confidence": "alta"
         }
       ],
       "schedules": [
@@ -10654,7 +10640,7 @@
           "confidence": "alta"
         },
         {
-          "community": "Paróquia São José (Cerrado)",
+          "community": "Matriz São José – Cerrado",
           "dayOfWeek": 0,
           "time": "08:00",
           "type": "MASS",
@@ -10669,7 +10655,7 @@
           "confidence": "alta"
         },
         {
-          "community": "Paróquia São José (Cerrado)",
+          "community": "Matriz São José – Cerrado",
           "dayOfWeek": 0,
           "time": "19:00",
           "type": "MASS",
@@ -10684,7 +10670,7 @@
           "confidence": "alta"
         },
         {
-          "community": "Paróquia São José (Cerrado)",
+          "community": "Matriz São José – Cerrado",
           "dayOfWeek": 2,
           "time": "07:00",
           "type": "MASS",
@@ -10699,7 +10685,7 @@
           "confidence": "alta"
         },
         {
-          "community": "Paróquia São José (Cerrado)",
+          "community": "Matriz São José – Cerrado",
           "dayOfWeek": 3,
           "time": "07:00",
           "type": "MASS",
@@ -10714,7 +10700,7 @@
           "confidence": "alta"
         },
         {
-          "community": "Paróquia São José (Cerrado)",
+          "community": "Matriz São José – Cerrado",
           "dayOfWeek": 4,
           "time": "07:00",
           "type": "MASS",
@@ -10729,7 +10715,7 @@
           "confidence": "alta"
         },
         {
-          "community": "Paróquia São José (Cerrado)",
+          "community": "Matriz São José – Cerrado",
           "dayOfWeek": 5,
           "time": "07:00",
           "type": "MASS",
@@ -10744,7 +10730,7 @@
           "confidence": "alta"
         },
         {
-          "community": "Paróquia São José (Cerrado)",
+          "community": "Matriz São José – Cerrado",
           "dayOfWeek": 5,
           "time": "19:30",
           "type": "MASS",
@@ -12303,7 +12289,7 @@
       "state": "SP",
       "neighborhood": "Vossoroca",
       "address": "Rua Mario Tozzi, 116 – Vl Domingues",
-      "zipCode": null,
+      "zipCode": "18116-535",
       "phone": "(15) 3243-3888",
       "email": "pns.aparecida.votorantim@gmail.com",
       "website": null,
@@ -13447,6 +13433,6 @@
   "coverage": {
     "parishesFound": 58,
     "parishesExpected": 58,
-    "notes": "As 58 paróquias vêm da listagem oficial https://arquidiocesesorocaba.org.br/paroquias/ (custom post type \"paroquias\" do site, 59 registros lidos via /wp-json/wp/v2/paroquias). O número bate exatamente com as 58 paróquias registradas pelo catholic-hierarchy.org (2023). Foi excluída 1 entrada da listagem que não é paróquia: o Mosteiro São Bento (Sorocaba), comunidade beneditina sem território paroquial e sem comunidades — a Paróquia São Bento (Sorocaba) é registro separado e está incluída. Cobre 12 municípios: Araçoiaba da Serra, Boituva, Cerquilho, Iperó, Jumirim, Piedade, Porto Feliz, Salto de Pirapora, Sorocaba, Tapiraí, Tietê, Votorantim. Todas as 58 têm telefone, e-mail e endereço oficiais; 54 têm pároco identificado e 48 têm CEP. 360 comunidades e 438 horários fixos."
+    "notes": "As 58 paróquias vêm da listagem oficial https://arquidiocesesorocaba.org.br/paroquias/ (custom post type \"paroquias\" do site, 59 registros lidos via /wp-json/wp/v2/paroquias). O número bate exatamente com as 58 paróquias registradas pelo catholic-hierarchy.org (2023). Foi excluída 1 entrada da listagem que não é paróquia: o Mosteiro São Bento (Sorocaba), comunidade beneditina sem território paroquial e sem comunidades — a Paróquia São Bento (Sorocaba) é registro separado e está incluída. Cobre 12 municípios: Araçoiaba da Serra, Boituva, Cerquilho, Iperó, Jumirim, Piedade, Porto Feliz, Salto de Pirapora, Sorocaba, Tapiraí, Tietê, Votorantim. Todas as 58 têm telefone, e-mail e endereço oficiais; 54 têm pároco identificado e 48 têm CEP. 359 comunidades e 438 horários fixos."
   }
 }

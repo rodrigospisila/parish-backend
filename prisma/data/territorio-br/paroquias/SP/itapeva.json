@@ -1,0 +1,4200 @@
+{
+  "diocese": {
+    "name": "Diocese de Itapeva",
+    "type": "Diocese",
+    "slug": "itapeva",
+    "city": "Itapeva",
+    "state": "SP",
+    "address": "Rua Coronel Crescêncio, 311 – Centro",
+    "zipCode": "18400-140",
+    "phone": null,
+    "email": null,
+    "website": "https://dioceseitapeva.com.br",
+    "bishopName": "Dom Eduardo Malaspina",
+    "sources": [
+      {
+        "url": "https://dioceseitapeva.com.br/paroquias/",
+        "title": "Paróquias | Diocese de Itapeva — listagem oficial (37 registros, 5 foranias)",
+        "accessedAt": "2026-09-10"
+      },
+      {
+        "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+        "title": "Horários de Missas | Diocese de Itapeva — tabela por paróquia",
+        "accessedAt": "2026-09-10"
+      },
+      {
+        "url": "https://dioceseitapeva.com.br/contato/",
+        "title": "Contato | Diocese de Itapeva — Rua Coronel Crescêncio 311, Centro, CEP 18400-140, Itapeva – SP",
+        "accessedAt": "2026-09-10"
+      },
+      {
+        "url": "https://dioceseitapeva.com.br/bispo-diocesano/",
+        "title": "Bispo Diocesano | Diocese de Itapeva — Dom Eduardo Malaspina, eleito em 28/12/2022, posse em 11/02/2023",
+        "accessedAt": "2026-09-10"
+      },
+      {
+        "url": "https://catholic-hierarchy.org/diocese/ditpv.html",
+        "title": "Itapeva (Diocese) [Catholic-Hierarchy] — 28 paróquias (2023); erigida em 02/03/1968; sufragânea de Sorocaba",
+        "accessedAt": "2026-09-10"
+      },
+      {
+        "url": "https://gcatholic.org/dioceses/diocese/itap1",
+        "title": "Diocese of Itapeva, Brazil [GCatholic] — 28 paróquias; catedral Sant’Ana, Itapeva",
+        "accessedAt": "2026-09-10"
+      }
+    ],
+    "confidence": "alta"
+  },
+  "parishes": [
+    {
+      "slug": "imaculada-conceicao-distrito-do-lageado-apiai",
+      "name": "Paróquia Imaculada Conceição – Distrito do Lageado",
+      "city": "Apiaí",
+      "state": "SP",
+      "neighborhood": null,
+      "address": "R. Jerônimo Carriel de Lima - Lageado de Araçaíba, Apiaí - SP, Apiaí, SP, Brazil",
+      "zipCode": "18324-058",
+      "phone": "(15) 99635-1272",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. João Kleber de Freitas",
+      "foundedYear": 2025,
+      "sources": [
+        {
+          "url": "https://dioceseitapeva.com.br/paroquia/imaculada-conceicao-distrito-do-lageado-apiai-sp/",
+          "title": "Paróquia Imaculada Conceição – Distrito do Lageado | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://dioceseitapeva.com.br/paroquias/",
+          "title": "Paróquias | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+          "title": "Horários de Missas | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Imaculada Conceição – Distrito do Lageado",
+          "address": "R. Jerônimo Carriel de Lima - Lageado de Araçaíba, Apiaí - SP, Apiaí, SP, Brazil",
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/imaculada-conceicao-distrito-do-lageado-apiai-sp/",
+              "title": "Paróquia Imaculada Conceição – Distrito do Lageado | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Imaculada Conceição – Distrito do Lageado",
+          "dayOfWeek": 0,
+          "time": "10:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+              "title": "Horários de Missas | Diocese de Itapeva — Paróquia Imaculada Conceição – Distrito do Lageado",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Imaculada Conceição – Distrito do Lageado",
+          "dayOfWeek": 0,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+              "title": "Horários de Missas | Diocese de Itapeva — Paróquia Imaculada Conceição – Distrito do Lageado",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Imaculada Conceição – Distrito do Lageado",
+          "dayOfWeek": 4,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+              "title": "Horários de Missas | Diocese de Itapeva — Paróquia Imaculada Conceição – Distrito do Lageado",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "santo-antonio-apiai",
+      "name": "Paróquia Santo Antônio",
+      "city": "Apiaí",
+      "state": "SP",
+      "neighborhood": "Centro",
+      "address": "Praça Francisco Xavier da Rocha, 213",
+      "zipCode": null,
+      "phone": "(15) 3552-1144",
+      "email": "paroquia.apiai@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Fernando Batista de Campos",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseitapeva.com.br/paroquia/santo-antonio-apiai/",
+          "title": "Paróquia Santo Antônio | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://dioceseitapeva.com.br/paroquias/",
+          "title": "Paróquias | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+          "title": "Horários de Missas | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Santo Antônio",
+          "address": "Praça Francisco Xavier da Rocha, 213",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/santo-antonio-apiai/",
+              "title": "Paróquia Santo Antônio | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Santo Antônio",
+          "dayOfWeek": 2,
+          "time": "10:00",
+          "type": "CONFESSION",
+          "notes": "Confissões: Terça-feira: 10h às 11h30 e das 14h às 16h",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/santo-antonio-apiai/",
+              "title": "Confissões — Paróquia Santo Antônio | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Santo Antônio",
+          "dayOfWeek": 4,
+          "time": "14:00",
+          "type": "CONFESSION",
+          "notes": "Confissões: Quinta-feira: 14h às 16h30",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/santo-antonio-apiai/",
+              "title": "Confissões — Paróquia Santo Antônio | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-da-guia-barra-do-chapeu",
+      "name": "Paróquia Nossa Senhora da Guia",
+      "city": "Barra do Chapéu",
+      "state": "SP",
+      "neighborhood": "Centro",
+      "address": "Praça Dr. Ademar Pereira de Barros, 89",
+      "zipCode": null,
+      "phone": "(15) 3554-1161",
+      "email": "paroquiabarradochapeu@hotmail.com",
+      "website": null,
+      "priestName": "Padre Bruno Castro Schröder",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseitapeva.com.br/paroquia/nossa-senhora-da-guia-barra-do-chapeu/",
+          "title": "Paróquia Nossa Senhora da Guia | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://dioceseitapeva.com.br/paroquias/",
+          "title": "Paróquias | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+          "title": "Horários de Missas | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora da Guia",
+          "address": "Praça Dr. Ademar Pereira de Barros, 89",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/nossa-senhora-da-guia-barra-do-chapeu/",
+              "title": "Paróquia Nossa Senhora da Guia | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora da Guia",
+          "dayOfWeek": 2,
+          "time": "08:30",
+          "type": "CONFESSION",
+          "notes": "Confissões: Terça a e quinta-feira: 8h30 às 17h",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/nossa-senhora-da-guia-barra-do-chapeu/",
+              "title": "Confissões — Paróquia Nossa Senhora da Guia | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Guia",
+          "dayOfWeek": 4,
+          "time": "08:30",
+          "type": "CONFESSION",
+          "notes": "Confissões: Terça a e quinta-feira: 8h30 às 17h",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/nossa-senhora-da-guia-barra-do-chapeu/",
+              "title": "Confissões — Paróquia Nossa Senhora da Guia | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "santa-terezinha-do-menino-jesus-barao-de-antonina",
+      "name": "Paróquia Santa Terezinha do Menino Jesus",
+      "city": "Barão de Antonina",
+      "state": "SP",
+      "neighborhood": null,
+      "address": null,
+      "zipCode": null,
+      "phone": "(15) 3573-1194",
+      "email": "secretaria@paroquiadebarao.org.br",
+      "website": null,
+      "priestName": "Pe. Aparecido Rubin",
+      "foundedYear": 1966,
+      "sources": [
+        {
+          "url": "https://dioceseitapeva.com.br/paroquia/santa-terezinha-do-menino-jesus-barao-de-antonina/",
+          "title": "Paróquia Santa Terezinha do Menino Jesus | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://dioceseitapeva.com.br/paroquias/",
+          "title": "Paróquias | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+          "title": "Horários de Missas | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Santa Terezinha do Menino Jesus",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/santa-terezinha-do-menino-jesus-barao-de-antonina/",
+              "title": "Paróquia Santa Terezinha do Menino Jesus | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Santa Terezinha do Menino Jesus",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+              "title": "Horários de Missas | Diocese de Itapeva — Paróquia Santa Terezinha do Menino Jesus",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Santa Terezinha do Menino Jesus",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+              "title": "Horários de Missas | Diocese de Itapeva — Paróquia Santa Terezinha do Menino Jesus",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Santa Terezinha do Menino Jesus",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+              "title": "Horários de Missas | Diocese de Itapeva — Paróquia Santa Terezinha do Menino Jesus",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Santa Terezinha do Menino Jesus",
+          "dayOfWeek": 4,
+          "time": "14:00",
+          "type": "CONFESSION",
+          "notes": "Confissões: Quinta-feira: das 14h às 15h30",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/santa-terezinha-do-menino-jesus-barao-de-antonina/",
+              "title": "Confissões — Paróquia Santa Terezinha do Menino Jesus | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Santa Terezinha do Menino Jesus",
+          "dayOfWeek": 5,
+          "time": "14:00",
+          "type": "CONFESSION",
+          "notes": "Confissões: Sexta-feira: das 14h às 16h30",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/santa-terezinha-do-menino-jesus-barao-de-antonina/",
+              "title": "Confissões — Paróquia Santa Terezinha do Menino Jesus | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Santa Terezinha do Menino Jesus",
+          "dayOfWeek": 5,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Recorrência mensal (Sexta) — 1ª sexta do mês",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+              "title": "Horários de Missas | Diocese de Itapeva — Paróquia Santa Terezinha do Menino Jesus",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "sao-joao-batista-bom-sucesso-de-itarare",
+      "name": "Paróquia São João Batista",
+      "city": "Bom Sucesso de Itararé",
+      "state": "SP",
+      "neighborhood": "Centro",
+      "address": "Praça Agnaldo Dourado Passos, 20",
+      "zipCode": null,
+      "phone": "(15) 3533-1362",
+      "email": "mdibomsucesso@gmail.com",
+      "website": null,
+      "priestName": "Pe. Marcos de Campos",
+      "foundedYear": 2016,
+      "sources": [
+        {
+          "url": "https://dioceseitapeva.com.br/paroquia/sao-joao-batista-bom-sucesso-de-itarare/",
+          "title": "Paróquia São João Batista | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://dioceseitapeva.com.br/paroquias/",
+          "title": "Paróquias | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+          "title": "Horários de Missas | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São João Batista",
+          "address": "Praça Agnaldo Dourado Passos, 20",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/sao-joao-batista-bom-sucesso-de-itarare/",
+              "title": "Paróquia São João Batista | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São João Batista",
+          "dayOfWeek": 4,
+          "time": "09:00",
+          "type": "CONFESSION",
+          "notes": "Confissões: Quinta-feira: 09h às 12h e das 14h às 17h",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/sao-joao-batista-bom-sucesso-de-itarare/",
+              "title": "Confissões — Paróquia São João Batista | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "sao-roque-buri",
+      "name": "Paróquia São Roque",
+      "city": "Buri",
+      "state": "SP",
+      "neighborhood": "Centro",
+      "address": "Praça 9 de Julho, 144",
+      "zipCode": "18290-000",
+      "phone": "(15) 3546-2444",
+      "email": "psroqueburi@gmail.com",
+      "website": null,
+      "priestName": "Pe. Diclei Manoel da Silva",
+      "foundedYear": 1922,
+      "sources": [
+        {
+          "url": "https://dioceseitapeva.com.br/paroquia/sao-roque-buri/",
+          "title": "Paróquia São Roque | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://dioceseitapeva.com.br/paroquias/",
+          "title": "Paróquias | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+          "title": "Horários de Missas | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Roque",
+          "address": "Praça 9 de Julho, 144",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/sao-roque-buri/",
+              "title": "Paróquia São Roque | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São Roque",
+          "dayOfWeek": 3,
+          "time": "09:30",
+          "type": "CONFESSION",
+          "notes": "Confissões: Quarta a sexta-feira: das 09h30 às 11h e das 14h às 17h",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/sao-roque-buri/",
+              "title": "Confissões — Paróquia São Roque | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São Roque",
+          "dayOfWeek": 4,
+          "time": "09:30",
+          "type": "CONFESSION",
+          "notes": "Confissões: Quarta a sexta-feira: das 09h30 às 11h e das 14h às 17h",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/sao-roque-buri/",
+              "title": "Confissões — Paróquia São Roque | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São Roque",
+          "dayOfWeek": 5,
+          "time": "09:30",
+          "type": "CONFESSION",
+          "notes": "Confissões: Quarta a sexta-feira: das 09h30 às 11h e das 14h às 17h",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/sao-roque-buri/",
+              "title": "Confissões — Paróquia São Roque | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-aparecida-capao-bonito",
+      "name": "Paróquia Nossa Senhora Aparecida",
+      "city": "Capão Bonito",
+      "state": "SP",
+      "neighborhood": "Vila Aparecida",
+      "address": "Rua Procópio Batista da Silveira, 140",
+      "zipCode": "18303-060",
+      "phone": "(15) 3542-5946",
+      "email": "paroquia_aparecidacb@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Gustavo da Silva Santos",
+      "foundedYear": 2012,
+      "sources": [
+        {
+          "url": "https://dioceseitapeva.com.br/paroquia/nossa-senhora-aparecida-capao-bonito/",
+          "title": "Paróquia Nossa Senhora Aparecida | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://dioceseitapeva.com.br/paroquias/",
+          "title": "Paróquias | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+          "title": "Horários de Missas | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora Aparecida",
+          "address": "Rua Procópio Batista da Silveira, 140",
+          "neighborhood": "Vila Aparecida",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/nossa-senhora-aparecida-capao-bonito/",
+              "title": "Paróquia Nossa Senhora Aparecida | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora Aparecida",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+              "title": "Horários de Missas | Diocese de Itapeva — Paróquia Nossa Senhora Aparecida",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora Aparecida",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+              "title": "Horários de Missas | Diocese de Itapeva — Paróquia Nossa Senhora Aparecida",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora Aparecida",
+          "dayOfWeek": 2,
+          "time": "09:00",
+          "type": "CONFESSION",
+          "notes": "Confissões: Terça-feira: 09h às 11h30 e das 14h às 16h30",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/nossa-senhora-aparecida-capao-bonito/",
+              "title": "Confissões — Paróquia Nossa Senhora Aparecida | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora Aparecida",
+          "dayOfWeek": 4,
+          "time": "09:00",
+          "type": "CONFESSION",
+          "notes": "Confissões: Quinta-feira: 09h às 11h30 e das 14h às 16h30",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/nossa-senhora-aparecida-capao-bonito/",
+              "title": "Confissões — Paróquia Nossa Senhora Aparecida | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora Aparecida",
+          "dayOfWeek": 4,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+              "title": "Horários de Missas | Diocese de Itapeva — Paróquia Nossa Senhora Aparecida",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora Aparecida",
+          "dayOfWeek": 5,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": "Recorrência mensal (Sexta) — 1ª Sexta do Mês",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+              "title": "Horários de Missas | Diocese de Itapeva — Paróquia Nossa Senhora Aparecida",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-da-conceicao-capao-bonito",
+      "name": "Paróquia Nossa Senhora da Conceição",
+      "city": "Capão Bonito",
+      "state": "SP",
+      "neighborhood": "Centro",
+      "address": "Rua Floriano Peixoto, 470",
+      "zipCode": null,
+      "phone": "(15) 3542-1602",
+      "email": "mdiparoquiaconceicao@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Luiz Antônio de Oliveira Júnior",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseitapeva.com.br/paroquia/nossa-senhora-da-conceicao-capao-bonito/",
+          "title": "Paróquia Nossa Senhora da Conceição | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://dioceseitapeva.com.br/paroquias/",
+          "title": "Paróquias | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+          "title": "Horários de Missas | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora da Conceição",
+          "address": "Rua Floriano Peixoto, 470",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/nossa-senhora-da-conceicao-capao-bonito/",
+              "title": "Paróquia Nossa Senhora da Conceição | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": "Celebração da Palavra",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+              "title": "Horários de Missas | Diocese de Itapeva — Paróquia Nossa Senhora da Conceição",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Celebração da Palavra",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+              "title": "Horários de Missas | Diocese de Itapeva — Paróquia Nossa Senhora da Conceição",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+              "title": "Horários de Missas | Diocese de Itapeva — Paróquia Nossa Senhora da Conceição",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 4,
+          "time": "08:00",
+          "type": "CONFESSION",
+          "notes": "Confissões: Quinta e sexta-feira: 08h às 11h",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/nossa-senhora-da-conceicao-capao-bonito/",
+              "title": "Confissões — Paróquia Nossa Senhora da Conceição | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 5,
+          "time": "08:00",
+          "type": "CONFESSION",
+          "notes": "Confissões: Quinta e sexta-feira: 08h às 11h",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/nossa-senhora-da-conceicao-capao-bonito/",
+              "title": "Confissões — Paróquia Nossa Senhora da Conceição | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 5,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+              "title": "Horários de Missas | Diocese de Itapeva — Paróquia Nossa Senhora da Conceição",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "sao-cristovao-capao-bonito",
+      "name": "Paróquia São Cristóvão",
+      "city": "Capão Bonito",
+      "state": "SP",
+      "neighborhood": "Vila Nova Capão",
+      "address": "Rua Marui Ferrari, 110",
+      "zipCode": null,
+      "phone": null,
+      "email": "pascomsaocristovaocb@gmail.com",
+      "website": null,
+      "priestName": "Pe. Pedro Martins Vieira",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseitapeva.com.br/paroquia/sao-cristovao-capao-bonito/",
+          "title": "Paróquia São Cristóvão | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://dioceseitapeva.com.br/paroquias/",
+          "title": "Paróquias | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Cristóvão",
+          "address": "Rua Marui Ferrari, 110",
+          "neighborhood": "Vila Nova Capão",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/sao-cristovao-capao-bonito/",
+              "title": "Paróquia São Cristóvão | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "sao-paulo-apostolo-capao-bonito",
+      "name": "Paróquia São Paulo Apóstolo",
+      "city": "Capão Bonito",
+      "state": "SP",
+      "neighborhood": "Centro",
+      "address": "Av. Massaichi Kakihara, 1587",
+      "zipCode": null,
+      "phone": "(15) 99633-7331",
+      "email": "mdipspa@hotmail.com",
+      "website": null,
+      "priestName": "Padre Alan de Amorim",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseitapeva.com.br/paroquia/sao-paulo-apostolo-capao-bonito/",
+          "title": "Paróquia São Paulo Apóstolo | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://dioceseitapeva.com.br/paroquias/",
+          "title": "Paróquias | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+          "title": "Horários de Missas | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Paulo Apóstolo",
+          "address": "Av. Massaichi Kakihara, 1587",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/sao-paulo-apostolo-capao-bonito/",
+              "title": "Paróquia São Paulo Apóstolo | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São Paulo Apóstolo",
+          "dayOfWeek": 2,
+          "time": "14:00",
+          "type": "CONFESSION",
+          "notes": "Confissões: Terça: 14h às 17h",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/sao-paulo-apostolo-capao-bonito/",
+              "title": "Confissões — Paróquia São Paulo Apóstolo | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São Paulo Apóstolo",
+          "dayOfWeek": 3,
+          "time": "07:00",
+          "type": "CONFESSION",
+          "notes": "Confissões: Quarta, quinta e sexta-feira: 7h às 8h; 9h às 11h e 14h às 17h",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/sao-paulo-apostolo-capao-bonito/",
+              "title": "Confissões — Paróquia São Paulo Apóstolo | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São Paulo Apóstolo",
+          "dayOfWeek": 3,
+          "time": "09:00",
+          "type": "CONFESSION",
+          "notes": "Confissões: Quarta, quinta e sexta-feira: 7h às 8h; 9h às 11h e 14h às 17h",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/sao-paulo-apostolo-capao-bonito/",
+              "title": "Confissões — Paróquia São Paulo Apóstolo | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São Paulo Apóstolo",
+          "dayOfWeek": 3,
+          "time": "14:00",
+          "type": "CONFESSION",
+          "notes": "Confissões: Quarta, quinta e sexta-feira: 7h às 8h; 9h às 11h e 14h às 17h",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/sao-paulo-apostolo-capao-bonito/",
+              "title": "Confissões — Paróquia São Paulo Apóstolo | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São Paulo Apóstolo",
+          "dayOfWeek": 4,
+          "time": "07:00",
+          "type": "CONFESSION",
+          "notes": "Confissões: Quarta, quinta e sexta-feira: 7h às 8h; 9h às 11h e 14h às 17h",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/sao-paulo-apostolo-capao-bonito/",
+              "title": "Confissões — Paróquia São Paulo Apóstolo | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São Paulo Apóstolo",
+          "dayOfWeek": 4,
+          "time": "09:00",
+          "type": "CONFESSION",
+          "notes": "Confissões: Quarta, quinta e sexta-feira: 7h às 8h; 9h às 11h e 14h às 17h",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/sao-paulo-apostolo-capao-bonito/",
+              "title": "Confissões — Paróquia São Paulo Apóstolo | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São Paulo Apóstolo",
+          "dayOfWeek": 4,
+          "time": "14:00",
+          "type": "CONFESSION",
+          "notes": "Confissões: Quarta, quinta e sexta-feira: 7h às 8h; 9h às 11h e 14h às 17h",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/sao-paulo-apostolo-capao-bonito/",
+              "title": "Confissões — Paróquia São Paulo Apóstolo | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São Paulo Apóstolo",
+          "dayOfWeek": 5,
+          "time": "07:00",
+          "type": "CONFESSION",
+          "notes": "Confissões: Quarta, quinta e sexta-feira: 7h às 8h; 9h às 11h e 14h às 17h",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/sao-paulo-apostolo-capao-bonito/",
+              "title": "Confissões — Paróquia São Paulo Apóstolo | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São Paulo Apóstolo",
+          "dayOfWeek": 5,
+          "time": "09:00",
+          "type": "CONFESSION",
+          "notes": "Confissões: Quarta, quinta e sexta-feira: 7h às 8h; 9h às 11h e 14h às 17h",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/sao-paulo-apostolo-capao-bonito/",
+              "title": "Confissões — Paróquia São Paulo Apóstolo | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São Paulo Apóstolo",
+          "dayOfWeek": 5,
+          "time": "14:00",
+          "type": "CONFESSION",
+          "notes": "Confissões: Quarta, quinta e sexta-feira: 7h às 8h; 9h às 11h e 14h às 17h",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/sao-paulo-apostolo-capao-bonito/",
+              "title": "Confissões — Paróquia São Paulo Apóstolo | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-de-aparecida-coronel-macedo",
+      "name": "Paróquia Nossa Senhora de Aparecida",
+      "city": "Coronel Macedo",
+      "state": "SP",
+      "neighborhood": "Centro",
+      "address": "Rua São Benedito, 348",
+      "zipCode": "18745-000",
+      "phone": "(14) 99905-9178",
+      "email": "paroquiacelmacedo@yahoo.com.br",
+      "website": null,
+      "priestName": "Pe. Juliano Mendes de Oliveira",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseitapeva.com.br/paroquia/nossa-senhora-da-conceicao-aparecida-coronel-macedo/",
+          "title": "Paróquia Nossa Senhora de Aparecida | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://dioceseitapeva.com.br/paroquias/",
+          "title": "Paróquias | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+          "title": "Horários de Missas | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora de Aparecida",
+          "address": "Rua São Benedito, 348",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/nossa-senhora-da-conceicao-aparecida-coronel-macedo/",
+              "title": "Paróquia Nossa Senhora de Aparecida | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora de Aparecida",
+          "dayOfWeek": 3,
+          "time": "09:00",
+          "type": "CONFESSION",
+          "notes": "Confissões: Quarta-feira: 9h às 12h",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/nossa-senhora-da-conceicao-aparecida-coronel-macedo/",
+              "title": "Confissões — Paróquia Nossa Senhora de Aparecida | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora de Aparecida",
+          "dayOfWeek": 4,
+          "time": "14:00",
+          "type": "CONFESSION",
+          "notes": "Confissões: Quinta-feira: 14h às 17h",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/nossa-senhora-da-conceicao-aparecida-coronel-macedo/",
+              "title": "Confissões — Paróquia Nossa Senhora de Aparecida | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora de Aparecida",
+          "dayOfWeek": 5,
+          "time": "09:00",
+          "type": "CONFESSION",
+          "notes": "Confissões: Sexta-feira: das 9h às 12h",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/nossa-senhora-da-conceicao-aparecida-coronel-macedo/",
+              "title": "Confissões — Paróquia Nossa Senhora de Aparecida | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "sao-jose-guapiara",
+      "name": "Paróquia São José",
+      "city": "Guapiara",
+      "state": "SP",
+      "neighborhood": "Centro",
+      "address": "Rua São José, 209",
+      "zipCode": null,
+      "phone": "(15) 3547-1182",
+      "email": "paroquiadeguapiara@yahoo.com.br",
+      "website": null,
+      "priestName": "Pe. Ruimar Paulino",
+      "foundedYear": 1963,
+      "sources": [
+        {
+          "url": "https://dioceseitapeva.com.br/paroquia/paroquia-sao-jose-guapiara/",
+          "title": "Paróquia São José | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://dioceseitapeva.com.br/paroquias/",
+          "title": "Paróquias | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+          "title": "Horários de Missas | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São José",
+          "address": "Rua São José, 209",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/paroquia-sao-jose-guapiara/",
+              "title": "Paróquia São José | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São José",
+          "dayOfWeek": 2,
+          "time": "09:00",
+          "type": "CONFESSION",
+          "notes": "Confissões: Terça a sexta-feira: das 09h às 11h30",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/paroquia-sao-jose-guapiara/",
+              "title": "Confissões — Paróquia São José | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São José",
+          "dayOfWeek": 3,
+          "time": "09:00",
+          "type": "CONFESSION",
+          "notes": "Confissões: Terça a sexta-feira: das 09h às 11h30",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/paroquia-sao-jose-guapiara/",
+              "title": "Confissões — Paróquia São José | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São José",
+          "dayOfWeek": 4,
+          "time": "09:00",
+          "type": "CONFESSION",
+          "notes": "Confissões: Terça a sexta-feira: das 09h às 11h30",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/paroquia-sao-jose-guapiara/",
+              "title": "Confissões — Paróquia São José | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São José",
+          "dayOfWeek": 5,
+          "time": "09:00",
+          "type": "CONFESSION",
+          "notes": "Confissões: Terça a sexta-feira: das 09h às 11h30",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/paroquia-sao-jose-guapiara/",
+              "title": "Confissões — Paróquia São José | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-d-ajuda-guapiara",
+      "name": "Santuário Nossa Senhora D’Ajuda",
+      "city": "Guapiara",
+      "state": "SP",
+      "neighborhood": null,
+      "address": null,
+      "zipCode": null,
+      "phone": "(15) 99816-2999",
+      "email": "senhoradaajudadiocesedeitapeva@gmail.com",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseitapeva.com.br/paroquia/santuario-nossa-senhora-da-ajuda-guapiara/",
+          "title": "Santuário Nossa Senhora D’Ajuda | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://dioceseitapeva.com.br/paroquias/",
+          "title": "Paróquias | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+          "title": "Horários de Missas | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora D’Ajuda",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/santuario-nossa-senhora-da-ajuda-guapiara/",
+              "title": "Santuário Nossa Senhora D’Ajuda | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora D’Ajuda",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "CONFESSION",
+          "notes": "Confissões: Quarta, sexta e domingo: 09h às 11h",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/santuario-nossa-senhora-da-ajuda-guapiara/",
+              "title": "Confissões — Santuário Nossa Senhora D’Ajuda | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora D’Ajuda",
+          "dayOfWeek": 3,
+          "time": "09:00",
+          "type": "CONFESSION",
+          "notes": "Confissões: Quarta, sexta e domingo: 09h às 11h",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/santuario-nossa-senhora-da-ajuda-guapiara/",
+              "title": "Confissões — Santuário Nossa Senhora D’Ajuda | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora D’Ajuda",
+          "dayOfWeek": 4,
+          "time": "14:00",
+          "type": "CONFESSION",
+          "notes": "Confissões: Quinta-feira: 14h às 16h",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/santuario-nossa-senhora-da-ajuda-guapiara/",
+              "title": "Confissões — Santuário Nossa Senhora D’Ajuda | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora D’Ajuda",
+          "dayOfWeek": 5,
+          "time": "09:00",
+          "type": "CONFESSION",
+          "notes": "Confissões: Quarta, sexta e domingo: 09h às 11h",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/santuario-nossa-senhora-da-ajuda-guapiara/",
+              "title": "Confissões — Santuário Nossa Senhora D’Ajuda | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-da-conceicao-itabera",
+      "name": "Paróquia Nossa Senhora da Conceição",
+      "city": "Itaberá",
+      "state": "SP",
+      "neighborhood": "Centro",
+      "address": "Praça Amador Pereira de Almeida, 188",
+      "zipCode": null,
+      "phone": "(15) 99659-1710",
+      "email": "pnsdeitabera@hotmail.com",
+      "website": null,
+      "priestName": "Padre João Bonzanini",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseitapeva.com.br/paroquia/nossa-senhora-da-conceicao-itabera/",
+          "title": "Paróquia Nossa Senhora da Conceição | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://dioceseitapeva.com.br/paroquias/",
+          "title": "Paróquias | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+          "title": "Horários de Missas | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora da Conceição",
+          "address": "Praça Amador Pereira de Almeida, 188",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/nossa-senhora-da-conceicao-itabera/",
+              "title": "Paróquia Nossa Senhora da Conceição | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": "Santa Missa",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+              "title": "Horários de Missas | Diocese de Itapeva — Paróquia Nossa Senhora da Conceição",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 0,
+          "time": "10:00",
+          "type": "MASS",
+          "notes": "Santa Missa",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+              "title": "Horários de Missas | Diocese de Itapeva — Paróquia Nossa Senhora da Conceição",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Santa Missa",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+              "title": "Horários de Missas | Diocese de Itapeva — Paróquia Nossa Senhora da Conceição",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 2,
+          "time": "08:00",
+          "type": "CONFESSION",
+          "notes": "Confissões: Terça a Sexta-feira: 8h às 11h30 e 13h às 16h",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/nossa-senhora-da-conceicao-itabera/",
+              "title": "Confissões — Paróquia Nossa Senhora da Conceição | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 2,
+          "time": "13:00",
+          "type": "CONFESSION",
+          "notes": "Confissões: Terça a Sexta-feira: 8h às 11h30 e 13h às 16h",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/nossa-senhora-da-conceicao-itabera/",
+              "title": "Confissões — Paróquia Nossa Senhora da Conceição | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 3,
+          "time": "08:00",
+          "type": "CONFESSION",
+          "notes": "Confissões: Terça a Sexta-feira: 8h às 11h30 e 13h às 16h",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/nossa-senhora-da-conceicao-itabera/",
+              "title": "Confissões — Paróquia Nossa Senhora da Conceição | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 3,
+          "time": "13:00",
+          "type": "CONFESSION",
+          "notes": "Confissões: Terça a Sexta-feira: 8h às 11h30 e 13h às 16h",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/nossa-senhora-da-conceicao-itabera/",
+              "title": "Confissões — Paróquia Nossa Senhora da Conceição | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 3,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": "Santa Missa e Novena do Perpétuo Socorro",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+              "title": "Horários de Missas | Diocese de Itapeva — Paróquia Nossa Senhora da Conceição",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 4,
+          "time": "08:00",
+          "type": "CONFESSION",
+          "notes": "Confissões: Terça a Sexta-feira: 8h às 11h30 e 13h às 16h",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/nossa-senhora-da-conceicao-itabera/",
+              "title": "Confissões — Paróquia Nossa Senhora da Conceição | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 4,
+          "time": "13:00",
+          "type": "CONFESSION",
+          "notes": "Confissões: Terça a Sexta-feira: 8h às 11h30 e 13h às 16h",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/nossa-senhora-da-conceicao-itabera/",
+              "title": "Confissões — Paróquia Nossa Senhora da Conceição | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 5,
+          "time": "08:00",
+          "type": "CONFESSION",
+          "notes": "Confissões: Terça a Sexta-feira: 8h às 11h30 e 13h às 16h",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/nossa-senhora-da-conceicao-itabera/",
+              "title": "Confissões — Paróquia Nossa Senhora da Conceição | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 5,
+          "time": "13:00",
+          "type": "CONFESSION",
+          "notes": "Confissões: Terça a Sexta-feira: 8h às 11h30 e 13h às 16h",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/nossa-senhora-da-conceicao-itabera/",
+              "title": "Confissões — Paróquia Nossa Senhora da Conceição | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 5,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Recorrência mensal (Primeira sexta-feira do Mês) — Santa Missa",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+              "title": "Horários de Missas | Diocese de Itapeva — Paróquia Nossa Senhora da Conceição",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "sant-ana-catedral-santana-itapeva-itapeva",
+      "name": "Catedral Sant’Ana",
+      "city": "Itapeva",
+      "state": "SP",
+      "neighborhood": null,
+      "address": "Praça anchieta, 123",
+      "zipCode": null,
+      "phone": "(15) 3522-0437",
+      "email": "mcatedralsantana@gmail.com",
+      "website": null,
+      "priestName": "Pe. Sueder Aparecido Domingues",
+      "foundedYear": 1980,
+      "sources": [
+        {
+          "url": "https://dioceseitapeva.com.br/paroquia/catedral-santana-itapeva/",
+          "title": "Catedral Sant’Ana | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://dioceseitapeva.com.br/paroquias/",
+          "title": "Paróquias | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+          "title": "Horários de Missas | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Sant’Ana",
+          "address": "Praça anchieta, 123",
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/catedral-santana-itapeva/",
+              "title": "Catedral Sant’Ana | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Sant’Ana",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+              "title": "Horários de Missas | Diocese de Itapeva — Catedral Sant’Ana",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Sant’Ana",
+          "dayOfWeek": 0,
+          "time": "10:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+              "title": "Horários de Missas | Diocese de Itapeva — Catedral Sant’Ana",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Sant’Ana",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+              "title": "Horários de Missas | Diocese de Itapeva — Catedral Sant’Ana",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Sant’Ana",
+          "dayOfWeek": 2,
+          "time": "09:00",
+          "type": "CONFESSION",
+          "notes": "Confissões: Terça-feira: 09h às 11h; 19h30 às 21h30",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/catedral-santana-itapeva/",
+              "title": "Confissões — Catedral Sant’Ana | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Sant’Ana",
+          "dayOfWeek": 2,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+              "title": "Horários de Missas | Diocese de Itapeva — Catedral Sant’Ana",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Sant’Ana",
+          "dayOfWeek": 2,
+          "time": "19:30",
+          "type": "CONFESSION",
+          "notes": "Confissões: Terça-feira: 09h às 11h; 19h30 às 21h30",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/catedral-santana-itapeva/",
+              "title": "Confissões — Catedral Sant’Ana | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Sant’Ana",
+          "dayOfWeek": 3,
+          "time": "09:00",
+          "type": "CONFESSION",
+          "notes": "Confissões: Quarta-feira: 09h às 11h",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/catedral-santana-itapeva/",
+              "title": "Confissões — Catedral Sant’Ana | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Sant’Ana",
+          "dayOfWeek": 3,
+          "time": "14:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+              "title": "Horários de Missas | Diocese de Itapeva — Catedral Sant’Ana",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Sant’Ana",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+              "title": "Horários de Missas | Diocese de Itapeva — Catedral Sant’Ana",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Sant’Ana",
+          "dayOfWeek": 4,
+          "time": "09:00",
+          "type": "CONFESSION",
+          "notes": "Confissões: Quinta-feira: 09h às 11h",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/catedral-santana-itapeva/",
+              "title": "Confissões — Catedral Sant’Ana | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Sant’Ana",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+              "title": "Horários de Missas | Diocese de Itapeva — Catedral Sant’Ana",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Sant’Ana",
+          "dayOfWeek": 5,
+          "time": "09:00",
+          "type": "CONFESSION",
+          "notes": "Confissões: Sexta-feira: 09h às 11h",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/catedral-santana-itapeva/",
+              "title": "Confissões — Catedral Sant’Ana | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Sant’Ana",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+              "title": "Horários de Missas | Diocese de Itapeva — Catedral Sant’Ana",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Sant’Ana",
+          "dayOfWeek": 6,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+              "title": "Horários de Missas | Diocese de Itapeva — Catedral Sant’Ana",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-aparecida-itapeva",
+      "name": "Paróquia Nossa Senhora Aparecida",
+      "city": "Itapeva",
+      "state": "SP",
+      "neighborhood": null,
+      "address": "Rua Ipanema, 394",
+      "zipCode": null,
+      "phone": "(15) 99802-4982",
+      "email": "matrizpnsaparecida@bol.com.br",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseitapeva.com.br/paroquia/paroquia-nossa-senhora-aparecida-itapeva/",
+          "title": "Paróquia Nossa Senhora Aparecida | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://dioceseitapeva.com.br/paroquias/",
+          "title": "Paróquias | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+          "title": "Horários de Missas | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora Aparecida",
+          "address": "Rua Ipanema, 394",
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/paroquia-nossa-senhora-aparecida-itapeva/",
+              "title": "Paróquia Nossa Senhora Aparecida | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora Aparecida",
+          "dayOfWeek": 0,
+          "time": "07:45",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+              "title": "Horários de Missas | Diocese de Itapeva — Paróquia Nossa Senhora Aparecida",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora Aparecida",
+          "dayOfWeek": 0,
+          "time": "09:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+              "title": "Horários de Missas | Diocese de Itapeva — Paróquia Nossa Senhora Aparecida",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora Aparecida",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+              "title": "Horários de Missas | Diocese de Itapeva — Paróquia Nossa Senhora Aparecida",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora Aparecida",
+          "dayOfWeek": 2,
+          "time": "20:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+              "title": "Horários de Missas | Diocese de Itapeva — Paróquia Nossa Senhora Aparecida",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora Aparecida",
+          "dayOfWeek": 3,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": "Recorrência mensal (1ª Quarta-feira do Mês)",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+              "title": "Horários de Missas | Diocese de Itapeva — Paróquia Nossa Senhora Aparecida",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora Aparecida",
+          "dayOfWeek": 4,
+          "time": "09:00",
+          "type": "CONFESSION",
+          "notes": "Confissões: Quinta-feira: 09h às 11h",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/paroquia-nossa-senhora-aparecida-itapeva/",
+              "title": "Confissões — Paróquia Nossa Senhora Aparecida | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora Aparecida",
+          "dayOfWeek": 5,
+          "time": "20:00",
+          "type": "MASS",
+          "notes": "Recorrência mensal (1ª Sexta-feira do mês)",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+              "title": "Horários de Missas | Diocese de Itapeva — Paróquia Nossa Senhora Aparecida",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-da-piedade-itapeva",
+      "name": "Paróquia Nossa Senhora da Piedade",
+      "city": "Itapeva",
+      "state": "SP",
+      "neighborhood": "Vila Nova",
+      "address": "Rua Prefeito João Benedito Barbosa, 55",
+      "zipCode": null,
+      "phone": "(15) 3522-3979",
+      "email": "paropieta@gmail.com",
+      "website": null,
+      "priestName": "Mons. José Aparecido Cravo da Costa",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseitapeva.com.br/paroquia/piedade-itapeva/",
+          "title": "Paróquia Nossa Senhora da Piedade | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://dioceseitapeva.com.br/paroquias/",
+          "title": "Paróquias | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+          "title": "Horários de Missas | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora da Piedade",
+          "address": "Rua Prefeito João Benedito Barbosa, 55",
+          "neighborhood": "Vila Nova",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/piedade-itapeva/",
+              "title": "Paróquia Nossa Senhora da Piedade | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora da Piedade",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+              "title": "Horários de Missas | Diocese de Itapeva — Paróquia Nossa Senhora da Piedade",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Piedade",
+          "dayOfWeek": 0,
+          "time": "10:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+              "title": "Horários de Missas | Diocese de Itapeva — Paróquia Nossa Senhora da Piedade",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Piedade",
+          "dayOfWeek": 0,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+              "title": "Horários de Missas | Diocese de Itapeva — Paróquia Nossa Senhora da Piedade",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Piedade",
+          "dayOfWeek": 3,
+          "time": "10:00",
+          "type": "CONFESSION",
+          "notes": "Confissões: Quarta-feira: 10h às 12h",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/piedade-itapeva/",
+              "title": "Confissões — Paróquia Nossa Senhora da Piedade | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Piedade",
+          "dayOfWeek": 4,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+              "title": "Horários de Missas | Diocese de Itapeva — Paróquia Nossa Senhora da Piedade",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Piedade",
+          "dayOfWeek": 5,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Recorrência mensal (1ª Sexta do mês)",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+              "title": "Horários de Missas | Diocese de Itapeva — Paróquia Nossa Senhora da Piedade",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Piedade",
+          "dayOfWeek": 6,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+              "title": "Horários de Missas | Diocese de Itapeva — Paróquia Nossa Senhora da Piedade",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "santo-antonio-itapeva",
+      "name": "Paróquia Santo Antônio",
+      "city": "Itapeva",
+      "state": "SP",
+      "neighborhood": "Jardim Brasil",
+      "address": "Rua Aldo Russo, 412",
+      "zipCode": null,
+      "phone": "(15) 99812-9110",
+      "email": "paroquiasantoantonioitapeva@gmail.com",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseitapeva.com.br/paroquia/santo-antonio-itapeva/",
+          "title": "Paróquia Santo Antônio | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://dioceseitapeva.com.br/paroquias/",
+          "title": "Paróquias | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+          "title": "Horários de Missas | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Santo Antônio",
+          "address": "Rua Aldo Russo, 412",
+          "neighborhood": "Jardim Brasil",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/santo-antonio-itapeva/",
+              "title": "Paróquia Santo Antônio | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Santo Antônio",
+          "dayOfWeek": 3,
+          "time": "14:30",
+          "type": "CONFESSION",
+          "notes": "Confissões: Quarta-feira: 14h30 às 17h",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/santo-antonio-itapeva/",
+              "title": "Confissões — Paróquia Santo Antônio | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Santo Antônio",
+          "dayOfWeek": 5,
+          "time": "09:30",
+          "type": "CONFESSION",
+          "notes": "Confissões: Sexta-feira: 09h30 às 13h",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/santo-antonio-itapeva/",
+              "title": "Confissões — Paróquia Santo Antônio | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "sao-camilo-de-lellis-itapeva",
+      "name": "Paróquia São Camilo de Léllis",
+      "city": "Itapeva",
+      "state": "SP",
+      "neighborhood": "Vila Sao Camilo",
+      "address": "Praça Clara Golob Fascetti, n° 50",
+      "zipCode": null,
+      "phone": "(15) 99642-8703",
+      "email": "paroquiasaocamilo@yahoo.com",
+      "website": null,
+      "priestName": "Pe. Vanilton Aparecido Leme",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseitapeva.com.br/paroquia/saocamilo-itapeva/",
+          "title": "Paróquia São Camilo de Léllis | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://dioceseitapeva.com.br/paroquias/",
+          "title": "Paróquias | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+          "title": "Horários de Missas | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Camilo de Léllis",
+          "address": "Praça Clara Golob Fascetti, n° 50",
+          "neighborhood": "Vila Sao Camilo",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/saocamilo-itapeva/",
+              "title": "Paróquia São Camilo de Léllis | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São Camilo de Léllis",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+              "title": "Horários de Missas | Diocese de Itapeva — Paróquia São Camilo de Léllis",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Camilo de Léllis",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+              "title": "Horários de Missas | Diocese de Itapeva — Paróquia São Camilo de Léllis",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Camilo de Léllis",
+          "dayOfWeek": 5,
+          "time": "14:00",
+          "type": "CONFESSION",
+          "notes": "Confissões: Sexta-feira: 14h às 17h30",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/saocamilo-itapeva/",
+              "title": "Confissões — Paróquia São Camilo de Léllis | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "sao-roque-paroquia-saoroque-itapeva-itapeva",
+      "name": "Paróquia São Roque",
+      "city": "Itapeva",
+      "state": "SP",
+      "neighborhood": null,
+      "address": "Praça Rubens dos Santos Renó, 50",
+      "zipCode": null,
+      "phone": "(15) 3522-2260",
+      "email": "mdisaoroque@gmail.com",
+      "website": null,
+      "priestName": "Pe. Fernando Santamaria Costa Mendes",
+      "foundedYear": 1983,
+      "sources": [
+        {
+          "url": "https://dioceseitapeva.com.br/paroquia/paroquia-saoroque-itapeva/",
+          "title": "Paróquia São Roque | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://dioceseitapeva.com.br/paroquias/",
+          "title": "Paróquias | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+          "title": "Horários de Missas | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Roque",
+          "address": "Praça Rubens dos Santos Renó, 50",
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/paroquia-saoroque-itapeva/",
+              "title": "Paróquia São Roque | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São Roque",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+              "title": "Horários de Missas | Diocese de Itapeva — Paróquia São Roque",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Roque",
+          "dayOfWeek": 0,
+          "time": "10:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+              "title": "Horários de Missas | Diocese de Itapeva — Paróquia São Roque",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Roque",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+              "title": "Horários de Missas | Diocese de Itapeva — Paróquia São Roque",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Roque",
+          "dayOfWeek": 4,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+              "title": "Horários de Missas | Diocese de Itapeva — Paróquia São Roque",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Roque",
+          "dayOfWeek": 5,
+          "time": "09:00",
+          "type": "CONFESSION",
+          "notes": "Confissões: Sexta-feira: 9h às 11h",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/paroquia-saoroque-itapeva/",
+              "title": "Confissões — Paróquia São Roque | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São Roque",
+          "dayOfWeek": 5,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+              "title": "Horários de Missas | Diocese de Itapeva — Paróquia São Roque",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-aparecida-e-sao-pedro-itapeva",
+      "name": "Área Pastoral Nossa Senhora Aparecida e São Pedro",
+      "city": "Itapeva",
+      "state": "SP",
+      "neighborhood": "Alto da Brancal",
+      "address": null,
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseitapeva.com.br/paroquia/area-pastoral-nsa-aparecida-e-sao-pedro-distrito-alto-da-brancal-itapeva-sp/",
+          "title": "Área Pastoral Nossa Senhora Aparecida e São Pedro | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://dioceseitapeva.com.br/paroquias/",
+          "title": "Paróquias | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora Aparecida e São Pedro",
+          "address": null,
+          "neighborhood": "Alto da Brancal",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/area-pastoral-nsa-aparecida-e-sao-pedro-distrito-alto-da-brancal-itapeva-sp/",
+              "title": "Área Pastoral Nossa Senhora Aparecida e São Pedro | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "sant-ana-guarizinho-itapeva",
+      "name": "Área Pastoral Sant’Ana",
+      "city": "Itapeva",
+      "state": "SP",
+      "neighborhood": "Guarizinho",
+      "address": "Rua Martinho Daniel da Silva s/n",
+      "zipCode": null,
+      "phone": "(15) 99786-5739",
+      "email": "areasantana@gmail.com",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseitapeva.com.br/paroquia/santana/",
+          "title": "Área Pastoral Sant’Ana | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://dioceseitapeva.com.br/paroquias/",
+          "title": "Paróquias | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+          "title": "Horários de Missas | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Sant’Ana",
+          "address": "Rua Martinho Daniel da Silva s/n",
+          "neighborhood": "Guarizinho",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/santana/",
+              "title": "Área Pastoral Sant’Ana | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Sant’Ana",
+          "dayOfWeek": 3,
+          "time": "09:00",
+          "type": "CONFESSION",
+          "notes": "Confissões: Quarta e sexta-feira: 9h às 12h e das 14h às 16h",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/santana/",
+              "title": "Confissões — Área Pastoral Sant’Ana | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Sant’Ana",
+          "dayOfWeek": 5,
+          "time": "09:00",
+          "type": "CONFESSION",
+          "notes": "Confissões: Quarta e sexta-feira: 9h às 12h e das 14h às 16h",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/santana/",
+              "title": "Confissões — Área Pastoral Sant’Ana | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "sao-roque-areia-branca-itapeva",
+      "name": "Área Pastoral São Roque",
+      "city": "Itapeva",
+      "state": "SP",
+      "neighborhood": "Areia Branca",
+      "address": null,
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseitapeva.com.br/paroquia/area-pastoral-sao-roque-distrito-da-areia-branca-itapeva-sp/",
+          "title": "Área Pastoral São Roque | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://dioceseitapeva.com.br/paroquias/",
+          "title": "Paróquias | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Roque",
+          "address": null,
+          "neighborhood": "Areia Branca",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/area-pastoral-sao-roque-distrito-da-areia-branca-itapeva-sp/",
+              "title": "Área Pastoral São Roque | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "sant-ana-itapirapua-paulista",
+      "name": "Paróquia Sant’Ana",
+      "city": "Itapirapuã Paulista",
+      "state": "SP",
+      "neighborhood": "Centro",
+      "address": "Praça Sant'Ana, 01 - Área",
+      "zipCode": "18385-000",
+      "phone": "(15) 3548-1151",
+      "email": "paroquiadeitapirapua@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Adilson Batista Maciel",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseitapeva.com.br/paroquia/santana-itapirapua-paulista/",
+          "title": "Paróquia Sant’Ana | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://dioceseitapeva.com.br/paroquias/",
+          "title": "Paróquias | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Sant’Ana",
+          "address": "Praça Sant'Ana, 01 - Área",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/santana-itapirapua-paulista/",
+              "title": "Paróquia Sant’Ana | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "sao-joao-batista-itaporanga",
+      "name": "Paróquia São João Batista",
+      "city": "Itaporanga",
+      "state": "SP",
+      "neighborhood": "Centro",
+      "address": "Av. Santa Cruz, 249",
+      "zipCode": null,
+      "phone": "(15) 3565-3533",
+      "email": "parsjb150@yahoo.com.br",
+      "website": null,
+      "priestName": "Pe. João Crisóstomo O.Cist",
+      "foundedYear": 1855,
+      "sources": [
+        {
+          "url": "https://dioceseitapeva.com.br/paroquia/sao-joao-batista-itaporanga/",
+          "title": "Paróquia São João Batista | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://dioceseitapeva.com.br/paroquias/",
+          "title": "Paróquias | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+          "title": "Horários de Missas | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São João Batista",
+          "address": "Av. Santa Cruz, 249",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/sao-joao-batista-itaporanga/",
+              "title": "Paróquia São João Batista | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São João Batista",
+          "dayOfWeek": 1,
+          "time": "14:00",
+          "type": "CONFESSION",
+          "notes": "Confissões: Segunda-feira: das 14h às 17h",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/sao-joao-batista-itaporanga/",
+              "title": "Confissões — Paróquia São João Batista | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São João Batista",
+          "dayOfWeek": 2,
+          "time": "08:30",
+          "type": "CONFESSION",
+          "notes": "Confissões: Terça-feira: das 08h30 às 11h",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/sao-joao-batista-itaporanga/",
+              "title": "Confissões — Paróquia São João Batista | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São João Batista",
+          "dayOfWeek": 3,
+          "time": "09:00",
+          "type": "CONFESSION",
+          "notes": "Confissões: Quarta-feira: das 09h às 11h e das 14h às 17h",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/sao-joao-batista-itaporanga/",
+              "title": "Confissões — Paróquia São João Batista | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São João Batista",
+          "dayOfWeek": 4,
+          "time": "15:00",
+          "type": "CONFESSION",
+          "notes": "Confissões: Quinta-feira: das 15h às 17h",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/sao-joao-batista-itaporanga/",
+              "title": "Confissões — Paróquia São João Batista | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São João Batista",
+          "dayOfWeek": 5,
+          "time": "08:30",
+          "type": "CONFESSION",
+          "notes": "Confissões: Sexta-feira: das 08h30 às 11h e das 15h às 17h",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/sao-joao-batista-itaporanga/",
+              "title": "Confissões — Paróquia São João Batista | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São João Batista",
+          "dayOfWeek": 6,
+          "time": "08:30",
+          "type": "CONFESSION",
+          "notes": "Confissões: Sábado: das 08h30 às 11h",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/sao-joao-batista-itaporanga/",
+              "title": "Confissões — Paróquia São João Batista | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "divino-espirito-santo-itarare",
+      "name": "Paróquia Divino Espírito Santo",
+      "city": "Itararé",
+      "state": "SP",
+      "neighborhood": "Bairro Tonico Adolfo",
+      "address": "Rua Pedro Lobo Ribeiro, 424",
+      "zipCode": null,
+      "phone": "(15) 3531-5397",
+      "email": "paroquiadivinoespiritosantoita@gmail.com",
+      "website": null,
+      "priestName": "Pe. Luciano Hideyuro Osawa",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseitapeva.com.br/paroquia/divino-espirito-santo-itarare/",
+          "title": "Paróquia Divino Espírito Santo | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://dioceseitapeva.com.br/paroquias/",
+          "title": "Paróquias | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+          "title": "Horários de Missas | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Divino Espírito Santo",
+          "address": "Rua Pedro Lobo Ribeiro, 424",
+          "neighborhood": "Bairro Tonico Adolfo",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/divino-espirito-santo-itarare/",
+              "title": "Paróquia Divino Espírito Santo | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Divino Espírito Santo",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+              "title": "Horários de Missas | Diocese de Itapeva — Paróquia Divino Espírito Santo",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Divino Espírito Santo",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+              "title": "Horários de Missas | Diocese de Itapeva — Paróquia Divino Espírito Santo",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Divino Espírito Santo",
+          "dayOfWeek": 3,
+          "time": "09:30",
+          "type": "CONFESSION",
+          "notes": "Confissões: Quarta-feira: 09h30 às 11h30",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/divino-espirito-santo-itarare/",
+              "title": "Confissões — Paróquia Divino Espírito Santo | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Divino Espírito Santo",
+          "dayOfWeek": 4,
+          "time": "09:30",
+          "type": "CONFESSION",
+          "notes": "Confissões: Quinta-feira: 09h30 às 11h30 – 14h às 17h30 – 19h30 às 21h",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/divino-espirito-santo-itarare/",
+              "title": "Confissões — Paróquia Divino Espírito Santo | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Divino Espírito Santo",
+          "dayOfWeek": 5,
+          "time": "09:30",
+          "type": "CONFESSION",
+          "notes": "Confissões: Sexta-feira : 09h30 às 11h30 e das 14h às 17h30",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/divino-espirito-santo-itarare/",
+              "title": "Confissões — Paróquia Divino Espírito Santo | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-da-conceicao-itarare",
+      "name": "Paróquia Nossa Senhora da Conceição",
+      "city": "Itararé",
+      "state": "SP",
+      "neighborhood": null,
+      "address": null,
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseitapeva.com.br/paroquia/nossa-senhora-da-conceicao-itarare/",
+          "title": "Paróquia Nossa Senhora da Conceição | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://dioceseitapeva.com.br/paroquias/",
+          "title": "Paróquias | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora da Conceição",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/nossa-senhora-da-conceicao-itarare/",
+              "title": "Paróquia Nossa Senhora da Conceição | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "santo-antonio-itai",
+      "name": "Paróquia Santo Antônio",
+      "city": "Itaí",
+      "state": "SP",
+      "neighborhood": null,
+      "address": "Praça da Bandeira, s/n",
+      "zipCode": null,
+      "phone": "(14) 99680-1765",
+      "email": "paroquiasantoantonioitai@hotmail.com",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseitapeva.com.br/paroquia/santo-antonio-itai/",
+          "title": "Paróquia Santo Antônio | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://dioceseitapeva.com.br/paroquias/",
+          "title": "Paróquias | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+          "title": "Horários de Missas | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Santo Antônio",
+          "address": "Praça da Bandeira, s/n",
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/santo-antonio-itai/",
+              "title": "Paróquia Santo Antônio | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Santo Antônio",
+          "dayOfWeek": 3,
+          "time": "09:00",
+          "type": "CONFESSION",
+          "notes": "Confissões: Quarta e Sexta-feira: 09h às 11h e das 14h30 às 16h",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/santo-antonio-itai/",
+              "title": "Confissões — Paróquia Santo Antônio | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Santo Antônio",
+          "dayOfWeek": 4,
+          "time": "19:30",
+          "type": "CONFESSION",
+          "notes": "Confissões: Quinta-feira: 19h30 às 20h40",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/santo-antonio-itai/",
+              "title": "Confissões — Paróquia Santo Antônio | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Santo Antônio",
+          "dayOfWeek": 5,
+          "time": "09:00",
+          "type": "CONFESSION",
+          "notes": "Confissões: Quarta e Sexta-feira: 09h às 11h e das 14h30 às 16h",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/santo-antonio-itai/",
+              "title": "Confissões — Paróquia Santo Antônio | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "imaculada-conceicao-itaoca",
+      "name": "Paróquia Imaculada Conceição",
+      "city": "Itaóca",
+      "state": "SP",
+      "neighborhood": null,
+      "address": null,
+      "zipCode": null,
+      "phone": "(15) 3557-1148",
+      "email": "imaculadaconceicaodeitaoca@hotmail.com",
+      "website": null,
+      "priestName": "Edson Aparecido de Sene Queiroz",
+      "foundedYear": 2019,
+      "sources": [
+        {
+          "url": "https://dioceseitapeva.com.br/paroquia/imaculada-conceicao-itaoca/",
+          "title": "Paróquia Imaculada Conceição | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://dioceseitapeva.com.br/paroquias/",
+          "title": "Paróquias | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+          "title": "Horários de Missas | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Imaculada Conceição",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/imaculada-conceicao-itaoca/",
+              "title": "Paróquia Imaculada Conceição | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Imaculada Conceição",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+              "title": "Horários de Missas | Diocese de Itapeva — Paróquia Imaculada Conceição",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Imaculada Conceição",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+              "title": "Horários de Missas | Diocese de Itapeva — Paróquia Imaculada Conceição",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Imaculada Conceição",
+          "dayOfWeek": 2,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+              "title": "Horários de Missas | Diocese de Itapeva — Paróquia Imaculada Conceição",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Imaculada Conceição",
+          "dayOfWeek": 3,
+          "time": "14:00",
+          "type": "CONFESSION",
+          "notes": "Confissões: Quarta a sexta-feira: 14h às 17h",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/imaculada-conceicao-itaoca/",
+              "title": "Confissões — Paróquia Imaculada Conceição | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Imaculada Conceição",
+          "dayOfWeek": 4,
+          "time": "14:00",
+          "type": "CONFESSION",
+          "notes": "Confissões: Quarta a sexta-feira: 14h às 17h",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/imaculada-conceicao-itaoca/",
+              "title": "Confissões — Paróquia Imaculada Conceição | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Imaculada Conceição",
+          "dayOfWeek": 5,
+          "time": "14:00",
+          "type": "CONFESSION",
+          "notes": "Confissões: Quarta a sexta-feira: 14h às 17h",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/imaculada-conceicao-itaoca/",
+              "title": "Confissões — Paróquia Imaculada Conceição | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-aparecida-nova-campina",
+      "name": "Paróquia Nossa Senhora Aparecida",
+      "city": "Nova Campina",
+      "state": "SP",
+      "neighborhood": "Centro",
+      "address": "Av. João Cardoso de Almeida, 1142",
+      "zipCode": null,
+      "phone": "(15) 99670-5671",
+      "email": "maededeusnovacampina@gmail.com",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseitapeva.com.br/paroquia/nossa-senhora-da-conceicao-aparecida-nova-campina/",
+          "title": "Paróquia Nossa Senhora Aparecida | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://dioceseitapeva.com.br/paroquias/",
+          "title": "Paróquias | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+          "title": "Horários de Missas | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora Aparecida",
+          "address": "Av. João Cardoso de Almeida, 1142",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/nossa-senhora-da-conceicao-aparecida-nova-campina/",
+              "title": "Paróquia Nossa Senhora Aparecida | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora Aparecida",
+          "dayOfWeek": 2,
+          "time": "08:00",
+          "type": "CONFESSION",
+          "notes": "Confissões: terça a sexta-feira: 08h às 11h30 e das 13h30 às 17h30",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/nossa-senhora-da-conceicao-aparecida-nova-campina/",
+              "title": "Confissões — Paróquia Nossa Senhora Aparecida | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora Aparecida",
+          "dayOfWeek": 3,
+          "time": "08:00",
+          "type": "CONFESSION",
+          "notes": "Confissões: terça a sexta-feira: 08h às 11h30 e das 13h30 às 17h30",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/nossa-senhora-da-conceicao-aparecida-nova-campina/",
+              "title": "Confissões — Paróquia Nossa Senhora Aparecida | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora Aparecida",
+          "dayOfWeek": 4,
+          "time": "08:00",
+          "type": "CONFESSION",
+          "notes": "Confissões: terça a sexta-feira: 08h às 11h30 e das 13h30 às 17h30",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/nossa-senhora-da-conceicao-aparecida-nova-campina/",
+              "title": "Confissões — Paróquia Nossa Senhora Aparecida | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora Aparecida",
+          "dayOfWeek": 5,
+          "time": "08:00",
+          "type": "CONFESSION",
+          "notes": "Confissões: terça a sexta-feira: 08h às 11h30 e das 13h30 às 17h30",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/nossa-senhora-da-conceicao-aparecida-nova-campina/",
+              "title": "Confissões — Paróquia Nossa Senhora Aparecida | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "bom-jesus-ribeira",
+      "name": "Paróquia Bom Jesus",
+      "city": "Ribeira",
+      "state": "SP",
+      "neighborhood": "Centro",
+      "address": "Rua Antônio Silveira de Melo, 101",
+      "zipCode": "18380-000",
+      "phone": "(15) 3555-1402",
+      "email": "paroquiaribeira@yahoo.com.br",
+      "website": null,
+      "priestName": "Pe. Marcelo Santos de Oliveira",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseitapeva.com.br/paroquia/bom-jesus-ribeira/",
+          "title": "Paróquia Bom Jesus | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://dioceseitapeva.com.br/paroquias/",
+          "title": "Paróquias | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+          "title": "Horários de Missas | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Bom Jesus",
+          "address": "Rua Antônio Silveira de Melo, 101",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/bom-jesus-ribeira/",
+              "title": "Paróquia Bom Jesus | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Bom Jesus",
+          "dayOfWeek": 3,
+          "time": "09:00",
+          "type": "CONFESSION",
+          "notes": "Confissões: Quarta a sexta-feira: 09h às 12h e das 14h às 17h",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/bom-jesus-ribeira/",
+              "title": "Confissões — Paróquia Bom Jesus | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Bom Jesus",
+          "dayOfWeek": 4,
+          "time": "09:00",
+          "type": "CONFESSION",
+          "notes": "Confissões: Quarta a sexta-feira: 09h às 12h e das 14h às 17h",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/bom-jesus-ribeira/",
+              "title": "Confissões — Paróquia Bom Jesus | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Bom Jesus",
+          "dayOfWeek": 5,
+          "time": "09:00",
+          "type": "CONFESSION",
+          "notes": "Confissões: Quarta a sexta-feira: 09h às 12h e das 14h às 17h",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/bom-jesus-ribeira/",
+              "title": "Confissões — Paróquia Bom Jesus | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "bom-jesus-ribeirao-branco",
+      "name": "Paróquia Bom Jesus",
+      "city": "Ribeirão Branco",
+      "state": "SP",
+      "neighborhood": "Centro",
+      "address": "Praça Antônio Rodrigues de Souza Sobrinho, 564",
+      "zipCode": null,
+      "phone": "(15) 3553-1339",
+      "email": "prbbmjesus@gmail.com",
+      "website": null,
+      "priestName": "Pe. Josenildo Dias Pires",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseitapeva.com.br/paroquia/senhor-bom-jesus-ribeiraobranco/",
+          "title": "Paróquia Bom Jesus | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://dioceseitapeva.com.br/paroquias/",
+          "title": "Paróquias | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+          "title": "Horários de Missas | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Bom Jesus",
+          "address": "Praça Antônio Rodrigues de Souza Sobrinho, 564",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/senhor-bom-jesus-ribeiraobranco/",
+              "title": "Paróquia Bom Jesus | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Bom Jesus",
+          "dayOfWeek": 3,
+          "time": "14:00",
+          "type": "CONFESSION",
+          "notes": "Confissões: Quarta e Quinta-feira: 14h às 17h",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/senhor-bom-jesus-ribeiraobranco/",
+              "title": "Confissões — Paróquia Bom Jesus | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Bom Jesus",
+          "dayOfWeek": 4,
+          "time": "14:00",
+          "type": "CONFESSION",
+          "notes": "Confissões: Quarta e Quinta-feira: 14h às 17h",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/senhor-bom-jesus-ribeiraobranco/",
+              "title": "Confissões — Paróquia Bom Jesus | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "sao-joao-paulo-ii-ribeirao-branco",
+      "name": "Paróquia São João Paulo II",
+      "city": "Ribeirão Branco",
+      "state": "SP",
+      "neighborhood": "Itaboa",
+      "address": "Rua Bom Jesus, N°230",
+      "zipCode": null,
+      "phone": "(15) 99676-9734",
+      "email": "paroquiasaojoaopaulo2itaboa@gmail.com",
+      "website": null,
+      "priestName": "Pe. Cícero Martins Vieira",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseitapeva.com.br/paroquia/sao-joao-paulo-ii-itaboa/",
+          "title": "Paróquia São João Paulo II | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://dioceseitapeva.com.br/paroquias/",
+          "title": "Paróquias | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+          "title": "Horários de Missas | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São João Paulo II",
+          "address": "Rua Bom Jesus, N°230",
+          "neighborhood": "Itaboa",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/sao-joao-paulo-ii-itaboa/",
+              "title": "Paróquia São João Paulo II | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São João Paulo II",
+          "dayOfWeek": 2,
+          "time": "09:00",
+          "type": "CONFESSION",
+          "notes": "Confissões: Terça e quinta-feira: 9h às 12h",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/sao-joao-paulo-ii-itaboa/",
+              "title": "Confissões — Paróquia São João Paulo II | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São João Paulo II",
+          "dayOfWeek": 4,
+          "time": "09:00",
+          "type": "CONFESSION",
+          "notes": "Confissões: Terça e quinta-feira: 9h às 12h",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/sao-joao-paulo-ii-itaboa/",
+              "title": "Confissões — Paróquia São João Paulo II | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "bom-jesus-ribeirao-grande",
+      "name": "Paróquia Bom Jesus",
+      "city": "Ribeirão Grande",
+      "state": "SP",
+      "neighborhood": "Centro",
+      "address": "Praça Bom Jesus, 73",
+      "zipCode": null,
+      "phone": "(15) 99744-4820",
+      "email": "mdi.paroquiabomjesus@gmail.com",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseitapeva.com.br/paroquia/bom-jesus-ribeirao-grande/",
+          "title": "Paróquia Bom Jesus | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://dioceseitapeva.com.br/paroquias/",
+          "title": "Paróquias | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+          "title": "Horários de Missas | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Bom Jesus",
+          "address": "Praça Bom Jesus, 73",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/bom-jesus-ribeirao-grande/",
+              "title": "Paróquia Bom Jesus | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Bom Jesus",
+          "dayOfWeek": 1,
+          "time": "07:30",
+          "type": "CONFESSION",
+          "notes": "Confissões: Segunda a Sexta-feira: 07h30 às 11h30 e das 13h às 17h",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/bom-jesus-ribeirao-grande/",
+              "title": "Confissões — Paróquia Bom Jesus | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Bom Jesus",
+          "dayOfWeek": 2,
+          "time": "07:30",
+          "type": "CONFESSION",
+          "notes": "Confissões: Segunda a Sexta-feira: 07h30 às 11h30 e das 13h às 17h",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/bom-jesus-ribeirao-grande/",
+              "title": "Confissões — Paróquia Bom Jesus | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Bom Jesus",
+          "dayOfWeek": 3,
+          "time": "07:30",
+          "type": "CONFESSION",
+          "notes": "Confissões: Segunda a Sexta-feira: 07h30 às 11h30 e das 13h às 17h",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/bom-jesus-ribeirao-grande/",
+              "title": "Confissões — Paróquia Bom Jesus | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Bom Jesus",
+          "dayOfWeek": 4,
+          "time": "07:30",
+          "type": "CONFESSION",
+          "notes": "Confissões: Segunda a Sexta-feira: 07h30 às 11h30 e das 13h às 17h",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/bom-jesus-ribeirao-grande/",
+              "title": "Confissões — Paróquia Bom Jesus | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Bom Jesus",
+          "dayOfWeek": 5,
+          "time": "07:30",
+          "type": "CONFESSION",
+          "notes": "Confissões: Segunda a Sexta-feira: 07h30 às 11h30 e das 13h às 17h",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/bom-jesus-ribeirao-grande/",
+              "title": "Confissões — Paróquia Bom Jesus | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "bom-jesus-riversul",
+      "name": "Paróquia Bom Jesus",
+      "city": "Riversul",
+      "state": "SP",
+      "neighborhood": "Centro",
+      "address": "Rua Aparecido Lúcio Martins, 09",
+      "zipCode": null,
+      "phone": "(15) 3571-1243",
+      "email": "paroquiabjderiversul@gmail.com",
+      "website": null,
+      "priestName": "Pe. Estanislau Moacir Generoso dos Reis O. Cisto",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseitapeva.com.br/paroquia/bom-jesus-riversul/",
+          "title": "Paróquia Bom Jesus | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://dioceseitapeva.com.br/paroquias/",
+          "title": "Paróquias | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+          "title": "Horários de Missas | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Bom Jesus",
+          "address": "Rua Aparecido Lúcio Martins, 09",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/bom-jesus-riversul/",
+              "title": "Paróquia Bom Jesus | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Bom Jesus",
+          "dayOfWeek": 1,
+          "time": "09:00",
+          "type": "CONFESSION",
+          "notes": "Confissões: Segunda, quarta e sexta: 9h às 12h e das 14h às 17h30",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/bom-jesus-riversul/",
+              "title": "Confissões — Paróquia Bom Jesus | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Bom Jesus",
+          "dayOfWeek": 3,
+          "time": "09:00",
+          "type": "CONFESSION",
+          "notes": "Confissões: Segunda, quarta e sexta: 9h às 12h e das 14h às 17h30",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/bom-jesus-riversul/",
+              "title": "Confissões — Paróquia Bom Jesus | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Bom Jesus",
+          "dayOfWeek": 4,
+          "time": "08:00",
+          "type": "CONFESSION",
+          "notes": "Confissões: Quinta-feira: 8h às 12h",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/bom-jesus-riversul/",
+              "title": "Confissões — Paróquia Bom Jesus | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Bom Jesus",
+          "dayOfWeek": 5,
+          "time": "09:00",
+          "type": "CONFESSION",
+          "notes": "Confissões: Segunda, quarta e sexta: 9h às 12h e das 14h às 17h30",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/bom-jesus-riversul/",
+              "title": "Confissões — Paróquia Bom Jesus | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "sao-roque-taquarituba",
+      "name": "Paróquia São Roque",
+      "city": "Taquarituba",
+      "state": "SP",
+      "neighborhood": "Centro",
+      "address": "Praça São Roque, 1",
+      "zipCode": null,
+      "phone": "(14) 99857-0483",
+      "email": "paroquiataquarituba@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Paulo Henrique Mazeto, CR",
+      "foundedYear": 1964,
+      "sources": [
+        {
+          "url": "https://dioceseitapeva.com.br/paroquia/sao-roque-taquarituba/",
+          "title": "Paróquia São Roque | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://dioceseitapeva.com.br/paroquias/",
+          "title": "Paróquias | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+          "title": "Horários de Missas | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Roque",
+          "address": "Praça São Roque, 1",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/sao-roque-taquarituba/",
+              "title": "Paróquia São Roque | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São Roque",
+          "dayOfWeek": 0,
+          "time": "10:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+              "title": "Horários de Missas | Diocese de Itapeva — Paróquia São Roque",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Roque",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+              "title": "Horários de Missas | Diocese de Itapeva — Paróquia São Roque",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Roque",
+          "dayOfWeek": 2,
+          "time": "09:00",
+          "type": "CONFESSION",
+          "notes": "Confissões: Terça-feira: 9h às 11h30",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/sao-roque-taquarituba/",
+              "title": "Confissões — Paróquia São Roque | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São Roque",
+          "dayOfWeek": 3,
+          "time": "09:00",
+          "type": "CONFESSION",
+          "notes": "Confissões: Quarta-feira: 9h às 11h30 e das 14h às 16h30",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/sao-roque-taquarituba/",
+              "title": "Confissões — Paróquia São Roque | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São Roque",
+          "dayOfWeek": 3,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+              "title": "Horários de Missas | Diocese de Itapeva — Paróquia São Roque",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Roque",
+          "dayOfWeek": 4,
+          "time": "09:00",
+          "type": "CONFESSION",
+          "notes": "Confissões: Quinta-feira: 9h às 11h30 e das 17h às 19h",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/sao-roque-taquarituba/",
+              "title": "Confissões — Paróquia São Roque | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São Roque",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+              "title": "Horários de Missas | Diocese de Itapeva — Paróquia São Roque",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Roque",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Recorrência mensal (Sexta-feira) — 1ª Sexta do mês",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+              "title": "Horários de Missas | Diocese de Itapeva — Paróquia São Roque",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Roque",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+              "title": "Horários de Missas | Diocese de Itapeva — Paróquia São Roque",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "imaculada-conceicao-taquarivai",
+      "name": "Paróquia Imaculada Conceição",
+      "city": "Taquarivaí",
+      "state": "SP",
+      "neighborhood": "Centro",
+      "address": "Praça Vidal Nunes Fonseca, 720",
+      "zipCode": null,
+      "phone": "(15) 99788-1349",
+      "email": "imacon2012@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Adilson de Oliveira Souza",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseitapeva.com.br/paroquia/imaculada-conceicao-de-nossa-senhora-taquarivai/",
+          "title": "Paróquia Imaculada Conceição | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://dioceseitapeva.com.br/paroquias/",
+          "title": "Paróquias | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://dioceseitapeva.com.br/horarios-de-missas/",
+          "title": "Horários de Missas | Diocese de Itapeva",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Imaculada Conceição",
+          "address": "Praça Vidal Nunes Fonseca, 720",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/imaculada-conceicao-de-nossa-senhora-taquarivai/",
+              "title": "Paróquia Imaculada Conceição | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Imaculada Conceição",
+          "dayOfWeek": 3,
+          "time": "09:00",
+          "type": "CONFESSION",
+          "notes": "Confissões: Quarta e Quinta-feira: 9h às 11h e das 14h às 16h30",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/imaculada-conceicao-de-nossa-senhora-taquarivai/",
+              "title": "Confissões — Paróquia Imaculada Conceição | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Imaculada Conceição",
+          "dayOfWeek": 4,
+          "time": "09:00",
+          "type": "CONFESSION",
+          "notes": "Confissões: Quarta e Quinta-feira: 9h às 11h e das 14h às 16h30",
+          "sources": [
+            {
+              "url": "https://dioceseitapeva.com.br/paroquia/imaculada-conceicao-de-nossa-senhora-taquarivai/",
+              "title": "Confissões — Paróquia Imaculada Conceição | Diocese de Itapeva",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    }
+  ],
+  "coverage": {
+    "parishesFound": 37,
+    "parishesExpected": 28,
+    "notes": "As 37 entradas são exatamente os registros do custom post type \"paroquia\" do site oficial (https://dioceseitapeva.com.br/paroquias/, lidos via /wp-json/wp/v2/paroquia). Destas, 34 são paróquias e 3 são ÁREAS PASTORAIS (Nossa Senhora Aparecida e São Pedro / Alto da Brancal, Sant’Ana / Guarizinho e São Roque / Areia Branca, todas em distritos de Itapeva) — a diocese as lista junto das paróquias, mas não são paróquias canônicas; ficam identificadas pelo prefixo \"Área Pastoral\" no nome, para o enxame de validação decidir se entram. O catholic-hierarchy.org registra 28 paróquias (dado de 2023) e o site oficial traz 34 — a diferença é compatível com criações posteriores a 2023 e com a inclusão das áreas pastorais na mesma listagem. Cobre 22 municípios: Apiaí, Barra do Chapéu, Barão de Antonina, Bom Sucesso de Itararé, Buri, Capão Bonito, Coronel Macedo, Guapiara, Itaberá, Itapeva, Itapirapuã Paulista, Itaporanga, Itararé, Itaí, Itaóca, Nova Campina, Ribeira, Ribeirão Branco, Ribeirão Grande, Riversul, Taquarituba, Taquarivaí. O site NÃO publica comunidades/capelas por paróquia, então communities traz apenas a matriz (o importador cria a igreja-matriz). Horários de missa vêm da tabela oficial https://dioceseitapeva.com.br/horarios-de-missas/ (só 13 das 37 entradas têm tabela preenchida); os horários de confissão vêm da página de cada paróquia e entram como \"media\" porque o site publica intervalos (\"09h às 11h\") e o modelo só guarda o horário de início — o intervalo completo fica em notes."
+  }
+}
