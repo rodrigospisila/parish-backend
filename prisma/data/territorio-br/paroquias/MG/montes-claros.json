@@ -28,8 +28,18 @@
         "accessedAt": "2026-09-10"
       },
       {
+        "url": "https://arquimoc.org/horarios-de-missa/",
+        "title": "Horários de Missa na Arquidiocese de Montes Claros — página oficial consolidada por forania (publicada em 23/09/2025, atualizada em 16/04/2026)",
+        "accessedAt": "2026-09-10"
+      },
+      {
+        "url": "https://arquimoc.org/horarios-confissao/",
+        "title": "Atendimento de confissão na Arquidiocese de Montes Claros — página oficial (17/09/2025)",
+        "accessedAt": "2026-09-10"
+      },
+      {
         "url": "https://www.catholic-hierarchy.org/diocese/dmocl.html",
-        "title": "Montes Claros (Archdiocese) [Catholic-Hierarchy]",
+        "title": "Montes Claros (Archdiocese) [Catholic-Hierarchy] — 68 paróquias, 129 presbíteros, 698.000 católicos em 885.000 habitantes (2023)",
         "accessedAt": "2026-09-10"
       }
     ],
@@ -410,8 +420,279 @@
         }
       ],
       "confidence": "alta",
-      "communities": [],
-      "schedules": []
+      "communities": [
+        {
+          "name": "Matriz",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquimoc.org/paroquias/capelania-hospital-da-santa-casa-nossa-senhora-das-merces-capela-da-santa-casa/",
+              "title": "Capelania Hospital da Santa Casa Nossa Senhora das Mercês - Capela da Santa Casa | Arquidiocese de Montes Claros",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://arquimoc.org/paroquias/capelania-hospital-da-santa-casa-nossa-senhora-das-merces-capela-da-santa-casa/",
+              "title": "Capelania Hospital da Santa Casa Nossa Senhora das Mercês – Capela da Santa Casa | Arquidiocese de Montes Claros (página modificada em 18/06/2024)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://arquimoc.org/paroquias/capelania-hospital-da-santa-casa-nossa-senhora-das-merces-capela-da-santa-casa/",
+              "title": "Capelania Hospital da Santa Casa Nossa Senhora das Mercês – Capela da Santa Casa | Arquidiocese de Montes Claros (página modificada em 18/06/2024)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 1,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://arquimoc.org/paroquias/capelania-hospital-da-santa-casa-nossa-senhora-das-merces-capela-da-santa-casa/",
+              "title": "Capelania Hospital da Santa Casa Nossa Senhora das Mercês – Capela da Santa Casa | Arquidiocese de Montes Claros (página modificada em 18/06/2024)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 1,
+          "time": "12:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://arquimoc.org/paroquias/capelania-hospital-da-santa-casa-nossa-senhora-das-merces-capela-da-santa-casa/",
+              "title": "Capelania Hospital da Santa Casa Nossa Senhora das Mercês – Capela da Santa Casa | Arquidiocese de Montes Claros (página modificada em 18/06/2024)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 2,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://arquimoc.org/paroquias/capelania-hospital-da-santa-casa-nossa-senhora-das-merces-capela-da-santa-casa/",
+              "title": "Capelania Hospital da Santa Casa Nossa Senhora das Mercês – Capela da Santa Casa | Arquidiocese de Montes Claros (página modificada em 18/06/2024)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 2,
+          "time": "12:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://arquimoc.org/paroquias/capelania-hospital-da-santa-casa-nossa-senhora-das-merces-capela-da-santa-casa/",
+              "title": "Capelania Hospital da Santa Casa Nossa Senhora das Mercês – Capela da Santa Casa | Arquidiocese de Montes Claros (página modificada em 18/06/2024)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 2,
+          "time": "12:30",
+          "type": "ADORATION",
+          "notes": "Fonte: \"12h30 – Exposição do Santíssimo Sacramento; 12h30 às 16h – Adoração; 16h – Benção\".",
+          "sources": [
+            {
+              "url": "https://arquimoc.org/paroquias/capelania-hospital-da-santa-casa-nossa-senhora-das-merces-capela-da-santa-casa/",
+              "title": "Capelania Hospital da Santa Casa Nossa Senhora das Mercês – Capela da Santa Casa | Arquidiocese de Montes Claros (página modificada em 18/06/2024)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://arquimoc.org/paroquias/capelania-hospital-da-santa-casa-nossa-senhora-das-merces-capela-da-santa-casa/",
+              "title": "Capelania Hospital da Santa Casa Nossa Senhora das Mercês – Capela da Santa Casa | Arquidiocese de Montes Claros (página modificada em 18/06/2024)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "12:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://arquimoc.org/paroquias/capelania-hospital-da-santa-casa-nossa-senhora-das-merces-capela-da-santa-casa/",
+              "title": "Capelania Hospital da Santa Casa Nossa Senhora das Mercês – Capela da Santa Casa | Arquidiocese de Montes Claros (página modificada em 18/06/2024)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "12:30",
+          "type": "ADORATION",
+          "notes": "Fonte: \"12h30 – Exposição do Santíssimo Sacramento; 12h30 às 14h – Adoração; 16h30 – Benção\".",
+          "sources": [
+            {
+              "url": "https://arquimoc.org/paroquias/capelania-hospital-da-santa-casa-nossa-senhora-das-merces-capela-da-santa-casa/",
+              "title": "Capelania Hospital da Santa Casa Nossa Senhora das Mercês – Capela da Santa Casa | Arquidiocese de Montes Claros (página modificada em 18/06/2024)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://arquimoc.org/paroquias/capelania-hospital-da-santa-casa-nossa-senhora-das-merces-capela-da-santa-casa/",
+              "title": "Capelania Hospital da Santa Casa Nossa Senhora das Mercês – Capela da Santa Casa | Arquidiocese de Montes Claros (página modificada em 18/06/2024)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "12:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://arquimoc.org/paroquias/capelania-hospital-da-santa-casa-nossa-senhora-das-merces-capela-da-santa-casa/",
+              "title": "Capelania Hospital da Santa Casa Nossa Senhora das Mercês – Capela da Santa Casa | Arquidiocese de Montes Claros (página modificada em 18/06/2024)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "12:30",
+          "type": "ADORATION",
+          "notes": "Fonte: \"12h30 – Exposição do Santíssimo Sacramento; 12h30 às 17h – Adoração; 17h – Benção\".",
+          "sources": [
+            {
+              "url": "https://arquimoc.org/paroquias/capelania-hospital-da-santa-casa-nossa-senhora-das-merces-capela-da-santa-casa/",
+              "title": "Capelania Hospital da Santa Casa Nossa Senhora das Mercês – Capela da Santa Casa | Arquidiocese de Montes Claros (página modificada em 18/06/2024)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://arquimoc.org/paroquias/capelania-hospital-da-santa-casa-nossa-senhora-das-merces-capela-da-santa-casa/",
+              "title": "Capelania Hospital da Santa Casa Nossa Senhora das Mercês – Capela da Santa Casa | Arquidiocese de Montes Claros (página modificada em 18/06/2024)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "12:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://arquimoc.org/paroquias/capelania-hospital-da-santa-casa-nossa-senhora-das-merces-capela-da-santa-casa/",
+              "title": "Capelania Hospital da Santa Casa Nossa Senhora das Mercês – Capela da Santa Casa | Arquidiocese de Montes Claros (página modificada em 18/06/2024)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://arquimoc.org/paroquias/capelania-hospital-da-santa-casa-nossa-senhora-das-merces-capela-da-santa-casa/",
+              "title": "Capelania Hospital da Santa Casa Nossa Senhora das Mercês – Capela da Santa Casa | Arquidiocese de Montes Claros (página modificada em 18/06/2024)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "12:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://arquimoc.org/paroquias/capelania-hospital-da-santa-casa-nossa-senhora-das-merces-capela-da-santa-casa/",
+              "title": "Capelania Hospital da Santa Casa Nossa Senhora das Mercês – Capela da Santa Casa | Arquidiocese de Montes Claros (página modificada em 18/06/2024)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
     },
     {
       "slug": "santa-efigenia-10-batalhao-da-policia-militar-do-estado-de-minas-gerais-montes-claros",
@@ -1439,7 +1720,158 @@
           "confidence": "alta"
         }
       ],
-      "schedules": []
+      "schedules": [
+        {
+          "community": "Matriz Menino Jesus de Praga",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://arquimoc.org/horarios-de-missa/",
+              "title": "Horários de Missa na Arquidiocese de Montes Claros — página oficial consolidada (publicada em 23/09/2025, atualizada em 16/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Menino Jesus de Praga",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://arquimoc.org/horarios-de-missa/",
+              "title": "Horários de Missa na Arquidiocese de Montes Claros — página oficial consolidada (publicada em 23/09/2025, atualizada em 16/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Menino Jesus de Praga",
+          "dayOfWeek": 0,
+          "time": "16:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://arquimoc.org/horarios-de-missa/",
+              "title": "Horários de Missa na Arquidiocese de Montes Claros — página oficial consolidada (publicada em 23/09/2025, atualizada em 16/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Menino Jesus de Praga",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://arquimoc.org/horarios-de-missa/",
+              "title": "Horários de Missa na Arquidiocese de Montes Claros — página oficial consolidada (publicada em 23/09/2025, atualizada em 16/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Menino Jesus de Praga",
+          "dayOfWeek": 1,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://arquimoc.org/horarios-de-missa/",
+              "title": "Horários de Missa na Arquidiocese de Montes Claros — página oficial consolidada (publicada em 23/09/2025, atualizada em 16/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Menino Jesus de Praga",
+          "dayOfWeek": 2,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://arquimoc.org/horarios-de-missa/",
+              "title": "Horários de Missa na Arquidiocese de Montes Claros — página oficial consolidada (publicada em 23/09/2025, atualizada em 16/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Menino Jesus de Praga",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://arquimoc.org/horarios-de-missa/",
+              "title": "Horários de Missa na Arquidiocese de Montes Claros — página oficial consolidada (publicada em 23/09/2025, atualizada em 16/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Menino Jesus de Praga",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://arquimoc.org/horarios-de-missa/",
+              "title": "Horários de Missa na Arquidiocese de Montes Claros — página oficial consolidada (publicada em 23/09/2025, atualizada em 16/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Menino Jesus de Praga",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://arquimoc.org/horarios-de-missa/",
+              "title": "Horários de Missa na Arquidiocese de Montes Claros — página oficial consolidada (publicada em 23/09/2025, atualizada em 16/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Menino Jesus de Praga",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://arquimoc.org/horarios-de-missa/",
+              "title": "Horários de Missa na Arquidiocese de Montes Claros — página oficial consolidada (publicada em 23/09/2025, atualizada em 16/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
     },
     {
       "slug": "nossa-senhora-aparecida-brasilia-de-minas",
@@ -2123,7 +2555,98 @@
           "confidence": "alta"
         }
       ],
-      "schedules": []
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora Aparecida – Bairro Vale das Palmeiras",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://arquimoc.org/horarios-de-missa/",
+              "title": "Horários de Missa na Arquidiocese de Montes Claros — página oficial consolidada (publicada em 23/09/2025, atualizada em 16/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora Aparecida – Bairro Vale das Palmeiras",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://arquimoc.org/horarios-de-missa/",
+              "title": "Horários de Missa na Arquidiocese de Montes Claros — página oficial consolidada (publicada em 23/09/2025, atualizada em 16/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora Aparecida – Bairro Vale das Palmeiras",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://arquimoc.org/horarios-de-missa/",
+              "title": "Horários de Missa na Arquidiocese de Montes Claros — página oficial consolidada (publicada em 23/09/2025, atualizada em 16/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora Aparecida – Bairro Vale das Palmeiras",
+          "dayOfWeek": 4,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": "Fonte: \"07:00 e 19:00 (Quinta-feira)\".",
+          "sources": [
+            {
+              "url": "https://arquimoc.org/horarios-de-missa/",
+              "title": "Horários de Missa na Arquidiocese de Montes Claros — página oficial consolidada (publicada em 23/09/2025, atualizada em 16/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora Aparecida – Bairro Vale das Palmeiras",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Fonte: \"07:00 e 19:00 (Quinta-feira)\".",
+          "sources": [
+            {
+              "url": "https://arquimoc.org/horarios-de-missa/",
+              "title": "Horários de Missa na Arquidiocese de Montes Claros — página oficial consolidada (publicada em 23/09/2025, atualizada em 16/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora Aparecida – Bairro Vale das Palmeiras",
+          "dayOfWeek": 6,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://arquimoc.org/horarios-de-missa/",
+              "title": "Horários de Missa na Arquidiocese de Montes Claros — página oficial consolidada (publicada em 23/09/2025, atualizada em 16/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
     },
     {
       "slug": "nossa-senhora-aparecida-montes-claros",
@@ -2729,7 +3252,38 @@
           "confidence": "alta"
         }
       ],
-      "schedules": []
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora Aparecida",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://arquimoc.org/horarios-de-missa/",
+              "title": "Horários de Missa na Arquidiocese de Montes Claros — página oficial consolidada (publicada em 23/09/2025, atualizada em 16/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora Aparecida",
+          "dayOfWeek": 3,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": "Fonte: \"08:00 (Quarta-feira)\".",
+          "sources": [
+            {
+              "url": "https://arquimoc.org/horarios-de-missa/",
+              "title": "Horários de Missa na Arquidiocese de Montes Claros — página oficial consolidada (publicada em 23/09/2025, atualizada em 16/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
     },
     {
       "slug": "nossa-senhora-aparecida-e-sao-jose-montes-claros",
@@ -3160,7 +3714,83 @@
           "confidence": "alta"
         }
       ],
-      "schedules": []
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://arquimoc.org/horarios-de-missa/",
+              "title": "Horários de Missa na Arquidiocese de Montes Claros — página oficial consolidada (publicada em 23/09/2025, atualizada em 16/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://arquimoc.org/horarios-de-missa/",
+              "title": "Horários de Missa na Arquidiocese de Montes Claros — página oficial consolidada (publicada em 23/09/2025, atualizada em 16/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Fonte: \"19:00 (Quinta e 1ª sexta-feira do mês)\".",
+          "sources": [
+            {
+              "url": "https://arquimoc.org/horarios-de-missa/",
+              "title": "Horários de Missa na Arquidiocese de Montes Claros — página oficial consolidada (publicada em 23/09/2025, atualizada em 16/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Regra literal da fonte: \"19:00 (Quinta e 1ª sexta-feira do mês)\" — a parte da sexta é mensal e não cabe no modelo semanal.",
+          "sources": [
+            {
+              "url": "https://arquimoc.org/horarios-de-missa/",
+              "title": "Horários de Missa na Arquidiocese de Montes Claros — página oficial consolidada (publicada em 23/09/2025, atualizada em 16/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Capela Bom Jesus",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Regra literal da fonte: \"19:00 (Sexta-feira, exceto na 1ª sexta do mês)\" — recorrência com exceção mensal, não cabe no modelo semanal.",
+          "sources": [
+            {
+              "url": "https://arquimoc.org/horarios-de-missa/",
+              "title": "Horários de Missa na Arquidiocese de Montes Claros — página oficial consolidada (publicada em 23/09/2025, atualizada em 16/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
     },
     {
       "slug": "nossa-senhora-da-conceicao-cristalia",
@@ -3368,7 +3998,38 @@
           "confidence": "alta"
         }
       ],
-      "schedules": []
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://arquimoc.org/horarios-de-missa/",
+              "title": "Horários de Missa na Arquidiocese de Montes Claros — página oficial consolidada (publicada em 23/09/2025, atualizada em 16/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Fonte: \"19:00 (Quinta-feira)\".",
+          "sources": [
+            {
+              "url": "https://arquimoc.org/horarios-de-missa/",
+              "title": "Horários de Missa na Arquidiocese de Montes Claros — página oficial consolidada (publicada em 23/09/2025, atualizada em 16/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
     },
     {
       "slug": "nossa-senhora-da-conceicao-francisco-dumont",
@@ -9196,7 +9857,113 @@
           "confidence": "alta"
         }
       ],
-      "schedules": []
+      "schedules": [
+        {
+          "community": "Matriz Santa Rita",
+          "dayOfWeek": 0,
+          "time": "07:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://arquimoc.org/horarios-de-missa/",
+              "title": "Horários de Missa na Arquidiocese de Montes Claros — página oficial consolidada (publicada em 23/09/2025, atualizada em 16/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Santa Rita",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://arquimoc.org/horarios-de-missa/",
+              "title": "Horários de Missa na Arquidiocese de Montes Claros — página oficial consolidada (publicada em 23/09/2025, atualizada em 16/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Santa Rita",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://arquimoc.org/horarios-de-missa/",
+              "title": "Horários de Missa na Arquidiocese de Montes Claros — página oficial consolidada (publicada em 23/09/2025, atualizada em 16/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Santa Rita",
+          "dayOfWeek": 2,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Fonte: \"19:00 (Terça a sexta-feira)\". A página oficial não lista missa de sábado nesta paróquia.",
+          "sources": [
+            {
+              "url": "https://arquimoc.org/horarios-de-missa/",
+              "title": "Horários de Missa na Arquidiocese de Montes Claros — página oficial consolidada (publicada em 23/09/2025, atualizada em 16/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Santa Rita",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Fonte: \"19:00 (Terça a sexta-feira)\". A página oficial não lista missa de sábado nesta paróquia.",
+          "sources": [
+            {
+              "url": "https://arquimoc.org/horarios-de-missa/",
+              "title": "Horários de Missa na Arquidiocese de Montes Claros — página oficial consolidada (publicada em 23/09/2025, atualizada em 16/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Santa Rita",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Fonte: \"19:00 (Terça a sexta-feira)\". A página oficial não lista missa de sábado nesta paróquia.",
+          "sources": [
+            {
+              "url": "https://arquimoc.org/horarios-de-missa/",
+              "title": "Horários de Missa na Arquidiocese de Montes Claros — página oficial consolidada (publicada em 23/09/2025, atualizada em 16/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Santa Rita",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Fonte: \"19:00 (Terça a sexta-feira)\". A página oficial não lista missa de sábado nesta paróquia.",
+          "sources": [
+            {
+              "url": "https://arquimoc.org/horarios-de-missa/",
+              "title": "Horários de Missa na Arquidiocese de Montes Claros — página oficial consolidada (publicada em 23/09/2025, atualizada em 16/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
     },
     {
       "slug": "santa-rita-de-cassia-ubai",
@@ -9726,7 +10493,83 @@
           "confidence": "alta"
         }
       ],
-      "schedules": []
+      "schedules": [
+        {
+          "community": "Matriz Santa Rita de Cássia – Centro",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://arquimoc.org/horarios-de-missa/",
+              "title": "Horários de Missa na Arquidiocese de Montes Claros — página oficial consolidada (publicada em 23/09/2025, atualizada em 16/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Santa Rita de Cássia – Centro",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://arquimoc.org/horarios-de-missa/",
+              "title": "Horários de Missa na Arquidiocese de Montes Claros — página oficial consolidada (publicada em 23/09/2025, atualizada em 16/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Santa Rita de Cássia – Centro",
+          "dayOfWeek": 3,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": "Fonte: \"06:00 (Quarta-feira)\".",
+          "sources": [
+            {
+              "url": "https://arquimoc.org/horarios-de-missa/",
+              "title": "Horários de Missa na Arquidiocese de Montes Claros — página oficial consolidada (publicada em 23/09/2025, atualizada em 16/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Santa Rita de Cássia – Centro",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Fonte: \"19:00 (Quinta-feira, 1ª sexta-feira do mês, dia 22 de cada mês)\".",
+          "sources": [
+            {
+              "url": "https://arquimoc.org/horarios-de-missa/",
+              "title": "Horários de Missa na Arquidiocese de Montes Claros — página oficial consolidada (publicada em 23/09/2025, atualizada em 16/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Santa Rita de Cássia – Centro",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Regra literal da fonte: \"19:00 (Quinta-feira, 1ª sexta-feira do mês, dia 22 de cada mês)\" — a 1ª sexta é mensal. A missa do dia 22 de cada mês não tem dia da semana e por isso não foi gravada.",
+          "sources": [
+            {
+              "url": "https://arquimoc.org/horarios-de-missa/",
+              "title": "Horários de Missa na Arquidiocese de Montes Claros — página oficial consolidada (publicada em 23/09/2025, atualizada em 16/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
     },
     {
       "slug": "santissimo-coracao-de-jesus-coracao-de-jesus",
@@ -10750,7 +11593,7 @@
           "confidence": "alta"
         },
         {
-          "name": "Divino Espírito Santo",
+          "name": "Divino Espírito Santo – Riacho dos Barreiros",
           "address": null,
           "neighborhood": "Riacho dos Barreiros",
           "isMatriz": false,
@@ -10888,9 +11731,186 @@
             }
           ],
           "confidence": "alta"
+        },
+        {
+          "name": "Igrejinha do Rosário",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquimoc.org/paroquias/paroquia-santo-antonio-grao-mogol/",
+              "title": "Paróquia Santo Antônio - Grão Mogol / MG | Arquidiocese de Montes Claros",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Matriz Santo Antônio",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquimoc.org/paroquias/paroquia-santo-antonio-grao-mogol/",
+              "title": "Paróquia Santo Antônio - Grão Mogol / MG | Arquidiocese de Montes Claros",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Asilo São Vicente de Paulo",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquimoc.org/paroquias/paroquia-santo-antonio-grao-mogol/",
+              "title": "Paróquia Santo Antônio - Grão Mogol / MG | Arquidiocese de Montes Claros",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela do Divino Espírito Santo – Vaú",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://arquimoc.org/paroquias/paroquia-santo-antonio-grao-mogol/",
+              "title": "Paróquia Santo Antônio - Grão Mogol / MG | Arquidiocese de Montes Claros",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
         }
       ],
-      "schedules": []
+      "schedules": [
+        {
+          "community": "Igrejinha do Rosário",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://arquimoc.org/paroquias/paroquia-santo-antonio-grao-mogol/",
+              "title": "Paróquia Santo Antônio – Grão Mogol / MG | Arquidiocese de Montes Claros (página modificada em 24/07/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Santo Antônio",
+          "dayOfWeek": 0,
+          "time": "10:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://arquimoc.org/paroquias/paroquia-santo-antonio-grao-mogol/",
+              "title": "Paróquia Santo Antônio – Grão Mogol / MG | Arquidiocese de Montes Claros (página modificada em 24/07/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Santo Antônio",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://arquimoc.org/paroquias/paroquia-santo-antonio-grao-mogol/",
+              "title": "Paróquia Santo Antônio – Grão Mogol / MG | Arquidiocese de Montes Claros (página modificada em 24/07/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Santo Antônio",
+          "dayOfWeek": 4,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://arquimoc.org/paroquias/paroquia-santo-antonio-grao-mogol/",
+              "title": "Paróquia Santo Antônio – Grão Mogol / MG | Arquidiocese de Montes Claros (página modificada em 24/07/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Santo Antônio",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://arquimoc.org/paroquias/paroquia-santo-antonio-grao-mogol/",
+              "title": "Paróquia Santo Antônio – Grão Mogol / MG | Arquidiocese de Montes Claros (página modificada em 24/07/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Asilo São Vicente de Paulo",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Regra literal da fonte: \"Toda 1°sexta do Mês em honra ao Sagrado Coração de Jesus – 19:00 – Asilo São Vicente de Paulo\" (recorrência mensal, não cabe no modelo semanal).",
+          "sources": [
+            {
+              "url": "https://arquimoc.org/paroquias/paroquia-santo-antonio-grao-mogol/",
+              "title": "Paróquia Santo Antônio – Grão Mogol / MG | Arquidiocese de Montes Claros (página modificada em 24/07/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Igrejinha do Rosário",
+          "dayOfWeek": 6,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": "Regra literal da fonte: \"1°, 2° e 3º sábado do mês – 08:00 – Igrejinha do Rosário\" (recorrência mensal, não cabe no modelo semanal).",
+          "sources": [
+            {
+              "url": "https://arquimoc.org/paroquias/paroquia-santo-antonio-grao-mogol/",
+              "title": "Paróquia Santo Antônio – Grão Mogol / MG | Arquidiocese de Montes Claros (página modificada em 24/07/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Capela do Divino Espírito Santo – Vaú",
+          "dayOfWeek": 6,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": "Regra literal da fonte: \"Último sábado do mês – 09:00 – Capela do Divino Espírito Santo no Vaú\" (recorrência mensal, não cabe no modelo semanal).",
+          "sources": [
+            {
+              "url": "https://arquimoc.org/paroquias/paroquia-santo-antonio-grao-mogol/",
+              "title": "Paróquia Santo Antônio – Grão Mogol / MG | Arquidiocese de Montes Claros (página modificada em 24/07/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
     },
     {
       "slug": "santo-antonio-luislandia",
@@ -17179,7 +18199,53 @@
           "confidence": "alta"
         }
       ],
-      "schedules": []
+      "schedules": [
+        {
+          "community": "Matriz São João Batista",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://arquimoc.org/horarios-de-missa/",
+              "title": "Horários de Missa na Arquidiocese de Montes Claros — página oficial consolidada (publicada em 23/09/2025, atualizada em 16/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São João Batista",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://arquimoc.org/horarios-de-missa/",
+              "title": "Horários de Missa na Arquidiocese de Montes Claros — página oficial consolidada (publicada em 23/09/2025, atualizada em 16/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São João Batista",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Fonte: \"19:00 (Quinta-feira)\".",
+          "sources": [
+            {
+              "url": "https://arquimoc.org/horarios-de-missa/",
+              "title": "Horários de Missa na Arquidiocese de Montes Claros — página oficial consolidada (publicada em 23/09/2025, atualizada em 16/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
     },
     {
       "slug": "sao-joao-batista-montes-claros",
@@ -19106,7 +20172,233 @@
           "confidence": "alta"
         }
       ],
-      "schedules": []
+      "schedules": [
+        {
+          "community": "Matriz São Judas Tadeu",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://arquimoc.org/horarios-de-missa/",
+              "title": "Horários de Missa na Arquidiocese de Montes Claros — página oficial consolidada (publicada em 23/09/2025, atualizada em 16/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Judas Tadeu",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://arquimoc.org/horarios-de-missa/",
+              "title": "Horários de Missa na Arquidiocese de Montes Claros — página oficial consolidada (publicada em 23/09/2025, atualizada em 16/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Judas Tadeu",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://arquimoc.org/horarios-de-missa/",
+              "title": "Horários de Missa na Arquidiocese de Montes Claros — página oficial consolidada (publicada em 23/09/2025, atualizada em 16/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Judas Tadeu",
+          "dayOfWeek": 1,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": "Confere integralmente com o Instagram oficial @saojudasmoc.",
+          "sources": [
+            {
+              "url": "https://arquimoc.org/horarios-de-missa/",
+              "title": "Horários de Missa na Arquidiocese de Montes Claros — página oficial consolidada (publicada em 23/09/2025, atualizada em 16/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Judas Tadeu",
+          "dayOfWeek": 1,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Confere integralmente com o Instagram oficial @saojudasmoc.",
+          "sources": [
+            {
+              "url": "https://arquimoc.org/horarios-de-missa/",
+              "title": "Horários de Missa na Arquidiocese de Montes Claros — página oficial consolidada (publicada em 23/09/2025, atualizada em 16/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Judas Tadeu",
+          "dayOfWeek": 2,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": "Confere integralmente com o Instagram oficial @saojudasmoc.",
+          "sources": [
+            {
+              "url": "https://arquimoc.org/horarios-de-missa/",
+              "title": "Horários de Missa na Arquidiocese de Montes Claros — página oficial consolidada (publicada em 23/09/2025, atualizada em 16/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Judas Tadeu",
+          "dayOfWeek": 2,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Confere integralmente com o Instagram oficial @saojudasmoc.",
+          "sources": [
+            {
+              "url": "https://arquimoc.org/horarios-de-missa/",
+              "title": "Horários de Missa na Arquidiocese de Montes Claros — página oficial consolidada (publicada em 23/09/2025, atualizada em 16/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Judas Tadeu",
+          "dayOfWeek": 3,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": "Confere integralmente com o Instagram oficial @saojudasmoc.",
+          "sources": [
+            {
+              "url": "https://arquimoc.org/horarios-de-missa/",
+              "title": "Horários de Missa na Arquidiocese de Montes Claros — página oficial consolidada (publicada em 23/09/2025, atualizada em 16/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Judas Tadeu",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Confere integralmente com o Instagram oficial @saojudasmoc.",
+          "sources": [
+            {
+              "url": "https://arquimoc.org/horarios-de-missa/",
+              "title": "Horários de Missa na Arquidiocese de Montes Claros — página oficial consolidada (publicada em 23/09/2025, atualizada em 16/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Judas Tadeu",
+          "dayOfWeek": 4,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": "Confere integralmente com o Instagram oficial @saojudasmoc.",
+          "sources": [
+            {
+              "url": "https://arquimoc.org/horarios-de-missa/",
+              "title": "Horários de Missa na Arquidiocese de Montes Claros — página oficial consolidada (publicada em 23/09/2025, atualizada em 16/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Judas Tadeu",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Confere integralmente com o Instagram oficial @saojudasmoc.",
+          "sources": [
+            {
+              "url": "https://arquimoc.org/horarios-de-missa/",
+              "title": "Horários de Missa na Arquidiocese de Montes Claros — página oficial consolidada (publicada em 23/09/2025, atualizada em 16/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Judas Tadeu",
+          "dayOfWeek": 5,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": "Confere integralmente com o Instagram oficial @saojudasmoc.",
+          "sources": [
+            {
+              "url": "https://arquimoc.org/horarios-de-missa/",
+              "title": "Horários de Missa na Arquidiocese de Montes Claros — página oficial consolidada (publicada em 23/09/2025, atualizada em 16/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Judas Tadeu",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Confere integralmente com o Instagram oficial @saojudasmoc.",
+          "sources": [
+            {
+              "url": "https://arquimoc.org/horarios-de-missa/",
+              "title": "Horários de Missa na Arquidiocese de Montes Claros — página oficial consolidada (publicada em 23/09/2025, atualizada em 16/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Judas Tadeu",
+          "dayOfWeek": 6,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://arquimoc.org/horarios-de-missa/",
+              "title": "Horários de Missa na Arquidiocese de Montes Claros — página oficial consolidada (publicada em 23/09/2025, atualizada em 16/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Judas Tadeu",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://arquimoc.org/horarios-de-missa/",
+              "title": "Horários de Missa na Arquidiocese de Montes Claros — página oficial consolidada (publicada em 23/09/2025, atualizada em 16/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
     },
     {
       "slug": "sao-norberto-montes-claros",
@@ -21283,7 +22575,83 @@
           "confidence": "alta"
         }
       ],
-      "schedules": []
+      "schedules": [
+        {
+          "community": "Matriz São Sebastião – Mirabela",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://arquimoc.org/horarios-de-missa/",
+              "title": "Horários de Missa na Arquidiocese de Montes Claros — página oficial consolidada (publicada em 23/09/2025, atualizada em 16/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Sebastião – Mirabela",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://arquimoc.org/horarios-de-missa/",
+              "title": "Horários de Missa na Arquidiocese de Montes Claros — página oficial consolidada (publicada em 23/09/2025, atualizada em 16/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Sebastião – Mirabela",
+          "dayOfWeek": 2,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Fonte: \"19:00 (Terça, quinta e sexta-feira)\".",
+          "sources": [
+            {
+              "url": "https://arquimoc.org/horarios-de-missa/",
+              "title": "Horários de Missa na Arquidiocese de Montes Claros — página oficial consolidada (publicada em 23/09/2025, atualizada em 16/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Sebastião – Mirabela",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Fonte: \"19:00 (Terça, quinta e sexta-feira)\".",
+          "sources": [
+            {
+              "url": "https://arquimoc.org/horarios-de-missa/",
+              "title": "Horários de Missa na Arquidiocese de Montes Claros — página oficial consolidada (publicada em 23/09/2025, atualizada em 16/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Sebastião – Mirabela",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Fonte: \"19:00 (Terça, quinta e sexta-feira)\".",
+          "sources": [
+            {
+              "url": "https://arquimoc.org/horarios-de-missa/",
+              "title": "Horários de Missa na Arquidiocese de Montes Claros — página oficial consolidada (publicada em 23/09/2025, atualizada em 16/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
     },
     {
       "slug": "sao-sebastiao-e-nossa-senhora-de-fatima-campo-azul",
@@ -22971,7 +24339,53 @@
           "confidence": "alta"
         }
       ],
-      "schedules": []
+      "schedules": [
+        {
+          "community": "Matriz Senhor Bom Jesus",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://arquimoc.org/horarios-de-missa/",
+              "title": "Horários de Missa na Arquidiocese de Montes Claros — página oficial consolidada (publicada em 23/09/2025, atualizada em 16/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Senhor Bom Jesus",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://arquimoc.org/horarios-de-missa/",
+              "title": "Horários de Missa na Arquidiocese de Montes Claros — página oficial consolidada (publicada em 23/09/2025, atualizada em 16/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Senhor Bom Jesus",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Fonte: \"19:00 (Quinta-feira)\".",
+          "sources": [
+            {
+              "url": "https://arquimoc.org/horarios-de-missa/",
+              "title": "Horários de Missa na Arquidiocese de Montes Claros — página oficial consolidada (publicada em 23/09/2025, atualizada em 16/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
     },
     {
       "slug": "senhor-bom-jesus-santa-cruz-de-salinas",
@@ -24789,6 +26203,6 @@
   "coverage": {
     "parishesFound": 76,
     "parishesExpected": 76,
-    "notes": "Cobertura integral da listagem oficial: os 76 registros vieram da REST API do próprio site da Arquidiocese (wp/v2/paroquias, X-WP-Total: 76) e conferem com a página \"Foranias e Paróquias\". Deles, 68 são paróquias — exatamente o número declarado pelo site institucional (\"68 paróquias, 1 curato e mais de mil comunidades\") e pelo catholic-hierarchy.org (68 paróquias em 2023) —, 1 é a quase-paróquia (curato) de São João do Pacuí e 7 são capelanias (hospitalares, militar, colégio e Carmelo), que o importador ignora por não serem paróquias. Comunidades e horários vieram das 76 páginas individuais do site oficial. 23 registros (19 paróquias + 4 capelanias hospitalares) não publicam horário de missa na página; 41 horários são de recorrência mensal e ficaram com confidence \"baixa\"."
+    "notes": "Cobertura integral da listagem oficial: os 76 registros vieram da REST API do próprio site da Arquidiocese (wp/v2/paroquias, X-WP-Total: 76) e conferem com a página \"Foranias e Paróquias\". Deles, 68 são paróquias — exatamente o número declarado pelo site institucional (\"68 paróquias, 1 curato e mais de mil comunidades\") e pelo catholic-hierarchy.org (68 paróquias em 2023) —, 1 é a quase-paróquia (curato) de São João do Pacuí e 7 são capelanias (hospitalares, militar, colégio e Carmelo), que o importador ignora por não serem paróquias. Comunidades e horários vieram das 76 páginas individuais do site oficial. Os horários vieram de duas fontes oficiais: as páginas individuais das paróquias e a página consolidada https://arquimoc.org/horarios-de-missa/ (publicada em 23/09/2025 e atualizada em 16/04/2026), usada para as 11 paróquias que não publicam grade na própria página. Sobraram 10 registros sem horário (7 paróquias e 3 capelanias hospitalares); 47 horários são de recorrência mensal e ficaram com confidence \"baixa\". A página https://arquimoc.org/horarios-confissao/ confirma que essas paróquias atendem confissão só por agendamento na secretaria."
   }
 }

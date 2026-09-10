@@ -98,6 +98,45 @@ Nossa Senhora das Dores 21, São José 17.
 Nessas 4, os horários de missa do post arquivado foram **substituídos** pelos do site atual; os de
 adoração / terço / confissão que só o post arquivado publica foram preservados (com `media`).
 
+## Decisão pendente do Rodrigo: a confiança dos 665 horários arquivados
+
+Os horários que vêm dos posts arquivados estão gravados como **`media`**, seguindo a letra do README
+(*"media — … ou **fonte oficial sem sinal de atualidade**"*): são do site oficial da diocese, não são
+fonte não-oficial, dado inferido nem contraditório (que é a definição de `baixa`). Cada um traz um campo
+**`provenance`** com a data exata da captura e o aviso de que o texto é de ~2018.
+
+Durante a revisão, um agente do enxame rebaixou os 665 para `baixa`. **Revertido**, porque o efeito é
+grande e a decisão não é técnica: com tudo em `baixa`, o importador (`min-confidence=media`) deixaria
+**75 das 79 paróquias sem nenhum horário** — a carga de horários da diocese inteira iria a zero.
+
+- **Manter `media`** (estado atual): entram 695 horários; assume-se que uma grade de missas de 2018
+  ainda descreve razoavelmente a realidade, com o aviso em `provenance`.
+- **Rebaixar para `baixa`**: entram só os 30 `alta` (4 paróquias). Um `sed` resolve:
+  `s/"confidence": "media"/"confidence": "baixa"/` nos `schedules`.
+
+Recomendação: manter `media` e priorizar a revalidação por agregadores/redes sociais, que é barata
+e transforma boa parte desses 665 em `alta`.
+
+## Ajustes de carga aplicados (heurística `isMatrizName` do importador)
+
+`import-territorio.ts` (l.62) trata como igreja-matriz **qualquer** comunidade cujo nome case
+`/matriz|catedral|santuário/i`. Três registros deste dataset caíam nessa armadilha e sequestravam
+os horários que apontam para `"Matriz"`:
+
+| Paróquia | Problema | Correção |
+|---|---|---|
+| São José — Estiva Gerbi | "Santuário Rosa Mística" casava o regex → a matriz sintética não era criada e os **8 horários da matriz** iam para o santuário | `"status": "nao-paroquial"` (é santuário diocesano, não comunidade — regra do prompt); o importador volta a criar `Matriz São José` |
+| Divino Espírito Santo e N. S. das Dores — E. S. do Pinhal | "Comunidade Santuário Santa Luzia" vinha **antes** da "Matriz" na lista → assumiria o papel de matriz, levando **18 horários** | "Santuário" retirado do `name` das duas comunidades (nome integral da fonte em `notes`) |
+| Santa Teresa D'Ávila — Mogi Guaçu | eu havia marcado `isMatriz: true` em "Comunidade Perpétuo Socorro – **Futura** Matriz" (é a futura matriz, em outro bairro) → **2 horários** no lugar errado | `isMatriz: false`, "Matriz" retirado do `name`, horários devolvidos a `"Matriz"` |
+
+Além disso, a comunidade-matriz declarada foi movida para a **1ª posição** de `communities` em todas as
+paróquias que a declaram, para ser a primeira criada no banco.
+
+**Simulação da lógica do importador (l.184–222) sobre o arquivo final**: 0 matrizes mal resolvidas,
+0 horários órfãos, **695 horários** e **641 comunidades** entram na carga (o importador cria 55 matrizes
+sintéticas `Matriz <padroeiro>` para as paróquias cuja fonte não nomeia a matriz — comportamento correto
+e esperado, ver l.188-191).
+
 ## Pontos que precisam de validação humana
 
 ### 1. Paróquia São Sebastião de Tambaú — paróquia ou comunidade? (`confidence: media`)
@@ -142,9 +181,10 @@ Os anos do site **não** parecem datas de cadastro no CMS: são variados e coere
 ### 4. Idade dos horários (**o maior risco deste dataset**)
 
 **Todos os 892 horários que não vêm das 4 páginas atuais foram redigidos em ~2018 e capturados em
-setembro de 2020.** Entram como `media` porque são fonte oficial sem sinal de atualidade (regra do
-README), mas **têm 6–8 anos** e atravessaram a pandemia. Recomenda-se revalidação por amostragem antes
-de exibi-los como horário corrente — ou marcar a origem na UI.
+setembro de 2020** — ver a seção "Decisão pendente" no topo. Entram como `media` porque são fonte oficial
+sem sinal de atualidade (regra do README), mas **têm 6–8 anos** e atravessaram a pandemia. Cada registro
+traz o campo **`provenance`** com a data exata da captura; a UI deveria exibir essa ressalva. Revalidação
+por amostragem é a próxima tarefa mais valiosa nesta diocese.
 
 ### 5. 227 horários `baixa`
 

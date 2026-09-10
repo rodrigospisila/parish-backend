@@ -20,7 +20,7 @@
 | Horários fixos | **73** (59 missas, 6 confissões, 6 adorações, 2 terços) |
 | — confiança dos horários | 19 `alta`, 8 `media`, 46 `baixa` |
 | Paróquias com ao menos um horário | 12 de 33 |
-| Cidades distintas | 22 |
+| Cidades distintas | 24 |
 | Foranias | 6 |
 
 ## Fontes principais

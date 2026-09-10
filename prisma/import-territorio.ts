@@ -216,10 +216,16 @@ async function importDioceseFile(file: string) {
       const type = (['MASS', 'CONFESSION', 'ADORATION', 'ROSARY'].includes((s.type ?? '').toUpperCase()) ? (s.type as string).toUpperCase() : 'MASS') as MassScheduleType;
       const wanted = normalize(s.community ?? 'Matriz');
       let target = matriz;
-      if (wanted && wanted !== 'matriz' && !isMatrizName(s.community ?? '')) {
-        const match = comms.find((c) => normalize(c.name).includes(wanted) || wanted.includes(normalize(c.name)));
-        if (!match) { stats.misses.push(`${p.name}: "${s.community}" (dia ${s.dayOfWeek} ${s.time})`); continue; }
-        target = match;
+      if (wanted && wanted !== 'matriz') {
+        // Procurar a comunidade nomeada SEMPRE vem primeiro: há paróquia com
+        // santuário além da matriz ("Santuário da Boa Morte" em Rio Claro), e
+        // desviar pelo nome mandaria as missas do santuário para a matriz.
+        // A matriz só é o destino quando o nome é uma referência genérica a ela
+        // ("Igreja Matriz", "Catedral") sem comunidade própria na lista.
+        const match = comms.find((c) => normalize(c.name) === wanted)
+          ?? comms.find((c) => normalize(c.name).includes(wanted) || wanted.includes(normalize(c.name)));
+        if (match) target = match;
+        else if (!isMatrizName(s.community ?? '')) { stats.misses.push(`${p.name}: "${s.community}" (dia ${s.dayOfWeek} ${s.time})`); continue; }
       }
       if (!target) continue;
       if (DRY || target.id.startsWith('dry-')) { stats.schedules += 1; continue; }

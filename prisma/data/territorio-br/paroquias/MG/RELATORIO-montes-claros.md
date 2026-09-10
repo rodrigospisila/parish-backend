@@ -15,10 +15,10 @@
 | — quase-paróquia (curato) | 1 (São João do Pacuí) |
 | — capelanias (não entram na carga) | 7 |
 | Confiança dos registros | 76 `alta`, 0 `media`, 0 `baixa` |
-| Comunidades/capelas | **1.096** |
-| Horários fixos | **492** (353 missas, 128 confissões, 10 adorações, 1 terço) |
-| — confiança dos horários | 302 `alta`, 149 `media`, 41 `baixa` |
-| Paróquias com ao menos um horário | 53 de 76 |
+| Comunidades/capelas | **1.101** |
+| Horários fixos | **580** (438 missas, 128 confissões, 13 adorações, 1 terço) |
+| — confiança dos horários | 367 `alta`, 166 `media`, 47 `baixa` |
+| Registros com ao menos um horário | 66 de 76 |
 | Cidades distintas | 42 |
 | Foranias | 12 (+ o agrupamento "Capelanias") |
 
@@ -42,7 +42,13 @@ Praticamente todo o dataset saiu de **uma única fonte oficial e viva**: o site 
    860.299 habitantes (IBGE 2022), 40 municípios, 12 foranias, "68 paróquias, 1 curato e mais de
    mil comunidades de fé", histórico e sucessão dos bispos/arcebispos.
 5. **`https://arquimoc.org/foranias-e-paroquias/`** — conferência da listagem por forania.
-6. **`https://www.catholic-hierarchy.org/diocese/dmocl.html`** — corroboração: 68 paróquias, 129
+6. **`https://arquimoc.org/horarios-de-missa/`** — **a segunda melhor descoberta desta rodada**: uma
+   página oficial que consolida os horários de missa de toda a Arquidiocese, organizada por forania
+   (no núcleo urbano de Montes Claros, por dia e hora; no interior, por paróquia). Publicada em
+   23/09/2025 e **atualizada em 16/04/2026** (data confirmada pela REST API, post id 77705). Foi ela
+   que resolveu as paróquias que não publicam grade na própria página.
+7. **`https://arquimoc.org/horarios-confissao/`** (17/09/2025) — página irmã, para confissão.
+8. **`https://www.catholic-hierarchy.org/diocese/dmocl.html`** — corroboração: 68 paróquias, 129
    presbíteros (93 diocesanos e 36 religiosos), 698.000 católicos em 885.000 habitantes (2023),
    45.521 km².
 
@@ -63,23 +69,59 @@ descarta nomes que começam por `Capelania`. O mesmo vale para o Carmelo (casa r
 
 ## O que ficou de fora / precisa de validação humana
 
-### 1. 23 registros sem nenhum horário publicado (19 paróquias + 4 capelanias)
+### 1. 10 registros sem nenhum horário (7 paróquias + 3 capelanias hospitalares)
 
-A página oficial simplesmente não tem a seção "Horários de Missa" para:
+19 paróquias não têm a seção "Horários de Missa" na própria página — nelas o widget vem literalmente
+vazio no HTML (`<table class="dce-acf-repeater-table"></table>`). **Onze foram resolvidas pela
+página consolidada da Arquidiocese** (`arquimoc.org/horarios-de-missa/`, atualizada em 16/04/2026):
+Menino Jesus de Praga, Santa Rita de Cássia e São Judas Tadeu (Montes Claros), Nossa Senhora
+Aparecida (Brasília de Minas), Nossa Senhora Aparecida (Glaucilândia), Nossa Senhora da Conceição
+(Jequitaí), Nossa Senhora da Conceição (Cristália), Santa Rita de Cássia (Ubaí), São João Batista
+(Guaraciama), São Sebastião (Mirabela) e Senhor Bom Jesus (Rubelita). E **uma (Santo Antônio, Grão
+Mogol) foi transcrita à mão** da própria página, que usa um layout diferente do resto do site (dia
+da semana em uma linha, horários nas linhas seguintes) e por isso escapava do extrator — o mesmo
+layout aparece só na Capelania da Santa Casa, também transcrita à mão.
 
-Menino Jesus de Praga (Montes Claros), Santa Rita de Cássia (Montes Claros), São Judas Tadeu
-(Montes Claros), Nossa Senhora Aparecida (Brasília de Minas), Nossa Senhora Aparecida
-(Glaucilândia), Nossa Senhora da Conceição (Jequitaí), Nossa Senhora da Conceição (Cristália),
-Nossa Senhora do Perpétuo Socorro (Lontra), Sant'Ana (Ponto Chique), Santa Rita de Cássia (Ubaí),
-Santo Antônio (Grão Mogol), São Francisco de Assis (Botumirim), São João Batista (Guaraciama),
-São João Batista (Terra Branca), São Sebastião (Berizal), São Sebastião (Mirabela), São Sebastião e
-Nossa Senhora de Fátima (Campo Azul), Senhor Bom Jesus (Rubelita), Senhor Bom Jesus (Lagoa dos
-Patos) — mais as capelanias dos 4 hospitais.
+**Continuam sem nenhum horário — 7 paróquias**: Nossa Senhora do Perpétuo Socorro (Lontra),
+Sant'Ana (Ponto Chique), São Francisco de Assis (Botumirim), São João Batista (Terra Branca,
+distrito de Bocaiúva), São Sebastião (Berizal), São Sebastião e Nossa Senhora de Fátima (Campo Azul)
+e Senhor Bom Jesus (Lagoa dos Patos). **Mais 3 capelanias hospitalares** (Aroldo Tourinho, Dilson
+Godinho e Hospital Universitário Clemente Farias), que o importador ignora de qualquer forma.
 
-Quase todas têm Facebook/Instagram oficial linkado na própria página (os links estão no HTML de
-origem); é o caminho natural para uma segunda rodada.
+Achado importante sobre essas 7: na página consolidada, as cidades delas aparecem **apenas no
+cabeçalho da forania** (ex.: "Forania São Gonçalo — Botumirim, Capitão Enéas, Cristália, Francisco
+Sá e Grão Mogol"), sem nenhuma linha de horário própria — verificado por busca literal no HTML.
+**A Arquidiocese simplesmente não publica os horários delas.** Também não há nada em
+`horariodemissa.com.br` (as fichas de Montes Claros estão sem horário e paradas desde 27/05/2013),
+`missahora.com.br` nem `horariosmissa.com.br` (404 nas 7 cidades); Facebook e Instagram das
+paróquias exigem login. O caminho é contato direto — telefones que apareceram em fontes públicas:
+Lontra (38) 99751-4067 · Ponto Chique (38) 99808-5988 · Botumirim (38) 3223-0039 · Lagoa dos Patos
+(38) 99897-0760 · ou a Assessoria de Comunicação da Arquidiocese, (38) 98423-8384 /
+comunicacao@arquimoc.org.
 
-### 2. 41 horários de recorrência MENSAL (`confidence: "baixa"`)
+**Lead NÃO confirmado para Ponto Chique**: um snippet de busca sugeria "quarta 19h30; domingo 06h30,
+09h30 e 19h30", aparentemente vindo do `diariocidade.com` — domínio hoje fora do ar (DNS não
+resolve). **Não foi gravado.** Não usar sem confirmar com a paróquia.
+
+### 1.1. Confissão: resposta negativa verificada
+
+A página `https://arquimoc.org/horarios-confissao/` (17/09/2025) lista essas 19 paróquias e, em
+**todas**, o atendimento é "Agendamentos na secretaria da paróquia" — nenhuma tem horário fixo de
+confissão. Os 128 registros `CONFESSION` do arquivo vêm das outras paróquias, que publicam grade na
+própria página.
+
+### 1.2. Reconciliação pendente entre as duas fontes oficiais
+
+A página consolidada foi usada **só** para as paróquias que não tinham horário nenhum. As outras 53
+ficaram com o que a própria paróquia publica. As duas fontes não foram confrontadas linha a linha —
+e a consolidada é mais recente (16/04/2026) do que boa parte das páginas de paróquia. **Essa
+reconciliação é o item mais valioso para o enxame de validação**: a consolidada cobre a
+Arquidiocese inteira, tem estrutura regular e traz também as comunidades urbanas de Montes Claros
+com horário próprio (Capela Universitária Nossa Senhora do Rosário, Priorado Nossa Senhora
+Aparecida e São Norberto, Noviciado Franciscano São Benedito, Comunidade São Vicente/Asilinho e
+outras) que não aparecem nas páginas paroquiais.
+
+### 2. 47 horários de recorrência MENSAL (`confidence: "baixa"`)
 
 Não cabem no `MassSchedule` (que só tem dia da semana). A regra literal da fonte foi copiada em
 `notes`. Concentração:
@@ -88,9 +130,10 @@ Não cabem no `MassSchedule` (que só tem dia da semana). A regra literal da fon
   *só* missas mensais nas 16 comunidades rurais ("Caixão: 1º sábado do mês – 14:00", "Campo Verde:
   1º domingo – 08:00 e 3º domingo – 17:00" etc.). Nenhuma missa semanal.
 - Nossa Senhora Aparecida e São José (Montes Claros) — 4; São José Carpinteiro e Maria de Nazaré
-  (Montes Claros) — 3; Mãe Rainha (MOC), Santíssimo Coração de Jesus (Coração de Jesus), Santo
-  Antônio (Salinas), São João Batista (São João da Lagoa), São José (Josenópolis) — 2 cada;
-  Nossa Senhora da Esperança (Nova Esperança), Santo Antônio (Luislândia), São Gonçalo (Francisco
+  (Montes Claros) e Santo Antônio (Grão Mogol) — 3 cada; Mãe Rainha (MOC), Nossa Senhora da
+  Conceição (Jequitaí), Santíssimo Coração de Jesus (Coração de Jesus), Santo Antônio (Salinas),
+  São João Batista (São João da Lagoa), São José (Josenópolis) — 2 cada; Nossa Senhora da Esperança
+  (Nova Esperança), Santa Rita de Cássia (Ubaí), Santo Antônio (Luislândia), São Gonçalo (Francisco
   Sá), São José Operário (MOC), Senhor Bom Jesus (Santa Cruz de Salinas), Senhora Sant'Ana
   (Brasília de Minas), Quase-paróquia São João Batista (São João do Pacuí) — 1 cada.
 
@@ -98,17 +141,17 @@ Há ainda regras **puramente devocionais por dia do mês**, que não têm dia da
 isso foram **descartadas** (não estão no JSON): "Dia 13 de cada mês – 12:00 (Hora da Graça com Rosa
 Mística)" na Paróquia Nossa Senhora Rosa Mística; "Dia 14 de cada mês – 06:30, 15:00 e 19:00" no
 Santuário Senhor do Bonfim (Bocaiúva); "Todo dia 13 – 19:00" na Paróquia Santo Antônio (Grão
-Mogol). São missas reais e frequentadas — se o Parish passar a modelar recorrência mensal, vale
-voltar nessas três.
+Mogol); "dia 22 de cada mês – 19:00" na Paróquia Santa Rita de Cássia (Ubaí). São missas reais e
+frequentadas — se o Parish passar a modelar recorrência mensal, vale voltar nessas quatro.
 
-### 3. 149 horários com `confidence: "media"` por falta de sinal de atualidade
+### 3. 166 horários com `confidence: "media"` por falta de sinal de atualidade
 
 Regra aplicada: página oficial modificada **antes de 10/09/2025** (campo `modified` da REST API) →
-`media`; a partir daí → `alta`. 35 das 76 páginas estão nessa faixa; 18 delas publicam horário, o
-que gerou os 149 registros `media`. Os maiores blocos: São Sebastião/Taiobeiras (20), Matriz de
-Montes Claros (14), São José Carpinteiro e Maria de Nazaré/MOC (13), Perpétuo Socorro e Todos os
-Santos/MOC (12) e Sagrado Coração de Jesus/Bocaiúva (12). O conteúdo é oficial; só não há sinal de
-atualização recente.
+`media`; a partir daí → `alta`. 35 das 76 páginas estão nessa faixa; 19 delas publicam horário, o
+que gerou os 166 registros `media`. Os maiores blocos: São Sebastião/Taiobeiras (20), Capelania da
+Santa Casa (17, transcrita à mão de página de 18/06/2024), Matriz de Montes Claros (14), São José
+Carpinteiro e Maria de Nazaré/MOC (13), Perpétuo Socorro e Todos os Santos/MOC (12) e Sagrado
+Coração de Jesus/Bocaiúva (12). O conteúdo é oficial; só não há sinal de atualização recente.
 
 ### 4. Celebração da Palavra não virou missa
 
@@ -186,7 +229,7 @@ se fundem na carga — mas o casamento de *horário* com comunidade é feito só
 `includes` nos dois sentidos. Um horário apontando para "Nossa Senhora Aparecida" cairia na
 primeira da lista.
 
-Por isso, **406 das 1.096 comunidades ficaram com o rótulo completo no campo `name`**
+Por isso, **477 das 1.101 comunidades ficaram com o rótulo completo no campo `name`**
 ("Nossa Senhora Aparecida – Pipocas"), com o povoado repetido em `neighborhood`. A regra aplicada:
 o nome curto vira rótulo completo sempre que ele se repete na paróquia **ou** é substring do nome
 de outra comunidade da mesma paróquia (era o caso de "Nossa Senhora da Imaculada Conceição" x
