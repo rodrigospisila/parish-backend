@@ -133,6 +133,11 @@ Casos identificados e **descartados** do JSON:
   ao real.
 - **Nome do arcebispo**: `arquimoc.org` não tem página de contato do arcebispo com nome padronizado;
   o nome veio do texto institucional e do catholic-hierarchy.
+- **Endereço da cúria divergente**: o arquivo grava "Rua Januária, 371 – Centro, CEP 39400-077",
+  que é o da Secretaria Arquiepiscopal e da Assessoria de Comunicação no rodapé de `arquimoc.org`.
+  O catholic-hierarchy registra "Praça Dr. Chaves 52" e telefone (38) 3221-8728; o site ainda cita
+  um terceiro endereço, o Centro Administrativo Arquidiocesano (Rua Afonso Celso Guimarães, 392 –
+  Jardim São Luiz, 39401-058, tel. (38) 2211-9434). São três endereços institucionais diferentes.
 - **"Paróquia Nossa Senhora Imaculada Conceição / Novorizonte"** e **"Paróquia São Sebastião /
   Berizal"**: o *slug* da URL de origem é `quase-paroquia-...`, mas o título atual da página já diz
   "Paróquia". Foi adotado "Paróquia" (o título vigente). Confirmar se houve elevação.

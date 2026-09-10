@@ -10,7 +10,7 @@
   "phone": "(19) 3807-3434",
   "email": null,
   "website": "https://diocesedeamparo.org.br",
-  "bishopName": null,
+  "bishopName": "Dom Luiz Gonzaga Fechio",
   "sources": [
    {
     "url": "https://diocesedeamparo.org.br/paroquias/",
@@ -20,6 +20,11 @@
    {
     "url": "https://diocesedeamparo.org.br/wp-json/wp/v2/paroquia?per_page=100",
     "title": "WP REST API — tipo \"paroquia\" (X-WP-Total: 34)",
+    "accessedAt": "2026-09-10"
+   },
+   {
+    "url": "https://www.catholic-hierarchy.org/diocese/dampa.html",
+    "title": "Amparo (Diocese) — Catholic-Hierarchy",
     "accessedAt": "2026-09-10"
    }
   ],
@@ -716,21 +721,7 @@
      "confidence": "alta"
     },
     {
-     "name": "Matriz | Mães que Oram pelos Filhos",
-     "address": null,
-     "neighborhood": null,
-     "isMatriz": false,
-     "sources": [
-      {
-       "url": "https://diocesedeamparo.org.br/paroquia/paroquia-nossa-senhora-aparecida-do-triunfo/",
-       "title": "Paróquia Nossa Senhora Aparecida do Triunfo — Diocese de Amparo",
-       "accessedAt": "2026-09-10"
-      }
-     ],
-     "confidence": "alta"
-    },
-    {
-     "name": "Matirz | Missa votiva ao Sagrado Coração de Jesus",
+     "name": "Matirz",
      "address": null,
      "neighborhood": null,
      "isMatriz": false,
@@ -806,11 +797,11 @@
      "confidence": "alta"
     },
     {
-     "community": "Matriz | Mães que Oram pelos Filhos",
+     "community": "Matriz Nossa Senhora Aparecida do Triunfo",
      "dayOfWeek": 2,
      "time": "19:00",
      "type": "MASS",
-     "notes": null,
+     "notes": "Terça-feira | 19h | Matriz | Mães que Oram pelos Filhos",
      "sources": [
       {
        "url": "https://diocesedeamparo.org.br/paroquia/paroquia-nossa-senhora-aparecida-do-triunfo/",
@@ -851,7 +842,7 @@
      "confidence": "alta"
     },
     {
-     "community": "Matirz | Missa votiva ao Sagrado Coração de Jesus",
+     "community": "Matirz",
      "dayOfWeek": 5,
      "time": "19:00",
      "type": "MASS",
@@ -948,20 +939,6 @@
     },
     {
      "name": "Comunidade Santa Edwiges",
-     "address": null,
-     "neighborhood": null,
-     "isMatriz": false,
-     "sources": [
-      {
-       "url": "https://diocesedeamparo.org.br/paroquia/paroquia-santa-maria/",
-       "title": "Paróquia Santa Maria — Diocese de Amparo",
-       "accessedAt": "2026-09-10"
-      }
-     ],
-     "confidence": "alta"
-    },
-    {
-     "name": "Matriz Nova | Missa do Santíssimo",
      "address": null,
      "neighborhood": null,
      "isMatriz": false,
@@ -1082,7 +1059,7 @@
      "confidence": "alta"
     },
     {
-     "community": "Matriz Nova | Missa do Santíssimo",
+     "community": "Matriz Nova",
      "dayOfWeek": 4,
      "time": "19:30",
      "type": "MASS",
@@ -1306,7 +1283,7 @@
    "name": "Paróquia Sagrado Coração de Jesus",
    "city": "Holambra",
    "state": "SP",
-   "neighborhood": "S/Nº",
+   "neighborhood": "Bairro João Aldo Nassif",
    "address": "Praça Holambra",
    "zipCode": null,
    "phone": "(19) 3837-3309",
@@ -1327,7 +1304,7 @@
     {
      "name": "Matriz Sagrado Coração de Jesus",
      "address": "Praça Holambra",
-     "neighborhood": "S/Nº",
+     "neighborhood": "Bairro João Aldo Nassif",
      "isMatriz": true,
      "sources": [
       {
@@ -1901,7 +1878,7 @@
    "name": "Paróquia São Benedito",
    "city": "Itapira",
    "state": "SP",
-   "neighborhood": "S/Nº",
+   "neighborhood": "Centro",
    "address": "Largo São Benedito",
    "zipCode": null,
    "phone": "(19) 3863-1939",
@@ -1922,7 +1899,7 @@
     {
      "name": "Matriz São Benedito",
      "address": "Largo São Benedito",
-     "neighborhood": "S/Nº",
+     "neighborhood": "Centro",
      "isMatriz": true,
      "sources": [
       {
@@ -2238,7 +2215,7 @@
      "confidence": "alta"
     },
     {
-     "name": "Capela Santa Terezinha | Fazenda Integrado",
+     "name": "Capela Santa Terezinha",
      "address": null,
      "neighborhood": null,
      "isMatriz": false,
@@ -2294,7 +2271,7 @@
      "confidence": "alta"
     },
     {
-     "name": "Capela Santa Bárbara | Fazenda Santa Bárbara",
+     "name": "Capela Santa Bárbara",
      "address": null,
      "neighborhood": null,
      "isMatriz": false,
@@ -2385,7 +2362,7 @@
      "confidence": "alta"
     },
     {
-     "community": "Capela Santa Terezinha | Fazenda Integrado",
+     "community": "Capela Santa Terezinha",
      "dayOfWeek": 3,
      "time": "17:30",
      "type": "MASS",
@@ -2490,7 +2467,7 @@
      "confidence": "baixa"
     },
     {
-     "community": "Capela Santa Bárbara | Fazenda Santa Bárbara",
+     "community": "Capela Santa Bárbara",
      "dayOfWeek": 5,
      "time": "19:30",
      "type": "MASS",
@@ -3033,7 +3010,7 @@
    "name": "Paróquia Nossa Senhora da Penha",
    "city": "Itapira",
    "state": "SP",
-   "neighborhood": "S/Nº",
+   "neighborhood": "Centro",
    "address": "Praça Dr. Bernardino de Campos",
    "zipCode": null,
    "phone": "(19) 3863-0807",
@@ -3054,7 +3031,7 @@
     {
      "name": "Matriz Nossa Senhora da Penha",
      "address": "Praça Dr. Bernardino de Campos",
-     "neighborhood": "S/Nº",
+     "neighborhood": "Centro",
      "isMatriz": true,
      "sources": [
       {
@@ -3834,7 +3811,7 @@
    "name": "Paróquia São José",
    "city": "Mogi Mirim",
    "state": "SP",
-   "neighborhood": "S/Nº",
+   "neighborhood": "Centro",
    "address": "Praça São José",
    "zipCode": null,
    "phone": "(19) 3862-2340",
@@ -3855,7 +3832,7 @@
     {
      "name": "Matriz São José",
      "address": "Praça São José",
-     "neighborhood": "S/Nº",
+     "neighborhood": "Centro",
      "isMatriz": true,
      "sources": [
       {
@@ -3895,21 +3872,7 @@
      "confidence": "alta"
     },
     {
-     "name": "Matriz | Terço das Mães",
-     "address": null,
-     "neighborhood": null,
-     "isMatriz": false,
-     "sources": [
-      {
-       "url": "https://diocesedeamparo.org.br/paroquia/paroquia-sao-jose/",
-       "title": "Paróquia São José — Diocese de Amparo",
-       "accessedAt": "2026-09-10"
-      }
-     ],
-     "confidence": "alta"
-    },
-    {
-     "name": "Missa | Terço dos Homens",
+     "name": "Missa",
      "address": null,
      "neighborhood": null,
      "isMatriz": false,
@@ -4015,11 +3978,11 @@
      "confidence": "alta"
     },
     {
-     "community": "Matriz | Terço das Mães",
+     "community": "Matriz São José",
      "dayOfWeek": 1,
      "time": "19:00",
      "type": "MASS",
-     "notes": null,
+     "notes": "Segunda-feira | 19h | Matriz | Terço das Mães",
      "sources": [
       {
        "url": "https://diocesedeamparo.org.br/paroquia/paroquia-sao-jose/",
@@ -4045,7 +4008,7 @@
      "confidence": "alta"
     },
     {
-     "community": "Missa | Terço dos Homens",
+     "community": "Missa",
      "dayOfWeek": 4,
      "time": "19:00",
      "type": "MASS",
@@ -4533,34 +4496,6 @@
       }
      ],
      "confidence": "alta"
-    },
-    {
-     "name": "Matriz | Novena do Perpétuo Socorro",
-     "address": null,
-     "neighborhood": null,
-     "isMatriz": false,
-     "sources": [
-      {
-       "url": "https://diocesedeamparo.org.br/paroquia/paroquia-santa-cruz/",
-       "title": "Paróquia Santa Cruz — Diocese de Amparo",
-       "accessedAt": "2026-09-10"
-      }
-     ],
-     "confidence": "alta"
-    },
-    {
-     "name": "Matriz | Missa dos Enfermos",
-     "address": null,
-     "neighborhood": null,
-     "isMatriz": false,
-     "sources": [
-      {
-       "url": "https://diocesedeamparo.org.br/paroquia/paroquia-santa-cruz/",
-       "title": "Paróquia Santa Cruz — Diocese de Amparo",
-       "accessedAt": "2026-09-10"
-      }
-     ],
-     "confidence": "alta"
     }
    ],
    "schedules": [
@@ -4610,11 +4545,11 @@
      "confidence": "alta"
     },
     {
-     "community": "Matriz | Novena do Perpétuo Socorro",
+     "community": "Matriz Santa Cruz",
      "dayOfWeek": 2,
      "time": "19:00",
      "type": "MASS",
-     "notes": null,
+     "notes": "Terça-feira | 19h | Matriz | Novena do Perpétuo Socorro",
      "sources": [
       {
        "url": "https://diocesedeamparo.org.br/paroquia/paroquia-santa-cruz/",
@@ -4640,7 +4575,7 @@
      "confidence": "alta"
     },
     {
-     "community": "Matriz | Missa dos Enfermos",
+     "community": "Matriz Santa Cruz",
      "dayOfWeek": 5,
      "time": "15:00",
      "type": "MASS",
@@ -5261,20 +5196,6 @@
      "confidence": "alta"
     },
     {
-     "name": "Matriz | Missa do Imaculado Coração de Maria",
-     "address": null,
-     "neighborhood": null,
-     "isMatriz": false,
-     "sources": [
-      {
-       "url": "https://diocesedeamparo.org.br/paroquia/paroquia-nossa-senhora-das-brotas/",
-       "title": "Paróquia Nossa Senhora das Brotas — Diocese de Amparo",
-       "accessedAt": "2026-09-10"
-      }
-     ],
-     "confidence": "alta"
-    },
-    {
      "name": "Comunidade Nossa Senhora Aparecida - Laje",
      "address": null,
      "neighborhood": null,
@@ -5315,25 +5236,11 @@
       }
      ],
      "confidence": "alta"
-    },
-    {
-     "name": "Matriz | Missa do Sagrado Coração de Jesus",
-     "address": null,
-     "neighborhood": null,
-     "isMatriz": false,
-     "sources": [
-      {
-       "url": "https://diocesedeamparo.org.br/paroquia/paroquia-nossa-senhora-das-brotas/",
-       "title": "Paróquia Nossa Senhora das Brotas — Diocese de Amparo",
-       "accessedAt": "2026-09-10"
-      }
-     ],
-     "confidence": "alta"
     }
    ],
    "schedules": [
     {
-     "community": "Matriz | Missa do Imaculado Coração de Maria",
+     "community": "Matriz Nossa Senhora das Brotas",
      "dayOfWeek": 6,
      "time": "08:00",
      "type": "MASS",
@@ -5453,7 +5360,7 @@
      "confidence": "alta"
     },
     {
-     "community": "Matriz | Missa do Sagrado Coração de Jesus",
+     "community": "Matriz Nossa Senhora das Brotas",
      "dayOfWeek": 5,
      "time": "19:00",
      "type": "MASS",
@@ -5592,20 +5499,6 @@
     },
     {
      "name": "Comunidade Imaculada Conceição – Alves",
-     "address": null,
-     "neighborhood": null,
-     "isMatriz": false,
-     "sources": [
-      {
-       "url": "https://diocesedeamparo.org.br/paroquia/paroquia-santuario-do-senhor-bom-jesus/",
-       "title": "Paróquia Santuário do Senhor Bom Jesus — Diocese de Amparo",
-       "accessedAt": "2026-09-10"
-      }
-     ],
-     "confidence": "alta"
-    },
-    {
-     "name": "Santuário | Novena Perpétua do Senhor Bom Jesus",
      "address": null,
      "neighborhood": null,
      "isMatriz": false,
@@ -5826,7 +5719,7 @@
      "confidence": "baixa"
     },
     {
-     "community": "Santuário | Novena Perpétua do Senhor Bom Jesus",
+     "community": "Santuário",
      "dayOfWeek": 3,
      "time": "19:00",
      "type": "MASS",
@@ -7955,9 +7848,9 @@
   {
    "slug": "nossa-senhora-aparecida-de-arcadas-amparo",
    "name": "Paróquia Nossa Senhora Aparecida de Arcadas",
-   "city": null,
+   "city": "Amparo",
    "state": "SP",
-   "neighborhood": null,
+   "neighborhood": "Distrito de Arcadas",
    "address": "Rua Jacobsen, s/nº – Distrito de Arcadas",
    "zipCode": null,
    "phone": "(19) 3907-1056",
@@ -7978,7 +7871,7 @@
     {
      "name": "Matriz Nossa Senhora Aparecida de Arcadas",
      "address": "Rua Jacobsen, s/nº – Distrito de Arcadas",
-     "neighborhood": null,
+     "neighborhood": "Distrito de Arcadas",
      "isMatriz": true,
      "sources": [
       {
@@ -8259,8 +8152,8 @@
    ]
   },
   {
-   "slug": "catedral-nossa-senhora-do-amparo-amparo",
-   "name": "Paróquia Catedral Nossa Senhora do Amparo",
+   "slug": "nossa-senhora-do-amparo-amparo",
+   "name": "Catedral Nossa Senhora do Amparo",
    "city": "Amparo",
    "state": "SP",
    "neighborhood": "Centro",
@@ -8491,11 +8384,651 @@
      "confidence": "alta"
     }
    ]
+  },
+  {
+   "slug": "area-pastoral-nossa-senhora-de-guadalupe-santo-antonio-de-posse",
+   "name": "Área Pastoral Nossa Senhora de Guadalupe",
+   "city": "Santo Antônio de Posse",
+   "state": "SP",
+   "neighborhood": null,
+   "address": "Rua José Ferro, 365 CEP. 13831-188 – Santo Antônio de Posse – SP",
+   "zipCode": "13831188",
+   "phone": "Fone: (19)3896-1326 / WhatsApp: (19) 9.96206457",
+   "email": "paroquia.posse@gmail.com",
+   "website": null,
+   "priestName": null,
+   "foundedYear": 2025,
+   "forania": "Sant'Ana",
+   "sources": [
+    {
+     "url": "https://diocesedeamparo.org.br/area-pastoral/area-pastoral-nossa-senhora-de-guadalupe-santo-antonio-de-posse/",
+     "title": "Área Pastoral Nossa Senhora de Guadalupe — Diocese de Amparo",
+     "accessedAt": "2026-09-10"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Área Pastoral Nossa Senhora de Guadalupe",
+     "address": "Rua José Ferro, 365 CEP. 13831-188 – Santo Antônio de Posse – SP",
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedeamparo.org.br/area-pastoral/area-pastoral-nossa-senhora-de-guadalupe-santo-antonio-de-posse/",
+       "title": "Área Pastoral Nossa Senhora de Guadalupe — Diocese de Amparo",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Comunidade N. Sra. de Lourdes",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://diocesedeamparo.org.br/area-pastoral/area-pastoral-nossa-senhora-de-guadalupe-santo-antonio-de-posse/",
+       "title": "Área Pastoral Nossa Senhora de Guadalupe — Diocese de Amparo",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Comunidade São Francisco Xavier",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://diocesedeamparo.org.br/area-pastoral/area-pastoral-nossa-senhora-de-guadalupe-santo-antonio-de-posse/",
+       "title": "Área Pastoral Nossa Senhora de Guadalupe — Diocese de Amparo",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Comunidade Santa Rita de Cassia",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://diocesedeamparo.org.br/area-pastoral/area-pastoral-nossa-senhora-de-guadalupe-santo-antonio-de-posse/",
+       "title": "Área Pastoral Nossa Senhora de Guadalupe — Diocese de Amparo",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Comunidade N. Sra. de Guadalupe",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://diocesedeamparo.org.br/area-pastoral/area-pastoral-nossa-senhora-de-guadalupe-santo-antonio-de-posse/",
+       "title": "Área Pastoral Nossa Senhora de Guadalupe — Diocese de Amparo",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Capela São Vicente de Paulo. (Lar São Vicente de Paulo)",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://diocesedeamparo.org.br/area-pastoral/area-pastoral-nossa-senhora-de-guadalupe-santo-antonio-de-posse/",
+       "title": "Área Pastoral Nossa Senhora de Guadalupe — Diocese de Amparo",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Comunidade São Bento",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://diocesedeamparo.org.br/area-pastoral/area-pastoral-nossa-senhora-de-guadalupe-santo-antonio-de-posse/",
+       "title": "Área Pastoral Nossa Senhora de Guadalupe — Diocese de Amparo",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Capela São Bendito",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://diocesedeamparo.org.br/area-pastoral/area-pastoral-nossa-senhora-de-guadalupe-santo-antonio-de-posse/",
+       "title": "Área Pastoral Nossa Senhora de Guadalupe — Diocese de Amparo",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Comunidade N. Sra. de Lourdes",
+     "dayOfWeek": 6,
+     "time": "16:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedeamparo.org.br/area-pastoral/area-pastoral-nossa-senhora-de-guadalupe-santo-antonio-de-posse/",
+       "title": "Área Pastoral Nossa Senhora de Guadalupe — Diocese de Amparo",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Comunidade São Francisco Xavier",
+     "dayOfWeek": 6,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedeamparo.org.br/area-pastoral/area-pastoral-nossa-senhora-de-guadalupe-santo-antonio-de-posse/",
+       "title": "Área Pastoral Nossa Senhora de Guadalupe — Diocese de Amparo",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Comunidade Santa Rita de Cassia",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedeamparo.org.br/area-pastoral/area-pastoral-nossa-senhora-de-guadalupe-santo-antonio-de-posse/",
+       "title": "Área Pastoral Nossa Senhora de Guadalupe — Diocese de Amparo",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Comunidade N. Sra. de Guadalupe",
+     "dayOfWeek": 0,
+     "time": "09:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedeamparo.org.br/area-pastoral/area-pastoral-nossa-senhora-de-guadalupe-santo-antonio-de-posse/",
+       "title": "Área Pastoral Nossa Senhora de Guadalupe — Diocese de Amparo",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Comunidade N. Sra. de Guadalupe",
+     "dayOfWeek": 0,
+     "time": "18:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedeamparo.org.br/area-pastoral/area-pastoral-nossa-senhora-de-guadalupe-santo-antonio-de-posse/",
+       "title": "Área Pastoral Nossa Senhora de Guadalupe — Diocese de Amparo",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Capela São Vicente de Paulo. (Lar São Vicente de Paulo)",
+     "dayOfWeek": 2,
+     "time": "15:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedeamparo.org.br/area-pastoral/area-pastoral-nossa-senhora-de-guadalupe-santo-antonio-de-posse/",
+       "title": "Área Pastoral Nossa Senhora de Guadalupe — Diocese de Amparo",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Comunidade São Bento",
+     "dayOfWeek": 3,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedeamparo.org.br/area-pastoral/area-pastoral-nossa-senhora-de-guadalupe-santo-antonio-de-posse/",
+       "title": "Área Pastoral Nossa Senhora de Guadalupe — Diocese de Amparo",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Comunidade N. Sra. de Guadalupe",
+     "dayOfWeek": 4,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedeamparo.org.br/area-pastoral/area-pastoral-nossa-senhora-de-guadalupe-santo-antonio-de-posse/",
+       "title": "Área Pastoral Nossa Senhora de Guadalupe — Diocese de Amparo",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Capela São Bendito",
+     "dayOfWeek": 5,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": "1ª Sexta-feira do mês | 19h30 | Capela São Bendito",
+     "sources": [
+      {
+       "url": "https://diocesedeamparo.org.br/area-pastoral/area-pastoral-nossa-senhora-de-guadalupe-santo-antonio-de-posse/",
+       "title": "Área Pastoral Nossa Senhora de Guadalupe — Diocese de Amparo",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ],
+   "status": "nao-paroquial",
+   "jurisdictionNote": "Área Pastoral, não paróquia: estrutura pastoral pré-paroquial da Diocese de Amparo, publicada em tipo de conteúdo separado (\"Área Pastoral\") no site oficial. Criada em 12/12/2025."
+  },
+  {
+   "slug": "area-pastoral-santa-edwiges-jaguariuna",
+   "name": "Área Pastoral Santa Edwiges",
+   "city": "Jaguariúna",
+   "state": "SP",
+   "neighborhood": "Bairro Jardim Botânico",
+   "address": "Rua Joaquim Pinto de Andrade nº 396 – Bairro Jardim Botânico",
+   "zipCode": null,
+   "phone": "(19) 99628-7132",
+   "email": "sedsantaedwiges@gmail.com",
+   "website": null,
+   "priestName": null,
+   "foundedYear": 2025,
+   "forania": "Sant'Ana",
+   "sources": [
+    {
+     "url": "https://diocesedeamparo.org.br/area-pastoral/area-pastoral-santa-edwiges-jaguariuna/",
+     "title": "Área Pastoral Santa Edwiges — Diocese de Amparo",
+     "accessedAt": "2026-09-10"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Área Pastoral Santa Edwiges",
+     "address": "Rua Joaquim Pinto de Andrade nº 396 – Bairro Jardim Botânico",
+     "neighborhood": "Bairro Jardim Botânico",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedeamparo.org.br/area-pastoral/area-pastoral-santa-edwiges-jaguariuna/",
+       "title": "Área Pastoral Santa Edwiges — Diocese de Amparo",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Comunidade São Jorge e Sant’Ana",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://diocesedeamparo.org.br/area-pastoral/area-pastoral-santa-edwiges-jaguariuna/",
+       "title": "Área Pastoral Santa Edwiges — Diocese de Amparo",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Comunidade Santa Luzia",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://diocesedeamparo.org.br/area-pastoral/area-pastoral-santa-edwiges-jaguariuna/",
+       "title": "Área Pastoral Santa Edwiges — Diocese de Amparo",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Comunidade Beato Donizetti Tavares de Lima",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://diocesedeamparo.org.br/area-pastoral/area-pastoral-santa-edwiges-jaguariuna/",
+       "title": "Área Pastoral Santa Edwiges — Diocese de Amparo",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Núcleo de Evangelização São Luis Orione",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://diocesedeamparo.org.br/area-pastoral/area-pastoral-santa-edwiges-jaguariuna/",
+       "title": "Área Pastoral Santa Edwiges — Diocese de Amparo",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Comunidade Santa Edwiges",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://diocesedeamparo.org.br/area-pastoral/area-pastoral-santa-edwiges-jaguariuna/",
+       "title": "Área Pastoral Santa Edwiges — Diocese de Amparo",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Capela Nossa Senhora do Carmo",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://diocesedeamparo.org.br/area-pastoral/area-pastoral-santa-edwiges-jaguariuna/",
+       "title": "Área Pastoral Santa Edwiges — Diocese de Amparo",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Comunidade Santa Rita de Cássia",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://diocesedeamparo.org.br/area-pastoral/area-pastoral-santa-edwiges-jaguariuna/",
+       "title": "Área Pastoral Santa Edwiges — Diocese de Amparo",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Comunidade Nossa Senhora Aparecida",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://diocesedeamparo.org.br/area-pastoral/area-pastoral-santa-edwiges-jaguariuna/",
+       "title": "Área Pastoral Santa Edwiges — Diocese de Amparo",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Comunidade Nossa Senhora do Amparo e Santo Antônio",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://diocesedeamparo.org.br/area-pastoral/area-pastoral-santa-edwiges-jaguariuna/",
+       "title": "Área Pastoral Santa Edwiges — Diocese de Amparo",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Comunidade São Jorge e Sant’Ana",
+     "dayOfWeek": 2,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedeamparo.org.br/area-pastoral/area-pastoral-santa-edwiges-jaguariuna/",
+       "title": "Área Pastoral Santa Edwiges — Diocese de Amparo",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Comunidade Santa Luzia",
+     "dayOfWeek": 3,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": "1ª Quarta-feira do mês | 19h30 | Comunidade Santa Luzia",
+     "sources": [
+      {
+       "url": "https://diocesedeamparo.org.br/area-pastoral/area-pastoral-santa-edwiges-jaguariuna/",
+       "title": "Área Pastoral Santa Edwiges — Diocese de Amparo",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Comunidade Beato Donizetti Tavares de Lima",
+     "dayOfWeek": 3,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": "2ª Quarta-feira do mês | 19h30 | Comunidade Beato Donizetti Tavares de Lima",
+     "sources": [
+      {
+       "url": "https://diocesedeamparo.org.br/area-pastoral/area-pastoral-santa-edwiges-jaguariuna/",
+       "title": "Área Pastoral Santa Edwiges — Diocese de Amparo",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Núcleo de Evangelização São Luis Orione",
+     "dayOfWeek": 3,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": "3ª Quarta-feira do mês | 19h30 | Núcleo de Evangelização São Luis Orione",
+     "sources": [
+      {
+       "url": "https://diocesedeamparo.org.br/area-pastoral/area-pastoral-santa-edwiges-jaguariuna/",
+       "title": "Área Pastoral Santa Edwiges — Diocese de Amparo",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Comunidade Santa Edwiges",
+     "dayOfWeek": 4,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedeamparo.org.br/area-pastoral/area-pastoral-santa-edwiges-jaguariuna/",
+       "title": "Área Pastoral Santa Edwiges — Diocese de Amparo",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Capela Nossa Senhora do Carmo",
+     "dayOfWeek": 5,
+     "time": "07:30",
+     "type": "MASS",
+     "notes": "1ª sexta-feira do mês | 07h30 | Capela Nossa Senhora do Carmo",
+     "sources": [
+      {
+       "url": "https://diocesedeamparo.org.br/area-pastoral/area-pastoral-santa-edwiges-jaguariuna/",
+       "title": "Área Pastoral Santa Edwiges — Diocese de Amparo",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Comunidade Santa Edwiges",
+     "dayOfWeek": 5,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "1ª sexta-feira do mês | 19h | Comunidade Santa Edwiges",
+     "sources": [
+      {
+       "url": "https://diocesedeamparo.org.br/area-pastoral/area-pastoral-santa-edwiges-jaguariuna/",
+       "title": "Área Pastoral Santa Edwiges — Diocese de Amparo",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Comunidade Santa Edwiges",
+     "dayOfWeek": 6,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": "1º sábado do mês | 08h | Comunidade Santa Edwiges",
+     "sources": [
+      {
+       "url": "https://diocesedeamparo.org.br/area-pastoral/area-pastoral-santa-edwiges-jaguariuna/",
+       "title": "Área Pastoral Santa Edwiges — Diocese de Amparo",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Comunidade Santa Rita de Cássia",
+     "dayOfWeek": 6,
+     "time": "16:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedeamparo.org.br/area-pastoral/area-pastoral-santa-edwiges-jaguariuna/",
+       "title": "Área Pastoral Santa Edwiges — Diocese de Amparo",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Comunidade Nossa Senhora Aparecida",
+     "dayOfWeek": 6,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedeamparo.org.br/area-pastoral/area-pastoral-santa-edwiges-jaguariuna/",
+       "title": "Área Pastoral Santa Edwiges — Diocese de Amparo",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Comunidade Santa Edwiges",
+     "dayOfWeek": 0,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedeamparo.org.br/area-pastoral/area-pastoral-santa-edwiges-jaguariuna/",
+       "title": "Área Pastoral Santa Edwiges — Diocese de Amparo",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Comunidade Nossa Senhora do Amparo e Santo Antônio",
+     "dayOfWeek": 0,
+     "time": "10:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedeamparo.org.br/area-pastoral/area-pastoral-santa-edwiges-jaguariuna/",
+       "title": "Área Pastoral Santa Edwiges — Diocese de Amparo",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Comunidade Santa Edwiges",
+     "dayOfWeek": 0,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedeamparo.org.br/area-pastoral/area-pastoral-santa-edwiges-jaguariuna/",
+       "title": "Área Pastoral Santa Edwiges — Diocese de Amparo",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "status": "nao-paroquial",
+   "jurisdictionNote": "Área Pastoral, não paróquia: estrutura pastoral pré-paroquial da Diocese de Amparo, publicada em tipo de conteúdo separado (\"Área Pastoral\") no site oficial. Criada em 29/10/2025."
   }
  ],
  "coverage": {
   "parishesFound": 34,
   "parishesExpected": 34,
-  "notes": "Lista canonica da WP REST API do site oficial (X-WP-Total: 34). 177 comunidades e 338 horarios fixos."
+  "notes": "Lista canonica da WP REST API do site oficial (X-WP-Total: 34), confirmada por catholic-hierarchy.org (34 paroquias, estatistica de 2022). O arquivo traz 36 registros: as 34 paroquias mais 2 Areas Pastorais (status nao-paroquial). 187 comunidades e 360 horarios fixos."
  }
 }

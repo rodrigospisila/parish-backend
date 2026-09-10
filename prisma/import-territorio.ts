@@ -35,6 +35,7 @@ interface ParishRow {
   slug: string; name: string; city: string; state: string; neighborhood?: string | null; address?: string | null;
   zipCode?: string | null; phone?: string | null; email?: string | null; website?: string | null;
   priestName?: string | null; foundedYear?: number | string | null; confidence?: Confidence; status?: string;
+  loadAsParish?: boolean;
   communities?: CommunityRow[]; schedules?: ScheduleRow[];
 }
 interface DioceseFile { diocese: DioceseRow; parishes: ParishRow[] }
@@ -109,7 +110,7 @@ async function importDioceses() {
  * são unidades com pároco, equivalentes a paróquia.
  */
 const isNonParishUnit = (name: string) =>
-  /^(Capela|Igreja|Capelania|Miss[ãa]o|Orat[óo]rio|Comunidade|Mosteiro|Convento|Monjas|Monges|Abadia|Carmelo)\b/i.test(name.trim());
+  /^(Capela|Igreja|Capelania|Miss[ãa]o|Orat[óo]rio|Comunidade|Mosteiro|Convento|Monjas|Monges|Abadia|Carmelo|Semin[áa]rio)\b/i.test(name.trim());
 
 /**
  * Homônimas na mesma cidade (ex.: três "Paróquia Santo Antônio" em Curitiba)
@@ -146,7 +147,10 @@ async function importDioceseFile(file: string) {
     if (!raw || typeof raw !== 'object' || !raw.name || !raw.city) { stats.skippedInvalid += 1; continue; }
     if (!alive(raw.status)) { stats.skippedInactive += 1; continue; }
     if (!ok(raw.confidence)) { stats.skippedLow += 1; continue; }
-    if (isNonParishUnit(raw.name)) { stats.nonParish.push(`${raw.name} (${raw.city})`); continue; }
+    // `loadAsParish` é a exceção explícita ao filtro de nome: capelania, santuário sem
+    // território ou igreja de convento que a fonte publica com missa fixa é lugar de
+    // missa de verdade e entra, ainda que canonicamente não seja paróquia.
+    if (isNonParishUnit(raw.name) && !raw.loadAsParish) { stats.nonParish.push(`${raw.name} (${raw.city})`); continue; }
     const p: ParishRow = { ...raw, name: effectiveNames.get(raw) ?? raw.name };
     let parish = DRY
       ? null

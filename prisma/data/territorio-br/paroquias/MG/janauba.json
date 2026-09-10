@@ -56,7 +56,7 @@
       "foundedYear": 1954,
       "forania": "Forania Sagrado Coração de Jesus",
       "declaredCommunityCount": 6,
-      "dataNotes": null,
+      "notes": null,
       "sources": [
         {
           "url": "https://diocesedejanauba.com.br/paroquias/",
@@ -67,11 +67,257 @@
           "url": "https://diocesedejanauba.com.br/foranias/",
           "title": "Foranias – Diocese de Janaúba (6 foranias e a distribuição das 33 paróquias/quase-paróquias)",
           "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://www.liriocatolico.com.br/horario_missa/cidade/janauba-mg/",
+          "title": "Horário de Missa em Janaúba, MG — Lírio Católico (agregador colaborativo, sem data de atualização)",
+          "accessedAt": "2026-09-10"
         }
       ],
       "confidence": "alta",
       "communities": [],
-      "schedules": []
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/janauba-mg/",
+              "title": "Horário de Missa em Janaúba, MG — Lírio Católico (agregador colaborativo, sem data de atualização)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/janauba-mg/",
+              "title": "Horário de Missa em Janaúba, MG — Lírio Católico (agregador colaborativo, sem data de atualização)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/janauba-mg/",
+              "title": "Horário de Missa em Janaúba, MG — Lírio Católico (agregador colaborativo, sem data de atualização)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/janauba-mg/",
+              "title": "Horário de Missa em Janaúba, MG — Lírio Católico (agregador colaborativo, sem data de atualização)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 2,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/janauba-mg/",
+              "title": "Horário de Missa em Janaúba, MG — Lírio Católico (agregador colaborativo, sem data de atualização)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/janauba-mg/",
+              "title": "Horário de Missa em Janaúba, MG — Lírio Católico (agregador colaborativo, sem data de atualização)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/janauba-mg/",
+              "title": "Horário de Missa em Janaúba, MG — Lírio Católico (agregador colaborativo, sem data de atualização)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/janauba-mg/",
+              "title": "Horário de Missa em Janaúba, MG — Lírio Católico (agregador colaborativo, sem data de atualização)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/janauba-mg/",
+              "title": "Horário de Missa em Janaúba, MG — Lírio Católico (agregador colaborativo, sem data de atualização)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/janauba-mg/",
+              "title": "Horário de Missa em Janaúba, MG — Lírio Católico (agregador colaborativo, sem data de atualização)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/janauba-mg/",
+              "title": "Horário de Missa em Janaúba, MG — Lírio Católico (agregador colaborativo, sem data de atualização)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/janauba-mg/",
+              "title": "Horário de Missa em Janaúba, MG — Lírio Católico (agregador colaborativo, sem data de atualização)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "09:30",
+          "type": "CONFESSION",
+          "notes": "Fonte: \"quarta-feira, 09:30 às 12:00\".",
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/janauba-mg/",
+              "title": "Horário de Missa em Janaúba, MG — Lírio Católico (agregador colaborativo, sem data de atualização)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "16:30",
+          "type": "CONFESSION",
+          "notes": "Fonte: \"quinta-feira, 16:30 às 18:30\".",
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/janauba-mg/",
+              "title": "Horário de Missa em Janaúba, MG — Lírio Católico (agregador colaborativo, sem data de atualização)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "09:30",
+          "type": "CONFESSION",
+          "notes": "Fonte: \"sexta-feira, 09:30 às 12:00\".",
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/janauba-mg/",
+              "title": "Horário de Missa em Janaúba, MG — Lírio Católico (agregador colaborativo, sem data de atualização)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "08:00",
+          "type": "ADORATION",
+          "notes": "Fonte: \"quinta-feira, 08:00 às 18:00\".",
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/janauba-mg/",
+              "title": "Horário de Missa em Janaúba, MG — Lírio Católico (agregador colaborativo, sem data de atualização)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
     },
     {
       "slug": "nossa-senhora-aparecida-janauba",
@@ -88,7 +334,7 @@
       "foundedYear": 1988,
       "forania": "Forania Sagrado Coração de Jesus",
       "declaredCommunityCount": 13,
-      "dataNotes": null,
+      "notes": null,
       "sources": [
         {
           "url": "https://diocesedejanauba.com.br/paroquias/",
@@ -99,11 +345,202 @@
           "url": "https://diocesedejanauba.com.br/foranias/",
           "title": "Foranias – Diocese de Janaúba (6 foranias e a distribuição das 33 paróquias/quase-paróquias)",
           "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://www.instagram.com/pascomnsajanauba/",
+          "title": "PASCOM da Paróquia Nossa Senhora Aparecida de Janaúba — bio do perfil oficial no Instagram",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://www.liriocatolico.com.br/horario_missa/cidade/janauba-mg/",
+          "title": "Horário de Missa em Janaúba, MG — Lírio Católico (agregador colaborativo, sem data de atualização)",
+          "accessedAt": "2026-09-10"
         }
       ],
       "confidence": "alta",
       "communities": [],
-      "schedules": []
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/pascomnsajanauba/",
+              "title": "PASCOM da Paróquia Nossa Senhora Aparecida de Janaúba — bio do perfil oficial no Instagram",
+              "accessedAt": "2026-09-10"
+            },
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/janauba-mg/",
+              "title": "Horário de Missa em Janaúba, MG — Lírio Católico (agregador colaborativo, sem data de atualização)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/pascomnsajanauba/",
+              "title": "PASCOM da Paróquia Nossa Senhora Aparecida de Janaúba — bio do perfil oficial no Instagram",
+              "accessedAt": "2026-09-10"
+            },
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/janauba-mg/",
+              "title": "Horário de Missa em Janaúba, MG — Lírio Católico (agregador colaborativo, sem data de atualização)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/pascomnsajanauba/",
+              "title": "PASCOM da Paróquia Nossa Senhora Aparecida de Janaúba — bio do perfil oficial no Instagram",
+              "accessedAt": "2026-09-10"
+            },
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/janauba-mg/",
+              "title": "Horário de Missa em Janaúba, MG — Lírio Católico (agregador colaborativo, sem data de atualização)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Divergência: a bio oficial no Instagram traz 19:30 e o agregador Lírio Católico traz 19:00.",
+          "sources": [
+            {
+              "url": "https://www.instagram.com/pascomnsajanauba/",
+              "title": "PASCOM da Paróquia Nossa Senhora Aparecida de Janaúba — bio do perfil oficial no Instagram",
+              "accessedAt": "2026-09-10"
+            },
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/janauba-mg/",
+              "title": "Horário de Missa em Janaúba, MG — Lírio Católico (agregador colaborativo, sem data de atualização)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 2,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/pascomnsajanauba/",
+              "title": "PASCOM da Paróquia Nossa Senhora Aparecida de Janaúba — bio do perfil oficial no Instagram",
+              "accessedAt": "2026-09-10"
+            },
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/janauba-mg/",
+              "title": "Horário de Missa em Janaúba, MG — Lírio Católico (agregador colaborativo, sem data de atualização)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/pascomnsajanauba/",
+              "title": "PASCOM da Paróquia Nossa Senhora Aparecida de Janaúba — bio do perfil oficial no Instagram",
+              "accessedAt": "2026-09-10"
+            },
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/janauba-mg/",
+              "title": "Horário de Missa em Janaúba, MG — Lírio Católico (agregador colaborativo, sem data de atualização)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/pascomnsajanauba/",
+              "title": "PASCOM da Paróquia Nossa Senhora Aparecida de Janaúba — bio do perfil oficial no Instagram",
+              "accessedAt": "2026-09-10"
+            },
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/janauba-mg/",
+              "title": "Horário de Missa em Janaúba, MG — Lírio Católico (agregador colaborativo, sem data de atualização)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/pascomnsajanauba/",
+              "title": "PASCOM da Paróquia Nossa Senhora Aparecida de Janaúba — bio do perfil oficial no Instagram",
+              "accessedAt": "2026-09-10"
+            },
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/janauba-mg/",
+              "title": "Horário de Missa em Janaúba, MG — Lírio Católico (agregador colaborativo, sem data de atualização)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/pascomnsajanauba/",
+              "title": "PASCOM da Paróquia Nossa Senhora Aparecida de Janaúba — bio do perfil oficial no Instagram",
+              "accessedAt": "2026-09-10"
+            },
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/janauba-mg/",
+              "title": "Horário de Missa em Janaúba, MG — Lírio Católico (agregador colaborativo, sem data de atualização)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
     },
     {
       "slug": "santo-afonso-maria-de-ligorio-janauba",
@@ -120,7 +557,7 @@
       "foundedYear": 2004,
       "forania": "Forania Sagrado Coração de Jesus",
       "declaredCommunityCount": 13,
-      "dataNotes": null,
+      "notes": null,
       "sources": [
         {
           "url": "https://diocesedejanauba.com.br/paroquias/",
@@ -131,11 +568,32 @@
           "url": "https://diocesedejanauba.com.br/foranias/",
           "title": "Foranias – Diocese de Janaúba (6 foranias e a distribuição das 33 paróquias/quase-paróquias)",
           "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://www.instagram.com/paroquiasantoafonsoml/",
+          "title": "Paróquia Santo Afonso Maria de Ligório (Janaúba) — perfil oficial no Instagram, post de setembro/2026",
+          "accessedAt": "2026-09-10"
         }
       ],
       "confidence": "alta",
       "communities": [],
-      "schedules": []
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "09:00",
+          "type": "CONFESSION",
+          "notes": "Fonte: \"QUINTA-FEIRA 03/09, 10/09, 17/09 e 24/09 – 09h às 11h\" (post de setembro/2026; a paróquia não publica grade de missas).",
+          "sources": [
+            {
+              "url": "https://www.instagram.com/paroquiasantoafonsoml/",
+              "title": "Paróquia Santo Afonso Maria de Ligório (Janaúba) — perfil oficial no Instagram, post de setembro/2026",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
     },
     {
       "slug": "santa-cruz-e-nossa-senhora-das-dores-janauba",
@@ -152,7 +610,7 @@
       "foundedYear": 2004,
       "forania": "Forania Sagrado Coração de Jesus",
       "declaredCommunityCount": 17,
-      "dataNotes": "A página \"Foranias\" do mesmo site chama esta paróquia apenas de \"Paróquia Nossa Senhora das Dores\".",
+      "notes": "A página \"Foranias\" do mesmo site chama esta paróquia apenas de \"Paróquia Nossa Senhora das Dores\".",
       "sources": [
         {
           "url": "https://diocesedejanauba.com.br/paroquias/",
@@ -184,7 +642,7 @@
       "foundedYear": null,
       "forania": "Forania Sagrado Coração de Jesus",
       "declaredCommunityCount": 9,
-      "dataNotes": null,
+      "notes": null,
       "sources": [
         {
           "url": "https://diocesedejanauba.com.br/paroquias/",
@@ -195,11 +653,62 @@
           "url": "https://diocesedejanauba.com.br/foranias/",
           "title": "Foranias – Diocese de Janaúba (6 foranias e a distribuição das 33 paróquias/quase-paróquias)",
           "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/igreja.php?k=VoseM",
+          "title": "Paróquia Nossa Senhora das Graças (Nova Porteirinha) — horariodemissa.com.br, última atualização 15/07/2014",
+          "accessedAt": "2026-09-10"
         }
       ],
       "confidence": "alta",
       "communities": [],
-      "schedules": []
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": "Agregador com última atualização em 15/07/2014 — dado com ~12 anos.",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=VoseM",
+              "title": "Paróquia Nossa Senhora das Graças (Nova Porteirinha) — horariodemissa.com.br, última atualização 15/07/2014",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Agregador com última atualização em 15/07/2014 — dado com ~12 anos.",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=VoseM",
+              "title": "Paróquia Nossa Senhora das Graças (Nova Porteirinha) — horariodemissa.com.br, última atualização 15/07/2014",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Agregador com última atualização em 15/07/2014 — dado com ~12 anos.",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=VoseM",
+              "title": "Paróquia Nossa Senhora das Graças (Nova Porteirinha) — horariodemissa.com.br, última atualização 15/07/2014",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
     },
     {
       "slug": "nossa-senhora-do-perpetuo-socorro-janauba",
@@ -216,7 +725,7 @@
       "foundedYear": 2016,
       "forania": "Forania Sagrado Coração de Jesus",
       "declaredCommunityCount": 13,
-      "dataNotes": "Divergência entre páginas oficiais: \"Paróquias\" registra QUASE PARÓQUIA (com administrador paroquial) e \"Foranias\" registra \"Paróquia Nossa Senhora do Perpétuo Socorro\".",
+      "notes": "Divergência entre páginas oficiais: \"Paróquias\" registra QUASE PARÓQUIA (com administrador paroquial) e \"Foranias\" registra \"Paróquia Nossa Senhora do Perpétuo Socorro\".",
       "sources": [
         {
           "url": "https://diocesedejanauba.com.br/paroquias/",
@@ -248,7 +757,7 @@
       "foundedYear": null,
       "forania": "Forania São Joaquim",
       "declaredCommunityCount": 37,
-      "dataNotes": null,
+      "notes": null,
       "sources": [
         {
           "url": "https://diocesedejanauba.com.br/paroquias/",
@@ -259,11 +768,269 @@
           "url": "https://diocesedejanauba.com.br/foranias/",
           "title": "Foranias – Diocese de Janaúba (6 foranias e a distribuição das 33 paróquias/quase-paróquias)",
           "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://www.liriocatolico.com.br/horario_missa/cidade/porteirinha-mg/",
+          "title": "Horário de Missa em Porteirinha, MG — Lírio Católico (agregador colaborativo, sem data de atualização)",
+          "accessedAt": "2026-09-10"
         }
       ],
       "confidence": "alta",
-      "communities": [],
-      "schedules": []
+      "communities": [
+        {
+          "name": "Capela Senhor Bom Jesus",
+          "address": "Rua Bom Jesus, 120 – Vila Guará",
+          "neighborhood": "Vila Guará",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/porteirinha-mg/",
+              "title": "Horário de Missa em Porteirinha, MG — Lírio Católico (agregador colaborativo, sem data de atualização)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "name": "Igreja Santa Luzia",
+          "address": "Rua Etelvino José da Silva, 333 – Vila Kennedy",
+          "neighborhood": "Vila Kennedy",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/porteirinha-mg/",
+              "title": "Horário de Missa em Porteirinha, MG — Lírio Católico (agregador colaborativo, sem data de atualização)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "name": "Igreja São João Paulo II",
+          "address": "Rua Antônio José",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/porteirinha-mg/",
+              "title": "Horário de Missa em Porteirinha, MG — Lírio Católico (agregador colaborativo, sem data de atualização)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "name": "Igreja São Sebastião",
+          "address": "Rua Joaquim Nunes de Brito",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/porteirinha-mg/",
+              "title": "Horário de Missa em Porteirinha, MG — Lírio Católico (agregador colaborativo, sem data de atualização)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/porteirinha-mg/",
+              "title": "Horário de Missa em Porteirinha, MG — Lírio Católico (agregador colaborativo, sem data de atualização)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/porteirinha-mg/",
+              "title": "Horário de Missa em Porteirinha, MG — Lírio Católico (agregador colaborativo, sem data de atualização)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/porteirinha-mg/",
+              "title": "Horário de Missa em Porteirinha, MG — Lírio Católico (agregador colaborativo, sem data de atualização)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/porteirinha-mg/",
+              "title": "Horário de Missa em Porteirinha, MG — Lírio Católico (agregador colaborativo, sem data de atualização)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/porteirinha-mg/",
+              "title": "Horário de Missa em Porteirinha, MG — Lírio Católico (agregador colaborativo, sem data de atualização)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/porteirinha-mg/",
+              "title": "Horário de Missa em Porteirinha, MG — Lírio Católico (agregador colaborativo, sem data de atualização)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/porteirinha-mg/",
+              "title": "Horário de Missa em Porteirinha, MG — Lírio Católico (agregador colaborativo, sem data de atualização)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/porteirinha-mg/",
+              "title": "Horário de Missa em Porteirinha, MG — Lírio Católico (agregador colaborativo, sem data de atualização)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "ADORATION",
+          "notes": "Fonte: \"quinta-feira, 19:00 às 20:00\".",
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/porteirinha-mg/",
+              "title": "Horário de Missa em Porteirinha, MG — Lírio Católico (agregador colaborativo, sem data de atualização)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Capela Senhor Bom Jesus",
+          "dayOfWeek": 0,
+          "time": "10:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/porteirinha-mg/",
+              "title": "Horário de Missa em Porteirinha, MG — Lírio Católico (agregador colaborativo, sem data de atualização)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Igreja Santa Luzia",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/porteirinha-mg/",
+              "title": "Horário de Missa em Porteirinha, MG — Lírio Católico (agregador colaborativo, sem data de atualização)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Igreja São João Paulo II",
+          "dayOfWeek": 6,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/porteirinha-mg/",
+              "title": "Horário de Missa em Porteirinha, MG — Lírio Católico (agregador colaborativo, sem data de atualização)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Igreja São Sebastião",
+          "dayOfWeek": 6,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/porteirinha-mg/",
+              "title": "Horário de Missa em Porteirinha, MG — Lírio Católico (agregador colaborativo, sem data de atualização)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
     },
     {
       "slug": "nossa-senhora-da-assuncao-porteirinha",
@@ -280,7 +1047,7 @@
       "foundedYear": null,
       "forania": "Forania São Joaquim",
       "declaredCommunityCount": 63,
-      "dataNotes": null,
+      "notes": null,
       "sources": [
         {
           "url": "https://diocesedejanauba.com.br/paroquias/",
@@ -291,11 +1058,107 @@
           "url": "https://diocesedejanauba.com.br/foranias/",
           "title": "Foranias – Diocese de Janaúba (6 foranias e a distribuição das 33 paróquias/quase-paróquias)",
           "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://www.liriocatolico.com.br/horario_missa/cidade/porteirinha-mg/",
+          "title": "Horário de Missa em Porteirinha, MG — Lírio Católico (agregador colaborativo, sem data de atualização)",
+          "accessedAt": "2026-09-10"
         }
       ],
       "confidence": "alta",
       "communities": [],
-      "schedules": []
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/porteirinha-mg/",
+              "title": "Horário de Missa em Porteirinha, MG — Lírio Católico (agregador colaborativo, sem data de atualização)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/porteirinha-mg/",
+              "title": "Horário de Missa em Porteirinha, MG — Lírio Católico (agregador colaborativo, sem data de atualização)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/porteirinha-mg/",
+              "title": "Horário de Missa em Porteirinha, MG — Lírio Católico (agregador colaborativo, sem data de atualização)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/porteirinha-mg/",
+              "title": "Horário de Missa em Porteirinha, MG — Lírio Católico (agregador colaborativo, sem data de atualização)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/porteirinha-mg/",
+              "title": "Horário de Missa em Porteirinha, MG — Lírio Católico (agregador colaborativo, sem data de atualização)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "ADORATION",
+          "notes": "Fonte: \"quinta-feira, 19:00 às 20:00\".",
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/porteirinha-mg/",
+              "title": "Horário de Missa em Porteirinha, MG — Lírio Católico (agregador colaborativo, sem data de atualização)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
     },
     {
       "slug": "santo-antonio-riacho-dos-machados",
@@ -312,7 +1175,7 @@
       "foundedYear": null,
       "forania": "Forania São Joaquim",
       "declaredCommunityCount": 34,
-      "dataNotes": null,
+      "notes": null,
       "sources": [
         {
           "url": "https://diocesedejanauba.com.br/paroquias/",
@@ -344,7 +1207,7 @@
       "foundedYear": null,
       "forania": "Forania São Joaquim",
       "declaredCommunityCount": 23,
-      "dataNotes": null,
+      "notes": null,
       "sources": [
         {
           "url": "https://diocesedejanauba.com.br/paroquias/",
@@ -376,7 +1239,7 @@
       "foundedYear": null,
       "forania": "Forania São Joaquim",
       "declaredCommunityCount": 13,
-      "dataNotes": null,
+      "notes": null,
       "sources": [
         {
           "url": "https://diocesedejanauba.com.br/paroquias/",
@@ -408,7 +1271,7 @@
       "foundedYear": 1770,
       "forania": "Forania Nossa Senhora da Conceição",
       "declaredCommunityCount": 101,
-      "dataNotes": null,
+      "notes": null,
       "sources": [
         {
           "url": "https://diocesedejanauba.com.br/paroquias/",
@@ -440,7 +1303,7 @@
       "foundedYear": 1916,
       "forania": "Forania Nossa Senhora da Conceição",
       "declaredCommunityCount": 32,
-      "dataNotes": null,
+      "notes": null,
       "sources": [
         {
           "url": "https://diocesedejanauba.com.br/paroquias/",
@@ -472,7 +1335,7 @@
       "foundedYear": null,
       "forania": "Forania Nossa Senhora da Conceição",
       "declaredCommunityCount": 18,
-      "dataNotes": "Telefone publicado incompleto/malformado na fonte: \"(38) 99924696\".",
+      "notes": "Telefone publicado incompleto/malformado na fonte: \"(38) 99924696\".",
       "sources": [
         {
           "url": "https://diocesedejanauba.com.br/paroquias/",
@@ -504,7 +1367,7 @@
       "foundedYear": null,
       "forania": "Forania Nossa Senhora da Conceição",
       "declaredCommunityCount": 15,
-      "dataNotes": null,
+      "notes": null,
       "sources": [
         {
           "url": "https://diocesedejanauba.com.br/paroquias/",
@@ -536,7 +1399,7 @@
       "foundedYear": 2004,
       "forania": "Forania Nossa Senhora da Conceição",
       "declaredCommunityCount": 26,
-      "dataNotes": "A página \"Paróquias\" grafa \"Paróquia Sant’Ana e São Joaquim\"; usada a forma da página \"Foranias\". Telefone publicado como \"(38) 9921-8496\" (8 dígitos).",
+      "notes": "A página \"Paróquias\" grafa \"Paróquia Sant’Ana e São Joaquim\"; usada a forma da página \"Foranias\". Telefone publicado como \"(38) 9921-8496\" (8 dígitos).",
       "sources": [
         {
           "url": "https://diocesedejanauba.com.br/paroquias/",
@@ -568,7 +1431,7 @@
       "foundedYear": null,
       "forania": "Forania Nossa Senhora da Conceição",
       "declaredCommunityCount": 34,
-      "dataNotes": null,
+      "notes": null,
       "sources": [
         {
           "url": "https://diocesedejanauba.com.br/paroquias/",
@@ -600,7 +1463,7 @@
       "foundedYear": null,
       "forania": "Forania Nossa Senhora da Conceição",
       "declaredCommunityCount": 29,
-      "dataNotes": "Telefones publicados malformados na fonte: \"38- 98598140 ou 99815320\". CEP publicado como \"39538-00\".",
+      "notes": "Telefones publicados malformados na fonte: \"38- 98598140 ou 99815320\". CEP publicado como \"39538-00\".",
       "sources": [
         {
           "url": "https://diocesedejanauba.com.br/paroquias/",
@@ -632,7 +1495,7 @@
       "foundedYear": null,
       "forania": "Forania Nossa Senhora da Conceição",
       "declaredCommunityCount": 30,
-      "dataNotes": "Divergência entre páginas oficiais: \"Foranias\" registra QUASE PARÓQUIA e \"Paróquias\" registra \"PARÓQUIA\" (com o campo \"Pároco\" vazio).",
+      "notes": "Divergência entre páginas oficiais: \"Foranias\" registra QUASE PARÓQUIA e \"Paróquias\" registra \"PARÓQUIA\" (com o campo \"Pároco\" vazio).",
       "sources": [
         {
           "url": "https://diocesedejanauba.com.br/paroquias/",
@@ -643,11 +1506,107 @@
           "url": "https://diocesedejanauba.com.br/foranias/",
           "title": "Foranias – Diocese de Janaúba (6 foranias e a distribuição das 33 paróquias/quase-paróquias)",
           "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://www.liriocatolico.com.br/horario_missa/cidade/sao-joao-do-paraiso-mg/",
+          "title": "Horário de Missa em São João do Paraíso, MG — Lírio Católico (agregador colaborativo, sem data de atualização)",
+          "accessedAt": "2026-09-10"
         }
       ],
       "confidence": "media",
       "communities": [],
-      "schedules": []
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/sao-joao-do-paraiso-mg/",
+              "title": "Horário de Missa em São João do Paraíso, MG — Lírio Católico (agregador colaborativo, sem data de atualização)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/sao-joao-do-paraiso-mg/",
+              "title": "Horário de Missa em São João do Paraíso, MG — Lírio Católico (agregador colaborativo, sem data de atualização)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/sao-joao-do-paraiso-mg/",
+              "title": "Horário de Missa em São João do Paraíso, MG — Lírio Católico (agregador colaborativo, sem data de atualização)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/sao-joao-do-paraiso-mg/",
+              "title": "Horário de Missa em São João do Paraíso, MG — Lírio Católico (agregador colaborativo, sem data de atualização)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "08:00",
+          "type": "CONFESSION",
+          "notes": "Fonte: \"sexta-feira, 08:00 às 08:30\".",
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/sao-joao-do-paraiso-mg/",
+              "title": "Horário de Missa em São João do Paraíso, MG — Lírio Católico (agregador colaborativo, sem data de atualização)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "08:00",
+          "type": "ADORATION",
+          "notes": "Fonte: \"quinta-feira, 08:00 às 09:00\".",
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/sao-joao-do-paraiso-mg/",
+              "title": "Horário de Missa em São João do Paraíso, MG — Lírio Católico (agregador colaborativo, sem data de atualização)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
     },
     {
       "slug": "sao-sebastiao-espinosa",
@@ -664,7 +1623,7 @@
       "foundedYear": 1868,
       "forania": "Forania São Sebastião",
       "declaredCommunityCount": 37,
-      "dataNotes": null,
+      "notes": null,
       "sources": [
         {
           "url": "https://diocesedejanauba.com.br/paroquias/",
@@ -696,7 +1655,7 @@
       "foundedYear": 2010,
       "forania": "Forania São Sebastião",
       "declaredCommunityCount": 35,
-      "dataNotes": null,
+      "notes": null,
       "sources": [
         {
           "url": "https://diocesedejanauba.com.br/paroquias/",
@@ -707,11 +1666,62 @@
           "url": "https://diocesedejanauba.com.br/foranias/",
           "title": "Foranias – Diocese de Janaúba (6 foranias e a distribuição das 33 paróquias/quase-paróquias)",
           "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://www.instagram.com/paroquiadoespiritosanto/",
+          "title": "Paróquia Espírito Santo (Espinosa) — bio do perfil oficial no Instagram",
+          "accessedAt": "2026-09-10"
         }
       ],
       "confidence": "alta",
       "communities": [],
-      "schedules": []
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/paroquiadoespiritosanto/",
+              "title": "Paróquia Espírito Santo (Espinosa) — bio do perfil oficial no Instagram",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/paroquiadoespiritosanto/",
+              "title": "Paróquia Espírito Santo (Espinosa) — bio do perfil oficial no Instagram",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/paroquiadoespiritosanto/",
+              "title": "Paróquia Espírito Santo (Espinosa) — bio do perfil oficial no Instagram",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
     },
     {
       "slug": "santo-antonio-mamonas",
@@ -728,7 +1738,7 @@
       "foundedYear": 1999,
       "forania": "Forania São Sebastião",
       "declaredCommunityCount": 24,
-      "dataNotes": null,
+      "notes": null,
       "sources": [
         {
           "url": "https://diocesedejanauba.com.br/paroquias/",
@@ -760,7 +1770,7 @@
       "foundedYear": 1860,
       "forania": "Forania São Sebastião",
       "declaredCommunityCount": 35,
-      "dataNotes": null,
+      "notes": null,
       "sources": [
         {
           "url": "https://diocesedejanauba.com.br/paroquias/",
@@ -771,11 +1781,32 @@
           "url": "https://diocesedejanauba.com.br/foranias/",
           "title": "Foranias – Diocese de Janaúba (6 foranias e a distribuição das 33 paróquias/quase-paróquias)",
           "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://www.liriocatolico.com.br/horario_missa/cidade/monte-azul-mg/",
+          "title": "Horário de Missa em Monte Azul, MG — Lírio Católico (agregador colaborativo, sem data de atualização)",
+          "accessedAt": "2026-09-10"
         }
       ],
       "confidence": "alta",
       "communities": [],
-      "schedules": []
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "18:00",
+          "type": "CONFESSION",
+          "notes": "Fonte: \"quarta-feira, 18:00 às 18:30\". A mesma ficha declara \"Nenhum horário cadastrado\" para as missas.",
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/monte-azul-mg/",
+              "title": "Horário de Missa em Monte Azul, MG — Lírio Católico (agregador colaborativo, sem data de atualização)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
     },
     {
       "slug": "santo-antonio-mato-verde",
@@ -792,7 +1823,7 @@
       "foundedYear": 1880,
       "forania": "Forania São Sebastião",
       "declaredCommunityCount": 30,
-      "dataNotes": "Fonte informa \"Criada: 30/11/1880\". Telefone celular publicado como \"38 98090006\".",
+      "notes": "Fonte informa \"Criada: 30/11/1880\". Telefone celular publicado como \"38 98090006\".",
       "sources": [
         {
           "url": "https://diocesedejanauba.com.br/paroquias/",
@@ -803,11 +1834,62 @@
           "url": "https://diocesedejanauba.com.br/foranias/",
           "title": "Foranias – Diocese de Janaúba (6 foranias e a distribuição das 33 paróquias/quase-paróquias)",
           "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://www.instagram.com/paroquiamatoverde/",
+          "title": "Paróquia Santo Antônio (Mato Verde) — bio do perfil oficial no Instagram",
+          "accessedAt": "2026-09-10"
         }
       ],
       "confidence": "alta",
       "communities": [],
-      "schedules": []
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": "A bio oficial publica só as missas dominicais.",
+          "sources": [
+            {
+              "url": "https://www.instagram.com/paroquiamatoverde/",
+              "title": "Paróquia Santo Antônio (Mato Verde) — bio do perfil oficial no Instagram",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": "A bio oficial publica só as missas dominicais.",
+          "sources": [
+            {
+              "url": "https://www.instagram.com/paroquiamatoverde/",
+              "title": "Paróquia Santo Antônio (Mato Verde) — bio do perfil oficial no Instagram",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": "A bio oficial publica só as missas dominicais.",
+          "sources": [
+            {
+              "url": "https://www.instagram.com/paroquiamatoverde/",
+              "title": "Paróquia Santo Antônio (Mato Verde) — bio do perfil oficial no Instagram",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
     },
     {
       "slug": "menino-jesus-gameleiras",
@@ -824,7 +1906,7 @@
       "foundedYear": null,
       "forania": "Forania São Sebastião",
       "declaredCommunityCount": 27,
-      "dataNotes": null,
+      "notes": null,
       "sources": [
         {
           "url": "https://diocesedejanauba.com.br/paroquias/",
@@ -835,11 +1917,179 @@
           "url": "https://diocesedejanauba.com.br/foranias/",
           "title": "Foranias – Diocese de Janaúba (6 foranias e a distribuição das 33 paróquias/quase-paróquias)",
           "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://www.instagram.com/paroquiameninojesus_/",
+          "title": "Paróquia Menino Jesus (Gameleiras) — rubrica \"Horários das Missas Dominicais\" do perfil oficial no Instagram",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://www.liriocatolico.com.br/horario_missa/cidade/gameleiras-mg/",
+          "title": "Horário de Missa em Gameleiras, MG — Lírio Católico (agregador colaborativo, sem data de atualização)",
+          "accessedAt": "2026-09-10"
         }
       ],
       "confidence": "alta",
-      "communities": [],
-      "schedules": []
+      "communities": [
+        {
+          "name": "Comunidade Riachinho",
+          "address": null,
+          "neighborhood": "Riachinho",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/paroquiameninojesus_/",
+              "title": "Paróquia Menino Jesus (Gameleiras) — rubrica \"Horários das Missas Dominicais\" do perfil oficial no Instagram",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Engenho",
+          "address": null,
+          "neighborhood": "Engenho",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/paroquiameninojesus_/",
+              "title": "Paróquia Menino Jesus (Gameleiras) — rubrica \"Horários das Missas Dominicais\" do perfil oficial no Instagram",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Brejo dos Mártires",
+          "address": "Rua Principal, Brejo dos Mártires",
+          "neighborhood": "Brejo dos Mártires",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/paroquiameninojesus_/",
+              "title": "Paróquia Menino Jesus (Gameleiras) — rubrica \"Horários das Missas Dominicais\" do perfil oficial no Instagram",
+              "accessedAt": "2026-09-10"
+            },
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/gameleiras-mg/",
+              "title": "Horário de Missa em Gameleiras, MG — Lírio Católico (agregador colaborativo, sem data de atualização)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Boa Vista",
+          "address": null,
+          "neighborhood": "Boa Vista",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/paroquiameninojesus_/",
+              "title": "Paróquia Menino Jesus (Gameleiras) — rubrica \"Horários das Missas Dominicais\" do perfil oficial no Instagram",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/paroquiameninojesus_/",
+              "title": "Paróquia Menino Jesus (Gameleiras) — rubrica \"Horários das Missas Dominicais\" do perfil oficial no Instagram",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Comunidade Riachinho",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Paróquia rural: a escala das comunidades pode ser de rodízio — confirmar na secretaria.",
+          "sources": [
+            {
+              "url": "https://www.instagram.com/paroquiameninojesus_/",
+              "title": "Paróquia Menino Jesus (Gameleiras) — rubrica \"Horários das Missas Dominicais\" do perfil oficial no Instagram",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Comunidade Engenho",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": "Paróquia rural: a escala das comunidades pode ser de rodízio — confirmar na secretaria.",
+          "sources": [
+            {
+              "url": "https://www.instagram.com/paroquiameninojesus_/",
+              "title": "Paróquia Menino Jesus (Gameleiras) — rubrica \"Horários das Missas Dominicais\" do perfil oficial no Instagram",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Comunidade Brejo dos Mártires",
+          "dayOfWeek": 0,
+          "time": "08:30",
+          "type": "MASS",
+          "notes": "Divergência: o Instagram oficial traz 08:30 e o Lírio Católico traz 08:00 na Igreja Santo Antônio de Pádua, Rua Principal, Brejo dos Mártires.",
+          "sources": [
+            {
+              "url": "https://www.instagram.com/paroquiameninojesus_/",
+              "title": "Paróquia Menino Jesus (Gameleiras) — rubrica \"Horários das Missas Dominicais\" do perfil oficial no Instagram",
+              "accessedAt": "2026-09-10"
+            },
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/gameleiras-mg/",
+              "title": "Horário de Missa em Gameleiras, MG — Lírio Católico (agregador colaborativo, sem data de atualização)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Comunidade Boa Vista",
+          "dayOfWeek": 0,
+          "time": "10:00",
+          "type": "MASS",
+          "notes": "Paróquia rural: a escala das comunidades pode ser de rodízio — confirmar na secretaria.",
+          "sources": [
+            {
+              "url": "https://www.instagram.com/paroquiameninojesus_/",
+              "title": "Paróquia Menino Jesus (Gameleiras) — rubrica \"Horários das Missas Dominicais\" do perfil oficial no Instagram",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Comunidade Brejo dos Mártires",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "ADORATION",
+          "notes": "Fonte: \"quinta-feira, 19:00 às 20:00\", Igreja Santo Antônio de Pádua (Brejo dos Mártires).",
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/gameleiras-mg/",
+              "title": "Horário de Missa em Gameleiras, MG — Lírio Católico (agregador colaborativo, sem data de atualização)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
     },
     {
       "slug": "bom-jesus-catuti",
@@ -856,7 +2106,7 @@
       "foundedYear": 2021,
       "forania": "Forania São Sebastião",
       "declaredCommunityCount": 19,
-      "dataNotes": "Divergência entre páginas oficiais: \"Paróquias\" registra PARÓQUIA criada em 16/10/2021 (com pároco) e \"Foranias\" ainda registra \"Quase Paróquia Bom Jesus\".",
+      "notes": "Divergência entre páginas oficiais: \"Paróquias\" registra PARÓQUIA criada em 16/10/2021 (com pároco) e \"Foranias\" ainda registra \"Quase Paróquia Bom Jesus\".",
       "sources": [
         {
           "url": "https://diocesedejanauba.com.br/paroquias/",
@@ -888,7 +2138,7 @@
       "foundedYear": null,
       "forania": "Forania Bom Jesus",
       "declaredCommunityCount": 23,
-      "dataNotes": "A página \"Paróquias\" grafa \"PARÓQUIA BOM JESUS\"; usada a forma da página \"Foranias\" (\"Paróquia Senhor Bom Jesus\").",
+      "notes": "A página \"Paróquias\" grafa \"PARÓQUIA BOM JESUS\"; usada a forma da página \"Foranias\" (\"Paróquia Senhor Bom Jesus\").",
       "sources": [
         {
           "url": "https://diocesedejanauba.com.br/paroquias/",
@@ -920,7 +2170,7 @@
       "foundedYear": 1976,
       "forania": "Forania Nossa Senhora da Glória",
       "declaredCommunityCount": 20,
-      "dataNotes": null,
+      "notes": null,
       "sources": [
         {
           "url": "https://diocesedejanauba.com.br/paroquias/",
@@ -952,7 +2202,7 @@
       "foundedYear": null,
       "forania": "Forania Bom Jesus",
       "declaredCommunityCount": 11,
-      "dataNotes": "Telefones publicados malformados na fonte: \"(38) 91214121 ou 98910240\".",
+      "notes": "Telefones publicados malformados na fonte: \"(38) 91214121 ou 98910240\".",
       "sources": [
         {
           "url": "https://diocesedejanauba.com.br/paroquias/",
@@ -963,11 +2213,122 @@
           "url": "https://diocesedejanauba.com.br/foranias/",
           "title": "Foranias – Diocese de Janaúba (6 foranias e a distribuição das 33 paróquias/quase-paróquias)",
           "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://www.instagram.com/paroquiasantoantonio_ibiracatu/",
+          "title": "Paróquia Santo Antônio (Ibiracatu) — perfil oficial no Instagram (conteúdo mais recente identificado é de 2024)",
+          "accessedAt": "2026-09-10"
         }
       ],
       "confidence": "alta",
-      "communities": [],
-      "schedules": []
+      "communities": [
+        {
+          "name": "Comunidade Vicentinos",
+          "address": null,
+          "neighborhood": "Vicentinos",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/paroquiasantoantonio_ibiracatu/",
+              "title": "Paróquia Santo Antônio (Ibiracatu) — perfil oficial no Instagram (conteúdo mais recente identificado é de 2024)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Perfil oficial, mas o conteúdo mais recente identificado é de 2024 — pode estar desatualizado.",
+          "sources": [
+            {
+              "url": "https://www.instagram.com/paroquiasantoantonio_ibiracatu/",
+              "title": "Paróquia Santo Antônio (Ibiracatu) — perfil oficial no Instagram (conteúdo mais recente identificado é de 2024)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Perfil oficial, mas o conteúdo mais recente identificado é de 2024 — pode estar desatualizado.",
+          "sources": [
+            {
+              "url": "https://www.instagram.com/paroquiasantoantonio_ibiracatu/",
+              "title": "Paróquia Santo Antônio (Ibiracatu) — perfil oficial no Instagram (conteúdo mais recente identificado é de 2024)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Comunidade Vicentinos",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": "Perfil oficial, mas o conteúdo mais recente identificado é de 2024 — pode estar desatualizado.",
+          "sources": [
+            {
+              "url": "https://www.instagram.com/paroquiasantoantonio_ibiracatu/",
+              "title": "Paróquia Santo Antônio (Ibiracatu) — perfil oficial no Instagram (conteúdo mais recente identificado é de 2024)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 2,
+          "time": "19:00",
+          "type": "ROSARY",
+          "notes": "Terço dos Homens. Perfil oficial, conteúdo de 2024.",
+          "sources": [
+            {
+              "url": "https://www.instagram.com/paroquiasantoantonio_ibiracatu/",
+              "title": "Paróquia Santo Antônio (Ibiracatu) — perfil oficial no Instagram (conteúdo mais recente identificado é de 2024)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Comunidade Vicentinos",
+          "dayOfWeek": 2,
+          "time": "19:00",
+          "type": "ROSARY",
+          "notes": "Terço das Mulheres. Perfil oficial, conteúdo de 2024.",
+          "sources": [
+            {
+              "url": "https://www.instagram.com/paroquiasantoantonio_ibiracatu/",
+              "title": "Paróquia Santo Antônio (Ibiracatu) — perfil oficial no Instagram (conteúdo mais recente identificado é de 2024)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "08:00",
+          "type": "ADORATION",
+          "notes": "Fonte: \"quinta-feira, 08:00 às 18:00\". Perfil oficial, conteúdo de 2024.",
+          "sources": [
+            {
+              "url": "https://www.instagram.com/paroquiasantoantonio_ibiracatu/",
+              "title": "Paróquia Santo Antônio (Ibiracatu) — perfil oficial no Instagram (conteúdo mais recente identificado é de 2024)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
     },
     {
       "slug": "nossa-senhora-da-conceicao-matias-cardoso",
@@ -984,7 +2345,7 @@
       "foundedYear": 1670,
       "forania": "Forania Nossa Senhora da Glória",
       "declaredCommunityCount": 17,
-      "dataNotes": "Ano de criação publicado como 1670 — anterior à criação da diocese e mesmo do bispado de Diamantina; provavelmente a data da capela/freguesia original. Confirmar.",
+      "notes": "Ano de criação publicado como 1670 — anterior à criação da diocese e mesmo do bispado de Diamantina; provavelmente a data da capela/freguesia original. Confirmar.",
       "sources": [
         {
           "url": "https://diocesedejanauba.com.br/paroquias/",
@@ -1016,7 +2377,7 @@
       "foundedYear": 2016,
       "forania": "Forania Nossa Senhora da Glória",
       "declaredCommunityCount": 17,
-      "dataNotes": null,
+      "notes": null,
       "sources": [
         {
           "url": "https://diocesedejanauba.com.br/paroquias/",
@@ -1048,7 +2409,7 @@
       "foundedYear": null,
       "forania": "Forania Bom Jesus",
       "declaredCommunityCount": 18,
-      "dataNotes": "Fonte grafa o nome do padre como \"Pe Paulo Macos Vieira\" (provável erro de digitação de \"Marcos\").",
+      "notes": "Fonte grafa o nome do padre como \"Pe Paulo Macos Vieira\" (provável erro de digitação de \"Marcos\").",
       "sources": [
         {
           "url": "https://diocesedejanauba.com.br/paroquias/",
@@ -1080,7 +2441,7 @@
       "foundedYear": null,
       "forania": "Forania Nossa Senhora da Glória",
       "declaredCommunityCount": 16,
-      "dataNotes": null,
+      "notes": null,
       "sources": [
         {
           "url": "https://diocesedejanauba.com.br/paroquias/",
@@ -1101,6 +2462,6 @@
   "coverage": {
     "parishesFound": 33,
     "parishesExpected": 33,
-    "notes": "Cobertura 33/33. As duas páginas oficiais do site da diocese (\"Paróquias\" e \"Foranias\") listam exatamente as mesmas 33 circunscrições paroquiais (26 paróquias + 7 quase-paróquias), e o catholic-hierarchy.org registra 33 paróquias no Anuário Pontifício 2024 (dados de 2023). A página \"Paróquias\" traz endereço, CEP, telefone, e-mail, pároco, ano de criação e o NÚMERO de comunidades de cada paróquia (855 comunidades declaradas no total, de 6 a 101 por paróquia), mas NÃO os nomes das comunidades — por isso \"communities\" ficou vazio em todas (o importador cria a igreja-matriz). Nenhuma das duas páginas publica horário de missa; os horários deste arquivo vieram de pesquisa complementar em fontes das próprias paróquias. Quatro registros ficaram com confidence \"media\" por divergência de status (paróquia x quase-paróquia) ou de nome entre as duas páginas oficiais — ver RELATORIO-janauba.md."
+    "notes": "Cobertura 33/33. As duas páginas oficiais do site da diocese (\"Paróquias\" e \"Foranias\") listam exatamente as mesmas 33 circunscrições paroquiais (26 paróquias + 7 quase-paróquias), e o catholic-hierarchy.org registra 33 paróquias no Anuário Pontifício 2024 (dados de 2023). A página \"Paróquias\" traz endereço, CEP, telefone, e-mail, pároco, ano de criação e o NÚMERO de comunidades de cada paróquia (855 comunidades declaradas no total, de 6 a 101 por paróquia), mas NÃO os nomes das comunidades — por isso \"communities\" ficou vazio em todas (o importador cria a igreja-matriz). Nenhuma das duas páginas publica horário de missa: os 73 horários deste arquivo vieram de pesquisa complementar em bios oficiais de Instagram das paróquias (19 \"alta\") e em agregadores colaborativos sem data de atualização (46 \"baixa\"), cobrindo 12 das 33 paróquias. Três registros de paróquia ficaram com confidence \"media\" por divergência de status (paróquia x quase-paróquia) ou de nome entre as duas páginas oficiais — ver RELATORIO-janauba.md."
   }
 }

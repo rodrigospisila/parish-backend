@@ -4512,7 +4512,9 @@
           ],
           "confidence": "alta"
         }
-      ]
+      ],
+      "loadAsParish": true,
+      "jurisdictionNote": "Capelania listada pela diocese entre suas paróquias, com missas fixas publicadas — entra na carga por loadAsParish"
     },
     {
       "slug": "santa-teresinha-do-menino-jesus-uberlandia",
@@ -13377,6 +13379,6 @@
   "coverage": {
     "parishesFound": 52,
     "parishesExpected": 52,
-    "notes": "Cobertura completa da lista oficial: as 52 circunscrições publicadas em diocesedeuberlandia.org.br/paroquias (49 paróquias, 2 santuários e 1 capelania) foram extraídas uma a uma pela API REST do WordPress do site diocesano e pelas páginas individuais. A página institucional 'A Diocese' confirma 52 paróquias, 9 municípios e 7 foranias. O catholic-hierarchy.org registra 50 paróquias no Anuário Pontifício 2023 (dado de 2022) — a diferença são erecções posteriores. A Capelania Jesus Bom Pastor (Uberlândia) é listada pela diocese entre as circunscrições, mas o importador a ignora por não ser paróquia. Comunidades e horários vêm da aba 'Horários de Missas' de cada página paroquial; a Paróquia São João Batista (Cascalho Rico) é a única sem nenhum horário publicado."
+    "notes": "Cobertura completa da lista oficial: as 52 circunscrições publicadas em diocesedeuberlandia.org.br/paroquias (48 paróquias, 1 catedral, 2 santuários e 1 capelania) foram extraídas uma a uma pela API REST do WordPress do site diocesano e pelas páginas individuais. A página institucional 'A Diocese' confirma 52 paróquias, 9 municípios e 7 foranias. O catholic-hierarchy.org registra 50 paróquias no Anuário Pontifício 2023 (dado de 2022) — a diferença são erecções posteriores. A Capelania Jesus Bom Pastor (Uberlândia) é listada pela diocese entre as circunscrições, mas o importador a ignora por não ser paróquia. Comunidades e horários vêm da aba 'Horários de Missas' de cada página paroquial; a Paróquia São João Batista (Cascalho Rico) é a única sem nenhum horário publicado."
   }
 }

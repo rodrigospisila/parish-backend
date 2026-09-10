@@ -45,11 +45,11 @@ function validateDioceseFile(file) {
     // importador acrescenta o bairro ao nome); duplicata real = mesmo bairro também
     const key = `${norm(p.name)}|${norm(p.city)}|${norm(p.neighborhood || p.address || '')}`;
     if (seen.has(key)) warn(file, `paróquia duplicada: ${p.name} (${p.city}, ${p.neighborhood || p.address || 'sem bairro'})`); seen.add(key);
-    if (/^(Capela|Igreja|Capelania|Miss[ãa]o|Orat[óo]rio|Comunidade|Mosteiro|Convento|Monjas|Monges|Abadia|Carmelo)\b/i.test(p.name || '')) console.log(`  · ${path.basename(file)}: unidade não paroquial (o importador ignora): ${p.name}`);
+    if (/^(Capela|Igreja|Capelania|Miss[ãa]o|Orat[óo]rio|Comunidade|Mosteiro|Convento|Monjas|Monges|Abadia|Carmelo|Semin[áa]rio)\b/i.test(p.name || '')) console.log(`  · ${path.basename(file)}: unidade não paroquial (o importador ignora): ${p.name}`);
     // "Rede de Comunidades", "Área Pastoral/Missionária", "Unidade/Região Pastoral" e
     // "Curato" são unidades com pároco/curato próprio, equivalentes a paróquia (Rio
     // Grande, Mogi, São Miguel, Campo Limpo, S.J. do Rio Preto, BH, Mariana, Campanha)
-    else if (!p.name || !/^(Par[óo]quia|Catedral|Concatedral|Santu[áa]rio|Reitoria|Quase-par[óo]quia|Bas[íi]lica|Curato|Rede de Comunidades|[ÁA]rea (Pastoral|Mission[áa]ria)|(Unidade|Regi[ãa]o) Pastoral)/i.test(p.name)) warn(file, `nome sem prefixo padronizado: ${p.name}`);
+    else if (!p.name || !/^(Par[óo]quia|Catedral|Concatedral|Santu[áa]rio|Reitoria|(Quase|Pr[óo])-par[óo]quia|Bas[íi]lica|Curato|Rede de Comunidades|[ÁA]rea (Pastoral|Mission[áa]ria)|(Unidade|Regi[ãa]o) Pastoral)/i.test(p.name)) warn(file, `nome sem prefixo padronizado: ${p.name}`);
     if (!p.city || !/^[A-Z]{2}$/.test(p.state ?? '')) warn(file, `${p.name}: city/state inválidos`);
     if (!p.slug) warn(file, `${p.name}: sem slug`);
     if (!CONF.has(p.confidence)) warn(file, `${p.name}: confidence inválida (${p.confidence})`); else totals.byConf[p.confidence] += 1;
