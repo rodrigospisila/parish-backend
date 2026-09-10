@@ -1,0 +1,910 @@
+{
+  "diocese": {
+    "name": "Eparquia de Nossa Senhora do Paraíso em São Paulo dos Greco-Melquitas",
+    "type": "Eparquia",
+    "slug": "melquita-nossa-senhora-do-paraiso-sao-paulo",
+    "city": "São Paulo",
+    "state": "SP",
+    "address": "Rua do Paraíso, 21 – Paraíso",
+    "zipCode": "04103-000",
+    "phone": "(11) 3141-0639",
+    "email": "curia@eparquiagrecomelquita.org.br",
+    "website": "https://eparquiagrecomelquita.org.br",
+    "bishopName": "Dom George Toufik Khoury",
+    "sources": [
+      {
+        "url": "https://eparquiagrecomelquita.org.br/nossas-igrejas/",
+        "title": "Nossas Igrejas — Eparquia Greco-Melquita Católica Nossa Senhora do Paraíso (página oficial, atualizada em 21/03/2026)",
+        "accessedAt": "2026-09-10"
+      },
+      {
+        "url": "https://eparquiagrecomelquita.org.br/curia-eparquial-greco-melquita/",
+        "title": "Cúria Eparquial Greco-Melquita (página oficial, atualizada em 21/03/2026) — vigário geral Mons. Joaquim Stein, e-mail curia@eparquiagrecomelquita.org.br",
+        "accessedAt": "2026-09-10"
+      },
+      {
+        "url": "https://eparquiagrecomelquita.org.br/contato/",
+        "title": "Fale Conosco — contatos das secretarias paroquiais por cidade (página oficial, atualizada em 26/04/2026)",
+        "accessedAt": "2026-09-10"
+      },
+      {
+        "url": "https://www.catholic-hierarchy.org/diocese/dsame.html",
+        "title": "catholic-hierarchy.org — Nossa Senhora do Paraíso em São Paulo (Melkite Greek) (Eparchy); estatísticas de 2023: 5 paróquias, 437.000 católicos, 24 sacerdotes",
+        "accessedAt": "2026-09-10"
+      },
+      {
+        "url": "https://gcatholic.org/churches/local/noss1-n",
+        "title": "gcatholic.org — Churches in the Greek-Melkite Diocese of Nossa Senhora do Paraíso em São Paulo (7 igrejas; atualizado em 16/05/2026)",
+        "accessedAt": "2026-09-10"
+      },
+      {
+        "url": "https://pt.wikipedia.org/wiki/Eparquia_Greco-Melquita_Nossa_Senhora_do_Para%C3%ADso",
+        "title": "Wikipédia — Eparquia Greco-Melquita Nossa Senhora do Paraíso (seção \"Comunidades\")",
+        "accessedAt": "2026-09-10"
+      }
+    ],
+    "confidence": "alta"
+  },
+  "parishes": [
+    {
+      "slug": "nossa-senhora-do-paraiso-sao-paulo",
+      "name": "Catedral de Nossa Senhora do Paraíso",
+      "city": "São Paulo",
+      "state": "SP",
+      "neighborhood": "Paraíso",
+      "address": "Rua do Paraíso, 21",
+      "zipCode": "04103-000",
+      "phone": "(11) 93143-5798",
+      "email": null,
+      "website": "https://eparquiagrecomelquita.org.br/catedral-nossa-senhora-do-paraiso/",
+      "priestName": "Pe. Ziad Al-Khoury",
+      "foundedYear": null,
+      "notes": "Sé da Eparquia. Clérigos provisionados: Pe. Ziad Al-Khoury (pároco) e Mons. Joaquim Stein. Atendimento de secretaria: segunda a sexta, das 10h às 16h. Confissões todos os dias, antes da Divina Liturgia (a fonte não publica horário fixo). Batizados aos sábados e domingos.",
+      "sources": [
+        {
+          "url": "https://eparquiagrecomelquita.org.br/catedral-nossa-senhora-do-paraiso/",
+          "title": "Catedral de Nossa Senhora do Paraíso — site oficial da Eparquia Greco-Melquita (página atualizada em 26/04/2026)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://eparquiagrecomelquita.org.br/nossas-igrejas/",
+          "title": "Nossas Igrejas — Eparquia Greco-Melquita (lista oficial por estado)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Catedral de Nossa Senhora do Paraíso",
+          "address": "Rua do Paraíso, 21",
+          "neighborhood": "Paraíso",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://eparquiagrecomelquita.org.br/catedral-nossa-senhora-do-paraiso/",
+              "title": "Catedral de Nossa Senhora do Paraíso — site oficial da Eparquia Greco-Melquita",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Catedral de Nossa Senhora do Paraíso",
+          "dayOfWeek": 1,
+          "time": "12:00",
+          "type": "MASS",
+          "notes": "Divina Liturgia. Regra literal da fonte: \"Divina Liturgia: Segunda a Sábado 12h00\".",
+          "sources": [
+            {
+              "url": "https://eparquiagrecomelquita.org.br/catedral-nossa-senhora-do-paraiso/",
+              "title": "Catedral de Nossa Senhora do Paraíso — site oficial (atualizado em 26/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral de Nossa Senhora do Paraíso",
+          "dayOfWeek": 2,
+          "time": "12:00",
+          "type": "MASS",
+          "notes": "Divina Liturgia. Regra literal da fonte: \"Divina Liturgia: Segunda a Sábado 12h00\".",
+          "sources": [
+            {
+              "url": "https://eparquiagrecomelquita.org.br/catedral-nossa-senhora-do-paraiso/",
+              "title": "Catedral de Nossa Senhora do Paraíso — site oficial (atualizado em 26/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral de Nossa Senhora do Paraíso",
+          "dayOfWeek": 3,
+          "time": "12:00",
+          "type": "MASS",
+          "notes": "Divina Liturgia. Regra literal da fonte: \"Divina Liturgia: Segunda a Sábado 12h00\".",
+          "sources": [
+            {
+              "url": "https://eparquiagrecomelquita.org.br/catedral-nossa-senhora-do-paraiso/",
+              "title": "Catedral de Nossa Senhora do Paraíso — site oficial (atualizado em 26/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral de Nossa Senhora do Paraíso",
+          "dayOfWeek": 4,
+          "time": "12:00",
+          "type": "MASS",
+          "notes": "Divina Liturgia. Regra literal da fonte: \"Divina Liturgia: Segunda a Sábado 12h00\".",
+          "sources": [
+            {
+              "url": "https://eparquiagrecomelquita.org.br/catedral-nossa-senhora-do-paraiso/",
+              "title": "Catedral de Nossa Senhora do Paraíso — site oficial (atualizado em 26/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral de Nossa Senhora do Paraíso",
+          "dayOfWeek": 5,
+          "time": "12:00",
+          "type": "MASS",
+          "notes": "Divina Liturgia. Regra literal da fonte: \"Divina Liturgia: Segunda a Sábado 12h00\".",
+          "sources": [
+            {
+              "url": "https://eparquiagrecomelquita.org.br/catedral-nossa-senhora-do-paraiso/",
+              "title": "Catedral de Nossa Senhora do Paraíso — site oficial (atualizado em 26/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral de Nossa Senhora do Paraíso",
+          "dayOfWeek": 6,
+          "time": "12:00",
+          "type": "MASS",
+          "notes": "Divina Liturgia. Regra literal da fonte: \"Divina Liturgia: Segunda a Sábado 12h00\".",
+          "sources": [
+            {
+              "url": "https://eparquiagrecomelquita.org.br/catedral-nossa-senhora-do-paraiso/",
+              "title": "Catedral de Nossa Senhora do Paraíso — site oficial (atualizado em 26/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral de Nossa Senhora do Paraíso",
+          "dayOfWeek": 0,
+          "time": "11:30",
+          "type": "MASS",
+          "notes": "Divina Liturgia. Regra literal da fonte: \"Domingo 11h30 e 18h00\".",
+          "sources": [
+            {
+              "url": "https://eparquiagrecomelquita.org.br/catedral-nossa-senhora-do-paraiso/",
+              "title": "Catedral de Nossa Senhora do Paraíso — site oficial (atualizado em 26/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral de Nossa Senhora do Paraíso",
+          "dayOfWeek": 0,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": "Divina Liturgia. Regra literal da fonte: \"Domingo 11h30 e 18h00\".",
+          "sources": [
+            {
+              "url": "https://eparquiagrecomelquita.org.br/catedral-nossa-senhora-do-paraiso/",
+              "title": "Catedral de Nossa Senhora do Paraíso — site oficial (atualizado em 26/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "sao-basilio-e-nossa-senhora-do-perpetuo-socorro-rio-de-janeiro",
+      "name": "Concatedral de São Basílio e Nossa Senhora do Perpétuo Socorro",
+      "city": "Rio de Janeiro",
+      "state": "RJ",
+      "neighborhood": "Centro",
+      "address": "Rua República do Líbano, 17",
+      "zipCode": "20061-030",
+      "phone": "(21) 2242-5101",
+      "email": null,
+      "website": "https://eparquiagrecomelquita.org.br/concatedral-sao-basilio-nossa-senhora-do-perpetuo-socorro/",
+      "priestName": "Pe. Vitor Pereira",
+      "foundedYear": null,
+      "notes": "Primeira igreja melquita do Brasil. Elevada a Concatedral (Co-Catedral) pelo Papa Francisco em 07/05/2023. Clérigos provisionados: D. George Khoury (hierarca), Pe. Vitor Pereira (auxiliar), Diác. Raphael De Paola e Diác. Luís Antônio. Telefone também é WhatsApp. Atendimento: segunda a sexta, das 10h às 14h; domingos, das 9h às 12h. Confissões e batizados a combinar.",
+      "sources": [
+        {
+          "url": "https://eparquiagrecomelquita.org.br/concatedral-sao-basilio-nossa-senhora-do-perpetuo-socorro/",
+          "title": "Concatedral de São Basílio e Nossa Senhora do Perpétuo Socorro — site oficial da Eparquia Greco-Melquita (página atualizada em 26/04/2026)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://pt.wikipedia.org/wiki/Eparquia_Greco-Melquita_Nossa_Senhora_do_Para%C3%ADso",
+          "title": "Wikipédia — elevação a Co-Catedral em 07/05/2023",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Concatedral de São Basílio e Nossa Senhora do Perpétuo Socorro",
+          "address": "Rua República do Líbano, 17",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://eparquiagrecomelquita.org.br/concatedral-sao-basilio-nossa-senhora-do-perpetuo-socorro/",
+              "title": "Concatedral de São Basílio e Nossa Senhora do Perpétuo Socorro — site oficial",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Concatedral de São Basílio e Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 1,
+          "time": "12:00",
+          "type": "MASS",
+          "notes": "Divina Liturgia. Regra literal da fonte: \"Divina Liturgia: Segunda a Sexta, às 12h00\".",
+          "sources": [
+            {
+              "url": "https://eparquiagrecomelquita.org.br/concatedral-sao-basilio-nossa-senhora-do-perpetuo-socorro/",
+              "title": "Concatedral de São Basílio — site oficial (atualizado em 26/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Concatedral de São Basílio e Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 2,
+          "time": "12:00",
+          "type": "MASS",
+          "notes": "Divina Liturgia. Regra literal da fonte: \"Divina Liturgia: Segunda a Sexta, às 12h00\".",
+          "sources": [
+            {
+              "url": "https://eparquiagrecomelquita.org.br/concatedral-sao-basilio-nossa-senhora-do-perpetuo-socorro/",
+              "title": "Concatedral de São Basílio — site oficial (atualizado em 26/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Concatedral de São Basílio e Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 3,
+          "time": "12:00",
+          "type": "MASS",
+          "notes": "Divina Liturgia. Regra literal da fonte: \"Divina Liturgia: Segunda a Sexta, às 12h00\".",
+          "sources": [
+            {
+              "url": "https://eparquiagrecomelquita.org.br/concatedral-sao-basilio-nossa-senhora-do-perpetuo-socorro/",
+              "title": "Concatedral de São Basílio — site oficial (atualizado em 26/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Concatedral de São Basílio e Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 4,
+          "time": "12:00",
+          "type": "MASS",
+          "notes": "Divina Liturgia. Regra literal da fonte: \"Divina Liturgia: Segunda a Sexta, às 12h00\".",
+          "sources": [
+            {
+              "url": "https://eparquiagrecomelquita.org.br/concatedral-sao-basilio-nossa-senhora-do-perpetuo-socorro/",
+              "title": "Concatedral de São Basílio — site oficial (atualizado em 26/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Concatedral de São Basílio e Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 5,
+          "time": "12:00",
+          "type": "MASS",
+          "notes": "Divina Liturgia. Regra literal da fonte: \"Divina Liturgia: Segunda a Sexta, às 12h00\".",
+          "sources": [
+            {
+              "url": "https://eparquiagrecomelquita.org.br/concatedral-sao-basilio-nossa-senhora-do-perpetuo-socorro/",
+              "title": "Concatedral de São Basílio — site oficial (atualizado em 26/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Concatedral de São Basílio e Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": "Divina Liturgia. Regra literal da fonte: \"Domingos, às 09h00 e 11h00\".",
+          "sources": [
+            {
+              "url": "https://eparquiagrecomelquita.org.br/concatedral-sao-basilio-nossa-senhora-do-perpetuo-socorro/",
+              "title": "Concatedral de São Basílio — site oficial (atualizado em 26/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Concatedral de São Basílio e Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 0,
+          "time": "11:00",
+          "type": "MASS",
+          "notes": "Divina Liturgia. Regra literal da fonte: \"Domingos, às 09h00 e 11h00\".",
+          "sources": [
+            {
+              "url": "https://eparquiagrecomelquita.org.br/concatedral-sao-basilio-nossa-senhora-do-perpetuo-socorro/",
+              "title": "Concatedral de São Basílio — site oficial (atualizado em 26/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-do-libano-fortaleza",
+      "name": "Paróquia de Nossa Senhora do Líbano",
+      "city": "Fortaleza",
+      "state": "CE",
+      "neighborhood": "Meireles",
+      "address": "Rua República do Líbano, 15",
+      "zipCode": "60160-140",
+      "phone": "(85) 98818-7799",
+      "email": null,
+      "website": "https://eparquiagrecomelquita.org.br/paroquia-de-nossa-senhora-do-libano/",
+      "priestName": null,
+      "foundedYear": null,
+      "notes": "Santuário de Nossa Senhora do Líbano (gcatholic registra como Parish/Shrine). Clérigo provisionado: D. George Khoury (Bispo Eparquial). Telefone é WhatsApp. Atendimento paroquial de terça a sábado, das 8h às 12h e das 13h às 17h30 (sem expediente às segundas). Na presença do Bispo, as celebrações acontecem de segunda a sábado às 18h na Capela dos Apóstolos Pedro e Paulo.",
+      "sources": [
+        {
+          "url": "https://eparquiagrecomelquita.org.br/paroquia-de-nossa-senhora-do-libano/",
+          "title": "Paróquia de Nossa Senhora do Líbano (Fortaleza) — site oficial da Eparquia Greco-Melquita (página atualizada em 09/01/2026)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://eparquiagrecomelquita.org.br/contato/",
+          "title": "Fale Conosco — FORTALEZA/CE, Igreja de Nossa Senhora do Líbano, WhatsApp (85) 98818-7799",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://gcatholic.org/churches/local/noss1-n",
+          "title": "gcatholic.org — Fortaleza, CE: Nossa Senhora do Líbano (Parish, Shrine)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora do Líbano",
+          "address": "Rua República do Líbano, 15",
+          "neighborhood": "Meireles",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://eparquiagrecomelquita.org.br/paroquia-de-nossa-senhora-do-libano/",
+              "title": "Paróquia de Nossa Senhora do Líbano (Fortaleza) — site oficial: \"Matriz Paróquia Nossa Senhora do Líbano, Rua República do Líbano, 15\"",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela dos Apóstolos Pedro e Paulo",
+          "address": "Rua República do Líbano, 15 (anexa ao Salão Paroquial, acesso pela frente da Igreja)",
+          "neighborhood": "Meireles",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://eparquiagrecomelquita.org.br/paroquia-de-nossa-senhora-do-libano/",
+              "title": "Paróquia de Nossa Senhora do Líbano (Fortaleza) — site oficial: \"Capela dos Apóstolos Pedro e Paulo, Anexa ao Salão Paroquial\"",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora do Líbano",
+          "dayOfWeek": 0,
+          "time": "09:30",
+          "type": "MASS",
+          "notes": "Divina Liturgia. Regra literal da fonte: \"Domingos: às 9h30 e às 18h\".",
+          "sources": [
+            {
+              "url": "https://eparquiagrecomelquita.org.br/paroquia-de-nossa-senhora-do-libano/",
+              "title": "Paróquia de Nossa Senhora do Líbano (Fortaleza) — site oficial (atualizado em 09/01/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Líbano",
+          "dayOfWeek": 0,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": "Divina Liturgia. Regra literal da fonte: \"Domingos: às 9h30 e às 18h\".",
+          "sources": [
+            {
+              "url": "https://eparquiagrecomelquita.org.br/paroquia-de-nossa-senhora-do-libano/",
+              "title": "Paróquia de Nossa Senhora do Líbano (Fortaleza) — site oficial (atualizado em 09/01/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Capela dos Apóstolos Pedro e Paulo",
+          "dayOfWeek": 2,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": "Divina Liturgia. Regra literal da fonte: \"Terças e quintas-feiras: às 18h\".",
+          "sources": [
+            {
+              "url": "https://eparquiagrecomelquita.org.br/paroquia-de-nossa-senhora-do-libano/",
+              "title": "Paróquia de Nossa Senhora do Líbano (Fortaleza) — site oficial (atualizado em 09/01/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Capela dos Apóstolos Pedro e Paulo",
+          "dayOfWeek": 4,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": "Divina Liturgia. Regra literal da fonte: \"Terças e quintas-feiras: às 18h\".",
+          "sources": [
+            {
+              "url": "https://eparquiagrecomelquita.org.br/paroquia-de-nossa-senhora-do-libano/",
+              "title": "Paróquia de Nossa Senhora do Líbano (Fortaleza) — site oficial (atualizado em 09/01/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "sant-ana-taubate",
+      "name": "Paróquia de Sant'Ana",
+      "city": "Taubaté",
+      "state": "SP",
+      "neighborhood": "Centro",
+      "address": "Praça Dr. Euzébio da Câmara Leal, s/nº",
+      "zipCode": "12010-200",
+      "phone": "(12) 98197-4287",
+      "email": null,
+      "website": "https://eparquiagrecomelquita.org.br/paroquia-de-sant-ana/",
+      "priestName": "Pe. Dimitrios Bertani",
+      "foundedYear": null,
+      "notes": "Clérigos provisionados: Pe. Dimitrios Bertani (pároco) e Diác. Luciano dos Santos. Telefone é WhatsApp. Atendimento presencial antes ou depois das celebrações. Confissões antes ou após a Divina Liturgia (a fonte não publica horário fixo).",
+      "sources": [
+        {
+          "url": "https://eparquiagrecomelquita.org.br/paroquia-de-sant-ana/",
+          "title": "Paróquia de Sant'Ana (Taubaté) — site oficial da Eparquia Greco-Melquita (página atualizada em 26/04/2026)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://eparquiagrecomelquita.org.br/contato/",
+          "title": "Fale Conosco — TAUBATÉ/SP, Igreja de Sant'Ana, WhatsApp (12) 98197-4287",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Sant'Ana",
+          "address": "Praça Dr. Euzébio da Câmara Leal, s/nº",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://eparquiagrecomelquita.org.br/paroquia-de-sant-ana/",
+              "title": "Paróquia de Sant'Ana (Taubaté) — site oficial",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Sant'Ana",
+          "dayOfWeek": 1,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": "Divina Liturgia. Regra literal da fonte: \"segundas, terças e sábados, às 17h00\".",
+          "sources": [
+            {
+              "url": "https://eparquiagrecomelquita.org.br/paroquia-de-sant-ana/",
+              "title": "Paróquia de Sant'Ana (Taubaté) — site oficial (atualizado em 26/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Sant'Ana",
+          "dayOfWeek": 2,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": "Divina Liturgia. Regra literal da fonte: \"segundas, terças e sábados, às 17h00\".",
+          "sources": [
+            {
+              "url": "https://eparquiagrecomelquita.org.br/paroquia-de-sant-ana/",
+              "title": "Paróquia de Sant'Ana (Taubaté) — site oficial (atualizado em 26/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Sant'Ana",
+          "dayOfWeek": 6,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": "Divina Liturgia. Regra literal da fonte: \"segundas, terças e sábados, às 17h00\".",
+          "sources": [
+            {
+              "url": "https://eparquiagrecomelquita.org.br/paroquia-de-sant-ana/",
+              "title": "Paróquia de Sant'Ana (Taubaté) — site oficial (atualizado em 26/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Sant'Ana",
+          "dayOfWeek": 0,
+          "time": "09:30",
+          "type": "MASS",
+          "notes": "Divina Liturgia. Regra literal da fonte: \"domingos, às 09h30\".",
+          "sources": [
+            {
+              "url": "https://eparquiagrecomelquita.org.br/paroquia-de-sant-ana/",
+              "title": "Paróquia de Sant'Ana (Taubaté) — site oficial (atualizado em 26/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-de-tsambica-lins",
+      "name": "Paróquia de Nossa Senhora de Tsambica",
+      "city": "Lins",
+      "state": "SP",
+      "neighborhood": "Jardim Campestre",
+      "address": "Rua Campos Sales, 980",
+      "zipCode": "16400-272",
+      "phone": "(14) 3522-1162",
+      "email": null,
+      "website": "https://eparquiagrecomelquita.org.br/paroquia-nossa-senhora-de-tsambica/",
+      "priestName": "Pe. Nectários Rossato",
+      "foundedYear": null,
+      "notes": "Também grafada \"Igreja Panaghia/Panaghya Tsambika (Nossa Senhora da Luz)\". Confissões 1 hora antes da celebração; outros horários mediante agendamento. O Diretório da Diocese latina de Lins registra endereço divergente (Rua Regente Feijó, 980, CEP 16400-049) e e-mail padrenectarios@gmail.com — divergência a validar.",
+      "sources": [
+        {
+          "url": "https://eparquiagrecomelquita.org.br/paroquia-nossa-senhora-de-tsambica/",
+          "title": "Paróquia de Nossa Senhora de Tsambica (Lins) — site oficial da Eparquia Greco-Melquita (página atualizada em 26/04/2026)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://eparquiagrecomelquita.org.br/contato/",
+          "title": "Fale Conosco — LINS/SP, Igreja de Nossa Senhora de Tsambica, telefone fixo (14) 3522-1162",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora de Tsambica",
+          "address": "Rua Campos Sales, 980",
+          "neighborhood": "Jardim Campestre",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://eparquiagrecomelquita.org.br/paroquia-nossa-senhora-de-tsambica/",
+              "title": "Paróquia de Nossa Senhora de Tsambica (Lins) — site oficial",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora de Tsambica",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Divina Liturgia. Regra literal da fonte: \"Divina Liturgia: Sábados, às 19h30\".",
+          "sources": [
+            {
+              "url": "https://eparquiagrecomelquita.org.br/paroquia-nossa-senhora-de-tsambica/",
+              "title": "Paróquia de Nossa Senhora de Tsambica (Lins) — site oficial (atualizado em 26/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora de Tsambica",
+          "dayOfWeek": 0,
+          "time": "10:30",
+          "type": "MASS",
+          "notes": "RECORRÊNCIA MENSAL, não semanal — não cabe no modelo (só dia da semana). Regra literal da fonte: \"Divina Liturgia: 1º e 3º Domingo do Mês, às 10h30\".",
+          "sources": [
+            {
+              "url": "https://eparquiagrecomelquita.org.br/paroquia-nossa-senhora-de-tsambica/",
+              "title": "Paróquia de Nossa Senhora de Tsambica (Lins) — site oficial (atualizado em 26/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "sao-jorge-juiz-de-fora",
+      "name": "Paróquia de São Jorge",
+      "city": "Juiz de Fora",
+      "state": "MG",
+      "neighborhood": "Santa Helena",
+      "address": "Rua São Sebastião, 1300",
+      "zipCode": "36015-260",
+      "phone": "(32) 98493-7384",
+      "email": null,
+      "website": "https://eparquiagrecomelquita.org.br/paroquia-de-sao-jorge/",
+      "priestName": "Pe. Georges Khayat",
+      "foundedYear": null,
+      "notes": "Clérigos provisionados: D. George Khoury (hierarca) e Pe. Georges Khayat (auxiliar). Telefone é WhatsApp; a Arquidiocese latina de Juiz de Fora registra também o fixo (32) 3212-7878. Batizados aos domingos, após a Divina Liturgia das 9h. Atendimento presencial mediante agendamento por WhatsApp.",
+      "sources": [
+        {
+          "url": "https://eparquiagrecomelquita.org.br/paroquia-de-sao-jorge/",
+          "title": "Paróquia de São Jorge (Juiz de Fora) — site oficial da Eparquia Greco-Melquita (página atualizada em 26/04/2026)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://arquidiocesejuizdefora.org.br/igreja-catolica-melquita-de-rito-bizantino/",
+          "title": "Igreja Católica Melquita de Rito Bizantino — Arquidiocese de Juiz de Fora (corroboração do endereço e telefone fixo)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Jorge",
+          "address": "Rua São Sebastião, 1300",
+          "neighborhood": "Santa Helena",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://eparquiagrecomelquita.org.br/paroquia-de-sao-jorge/",
+              "title": "Paróquia de São Jorge (Juiz de Fora) — site oficial",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São Jorge",
+          "dayOfWeek": 2,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Divina Liturgia. Regra literal da fonte: \"terça a sexta, às 19h00\".",
+          "sources": [
+            {
+              "url": "https://eparquiagrecomelquita.org.br/paroquia-de-sao-jorge/",
+              "title": "Paróquia de São Jorge (Juiz de Fora) — site oficial (atualizado em 26/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Jorge",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Divina Liturgia. Regra literal da fonte: \"terça a sexta, às 19h00\".",
+          "sources": [
+            {
+              "url": "https://eparquiagrecomelquita.org.br/paroquia-de-sao-jorge/",
+              "title": "Paróquia de São Jorge (Juiz de Fora) — site oficial (atualizado em 26/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Jorge",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Divina Liturgia. Regra literal da fonte: \"terça a sexta, às 19h00\".",
+          "sources": [
+            {
+              "url": "https://eparquiagrecomelquita.org.br/paroquia-de-sao-jorge/",
+              "title": "Paróquia de São Jorge (Juiz de Fora) — site oficial (atualizado em 26/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Jorge",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Divina Liturgia. Regra literal da fonte: \"terça a sexta, às 19h00\".",
+          "sources": [
+            {
+              "url": "https://eparquiagrecomelquita.org.br/paroquia-de-sao-jorge/",
+              "title": "Paróquia de São Jorge (Juiz de Fora) — site oficial (atualizado em 26/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Jorge",
+          "dayOfWeek": 6,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": "Divina Liturgia. Regra literal da fonte: \"sábados, às 18h30\".",
+          "sources": [
+            {
+              "url": "https://eparquiagrecomelquita.org.br/paroquia-de-sao-jorge/",
+              "title": "Paróquia de São Jorge (Juiz de Fora) — site oficial (atualizado em 26/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Jorge",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": "Divina Liturgia. Regra literal da fonte: \"domingos, às 9h00 e às 18h30\".",
+          "sources": [
+            {
+              "url": "https://eparquiagrecomelquita.org.br/paroquia-de-sao-jorge/",
+              "title": "Paróquia de São Jorge (Juiz de Fora) — site oficial (atualizado em 26/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Jorge",
+          "dayOfWeek": 0,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": "Divina Liturgia. Regra literal da fonte: \"domingos, às 9h00 e às 18h30\".",
+          "sources": [
+            {
+              "url": "https://eparquiagrecomelquita.org.br/paroquia-de-sao-jorge/",
+              "title": "Paróquia de São Jorge (Juiz de Fora) — site oficial (atualizado em 26/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Jorge",
+          "dayOfWeek": 4,
+          "time": "17:30",
+          "type": "CONFESSION",
+          "notes": "Regra literal da fonte: \"Confissões: quinta e sexta, das 17h30 às 18h30\".",
+          "sources": [
+            {
+              "url": "https://eparquiagrecomelquita.org.br/paroquia-de-sao-jorge/",
+              "title": "Paróquia de São Jorge (Juiz de Fora) — site oficial (atualizado em 26/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Jorge",
+          "dayOfWeek": 5,
+          "time": "17:30",
+          "type": "CONFESSION",
+          "notes": "Regra literal da fonte: \"Confissões: quinta e sexta, das 17h30 às 18h30\".",
+          "sources": [
+            {
+              "url": "https://eparquiagrecomelquita.org.br/paroquia-de-sao-jorge/",
+              "title": "Paróquia de São Jorge (Juiz de Fora) — site oficial (atualizado em 26/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Jorge",
+          "dayOfWeek": 6,
+          "time": "17:15",
+          "type": "CONFESSION",
+          "notes": "Regra literal da fonte: \"Sábado, das 17h15 às 18h00\".",
+          "sources": [
+            {
+              "url": "https://eparquiagrecomelquita.org.br/paroquia-de-sao-jorge/",
+              "title": "Paróquia de São Jorge (Juiz de Fora) — site oficial (atualizado em 26/04/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "sao-sebastiao-tremembe",
+      "name": "Paróquia São Sebastião",
+      "city": "Tremembé",
+      "state": "SP",
+      "neighborhood": "Centro",
+      "address": null,
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "notes": "NÃO consta da lista oficial \"Nossas Igrejas\" do site da Eparquia (versão de 21/03/2026), que registra apenas 6 igrejas. Está em gcatholic.org (atualizado em 16/05/2026) e na Wikipédia como igreja greco-melquita em Tremembé/SP. Provavelmente atendida pelo mesmo clero da Paróquia de Sant'Ana, em Taubaté (5 km). Precisa de validação humana: confirmar se ainda é paróquia autônoma e obter endereço, telefone e horários.",
+      "sources": [
+        {
+          "url": "https://gcatholic.org/churches/local/noss1-n",
+          "title": "gcatholic.org — Churches in the Greek-Melkite Diocese of Nossa Senhora do Paraíso em São Paulo: \"Tremembé, SP — São Sebastião / Church of St. Sebastian\" (atualizado em 16/05/2026)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://gcatholic.org/churches/america-south/23904.htm",
+          "title": "gcatholic.org — Igreja de São Sebastião, Tremembé, São Paulo, Brazil (Greek-Melkite)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://pt.wikipedia.org/wiki/Eparquia_Greco-Melquita_Nossa_Senhora_do_Para%C3%ADso",
+          "title": "Wikipédia — Eparquia Greco-Melquita Nossa Senhora do Paraíso, seção Comunidades: \"Paróquia São Sebastião, SP, Tremembé, Centro\"",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": []
+    }
+  ],
+  "coverage": {
+    "parishesFound": 7,
+    "parishesExpected": 7,
+    "notes": "Circunscrição de âmbito NACIONAL (rito bizantino greco-melquita): as igrejas estão em 5 estados (SP, RJ, MG, CE) — o campo state de cada paróquia é a UF onde ela fica, não SP. Fontes: (a) site oficial da Eparquia, página \"Nossas Igrejas\" atualizada em 21/03/2026, com 6 igrejas (Fortaleza/CE, Juiz de Fora/MG, Rio de Janeiro/RJ, Lins/SP, São Paulo/SP, Taubaté/SP), todas com página própria atualizada entre 09/01/2026 e 26/04/2026 — daí a confiança alta em endereço, telefone, clero e horários; (b) gcatholic.org (atualizado em 16/05/2026) lista 7 igrejas: as 6 oficiais MENOS Lins, MAIS Tremembé/SP e Belo Horizonte/MG. Tremembé foi incluída aqui com confiança media (gcatholic + Wikipédia). Belo Horizonte NÃO foi incluída: a Igreja do Sagrado Coração de Jesus (Av. Carandaí, 1010, Funcionários) é a paróquia pessoal dos SIRÍACOS católicos, do Ordinariado para os Fiéis de Rito Oriental — os melquitas apenas usam o espaço; ela está registrada no arquivo paroquias/MG/ordinariado-rito-oriental.json. Lins não aparece em gcatholic, mas está no site oficial da Eparquia e no Diretório da Diocese latina de Lins. catholic-hierarchy.org registra 5 paróquias em 2023 (437.000 católicos, 24 sacerdotes) — número menor porque conta apenas paróquias canônicas, não capelas/santuários. A Wikipédia lista ainda 3 espaços CEDIDOS por igrejas latinas para os fiéis bizantinos, que não são paróquias melquitas e por isso não entram: Igreja de Santa Helena (Votorantim/SP, Barra Funda), Santuário do Bom Jesus (Boa Esperança/MG) e Igreja do Sagrado Coração de Jesus (Belo Horizonte/MG, Funcionários)."
+  }
+}
