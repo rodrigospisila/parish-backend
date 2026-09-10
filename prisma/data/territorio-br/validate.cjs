@@ -46,7 +46,8 @@ function validateDioceseFile(file) {
     const key = `${norm(p.name)}|${norm(p.city)}|${norm(p.neighborhood || p.address || '')}`;
     if (seen.has(key)) warn(file, `paróquia duplicada: ${p.name} (${p.city}, ${p.neighborhood || p.address || 'sem bairro'})`); seen.add(key);
     if (/^(Capela|Igreja|Capelania|Miss[ãa]o)\b/i.test(p.name || '')) console.log(`  · ${path.basename(file)}: unidade não paroquial (o importador ignora): ${p.name}`);
-    else if (!p.name || !/^(Par[óo]quia|Catedral|Concatedral|Santu[áa]rio|Reitoria|Quase-par[óo]quia|Bas[íi]lica)/i.test(p.name)) warn(file, `nome sem prefixo padronizado: ${p.name}`);
+    // "Rede de Comunidades" é unidade pastoral com pároco (Diocese de Rio Grande)
+    else if (!p.name || !/^(Par[óo]quia|Catedral|Concatedral|Santu[áa]rio|Reitoria|Quase-par[óo]quia|Bas[íi]lica|Rede de Comunidades)/i.test(p.name)) warn(file, `nome sem prefixo padronizado: ${p.name}`);
     if (!p.city || !/^[A-Z]{2}$/.test(p.state ?? '')) warn(file, `${p.name}: city/state inválidos`);
     if (!p.slug) warn(file, `${p.name}: sem slug`);
     if (!CONF.has(p.confidence)) warn(file, `${p.name}: confidence inválida (${p.confidence})`); else totals.byConf[p.confidence] += 1;

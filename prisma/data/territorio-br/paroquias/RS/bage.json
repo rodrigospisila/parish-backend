@@ -1,0 +1,706 @@
+{
+  "diocese": {
+    "name": "Diocese de Bagé",
+    "type": "Diocese",
+    "slug": "bage",
+    "city": "Bagé",
+    "state": "RS",
+    "address": "Av. Marcílio Dias, 1586",
+    "zipCode": "96400-021",
+    "phone": "(53) 3242-4772",
+    "email": "curiadebage@gmail.com",
+    "website": null,
+    "bishopName": "Dom Frei Cleonir Paulo Dalbosco, O.F.M. Cap.",
+    "sources": [
+      {
+        "url": "http://web.archive.org/web/20231130081234/http://www.diocesedebage.com.br/pesqparoquia.php",
+        "title": "Diocese de Bagé — \"Pesquise a Paróquia por Cidade\" (site oficial diocesedebage.com.br, cópia do Arquivo da Internet de 30/11/2023; o domínio está fora do ar em 10/09/2026)",
+        "accessedAt": "2026-09-10"
+      },
+      {
+        "url": "http://web.archive.org/web/2023/http://www.diocesedebage.com.br/visitenos.html",
+        "title": "Diocese de Bagé — \"Visite-nos\" (endereço, CEP, telefones e e-mails da Cúria; cópia arquivada de 2023)",
+        "accessedAt": "2026-09-10"
+      },
+      {
+        "url": "http://web.archive.org/web/2023/http://www.diocesedebage.com.br/nossobispo.html",
+        "title": "Diocese de Bagé — \"Nosso Bispo\": Dom Frei Cleonir Paulo Dalbosco, OFMCap, 5º bispo; 16 paróquias em 12 municípios (cópia arquivada de 2023)",
+        "accessedAt": "2026-09-10"
+      },
+      {
+        "url": "https://cnbbsul3.org.br/diocese-de-bage/",
+        "title": "Regional Sul 3 da CNBB — Diocese de Bagé (endereço, telefone, e-mail, bispo desde 2018)",
+        "accessedAt": "2026-09-10"
+      },
+      {
+        "url": "https://www.catholic-hierarchy.org/diocese/dbage.html",
+        "title": "catholic-hierarchy.org — Bagé (Diocese): 16 paróquias; bispo Cleonir Paulo Dalbosco, O.F.M.Cap. (desde 26/09/2018)",
+        "accessedAt": "2026-09-10"
+      },
+      {
+        "url": "https://pt.wikipedia.org/wiki/Diocese_de_Bag%C3%A9",
+        "title": "Wikipédia — Diocese de Bagé (16 paróquias em 12 municípios)",
+        "accessedAt": "2026-09-10"
+      },
+      {
+        "url": "https://www.jornalfolhadacidade.com.br/2026/01/diocese-de-bage-anuncia-transferencias.html",
+        "title": "Jornal Folha da Cidade — \"Diocese de Bagé anuncia transferências e nomeações pastorais para 2026\" (janeiro de 2026)",
+        "accessedAt": "2026-09-10"
+      }
+    ],
+    "confidence": "alta"
+  },
+  "parishes": [
+    {
+      "slug": "sao-sebastiao-bage",
+      "name": "Catedral São Sebastião",
+      "city": "Bagé",
+      "state": "RS",
+      "neighborhood": "Centro",
+      "address": "Rua Conde de Porto Alegre, 01",
+      "zipCode": null,
+      "phone": "(53) 3242-5876",
+      "email": "catedralssb@hotmail.com",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "http://web.archive.org/web/20231130081234/http://www.diocesedebage.com.br/pesqparoquia.php",
+          "title": "Diocese de Bagé — \"Pesquise a Paróquia por Cidade\" (site oficial diocesedebage.com.br, cópia do Arquivo da Internet de 30/11/2023; o domínio está fora do ar em 10/09/2026)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://www.turismo.rs.gov.br/turismo/atrativo/visualizar/4409",
+          "title": "Portal do Turismo do RS — Catedral de São Sebastião, Bagé (horários de missa; sem data de atualização)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [
+        {
+          "name": "Matriz",
+          "address": "Rua Conde de Porto Alegre, 01 – Centro",
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "http://web.archive.org/web/20231130081234/http://www.diocesedebage.com.br/pesqparoquia.php",
+              "title": "Diocese de Bagé — \"Pesquise a Paróquia por Cidade\" (site oficial diocesedebage.com.br, cópia do Arquivo da Internet de 30/11/2023; o domínio está fora do ar em 10/09/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "10:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.turismo.rs.gov.br/turismo/atrativo/visualizar/4409",
+              "title": "Portal do Turismo do RS — Catedral de São Sebastião, Bagé (horários de missa; sem data de atualização)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.turismo.rs.gov.br/turismo/atrativo/visualizar/4409",
+              "title": "Portal do Turismo do RS — Catedral de São Sebastião, Bagé (horários de missa; sem data de atualização)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 2,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.turismo.rs.gov.br/turismo/atrativo/visualizar/4409",
+              "title": "Portal do Turismo do RS — Catedral de São Sebastião, Bagé (horários de missa; sem data de atualização)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.turismo.rs.gov.br/turismo/atrativo/visualizar/4409",
+              "title": "Portal do Turismo do RS — Catedral de São Sebastião, Bagé (horários de missa; sem data de atualização)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.turismo.rs.gov.br/turismo/atrativo/visualizar/4409",
+              "title": "Portal do Turismo do RS — Catedral de São Sebastião, Bagé (horários de missa; sem data de atualização)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.turismo.rs.gov.br/turismo/atrativo/visualizar/4409",
+              "title": "Portal do Turismo do RS — Catedral de São Sebastião, Bagé (horários de missa; sem data de atualização)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.turismo.rs.gov.br/turismo/atrativo/visualizar/4409",
+              "title": "Portal do Turismo do RS — Catedral de São Sebastião, Bagé (horários de missa; sem data de atualização)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-da-imaculada-conceicao-bage",
+      "name": "Paróquia Nossa Senhora da Imaculada Conceição",
+      "city": "Bagé",
+      "state": "RS",
+      "neighborhood": "Centro",
+      "address": "Av. General Osório, 940 – Centro",
+      "zipCode": "96400-100",
+      "phone": "(53) 3242-1463",
+      "email": "parconceicaoobage@gmail.com",
+      "website": null,
+      "priestName": "Frei Lori Antônio Vergani, Frei Carlos Reis Freitas e Frei Flávio Luis Amorim do Amaral",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "http://web.archive.org/web/20231130081234/http://www.diocesedebage.com.br/pesqparoquia.php",
+          "title": "Diocese de Bagé — \"Pesquise a Paróquia por Cidade\" (site oficial diocesedebage.com.br, cópia do Arquivo da Internet de 30/11/2023; o domínio está fora do ar em 10/09/2026)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/igreja.php?k=yMYA3",
+          "title": "horariodemissa.com.br — Paróquia Nossa Senhora da Conceição, Bagé (endereço e CEP; sem horários cadastrados)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-auxiliadora-bage",
+      "name": "Paróquia Nossa Senhora Auxiliadora",
+      "city": "Bagé",
+      "state": "RS",
+      "neighborhood": "Centro",
+      "address": "Rua Marechal Floriano, 1347",
+      "zipCode": null,
+      "phone": "(53) 3242-5855",
+      "email": "paroquia.bageauxiliadora@gmail.com",
+      "website": null,
+      "priestName": "Frei Eudes Roque Zanon e Pe. Lucas Antônio Mazzochini",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "http://web.archive.org/web/20231130081234/http://www.diocesedebage.com.br/pesqparoquia.php",
+          "title": "Diocese de Bagé — \"Pesquise a Paróquia por Cidade\" (site oficial diocesedebage.com.br, cópia do Arquivo da Internet de 30/11/2023; o domínio está fora do ar em 10/09/2026)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/search.php?uf=RS&cidade=Bag%C3%A9&bairro&opcoes=cidade_opcoes&submit=12345678",
+          "title": "horariodemissa.com.br — igrejas cadastradas em Bagé/RS (endereço Avenida Marechal Floriano, 1335)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-pedro-bage",
+      "name": "Paróquia São Pedro",
+      "city": "Bagé",
+      "state": "RS",
+      "neighborhood": "Getúlio Vargas",
+      "address": "Av. Santa Tecla, 500 – Getúlio Vargas",
+      "zipCode": "96412-000",
+      "phone": "(53) 3241-1386",
+      "email": "pedro.paroquia@gmail.com",
+      "website": "https://www.facebook.com/ParoquiaDeSaoPedroMitraDiocesanaDeBagers",
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "http://web.archive.org/web/20231130081234/http://www.diocesedebage.com.br/pesqparoquia.php",
+          "title": "Diocese de Bagé — \"Pesquise a Paróquia por Cidade\" (site oficial diocesedebage.com.br, cópia do Arquivo da Internet de 30/11/2023; o domínio está fora do ar em 10/09/2026)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/igreja.php?k=agIZa",
+          "title": "horariodemissa.com.br — Paróquia São Pedro, Bagé (dados atualizados pela última vez em 12/02/2015)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [
+        {
+          "name": "Matriz",
+          "address": "Av. Santa Tecla, 500 – Getúlio Vargas",
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "http://web.archive.org/web/20231130081234/http://www.diocesedebage.com.br/pesqparoquia.php",
+              "title": "Diocese de Bagé — \"Pesquise a Paróquia por Cidade\" (site oficial diocesedebage.com.br, cópia do Arquivo da Internet de 30/11/2023; o domínio está fora do ar em 10/09/2026)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": "Fonte de 12/02/2015 — precisa de reconfirmação",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=agIZa",
+              "title": "horariodemissa.com.br — Paróquia São Pedro, Bagé (dados atualizados pela última vez em 12/02/2015)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": "19h no horário de verão; fonte de 12/02/2015",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=agIZa",
+              "title": "horariodemissa.com.br — Paróquia São Pedro, Bagé (dados atualizados pela última vez em 12/02/2015)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": "19h no horário de verão; fonte de 12/02/2015",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=agIZa",
+              "title": "horariodemissa.com.br — Paróquia São Pedro, Bagé (dados atualizados pela última vez em 12/02/2015)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": "19h no horário de verão; fonte de 12/02/2015",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=agIZa",
+              "title": "horariodemissa.com.br — Paróquia São Pedro, Bagé (dados atualizados pela última vez em 12/02/2015)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "sao-judas-bage",
+      "name": "Paróquia São Judas",
+      "city": "Bagé",
+      "state": "RS",
+      "neighborhood": "São Judas",
+      "address": "Av. São Judas, 1694",
+      "zipCode": null,
+      "phone": "(53) 3242-4045",
+      "email": "bageparoquiasaojudas@gmail.com",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "http://web.archive.org/web/20231130081234/http://www.diocesedebage.com.br/pesqparoquia.php",
+          "title": "Diocese de Bagé — \"Pesquise a Paróquia por Cidade\" (site oficial diocesedebage.com.br, cópia do Arquivo da Internet de 30/11/2023; o domínio está fora do ar em 10/09/2026)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/igreja.php?k=M2nkW",
+          "title": "horariodemissa.com.br — Paróquia São Judas Tadeu, Bagé (endereço divergente: Av. Padre Abílio Sponchiado, 2007, CEP 96415-200; dados de 22/01/2013)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sagrada-familia-bage",
+      "name": "Paróquia Sagrada Família",
+      "city": "Bagé",
+      "state": "RS",
+      "neighborhood": "Popular",
+      "address": "Rua Reverendo Guimarães, 267",
+      "zipCode": null,
+      "phone": "(53) 3311-2780",
+      "email": "paroquiasagradafamilia85@gmail.com",
+      "website": null,
+      "priestName": "Frei Pe. Hélio Fernando da Fonseca Arruda",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "http://web.archive.org/web/20231130081234/http://www.diocesedebage.com.br/pesqparoquia.php",
+          "title": "Diocese de Bagé — \"Pesquise a Paróquia por Cidade\" (site oficial diocesedebage.com.br, cópia do Arquivo da Internet de 30/11/2023; o domínio está fora do ar em 10/09/2026)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/search.php?uf=RS&cidade=Bag%C3%A9&bairro&opcoes=cidade_opcoes&submit=12345678",
+          "title": "horariodemissa.com.br — igrejas cadastradas em Bagé/RS (bairro Popular; telefone divergente (53) 3241-2344)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-do-rosario-santana-do-livramento",
+      "name": "Paróquia Nossa Senhora do Rosário",
+      "city": "Santana do Livramento",
+      "state": "RS",
+      "neighborhood": null,
+      "address": "Av. Tamandaré, 2597",
+      "zipCode": null,
+      "phone": null,
+      "email": "nslvto@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Roque Bisognin e Pe. Jonas Desrivières, OSFS",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "http://web.archive.org/web/20231130081234/http://www.diocesedebage.com.br/pesqparoquia.php",
+          "title": "Diocese de Bagé — \"Pesquise a Paróquia por Cidade\" (site oficial diocesedebage.com.br, cópia do Arquivo da Internet de 30/11/2023; o domínio está fora do ar em 10/09/2026)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://www.jornalfolhadacidade.com.br/2026/01/diocese-de-bage-anuncia-transferencias.html",
+          "title": "Jornal Folha da Cidade — \"Diocese de Bagé anuncia transferências e nomeações pastorais para 2026\" (janeiro de 2026)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "santa-teresinha-santana-do-livramento",
+      "name": "Paróquia Santa Teresinha",
+      "city": "Santana do Livramento",
+      "state": "RS",
+      "neighborhood": null,
+      "address": "Rua Duque de Caxias, 548",
+      "zipCode": null,
+      "phone": "(55) 3242-3475",
+      "email": "santateresinha.livramento@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Alex José Kloppenburg",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "http://web.archive.org/web/20231130081234/http://www.diocesedebage.com.br/pesqparoquia.php",
+          "title": "Diocese de Bagé — \"Pesquise a Paróquia por Cidade\" (site oficial diocesedebage.com.br, cópia do Arquivo da Internet de 30/11/2023; o domínio está fora do ar em 10/09/2026)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "santana-santana-do-livramento",
+      "name": "Paróquia Sant'Ana",
+      "city": "Santana do Livramento",
+      "state": "RS",
+      "neighborhood": "Centro",
+      "address": "Rua Agostinho Campos, 48",
+      "zipCode": null,
+      "phone": "(55) 3242-1237",
+      "email": "paroquiasantana@live.com",
+      "website": null,
+      "priestName": "Pe. Juberto Nunes dos Santos",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "http://web.archive.org/web/20231130081234/http://www.diocesedebage.com.br/pesqparoquia.php",
+          "title": "Diocese de Bagé — \"Pesquise a Paróquia por Cidade\" (site oficial diocesedebage.com.br, cópia do Arquivo da Internet de 30/11/2023; o domínio está fora do ar em 10/09/2026)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/igreja.php?k=GS3gr",
+          "title": "horariodemissa.com.br — Igreja Matriz de Sant'Ana, Santana do Livramento (Praça General Osório, Centro; dados de 22/01/2013, sem horários)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-do-patrocinio-dom-pedrito",
+      "name": "Paróquia Nossa Senhora do Patrocínio",
+      "city": "Dom Pedrito",
+      "state": "RS",
+      "neighborhood": null,
+      "address": "Rua Bernardino Ângelo, 967",
+      "zipCode": null,
+      "phone": "(53) 3243-1254",
+      "email": "paroquiasecretariadp@gmail.com",
+      "website": null,
+      "priestName": "Pe. Elautério Conrado da Silva Júnior",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "http://web.archive.org/web/20231130081234/http://www.diocesedebage.com.br/pesqparoquia.php",
+          "title": "Diocese de Bagé — \"Pesquise a Paróquia por Cidade\" (site oficial diocesedebage.com.br, cópia do Arquivo da Internet de 30/11/2023; o domínio está fora do ar em 10/09/2026)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://www.jornalfolhadacidade.com.br/2026/01/diocese-de-bage-anuncia-transferencias.html",
+          "title": "Jornal Folha da Cidade — \"Diocese de Bagé anuncia transferências e nomeações pastorais para 2026\" (janeiro de 2026)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-jose-hulha-negra",
+      "name": "Paróquia São José",
+      "city": "Hulha Negra",
+      "state": "RS",
+      "neighborhood": null,
+      "address": "Rua Sabino Loguércio, 629",
+      "zipCode": null,
+      "phone": null,
+      "email": "paroquiasaojosehulhanegra@gmail.com",
+      "website": null,
+      "priestName": "Frei Luís Barbieri",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "http://web.archive.org/web/20231130081234/http://www.diocesedebage.com.br/pesqparoquia.php",
+          "title": "Diocese de Bagé — \"Pesquise a Paróquia por Cidade\" (site oficial diocesedebage.com.br, cópia do Arquivo da Internet de 30/11/2023; o domínio está fora do ar em 10/09/2026)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://www.jornalfolhadacidade.com.br/2026/01/diocese-de-bage-anuncia-transferencias.html",
+          "title": "Jornal Folha da Cidade — \"Diocese de Bagé anuncia transferências e nomeações pastorais para 2026\" (janeiro de 2026)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sagrado-coracao-de-jesus-candiota",
+      "name": "Paróquia Sagrado Coração de Jesus",
+      "city": "Candiota",
+      "state": "RS",
+      "neighborhood": null,
+      "address": "Rua Assis Freitas, 90",
+      "zipCode": null,
+      "phone": null,
+      "email": "paroquiascjesuscandiota@gmail.com",
+      "website": null,
+      "priestName": "Frei Paulo Eduardo Müller",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "http://web.archive.org/web/20231130081234/http://www.diocesedebage.com.br/pesqparoquia.php",
+          "title": "Diocese de Bagé — \"Pesquise a Paróquia por Cidade\" (site oficial diocesedebage.com.br, cópia do Arquivo da Internet de 30/11/2023; o domínio está fora do ar em 10/09/2026)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://www.jornalfolhadacidade.com.br/2026/01/diocese-de-bage-anuncia-transferencias.html",
+          "title": "Jornal Folha da Cidade — \"Diocese de Bagé anuncia transferências e nomeações pastorais para 2026\" (janeiro de 2026)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-da-luz-pinheiro-machado",
+      "name": "Paróquia Nossa Senhora da Luz",
+      "city": "Pinheiro Machado",
+      "state": "RS",
+      "neighborhood": null,
+      "address": "Rua Dutra de Andrade, 1022",
+      "zipCode": null,
+      "phone": "(53) 3248-1196",
+      "email": "paroquiansluzpm@gmail.com",
+      "website": null,
+      "priestName": "Pe. Julio Cesar Ribeiro",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "http://web.archive.org/web/20231130081234/http://www.diocesedebage.com.br/pesqparoquia.php",
+          "title": "Diocese de Bagé — \"Pesquise a Paróquia por Cidade\" (site oficial diocesedebage.com.br, cópia do Arquivo da Internet de 30/11/2023; o domínio está fora do ar em 10/09/2026)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://www.jornalfolhadacidade.com.br/2026/01/diocese-de-bage-anuncia-transferencias.html",
+          "title": "Jornal Folha da Cidade — \"Diocese de Bagé anuncia transferências e nomeações pastorais para 2026\" (janeiro de 2026)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-do-rosario-rosario-do-sul",
+      "name": "Paróquia Nossa Senhora do Rosário",
+      "city": "Rosário do Sul",
+      "state": "RS",
+      "neighborhood": null,
+      "address": "Rua General Osório, 1302",
+      "zipCode": null,
+      "phone": "(55) 3231-1367",
+      "email": "paroquiarosul@gmail.com",
+      "website": null,
+      "priestName": "Pe. Airton Machado Gusmão",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "http://web.archive.org/web/20231130081234/http://www.diocesedebage.com.br/pesqparoquia.php",
+          "title": "Diocese de Bagé — \"Pesquise a Paróquia por Cidade\" (site oficial diocesedebage.com.br, cópia do Arquivo da Internet de 30/11/2023; o domínio está fora do ar em 10/09/2026)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://www.jornalfolhadacidade.com.br/2026/01/diocese-de-bage-anuncia-transferencias.html",
+          "title": "Jornal Folha da Cidade — \"Diocese de Bagé anuncia transferências e nomeações pastorais para 2026\" (janeiro de 2026)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "arcanjo-sao-gabriel-sao-gabriel",
+      "name": "Paróquia Arcanjo São Gabriel",
+      "city": "São Gabriel",
+      "state": "RS",
+      "neighborhood": null,
+      "address": "Travessa Leonel Franca, 57",
+      "zipCode": null,
+      "phone": "(55) 3232-1096",
+      "email": "par.arcanjogabriel@gmail.com",
+      "website": null,
+      "priestName": "Pe. Domingos Manoel Rodrigues Lopes",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "http://web.archive.org/web/20231130081234/http://www.diocesedebage.com.br/pesqparoquia.php",
+          "title": "Diocese de Bagé — \"Pesquise a Paróquia por Cidade\" (site oficial diocesedebage.com.br, cópia do Arquivo da Internet de 30/11/2023; o domínio está fora do ar em 10/09/2026)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "santo-antonio-lavras-do-sul",
+      "name": "Paróquia Santo Antônio",
+      "city": "Lavras do Sul",
+      "state": "RS",
+      "neighborhood": null,
+      "address": "Rua Pe. Antonio Dias Costa, 47",
+      "zipCode": null,
+      "phone": "(55) 3282-1013",
+      "email": "psanto.antonio@hotmail.com",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "http://web.archive.org/web/20231130081234/http://www.diocesedebage.com.br/pesqparoquia.php",
+          "title": "Diocese de Bagé — \"Pesquise a Paróquia por Cidade\" (site oficial diocesedebage.com.br, cópia do Arquivo da Internet de 30/11/2023; o domínio está fora do ar em 10/09/2026)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": []
+    }
+  ],
+  "coverage": {
+    "parishesFound": 16,
+    "parishesExpected": 16,
+    "notes": "O site oficial (www.diocesedebage.com.br) está FORA DO AR em 10/09/2026 — o domínio não resolve em DNS. A lista de paróquias foi recuperada da página oficial \"pesqparoquia.php\" no Arquivo da Internet (cópia de 30/11/2023): 18 registros, dos quais 16 são paróquias e 2 não são (Capelania Militar e Capela São José, ambas na Rua Rodrigues Lima, 78, em Bagé — deixadas fora deste arquivo). Os 16 batem exatamente com o total do catholic-hierarchy.org e da Wikipédia. Municípios com paróquia: Bagé (6), Santana do Livramento (3), Dom Pedrito, Hulha Negra, Candiota, Pinheiro Machado, Rosário do Sul, São Gabriel e Lavras do Sul (1 cada). Aceguá, Pedras Altas e Santa Margarida do Sul pertencem à diocese mas não têm paróquia própria (Pedras Altas é atendida pela Paróquia Nossa Senhora da Luz, de Pinheiro Machado). NENHUMA fonte pública lista as comunidades/capelas das paróquias — todas ficaram com `communities: []`. Horários: só foi possível obter os da Catedral São Sebastião (portal de turismo do RS, sem data) e os da Paróquia São Pedro (horariodemissa.com.br, atualizados em 12/02/2015) — ambos em confiança `baixa`. Existe ainda o Santuário Diocesano de Nossa Senhora Conquistadora (Rua Prof.ª Amélia Rezende, 151 – Morro de Belém, Bagé), padroeira da diocese desde 1974, sem registro próprio de horários e não incluído como paróquia."
+  }
+}

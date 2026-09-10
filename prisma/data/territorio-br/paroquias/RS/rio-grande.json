@@ -1,0 +1,5065 @@
+{
+  "diocese": {
+    "name": "Diocese de Rio Grande",
+    "type": "Diocese",
+    "slug": "rio-grande",
+    "city": "Rio Grande",
+    "state": "RS",
+    "address": "Rua João Alfredo, 532 – Centro (Caixa Postal 108)",
+    "zipCode": "96200-970",
+    "phone": "(53) 3231-4066",
+    "email": "diocese.riogrande@gmail.com",
+    "website": "https://www.diocesedoriogrande.com.br",
+    "bishopName": "Dom Jorge Pierozan",
+    "sources": [
+      {
+        "url": "https://www.diocesedoriogrande.com.br/",
+        "title": "Diocese do Rio Grande — portal oficial (menu de paróquias por área e rodapé com contatos)",
+        "accessedAt": "2026-09-10"
+      },
+      {
+        "url": "https://www.diocesedoriogrande.com.br/bispado",
+        "title": "Bispado — Diocese do Rio Grande (endereço, telefone e e-mail)",
+        "accessedAt": "2026-09-10"
+      },
+      {
+        "url": "https://www.catholic-hierarchy.org/diocese/drigr.html",
+        "title": "catholic-hierarchy.org — Rio Grande (Diocese): 16 paróquias (2022); bispo Jorge Pierozan (nomeado 22/06/2024)",
+        "accessedAt": "2026-09-10"
+      },
+      {
+        "url": "https://pt.wikipedia.org/wiki/Diocese_de_Rio_Grande",
+        "title": "Wikipédia — Diocese de Rio Grande",
+        "accessedAt": "2026-09-10"
+      }
+    ],
+    "confidence": "alta"
+  },
+  "parishes": [
+    {
+      "slug": "sao-pedro-rio-grande",
+      "name": "Catedral de São Pedro",
+      "city": "Rio Grande",
+      "state": "RS",
+      "neighborhood": "Centro",
+      "address": "Rua General Bacelar, 440",
+      "zipCode": "96200-370",
+      "phone": "(53) 3232-8696",
+      "email": "catedralsaopedro@vetorial.net",
+      "website": "https://www.catedraldesaopedro.com.br",
+      "priestName": "Pe. Gil Raul Pereira Júnior",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedoriogrande.com.br/area/7/CatedraldeSaoPedro",
+          "title": "Catedral de São Pedro — Diocese do Rio Grande (Área Centro)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz",
+          "address": "Rua General Bacelar, 440 – Centro",
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/7/CatedraldeSaoPedro",
+              "title": "Catedral de São Pedro — Diocese do Rio Grande (Área Centro)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": "Em janeiro e fevereiro, 9h e 19h",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/7/CatedraldeSaoPedro",
+              "title": "Catedral de São Pedro — Diocese do Rio Grande (Área Centro)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/7/CatedraldeSaoPedro",
+              "title": "Catedral de São Pedro — Diocese do Rio Grande (Área Centro)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "20:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/7/CatedraldeSaoPedro",
+              "title": "Catedral de São Pedro — Diocese do Rio Grande (Área Centro)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 1,
+          "time": "12:10",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/7/CatedraldeSaoPedro",
+              "title": "Catedral de São Pedro — Diocese do Rio Grande (Área Centro)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 1,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/7/CatedraldeSaoPedro",
+              "title": "Catedral de São Pedro — Diocese do Rio Grande (Área Centro)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 2,
+          "time": "12:10",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/7/CatedraldeSaoPedro",
+              "title": "Catedral de São Pedro — Diocese do Rio Grande (Área Centro)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 2,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/7/CatedraldeSaoPedro",
+              "title": "Catedral de São Pedro — Diocese do Rio Grande (Área Centro)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "12:10",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/7/CatedraldeSaoPedro",
+              "title": "Catedral de São Pedro — Diocese do Rio Grande (Área Centro)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "16:00",
+          "type": "MASS",
+          "notes": "Missa da Saúde",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/7/CatedraldeSaoPedro",
+              "title": "Catedral de São Pedro — Diocese do Rio Grande (Área Centro)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "12:10",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/7/CatedraldeSaoPedro",
+              "title": "Catedral de São Pedro — Diocese do Rio Grande (Área Centro)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/7/CatedraldeSaoPedro",
+              "title": "Catedral de São Pedro — Diocese do Rio Grande (Área Centro)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "12:10",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/7/CatedraldeSaoPedro",
+              "title": "Catedral de São Pedro — Diocese do Rio Grande (Área Centro)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/7/CatedraldeSaoPedro",
+              "title": "Catedral de São Pedro — Diocese do Rio Grande (Área Centro)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/7/CatedraldeSaoPedro",
+              "title": "Catedral de São Pedro — Diocese do Rio Grande (Área Centro)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 2,
+          "time": "18:45",
+          "type": "ROSARY",
+          "notes": "Terço dos Homens",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/7/CatedraldeSaoPedro",
+              "title": "Catedral de São Pedro — Diocese do Rio Grande (Área Centro)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-do-carmo-rio-grande",
+      "name": "Paróquia Nossa Senhora do Carmo",
+      "city": "Rio Grande",
+      "state": "RS",
+      "neighborhood": "Centro",
+      "address": "Rua General Bacelar, 224",
+      "zipCode": null,
+      "phone": "(53) 3035-7987",
+      "email": "carmo100@hotmail.com",
+      "website": null,
+      "priestName": "Frei Gilberto Luz",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedoriogrande.com.br/area/4/ParoquiaNossaSenhoradoCarmo",
+          "title": "Paróquia Nossa Senhora do Carmo — Diocese do Rio Grande (Área Centro)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz",
+          "address": "Rua General Bacelar, 224 – Centro",
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/4/ParoquiaNossaSenhoradoCarmo",
+              "title": "Paróquia Nossa Senhora do Carmo — Diocese do Rio Grande (Área Centro)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Mosteiro São José",
+          "address": "Rua Andradas, 358 – Centro",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/4/ParoquiaNossaSenhoradoCarmo",
+              "title": "Paróquia Nossa Senhora do Carmo — Diocese do Rio Grande (Área Centro)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "10:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/4/ParoquiaNossaSenhoradoCarmo",
+              "title": "Paróquia Nossa Senhora do Carmo — Diocese do Rio Grande (Área Centro)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/4/ParoquiaNossaSenhoradoCarmo",
+              "title": "Paróquia Nossa Senhora do Carmo — Diocese do Rio Grande (Área Centro)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 1,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/4/ParoquiaNossaSenhoradoCarmo",
+              "title": "Paróquia Nossa Senhora do Carmo — Diocese do Rio Grande (Área Centro)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 2,
+          "time": "16:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/4/ParoquiaNossaSenhoradoCarmo",
+              "title": "Paróquia Nossa Senhora do Carmo — Diocese do Rio Grande (Área Centro)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/4/ParoquiaNossaSenhoradoCarmo",
+              "title": "Paróquia Nossa Senhora do Carmo — Diocese do Rio Grande (Área Centro)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/4/ParoquiaNossaSenhoradoCarmo",
+              "title": "Paróquia Nossa Senhora do Carmo — Diocese do Rio Grande (Área Centro)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/4/ParoquiaNossaSenhoradoCarmo",
+              "title": "Paróquia Nossa Senhora do Carmo — Diocese do Rio Grande (Área Centro)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "16:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/4/ParoquiaNossaSenhoradoCarmo",
+              "title": "Paróquia Nossa Senhora do Carmo — Diocese do Rio Grande (Área Centro)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Mosteiro São José",
+          "dayOfWeek": 0,
+          "time": "07:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/4/ParoquiaNossaSenhoradoCarmo",
+              "title": "Paróquia Nossa Senhora do Carmo — Diocese do Rio Grande (Área Centro)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Mosteiro São José",
+          "dayOfWeek": 1,
+          "time": "07:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/4/ParoquiaNossaSenhoradoCarmo",
+              "title": "Paróquia Nossa Senhora do Carmo — Diocese do Rio Grande (Área Centro)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Mosteiro São José",
+          "dayOfWeek": 2,
+          "time": "07:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/4/ParoquiaNossaSenhoradoCarmo",
+              "title": "Paróquia Nossa Senhora do Carmo — Diocese do Rio Grande (Área Centro)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Mosteiro São José",
+          "dayOfWeek": 3,
+          "time": "07:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/4/ParoquiaNossaSenhoradoCarmo",
+              "title": "Paróquia Nossa Senhora do Carmo — Diocese do Rio Grande (Área Centro)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Mosteiro São José",
+          "dayOfWeek": 4,
+          "time": "07:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/4/ParoquiaNossaSenhoradoCarmo",
+              "title": "Paróquia Nossa Senhora do Carmo — Diocese do Rio Grande (Área Centro)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Mosteiro São José",
+          "dayOfWeek": 5,
+          "time": "07:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/4/ParoquiaNossaSenhoradoCarmo",
+              "title": "Paróquia Nossa Senhora do Carmo — Diocese do Rio Grande (Área Centro)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Mosteiro São José",
+          "dayOfWeek": 6,
+          "time": "07:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/4/ParoquiaNossaSenhoradoCarmo",
+              "title": "Paróquia Nossa Senhora do Carmo — Diocese do Rio Grande (Área Centro)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "nosso-senhor-do-bom-fim-rio-grande",
+      "name": "Paróquia Nosso Senhor do Bom Fim",
+      "city": "Rio Grande",
+      "state": "RS",
+      "neighborhood": "Centro",
+      "address": "Rua Duque de Caxias, 542",
+      "zipCode": "96200-020",
+      "phone": "(53) 3035-3521",
+      "email": "paroquiabomfim@gmail.com",
+      "website": null,
+      "priestName": "Pe. Eder dos Santos Borges",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedoriogrande.com.br/area/3/ParoquiaNossoSenhordoBomFim",
+          "title": "Paróquia Nosso Senhor do Bom Fim — Diocese do Rio Grande (Área Centro)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz",
+          "address": "Rua Duque de Caxias, 542 – Centro",
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/3/ParoquiaNossoSenhordoBomFim",
+              "title": "Paróquia Nosso Senhor do Bom Fim — Diocese do Rio Grande (Área Centro)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora dos Navegantes",
+          "address": "Rua Dr. Isnard Poester Peixoto, 236 – Bairro Lar Gaúcho (96202-480)",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/3/ParoquiaNossoSenhordoBomFim",
+              "title": "Paróquia Nosso Senhor do Bom Fim — Diocese do Rio Grande (Área Centro)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Núcleo Jesus Misericordioso",
+          "address": "Bairro Dom Bosquinho",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/3/ParoquiaNossoSenhordoBomFim",
+              "title": "Paróquia Nosso Senhor do Bom Fim — Diocese do Rio Grande (Área Centro)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "11:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/3/ParoquiaNossoSenhordoBomFim",
+              "title": "Paróquia Nosso Senhor do Bom Fim — Diocese do Rio Grande (Área Centro)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/3/ParoquiaNossoSenhordoBomFim",
+              "title": "Paróquia Nosso Senhor do Bom Fim — Diocese do Rio Grande (Área Centro)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 2,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/3/ParoquiaNossoSenhordoBomFim",
+              "title": "Paróquia Nosso Senhor do Bom Fim — Diocese do Rio Grande (Área Centro)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/3/ParoquiaNossoSenhordoBomFim",
+              "title": "Paróquia Nosso Senhor do Bom Fim — Diocese do Rio Grande (Área Centro)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/3/ParoquiaNossoSenhordoBomFim",
+              "title": "Paróquia Nosso Senhor do Bom Fim — Diocese do Rio Grande (Área Centro)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/3/ParoquiaNossoSenhordoBomFim",
+              "title": "Paróquia Nosso Senhor do Bom Fim — Diocese do Rio Grande (Área Centro)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/3/ParoquiaNossoSenhordoBomFim",
+              "title": "Paróquia Nosso Senhor do Bom Fim — Diocese do Rio Grande (Área Centro)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "ADORATION",
+          "notes": "Após a missa das 18h",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/3/ParoquiaNossoSenhordoBomFim",
+              "title": "Paróquia Nosso Senhor do Bom Fim — Diocese do Rio Grande (Área Centro)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Nossa Senhora dos Navegantes",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/3/ParoquiaNossoSenhordoBomFim",
+              "title": "Paróquia Nosso Senhor do Bom Fim — Diocese do Rio Grande (Área Centro)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Nossa Senhora dos Navegantes",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/3/ParoquiaNossoSenhordoBomFim",
+              "title": "Paróquia Nosso Senhor do Bom Fim — Diocese do Rio Grande (Área Centro)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-de-fatima-rio-grande",
+      "name": "Santuário Nossa Senhora de Fátima",
+      "city": "Rio Grande",
+      "state": "RS",
+      "neighborhood": "Centro",
+      "address": "Rua General Canabarro, 401",
+      "zipCode": null,
+      "phone": "(53) 3035-3075",
+      "email": "santuariodefatimarg@gmail.com",
+      "website": null,
+      "priestName": "Pe. Péterson Pedroso de Figueiredo (pároco e reitor)",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedoriogrande.com.br/area/11/SantuarioNossaSenhoradeFatima",
+          "title": "Santuário Nossa Senhora de Fátima — Diocese do Rio Grande (Área Centro)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz",
+          "address": "Rua General Canabarro, 401 – Centro",
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/11/SantuarioNossaSenhoradeFatima",
+              "title": "Santuário Nossa Senhora de Fátima — Diocese do Rio Grande (Área Centro)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/11/SantuarioNossaSenhoradeFatima",
+              "title": "Santuário Nossa Senhora de Fátima — Diocese do Rio Grande (Área Centro)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/11/SantuarioNossaSenhoradeFatima",
+              "title": "Santuário Nossa Senhora de Fátima — Diocese do Rio Grande (Área Centro)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 2,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/11/SantuarioNossaSenhoradeFatima",
+              "title": "Santuário Nossa Senhora de Fátima — Diocese do Rio Grande (Área Centro)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/11/SantuarioNossaSenhoradeFatima",
+              "title": "Santuário Nossa Senhora de Fátima — Diocese do Rio Grande (Área Centro)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/11/SantuarioNossaSenhoradeFatima",
+              "title": "Santuário Nossa Senhora de Fátima — Diocese do Rio Grande (Área Centro)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/11/SantuarioNossaSenhoradeFatima",
+              "title": "Santuário Nossa Senhora de Fátima — Diocese do Rio Grande (Área Centro)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 2,
+          "time": "15:00",
+          "type": "CONFESSION",
+          "notes": "A partir das 15h",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/11/SantuarioNossaSenhoradeFatima",
+              "title": "Santuário Nossa Senhora de Fátima — Diocese do Rio Grande (Área Centro)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "15:00",
+          "type": "CONFESSION",
+          "notes": "A partir das 15h",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/11/SantuarioNossaSenhoradeFatima",
+              "title": "Santuário Nossa Senhora de Fátima — Diocese do Rio Grande (Área Centro)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "17:30",
+          "type": "CONFESSION",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/11/SantuarioNossaSenhoradeFatima",
+              "title": "Santuário Nossa Senhora de Fátima — Diocese do Rio Grande (Área Centro)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "17:30",
+          "type": "CONFESSION",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/11/SantuarioNossaSenhoradeFatima",
+              "title": "Santuário Nossa Senhora de Fátima — Diocese do Rio Grande (Área Centro)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "17:30",
+          "type": "CONFESSION",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/11/SantuarioNossaSenhoradeFatima",
+              "title": "Santuário Nossa Senhora de Fátima — Diocese do Rio Grande (Área Centro)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "17:30",
+          "type": "CONFESSION",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/11/SantuarioNossaSenhoradeFatima",
+              "title": "Santuário Nossa Senhora de Fátima — Diocese do Rio Grande (Área Centro)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 1,
+          "time": "18:00",
+          "type": "ROSARY",
+          "notes": "Terço irradiado pelo Facebook Santuário de Fátima",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/11/SantuarioNossaSenhoradeFatima",
+              "title": "Santuário Nossa Senhora de Fátima — Diocese do Rio Grande (Área Centro)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 2,
+          "time": "18:00",
+          "type": "ROSARY",
+          "notes": "Terço irradiado pelo Facebook Santuário de Fátima",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/11/SantuarioNossaSenhoradeFatima",
+              "title": "Santuário Nossa Senhora de Fátima — Diocese do Rio Grande (Área Centro)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "18:00",
+          "type": "ROSARY",
+          "notes": "Terço irradiado pelo Facebook Santuário de Fátima",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/11/SantuarioNossaSenhoradeFatima",
+              "title": "Santuário Nossa Senhora de Fátima — Diocese do Rio Grande (Área Centro)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "18:00",
+          "type": "ROSARY",
+          "notes": "Terço irradiado pelo Facebook Santuário de Fátima",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/11/SantuarioNossaSenhoradeFatima",
+              "title": "Santuário Nossa Senhora de Fátima — Diocese do Rio Grande (Área Centro)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "18:00",
+          "type": "ROSARY",
+          "notes": "Terço irradiado pelo Facebook Santuário de Fátima",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/11/SantuarioNossaSenhoradeFatima",
+              "title": "Santuário Nossa Senhora de Fátima — Diocese do Rio Grande (Área Centro)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-da-penha-rio-grande",
+      "name": "Paróquia Nossa Senhora da Penha",
+      "city": "Rio Grande",
+      "state": "RS",
+      "neighborhood": "Vila da Quinta",
+      "address": "Rua Coronel Salgado, 827 – Vila da Quinta",
+      "zipCode": "96222-137",
+      "phone": "(53) 99928-6463",
+      "email": "snpenha@gmail.com",
+      "website": null,
+      "priestName": "Pe. Edensilon Teixeira (administrador paroquial)",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedoriogrande.com.br/area/16/ParoquiaNossaSenhoradaPenha",
+          "title": "Paróquia Nossa Senhora da Penha — Diocese do Rio Grande (Área BR)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora da Penha",
+          "address": "Rua Coronel Salgado, 827 – Vila da Quinta",
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/16/ParoquiaNossaSenhoradaPenha",
+              "title": "Paróquia Nossa Senhora da Penha — Diocese do Rio Grande (Área BR)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora das Necessidades",
+          "address": "Povo Novo",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/16/ParoquiaNossaSenhoradaPenha",
+              "title": "Paróquia Nossa Senhora da Penha — Diocese do Rio Grande (Área BR)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora da Conceição",
+          "address": "Capilha (Taim)",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/16/ParoquiaNossaSenhoradaPenha",
+              "title": "Paróquia Nossa Senhora da Penha — Diocese do Rio Grande (Área BR)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santa Bárbara",
+          "address": "Arraial",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/16/ParoquiaNossaSenhoradaPenha",
+              "title": "Paróquia Nossa Senhora da Penha — Diocese do Rio Grande (Área BR)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santa Luzia",
+          "address": "Quitéria",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/16/ParoquiaNossaSenhoradaPenha",
+              "title": "Paróquia Nossa Senhora da Penha — Diocese do Rio Grande (Área BR)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora das Graças",
+          "address": "Domingos Petroline",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/16/ParoquiaNossaSenhoradaPenha",
+              "title": "Paróquia Nossa Senhora da Penha — Diocese do Rio Grande (Área BR)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora Auxiliadora",
+          "address": "Palma",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/16/ParoquiaNossaSenhoradaPenha",
+              "title": "Paróquia Nossa Senhora da Penha — Diocese do Rio Grande (Área BR)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santa Cruz",
+          "address": "Ilha dos Marinheiros",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/16/ParoquiaNossaSenhoradaPenha",
+              "title": "Paróquia Nossa Senhora da Penha — Diocese do Rio Grande (Área BR)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora da Saúde",
+          "address": "Ilha dos Marinheiros",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/16/ParoquiaNossaSenhoradaPenha",
+              "title": "Paróquia Nossa Senhora da Penha — Diocese do Rio Grande (Área BR)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora de Fátima (Ilha do Leonídio)",
+          "address": "Ilha do Leonídio",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/16/ParoquiaNossaSenhoradaPenha",
+              "title": "Paróquia Nossa Senhora da Penha — Diocese do Rio Grande (Área BR)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora Aparecida",
+          "address": "Banhado Silveira",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/16/ParoquiaNossaSenhoradaPenha",
+              "title": "Paróquia Nossa Senhora da Penha — Diocese do Rio Grande (Área BR)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora de Lourdes",
+          "address": "Ilha da Torotama",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/16/ParoquiaNossaSenhoradaPenha",
+              "title": "Paróquia Nossa Senhora da Penha — Diocese do Rio Grande (Área BR)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Francisco de Assis",
+          "address": "Vila Nova (Quinta)",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/16/ParoquiaNossaSenhoradaPenha",
+              "title": "Paróquia Nossa Senhora da Penha — Diocese do Rio Grande (Área BR)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santo Antônio",
+          "address": "Vila Santo Antônio (Quinta)",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/16/ParoquiaNossaSenhoradaPenha",
+              "title": "Paróquia Nossa Senhora da Penha — Diocese do Rio Grande (Área BR)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora de Fátima (Barra Falsa)",
+          "address": "Barra Falsa",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/16/ParoquiaNossaSenhoradaPenha",
+              "title": "Paróquia Nossa Senhora da Penha — Diocese do Rio Grande (Área BR)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santa Cecília",
+          "address": "Pesqueiro",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/16/ParoquiaNossaSenhoradaPenha",
+              "title": "Paróquia Nossa Senhora da Penha — Diocese do Rio Grande (Área BR)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São João Batista",
+          "address": "Ilha dos Marinheiros",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/16/ParoquiaNossaSenhoradaPenha",
+              "title": "Paróquia Nossa Senhora da Penha — Diocese do Rio Grande (Área BR)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora da Penha",
+          "dayOfWeek": 0,
+          "time": "08:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/16/ParoquiaNossaSenhoradaPenha",
+              "title": "Paróquia Nossa Senhora da Penha — Diocese do Rio Grande (Área BR)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Penha",
+          "dayOfWeek": 3,
+          "time": "16:00",
+          "type": "MASS",
+          "notes": "Missa da Saúde",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/16/ParoquiaNossaSenhoradaPenha",
+              "title": "Paróquia Nossa Senhora da Penha — Diocese do Rio Grande (Área BR)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Penha",
+          "dayOfWeek": 5,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": "Missa e Novena Perpétua de Nossa Senhora da Penha",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/16/ParoquiaNossaSenhoradaPenha",
+              "title": "Paróquia Nossa Senhora da Penha — Diocese do Rio Grande (Área BR)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Penha",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/16/ParoquiaNossaSenhoradaPenha",
+              "title": "Paróquia Nossa Senhora da Penha — Diocese do Rio Grande (Área BR)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Nossa Senhora das Necessidades",
+          "dayOfWeek": 0,
+          "time": "10:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/16/ParoquiaNossaSenhoradaPenha",
+              "title": "Paróquia Nossa Senhora da Penha — Diocese do Rio Grande (Área BR)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Nossa Senhora da Conceição",
+          "dayOfWeek": 0,
+          "time": "16:00",
+          "type": "MASS",
+          "notes": "3º domingo do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/16/ParoquiaNossaSenhoradaPenha",
+              "title": "Paróquia Nossa Senhora da Penha — Diocese do Rio Grande (Área BR)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Santa Bárbara",
+          "dayOfWeek": 6,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": "1º sábado do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/16/ParoquiaNossaSenhoradaPenha",
+              "title": "Paróquia Nossa Senhora da Penha — Diocese do Rio Grande (Área BR)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Santa Luzia",
+          "dayOfWeek": 6,
+          "time": "16:30",
+          "type": "MASS",
+          "notes": "1º sábado do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/16/ParoquiaNossaSenhoradaPenha",
+              "title": "Paróquia Nossa Senhora da Penha — Diocese do Rio Grande (Área BR)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Nossa Senhora das Graças",
+          "dayOfWeek": 6,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": "2º sábado do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/16/ParoquiaNossaSenhoradaPenha",
+              "title": "Paróquia Nossa Senhora da Penha — Diocese do Rio Grande (Área BR)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Nossa Senhora Auxiliadora",
+          "dayOfWeek": 6,
+          "time": "16:30",
+          "type": "MASS",
+          "notes": "2º sábado do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/16/ParoquiaNossaSenhoradaPenha",
+              "title": "Paróquia Nossa Senhora da Penha — Diocese do Rio Grande (Área BR)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Santa Cruz",
+          "dayOfWeek": 6,
+          "time": "14:30",
+          "type": "MASS",
+          "notes": "3º sábado do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/16/ParoquiaNossaSenhoradaPenha",
+              "title": "Paróquia Nossa Senhora da Penha — Diocese do Rio Grande (Área BR)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Nossa Senhora da Saúde",
+          "dayOfWeek": 6,
+          "time": "16:00",
+          "type": "MASS",
+          "notes": "3º sábado do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/16/ParoquiaNossaSenhoradaPenha",
+              "title": "Paróquia Nossa Senhora da Penha — Diocese do Rio Grande (Área BR)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Nossa Senhora de Fátima (Ilha do Leonídio)",
+          "dayOfWeek": 6,
+          "time": "17:30",
+          "type": "MASS",
+          "notes": "3º sábado do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/16/ParoquiaNossaSenhoradaPenha",
+              "title": "Paróquia Nossa Senhora da Penha — Diocese do Rio Grande (Área BR)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Nossa Senhora Aparecida",
+          "dayOfWeek": 6,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": "4º sábado do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/16/ParoquiaNossaSenhoradaPenha",
+              "title": "Paróquia Nossa Senhora da Penha — Diocese do Rio Grande (Área BR)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Nossa Senhora de Lourdes",
+          "dayOfWeek": 6,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": "4º sábado do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/16/ParoquiaNossaSenhoradaPenha",
+              "title": "Paróquia Nossa Senhora da Penha — Diocese do Rio Grande (Área BR)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "São Francisco de Assis",
+          "dayOfWeek": 4,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": "1ª quinta-feira do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/16/ParoquiaNossaSenhoradaPenha",
+              "title": "Paróquia Nossa Senhora da Penha — Diocese do Rio Grande (Área BR)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Santo Antônio",
+          "dayOfWeek": 4,
+          "time": "16:00",
+          "type": "MASS",
+          "notes": "2ª quinta-feira do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/16/ParoquiaNossaSenhoradaPenha",
+              "title": "Paróquia Nossa Senhora da Penha — Diocese do Rio Grande (Área BR)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Nossa Senhora de Fátima (Barra Falsa)",
+          "dayOfWeek": 4,
+          "time": "10:00",
+          "type": "MASS",
+          "notes": "3ª quinta-feira do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/16/ParoquiaNossaSenhoradaPenha",
+              "title": "Paróquia Nossa Senhora da Penha — Diocese do Rio Grande (Área BR)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Santa Cecília",
+          "dayOfWeek": 4,
+          "time": "14:00",
+          "type": "MASS",
+          "notes": "3ª quinta-feira do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/16/ParoquiaNossaSenhoradaPenha",
+              "title": "Paróquia Nossa Senhora da Penha — Diocese do Rio Grande (Área BR)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "São João Batista",
+          "dayOfWeek": 4,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": "4ª quinta-feira do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/16/ParoquiaNossaSenhoradaPenha",
+              "title": "Paróquia Nossa Senhora da Penha — Diocese do Rio Grande (Área BR)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "sagrada-familia-cassino-rio-grande",
+      "name": "Paróquia Sagrada Família - Cassino",
+      "city": "Rio Grande",
+      "state": "RS",
+      "neighborhood": "Cassino",
+      "address": "Av. Rio Grande, 339 – Cassino",
+      "zipCode": "96205-001",
+      "phone": "(53) 3236-1576",
+      "email": "sagradafamiliacassino@vetorial.net",
+      "website": null,
+      "priestName": "Pe. John Cleber Hood Moreira",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedoriogrande.com.br/area/5/ParoquiaSagradaFamiliaCassino",
+          "title": "Paróquia Sagrada Família – Cassino — Diocese do Rio Grande (Área BR)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz",
+          "address": "Av. Rio Grande, 339 – Cassino",
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/5/ParoquiaSagradaFamiliaCassino",
+              "title": "Paróquia Sagrada Família – Cassino — Diocese do Rio Grande (Área BR)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora de Fátima",
+          "address": "ABC VIII",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/5/ParoquiaSagradaFamiliaCassino",
+              "title": "Paróquia Sagrada Família – Cassino — Diocese do Rio Grande (Área BR)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora Rainha da Paz",
+          "address": "Parque Guanabara",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/5/ParoquiaSagradaFamiliaCassino",
+              "title": "Paróquia Sagrada Família – Cassino — Diocese do Rio Grande (Área BR)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora Imaculada Conceição",
+          "address": "Querência",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/5/ParoquiaSagradaFamiliaCassino",
+              "title": "Paróquia Sagrada Família – Cassino — Diocese do Rio Grande (Área BR)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Francisco de Assis",
+          "address": "Bolaxa",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/5/ParoquiaSagradaFamiliaCassino",
+              "title": "Paróquia Sagrada Família – Cassino — Diocese do Rio Grande (Área BR)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São João Batista",
+          "address": "Camping",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/5/ParoquiaSagradaFamiliaCassino",
+              "title": "Paróquia Sagrada Família – Cassino — Diocese do Rio Grande (Área BR)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": "Horário de inverno (da quinta-feira após as Cinzas até 16/12)",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/5/ParoquiaSagradaFamiliaCassino",
+              "title": "Paróquia Sagrada Família – Cassino — Diocese do Rio Grande (Área BR)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": "Horário de inverno (da quinta-feira após as Cinzas até 16/12)",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/5/ParoquiaSagradaFamiliaCassino",
+              "title": "Paróquia Sagrada Família – Cassino — Diocese do Rio Grande (Área BR)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "10:00",
+          "type": "MASS",
+          "notes": "Horário de inverno",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/5/ParoquiaSagradaFamiliaCassino",
+              "title": "Paróquia Sagrada Família – Cassino — Diocese do Rio Grande (Área BR)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": "1ª sexta-feira do mês (horário de inverno)",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/5/ParoquiaSagradaFamiliaCassino",
+              "title": "Paróquia Sagrada Família – Cassino — Diocese do Rio Grande (Área BR)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": "Horário de verão (17/12 até a Quarta-feira de Cinzas)",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/5/ParoquiaSagradaFamiliaCassino",
+              "title": "Paróquia Sagrada Família – Cassino — Diocese do Rio Grande (Área BR)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Horário de verão (17/12 até a Quarta-feira de Cinzas)",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/5/ParoquiaSagradaFamiliaCassino",
+              "title": "Paróquia Sagrada Família – Cassino — Diocese do Rio Grande (Área BR)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "21:00",
+          "type": "MASS",
+          "notes": "Horário de verão (17/12 até a Quarta-feira de Cinzas)",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/5/ParoquiaSagradaFamiliaCassino",
+              "title": "Paróquia Sagrada Família – Cassino — Diocese do Rio Grande (Área BR)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "18:30",
+          "type": "ROSARY",
+          "notes": "Terço dos Homens",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/5/ParoquiaSagradaFamiliaCassino",
+              "title": "Paróquia Sagrada Família – Cassino — Diocese do Rio Grande (Área BR)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "15:00",
+          "type": "ROSARY",
+          "notes": "Terço da Misericórdia",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/5/ParoquiaSagradaFamiliaCassino",
+              "title": "Paróquia Sagrada Família – Cassino — Diocese do Rio Grande (Área BR)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Nossa Senhora de Fátima",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/5/ParoquiaSagradaFamiliaCassino",
+              "title": "Paróquia Sagrada Família – Cassino — Diocese do Rio Grande (Área BR)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Nossa Senhora Rainha da Paz",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/5/ParoquiaSagradaFamiliaCassino",
+              "title": "Paróquia Sagrada Família – Cassino — Diocese do Rio Grande (Área BR)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Nossa Senhora Imaculada Conceição",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/5/ParoquiaSagradaFamiliaCassino",
+              "title": "Paróquia Sagrada Família – Cassino — Diocese do Rio Grande (Área BR)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "São Francisco de Assis",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/5/ParoquiaSagradaFamiliaCassino",
+              "title": "Paróquia Sagrada Família – Cassino — Diocese do Rio Grande (Área BR)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "São João Batista",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/5/ParoquiaSagradaFamiliaCassino",
+              "title": "Paróquia Sagrada Família – Cassino — Diocese do Rio Grande (Área BR)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-medianeira-de-todas-as-gracas-rio-grande",
+      "name": "Rede de Comunidades Nossa Senhora Medianeira de Todas as Graças",
+      "city": "Rio Grande",
+      "state": "RS",
+      "neighborhood": "Parque Marinha do Brasil",
+      "address": "Rua Ilha Fernando de Noronha, 205 – Parque Marinha do Brasil",
+      "zipCode": "96215-240",
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Marlos de Lima Mirapalhete (administrador paroquial)",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedoriogrande.com.br/area/23/RededeComunidadesNossaSenhoraMedianeiradeTodasasGracas",
+          "title": "Rede de Comunidades Nossa Senhora Medianeira de Todas as Graças — Diocese do Rio Grande (Área BR)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Nossa Senhora Medianeira de Todas as Graças",
+          "address": "Rua Fernando de Noronha, 205 – Parque Marinha",
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/23/RededeComunidadesNossaSenhoraMedianeiradeTodasasGracas",
+              "title": "Rede de Comunidades Nossa Senhora Medianeira de Todas as Graças — Diocese do Rio Grande (Área BR)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santa Rita de Cássia",
+          "address": "Rua Arquiteto Edson de Souza Mendonça, 157 – Parque São Pedro",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/23/RededeComunidadesNossaSenhoraMedianeiradeTodasasGracas",
+              "title": "Rede de Comunidades Nossa Senhora Medianeira de Todas as Graças — Diocese do Rio Grande (Área BR)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "João Paulo II",
+          "address": "Rua 2, nº 104 – Boa Vista I",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/23/RededeComunidadesNossaSenhoraMedianeiradeTodasasGracas",
+              "title": "Rede de Comunidades Nossa Senhora Medianeira de Todas as Graças — Diocese do Rio Grande (Área BR)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santo Antônio",
+          "address": "Av. Engª Lucia Maria Balbella Chiesa, 5791 – Senandes",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/23/RededeComunidadesNossaSenhoraMedianeiradeTodasasGracas",
+              "title": "Rede de Comunidades Nossa Senhora Medianeira de Todas as Graças — Diocese do Rio Grande (Área BR)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Nossa Senhora Medianeira de Todas as Graças",
+          "dayOfWeek": 0,
+          "time": "11:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/23/RededeComunidadesNossaSenhoraMedianeiradeTodasasGracas",
+              "title": "Rede de Comunidades Nossa Senhora Medianeira de Todas as Graças — Diocese do Rio Grande (Área BR)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Nossa Senhora Medianeira de Todas as Graças",
+          "dayOfWeek": 4,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/23/RededeComunidadesNossaSenhoraMedianeiradeTodasasGracas",
+              "title": "Rede de Comunidades Nossa Senhora Medianeira de Todas as Graças — Diocese do Rio Grande (Área BR)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Santa Rita de Cássia",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/23/RededeComunidadesNossaSenhoraMedianeiradeTodasasGracas",
+              "title": "Rede de Comunidades Nossa Senhora Medianeira de Todas as Graças — Diocese do Rio Grande (Área BR)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Santa Rita de Cássia",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/23/RededeComunidadesNossaSenhoraMedianeiradeTodasasGracas",
+              "title": "Rede de Comunidades Nossa Senhora Medianeira de Todas as Graças — Diocese do Rio Grande (Área BR)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Santa Rita de Cássia",
+          "dayOfWeek": 5,
+          "time": "15:00",
+          "type": "ROSARY",
+          "notes": "Terço da Misericórdia",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/23/RededeComunidadesNossaSenhoraMedianeiradeTodasasGracas",
+              "title": "Rede de Comunidades Nossa Senhora Medianeira de Todas as Graças — Diocese do Rio Grande (Área BR)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "João Paulo II",
+          "dayOfWeek": 6,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/23/RededeComunidadesNossaSenhoraMedianeiradeTodasasGracas",
+              "title": "Rede de Comunidades Nossa Senhora Medianeira de Todas as Graças — Diocese do Rio Grande (Área BR)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Santo Antônio",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/23/RededeComunidadesNossaSenhoraMedianeiradeTodasasGracas",
+              "title": "Rede de Comunidades Nossa Senhora Medianeira de Todas as Graças — Diocese do Rio Grande (Área BR)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Santo Antônio",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "ADORATION",
+          "notes": "Adoração ao Santíssimo e Santo Terço",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/23/RededeComunidadesNossaSenhoraMedianeiradeTodasasGracas",
+              "title": "Rede de Comunidades Nossa Senhora Medianeira de Todas as Graças — Diocese do Rio Grande (Área BR)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "santo-antonio-tavares",
+      "name": "Paróquia Santo Antônio",
+      "city": "Tavares",
+      "state": "RS",
+      "neighborhood": null,
+      "address": "Av. Padre Simão Moser, 220",
+      "zipCode": "96290-000",
+      "phone": "(51) 99781-4825",
+      "email": "santo17.tavares@gmail.com",
+      "website": null,
+      "priestName": "Pe. Rômulo Conceição",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedoriogrande.com.br/area/21/ParoquiaSantoAntonio",
+          "title": "Paróquia Santo Antônio — Diocese do Rio Grande (Área Norte)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz",
+          "address": "Av. Padre Simão Moser, 220",
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/21/ParoquiaSantoAntonio",
+              "title": "Paróquia Santo Antônio — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São José",
+          "address": "Tapera",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/21/ParoquiaSantoAntonio",
+              "title": "Paróquia Santo Antônio — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Luiz Gonzaga",
+          "address": "Capororocas",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/21/ParoquiaSantoAntonio",
+              "title": "Paróquia Santo Antônio — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora de Fátima",
+          "address": "Butiá",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/21/ParoquiaSantoAntonio",
+              "title": "Paróquia Santo Antônio — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santa Inês",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/21/ParoquiaSantoAntonio",
+              "title": "Paróquia Santo Antônio — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São João Batista",
+          "address": "Posto",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/21/ParoquiaSantoAntonio",
+              "title": "Paróquia Santo Antônio — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santa Rita de Cássia",
+          "address": "Campo da Honra",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/21/ParoquiaSantoAntonio",
+              "title": "Paróquia Santo Antônio — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/21/ParoquiaSantoAntonio",
+              "title": "Paróquia Santo Antônio — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/21/ParoquiaSantoAntonio",
+              "title": "Paróquia Santo Antônio — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "sao-jose-sao-jose-do-norte",
+      "name": "Paróquia São José",
+      "city": "São José do Norte",
+      "state": "RS",
+      "neighborhood": "Centro",
+      "address": "Rua XV de Novembro, 78 – Centro",
+      "zipCode": "96225-000",
+      "phone": "(53) 99101-2469",
+      "email": "paroquiasaojosedonorte@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Carlos Eduardo Garcia Pedroso",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedoriogrande.com.br/area/13/ParoquiaSaoJoseSaoJosedoNorte",
+          "title": "Paróquia São José — Diocese do Rio Grande (Área Norte)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São José",
+          "address": "Rua XV de Novembro, 78 – Centro",
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/13/ParoquiaSaoJoseSaoJosedoNorte",
+              "title": "Paróquia São José — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Bom Jesus de Iguape",
+          "address": "Passinho",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/13/ParoquiaSaoJoseSaoJosedoNorte",
+              "title": "Paróquia São José — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Jesus de Nazaré",
+          "address": "Rua Quatro, 248 – Bairro Comendador Carlos Santos",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/13/ParoquiaSaoJoseSaoJosedoNorte",
+              "title": "Paróquia São José — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Menino Deus",
+          "address": "Retovado",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/13/ParoquiaSaoJoseSaoJosedoNorte",
+              "title": "Paróquia São José — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora Aparecida",
+          "address": "Capão da Areia",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/13/ParoquiaSaoJoseSaoJosedoNorte",
+              "title": "Paróquia São José — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora da Conceição (Estreito)",
+          "address": "Estreito",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/13/ParoquiaSaoJoseSaoJosedoNorte",
+              "title": "Paróquia São José — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora da Conceição (Bujuru)",
+          "address": "Bujuru",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/13/ParoquiaSaoJoseSaoJosedoNorte",
+              "title": "Paróquia São José — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora de Fátima",
+          "address": "Capivaras",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/13/ParoquiaSaoJoseSaoJosedoNorte",
+              "title": "Paróquia São José — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora de Lourdes (Divisa)",
+          "address": "Divisa",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/13/ParoquiaSaoJoseSaoJosedoNorte",
+              "title": "Paróquia São José — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora de Lourdes (Brasília)",
+          "address": "Rua Nossa Senhora de Lourdes, 50 – Bairro Brasília",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/13/ParoquiaSaoJoseSaoJosedoNorte",
+              "title": "Paróquia São José — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora da Saúde",
+          "address": "Pontal da Barra",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/13/ParoquiaSaoJoseSaoJosedoNorte",
+              "title": "Paróquia São José — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora da Boa Viagem",
+          "address": "Povoação da Barra",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/13/ParoquiaSaoJoseSaoJosedoNorte",
+              "title": "Paróquia São José — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora das Graças",
+          "address": "Barranco",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/13/ParoquiaSaoJoseSaoJosedoNorte",
+              "title": "Paróquia São José — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora do Perpétuo Socorro",
+          "address": "Rua Mário Pereira Leandro, 420 – Cidade Baixa",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/13/ParoquiaSaoJoseSaoJosedoNorte",
+              "title": "Paróquia São José — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Sagrada Família",
+          "address": "Gravatá",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/13/ParoquiaSaoJoseSaoJosedoNorte",
+              "title": "Paróquia São José — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Sagrado Coração de Jesus",
+          "address": "Várzea",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/13/ParoquiaSaoJoseSaoJosedoNorte",
+              "title": "Paróquia São José — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santa Bárbara",
+          "address": "Rua Três, 200 – Bairro Canastreiro",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/13/ParoquiaSaoJoseSaoJosedoNorte",
+              "title": "Paróquia São José — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santa Rita",
+          "address": "Rua Edgard Pereira Velho, 630 – Bairro Veneza",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/13/ParoquiaSaoJoseSaoJosedoNorte",
+              "title": "Paróquia São José — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santa Terezinha",
+          "address": "Pontal da Barra",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/13/ParoquiaSaoJoseSaoJosedoNorte",
+              "title": "Paróquia São José — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santo Antônio",
+          "address": "Turpim",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/13/ParoquiaSaoJoseSaoJosedoNorte",
+              "title": "Paróquia São José — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Caetano",
+          "address": "São Caetano",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/13/ParoquiaSaoJoseSaoJosedoNorte",
+              "title": "Paróquia São José — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Francisco de Assis",
+          "address": "Rua Dois, 135 – Praia do Mar Grosso",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/13/ParoquiaSaoJoseSaoJosedoNorte",
+              "title": "Paróquia São José — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Francisco de Paula",
+          "address": "Capão do Meio",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/13/ParoquiaSaoJoseSaoJosedoNorte",
+              "title": "Paróquia São José — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Luiz Gonzaga",
+          "address": "Saraiva",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/13/ParoquiaSaoJoseSaoJosedoNorte",
+              "title": "Paróquia São José — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Pedro",
+          "address": "Quinta Secção da Barra",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/13/ParoquiaSaoJoseSaoJosedoNorte",
+              "title": "Paróquia São José — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São José",
+          "dayOfWeek": 0,
+          "time": "10:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/13/ParoquiaSaoJoseSaoJosedoNorte",
+              "title": "Paróquia São José — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São José",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/13/ParoquiaSaoJoseSaoJosedoNorte",
+              "title": "Paróquia São José — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São José",
+          "dayOfWeek": 3,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/13/ParoquiaSaoJoseSaoJosedoNorte",
+              "title": "Paróquia São José — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São José",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/13/ParoquiaSaoJoseSaoJosedoNorte",
+              "title": "Paróquia São José — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São José",
+          "dayOfWeek": 5,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": "1ª sexta-feira do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/13/ParoquiaSaoJoseSaoJosedoNorte",
+              "title": "Paróquia São José — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Bom Jesus de Iguape",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "2ª sexta-feira do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/13/ParoquiaSaoJoseSaoJosedoNorte",
+              "title": "Paróquia São José — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Jesus de Nazaré",
+          "dayOfWeek": 6,
+          "time": "10:00",
+          "type": "MASS",
+          "notes": "4º sábado do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/13/ParoquiaSaoJoseSaoJosedoNorte",
+              "title": "Paróquia São José — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Menino Deus",
+          "dayOfWeek": 6,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": "2º sábado do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/13/ParoquiaSaoJoseSaoJosedoNorte",
+              "title": "Paróquia São José — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Nossa Senhora da Conceição (Estreito)",
+          "dayOfWeek": 0,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": "2º domingo do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/13/ParoquiaSaoJoseSaoJosedoNorte",
+              "title": "Paróquia São José — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Nossa Senhora da Conceição (Bujuru)",
+          "dayOfWeek": 5,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": "4ª sexta-feira do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/13/ParoquiaSaoJoseSaoJosedoNorte",
+              "title": "Paróquia São José — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Nossa Senhora de Lourdes (Divisa)",
+          "dayOfWeek": 6,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": "3º sábado do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/13/ParoquiaSaoJoseSaoJosedoNorte",
+              "title": "Paróquia São José — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Nossa Senhora de Lourdes (Brasília)",
+          "dayOfWeek": 6,
+          "time": "10:00",
+          "type": "MASS",
+          "notes": "2º sábado do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/13/ParoquiaSaoJoseSaoJosedoNorte",
+              "title": "Paróquia São José — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Nossa Senhora da Saúde",
+          "dayOfWeek": 0,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": "4º domingo do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/13/ParoquiaSaoJoseSaoJosedoNorte",
+              "title": "Paróquia São José — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Nossa Senhora da Boa Viagem",
+          "dayOfWeek": 0,
+          "time": "16:00",
+          "type": "MASS",
+          "notes": "3º domingo do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/13/ParoquiaSaoJoseSaoJosedoNorte",
+              "title": "Paróquia São José — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Nossa Senhora das Graças",
+          "dayOfWeek": 6,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": "2º sábado do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/13/ParoquiaSaoJoseSaoJosedoNorte",
+              "title": "Paróquia São José — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 0,
+          "time": "10:30",
+          "type": "MASS",
+          "notes": "4º domingo do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/13/ParoquiaSaoJoseSaoJosedoNorte",
+              "title": "Paróquia São José — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Sagrada Família",
+          "dayOfWeek": 6,
+          "time": "16:30",
+          "type": "MASS",
+          "notes": "3º sábado do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/13/ParoquiaSaoJoseSaoJosedoNorte",
+              "title": "Paróquia São José — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Sagrado Coração de Jesus",
+          "dayOfWeek": 5,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": "2ª sexta-feira do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/13/ParoquiaSaoJoseSaoJosedoNorte",
+              "title": "Paróquia São José — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Santa Bárbara",
+          "dayOfWeek": 6,
+          "time": "20:00",
+          "type": "MASS",
+          "notes": "2º e 4º sábados do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/13/ParoquiaSaoJoseSaoJosedoNorte",
+              "title": "Paróquia São José — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Santa Rita",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "1º sábado do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/13/ParoquiaSaoJoseSaoJosedoNorte",
+              "title": "Paróquia São José — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Santa Terezinha",
+          "dayOfWeek": 6,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": "1º sábado do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/13/ParoquiaSaoJoseSaoJosedoNorte",
+              "title": "Paróquia São José — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Santo Antônio",
+          "dayOfWeek": 6,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": "4º sábado do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/13/ParoquiaSaoJoseSaoJosedoNorte",
+              "title": "Paróquia São José — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "São Caetano",
+          "dayOfWeek": 5,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": "3ª sexta-feira do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/13/ParoquiaSaoJoseSaoJosedoNorte",
+              "title": "Paróquia São José — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "São Francisco de Paula",
+          "dayOfWeek": 6,
+          "time": "16:30",
+          "type": "MASS",
+          "notes": "4º sábado do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/13/ParoquiaSaoJoseSaoJosedoNorte",
+              "title": "Paróquia São José — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "São Luiz Gonzaga",
+          "dayOfWeek": 0,
+          "time": "10:30",
+          "type": "MASS",
+          "notes": "1º domingo do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/13/ParoquiaSaoJoseSaoJosedoNorte",
+              "title": "Paróquia São José — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "São Pedro",
+          "dayOfWeek": 6,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": "1º sábado do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/13/ParoquiaSaoJoseSaoJosedoNorte",
+              "title": "Paróquia São José — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Santa Bárbara",
+          "dayOfWeek": 3,
+          "time": "20:30",
+          "type": "MASS",
+          "notes": "3ª quarta-feira do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/13/ParoquiaSaoJoseSaoJosedoNorte",
+              "title": "Paróquia São José — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Jesus de Nazaré",
+          "dayOfWeek": 3,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": "4ª quarta-feira do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/13/ParoquiaSaoJoseSaoJosedoNorte",
+              "title": "Paróquia São José — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "São Luiz Gonzaga",
+          "dayOfWeek": 5,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": "3ª sexta-feira do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/13/ParoquiaSaoJoseSaoJosedoNorte",
+              "title": "Paróquia São José — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "sao-luiz-rei-mostardas",
+      "name": "Paróquia São Luiz Rei",
+      "city": "Mostardas",
+      "state": "RS",
+      "neighborhood": null,
+      "address": "Rua Luiz Araújo, 855",
+      "zipCode": null,
+      "phone": "(51) 3673-1242",
+      "email": "matrizsaoluizrei@gmail.com",
+      "website": null,
+      "priestName": "Pe. Andrei Luiz da Silva Rosca",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedoriogrande.com.br/area/14/ParoquiaSaoLuizRei",
+          "title": "Paróquia São Luiz Rei — Diocese do Rio Grande (Área Norte)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz",
+          "address": "Rua Luiz Araújo, 855",
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/14/ParoquiaSaoLuizRei",
+              "title": "Paróquia São Luiz Rei — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Menino Jesus de Praga",
+          "address": "Avenida Dr. Dinarte Silveira Martins",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/14/ParoquiaSaoLuizRei",
+              "title": "Paróquia São Luiz Rei — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora das Graças",
+          "address": "Rincão",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/14/ParoquiaSaoLuizRei",
+              "title": "Paróquia São Luiz Rei — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Cristóvão",
+          "address": "Valim",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/14/ParoquiaSaoLuizRei",
+              "title": "Paróquia São Luiz Rei — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora do Rosário",
+          "address": "Teixeiras",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/14/ParoquiaSaoLuizRei",
+              "title": "Paróquia São Luiz Rei — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora de Lurdes",
+          "address": "São Simão",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/14/ParoquiaSaoLuizRei",
+              "title": "Paróquia São Luiz Rei — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Três Mártires",
+          "address": "Povos",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/14/ParoquiaSaoLuizRei",
+              "title": "Paróquia São Luiz Rei — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Simão Stock",
+          "address": "Praia de São Simão",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/14/ParoquiaSaoLuizRei",
+              "title": "Paróquia São Luiz Rei — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Sagrado Coração de Maria",
+          "address": "Beco do Vô Gilico (na Solidão)",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/14/ParoquiaSaoLuizRei",
+              "title": "Paróquia São Luiz Rei — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Sagrado Coração de Jesus",
+          "address": "Solidão",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/14/ParoquiaSaoLuizRei",
+              "title": "Paróquia São Luiz Rei — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora de Fátima",
+          "address": "Barros",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/14/ParoquiaSaoLuizRei",
+              "title": "Paróquia São Luiz Rei — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora Aparecida",
+          "address": "Casca",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/14/ParoquiaSaoLuizRei",
+              "title": "Paróquia São Luiz Rei — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora dos Navegantes",
+          "address": "Balneário Mostardense",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/14/ParoquiaSaoLuizRei",
+              "title": "Paróquia São Luiz Rei — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/14/ParoquiaSaoLuizRei",
+              "title": "Paróquia São Luiz Rei — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/14/ParoquiaSaoLuizRei",
+              "title": "Paróquia São Luiz Rei — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Menino Jesus de Praga",
+          "dayOfWeek": 0,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": "1º domingo do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/14/ParoquiaSaoLuizRei",
+              "title": "Paróquia São Luiz Rei — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Nossa Senhora das Graças",
+          "dayOfWeek": 6,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": "3º sábado do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/14/ParoquiaSaoLuizRei",
+              "title": "Paróquia São Luiz Rei — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "São Cristóvão",
+          "dayOfWeek": 0,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": "1º domingo do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/14/ParoquiaSaoLuizRei",
+              "title": "Paróquia São Luiz Rei — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Nossa Senhora do Rosário",
+          "dayOfWeek": 6,
+          "time": "14:30",
+          "type": "MASS",
+          "notes": "1º sábado do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/14/ParoquiaSaoLuizRei",
+              "title": "Paróquia São Luiz Rei — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Nossa Senhora de Lurdes",
+          "dayOfWeek": 6,
+          "time": "16:30",
+          "type": "MASS",
+          "notes": "1º sábado do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/14/ParoquiaSaoLuizRei",
+              "title": "Paróquia São Luiz Rei — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Três Mártires",
+          "dayOfWeek": 6,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": "4º sábado do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/14/ParoquiaSaoLuizRei",
+              "title": "Paróquia São Luiz Rei — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "São Simão Stock",
+          "dayOfWeek": 6,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": "4º sábado do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/14/ParoquiaSaoLuizRei",
+              "title": "Paróquia São Luiz Rei — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Sagrado Coração de Maria",
+          "dayOfWeek": 0,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": "2º domingo do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/14/ParoquiaSaoLuizRei",
+              "title": "Paróquia São Luiz Rei — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Sagrado Coração de Jesus",
+          "dayOfWeek": 0,
+          "time": "16:30",
+          "type": "MASS",
+          "notes": "2º domingo do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/14/ParoquiaSaoLuizRei",
+              "title": "Paróquia São Luiz Rei — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Nossa Senhora de Fátima",
+          "dayOfWeek": 0,
+          "time": "14:30",
+          "type": "MASS",
+          "notes": "3º domingo do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/14/ParoquiaSaoLuizRei",
+              "title": "Paróquia São Luiz Rei — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Nossa Senhora Aparecida",
+          "dayOfWeek": 0,
+          "time": "16:00",
+          "type": "MASS",
+          "notes": "3º domingo do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/14/ParoquiaSaoLuizRei",
+              "title": "Paróquia São Luiz Rei — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Nossa Senhora dos Navegantes",
+          "dayOfWeek": 6,
+          "time": "20:00",
+          "type": "MASS",
+          "notes": "Somente de janeiro a março",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/14/ParoquiaSaoLuizRei",
+              "title": "Paróquia São Luiz Rei — Diocese do Rio Grande (Área Norte)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "santa-vitoria-santa-vitoria-do-palmar",
+      "name": "Paróquia Santa Vitória",
+      "city": "Santa Vitória do Palmar",
+      "state": "RS",
+      "neighborhood": null,
+      "address": "Rua Mirapalhete, 1714",
+      "zipCode": "96230-000",
+      "phone": "(53) 3263-1859",
+      "email": "paroquiasantavitoria@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Lucas Santana Zanella",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedoriogrande.com.br/area/15/ParoquiaSantaVitoria",
+          "title": "Paróquia Santa Vitória — Diocese do Rio Grande (Área Sul)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz",
+          "address": "Rua Mirapalhete, 1714",
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/15/ParoquiaSantaVitoria",
+              "title": "Paróquia Santa Vitória — Diocese do Rio Grande (Área Sul)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Sagrada Família",
+          "address": "Bairro Donatos",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/15/ParoquiaSantaVitoria",
+              "title": "Paróquia Santa Vitória — Diocese do Rio Grande (Área Sul)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Pedro",
+          "address": "Bairro Coxilha",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/15/ParoquiaSantaVitoria",
+              "title": "Paróquia Santa Vitória — Diocese do Rio Grande (Área Sul)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora de Lourdes",
+          "address": "Bairro Vitoriense",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/15/ParoquiaSantaVitoria",
+              "title": "Paróquia Santa Vitória — Diocese do Rio Grande (Área Sul)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santa Rita de Cássia",
+          "address": "Bairro Brasilano",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/15/ParoquiaSantaVitoria",
+              "title": "Paróquia Santa Vitória — Diocese do Rio Grande (Área Sul)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora de Fátima",
+          "address": "Bairro Jacinto",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/15/ParoquiaSantaVitoria",
+              "title": "Paróquia Santa Vitória — Diocese do Rio Grande (Área Sul)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora dos Navegantes (Porto)",
+          "address": "Porto",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/15/ParoquiaSantaVitoria",
+              "title": "Paróquia Santa Vitória — Diocese do Rio Grande (Área Sul)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora dos Navegantes (Hermenegildo)",
+          "address": "Hermenegildo",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/15/ParoquiaSantaVitoria",
+              "title": "Paróquia Santa Vitória — Diocese do Rio Grande (Área Sul)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santo Antônio",
+          "address": "Barra do Chuí",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/15/ParoquiaSantaVitoria",
+              "title": "Paróquia Santa Vitória — Diocese do Rio Grande (Área Sul)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santa Terezinha",
+          "address": "Chuí",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/15/ParoquiaSantaVitoria",
+              "title": "Paróquia Santa Vitória — Diocese do Rio Grande (Área Sul)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "10:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/15/ParoquiaSantaVitoria",
+              "title": "Paróquia Santa Vitória — Diocese do Rio Grande (Área Sul)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 2,
+          "time": "18:15",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/15/ParoquiaSantaVitoria",
+              "title": "Paróquia Santa Vitória — Diocese do Rio Grande (Área Sul)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "18:15",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/15/ParoquiaSantaVitoria",
+              "title": "Paróquia Santa Vitória — Diocese do Rio Grande (Área Sul)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "17:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/15/ParoquiaSantaVitoria",
+              "title": "Paróquia Santa Vitória — Diocese do Rio Grande (Área Sul)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "ADORATION",
+          "notes": "Após a missa das 18h15",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/15/ParoquiaSantaVitoria",
+              "title": "Paróquia Santa Vitória — Diocese do Rio Grande (Área Sul)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Santa Terezinha",
+          "dayOfWeek": 0,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/15/ParoquiaSantaVitoria",
+              "title": "Paróquia Santa Vitória — Diocese do Rio Grande (Área Sul)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Sagrada Família",
+          "dayOfWeek": 3,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": "1ª quarta-feira do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/15/ParoquiaSantaVitoria",
+              "title": "Paróquia Santa Vitória — Diocese do Rio Grande (Área Sul)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Sagrada Família",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "4º sábado do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/15/ParoquiaSantaVitoria",
+              "title": "Paróquia Santa Vitória — Diocese do Rio Grande (Área Sul)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "São Pedro",
+          "dayOfWeek": 4,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": "1ª quinta-feira do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/15/ParoquiaSantaVitoria",
+              "title": "Paróquia Santa Vitória — Diocese do Rio Grande (Área Sul)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "São Pedro",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "2º sábado do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/15/ParoquiaSantaVitoria",
+              "title": "Paróquia Santa Vitória — Diocese do Rio Grande (Área Sul)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Nossa Senhora de Lourdes",
+          "dayOfWeek": 3,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": "3ª quarta-feira do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/15/ParoquiaSantaVitoria",
+              "title": "Paróquia Santa Vitória — Diocese do Rio Grande (Área Sul)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Nossa Senhora de Lourdes",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "1º sábado do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/15/ParoquiaSantaVitoria",
+              "title": "Paróquia Santa Vitória — Diocese do Rio Grande (Área Sul)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Santa Rita de Cássia",
+          "dayOfWeek": 3,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": "2ª quarta-feira do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/15/ParoquiaSantaVitoria",
+              "title": "Paróquia Santa Vitória — Diocese do Rio Grande (Área Sul)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Santa Rita de Cássia",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "3º sábado do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/15/ParoquiaSantaVitoria",
+              "title": "Paróquia Santa Vitória — Diocese do Rio Grande (Área Sul)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Nossa Senhora de Fátima",
+          "dayOfWeek": 3,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": "4ª quarta-feira do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/15/ParoquiaSantaVitoria",
+              "title": "Paróquia Santa Vitória — Diocese do Rio Grande (Área Sul)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Nossa Senhora dos Navegantes (Porto)",
+          "dayOfWeek": 4,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": "Última quinta-feira do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/15/ParoquiaSantaVitoria",
+              "title": "Paróquia Santa Vitória — Diocese do Rio Grande (Área Sul)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Nossa Senhora dos Navegantes (Hermenegildo)",
+          "dayOfWeek": 0,
+          "time": "20:00",
+          "type": "MASS",
+          "notes": "Todos os domingos de janeiro e fevereiro",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/15/ParoquiaSantaVitoria",
+              "title": "Paróquia Santa Vitória — Diocese do Rio Grande (Área Sul)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Santo Antônio",
+          "dayOfWeek": 6,
+          "time": "20:00",
+          "type": "MASS",
+          "notes": "Todos os sábados de janeiro e fevereiro",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/15/ParoquiaSantaVitoria",
+              "title": "Paróquia Santa Vitória — Diocese do Rio Grande (Área Sul)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "sagrada-familia-cidade-rio-grande",
+      "name": "Paróquia Sagrada Família - Cidade",
+      "city": "Rio Grande",
+      "state": "RS",
+      "neighborhood": "Cidade Nova",
+      "address": "Av. Cidade de Pelotas, 355 – Cidade Nova",
+      "zipCode": "96211-000",
+      "phone": "(53) 99908-0817",
+      "email": "sfcidade@outlook.com.br",
+      "website": null,
+      "priestName": "Pe. Luiz Fernando Silva da Matta",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedoriogrande.com.br/area/10/ParoquiaSagradaFamiliaCidade",
+          "title": "Paróquia Sagrada Família – Cidade — Diocese do Rio Grande (Área Cidade Nova)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz",
+          "address": "Av. Cidade de Pelotas, 355 – Cidade Nova",
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/10/ParoquiaSagradaFamiliaCidade",
+              "title": "Paróquia Sagrada Família – Cidade — Diocese do Rio Grande (Área Cidade Nova)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora de Lourdes",
+          "address": "Rua Henrique Pancada, 730 – Bairro Lagoa",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/10/ParoquiaSagradaFamiliaCidade",
+              "title": "Paróquia Sagrada Família – Cidade — Diocese do Rio Grande (Área Cidade Nova)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/10/ParoquiaSagradaFamiliaCidade",
+              "title": "Paróquia Sagrada Família – Cidade — Diocese do Rio Grande (Área Cidade Nova)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "16:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/10/ParoquiaSagradaFamiliaCidade",
+              "title": "Paróquia Sagrada Família – Cidade — Diocese do Rio Grande (Área Cidade Nova)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/10/ParoquiaSagradaFamiliaCidade",
+              "title": "Paróquia Sagrada Família – Cidade — Diocese do Rio Grande (Área Cidade Nova)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/10/ParoquiaSagradaFamiliaCidade",
+              "title": "Paróquia Sagrada Família – Cidade — Diocese do Rio Grande (Área Cidade Nova)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Nossa Senhora de Lourdes",
+          "dayOfWeek": 6,
+          "time": "16:30",
+          "type": "MASS",
+          "notes": "2º e 4º sábados do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/10/ParoquiaSagradaFamiliaCidade",
+              "title": "Paróquia Sagrada Família – Cidade — Diocese do Rio Grande (Área Cidade Nova)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "sao-jose-operario-rio-grande",
+      "name": "Paróquia São José Operário",
+      "city": "Rio Grande",
+      "state": "RS",
+      "neighborhood": "Cohab II",
+      "address": "Rua Casemiro de Abreu, 460, esquina Rua Bento Gonçalves – Bairro Cohab II",
+      "zipCode": "96211-410",
+      "phone": "(53) 99195-0985",
+      "email": "paroquiajo@gmail.com",
+      "website": null,
+      "priestName": "Pe. Cleomar Lemos de Jesus",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedoriogrande.com.br/area/12/ParoquiaSaoJoseOperario",
+          "title": "Paróquia São José Operário — Diocese do Rio Grande (Área Cidade Nova)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz",
+          "address": "Rua Casemiro de Abreu, 460 – Bairro Cohab II",
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/12/ParoquiaSaoJoseOperario",
+              "title": "Paróquia São José Operário — Diocese do Rio Grande (Área Cidade Nova)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Imaculado Coração de Maria",
+          "address": "Avenida Presidente Vargas, 681 – Bairro Parque",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/12/ParoquiaSaoJoseOperario",
+              "title": "Paróquia São José Operário — Diocese do Rio Grande (Área Cidade Nova)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Cristóvão",
+          "address": "Rua Caldas Junior, 812 – Bairro Hidráulica",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/12/ParoquiaSaoJoseOperario",
+              "title": "Paróquia São José Operário — Diocese do Rio Grande (Área Cidade Nova)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora do Perpétuo Socorro",
+          "address": "Rua Gustavo Sampaio, 324 – Bairro Rural",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/12/ParoquiaSaoJoseOperario",
+              "title": "Paróquia São José Operário — Diocese do Rio Grande (Área Cidade Nova)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora das Graças",
+          "address": "Rua República do Salvador, 688 – Bairro Buchholz",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/12/ParoquiaSaoJoseOperario",
+              "title": "Paróquia São José Operário — Diocese do Rio Grande (Área Cidade Nova)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/12/ParoquiaSaoJoseOperario",
+              "title": "Paróquia São José Operário — Diocese do Rio Grande (Área Cidade Nova)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "17:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/12/ParoquiaSaoJoseOperario",
+              "title": "Paróquia São José Operário — Diocese do Rio Grande (Área Cidade Nova)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Imaculado Coração de Maria",
+          "dayOfWeek": 3,
+          "time": "16:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/12/ParoquiaSaoJoseOperario",
+              "title": "Paróquia São José Operário — Diocese do Rio Grande (Área Cidade Nova)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Imaculado Coração de Maria",
+          "dayOfWeek": 6,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/12/ParoquiaSaoJoseOperario",
+              "title": "Paróquia São José Operário — Diocese do Rio Grande (Área Cidade Nova)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/12/ParoquiaSaoJoseOperario",
+              "title": "Paróquia São José Operário — Diocese do Rio Grande (Área Cidade Nova)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 5,
+          "time": "17:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/12/ParoquiaSaoJoseOperario",
+              "title": "Paróquia São José Operário — Diocese do Rio Grande (Área Cidade Nova)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Nossa Senhora das Graças",
+          "dayOfWeek": 0,
+          "time": "10:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/12/ParoquiaSaoJoseOperario",
+              "title": "Paróquia São José Operário — Diocese do Rio Grande (Área Cidade Nova)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Nossa Senhora das Graças",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/12/ParoquiaSaoJoseOperario",
+              "title": "Paróquia São José Operário — Diocese do Rio Grande (Área Cidade Nova)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "sao-jorge-rio-grande",
+      "name": "Paróquia São Jorge",
+      "city": "Rio Grande",
+      "state": "RS",
+      "neighborhood": "Vila Junção",
+      "address": "Rua Pinto Bandeira, 220 – Vila Junção",
+      "zipCode": "96212-472",
+      "phone": "(53) 3201-7443",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedoriogrande.com.br/area/17/ParoquiaSaoJorge",
+          "title": "Paróquia São Jorge — Diocese do Rio Grande (Área Junção)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz",
+          "address": "Rua Pinto Bandeira, 220 – Vila Junção",
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/17/ParoquiaSaoJorge",
+              "title": "Paróquia São Jorge — Diocese do Rio Grande (Área Junção)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Vicente de Paulo",
+          "address": "Rua Pinto Bandeira, 1535 – Vila Junção",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/17/ParoquiaSaoJorge",
+              "title": "Paróquia São Jorge — Diocese do Rio Grande (Área Junção)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Mãe Peregrina",
+          "address": "Condomínio Maria Carmem",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/17/ParoquiaSaoJorge",
+              "title": "Paróquia São Jorge — Diocese do Rio Grande (Área Junção)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora de Lourdes",
+          "address": "Vila Bernardeth",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/17/ParoquiaSaoJorge",
+              "title": "Paróquia São Jorge — Diocese do Rio Grande (Área Junção)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora Aparecida",
+          "address": "Rua Guadalajara, 89 – Vila Maria",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/17/ParoquiaSaoJorge",
+              "title": "Paróquia São Jorge — Diocese do Rio Grande (Área Junção)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Geraldo e São Peregrino",
+          "address": "Jardim Humaitá II",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/17/ParoquiaSaoJorge",
+              "title": "Paróquia São Jorge — Diocese do Rio Grande (Área Junção)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santíssima Trindade",
+          "address": "Bairro Trevo",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/17/ParoquiaSaoJorge",
+              "title": "Paróquia São Jorge — Diocese do Rio Grande (Área Junção)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/17/ParoquiaSaoJorge",
+              "title": "Paróquia São Jorge — Diocese do Rio Grande (Área Junção)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "São Vicente de Paulo",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/17/ParoquiaSaoJorge",
+              "title": "Paróquia São Jorge — Diocese do Rio Grande (Área Junção)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Mãe Peregrina",
+          "dayOfWeek": 0,
+          "time": "10:00",
+          "type": "MASS",
+          "notes": "1º e 3º domingos do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/17/ParoquiaSaoJorge",
+              "title": "Paróquia São Jorge — Diocese do Rio Grande (Área Junção)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Nossa Senhora de Lourdes",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/17/ParoquiaSaoJorge",
+              "title": "Paróquia São Jorge — Diocese do Rio Grande (Área Junção)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Nossa Senhora Aparecida",
+          "dayOfWeek": 6,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/17/ParoquiaSaoJorge",
+              "title": "Paróquia São Jorge — Diocese do Rio Grande (Área Junção)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "São Geraldo e São Peregrino",
+          "dayOfWeek": 0,
+          "time": "10:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/17/ParoquiaSaoJorge",
+              "title": "Paróquia São Jorge — Diocese do Rio Grande (Área Junção)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Santíssima Trindade",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/17/ParoquiaSaoJorge",
+              "title": "Paróquia São Jorge — Diocese do Rio Grande (Área Junção)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Santíssima Trindade",
+          "dayOfWeek": 5,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": "Missa da Saúde",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/17/ParoquiaSaoJorge",
+              "title": "Paróquia São Jorge — Diocese do Rio Grande (Área Junção)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "sao-lucas-rio-grande",
+      "name": "Rede de Comunidades São Lucas",
+      "city": "Rio Grande",
+      "state": "RS",
+      "neighborhood": "Bairro Carlos Santos",
+      "address": "Rua Frei Mário Aloísio Schuh, 1222 – Bairro Carlos Santos",
+      "zipCode": "96213-540",
+      "phone": "(53) 3230-8763",
+      "email": "redesaolucas2016@gmail.com",
+      "website": null,
+      "priestName": "Pe. Lino Mayer",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedoriogrande.com.br/area/18/RededeComunidadesSaoLucas",
+          "title": "Rede de Comunidades São Lucas — Diocese do Rio Grande (Área Junção)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "santa-teresa-rio-grande",
+      "name": "Paróquia Santa Teresa",
+      "city": "Rio Grande",
+      "state": "RS",
+      "neighborhood": "Bairro Santa Teresa",
+      "address": "Rua São Francisco de Assis, 116 – Bairro Santa Teresa",
+      "zipCode": null,
+      "phone": "(53) 98114-2670",
+      "email": "commatrizsteresa.rg@gmail.com",
+      "website": null,
+      "priestName": "Pe. Frei Gilberto Alexandre da Luz (administrador paroquial)",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedoriogrande.com.br/area/8/ParoquiaSantaTeresa",
+          "title": "Paróquia Santa Teresa — Diocese do Rio Grande (Área Porto)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Santa Teresa",
+          "address": "Rua São Francisco de Assis, 116 – Bairro Santa Teresa",
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/8/ParoquiaSantaTeresa",
+              "title": "Paróquia Santa Teresa — Diocese do Rio Grande (Área Porto)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora da Paz",
+          "address": "Rua Enfermeiro Afonso Marino Gomes, 303 – Quarta Secção da Barra",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/8/ParoquiaSantaTeresa",
+              "title": "Paróquia Santa Teresa — Diocese do Rio Grande (Área Porto)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Marcelino",
+          "address": "Rua Maria Francisca, 33 – Vila Mangueira",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/8/ParoquiaSantaTeresa",
+              "title": "Paróquia Santa Teresa — Diocese do Rio Grande (Área Porto)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santos Anjos da Guarda",
+          "address": "Via Principal, 812/2 – Quarta Secção da Barra Nova",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/8/ParoquiaSantaTeresa",
+              "title": "Paróquia Santa Teresa — Diocese do Rio Grande (Área Porto)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Santa Teresa",
+          "dayOfWeek": 2,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/8/ParoquiaSantaTeresa",
+              "title": "Paróquia Santa Teresa — Diocese do Rio Grande (Área Porto)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Santa Teresa",
+          "dayOfWeek": 6,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/8/ParoquiaSantaTeresa",
+              "title": "Paróquia Santa Teresa — Diocese do Rio Grande (Área Porto)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Santa Teresa",
+          "dayOfWeek": 2,
+          "time": "18:00",
+          "type": "ROSARY",
+          "notes": "Terço Mariano",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/8/ParoquiaSantaTeresa",
+              "title": "Paróquia Santa Teresa — Diocese do Rio Grande (Área Porto)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Nossa Senhora da Paz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/8/ParoquiaSantaTeresa",
+              "title": "Paróquia Santa Teresa — Diocese do Rio Grande (Área Porto)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Nossa Senhora da Paz",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/8/ParoquiaSantaTeresa",
+              "title": "Paróquia Santa Teresa — Diocese do Rio Grande (Área Porto)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Nossa Senhora da Paz",
+          "dayOfWeek": 0,
+          "time": "18:00",
+          "type": "CONFESSION",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/8/ParoquiaSantaTeresa",
+              "title": "Paróquia Santa Teresa — Diocese do Rio Grande (Área Porto)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Nossa Senhora da Paz",
+          "dayOfWeek": 3,
+          "time": "18:00",
+          "type": "CONFESSION",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/8/ParoquiaSantaTeresa",
+              "title": "Paróquia Santa Teresa — Diocese do Rio Grande (Área Porto)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Nossa Senhora da Paz",
+          "dayOfWeek": 5,
+          "time": "18:00",
+          "type": "ADORATION",
+          "notes": "1ª sexta-feira do mês, com missa",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/8/ParoquiaSantaTeresa",
+              "title": "Paróquia Santa Teresa — Diocese do Rio Grande (Área Porto)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "São Marcelino",
+          "dayOfWeek": 0,
+          "time": "10:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/8/ParoquiaSantaTeresa",
+              "title": "Paróquia Santa Teresa — Diocese do Rio Grande (Área Porto)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Santos Anjos da Guarda",
+          "dayOfWeek": 0,
+          "time": "17:30",
+          "type": "MASS",
+          "notes": "Último domingo do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/8/ParoquiaSantaTeresa",
+              "title": "Paróquia Santa Teresa — Diocese do Rio Grande (Área Porto)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "sao-judas-tadeu-rio-grande",
+      "name": "Paróquia São Judas Tadeu",
+      "city": "Rio Grande",
+      "state": "RS",
+      "neighborhood": "Bairro Getúlio Vargas",
+      "address": "Av. Pedro II, 85 – Bairro Getúlio Vargas",
+      "zipCode": "96201-010",
+      "phone": "(53) 98412-0938",
+      "email": "judastadeu28@yahoo.com",
+      "website": null,
+      "priestName": "Pe. Eduardo dos Santos de Oliveira",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedoriogrande.com.br/area/6/ParoquiaSaoJudasTadeu",
+          "title": "Paróquia São Judas Tadeu — Diocese do Rio Grande (Área Porto)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Judas Tadeu",
+          "address": "Av. Pedro II, 85 – Bairro Getúlio Vargas",
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/6/ParoquiaSaoJudasTadeu",
+              "title": "Paróquia São Judas Tadeu — Diocese do Rio Grande (Área Porto)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora Aparecida",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/6/ParoquiaSaoJudasTadeu",
+              "title": "Paróquia São Judas Tadeu — Diocese do Rio Grande (Área Porto)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São Judas Tadeu",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/6/ParoquiaSaoJudasTadeu",
+              "title": "Paróquia São Judas Tadeu — Diocese do Rio Grande (Área Porto)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Judas Tadeu",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/6/ParoquiaSaoJudasTadeu",
+              "title": "Paróquia São Judas Tadeu — Diocese do Rio Grande (Área Porto)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Judas Tadeu",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/6/ParoquiaSaoJudasTadeu",
+              "title": "Paróquia São Judas Tadeu — Diocese do Rio Grande (Área Porto)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Judas Tadeu",
+          "dayOfWeek": 1,
+          "time": "19:00",
+          "type": "ROSARY",
+          "notes": "Terço dos Homens",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/6/ParoquiaSaoJudasTadeu",
+              "title": "Paróquia São Judas Tadeu — Diocese do Rio Grande (Área Porto)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Judas Tadeu",
+          "dayOfWeek": 4,
+          "time": "18:30",
+          "type": "ADORATION",
+          "notes": "1ª quinta-feira do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/6/ParoquiaSaoJudasTadeu",
+              "title": "Paróquia São Judas Tadeu — Diocese do Rio Grande (Área Porto)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Judas Tadeu",
+          "dayOfWeek": 6,
+          "time": "17:00",
+          "type": "ROSARY",
+          "notes": "1º sábado do mês",
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/6/ParoquiaSaoJudasTadeu",
+              "title": "Paróquia São Judas Tadeu — Diocese do Rio Grande (Área Porto)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Nossa Senhora Aparecida",
+          "dayOfWeek": 5,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/6/ParoquiaSaoJudasTadeu",
+              "title": "Paróquia São Judas Tadeu — Diocese do Rio Grande (Área Porto)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Nossa Senhora Aparecida",
+          "dayOfWeek": 6,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/6/ParoquiaSaoJudasTadeu",
+              "title": "Paróquia São Judas Tadeu — Diocese do Rio Grande (Área Porto)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "capelania-v-distrito-naval-rio-grande",
+      "name": "Capelania do V Distrito Naval",
+      "city": "Rio Grande",
+      "state": "RS",
+      "neighborhood": "Vila Militar",
+      "address": "Rua Marechal Andreia, 159 – Vila Militar",
+      "zipCode": "96201-250",
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Antônio Ribeiro dos Santos (capelão)",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedoriogrande.com.br/area/20/CapelaniadoVDistritoNaval",
+          "title": "Capelania do V Distrito Naval — Diocese do Rio Grande (Área Porto)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Nossa Senhora dos Navegantes",
+          "address": "Rua Marechal Andreia, 159 – Vila Militar",
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedoriogrande.com.br/area/20/CapelaniadoVDistritoNaval",
+              "title": "Capelania do V Distrito Naval — Diocese do Rio Grande (Área Porto)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    }
+  ],
+  "coverage": {
+    "parishesFound": 16,
+    "parishesExpected": 16,
+    "notes": "O site oficial organiza a diocese em 7 áreas pastorais com 20 links. Destes, 15 são paróquias propriamente ditas (incluindo a Catedral de São Pedro e o Santuário Nossa Senhora de Fátima, que é também paróquia). São Lucas e Nossa Senhora Medianeira aparecem como 'Rede de Comunidades' — a São Lucas tem pároco (Pe. Lino Mayer) e a Medianeira, administrador paroquial; 15 paróquias + 1 rede = 16, o total informado pelo catholic-hierarchy.org (2022). Não foi possível determinar qual das duas redes é a paróquia contada, então ambas estão no arquivo (17 unidades pastorais) — precisa de validação humana. O arquivo traz ainda a Capelania do V Distrito Naval (capelania militar, NÃO paroquial), totalizando 18 entradas em `parishes`. Os links 'Santíssima Trindade' (área Junção) e 'Pastoral do Chuí' (área Sul) retornam páginas vazias: a Rede Santíssima Trindade foi absorvida pela Paróquia São Jorge em 2020 (histórico no próprio site) e o Chuí é atendido pela Paróquia Santa Vitória (Capela Santa Terezinha). As 9 comunidades da Rede São Lucas não estão listadas no site."
+  }
+}

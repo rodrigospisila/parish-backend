@@ -1,0 +1,4447 @@
+{
+  "diocese": {
+    "name": "Diocese de Erexim",
+    "type": "Diocese",
+    "slug": "erexim",
+    "city": "Erechim",
+    "state": "RS",
+    "address": "Av. Sete de Setembro, 1251 – Bairro Fátima",
+    "zipCode": "99709-298",
+    "phone": "(54) 3522-3611",
+    "email": "curia@diocesedeerexim.org.br",
+    "website": "https://diocesedeerexim.org.br",
+    "bishopName": "Dom Adimir Antônio Mazali",
+    "sources": [
+      {
+        "url": "https://diocesedeerexim.org.br/paroquias/",
+        "title": "Diocese de Erexim — \"Paróquias\": lista oficial das 30 paróquias, agrupadas por área pastoral",
+        "accessedAt": "2026-09-10"
+      },
+      {
+        "url": "https://diocesedeerexim.org.br/diocese/",
+        "title": "Diocese de Erexim — \"A Diocese\" (criação em 27/05/1971 pela bula Cum Christus; bispo Dom Adimir Antonio Mazali desde 12/07/2020)",
+        "accessedAt": "2026-09-10"
+      },
+      {
+        "url": "https://diocesedeerexim.org.br/contato/",
+        "title": "Diocese de Erexim — rodapé/contato da Cúria Diocesana (endereço, CEP, telefone e e-mail)",
+        "accessedAt": "2026-09-10"
+      },
+      {
+        "url": "https://pt.wikipedia.org/wiki/Diocese_de_Erexim",
+        "title": "Wikipédia — Diocese de Erexim (30 paróquias, 30 municípios do Alto Uruguai, sede em Erechim)",
+        "accessedAt": "2026-09-10"
+      },
+      {
+        "url": "https://gcatholic.org/dioceses/diocese/erex0.htm",
+        "title": "gcatholic.org — Diocese of Erexim: 30 paróquias (dados de 31/12/2022), catedral São José em Erechim",
+        "accessedAt": "2026-09-10"
+      },
+      {
+        "url": "https://www.catholic-hierarchy.org/diocese/derex.html",
+        "title": "catholic-hierarchy.org — Diocese of Erexim: sede Erechim, bispo Adimir Antônio Mazali (15/04/2020), 5.586 km², 185.000 católicos (2023); traz \"66 paróquias\", número divergente das demais fontes",
+        "accessedAt": "2026-09-10"
+      }
+    ],
+    "confidence": "alta"
+  },
+  "parishes": [
+    {
+      "slug": "sao-jose-erechim",
+      "name": "Catedral São José",
+      "city": "Erechim",
+      "state": "RS",
+      "neighborhood": "Centro",
+      "address": "Av. Maurício Cardoso, 62 – Centro",
+      "zipCode": "99700-012",
+      "phone": "(54) 99940-1198",
+      "email": "catedral@diocesedeerexim.org.br",
+      "website": null,
+      "priestName": "Pe. Clair Favreto",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedeerexim.org.br/paroquias/",
+          "title": "Diocese de Erexim — \"Paróquias\": lista oficial das 30 paróquias, agrupadas por área pastoral",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedeerexim.org.br/paroquias/catedral-sao-jose/",
+          "title": "Diocese de Erexim — página oficial da Catedral São José – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz",
+          "address": "Av. Maurício Cardoso, 62 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/catedral-sao-jose/",
+              "title": "Diocese de Erexim — página oficial da Catedral São José – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santuário Nossa Senhora da Santa Cruz",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/santuarios/santuario-nossa-senhora-da-santa-cruz/",
+              "title": "Diocese de Erexim — Santuário Nossa Senhora da Santa Cruz (reitor Pe. Gladir Pedro Giacomel, que é vigário paroquial da Catedral)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 1,
+          "time": "18:15",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/catedral-sao-jose/",
+              "title": "Diocese de Erexim — página oficial da Catedral São José – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 2,
+          "time": "18:15",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/catedral-sao-jose/",
+              "title": "Diocese de Erexim — página oficial da Catedral São José – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "18:15",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/catedral-sao-jose/",
+              "title": "Diocese de Erexim — página oficial da Catedral São José – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "18:15",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/catedral-sao-jose/",
+              "title": "Diocese de Erexim — página oficial da Catedral São José – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "18:15",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/catedral-sao-jose/",
+              "title": "Diocese de Erexim — página oficial da Catedral São José – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "07:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/catedral-sao-jose/",
+              "title": "Diocese de Erexim — página oficial da Catedral São José – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": "Primeira sexta-feira do mês",
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/catedral-sao-jose/",
+              "title": "Diocese de Erexim — página oficial da Catedral São José – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "16:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/catedral-sao-jose/",
+              "title": "Diocese de Erexim — página oficial da Catedral São José – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/catedral-sao-jose/",
+              "title": "Diocese de Erexim — página oficial da Catedral São José – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/catedral-sao-jose/",
+              "title": "Diocese de Erexim — página oficial da Catedral São José – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-aparecida-erechim",
+      "name": "Paróquia Nossa Senhora Aparecida",
+      "city": "Erechim",
+      "state": "RS",
+      "neighborhood": "Bela Vista",
+      "address": "Rua João Dal Toé, 191 – Bairro Bela Vista",
+      "zipCode": "99704-088",
+      "phone": "(54) 3522-0331",
+      "email": "paroquia.nsaparecida@diocesedeerexim.org.br",
+      "website": null,
+      "priestName": "Pe. Leonardo Silva Pereira Fávero",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedeerexim.org.br/paroquias/",
+          "title": "Diocese de Erexim — \"Paróquias\": lista oficial das 30 paróquias, agrupadas por área pastoral",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedeerexim.org.br/paroquias/paroquia-nossa-senhora-aparecida-erechim/",
+          "title": "Diocese de Erexim — página oficial da Paróquia Nossa Senhora Aparecida – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz",
+          "address": "Rua João Dal Toé, 191 – Bairro Bela Vista",
+          "neighborhood": "Bela Vista",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-nossa-senhora-aparecida-erechim/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Nossa Senhora Aparecida – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "14:30",
+          "type": "MASS",
+          "notes": "Primeira sexta-feira do mês",
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-nossa-senhora-aparecida-erechim/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Nossa Senhora Aparecida – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-nossa-senhora-aparecida-erechim/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Nossa Senhora Aparecida – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-nossa-senhora-aparecida-erechim/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Nossa Senhora Aparecida – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-da-salette-erechim",
+      "name": "Paróquia Nossa Senhora da Salette",
+      "city": "Erechim",
+      "state": "RS",
+      "neighborhood": "Três Vendas",
+      "address": "Av. José Oscar Salazar, 1030 – Bairro Três Vendas",
+      "zipCode": "99713-110",
+      "phone": "(54) 99672-1844",
+      "email": "paroquia.nssalete@diocesedeerexim.org.br",
+      "website": null,
+      "priestName": "Pe. Romário Barbosa Santana, MS",
+      "foundedYear": 1954,
+      "sources": [
+        {
+          "url": "https://diocesedeerexim.org.br/paroquias/",
+          "title": "Diocese de Erexim — \"Paróquias\": lista oficial das 30 paróquias, agrupadas por área pastoral",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedeerexim.org.br/paroquias/paroquia-nossa-senhora-da-salette/",
+          "title": "Diocese de Erexim — página oficial da Paróquia Nossa Senhora da Salette – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz",
+          "address": "Av. José Oscar Salazar, 1030 – Bairro Três Vendas",
+          "neighborhood": "Três Vendas",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-nossa-senhora-da-salette/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Nossa Senhora da Salette – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora de Fátima",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-nossa-senhora-da-salette/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Nossa Senhora da Salette – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora Misericórdia",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-nossa-senhora-da-salette/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Nossa Senhora da Salette – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora da Saúde",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-nossa-senhora-da-salette/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Nossa Senhora da Salette – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Santa Tereza",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-nossa-senhora-da-salette/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Nossa Senhora da Salette – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Francisco de Assis",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-nossa-senhora-da-salette/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Nossa Senhora da Salette – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São João Batista",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-nossa-senhora-da-salette/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Nossa Senhora da Salette – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora Aparecida",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-nossa-senhora-da-salette/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Nossa Senhora da Salette – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora Consolata",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-nossa-senhora-da-salette/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Nossa Senhora da Salette – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Santa Augusta",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-nossa-senhora-da-salette/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Nossa Senhora da Salette – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Santa Bárbara",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-nossa-senhora-da-salette/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Nossa Senhora da Salette – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Santa Cruz",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-nossa-senhora-da-salette/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Nossa Senhora da Salette – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Santa Lúcia",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-nossa-senhora-da-salette/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Nossa Senhora da Salette – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São José",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-nossa-senhora-da-salette/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Nossa Senhora da Salette – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Mateus",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-nossa-senhora-da-salette/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Nossa Senhora da Salette – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 1,
+          "time": "18:30",
+          "type": "ROSARY",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-nossa-senhora-da-salette/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Nossa Senhora da Salette – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 2,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-nossa-senhora-da-salette/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Nossa Senhora da Salette – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "14:30",
+          "type": "ROSARY",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-nossa-senhora-da-salette/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Nossa Senhora da Salette – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-nossa-senhora-da-salette/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Nossa Senhora da Salette – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "ROSARY",
+          "notes": "Terço dos Homens",
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-nossa-senhora-da-salette/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Nossa Senhora da Salette – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": "Missa com adoração ao Santíssimo Sacramento",
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-nossa-senhora-da-salette/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Nossa Senhora da Salette – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "18:30",
+          "type": "ADORATION",
+          "notes": "Adoração ao Santíssimo durante a missa de quinta-feira",
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-nossa-senhora-da-salette/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Nossa Senhora da Salette – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "14:30",
+          "type": "ROSARY",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-nossa-senhora-da-salette/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Nossa Senhora da Salette – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-nossa-senhora-da-salette/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Nossa Senhora da Salette – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-nossa-senhora-da-salette/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Nossa Senhora da Salette – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "08:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-nossa-senhora-da-salette/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Nossa Senhora da Salette – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-nossa-senhora-da-salette/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Nossa Senhora da Salette – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "ADORATION",
+          "notes": "Adoração no dia 23 de cada mês, às 19h (dia da semana varia)",
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-nossa-senhora-da-salette/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Nossa Senhora da Salette – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "santa-luzia-erechim",
+      "name": "Paróquia Santa Luzia",
+      "city": "Erechim",
+      "state": "RS",
+      "neighborhood": "Atlântico",
+      "address": "Rua Dilgai Parenti, 423 – Bairro Atlântico",
+      "zipCode": "99705-476",
+      "phone": "(54) 3522-8517",
+      "email": "paroquia.santaluzia@diocesedeerexim.org.br",
+      "website": null,
+      "priestName": "Pe. Wolney Toigo",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedeerexim.org.br/paroquias/",
+          "title": "Diocese de Erexim — \"Paróquias\": lista oficial das 30 paróquias, agrupadas por área pastoral",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedeerexim.org.br/paroquias/paroquia-santa-luzia-erechim/",
+          "title": "Diocese de Erexim — página oficial da Paróquia Santa Luzia – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz",
+          "address": "Rua Dilgai Parenti, 423 – Bairro Atlântico",
+          "neighborhood": "Atlântico",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-santa-luzia-erechim/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Santa Luzia – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": "Primeira sexta-feira do mês",
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-santa-luzia-erechim/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Santa Luzia – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-santa-luzia-erechim/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Santa Luzia – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-santa-luzia-erechim/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Santa Luzia – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-santa-luzia-erechim/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Santa Luzia – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "sao-cristovao-erechim",
+      "name": "Paróquia São Cristóvão",
+      "city": "Erechim",
+      "state": "RS",
+      "neighborhood": "São Cristóvão",
+      "address": "Rua Santos Dumont, 220 – Bairro São Cristóvão",
+      "zipCode": "99709-410",
+      "phone": "(54) 3321-4529",
+      "email": "paroquia.saocristovao@diocesedeerexim.org.br",
+      "website": null,
+      "priestName": "Pe. Maicon André Malacarne",
+      "foundedYear": 1981,
+      "sources": [
+        {
+          "url": "https://diocesedeerexim.org.br/paroquias/",
+          "title": "Diocese de Erexim — \"Paróquias\": lista oficial das 30 paróquias, agrupadas por área pastoral",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-cristovao-erechim/",
+          "title": "Diocese de Erexim — página oficial da Paróquia São Cristóvão – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz",
+          "address": "Rua Santos Dumont, 220 – Bairro São Cristóvão",
+          "neighborhood": "São Cristóvão",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-cristovao-erechim/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Cristóvão – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Santo Antônio",
+          "address": null,
+          "neighborhood": "Bairro Aldo Arioli",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-cristovao-erechim/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Cristóvão – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Sagrado Coração de Jesus",
+          "address": null,
+          "neighborhood": "Polígono 21 de Abril",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-cristovao-erechim/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Cristóvão – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São Francisco de Assis",
+          "address": null,
+          "neighborhood": "Aeroporto",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-cristovao-erechim/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Cristóvão – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Santa Isabel",
+          "address": null,
+          "neighborhood": "Frinape",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-cristovao-erechim/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Cristóvão – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nossa Senhora Consoladora",
+          "address": null,
+          "neighborhood": "Posto Lando",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-cristovao-erechim/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Cristóvão – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nossa Senhora da Saúde",
+          "address": null,
+          "neighborhood": "Peccin",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-cristovao-erechim/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Cristóvão – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São João Batista",
+          "address": null,
+          "neighborhood": "Povoado Giaretta",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-cristovao-erechim/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Cristóvão – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Transfiguração de Cristo",
+          "address": null,
+          "neighborhood": "Lajeado Henrique",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-cristovao-erechim/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Cristóvão – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-cristovao-erechim/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Cristóvão – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-cristovao-erechim/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Cristóvão – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": "Primeira sexta-feira do mês",
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-cristovao-erechim/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Cristóvão – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "14:30",
+          "type": "MASS",
+          "notes": "Terceira quarta-feira do mês",
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-cristovao-erechim/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Cristóvão – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 2,
+          "time": "19:00",
+          "type": "ROSARY",
+          "notes": "Terço das Famílias",
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-cristovao-erechim/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Cristóvão – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "ADORATION",
+          "notes": "Adoração no dia 12 de cada mês, às 19h30 (dia da semana varia)",
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-cristovao-erechim/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Cristóvão – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "sao-francisco-de-assis-erechim",
+      "name": "Paróquia São Francisco de Assis",
+      "city": "Erechim",
+      "state": "RS",
+      "neighborhood": "Progresso",
+      "address": "Rua Geraldo Rufino Pinheiro, 220 – Bairro Progresso",
+      "zipCode": "99708-530",
+      "phone": "(54) 3519-5333",
+      "email": "paroquia.sfassis@diocesedeerexim.org.br",
+      "website": null,
+      "priestName": "Pe. Antônio Miro Serraglio",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedeerexim.org.br/paroquias/",
+          "title": "Diocese de Erexim — \"Paróquias\": lista oficial das 30 paróquias, agrupadas por área pastoral",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-francisco-de-assis-erechim/",
+          "title": "Diocese de Erexim — página oficial da Paróquia São Francisco de Assis – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz",
+          "address": "Rua Geraldo Rufino Pinheiro, 220 – Bairro Progresso",
+          "neighborhood": "Progresso",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-francisco-de-assis-erechim/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Francisco de Assis – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-francisco-de-assis-erechim/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Francisco de Assis – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-francisco-de-assis-erechim/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Francisco de Assis – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-francisco-de-assis-erechim/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Francisco de Assis – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "sao-pedro-erechim",
+      "name": "Paróquia São Pedro",
+      "city": "Erechim",
+      "state": "RS",
+      "neighborhood": "Centro",
+      "address": "Rua Jerônimo Teixeira, 640 – Centro",
+      "zipCode": "99700-408",
+      "phone": "(54) 3321-1977",
+      "email": "paroquia.saopedro@diocesedeerexim.org.br",
+      "website": null,
+      "priestName": "Pe. Paulo Rogério Caovila",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedeerexim.org.br/paroquias/",
+          "title": "Diocese de Erexim — \"Paróquias\": lista oficial das 30 paróquias, agrupadas por área pastoral",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-pedro-erechim/",
+          "title": "Diocese de Erexim — página oficial da Paróquia São Pedro – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz",
+          "address": "Rua Jerônimo Teixeira, 640 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-pedro-erechim/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Pedro – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-pedro-erechim/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Pedro – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-pedro-erechim/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Pedro – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-pedro-erechim/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Pedro – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 1,
+          "time": "16:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-pedro-erechim/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Pedro – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "18:15",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-pedro-erechim/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Pedro – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "16:00",
+          "type": "MASS",
+          "notes": "Primeira sexta-feira do mês",
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-pedro-erechim/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Pedro – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "sao-caetano-severiano-de-almeida",
+      "name": "Paróquia São Caetano",
+      "city": "Severiano de Almeida",
+      "state": "RS",
+      "neighborhood": "Centro",
+      "address": "Rua Sperandio Biazus, 57 – Centro",
+      "zipCode": "99810-000",
+      "phone": "(54) 99672-1849",
+      "email": "paroquia.saocaetano@diocesedeerexim.org.br",
+      "website": null,
+      "priestName": "Pe. João Dirceu Nardino",
+      "foundedYear": 1951,
+      "sources": [
+        {
+          "url": "https://diocesedeerexim.org.br/paroquias/",
+          "title": "Diocese de Erexim — \"Paróquias\": lista oficial das 30 paróquias, agrupadas por área pastoral",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-caetano-severiano-de-almeida/",
+          "title": "Diocese de Erexim — página oficial da Paróquia São Caetano – Severiano de Almeida (endereço, telefone, e-mail, pároco e horários de missa)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Caetano",
+          "address": "Rua Sperandio Biazus, 57 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-caetano-severiano-de-almeida/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Caetano – Severiano de Almeida (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Santa Teresinha",
+          "address": null,
+          "neighborhood": "Coronel Teixeira",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-caetano-severiano-de-almeida/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Caetano – Severiano de Almeida (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Santo Antônio",
+          "address": null,
+          "neighborhood": "Cerro do Meio Dia",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-caetano-severiano-de-almeida/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Caetano – Severiano de Almeida (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Santo Antônio – Linha Tigre",
+          "address": null,
+          "neighborhood": "Linha Tigre",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-caetano-severiano-de-almeida/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Caetano – Severiano de Almeida (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Marcos",
+          "address": null,
+          "neighborhood": "Nova Veneza",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-caetano-severiano-de-almeida/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Caetano – Severiano de Almeida (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São José",
+          "address": null,
+          "neighborhood": "Sanga Funda",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-caetano-severiano-de-almeida/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Caetano – Severiano de Almeida (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Paulo",
+          "address": null,
+          "neighborhood": "Linha Antas",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-caetano-severiano-de-almeida/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Caetano – Severiano de Almeida (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Brás",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-caetano-severiano-de-almeida/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Caetano – Severiano de Almeida (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Santo Agostinho",
+          "address": null,
+          "neighborhood": "Vila Mirim",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-caetano-severiano-de-almeida/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Caetano – Severiano de Almeida (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São João",
+          "address": null,
+          "neighborhood": "Linha Norte",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-caetano-severiano-de-almeida/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Caetano – Severiano de Almeida (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Pascoal",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-caetano-severiano-de-almeida/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Caetano – Severiano de Almeida (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Roque",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-caetano-severiano-de-almeida/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Caetano – Severiano de Almeida (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Cristóvão",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-caetano-severiano-de-almeida/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Caetano – Severiano de Almeida (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Sagrada Família",
+          "address": null,
+          "neighborhood": "Santo Farias",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-caetano-severiano-de-almeida/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Caetano – Severiano de Almeida (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Miguel",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-caetano-severiano-de-almeida/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Caetano – Severiano de Almeida (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Sebastião",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-caetano-severiano-de-almeida/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Caetano – Severiano de Almeida (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora de Fátima",
+          "address": null,
+          "neighborhood": "Linha Doze",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-caetano-severiano-de-almeida/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Caetano – Severiano de Almeida (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora Aparecida",
+          "address": null,
+          "neighborhood": "Tiradentes",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-caetano-severiano-de-almeida/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Caetano – Severiano de Almeida (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Linha Napoleão",
+          "address": null,
+          "neighborhood": "Linha Napoleão",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-caetano-severiano-de-almeida/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Caetano – Severiano de Almeida (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Linha Caracol",
+          "address": null,
+          "neighborhood": "Linha Caracol",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-caetano-severiano-de-almeida/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Caetano – Severiano de Almeida (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Linha Moro do Emiliano",
+          "address": null,
+          "neighborhood": "Linha Moro do Emiliano",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-caetano-severiano-de-almeida/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Caetano – Severiano de Almeida (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São Caetano",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": "Até 11/04/2026 a missa dominical era às 08h; a partir de 12/04/2026 passou para as 09h",
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-caetano-severiano-de-almeida/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Caetano – Severiano de Almeida (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Caetano",
+          "dayOfWeek": 5,
+          "time": "14:30",
+          "type": "MASS",
+          "notes": "Missa do Apostolado da Oração, primeira sexta-feira do mês",
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-caetano-severiano-de-almeida/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Caetano – Severiano de Almeida (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Caetano",
+          "dayOfWeek": 2,
+          "time": "14:30",
+          "type": "ROSARY",
+          "notes": "Terço dos Homens",
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-caetano-severiano-de-almeida/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Caetano – Severiano de Almeida (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Caetano",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "ADORATION",
+          "notes": "Adoração no dia 06 de cada mês, às 19h (dia da semana varia)",
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-caetano-severiano-de-almeida/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Caetano – Severiano de Almeida (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "santa-isabel-da-hungria-tres-arroios",
+      "name": "Paróquia Santa Isabel da Hungria",
+      "city": "Três Arroios",
+      "state": "RS",
+      "neighborhood": "Centro",
+      "address": "Avenida Felipe Kops, 151 – Centro",
+      "zipCode": "99725-000",
+      "phone": "(54) 3526-1170",
+      "email": "paroquia.santaisabel@diocesedeerexim.org.br",
+      "website": null,
+      "priestName": "Pe. Milton Lay Mattia",
+      "foundedYear": 1951,
+      "sources": [
+        {
+          "url": "https://diocesedeerexim.org.br/paroquias/",
+          "title": "Diocese de Erexim — \"Paróquias\": lista oficial das 30 paróquias, agrupadas por área pastoral",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedeerexim.org.br/paroquias/paroquia-santa-isabel-da-hungria/",
+          "title": "Diocese de Erexim — página oficial da Paróquia Santa Isabel da Hungria – Três Arroios (endereço, telefone, e-mail, pároco e horários de missa)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz",
+          "address": "Avenida Felipe Kops, 151 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-santa-isabel-da-hungria/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Santa Isabel da Hungria – Três Arroios (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "sao-roque-benjamin-constant-do-sul",
+      "name": "Paróquia São Roque",
+      "city": "Benjamin Constant do Sul",
+      "state": "RS",
+      "neighborhood": "Centro",
+      "address": "Rua da Matriz, 1067 – Centro",
+      "zipCode": "99650-000",
+      "phone": "(54) 98131-4038",
+      "email": "paroquia.sroque@diocesedeerexim.org.br",
+      "website": null,
+      "priestName": "Pe. Mauro Parcianello",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedeerexim.org.br/paroquias/",
+          "title": "Diocese de Erexim — \"Paróquias\": lista oficial das 30 paróquias, agrupadas por área pastoral",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-roque-benjamin-constant-do-sul/",
+          "title": "Diocese de Erexim — página oficial da Paróquia São Roque – Benjamin Constant do Sul (endereço, telefone, e-mail, pároco e horários de missa)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz",
+          "address": "Rua da Matriz, 1067 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-roque-benjamin-constant-do-sul/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Roque – Benjamin Constant do Sul (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nossa Senhora da Salette",
+          "address": null,
+          "neighborhood": "Faxinalzinho",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-roque-benjamin-constant-do-sul/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Roque – Benjamin Constant do Sul (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-roque-benjamin-constant-do-sul/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Roque – Benjamin Constant do Sul (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-da-gloria-erval-grande",
+      "name": "Paróquia Nossa Senhora da Glória",
+      "city": "Erval Grande",
+      "state": "RS",
+      "neighborhood": "Centro",
+      "address": "Rua Duque de Caxias, 331 – Centro",
+      "zipCode": "99750-000",
+      "phone": "(54) 99706-5636",
+      "email": "paroquiaeg@yahoo.com.br",
+      "website": null,
+      "priestName": "Pe. Edegar Passaglia",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedeerexim.org.br/paroquias/",
+          "title": "Diocese de Erexim — \"Paróquias\": lista oficial das 30 paróquias, agrupadas por área pastoral",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedeerexim.org.br/paroquias/paroquia-nossa-senhora-da-gloria-erval-grande/",
+          "title": "Diocese de Erexim — página oficial da Paróquia Nossa Senhora da Glória – Erval Grande (endereço, telefone, e-mail, pároco e horários de missa)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/igreja.php?k=Mvvip",
+          "title": "horariodemissa.com.br — Paróquia Nossa Senhora da Glória, Erval Grande (mesmo endereço e CEP; ficha atualizada em 18/05/2013)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz",
+          "address": "Rua Duque de Caxias, 331 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-nossa-senhora-da-gloria-erval-grande/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Nossa Senhora da Glória – Erval Grande (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-nossa-senhora-da-gloria-erval-grande/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Nossa Senhora da Glória – Erval Grande (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "sao-valentim-sao-valentim",
+      "name": "Paróquia São Valentim",
+      "city": "São Valentim",
+      "state": "RS",
+      "neighborhood": "Centro",
+      "address": "Av. Castelo Branco, 616 – Centro",
+      "zipCode": "99640-000",
+      "phone": "(54) 99932-1255",
+      "email": "paroquia.saovalentim@diocesedeerexim.org.br",
+      "website": null,
+      "priestName": "Pe. Alvise Follador",
+      "foundedYear": 1944,
+      "sources": [
+        {
+          "url": "https://diocesedeerexim.org.br/paroquias/",
+          "title": "Diocese de Erexim — \"Paróquias\": lista oficial das 30 paróquias, agrupadas por área pastoral",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-valentim-sao-valentim/",
+          "title": "Diocese de Erexim — página oficial da Paróquia São Valentim – São Valentim (endereço, telefone, e-mail, pároco e horários de missa)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Valentim",
+          "address": "Av. Castelo Branco, 616 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-valentim-sao-valentim/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Valentim – São Valentim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Santo Antônio – Sete de Setembro",
+          "address": null,
+          "neighborhood": "Sete de Setembro",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-valentim-sao-valentim/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Valentim – São Valentim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São Paulo – Linha 05",
+          "address": null,
+          "neighborhood": "Linha 05",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-valentim-sao-valentim/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Valentim – São Valentim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São Luiz – Linha Liso",
+          "address": null,
+          "neighborhood": "Linha Liso",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-valentim-sao-valentim/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Valentim – São Valentim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São João",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-valentim-sao-valentim/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Valentim – São Valentim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Santo Isidoro",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-valentim-sao-valentim/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Valentim – São Valentim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São Miguel – Douradinho",
+          "address": null,
+          "neighborhood": "Douradinho",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-valentim-sao-valentim/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Valentim – São Valentim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São Paulo – Linha Gaboardi",
+          "address": null,
+          "neighborhood": "Linha Gaboardi",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-valentim-sao-valentim/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Valentim – São Valentim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Santo Antônio – Linha Tombo",
+          "address": null,
+          "neighborhood": "Linha Tombo",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-valentim-sao-valentim/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Valentim – São Valentim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São Pedro – 15 de Novembro",
+          "address": null,
+          "neighborhood": "15 de Novembro",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-valentim-sao-valentim/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Valentim – São Valentim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nossa Senhora da Saúde – Vista Alegre",
+          "address": null,
+          "neighborhood": "Vista Alegre",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-valentim-sao-valentim/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Valentim – São Valentim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Oratório São Roque – Linha Bigolin",
+          "address": null,
+          "neighborhood": "Linha Bigolin",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-valentim-sao-valentim/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Valentim – São Valentim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Santo Antônio – 15 de Novembro",
+          "address": null,
+          "neighborhood": "15 de Novembro",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-valentim-sao-valentim/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Valentim – São Valentim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Santa Lúcia – Tapir",
+          "address": null,
+          "neighborhood": "Tapir",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-valentim-sao-valentim/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Valentim – São Valentim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Oratório São Cristóvão – Linha 7",
+          "address": null,
+          "neighborhood": "Linha 7",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-valentim-sao-valentim/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Valentim – São Valentim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nossa Senhora Aparecida – Linha Canarinho",
+          "address": null,
+          "neighborhood": "Linha Canarinho",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-valentim-sao-valentim/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Valentim – São Valentim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São Valentim",
+          "dayOfWeek": 5,
+          "time": "18:30",
+          "type": "ADORATION",
+          "notes": "Terço e adoração ao Santíssimo do Apostolado da Oração, primeira sexta-feira do mês",
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-valentim-sao-valentim/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Valentim – São Valentim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Valentim",
+          "dayOfWeek": 6,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-valentim-sao-valentim/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Valentim – São Valentim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Valentim",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-valentim-sao-valentim/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Valentim – São Valentim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Valentim",
+          "dayOfWeek": 0,
+          "time": "18:30",
+          "type": "ADORATION",
+          "notes": "Adoração no dia 14 de cada mês, às 18h30 (dia da semana varia)",
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-valentim-sao-valentim/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Valentim – São Valentim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-do-rosario-barao-de-cotegipe",
+      "name": "Paróquia Nossa Senhora do Rosário",
+      "city": "Barão de Cotegipe",
+      "state": "RS",
+      "neighborhood": "Centro",
+      "address": "Rua Cônego Pollon, 50 – Centro",
+      "zipCode": "99740-000",
+      "phone": "(54) 3523-1342",
+      "email": "paroquia.nsrosario@diocesedeerexim.org.br",
+      "website": null,
+      "priestName": "Pe. Paulo Cesar Bernardi",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedeerexim.org.br/paroquias/",
+          "title": "Diocese de Erexim — \"Paróquias\": lista oficial das 30 paróquias, agrupadas por área pastoral",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedeerexim.org.br/paroquias/paroquia-nossa-senhora-do-rosario-barao-de-cotegipe/",
+          "title": "Diocese de Erexim — página oficial da Paróquia Nossa Senhora do Rosário – Barão de Cotegipe (endereço, telefone, e-mail, pároco e horários de missa)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz",
+          "address": "Rua Cônego Pollon, 50 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-nossa-senhora-do-rosario-barao-de-cotegipe/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Nossa Senhora do Rosário – Barão de Cotegipe (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "16:00",
+          "type": "MASS",
+          "notes": "Primeira sexta-feira do mês",
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-nossa-senhora-do-rosario-barao-de-cotegipe/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Nossa Senhora do Rosário – Barão de Cotegipe (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-nossa-senhora-do-rosario-barao-de-cotegipe/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Nossa Senhora do Rosário – Barão de Cotegipe (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-nossa-senhora-do-rosario-barao-de-cotegipe/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Nossa Senhora do Rosário – Barão de Cotegipe (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-de-fatima-entre-rios-do-sul",
+      "name": "Paróquia Nossa Senhora de Fátima",
+      "city": "Entre Rios do Sul",
+      "state": "RS",
+      "neighborhood": "Centro",
+      "address": "Rua Santo Ângelo, 223 – Centro",
+      "zipCode": "99645-000",
+      "phone": "(54) 99657-8171",
+      "email": "paroquia.nsfatima@diocesedeerexim.org.br",
+      "website": null,
+      "priestName": "Pe. Davi Oliveira Pereira",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedeerexim.org.br/paroquias/",
+          "title": "Diocese de Erexim — \"Paróquias\": lista oficial das 30 paróquias, agrupadas por área pastoral",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedeerexim.org.br/paroquias/paroquia-nossa-senhora-de-fatima-entre-rios-do-sul/",
+          "title": "Diocese de Erexim — página oficial da Paróquia Nossa Senhora de Fátima – Entre Rios do Sul (endereço, telefone, e-mail, pároco e horários de missa)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz",
+          "address": "Rua Santo Ângelo, 223 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-nossa-senhora-de-fatima-entre-rios-do-sul/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Nossa Senhora de Fátima – Entre Rios do Sul (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-nossa-senhora-de-fatima-entre-rios-do-sul/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Nossa Senhora de Fátima – Entre Rios do Sul (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": "Quarto domingo de cada mês",
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-nossa-senhora-de-fatima-entre-rios-do-sul/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Nossa Senhora de Fátima – Entre Rios do Sul (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-dos-navegantes-campinas-do-sul",
+      "name": "Paróquia Nossa Senhora dos Navegantes",
+      "city": "Campinas do Sul",
+      "state": "RS",
+      "neighborhood": "Centro",
+      "address": "Rua Duque de Caxias, 351 – Centro",
+      "zipCode": "99660-000",
+      "phone": "(54) 99672-1699",
+      "email": "paroquia.nsnavegantes@diocesedeerexim.org.br",
+      "website": null,
+      "priestName": "Pe. Valter Girelli",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedeerexim.org.br/paroquias/",
+          "title": "Diocese de Erexim — \"Paróquias\": lista oficial das 30 paróquias, agrupadas por área pastoral",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedeerexim.org.br/paroquias/paroquia-nossa-senhora-dos-navegantes-campinas-do-sul/",
+          "title": "Diocese de Erexim — página oficial da Paróquia Nossa Senhora dos Navegantes – Campinas do Sul (endereço, telefone, e-mail, pároco e horários de missa)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz",
+          "address": "Rua Duque de Caxias, 351 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-nossa-senhora-dos-navegantes-campinas-do-sul/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Nossa Senhora dos Navegantes – Campinas do Sul (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": "Missa do Apostolado da Oração, primeira sexta-feira do mês",
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-nossa-senhora-dos-navegantes-campinas-do-sul/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Nossa Senhora dos Navegantes – Campinas do Sul (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-nossa-senhora-dos-navegantes-campinas-do-sul/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Nossa Senhora dos Navegantes – Campinas do Sul (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-nossa-senhora-dos-navegantes-campinas-do-sul/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Nossa Senhora dos Navegantes – Campinas do Sul (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "santo-antonio-jacutinga",
+      "name": "Paróquia Santo Antônio",
+      "city": "Jacutinga",
+      "state": "RS",
+      "neighborhood": "Centro",
+      "address": "Rua Antônio Felini, 35 – Centro",
+      "zipCode": "99730-000",
+      "phone": "(54) 99976-4586",
+      "email": "paroquia.santoantonio@diocesedeerexim.org.br",
+      "website": null,
+      "priestName": "Pe. Olírio Luis Streher",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedeerexim.org.br/paroquias/",
+          "title": "Diocese de Erexim — \"Paróquias\": lista oficial das 30 paróquias, agrupadas por área pastoral",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedeerexim.org.br/paroquias/paroquia-santo-antonio-jacutinga/",
+          "title": "Diocese de Erexim — página oficial da Paróquia Santo Antônio – Jacutinga (endereço, telefone, e-mail, pároco e horários de missa)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz",
+          "address": "Rua Antônio Felini, 35 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-santo-antonio-jacutinga/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Santo Antônio – Jacutinga (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-santo-antonio-jacutinga/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Santo Antônio – Jacutinga (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-santo-antonio-jacutinga/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Santo Antônio – Jacutinga (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "14:00",
+          "type": "ADORATION",
+          "notes": "Adoração no dia 10 de cada mês, das 14h às 16h, na Igreja Matriz (dia da semana varia)",
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-santo-antonio-jacutinga/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Santo Antônio – Jacutinga (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-medianeira-barra-do-rio-azul",
+      "name": "Paróquia Nossa Senhora Medianeira",
+      "city": "Barra do Rio Azul",
+      "state": "RS",
+      "neighborhood": "Centro",
+      "address": "Rua das Orquídeas, 20 – Centro",
+      "zipCode": "99795-000",
+      "phone": "(54) 98429-2887",
+      "email": "paroquia.nsmedianeira@diocesedeerexim.org.br",
+      "website": null,
+      "priestName": "Pe. Carlos Pontel",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedeerexim.org.br/paroquias/",
+          "title": "Diocese de Erexim — \"Paróquias\": lista oficial das 30 paróquias, agrupadas por área pastoral",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedeerexim.org.br/paroquias/paroquia-nossa-senhora-medianeira-barra-do-rio-azul/",
+          "title": "Diocese de Erexim — página oficial da Paróquia Nossa Senhora Medianeira – Barra do Rio Azul (endereço, telefone, e-mail, pároco e horários de missa)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz",
+          "address": "Rua das Orquídeas, 20 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-nossa-senhora-medianeira-barra-do-rio-azul/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Nossa Senhora Medianeira – Barra do Rio Azul (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "14:00",
+          "type": "MASS",
+          "notes": "Primeira sexta-feira do mês",
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-nossa-senhora-medianeira-barra-do-rio-azul/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Nossa Senhora Medianeira – Barra do Rio Azul (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-nossa-senhora-medianeira-barra-do-rio-azul/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Nossa Senhora Medianeira – Barra do Rio Azul (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "14:00",
+          "type": "ADORATION",
+          "notes": "Adoração no dia 30 de cada mês, às 14h (dia da semana varia)",
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-nossa-senhora-medianeira-barra-do-rio-azul/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Nossa Senhora Medianeira – Barra do Rio Azul (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "sao-pedro-aratiba",
+      "name": "Paróquia São Pedro",
+      "city": "Aratiba",
+      "state": "RS",
+      "neighborhood": "Sede Dourado",
+      "address": "Rua da Matriz, 322 – Centro, Sede Dourado",
+      "zipCode": "99775-000",
+      "phone": "(54) 99285-1537",
+      "email": "paroquia.spedro@diocesedeerexim.org.br",
+      "website": null,
+      "priestName": "Pe. Dirceu Balestrin",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedeerexim.org.br/paroquias/",
+          "title": "Diocese de Erexim — \"Paróquias\": lista oficial das 30 paróquias, agrupadas por área pastoral",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-pedro-sede-dourado/",
+          "title": "Diocese de Erexim — página oficial da Paróquia São Pedro – Aratiba (endereço, telefone, e-mail, pároco e horários de missa)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://www.pmaratiba.rs.gov.br/noticia/2465/prepare-se-para-o-kerb-2025-de-sede-dourado-aratiba/",
+          "title": "Prefeitura Municipal de Aratiba — Sede Dourado é distrito do município de Aratiba/RS (CEP 99775-000)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz",
+          "address": "Rua da Matriz, 322 – Sede Dourado",
+          "neighborhood": "Sede Dourado",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-pedro-sede-dourado/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Pedro – Aratiba (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "14:00",
+          "type": "MASS",
+          "notes": "Missa do Apostolado da Oração, primeira sexta-feira do mês",
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-pedro-sede-dourado/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Pedro – Aratiba (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-pedro-sede-dourado/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Pedro – Aratiba (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "sao-roque-itatiba-do-sul",
+      "name": "Paróquia São Roque",
+      "city": "Itatiba do Sul",
+      "state": "RS",
+      "neighborhood": "Centro",
+      "address": "Rua Pe. Lido Liberalli, 89 – Centro",
+      "zipCode": "99760-000",
+      "phone": "(54) 99616-9156",
+      "email": "paroquia.saoroque@diocesedeerexim.org.br",
+      "website": null,
+      "priestName": "Pe. Maximino Tiburski",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedeerexim.org.br/paroquias/",
+          "title": "Diocese de Erexim — \"Paróquias\": lista oficial das 30 paróquias, agrupadas por área pastoral",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-roque-itatiba-do-sul/",
+          "title": "Diocese de Erexim — página oficial da Paróquia São Roque – Itatiba do Sul (endereço, telefone, e-mail, pároco e horários de missa)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz",
+          "address": "Rua Pe. Lido Liberalli, 89 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-roque-itatiba-do-sul/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Roque – Itatiba do Sul (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "14:00",
+          "type": "MASS",
+          "notes": "Missa do Apostolado da Oração, primeira sexta-feira do mês",
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-roque-itatiba-do-sul/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Roque – Itatiba do Sul (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-roque-itatiba-do-sul/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Roque – Itatiba do Sul (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-roque-itatiba-do-sul/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Roque – Itatiba do Sul (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "sao-tiago-aratiba",
+      "name": "Paróquia São Tiago",
+      "city": "Aratiba",
+      "state": "RS",
+      "neighborhood": "Centro",
+      "address": "Rua XV de Novembro, 380 – Centro",
+      "zipCode": "99770-000",
+      "phone": "(54) 3376-1149",
+      "email": "paroquia.saotiago@diocesedeerexim.org.br",
+      "website": null,
+      "priestName": "Pe. Dirceu Balestrin",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedeerexim.org.br/paroquias/",
+          "title": "Diocese de Erexim — \"Paróquias\": lista oficial das 30 paróquias, agrupadas por área pastoral",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-tiago-aratiba/",
+          "title": "Diocese de Erexim — página oficial da Paróquia São Tiago – Aratiba (endereço, telefone, e-mail, pároco e horários de missa)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz",
+          "address": "Rua XV de Novembro, 380 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-tiago-aratiba/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Tiago – Aratiba (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-tiago-aratiba/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Tiago – Aratiba (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "14:30",
+          "type": "MASS",
+          "notes": "Primeira sexta-feira do mês",
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-tiago-aratiba/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Tiago – Aratiba (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-tiago-aratiba/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Tiago – Aratiba (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-tiago-aratiba/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Tiago – Aratiba (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-do-monte-claro-aurea",
+      "name": "Paróquia Nossa Senhora do Monte Claro",
+      "city": "Áurea",
+      "state": "RS",
+      "neighborhood": "Centro",
+      "address": "Rua da Matriz, 267 – Centro",
+      "zipCode": "99835-000",
+      "phone": "(54) 3527-1033",
+      "email": "paroquia.nsmonteclaro@diocesedeerexim.org.br",
+      "website": null,
+      "priestName": "Pe. Jean Carlos Demboski",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedeerexim.org.br/paroquias/",
+          "title": "Diocese de Erexim — \"Paróquias\": lista oficial das 30 paróquias, agrupadas por área pastoral",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedeerexim.org.br/paroquias/paroquia-nossa-senhora-do-monte-claro/",
+          "title": "Diocese de Erexim — página oficial da Paróquia Nossa Senhora do Monte Claro – Áurea (endereço, telefone, e-mail, pároco e horários de missa)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz",
+          "address": "Rua da Matriz, 267 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-nossa-senhora-do-monte-claro/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Nossa Senhora do Monte Claro – Áurea (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": "Missa do Apostolado da Oração, primeira sexta-feira do mês",
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-nossa-senhora-do-monte-claro/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Nossa Senhora do Monte Claro – Áurea (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-nossa-senhora-do-monte-claro/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Nossa Senhora do Monte Claro – Áurea (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-nossa-senhora-do-monte-claro/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Nossa Senhora do Monte Claro – Áurea (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "sagrado-coracao-de-jesus-viadutos",
+      "name": "Paróquia Sagrado Coração de Jesus",
+      "city": "Viadutos",
+      "state": "RS",
+      "neighborhood": "Centro",
+      "address": "Praça da Matriz, 42 – Centro",
+      "zipCode": "99820-000",
+      "phone": "(54) 99988-8864",
+      "email": "paroquia.scdejesus@diocesedeerexim.org.br",
+      "website": null,
+      "priestName": "Pe. Edinaldo dos Santos Bruno",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedeerexim.org.br/paroquias/",
+          "title": "Diocese de Erexim — \"Paróquias\": lista oficial das 30 paróquias, agrupadas por área pastoral",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sagrado-coracao-de-jesus/",
+          "title": "Diocese de Erexim — página oficial da Paróquia Sagrado Coração de Jesus – Viadutos (endereço, telefone, e-mail, pároco e horários de missa)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz",
+          "address": "Praça da Matriz, 42 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sagrado-coracao-de-jesus/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Sagrado Coração de Jesus – Viadutos (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "santa-ana-carlos-gomes",
+      "name": "Paróquia Santa Ana",
+      "city": "Carlos Gomes",
+      "state": "RS",
+      "neighborhood": null,
+      "address": "Rua Santo Antônio, 280",
+      "zipCode": "99825-000",
+      "phone": "(54) 99354-9754",
+      "email": "paroquiasantaana84@gmail.com",
+      "website": null,
+      "priestName": "Pe. Jorge Elias Dallagnol",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedeerexim.org.br/paroquias/",
+          "title": "Diocese de Erexim — \"Paróquias\": lista oficial das 30 paróquias, agrupadas por área pastoral",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedeerexim.org.br/paroquias/paroquia-santa-ana-carlos-gomes/",
+          "title": "Diocese de Erexim — página oficial da Paróquia Santa Ana – Carlos Gomes (endereço, telefone, e-mail, pároco e horários de missa)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz",
+          "address": "Rua Santo Antônio, 280",
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-santa-ana-carlos-gomes/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Santa Ana – Carlos Gomes (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "14:00",
+          "type": "MASS",
+          "notes": "Missa do Apostolado da Oração, primeira sexta-feira do mês",
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-santa-ana-carlos-gomes/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Santa Ana – Carlos Gomes (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-santa-ana-carlos-gomes/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Santa Ana – Carlos Gomes (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "sao-joao-batista-marcelino-ramos",
+      "name": "Paróquia São João Batista",
+      "city": "Marcelino Ramos",
+      "state": "RS",
+      "neighborhood": "Centro",
+      "address": "Rua Santa Rosa, 82 – Centro",
+      "zipCode": "99800-000",
+      "phone": "(54) 3699-1587",
+      "email": "paroquia.saojoaobatista@diocesedeerexim.org.br",
+      "website": null,
+      "priestName": "Pe. José Ladimir Balbinot, MS",
+      "foundedYear": 1928,
+      "sources": [
+        {
+          "url": "https://diocesedeerexim.org.br/paroquias/",
+          "title": "Diocese de Erexim — \"Paróquias\": lista oficial das 30 paróquias, agrupadas por área pastoral",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-joao-batista-marcelino-ramos/",
+          "title": "Diocese de Erexim — página oficial da Paróquia São João Batista – Marcelino Ramos (endereço, telefone, e-mail, pároco e horários de missa)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São João Batista",
+          "address": "Rua Santa Rosa, 82 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-joao-batista-marcelino-ramos/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São João Batista – Marcelino Ramos (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nossa Senhora das Graças",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-joao-batista-marcelino-ramos/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São João Batista – Marcelino Ramos (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nossa Senhora da Saúde",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-joao-batista-marcelino-ramos/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São João Batista – Marcelino Ramos (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Santa Maria Goretti",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-joao-batista-marcelino-ramos/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São João Batista – Marcelino Ramos (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nossa Senhora do Rosário",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-joao-batista-marcelino-ramos/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São João Batista – Marcelino Ramos (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nossa Senhora de Lurdes",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-joao-batista-marcelino-ramos/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São João Batista – Marcelino Ramos (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São Caetano",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-joao-batista-marcelino-ramos/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São João Batista – Marcelino Ramos (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São Sebastião",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-joao-batista-marcelino-ramos/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São João Batista – Marcelino Ramos (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Santa Bárbara",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-joao-batista-marcelino-ramos/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São João Batista – Marcelino Ramos (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Ascensão do Senhor",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-joao-batista-marcelino-ramos/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São João Batista – Marcelino Ramos (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Santo Antônio",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-joao-batista-marcelino-ramos/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São João Batista – Marcelino Ramos (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São Paulo",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-joao-batista-marcelino-ramos/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São João Batista – Marcelino Ramos (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nossa Senhora dos Navegantes",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-joao-batista-marcelino-ramos/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São João Batista – Marcelino Ramos (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São José",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-joao-batista-marcelino-ramos/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São João Batista – Marcelino Ramos (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nossa Senhora do Caravaggio",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-joao-batista-marcelino-ramos/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São João Batista – Marcelino Ramos (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São João Batista",
+          "dayOfWeek": 1,
+          "time": "09:00",
+          "type": "ROSARY",
+          "notes": "Terço dos Homens",
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-joao-batista-marcelino-ramos/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São João Batista – Marcelino Ramos (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São João Batista",
+          "dayOfWeek": 2,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-joao-batista-marcelino-ramos/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São João Batista – Marcelino Ramos (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São João Batista",
+          "dayOfWeek": 4,
+          "time": "17:00",
+          "type": "ADORATION",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-joao-batista-marcelino-ramos/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São João Batista – Marcelino Ramos (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São João Batista",
+          "dayOfWeek": 4,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-joao-batista-marcelino-ramos/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São João Batista – Marcelino Ramos (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São João Batista",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-joao-batista-marcelino-ramos/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São João Batista – Marcelino Ramos (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São João Batista",
+          "dayOfWeek": 0,
+          "time": "17:00",
+          "type": "ADORATION",
+          "notes": "Adoração no dia 24 de cada mês, às 17h (dia da semana varia)",
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-joao-batista-marcelino-ramos/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São João Batista – Marcelino Ramos (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "sao-luiz-gonzaga-gaurama",
+      "name": "Paróquia São Luiz Gonzaga",
+      "city": "Gaurama",
+      "state": "RS",
+      "neighborhood": "Centro",
+      "address": "Praça Antônio Burin, 128 – Centro",
+      "zipCode": "99830-000",
+      "phone": "(54) 99955-7156",
+      "email": "paroquia.saoluizgonzaga@diocesedeerexim.org.br",
+      "website": null,
+      "priestName": "Pe. Jóssi Golembiewski",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedeerexim.org.br/paroquias/",
+          "title": "Diocese de Erexim — \"Paróquias\": lista oficial das 30 paróquias, agrupadas por área pastoral",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-luiz-gonzaga-gaurama/",
+          "title": "Diocese de Erexim — página oficial da Paróquia São Luiz Gonzaga – Gaurama (endereço, telefone, e-mail, pároco e horários de missa)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz",
+          "address": "Praça Antônio Burin, 128 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-luiz-gonzaga-gaurama/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Luiz Gonzaga – Gaurama (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-luiz-gonzaga-gaurama/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Luiz Gonzaga – Gaurama (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-luiz-gonzaga-gaurama/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Luiz Gonzaga – Gaurama (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": "Missa do Apostolado da Oração, primeira sexta-feira do mês",
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sao-luiz-gonzaga-gaurama/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Luiz Gonzaga – Gaurama (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "imaculada-conceicao-getulio-vargas",
+      "name": "Paróquia Imaculada Conceição",
+      "city": "Getúlio Vargas",
+      "state": "RS",
+      "neighborhood": "Centro",
+      "address": "Rua Prof. Francisco Stawinski, 629 – Centro",
+      "zipCode": "99900-000",
+      "phone": "(54) 3341-3194",
+      "email": "paroquia.imc@diocesedeerexim.org.br",
+      "website": null,
+      "priestName": "Pe. Valtuir Antonio Bolzan",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedeerexim.org.br/paroquias/",
+          "title": "Diocese de Erexim — \"Paróquias\": lista oficial das 30 paróquias, agrupadas por área pastoral",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedeerexim.org.br/paroquias/paroquia-imaculada-conceicao-getulio-vargas/",
+          "title": "Diocese de Erexim — página oficial da Paróquia Imaculada Conceição – Getúlio Vargas (endereço, telefone, e-mail, pároco e horários de missa)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz",
+          "address": "Rua Prof. Francisco Stawinski, 629 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-imaculada-conceicao-getulio-vargas/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Imaculada Conceição – Getúlio Vargas (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nossa Senhora dos Navegantes",
+          "address": null,
+          "neighborhood": "Bairro Nossa Senhora dos Navegantes",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-imaculada-conceicao-getulio-vargas/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Imaculada Conceição – Getúlio Vargas (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Comunidade São Pelegrino",
+          "address": null,
+          "neighborhood": "Bairro São Pelegrino",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-imaculada-conceicao-getulio-vargas/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Imaculada Conceição – Getúlio Vargas (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Comunidade Nossa Senhora Consoladora",
+          "address": null,
+          "neighborhood": "Bairro Nossa Senhora Consoladora",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-imaculada-conceicao-getulio-vargas/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Imaculada Conceição – Getúlio Vargas (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-imaculada-conceicao-getulio-vargas/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Imaculada Conceição – Getúlio Vargas (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "16:00",
+          "type": "MASS",
+          "notes": "Primeira sexta-feira do mês",
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-imaculada-conceicao-getulio-vargas/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Imaculada Conceição – Getúlio Vargas (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-imaculada-conceicao-getulio-vargas/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Imaculada Conceição – Getúlio Vargas (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-imaculada-conceicao-getulio-vargas/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Imaculada Conceição – Getúlio Vargas (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "16:00",
+          "type": "MASS",
+          "notes": "Missa no dia 08 de cada mês, às 16h (dia da semana varia)",
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-imaculada-conceicao-getulio-vargas/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Imaculada Conceição – Getúlio Vargas (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-das-dores-erechim",
+      "name": "Paróquia Nossa Senhora das Dores",
+      "city": "Erechim",
+      "state": "RS",
+      "neighborhood": "Capo-Erê",
+      "address": "Rua João Batista Anzolin, s/n – Capo-Erê",
+      "zipCode": "99717-974",
+      "phone": "(54) 99198-6529",
+      "email": "paroquia.nsdores@diocesedeerexim.org.br",
+      "website": null,
+      "priestName": "Pe. Felipe Fioravante Filippini",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedeerexim.org.br/paroquias/",
+          "title": "Diocese de Erexim — \"Paróquias\": lista oficial das 30 paróquias, agrupadas por área pastoral",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedeerexim.org.br/paroquias/paroquia-nossa-senhora-das-dores-capo-ere/",
+          "title": "Diocese de Erexim — página oficial da Paróquia Nossa Senhora das Dores – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://pt.wikipedia.org/wiki/Capo-Er%C3%AA",
+          "title": "Wikipédia — Capo-Erê é distrito do município de Erechim/RS",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz",
+          "address": "Rua João Batista Anzolin, s/n – Capo-Erê",
+          "neighborhood": "Capo-Erê",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-nossa-senhora-das-dores-capo-ere/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Nossa Senhora das Dores – Erechim (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "santa-teresinha-estacao",
+      "name": "Paróquia Santa Teresinha",
+      "city": "Estação",
+      "state": "RS",
+      "neighborhood": "Centro",
+      "address": "Rua Santa Teresinha, 42 – Centro",
+      "zipCode": "99930-000",
+      "phone": "(54) 99922-9054",
+      "email": "paroquia.santateresinha@diocesedeerexim.org.br",
+      "website": null,
+      "priestName": "Pe. Dirceu Dalla Rosa",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedeerexim.org.br/paroquias/",
+          "title": "Diocese de Erexim — \"Paróquias\": lista oficial das 30 paróquias, agrupadas por área pastoral",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedeerexim.org.br/paroquias/paroquia-santa-teresinha-estacao/",
+          "title": "Diocese de Erexim — página oficial da Paróquia Santa Teresinha – Estação (endereço, telefone, e-mail, pároco e horários de missa)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Santa Teresinha",
+          "address": "Rua Santa Teresinha, 42 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-santa-teresinha-estacao/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Santa Teresinha – Estação (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São Sebastião – Erebango",
+          "address": null,
+          "neighborhood": "Erebango",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-santa-teresinha-estacao/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Santa Teresinha – Estação (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nossa Senhora das Dores – Ipiranga do Sul",
+          "address": null,
+          "neighborhood": "Ipiranga do Sul",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-santa-teresinha-estacao/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Santa Teresinha – Estação (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Santa Teresinha",
+          "dayOfWeek": 5,
+          "time": "14:00",
+          "type": "MASS",
+          "notes": "Missa do Apostolado da Oração, primeira sexta-feira do mês",
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-santa-teresinha-estacao/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Santa Teresinha – Estação (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Santa Teresinha",
+          "dayOfWeek": 3,
+          "time": "16:00",
+          "type": "MASS",
+          "notes": "Missa com bênção da saúde",
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-santa-teresinha-estacao/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Santa Teresinha – Estação (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Santa Teresinha",
+          "dayOfWeek": 6,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-santa-teresinha-estacao/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Santa Teresinha – Estação (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Santa Teresinha",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-santa-teresinha-estacao/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Santa Teresinha – Estação (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Comunidade São Sebastião – Erebango",
+          "dayOfWeek": 5,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": "Primeira sexta-feira de cada mês",
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-santa-teresinha-estacao/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Santa Teresinha – Estação (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade São Sebastião – Erebango",
+          "dayOfWeek": 6,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": "Segundo sábado do mês",
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-santa-teresinha-estacao/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Santa Teresinha – Estação (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade São Sebastião – Erebango",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": "Quarto domingo do mês",
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-santa-teresinha-estacao/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Santa Teresinha – Estação (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Nossa Senhora das Dores – Ipiranga do Sul",
+          "dayOfWeek": 5,
+          "time": "14:30",
+          "type": "MASS",
+          "notes": "Primeira sexta-feira de cada mês",
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-santa-teresinha-estacao/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Santa Teresinha – Estação (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Nossa Senhora das Dores – Ipiranga do Sul",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": "Primeiro domingo do mês",
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-santa-teresinha-estacao/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Santa Teresinha – Estação (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Nossa Senhora das Dores – Ipiranga do Sul",
+          "dayOfWeek": 6,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": "Terceiro sábado do mês",
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-santa-teresinha-estacao/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Santa Teresinha – Estação (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "sagrado-coracao-de-jesus-paulo-bento",
+      "name": "Paróquia Sagrado Coração de Jesus",
+      "city": "Paulo Bento",
+      "state": "RS",
+      "neighborhood": "Centro",
+      "address": "Rua Gaspar Martins, 127 – Centro",
+      "zipCode": "99718-000",
+      "phone": "(54) 99231-0577",
+      "email": "paroquia.scjesus@diocesedeerexim.org.br",
+      "website": null,
+      "priestName": "Pe. João Zappani",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedeerexim.org.br/paroquias/",
+          "title": "Diocese de Erexim — \"Paróquias\": lista oficial das 30 paróquias, agrupadas por área pastoral",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sagrado-coracao-de-jesus-paulo-bento/",
+          "title": "Diocese de Erexim — página oficial da Paróquia Sagrado Coração de Jesus – Paulo Bento (endereço, telefone, e-mail, pároco e horários de missa)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz",
+          "address": "Rua Gaspar Martins, 127 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sagrado-coracao-de-jesus-paulo-bento/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Sagrado Coração de Jesus – Paulo Bento (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Gruta Nossa Senhora de Lourdes",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sagrado-coracao-de-jesus-paulo-bento/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Sagrado Coração de Jesus – Paulo Bento (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": "Missa do Apostolado da Oração, primeira sexta-feira do mês",
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sagrado-coracao-de-jesus-paulo-bento/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Sagrado Coração de Jesus – Paulo Bento (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Gruta Nossa Senhora de Lourdes",
+          "dayOfWeek": 6,
+          "time": "16:00",
+          "type": "MASS",
+          "notes": "Missa com bênção da saúde, primeiro sábado do mês",
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sagrado-coracao-de-jesus-paulo-bento/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Sagrado Coração de Jesus – Paulo Bento (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/paroquias/paroquia-sagrado-coracao-de-jesus-paulo-bento/",
+              "title": "Diocese de Erexim — página oficial da Paróquia Sagrado Coração de Jesus – Paulo Bento (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "sao-francisco-de-assis-mariano-moro",
+      "name": "Paróquia São Francisco de Assis",
+      "city": "Mariano Moro",
+      "state": "RS",
+      "neighborhood": "Centro",
+      "address": "Av. São Francisco de Assis, 15 – Centro",
+      "zipCode": "99790-000",
+      "phone": "(54) 99264-7742",
+      "email": "paroquia.sfdeassis@diocesedeerexim.org.br",
+      "website": null,
+      "priestName": "Pe. Severino Orso",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedeerexim.org.br/paroquias/",
+          "title": "Diocese de Erexim — \"Paróquias\": lista oficial das 30 paróquias, agrupadas por área pastoral",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedeerexim.org.br/ap-severiano-de-almeida/paroquia-sao-francisco-de-assis-mariano-moro/",
+          "title": "Diocese de Erexim — página oficial da Paróquia São Francisco de Assis – Mariano Moro (endereço, telefone, e-mail, pároco e horários de missa)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz",
+          "address": "Av. São Francisco de Assis, 15 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/ap-severiano-de-almeida/paroquia-sao-francisco-de-assis-mariano-moro/",
+              "title": "Diocese de Erexim — página oficial da Paróquia São Francisco de Assis – Mariano Moro (endereço, telefone, e-mail, pároco e horários de missa)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-do-rosario-de-fatima-erechim",
+      "name": "Santuário Nossa Senhora do Rosário de Fátima",
+      "city": "Erechim",
+      "state": "RS",
+      "neighborhood": "Fátima",
+      "address": "Av. Sete de Setembro, 1305 – Bairro Fátima",
+      "zipCode": "99709-298",
+      "phone": "(54) 3522-4822",
+      "email": "contatosantuario@diocesedeerexim.org.br",
+      "website": null,
+      "priestName": "Pe. José Carlos Sala",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedeerexim.org.br/santuarios/santuario-diocesano-nossa-senhora-do-rosario-de-fatima-erechim/",
+          "title": "Diocese de Erexim — Santuário Diocesano Nossa Senhora do Rosário de Fátima, Erechim (endereço, reitor, telefone e e-mail)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedeerexim.org.br/horarios-de-missa-santuario/",
+          "title": "Diocese de Erexim — \"Horários de Missa e Grupos de Oração\" do Santuário de Fátima (página oficial, última atualização 03/03/2025)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedeerexim.org.br/santuarios/",
+          "title": "Diocese de Erexim — \"Santuários\" (lista oficial dos três santuários da diocese)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz",
+          "address": "Av. Sete de Setembro, 1305 – Bairro Fátima",
+          "neighborhood": "Fátima",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/santuarios/santuario-diocesano-nossa-senhora-do-rosario-de-fatima-erechim/",
+              "title": "Diocese de Erexim — Santuário Diocesano Nossa Senhora do Rosário de Fátima, Erechim (endereço, reitor, telefone e e-mail)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/horarios-de-missa-santuario/",
+              "title": "Diocese de Erexim — \"Horários de Missa e Grupos de Oração\" do Santuário de Fátima (página oficial, última atualização 03/03/2025)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "10:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/horarios-de-missa-santuario/",
+              "title": "Diocese de Erexim — \"Horários de Missa e Grupos de Oração\" do Santuário de Fátima (página oficial, última atualização 03/03/2025)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "18:00",
+          "type": "ROSARY",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/horarios-de-missa-santuario/",
+              "title": "Diocese de Erexim — \"Horários de Missa e Grupos de Oração\" do Santuário de Fátima (página oficial, última atualização 03/03/2025)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/horarios-de-missa-santuario/",
+              "title": "Diocese de Erexim — \"Horários de Missa e Grupos de Oração\" do Santuário de Fátima (página oficial, última atualização 03/03/2025)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 1,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": "Missa diária",
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/horarios-de-missa-santuario/",
+              "title": "Diocese de Erexim — \"Horários de Missa e Grupos de Oração\" do Santuário de Fátima (página oficial, última atualização 03/03/2025)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 2,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": "Missa diária",
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/horarios-de-missa-santuario/",
+              "title": "Diocese de Erexim — \"Horários de Missa e Grupos de Oração\" do Santuário de Fátima (página oficial, última atualização 03/03/2025)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": "Missa diária",
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/horarios-de-missa-santuario/",
+              "title": "Diocese de Erexim — \"Horários de Missa e Grupos de Oração\" do Santuário de Fátima (página oficial, última atualização 03/03/2025)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": "Missa diária",
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/horarios-de-missa-santuario/",
+              "title": "Diocese de Erexim — \"Horários de Missa e Grupos de Oração\" do Santuário de Fátima (página oficial, última atualização 03/03/2025)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": "Missa diária",
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/horarios-de-missa-santuario/",
+              "title": "Diocese de Erexim — \"Horários de Missa e Grupos de Oração\" do Santuário de Fátima (página oficial, última atualização 03/03/2025)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": "Missa diária",
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/horarios-de-missa-santuario/",
+              "title": "Diocese de Erexim — \"Horários de Missa e Grupos de Oração\" do Santuário de Fátima (página oficial, última atualização 03/03/2025)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "14:30",
+          "type": "MASS",
+          "notes": "Quartas-feiras, com novena a Nossa Senhora",
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/horarios-de-missa-santuario/",
+              "title": "Diocese de Erexim — \"Horários de Missa e Grupos de Oração\" do Santuário de Fátima (página oficial, última atualização 03/03/2025)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": "Quartas-feiras, com novena a Nossa Senhora",
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/horarios-de-missa-santuario/",
+              "title": "Diocese de Erexim — \"Horários de Missa e Grupos de Oração\" do Santuário de Fátima (página oficial, última atualização 03/03/2025)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "14:30",
+          "type": "ROSARY",
+          "notes": "Terço da Misericórdia, seguido de missa",
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/horarios-de-missa-santuario/",
+              "title": "Diocese de Erexim — \"Horários de Missa e Grupos de Oração\" do Santuário de Fátima (página oficial, última atualização 03/03/2025)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 1,
+          "time": "18:00",
+          "type": "ROSARY",
+          "notes": "Terço dos Homens",
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/horarios-de-missa-santuario/",
+              "title": "Diocese de Erexim — \"Horários de Missa e Grupos de Oração\" do Santuário de Fátima (página oficial, última atualização 03/03/2025)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "17:00",
+          "type": "ROSARY",
+          "notes": "Grupo \"Mães que Oram pelos Filhos\", aos sábados",
+          "sources": [
+            {
+              "url": "https://diocesedeerexim.org.br/horarios-de-missa-santuario/",
+              "title": "Diocese de Erexim — \"Horários de Missa e Grupos de Oração\" do Santuário de Fátima (página oficial, última atualização 03/03/2025)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    }
+  ],
+  "coverage": {
+    "parishesFound": 30,
+    "parishesExpected": 30,
+    "notes": "As 30 paróquias listadas no site oficial da diocese foram todas capturadas (100%). A Wikipédia e o gcatholic.org confirmam 30 paróquias; o catholic-hierarchy.org informa 66, número que não bate com nenhuma outra fonte e foi descartado. Além das 30 paróquias, o arquivo traz 1 entrada adicional que NÃO é paróquia: o Santuário Nossa Senhora do Rosário de Fátima (Erechim), santuário diocesano com horários próprios (total de 31 entradas em `parishes`)."
+  }
+}
