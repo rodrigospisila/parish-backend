@@ -1,0 +1,5565 @@
+{
+  "diocese": {
+    "name": "Diocese de Blumenau",
+    "type": "Diocese",
+    "slug": "blumenau",
+    "city": "Blumenau",
+    "state": "SC",
+    "address": "Rua Sete de Setembro, 1086 – Centro (Caixa Postal 222)",
+    "zipCode": "89010-204",
+    "phone": "(47) 3322-4435",
+    "email": null,
+    "website": "https://diocesedeblumenau.org.br",
+    "bishopName": "Dom Rafael Biernaski",
+    "sources": [
+      {
+        "url": "https://diocesedeblumenau.org.br/",
+        "title": "Diocese de Blumenau – site oficial (endereço, CEP, caixa postal e telefone da Cúria)",
+        "accessedAt": "2026-09-10"
+      },
+      {
+        "url": "https://diocesedeblumenau.org.br/pagina-paroquias/",
+        "title": "Paróquias – Diocese de Blumenau (lista oficial, 41 unidades)",
+        "accessedAt": "2026-09-10"
+      },
+      {
+        "url": "https://diocesedeblumenau.org.br/pagina-comarcas/",
+        "title": "Comarcas – Diocese de Blumenau (Blumenau/Norte, Blumenau/Sul, Gaspar, Navegantes e Timbó)",
+        "accessedAt": "2026-09-10"
+      },
+      {
+        "url": "https://diocesedeblumenau.org.br/pagina-bispos/",
+        "title": "Bispos – Diocese de Blumenau (Dom Rafael Biernaski, bispo diocesano)",
+        "accessedAt": "2026-09-10"
+      },
+      {
+        "url": "https://diocesedeblumenau.org.br/pagina-santuarios/",
+        "title": "Santuários – Diocese de Blumenau (N. Sra. Aparecida/Itoupava Norte e N. Sra. dos Navegantes)",
+        "accessedAt": "2026-09-10"
+      },
+      {
+        "url": "https://www.catholic-hierarchy.org/diocese/dblum.html",
+        "title": "Blumenau (Diocese) [Catholic-Hierarchy] – ereção 19/04/2000; 41 paróquias (2023); Dom Rafael Biernaski",
+        "accessedAt": "2026-09-10"
+      }
+    ],
+    "confidence": "alta"
+  },
+  "parishes": [
+    {
+      "slug": "catedral-sao-paulo-apostolo-blumenau",
+      "name": "Catedral São Paulo Apóstolo",
+      "city": "Blumenau",
+      "state": "SC",
+      "neighborhood": "Centro",
+      "address": "Rua XV de Novembro, 955 – Centro",
+      "zipCode": "89010-003",
+      "phone": "(47) 3322-0699",
+      "email": "saopauloapostolo.catedral@gmail.com",
+      "website": "http://www.catedraldeblumenau.org.br/",
+      "priestName": "Pe. Marcelo Martendal",
+      "foundedYear": 1878,
+      "sources": [
+        {
+          "url": "https://diocesedeblumenau.org.br/paroquias/catedral-sao-paulo-apostolo-blumenau/",
+          "title": "Catedral São Paulo Apóstolo | Blumenau, Centro – página oficial da Diocese de Blumenau",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedeblumenau.org.br/pagina-paroquias/",
+          "title": "Paróquias – Diocese de Blumenau (lista oficial, 41 unidades)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "http://www.catedraldeblumenau.org.br/",
+          "title": "Catedral São Paulo Apóstolo – site oficial da paróquia (horários de celebrações; último post do blog em 22/08/2024)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Catedral São Paulo Apóstolo",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/catedral-sao-paulo-apostolo-blumenau/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santa Luzia (Garcia)",
+          "address": null,
+          "neighborhood": "Garcia",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/catedral-sao-paulo-apostolo-blumenau/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Francisco de Assis (Boa Vista)",
+          "address": null,
+          "neighborhood": "Boa Vista",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/catedral-sao-paulo-apostolo-blumenau/"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Catedral São Paulo Apóstolo",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "http://www.catedraldeblumenau.org.br/"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Catedral São Paulo Apóstolo",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": "Transmitida pela TV Galega",
+          "sources": [
+            {
+              "url": "http://www.catedraldeblumenau.org.br/"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Catedral São Paulo Apóstolo",
+          "dayOfWeek": 0,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "http://www.catedraldeblumenau.org.br/"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Catedral São Paulo Apóstolo",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "http://www.catedraldeblumenau.org.br/"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Catedral São Paulo Apóstolo",
+          "dayOfWeek": 1,
+          "time": "12:15",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "http://www.catedraldeblumenau.org.br/"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Catedral São Paulo Apóstolo",
+          "dayOfWeek": 1,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "http://www.catedraldeblumenau.org.br/"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Catedral São Paulo Apóstolo",
+          "dayOfWeek": 2,
+          "time": "12:15",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "http://www.catedraldeblumenau.org.br/"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Catedral São Paulo Apóstolo",
+          "dayOfWeek": 2,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "http://www.catedraldeblumenau.org.br/"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Catedral São Paulo Apóstolo",
+          "dayOfWeek": 3,
+          "time": "12:15",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "http://www.catedraldeblumenau.org.br/"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Catedral São Paulo Apóstolo",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "http://www.catedraldeblumenau.org.br/"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Catedral São Paulo Apóstolo",
+          "dayOfWeek": 4,
+          "time": "12:15",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "http://www.catedraldeblumenau.org.br/"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Catedral São Paulo Apóstolo",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Missa e Novena de Nossa Senhora Desatadora dos Nós",
+          "sources": [
+            {
+              "url": "http://www.catedraldeblumenau.org.br/"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Catedral São Paulo Apóstolo",
+          "dayOfWeek": 5,
+          "time": "12:15",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "http://www.catedraldeblumenau.org.br/"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Catedral São Paulo Apóstolo",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "http://www.catedraldeblumenau.org.br/"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Catedral São Paulo Apóstolo",
+          "dayOfWeek": 6,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "http://www.catedraldeblumenau.org.br/"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Catedral São Paulo Apóstolo",
+          "dayOfWeek": 6,
+          "time": "16:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "http://www.catedraldeblumenau.org.br/"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Catedral São Paulo Apóstolo",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "http://www.catedraldeblumenau.org.br/"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Catedral São Paulo Apóstolo",
+          "dayOfWeek": 1,
+          "time": "10:45",
+          "type": "ADORATION",
+          "notes": null,
+          "sources": [
+            {
+              "url": "http://www.catedraldeblumenau.org.br/"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Catedral São Paulo Apóstolo",
+          "dayOfWeek": 2,
+          "time": "10:45",
+          "type": "ADORATION",
+          "notes": null,
+          "sources": [
+            {
+              "url": "http://www.catedraldeblumenau.org.br/"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Catedral São Paulo Apóstolo",
+          "dayOfWeek": 3,
+          "time": "10:45",
+          "type": "ADORATION",
+          "notes": null,
+          "sources": [
+            {
+              "url": "http://www.catedraldeblumenau.org.br/"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Catedral São Paulo Apóstolo",
+          "dayOfWeek": 4,
+          "time": "10:45",
+          "type": "ADORATION",
+          "notes": null,
+          "sources": [
+            {
+              "url": "http://www.catedraldeblumenau.org.br/"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Catedral São Paulo Apóstolo",
+          "dayOfWeek": 5,
+          "time": "10:45",
+          "type": "ADORATION",
+          "notes": null,
+          "sources": [
+            {
+              "url": "http://www.catedraldeblumenau.org.br/"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "São Francisco de Assis (Boa Vista)",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "http://www.catedraldeblumenau.org.br/"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Santa Luzia (Garcia)",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "http://www.catedraldeblumenau.org.br/"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "cristo-rei-blumenau",
+      "name": "Paróquia Cristo Rei",
+      "city": "Blumenau",
+      "state": "SC",
+      "neighborhood": "Velha",
+      "address": "Rua João Pessoa, 3085 – Bairro da Velha",
+      "zipCode": "89036-255",
+      "phone": "(47) 3325-1140",
+      "email": "paroquiacristoreina@gmail.com",
+      "website": "https://www.cristoreiblumenau.com.br/",
+      "priestName": "Pe. Carlos Ronaldo Evangelista da Silva",
+      "foundedYear": 1970,
+      "sources": [
+        {
+          "url": "https://diocesedeblumenau.org.br/paroquias/cristo-rei-blumenau-velha/",
+          "title": "Paróquia Cristo Rei | Blumenau, Velha – página oficial da Diocese de Blumenau",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedeblumenau.org.br/pagina-paroquias/",
+          "title": "Paróquias – Diocese de Blumenau (lista oficial, 41 unidades)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://www.cristoreiblumenau.com.br/",
+          "title": "Paróquia Cristo Rei, Blumenau – site oficial (missas, confissões e adoração)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Cristo Rei",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/cristo-rei-blumenau-velha/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santa Ana",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/cristo-rei-blumenau-velha/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São João Batista",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/cristo-rei-blumenau-velha/"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Cristo Rei",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.cristoreiblumenau.com.br/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Cristo Rei",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.cristoreiblumenau.com.br/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Cristo Rei",
+          "dayOfWeek": 1,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.cristoreiblumenau.com.br/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Cristo Rei",
+          "dayOfWeek": 2,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.cristoreiblumenau.com.br/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Cristo Rei",
+          "dayOfWeek": 3,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.cristoreiblumenau.com.br/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Cristo Rei",
+          "dayOfWeek": 4,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.cristoreiblumenau.com.br/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Cristo Rei",
+          "dayOfWeek": 5,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.cristoreiblumenau.com.br/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Cristo Rei",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.cristoreiblumenau.com.br/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Cristo Rei",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.cristoreiblumenau.com.br/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Cristo Rei",
+          "dayOfWeek": 1,
+          "time": "05:00",
+          "type": "ADORATION",
+          "notes": "Das 5h às 6h",
+          "sources": [
+            {
+              "url": "https://www.cristoreiblumenau.com.br/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Cristo Rei",
+          "dayOfWeek": 2,
+          "time": "05:00",
+          "type": "ADORATION",
+          "notes": "Das 5h às 6h",
+          "sources": [
+            {
+              "url": "https://www.cristoreiblumenau.com.br/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Cristo Rei",
+          "dayOfWeek": 3,
+          "time": "05:00",
+          "type": "ADORATION",
+          "notes": "Das 5h às 6h",
+          "sources": [
+            {
+              "url": "https://www.cristoreiblumenau.com.br/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Cristo Rei",
+          "dayOfWeek": 4,
+          "time": "05:00",
+          "type": "ADORATION",
+          "notes": "Das 5h às 6h",
+          "sources": [
+            {
+              "url": "https://www.cristoreiblumenau.com.br/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Cristo Rei",
+          "dayOfWeek": 5,
+          "time": "05:00",
+          "type": "ADORATION",
+          "notes": "Das 5h às 6h",
+          "sources": [
+            {
+              "url": "https://www.cristoreiblumenau.com.br/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Cristo Rei",
+          "dayOfWeek": 0,
+          "time": "17:00",
+          "type": "ADORATION",
+          "notes": "Das 17h às 18h30",
+          "sources": [
+            {
+              "url": "https://www.cristoreiblumenau.com.br/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Cristo Rei",
+          "dayOfWeek": 1,
+          "time": "19:30",
+          "type": "ROSARY",
+          "notes": "Terço dos Homens",
+          "sources": [
+            {
+              "url": "https://www.cristoreiblumenau.com.br/"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-da-gloria-blumenau",
+      "name": "Paróquia Nossa Senhora da Glória",
+      "city": "Blumenau",
+      "state": "SC",
+      "neighborhood": "Glória",
+      "address": "Rua da Glória, 1000 – Glória",
+      "zipCode": "89025-303",
+      "phone": "(47) 3324-0611",
+      "email": "pnsgblumenau@gmail.com",
+      "website": null,
+      "priestName": "Pe. Walmir Marcolino Gomes",
+      "foundedYear": 1961,
+      "sources": [
+        {
+          "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-da-gloria-blumenau-gloria/",
+          "title": "Paróquia Nossa Senhora da Glória | Blumenau, Glória – página oficial da Diocese de Blumenau",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedeblumenau.org.br/pagina-paroquias/",
+          "title": "Paróquias – Diocese de Blumenau (lista oficial, 41 unidades)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora da Glória",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-da-gloria-blumenau-gloria/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora de Fátima",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-da-gloria-blumenau-gloria/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora Aparecida",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-da-gloria-blumenau-gloria/"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-de-fatima-blumenau",
+      "name": "Paróquia Nossa Senhora de Fátima",
+      "city": "Blumenau",
+      "state": "SC",
+      "neighborhood": "Ponta Aguda",
+      "address": "Rua João Sabino de Souza, 210 – Ponta Aguda",
+      "zipCode": "89050-210",
+      "phone": "(47) 3322-9891",
+      "email": "maedefatima@yahoo.com.br",
+      "website": null,
+      "priestName": "Pe. Antônio Francisco Bohn",
+      "foundedYear": 2007,
+      "sources": [
+        {
+          "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-de-fatima-blumenau-ponta-aguda/",
+          "title": "Paróquia Nossa Senhora de Fátima | Blumenau, Ponta Aguda – página oficial da Diocese de Blumenau",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedeblumenau.org.br/pagina-paroquias/",
+          "title": "Paróquias – Diocese de Blumenau (lista oficial, 41 unidades)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-do-perpetuo-socorro-blumenau",
+      "name": "Paróquia Nossa Senhora do Perpétuo Socorro",
+      "city": "Blumenau",
+      "state": "SC",
+      "neighborhood": "Água Verde",
+      "address": "Rua Garopaba, 200 – Água Verde",
+      "zipCode": "89042-110",
+      "phone": "(47) 3330-4423",
+      "email": "secretariansps@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Márcio Fernandes de Oliveira (administrador paroquial)",
+      "foundedYear": 2008,
+      "sources": [
+        {
+          "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-do-perpetuo-socorro-blumenau-agua-verde/",
+          "title": "Paróquia Nossa Senhora do Perpétuo Socorro | Blumenau, Água Verde – página oficial da Diocese de Blumenau",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedeblumenau.org.br/pagina-paroquias/",
+          "title": "Paróquias – Diocese de Blumenau (lista oficial, 41 unidades)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora do Perpétuo Socorro",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-do-perpetuo-socorro-blumenau-agua-verde/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santo Antônio",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-do-perpetuo-socorro-blumenau-agua-verde/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora de Fátima",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-do-perpetuo-socorro-blumenau-agua-verde/"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-imaculada-conceicao-blumenau",
+      "name": "Paróquia Nossa Senhora Imaculada Conceição",
+      "city": "Blumenau",
+      "state": "SC",
+      "neighborhood": "Vila Nova",
+      "address": "Rua Joinville, 665 – Vila Nova",
+      "zipCode": "89035-200",
+      "phone": "(47) 3323-2901",
+      "email": "paroquiaimaculadabnu@gmail.com",
+      "website": "https://www.imaculadabnu.org.br/",
+      "priestName": "Pe. Hélio Francisco Vrech (administrador paroquial)",
+      "foundedYear": 1970,
+      "sources": [
+        {
+          "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-imaculada-conceicao-blumenau-vila-nova/",
+          "title": "Paróquia Nossa Senhora Imaculada Conceição | Blumenau, Vila Nova – página oficial da Diocese de Blumenau",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedeblumenau.org.br/pagina-paroquias/",
+          "title": "Paróquias – Diocese de Blumenau (lista oficial, 41 unidades)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora Imaculada Conceição",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-imaculada-conceicao-blumenau-vila-nova/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Lourenço",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-imaculada-conceicao-blumenau-vila-nova/"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "santa-cruz-blumenau",
+      "name": "Paróquia Santa Cruz",
+      "city": "Blumenau",
+      "state": "SC",
+      "neighborhood": "Velha Central",
+      "address": "Rua José Reuter, 617 – Velha Central",
+      "zipCode": "89046-001",
+      "phone": "(47) 3330-0208",
+      "email": "paroquiasantacruz21@gmail.com",
+      "website": null,
+      "priestName": "Pe. José Carlos de Lima",
+      "foundedYear": 1999,
+      "sources": [
+        {
+          "url": "https://diocesedeblumenau.org.br/paroquias/santa-cruz-blumenau-velha-grande/",
+          "title": "Paróquia Santa Cruz | Blumenau, Velha Central – página oficial da Diocese de Blumenau",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedeblumenau.org.br/pagina-paroquias/",
+          "title": "Paróquias – Diocese de Blumenau (lista oficial, 41 unidades)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Santa Cruz",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/santa-cruz-blumenau-velha-grande/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora Aparecida",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/santa-cruz-blumenau-velha-grande/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Pedro",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/santa-cruz-blumenau-velha-grande/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santa Bárbara",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/santa-cruz-blumenau-velha-grande/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora de Fátima",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/santa-cruz-blumenau-velha-grande/"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "santa-isabel-blumenau",
+      "name": "Paróquia Santa Isabel",
+      "city": "Blumenau",
+      "state": "SC",
+      "neighborhood": "Progresso",
+      "address": "Rua Progresso, 3127 – Progresso",
+      "zipCode": "89027-001",
+      "phone": "(47) 3336-5236",
+      "email": "paroquiasantaisbelbnu@gmail.com",
+      "website": null,
+      "priestName": "Pe. Marcos Valentim Nerone",
+      "foundedYear": 1981,
+      "sources": [
+        {
+          "url": "https://diocesedeblumenau.org.br/paroquias/santa-isabel-blumenau-progresso/",
+          "title": "Paróquia Santa Isabel | Blumenau, Progresso – página oficial da Diocese de Blumenau",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedeblumenau.org.br/pagina-paroquias/",
+          "title": "Paróquias – Diocese de Blumenau (lista oficial, 41 unidades)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Santa Isabel",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/santa-isabel-blumenau-progresso/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Mãe das Mães Maria",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/santa-isabel-blumenau-progresso/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora das Dores",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/santa-isabel-blumenau-progresso/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Cristóvão",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/santa-isabel-blumenau-progresso/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São João Batista",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/santa-isabel-blumenau-progresso/"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "santo-antonio-blumenau",
+      "name": "Paróquia Santo Antônio",
+      "city": "Blumenau",
+      "state": "SC",
+      "neighborhood": "Garcia",
+      "address": "Rua Amazonas, 3725 – Garcia",
+      "zipCode": "89022-001",
+      "phone": "(47) 3324-0565",
+      "email": "diocese.stoantonio@gmail.com",
+      "website": null,
+      "priestName": "Pe. Lauro Mittelmann",
+      "foundedYear": 1977,
+      "sources": [
+        {
+          "url": "https://diocesedeblumenau.org.br/paroquias/santo-antonio-blumenau-garcia/",
+          "title": "Paróquia Santo Antônio | Blumenau, Garcia – página oficial da Diocese de Blumenau",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedeblumenau.org.br/pagina-paroquias/",
+          "title": "Paróquias – Diocese de Blumenau (lista oficial, 41 unidades)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Santo Antônio",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/santo-antonio-blumenau-garcia/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora do Perpétuo Socorro",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/santo-antonio-blumenau-garcia/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Sagrado Coração de Jesus",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/santo-antonio-blumenau-garcia/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São José",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/santo-antonio-blumenau-garcia/"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-aparecida-blumenau",
+      "name": "Santuário Nossa Senhora Aparecida",
+      "city": "Blumenau",
+      "state": "SC",
+      "neighborhood": "Itoupava Norte",
+      "address": "Rua Paris, 150 – Itoupava Norte",
+      "zipCode": "89052-510",
+      "phone": "(47) 3323-3236",
+      "email": "santuarioaparecida@terra.com.br",
+      "website": null,
+      "priestName": "Frei Nelson José Hillesheim, OFM",
+      "foundedYear": 1965,
+      "sources": [
+        {
+          "url": "https://diocesedeblumenau.org.br/paroquias/santuario-nossa-senhora-aparecida-blumenau-itoupava-norte/",
+          "title": "Santuário Nossa Senhora Aparecida | Blumenau, Itoupava Norte – página oficial da Diocese de Blumenau",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedeblumenau.org.br/pagina-paroquias/",
+          "title": "Paróquias – Diocese de Blumenau (lista oficial, 41 unidades)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedeblumenau.org.br/pagina-santuarios/",
+          "title": "Santuários – Diocese de Blumenau (santuário criado em 12/10/1997)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora Aparecida",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/santuario-nossa-senhora-aparecida-blumenau-itoupava-norte/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santa Maria",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/santuario-nossa-senhora-aparecida-blumenau-itoupava-norte/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São João Maria Vianney",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/santuario-nossa-senhora-aparecida-blumenau-itoupava-norte/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São João Batista",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/santuario-nossa-senhora-aparecida-blumenau-itoupava-norte/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São José",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/santuario-nossa-senhora-aparecida-blumenau-itoupava-norte/"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "santa-terezinha-blumenau",
+      "name": "Paróquia Santa Terezinha",
+      "city": "Blumenau",
+      "state": "SC",
+      "neighborhood": "Escola Agrícola",
+      "address": "Rua Benjamin Constant, 844 – Escola Agrícola",
+      "zipCode": "89037-500",
+      "phone": "(47) 3327-0434",
+      "email": "psterezinhablu@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Frei Antônio Silvio da Costa Júnior, OCarm",
+      "foundedYear": 1968,
+      "sources": [
+        {
+          "url": "https://diocesedeblumenau.org.br/paroquias/santa-terezinha-blumenau-escola-agricola/",
+          "title": "Paróquia Santa Terezinha | Blumenau, Escola Agrícola – página oficial da Diocese de Blumenau",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedeblumenau.org.br/pagina-paroquias/",
+          "title": "Paróquias – Diocese de Blumenau (lista oficial, 41 unidades)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Santa Terezinha",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/santa-terezinha-blumenau-escola-agricola/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora Aparecida",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/santa-terezinha-blumenau-escola-agricola/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santo Expedito",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/santa-terezinha-blumenau-escola-agricola/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Cristóvão",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/santa-terezinha-blumenau-escola-agricola/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Paulo Apóstolo",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/santa-terezinha-blumenau-escola-agricola/"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "santo-estevao-blumenau",
+      "name": "Paróquia Santo Estêvão",
+      "city": "Blumenau",
+      "state": "SC",
+      "neighborhood": "Salto do Norte",
+      "address": "Rua Johann Sachse, 2700 – Salto do Norte",
+      "zipCode": "89070-400",
+      "phone": null,
+      "email": "paroquia.sto.estevao@gmail.com",
+      "website": null,
+      "priestName": "Pe. Ricardo Alexandre Feustel Kreutzfeld",
+      "foundedYear": 1997,
+      "sources": [
+        {
+          "url": "https://diocesedeblumenau.org.br/paroquias/santo-estevao-blumenau-salto-do-norte/",
+          "title": "Paróquia Santo Estêvão | Blumenau, Salto do Norte – página oficial da Diocese de Blumenau",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedeblumenau.org.br/pagina-paroquias/",
+          "title": "Paróquias – Diocese de Blumenau (lista oficial, 41 unidades)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Santo Estêvão",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/santo-estevao-blumenau-salto-do-norte/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santíssimo Redentor",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/santo-estevao-blumenau-salto-do-norte/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Imaculado Coração de Maria",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/santo-estevao-blumenau-salto-do-norte/"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "sagrado-coracao-de-jesus-blumenau",
+      "name": "Paróquia Sagrado Coração de Jesus",
+      "city": "Blumenau",
+      "state": "SC",
+      "neighborhood": "Itoupavazinha",
+      "address": "Rua Erwin Stein, 223 – Itoupavazinha",
+      "zipCode": "89066-421",
+      "phone": "(47) 99919-0195",
+      "email": "pscj1508@gmail.com",
+      "website": null,
+      "priestName": "Pe. Waldson José de Melo",
+      "foundedYear": 2002,
+      "sources": [
+        {
+          "url": "https://diocesedeblumenau.org.br/paroquias/sagrado-coracao-de-jesus-blumenau-itoupavazinha/",
+          "title": "Paróquia Sagrado Coração de Jesus | Blumenau, Itoupavazinha – página oficial da Diocese de Blumenau",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedeblumenau.org.br/pagina-paroquias/",
+          "title": "Paróquias – Diocese de Blumenau (lista oficial, 41 unidades)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Sagrado Coração de Jesus",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sagrado-coracao-de-jesus-blumenau-itoupavazinha/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santa Catarina",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sagrado-coracao-de-jesus-blumenau-itoupavazinha/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora de Lourdes",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sagrado-coracao-de-jesus-blumenau-itoupavazinha/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São José",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sagrado-coracao-de-jesus-blumenau-itoupavazinha/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora do Perpétuo Socorro",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sagrado-coracao-de-jesus-blumenau-itoupavazinha/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Missão Cristo Libertador",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sagrado-coracao-de-jesus-blumenau-itoupavazinha/"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "sao-francisco-de-assis-blumenau",
+      "name": "Paróquia São Francisco de Assis",
+      "city": "Blumenau",
+      "state": "SC",
+      "neighborhood": "Fortaleza",
+      "address": "Rua Francisco Vahldieck, 1211 – Fortaleza",
+      "zipCode": "89056-000",
+      "phone": "(47) 3339-0775",
+      "email": "paroquiasaofassis@gmail.com",
+      "website": null,
+      "priestName": "Pe. Marco Aurelio Schmitt (administrador paroquial)",
+      "foundedYear": 1994,
+      "sources": [
+        {
+          "url": "https://diocesedeblumenau.org.br/paroquias/sao-francisco-de-assis-blumenau-fortaleza/",
+          "title": "Paróquia São Francisco de Assis | Blumenau, Fortaleza – página oficial da Diocese de Blumenau",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedeblumenau.org.br/pagina-paroquias/",
+          "title": "Paróquias – Diocese de Blumenau (lista oficial, 41 unidades)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Francisco de Assis",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-francisco-de-assis-blumenau-fortaleza/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santa Clara",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-francisco-de-assis-blumenau-fortaleza/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora de Fátima",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-francisco-de-assis-blumenau-fortaleza/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santa Paulina",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-francisco-de-assis-blumenau-fortaleza/"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "sao-joao-batista-blumenau",
+      "name": "Paróquia São João Batista",
+      "city": "Blumenau",
+      "state": "SC",
+      "neighborhood": "Badenfurt",
+      "address": "Rua Heinrich Hemmer, 2940 – Badenfurt",
+      "zipCode": "89070-272",
+      "phone": "(47) 3337-2693",
+      "email": "csjoaobatista@gmail.com",
+      "website": null,
+      "priestName": "Pe. Frei Marcos Vinicius Motta Brugger (administrador paroquial)",
+      "foundedYear": 2016,
+      "sources": [
+        {
+          "url": "https://diocesedeblumenau.org.br/paroquias/sao-joao-batista-blumenau-badenfurt/",
+          "title": "Paróquia São João Batista | Blumenau, Badenfurt – página oficial da Diocese de Blumenau",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedeblumenau.org.br/pagina-paroquias/",
+          "title": "Paróquias – Diocese de Blumenau (lista oficial, 41 unidades)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São João Batista",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-joao-batista-blumenau-badenfurt/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora Aparecida",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-joao-batista-blumenau-badenfurt/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora das Graças",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-joao-batista-blumenau-badenfurt/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Pedro Apóstolo",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-joao-batista-blumenau-badenfurt/"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "sao-jose-operario-blumenau",
+      "name": "Paróquia São José Operário",
+      "city": "Blumenau",
+      "state": "SC",
+      "neighborhood": "Itoupava Central",
+      "address": "Rua Carl Dettmer, s/nº – Itoupava Central",
+      "zipCode": "89069-001",
+      "phone": "(47) 3337-3621",
+      "email": "ps.operario@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Roberto Carlos Catton",
+      "foundedYear": 1999,
+      "sources": [
+        {
+          "url": "https://diocesedeblumenau.org.br/paroquias/sao-jose-operario-blumenau-itoupava-central/",
+          "title": "Paróquia São José Operário | Blumenau, Itoupava Central – página oficial da Diocese de Blumenau",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedeblumenau.org.br/pagina-paroquias/",
+          "title": "Paróquias – Diocese de Blumenau (lista oficial, 41 unidades)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São José Operário",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-jose-operario-blumenau-itoupava-central/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Miguel Arcanjo",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-jose-operario-blumenau-itoupava-central/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São João Batista",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-jose-operario-blumenau-itoupava-central/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora de Fátima",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-jose-operario-blumenau-itoupava-central/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santa Paulina",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-jose-operario-blumenau-itoupava-central/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Domingos Sávio",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-jose-operario-blumenau-itoupava-central/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santa Filomena",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-jose-operario-blumenau-itoupava-central/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora Aparecida",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-jose-operario-blumenau-itoupava-central/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santíssima Trindade",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-jose-operario-blumenau-itoupava-central/"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "sao-luiz-gonzaga-blumenau",
+      "name": "Paróquia São Luiz Gonzaga",
+      "city": "Blumenau",
+      "state": "SC",
+      "neighborhood": "Tribess",
+      "address": "Rua Hermann Tribess, 1130 – Bairro Tribess",
+      "zipCode": "89057-300",
+      "phone": "(47) 98826-5711",
+      "email": "secretaria.pslg@gmail.com",
+      "website": "https://www.paroquiasaoluizgonzaga.com.br",
+      "priestName": "Pe. Jairson José Kienen",
+      "foundedYear": 2007,
+      "sources": [
+        {
+          "url": "https://diocesedeblumenau.org.br/paroquias/sao-luiz-gonzaga-blumenau-tribess/",
+          "title": "Paróquia São Luiz Gonzaga | Blumenau, Tribess – página oficial da Diocese de Blumenau",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedeblumenau.org.br/pagina-paroquias/",
+          "title": "Paróquias – Diocese de Blumenau (lista oficial, 41 unidades)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Luiz Gonzaga",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-luiz-gonzaga-blumenau-tribess/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Sagrado Coração de Jesus",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-luiz-gonzaga-blumenau-tribess/"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "sao-pedro-apostolo-gaspar",
+      "name": "Paróquia São Pedro Apóstolo",
+      "city": "Gaspar",
+      "state": "SC",
+      "neighborhood": "Centro",
+      "address": "Rua Cel. Aristiliano Ramos, s/nº – Centro",
+      "zipCode": "89110-064",
+      "phone": "(47) 3332-0053",
+      "email": "secretaria@paroquiagaspar.com.br",
+      "website": "https://www.paroquiagaspar.com.br",
+      "priestName": "Pe. Frei Pedro da Silva, OFM",
+      "foundedYear": 1861,
+      "sources": [
+        {
+          "url": "https://diocesedeblumenau.org.br/paroquias/sao-pedro-apostolo-gaspar/",
+          "title": "Paróquia São Pedro Apóstolo | Gaspar, Centro – página oficial da Diocese de Blumenau",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedeblumenau.org.br/pagina-paroquias/",
+          "title": "Paróquias – Diocese de Blumenau (lista oficial, 41 unidades)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://www.paroquiagaspar.com.br/horarios-de-missa",
+          "title": "Horários de Missas – Paróquia São Pedro, Gaspar/SC (site oficial, © 2026)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Pedro Apóstolo",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-pedro-apostolo-gaspar/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santa Clara",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-pedro-apostolo-gaspar/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Jesus Cristo Libertador",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-pedro-apostolo-gaspar/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Bom Jesus",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-pedro-apostolo-gaspar/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santa Rita de Cássia",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-pedro-apostolo-gaspar/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Cristóvão",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-pedro-apostolo-gaspar/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Sebastião",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-pedro-apostolo-gaspar/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santa Paulina",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-pedro-apostolo-gaspar/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora Aparecida",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-pedro-apostolo-gaspar/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora de Fátima",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-pedro-apostolo-gaspar/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santa Terezinha",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-pedro-apostolo-gaspar/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Virgem de Nazaré",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-pedro-apostolo-gaspar/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São João Batista",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-pedro-apostolo-gaspar/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Judas Tadeu",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-pedro-apostolo-gaspar/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santo Antônio",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-pedro-apostolo-gaspar/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Brás",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-pedro-apostolo-gaspar/"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São Pedro Apóstolo",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.paroquiagaspar.com.br/horarios-de-missa"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Pedro Apóstolo",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.paroquiagaspar.com.br/horarios-de-missa"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Pedro Apóstolo",
+          "dayOfWeek": 2,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Missa de Santo Antônio",
+          "sources": [
+            {
+              "url": "https://www.paroquiagaspar.com.br/horarios-de-missa"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Pedro Apóstolo",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Novena de Nossa Senhora Desatadora dos Nós",
+          "sources": [
+            {
+              "url": "https://www.paroquiagaspar.com.br/horarios-de-missa"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Pedro Apóstolo",
+          "dayOfWeek": 3,
+          "time": "18:15",
+          "type": "ROSARY",
+          "notes": "Santo Terço antes da novena",
+          "sources": [
+            {
+              "url": "https://www.paroquiagaspar.com.br/horarios-de-missa"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Pedro Apóstolo",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Novena de Nossa Senhora do Perpétuo Socorro",
+          "sources": [
+            {
+              "url": "https://www.paroquiagaspar.com.br/horarios-de-missa"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Pedro Apóstolo",
+          "dayOfWeek": 4,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": "Novena de Nossa Senhora das Graças",
+          "sources": [
+            {
+              "url": "https://www.paroquiagaspar.com.br/horarios-de-missa"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São Pedro Apóstolo",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.paroquiagaspar.com.br/horarios-de-missa"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Pedro Apóstolo",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.paroquiagaspar.com.br/horarios-de-missa"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Pedro Apóstolo",
+          "dayOfWeek": 2,
+          "time": "09:00",
+          "type": "CONFESSION",
+          "notes": "Das 9h às 11h",
+          "sources": [
+            {
+              "url": "https://www.paroquiagaspar.com.br/horarios-de-missa"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Pedro Apóstolo",
+          "dayOfWeek": 2,
+          "time": "14:00",
+          "type": "CONFESSION",
+          "notes": "Das 14h às 17h",
+          "sources": [
+            {
+              "url": "https://www.paroquiagaspar.com.br/horarios-de-missa"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Pedro Apóstolo",
+          "dayOfWeek": 3,
+          "time": "09:00",
+          "type": "CONFESSION",
+          "notes": "Das 9h às 11h",
+          "sources": [
+            {
+              "url": "https://www.paroquiagaspar.com.br/horarios-de-missa"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Pedro Apóstolo",
+          "dayOfWeek": 3,
+          "time": "14:00",
+          "type": "CONFESSION",
+          "notes": "Das 14h às 17h",
+          "sources": [
+            {
+              "url": "https://www.paroquiagaspar.com.br/horarios-de-missa"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Pedro Apóstolo",
+          "dayOfWeek": 4,
+          "time": "09:00",
+          "type": "CONFESSION",
+          "notes": "Das 9h às 11h",
+          "sources": [
+            {
+              "url": "https://www.paroquiagaspar.com.br/horarios-de-missa"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Pedro Apóstolo",
+          "dayOfWeek": 4,
+          "time": "14:00",
+          "type": "CONFESSION",
+          "notes": "Das 14h às 17h",
+          "sources": [
+            {
+              "url": "https://www.paroquiagaspar.com.br/horarios-de-missa"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Pedro Apóstolo",
+          "dayOfWeek": 5,
+          "time": "09:00",
+          "type": "CONFESSION",
+          "notes": "Das 9h às 11h",
+          "sources": [
+            {
+              "url": "https://www.paroquiagaspar.com.br/horarios-de-missa"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Pedro Apóstolo",
+          "dayOfWeek": 5,
+          "time": "14:00",
+          "type": "CONFESSION",
+          "notes": "Das 14h às 17h",
+          "sources": [
+            {
+              "url": "https://www.paroquiagaspar.com.br/horarios-de-missa"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Pedro Apóstolo",
+          "dayOfWeek": 6,
+          "time": "09:00",
+          "type": "CONFESSION",
+          "notes": "Das 9h às 11h",
+          "sources": [
+            {
+              "url": "https://www.paroquiagaspar.com.br/horarios-de-missa"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "sagrado-coracao-de-jesus-gaspar",
+      "name": "Paróquia Sagrado Coração de Jesus",
+      "city": "Gaspar",
+      "state": "SC",
+      "neighborhood": "Belchior Alto",
+      "address": "Rua Bonifácio Haendchen, 4440 – Belchior Alto",
+      "zipCode": "89110-000",
+      "phone": "(47) 3397-8706",
+      "email": "scj.gaspar@gmail.com",
+      "website": null,
+      "priestName": "Pe. Rogério Rodrigues",
+      "foundedYear": 2006,
+      "sources": [
+        {
+          "url": "https://diocesedeblumenau.org.br/paroquias/sagrado-coracao-de-jesus-gaspar/",
+          "title": "Paróquia Sagrado Coração de Jesus | Gaspar, Belchior Alto – página oficial da Diocese de Blumenau",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedeblumenau.org.br/pagina-paroquias/",
+          "title": "Paróquias – Diocese de Blumenau (lista oficial, 41 unidades)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Sagrado Coração de Jesus",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sagrado-coracao-de-jesus-gaspar/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São José",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sagrado-coracao-de-jesus-gaspar/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santa Catarina",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sagrado-coracao-de-jesus-gaspar/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santa Ana",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sagrado-coracao-de-jesus-gaspar/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Bom Jesus",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sagrado-coracao-de-jesus-gaspar/"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-imaculada-conceicao-gaspar",
+      "name": "Paróquia Nossa Senhora Imaculada Conceição",
+      "city": "Gaspar",
+      "state": "SC",
+      "neighborhood": "Bela Vista",
+      "address": "Rua Nilton Cardoso, 130 – Bela Vista",
+      "zipCode": "89110-000",
+      "phone": "(47) 3397-3392",
+      "email": "paraimaculada@gmail.com",
+      "website": null,
+      "priestName": "Pe. Alexsandro Valdir Borges",
+      "foundedYear": 1999,
+      "sources": [
+        {
+          "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-imaculada-conceicao-gaspar/",
+          "title": "Paróquia Nossa Senhora Imaculada Conceição | Gaspar, Bela Vista – página oficial da Diocese de Blumenau",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedeblumenau.org.br/pagina-paroquias/",
+          "title": "Paróquias – Diocese de Blumenau (lista oficial, 41 unidades)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora Imaculada Conceição",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-imaculada-conceicao-gaspar/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Francisco",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-imaculada-conceicao-gaspar/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santa Bárbara",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-imaculada-conceicao-gaspar/"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-do-rosario-gaspar",
+      "name": "Paróquia Nossa Senhora do Rosário",
+      "city": "Gaspar",
+      "state": "SC",
+      "neighborhood": "Barracão",
+      "address": "Rua Lino Vicente V. Alberici, s/nº – Barracão",
+      "zipCode": "89113-314",
+      "phone": "(47) 3318-7185",
+      "email": "pnsdorosario@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Antônio Francisco Bohn",
+      "foundedYear": 2006,
+      "sources": [
+        {
+          "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-do-rosario-gaspar/",
+          "title": "Paróquia Nossa Senhora do Rosário | Gaspar, Barracão – página oficial da Diocese de Blumenau",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedeblumenau.org.br/pagina-paroquias/",
+          "title": "Paróquias – Diocese de Blumenau (lista oficial, 41 unidades)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora do Rosário",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-do-rosario-gaspar/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santo Agostinho",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-do-rosario-gaspar/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santa Luzia",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-do-rosario-gaspar/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora das Graças",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-do-rosario-gaspar/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santa Catarina",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-do-rosario-gaspar/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora Aparecida",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-do-rosario-gaspar/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santo Afonso",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-do-rosario-gaspar/"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "sao-pio-x-ilhota",
+      "name": "Paróquia São Pio X",
+      "city": "Ilhota",
+      "state": "SC",
+      "neighborhood": "Centro",
+      "address": "Rua 21 de Junho, 20 – Centro",
+      "zipCode": "88320-000",
+      "phone": "(47) 99741-1772",
+      "email": "psaopiox@outlook.com",
+      "website": null,
+      "priestName": "Pe. Luiz Francisco Langer",
+      "foundedYear": 1954,
+      "sources": [
+        {
+          "url": "https://diocesedeblumenau.org.br/paroquias/sao-pio-x-ilhota/",
+          "title": "Paróquia São Pio X | Ilhota, Centro – página oficial da Diocese de Blumenau",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedeblumenau.org.br/pagina-paroquias/",
+          "title": "Paróquias – Diocese de Blumenau (lista oficial, 41 unidades)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/search.php?uf=SC&cidade=Ilhota&bairro=&opcoes=cidade_opcoes&submit=1",
+          "title": "Horário de Missa – Ilhota/SC (agregador; única fonte encontrada para os horários)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Pio X",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-pio-x-ilhota/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santo Antônio",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-pio-x-ilhota/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santa Terezinha",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-pio-x-ilhota/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São João Batista",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-pio-x-ilhota/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora do Perpétuo Socorro",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-pio-x-ilhota/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santa Luzia",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-pio-x-ilhota/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São José",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-pio-x-ilhota/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Luiz Gonzaga",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-pio-x-ilhota/"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São Pio X",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=SC&cidade=Ilhota&bairro=&opcoes=cidade_opcoes&submit=1"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Pio X",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=SC&cidade=Ilhota&bairro=&opcoes=cidade_opcoes&submit=1"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Pio X",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=SC&cidade=Ilhota&bairro=&opcoes=cidade_opcoes&submit=1"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-da-gloria-ilhota",
+      "name": "Paróquia Nossa Senhora da Glória",
+      "city": "Ilhota",
+      "state": "SC",
+      "neighborhood": "Braço do Baú",
+      "address": "Estrada Geral, Braço do Baú",
+      "zipCode": "88320-000",
+      "phone": "(47) 3156-0012",
+      "email": "nossasenhoradagloria3156@gmail.com",
+      "website": null,
+      "priestName": "Pe. Henry Ordonez Tarazona",
+      "foundedYear": 2008,
+      "sources": [
+        {
+          "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-da-gloria-ilhota/",
+          "title": "Paróquia Nossa Senhora da Glória | Ilhota, Braço do Baú – página oficial da Diocese de Blumenau",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedeblumenau.org.br/pagina-paroquias/",
+          "title": "Paróquias – Diocese de Blumenau (lista oficial, 41 unidades)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora da Glória",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-da-gloria-ilhota/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Cristo Rei",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-da-gloria-ilhota/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santa Paulina",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-da-gloria-ilhota/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Sagrado Coração de Jesus",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-da-gloria-ilhota/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora Aparecida",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-da-gloria-ilhota/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Sagrada Família",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-da-gloria-ilhota/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora da Imaculada Conceição",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-da-gloria-ilhota/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora do Rosário",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-da-gloria-ilhota/"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "sao-vicente-de-paulo-luiz-alves",
+      "name": "Paróquia São Vicente de Paulo",
+      "city": "Luiz Alves",
+      "state": "SC",
+      "neighborhood": "Centro",
+      "address": "Rua Pe. Afonso Vidal Reitz, 12 – Centro",
+      "zipCode": "89128-000",
+      "phone": "(47) 3377-1129",
+      "email": "p.saovicentedepaulo@gmail.com",
+      "website": null,
+      "priestName": "Pe. Marcos Antônio Zimmermann",
+      "foundedYear": 1912,
+      "sources": [
+        {
+          "url": "https://diocesedeblumenau.org.br/paroquias/sao-vicente-de-paulo-luiz-alves/",
+          "title": "Paróquia São Vicente de Paulo | Luiz Alves, Centro – página oficial da Diocese de Blumenau",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedeblumenau.org.br/pagina-paroquias/",
+          "title": "Paróquias – Diocese de Blumenau (lista oficial, 41 unidades)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Vicente de Paulo",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-vicente-de-paulo-luiz-alves/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santa Paulina",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-vicente-de-paulo-luiz-alves/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São João Bosco",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-vicente-de-paulo-luiz-alves/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora Auxiliadora",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-vicente-de-paulo-luiz-alves/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Joaquim",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-vicente-de-paulo-luiz-alves/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora de Fátima",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-vicente-de-paulo-luiz-alves/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santo Antônio",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-vicente-de-paulo-luiz-alves/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São João Batista",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-vicente-de-paulo-luiz-alves/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Cristóvão",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-vicente-de-paulo-luiz-alves/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Cristo Rei",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-vicente-de-paulo-luiz-alves/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Sagrado Coração de Jesus",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-vicente-de-paulo-luiz-alves/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São José Operário",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-vicente-de-paulo-luiz-alves/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora da Imaculada Conceição (Gruta)",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-vicente-de-paulo-luiz-alves/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora Aparecida",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-vicente-de-paulo-luiz-alves/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora do Livramento",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-vicente-de-paulo-luiz-alves/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Sebastião",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-vicente-de-paulo-luiz-alves/"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-dos-navegantes-navegantes",
+      "name": "Santuário Nossa Senhora dos Navegantes",
+      "city": "Navegantes",
+      "state": "SC",
+      "neighborhood": "Centro",
+      "address": "Av. Santos Dumont, 35 – Centro",
+      "zipCode": "88370-458",
+      "phone": "(47) 3342-1082",
+      "email": "secretaria@santuariodenavegantes.com.br",
+      "website": "https://santuariodenavegantes.com.br",
+      "priestName": "Pe. Eduardo Bastos",
+      "foundedYear": 1962,
+      "sources": [
+        {
+          "url": "https://diocesedeblumenau.org.br/paroquias/santuario-nossa-senhora-dos-navegantes-navegantes/",
+          "title": "Santuário Nossa Senhora dos Navegantes | Navegantes, Centro – página oficial da Diocese de Blumenau",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedeblumenau.org.br/pagina-paroquias/",
+          "title": "Paróquias – Diocese de Blumenau (lista oficial, 41 unidades)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://santuariodenavegantes.com.br/horarios/",
+          "title": "Horários – Santuário Nossa Senhora dos Navegantes (site oficial; conteúdo de 2026)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedeblumenau.org.br/pagina-santuarios/",
+          "title": "Santuários – Diocese de Blumenau (santuário criado em 18/08/1996)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora dos Navegantes",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/santuario-nossa-senhora-dos-navegantes-navegantes/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora de Fátima",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/santuario-nossa-senhora-dos-navegantes-navegantes/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora de Lourdes",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/santuario-nossa-senhora-dos-navegantes-navegantes/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora da Paz",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/santuario-nossa-senhora-dos-navegantes-navegantes/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora do Perpétuo Socorro",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/santuario-nossa-senhora-dos-navegantes-navegantes/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São João Evangelista",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/santuario-nossa-senhora-dos-navegantes-navegantes/"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora dos Navegantes",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://santuariodenavegantes.com.br/horarios/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora dos Navegantes",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://santuariodenavegantes.com.br/horarios/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora dos Navegantes",
+          "dayOfWeek": 1,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://santuariodenavegantes.com.br/horarios/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora dos Navegantes",
+          "dayOfWeek": 2,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Site do santuário indica 19h30; página da diocese indica 15h — divergência entre fontes oficiais",
+          "sources": [
+            {
+              "url": "https://santuariodenavegantes.com.br/horarios/"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora dos Navegantes",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Site do santuário indica 19h30; página da diocese indica 15h — divergência entre fontes oficiais",
+          "sources": [
+            {
+              "url": "https://santuariodenavegantes.com.br/horarios/"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora dos Navegantes",
+          "dayOfWeek": 4,
+          "time": "12:15",
+          "type": "MASS",
+          "notes": "Site do santuário indica 12h15; página da diocese indica 15h — divergência entre fontes oficiais",
+          "sources": [
+            {
+              "url": "https://santuariodenavegantes.com.br/horarios/"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora dos Navegantes",
+          "dayOfWeek": 5,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://santuariodenavegantes.com.br/horarios/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora dos Navegantes",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://santuariodenavegantes.com.br/horarios/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Nossa Senhora da Paz",
+          "dayOfWeek": 0,
+          "time": "09:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://santuariodenavegantes.com.br/horarios/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Nossa Senhora de Fátima",
+          "dayOfWeek": 0,
+          "time": "09:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://santuariodenavegantes.com.br/horarios/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Nossa Senhora de Lourdes",
+          "dayOfWeek": 6,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://santuariodenavegantes.com.br/horarios/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 6,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://santuariodenavegantes.com.br/horarios/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "São João Evangelista",
+          "dayOfWeek": 6,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://santuariodenavegantes.com.br/horarios/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Nossa Senhora de Fátima",
+          "dayOfWeek": 4,
+          "time": "08:00",
+          "type": "ADORATION",
+          "notes": "Das 8h às 9h",
+          "sources": [
+            {
+              "url": "https://santuariodenavegantes.com.br/horarios/"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "sao-domingos-de-gusmao-e-nossa-senhora-do-carmo-navegantes",
+      "name": "Paróquia São Domingos de Gusmão e Nossa Senhora do Carmo",
+      "city": "Navegantes",
+      "state": "SC",
+      "neighborhood": "São Domingos",
+      "address": "Avenida José Francisco Laurindo, 944 – Bairro São Domingos",
+      "zipCode": "88370-603",
+      "phone": "(47) 3342-8987",
+      "email": "paroquiasaodomingos.carmo@gmail.com",
+      "website": null,
+      "priestName": "Pe. Frei João Bernardes Alves, OCarm",
+      "foundedYear": 2007,
+      "sources": [
+        {
+          "url": "https://diocesedeblumenau.org.br/paroquias/sao-domingos-de-gusmao-e-n-sra-do-carmo-navegantes/",
+          "title": "Paróquia São Domingos de Gusmão e Nossa Senhora do Carmo | Navegantes, São Domingos – página oficial da Diocese de Blumenau",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedeblumenau.org.br/pagina-paroquias/",
+          "title": "Paróquias – Diocese de Blumenau (lista oficial, 41 unidades)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Domingos de Gusmão e Nossa Senhora do Carmo",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-domingos-de-gusmao-e-n-sra-do-carmo-navegantes/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Paulo Apóstolo",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-domingos-de-gusmao-e-n-sra-do-carmo-navegantes/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora do Rosário",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-domingos-de-gusmao-e-n-sra-do-carmo-navegantes/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora das Graças",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-domingos-de-gusmao-e-n-sra-do-carmo-navegantes/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Imaculado Coração de Maria",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-domingos-de-gusmao-e-n-sra-do-carmo-navegantes/"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "santa-paulina-navegantes",
+      "name": "Paróquia Santa Paulina",
+      "city": "Navegantes",
+      "state": "SC",
+      "neighborhood": "Gravatá",
+      "address": "Rua Aldo Mário de Almeida, 213 – Bairro Gravatá",
+      "zipCode": "88375-000",
+      "phone": "(47) 99210-5474",
+      "email": "pspaulinagravata@gmail.com",
+      "website": null,
+      "priestName": "Pe. Márcio Ribeiro Machado",
+      "foundedYear": 2005,
+      "sources": [
+        {
+          "url": "https://diocesedeblumenau.org.br/paroquias/santa-paulina-navegantes/",
+          "title": "Paróquia Santa Paulina | Navegantes, Gravatá – página oficial da Diocese de Blumenau",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedeblumenau.org.br/pagina-paroquias/",
+          "title": "Paróquias – Diocese de Blumenau (lista oficial, 41 unidades)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Santa Paulina",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/santa-paulina-navegantes/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Miguel",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/santa-paulina-navegantes/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Pedro",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/santa-paulina-navegantes/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Judas",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/santa-paulina-navegantes/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santa Lídia",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/santa-paulina-navegantes/"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "santa-luzia-navegantes",
+      "name": "Paróquia Santa Luzia",
+      "city": "Navegantes",
+      "state": "SC",
+      "neighborhood": null,
+      "address": "Rua Orlando Ferreira, 1809",
+      "zipCode": "88375-000",
+      "phone": "(47) 3319-1423",
+      "email": "p.santa.luzia@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Jairson José Kienen",
+      "foundedYear": 2000,
+      "sources": [
+        {
+          "url": "https://diocesedeblumenau.org.br/paroquias/santa-luzia-navegantes/",
+          "title": "Paróquia Santa Luzia | Navegantes – página oficial da Diocese de Blumenau",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedeblumenau.org.br/pagina-paroquias/",
+          "title": "Paróquias – Diocese de Blumenau (lista oficial, 41 unidades)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Santa Luzia",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/santa-luzia-navegantes/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santa Terezinha do Menino Jesus",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/santa-luzia-navegantes/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santo Agostinho",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/santa-luzia-navegantes/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São José",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/santa-luzia-navegantes/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora Aparecida",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/santa-luzia-navegantes/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora de Fátima",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/santa-luzia-navegantes/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Sagrado Coração de Jesus",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/santa-luzia-navegantes/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Francisco de Assis",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/santa-luzia-navegantes/"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-da-penha-penha",
+      "name": "Paróquia Nossa Senhora da Penha",
+      "city": "Penha",
+      "state": "SC",
+      "neighborhood": null,
+      "address": "Rua Manoel Henrique de Assis, 10",
+      "zipCode": "88385-000",
+      "phone": "(47) 3345-0351",
+      "email": "paroquiapenha2019@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Josué de Brito Souza",
+      "foundedYear": 1839,
+      "sources": [
+        {
+          "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-da-penha-penha/",
+          "title": "Paróquia Nossa Senhora da Penha | Penha – página oficial da Diocese de Blumenau",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedeblumenau.org.br/pagina-paroquias/",
+          "title": "Paróquias – Diocese de Blumenau (lista oficial, 41 unidades)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora da Penha",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-da-penha-penha/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora Aparecida",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-da-penha-penha/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São João Batista",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-da-penha-penha/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Senhor Bom Jesus",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-da-penha-penha/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Judas Tadeu",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-da-penha-penha/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São José",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-da-penha-penha/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Cristo Rei",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-da-penha-penha/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Nicolau",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-da-penha-penha/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Cristóvão",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-da-penha-penha/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora de Fátima",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-da-penha-penha/"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-da-paz-balneario-picarras",
+      "name": "Paróquia Nossa Senhora da Paz",
+      "city": "Balneário Piçarras",
+      "state": "SC",
+      "neighborhood": "Centro",
+      "address": "Av. Nereu Ramos, s/nº – Centro",
+      "zipCode": "88380-000",
+      "phone": "(47) 3345-0387",
+      "email": "paroquia.n.paz023@gmail.com",
+      "website": null,
+      "priestName": "Pe. José Cardoso Bressanini",
+      "foundedYear": 1973,
+      "sources": [
+        {
+          "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-da-paz-balneario-picarras/",
+          "title": "Paróquia Nossa Senhora da Paz | Balneário Piçarras, Centro – página oficial da Diocese de Blumenau",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedeblumenau.org.br/pagina-paroquias/",
+          "title": "Paróquias – Diocese de Blumenau (lista oficial, 41 unidades)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora da Paz",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-da-paz-balneario-picarras/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora de Fátima",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-da-paz-balneario-picarras/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Sagrado Coração de Jesus",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-da-paz-balneario-picarras/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora da Imaculada Conceição",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-da-paz-balneario-picarras/"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "santo-antonio-de-padua-balneario-picarras",
+      "name": "Paróquia Santo Antônio de Pádua",
+      "city": "Balneário Piçarras",
+      "state": "SC",
+      "neighborhood": "Santo Antônio",
+      "address": "Rua Adolfo Cabral, 460 – Santo Antônio",
+      "zipCode": "88380-000",
+      "phone": "(47) 3345-1204",
+      "email": "santoantoniodepicarras@gmail.com",
+      "website": null,
+      "priestName": "Pe. Joélcio Saibot",
+      "foundedYear": 2008,
+      "sources": [
+        {
+          "url": "https://diocesedeblumenau.org.br/paroquias/santo-antonio-de-padua-balneario-picarras/",
+          "title": "Paróquia Santo Antônio de Pádua | Balneário Piçarras, Santo Antônio – página oficial da Diocese de Blumenau",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedeblumenau.org.br/pagina-paroquias/",
+          "title": "Paróquias – Diocese de Blumenau (lista oficial, 41 unidades)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Santo Antônio de Pádua",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/santo-antonio-de-padua-balneario-picarras/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Brás",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/santo-antonio-de-padua-balneario-picarras/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santa Catarina",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/santo-antonio-de-padua-balneario-picarras/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora Aparecida",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/santo-antonio-de-padua-balneario-picarras/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Roque",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/santo-antonio-de-padua-balneario-picarras/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santa Terezinha",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/santo-antonio-de-padua-balneario-picarras/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora das Graças",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/santo-antonio-de-padua-balneario-picarras/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Francisco de Assis",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/santo-antonio-de-padua-balneario-picarras/"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "santa-terezinha-timbo",
+      "name": "Paróquia Santa Terezinha",
+      "city": "Timbó",
+      "state": "SC",
+      "neighborhood": "Centro",
+      "address": "Rua Germano Brandes Senior, 397 – Centro",
+      "zipCode": "89120-000",
+      "phone": "(47) 3382-0183",
+      "email": "p.santaterezinha@tpa.com.br",
+      "website": null,
+      "priestName": "Pe. Andrzej Piasecki, SVD",
+      "foundedYear": 1963,
+      "sources": [
+        {
+          "url": "https://diocesedeblumenau.org.br/paroquias/santa-terezinha-timbo/",
+          "title": "Paróquia Santa Terezinha | Timbó, Centro – página oficial da Diocese de Blumenau",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedeblumenau.org.br/pagina-paroquias/",
+          "title": "Paróquias – Diocese de Blumenau (lista oficial, 41 unidades)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Santa Terezinha",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/santa-terezinha-timbo/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Cristóvão",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/santa-terezinha-timbo/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São José Operário",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/santa-terezinha-timbo/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santa Rita de Cássia",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/santa-terezinha-timbo/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Bom Jesus",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/santa-terezinha-timbo/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Sagrado Coração de Jesus",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/santa-terezinha-timbo/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Roque",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/santa-terezinha-timbo/"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-da-imaculada-conceicao-aparecida-timbo",
+      "name": "Paróquia Nossa Senhora da Imaculada Conceição Aparecida",
+      "city": "Timbó",
+      "state": "SC",
+      "neighborhood": "Bairro dos Estados",
+      "address": "Rua Peroba, 45 – Bairro dos Estados",
+      "zipCode": "89120-000",
+      "phone": "(47) 3394-0462",
+      "email": "paroquiaaparecidatimbo@gmail.com",
+      "website": null,
+      "priestName": "Pe. Marcos Ricardo Friedrich",
+      "foundedYear": 2013,
+      "sources": [
+        {
+          "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-da-imaculada-conceicao-aparecida-timbo/",
+          "title": "Paróquia Nossa Senhora da Imaculada Conceição Aparecida | Timbó, Bairro dos Estados – página oficial da Diocese de Blumenau",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedeblumenau.org.br/pagina-paroquias/",
+          "title": "Paróquias – Diocese de Blumenau (lista oficial, 41 unidades)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora da Imaculada Conceição Aparecida",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-da-imaculada-conceicao-aparecida-timbo/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora da Imaculada Conceição",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-da-imaculada-conceicao-aparecida-timbo/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora de Fátima",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-da-imaculada-conceicao-aparecida-timbo/"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "santa-ines-indaial",
+      "name": "Paróquia Santa Inês",
+      "city": "Indaial",
+      "state": "SC",
+      "neighborhood": null,
+      "address": "Rua Marechal Floriano Peixoto, 362",
+      "zipCode": "89080-066",
+      "phone": "(47) 3333-0298",
+      "email": "p.santaines@yahoo.com.br",
+      "website": "https://www.santainesindaial.com.br",
+      "priestName": "Pe. João Bachmann",
+      "foundedYear": 1946,
+      "sources": [
+        {
+          "url": "https://diocesedeblumenau.org.br/paroquias/santa-ines-indaial/",
+          "title": "Paróquia Santa Inês | Indaial – página oficial da Diocese de Blumenau",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedeblumenau.org.br/pagina-paroquias/",
+          "title": "Paróquias – Diocese de Blumenau (lista oficial, 41 unidades)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://www.santainesindaial.com.br/",
+          "title": "Paróquia Santa Inês, Indaial – site oficial, programação semanal (blog com post de 02/09/2026)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Santa Inês",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/santa-ines-indaial/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora Aparecida",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/santa-ines-indaial/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Bonifácio",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/santa-ines-indaial/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santo Estanislau",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/santa-ines-indaial/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São João Batista",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/santa-ines-indaial/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Sagrada Família",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/santa-ines-indaial/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santa Rita de Cássia",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/santa-ines-indaial/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Luíz",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/santa-ines-indaial/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santo Antônio",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/santa-ines-indaial/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora do Perpétuo Socorro",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/santa-ines-indaial/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santa Paulina",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/santa-ines-indaial/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santa Terezinha",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/santa-ines-indaial/"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Santa Inês",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.santainesindaial.com.br/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Santa Inês",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Missa e Novena de Nossa Senhora Desatadora dos Nós",
+          "sources": [
+            {
+              "url": "https://www.santainesindaial.com.br/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Santa Inês",
+          "dayOfWeek": 1,
+          "time": "19:00",
+          "type": "ROSARY",
+          "notes": "Terço dos Homens",
+          "sources": [
+            {
+              "url": "https://www.santainesindaial.com.br/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Santa Inês",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Missa e Novena de Nossa Senhora do Perpétuo Socorro",
+          "sources": [
+            {
+              "url": "https://www.santainesindaial.com.br/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Santa Inês",
+          "dayOfWeek": 4,
+          "time": "16:00",
+          "type": "ROSARY",
+          "notes": "Terço das Mulheres",
+          "sources": [
+            {
+              "url": "https://www.santainesindaial.com.br/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Santa Inês",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "ADORATION",
+          "notes": "Adoração ao Santíssimo Sacramento – Jovens Acutis",
+          "sources": [
+            {
+              "url": "https://www.santainesindaial.com.br/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Santa Inês",
+          "dayOfWeek": 6,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.santainesindaial.com.br/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Santa Inês",
+          "dayOfWeek": 6,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.santainesindaial.com.br/"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "sao-francisco-de-assis-indaial",
+      "name": "Paróquia São Francisco de Assis",
+      "city": "Indaial",
+      "state": "SC",
+      "neighborhood": "Carijós",
+      "address": "Rua 25 de Janeiro, 790 – Carijós",
+      "zipCode": "89130-000",
+      "phone": "(47) 3333-9412",
+      "email": "saochicoindaial@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Eugeniusz Klawikoswski",
+      "foundedYear": 2012,
+      "sources": [
+        {
+          "url": "https://diocesedeblumenau.org.br/paroquias/sao-francisco-de-assis-indaial/",
+          "title": "Paróquia São Francisco de Assis | Indaial, Carijós – página oficial da Diocese de Blumenau",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedeblumenau.org.br/pagina-paroquias/",
+          "title": "Paróquias – Diocese de Blumenau (lista oficial, 41 unidades)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Francisco de Assis",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-francisco-de-assis-indaial/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Sagrado Coração de Jesus",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-francisco-de-assis-indaial/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Cristóvão",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-francisco-de-assis-indaial/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora da Confiança",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-francisco-de-assis-indaial/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santa Isabel",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-francisco-de-assis-indaial/"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-de-fatima-indaial",
+      "name": "Paróquia Nossa Senhora de Fátima",
+      "city": "Indaial",
+      "state": "SC",
+      "neighborhood": "Bairro das Nações",
+      "address": "Rua das Nações, 11 – Bairro das Nações",
+      "zipCode": "89130-000",
+      "phone": "(47) 3394-9456",
+      "email": "nossaigrejaparoquial@gmail.com",
+      "website": null,
+      "priestName": "Pe. João Bandoch",
+      "foundedYear": 2004,
+      "sources": [
+        {
+          "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-de-fatima-indaial/",
+          "title": "Paróquia Nossa Senhora de Fátima | Indaial, Bairro das Nações – página oficial da Diocese de Blumenau",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedeblumenau.org.br/pagina-paroquias/",
+          "title": "Paróquias – Diocese de Blumenau (lista oficial, 41 unidades)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora de Fátima",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-de-fatima-indaial/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São José Operário",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-de-fatima-indaial/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santa Luzia",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-de-fatima-indaial/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Daniel Comboni",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-de-fatima-indaial/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Judas Tadeu",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-de-fatima-indaial/"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "sao-ludgero-pomerode",
+      "name": "Paróquia São Ludgero",
+      "city": "Pomerode",
+      "state": "SC",
+      "neighborhood": null,
+      "address": "Av. 21 de Janeiro, 1455",
+      "zipCode": "89107-000",
+      "phone": "(47) 3387-1200",
+      "email": "paroquiasaoludgero@gmail.com",
+      "website": null,
+      "priestName": "Pe. Lauro Nunes",
+      "foundedYear": 1965,
+      "sources": [
+        {
+          "url": "https://diocesedeblumenau.org.br/paroquias/sao-ludgero-pomerode/",
+          "title": "Paróquia São Ludgero | Pomerode – página oficial da Diocese de Blumenau",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedeblumenau.org.br/pagina-paroquias/",
+          "title": "Paróquias – Diocese de Blumenau (lista oficial, 41 unidades)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Ludgero",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-ludgero-pomerode/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora das Graças",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-ludgero-pomerode/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora do Rosário",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-ludgero-pomerode/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santa Terezinha",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-ludgero-pomerode/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São José",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-ludgero-pomerode/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santo Antônio",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-ludgero-pomerode/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Bom Pastor (Capela Ecumênica)",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-ludgero-pomerode/"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-imaculada-conceicao-rio-dos-cedros",
+      "name": "Paróquia Nossa Senhora Imaculada Conceição",
+      "city": "Rio dos Cedros",
+      "state": "SC",
+      "neighborhood": null,
+      "address": "Av. Tiradentes, 525",
+      "zipCode": "89121-000",
+      "phone": "(47) 3386-1025",
+      "email": "parim.secretaria@gmail.com",
+      "website": null,
+      "priestName": "Pe. Fernando Steffens",
+      "foundedYear": 1913,
+      "sources": [
+        {
+          "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-imaculada-conceicao-rio-dos-cedros/",
+          "title": "Paróquia Nossa Senhora Imaculada Conceição | Rio dos Cedros – página oficial da Diocese de Blumenau",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedeblumenau.org.br/pagina-paroquias/",
+          "title": "Paróquias – Diocese de Blumenau (lista oficial, 41 unidades)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora Imaculada Conceição",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-imaculada-conceicao-rio-dos-cedros/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora Auxiliadora (Rio Cunha)",
+          "address": null,
+          "neighborhood": "Rio Cunha",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-imaculada-conceicao-rio-dos-cedros/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora de Fátima (Rio Palmito)",
+          "address": null,
+          "neighborhood": "Rio Palmito",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-imaculada-conceicao-rio-dos-cedros/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora da Glória (Alto Pomeranos)",
+          "address": null,
+          "neighborhood": "Alto Pomeranos",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-imaculada-conceicao-rio-dos-cedros/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora das Dores (Dolorata)",
+          "address": null,
+          "neighborhood": "Dolorata",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-imaculada-conceicao-rio-dos-cedros/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora de Fátima (Alto São Bernardo)",
+          "address": null,
+          "neighborhood": "Alto São Bernardo",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-imaculada-conceicao-rio-dos-cedros/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora de Caravaggio (Pomeranos Central)",
+          "address": null,
+          "neighborhood": "Pomeranos Central",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-imaculada-conceicao-rio-dos-cedros/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora do Rosário (Rio Rosina)",
+          "address": null,
+          "neighborhood": "Rio Rosina",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-imaculada-conceicao-rio-dos-cedros/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santa Ana (Rio Herta)",
+          "address": null,
+          "neighborhood": "Rio Herta",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-imaculada-conceicao-rio-dos-cedros/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santa Terezinha (Alto Cedros)",
+          "address": null,
+          "neighborhood": "Alto Cedros",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-imaculada-conceicao-rio-dos-cedros/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santo Antônio de Pádua (Barra do Avencal)",
+          "address": null,
+          "neighborhood": "Barra do Avencal",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-imaculada-conceicao-rio-dos-cedros/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santo Antônio de Pádua (Pomeranos)",
+          "address": null,
+          "neighborhood": "Pomeranos",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-imaculada-conceicao-rio-dos-cedros/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santo Inácio de Loyola (Alto Pedra Preta)",
+          "address": null,
+          "neighborhood": "Alto Pedra Preta",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-imaculada-conceicao-rio-dos-cedros/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Bernardo (São Bernardo)",
+          "address": null,
+          "neighborhood": "São Bernardo",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-imaculada-conceicao-rio-dos-cedros/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Francisco de Sales (Rio Esperança)",
+          "address": null,
+          "neighborhood": "Rio Esperança",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-imaculada-conceicao-rio-dos-cedros/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São João (Cedro Alto)",
+          "address": null,
+          "neighborhood": "Cedro Alto",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-imaculada-conceicao-rio-dos-cedros/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Jorge (Pedra Preta)",
+          "address": null,
+          "neighborhood": "Pedra Preta",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-imaculada-conceicao-rio-dos-cedros/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São José (Cedro Central)",
+          "address": null,
+          "neighborhood": "Cedro Central",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-imaculada-conceicao-rio-dos-cedros/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Judas Tadeu (Rio Bonito)",
+          "address": null,
+          "neighborhood": "Rio Bonito",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-imaculada-conceicao-rio-dos-cedros/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Miguel (Rio Milanês)",
+          "address": null,
+          "neighborhood": "Rio Milanês",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-imaculada-conceicao-rio-dos-cedros/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Paulo Apóstolo (Rio Ada)",
+          "address": null,
+          "neighborhood": "Rio Ada",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-imaculada-conceicao-rio-dos-cedros/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Roque (Mergulhão)",
+          "address": null,
+          "neighborhood": "Mergulhão",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-imaculada-conceicao-rio-dos-cedros/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Sebastião (Palmeiras)",
+          "address": null,
+          "neighborhood": "Palmeiras",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-imaculada-conceicao-rio-dos-cedros/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santa Paulina (Tiroleses)",
+          "address": null,
+          "neighborhood": "Tiroleses",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-imaculada-conceicao-rio-dos-cedros/"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "sao-roque-benedito-novo",
+      "name": "Paróquia São Roque",
+      "city": "Benedito Novo",
+      "state": "SC",
+      "neighborhood": null,
+      "address": "Rua Celso Ramos, 4900",
+      "zipCode": "89124-000",
+      "phone": "(47) 3385-0115",
+      "email": "psaoroque@tpa.com.br",
+      "website": null,
+      "priestName": "Pe. Josino do Amaral (administrador paroquial)",
+      "foundedYear": 1970,
+      "sources": [
+        {
+          "url": "https://diocesedeblumenau.org.br/paroquias/sao-roque-benedito-novo/",
+          "title": "Paróquia São Roque | Benedito Novo – página oficial da Diocese de Blumenau",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedeblumenau.org.br/pagina-paroquias/",
+          "title": "Paróquias – Diocese de Blumenau (lista oficial, 41 unidades)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Roque",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-roque-benedito-novo/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora do Caravaggio",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-roque-benedito-novo/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santa Luzia",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-roque-benedito-novo/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora do Perpétuo Socorro",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-roque-benedito-novo/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São José Operário",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-roque-benedito-novo/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santo Estanislau",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-roque-benedito-novo/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Sebastião",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-roque-benedito-novo/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Cristóvão",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-roque-benedito-novo/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São João Batista",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-roque-benedito-novo/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora de Fátima",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-roque-benedito-novo/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santa Rosa de Lima",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/sao-roque-benedito-novo/"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-de-lourdes-benedito-novo",
+      "name": "Paróquia Nossa Senhora de Lourdes",
+      "city": "Benedito Novo",
+      "state": "SC",
+      "neighborhood": "Santa Maria",
+      "address": "Rua Alberto Buzzi, 28 – Santa Maria",
+      "zipCode": "89125-000",
+      "phone": "(47) 3385-3056",
+      "email": "lourdesparoquia@yahoo.com.br",
+      "website": null,
+      "priestName": "Frei Francisco Alberto Bindá Libório, TOR",
+      "foundedYear": 1953,
+      "sources": [
+        {
+          "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-de-lourdes-benedito-novo/",
+          "title": "Paróquia Nossa Senhora de Lourdes | Benedito Novo, Santa Maria – página oficial da Diocese de Blumenau",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedeblumenau.org.br/pagina-paroquias/",
+          "title": "Paróquias – Diocese de Blumenau (lista oficial, 41 unidades)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora de Lourdes",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-de-lourdes-benedito-novo/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Imaculado Coração de Maria",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-de-lourdes-benedito-novo/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Roque",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-de-lourdes-benedito-novo/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São José Operário",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-de-lourdes-benedito-novo/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora da Luz",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-de-lourdes-benedito-novo/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santa Catarina de Alexandria",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-de-lourdes-benedito-novo/"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-da-gloria-doutor-pedrinho",
+      "name": "Paróquia Nossa Senhora da Glória",
+      "city": "Doutor Pedrinho",
+      "state": "SC",
+      "neighborhood": "Centro",
+      "address": "Rua Santa Catarina, 157 – Centro",
+      "zipCode": "89126-000",
+      "phone": "(47) 3388-0701",
+      "email": "pargloria@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Sérgio Eduardo Campestrini (administrador paroquial)",
+      "foundedYear": 2007,
+      "sources": [
+        {
+          "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-da-gloria-doutor-pedrinho/",
+          "title": "Paróquia Nossa Senhora da Glória | Doutor Pedrinho, Centro – página oficial da Diocese de Blumenau",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedeblumenau.org.br/pagina-paroquias/",
+          "title": "Paróquias – Diocese de Blumenau (lista oficial, 41 unidades)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora da Glória",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-da-gloria-doutor-pedrinho/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora Aparecida",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-da-gloria-doutor-pedrinho/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora das Candeias",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-da-gloria-doutor-pedrinho/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santo Antônio",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-da-gloria-doutor-pedrinho/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Paulo Apóstolo",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-da-gloria-doutor-pedrinho/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Francisco de Assis",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-da-gloria-doutor-pedrinho/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora do Rosário",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-da-gloria-doutor-pedrinho/"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Cristo Rei",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedeblumenau.org.br/paroquias/nossa-senhora-da-gloria-doutor-pedrinho/"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    }
+  ],
+  "coverage": {
+    "parishesFound": 41,
+    "parishesExpected": 41,
+    "notes": "Lista oficial do site diocesano (consultada em 10/09/2026 via /pagina-paroquias/ e pela API pública do WordPress, que devolve as 41 unidades cadastradas): 41 paróquias/santuários em 5 comarcas (Blumenau/Norte, Blumenau/Sul, Gaspar, Navegantes e Timbó). Catholic-hierarchy informa 41 paróquias (2023): cobertura de 100%. Os dois santuários (N. Sra. Aparecida, Itoupava Norte, e N. Sra. dos Navegantes) são também paróquias e estão incluídos. Todas as 41 páginas trazem endereço, CEP, telefone, e-mail, pároco, data de criação e a lista de comunidades — exceto a Paróquia Nossa Senhora de Fátima (Ponta Aguda), que não lista comunidades. A diocese NÃO publica horários fixos de missa (só programações de Finados/Semana Santa, excluídas por serem datas especiais); os horários vieram de sites oficiais das paróquias, quando existem — 6 paróquias com horários, 35 sem horário publicado em fonte acessível. Detalhes no RELATORIO-blumenau.md."
+  }
+}
