@@ -820,7 +820,8 @@ export class CatechesisService {
       where,
       include: {
         stage: { select: { name: true, sacramentType: true, color: true } },
-        community: { select: { name: true } },
+        // `id` junto do nome: o app filtra as turmas pela comunidade ativa
+        community: { select: { id: true, name: true } },
         _count: {
           select: {
             enrollments: { where: { status: 'ACTIVE', member: { deletedAt: null } } },
