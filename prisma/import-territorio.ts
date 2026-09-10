@@ -101,8 +101,15 @@ async function importDioceses() {
   }
 }
 
-/** Unidade listada pela diocese que não é paróquia (capela isolada, igreja de ordem, capelania) */
-const isNonParishUnit = (name: string) => /^(Capela|Igreja|Capelania|Miss[ãa]o)\b/i.test(name.trim());
+/**
+ * Unidade listada pela diocese que NÃO é paróquia: capela isolada, igreja de
+ * ordem, capelania, oratório, comunidade solta, casa religiosa (mosteiro,
+ * convento, carmelo — têm missa pública, mas não território nem pároco).
+ * "Área/Unidade Pastoral" e "Rede de Comunidades" ficam de fora desta lista —
+ * são unidades com pároco, equivalentes a paróquia.
+ */
+const isNonParishUnit = (name: string) =>
+  /^(Capela|Igreja|Capelania|Miss[ãa]o|Orat[óo]rio|Comunidade|Mosteiro|Convento|Monjas|Monges|Abadia|Carmelo)\b/i.test(name.trim());
 
 /**
  * Homônimas na mesma cidade (ex.: três "Paróquia Santo Antônio" em Curitiba)
