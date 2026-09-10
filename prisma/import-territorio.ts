@@ -170,8 +170,14 @@ async function importDioceseFile(file: string) {
       if (!dup) { stats.parishes += 1; console.log(`  + ${p.name} — ${p.city} [${p.confidence ?? '?'}]`); }
     }
 
-    const communities = (p.communities?.length ? p.communities : [{ name: defaultMatriz(p.name), address: p.address || p.neighborhood || '', isMatriz: true, confidence: p.confidence }])
-      .filter((c) => alive(c.status) && ok(c.confidence ?? p.confidence));
+    const listed = (p.communities ?? []).filter((c) => alive(c.status) && ok(c.confidence ?? p.confidence));
+    // A igreja-matriz precisa existir: sem lista, ou com lista só de capelas
+    // (nenhuma marcada como matriz), ela é criada — senão as missas da matriz
+    // cairiam na primeira capela da lista
+    const hasMatriz = listed.some((c) => c.isMatriz || isMatrizName(c.name));
+    const communities: CommunityRow[] = hasMatriz
+      ? listed
+      : [{ name: defaultMatriz(p.name), address: p.address || p.neighborhood || '', isMatriz: true, confidence: p.confidence }, ...listed];
     const created: { id: string; name: string }[] = [];
     for (const c of communities) {
       const address = c.address || c.neighborhood || p.address || p.neighborhood || p.city;
@@ -191,7 +197,8 @@ async function importDioceseFile(file: string) {
     }
 
     const comms = DRY || !parish ? created : await prisma.community.findMany({ where: { parishId: parish.id }, select: { id: true, name: true } });
-    const matriz = comms.find((c) => isMatrizName(c.name)) ?? comms[0];
+    // `created[0]` é a matriz garantida acima; o fallback cobre turmas antigas
+    const matriz = comms.find((c) => isMatrizName(c.name)) ?? created[0] ?? comms[0];
     for (const s of p.schedules ?? []) {
       if (!alive(s.status) || !ok(s.confidence ?? p.confidence)) { stats.skippedLow += 1; continue; }
       if (typeof s.dayOfWeek !== 'number' || s.dayOfWeek < 0 || s.dayOfWeek > 6 || !/^\d{2}:\d{2}$/.test(s.time)) continue;
