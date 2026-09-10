@@ -3312,7 +3312,7 @@
       ]
     },
     {
-      "slug": "sant-anna-indianopolis",
+      "slug": "santanna-indianopolis",
       "name": "Paróquia Sant'Anna",
       "city": "Indianópolis",
       "state": "MG",
@@ -8162,6 +8162,111 @@
           "confidence": "alta"
         },
         {
+          "community": "Comunidade São Jorge",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeuberlandia.org.br/paroquias/nossa-senhora-do-carmo/",
+              "title": "Paróquia Nossa Senhora do Carmo – Diocese de Uberlândia",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Comunidade São Jorge",
+          "dayOfWeek": 1,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeuberlandia.org.br/paroquias/nossa-senhora-do-carmo/",
+              "title": "Paróquia Nossa Senhora do Carmo – Diocese de Uberlândia",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Comunidade São Jorge",
+          "dayOfWeek": 2,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeuberlandia.org.br/paroquias/nossa-senhora-do-carmo/",
+              "title": "Paróquia Nossa Senhora do Carmo – Diocese de Uberlândia",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Comunidade São Jorge",
+          "dayOfWeek": 3,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeuberlandia.org.br/paroquias/nossa-senhora-do-carmo/",
+              "title": "Paróquia Nossa Senhora do Carmo – Diocese de Uberlândia",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Comunidade São Jorge",
+          "dayOfWeek": 4,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeuberlandia.org.br/paroquias/nossa-senhora-do-carmo/",
+              "title": "Paróquia Nossa Senhora do Carmo – Diocese de Uberlândia",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Comunidade São Jorge",
+          "dayOfWeek": 5,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeuberlandia.org.br/paroquias/nossa-senhora-do-carmo/",
+              "title": "Paróquia Nossa Senhora do Carmo – Diocese de Uberlândia",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Comunidade São Jorge",
+          "dayOfWeek": 6,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedeuberlandia.org.br/paroquias/nossa-senhora-do-carmo/",
+              "title": "Paróquia Nossa Senhora do Carmo – Diocese de Uberlândia",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
           "community": "Matriz Nossa Senhora do Carmo (Salão)",
           "dayOfWeek": 0,
           "time": "19:00",
@@ -8235,20 +8340,6 @@
           "address": "Praça José Miguel, 01 – Cruzeiro do Sul – 38402-170 – Uberlândia/MG",
           "neighborhood": "Cruzeiro do Sul",
           "isMatriz": true,
-          "sources": [
-            {
-              "url": "https://diocesedeuberlandia.org.br/paroquias/sagrada-familia/",
-              "title": "Paróquia Sagrada Família – Diocese de Uberlândia",
-              "accessedAt": "2026-09-10"
-            }
-          ],
-          "confidence": "alta"
-        },
-        {
-          "name": "1ª. Sexta-feira do mês",
-          "address": null,
-          "neighborhood": null,
-          "isMatriz": false,
           "sources": [
             {
               "url": "https://diocesedeuberlandia.org.br/paroquias/sagrada-familia/",
@@ -8372,21 +8463,6 @@
         }
       ],
       "schedules": [
-        {
-          "community": "1ª. Sexta-feira do mês",
-          "dayOfWeek": 3,
-          "time": "19:30",
-          "type": "MASS",
-          "notes": "Última quarta-feira do mês: Missa da Saúde às 19h30",
-          "sources": [
-            {
-              "url": "https://diocesedeuberlandia.org.br/paroquias/sagrada-familia/",
-              "title": "Paróquia Sagrada Família – Diocese de Uberlândia",
-              "accessedAt": "2026-09-10"
-            }
-          ],
-          "confidence": "baixa"
-        },
         {
           "community": "Comunidade Cristo Redentor",
           "dayOfWeek": 6,
@@ -8655,7 +8731,7 @@
           "dayOfWeek": 5,
           "time": "19:00",
           "type": "MASS",
-          "notes": null,
+          "notes": "Toda 1° Sexta-feira, às 19h, Missa em louvor ao Sagrado Coração de Jesus",
           "sources": [
             {
               "url": "https://diocesedeuberlandia.org.br/paroquias/santa-edwiges/",
@@ -8663,7 +8739,7 @@
               "accessedAt": "2026-09-10"
             }
           ],
-          "confidence": "alta"
+          "confidence": "baixa"
         },
         {
           "community": "Matriz Santa Edwiges",
@@ -12706,7 +12782,7 @@
         },
         {
           "name": "Comunidade São José",
-          "address": "Rua Beira Rio, 72 – São José",
+          "address": "Rua Beira Rio, 72 – São José",
           "neighborhood": null,
           "isMatriz": false,
           "sources": [

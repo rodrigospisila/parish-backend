@@ -1,0 +1,764 @@
+{
+  "diocese": {
+    "name": "Diocese de Januária",
+    "type": "Diocese",
+    "slug": "januaria",
+    "city": "Januária",
+    "state": "MG",
+    "address": "Rua Gualberto de Almeida, 216",
+    "zipCode": null,
+    "phone": "(38) 3621-1342",
+    "email": "pascom@diocesedejanuaria.com.br",
+    "website": "https://diocesedejanuaria.com.br",
+    "bishopName": "Dom Dorival Souza Barreto Júnior",
+    "sources": [
+      {
+        "url": "https://diocesedejanuaria.com.br/paroquias/",
+        "title": "Paróquias – Diocese de Januária (site oficial; detalha 8 paróquias com forania, endereço, CEP, pároco, vigário, e-mail e telefones)",
+        "accessedAt": "2026-09-10"
+      },
+      {
+        "url": "https://diocesedejanuaria.com.br/quem-somos/",
+        "title": "Quem somos – Diocese de Januária: 18 municípios, 20 paróquias, 1 pró-paróquia e 1 santuário diocesano, em 4 setores pastorais (Centro/Januária, Norte/Manga, Oeste/São Francisco, Sul/Urucuia); 38.187 km²; 292.846 habitantes",
+        "accessedAt": "2026-09-10"
+      },
+      {
+        "url": "https://gcatholic.org/churches/local/janu0",
+        "title": "Churches in the Diocese of Januária [GCatholic] — 21 igrejas paroquiais por cidade (atualizado em 02/06/2026)",
+        "accessedAt": "2026-09-10"
+      },
+      {
+        "url": "https://www.catholic-hierarchy.org/diocese/djanu.html",
+        "title": "Januária (Diocese) [Catholic-Hierarchy] — erigida em 15/06/1957, 38.187 km², 22 paróquias (dados de 2023), Dom Dorival Souza Barreto Júnior nomeado em 18/06/2025",
+        "accessedAt": "2026-09-10"
+      },
+      {
+        "url": "https://gcatholic.org/dioceses/diocese/janu0.htm",
+        "title": "Diocese of Januária [GCatholic] — erigida em 15/06/1957; perdeu território para Paracatu (1964) e para Janaúba (2000); sufragânea de Montes Claros desde 25/04/2001",
+        "accessedAt": "2026-09-10"
+      }
+    ],
+    "confidence": "alta"
+  },
+  "parishes": [
+    {
+      "slug": "nossa-senhora-das-dores-januaria",
+      "name": "Catedral Nossa Senhora das Dores",
+      "city": "Januária",
+      "state": "MG",
+      "neighborhood": "Centro",
+      "address": "Praça Dom Daniel, 112 – Centro",
+      "zipCode": "39480-000",
+      "phone": "(38) 3621-4388 / (38) 99100-4316 / (38) 99257-0025",
+      "email": "catedralnossasenhoradasdores@yahoo.com.br",
+      "website": null,
+      "priestName": "Padre André Luiz de Souza",
+      "foundedYear": null,
+      "setorPastoral": "Setor Centro (sede Januária)",
+      "forania": "Forania Nossa Senhora das Dores",
+      "dataNotes": "Site oficial a registra como \"Paróquia Catedral Nossa Senhora das Dores\"; vigário: Padre Álvaro Alves; vigário forâneo: Padre Natelson Alkmim Coutinho.",
+      "sources": [
+        {
+          "url": "https://diocesedejanuaria.com.br/paroquias/",
+          "title": "Paróquias – Diocese de Januária (site oficial; detalha 8 paróquias com forania, endereço, CEP, pároco, vigário, e-mail e telefones)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://gcatholic.org/churches/local/janu0",
+          "title": "Churches in the Diocese of Januária [GCatholic] — 21 igrejas paroquiais por cidade (atualizado em 02/06/2026)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "cristo-rei-montalvania",
+      "name": "Paróquia Cristo Rei",
+      "city": "Montalvânia",
+      "state": "MG",
+      "neighborhood": null,
+      "address": "Avenida Madame Curie, 265",
+      "zipCode": "39495-000",
+      "phone": "(38) 3614-1112 / (38) 99257-0030",
+      "email": "paroquiacristoreimtv@hotmail.com",
+      "website": null,
+      "priestName": "Padre Murilo Guedes França",
+      "foundedYear": null,
+      "setorPastoral": "Setor Norte (sede Manga)",
+      "forania": "Forania Nossa Senhora Aparecida",
+      "dataNotes": "Vigário: Padre Carlos Batista de Brito. Padre Murilo é também vigário forâneo da Forania Nossa Senhora Aparecida.",
+      "sources": [
+        {
+          "url": "https://diocesedejanuaria.com.br/paroquias/",
+          "title": "Paróquias – Diocese de Januária (site oficial; detalha 8 paróquias com forania, endereço, CEP, pároco, vigário, e-mail e telefones)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://gcatholic.org/churches/local/janu0",
+          "title": "Churches in the Diocese of Januária [GCatholic] — 21 igrejas paroquiais por cidade (atualizado em 02/06/2026)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "divino-espirito-santo-sao-romao",
+      "name": "Paróquia Divino Espírito Santo",
+      "city": "São Romão",
+      "state": "MG",
+      "neighborhood": "Centro",
+      "address": "Praça Padre Paulo Matulinski, 02 – Centro",
+      "zipCode": "39290-000",
+      "phone": "(38) 99257-0024",
+      "email": "pardivinoespiritosanto@gmail.com",
+      "website": null,
+      "priestName": "Padre João Rafael Urcine de Araújo",
+      "foundedYear": null,
+      "setorPastoral": "Setor Oeste (sede São Francisco)",
+      "forania": "Forania São José",
+      "dataNotes": "Vigário: Padre Willian Carlos Viana Coutinho.",
+      "sources": [
+        {
+          "url": "https://diocesedejanuaria.com.br/paroquias/",
+          "title": "Paróquias – Diocese de Januária (site oficial; detalha 8 paróquias com forania, endereço, CEP, pároco, vigário, e-mail e telefones)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://gcatholic.org/churches/local/janu0",
+          "title": "Churches in the Diocese of Januária [GCatholic] — 21 igrejas paroquiais por cidade (atualizado em 02/06/2026)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "imaculada-conceicao-pedras-de-maria-da-cruz",
+      "name": "Paróquia Imaculada Conceição",
+      "city": "Pedras de Maria da Cruz",
+      "state": "MG",
+      "neighborhood": "Centro",
+      "address": "Rua Francisco Brandão, 276 – Centro",
+      "zipCode": "39492-000",
+      "phone": "(38) 99872-0888 / (38) 99804-2592",
+      "email": "paroquiaimaculadaconceicaopmc@hotmail.com",
+      "website": null,
+      "priestName": "Padre Jeidson Cardoso Ribeiro",
+      "foundedYear": null,
+      "setorPastoral": "Setor Centro (sede Januária)",
+      "forania": "Forania Nossa Senhora das Dores",
+      "dataNotes": "Vigário: Padre Manoel Pereira dos Santos.",
+      "sources": [
+        {
+          "url": "https://diocesedejanuaria.com.br/paroquias/",
+          "title": "Paróquias – Diocese de Januária (site oficial; detalha 8 paróquias com forania, endereço, CEP, pároco, vigário, e-mail e telefones)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://gcatholic.org/churches/local/janu0",
+          "title": "Churches in the Diocese of Januária [GCatholic] — 21 igrejas paroquiais por cidade (atualizado em 02/06/2026)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-aparecida-manga",
+      "name": "Paróquia Nossa Senhora Aparecida",
+      "city": "Manga",
+      "state": "MG",
+      "neighborhood": null,
+      "address": "Praça Padre Ricardo, 1152",
+      "zipCode": "39460-000",
+      "phone": "(38) 3615-1240 / (38) 99257-0033",
+      "email": "paroquiademanga@outlook.com",
+      "website": null,
+      "priestName": "Padre Anivaldo Eugênio",
+      "foundedYear": null,
+      "setorPastoral": "Setor Norte (sede Manga)",
+      "forania": "Forania Nossa Senhora Aparecida",
+      "dataNotes": null,
+      "sources": [
+        {
+          "url": "https://diocesedejanuaria.com.br/paroquias/",
+          "title": "Paróquias – Diocese de Januária (site oficial; detalha 8 paróquias com forania, endereço, CEP, pároco, vigário, e-mail e telefones)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://gcatholic.org/churches/local/janu0",
+          "title": "Churches in the Diocese of Januária [GCatholic] — 21 igrejas paroquiais por cidade (atualizado em 02/06/2026)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-aparecida-riachinho",
+      "name": "Paróquia Nossa Senhora Aparecida",
+      "city": "Riachinho",
+      "state": "MG",
+      "neighborhood": "Centro",
+      "address": "Rua São Sebastião, 384 – Centro",
+      "zipCode": "38640-000",
+      "phone": null,
+      "email": "paroquiariachinho@gmail.com",
+      "website": null,
+      "priestName": "Padre Gilsônio Rodrigues Coutinho",
+      "foundedYear": null,
+      "setorPastoral": "Setor Sul (sede Urucuia)",
+      "forania": "Forania Nossa Senhora da Conceição",
+      "dataNotes": "Vigário forâneo: Padre Paulo Roberto.",
+      "sources": [
+        {
+          "url": "https://diocesedejanuaria.com.br/paroquias/",
+          "title": "Paróquias – Diocese de Januária (site oficial; detalha 8 paróquias com forania, endereço, CEP, pároco, vigário, e-mail e telefones)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://gcatholic.org/churches/local/janu0",
+          "title": "Churches in the Diocese of Januária [GCatholic] — 21 igrejas paroquiais por cidade (atualizado em 02/06/2026)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-aparecida-sao-francisco",
+      "name": "Paróquia Nossa Senhora Aparecida",
+      "city": "São Francisco",
+      "state": "MG",
+      "neighborhood": null,
+      "address": null,
+      "zipCode": null,
+      "phone": "(38) 99257-0031",
+      "email": "paroquiansasf@yahoo.com.br",
+      "website": null,
+      "priestName": "Padre Tiago",
+      "foundedYear": null,
+      "setorPastoral": "Setor Oeste (sede São Francisco)",
+      "forania": "Forania São José",
+      "dataNotes": "Site oficial publica endereço e CEP como \"–\". Vigário: Padre Ricardo. Nome do pároco publicado só com o prenome.",
+      "sources": [
+        {
+          "url": "https://diocesedejanuaria.com.br/paroquias/",
+          "title": "Paróquias – Diocese de Januária (site oficial; detalha 8 paróquias com forania, endereço, CEP, pároco, vigário, e-mail e telefones)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://gcatholic.org/churches/local/janu0",
+          "title": "Churches in the Diocese of Januária [GCatholic] — 21 igrejas paroquiais por cidade (atualizado em 02/06/2026)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-da-abadia-pintopolis",
+      "name": "Paróquia Nossa Senhora da Abadia",
+      "city": "Pintópolis",
+      "state": "MG",
+      "neighborhood": "Centro",
+      "address": "Rua Germano Pinto – Centro",
+      "zipCode": "39317-000",
+      "phone": "(38) 3631-8123",
+      "email": "senhoradabadia_@hotmail.com",
+      "website": null,
+      "priestName": "Padre Jamerson Almeida",
+      "foundedYear": null,
+      "setorPastoral": "Setor Sul (sede Urucuia)",
+      "forania": "Forania São José",
+      "dataNotes": "Padre Jamerson é também vigário forâneo da Forania São José.",
+      "sources": [
+        {
+          "url": "https://diocesedejanuaria.com.br/paroquias/",
+          "title": "Paróquias – Diocese de Januária (site oficial; detalha 8 paróquias com forania, endereço, CEP, pároco, vigário, e-mail e telefones)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://gcatholic.org/churches/local/janu0",
+          "title": "Churches in the Diocese of Januária [GCatholic] — 21 igrejas paroquiais por cidade (atualizado em 02/06/2026)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "senhor-bom-jesus-bonito-de-minas",
+      "name": "Paróquia Senhor Bom Jesus",
+      "city": "Bonito de Minas",
+      "state": "MG",
+      "neighborhood": null,
+      "address": null,
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "setorPastoral": "Setor Centro (sede Januária)",
+      "forania": null,
+      "dataNotes": "Não detalhada no site da diocese (a página \"Paróquias\" lista só 8 registros). Nome e cidade vêm do GCatholic (\"Igreja Senhor Bom Jesus\", paróquia) e o município consta entre os do Setor Centro na página \"Quem somos\".",
+      "sources": [
+        {
+          "url": "https://gcatholic.org/churches/local/janu0",
+          "title": "Churches in the Diocese of Januária [GCatholic] — 21 igrejas paroquiais por cidade (atualizado em 02/06/2026)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedejanuaria.com.br/quem-somos/",
+          "title": "Quem somos – Diocese de Januária: 18 municípios, 20 paróquias, 1 pró-paróquia e 1 santuário diocesano, em 4 setores pastorais (Centro/Januária, Norte/Manga, Oeste/São Francisco, Sul/Urucuia); 38.187 km²; 292.846 habitantes",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "santo-agostinho-chapada-gaucha",
+      "name": "Paróquia Santo Agostinho",
+      "city": "Chapada Gaúcha",
+      "state": "MG",
+      "neighborhood": null,
+      "address": null,
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "setorPastoral": "Setor Oeste (sede São Francisco)",
+      "forania": null,
+      "dataNotes": "Não detalhada no site da diocese. Nome e cidade do GCatholic; município listado no Setor Oeste em \"Quem somos\".",
+      "sources": [
+        {
+          "url": "https://gcatholic.org/churches/local/janu0",
+          "title": "Churches in the Diocese of Januária [GCatholic] — 21 igrejas paroquiais por cidade (atualizado em 02/06/2026)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedejanuaria.com.br/quem-somos/",
+          "title": "Quem somos – Diocese de Januária: 18 municípios, 20 paróquias, 1 pró-paróquia e 1 santuário diocesano, em 4 setores pastorais (Centro/Januária, Norte/Manga, Oeste/São Francisco, Sul/Urucuia); 38.187 km²; 292.846 habitantes",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-da-conceicao-icarai-de-minas",
+      "name": "Paróquia Nossa Senhora da Conceição",
+      "city": "Icaraí de Minas",
+      "state": "MG",
+      "neighborhood": null,
+      "address": null,
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "setorPastoral": "Setor Oeste (sede São Francisco)",
+      "forania": null,
+      "dataNotes": "Não detalhada no site da diocese. Nome e cidade do GCatholic; município listado no Setor Oeste em \"Quem somos\".",
+      "sources": [
+        {
+          "url": "https://gcatholic.org/churches/local/janu0",
+          "title": "Churches in the Diocese of Januária [GCatholic] — 21 igrejas paroquiais por cidade (atualizado em 02/06/2026)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedejanuaria.com.br/quem-somos/",
+          "title": "Quem somos – Diocese de Januária: 18 municípios, 20 paróquias, 1 pró-paróquia e 1 santuário diocesano, em 4 setores pastorais (Centro/Januária, Norte/Manga, Oeste/São Francisco, Sul/Urucuia); 38.187 km²; 292.846 habitantes",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sagrado-coracao-de-jesus-itacarambi",
+      "name": "Paróquia Sagrado Coração de Jesus",
+      "city": "Itacarambi",
+      "state": "MG",
+      "neighborhood": null,
+      "address": null,
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "setorPastoral": "Setor Centro (sede Januária)",
+      "forania": null,
+      "dataNotes": "Não detalhada na página \"Paróquias\", mas confirmada por notícia do próprio site da diocese e pelo GCatholic.",
+      "sources": [
+        {
+          "url": "https://gcatholic.org/churches/local/janu0",
+          "title": "Churches in the Diocese of Januária [GCatholic] — 21 igrejas paroquiais por cidade (atualizado em 02/06/2026)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedejanuaria.com.br/quem-somos/",
+          "title": "Quem somos – Diocese de Januária: 18 municípios, 20 paróquias, 1 pró-paróquia e 1 santuário diocesano, em 4 setores pastorais (Centro/Januária, Norte/Manga, Oeste/São Francisco, Sul/Urucuia); 38.187 km²; 292.846 habitantes",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedejanuaria.com.br/a-paroquia-sagrado-coracao-de-jesus-de-itacarambi-por-meio-do-apostolado-da-divina-misericordia-promoveu-neste-ultimo-trimestre-de-2024-dois-eventos-de-grande-relevancia/",
+          "title": "Notícia do site oficial citando a \"Paróquia Sagrado Coração de Jesus de Itacarambi\" (2024)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sagrada-familia-januaria",
+      "name": "Paróquia Sagrada Família",
+      "city": "Januária",
+      "state": "MG",
+      "neighborhood": null,
+      "address": null,
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "setorPastoral": "Setor Centro (sede Januária)",
+      "forania": null,
+      "dataNotes": "Segunda paróquia da sede. Notícias do site oficial celebravam 52 anos (2017), 53 e 54 anos — fundação por volta de 1965; ano exato não confirmado, por isso foundedYear = null.",
+      "sources": [
+        {
+          "url": "https://gcatholic.org/churches/local/janu0",
+          "title": "Churches in the Diocese of Januária [GCatholic] — 21 igrejas paroquiais por cidade (atualizado em 02/06/2026)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedejanuaria.com.br/site/celebre-os-54-anos-da-paroquia-sagrada-familia/",
+          "title": "Site oficial (versão arquivada) — \"54 anos da Paróquia Sagrada Família\", indicando fundação por volta de 1965",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-de-fatima-juvenilia",
+      "name": "Paróquia Nossa Senhora de Fátima",
+      "city": "Juvenília",
+      "state": "MG",
+      "neighborhood": null,
+      "address": null,
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "setorPastoral": "Setor Norte (sede Manga)",
+      "forania": null,
+      "dataNotes": "Não detalhada no site da diocese. Nome e cidade do GCatholic; município listado no Setor Norte em \"Quem somos\". A notícia de posse não nomeia a cidade — pode se referir a outra paróquia homônima.",
+      "sources": [
+        {
+          "url": "https://gcatholic.org/churches/local/janu0",
+          "title": "Churches in the Diocese of Januária [GCatholic] — 21 igrejas paroquiais por cidade (atualizado em 02/06/2026)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedejanuaria.com.br/quem-somos/",
+          "title": "Quem somos – Diocese de Januária: 18 municípios, 20 paróquias, 1 pró-paróquia e 1 santuário diocesano, em 4 setores pastorais (Centro/Januária, Norte/Manga, Oeste/São Francisco, Sul/Urucuia); 38.187 km²; 292.846 habitantes",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedejanuaria.com.br/site/posse-do-padre-joao-rafael-urcine-de-oliveira-como-paroco-da-paroquia-nossa-senhora-de-fatima/",
+          "title": "Notícia do site oficial sobre posse de pároco na Paróquia Nossa Senhora de Fátima (2024/2025)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sagrado-coracao-de-jesus-miravania",
+      "name": "Paróquia Sagrado Coração de Jesus",
+      "city": "Miravânia",
+      "state": "MG",
+      "neighborhood": null,
+      "address": null,
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "setorPastoral": "Setor Norte (sede Manga)",
+      "forania": null,
+      "dataNotes": "Não detalhada no site da diocese. Nome e cidade do GCatholic; município listado no Setor Norte em \"Quem somos\".",
+      "sources": [
+        {
+          "url": "https://gcatholic.org/churches/local/janu0",
+          "title": "Churches in the Diocese of Januária [GCatholic] — 21 igrejas paroquiais por cidade (atualizado em 02/06/2026)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedejanuaria.com.br/quem-somos/",
+          "title": "Quem somos – Diocese de Januária: 18 municípios, 20 paróquias, 1 pró-paróquia e 1 santuário diocesano, em 4 setores pastorais (Centro/Januária, Norte/Manga, Oeste/São Francisco, Sul/Urucuia); 38.187 km²; 292.846 habitantes",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-da-conceicao-santa-fe-de-minas",
+      "name": "Paróquia Nossa Senhora da Conceição",
+      "city": "Santa Fé de Minas",
+      "state": "MG",
+      "neighborhood": null,
+      "address": null,
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "setorPastoral": "Setor Sul (sede Urucuia)",
+      "forania": null,
+      "dataNotes": "Não detalhada no site da diocese. Nome e cidade do GCatholic; município listado no Setor Sul em \"Quem somos\" (a Wikipédia omite Santa Fé de Minas e Cônego Marinho da lista de municípios da diocese).",
+      "sources": [
+        {
+          "url": "https://gcatholic.org/churches/local/janu0",
+          "title": "Churches in the Diocese of Januária [GCatholic] — 21 igrejas paroquiais por cidade (atualizado em 02/06/2026)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedejanuaria.com.br/quem-somos/",
+          "title": "Quem somos – Diocese de Januária: 18 municípios, 20 paróquias, 1 pró-paróquia e 1 santuário diocesano, em 4 setores pastorais (Centro/Januária, Norte/Manga, Oeste/São Francisco, Sul/Urucuia); 38.187 km²; 292.846 habitantes",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-jose-sao-francisco",
+      "name": "Paróquia São José",
+      "city": "São Francisco",
+      "state": "MG",
+      "neighborhood": null,
+      "address": null,
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "setorPastoral": "Setor Oeste (sede São Francisco)",
+      "forania": null,
+      "dataNotes": "Segunda paróquia de São Francisco segundo o GCatholic; não aparece na página \"Paróquias\" do site da diocese. Precisa de confirmação.",
+      "sources": [
+        {
+          "url": "https://gcatholic.org/churches/local/janu0",
+          "title": "Churches in the Diocese of Januária [GCatholic] — 21 igrejas paroquiais por cidade (atualizado em 02/06/2026)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sagrado-coracao-de-jesus-sao-joao-das-missoes",
+      "name": "Paróquia Sagrado Coração de Jesus",
+      "city": "São João das Missões",
+      "state": "MG",
+      "neighborhood": null,
+      "address": null,
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "setorPastoral": "Setor Norte (sede Manga)",
+      "forania": null,
+      "dataNotes": "Não detalhada no site da diocese. Nome e cidade do GCatholic; município listado no Setor Norte em \"Quem somos\".",
+      "sources": [
+        {
+          "url": "https://gcatholic.org/churches/local/janu0",
+          "title": "Churches in the Diocese of Januária [GCatholic] — 21 igrejas paroquiais por cidade (atualizado em 02/06/2026)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedejanuaria.com.br/quem-somos/",
+          "title": "Quem somos – Diocese de Januária: 18 municípios, 20 paróquias, 1 pró-paróquia e 1 santuário diocesano, em 4 setores pastorais (Centro/Januária, Norte/Manga, Oeste/São Francisco, Sul/Urucuia); 38.187 km²; 292.846 habitantes",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-joaquim-januaria",
+      "name": "Pró-paróquia São Joaquim",
+      "city": "Januária",
+      "state": "MG",
+      "neighborhood": "Distrito de São Joaquim",
+      "address": null,
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "setorPastoral": "Setor Centro (sede Januária)",
+      "forania": null,
+      "dataNotes": "A página \"Quem somos\" declara \"uma Pró-Paróquia\" no Setor Centro e cita \"São Joaquim\" entre as unidades do setor; o GCatholic registra \"Igreja São Joaquim (Parish)\" na localidade de São Joaquim, distrito de Januária. Status (pró-paróquia x paróquia) precisa de confirmação.",
+      "sources": [
+        {
+          "url": "https://gcatholic.org/churches/local/janu0",
+          "title": "Churches in the Diocese of Januária [GCatholic] — 21 igrejas paroquiais por cidade (atualizado em 02/06/2026)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedejanuaria.com.br/quem-somos/",
+          "title": "Quem somos – Diocese de Januária: 18 municípios, 20 paróquias, 1 pró-paróquia e 1 santuário diocesano, em 4 setores pastorais (Centro/Januária, Norte/Manga, Oeste/São Francisco, Sul/Urucuia); 38.187 km²; 292.846 habitantes",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "santo-antonio-de-serra-das-araras-chapada-gaucha",
+      "name": "Santuário Diocesano de Santo Antônio de Serra das Araras",
+      "city": "Chapada Gaúcha",
+      "state": "MG",
+      "neighborhood": "Distrito de Serra das Araras",
+      "address": null,
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "setorPastoral": "Setor Oeste (sede São Francisco)",
+      "forania": null,
+      "dataNotes": "O GCatholic o registra como \"Parish, Shrine\". A página \"Quem somos\" declara 1 santuário diocesano no Setor Oeste.",
+      "sources": [
+        {
+          "url": "https://gcatholic.org/churches/local/janu0",
+          "title": "Churches in the Diocese of Januária [GCatholic] — 21 igrejas paroquiais por cidade (atualizado em 02/06/2026)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedejanuaria.com.br/quem-somos/",
+          "title": "Quem somos – Diocese de Januária: 18 municípios, 20 paróquias, 1 pró-paróquia e 1 santuário diocesano, em 4 setores pastorais (Centro/Januária, Norte/Manga, Oeste/São Francisco, Sul/Urucuia); 38.187 km²; 292.846 habitantes",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedejanuaria.com.br/santuario-de-santo-antonio/",
+          "title": "Santuário Diocesano de Santo Antônio de Serra das Araras — página do site oficial",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-da-conceicao-urucuia",
+      "name": "Paróquia Nossa Senhora da Conceição",
+      "city": "Urucuia",
+      "state": "MG",
+      "neighborhood": null,
+      "address": null,
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "setorPastoral": "Setor Sul (sede Urucuia)",
+      "forania": null,
+      "dataNotes": "Não detalhada no site da diocese. Nome e cidade do GCatholic; Urucuia é a sede do Setor Sul segundo \"Quem somos\".",
+      "sources": [
+        {
+          "url": "https://gcatholic.org/churches/local/janu0",
+          "title": "Churches in the Diocese of Januária [GCatholic] — 21 igrejas paroquiais por cidade (atualizado em 02/06/2026)",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedejanuaria.com.br/quem-somos/",
+          "title": "Quem somos – Diocese de Januária: 18 municípios, 20 paróquias, 1 pró-paróquia e 1 santuário diocesano, em 4 setores pastorais (Centro/Januária, Norte/Manga, Oeste/São Francisco, Sul/Urucuia); 38.187 km²; 292.846 habitantes",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-vicente-de-paulo-conego-marinho",
+      "name": "Paróquia São Vicente de Paulo",
+      "city": "Cônego Marinho",
+      "state": "MG",
+      "neighborhood": null,
+      "address": null,
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "setorPastoral": "Setor Centro (sede Januária)",
+      "forania": null,
+      "dataNotes": "Criada por volta de 2019, segundo notícia do próprio site da diocese; ainda NÃO consta no GCatholic (que lista 21 igrejas), o que explica a diferença para as 22 paróquias do catholic-hierarchy. Município listado no Setor Centro em \"Quem somos\".",
+      "sources": [
+        {
+          "url": "https://diocesedejanuaria.com.br/quem-somos/",
+          "title": "Quem somos – Diocese de Januária: 18 municípios, 20 paróquias, 1 pró-paróquia e 1 santuário diocesano, em 4 setores pastorais (Centro/Januária, Norte/Manga, Oeste/São Francisco, Sul/Urucuia); 38.187 km²; 292.846 habitantes",
+          "accessedAt": "2026-09-10"
+        },
+        {
+          "url": "https://diocesedejanuaria.com.br/site/criacao-da-paroquia-sao-vicente-de-paulo-em-conego-marinho/",
+          "title": "Criação da Paróquia São Vicente de Paulo em Cônego Marinho — notícia do site oficial (2019)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": []
+    }
+  ],
+  "coverage": {
+    "parishesFound": 22,
+    "parishesExpected": 22,
+    "notes": "Cobertura 22/22 em NOMES, mas com qualidade de dado desigual. O site oficial (diocesedejanuaria.com.br) foi reconstruído em 2025 e a página \"Paróquias\" publica apenas 8 registros completos (em ordem alfabética, terminando em \"Nossa Senhora da Abadia\") — não há paginação nem custom post type: /paroquias/page/N/ devolve sempre o mesmo conteúdo, o WordPress só tem 10 páginas ao todo e o sitemap não expõe mais nada. As outras 14 vieram do GCatholic (21 igrejas paroquiais por cidade, atualizado em 02/06/2026), cruzadas com a página \"Quem somos\" do próprio site (que declara 18 municípios, 20 paróquias, 1 pró-paróquia e 1 santuário diocesano em 4 setores pastorais) e com notícias do site oficial. O catholic-hierarchy.org registra 22 paróquias (2023) — o total bate: 21 do GCatholic + a Paróquia São Vicente de Paulo de Cônego Marinho, criada por volta de 2019 e ainda ausente do GCatholic. Para essas 14 não há endereço, telefone, e-mail nem pároco. Nenhuma fonte publica lista de comunidades. ATENÇÃO: o site da diocese está com links de spam de SEO injetados (mostbet/pin-up) nas páginas \"Paróquias\" e \"Quem somos\" — o conteúdo eclesiástico continua íntegro, mas o site aparenta estar comprometido. Nenhum horário fixo de missa foi encontrado em fonte confiável."
+  }
+}
