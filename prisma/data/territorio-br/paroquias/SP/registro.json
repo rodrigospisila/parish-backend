@@ -1,0 +1,1360 @@
+{
+  "diocese": {
+    "name": "Diocese de Registro",
+    "type": "Diocese",
+    "slug": "registro",
+    "city": "Registro",
+    "state": "SP",
+    "address": "Rua São Francisco Xavier, 165 - Centro",
+    "zipCode": null,
+    "phone": "(13) 3821-1595",
+    "email": "mitradiocesanaderegistro@hotmail.com",
+    "website": "https://diocesederegistro.com.br",
+    "bishopName": "Dom Manoel Ferreira dos Santos Júnior, MSC",
+    "sources": [
+      {
+        "url": "https://diocesederegistro.com.br/",
+        "title": "Diocese de Registro",
+        "accessedAt": "2026-09-10"
+      },
+      {
+        "url": "https://diocesederegistro.com.br/paroquias/",
+        "title": "Paróquias – Diocese de Registro",
+        "accessedAt": "2026-09-10"
+      },
+      {
+        "url": "https://diocesederegistro.com.br/biografia-do-bispo/",
+        "title": "Bispo Diocesano — Dom Manoel Ferreira dos Santos Júnior, MSC",
+        "accessedAt": "2026-09-10"
+      },
+      {
+        "url": "https://www.catholic-hierarchy.org/diocese/dregb.html",
+        "title": "Registro (Diocese) [Catholic-Hierarchy]",
+        "accessedAt": "2026-09-10"
+      }
+    ],
+    "confidence": "alta"
+  },
+  "parishes": [
+    {
+      "slug": "sagrado-coracao-de-jesus-barra-do-turvo",
+      "name": "Paróquia Sagrado Coração de Jesus",
+      "city": "Barra do Turvo",
+      "state": "SP",
+      "neighborhood": null,
+      "address": "Rua Vereador Gabriel dos Santos, 121",
+      "zipCode": "11955-000",
+      "phone": "(15) 3577-1424",
+      "email": "parsagradocoracao-bt@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Aloir Luiz Salla, MSC",
+      "foundedYear": null,
+      "region": null,
+      "sources": [
+        {
+          "url": "https://diocesederegistro.com.br/paroquias/",
+          "title": "Paróquias – Diocese de Registro",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Sagrado Coração de Jesus",
+          "address": "Rua Vereador Gabriel dos Santos, 121",
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesederegistro.com.br/paroquias/",
+              "title": "Paróquias – Diocese de Registro",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "santo-antonio-cajati",
+      "name": "Paróquia Santo Antônio",
+      "city": "Cajati",
+      "state": "SP",
+      "neighborhood": "Centro",
+      "address": "Rua Irmã Carmela Tessaroli, 38",
+      "zipCode": "11950-000",
+      "phone": "(13) 3854-1354",
+      "email": "paroquia.cajati@gmail.com",
+      "website": "https://www.facebook.com/paroquiasantoantoniodecajati",
+      "priestName": "Pe. Thiago Roberto Leon Ouriques",
+      "foundedYear": null,
+      "region": null,
+      "sources": [
+        {
+          "url": "https://diocesederegistro.com.br/paroquias/",
+          "title": "Paróquias – Diocese de Registro",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Santo Antônio",
+          "address": "Rua Irmã Carmela Tessaroli, 38",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesederegistro.com.br/paroquias/",
+              "title": "Paróquias – Diocese de Registro",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Santo Antônio",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": "Horário registrado pelo agregador horariodemissa.com.br, cuja ficha declara última atualização em 20/03/2013 — 13 anos sem revisão. Precisa de confirmação com a paróquia.",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=mwsRz",
+              "title": "Paróquia Santo Antônio — horários de missa",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Santo Antônio",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Horário registrado pelo agregador horariodemissa.com.br, cuja ficha declara última atualização em 20/03/2013 — 13 anos sem revisão. Precisa de confirmação com a paróquia.",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=mwsRz",
+              "title": "Paróquia Santo Antônio — horários de missa",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Santo Antônio",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Horário registrado pelo agregador horariodemissa.com.br, cuja ficha declara última atualização em 20/03/2013 — 13 anos sem revisão. Precisa de confirmação com a paróquia.",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=mwsRz",
+              "title": "Paróquia Santo Antônio — horários de missa",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-da-guia-eldorado",
+      "name": "Santuário Nossa Senhora da Guia",
+      "city": "Eldorado",
+      "state": "SP",
+      "neighborhood": "Centro",
+      "address": "Praça Nossa Senhora da Guia, 103",
+      "zipCode": "11960-000",
+      "phone": "(13) 3871-1215",
+      "email": null,
+      "website": "https://www.facebook.com/paroquiasantuarionossasenhoradaguia",
+      "priestName": "Pe. Carlos Augusto Bonfim",
+      "foundedYear": null,
+      "region": null,
+      "sources": [
+        {
+          "url": "https://diocesederegistro.com.br/paroquias/",
+          "title": "Paróquias – Diocese de Registro",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Santuário Nossa Senhora da Guia",
+          "address": "Praça Nossa Senhora da Guia, 103",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesederegistro.com.br/paroquias/",
+              "title": "Paróquias – Diocese de Registro",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [],
+      "notes": "A diocese registra o nome como 'Paróquia Santuário Nossa Senhora da Guia' e o sacerdote como 'Pároco e Reitor' — é paróquia e santuário ao mesmo tempo. O e-mail publicado, 'psguia@uol.com.brr', é malformado e não foi gravado.",
+      "loadAsParish": true
+    },
+    {
+      "slug": "sant-ana-iporanga",
+      "name": "Paróquia Sant'Ana",
+      "city": "Iporanga",
+      "state": "SP",
+      "neighborhood": "Centro",
+      "address": "Praça da Matriz, 200",
+      "zipCode": "18330-000",
+      "phone": "(15) 3556-1131",
+      "email": "santana.iporanga@yahoo.com",
+      "website": "https://www.facebook.com/paroquiasantanadeiporanga/",
+      "priestName": "Pe. Marciel Teixeira de Oliveira",
+      "foundedYear": null,
+      "region": null,
+      "sources": [
+        {
+          "url": "https://diocesederegistro.com.br/paroquias/",
+          "title": "Paróquias – Diocese de Registro",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Sant'Ana",
+          "address": "Praça da Matriz, 200",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesederegistro.com.br/paroquias/",
+              "title": "Paróquias – Diocese de Registro",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-da-conceicao-jacupiranga",
+      "name": "Paróquia Nossa Senhora da Conceição",
+      "city": "Jacupiranga",
+      "state": "SP",
+      "neighborhood": "Centro",
+      "address": "Rua da Conceição, 284",
+      "zipCode": "11940-000",
+      "phone": "(13) 3864-1931",
+      "email": "paroquiajacupiranga@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Douglas Roberto Barbosa Caravage",
+      "foundedYear": null,
+      "region": null,
+      "sources": [
+        {
+          "url": "https://diocesederegistro.com.br/paroquias/",
+          "title": "Paróquias – Diocese de Registro",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora da Conceição",
+          "address": "Rua da Conceição, 284",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesederegistro.com.br/paroquias/",
+              "title": "Paróquias – Diocese de Registro",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": "Horário registrado pelo agregador horariodemissa.com.br, cuja ficha declara última atualização em 20/03/2013 — 13 anos sem revisão. Precisa de confirmação com a paróquia.",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=52Nyn",
+              "title": "Paróquia Nossa Senhora da Conceição — horários de missa",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Horário registrado pelo agregador horariodemissa.com.br, cuja ficha declara última atualização em 20/03/2013 — 13 anos sem revisão. Precisa de confirmação com a paróquia.",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=52Nyn",
+              "title": "Paróquia Nossa Senhora da Conceição — horários de missa",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Horário registrado pelo agregador horariodemissa.com.br, cuja ficha declara última atualização em 20/03/2013 — 13 anos sem revisão. Precisa de confirmação com a paróquia.",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=52Nyn",
+              "title": "Paróquia Nossa Senhora da Conceição — horários de missa",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 5,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Com bênção do Santíssimo. Horário registrado pelo agregador horariodemissa.com.br, cuja ficha declara última atualização em 20/03/2013 — 13 anos sem revisão. Precisa de confirmação com a paróquia.",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=52Nyn",
+              "title": "Paróquia Nossa Senhora da Conceição — horários de missa",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ],
+      "notes": "Pe. Douglas Roberto Barbosa Caravage consta como administrador paroquial."
+    },
+    {
+      "slug": "sao-francisco-xavier-registro",
+      "name": "Catedral São Francisco Xavier",
+      "city": "Registro",
+      "state": "SP",
+      "neighborhood": "Centro",
+      "address": "Rua Pio XI, 78",
+      "zipCode": "11900-000",
+      "phone": "(13) 3821-1019",
+      "email": "catedralderegistro@uol.com.br",
+      "website": null,
+      "priestName": "Pe. Roberto Luiz da Silva",
+      "foundedYear": null,
+      "region": null,
+      "sources": [
+        {
+          "url": "https://diocesederegistro.com.br/paroquias/",
+          "title": "Paróquias – Diocese de Registro",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Catedral São Francisco Xavier",
+          "address": "Rua Pio XI, 78",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesederegistro.com.br/paroquias/",
+              "title": "Paróquias – Diocese de Registro",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [],
+      "notes": "Sé catedral. A diocese publica o endereço como 'Rua Pio XI – Centro'; o número 78 vem da ficha do horariodemissa.com.br. O sacerdote consta como Cura da Catedral. O site catedralderegistro.com.br estava fora do ar em 10/09/2026."
+    },
+    {
+      "slug": "sao-jose-operario-registro",
+      "name": "Paróquia São José Operário",
+      "city": "Registro",
+      "state": "SP",
+      "neighborhood": "Pedreira",
+      "address": "Rua Vitória, 30",
+      "zipCode": "11900-000",
+      "phone": "(13) 3822-5225",
+      "email": "igreja.sjose.operario@gmail.com",
+      "website": "https://www.facebook.com/paroquiasaojoseoperariorgt/",
+      "priestName": "Pe. Luiz Carlos de Moraes Pinheiro",
+      "foundedYear": null,
+      "region": null,
+      "sources": [
+        {
+          "url": "https://diocesederegistro.com.br/paroquias/",
+          "title": "Paróquias – Diocese de Registro",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São José Operário",
+          "address": "Rua Vitória, 30",
+          "neighborhood": "Pedreira",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesederegistro.com.br/paroquias/",
+              "title": "Paróquias – Diocese de Registro",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [],
+      "notes": "Endereço divergente entre fontes: a diocese publica 'Rua Vitória, 30 – B. Pedreira'; o horariodemissa.com.br (2013) traz 'Rua Vitória, 76 – Vila Ribeirópolis'. Gravado o da diocese."
+    },
+    {
+      "slug": "nossa-senhora-aparecida-registro",
+      "name": "Paróquia Nossa Senhora Aparecida",
+      "city": "Registro",
+      "state": "SP",
+      "neighborhood": "Vila Nova Ribeira",
+      "address": "Rua Estados Unidos, 295",
+      "zipCode": "11900-000",
+      "phone": "(13) 3822-2045",
+      "email": "matriznsaparecida@uol.com.br",
+      "website": "https://www.facebook.com/ParoquiaNossaSenhoraAparecidaRegistroSP/",
+      "priestName": "Pe. Danilo Eduardo Vieira",
+      "foundedYear": null,
+      "region": null,
+      "sources": [
+        {
+          "url": "https://diocesederegistro.com.br/paroquias/",
+          "title": "Paróquias – Diocese de Registro",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora Aparecida",
+          "address": "Rua Estados Unidos, 295",
+          "neighborhood": "Vila Nova Ribeira",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesederegistro.com.br/paroquias/",
+              "title": "Paróquias – Diocese de Registro",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [],
+      "notes": "A diocese registra como vigário Dom José Luiz Bertanha, SVD, bispo emérito de Registro."
+    },
+    {
+      "slug": "nossa-senhora-do-carmo-registro",
+      "name": "Paróquia Nossa Senhora do Carmo",
+      "city": "Registro",
+      "state": "SP",
+      "neighborhood": null,
+      "address": null,
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Clemente Addae Kyei, SVD",
+      "foundedYear": null,
+      "region": null,
+      "sources": [
+        {
+          "url": "https://diocesederegistro.com.br/paroquias/",
+          "title": "Paróquias – Diocese de Registro",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora do Carmo",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesederegistro.com.br/paroquias/",
+              "title": "Paróquias – Diocese de Registro",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [],
+      "notes": "A diocese publica apenas o nome da paróquia e o pároco — sem endereço, telefone ou e-mail."
+    },
+    {
+      "slug": "nossa-senhora-do-sagrado-coracao-registro",
+      "name": "Quase-paróquia Nossa Senhora do Sagrado Coração",
+      "city": "Registro",
+      "state": "SP",
+      "neighborhood": "Arapongal",
+      "address": "Rua Jatobá, 20",
+      "zipCode": "11900-000",
+      "phone": "(13) 99633-7104",
+      "email": "paroquianssagradocoracao@gmail.com",
+      "website": null,
+      "priestName": "Pe. Orlando José Pacheco",
+      "foundedYear": null,
+      "region": null,
+      "sources": [
+        {
+          "url": "https://diocesederegistro.com.br/paroquias/",
+          "title": "Paróquias – Diocese de Registro",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora do Sagrado Coração",
+          "address": "Rua Jatobá, 20",
+          "neighborhood": "Arapongal",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesederegistro.com.br/paroquias/",
+              "title": "Paróquias – Diocese de Registro",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [],
+      "notes": "Quase-paróquia (a diocese a descreve como 'área pastoral' na apresentação institucional). Pe. Orlando José Pacheco consta como administrador paroquial.",
+      "loadAsParish": true
+    },
+    {
+      "slug": "sao-joao-batista-sete-barras",
+      "name": "Paróquia São João Batista",
+      "city": "Sete Barras",
+      "state": "SP",
+      "neighborhood": "Centro",
+      "address": "Praça São João Batista, 48",
+      "zipCode": "11910-000",
+      "phone": "(13) 3872-1263",
+      "email": "paroquiasaojoaobatista7b@gmail.com",
+      "website": null,
+      "priestName": "Pe. Francisco Rodrigues da Rocha Neto",
+      "foundedYear": null,
+      "region": null,
+      "sources": [
+        {
+          "url": "https://diocesederegistro.com.br/paroquias/",
+          "title": "Paróquias – Diocese de Registro",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São João Batista",
+          "address": "Praça São João Batista, 48",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesederegistro.com.br/paroquias/",
+              "title": "Paróquias – Diocese de Registro",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São João Batista",
+          "dayOfWeek": 0,
+          "time": "10:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesederegistro.com.br/paroquias/",
+              "title": "Paróquia São João Batista — horários de missa",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São João Batista",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesederegistro.com.br/paroquias/",
+              "title": "Paróquia São João Batista — horários de missa",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São João Batista",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesederegistro.com.br/paroquias/",
+              "title": "Paróquia São João Batista — horários de missa",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-do-monte-serrat-e-sao-benedito-itariri",
+      "name": "Paróquia Nossa Senhora do Monte Serrat e São Benedito",
+      "city": "Itariri",
+      "state": "SP",
+      "neighborhood": "Centro",
+      "address": "Rua Antônio da Fonseca, 5",
+      "zipCode": "11760-000",
+      "phone": "(13) 3418-1167",
+      "email": "paroquiaitariri@yahoo.com.br",
+      "website": "https://www.facebook.com/paroquiaitariri/",
+      "priestName": "Pe. Rafael Braga",
+      "foundedYear": null,
+      "region": null,
+      "sources": [
+        {
+          "url": "https://diocesederegistro.com.br/paroquias/",
+          "title": "Paróquias – Diocese de Registro",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora do Monte Serrat e São Benedito",
+          "address": "Rua Antônio da Fonseca, 5",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesederegistro.com.br/paroquias/",
+              "title": "Paróquias – Diocese de Registro",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora do Monte Serrat e São Benedito",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": "Horário registrado pelo agregador horariodemissa.com.br, cuja ficha declara última atualização em 20/03/2013 — 13 anos sem revisão. Precisa de confirmação com a paróquia.",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=Jfsnr",
+              "title": "Paróquia Nossa Senhora do Monte Serrat e São Benedito — horários de missa",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Monte Serrat e São Benedito",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Horário registrado pelo agregador horariodemissa.com.br, cuja ficha declara última atualização em 20/03/2013 — 13 anos sem revisão. Precisa de confirmação com a paróquia.",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=Jfsnr",
+              "title": "Paróquia Nossa Senhora do Monte Serrat e São Benedito — horários de missa",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Monte Serrat e São Benedito",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Horário registrado pelo agregador horariodemissa.com.br, cuja ficha declara última atualização em 20/03/2013 — 13 anos sem revisão. Precisa de confirmação com a paróquia.",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=Jfsnr",
+              "title": "Paróquia Nossa Senhora do Monte Serrat e São Benedito — horários de missa",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ],
+      "notes": "Pe. Rafael Braga consta como administrador paroquial."
+    },
+    {
+      "slug": "santo-antonio-juquia",
+      "name": "Paróquia Santo Antônio",
+      "city": "Juquiá",
+      "state": "SP",
+      "neighborhood": "Centro",
+      "address": "Praça Felipe Fernandes, 71",
+      "zipCode": "11800-000",
+      "phone": "(13) 3844-1284",
+      "email": "stoantoniojuquia@outlook.com",
+      "website": null,
+      "priestName": "Pe. Joy Talachira, SVD",
+      "foundedYear": null,
+      "region": null,
+      "sources": [
+        {
+          "url": "https://diocesederegistro.com.br/paroquias/",
+          "title": "Paróquias – Diocese de Registro",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Santo Antônio",
+          "address": "Praça Felipe Fernandes, 71",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesederegistro.com.br/paroquias/",
+              "title": "Paróquias – Diocese de Registro",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [],
+      "notes": "Paróquia confiada aos Missionários do Verbo Divino (SVD)."
+    },
+    {
+      "slug": "nossa-senhora-das-dores-miracatu",
+      "name": "Paróquia Nossa Senhora das Dores",
+      "city": "Miracatu",
+      "state": "SP",
+      "neighborhood": "Centro",
+      "address": "Rua Joaquim Dias Ferreira, 7",
+      "zipCode": "11850-000",
+      "phone": "(13) 3847-1172",
+      "email": "paroqnsd@hotmail.com",
+      "website": "https://www.facebook.com/nsdores/",
+      "priestName": "Pe. Luiz Rodrigues Batista, CSsR",
+      "foundedYear": null,
+      "region": null,
+      "sources": [
+        {
+          "url": "https://diocesederegistro.com.br/paroquias/",
+          "title": "Paróquias – Diocese de Registro",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora das Dores",
+          "address": "Rua Joaquim Dias Ferreira, 7",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesederegistro.com.br/paroquias/",
+              "title": "Paróquias – Diocese de Registro",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [],
+      "notes": "Paróquia confiada aos Missionários Redentoristas."
+    },
+    {
+      "slug": "sant-ana-pedro-de-toledo",
+      "name": "Paróquia Sant'Ana",
+      "city": "Pedro de Toledo",
+      "state": "SP",
+      "neighborhood": "Centro",
+      "address": "Largo da Matriz, s/n",
+      "zipCode": "11790-000",
+      "phone": "(13) 3419-1312",
+      "email": null,
+      "website": "https://www.facebook.com/paroquiapedrodetoledo/",
+      "priestName": "Pe. Cleitom Soares",
+      "foundedYear": null,
+      "region": null,
+      "sources": [
+        {
+          "url": "https://diocesederegistro.com.br/paroquias/",
+          "title": "Paróquias – Diocese de Registro",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Sant'Ana",
+          "address": "Largo da Matriz, s/n",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesederegistro.com.br/paroquias/",
+              "title": "Paróquias – Diocese de Registro",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [],
+      "notes": "Pe. Cleitom Soares consta como administrador paroquial. O e-mail publicado, 'paroquiasantanapt@gmail.com.br', é malformado e não foi gravado."
+    },
+    {
+      "slug": "sao-joao-batista-cananeia",
+      "name": "Paróquia São João Batista",
+      "city": "Cananéia",
+      "state": "SP",
+      "neighborhood": "Centro",
+      "address": "Rua Tristão Lobo, 231",
+      "zipCode": "11990-000",
+      "phone": "(13) 3851-1223",
+      "email": "psjbcananeia@outlook.com",
+      "website": "https://www.facebook.com/paroquiadecananeia/",
+      "priestName": "Pe. Arinildo Aparecido de Souza",
+      "foundedYear": null,
+      "region": null,
+      "sources": [
+        {
+          "url": "https://diocesederegistro.com.br/paroquias/",
+          "title": "Paróquias – Diocese de Registro",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São João Batista",
+          "address": "Rua Tristão Lobo, 231",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesederegistro.com.br/paroquias/",
+              "title": "Paróquias – Diocese de Registro",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São João Batista",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": "Horário registrado pelo agregador horariodemissa.com.br, cuja ficha declara última atualização em 20/03/2013 — 13 anos sem revisão. Precisa de confirmação com a paróquia.",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=1aNH3",
+              "title": "Paróquia São João Batista — horários de missa",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São João Batista",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Horário registrado pelo agregador horariodemissa.com.br, cuja ficha declara última atualização em 20/03/2013 — 13 anos sem revisão. Precisa de confirmação com a paróquia.",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=1aNH3",
+              "title": "Paróquia São João Batista — horários de missa",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São João Batista",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Horário registrado pelo agregador horariodemissa.com.br, cuja ficha declara última atualização em 20/03/2013 — 13 anos sem revisão. Precisa de confirmação com a paróquia.",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=1aNH3",
+              "title": "Paróquia São João Batista — horários de missa",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-das-neves-iguape",
+      "name": "Paróquia Nossa Senhora das Neves",
+      "city": "Iguape",
+      "state": "SP",
+      "neighborhood": "Centro",
+      "address": "Praça da Basílica, 114",
+      "zipCode": "11920-000",
+      "phone": "(13) 3841-1131",
+      "email": "senhorbomjesusdeiguape@yahoo.com.br",
+      "website": "https://senhorbomjesusdeiguape.com.br",
+      "priestName": "Pe. Rubens da Cruz Carneiro Neto",
+      "foundedYear": null,
+      "region": null,
+      "sources": [
+        {
+          "url": "https://diocesederegistro.com.br/paroquias/",
+          "title": "Paróquias – Diocese de Registro",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora das Neves",
+          "address": "Praça da Basílica, 114",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesederegistro.com.br/paroquias/",
+              "title": "Paróquias – Diocese de Registro",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Basílica Santuário do Senhor Bom Jesus de Iguape",
+          "address": null,
+          "neighborhood": "Centro",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesederegistro.com.br/paroquias/",
+              "title": "Paróquias – Diocese de Registro",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Basílica Santuário do Senhor Bom Jesus de Iguape",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesederegistro.com.br/paroquias/",
+              "title": "Paróquia Nossa Senhora das Neves — horários de missa",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Basílica Santuário do Senhor Bom Jesus de Iguape",
+          "dayOfWeek": 0,
+          "time": "10:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesederegistro.com.br/paroquias/",
+              "title": "Paróquia Nossa Senhora das Neves — horários de missa",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Basílica Santuário do Senhor Bom Jesus de Iguape",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesederegistro.com.br/paroquias/",
+              "title": "Paróquia Nossa Senhora das Neves — horários de missa",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Basílica Santuário do Senhor Bom Jesus de Iguape",
+          "dayOfWeek": 1,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesederegistro.com.br/paroquias/",
+              "title": "Paróquia Nossa Senhora das Neves — horários de missa",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Basílica Santuário do Senhor Bom Jesus de Iguape",
+          "dayOfWeek": 2,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesederegistro.com.br/paroquias/",
+              "title": "Paróquia Nossa Senhora das Neves — horários de missa",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Basílica Santuário do Senhor Bom Jesus de Iguape",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesederegistro.com.br/paroquias/",
+              "title": "Paróquia Nossa Senhora das Neves — horários de missa",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Basílica Santuário do Senhor Bom Jesus de Iguape",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesederegistro.com.br/paroquias/",
+              "title": "Paróquia Nossa Senhora das Neves — horários de missa",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Basílica Santuário do Senhor Bom Jesus de Iguape",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesederegistro.com.br/paroquias/",
+              "title": "Paróquia Nossa Senhora das Neves — horários de missa",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Basílica Santuário do Senhor Bom Jesus de Iguape",
+          "dayOfWeek": 6,
+          "time": "10:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesederegistro.com.br/paroquias/",
+              "title": "Paróquia Nossa Senhora das Neves — horários de missa",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Basílica Santuário do Senhor Bom Jesus de Iguape",
+          "dayOfWeek": 6,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesederegistro.com.br/paroquias/",
+              "title": "Paróquia Nossa Senhora das Neves — horários de missa",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "notes": "Paróquia confiada aos Missionários do Verbo Divino (SVD); o pároco é também administrador do Santuário Basílica do Senhor Bom Jesus de Iguape, no mesmo endereço. Os horários que a diocese publica sob esta paróquia são explicitamente 'na Basílica' e foram gravados nessa comunidade."
+    },
+    {
+      "slug": "nossa-senhora-do-rocio-iguape",
+      "name": "Paróquia Nossa Senhora do Rocio",
+      "city": "Iguape",
+      "state": "SP",
+      "neighborhood": "Rocio",
+      "address": "Rua Vereador René Pereira, 97",
+      "zipCode": "11920-000",
+      "phone": "(13) 3841-4225",
+      "email": "par.nsrocio@yahoo.com.br",
+      "website": null,
+      "priestName": "Pe. Jeferson de Souza Pantaleão",
+      "foundedYear": null,
+      "region": null,
+      "sources": [
+        {
+          "url": "https://diocesederegistro.com.br/paroquias/",
+          "title": "Paróquias – Diocese de Registro",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora do Rocio",
+          "address": "Rua Vereador René Pereira, 97",
+          "neighborhood": "Rocio",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesederegistro.com.br/paroquias/",
+              "title": "Paróquias – Diocese de Registro",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [],
+      "notes": "Pe. Jeferson de Souza Pantaleão consta como administrador paroquial. A secretaria funciona em outro endereço: Rua Antônio Pedro de Andrade, 225."
+    },
+    {
+      "slug": "nossa-senhora-estrela-do-mar-ilha-comprida",
+      "name": "Paróquia Nossa Senhora Estrela do Mar",
+      "city": "Ilha Comprida",
+      "state": "SP",
+      "neighborhood": "Balneário Icaraí",
+      "address": "Avenida Batatais, 485",
+      "zipCode": "11925-000",
+      "phone": "(13) 3842-3879",
+      "email": "paroquiailha@hotmail.com",
+      "website": "https://www.facebook.com/NossaSenhoraEstreladoMar/",
+      "priestName": "Pe. Peter Kumar Chigurupati, SVD",
+      "foundedYear": null,
+      "region": null,
+      "sources": [
+        {
+          "url": "https://diocesederegistro.com.br/paroquias/",
+          "title": "Paróquias – Diocese de Registro",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora Estrela do Mar",
+          "address": "Avenida Batatais, 485",
+          "neighborhood": "Balneário Icaraí",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesederegistro.com.br/paroquias/",
+              "title": "Paróquias – Diocese de Registro",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora Estrela do Mar",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Horário registrado pelo agregador horariodemissa.com.br, cuja ficha declara última atualização em 20/03/2013 — 13 anos sem revisão. Precisa de confirmação com a paróquia.",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=vzdDO",
+              "title": "Paróquia Nossa Senhora Estrela do Mar — horários de missa",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora Estrela do Mar",
+          "dayOfWeek": 3,
+          "time": "07:30",
+          "type": "MASS",
+          "notes": "Horário registrado pelo agregador horariodemissa.com.br, cuja ficha declara última atualização em 20/03/2013 — 13 anos sem revisão. Precisa de confirmação com a paróquia.",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=vzdDO",
+              "title": "Paróquia Nossa Senhora Estrela do Mar — horários de missa",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora Estrela do Mar",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Horário registrado pelo agregador horariodemissa.com.br, cuja ficha declara última atualização em 20/03/2013 — 13 anos sem revisão. Precisa de confirmação com a paróquia.",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=vzdDO",
+              "title": "Paróquia Nossa Senhora Estrela do Mar — horários de missa",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ],
+      "notes": "Paróquia confiada aos Missionários do Verbo Divino (SVD). A diocese grafa o pároco como 'Pe. Kumar (Peter) Chigurupati, SVD'."
+    },
+    {
+      "slug": "sao-paulo-apostolo-pariquera-acu",
+      "name": "Paróquia São Paulo Apóstolo",
+      "city": "Pariquera-Açu",
+      "state": "SP",
+      "neighborhood": "Centro",
+      "address": "Rua João Araújo Rangel, 82",
+      "zipCode": "11930-000",
+      "phone": "(13) 3856-1282",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Gilberto de França",
+      "foundedYear": null,
+      "region": null,
+      "sources": [
+        {
+          "url": "https://diocesederegistro.com.br/paroquias/",
+          "title": "Paróquias – Diocese de Registro",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Paulo Apóstolo",
+          "address": "Rua João Araújo Rangel, 82",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesederegistro.com.br/paroquias/",
+              "title": "Paróquias – Diocese de Registro",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [],
+      "notes": "O e-mail publicado, 'paroquiadepariquera@gmail.com.br', é malformado e não foi gravado."
+    },
+    {
+      "slug": "basilica-do-senhor-bom-jesus-de-iguape-iguape",
+      "name": "Santuário Basílica do Senhor Bom Jesus de Iguape",
+      "city": "Iguape",
+      "state": "SP",
+      "neighborhood": "Centro",
+      "address": "Praça da Basílica, 114",
+      "zipCode": "11920-000",
+      "phone": "(13) 3841-4910",
+      "email": "contato@senhorbomjesusdeiguape.com.br",
+      "website": "https://senhorbomjesusdeiguape.com.br",
+      "priestName": "Pe. Rubens da Cruz Carneiro Neto",
+      "foundedYear": null,
+      "region": null,
+      "sources": [
+        {
+          "url": "https://diocesederegistro.com.br/paroquias/",
+          "title": "Paróquias – Diocese de Registro",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Santuário Basílica do Senhor Bom Jesus de Iguape",
+          "address": "Praça da Basílica, 114",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesederegistro.com.br/paroquias/",
+              "title": "Paróquias – Diocese de Registro",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [],
+      "status": "nao-paroquial",
+      "jurisdictionNote": "Basílica menor e santuário diocesano, sem território próprio: é administrado pelo pároco de Nossa Senhora das Neves, no mesmo endereço. Os horários de missa publicados pela diocese 'na Basílica' foram gravados como comunidade daquela paróquia para não duplicar registros."
+    }
+  ],
+  "coverage": {
+    "parishesFound": 19,
+    "parishesExpected": 19,
+    "notes": "A página oficial /paroquias/ (atualizada em 03/06/2026) lista 21 entradas: 19 paróquias — incluindo a Catedral São Francisco Xavier e o Santuário Nossa Senhora da Guia, que a diocese registra como 'Paróquia Santuário' —, 1 quase-paróquia (Nossa Senhora do Sagrado Coração, Arapongal/Registro) e o Santuário Basílica do Senhor Bom Jesus de Iguape, que não tem território próprio. As 19 paróquias batem com o Anuário Pontifício (catholic-hierarchy). A diocese declara mais de 307 comunidades no Vale do Ribeira, mas NÃO publica a lista — nenhuma comunidade rural ou caiçara pôde ser levantada."
+  }
+}
