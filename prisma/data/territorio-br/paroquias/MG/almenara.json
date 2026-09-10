@@ -1,0 +1,1921 @@
+{
+ "diocese": {
+  "name": "Diocese de Almenara",
+  "type": "Diocese",
+  "slug": "almenara",
+  "city": "Almenara",
+  "state": "MG",
+  "address": "Praça João Pessoa, 187 – Centro",
+  "zipCode": "39900-000",
+  "phone": "(33) 3721-1517 / (33) 98840-0051",
+  "email": "diocesedealmenara@gmail.com",
+  "website": "https://www.diocesedealmenara.org.br",
+  "bishopName": "Dom José Hamilton de Castro",
+  "sources": [
+   {
+    "url": "https://www.diocesedealmenara.org.br/paroquias/",
+    "title": "Paróquias – Diocese de Almenara (site oficial; 18 paróquias com endereço, CEP, telefone, e-mail e pároco; página atualizada em 30/04/2024)",
+    "accessedAt": "2026-09-10"
+   },
+   {
+    "url": "https://www.diocesedealmenara.org.br/foranias/",
+    "title": "Foranias – Diocese de Almenara (site oficial; 5 foranias e seus vigários forâneos; página atualizada em 30/04/2024)",
+    "accessedAt": "2026-09-10"
+   },
+   {
+    "url": "https://www.catholic-hierarchy.org/diocese/dalme.html",
+    "title": "Almenara (Diocese) [Catholic-Hierarchy] — erigida em 28/03/1981; 15.618 km²; 176.808 hab., 143.224 católicos (2023); 19 paróquias; Dom José Hamilton de Castro desde 12/04/2023; sufragânea de Diamantina",
+    "accessedAt": "2026-09-10"
+   },
+   {
+    "url": "https://gcatholic.org/dioceses/diocese/alme0.htm",
+    "title": "Diocese of Almenara [GCatholic] — erigida em 28/03/1981, desmembrada de Araçuaí e Teófilo Otoni; 19 paróquias e 2 missões",
+    "accessedAt": "2026-09-10"
+   },
+   {
+    "url": "https://gcatholic.org/churches/local/alme0",
+    "title": "Churches in the Diocese of Almenara [GCatholic] — 22 igrejas por cidade (atualizado em 01/01/2026)",
+    "accessedAt": "2026-09-10"
+   },
+   {
+    "url": "http://www.diocesedealmenara.org.br/diocese-de-almenara-celebra-a-instalacao-de-nova-paroquia-e-posse-do-primeiro-paroco/",
+    "title": "Diocese de Almenara celebra a instalação de nova Paróquia em Palmópolis (08/12/2019) — a 18ª paróquia da diocese",
+    "accessedAt": "2026-09-10"
+   }
+  ],
+  "confidence": "alta"
+ },
+ "parishes": [
+  {
+   "slug": "sao-joao-batista-almenara",
+   "name": "Catedral São João Batista",
+   "city": "Almenara",
+   "state": "MG",
+   "neighborhood": "Centro",
+   "address": "Praça Alvimar dos Santos Lopes, 14 – Centro",
+   "zipCode": "39900-000",
+   "phone": "(33) 3721-1177",
+   "email": "psjbcatedarl@gmail.com",
+   "website": null,
+   "priestName": "Pe. Rafael de Oliveira Pereira",
+   "foundedYear": 1913,
+   "forania": "Forania Centro",
+   "notes": "Data de criação publicada: agosto/1913. Vigário paroquial: Pe. Frei Rogério de Sousa Rodrigues. O agregador horariodemissa.com.br dá o endereço como \"Praça Benedito Valadares, Centro\" — divergente do site diocesano.",
+   "sources": [
+    {
+     "url": "https://www.diocesedealmenara.org.br/paroquias/",
+     "title": "Paróquias – Diocese de Almenara (site oficial; 18 paróquias com endereço, CEP, telefone, e-mail e pároco; página atualizada em 30/04/2024)",
+     "accessedAt": "2026-09-10"
+    },
+    {
+     "url": "https://www.diocesedealmenara.org.br/foranias/",
+     "title": "Foranias – Diocese de Almenara (site oficial; 5 foranias e seus vigários forâneos; página atualizada em 30/04/2024)",
+     "accessedAt": "2026-09-10"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Almenara&opcoes=cidade_opcoes&submit=12345678",
+     "title": "Horário de Missa (agregador) – Almenara/MG",
+     "accessedAt": "2026-09-10"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Catedral São João Batista",
+     "address": "Praça Alvimar dos Santos Lopes, 14 – Centro",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedealmenara.org.br/paroquias/",
+       "title": "Paróquias – Diocese de Almenara (site oficial; 18 paróquias com endereço, CEP, telefone, e-mail e pároco; página atualizada em 30/04/2024)",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Catedral São João Batista",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Almenara&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa (agregador) – Almenara/MG",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Catedral São João Batista",
+     "dayOfWeek": 0,
+     "time": "09:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Almenara&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa (agregador) – Almenara/MG",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Catedral São João Batista",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Almenara&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa (agregador) – Almenara/MG",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Catedral São João Batista",
+     "dayOfWeek": 1,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Almenara&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa (agregador) – Almenara/MG",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Catedral São João Batista",
+     "dayOfWeek": 2,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Almenara&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa (agregador) – Almenara/MG",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Catedral São João Batista",
+     "dayOfWeek": 3,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Almenara&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa (agregador) – Almenara/MG",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Catedral São João Batista",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Almenara&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa (agregador) – Almenara/MG",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Catedral São João Batista",
+     "dayOfWeek": 5,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Almenara&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa (agregador) – Almenara/MG",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Catedral São João Batista",
+     "dayOfWeek": 6,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Almenara&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa (agregador) – Almenara/MG",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "sao-pedro-apostolo-almenara",
+   "name": "Paróquia São Pedro Apóstolo",
+   "city": "Almenara",
+   "state": "MG",
+   "neighborhood": "São Pedro",
+   "address": "Rua Hélio Ferreira, 475 – Bairro São Pedro",
+   "zipCode": "39900-000",
+   "phone": "(33) 3721-2545",
+   "email": "pspapostolo@yahoo.com.br",
+   "website": null,
+   "priestName": "Pe. Cláudio Eduardo Cordeiro",
+   "foundedYear": 1982,
+   "forania": "Forania Centro",
+   "notes": "Nome completo no site: \"Paróquia São Pedro Apóstolo e Propedêutico\" (sedia o Propedêutico diocesano). Data de criação publicada: 25/12/1982. O agregador dá o endereço como \"Praça Dr. José Ponciano de Sena, 410, São Pedro\".",
+   "sources": [
+    {
+     "url": "https://www.diocesedealmenara.org.br/paroquias/",
+     "title": "Paróquias – Diocese de Almenara (site oficial; 18 paróquias com endereço, CEP, telefone, e-mail e pároco; página atualizada em 30/04/2024)",
+     "accessedAt": "2026-09-10"
+    },
+    {
+     "url": "https://www.diocesedealmenara.org.br/foranias/",
+     "title": "Foranias – Diocese de Almenara (site oficial; 5 foranias e seus vigários forâneos; página atualizada em 30/04/2024)",
+     "accessedAt": "2026-09-10"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Almenara&opcoes=cidade_opcoes&submit=12345678",
+     "title": "Horário de Missa (agregador) – Almenara/MG",
+     "accessedAt": "2026-09-10"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz São Pedro Apóstolo",
+     "address": "Rua Hélio Ferreira, 475 – Bairro São Pedro",
+     "neighborhood": "São Pedro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedealmenara.org.br/paroquias/",
+       "title": "Paróquias – Diocese de Almenara (site oficial; 18 paróquias com endereço, CEP, telefone, e-mail e pároco; página atualizada em 30/04/2024)",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz São Pedro Apóstolo",
+     "dayOfWeek": 0,
+     "time": "09:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Almenara&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa (agregador) – Almenara/MG",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Pedro Apóstolo",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Almenara&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa (agregador) – Almenara/MG",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Pedro Apóstolo",
+     "dayOfWeek": 3,
+     "time": "06:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Almenara&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa (agregador) – Almenara/MG",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Pedro Apóstolo",
+     "dayOfWeek": 5,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Almenara&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa (agregador) – Almenara/MG",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "senhor-bom-jesus-bandeira",
+   "name": "Paróquia Senhor Bom Jesus",
+   "city": "Bandeira",
+   "state": "MG",
+   "neighborhood": "Tayana Parque",
+   "address": "Rua Antônio Rocha, 30 – Bairro Tayana Parque",
+   "zipCode": "39917-000",
+   "phone": "(33) 3728-1359",
+   "email": "psbjesusbandeira@gmail.com",
+   "website": null,
+   "priestName": "Pe. Fabrício Ferreira Rosa",
+   "foundedYear": null,
+   "forania": "Forania Centro",
+   "notes": "O telefone publicado é o da casa das irmãs. Pe. Fabrício Ferreira Rosa é também vigário forâneo da Forania Centro.",
+   "sources": [
+    {
+     "url": "https://www.diocesedealmenara.org.br/paroquias/",
+     "title": "Paróquias – Diocese de Almenara (site oficial; 18 paróquias com endereço, CEP, telefone, e-mail e pároco; página atualizada em 30/04/2024)",
+     "accessedAt": "2026-09-10"
+    },
+    {
+     "url": "https://www.diocesedealmenara.org.br/foranias/",
+     "title": "Foranias – Diocese de Almenara (site oficial; 5 foranias e seus vigários forâneos; página atualizada em 30/04/2024)",
+     "accessedAt": "2026-09-10"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Bandeira&opcoes=cidade_opcoes&submit=12345678",
+     "title": "Horário de Missa (agregador) – Bandeira/MG",
+     "accessedAt": "2026-09-10"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Senhor Bom Jesus",
+     "address": "Rua Antônio Rocha, 30 – Bairro Tayana Parque",
+     "neighborhood": "Tayana Parque",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedealmenara.org.br/paroquias/",
+       "title": "Paróquias – Diocese de Almenara (site oficial; 18 paróquias com endereço, CEP, telefone, e-mail e pároco; página atualizada em 30/04/2024)",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Senhor Bom Jesus",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Bandeira&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa (agregador) – Bandeira/MG",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-da-consolacao-divisopolis",
+   "name": "Paróquia Nossa Senhora da Consolação",
+   "city": "Divisópolis",
+   "state": "MG",
+   "neighborhood": "Centro",
+   "address": "Rua Fetaemg, 266 – Centro",
+   "zipCode": "39912-000",
+   "phone": "(33) 3724-1365",
+   "email": "paroquiadivisopolis@gmail.com",
+   "website": null,
+   "priestName": "Pe. Sebastião dos Santos Neto",
+   "foundedYear": null,
+   "forania": "Forania Norte",
+   "notes": "Pe. Sebastião dos Santos Neto é vigário forâneo da Forania Norte e também administrador paroquial de Mata Verde.",
+   "sources": [
+    {
+     "url": "https://www.diocesedealmenara.org.br/paroquias/",
+     "title": "Paróquias – Diocese de Almenara (site oficial; 18 paróquias com endereço, CEP, telefone, e-mail e pároco; página atualizada em 30/04/2024)",
+     "accessedAt": "2026-09-10"
+    },
+    {
+     "url": "https://www.diocesedealmenara.org.br/foranias/",
+     "title": "Foranias – Diocese de Almenara (site oficial; 5 foranias e seus vigários forâneos; página atualizada em 30/04/2024)",
+     "accessedAt": "2026-09-10"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Divisópolis&opcoes=cidade_opcoes&submit=12345678",
+     "title": "Horário de Missa (agregador) – Divisópolis/MG",
+     "accessedAt": "2026-09-10"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora da Consolação",
+     "address": "Rua Fetaemg, 266 – Centro",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedealmenara.org.br/paroquias/",
+       "title": "Paróquias – Diocese de Almenara (site oficial; 18 paróquias com endereço, CEP, telefone, e-mail e pároco; página atualizada em 30/04/2024)",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Nossa Senhora da Consolação",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Divisópolis&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa (agregador) – Divisópolis/MG",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-do-rosario-felisburgo",
+   "name": "Paróquia Nossa Senhora do Rosário",
+   "city": "Felisburgo",
+   "state": "MG",
+   "neighborhood": "Centro",
+   "address": "Rua Dionízio Figueiredo, 35 – Centro",
+   "zipCode": "39895-000",
+   "phone": "(33) 3743-1224",
+   "email": "paroquiafelisburgo.nsrosario@bol.com.br",
+   "website": null,
+   "priestName": "Pe. Alexandre Pereira Gomes",
+   "foundedYear": null,
+   "forania": "Forania Sul",
+   "notes": "O mesmo pároco responde por Rio do Prado. O agregador dá o endereço como \"Praça São Sebastião, Centro\".",
+   "sources": [
+    {
+     "url": "https://www.diocesedealmenara.org.br/paroquias/",
+     "title": "Paróquias – Diocese de Almenara (site oficial; 18 paróquias com endereço, CEP, telefone, e-mail e pároco; página atualizada em 30/04/2024)",
+     "accessedAt": "2026-09-10"
+    },
+    {
+     "url": "https://www.diocesedealmenara.org.br/foranias/",
+     "title": "Foranias – Diocese de Almenara (site oficial; 5 foranias e seus vigários forâneos; página atualizada em 30/04/2024)",
+     "accessedAt": "2026-09-10"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Felisburgo&opcoes=cidade_opcoes&submit=12345678",
+     "title": "Horário de Missa (agregador) – Felisburgo/MG",
+     "accessedAt": "2026-09-10"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora do Rosário",
+     "address": "Rua Dionízio Figueiredo, 35 – Centro",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedealmenara.org.br/paroquias/",
+       "title": "Paróquias – Diocese de Almenara (site oficial; 18 paróquias com endereço, CEP, telefone, e-mail e pároco; página atualizada em 30/04/2024)",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Nossa Senhora do Rosário",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Felisburgo&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa (agregador) – Felisburgo/MG",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "sao-jose-fronteira-dos-vales",
+   "name": "Paróquia São José",
+   "city": "Fronteira dos Vales",
+   "state": "MG",
+   "neighborhood": "Centro",
+   "address": "Avenida Minas Gerais, 15 – Centro",
+   "zipCode": "39870-000",
+   "phone": "(33) 3623-1434",
+   "email": "padroeiro.saojose@yahoo.com.br",
+   "website": null,
+   "priestName": "Pe. Régis Dagoberto Fernandes",
+   "foundedYear": null,
+   "forania": "Forania Oeste",
+   "notes": "O site grafa a cidade como \"Fronteiras dos Vales\" no endereço. O agregador publica outro telefone: (33) 3623-1223.",
+   "sources": [
+    {
+     "url": "https://www.diocesedealmenara.org.br/paroquias/",
+     "title": "Paróquias – Diocese de Almenara (site oficial; 18 paróquias com endereço, CEP, telefone, e-mail e pároco; página atualizada em 30/04/2024)",
+     "accessedAt": "2026-09-10"
+    },
+    {
+     "url": "https://www.diocesedealmenara.org.br/foranias/",
+     "title": "Foranias – Diocese de Almenara (site oficial; 5 foranias e seus vigários forâneos; página atualizada em 30/04/2024)",
+     "accessedAt": "2026-09-10"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Fronteira dos Vales&opcoes=cidade_opcoes&submit=12345678",
+     "title": "Horário de Missa (agregador) – Fronteira dos Vales/MG",
+     "accessedAt": "2026-09-10"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz São José",
+     "address": "Avenida Minas Gerais, 15 – Centro",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedealmenara.org.br/paroquias/",
+       "title": "Paróquias – Diocese de Almenara (site oficial; 18 paróquias com endereço, CEP, telefone, e-mail e pároco; página atualizada em 30/04/2024)",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz São José",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Fronteira dos Vales&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa (agregador) – Fronteira dos Vales/MG",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "santo-antonio-de-padua-jacinto",
+   "name": "Paróquia Santo Antônio de Pádua",
+   "city": "Jacinto",
+   "state": "MG",
+   "neighborhood": "Centro",
+   "address": "Rua Hermelina Ferraz, 143 – Centro",
+   "zipCode": "39300-000",
+   "phone": "(33) 3723-1066",
+   "email": null,
+   "website": null,
+   "priestName": "Frei Esdras Alexandre Arêdes Costa, OFMCap",
+   "foundedYear": null,
+   "forania": "Forania Leste",
+   "notes": "O CEP publicado (39300-000) não corresponde a Jacinto/MG (o CEP do município é 39930-000) — validar. Também atua na paróquia Frei Carlos Fabiano, OFMCap. Confiada aos Capuchinhos.",
+   "sources": [
+    {
+     "url": "https://www.diocesedealmenara.org.br/paroquias/",
+     "title": "Paróquias – Diocese de Almenara (site oficial; 18 paróquias com endereço, CEP, telefone, e-mail e pároco; página atualizada em 30/04/2024)",
+     "accessedAt": "2026-09-10"
+    },
+    {
+     "url": "https://www.diocesedealmenara.org.br/foranias/",
+     "title": "Foranias – Diocese de Almenara (site oficial; 5 foranias e seus vigários forâneos; página atualizada em 30/04/2024)",
+     "accessedAt": "2026-09-10"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Jacinto&opcoes=cidade_opcoes&submit=12345678",
+     "title": "Horário de Missa (agregador) – Jacinto/MG",
+     "accessedAt": "2026-09-10"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Santo Antônio de Pádua",
+     "address": "Rua Hermelina Ferraz, 143 – Centro",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedealmenara.org.br/paroquias/",
+       "title": "Paróquias – Diocese de Almenara (site oficial; 18 paróquias com endereço, CEP, telefone, e-mail e pároco; página atualizada em 30/04/2024)",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Santo Antônio de Pádua",
+     "dayOfWeek": 0,
+     "time": "09:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Jacinto&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa (agregador) – Jacinto/MG",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Santo Antônio de Pádua",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Jacinto&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa (agregador) – Jacinto/MG",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Santo Antônio de Pádua",
+     "dayOfWeek": 1,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Jacinto&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa (agregador) – Jacinto/MG",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Santo Antônio de Pádua",
+     "dayOfWeek": 2,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Jacinto&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa (agregador) – Jacinto/MG",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Santo Antônio de Pádua",
+     "dayOfWeek": 3,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Jacinto&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa (agregador) – Jacinto/MG",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Santo Antônio de Pádua",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Jacinto&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa (agregador) – Jacinto/MG",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Santo Antônio de Pádua",
+     "dayOfWeek": 5,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Jacinto&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa (agregador) – Jacinto/MG",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Santo Antônio de Pádua",
+     "dayOfWeek": 6,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Jacinto&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa (agregador) – Jacinto/MG",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "sao-miguel-e-almas-jequitinhonha",
+   "name": "Paróquia São Miguel e Almas",
+   "city": "Jequitinhonha",
+   "state": "MG",
+   "neighborhood": "Centro",
+   "address": "Travessa São Francisco, s/n – Centro",
+   "zipCode": "39960-000",
+   "phone": "(33) 3741-1107 / (33) 99939-9154",
+   "email": null,
+   "website": null,
+   "priestName": "Frei Erotides Antônio de Melo, OFM",
+   "foundedYear": null,
+   "forania": "Forania Oeste",
+   "notes": "Equipe franciscana (OFM): Frei Eron Costa Cerrato, Frei Fernando Resende da Silva e Frei Geraldo Machado de Oliveira. O celular publicado é o da secretaria.",
+   "sources": [
+    {
+     "url": "https://www.diocesedealmenara.org.br/paroquias/",
+     "title": "Paróquias – Diocese de Almenara (site oficial; 18 paróquias com endereço, CEP, telefone, e-mail e pároco; página atualizada em 30/04/2024)",
+     "accessedAt": "2026-09-10"
+    },
+    {
+     "url": "https://www.diocesedealmenara.org.br/foranias/",
+     "title": "Foranias – Diocese de Almenara (site oficial; 5 foranias e seus vigários forâneos; página atualizada em 30/04/2024)",
+     "accessedAt": "2026-09-10"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Jequitinhonha&opcoes=cidade_opcoes&submit=12345678",
+     "title": "Horário de Missa (agregador) – Jequitinhonha/MG",
+     "accessedAt": "2026-09-10"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz São Miguel e Almas",
+     "address": "Travessa São Francisco, s/n – Centro",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedealmenara.org.br/paroquias/",
+       "title": "Paróquias – Diocese de Almenara (site oficial; 18 paróquias com endereço, CEP, telefone, e-mail e pároco; página atualizada em 30/04/2024)",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz São Miguel e Almas",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "Regra publicada: \"1º Domingo\"",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Jequitinhonha&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa (agregador) – Jequitinhonha/MG",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Miguel e Almas",
+     "dayOfWeek": 6,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "Regra publicada: \"3º Sábado\"",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Jequitinhonha&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa (agregador) – Jequitinhonha/MG",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "nosso-senhor-bom-jesus-joaima",
+   "name": "Paróquia Nosso Senhor Bom Jesus",
+   "city": "Joaíma",
+   "state": "MG",
+   "neighborhood": "Centro",
+   "address": "Praça Coronel Antônio Moreira, 180 – Centro",
+   "zipCode": "39890-000",
+   "phone": "(33) 3745-1397 / (33) 98843-0144",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Vicente Rosa Corrêa, MSC",
+   "foundedYear": null,
+   "forania": "Forania Oeste",
+   "notes": "Colaborador paroquial: José Adriano M. da Costa Silva, MSC. Pe. Vicente é vigário forâneo da Forania Oeste. O agregador publica outro telefone: (33) 3745-1752.",
+   "sources": [
+    {
+     "url": "https://www.diocesedealmenara.org.br/paroquias/",
+     "title": "Paróquias – Diocese de Almenara (site oficial; 18 paróquias com endereço, CEP, telefone, e-mail e pároco; página atualizada em 30/04/2024)",
+     "accessedAt": "2026-09-10"
+    },
+    {
+     "url": "https://www.diocesedealmenara.org.br/foranias/",
+     "title": "Foranias – Diocese de Almenara (site oficial; 5 foranias e seus vigários forâneos; página atualizada em 30/04/2024)",
+     "accessedAt": "2026-09-10"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Joaíma&opcoes=cidade_opcoes&submit=12345678",
+     "title": "Horário de Missa (agregador) – Joaíma/MG",
+     "accessedAt": "2026-09-10"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nosso Senhor Bom Jesus",
+     "address": "Praça Coronel Antônio Moreira, 180 – Centro",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedealmenara.org.br/paroquias/",
+       "title": "Paróquias – Diocese de Almenara (site oficial; 18 paróquias com endereço, CEP, telefone, e-mail e pároco; página atualizada em 30/04/2024)",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Nosso Senhor Bom Jesus",
+     "dayOfWeek": 0,
+     "time": "09:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Joaíma&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa (agregador) – Joaíma/MG",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nosso Senhor Bom Jesus",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Joaíma&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa (agregador) – Joaíma/MG",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nosso Senhor Bom Jesus",
+     "dayOfWeek": 1,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Joaíma&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa (agregador) – Joaíma/MG",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nosso Senhor Bom Jesus",
+     "dayOfWeek": 4,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Joaíma&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa (agregador) – Joaíma/MG",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nosso Senhor Bom Jesus",
+     "dayOfWeek": 5,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Joaíma&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa (agregador) – Joaíma/MG",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-do-desterro-jordania",
+   "name": "Paróquia Nossa Senhora do Desterro",
+   "city": "Jordânia",
+   "state": "MG",
+   "neighborhood": "Centro",
+   "address": "Praça da Matriz, s/n – Centro",
+   "zipCode": "39920-000",
+   "phone": "(33) 3726-1207",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. João Amaral Rocha",
+   "foundedYear": null,
+   "forania": "Forania Centro",
+   "notes": null,
+   "sources": [
+    {
+     "url": "https://www.diocesedealmenara.org.br/paroquias/",
+     "title": "Paróquias – Diocese de Almenara (site oficial; 18 paróquias com endereço, CEP, telefone, e-mail e pároco; página atualizada em 30/04/2024)",
+     "accessedAt": "2026-09-10"
+    },
+    {
+     "url": "https://www.diocesedealmenara.org.br/foranias/",
+     "title": "Foranias – Diocese de Almenara (site oficial; 5 foranias e seus vigários forâneos; página atualizada em 30/04/2024)",
+     "accessedAt": "2026-09-10"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Jordânia&opcoes=cidade_opcoes&submit=12345678",
+     "title": "Horário de Missa (agregador) – Jordânia/MG",
+     "accessedAt": "2026-09-10"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora do Desterro",
+     "address": "Praça da Matriz, s/n – Centro",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedealmenara.org.br/paroquias/",
+       "title": "Paróquias – Diocese de Almenara (site oficial; 18 paróquias com endereço, CEP, telefone, e-mail e pároco; página atualizada em 30/04/2024)",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Nossa Senhora do Desterro",
+     "dayOfWeek": 0,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Jordânia&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa (agregador) – Jordânia/MG",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora do Desterro",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Jordânia&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa (agregador) – Jordânia/MG",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora do Desterro",
+     "dayOfWeek": 6,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "Regra publicada: \"Último sábado do mês\"",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Jordânia&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa (agregador) – Jordânia/MG",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-de-fatima-mata-verde",
+   "name": "Paróquia Nossa Senhora de Fátima",
+   "city": "Mata Verde",
+   "state": "MG",
+   "neighborhood": "Centro",
+   "address": "Travessa Juá, 26 – Centro",
+   "zipCode": "39915-000",
+   "phone": "(33) 98887-2150",
+   "email": "paroquiansfmv@gmail.com",
+   "website": null,
+   "priestName": "Pe. Sebastião dos Santos Neto (administrador paroquial)",
+   "foundedYear": 2005,
+   "forania": "Forania Norte",
+   "notes": "Data de criação publicada: 03/01/2005. Facebook oficial: facebook.com/paroquianossasenhoradefatimamv/. O agregador publica o telefone fixo (33) 3722-1298.",
+   "sources": [
+    {
+     "url": "https://www.diocesedealmenara.org.br/paroquias/",
+     "title": "Paróquias – Diocese de Almenara (site oficial; 18 paróquias com endereço, CEP, telefone, e-mail e pároco; página atualizada em 30/04/2024)",
+     "accessedAt": "2026-09-10"
+    },
+    {
+     "url": "https://www.diocesedealmenara.org.br/foranias/",
+     "title": "Foranias – Diocese de Almenara (site oficial; 5 foranias e seus vigários forâneos; página atualizada em 30/04/2024)",
+     "accessedAt": "2026-09-10"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Mata Verde&opcoes=cidade_opcoes&submit=12345678",
+     "title": "Horário de Missa (agregador) – Mata Verde/MG",
+     "accessedAt": "2026-09-10"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora de Fátima",
+     "address": "Travessa Juá, 26 – Centro",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedealmenara.org.br/paroquias/",
+       "title": "Paróquias – Diocese de Almenara (site oficial; 18 paróquias com endereço, CEP, telefone, e-mail e pároco; página atualizada em 30/04/2024)",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Nossa Senhora de Fátima",
+     "dayOfWeek": 0,
+     "time": "09:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Mata Verde&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa (agregador) – Mata Verde/MG",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora de Fátima",
+     "dayOfWeek": 0,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Mata Verde&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa (agregador) – Mata Verde/MG",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-dajuda-monte-formoso",
+   "name": "Paróquia Nossa Senhora D’Ajuda",
+   "city": "Monte Formoso",
+   "state": "MG",
+   "neighborhood": "Centro",
+   "address": "Rua José Pinheiro, 478 – Centro",
+   "zipCode": "39893-000",
+   "phone": "(33) 3745-8033",
+   "email": "paroquiamf@hotmail.com",
+   "website": null,
+   "priestName": "Pe. Messias Vitor de Oliveira, MSC",
+   "foundedYear": 2005,
+   "forania": "Forania Oeste",
+   "notes": "O site publica a data de criação como \"00/01/2005\" (dia ilegível); gravado apenas o ano.",
+   "sources": [
+    {
+     "url": "https://www.diocesedealmenara.org.br/paroquias/",
+     "title": "Paróquias – Diocese de Almenara (site oficial; 18 paróquias com endereço, CEP, telefone, e-mail e pároco; página atualizada em 30/04/2024)",
+     "accessedAt": "2026-09-10"
+    },
+    {
+     "url": "https://www.diocesedealmenara.org.br/foranias/",
+     "title": "Foranias – Diocese de Almenara (site oficial; 5 foranias e seus vigários forâneos; página atualizada em 30/04/2024)",
+     "accessedAt": "2026-09-10"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Monte Formoso&opcoes=cidade_opcoes&submit=12345678",
+     "title": "Horário de Missa (agregador) – Monte Formoso/MG",
+     "accessedAt": "2026-09-10"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora D’Ajuda",
+     "address": "Rua José Pinheiro, 478 – Centro",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedealmenara.org.br/paroquias/",
+       "title": "Paróquias – Diocese de Almenara (site oficial; 18 paróquias com endereço, CEP, telefone, e-mail e pároco; página atualizada em 30/04/2024)",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Nossa Senhora D’Ajuda",
+     "dayOfWeek": 0,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Monte Formoso&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa (agregador) – Monte Formoso/MG",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "imaculada-conceicao-e-santo-antonio-palmopolis",
+   "name": "Paróquia Imaculada Conceição e Santo Antônio",
+   "city": "Palmópolis",
+   "state": "MG",
+   "neighborhood": "Centro",
+   "address": "Rua Belo Oriente, 273 – Centro",
+   "zipCode": "39945-000",
+   "phone": "(33) 98818-0666",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Gabriel Caetano Gondim Duarte (administrador paroquial)",
+   "foundedYear": 2019,
+   "forania": "Forania Sul",
+   "notes": "Instalada em 08/12/2019 como a 18ª paróquia da diocese. O agregador a registra como \"Comunidade Imaculada Conceição\" e publica um telefone que é o da paróquia de Rio do Prado.",
+   "sources": [
+    {
+     "url": "https://www.diocesedealmenara.org.br/paroquias/",
+     "title": "Paróquias – Diocese de Almenara (site oficial; 18 paróquias com endereço, CEP, telefone, e-mail e pároco; página atualizada em 30/04/2024)",
+     "accessedAt": "2026-09-10"
+    },
+    {
+     "url": "https://www.diocesedealmenara.org.br/foranias/",
+     "title": "Foranias – Diocese de Almenara (site oficial; 5 foranias e seus vigários forâneos; página atualizada em 30/04/2024)",
+     "accessedAt": "2026-09-10"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Palmópolis&opcoes=cidade_opcoes&submit=12345678",
+     "title": "Horário de Missa (agregador) – Palmópolis/MG",
+     "accessedAt": "2026-09-10"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Imaculada Conceição e Santo Antônio",
+     "address": "Rua Belo Oriente, 273 – Centro",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedealmenara.org.br/paroquias/",
+       "title": "Paróquias – Diocese de Almenara (site oficial; 18 paróquias com endereço, CEP, telefone, e-mail e pároco; página atualizada em 30/04/2024)",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Imaculada Conceição e Santo Antônio",
+     "dayOfWeek": 0,
+     "time": "09:00",
+     "type": "MASS",
+     "notes": "Regra publicada: \"1º e 3º Domingo\"",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Palmópolis&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa (agregador) – Palmópolis/MG",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "senhor-bom-jesus-rio-do-prado",
+   "name": "Paróquia Senhor Bom Jesus",
+   "city": "Rio do Prado",
+   "state": "MG",
+   "neighborhood": "Centro",
+   "address": "Rua Doze de Setembro, 91 – Centro",
+   "zipCode": "39940-000",
+   "phone": "(33) 3744-1149",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Alexandre Pereira Gomes",
+   "foundedYear": null,
+   "forania": "Forania Sul",
+   "notes": "O agregador a chama de \"Paróquia Bom Jesus\" e dá o endereço como \"Praça Antônio Martins, Centro\".",
+   "sources": [
+    {
+     "url": "https://www.diocesedealmenara.org.br/paroquias/",
+     "title": "Paróquias – Diocese de Almenara (site oficial; 18 paróquias com endereço, CEP, telefone, e-mail e pároco; página atualizada em 30/04/2024)",
+     "accessedAt": "2026-09-10"
+    },
+    {
+     "url": "https://www.diocesedealmenara.org.br/foranias/",
+     "title": "Foranias – Diocese de Almenara (site oficial; 5 foranias e seus vigários forâneos; página atualizada em 30/04/2024)",
+     "accessedAt": "2026-09-10"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Rio do Prado&opcoes=cidade_opcoes&submit=12345678",
+     "title": "Horário de Missa (agregador) – Rio do Prado/MG",
+     "accessedAt": "2026-09-10"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Senhor Bom Jesus",
+     "address": "Rua Doze de Setembro, 91 – Centro",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedealmenara.org.br/paroquias/",
+       "title": "Paróquias – Diocese de Almenara (site oficial; 18 paróquias com endereço, CEP, telefone, e-mail e pároco; página atualizada em 30/04/2024)",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Senhor Bom Jesus",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Rio do Prado&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa (agregador) – Rio do Prado/MG",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Senhor Bom Jesus",
+     "dayOfWeek": 3,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Rio do Prado&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa (agregador) – Rio do Prado/MG",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Senhor Bom Jesus",
+     "dayOfWeek": 6,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Rio do Prado&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa (agregador) – Rio do Prado/MG",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "senhor-bom-jesus-rubim",
+   "name": "Paróquia Senhor Bom Jesus",
+   "city": "Rubim",
+   "state": "MG",
+   "neighborhood": "Centro",
+   "address": "Praça Cristo Rei, s/n – Centro",
+   "zipCode": "39950-000",
+   "phone": "(33) 3746-1768",
+   "email": "senhorbomjesusrubim@gmail.com",
+   "website": null,
+   "priestName": "Pe. Gabriel Caetano Gondim Duarte",
+   "foundedYear": 1960,
+   "forania": "Forania Sul",
+   "notes": "Data de criação publicada: outubro/1960. Facebook oficial: facebook.com/senhorbomjesusrubim. Pe. Gabriel é vigário forâneo da Forania Sul. O agregador publica outro telefone: (33) 3746-1340.",
+   "sources": [
+    {
+     "url": "https://www.diocesedealmenara.org.br/paroquias/",
+     "title": "Paróquias – Diocese de Almenara (site oficial; 18 paróquias com endereço, CEP, telefone, e-mail e pároco; página atualizada em 30/04/2024)",
+     "accessedAt": "2026-09-10"
+    },
+    {
+     "url": "https://www.diocesedealmenara.org.br/foranias/",
+     "title": "Foranias – Diocese de Almenara (site oficial; 5 foranias e seus vigários forâneos; página atualizada em 30/04/2024)",
+     "accessedAt": "2026-09-10"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Rubim&opcoes=cidade_opcoes&submit=12345678",
+     "title": "Horário de Missa (agregador) – Rubim/MG",
+     "accessedAt": "2026-09-10"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Senhor Bom Jesus",
+     "address": "Praça Cristo Rei, s/n – Centro",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedealmenara.org.br/paroquias/",
+       "title": "Paróquias – Diocese de Almenara (site oficial; 18 paróquias com endereço, CEP, telefone, e-mail e pároco; página atualizada em 30/04/2024)",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Senhor Bom Jesus",
+     "dayOfWeek": 0,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Rubim&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa (agregador) – Rubim/MG",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Senhor Bom Jesus",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Rubim&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa (agregador) – Rubim/MG",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Senhor Bom Jesus",
+     "dayOfWeek": 1,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Rubim&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa (agregador) – Rubim/MG",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Senhor Bom Jesus",
+     "dayOfWeek": 2,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Rubim&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa (agregador) – Rubim/MG",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Senhor Bom Jesus",
+     "dayOfWeek": 3,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Rubim&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa (agregador) – Rubim/MG",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Senhor Bom Jesus",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Rubim&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa (agregador) – Rubim/MG",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Senhor Bom Jesus",
+     "dayOfWeek": 5,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Rubim&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa (agregador) – Rubim/MG",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Senhor Bom Jesus",
+     "dayOfWeek": 6,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Rubim&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa (agregador) – Rubim/MG",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "sao-sebastiao-salto-da-divisa",
+   "name": "Paróquia São Sebastião",
+   "city": "Salto da Divisa",
+   "state": "MG",
+   "neighborhood": "Centro",
+   "address": "Praça Coronel Orozino, s/n – Centro – Cx. Postal 13",
+   "zipCode": "39925-000",
+   "phone": "(33) 3725-1168",
+   "email": "igrejasalto@gmail.com",
+   "website": null,
+   "priestName": "Pe. Paulo Roberto de Oliveira",
+   "foundedYear": null,
+   "forania": "Forania Leste",
+   "notes": "O mesmo pároco responde por Santa Maria do Salto. O agregador grafa a praça como \"Orozimbo Peixoto\".",
+   "sources": [
+    {
+     "url": "https://www.diocesedealmenara.org.br/paroquias/",
+     "title": "Paróquias – Diocese de Almenara (site oficial; 18 paróquias com endereço, CEP, telefone, e-mail e pároco; página atualizada em 30/04/2024)",
+     "accessedAt": "2026-09-10"
+    },
+    {
+     "url": "https://www.diocesedealmenara.org.br/foranias/",
+     "title": "Foranias – Diocese de Almenara (site oficial; 5 foranias e seus vigários forâneos; página atualizada em 30/04/2024)",
+     "accessedAt": "2026-09-10"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Salto da Divisa&opcoes=cidade_opcoes&submit=12345678",
+     "title": "Horário de Missa (agregador) – Salto da Divisa/MG",
+     "accessedAt": "2026-09-10"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz São Sebastião",
+     "address": "Praça Coronel Orozino, s/n – Centro – Cx. Postal 13",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedealmenara.org.br/paroquias/",
+       "title": "Paróquias – Diocese de Almenara (site oficial; 18 paróquias com endereço, CEP, telefone, e-mail e pároco; página atualizada em 30/04/2024)",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz São Sebastião",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Salto da Divisa&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa (agregador) – Salto da Divisa/MG",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Sebastião",
+     "dayOfWeek": 2,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Salto da Divisa&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa (agregador) – Salto da Divisa/MG",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Sebastião",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Salto da Divisa&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa (agregador) – Salto da Divisa/MG",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-da-conceicao-santa-maria-do-salto",
+   "name": "Paróquia Nossa Senhora da Conceição",
+   "city": "Santa Maria do Salto",
+   "state": "MG",
+   "neighborhood": "Centro",
+   "address": "Rua Rebeldino Ferreira Porto, 55 – Centro",
+   "zipCode": "39928-000",
+   "phone": "(33) 3727-1130 / (33) 98712-1557",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Paulo Roberto de Oliveira",
+   "foundedYear": null,
+   "forania": "Forania Leste",
+   "notes": "O site grafa a cidade como \"Santo Maria do Salto\". O agregador publica sábado e domingo às 19h \"exceto no último sábado\" e o telefone (33) 3727-1224.",
+   "sources": [
+    {
+     "url": "https://www.diocesedealmenara.org.br/paroquias/",
+     "title": "Paróquias – Diocese de Almenara (site oficial; 18 paróquias com endereço, CEP, telefone, e-mail e pároco; página atualizada em 30/04/2024)",
+     "accessedAt": "2026-09-10"
+    },
+    {
+     "url": "https://www.diocesedealmenara.org.br/foranias/",
+     "title": "Foranias – Diocese de Almenara (site oficial; 5 foranias e seus vigários forâneos; página atualizada em 30/04/2024)",
+     "accessedAt": "2026-09-10"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Santa Maria do Salto&opcoes=cidade_opcoes&submit=12345678",
+     "title": "Horário de Missa (agregador) – Santa Maria do Salto/MG",
+     "accessedAt": "2026-09-10"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora da Conceição",
+     "address": "Rua Rebeldino Ferreira Porto, 55 – Centro",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedealmenara.org.br/paroquias/",
+       "title": "Paróquias – Diocese de Almenara (site oficial; 18 paróquias com endereço, CEP, telefone, e-mail e pároco; página atualizada em 30/04/2024)",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Nossa Senhora da Conceição",
+     "dayOfWeek": 6,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "Regra publicada: \"Exceto no último sábado do mês\"",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Santa Maria do Salto&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa (agregador) – Santa Maria do Salto/MG",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora da Conceição",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Santa Maria do Salto&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa (agregador) – Santa Maria do Salto/MG",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "santo-antonio-santo-antonio-do-jacinto",
+   "name": "Paróquia Santo Antônio",
+   "city": "Santo Antônio do Jacinto",
+   "state": "MG",
+   "neighborhood": "Centro",
+   "address": "Praça Getúlio Vargas, 150 – Centro",
+   "zipCode": "39935-000",
+   "phone": "(33) 3747-1118",
+   "email": "p_santoantonio@yahoo.com.br",
+   "website": null,
+   "priestName": "Pe. Gilberto Ângelo da Silva",
+   "foundedYear": null,
+   "forania": "Forania Leste",
+   "notes": "Pe. Gilberto é vigário forâneo da Forania Leste (o e-mail do vigário forâneo publicado na página de foranias, claudioec@yahoo.com.br, é o do pároco de São Pedro Apóstolo — provável erro da fonte).",
+   "sources": [
+    {
+     "url": "https://www.diocesedealmenara.org.br/paroquias/",
+     "title": "Paróquias – Diocese de Almenara (site oficial; 18 paróquias com endereço, CEP, telefone, e-mail e pároco; página atualizada em 30/04/2024)",
+     "accessedAt": "2026-09-10"
+    },
+    {
+     "url": "https://www.diocesedealmenara.org.br/foranias/",
+     "title": "Foranias – Diocese de Almenara (site oficial; 5 foranias e seus vigários forâneos; página atualizada em 30/04/2024)",
+     "accessedAt": "2026-09-10"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Santo Antônio do Jacinto&opcoes=cidade_opcoes&submit=12345678",
+     "title": "Horário de Missa (agregador) – Santo Antônio do Jacinto/MG",
+     "accessedAt": "2026-09-10"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Santo Antônio",
+     "address": "Praça Getúlio Vargas, 150 – Centro",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedealmenara.org.br/paroquias/",
+       "title": "Paróquias – Diocese de Almenara (site oficial; 18 paróquias com endereço, CEP, telefone, e-mail e pároco; página atualizada em 30/04/2024)",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Santo Antônio",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Santo Antônio do Jacinto&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa (agregador) – Santo Antônio do Jacinto/MG",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Santo Antônio",
+     "dayOfWeek": 1,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Santo Antônio do Jacinto&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa (agregador) – Santo Antônio do Jacinto/MG",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Santo Antônio",
+     "dayOfWeek": 2,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Santo Antônio do Jacinto&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa (agregador) – Santo Antônio do Jacinto/MG",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Santo Antônio",
+     "dayOfWeek": 3,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Santo Antônio do Jacinto&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa (agregador) – Santo Antônio do Jacinto/MG",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Santo Antônio",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Santo Antônio do Jacinto&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa (agregador) – Santo Antônio do Jacinto/MG",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Santo Antônio",
+     "dayOfWeek": 5,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Santo Antônio do Jacinto&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa (agregador) – Santo Antônio do Jacinto/MG",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Santo Antônio",
+     "dayOfWeek": 6,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MG&cidade=Santo Antônio do Jacinto&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa (agregador) – Santo Antônio do Jacinto/MG",
+       "accessedAt": "2026-09-10"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  }
+ ],
+ "coverage": {
+  "parishesFound": 18,
+  "parishesExpected": 19,
+  "notes": "O site oficial lista 18 paróquias em 5 foranias (17 municípios; Almenara tem 2). A notícia oficial da instalação da Paróquia Imaculada Conceição e Santo Antônio, em Palmópolis (08/12/2019), a apresenta como a 18ª paróquia da diocese — o número bate. Já o Catholic-Hierarchy e o GCatholic registram 19 paróquias (+2 missões). O agregador horariodemissa.com.br lista, além da Paróquia São Miguel e Almas, uma \"Paróquia São Pedro\" na Praça da Matriz, 22, distrito de São Pedro do Jequitinhonha — candidata a ser a 19ª, mas ela NÃO consta do site diocesano e não foi gravada. Precisa de validação humana."
+ }
+}

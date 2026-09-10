@@ -160,7 +160,10 @@ async function importDioceseFile(file: string) {
   for (const raw of data.parishes) {
     // Marcadores de arquivo inacabado ("__CONTINUA__") ou entradas sem nome/cidade
     if (!raw || typeof raw !== 'object' || !raw.name || !raw.city) { stats.skippedInvalid += 1; continue; }
-    if (!alive(raw.status)) { stats.skippedInactive += 1; continue; }
+    // `loadAsParish` também vence o status "nao-paroquial" — é a mesma decisão dita
+    // de outro jeito pela fonte. Não vence "outra-jurisdicao", "duplicada" nem
+    // "extinta": ali o motivo de ficar de fora não é a natureza da igreja.
+    if (!alive(raw.status) && !(raw.loadAsParish && raw.status === 'nao-paroquial')) { stats.skippedInactive += 1; continue; }
     if (!ok(raw.confidence)) { stats.skippedLow += 1; continue; }
     // `loadAsParish` é a exceção explícita ao filtro de nome: capelania, santuário sem
     // território ou igreja de convento que a fonte publica com missa fixa é lugar de

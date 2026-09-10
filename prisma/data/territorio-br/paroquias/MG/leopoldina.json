@@ -1,0 +1,2130 @@
+{
+  "diocese": {
+    "name": "Diocese de Leopoldina",
+    "type": "Diocese",
+    "slug": "leopoldina",
+    "city": "Leopoldina",
+    "state": "MG",
+    "address": "Praça Dom Helvécio, 75 - Centro",
+    "zipCode": "36700-128",
+    "phone": "(32) 3441-2008",
+    "email": "chancelaria@dioceseleopoldina.com.br",
+    "website": "https://dioceseleopoldina.com.br",
+    "bishopName": "Dom Edson José Oriolo dos Santos",
+    "foundedYear": 1942,
+    "sources": [
+      {
+        "url": "https://dioceseleopoldina.com.br/categoria/paroquias/",
+        "title": "Paróquias — Diocese de Leopoldina",
+        "accessedAt": "2026-09-10"
+      },
+      {
+        "url": "https://dioceseleopoldina.com.br/curia-diocesana/",
+        "title": "Cúria Diocesana — Diocese de Leopoldina",
+        "accessedAt": "2026-09-10"
+      },
+      {
+        "url": "https://dioceseleopoldina.com.br/diocese-de-leopoldina/",
+        "title": "Diocese de Leopoldina — história e divisão territorial",
+        "accessedAt": "2026-09-10"
+      },
+      {
+        "url": "https://www.catholic-hierarchy.org/diocese/dleop.html",
+        "title": "Diocese of Leopoldina [Catholic-Hierarchy]",
+        "accessedAt": "2026-09-10"
+      }
+    ],
+    "confidence": "alta"
+  },
+  "parishes": [
+    {
+      "slug": "nossa-senhora-divino-pranto-muriae",
+      "name": "Igreja Nossa Senhora Divino Pranto",
+      "city": "Muriaé",
+      "state": "MG",
+      "neighborhood": "Universitário",
+      "address": "Av. Cristiano Ferreira Varella, 55",
+      "zipCode": "36880-000",
+      "phone": "(32) 99951-7631",
+      "email": "contato@igrejansradivinopranto.org.br",
+      "website": "https://www.igrejansradivinopranto.org.br",
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseleopoldina.com.br/igreja-nossa-senhora-divino-prato/",
+          "title": "Igreja Nossa Senhora Divino Pranto – Muriaé — Diocese de Leopoldina (post de 2018-11-29)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [],
+      "forania": "Forania Muriaé",
+      "loadAsParish": true,
+      "jurisdictionNote": "A diocese publica esta unidade na categoria \"Paróquias\" com o nome \"Igreja Nossa Senhora Divino Pranto\" (Forania Muriaé, Muriaé, bairro Universitário, site próprio). Fontes secundárias a tratam como paróquia criada em 22/05/2006. Nome mantido como na fonte; loadAsParish=true para não ser filtrada pelo prefixo \"Igreja\"."
+    },
+    {
+      "slug": "da-catedral-de-sao-sebastiao-leopoldina",
+      "name": "Paróquia da Catedral de São Sebastião",
+      "city": "Leopoldina",
+      "state": "MG",
+      "neighborhood": "Catedral",
+      "address": "Praça Dom Helvécio, 25",
+      "zipCode": "36700-128",
+      "phone": "(32) 3441-4411",
+      "email": "catedral.leopoldina@hotmail.com",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseleopoldina.com.br/paroquia-da-catedral-de-sao-sebastiao/",
+          "title": "Paróquia da Catedral de São Sebastião – Leopoldina — Diocese de Leopoldina (post de 2021-01-28)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [],
+      "forania": "Forania Leopoldina"
+    },
+    {
+      "slug": "divino-espirito-santo-guarani",
+      "name": "Paróquia Divino Espírito Santo",
+      "city": "Guarani",
+      "state": "MG",
+      "neighborhood": "Centro",
+      "address": "Ladeira Antônio Barros Coelho, 138",
+      "zipCode": "36160-000",
+      "phone": "(32) 3575-1455",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseleopoldina.com.br/paroquia-divino-espirito-santo/",
+          "title": "Paróquia Divino Espírito Santo – Guarani — Diocese de Leopoldina (post de 2018-11-29)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [],
+      "forania": "Forania Ubá"
+    },
+    {
+      "slug": "divino-espirito-santo-uba",
+      "name": "Paróquia Divino Espírito Santo",
+      "city": "Ubá",
+      "state": "MG",
+      "neighborhood": "Centro",
+      "address": "Rua Vicente Leite, 10",
+      "zipCode": "36500-000",
+      "phone": "32-3532-2847",
+      "email": "pdespstouba@dioceseleopoldina.com.br",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseleopoldina.com.br/paroquia-divino-espirito-santo-2/",
+          "title": "Paróquia Divino Espírito Santo – Ubá — Diocese de Leopoldina (post de 2018-11-29)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [],
+      "forania": "Forania Ubá"
+    },
+    {
+      "slug": "jesus-menino-deus-recreio",
+      "name": "Paróquia Jesus Menino Deus",
+      "city": "Recreio",
+      "state": "MG",
+      "neighborhood": "Centro",
+      "address": "Rua Pe Higino Latteck, 166",
+      "zipCode": "36740-000",
+      "phone": "(32) 3444-1848",
+      "email": "pjesusmeninodeus@dioceseleopoldina.com.br",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseleopoldina.com.br/paroquia-jesus-menino-deus/",
+          "title": "Paróquia Jesus Menino Deus – Recreio — Diocese de Leopoldina (post de 2018-11-29)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseleopoldina.com.br/paroquia-jesus-menino-deus/",
+              "title": "Paróquia Jesus Menino Deus – Recreio — Diocese de Leopoldina (post de 2018-11-29)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseleopoldina.com.br/paroquia-jesus-menino-deus/",
+              "title": "Paróquia Jesus Menino Deus – Recreio — Diocese de Leopoldina (post de 2018-11-29)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseleopoldina.com.br/paroquia-jesus-menino-deus/",
+              "title": "Paróquia Jesus Menino Deus – Recreio — Diocese de Leopoldina (post de 2018-11-29)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseleopoldina.com.br/paroquia-jesus-menino-deus/",
+              "title": "Paróquia Jesus Menino Deus – Recreio — Diocese de Leopoldina (post de 2018-11-29)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ],
+      "forania": "Forania Leopoldina"
+    },
+    {
+      "slug": "nossa-senhora-aparecida-muriae",
+      "name": "Paróquia Nossa Senhora Aparecida",
+      "city": "Muriaé",
+      "state": "MG",
+      "neighborhood": "Porto",
+      "address": "Nossa Senhora Aparecida",
+      "zipCode": "36880-000",
+      "phone": "(32) 3729-1045",
+      "email": "pnsraaparecidamuriae@dioceseleopoldina.com.br",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseleopoldina.com.br/paroquia-nossa-senhora-aparecida/",
+          "title": "Paróquia Nossa Senhora Aparecida – Muriaé — Diocese de Leopoldina (post de 2018-11-29)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [],
+      "forania": "Forania Muriaé"
+    },
+    {
+      "slug": "nossa-senhora-da-conceicao-estrela-dalva",
+      "name": "Paróquia Nossa Senhora da Conceição",
+      "city": "Estrela Dalva",
+      "state": "MG",
+      "neighborhood": "Centro",
+      "address": "Praça da Matriz",
+      "zipCode": "36725-000",
+      "phone": "(32) 3464-1115",
+      "email": "pnsraconceicaoestreladalva@dioceseleopoldina.com.br",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseleopoldina.com.br/paroquia-nossa-senhora-da-conceicao/",
+          "title": "Paróquia Nossa Senhora da Conceição — Diocese de Leopoldina (post de 2018-11-29)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [],
+      "forania": "Forania Além Paraíba"
+    },
+    {
+      "slug": "nossa-senhora-da-conceicao-laranjal",
+      "name": "Paróquia Nossa Senhora da Conceição",
+      "city": "Laranjal",
+      "state": "MG",
+      "neighborhood": "Centro",
+      "address": "Praça Côn Geraldo Monteiro",
+      "zipCode": "36760-000",
+      "phone": "(32) 3424-1103",
+      "email": "pnsradaconceicaolaranjal@dioceseleopoldina.com.br",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseleopoldina.com.br/paroquia-nossa-senhora-da-conceicao-2/",
+          "title": "Paróquia Nossa Senhora da Conceição – Laranjal — Diocese de Leopoldina (post de 2018-11-29)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [],
+      "forania": "Forania Leopoldina"
+    },
+    {
+      "slug": "nossa-senhora-da-consolacao-alem-paraiba",
+      "name": "Paróquia Nossa Senhora da Consolação",
+      "city": "Além Paraíba",
+      "state": "MG",
+      "neighborhood": "Caxias",
+      "address": "Rua Eduardo Jordão, 361",
+      "zipCode": "36660-000",
+      "phone": "32-3462-0432",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseleopoldina.com.br/paroquia-nossa-senhora-da-consolacao/",
+          "title": "Paróquia Nossa Senhora da Consolação – Além Paraíba — Diocese de Leopoldina (post de 2018-11-29)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [],
+      "forania": "Forania Além Paraíba"
+    },
+    {
+      "slug": "nossa-senhora-da-encarnacao-guiricema",
+      "name": "Paróquia Nossa Senhora da Encarnação",
+      "city": "Guiricema",
+      "state": "MG",
+      "neighborhood": "Centro",
+      "address": "Praça Cel Luiz Coutinho",
+      "zipCode": "36525-000",
+      "phone": "32-3553-1218",
+      "email": "pnsradaencarnacao@dioceseleopoldina.com.br",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseleopoldina.com.br/paroquia-nossa-senhora-da-encarnacao/",
+          "title": "Paróquia Nossa Senhora da Encarnação – Guiricema — Diocese de Leopoldina (post de 2018-11-29)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [],
+      "forania": "Forania Visconde do Rio Branco"
+    },
+    {
+      "slug": "nossa-senhora-da-gloria-itamuri",
+      "name": "Paróquia Nossa Senhora da Glória",
+      "city": "Itamuri",
+      "state": "MG",
+      "neighborhood": "Centro",
+      "address": "Largo da Matriz",
+      "zipCode": "36886-000",
+      "phone": "(32) 3723-6118",
+      "email": "pnsradagloria@dioceseleopoldina.com.br",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseleopoldina.com.br/paroquia-nossa-senhora-da-gloria/",
+          "title": "Paróquia Nossa Senhora da Glória – Itamuri — Diocese de Leopoldina (post de 2018-11-29)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [],
+      "forania": "Forania Muriaé"
+    },
+    {
+      "slug": "nossa-senhora-da-piedade-piacatuba",
+      "name": "Paróquia Nossa Senhora da Piedade",
+      "city": "Piacatuba",
+      "state": "MG",
+      "neighborhood": "Centro",
+      "address": "Praça da Matriz",
+      "zipCode": "36708-000",
+      "phone": "(32) 3441-4411",
+      "email": "pnsrapiedade@dioceseleopoldina.com.br",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseleopoldina.com.br/paroquia-nossa-senhora-da-piedade/",
+          "title": "Paróquia Nossa Senhora da Piedade – Piacatuba — Diocese de Leopoldina (post de 2018-11-29)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [],
+      "forania": "Forania Leopoldina"
+    },
+    {
+      "slug": "nossa-senhora-das-dores-dona-euzebia",
+      "name": "Paróquia Nossa Senhora das Dores",
+      "city": "Dona Euzébia",
+      "state": "MG",
+      "neighborhood": "Centro",
+      "address": "Av. Antônio Esteves Ribeiro, 130",
+      "zipCode": "36784-000",
+      "phone": "(32) 3453-1660",
+      "email": "pnsradasdoresdonaeuzebia@dioceseleopoldina.com.br",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseleopoldina.com.br/paroquia-nossa-senhora-das-dores/",
+          "title": "Paróquia Nossa Senhora das Dores – Dona Euzébia — Diocese de Leopoldina (post de 2018-11-29)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [],
+      "forania": "Forania Cataguases"
+    },
+    {
+      "slug": "nossa-senhora-das-dores-itapirucu",
+      "name": "Paróquia Nossa Senhora das Dores",
+      "city": "Itapiruçu",
+      "state": "MG",
+      "neighborhood": "Centro",
+      "address": "Largo da Matriz",
+      "zipCode": "36756-000",
+      "phone": "32-3446-1126",
+      "email": "pnsradasdoresitapirucu@dioceseleopoldina.com.br",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseleopoldina.com.br/paroquia-nossa-senhora-das-dores-3/",
+          "title": "Paróquia Nossa Senhora das Dores – Itapiruçu — Diocese de Leopoldina (post de 2018-11-29)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [],
+      "forania": "Forania Leopoldina"
+    },
+    {
+      "slug": "nossa-senhora-das-dores-mirai",
+      "name": "Paróquia Nossa Senhora das Dores",
+      "city": "Miraí",
+      "state": "MG",
+      "neighborhood": null,
+      "address": null,
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseleopoldina.com.br/paroquia-nossa-senhora-das-dores-2/",
+          "title": "Paróquia Nossa Senhora das Dores – Miraí — Diocese de Leopoldina (post de 2014-07-07)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [],
+      "forania": null
+    },
+    {
+      "slug": "nossa-senhora-do-patrocinio-patrocinio-do-muriae",
+      "name": "Paróquia Nossa Senhora do Patrocínio",
+      "city": "Patrocínio do Muriaé",
+      "state": "MG",
+      "neighborhood": "Centro",
+      "address": "Praça Pio XII, 41",
+      "zipCode": "36860-000",
+      "phone": null,
+      "email": "paroquiapatroiniom@hotmail.com",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseleopoldina.com.br/paroquia-nossa-senhora-do-patrocinio/",
+          "title": "Paróquia Nossa Senhora do Patrocínio – Patrocínio do Muriaé — Diocese de Leopoldina (post de 2018-11-29)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [],
+      "forania": "Forania Muriaé"
+    },
+    {
+      "slug": "nossa-senhora-do-rosario-cataguases",
+      "name": "Paróquia Nossa Senhora do Rosário",
+      "city": "Cataguases",
+      "state": "MG",
+      "neighborhood": "Vila Domingos Lopes",
+      "address": "Ten. Luiz Ribeiro, 241",
+      "zipCode": "36774-034",
+      "phone": "(32) 3421-2359",
+      "email": "pnsrarosariocataguases@dioceseleopoldina.com.br",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseleopoldina.com.br/paroquia-nossa-senhora-do-rosario/",
+          "title": "Paróquia Nossa Senhora do Rosário – Cataguases — Diocese de Leopoldina (post de 2018-11-29)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseleopoldina.com.br/paroquia-nossa-senhora-do-rosario/",
+              "title": "Paróquia Nossa Senhora do Rosário – Cataguases — Diocese de Leopoldina (post de 2018-11-29)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "08:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseleopoldina.com.br/paroquia-nossa-senhora-do-rosario/",
+              "title": "Paróquia Nossa Senhora do Rosário – Cataguases — Diocese de Leopoldina (post de 2018-11-29)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseleopoldina.com.br/paroquia-nossa-senhora-do-rosario/",
+              "title": "Paróquia Nossa Senhora do Rosário – Cataguases — Diocese de Leopoldina (post de 2018-11-29)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseleopoldina.com.br/paroquia-nossa-senhora-do-rosario/",
+              "title": "Paróquia Nossa Senhora do Rosário – Cataguases — Diocese de Leopoldina (post de 2018-11-29)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseleopoldina.com.br/paroquia-nossa-senhora-do-rosario/",
+              "title": "Paróquia Nossa Senhora do Rosário – Cataguases — Diocese de Leopoldina (post de 2018-11-29)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseleopoldina.com.br/paroquia-nossa-senhora-do-rosario/",
+              "title": "Paróquia Nossa Senhora do Rosário – Cataguases — Diocese de Leopoldina (post de 2018-11-29)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ],
+      "forania": "Forania Cataguases"
+    },
+    {
+      "slug": "nossa-senhora-do-rosario-leopoldina",
+      "name": "Paróquia Nossa Senhora do Rosário",
+      "city": "Leopoldina",
+      "state": "MG",
+      "neighborhood": "Rosário",
+      "address": "Prç. do Rosário, 110",
+      "zipCode": "36704-108",
+      "phone": "(32) 3441-5117",
+      "email": "rosarioleopoldina@gmail.com",
+      "website": null,
+      "priestName": "Pe. Marcelo Sérgio de Barros",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseleopoldina.com.br/paroquia-nossa-senhora-da-rosario/",
+          "title": "Paróquia Nossa Senhora do Rosário – Leopoldina — Diocese de Leopoldina (post de 2020-01-13)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseleopoldina.com.br/paroquia-nossa-senhora-da-rosario/",
+              "title": "Paróquia Nossa Senhora do Rosário – Leopoldina — Diocese de Leopoldina (post de 2020-01-13)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseleopoldina.com.br/paroquia-nossa-senhora-da-rosario/",
+              "title": "Paróquia Nossa Senhora do Rosário – Leopoldina — Diocese de Leopoldina (post de 2020-01-13)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseleopoldina.com.br/paroquia-nossa-senhora-da-rosario/",
+              "title": "Paróquia Nossa Senhora do Rosário – Leopoldina — Diocese de Leopoldina (post de 2020-01-13)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseleopoldina.com.br/paroquia-nossa-senhora-da-rosario/",
+              "title": "Paróquia Nossa Senhora do Rosário – Leopoldina — Diocese de Leopoldina (post de 2020-01-13)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": "Recorrência mensal na fonte: \"Apenas na 1ª Sexta-Feira do mês – às 06h e às 16h\"",
+          "sources": [
+            {
+              "url": "https://dioceseleopoldina.com.br/paroquia-nossa-senhora-da-rosario/",
+              "title": "Paróquia Nossa Senhora do Rosário – Leopoldina — Diocese de Leopoldina (post de 2020-01-13)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "16:00",
+          "type": "MASS",
+          "notes": "Recorrência mensal na fonte: \"Apenas na 1ª Sexta-Feira do mês – às 06h e às 16h\"",
+          "sources": [
+            {
+              "url": "https://dioceseleopoldina.com.br/paroquia-nossa-senhora-da-rosario/",
+              "title": "Paróquia Nossa Senhora do Rosário – Leopoldina — Diocese de Leopoldina (post de 2020-01-13)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ],
+      "forania": "Forania Leopoldina"
+    },
+    {
+      "slug": "nossa-senhora-do-rosario-rosario-da-limeira",
+      "name": "Paróquia Nossa Senhora do Rosário",
+      "city": "Rosário da Limeira",
+      "state": "MG",
+      "neighborhood": "Centro",
+      "address": "Praça Nossa Senhora do Rosário",
+      "zipCode": "36887-000",
+      "phone": "(32) 3723-1217",
+      "email": "pnsrarosariodalimeira@dioceseleopoldina.com.br",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseleopoldina.com.br/paroquia-nossa-senhora-do-rosario-2/",
+          "title": "Paróquia Nossa Senhora do Rosário – Rosário da Limeira — Diocese de Leopoldina (post de 2018-11-29)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [],
+      "forania": "Forania Muriaé"
+    },
+    {
+      "slug": "nossa-senhora-do-rosario-uba",
+      "name": "Paróquia Nossa Senhora do Rosário",
+      "city": "Ubá",
+      "state": "MG",
+      "neighborhood": "Centro",
+      "address": "Praça do Rosário, 41",
+      "zipCode": "36500-000",
+      "phone": "(32) 3532-2089",
+      "email": "pnsrarosariouba@dioceselopoldina.com",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseleopoldina.com.br/paroquia-nossa-senhora-do-rosario-3/",
+          "title": "Paróquia Nossa Senhora do Rosário – Ubá — Diocese de Leopoldina (post de 2018-11-29)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [],
+      "forania": "Forania Ubá"
+    },
+    {
+      "slug": "nossa-senhora-do-sagrado-coracao-muriae",
+      "name": "Paróquia Nossa Senhora do Sagrado Coração",
+      "city": "Muriaé",
+      "state": "MG",
+      "neighborhood": "Dornelas",
+      "address": "Rua Altino Rodrigues Pereira, 1",
+      "zipCode": "36880-000",
+      "phone": "(32) 3722-2881",
+      "email": "pnsrasagrcoracao@dioceseleopoldina.com.br",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseleopoldina.com.br/paroquia-nossa-senhora-do-sagrado-coracao/",
+          "title": "Paróquia Nossa Senhora do Sagrado Coração – Muriaé — Diocese de Leopoldina (post de 2018-11-29)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [],
+      "forania": "Forania Muriaé"
+    },
+    {
+      "slug": "nossa-senhora-imaculada-conceicao-conceicao-da-boa-vista",
+      "name": "Paróquia Nossa Senhora Imaculada Conceição",
+      "city": "Conceição da Boa Vista",
+      "state": "MG",
+      "neighborhood": "Centro",
+      "address": "Praça da Matriz",
+      "zipCode": "36743-000",
+      "phone": "32-3444-2303",
+      "email": "pnsraimcaccoceicaodabv@dioceseleopoldina.com.br",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseleopoldina.com.br/paroquia-nossa-senhora-imaculada-conceicao/",
+          "title": "Paróquia Nossa Senhora Imaculada Conceição – Conceição da Boa Vista — Diocese de Leopoldina (post de 2018-11-29)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [],
+      "forania": "Forania Leopoldina"
+    },
+    {
+      "slug": "nossa-senhora-imaculada-conceicao-muriae",
+      "name": "Paróquia Nossa Senhora Imaculada Conceição",
+      "city": "Muriaé",
+      "state": "MG",
+      "neighborhood": null,
+      "address": "Lincoln Marinho Bairro: Barra",
+      "zipCode": "36880-000",
+      "phone": "32-3721-0286",
+      "email": "matrizdabarra@imicro.com.br",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseleopoldina.com.br/paroquia-nossa-senhora-imaculada-conceicao-2/",
+          "title": "Paróquia Nossa Senhora Imaculada Conceição – Muriaé — Diocese de Leopoldina (post de 2018-11-29)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [],
+      "forania": "Forania Muriaé"
+    },
+    {
+      "slug": "nossa-senhora-madre-de-deus-angustura",
+      "name": "Paróquia Nossa Senhora Madre de Deus",
+      "city": "Angustura",
+      "state": "MG",
+      "neighborhood": "Centro",
+      "address": "Largo da Matriz",
+      "zipCode": "36664-000",
+      "phone": "(32) 3462-6618",
+      "email": "pnsramadrededeus@dioceseleopoldina.com.br",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseleopoldina.com.br/paroquia-nossa-senhora-madre-de-deus/",
+          "title": "Paróquia Nossa Senhora Madre de Deus – Angustura — Diocese de Leopoldina (post de 2018-11-29)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [],
+      "forania": "Forania Além Paraíba"
+    },
+    {
+      "slug": "sant-ana-guidoval",
+      "name": "Paróquia Sant’Ana",
+      "city": "Guidoval",
+      "state": "MG",
+      "neighborhood": "Centro",
+      "address": "Praça Santana, 192",
+      "zipCode": "36515-000",
+      "phone": "(32) 3578-1231",
+      "email": "psantanaguidoval@dioceseleopoldina.com.br",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseleopoldina.com.br/paroquia-santana/",
+          "title": "Paróquia Sant’Ana – Guidoval — Diocese de Leopoldina (post de 2018-11-29)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseleopoldina.com.br/paroquia-santana/",
+              "title": "Paróquia Sant’Ana – Guidoval — Diocese de Leopoldina (post de 2018-11-29)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseleopoldina.com.br/paroquia-santana/",
+              "title": "Paróquia Sant’Ana – Guidoval — Diocese de Leopoldina (post de 2018-11-29)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 2,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseleopoldina.com.br/paroquia-santana/",
+              "title": "Paróquia Sant’Ana – Guidoval — Diocese de Leopoldina (post de 2018-11-29)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseleopoldina.com.br/paroquia-santana/",
+              "title": "Paróquia Sant’Ana – Guidoval — Diocese de Leopoldina (post de 2018-11-29)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseleopoldina.com.br/paroquia-santana/",
+              "title": "Paróquia Sant’Ana – Guidoval — Diocese de Leopoldina (post de 2018-11-29)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ],
+      "forania": "Forania Ubá"
+    },
+    {
+      "slug": "sant-ana-pirapetinga",
+      "name": "Paróquia Sant’Ana",
+      "city": "Pirapetinga",
+      "state": "MG",
+      "neighborhood": "Centro",
+      "address": "Praça Sant’Ana, 1",
+      "zipCode": "36730-000",
+      "phone": "(32) 3465-1127",
+      "email": "psantanapirapetinga@dioceseleopoldina.com.br",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseleopoldina.com.br/paroquia-santana-2/",
+          "title": "Paróquia Sant’Ana – Pirapetinga — Diocese de Leopoldina (post de 2018-11-29)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [],
+      "forania": "Forania Além Paraíba"
+    },
+    {
+      "slug": "sant-ana-santana-de-cataguases",
+      "name": "Paróquia Sant’Ana",
+      "city": "Santana de Cataguases",
+      "state": "MG",
+      "neighborhood": "Centro",
+      "address": "Praça Agostinho Alves Araújo",
+      "zipCode": "36795-000",
+      "phone": "(32) 3425-1121",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseleopoldina.com.br/paroquia-santana-3/",
+          "title": "Paróquia Sant’Ana – Santana de Cataguases — Diocese de Leopoldina (post de 2018-11-29)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [],
+      "forania": "Forania Cataguases"
+    },
+    {
+      "slug": "santa-bernadete-uba",
+      "name": "Paróquia Santa Bernadete",
+      "city": "Ubá",
+      "state": "MG",
+      "neighborhood": "Santa Bernadete",
+      "address": "Rua Cândido Martins de Oliveira Neto, 300",
+      "zipCode": "36500-000",
+      "phone": "(32) 3532-5904",
+      "email": "pstabernadeteuba@dioceseloepoldina.com",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseleopoldina.com.br/paroquia-santa-bernadete/",
+          "title": "Paróquia Santa Bernadete – Ubá — Diocese de Leopoldina (post de 2018-11-29)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [],
+      "forania": "Forania Ubá"
+    },
+    {
+      "slug": "santa-cruz-muriae",
+      "name": "Paróquia Santa Cruz",
+      "city": "Muriaé",
+      "state": "MG",
+      "neighborhood": "Safira",
+      "address": "Av. Silvério Campos, 181",
+      "zipCode": "36880-000",
+      "phone": "(32) 3722-8399",
+      "email": "pstacruz@dioceseleopoldina.com.br",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseleopoldina.com.br/paroquia-santa-cruz/",
+          "title": "Paróquia Santa Cruz – Muriaé — Diocese de Leopoldina (post de 2018-11-29)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [],
+      "forania": "Forania Muriaé"
+    },
+    {
+      "slug": "santa-rita-de-cassia-miradouro",
+      "name": "Paróquia Santa Rita de Cássia",
+      "city": "Miradouro",
+      "state": "MG",
+      "neighborhood": "254",
+      "address": "Praça Santa Rita",
+      "zipCode": "36893-000",
+      "phone": "(32) 3753-1002",
+      "email": "pstaritadecassia@dioceseleopoldina.com.br",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseleopoldina.com.br/paroquia-santa-rita-de-cassia/",
+          "title": "Paróquia Santa Rita de Cássia – Miradouro — Diocese de Leopoldina (post de 2018-11-29)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [],
+      "forania": "Forania Muriaé"
+    },
+    {
+      "slug": "santo-antonio-belisario",
+      "name": "Paróquia Santo Antônio",
+      "city": "Belisário",
+      "state": "MG",
+      "neighborhood": null,
+      "address": "Casa Paroquial Bairro: Centro",
+      "zipCode": "36888-000",
+      "phone": "(32) 3723-1217",
+      "email": "pstoantbelisario@dioceseleopoldina.com.br",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseleopoldina.com.br/paroquia-santo-antonio/",
+          "title": "Paróquia Santo Antônio – Belisário — Diocese de Leopoldina (post de 2018-11-29)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [],
+      "forania": "Forania Muriaé"
+    },
+    {
+      "slug": "santo-antonio-mirai",
+      "name": "Paróquia Santo Antônio",
+      "city": "Miraí",
+      "state": "MG",
+      "neighborhood": "Centro",
+      "address": "Praça Dr. Miguel Pereira, 97",
+      "zipCode": "36790-000",
+      "phone": "(32) 3426-1299",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseleopoldina.com.br/paroquia-santo-antonio-2/",
+          "title": "Paróquia Santo Antônio – Miraí — Diocese de Leopoldina (post de 2018-11-29)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [],
+      "forania": "Forania Cataguases"
+    },
+    {
+      "slug": "santo-antonio-providencia",
+      "name": "Paróquia Santo Antônio",
+      "city": "Providência",
+      "state": "MG",
+      "neighborhood": "Centro",
+      "address": "Rua Santo Antônio",
+      "zipCode": "36706-000",
+      "phone": "(32) 3447-5104",
+      "email": "pstoantprovidencia@dioceseleopoldina.com.br",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseleopoldina.com.br/paroquia-santo-antonio-3/",
+          "title": "Paróquia Santo Antônio – Providência — Diocese de Leopoldina (post de 2018-11-29)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [],
+      "forania": "Forania Além Paraíba"
+    },
+    {
+      "slug": "santo-antonio-santo-antonio-do-aventureiro",
+      "name": "Paróquia Santo Antônio",
+      "city": "Santo Antônio do Aventureiro",
+      "state": "MG",
+      "neighborhood": "Centro",
+      "address": "Rua Agnelo Vitral, 41",
+      "zipCode": "36670-000",
+      "phone": "(32) 3286-1176",
+      "email": "pstoantaventurer@dioceseleopoldina.com.br",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseleopoldina.com.br/paroquia-santo-antonio-4/",
+          "title": "Paróquia Santo Antônio – Stº Antônio do Aventureiro — Diocese de Leopoldina (post de 2018-11-29)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [],
+      "forania": "Forania Além Paraíba"
+    },
+    {
+      "slug": "santo-antonio-tebas",
+      "name": "Paróquia Santo Antônio",
+      "city": "Tebas",
+      "state": "MG",
+      "neighborhood": null,
+      "address": null,
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseleopoldina.com.br/pe-adilson-jose-dias-nery-2/",
+          "title": "Paróquia Santo Antônio – Tebas — Diocese de Leopoldina (post de 2018-11-29)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [],
+      "forania": "Forania Leopoldina"
+    },
+    {
+      "slug": "santo-antonio-tuiutinga",
+      "name": "Paróquia Santo Antônio",
+      "city": "Tuiutinga",
+      "state": "MG",
+      "neighborhood": "Centro",
+      "address": "Praça da Matriz",
+      "zipCode": "36528-000",
+      "phone": "32-3553-1218",
+      "email": "pstoanttuiutinga@dioceseleopoldina.com.br",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseleopoldina.com.br/paroquia-santo-antonio-6/",
+          "title": "Paróquia Santo Antônio – Tuiutinga — Diocese de Leopoldina (post de 2018-11-29)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [],
+      "forania": "Forania Visconde do Rio Branco"
+    },
+    {
+      "slug": "santo-antonio-visconde-do-rio-branco",
+      "name": "Paróquia Santo Antônio",
+      "city": "Visconde do Rio Branco",
+      "state": "MG",
+      "neighborhood": "Santo Antônio",
+      "address": "Rua Santo Antônio Número: 40",
+      "zipCode": "36520-000",
+      "phone": "32-3551-1137",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseleopoldina.com.br/paroquia-santo-antonio-7/",
+          "title": "Paróquia Santo Antônio – Visconde do Rio Branco — Diocese de Leopoldina (post de 2018-11-29)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [],
+      "forania": "Forania Visconde do Rio Branco"
+    },
+    {
+      "slug": "santo-antonio-de-padua-astolfo-dutra",
+      "name": "Paróquia Santo Antônio de Pádua",
+      "city": "Astolfo Dutra",
+      "state": "MG",
+      "neighborhood": "Centro",
+      "address": "Rua Governador Valadares, 88",
+      "zipCode": "36780-000",
+      "phone": "(32) 3451-1375",
+      "email": "pstoantdepadua@dioceseleopoldina.com.br",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseleopoldina.com.br/paroquia-santo-antonio-de-padua/",
+          "title": "Paróquia Santo Antônio de Pádua – Astolfo Dutra — Diocese de Leopoldina (post de 2018-11-29)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [],
+      "forania": "Forania Cataguases"
+    },
+    {
+      "slug": "sao-benedito-leopoldina",
+      "name": "Paróquia São Benedito",
+      "city": "Leopoldina",
+      "state": "MG",
+      "neighborhood": null,
+      "address": null,
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseleopoldina.com.br/paroquia-sao-benedito/",
+          "title": "Paróquia São Benedito – Leopoldina — Diocese de Leopoldina (post de 2014-07-29)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": "Fonte oficial de 26/11/2018 (pré-pandemia) — reconferir.",
+          "sources": [
+            {
+              "url": "https://dioceseleopoldina.com.br/horarios-missa/",
+              "title": "Horários de Missa — Diocese de Leopoldina (página de 26/11/2018)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": "Fonte oficial de 26/11/2018 (pré-pandemia) — reconferir.",
+          "sources": [
+            {
+              "url": "https://dioceseleopoldina.com.br/horarios-missa/",
+              "title": "Horários de Missa — Diocese de Leopoldina (página de 26/11/2018)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Fonte oficial de 26/11/2018 (pré-pandemia) — reconferir.",
+          "sources": [
+            {
+              "url": "https://dioceseleopoldina.com.br/horarios-missa/",
+              "title": "Horários de Missa — Diocese de Leopoldina (página de 26/11/2018)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 2,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Fonte oficial de 26/11/2018 (pré-pandemia) — reconferir.",
+          "sources": [
+            {
+              "url": "https://dioceseleopoldina.com.br/horarios-missa/",
+              "title": "Horários de Missa — Diocese de Leopoldina (página de 26/11/2018)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ],
+      "forania": null
+    },
+    {
+      "slug": "sao-cristovao-e-imaculada-conceicao-cataguases",
+      "name": "Paróquia São Cristóvão e Imaculada Conceição",
+      "city": "Cataguases",
+      "state": "MG",
+      "neighborhood": "Bom Pastor – Industrial",
+      "address": "Av. Manoel Inácio Peixoto, 2390",
+      "zipCode": "36772-406",
+      "phone": "(32) 3422-5311",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseleopoldina.com.br/paroquia-sao-cristovao-e-imaculada-conceicao/",
+          "title": "Paróquia São Cristóvão e Imaculada Conceição – Cataguases — Diocese de Leopoldina (post de 2018-11-29)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [],
+      "forania": "Forania Cataguases"
+    },
+    {
+      "slug": "sao-francisco-de-assis-palma",
+      "name": "Paróquia São Francisco de Assis",
+      "city": "Palma",
+      "state": "MG",
+      "neighborhood": "Centro",
+      "address": "Praça da Matriz, 104",
+      "zipCode": "36750-000",
+      "phone": "(32) 3446-1126",
+      "email": "matrizfrancisco@gmail.com",
+      "website": null,
+      "priestName": "Padre Marcelo de Aguiar Morais",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseleopoldina.com.br/paroquia-sao-francisco-de-assis/",
+          "title": "Paróquia São Francisco de Assis – Palma — Diocese de Leopoldina (post de 2020-01-30)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [],
+      "forania": "Forania Leopoldina"
+    },
+    {
+      "slug": "sao-francisco-de-paula-boa-familia",
+      "name": "Paróquia São Francisco de Paula",
+      "city": "Boa Família",
+      "state": "MG",
+      "neighborhood": "Centro",
+      "address": "Praça da Matriz",
+      "zipCode": "36883-000",
+      "phone": "(32) 3722-2881",
+      "email": "psfranciscodepaula@dioceseleopoldina.com.br",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseleopoldina.com.br/paroquia-sao-francisco-de-paula/",
+          "title": "Paróquia São Francisco de Paula – Boa Família — Diocese de Leopoldina (post de 2018-11-29)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [],
+      "forania": "Forania Muriaé"
+    },
+    {
+      "slug": "sao-francisco-de-paula-vista-alegre",
+      "name": "Paróquia São Francisco de Paula",
+      "city": "Vista Alegre",
+      "state": "MG",
+      "neighborhood": "Centro",
+      "address": "Rua Floriano Peixoto",
+      "zipCode": "36774-000",
+      "phone": "(32) 3422-5311",
+      "email": "psfrancdepaulavistaalegre@dioceseleopoldina.com.br",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseleopoldina.com.br/paroquia-sao-francisco-de-paula-2/",
+          "title": "Paróquia São Francisco de Paula – Vista Alegre — Diocese de Leopoldina (post de 2018-11-29)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [],
+      "forania": "Forania Cataguases"
+    },
+    {
+      "slug": "sao-januario-uba",
+      "name": "Paróquia São Januário",
+      "city": "Ubá",
+      "state": "MG",
+      "neighborhood": "Centro",
+      "address": "Rua Frei Pedro Número: 46",
+      "zipCode": "36500-000",
+      "phone": "(32) 3532-4753",
+      "email": "psjanuariouba@dioceseleopoldina.com.br",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseleopoldina.com.br/paroquia-sao-januario/",
+          "title": "Paróquia São Januário – Ubá — Diocese de Leopoldina (post de 2018-11-29)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [],
+      "forania": "Forania Ubá"
+    },
+    {
+      "slug": "sao-joao-batista-visconde-do-rio-branco",
+      "name": "Paróquia São João Batista",
+      "city": "Visconde do Rio Branco",
+      "state": "MG",
+      "neighborhood": null,
+      "address": null,
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseleopoldina.com.br/paroquia-sao-joao-batista/",
+          "title": "Paróquia São João Batista – Visconde do Rio Branco — Diocese de Leopoldina (post de 2016-12-10)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": "Fonte oficial de 26/11/2018 (pré-pandemia) — reconferir.",
+          "sources": [
+            {
+              "url": "https://dioceseleopoldina.com.br/horarios-missa/",
+              "title": "Horários de Missa — Diocese de Leopoldina (página de 26/11/2018)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": "Fonte oficial de 26/11/2018 (pré-pandemia) — reconferir.",
+          "sources": [
+            {
+              "url": "https://dioceseleopoldina.com.br/horarios-missa/",
+              "title": "Horários de Missa — Diocese de Leopoldina (página de 26/11/2018)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Fonte oficial de 26/11/2018 (pré-pandemia) — reconferir.",
+          "sources": [
+            {
+              "url": "https://dioceseleopoldina.com.br/horarios-missa/",
+              "title": "Horários de Missa — Diocese de Leopoldina (página de 26/11/2018)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 1,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Fonte oficial de 26/11/2018 (pré-pandemia) — reconferir.",
+          "sources": [
+            {
+              "url": "https://dioceseleopoldina.com.br/horarios-missa/",
+              "title": "Horários de Missa — Diocese de Leopoldina (página de 26/11/2018)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Fonte oficial de 26/11/2018 (pré-pandemia) — reconferir.",
+          "sources": [
+            {
+              "url": "https://dioceseleopoldina.com.br/horarios-missa/",
+              "title": "Horários de Missa — Diocese de Leopoldina (página de 26/11/2018)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": "Fonte oficial de 26/11/2018 (pré-pandemia) — reconferir.",
+          "sources": [
+            {
+              "url": "https://dioceseleopoldina.com.br/horarios-missa/",
+              "title": "Horários de Missa — Diocese de Leopoldina (página de 26/11/2018)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ],
+      "forania": null
+    },
+    {
+      "slug": "sao-jose-alem-paraiba",
+      "name": "Paróquia São José",
+      "city": "Além Paraíba",
+      "state": "MG",
+      "neighborhood": "São José",
+      "address": "Rua Cel. Breves, 177",
+      "zipCode": "36660-000",
+      "phone": "(32) 3462-6618",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseleopoldina.com.br/paroquia-sao-jose-2/",
+          "title": "Paróquia São José – Além Paraíba — Diocese de Leopoldina (post de 2018-11-29)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [],
+      "forania": "Forania Além Paraíba"
+    },
+    {
+      "slug": "sao-jose-tocantins",
+      "name": "Paróquia São José",
+      "city": "Tocantins",
+      "state": "MG",
+      "neighborhood": "Centro",
+      "address": "Mesquita Barros, 236",
+      "zipCode": "36512-000",
+      "phone": "(32) 3574-1357",
+      "email": "psjosetocantins@dioceseleopoldina.com.br",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseleopoldina.com.br/paroquia-sao-jose/",
+          "title": "Paróquia São José – Tocantins — Diocese de Leopoldina (post de 2018-11-29)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [],
+      "forania": "Forania Ubá"
+    },
+    {
+      "slug": "sao-jose-operario-cataguases",
+      "name": "Paróquia São José Operário",
+      "city": "Cataguases",
+      "state": "MG",
+      "neighborhood": "Vila Minalda",
+      "address": "Luís Pinto da Silva, 15",
+      "zipCode": "36772-406",
+      "phone": "(32) 3421-3710",
+      "email": "psjoseoperario@dioceseleopoldina.com.br",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseleopoldina.com.br/paroquia-sao-jose-operario/",
+          "title": "Paróquia São José Operário – Cataguases — Diocese de Leopoldina (post de 2018-11-29)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [],
+      "forania": "Forania Cataguases"
+    },
+    {
+      "slug": "sao-jose-operario-leopoldina",
+      "name": "Paróquia São José Operário",
+      "city": "Leopoldina",
+      "state": "MG",
+      "neighborhood": "Fátima",
+      "address": "Rua Jonas Bastos Número: 100",
+      "zipCode": "36700-000",
+      "phone": "(32) 3441-2527",
+      "email": "psjoseoperarioleopoldina@dioceseleopoldina.com.br",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseleopoldina.com.br/paroquia-sao-jose-operario-2/",
+          "title": "Paróquia São José Operário – Leopoldina — Diocese de Leopoldina (post de 2018-11-29)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [],
+      "forania": "Forania Leopoldina"
+    },
+    {
+      "slug": "sao-paulo-muriae",
+      "name": "Paróquia São Paulo",
+      "city": "Muriaé",
+      "state": "MG",
+      "neighborhood": "Centro",
+      "address": "Rua Afonso Canedo Número: 47",
+      "zipCode": "36880-000",
+      "phone": "(32) 3722-2363",
+      "email": "pspaulo@dioceseleopoldina.com.br",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseleopoldina.com.br/paroquia-nossa-senhora-do-sagrado-coracao-2/",
+          "title": "Paróquia São Paulo – Muriaé — Diocese de Leopoldina (post de 2018-11-29)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [],
+      "forania": "Forania Muriaé"
+    },
+    {
+      "slug": "sao-sebastiao-barao-de-monte-alto",
+      "name": "Paróquia São Sebastião",
+      "city": "Barão de Monte Alto",
+      "state": "MG",
+      "neighborhood": "Centro",
+      "address": "Rua Padre Juliano Laurer",
+      "zipCode": "36870-000",
+      "phone": "32-3727-1037",
+      "email": "pssebastiao@dioceseleopoldina.com.br",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseleopoldina.com.br/paroquia-sao-sebastiao/",
+          "title": "Paróquia São Sebastião – Cachoeira Alegre — Diocese de Leopoldina (post de 2018-11-29)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [],
+      "forania": "Forania Muriaé"
+    },
+    {
+      "slug": "sao-sebastiao-pirauba",
+      "name": "Paróquia São Sebastião",
+      "city": "Piraúba",
+      "state": "MG",
+      "neighborhood": "Centro",
+      "address": "Praça Lucy Gomes Caputo, 226",
+      "zipCode": "36170-000",
+      "phone": null,
+      "email": "pssebastiaopirauba@dioceseleopoldina.com.br",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseleopoldina.com.br/paroquia-sao-sebastiao-2/",
+          "title": "Paróquia São Sebastião – Piraúba — Diocese de Leopoldina (post de 2018-11-29)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [],
+      "forania": "Forania Ubá"
+    },
+    {
+      "slug": "sao-sebastiao-rodeiro",
+      "name": "Paróquia São Sebastião",
+      "city": "Rodeiro",
+      "state": "MG",
+      "neighborhood": "Centro",
+      "address": "Praça São Sebastião, 47",
+      "zipCode": "36510-000",
+      "phone": "32-3577-1250",
+      "email": "pssebastiaorodeiro@dioceseleopoldina.com.br",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseleopoldina.com.br/paroquia-sao-sebastiao-3/",
+          "title": "Paróquia São Sebastião – Rodeiro — Diocese de Leopoldina (post de 2018-11-29)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [],
+      "forania": "Forania Ubá"
+    },
+    {
+      "slug": "sao-sebastiao-sao-geraldo",
+      "name": "Paróquia São Sebastião",
+      "city": "São Geraldo",
+      "state": "MG",
+      "neighborhood": "Centro",
+      "address": "Praça Raul Soares, 112",
+      "zipCode": "36530-000",
+      "phone": "32-3556-1573",
+      "email": "pssebastiaosgeraldo@dioceseleopoldina.com.br",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseleopoldina.com.br/paroquia-sao-sebastiao-4/",
+          "title": "Paróquia São Sebastião – São Geraldo — Diocese de Leopoldina (post de 2018-11-29)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [],
+      "forania": "Forania Visconde do Rio Branco"
+    },
+    {
+      "slug": "sao-sebastiao-uba",
+      "name": "Paróquia São Sebastião",
+      "city": "Ubá",
+      "state": "MG",
+      "neighborhood": "São Sebastião",
+      "address": "Av. dos Franciscanos, 496",
+      "zipCode": "36500-000",
+      "phone": "32-3531-1494",
+      "email": "pssebastiaouba@dioceseleopoldina.com.br",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseleopoldina.com.br/paroquia-sao-sebastiao-5/",
+          "title": "Paróquia São Sebastião – Ubá — Diocese de Leopoldina (post de 2018-11-29)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [],
+      "forania": "Forania Ubá"
+    },
+    {
+      "slug": "sao-sebastiao-visconde-do-rio-branco",
+      "name": "Paróquia São Sebastião",
+      "city": "Visconde do Rio Branco",
+      "state": "MG",
+      "neighborhood": null,
+      "address": null,
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseleopoldina.com.br/paroquia-sao-sebastiao-6/",
+          "title": "Paróquia São Sebastião – Visconde do Rio Branco — Diocese de Leopoldina (post de 2016-12-10)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "08:30",
+          "type": "MASS",
+          "notes": "Fonte oficial de 26/11/2018 (pré-pandemia) — reconferir.",
+          "sources": [
+            {
+              "url": "https://dioceseleopoldina.com.br/horarios-missa/",
+              "title": "Horários de Missa — Diocese de Leopoldina (página de 26/11/2018)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Fonte oficial de 26/11/2018 (pré-pandemia) — reconferir.",
+          "sources": [
+            {
+              "url": "https://dioceseleopoldina.com.br/horarios-missa/",
+              "title": "Horários de Missa — Diocese de Leopoldina (página de 26/11/2018)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Fonte oficial de 26/11/2018 (pré-pandemia) — reconferir.",
+          "sources": [
+            {
+              "url": "https://dioceseleopoldina.com.br/horarios-missa/",
+              "title": "Horários de Missa — Diocese de Leopoldina (página de 26/11/2018)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Fonte oficial de 26/11/2018 (pré-pandemia) — reconferir.",
+          "sources": [
+            {
+              "url": "https://dioceseleopoldina.com.br/horarios-missa/",
+              "title": "Horários de Missa — Diocese de Leopoldina (página de 26/11/2018)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ],
+      "forania": null
+    },
+    {
+      "slug": "sao-sebastiao-volta-grande",
+      "name": "Paróquia São Sebastião",
+      "city": "Volta Grande",
+      "state": "MG",
+      "neighborhood": "Centro",
+      "address": "Rua Wanir Lima, 103",
+      "zipCode": "36720-000",
+      "phone": "(32) 3463-1298",
+      "email": "pssebastiaovoltagrande@dioceseleopoldina.com.br",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseleopoldina.com.br/paroquia-sao-sebastiao-7/",
+          "title": "Paróquia São Sebastião – Volta Grande — Diocese de Leopoldina (post de 2018-11-29)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [],
+      "forania": "Forania Além Paraíba"
+    },
+    {
+      "slug": "sao-sebastiao-da-mata-eugenopolis",
+      "name": "Paróquia São Sebastião da Mata",
+      "city": "Eugenópolis",
+      "state": "MG",
+      "neighborhood": "Centro",
+      "address": "Praça João XXIII, 145",
+      "zipCode": "36855-000",
+      "phone": "32-3724-1017",
+      "email": "pssdamata@dioceseleopoldina.com.br",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseleopoldina.com.br/paroquia-sao-sebastiao-da-mata/",
+          "title": "Paróquia São Sebastião da Mata – Eugenópolis — Diocese de Leopoldina (post de 2018-11-29)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [],
+      "forania": "Forania Muriaé"
+    },
+    {
+      "slug": "senhor-bom-jesus-argirita",
+      "name": "Paróquia Senhor Bom Jesus",
+      "city": "Argirita",
+      "state": "MG",
+      "neighborhood": null,
+      "address": null,
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseleopoldina.com.br/pe-adilson-jose-dias-nery/",
+          "title": "Paróquia Senhor Bom Jesus – Argirita — Diocese de Leopoldina (post de 2018-11-29)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [],
+      "forania": "Forania Leopoldina"
+    },
+    {
+      "slug": "senhor-bom-jesus-vieiras",
+      "name": "Paróquia Senhor Bom Jesus",
+      "city": "Vieiras",
+      "state": "MG",
+      "neighborhood": null,
+      "address": "Rua Alcebíades Ribeiro Bairro: Centro",
+      "zipCode": "36895-000",
+      "phone": "(32) 3755-1071",
+      "email": "psrbomjesusvieiras@dioceseleopoldina.com.br",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseleopoldina.com.br/paroquia-senhor-bom-jesus-2/",
+          "title": "Paróquia Senhor Bom Jesus – Vieiras — Diocese de Leopoldina (post de 2018-11-29)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [],
+      "forania": "Forania Muriaé"
+    },
+    {
+      "slug": "senhor-bom-jesus-dos-aflitos-itamarati-de-minas",
+      "name": "Paróquia Senhor Bom Jesus dos Aflitos",
+      "city": "Itamarati de Minas",
+      "state": "MG",
+      "neighborhood": "Centro",
+      "address": "Vitorino Gonçalves da Silva",
+      "zipCode": "36776-000",
+      "phone": "32-3452-1256",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseleopoldina.com.br/paroquia-senhor-bom-jesus-dos-aflitos/",
+          "title": "Paróquia Senhor Bom Jesus dos Aflitos – Itamarati de Minas — Diocese de Leopoldina (post de 2018-11-29)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [],
+      "forania": "Forania Cataguases"
+    },
+    {
+      "slug": "santa-rita-de-cassia-cataguases",
+      "name": "Santuário Santa Rita de Cássia",
+      "city": "Cataguases",
+      "state": "MG",
+      "neighborhood": "Centro",
+      "address": "Praça Santa Rita, 92",
+      "zipCode": "36770-020",
+      "phone": "(32) 3421-2436",
+      "email": "santuariostaritacassia@dioceseleopoldina.com.br",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://dioceseleopoldina.com.br/santuario-santa-rita-de-cassia/",
+          "title": "Santuário Santa Rita de Cássia – Cataguases — Diocese de Leopoldina (post de 2018-11-29)",
+          "accessedAt": "2026-09-10"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": [],
+      "forania": "Forania Cataguases"
+    }
+  ],
+  "coverage": {
+    "parishesFound": 62,
+    "parishesExpected": 62,
+    "notes": "Lista completa da categoria oficial \"Paróquias\" do site da diocese (WP REST, X-WP-Total = 62). O Anuário Pontifício 2024 (via catholic-hierarchy) registra 62 paróquias em 2023; a página institucional da diocese (2020) fala em 63 paróquias em 34 municípios e 6 foranias. As fichas de paróquia do site foram modificadas pela última vez em 2018 (3 delas em 2020/2021), por isso confidence=media. O site NÃO publica comunidades/capelas. Horários: só 35 registros, todos baixa (fontes de 2018-2020, pré-pandemia)."
+  }
+}
