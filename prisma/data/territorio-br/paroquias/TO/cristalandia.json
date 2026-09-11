@@ -1,0 +1,2818 @@
+{
+  "diocese": {
+    "name": "Diocese de Cristalândia",
+    "type": "Diocese",
+    "slug": "cristalandia",
+    "city": "Cristalândia",
+    "state": "TO",
+    "address": "Av. Dom Jaime Antônio Schuck, 2050 - Centro",
+    "zipCode": "77490-000",
+    "phone": "(63) 99287-8320",
+    "email": null,
+    "website": "https://diocesedecristalandia.org.br",
+    "bishopName": "Dom Wellington Tadeu de Queiroz Vieira",
+    "sources": [
+      {
+        "url": "https://diocesedecristalandia.org.br/",
+        "title": "Diocese de Cristalândia - Tocantins",
+        "accessedAt": "2026-09-11"
+      },
+      {
+        "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+        "title": "Horário de Missa - Diocese de Cristalândia",
+        "accessedAt": "2026-09-11"
+      },
+      {
+        "url": "https://www.vaticannews.va/pt/igreja/news/2019-07/elevacao-diocese-de-cristalandia.html",
+        "title": "Vatican News - Elevação da nova diocese de Cristalândia (julho de 2019)",
+        "accessedAt": "2026-09-11"
+      }
+    ],
+    "confidence": "alta",
+    "notes": "Era Prelazia de Cristalândia (criada em 1956); foi elevada a DIOCESE em julho de 2019. O dioceses.json do repositório já a registra como \"Diocese de Cristalândia\" - o tipo correto é Diocese, não Prelazia."
+  },
+  "parishes": [
+    {
+      "slug": "nossa-senhora-da-piedade-porangatu",
+      "name": "Paróquia Nossa Senhora da Piedade",
+      "city": "Porangatu",
+      "state": "GO",
+      "neighborhood": null,
+      "address": "Rua 07, nº 117 - Centro",
+      "zipCode": "76550-000",
+      "phone": "(62) 3362-3328",
+      "email": "expedienteparoquial@gmail.com",
+      "website": null,
+      "priestName": "Pe. Eduardo Lustosa",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedecristalandia.org.br/?p=3315",
+          "title": "Paróquia Nossa Senhora da Piedade | Porangatu-GO - Diocese de Cristalândia",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Forania Nossa Senhora da Piedade.",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora da Piedade",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Sagrado Coração de Jesus",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Santo Antônio Frei Galvão",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Santa Mônica",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Santa Luzia (Rural)",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Santa Verônica (Rural)",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São Pedro (Rural)",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Divino Espírito Santo (Rural)",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nossa Senhora Aparecida (Rural)",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Lar dos Idosos VI",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Santa Luzia",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Divino Pai Eterno",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nossa Senhora Aparecida",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Santa Clara",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São José",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São Luiz de França",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São Sebastião (Rural)",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São Francisco de Assis",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Católica Unifé",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora da Piedade",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Piedade",
+          "dayOfWeek": 0,
+          "time": "07:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Comunidade Sagrado Coração de Jesus",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Comunidade Santo Antônio Frei Galvão",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Comunidade Santa Mônica",
+          "dayOfWeek": 6,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": "Recorrencia mensal nao cabe em MassSchedule (so dia da semana). Regra literal publicada: \"1º Sábado do Mês\".",
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Santa Luzia (Rural)",
+          "dayOfWeek": 6,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": "Recorrencia mensal nao cabe em MassSchedule (so dia da semana). Regra literal publicada: \"1º Sábado do Mês\".",
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Santa Verônica (Rural)",
+          "dayOfWeek": 6,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": "Recorrencia mensal nao cabe em MassSchedule (so dia da semana). Regra literal publicada: \"2º Sábado do Mês\".",
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade São Pedro (Rural)",
+          "dayOfWeek": 6,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": "Recorrencia mensal nao cabe em MassSchedule (so dia da semana). Regra literal publicada: \"3º Sábado do Mês\".",
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Divino Espírito Santo (Rural)",
+          "dayOfWeek": 6,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": "Recorrencia mensal nao cabe em MassSchedule (so dia da semana). Regra literal publicada: \"3º Sábado do Mês\".",
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Nossa Senhora Aparecida (Rural)",
+          "dayOfWeek": 6,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": "Recorrencia mensal nao cabe em MassSchedule (so dia da semana). Regra literal publicada: \"4º Sábado do Mês\".",
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Lar dos Idosos VI",
+          "dayOfWeek": 4,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": "Recorrencia mensal nao cabe em MassSchedule (so dia da semana). Regra literal publicada: \"3ª Quinta-feira do Mês\".",
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Piedade",
+          "dayOfWeek": 0,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": "Publicada como \"Com. N. Sra. da Piedade (V. Matriz)\"; o rótulo \"V. Matriz\" não é explicado pela fonte.",
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Comunidade Santa Luzia",
+          "dayOfWeek": 0,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Comunidade Divino Pai Eterno",
+          "dayOfWeek": 0,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Comunidade Nossa Senhora Aparecida",
+          "dayOfWeek": 2,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Piedade",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Comunidade Santa Clara",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Comunidade São José",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Comunidade São Luiz de França",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Comunidade São Sebastião (Rural)",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Recorrencia mensal nao cabe em MassSchedule (so dia da semana). Regra literal publicada: \"1ª Quarta-feira do Mês\".",
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade São Francisco de Assis",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Recorrencia mensal nao cabe em MassSchedule (so dia da semana). Regra literal publicada: \"1ª Sexta-feira do Mês\".",
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade São Sebastião (Rural)",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Recorrencia mensal nao cabe em MassSchedule (so dia da semana). Regra literal publicada: \"3ª Sexta-feira do Mês\".",
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade São Sebastião (Rural)",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Recorrencia mensal nao cabe em MassSchedule (so dia da semana). Regra literal publicada: \"2º Sábado do Mês\".",
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade São Francisco de Assis",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Comunidade Nossa Senhora Aparecida",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Piedade",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Comunidade Católica Unifé",
+          "dayOfWeek": 5,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Recorrencia mensal nao cabe em MassSchedule (so dia da semana). Regra literal publicada: \"2ª Sexta-feira do Mês\".",
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "santissima-trindade-porangatu",
+      "name": "Paróquia Santíssima Trindade",
+      "city": "Porangatu",
+      "state": "GO",
+      "neighborhood": null,
+      "address": "Rua 13, nº 53 - Setor Vila Operária",
+      "zipCode": "76550-000",
+      "phone": "(62) 3362-3530",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. José Nilde",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedecristalandia.org.br/?p=3322",
+          "title": "Paróquia Santíssima Trindade | Porangatu-GO - Diocese de Cristalândia",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Forania Nossa Senhora da Piedade. Vigário: Pe. Gildázio. O e-mail publicado (\"parsantissimatrindade@gmail\") está truncado, sem o domínio - não gravado.",
+      "communities": [
+        {
+          "name": "Comunidade Cristo Rei",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Sant'Ana",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Santo Antônio",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São Sebastião",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São Francisco de Assis",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nossa Senhora Aparecida (Rural)",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Imaculada Conceição",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nossa Senhora de Fátima (Rural)",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nossa Senhora do Perpétuo Socorro (Rural)",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Sagrada Família",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nossa Senhora Aparecida (Povoado Estreito)",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nossa Senhora das Graças",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Divino Espírito Santo",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São Sebastião (Rural)",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Comunidade Cristo Rei",
+          "dayOfWeek": 0,
+          "time": "07:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Comunidade Sant'Ana",
+          "dayOfWeek": 0,
+          "time": "07:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Comunidade Santo Antônio",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Comunidade São Sebastião",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Comunidade São Francisco de Assis",
+          "dayOfWeek": 6,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": "Recorrencia mensal nao cabe em MassSchedule (so dia da semana). Regra literal publicada: \"1º Sábado do Mês\".",
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Nossa Senhora Aparecida (Rural)",
+          "dayOfWeek": 6,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": "Recorrencia mensal nao cabe em MassSchedule (so dia da semana). Regra literal publicada: \"2º Sábado do Mês\".",
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Santo Antônio",
+          "dayOfWeek": 0,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Comunidade Santo Antônio",
+          "dayOfWeek": 2,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Comunidade Sant'Ana",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Comunidade Imaculada Conceição",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Comunidade São Sebastião",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Comunidade Nossa Senhora de Fátima (Rural)",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Recorrencia mensal nao cabe em MassSchedule (so dia da semana). Regra literal publicada: \"3º Sábado do Mês\".",
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Nossa Senhora do Perpétuo Socorro (Rural)",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Recorrencia mensal nao cabe em MassSchedule (so dia da semana). Regra literal publicada: \"4º Sábado do Mês\".",
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Imaculada Conceição",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Comunidade Sagrada Família",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Comunidade Nossa Senhora Aparecida (Povoado Estreito)",
+          "dayOfWeek": 2,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Comunidade Nossa Senhora das Graças",
+          "dayOfWeek": 4,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Comunidade Divino Espírito Santo",
+          "dayOfWeek": 5,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Comunidade São Sebastião (Rural)",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Recorrencia mensal nao cabe em MassSchedule (so dia da semana). Regra literal publicada: \"1º Sábado do Mês\".",
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Nossa Senhora Aparecida (Rural)",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Recorrencia mensal nao cabe em MassSchedule (so dia da semana). Regra literal publicada: \"2º Sábado do Mês - a mesma comunidade também aparece na lista das 17h no 2º sábado; a fonte se contradiz.\".",
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "sao-miguel-arcanjo-sao-miguel-do-araguaia",
+      "name": "Paróquia São Miguel Arcanjo",
+      "city": "São Miguel do Araguaia",
+      "state": "GO",
+      "neighborhood": null,
+      "address": "Rua 02, nº 587 - Centro",
+      "zipCode": "76590-000",
+      "phone": "(62) 3364-1191",
+      "email": "paroquiasmarcanjo@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Manuca",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedecristalandia.org.br/?p=3326",
+          "title": "Paróquia São Miguel Arcanjo | São Miguel do Araguaia-GO - Diocese de Cristalândia",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Forania Nossa Senhora da Piedade. Vigário: Pe. Aparecido Silva.",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-pedro-novo-planalto",
+      "name": "Paróquia São Pedro",
+      "city": "Novo Planalto",
+      "state": "GO",
+      "neighborhood": null,
+      "address": "Av. Paraná, nº 70 - Centro",
+      "zipCode": "76580-000",
+      "phone": "(62) 3374-6138",
+      "email": "paroquiaspedro@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Jairo Barbosa",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedecristalandia.org.br/?p=3331",
+          "title": "Paróquia São Pedro | Novo Planalto-GO - Diocese de Cristalândia",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Forania Nossa Senhora da Piedade.",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-da-abadia-bonopolis",
+      "name": "Paróquia Nossa Senhora da Abadia",
+      "city": "Bonópolis",
+      "state": "GO",
+      "neighborhood": null,
+      "address": "Rua Amazonas, Qd. 41, Lt. 01, s/n - Centro",
+      "zipCode": "76555-000",
+      "phone": null,
+      "email": "quapavatican@gmail.com",
+      "website": null,
+      "priestName": "Pe. José Maria",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedecristalandia.org.br/?p=3336",
+          "title": "Paróquia Nossa Senhora da Abadia | Bonópolis-GO - Diocese de Cristalândia",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Forania Nossa Senhora da Piedade. Registrada em outras fontes como \"Quase-Paróquia Nossa Senhora da Abadia\"; o site da diocese a publica como Paróquia.",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-da-guia-mutunopolis",
+      "name": "Paróquia Nossa Senhora da Guia",
+      "city": "Mutunópolis",
+      "state": "GO",
+      "neighborhood": null,
+      "address": "Praça da Matriz, nº 110 - Centro",
+      "zipCode": "76540-000",
+      "phone": "(62) 3382-6350",
+      "email": "paroquianetmutum@gmail.com",
+      "website": null,
+      "priestName": "Pe. Jeová Lopes",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedecristalandia.org.br/?p=3339",
+          "title": "Paróquia Nossa Senhora da Guia | Mutunópolis-GO - Diocese de Cristalândia",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Forania Nossa Senhora da Piedade.",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "santo-antonio-de-padua-porangatu",
+      "name": "Paróquia Santo Antônio de Pádua",
+      "city": "Porangatu",
+      "state": "GO",
+      "neighborhood": null,
+      "address": "Rua Santana",
+      "zipCode": "76550-000",
+      "phone": "(62) 3362-3530 / (62) 98592-3269",
+      "email": "paduasantoantonio@gmail.com",
+      "website": null,
+      "priestName": "Pe. Lucas Peres",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedecristalandia.org.br/?p=8740",
+          "title": "Paróquia Santo Antônio de Pádua | Porangatu-GO - Diocese de Cristalândia",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Forania Nossa Senhora da Piedade. Diáconos: José Pinheiro e Fabrício Felipe. Telefone fixo idêntico ao da Paróquia Santíssima Trindade - conferir.",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-joao-batista-formoso-do-araguaia",
+      "name": "Paróquia São João Batista",
+      "city": "Formoso do Araguaia",
+      "state": "TO",
+      "neighborhood": null,
+      "address": "Rua 06, Praça São João Batista - Centro",
+      "zipCode": "77470-000",
+      "phone": "(63) 3357-1548",
+      "email": "paroquiaformoso@bol.com.br",
+      "website": null,
+      "priestName": "Pe. Fabiano Nascimento",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedecristalandia.org.br/?p=3350",
+          "title": "Paróquia São João Batista | Formoso do Araguaia-TO - Diocese de Cristalândia",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Forania São João Batista.",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "imaculada-conceicao-araguacu",
+      "name": "Paróquia Imaculada Conceição",
+      "city": "Araguaçu",
+      "state": "TO",
+      "neighborhood": null,
+      "address": "Av. Araguaia, nº 1.928 - Centro",
+      "zipCode": "77475-000",
+      "phone": "(63) 98125-8131",
+      "email": "par.imaculada@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Walteir",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedecristalandia.org.br/?p=3354",
+          "title": "Paróquia Imaculada Conceição | Araguaçu-TO - Diocese de Cristalândia",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Forania São João Batista. Residência: (63) 3384-1217.",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-aparecida-sandolandia",
+      "name": "Paróquia Nossa Senhora Aparecida",
+      "city": "Sandolândia",
+      "state": "TO",
+      "neighborhood": null,
+      "address": "Av. Dr. Ulisses Guimarães, s/n - Centro, Cx. Postal 01",
+      "zipCode": "77478-000",
+      "phone": "(62) 99666-4103",
+      "email": "paroquiasandondia@gmail.com",
+      "website": null,
+      "priestName": "Pe. Wagner Aurélio",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedecristalandia.org.br/?p=3358",
+          "title": "Paróquia Nossa Senhora Aparecida | Sandolândia-TO - Diocese de Cristalândia",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Forania São João Batista. Administrador paroquial.",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "santo-antonio-de-padua-duere",
+      "name": "Paróquia Santo Antônio de Pádua",
+      "city": "Dueré",
+      "state": "TO",
+      "neighborhood": null,
+      "address": "Av. Tancredo Neves esq. c/ R. Manoel Pereira, nº 40, Q. 10A, Lt. 01 - Setor Dona Constância",
+      "zipCode": "77485-000",
+      "phone": null,
+      "email": "santoantonio.duere@gmail.com",
+      "website": null,
+      "priestName": "Pe. João Elias",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedecristalandia.org.br/?p=3363",
+          "title": "Paróquia Santo Antônio de Pádua | Dueré-TO - Diocese de Cristalândia",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Forania São João Batista. Administrador paroquial. O site publica o campo de telefone vazio.",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-do-perpetuo-socorro-cristalandia",
+      "name": "Catedral Nossa Senhora do Perpétuo Socorro",
+      "city": "Cristalândia",
+      "state": "TO",
+      "neighborhood": null,
+      "address": "Av. Madre Verônica, nº 680 - Centro, Caixa Postal 13",
+      "zipCode": "77490-000",
+      "phone": "(63) 99293-5168",
+      "email": "paroquiadecristal@gmail.com",
+      "website": null,
+      "priestName": "Pe. Edilvan",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedecristalandia.org.br/?p=3367",
+          "title": "Catedral Nossa Senhora do Perpétuo Socorro | Cristalândia-TO - Diocese de Cristalândia",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Forania Nossa Senhora do Perpétuo Socorro. Vigário: Pe. Luiz.",
+      "communities": [
+        {
+          "name": "Catedral Nossa Senhora do Perpétuo Socorro",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Francisco de Assis",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Padre Cícero",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nossa Senhora das Graças",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nossa Senhora Aparecida",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nossa Senhora de Fátima",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Catedral Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 0,
+          "time": "07:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Capela São Francisco de Assis",
+          "dayOfWeek": 2,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Comunidade Padre Cícero",
+          "dayOfWeek": 2,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Comunidade Nossa Senhora das Graças",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Comunidade Nossa Senhora Aparecida",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Comunidade Nossa Senhora de Fátima",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-da-abadia-lagoa-da-confusao",
+      "name": "Paróquia Nossa Senhora da Abadia",
+      "city": "Lagoa da Confusão",
+      "state": "TO",
+      "neighborhood": null,
+      "address": "Rua Firmino Lacerda, nº 425 - Centro",
+      "zipCode": "77493-000",
+      "phone": "(63) 99267-8192",
+      "email": "paroquiadaabadialagoa@gmail.com",
+      "website": null,
+      "priestName": "Pe. Tiago",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedecristalandia.org.br/?p=3372",
+          "title": "Paróquia Nossa Senhora da Abadia | Lagoa da Confusão-TO - Diocese de Cristalândia",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Forania Nossa Senhora do Perpétuo Socorro. Administrador paroquial.",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-aparecida-nova-rosalandia",
+      "name": "Paróquia Nossa Senhora Aparecida",
+      "city": "Nova Rosalândia",
+      "state": "TO",
+      "neighborhood": null,
+      "address": "Av. Tiradentes, nº 26 - Centro",
+      "zipCode": "77495-000",
+      "phone": "(63) 99256-5199",
+      "email": "paroquiansaparecida2009@hotmail.com",
+      "website": null,
+      "priestName": "Pe. José João",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedecristalandia.org.br/?p=3376",
+          "title": "Paróquia Nossa Senhora Aparecida | Nova Rosalândia-TO - Diocese de Cristalândia",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Forania Nossa Senhora do Perpétuo Socorro.",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-do-carmo-pium",
+      "name": "Paróquia Nossa Senhora do Carmo",
+      "city": "Pium",
+      "state": "TO",
+      "neighborhood": null,
+      "address": "Av. Tocantins, nº 54 - Centro",
+      "zipCode": "77570-000",
+      "phone": "(63) 3368-1698",
+      "email": "paroquiansasenhoradocarmo@gmail.com",
+      "website": null,
+      "priestName": "Pe. Hermes",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedecristalandia.org.br/?p=3380",
+          "title": "Paróquia Nossa Senhora do Carmo | Pium-TO - Diocese de Cristalândia",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Forania Nossa Senhora do Perpétuo Socorro. Administrador paroquial.",
+      "communities": [
+        {
+          "name": "Comunidade Nossa Senhora Aparecida",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Matriz Nossa Senhora do Carmo",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Comunidade Nossa Senhora Aparecida",
+          "dayOfWeek": 0,
+          "time": "07:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Carmo",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Carmo",
+          "dayOfWeek": 4,
+          "time": "19:30",
+          "type": "ADORATION",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-do-carmo-divinopolis-do-tocantins",
+      "name": "Paróquia Nossa Senhora do Carmo",
+      "city": "Divinópolis do Tocantins",
+      "state": "TO",
+      "neighborhood": null,
+      "address": "Av. Sebastião Borba Santos, nº 877 - Centro",
+      "zipCode": "77670-000",
+      "phone": "(63) 3531-1071",
+      "email": "paroquianossasenhoradocarmo12@hotmail.com",
+      "website": null,
+      "priestName": "Frei Lúcio",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedecristalandia.org.br/?p=3384",
+          "title": "Paróquia Nossa Senhora do Carmo | Divinópolis do Tocantins-TO - Diocese de Cristalândia",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Forania São José Operário. Diácono cooperador: Frei Luan.",
+      "communities": [
+        {
+          "name": "Comunidade Nossa Senhora Aparecida",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Matriz Nossa Senhora do Carmo",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São Francisco de Assis",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nossa Senhora da Consolação",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Comunidade Nossa Senhora Aparecida",
+          "dayOfWeek": 0,
+          "time": "07:30",
+          "type": "MASS",
+          "notes": "A página de horários atribui esta missa a uma \"Paróquia N. Sra. Aparecida (Divinópolis-TO)\", que não existe na lista de paróquias da diocese; atribuída à Paróquia Nossa Senhora do Carmo de Divinópolis, que tem a mesma comunidade às 09h.",
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Comunidade Nossa Senhora Aparecida",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Carmo",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Carmo",
+          "dayOfWeek": 4,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Comunidade São Francisco de Assis",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Comunidade Nossa Senhora da Consolação",
+          "dayOfWeek": 2,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Recorrencia mensal nao cabe em MassSchedule (so dia da semana). Regra literal publicada: \"2ª Terça-feira do Mês\".",
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "santo-antonio-marianopolis-do-tocantins",
+      "name": "Paróquia Santo Antônio",
+      "city": "Marianópolis do Tocantins",
+      "state": "TO",
+      "neighborhood": null,
+      "address": "Rua Kaiapó, nº 137 - Centro",
+      "zipCode": "77675-000",
+      "phone": "(63) 3535-1196",
+      "email": "paroquiademarianopolis@gmail.com",
+      "website": null,
+      "priestName": "Pe. Fabiano Rodrigo",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedecristalandia.org.br/?p=3388",
+          "title": "Paróquia Santo Antônio | Marianópolis do Tocantins-TO - Diocese de Cristalândia",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Forania São José Operário.",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-jose-operario-paraiso-do-tocantins",
+      "name": "Paróquia São José Operário",
+      "city": "Paraíso do Tocantins",
+      "state": "TO",
+      "neighborhood": null,
+      "address": "Praça da Matriz, nº 660 - Centro",
+      "zipCode": "77600-000",
+      "phone": "(63) 3602-1107 / (63) 99934-5603",
+      "email": "paroquiasaojoseoperario.pso@gmail.com",
+      "website": null,
+      "priestName": "Pe. Kaíque Silva, CSsR",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedecristalandia.org.br/?p=3392",
+          "title": "Paróquia São José Operário | Paraíso do Tocantins-TO - Diocese de Cristalândia",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Forania São José Operário. Vigários: Pe. Luiz Carlos, CSsR e Pe. Wenderson, CSsR. Redentoristas.",
+      "communities": [
+        {
+          "name": "Matriz São José Operário",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Imaculada Conceição de Maria (Rural)",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Vão de São Jorge (Rural)",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nossa Senhora Aparecida (Rural)",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Divino Pai Eterno (Rural)",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São Sebastião",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Pedro (Rural)",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Divino Pai Eterno (Rural)",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Cristo Redentor",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora das Graças",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora Aparecida",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Pedro",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Santa Rita de Cássia",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Divino Pai Eterno",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Santo Antônio",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São Miguel Arcanjo",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São José Operário",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São José Operário",
+          "dayOfWeek": 3,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": "Novena de Nossa Senhora do Perpétuo Socorro",
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São José Operário",
+          "dayOfWeek": 3,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": "Novena de Nossa Senhora do Perpétuo Socorro",
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Comunidade Imaculada Conceição de Maria (Rural)",
+          "dayOfWeek": 6,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": "Recorrencia mensal nao cabe em MassSchedule (so dia da semana). Regra literal publicada: \"1º Sábado do Mês\".",
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Vão de São Jorge (Rural)",
+          "dayOfWeek": 6,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": "Recorrencia mensal nao cabe em MassSchedule (so dia da semana). Regra literal publicada: \"2º Sábado do Mês\".",
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Nossa Senhora Aparecida (Rural)",
+          "dayOfWeek": 6,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": "Recorrencia mensal nao cabe em MassSchedule (so dia da semana). Regra literal publicada: \"3º Sábado do Mês\".",
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Divino Pai Eterno (Rural)",
+          "dayOfWeek": 6,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": "Recorrencia mensal nao cabe em MassSchedule (so dia da semana). Regra literal publicada: \"4º Sábado do Mês\".",
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade São Sebastião",
+          "dayOfWeek": 6,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": "Recorrencia mensal nao cabe em MassSchedule (so dia da semana). Regra literal publicada: \"4º Sábado do Mês\".",
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Capela São Pedro (Rural)",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Capela Divino Pai Eterno (Rural)",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Capela Cristo Redentor",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São José Operário",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São José Operário",
+          "dayOfWeek": 1,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São José Operário",
+          "dayOfWeek": 2,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São José Operário",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Novena de Nossa Senhora do Perpétuo Socorro",
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Capela Nossa Senhora das Graças",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Novena de Nossa Senhora do Perpétuo Socorro",
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Capela Nossa Senhora Aparecida",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Novena de Nossa Senhora do Perpétuo Socorro",
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Capela Cristo Redentor",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Novena de Nossa Senhora do Perpétuo Socorro",
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Capela São Pedro",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Novena de Nossa Senhora do Perpétuo Socorro",
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São José Operário",
+          "dayOfWeek": 4,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Capela Nossa Senhora das Graças",
+          "dayOfWeek": 4,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Novena de Nossa Senhora das Graças",
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São José Operário",
+          "dayOfWeek": 5,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Comunidade Santa Rita de Cássia",
+          "dayOfWeek": 5,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Recorrencia mensal nao cabe em MassSchedule (so dia da semana). Regra literal publicada: \"1ª Sexta-feira do Mês\".",
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Divino Pai Eterno",
+          "dayOfWeek": 5,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Recorrencia mensal nao cabe em MassSchedule (so dia da semana). Regra literal publicada: \"2ª Sexta-feira do Mês\".",
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Santo Antônio",
+          "dayOfWeek": 5,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Recorrencia mensal nao cabe em MassSchedule (so dia da semana). Regra literal publicada: \"3ª Sexta-feira do Mês\".",
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade São Miguel Arcanjo",
+          "dayOfWeek": 5,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Recorrencia mensal nao cabe em MassSchedule (so dia da semana). Regra literal publicada: \"4ª Sexta-feira do Mês\".",
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-do-perpetuo-socorro-paraiso-do-tocantins",
+      "name": "Paróquia Nossa Senhora do Perpétuo Socorro",
+      "city": "Paraíso do Tocantins",
+      "state": "TO",
+      "neighborhood": null,
+      "address": "Av. 23 de Outubro, nº 848 - Pouso Alegre",
+      "zipCode": "77600-000",
+      "phone": "(63) 3602-2065",
+      "email": "pousoalgre1@gmail.com",
+      "website": null,
+      "priestName": "Pe. Gilmar Silva",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedecristalandia.org.br/?p=3396",
+          "title": "Paróquia Nossa Senhora do Perpétuo Socorro | Paraíso do Tocantins-TO - Diocese de Cristalândia",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Forania São José Operário. Vigário: Pe. Adão Mota. Residência: (63) 3602-4035.",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora do Perpétuo Socorro",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Missa do Apostolado da Oração",
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 2,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecristalandia.org.br/horario-de-missa/",
+              "title": "Horário de Missa - Diocese de Cristalândia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "bom-jesus-caseara",
+      "name": "Paróquia Bom Jesus",
+      "city": "Caseara",
+      "state": "TO",
+      "neighborhood": null,
+      "address": "Rua Carlos Ribeiro, s/n - Centro",
+      "zipCode": "77680-000",
+      "phone": "(62) 99391-2636",
+      "email": "paroquiabomjesus060824@gmail.com",
+      "website": null,
+      "priestName": "Pe. Marco Aurélio",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedecristalandia.org.br/?p=11135",
+          "title": "Paróquia Bom Jesus | Caseara-TO - Diocese de Cristalândia",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Forania São José Operário. Administrador paroquial. O telefone publicado é o do padre - a paróquia não tem secretaria paroquial.",
+      "communities": [],
+      "schedules": []
+    }
+  ],
+  "coverage": {
+    "parishesFound": 20,
+    "parishesExpected": 20,
+    "notes": "Lista integral da API REST do site oficial (categorias das 4 foranias: Nossa Senhora da Piedade 7, São João Batista 4, Nossa Senhora do Perpétuo Socorro 4, São José Operário 5 = 20 posts, X-WP-Total 20). Todas as 20 fichas têm endereço, CEP e pároco, e foram modificadas entre 08/2024 e 07/2026. A diocese abrange municípios do Tocantins E de Goiás: 7 paróquias ficam em GO (Porangatu x3, São Miguel do Araguaia, Novo Planalto, Bonópolis e Mutunópolis) e receberam state \"GO\". Horários vêm da página diocesana \"Horário de Missa\", que cobre 7 das 20 paróquias."
+  }
+}

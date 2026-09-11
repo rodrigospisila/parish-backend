@@ -1,0 +1,883 @@
+{
+  "diocese": {
+    "name": "Diocese de Miracema do Tocantins",
+    "type": "Diocese",
+    "slug": "miracema-do-tocantins",
+    "city": "Miracema do Tocantins",
+    "state": "TO",
+    "address": "Praça Derocy Moraes, 123",
+    "zipCode": "77650-000",
+    "phone": "(63) 99957-9384",
+    "email": "diocesemirato@uol.com.br",
+    "website": "https://diocesedemiracemato.org.br",
+    "bishopName": "Dom Philip Dickmans",
+    "sources": [
+      {
+        "url": "https://diocesedemiracemato.org.br/conteudo/paroquias-e-areas-missionarias/3",
+        "title": "Paróquias e Áreas Missionárias - Diocese de Miracema do Tocantins",
+        "accessedAt": "2026-09-11"
+      },
+      {
+        "url": "https://gcatholic.org/churches/local/mira0",
+        "title": "Churches in the Diocese of Miracema do Tocantins - GCatholic (atualizado 2026-01-01)",
+        "accessedAt": "2026-09-11"
+      }
+    ],
+    "confidence": "alta",
+    "notes": "Telefone de secretaria (63) 99957-9384 e e-mail da Pascom diocesemiracematocantins@gmail.com, ambos do rodapé do site; o dioceses.json registra o fixo (63) 3366-2285."
+  },
+  "parishes": [
+    {
+      "slug": "sao-pedro-apostolo-guarai",
+      "name": "Paróquia São Pedro Apóstolo",
+      "city": "Guaraí",
+      "state": "TO",
+      "neighborhood": null,
+      "address": "Avenida Goiás, 1642 - Centro",
+      "zipCode": "77700-000",
+      "phone": "(63) 99939-4339",
+      "email": "pspedroguarai@gmail.com",
+      "website": null,
+      "priestName": "Pe. Jailson dos Santos Carvalho",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedemiracemato.org.br/conteudo/1-paroquia-sao-pedro-apostolo-guarai-i/130",
+          "title": "Paróquia São Pedro Apóstolo (Guaraí) - Diocese de Miracema do Tocantins",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedemiracemato.org.br/conteudo/01-regiao-pastoral-sao-mateus/121",
+          "title": "Região Pastoral São Mateus - Diocese de Miracema do Tocantins",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Região Pastoral São Mateus. Publicada pela diocese como \"Guaraí I\".",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-jose-operario-guarai",
+      "name": "Paróquia São José Operário",
+      "city": "Guaraí",
+      "state": "TO",
+      "neighborhood": null,
+      "address": "Av. B8 esquina com W5, 3870 - Setor Aeroporto, Caixa Postal 98",
+      "zipCode": "77700-000",
+      "phone": null,
+      "email": "psjoseguarai@gmail.com",
+      "website": null,
+      "priestName": "Pe. Arlir Rodrigues Bezerra",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedemiracemato.org.br/conteudo/2-paroquia-sao-jose-operario-guarai-ii/131",
+          "title": "Paróquia São José Operário (Guaraí) - Diocese de Miracema do Tocantins",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedemiracemato.org.br/conteudo/01-regiao-pastoral-sao-mateus/121",
+          "title": "Região Pastoral São Mateus - Diocese de Miracema do Tocantins",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Região Pastoral São Mateus. Publicada pela diocese como \"Guaraí II\".",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-de-fatima-pequizeiro",
+      "name": "Paróquia Nossa Senhora de Fátima",
+      "city": "Pequizeiro",
+      "state": "TO",
+      "neighborhood": null,
+      "address": "Avenida Ceará, 183 - Centro",
+      "zipCode": "77730-000",
+      "phone": null,
+      "email": "paroquiasantoantonio347@gmail.com",
+      "website": null,
+      "priestName": "Pe. Firmino Bispo de Santana",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedemiracemato.org.br/conteudo/3-paroquia-nossa-senhora-de-fatima-pequizeiro/126",
+          "title": "Paróquia Nossa Senhora de Fátima (Pequizeiro) - Diocese de Miracema do Tocantins",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedemiracemato.org.br/conteudo/01-regiao-pastoral-sao-mateus/121",
+          "title": "Região Pastoral São Mateus - Diocese de Miracema do Tocantins",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Região Pastoral São Mateus. DIVERGÊNCIA: o menu da região pastoral chama a paróquia de \"Nossa Senhora de Fátima\" e o GCatholic (2026) confirma (\"Pequizeiro - Church of Our Lady of Fatima\"), mas o corpo da própria ficha traz o título \"COMUNIDADE SANTO ANTÔNIO - PEQUIZEIRO\" e o e-mail é paroquiasantoantonio347@gmail.com. Adotei o nome do menu, corroborado pelo GCatholic.",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-do-perpetuo-socorro-goianorte",
+      "name": "Paróquia Nossa Senhora do Perpétuo Socorro",
+      "city": "Goianorte",
+      "state": "TO",
+      "neighborhood": null,
+      "address": "Praça Manoel Ribeiro, 965 - Centro",
+      "zipCode": "77695-000",
+      "phone": "(63) 99250-8722",
+      "email": "cnsps.013@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Rosivaldo Almeida de Sousa",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedemiracemato.org.br/conteudo/4-paroquia-nossa-senhora-do-perpetuo-socorro-goianorte/132",
+          "title": "Paróquia Nossa Senhora do Perpétuo Socorro (Goianorte) - Diocese de Miracema do Tocantins",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedemiracemato.org.br/conteudo/01-regiao-pastoral-sao-mateus/121",
+          "title": "Região Pastoral São Mateus - Diocese de Miracema do Tocantins",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Região Pastoral São Mateus. Administrador paroquial. Não consta da lista de igrejas do GCatholic para esta diocese.",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "bom-jesus-colmeia",
+      "name": "Paróquia Bom Jesus",
+      "city": "Colméia",
+      "state": "TO",
+      "neighborhood": null,
+      "address": "Av. Castelo Branco, s/n, Praça da Matriz - Centro",
+      "zipCode": "77725-000",
+      "phone": "(63) 99295-5071",
+      "email": "paroquiabomjesus110@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Jailson de Jesus França Junior",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedemiracemato.org.br/conteudo/5-paroquia-bom-jesus-colmeia-amp-itapora/133",
+          "title": "Paróquia Bom Jesus (Colméia) - Diocese de Miracema do Tocantins",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedemiracemato.org.br/conteudo/01-regiao-pastoral-sao-mateus/121",
+          "title": "Região Pastoral São Mateus - Diocese de Miracema do Tocantins",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Região Pastoral São Mateus. Coordenador da Região Pastoral São Mateus. Diáconos permanentes: Ionê Alves Barbosa e João Ribeiro da Silva. Abrange Colméia e Itaporã do Tocantins.",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-geraldo-fortaleza-do-tabocao",
+      "name": "Paróquia São Geraldo",
+      "city": "Fortaleza do Tabocão",
+      "state": "TO",
+      "neighborhood": null,
+      "address": "Praça São Geraldo, s/n - Centro",
+      "zipCode": "77708-000",
+      "phone": "(63) 99246-0151",
+      "email": "pquia-sgeraldo@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Mauri Barbosa Oliveira",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedemiracemato.org.br/conteudo/6-paroquia-sao-geraldo-tabocao/134",
+          "title": "Paróquia São Geraldo (Fortaleza do Tabocão) - Diocese de Miracema do Tocantins",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedemiracemato.org.br/conteudo/01-regiao-pastoral-sao-mateus/121",
+          "title": "Região Pastoral São Mateus - Diocese de Miracema do Tocantins",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Região Pastoral São Mateus. Administrador paroquial. Diácono permanente: Manoel Alves Ferreira Neto.",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-raimundo-nonato-rio-dos-bois",
+      "name": "Paróquia São Raimundo Nonato",
+      "city": "Rio dos Bois",
+      "state": "TO",
+      "neighborhood": null,
+      "address": "Rua Raimundo Carvalho, nº 358 - Centro",
+      "zipCode": "77650-000",
+      "phone": "(63) 99286-2252",
+      "email": "sraimundononato@outlook.com",
+      "website": null,
+      "priestName": "Pe. Rivonaldo da Silva Santos",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedemiracemato.org.br/conteudo/7-paroquia-sao-raimundo-nonato-rio-dos-bois/135",
+          "title": "Paróquia São Raimundo Nonato (Rio dos Bois) - Diocese de Miracema do Tocantins",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedemiracemato.org.br/conteudo/01-regiao-pastoral-sao-mateus/121",
+          "title": "Região Pastoral São Mateus - Diocese de Miracema do Tocantins",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Região Pastoral São Mateus. Não consta da lista de igrejas do GCatholic para esta diocese. O CEP publicado (77.650-000) é o de Miracema do Tocantins - conferir.",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sagrado-coracao-de-jesus-itacaja",
+      "name": "Paróquia Sagrado Coração de Jesus",
+      "city": "Itacajá",
+      "state": "TO",
+      "neighborhood": null,
+      "address": "Rua Manoel de Castro Evangelista, 127",
+      "zipCode": "77720-000",
+      "phone": "(63) 99265-8894",
+      "email": "paroquiascdj2015@gmail.com",
+      "website": null,
+      "priestName": "Pe. Franker Gonçalves de Paula",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedemiracemato.org.br/conteudo/1-paroquia-sagrado-coracao-de-jesus-itacaja/138",
+          "title": "Paróquia Sagrado Coração de Jesus (Itacajá) - Diocese de Miracema do Tocantins",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedemiracemato.org.br/conteudo/02-regiao-pastoral-sao-marcos/136",
+          "title": "Região Pastoral São Marcos - Diocese de Miracema do Tocantins",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Região Pastoral São Marcos.",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "jesus-de-nazare-santa-maria-do-tocantins",
+      "name": "Paróquia Jesus de Nazaré",
+      "city": "Santa Maria do Tocantins",
+      "state": "TO",
+      "neighborhood": null,
+      "address": "Rua 11, s/n - Centro",
+      "zipCode": "77716-000",
+      "phone": "(63) 99135-1679",
+      "email": "paroquia.nazaredejesus@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Nelson de Freitas Rodrigues",
+      "foundedYear": 2011,
+      "sources": [
+        {
+          "url": "https://diocesedemiracemato.org.br/conteudo/2-paroquia-jesus-de-nazare-santa-maria-centenario-amp-recursolandia/137",
+          "title": "Paróquia Jesus de Nazaré (Santa Maria do Tocantins) - Diocese de Miracema do Tocantins",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedemiracemato.org.br/conteudo/02-regiao-pastoral-sao-marcos/136",
+          "title": "Região Pastoral São Marcos - Diocese de Miracema do Tocantins",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Região Pastoral São Marcos. Criada em 07/09/2011. Abrange Santa Maria do Tocantins, Centenário e Recursolândia.",
+      "communities": [
+        {
+          "name": "Matriz Jesus de Nazaré",
+          "address": "Rua 11, s/n - Centro, Santa Maria do Tocantins",
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedemiracemato.org.br/conteudo/2-paroquia-jesus-de-nazare-santa-maria-centenario-amp-recursolandia/137",
+              "title": "Paróquia Jesus de Nazaré (Santa Maria do Tocantins) - Diocese de Miracema do Tocantins",
+              "accessedAt": "2026-09-11"
+            },
+            {
+              "url": "https://diocesedemiracemato.org.br/conteudo/02-regiao-pastoral-sao-marcos/136",
+              "title": "Região Pastoral São Marcos - Diocese de Miracema do Tocantins",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Discípula Missionária",
+          "address": "Rua Paraná, s/n, Qd. 36, Lt. 20 - Centro, Centenário - TO, 77723-000",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedemiracemato.org.br/conteudo/2-paroquia-jesus-de-nazare-santa-maria-centenario-amp-recursolandia/137",
+              "title": "Paróquia Jesus de Nazaré (Santa Maria do Tocantins) - Diocese de Miracema do Tocantins",
+              "accessedAt": "2026-09-11"
+            },
+            {
+              "url": "https://diocesedemiracemato.org.br/conteudo/02-regiao-pastoral-sao-marcos/136",
+              "title": "Região Pastoral São Marcos - Diocese de Miracema do Tocantins",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Rainha da Paz",
+          "address": "Av. Getúlio Vargas, 194 - Centro, Recursolândia - TO, 77733-000",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedemiracemato.org.br/conteudo/2-paroquia-jesus-de-nazare-santa-maria-centenario-amp-recursolandia/137",
+              "title": "Paróquia Jesus de Nazaré (Santa Maria do Tocantins) - Diocese de Miracema do Tocantins",
+              "accessedAt": "2026-09-11"
+            },
+            {
+              "url": "https://diocesedemiracemato.org.br/conteudo/02-regiao-pastoral-sao-marcos/136",
+              "title": "Região Pastoral São Marcos - Diocese de Miracema do Tocantins",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "sao-pedro-pedro-afonso",
+      "name": "Paróquia São Pedro",
+      "city": "Pedro Afonso",
+      "state": "TO",
+      "neighborhood": null,
+      "address": "Rua Barão do Rio Branco, s/n - Caixa Postal 199",
+      "zipCode": "77710-000",
+      "phone": "(63) 99216-6696",
+      "email": "paroquia.saopedro@hotmail.com",
+      "website": null,
+      "priestName": "Pe. João Neto Rodrigues do Nascimento",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedemiracemato.org.br/conteudo/3-paroquia-sao-pedro-pedro-afonso-bom-jesus-tupirama/139",
+          "title": "Paróquia São Pedro (Pedro Afonso) - Diocese de Miracema do Tocantins",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedemiracemato.org.br/conteudo/02-regiao-pastoral-sao-marcos/136",
+          "title": "Região Pastoral São Marcos - Diocese de Miracema do Tocantins",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Região Pastoral São Marcos. Coordenador da Região Pastoral São Marcos. Vigário: Pe. José Emerson Alves da Silva. Abrange Pedro Afonso, Bom Jesus do Tocantins e Tupirama.",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-joao-paulo-ii-tupiratins",
+      "name": "Paróquia São João Paulo II",
+      "city": "Tupiratins",
+      "state": "TO",
+      "neighborhood": null,
+      "address": "Rua Iris Rezende, 39 - Centro",
+      "zipCode": "77743-000",
+      "phone": "(63) 3449-1127",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Renato Rodrigues Bezerra",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedemiracemato.org.br/conteudo/4-paroquia-sao-joao-paulo-ii-tupiratins-amp-itapiratins/140",
+          "title": "Paróquia São João Paulo II (Tupiratins) - Diocese de Miracema do Tocantins",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedemiracemato.org.br/conteudo/02-regiao-pastoral-sao-marcos/136",
+          "title": "Região Pastoral São Marcos - Diocese de Miracema do Tocantins",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Região Pastoral São Marcos. Administrador paroquial. Abrange Tupiratins e Itapiratins. Atendimento diário pelas Irmãzinhas da Imaculada Conceição (irmas.missionaria@hotmail.com).",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-aparecida-barrolandia",
+      "name": "Paróquia Nossa Senhora Aparecida",
+      "city": "Barrolândia",
+      "state": "TO",
+      "neighborhood": null,
+      "address": "Av. Bernardo Sayão, 1142 - Centro",
+      "zipCode": "77665-000",
+      "phone": "(63) 99312-0568",
+      "email": "pnsabarrolandia@gmail.com",
+      "website": null,
+      "priestName": "Pe. Iranaldo Neves da Silva",
+      "foundedYear": 1977,
+      "sources": [
+        {
+          "url": "https://diocesedemiracemato.org.br/conteudo/1-paroquia-nossa-senhora-aparecida-barrolandia/142",
+          "title": "Paróquia Nossa Senhora Aparecida (Barrolândia) - Diocese de Miracema do Tocantins",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedemiracemato.org.br/conteudo/03-regiao-pastoral-sao-lucas/141",
+          "title": "Região Pastoral São Lucas - Diocese de Miracema do Tocantins",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Região Pastoral São Lucas.",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "santo-antonio-miranorte",
+      "name": "Paróquia Santo Antônio",
+      "city": "Miranorte",
+      "state": "TO",
+      "neighborhood": null,
+      "address": "Av. Princesa Isabel, 886 - Centro",
+      "zipCode": "77660-000",
+      "phone": "(63) 98449-5231",
+      "email": "santoantoniomiranorte@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Dejoce Vanderley Adorno",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedemiracemato.org.br/conteudo/2-paroquia-santo-antonio-miranorte/146",
+          "title": "Paróquia Santo Antônio (Miranorte) - Diocese de Miracema do Tocantins",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedemiracemato.org.br/conteudo/03-regiao-pastoral-sao-lucas/141",
+          "title": "Região Pastoral São Lucas - Diocese de Miracema do Tocantins",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Região Pastoral São Lucas. Diácono permanente: Sebastião Barbosa de Lima.",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "santa-teresinha-do-menino-jesus-miracema-do-tocantins",
+      "name": "Catedral Santa Teresinha do Menino Jesus",
+      "city": "Miracema do Tocantins",
+      "state": "TO",
+      "neighborhood": null,
+      "address": "Travessa Sete de Setembro, 534 - Caixa Postal 04",
+      "zipCode": "77650-000",
+      "phone": "(63) 3366-1059 / (63) 98456-6519",
+      "email": "catedralterezinha@gmail.com",
+      "website": null,
+      "priestName": "Pe. Yago Correia Ribeiro Ferreira",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedemiracemato.org.br/conteudo/3-paroquia-da-catedral-santa-teresinha-do-menino-jesus-miracema-do-tocantins-ii/143",
+          "title": "Catedral Santa Teresinha do Menino Jesus (Miracema do Tocantins) - Diocese de Miracema do Tocantins",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedemiracemato.org.br/conteudo/03-regiao-pastoral-sao-lucas/141",
+          "title": "Região Pastoral São Lucas - Diocese de Miracema do Tocantins",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Região Pastoral São Lucas. Administrador paroquial; vigário: Pe. Thiago Sousa Silva. Diáconos permanentes: Edgar Alberto Barrosa de Sousa e Antônio Guedes Ribeiro. Sede do bispo, Dom Philip Dickmans. Publicada pela diocese como \"Miracema I\".",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-da-conceicao-miracema-do-tocantins",
+      "name": "Paróquia Nossa Senhora da Conceição",
+      "city": "Miracema do Tocantins",
+      "state": "TO",
+      "neighborhood": null,
+      "address": "Rua Jacy Cavalcante, 580 - Flamboyant II",
+      "zipCode": "77650-000",
+      "phone": "(63) 99207-2049",
+      "email": "paroquiansconceicaomirato@gmail.com",
+      "website": null,
+      "priestName": "Pe. Nelson Carlos dos Passos Silva",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedemiracemato.org.br/conteudo/4-paroquia-nossa-senhora-da-conceicao-miracema-ii/144",
+          "title": "Paróquia Nossa Senhora da Conceição (Miracema do Tocantins) - Diocese de Miracema do Tocantins",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedemiracemato.org.br/conteudo/03-regiao-pastoral-sao-lucas/141",
+          "title": "Região Pastoral São Lucas - Diocese de Miracema do Tocantins",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Região Pastoral São Lucas. Administrador paroquial. Publicada pela diocese como \"Miracema II\". Ir. Valdilene Neves da Cruz (Irmãs Palotinas).",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "bom-pastor-dois-irmaos-do-tocantins",
+      "name": "Paróquia Bom Pastor",
+      "city": "Dois Irmãos do Tocantins",
+      "state": "TO",
+      "neighborhood": null,
+      "address": "Avenida Brasil, s/n - Centro",
+      "zipCode": "77685-000",
+      "phone": null,
+      "email": "paroquiabp@outlokk.com",
+      "website": null,
+      "priestName": "Pe. José Orlando Pessoa",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedemiracemato.org.br/conteudo/5-paroquia-bom-pastor-dois-irmaos-amp-abreulandia/145",
+          "title": "Paróquia Bom Pastor (Dois Irmãos do Tocantins) - Diocese de Miracema do Tocantins",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedemiracemato.org.br/conteudo/03-regiao-pastoral-sao-lucas/141",
+          "title": "Região Pastoral São Lucas - Diocese de Miracema do Tocantins",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Região Pastoral São Lucas. Coordenador da Região Pastoral São Lucas. Abrange Dois Irmãos do Tocantins e Abreulândia. O e-mail publicado tem erro de digitação no domínio (\"outlokk.com\") - gravado como publicado.",
+      "communities": [
+        {
+          "name": "Comunidade São João Batista",
+          "address": "Dois Irmãos do Tocantins",
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedemiracemato.org.br/conteudo/5-paroquia-bom-pastor-dois-irmaos-amp-abreulandia/145",
+              "title": "Paróquia Bom Pastor (Dois Irmãos do Tocantins) - Diocese de Miracema do Tocantins",
+              "accessedAt": "2026-09-11"
+            },
+            {
+              "url": "https://diocesedemiracemato.org.br/conteudo/03-regiao-pastoral-sao-lucas/141",
+              "title": "Região Pastoral São Lucas - Diocese de Miracema do Tocantins",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São Pedro",
+          "address": "Rua 20, Qd. 05, Lt. 02 - Centro, Abreulândia - TO, 77693-000. Atendida pelas Missionárias Servas do Espírito Santo (MSSpS)",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedemiracemato.org.br/conteudo/5-paroquia-bom-pastor-dois-irmaos-amp-abreulandia/145",
+              "title": "Paróquia Bom Pastor (Dois Irmãos do Tocantins) - Diocese de Miracema do Tocantins",
+              "accessedAt": "2026-09-11"
+            },
+            {
+              "url": "https://diocesedemiracemato.org.br/conteudo/03-regiao-pastoral-sao-lucas/141",
+              "title": "Região Pastoral São Lucas - Diocese de Miracema do Tocantins",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-da-divina-providencia-araguacema",
+      "name": "Paróquia Nossa Senhora da Divina Providência",
+      "city": "Araguacema",
+      "state": "TO",
+      "neighborhood": null,
+      "address": "Praça da Matriz, s/n - Centro",
+      "zipCode": "77690-000",
+      "phone": "(63) 99115-8592",
+      "email": "paroquiaprovidencia@yahoo.com.br",
+      "website": null,
+      "priestName": "Frei Matheus Morais Dutra, OFM",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedemiracemato.org.br/conteudo/6-paroquia-nossa-senhora-da-divina-providencia-araguacema/297",
+          "title": "Paróquia Nossa Senhora da Divina Providência (Araguacema) - Diocese de Miracema do Tocantins",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedemiracemato.org.br/conteudo/03-regiao-pastoral-sao-lucas/141",
+          "title": "Região Pastoral São Lucas - Diocese de Miracema do Tocantins",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Região Pastoral São Lucas. Franciscanos. Vigário: Frei Lucas de Sousa Lobo, OFM; também Frei Jaime Batista Tavares.",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-sebastiao-colinas-do-tocantins",
+      "name": "Paróquia São Sebastião",
+      "city": "Colinas do Tocantins",
+      "state": "TO",
+      "neighborhood": null,
+      "address": "Rua Pedro Ludovico, 3065 - Novo Planalto, Caixa Postal 104",
+      "zipCode": "77760-000",
+      "phone": "(63) 99223-6230",
+      "email": "psscolinas@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Milton Alves da Silva",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedemiracemato.org.br/conteudo/1-paroquia-sao-sebastiao-colinas-do-tocantins-ii/151",
+          "title": "Paróquia São Sebastião (Colinas do Tocantins) - Diocese de Miracema do Tocantins",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedemiracemato.org.br/conteudo/04-regiao-pastoral-sao-joao/147",
+          "title": "Região Pastoral São João - Diocese de Miracema do Tocantins",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Região Pastoral São João. Coordenador da Região Pastoral São João. Vigário: Pe. Adahilton Lima Coelho. Diáconos permanentes: Ecione Gonçalves de Oliveira, Nastely Batista de Carvalho e Waldiney de Sousa Silva. Publicada pela diocese como \"Colinas do Tocantins II\".",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-aparecida-colinas-do-tocantins",
+      "name": "Paróquia Nossa Senhora Aparecida",
+      "city": "Colinas do Tocantins",
+      "state": "TO",
+      "neighborhood": null,
+      "address": "Praça João XXIII, 1038 - Centro, Caixa Postal 02",
+      "zipCode": "77760-000",
+      "phone": "(63) 99234-1659",
+      "email": "paroquiansra.ap.colinas.@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Edson Marques dos Reis",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedemiracemato.org.br/conteudo/2-paroquia-nossa-senhora-aparecida-colinas-do-tocantins-i/150",
+          "title": "Paróquia Nossa Senhora Aparecida (Colinas do Tocantins) - Diocese de Miracema do Tocantins",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedemiracemato.org.br/conteudo/04-regiao-pastoral-sao-joao/147",
+          "title": "Região Pastoral São João - Diocese de Miracema do Tocantins",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Região Pastoral São João. Vigário paroquial: Pe. Joel Cândido Vitalino. Diácono permanente: José Wilson Rodrigues. Publicada pela diocese como \"Colinas do Tocantins I\". O e-mail publicado tem um ponto antes do @ (\"colinas.@hotmail.com\") - conferir.",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-aparecida-presidente-kennedy",
+      "name": "Paróquia Nossa Senhora Aparecida",
+      "city": "Presidente Kennedy",
+      "state": "TO",
+      "neighborhood": null,
+      "address": "Av. Bernardo Sayão, 770 - Centro",
+      "zipCode": "77745-000",
+      "phone": "(63) 99119-2936",
+      "email": "paroquia.pkennedy@gmail.com",
+      "website": null,
+      "priestName": "Pe. Antero Alves de Sousa",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedemiracemato.org.br/conteudo/3-paroquia-nossa-senhora-aparecida-presidente-kennedy-amp-brasilandia/148",
+          "title": "Paróquia Nossa Senhora Aparecida (Presidente Kennedy) - Diocese de Miracema do Tocantins",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedemiracemato.org.br/conteudo/04-regiao-pastoral-sao-joao/147",
+          "title": "Região Pastoral São João - Diocese de Miracema do Tocantins",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Região Pastoral São João. Coordenador da Região Pastoral São João. Abrange Presidente Kennedy e Brasilândia do Tocantins.",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-das-gracas-bernardo-sayao",
+      "name": "Paróquia Nossa Senhora das Graças",
+      "city": "Bernardo Sayão",
+      "state": "TO",
+      "neighborhood": null,
+      "address": "Av. Miguel Andrade Batista, 1048 - Centro",
+      "zipCode": "77755-000",
+      "phone": "(63) 99219-0686",
+      "email": "paroquiansgracasbs@yahoo.com.br",
+      "website": null,
+      "priestName": "Pe. João Paulo Ferreira Milhomem",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedemiracemato.org.br/conteudo/4-paroquia-nossa-senhora-das-gracas-bernardo-sayao/153",
+          "title": "Paróquia Nossa Senhora das Graças (Bernardo Sayão) - Diocese de Miracema do Tocantins",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedemiracemato.org.br/conteudo/04-regiao-pastoral-sao-joao/147",
+          "title": "Região Pastoral São João - Diocese de Miracema do Tocantins",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Região Pastoral São João. Administrador paroquial.",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sagrado-coracao-de-jesus-e-santo-antonio-couto-magalhaes",
+      "name": "Paróquia Sagrado Coração de Jesus e Santo Antônio",
+      "city": "Couto Magalhães",
+      "state": "TO",
+      "neighborhood": null,
+      "address": "Rua 05, Q. 40, Lote 11 - Centro",
+      "zipCode": "77750-000",
+      "phone": "(63) 99219-9139",
+      "email": "paroquiadecoutomagalhaes@outlook.com",
+      "website": null,
+      "priestName": "Pe. Nilson Alves dos Santos",
+      "foundedYear": 2012,
+      "sources": [
+        {
+          "url": "https://diocesedemiracemato.org.br/conteudo/5-paroquia-sagrado-coracao-de-jesus-couto-magalhaes/299",
+          "title": "Paróquia Sagrado Coração de Jesus e Santo Antônio (Couto Magalhães) - Diocese de Miracema do Tocantins",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedemiracemato.org.br/conteudo/04-regiao-pastoral-sao-joao/147",
+          "title": "Região Pastoral São João - Diocese de Miracema do Tocantins",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Região Pastoral São João. Criada em 01/07/2012.",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-aparecida-juarina-area-missionaria",
+      "name": "Área Missionária Nossa Senhora Aparecida",
+      "city": "Juarina",
+      "state": "TO",
+      "neighborhood": null,
+      "address": "Rua Tiradentes, 787 - Centro",
+      "zipCode": "77750-000",
+      "phone": "(63) 99221-2561",
+      "email": "areamissionariajuarina@outlook.com",
+      "website": null,
+      "priestName": "Pe. Nilson Alves dos Santos",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedemiracemato.org.br/conteudo/6-area-missionaria-nossa-senhora-aparecida-juarina/318",
+          "title": "Área Missionária Nossa Senhora Aparecida (Juarina) - Diocese de Miracema do Tocantins",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedemiracemato.org.br/conteudo/04-regiao-pastoral-sao-joao/147",
+          "title": "Região Pastoral São João - Diocese de Miracema do Tocantins",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Região Pastoral São João. Administrador: o pároco de Couto Magalhães. A mesma página registra que o conselho aprovou a criação de uma \"Área Missionária Indígena Krâhô\", ainda não criada. Área missionária (unidade pastoral territorial), não paróquia plena.",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-das-gracas-itapora-do-tocantins-area-missionaria",
+      "name": "Área Missionária Nossa Senhora das Graças",
+      "city": "Itaporã do Tocantins",
+      "state": "TO",
+      "neighborhood": null,
+      "address": "Rua Maranhão, s/n - Centro",
+      "zipCode": "77783-000",
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Jailson de Jesus França Junior",
+      "foundedYear": 2024,
+      "sources": [
+        {
+          "url": "https://diocesedemiracemato.org.br/conteudo/5-paroquia-bom-jesus-colmeia-amp-itapora/133",
+          "title": "Área Missionária Nossa Senhora das Graças (Itaporã do Tocantins) - Diocese de Miracema do Tocantins",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedemiracemato.org.br/conteudo/01-regiao-pastoral-sao-mateus/121",
+          "title": "Região Pastoral São Mateus - Diocese de Miracema do Tocantins",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Região Pastoral São Mateus. Criada em 13/06/2024. Publicada dentro da ficha da Paróquia Bom Jesus (Colméia), que a administra. Responsáveis locais: Congregação de Irmãs de Santa Maria Madalena Postel. Área missionária (unidade pastoral territorial), não paróquia plena.",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-do-perpetuo-socorro-brasilandia-do-tocantins-area-missionaria",
+      "name": "Área Missionária Nossa Senhora do Perpétuo Socorro",
+      "city": "Brasilândia do Tocantins",
+      "state": "TO",
+      "neighborhood": null,
+      "address": null,
+      "zipCode": null,
+      "phone": "(63) 99119-2936",
+      "email": "paroquia.pkennedy@gmail.com",
+      "website": null,
+      "priestName": "Pe. Antero Alves de Sousa",
+      "foundedYear": 2024,
+      "sources": [
+        {
+          "url": "https://diocesedemiracemato.org.br/conteudo/3-paroquia-nossa-senhora-aparecida-presidente-kennedy-amp-brasilandia/148",
+          "title": "Área Missionária Nossa Senhora do Perpétuo Socorro (Brasilândia do Tocantins) - Diocese de Miracema do Tocantins",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedemiracemato.org.br/conteudo/04-regiao-pastoral-sao-joao/147",
+          "title": "Região Pastoral São João - Diocese de Miracema do Tocantins",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Região Pastoral São João. Criada em 08/05/2024. Publicada dentro da ficha da Paróquia Nossa Senhora Aparecida (Presidente Kennedy), que a administra. Área missionária (unidade pastoral territorial), não paróquia plena.",
+      "communities": [],
+      "schedules": []
+    }
+  ],
+  "coverage": {
+    "parishesFound": 25,
+    "parishesExpected": 22,
+    "notes": "Lista integral do site oficial, percorrendo as 4 regiões pastorais (São Mateus 7, São Marcos 4, São Lucas 6, São João 6 = 23 fichas). São 22 paróquias mais 3 áreas missionárias (Juarina, com ficha própria; Itaporã do Tocantins e Brasilândia do Tocantins, publicadas dentro das fichas das paróquias que as administram). O número 22 de paróquias coincide com o publicado pela Wikipédia. O GCatholic (atualizado 2026-01-01) lista 20 igrejas: bate com as 22 menos Goianorte e Rio dos Bois, que o GCatholic não registra. A diocese NÃO publica horários de missa - nenhum registro de horário neste arquivo."
+  }
+}

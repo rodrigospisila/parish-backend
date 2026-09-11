@@ -1,0 +1,1427 @@
+{
+ "diocese": {
+  "name": "Diocese de Três Lagoas",
+  "type": "Diocese",
+  "slug": "tres-lagoas",
+  "city": "Três Lagoas",
+  "state": "MS",
+  "address": "Rua Oscar Guimarães, 1074 – Lapa",
+  "zipCode": "79600-120",
+  "phone": "(67) 3521-3027",
+  "email": "secretaria@diocese3lagoas.org.br",
+  "website": "https://diocese3lagoas.org.br",
+  "bishopName": "Dom Luiz Gonçalves Knupp",
+  "sources": [
+   {
+    "url": "https://diocese3lagoas.org.br/paroquia/",
+    "title": "Paróquias — Diocese de Três Lagoas (site oficial; custom post type \"paroquia\", 16 fichas)",
+    "accessedAt": "2026-09-11"
+   },
+   {
+    "url": "https://pt.wikipedia.org/wiki/Diocese_de_Tr%C3%AAs_Lagoas",
+    "title": "Diocese de Três Lagoas — Wikipédia: 10 municípios do Bolsão sul-mato-grossense, 15 paróquias em 2 foranias e mais de 110 capelas/comunidades; criada em 03/01/1978; Dom Luiz Gonçalves Knupp (desde 2015)",
+    "accessedAt": "2026-09-11"
+   },
+   {
+    "url": "https://diocese3lagoas.org.br/contato/",
+    "title": "Contato — Diocese de Três Lagoas (endereço da Cúria, CEP, telefone e e-mail)",
+    "accessedAt": "2026-09-11"
+   },
+   {
+    "url": "https://www.catholic-hierarchy.org/diocese/dtrla.html",
+    "title": "Três Lagoas (Diocese) [Catholic-Hierarchy]",
+    "accessedAt": "2026-09-11"
+   }
+  ],
+  "confidence": "alta"
+ },
+ "parishes": [
+  {
+   "slug": "nossa-senhora-aparecida-aparecida-do-taboado",
+   "name": "Santuário Diocesano Nossa Senhora Aparecida",
+   "city": "Aparecida do Taboado",
+   "state": "MS",
+   "neighborhood": null,
+   "address": "Rua Dom Aquino Correa, nº 4245 – Centro – Aparecida do Taboado/MS",
+   "zipCode": null,
+   "phone": "(67) 3565-1426 E (67) 98143-3511",
+   "email": "paroquiasantuario.apt@gmail.com",
+   "website": null,
+   "priestName": "Pe. José Maria de Oliveira, MSJ",
+   "foundedYear": 1929,
+   "forania": "Forania de Paranaíba",
+   "notes": "Paróquia Nossa Senhora Aparecida, elevada a Santuário Diocesano em 26/11/2000; principal local de peregrinação da diocese. Criação segundo o site da diocese: 21/06/1929. Clero publicado: Pe. José Maria de Oliveira, MSJ. Secretaria/atendimento: Ronilce Lopes Parreira Furquim e Vinícius Bernardes de Oliveira. História publicada pela diocese: A Paróquia Santuário Diocesano Nossa Senhora Aparecida está localizada em Aparecida do Taboado. Criada em 21/06/1929, foi elevada à Santuário Diocesano em 26/11/2000, se tornando um dos principais locais de peregrinação da Diocese de Três Lagoas.",
+   "sources": [
+    {
+     "url": "https://diocese3lagoas.org.br/paroquia/paroquia-santuario-diocesano-nossa-senhora-aparecida/",
+     "title": "SANTUÁRIO DIOCESANO NOSSA SENHORA APARECIDA — ficha oficial na Diocese de Três Lagoas (forania, ano de criação, endereço com CEP, telefone, e-mail, secretaria, clero e histórico; atualizada em 2026-02-01)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://diocese3lagoas.org.br/paroquia/",
+     "title": "Paróquias — Diocese de Três Lagoas (site oficial; custom post type \"paroquia\", 16 fichas)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Santuário Diocesano Nossa Senhora Aparecida",
+     "address": "Rua Dom Aquino Correa, nº 4245 – Centro – Aparecida do Taboado/MS",
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocese3lagoas.org.br/paroquia/paroquia-santuario-diocesano-nossa-senhora-aparecida/",
+       "title": "SANTUÁRIO DIOCESANO NOSSA SENHORA APARECIDA — ficha oficial na Diocese de Três Lagoas (forania, ano de criação, endereço com CEP, telefone, e-mail, secretaria, clero e histórico; atualizada em 2026-02-01)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Santuário Diocesano Nossa Senhora Aparecida",
+     "dayOfWeek": 0,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MS&cidade=Aparecida+do+Taboado&bairro=&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa — Aparecida do Taboado/MS (agregador horariodemissa.com.br; as fichas apontam para o SITE ANTIGO da diocese, diocese3lagoas.com.br/newsite, já desativado — sem sinal de atualidade)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://www.facebook.com/santuariodotaboado/",
+       "title": "Paróquia Santuário Diocesano Nossa Senhora Aparecida — página oficial; a grade (dom 08h e 19h; seg 19h; qua 19h; qui 06h30; sex 19h) coincide com a do agregador",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Santuário Diocesano Nossa Senhora Aparecida",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MS&cidade=Aparecida+do+Taboado&bairro=&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa — Aparecida do Taboado/MS (agregador horariodemissa.com.br; as fichas apontam para o SITE ANTIGO da diocese, diocese3lagoas.com.br/newsite, já desativado — sem sinal de atualidade)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://www.facebook.com/santuariodotaboado/",
+       "title": "Paróquia Santuário Diocesano Nossa Senhora Aparecida — página oficial; a grade (dom 08h e 19h; seg 19h; qua 19h; qui 06h30; sex 19h) coincide com a do agregador",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Santuário Diocesano Nossa Senhora Aparecida",
+     "dayOfWeek": 1,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MS&cidade=Aparecida+do+Taboado&bairro=&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa — Aparecida do Taboado/MS (agregador horariodemissa.com.br; as fichas apontam para o SITE ANTIGO da diocese, diocese3lagoas.com.br/newsite, já desativado — sem sinal de atualidade)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://www.facebook.com/santuariodotaboado/",
+       "title": "Paróquia Santuário Diocesano Nossa Senhora Aparecida — página oficial; a grade (dom 08h e 19h; seg 19h; qua 19h; qui 06h30; sex 19h) coincide com a do agregador",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Santuário Diocesano Nossa Senhora Aparecida",
+     "dayOfWeek": 3,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MS&cidade=Aparecida+do+Taboado&bairro=&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa — Aparecida do Taboado/MS (agregador horariodemissa.com.br; as fichas apontam para o SITE ANTIGO da diocese, diocese3lagoas.com.br/newsite, já desativado — sem sinal de atualidade)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://www.facebook.com/santuariodotaboado/",
+       "title": "Paróquia Santuário Diocesano Nossa Senhora Aparecida — página oficial; a grade (dom 08h e 19h; seg 19h; qua 19h; qui 06h30; sex 19h) coincide com a do agregador",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Santuário Diocesano Nossa Senhora Aparecida",
+     "dayOfWeek": 4,
+     "time": "06:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MS&cidade=Aparecida+do+Taboado&bairro=&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa — Aparecida do Taboado/MS (agregador horariodemissa.com.br; as fichas apontam para o SITE ANTIGO da diocese, diocese3lagoas.com.br/newsite, já desativado — sem sinal de atualidade)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://www.facebook.com/santuariodotaboado/",
+       "title": "Paróquia Santuário Diocesano Nossa Senhora Aparecida — página oficial; a grade (dom 08h e 19h; seg 19h; qua 19h; qui 06h30; sex 19h) coincide com a do agregador",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Santuário Diocesano Nossa Senhora Aparecida",
+     "dayOfWeek": 5,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MS&cidade=Aparecida+do+Taboado&bairro=&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa — Aparecida do Taboado/MS (agregador horariodemissa.com.br; as fichas apontam para o SITE ANTIGO da diocese, diocese3lagoas.com.br/newsite, já desativado — sem sinal de atualidade)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://www.facebook.com/santuariodotaboado/",
+       "title": "Paróquia Santuário Diocesano Nossa Senhora Aparecida — página oficial; a grade (dom 08h e 19h; seg 19h; qua 19h; qui 06h30; sex 19h) coincide com a do agregador",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Santuário Diocesano Nossa Senhora Aparecida",
+     "dayOfWeek": 1,
+     "time": "09:00",
+     "type": "CONFESSION",
+     "notes": "Publicado como 09:00 às 12:00 e 14:00 às 16:30",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MS&cidade=Aparecida+do+Taboado&bairro=&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa — Aparecida do Taboado/MS (agregador horariodemissa.com.br; as fichas apontam para o SITE ANTIGO da diocese, diocese3lagoas.com.br/newsite, já desativado — sem sinal de atualidade)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://www.facebook.com/santuariodotaboado/",
+       "title": "Paróquia Santuário Diocesano Nossa Senhora Aparecida — página oficial; a grade (dom 08h e 19h; seg 19h; qua 19h; qui 06h30; sex 19h) coincide com a do agregador",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Santuário Diocesano Nossa Senhora Aparecida",
+     "dayOfWeek": 3,
+     "time": "09:00",
+     "type": "CONFESSION",
+     "notes": "Publicado como 09:00 às 12:00 e 14:00 às 16:30",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MS&cidade=Aparecida+do+Taboado&bairro=&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa — Aparecida do Taboado/MS (agregador horariodemissa.com.br; as fichas apontam para o SITE ANTIGO da diocese, diocese3lagoas.com.br/newsite, já desativado — sem sinal de atualidade)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://www.facebook.com/santuariodotaboado/",
+       "title": "Paróquia Santuário Diocesano Nossa Senhora Aparecida — página oficial; a grade (dom 08h e 19h; seg 19h; qua 19h; qui 06h30; sex 19h) coincide com a do agregador",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Santuário Diocesano Nossa Senhora Aparecida",
+     "dayOfWeek": 5,
+     "time": "09:00",
+     "type": "CONFESSION",
+     "notes": "Publicado como 09:00 às 12:00 e 14:00 às 16:30",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MS&cidade=Aparecida+do+Taboado&bairro=&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa — Aparecida do Taboado/MS (agregador horariodemissa.com.br; as fichas apontam para o SITE ANTIGO da diocese, diocese3lagoas.com.br/newsite, já desativado — sem sinal de atualidade)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://www.facebook.com/santuariodotaboado/",
+       "title": "Paróquia Santuário Diocesano Nossa Senhora Aparecida — página oficial; a grade (dom 08h e 19h; seg 19h; qua 19h; qui 06h30; sex 19h) coincide com a do agregador",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "cristo-bom-pastor-brasilandia",
+   "name": "Paróquia Cristo Bom Pastor",
+   "city": "Brasilândia",
+   "state": "MS",
+   "neighborhood": "Centro",
+   "address": "Praça da Matriz, 739 – Centro, Brasilândia/MS – 79.670-000",
+   "zipCode": "79670-000",
+   "phone": "67 3546-1152",
+   "email": "paroquiacristobompastor@yahoo.com.br",
+   "website": null,
+   "priestName": "Pe. Ronaldo Rodrigues da Silva",
+   "foundedYear": 1972,
+   "forania": "Forania de Três Lagoas",
+   "notes": "Criação segundo o site da diocese: 25/06/1972. Clero publicado: Diác. Carlito Dutra; Pe. Ronaldo Rodrigues da Silva. Secretaria/atendimento: Laurinda Maria. História publicada pela diocese: A Paróquia Cristo Bom Pastor foi fundada em 25 de junho de 1972 e está localizada em Brasilândia.",
+   "sources": [
+    {
+     "url": "https://diocese3lagoas.org.br/paroquia/paroquia-cristo-bom-pastor/",
+     "title": "PARÓQUIA CRISTO BOM PASTOR — ficha oficial na Diocese de Três Lagoas (forania, ano de criação, endereço com CEP, telefone, e-mail, secretaria, clero e histórico; atualizada em 2025-04-02)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://diocese3lagoas.org.br/paroquia/",
+     "title": "Paróquias — Diocese de Três Lagoas (site oficial; custom post type \"paroquia\", 16 fichas)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Cristo Bom Pastor",
+     "address": "Praça da Matriz, 739 – Centro, Brasilândia/MS – 79.670-000",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocese3lagoas.org.br/paroquia/paroquia-cristo-bom-pastor/",
+       "title": "PARÓQUIA CRISTO BOM PASTOR — ficha oficial na Diocese de Três Lagoas (forania, ano de criação, endereço com CEP, telefone, e-mail, secretaria, clero e histórico; atualizada em 2025-04-02)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Cristo Bom Pastor",
+     "dayOfWeek": 0,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MS&cidade=Brasilândia&bairro=&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa — Brasilândia/MS (agregador horariodemissa.com.br; as fichas apontam para o SITE ANTIGO da diocese, diocese3lagoas.com.br/newsite, já desativado — sem sinal de atualidade)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Cristo Bom Pastor",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MS&cidade=Brasilândia&bairro=&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa — Brasilândia/MS (agregador horariodemissa.com.br; as fichas apontam para o SITE ANTIGO da diocese, diocese3lagoas.com.br/newsite, já desativado — sem sinal de atualidade)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Cristo Bom Pastor",
+     "dayOfWeek": 3,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MS&cidade=Brasilândia&bairro=&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa — Brasilândia/MS (agregador horariodemissa.com.br; as fichas apontam para o SITE ANTIGO da diocese, diocese3lagoas.com.br/newsite, já desativado — sem sinal de atualidade)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Cristo Bom Pastor",
+     "dayOfWeek": 5,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MS&cidade=Brasilândia&bairro=&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa — Brasilândia/MS (agregador horariodemissa.com.br; as fichas apontam para o SITE ANTIGO da diocese, diocese3lagoas.com.br/newsite, já desativado — sem sinal de atualidade)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "sao-jose-cassilandia",
+   "name": "Paróquia São José",
+   "city": "Cassilândia",
+   "state": "MS",
+   "neighborhood": "Centro",
+   "address": "Rua Amin José, S/N, Praça São José Centro – 79540-000 – Cassilândia/MS",
+   "zipCode": "79540-000",
+   "phone": "67 3596-1893",
+   "email": "paroquiasaojose2013@gmail.com",
+   "website": null,
+   "priestName": "Pe. Marcilio Lima de Lira",
+   "foundedYear": null,
+   "forania": "Forania de Paranaíba",
+   "notes": "Clero publicado: Pe. Marcilio Lima de Lira. Secretaria/atendimento: Raul Barbosa de Souza Neto.",
+   "sources": [
+    {
+     "url": "https://diocese3lagoas.org.br/paroquia/paroquia-sao-jose/",
+     "title": "PARÓQUIA SÃO JOSÉ — ficha oficial na Diocese de Três Lagoas (forania, ano de criação, endereço com CEP, telefone, e-mail, secretaria, clero e histórico; atualizada em 2025-04-02)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://diocese3lagoas.org.br/paroquia/",
+     "title": "Paróquias — Diocese de Três Lagoas (site oficial; custom post type \"paroquia\", 16 fichas)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz São José",
+     "address": "Rua Amin José, S/N, Praça São José Centro – 79540-000 – Cassilândia/MS",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocese3lagoas.org.br/paroquia/paroquia-sao-jose/",
+       "title": "PARÓQUIA SÃO JOSÉ — ficha oficial na Diocese de Três Lagoas (forania, ano de criação, endereço com CEP, telefone, e-mail, secretaria, clero e histórico; atualizada em 2025-04-02)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "sao-pedro-apostolo-chapadao-do-sul",
+   "name": "Paróquia São Pedro Apóstolo",
+   "city": "Chapadão do Sul",
+   "state": "MS",
+   "neighborhood": "Centro",
+   "address": "Rua Quatorze, 707 Centro – 79.560-000 – Chapadão do Sul",
+   "zipCode": "79560-000",
+   "phone": "67 3562-1863",
+   "email": "fernanda_paroquiaspa@outlook.com",
+   "website": null,
+   "priestName": "Pe. Victor Henrique Ramos Silva",
+   "foundedYear": 1990,
+   "forania": "Forania de Paranaíba",
+   "notes": "Criação segundo o site da diocese: 29/07/1990. Clero publicado: Diác. Valdir Pivatto; Diác. Armando de Jesus Gouvêa Cabral; Pe. Victor Henrique Ramos Silva. Secretaria/atendimento: Maisa Luciane Ferraz de Souza e Fernanda de Oliveira Costa. História publicada pela diocese: A Paróquia São Pedro Apóstolo foi criada em Chapadão do Sul em 29 de julho de 1990.",
+   "sources": [
+    {
+     "url": "https://diocese3lagoas.org.br/paroquia/paroquia-sao-pedro-apostolo/",
+     "title": "PARÓQUIA SÃO PEDRO APOSTOLO — ficha oficial na Diocese de Três Lagoas (forania, ano de criação, endereço com CEP, telefone, e-mail, secretaria, clero e histórico; atualizada em 2025-04-02)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://diocese3lagoas.org.br/paroquia/",
+     "title": "Paróquias — Diocese de Três Lagoas (site oficial; custom post type \"paroquia\", 16 fichas)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz São Pedro Apóstolo",
+     "address": "Rua Quatorze, 707 Centro – 79.560-000 – Chapadão do Sul",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocese3lagoas.org.br/paroquia/paroquia-sao-pedro-apostolo/",
+       "title": "PARÓQUIA SÃO PEDRO APOSTOLO — ficha oficial na Diocese de Três Lagoas (forania, ano de criação, endereço com CEP, telefone, e-mail, secretaria, clero e histórico; atualizada em 2025-04-02)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "senhor-bom-jesus-inocencia",
+   "name": "Paróquia Senhor Bom Jesus",
+   "city": "Inocência",
+   "state": "MS",
+   "neighborhood": "Centro",
+   "address": "Rua Duca Valadão, 828 Centro – 79.580-000 – Inocência/MS",
+   "zipCode": "79580-000",
+   "phone": "67 3574-1279",
+   "email": "paroquiasrbomjesus@gmail.com",
+   "website": null,
+   "priestName": null,
+   "foundedYear": 1973,
+   "forania": "Forania de Paranaíba",
+   "notes": "Criação segundo o site da diocese: 17/03/1973. Secretaria/atendimento: Sônia Maria. História publicada pela diocese: A Paróquia Senhor Bom Jesus, situada em Inocência, foi criada em 17 de março de 1973 e construída em 28 de novembro de 1978.",
+   "sources": [
+    {
+     "url": "https://diocese3lagoas.org.br/paroquia/paroquia-senhor-bom-jesus/",
+     "title": "PARÓQUIA SENHOR BOM JESUS — ficha oficial na Diocese de Três Lagoas (forania, ano de criação, endereço com CEP, telefone, e-mail, secretaria, clero e histórico; atualizada em 2025-04-02)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://diocese3lagoas.org.br/paroquia/",
+     "title": "Paróquias — Diocese de Três Lagoas (site oficial; custom post type \"paroquia\", 16 fichas)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Senhor Bom Jesus",
+     "address": "Rua Duca Valadão, 828 Centro – 79.580-000 – Inocência/MS",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocese3lagoas.org.br/paroquia/paroquia-senhor-bom-jesus/",
+       "title": "PARÓQUIA SENHOR BOM JESUS — ficha oficial na Diocese de Três Lagoas (forania, ano de criação, endereço com CEP, telefone, e-mail, secretaria, clero e histórico; atualizada em 2025-04-02)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "sant-ana-paranaiba",
+   "name": "Paróquia Sant'Ana",
+   "city": "Paranaíba",
+   "state": "MS",
+   "neighborhood": "Centro",
+   "address": "Praça da República, 225 Centro – CEP: 79.500-000 – Paranaíba/MS",
+   "zipCode": "79500-000",
+   "phone": "67 3668-2918 e 98209-9223",
+   "email": "paroquiasantanapba@gmail.com",
+   "website": null,
+   "priestName": "Pe. Tiago Felipe Lopes, msj",
+   "foundedYear": 1835,
+   "forania": "Forania de Paranaíba",
+   "notes": "Criação segundo o site da diocese: 29/10/1835. Clero publicado: Pe. Tiago Felipe Lopes, msj. Secretaria/atendimento: Carlos Eduardo dos Reis Oliveira, Rodrigo Fernandes e Daniele Vilela. História publicada pela diocese: A Paróquia Sant’Ana foi criada em 29 de outubro de 1835, sendo uma das mais antigas de nossa Diocese.",
+   "sources": [
+    {
+     "url": "https://diocese3lagoas.org.br/paroquia/paroquia-santana/",
+     "title": "PARÓQUIA SANT’ANA — ficha oficial na Diocese de Três Lagoas (forania, ano de criação, endereço com CEP, telefone, e-mail, secretaria, clero e histórico; atualizada em 2026-02-01)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://diocese3lagoas.org.br/paroquia/",
+     "title": "Paróquias — Diocese de Três Lagoas (site oficial; custom post type \"paroquia\", 16 fichas)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Sant'Ana",
+     "address": "Praça da República, 225 Centro – CEP: 79.500-000 – Paranaíba/MS",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocese3lagoas.org.br/paroquia/paroquia-santana/",
+       "title": "PARÓQUIA SANT’ANA — ficha oficial na Diocese de Três Lagoas (forania, ano de criação, endereço com CEP, telefone, e-mail, secretaria, clero e histórico; atualizada em 2026-02-01)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "santo-antonio-paranaiba",
+   "name": "Paróquia Santo Antônio",
+   "city": "Paranaíba",
+   "state": "MS",
+   "neighborhood": "Santo Antônio",
+   "address": "Rua Benedito da Palma Oliveira, 484 – Bairro Santo Antônio – CEP: 79.580-000 – Paranaíba/MS",
+   "zipCode": "79580-000",
+   "phone": "67 3668-4305 e 98185-0041",
+   "email": "aparoquiasantoantoniopba67@gmail.com",
+   "website": null,
+   "priestName": "Pe. Wagner Antônio Quim, MSJ",
+   "foundedYear": 2011,
+   "forania": "Forania de Paranaíba",
+   "notes": "Criação segundo o site da diocese: 09/06/2011. Clero publicado: Pe. Wagner Antônio Quim, MSJ. Secretaria/atendimento: Adriana Costa Lopes e Gleiciane Freitas Almeida Oliveira. História publicada pela diocese: A Paróquia Santo Antônio foi criada em 09 de junho de 2011, sendo uma das mais jovens da Diocese. ATENÇÃO: o site da diocese publica 'CEP: 79.580-000' para esta paróquia, que é o CEP de Inocência; o CEP de Paranaíba é 79500-000. Mantido o valor da fonte oficial, mas precisa de correção.",
+   "sources": [
+    {
+     "url": "https://diocese3lagoas.org.br/paroquia/paroquia-santo-antonio/",
+     "title": "PARÓQUIA SANTO ANTÔNIO — ficha oficial na Diocese de Três Lagoas (forania, ano de criação, endereço com CEP, telefone, e-mail, secretaria, clero e histórico; atualizada em 2025-04-02)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://diocese3lagoas.org.br/paroquia/",
+     "title": "Paróquias — Diocese de Três Lagoas (site oficial; custom post type \"paroquia\", 16 fichas)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Santo Antônio",
+     "address": "Rua Benedito da Palma Oliveira, 484 – Bairro Santo Antônio – CEP: 79.580-000 – Paranaíba/MS",
+     "neighborhood": "Santo Antônio",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocese3lagoas.org.br/paroquia/paroquia-santo-antonio/",
+       "title": "PARÓQUIA SANTO ANTÔNIO — ficha oficial na Diocese de Três Lagoas (forania, ano de criação, endereço com CEP, telefone, e-mail, secretaria, clero e histórico; atualizada em 2025-04-02)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Santo Antônio",
+     "dayOfWeek": 0,
+     "time": "09:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MS&cidade=Paranaíba&bairro=&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa — Paranaíba/MS (agregador horariodemissa.com.br; as fichas apontam para o SITE ANTIGO da diocese, diocese3lagoas.com.br/newsite, já desativado — sem sinal de atualidade)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Santo Antônio",
+     "dayOfWeek": 0,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MS&cidade=Paranaíba&bairro=&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa — Paranaíba/MS (agregador horariodemissa.com.br; as fichas apontam para o SITE ANTIGO da diocese, diocese3lagoas.com.br/newsite, já desativado — sem sinal de atualidade)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "santa-rita-de-cassia-santa-rita-do-pardo",
+   "name": "Paróquia Santa Rita de Cássia",
+   "city": "Santa Rita do Pardo",
+   "state": "MS",
+   "neighborhood": "Centro",
+   "address": "Rua Reni Campos de Araújo, nº 504 Centro – 79.690-000 – Santa Rita do Pardo/MS",
+   "zipCode": "79690-000",
+   "phone": "67 3591-1118",
+   "email": "paroquiasantaritadopardo@hotmail.com",
+   "website": null,
+   "priestName": "Pe. Nivaldo Aparecido dos Santos",
+   "foundedYear": 2001,
+   "forania": "Forania de Três Lagoas",
+   "notes": "Criação segundo o site da diocese: 13/01/2001. Clero publicado: Pe. Nivaldo Aparecido dos Santos. Secretaria/atendimento: Luiza Fernanda. História publicada pela diocese: A Paróquia Santa Rita de Cássia, em Santa Rita do Pardo/MS, foi oficialmente criada no dia 13 de janeiro de 2001, marcando o início de uma nova fase na vida religiosa da comunidade. Na mesma ocasião, foi nomeado o primeiro pároco da paróquia, dando início a uma caminhada de fé e serviço pastoral. No entanto, a história da Paróquia Santa Rita de Cássia começou bem antes de sua criação oficial. Desde o ano de 1989, a comunidade já se reunia e vivenciava sua fé sob a jurisdição da Paróquia de Brasilândia-MS. Durante esse período, os fiéis eram atendidos pelos párocos de Brasilândia, que se dedicavam a servir e fortalecer a espiritualidade da comunidade de Santa Rita do Pardo. A criação oficial da paróquia em 2001 trouxe autonomia e a oportunidade de desenvolver uma identidade própria, permitindo um atendimento mais próximo e contínuo às necessidades espirituais da comunidade. Desde então, a Paróquia Santa Rita de Cássia tem crescido e se consolidado como um importante centro de fé e devoção na Diocese de Três Lagoas.",
+   "sources": [
+    {
+     "url": "https://diocese3lagoas.org.br/paroquia/paroquia-santa-rita-do-pardo/",
+     "title": "PARÓQUIA SANTA RITA DE CÁSSIA — ficha oficial na Diocese de Três Lagoas (forania, ano de criação, endereço com CEP, telefone, e-mail, secretaria, clero e histórico; atualizada em 2025-04-02)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://diocese3lagoas.org.br/paroquia/",
+     "title": "Paróquias — Diocese de Três Lagoas (site oficial; custom post type \"paroquia\", 16 fichas)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Santa Rita de Cássia",
+     "address": "Rua Reni Campos de Araújo, nº 504 Centro – 79.690-000 – Santa Rita do Pardo/MS",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocese3lagoas.org.br/paroquia/paroquia-santa-rita-do-pardo/",
+       "title": "PARÓQUIA SANTA RITA DE CÁSSIA — ficha oficial na Diocese de Três Lagoas (forania, ano de criação, endereço com CEP, telefone, e-mail, secretaria, clero e histórico; atualizada em 2025-04-02)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "sao-joao-batista-selviria",
+   "name": "Paróquia São João Batista",
+   "city": "Selvíria",
+   "state": "MS",
+   "neighborhood": "Centro",
+   "address": "Av. Prof. Marilucia Rosa T. Lalucci, 515 Centro – 79 590 000 – Selvíria/MS",
+   "zipCode": "79590-000",
+   "phone": "67 99179-2201",
+   "email": "paroquiasjbselviria@gmail.com",
+   "website": null,
+   "priestName": "Pe. Gefferson de Sousa Pinto",
+   "foundedYear": 1973,
+   "forania": "Forania de Paranaíba",
+   "notes": "Criação segundo o site da diocese: 01/04/1973. Clero publicado: Pe. Gefferson de Sousa Pinto. Secretaria/atendimento: Thamiris Bianca Ap. O. dos Santos. História publicada pela diocese: A Paróquia São João Batista “O Precursor” tem sua história marcada pelo fervor e dedicação de sua comunidade desde seu início modesto em um pequeno vilarejo sob o sonho visionário de João Selvirio. Com a chegada das Irmãs Missionárias de Jesus Crucificado em 1973, a paróquia foi oficialmente estabelecida, e ao longo dos anos, testemunhou inúmeras celebrações e serviços religiosos, incluindo batismos, casamentos e cuidados pastorais. Apesar das adversidades, como a queda da igreja em uma ventania, a comunidade persistiu, expandindo suas instalações e criando novas comunidades filiais. Hoje, com uma Igreja Matriz renovada e diversas comunidades, a Paróquia São João Batista celebra sua jornada, confiando na intercessão de seu padroeiro para guiar as gerações futuras e manter viva a memória de sua trajetória inspiradora.",
+   "sources": [
+    {
+     "url": "https://diocese3lagoas.org.br/paroquia/paroquia-sao-joao-batista/",
+     "title": "PARÓQUIA SÃO JOÃO BATISTA — ficha oficial na Diocese de Três Lagoas (forania, ano de criação, endereço com CEP, telefone, e-mail, secretaria, clero e histórico; atualizada em 2026-06-24)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://diocese3lagoas.org.br/paroquia/",
+     "title": "Paróquias — Diocese de Três Lagoas (site oficial; custom post type \"paroquia\", 16 fichas)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz São João Batista",
+     "address": "Av. Prof. Marilucia Rosa T. Lalucci, 515 Centro – 79 590 000 – Selvíria/MS",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocese3lagoas.org.br/paroquia/paroquia-sao-joao-batista/",
+       "title": "PARÓQUIA SÃO JOÃO BATISTA — ficha oficial na Diocese de Três Lagoas (forania, ano de criação, endereço com CEP, telefone, e-mail, secretaria, clero e histórico; atualizada em 2026-06-24)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "sagrado-coracao-de-jesus-tres-lagoas",
+   "name": "Catedral Sagrado Coração de Jesus",
+   "city": "Três Lagoas",
+   "state": "MS",
+   "neighborhood": "Centro",
+   "address": "Rua Zuleide Perex Tabox, 515 Centro – 79 601 100 – Três Lagoas/MS",
+   "zipCode": "79601-100",
+   "phone": "67 3521-2290",
+   "email": "financeiro.psacatedral@gmail.com",
+   "website": null,
+   "priestName": "Pe. Rogério Fernandes Gomes",
+   "foundedYear": 1913,
+   "forania": "Forania de Três Lagoas",
+   "notes": "Catedral diocesana. O site publica o nome como 'Paróquia Santo Antônio | Catedral Sagrado Coração de Jesus' — a paróquia é Santo Antônio e a igreja catedral é a do Sagrado Coração de Jesus, padroeiro da diocese. Criação segundo o site da diocese: 12/11/1913. Clero publicado: Diác. Eulálio da Silva; Diác. Dorival Serra Ribeiro; Pe. Rogério Fernandes Gomes. Secretaria/atendimento: Renata de Souza e Amélia Batista.",
+   "sources": [
+    {
+     "url": "https://diocese3lagoas.org.br/paroquia/paroquia-santo-antonio-catedral-sagrado-coracao-de-jesus/",
+     "title": "PARÓQUIA SANTO ANTÔNIO | CATEDRAL SAGRADO CORAÇÃO DE JESUS — ficha oficial na Diocese de Três Lagoas (forania, ano de criação, endereço com CEP, telefone, e-mail, secretaria, clero e histórico; atualizada em 2025-04-02)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://diocese3lagoas.org.br/paroquia/",
+     "title": "Paróquias — Diocese de Três Lagoas (site oficial; custom post type \"paroquia\", 16 fichas)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Catedral Sagrado Coração de Jesus",
+     "address": "Rua Zuleide Perex Tabox, 515 Centro – 79 601 100 – Três Lagoas/MS",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocese3lagoas.org.br/paroquia/paroquia-santo-antonio-catedral-sagrado-coracao-de-jesus/",
+       "title": "PARÓQUIA SANTO ANTÔNIO | CATEDRAL SAGRADO CORAÇÃO DE JESUS — ficha oficial na Diocese de Três Lagoas (forania, ano de criação, endereço com CEP, telefone, e-mail, secretaria, clero e histórico; atualizada em 2025-04-02)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Catedral Sagrado Coração de Jesus",
+     "dayOfWeek": 0,
+     "time": "09:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MS&cidade=Três+Lagoas&bairro=&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa — Três Lagoas/MS (agregador horariodemissa.com.br; as fichas apontam para o SITE ANTIGO da diocese, diocese3lagoas.com.br/newsite, já desativado — sem sinal de atualidade)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=jHIox",
+       "title": "Ficha da Catedral Sagrado Coração de Jesus (Paróquia Santo Antônio), Três Lagoas — corroborada pela ficha pública do Google (\"missas de terça a sábado às 19h; adoração quinta 08h; terço na Capela Santo Antônio segunda 18h30\")",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Catedral Sagrado Coração de Jesus",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MS&cidade=Três+Lagoas&bairro=&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa — Três Lagoas/MS (agregador horariodemissa.com.br; as fichas apontam para o SITE ANTIGO da diocese, diocese3lagoas.com.br/newsite, já desativado — sem sinal de atualidade)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=jHIox",
+       "title": "Ficha da Catedral Sagrado Coração de Jesus (Paróquia Santo Antônio), Três Lagoas — corroborada pela ficha pública do Google (\"missas de terça a sábado às 19h; adoração quinta 08h; terço na Capela Santo Antônio segunda 18h30\")",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Catedral Sagrado Coração de Jesus",
+     "dayOfWeek": 1,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "O agregador anota 'Capela Santo Antônio'",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MS&cidade=Três+Lagoas&bairro=&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa — Três Lagoas/MS (agregador horariodemissa.com.br; as fichas apontam para o SITE ANTIGO da diocese, diocese3lagoas.com.br/newsite, já desativado — sem sinal de atualidade)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=jHIox",
+       "title": "Ficha da Catedral Sagrado Coração de Jesus (Paróquia Santo Antônio), Três Lagoas — corroborada pela ficha pública do Google (\"missas de terça a sábado às 19h; adoração quinta 08h; terço na Capela Santo Antônio segunda 18h30\")",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Catedral Sagrado Coração de Jesus",
+     "dayOfWeek": 2,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MS&cidade=Três+Lagoas&bairro=&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa — Três Lagoas/MS (agregador horariodemissa.com.br; as fichas apontam para o SITE ANTIGO da diocese, diocese3lagoas.com.br/newsite, já desativado — sem sinal de atualidade)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=jHIox",
+       "title": "Ficha da Catedral Sagrado Coração de Jesus (Paróquia Santo Antônio), Três Lagoas — corroborada pela ficha pública do Google (\"missas de terça a sábado às 19h; adoração quinta 08h; terço na Capela Santo Antônio segunda 18h30\")",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Catedral Sagrado Coração de Jesus",
+     "dayOfWeek": 3,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MS&cidade=Três+Lagoas&bairro=&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa — Três Lagoas/MS (agregador horariodemissa.com.br; as fichas apontam para o SITE ANTIGO da diocese, diocese3lagoas.com.br/newsite, já desativado — sem sinal de atualidade)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=jHIox",
+       "title": "Ficha da Catedral Sagrado Coração de Jesus (Paróquia Santo Antônio), Três Lagoas — corroborada pela ficha pública do Google (\"missas de terça a sábado às 19h; adoração quinta 08h; terço na Capela Santo Antônio segunda 18h30\")",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Catedral Sagrado Coração de Jesus",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MS&cidade=Três+Lagoas&bairro=&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa — Três Lagoas/MS (agregador horariodemissa.com.br; as fichas apontam para o SITE ANTIGO da diocese, diocese3lagoas.com.br/newsite, já desativado — sem sinal de atualidade)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=jHIox",
+       "title": "Ficha da Catedral Sagrado Coração de Jesus (Paróquia Santo Antônio), Três Lagoas — corroborada pela ficha pública do Google (\"missas de terça a sábado às 19h; adoração quinta 08h; terço na Capela Santo Antônio segunda 18h30\")",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Catedral Sagrado Coração de Jesus",
+     "dayOfWeek": 5,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MS&cidade=Três+Lagoas&bairro=&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa — Três Lagoas/MS (agregador horariodemissa.com.br; as fichas apontam para o SITE ANTIGO da diocese, diocese3lagoas.com.br/newsite, já desativado — sem sinal de atualidade)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=jHIox",
+       "title": "Ficha da Catedral Sagrado Coração de Jesus (Paróquia Santo Antônio), Três Lagoas — corroborada pela ficha pública do Google (\"missas de terça a sábado às 19h; adoração quinta 08h; terço na Capela Santo Antônio segunda 18h30\")",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Catedral Sagrado Coração de Jesus",
+     "dayOfWeek": 6,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MS&cidade=Três+Lagoas&bairro=&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa — Três Lagoas/MS (agregador horariodemissa.com.br; as fichas apontam para o SITE ANTIGO da diocese, diocese3lagoas.com.br/newsite, já desativado — sem sinal de atualidade)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=jHIox",
+       "title": "Ficha da Catedral Sagrado Coração de Jesus (Paróquia Santo Antônio), Três Lagoas — corroborada pela ficha pública do Google (\"missas de terça a sábado às 19h; adoração quinta 08h; terço na Capela Santo Antônio segunda 18h30\")",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-aparecida-tres-lagoas",
+   "name": "Paróquia Nossa Senhora Aparecida",
+   "city": "Três Lagoas",
+   "state": "MS",
+   "neighborhood": "Nossa Senhora Aparecida",
+   "address": "Rua 15 de junho, 934 – Bairro Nossa Senhora Aparecida, 79.620-080 – Três Lagoas/MS",
+   "zipCode": "79620-080",
+   "phone": "67 3521-8507",
+   "email": "paroquianossasraaparecidatl@gmail.com",
+   "website": null,
+   "priestName": "Pe. Mauricio de Oliveira",
+   "foundedYear": 1983,
+   "forania": "Forania de Três Lagoas",
+   "notes": "Criação segundo o site da diocese: 12/10/1983. Clero publicado: Diác. Joaquim Ferreira; Pe. Mauricio de Oliveira. Secretaria/atendimento: Cecilia Ribas Pivovar e Karen Grochovski da Silva.",
+   "sources": [
+    {
+     "url": "https://diocese3lagoas.org.br/paroquia/paroquia-nossa-senhora-aparecida/",
+     "title": "PARÓQUIA NOSSA SENHORA APARECIDA — ficha oficial na Diocese de Três Lagoas (forania, ano de criação, endereço com CEP, telefone, e-mail, secretaria, clero e histórico; atualizada em 2025-04-02)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://diocese3lagoas.org.br/paroquia/",
+     "title": "Paróquias — Diocese de Três Lagoas (site oficial; custom post type \"paroquia\", 16 fichas)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora Aparecida",
+     "address": "Rua 15 de junho, 934 – Bairro Nossa Senhora Aparecida, 79.620-080 – Três Lagoas/MS",
+     "neighborhood": "Nossa Senhora Aparecida",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocese3lagoas.org.br/paroquia/paroquia-nossa-senhora-aparecida/",
+       "title": "PARÓQUIA NOSSA SENHORA APARECIDA — ficha oficial na Diocese de Três Lagoas (forania, ano de criação, endereço com CEP, telefone, e-mail, secretaria, clero e histórico; atualizada em 2025-04-02)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Nossa Senhora Aparecida",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MS&cidade=Três+Lagoas&bairro=&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa — Três Lagoas/MS (agregador horariodemissa.com.br; as fichas apontam para o SITE ANTIGO da diocese, diocese3lagoas.com.br/newsite, já desativado — sem sinal de atualidade)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora Aparecida",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MS&cidade=Três+Lagoas&bairro=&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa — Três Lagoas/MS (agregador horariodemissa.com.br; as fichas apontam para o SITE ANTIGO da diocese, diocese3lagoas.com.br/newsite, já desativado — sem sinal de atualidade)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora Aparecida",
+     "dayOfWeek": 1,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MS&cidade=Três+Lagoas&bairro=&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa — Três Lagoas/MS (agregador horariodemissa.com.br; as fichas apontam para o SITE ANTIGO da diocese, diocese3lagoas.com.br/newsite, já desativado — sem sinal de atualidade)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora Aparecida",
+     "dayOfWeek": 2,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MS&cidade=Três+Lagoas&bairro=&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa — Três Lagoas/MS (agregador horariodemissa.com.br; as fichas apontam para o SITE ANTIGO da diocese, diocese3lagoas.com.br/newsite, já desativado — sem sinal de atualidade)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora Aparecida",
+     "dayOfWeek": 3,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MS&cidade=Três+Lagoas&bairro=&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa — Três Lagoas/MS (agregador horariodemissa.com.br; as fichas apontam para o SITE ANTIGO da diocese, diocese3lagoas.com.br/newsite, já desativado — sem sinal de atualidade)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora Aparecida",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MS&cidade=Três+Lagoas&bairro=&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa — Três Lagoas/MS (agregador horariodemissa.com.br; as fichas apontam para o SITE ANTIGO da diocese, diocese3lagoas.com.br/newsite, já desativado — sem sinal de atualidade)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora Aparecida",
+     "dayOfWeek": 5,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MS&cidade=Três+Lagoas&bairro=&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa — Três Lagoas/MS (agregador horariodemissa.com.br; as fichas apontam para o SITE ANTIGO da diocese, diocese3lagoas.com.br/newsite, já desativado — sem sinal de atualidade)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora Aparecida",
+     "dayOfWeek": 6,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MS&cidade=Três+Lagoas&bairro=&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa — Três Lagoas/MS (agregador horariodemissa.com.br; as fichas apontam para o SITE ANTIGO da diocese, diocese3lagoas.com.br/newsite, já desativado — sem sinal de atualidade)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "santa-luzia-tres-lagoas",
+   "name": "Paróquia Santa Luzia",
+   "city": "Três Lagoas",
+   "state": "MS",
+   "neighborhood": "Santa Luzia",
+   "address": "Rua Angelina Tebet, 530 Bairro Santa Luzia – 79.640-250 – Três Lagoas/MS",
+   "zipCode": "79640-250",
+   "phone": "67 3521-2884",
+   "email": "paroquia-santaluzia@hotmail.com",
+   "website": null,
+   "priestName": "Pe. Fabio Alves de Oliveira",
+   "foundedYear": 1967,
+   "forania": "Forania de Três Lagoas",
+   "notes": "Criação segundo o site da diocese: 12/10/1967. Clero publicado: Diác. Laurito Damaceno Marceliano; Pe. Fabio Alves de Oliveira. Secretaria/atendimento: Selma Rodrigues Ferreira. História publicada pela diocese: A Paróquia Santa Luzia, criada em 12 de outubro de 1967, está localizada na Avenida Angelina Tebet, nº 530, no Bairro Santa Luzia, em Três Lagoas/MS. Em julho de 2013, sob a responsabilidade do Padre Clemilson Bernardes, a paróquia recebeu uma relíquia autenticada, exposta para visitação dos fiéis: um fragmento do manto que cobre o corpo incorrupto de Santa Luzia.",
+   "sources": [
+    {
+     "url": "https://diocese3lagoas.org.br/paroquia/paroquia-santa-luzia/",
+     "title": "PARÓQUIA SANTA LUZIA — ficha oficial na Diocese de Três Lagoas (forania, ano de criação, endereço com CEP, telefone, e-mail, secretaria, clero e histórico; atualizada em 2025-04-02)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://diocese3lagoas.org.br/paroquia/",
+     "title": "Paróquias — Diocese de Três Lagoas (site oficial; custom post type \"paroquia\", 16 fichas)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Santa Luzia",
+     "address": "Rua Angelina Tebet, 530 Bairro Santa Luzia – 79.640-250 – Três Lagoas/MS",
+     "neighborhood": "Santa Luzia",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocese3lagoas.org.br/paroquia/paroquia-santa-luzia/",
+       "title": "PARÓQUIA SANTA LUZIA — ficha oficial na Diocese de Três Lagoas (forania, ano de criação, endereço com CEP, telefone, e-mail, secretaria, clero e histórico; atualizada em 2025-04-02)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "santa-rita-de-cassia-tres-lagoas",
+   "name": "Paróquia Santa Rita de Cássia",
+   "city": "Três Lagoas",
+   "state": "MS",
+   "neighborhood": "Vila Nova",
+   "address": "Av. Doutor Eloy de Miranda Chaves, 2194 Vila Nova – 79.602-003 – Três Lagoas/MS",
+   "zipCode": "79602-003",
+   "phone": "67 3521-9222",
+   "email": "paroquiastarita@hotmail.com",
+   "website": null,
+   "priestName": "Pe. Edi Pereira Quina",
+   "foundedYear": 2001,
+   "forania": "Forania de Três Lagoas",
+   "notes": "Criação segundo o site da diocese: 18/05/2001. Clero publicado: Diác. Roberto Rabelati; Pe. Edi Pereira Quina. Secretaria/atendimento: Kelly Vedolin Mariano e Amanda Giulia Leite.",
+   "sources": [
+    {
+     "url": "https://diocese3lagoas.org.br/paroquia/paroquia-santa-rita-de-cassia/",
+     "title": "PARÓQUIA SANTA RITA DE CÁSSIA — ficha oficial na Diocese de Três Lagoas (forania, ano de criação, endereço com CEP, telefone, e-mail, secretaria, clero e histórico; atualizada em 2025-04-02)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://diocese3lagoas.org.br/paroquia/",
+     "title": "Paróquias — Diocese de Três Lagoas (site oficial; custom post type \"paroquia\", 16 fichas)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Santa Rita de Cássia",
+     "address": "Av. Doutor Eloy de Miranda Chaves, 2194 Vila Nova – 79.602-003 – Três Lagoas/MS",
+     "neighborhood": "Vila Nova",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocese3lagoas.org.br/paroquia/paroquia-santa-rita-de-cassia/",
+       "title": "PARÓQUIA SANTA RITA DE CÁSSIA — ficha oficial na Diocese de Três Lagoas (forania, ano de criação, endereço com CEP, telefone, e-mail, secretaria, clero e histórico; atualizada em 2025-04-02)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Santa Rita de Cássia",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MS&cidade=Três+Lagoas&bairro=&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa — Três Lagoas/MS (agregador horariodemissa.com.br; as fichas apontam para o SITE ANTIGO da diocese, diocese3lagoas.com.br/newsite, já desativado — sem sinal de atualidade)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Santa Rita de Cássia",
+     "dayOfWeek": 0,
+     "time": "09:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MS&cidade=Três+Lagoas&bairro=&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa — Três Lagoas/MS (agregador horariodemissa.com.br; as fichas apontam para o SITE ANTIGO da diocese, diocese3lagoas.com.br/newsite, já desativado — sem sinal de atualidade)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Santa Rita de Cássia",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MS&cidade=Três+Lagoas&bairro=&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa — Três Lagoas/MS (agregador horariodemissa.com.br; as fichas apontam para o SITE ANTIGO da diocese, diocese3lagoas.com.br/newsite, já desativado — sem sinal de atualidade)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Santa Rita de Cássia",
+     "dayOfWeek": 3,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MS&cidade=Três+Lagoas&bairro=&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa — Três Lagoas/MS (agregador horariodemissa.com.br; as fichas apontam para o SITE ANTIGO da diocese, diocese3lagoas.com.br/newsite, já desativado — sem sinal de atualidade)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Santa Rita de Cássia",
+     "dayOfWeek": 5,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MS&cidade=Três+Lagoas&bairro=&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa — Três Lagoas/MS (agregador horariodemissa.com.br; as fichas apontam para o SITE ANTIGO da diocese, diocese3lagoas.com.br/newsite, já desativado — sem sinal de atualidade)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Santa Rita de Cássia",
+     "dayOfWeek": 6,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=MS&cidade=Três+Lagoas&bairro=&opcoes=cidade_opcoes&submit=12345678",
+       "title": "Horário de Missa — Três Lagoas/MS (agregador horariodemissa.com.br; as fichas apontam para o SITE ANTIGO da diocese, diocese3lagoas.com.br/newsite, já desativado — sem sinal de atualidade)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "sao-francisco-de-assis-tres-lagoas",
+   "name": "Paróquia São Francisco de Assis",
+   "city": "Três Lagoas",
+   "state": "MS",
+   "neighborhood": "Jd. Alvorada",
+   "address": "Rua David Alexandria, 4011 Jd. Alvorada – 79 610 050 – Três Lagoas/MS",
+   "zipCode": "79610-050",
+   "phone": "67 3522-1818 e 99973-5127",
+   "email": "psaofranciscotl1@yahoo.com",
+   "website": null,
+   "priestName": "Pe. José Alves de Araújo, sdb",
+   "foundedYear": 2013,
+   "forania": "Forania de Três Lagoas",
+   "notes": "Criação segundo o site da diocese: 04/10/2013. Clero publicado: Pe. José Alves de Araújo, sdb. Secretaria/atendimento: Lucinéia Sant’Anna Dainezi. História publicada pela diocese: A Paróquia São Francisco de Assis em Três Lagoas, embora oficialmente criada em 04/10/2013, tem suas raízes profundas que remontam a 50 anos atrás, quando era uma comunidade sob os auspícios da Paróquia Santo Antônio. Em 2023, em celebração aos seus 10 anos de existência formal, a paróquia passou por uma reforma significativa. Atualmente, a comunidade é confiada aos Salesianos, que dedicam-se com zelo e comprometimento ao serviço religioso e pastoral nesta região.",
+   "sources": [
+    {
+     "url": "https://diocese3lagoas.org.br/paroquia/paroquia-sao-francisco-de-assis/",
+     "title": "PARÓQUIA SÃO FRANCISCO DE ASSIS — ficha oficial na Diocese de Três Lagoas (forania, ano de criação, endereço com CEP, telefone, e-mail, secretaria, clero e histórico; atualizada em 2025-04-02)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://diocese3lagoas.org.br/paroquia/",
+     "title": "Paróquias — Diocese de Três Lagoas (site oficial; custom post type \"paroquia\", 16 fichas)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz São Francisco de Assis",
+     "address": "Rua David Alexandria, 4011 Jd. Alvorada – 79 610 050 – Três Lagoas/MS",
+     "neighborhood": "Jd. Alvorada",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocese3lagoas.org.br/paroquia/paroquia-sao-francisco-de-assis/",
+       "title": "PARÓQUIA SÃO FRANCISCO DE ASSIS — ficha oficial na Diocese de Três Lagoas (forania, ano de criação, endereço com CEP, telefone, e-mail, secretaria, clero e histórico; atualizada em 2025-04-02)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "santa-dulce-dos-pobres-tres-lagoas",
+   "name": "Área Pastoral Santa Dulce dos Pobres",
+   "city": "Três Lagoas",
+   "state": "MS",
+   "neighborhood": null,
+   "address": null,
+   "zipCode": null,
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Cláudio Edmar da Silva",
+   "foundedYear": 2024,
+   "forania": "Forania de Três Lagoas",
+   "notes": "Área pastoral (unidade em formação, ainda não erigida como paróquia), criada em 24/06/2024 na Forania de Três Lagoas. O site não publica endereço, telefone nem e-mail; a cidade foi inferida da forania. Criação segundo o site da diocese: 24/06/2024. Clero publicado: Pe. Cláudio Edmar da Silva.",
+   "sources": [
+    {
+     "url": "https://diocese3lagoas.org.br/paroquia/area-pastoral-santa-dulce-dos-pobres/",
+     "title": "ÁREA PASTORAL SANTA DULCE DOS POBRES — ficha oficial na Diocese de Três Lagoas (forania, ano de criação, endereço com CEP, telefone, e-mail, secretaria, clero e histórico; atualizada em 2025-04-02)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://diocese3lagoas.org.br/paroquia/",
+     "title": "Paróquias — Diocese de Três Lagoas (site oficial; custom post type \"paroquia\", 16 fichas)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Santa Dulce dos Pobres",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocese3lagoas.org.br/paroquia/area-pastoral-santa-dulce-dos-pobres/",
+       "title": "ÁREA PASTORAL SANTA DULCE DOS POBRES — ficha oficial na Diocese de Três Lagoas (forania, ano de criação, endereço com CEP, telefone, e-mail, secretaria, clero e histórico; atualizada em 2025-04-02)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "sagrado-coracao-de-jesus-agua-clara",
+   "name": "Paróquia Sagrado Coração de Jesus",
+   "city": "Água Clara",
+   "state": "MS",
+   "neighborhood": "Centro",
+   "address": "Av. Antônio Ottoni, N°19 Centro – 79 680 000 – Água Clara/MS",
+   "zipCode": "79680-000",
+   "phone": "(67) 3239-1133",
+   "email": "pscdejesusaguaclara@yahoo.com.br",
+   "website": null,
+   "priestName": "Pe. Luis Carlos Mariano",
+   "foundedYear": 2001,
+   "forania": "Forania de Três Lagoas",
+   "notes": "Criação segundo o site da diocese: 21/06/2001. Clero publicado: Pe. Luis Carlos Mariano. Secretaria/atendimento: Simone C. N. Baleeiro. História publicada pela diocese: A Paróquia Sagrado Coração de Jesus, em Água Clara, Mato Grosso do Sul, encontra-se estrategicamente próxima à histórica Estação Ferroviária NOB, um marco que remonta à fundação da própria cidade. Em 12 de maio de 1997, o então Prefeito Ézio de Matos sancionou a Lei nº 309-1997, estabelecendo oficialmente o Sagrado Coração de Jesus como padroeiro do município de Água Clara-MS. Esta lei não apenas nomeou o padroeiro, mas também instituiu a celebração para a primeira sexta-feira após o Corpus Christi, transformando-a em um feriado municipal marcante para a comunidade de Água Clara.",
+   "sources": [
+    {
+     "url": "https://diocese3lagoas.org.br/paroquia/paroquia-sagrado-coracao-de-jesus/",
+     "title": "PARÓQUIA SAGRADO CORAÇÃO DE JESUS — ficha oficial na Diocese de Três Lagoas (forania, ano de criação, endereço com CEP, telefone, e-mail, secretaria, clero e histórico; atualizada em 2025-04-02)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://diocese3lagoas.org.br/paroquia/",
+     "title": "Paróquias — Diocese de Três Lagoas (site oficial; custom post type \"paroquia\", 16 fichas)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Sagrado Coração de Jesus",
+     "address": "Av. Antônio Ottoni, N°19 Centro – 79 680 000 – Água Clara/MS",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocese3lagoas.org.br/paroquia/paroquia-sagrado-coracao-de-jesus/",
+       "title": "PARÓQUIA SAGRADO CORAÇÃO DE JESUS — ficha oficial na Diocese de Três Lagoas (forania, ano de criação, endereço com CEP, telefone, e-mail, secretaria, clero e histórico; atualizada em 2025-04-02)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  }
+ ],
+ "coverage": {
+  "parishesFound": 16,
+  "parishesExpected": 15,
+  "notes": "LISTA DE PARÓQUIAS COMPLETA E OFICIAL; horários e comunidades quase inexistentes. O site da diocese expõe o custom post type 'paroquia' em /wp-json/wp/v2/paroquia (16 fichas, com taxonomia de forania) e cada ficha traz ano de criação, telefone, e-mail (ofuscado pelo Cloudflare), secretaria, endereço com CEP e cidade, clero e um histórico em texto. As 16 entradas são as 15 paróquias que a Wikipédia lista (8 na Forania de Três Lagoas + 7 na de Paranaíba) mais a Área Pastoral Santa Dulce dos Pobres, criada em 24/06/2024 — batem uma a uma com a listagem enciclopédica. Os 10 municípios do Bolsão estão cobertos: Três Lagoas (6 unidades), Paranaíba (2), Água Clara, Aparecida do Taboado, Brasilândia, Cassilândia, Chapadão do Sul, Inocência, Santa Rita do Pardo e Selvíria (1 cada). LIMITE PRINCIPAL: a diocese NÃO publica horário de missa nem lista de capelas em lugar nenhum — não há custom post type de horários, não há página de horários, a página /anuario-diocesano/ está vazia e o CPT 'arquivo' (15 documentos) só tem decretos e projetos pastorais. A Wikipédia declara que a diocese tem 'mais de 110 capelas/comunidades' e nenhuma delas está publicada: todas as 16 paróquias ficaram só com a matriz. Os 37 horários deste arquivo vêm do agregador horariodemissa.com.br (6 paróquias), cujas fichas ainda apontam para o SITE ANTIGO da diocese (diocese3lagoas.com.br/newsite, desativado) e cuja página exibe avisos de 2019 — por isso 26 ficaram 'baixa'. Os 11 'media' são os corroborados por uma segunda fonte: a grade do Santuário de Aparecida do Taboado (confere com a página oficial do santuário) e as missas de terça a sábado às 19h da Catedral (conferem com a ficha pública do Google). NENHUM horário desta diocese tem fonte oficial diocesana."
+ }
+}

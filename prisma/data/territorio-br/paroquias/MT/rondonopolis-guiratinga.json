@@ -1,0 +1,5349 @@
+{
+  "diocese": {
+    "name": "Diocese de Rondonópolis-Guiratinga",
+    "type": "Diocese",
+    "slug": "rondonopolis-guiratinga",
+    "city": "Rondonópolis",
+    "state": "MT",
+    "address": "Avenida Frei Servácio, 393 - Bairro La Salle",
+    "zipCode": "78710-004",
+    "phone": "(66) 3426-6757 / (66) 99908-6777",
+    "email": "secretariadacuria@dioceseroogga.org.br",
+    "website": "https://dioceseroogga.org.br",
+    "bishopName": "Dom Maurício da Silva Jardim",
+    "sources": [
+      {
+        "url": "https://dioceseroogga.org.br/",
+        "title": "Diocese de Rondonópolis-Guiratinga - Portal oficial",
+        "accessedAt": "2026-09-11"
+      },
+      {
+        "url": "https://dioceseroogga.org.br/paroquias/",
+        "title": "Paróquias | Diocese de Rondonópolis",
+        "accessedAt": "2026-09-11"
+      },
+      {
+        "url": "https://www.catholic-hierarchy.org/diocese/drond.html",
+        "title": "Diocese of Rondonópolis-Guiratinga - catholic-hierarchy.org",
+        "accessedAt": "2026-09-11"
+      }
+    ],
+    "confidence": "alta",
+    "notes": "Sé em Rondonópolis (Catedral Santa Cruz) e concatedral São João Batista em Guiratinga. Cinco foranias: Nossa Senhora Aparecida, Nossa Senhora Auxiliadora, Sagrado Coração de Jesus, São João Batista e São Lourenço."
+  },
+  "parishes": [
+    {
+      "slug": "nossa-senhora-auxiliadora-alto-araguaia",
+      "name": "Paróquia Nossa Senhora Auxiliadora",
+      "city": "Alto Araguaia",
+      "state": "MT",
+      "neighborhood": "Centro",
+      "address": "Av. Carlos Hugueney, n° 575, centro",
+      "zipCode": "78780-000",
+      "phone": "(66) 3481-1269 / (66) 99612-3275/",
+      "email": "parnsauxiliadora_aia@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Jhonatha Almeida da Silva",
+      "foundedYear": 1920,
+      "sources": [
+        {
+          "url": "https://dioceseroogga.org.br/paroquia/paroquia-nossa-senhora-auxiliadora/",
+          "title": "Paróquia Nossa Senhora Auxiliadora | Diocese de Rondonópolis",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Forania Nossa Senhora Auxiliadora.",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora Auxiliadora",
+          "address": null,
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-nossa-senhora-auxiliadora/",
+              "title": "Paróquia Nossa Senhora Auxiliadora | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São Sebastião",
+          "address": null,
+          "neighborhood": "Cohab",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-nossa-senhora-auxiliadora/",
+              "title": "Paróquia Nossa Senhora Auxiliadora | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Laura Vicuña",
+          "address": null,
+          "neighborhood": "Boiadeiro",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-nossa-senhora-auxiliadora/",
+              "title": "Paróquia Nossa Senhora Auxiliadora | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São João Bosco",
+          "address": null,
+          "neighborhood": "Gabiroba",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-nossa-senhora-auxiliadora/",
+              "title": "Paróquia Nossa Senhora Auxiliadora | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São Francisco",
+          "address": null,
+          "neighborhood": "São Francisco",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-nossa-senhora-auxiliadora/",
+              "title": "Paróquia Nossa Senhora Auxiliadora | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São José",
+          "address": null,
+          "neighborhood": "Jardim Novo Araguaia",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-nossa-senhora-auxiliadora/",
+              "title": "Paróquia Nossa Senhora Auxiliadora | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nossa Senhora Aparecida",
+          "address": null,
+          "neighborhood": "Aeroporto",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-nossa-senhora-auxiliadora/",
+              "title": "Paróquia Nossa Senhora Auxiliadora | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Sagrado Coração de Jesus",
+          "address": null,
+          "neighborhood": "Água Emendada (rural, 70 km)",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-nossa-senhora-auxiliadora/",
+              "title": "Paróquia Nossa Senhora Auxiliadora | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Sagrada Família",
+          "address": null,
+          "neighborhood": "Assentamento Córrego Rico (rural, 25 km)",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-nossa-senhora-auxiliadora/",
+              "title": "Paróquia Nossa Senhora Auxiliadora | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nossa Senhora Aparecida - Colônia do Ariranha",
+          "address": null,
+          "neighborhood": "Colônia do Ariranha (rural, 145 km)",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-nossa-senhora-auxiliadora/",
+              "title": "Paróquia Nossa Senhora Auxiliadora | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nossa Senhora da Medalha Milagrosa",
+          "address": null,
+          "neighborhood": "Paraíso (rural, 45 km)",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-nossa-senhora-auxiliadora/",
+              "title": "Paróquia Nossa Senhora Auxiliadora | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nossa Senhora do Rosário",
+          "address": null,
+          "neighborhood": "Rio do Peixe (rural, 160 km)",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-nossa-senhora-auxiliadora/",
+              "title": "Paróquia Nossa Senhora Auxiliadora | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora Auxiliadora",
+          "dayOfWeek": 0,
+          "time": "07:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-nossa-senhora-auxiliadora/",
+              "title": "Paróquia Nossa Senhora Auxiliadora | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora Auxiliadora",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-nossa-senhora-auxiliadora/",
+              "title": "Paróquia Nossa Senhora Auxiliadora | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora Auxiliadora",
+          "dayOfWeek": 2,
+          "time": "11:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-nossa-senhora-auxiliadora/",
+              "title": "Paróquia Nossa Senhora Auxiliadora | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora Auxiliadora",
+          "dayOfWeek": 3,
+          "time": "11:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-nossa-senhora-auxiliadora/",
+              "title": "Paróquia Nossa Senhora Auxiliadora | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora Auxiliadora",
+          "dayOfWeek": 4,
+          "time": "11:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-nossa-senhora-auxiliadora/",
+              "title": "Paróquia Nossa Senhora Auxiliadora | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora Auxiliadora",
+          "dayOfWeek": 5,
+          "time": "11:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-nossa-senhora-auxiliadora/",
+              "title": "Paróquia Nossa Senhora Auxiliadora | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora Auxiliadora",
+          "dayOfWeek": 6,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-nossa-senhora-auxiliadora/",
+              "title": "Paróquia Nossa Senhora Auxiliadora | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "sao-jose-e-nossa-senhora-aparecida-alto-taquari",
+      "name": "Paróquia São José e Nossa Senhora Aparecida",
+      "city": "Alto Taquari",
+      "state": "MT",
+      "neighborhood": "Centro",
+      "address": "Rua Altino Pereira de Souza, nº 949, centro",
+      "zipCode": "78785-000",
+      "phone": "(66) 3496-1147 / (66) 9 9625-5206",
+      "email": "psaojose2009@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Milton Gomes Gonçalves",
+      "foundedYear": 1989,
+      "sources": [
+        {
+          "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-e-nossa-senhora-aparecida/",
+          "title": "Paróquia São José e Nossa Senhora Aparecida | Diocese de Rondonópolis",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Forania Nossa Senhora Auxiliadora. A fonte informa missa mensal nas comunidades rurais de Buriti e Jacuba, sem dia da semana - não cabe em dayOfWeek e não foi registrada como horário.",
+      "communities": [
+        {
+          "name": "Matriz São José e Nossa Senhora Aparecida",
+          "address": null,
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-e-nossa-senhora-aparecida/",
+              "title": "Paróquia São José e Nossa Senhora Aparecida | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora das Graças",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-e-nossa-senhora-aparecida/",
+              "title": "Paróquia São José e Nossa Senhora Aparecida | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Três Pontos",
+          "address": null,
+          "neighborhood": "Três Pontos",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-e-nossa-senhora-aparecida/",
+              "title": "Paróquia São José e Nossa Senhora Aparecida | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nossa Senhora Aparecida - Vila Jacuba",
+          "address": null,
+          "neighborhood": "Vila Jacuba (rural)",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-e-nossa-senhora-aparecida/",
+              "title": "Paróquia São José e Nossa Senhora Aparecida | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nossa Senhora das Graças - Buriti",
+          "address": null,
+          "neighborhood": "Buriti (rural)",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-e-nossa-senhora-aparecida/",
+              "title": "Paróquia São José e Nossa Senhora Aparecida | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São Francisco de Assis - Ariranha",
+          "address": null,
+          "neighborhood": "Ariranha (rural)",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-e-nossa-senhora-aparecida/",
+              "title": "Paróquia São José e Nossa Senhora Aparecida | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São José e Nossa Senhora Aparecida",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-e-nossa-senhora-aparecida/",
+              "title": "Paróquia São José e Nossa Senhora Aparecida | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São José e Nossa Senhora Aparecida",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-e-nossa-senhora-aparecida/",
+              "title": "Paróquia São José e Nossa Senhora Aparecida | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São José e Nossa Senhora Aparecida",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-e-nossa-senhora-aparecida/",
+              "title": "Paróquia São José e Nossa Senhora Aparecida | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "sao-sebastiao-alto-garcas",
+      "name": "Paróquia São Sebastião",
+      "city": "Alto Garças",
+      "state": "MT",
+      "neighborhood": "Centro",
+      "address": "Praça da Matriz, Centro. Caixa Postal 14",
+      "zipCode": "78770-000",
+      "phone": "(66) 3471-1191 / (66) 9952-8420",
+      "email": "paroquiasessaosebastiao@uol.com.br",
+      "website": null,
+      "priestName": "Pe. Marcelo Vinicius de Oliveira.",
+      "foundedYear": 1939,
+      "sources": [
+        {
+          "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-sebastiao-2/",
+          "title": "Paróquia São Sebastião | Diocese de Rondonópolis",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Forania Nossa Senhora Auxiliadora. A fonte diz \"oito comunidades urbanas\" mas lista cinco; foram registradas as cinco nomeadas mais as duas rurais.",
+      "communities": [
+        {
+          "name": "Matriz São Sebastião",
+          "address": null,
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-sebastiao-2/",
+              "title": "Paróquia São Sebastião | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nossa Senhora Aparecida",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-sebastiao-2/",
+              "title": "Paróquia São Sebastião | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São José Esposo",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-sebastiao-2/",
+              "title": "Paróquia São Sebastião | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nossa Senhora Rainha da Paz",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-sebastiao-2/",
+              "title": "Paróquia São Sebastião | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Perpétuo Socorro",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-sebastiao-2/",
+              "title": "Paróquia São Sebastião | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Fazenda Adriana",
+          "address": null,
+          "neighborhood": "Fazenda Adriana (rural)",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-sebastiao-2/",
+              "title": "Paróquia São Sebastião | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Fazenda São José",
+          "address": null,
+          "neighborhood": "Fazenda São José (rural)",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-sebastiao-2/",
+              "title": "Paróquia São Sebastião | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-sebastiao-2/",
+              "title": "Paróquia São Sebastião | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-sebastiao-2/",
+              "title": "Paróquia São Sebastião | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 1,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-sebastiao-2/",
+              "title": "Paróquia São Sebastião | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 2,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-sebastiao-2/",
+              "title": "Paróquia São Sebastião | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 3,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-sebastiao-2/",
+              "title": "Paróquia São Sebastião | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 4,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-sebastiao-2/",
+              "title": "Paróquia São Sebastião | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 5,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-sebastiao-2/",
+              "title": "Paróquia São Sebastião | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 6,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-sebastiao-2/",
+              "title": "Paróquia São Sebastião | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 5,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": "Recorrência mensal informada pela fonte: \"1º Sexta de cada mês - (missa do apostolado)\"",
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-sebastiao-2/",
+              "title": "Paróquia São Sebastião | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-do-carmo-itiquira",
+      "name": "Paróquia Nossa Senhora do Carmo",
+      "city": "Itiquira",
+      "state": "MT",
+      "neighborhood": "Centro",
+      "address": "Praça Frei Liberato, nº 50, centro",
+      "zipCode": "78790-000",
+      "phone": "(65) 9 9600-5520",
+      "email": "pnscarmo@hotmail.com",
+      "website": null,
+      "priestName": "Frei João Carlos Mello Cavalheiro",
+      "foundedYear": 1959,
+      "sources": [
+        {
+          "url": "https://dioceseroogga.org.br/paroquia/paroquia-nossa-senhora-do-carmo/",
+          "title": "Paróquia Nossa Senhora do Carmo | Diocese de Rondonópolis",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Forania Nossa Senhora Aparecida.",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "07:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-nossa-senhora-do-carmo/",
+              "title": "Paróquia Nossa Senhora do Carmo | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-nossa-senhora-do-carmo/",
+              "title": "Paróquia Nossa Senhora do Carmo | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "05:45",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-nossa-senhora-do-carmo/",
+              "title": "Paróquia Nossa Senhora do Carmo | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-nossa-senhora-do-carmo/",
+              "title": "Paróquia Nossa Senhora do Carmo | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "santa-terezinha-do-menino-jesus-tesouro",
+      "name": "Paróquia Santa Terezinha do Menino Jesus",
+      "city": "Tesouro",
+      "state": "MT",
+      "neighborhood": "Centro",
+      "address": "Rua Clóvis Hungueney, nº200, centro",
+      "zipCode": null,
+      "phone": null,
+      "email": "paroquiasantaterezinhatesouro@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Nazaré Cândido Paniago",
+      "foundedYear": 1962,
+      "sources": [
+        {
+          "url": "https://dioceseroogga.org.br/paroquia/paroquia-santa-terezinha-do-menino-jesus-2/",
+          "title": "Paróquia Santa Terezinha do Menino Jesus | Diocese de Rondonópolis",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Forania Nossa Senhora Auxiliadora. CEP publicado como \"8.775-000\" (um dígito faltando) - não registrado, precisa de validação humana. Telefone não publicado.",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-santa-terezinha-do-menino-jesus-2/",
+              "title": "Paróquia Santa Terezinha do Menino Jesus | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-santa-terezinha-do-menino-jesus-2/",
+              "title": "Paróquia Santa Terezinha do Menino Jesus | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-santa-terezinha-do-menino-jesus-2/",
+              "title": "Paróquia Santa Terezinha do Menino Jesus | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "concatedral-sao-joao-batista-guiratinga",
+      "name": "Concatedral São João Batista",
+      "city": "Guiratinga",
+      "state": "MT",
+      "neighborhood": "Centro",
+      "address": "Av Marechal Rondon, n° 878, centro",
+      "zipCode": "78760-000",
+      "phone": "66 9676-1859",
+      "email": "paroquiasaojoaobatistagga@outlook.com",
+      "website": null,
+      "priestName": "Pe.João Henrique Corrêa",
+      "foundedYear": 1920,
+      "sources": [
+        {
+          "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-joao-batista/",
+          "title": "Paróquia São João Batista | Diocese de Rondonópolis",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Forania Nossa Senhora Auxiliadora. Concatedral da diocese (antiga catedral da extinta Diocese de Guiratinga); o site diocesano a publica como \"Paróquia São João Batista\".",
+      "communities": [
+        {
+          "name": "Concatedral São João Batista",
+          "address": null,
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-joao-batista/",
+              "title": "Paróquia São João Batista | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Imaculada Conceição",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-joao-batista/",
+              "title": "Paróquia São João Batista | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Santo Antônio e Santa Luzia",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-joao-batista/",
+              "title": "Paróquia São João Batista | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Santa Maria Bertilla",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-joao-batista/",
+              "title": "Paróquia São João Batista | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Bom Jesus",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-joao-batista/",
+              "title": "Paróquia São João Batista | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Dom Bosco",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-joao-batista/",
+              "title": "Paróquia São João Batista | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nossa Senhora Aparecida",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-joao-batista/",
+              "title": "Paróquia São João Batista | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Divino Espírito Santo",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-joao-batista/",
+              "title": "Paróquia São João Batista | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São Sebastião",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-joao-batista/",
+              "title": "Paróquia São João Batista | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São Pio X",
+          "address": null,
+          "neighborhood": "Vale Rico (rural)",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-joao-batista/",
+              "title": "Paróquia São João Batista | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nossa Senhora Auxiliadora",
+          "address": null,
+          "neighborhood": "Alcantilado (rural)",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-joao-batista/",
+              "title": "Paróquia São João Batista | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Santo Antônio - Assentamento Santo Antônio",
+          "address": null,
+          "neighborhood": "Assentamento Santo Antônio (rural)",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-joao-batista/",
+              "title": "Paróquia São João Batista | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nossa Senhora das Graças",
+          "address": null,
+          "neighborhood": "Barreirinho (rural)",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-joao-batista/",
+              "title": "Paróquia São João Batista | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Concatedral São João Batista",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-joao-batista/",
+              "title": "Paróquia São João Batista | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Concatedral São João Batista",
+          "dayOfWeek": 0,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-joao-batista/",
+              "title": "Paróquia São João Batista | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Concatedral São João Batista",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-joao-batista/",
+              "title": "Paróquia São João Batista | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "sao-jose-do-povo-sao-jose-do-povo",
+      "name": "Paróquia São José do Povo",
+      "city": "São José do Povo",
+      "state": "MT",
+      "neighborhood": null,
+      "address": "Rua Pe. Miguel Ortiz, SN",
+      "zipCode": "78773-000",
+      "phone": "(66) 9983-7058",
+      "email": "paroquia_sjp@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Eriovaldo Couto Queirós",
+      "foundedYear": 1950,
+      "sources": [
+        {
+          "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-do-povo/",
+          "title": "Paróquia São José do Povo | Diocese de Rondonópolis",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Forania Nossa Senhora Aparecida.",
+      "communities": [
+        {
+          "name": "Matriz São José do Povo",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-do-povo/",
+              "title": "Paróquia São José do Povo | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Assentamento Sandrini",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-do-povo/",
+              "title": "Paróquia São José do Povo | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nova Catanduva",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-do-povo/",
+              "title": "Paróquia São José do Povo | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Assentamento Oziel - Primavera",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-do-povo/",
+              "title": "Paróquia São José do Povo | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Escola Padre Dionísio",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-do-povo/",
+              "title": "Paróquia São José do Povo | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Bonança",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-do-povo/",
+              "title": "Paróquia São José do Povo | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Cascata",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-do-povo/",
+              "title": "Paróquia São José do Povo | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Assentamento Águas da Serra",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-do-povo/",
+              "title": "Paróquia São José do Povo | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Assentamento Padre Josimo",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-do-povo/",
+              "title": "Paróquia São José do Povo | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Reta Mineira",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-do-povo/",
+              "title": "Paróquia São José do Povo | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Alto Bandeirantes",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-do-povo/",
+              "title": "Paróquia São José do Povo | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Assentamento Rose Beltran",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-do-povo/",
+              "title": "Paróquia São José do Povo | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Assentamento Márcio Pereira",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-do-povo/",
+              "title": "Paróquia São José do Povo | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Assentamento João Pessoa",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-do-povo/",
+              "title": "Paróquia São José do Povo | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Cascata - Linha 2",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-do-povo/",
+              "title": "Paróquia São José do Povo | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Trevo Galileia",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-do-povo/",
+              "title": "Paróquia São José do Povo | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Serrinha",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-do-povo/",
+              "title": "Paróquia São José do Povo | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Renascer - Banco da Terra",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-do-povo/",
+              "title": "Paróquia São José do Povo | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São José do Povo",
+          "dayOfWeek": 0,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-do-povo/",
+              "title": "Paróquia São José do Povo | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São José do Povo",
+          "dayOfWeek": 5,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-do-povo/",
+              "title": "Paróquia São José do Povo | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São José do Povo",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Recorrência mensal informada pela fonte: \"1º Sexta de cada mês\"",
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-do-povo/",
+              "title": "Paróquia São José do Povo | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "sao-pedro-apostolo-pedra-preta",
+      "name": "Paróquia São Pedro Apóstolo",
+      "city": "Pedra Preta",
+      "state": "MT",
+      "neighborhood": null,
+      "address": "Rua Sergipe, nº 375",
+      "zipCode": "78795-000",
+      "phone": "(66) 3486-1152 / (66) 9 9907-9047",
+      "email": "paroquiasp.apostolo@hotmail.com",
+      "website": null,
+      "priestName": "Frei Silvio José dos Santos",
+      "foundedYear": 1965,
+      "sources": [
+        {
+          "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-pedro-apostolo/",
+          "title": "Paróquia São Pedro Apóstolo | Diocese de Rondonópolis",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Forania Sagrado Coração de Jesus.",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-pedro-apostolo/",
+              "title": "Paróquia São Pedro Apóstolo | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-pedro-apostolo/",
+              "title": "Paróquia São Pedro Apóstolo | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 2,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-pedro-apostolo/",
+              "title": "Paróquia São Pedro Apóstolo | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Recorrência mensal informada pela fonte: \"1º Sexta de cada mês\"",
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-pedro-apostolo/",
+              "title": "Paróquia São Pedro Apóstolo | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "sao-sebastiao-dom-aquino",
+      "name": "Paróquia São Sebastião",
+      "city": "Dom Aquino",
+      "state": "MT",
+      "neighborhood": "Centro",
+      "address": "Rua Presidente Vargas, caixa postal 04, centro",
+      "zipCode": "78830-000",
+      "phone": "(66) 3451-1223/(66) 9 9979-5084",
+      "email": "paroquiasaosebastiao20@yahoo.com.br",
+      "website": null,
+      "priestName": "Pe. Marcos Antônio Gonçalves dos Santos",
+      "foundedYear": 1920,
+      "sources": [
+        {
+          "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-sebastiao/",
+          "title": "Paróquia São Sebastião | Diocese de Rondonópolis",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Forania São Lourenço.",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-sebastiao/",
+              "title": "Paróquia São Sebastião | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-sebastiao/",
+              "title": "Paróquia São Sebastião | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-sebastiao/",
+              "title": "Paróquia São Sebastião | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": "Recorrência mensal informada pela fonte: \"Primeira Sexta de cada mês\"",
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-sebastiao/",
+              "title": "Paróquia São Sebastião | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-sebastiao/",
+              "title": "Paróquia São Sebastião | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-sebastiao/",
+              "title": "Paróquia São Sebastião | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-sebastiao/",
+              "title": "Paróquia São Sebastião | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "sao-francisco-de-assis-jaciara",
+      "name": "Paróquia São Francisco de Assis",
+      "city": "Jaciara",
+      "state": "MT",
+      "neighborhood": null,
+      "address": "Av. Antônio Ferreira Sobrinho, nº 1207",
+      "zipCode": "78820-000",
+      "phone": "(66) 3461-1521 / (66) 9 9658-0835",
+      "email": "paroquiasfa@hotmail.com",
+      "website": null,
+      "priestName": "Pe.Luan Batista Furtado Ferreira",
+      "foundedYear": 1947,
+      "sources": [
+        {
+          "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-francisco-de-assis/",
+          "title": "Paróquia São Francisco de Assis | Diocese de Rondonópolis",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Forania São Lourenço.",
+      "communities": [
+        {
+          "name": "Matriz São Francisco de Assis",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-francisco-de-assis/",
+              "title": "Paróquia São Francisco de Assis | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Bairro João de Barro",
+          "address": null,
+          "neighborhood": "João de Barro",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-francisco-de-assis/",
+              "title": "Paróquia São Francisco de Assis | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Bairro Planalto",
+          "address": null,
+          "neighborhood": "Planalto",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-francisco-de-assis/",
+              "title": "Paróquia São Francisco de Assis | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Bairro Santa Rita",
+          "address": null,
+          "neighborhood": "Santa Rita",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-francisco-de-assis/",
+              "title": "Paróquia São Francisco de Assis | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Bairro Santa Luzia",
+          "address": null,
+          "neighborhood": "Santa Luzia",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-francisco-de-assis/",
+              "title": "Paróquia São Francisco de Assis | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Bairro Santo Antônio",
+          "address": null,
+          "neighborhood": "Santo Antônio",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-francisco-de-assis/",
+              "title": "Paróquia São Francisco de Assis | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Bairro São Sebastião",
+          "address": null,
+          "neighborhood": "São Sebastião",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-francisco-de-assis/",
+              "title": "Paróquia São Francisco de Assis | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Cohab São Lourenço",
+          "address": null,
+          "neighborhood": "Cohab São Lourenço",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-francisco-de-assis/",
+              "title": "Paróquia São Francisco de Assis | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Jardim Aeroporto",
+          "address": null,
+          "neighborhood": "Jardim Aeroporto",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-francisco-de-assis/",
+              "title": "Paróquia São Francisco de Assis | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Bairro Leblon e Esmeralda",
+          "address": null,
+          "neighborhood": "Leblon / Esmeralda",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-francisco-de-assis/",
+              "title": "Paróquia São Francisco de Assis | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Buriti",
+          "address": null,
+          "neighborhood": "Buriti - escola rural a 20 km",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-francisco-de-assis/",
+              "title": "Paróquia São Francisco de Assis | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Escola São Vicente",
+          "address": null,
+          "neighborhood": "rural",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-francisco-de-assis/",
+              "title": "Paróquia São Francisco de Assis | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Formiga",
+          "address": null,
+          "neighborhood": "rural",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-francisco-de-assis/",
+              "title": "Paróquia São Francisco de Assis | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Distrito de Celma",
+          "address": null,
+          "neighborhood": "Distrito de Celma",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-francisco-de-assis/",
+              "title": "Paróquia São Francisco de Assis | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Fazenda Vertente",
+          "address": null,
+          "neighborhood": "rural",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-francisco-de-assis/",
+              "title": "Paróquia São Francisco de Assis | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Fazenda Bom Retiro",
+          "address": null,
+          "neighborhood": "rural",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-francisco-de-assis/",
+              "title": "Paróquia São Francisco de Assis | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Usina Pantanal",
+          "address": null,
+          "neighborhood": "rural",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-francisco-de-assis/",
+              "title": "Paróquia São Francisco de Assis | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Fazenda São José da Serra",
+          "address": null,
+          "neighborhood": "rural",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-francisco-de-assis/",
+              "title": "Paróquia São Francisco de Assis | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Fazenda Girassol",
+          "address": null,
+          "neighborhood": "rural",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-francisco-de-assis/",
+              "title": "Paróquia São Francisco de Assis | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São Francisco de Assis",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-francisco-de-assis/",
+              "title": "Paróquia São Francisco de Assis | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Francisco de Assis",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-francisco-de-assis/",
+              "title": "Paróquia São Francisco de Assis | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Francisco de Assis",
+          "dayOfWeek": 4,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-francisco-de-assis/",
+              "title": "Paróquia São Francisco de Assis | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Francisco de Assis",
+          "dayOfWeek": 5,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-francisco-de-assis/",
+              "title": "Paróquia São Francisco de Assis | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Francisco de Assis",
+          "dayOfWeek": 5,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": "Recorrência mensal informada pela fonte: \"1º Sexta de cada mês\"",
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-francisco-de-assis/",
+              "title": "Paróquia São Francisco de Assis | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Francisco de Assis",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-francisco-de-assis/",
+              "title": "Paróquia São Francisco de Assis | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "bom-jesus-juscimeira",
+      "name": "Paróquia Bom Jesus",
+      "city": "Juscimeira",
+      "state": "MT",
+      "neighborhood": null,
+      "address": "Rua Porto Alegre, n° 1114, caixa Postal 11",
+      "zipCode": "78810-000",
+      "phone": "(66) 3412-1161 / (66) 9 9991-0385",
+      "email": "paroquia.bjesus@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Ermes Costa Campos",
+      "foundedYear": 1968,
+      "sources": [
+        {
+          "url": "https://dioceseroogga.org.br/paroquia/paroquia-bom-jesus/",
+          "title": "Paróquia Bom Jesus | Diocese de Rondonópolis",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Forania São Lourenço.",
+      "communities": [
+        {
+          "name": "Matriz Bom Jesus",
+          "address": null,
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-bom-jesus/",
+              "title": "Paróquia Bom Jesus | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Banco da Terra",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-bom-jesus/",
+              "title": "Paróquia Bom Jesus | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Beleza",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-bom-jesus/",
+              "title": "Paróquia Bom Jesus | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Água Quente",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-bom-jesus/",
+              "title": "Paróquia Bom Jesus | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Pinguela",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-bom-jesus/",
+              "title": "Paróquia Bom Jesus | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Irenópolis",
+          "address": null,
+          "neighborhood": "Distrito de Irenópolis",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-bom-jesus/",
+              "title": "Paróquia Bom Jesus | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Santo Expedito",
+          "address": null,
+          "neighborhood": "Distrito de Santa Elvira",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-bom-jesus/",
+              "title": "Paróquia Bom Jesus | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Patagônia",
+          "address": null,
+          "neighborhood": "São Pedro da Cipa",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-bom-jesus/",
+              "title": "Paróquia Bom Jesus | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Santa Elvira",
+          "address": null,
+          "neighborhood": "Distrito de Santa Elvira",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-bom-jesus/",
+              "title": "Paróquia Bom Jesus | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Beroaba",
+          "address": null,
+          "neighborhood": "Distrito de Santa Elvira",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-bom-jesus/",
+              "title": "Paróquia Bom Jesus | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Corguinho",
+          "address": null,
+          "neighborhood": "Distrito de Irenópolis",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-bom-jesus/",
+              "title": "Paróquia Bom Jesus | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Grota Vermelha",
+          "address": null,
+          "neighborhood": "Distrito de Santa Elvira",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-bom-jesus/",
+              "title": "Paróquia Bom Jesus | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Placa Santo Antônio",
+          "address": null,
+          "neighborhood": "Distrito Sede",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-bom-jesus/",
+              "title": "Paróquia Bom Jesus | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Piteira",
+          "address": null,
+          "neighborhood": "Distrito Sede",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-bom-jesus/",
+              "title": "Paróquia Bom Jesus | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Córrego Mateiro",
+          "address": null,
+          "neighborhood": "Distrito Sede",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-bom-jesus/",
+              "title": "Paróquia Bom Jesus | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Gleba Pombal",
+          "address": null,
+          "neighborhood": "Distrito Sede",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-bom-jesus/",
+              "title": "Paróquia Bom Jesus | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São Pedro da Cipa",
+          "address": null,
+          "neighborhood": "São Pedro da Cipa (sede de município)",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-bom-jesus/",
+              "title": "Paróquia Bom Jesus | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nossa Senhora das Dores",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-bom-jesus/",
+              "title": "Paróquia Bom Jesus | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São Francisco",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-bom-jesus/",
+              "title": "Paróquia Bom Jesus | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Canta Galo",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-bom-jesus/",
+              "title": "Paróquia Bom Jesus | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Bom Jesus",
+          "dayOfWeek": 0,
+          "time": "07:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-bom-jesus/",
+              "title": "Paróquia Bom Jesus | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Bom Jesus",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-bom-jesus/",
+              "title": "Paróquia Bom Jesus | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Bom Jesus",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-bom-jesus/",
+              "title": "Paróquia Bom Jesus | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Bom Jesus",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-bom-jesus/",
+              "title": "Paróquia Bom Jesus | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Bom Jesus",
+          "dayOfWeek": 1,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-bom-jesus/",
+              "title": "Paróquia Bom Jesus | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Bom Jesus",
+          "dayOfWeek": 2,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-bom-jesus/",
+              "title": "Paróquia Bom Jesus | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Bom Jesus",
+          "dayOfWeek": 3,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-bom-jesus/",
+              "title": "Paróquia Bom Jesus | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Bom Jesus",
+          "dayOfWeek": 4,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-bom-jesus/",
+              "title": "Paróquia Bom Jesus | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Bom Jesus",
+          "dayOfWeek": 5,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-bom-jesus/",
+              "title": "Paróquia Bom Jesus | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Bom Jesus",
+          "dayOfWeek": 6,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-bom-jesus/",
+              "title": "Paróquia Bom Jesus | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-de-fatima-juscimeira",
+      "name": "Paróquia Nossa Senhora de Fátima",
+      "city": "Juscimeira",
+      "state": "MT",
+      "neighborhood": "São Lourenço de Fátima",
+      "address": "AV. Visconde de Vasconcelos nº 27, São Lourenço de Fátima",
+      "zipCode": "78818-000",
+      "phone": "(66) 9200-0378",
+      "email": "paroquia.nsrafatima@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Günther Adolf Franz Lendbradl",
+      "foundedYear": 1946,
+      "sources": [
+        {
+          "url": "https://dioceseroogga.org.br/paroquia/paroquia-nossa-senhora-de-fatima/",
+          "title": "Paróquia Nossa Senhora de Fátima | Diocese de Rondonópolis",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Forania São João Batista.",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-nossa-senhora-de-fatima/",
+              "title": "Paróquia Nossa Senhora de Fátima | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": "Missa dos Enfermos e Idosos",
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-nossa-senhora-de-fatima/",
+              "title": "Paróquia Nossa Senhora de Fátima | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-nossa-senhora-de-fatima/",
+              "title": "Paróquia Nossa Senhora de Fátima | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "sao-joao-bosco-rondonopolis",
+      "name": "Paróquia São João Bosco",
+      "city": "Rondonópolis",
+      "state": "MT",
+      "neighborhood": "Vila Rica",
+      "address": "Rua Sabará, nº 728, Vila Rica",
+      "zipCode": "78750-610",
+      "phone": "(66) 9696-9820",
+      "email": "psjboscoroo@gmail.com",
+      "website": null,
+      "priestName": "Pe. Andritony Anchieta Adriano",
+      "foundedYear": 2018,
+      "sources": [
+        {
+          "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-joao-bosco/",
+          "title": "Paróquia São João Bosco | Diocese de Rondonópolis",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Forania São João Batista.",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "07:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-joao-bosco/",
+              "title": "Paróquia São João Bosco | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-joao-bosco/",
+              "title": "Paróquia São João Bosco | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-joao-bosco/",
+              "title": "Paróquia São João Bosco | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "salesiana-sao-joao-batista-rondonopolis",
+      "name": "Paróquia Salesiana São João Batista",
+      "city": "Rondonópolis",
+      "state": "MT",
+      "neighborhood": "Parque Universitário",
+      "address": "Rua Batuira, nº 1414, bairro Parque Universitário",
+      "zipCode": "78750-207",
+      "phone": "(66) 3426-4487 / (66) 9 9911- 3466",
+      "email": "paroco.roo@missaosalesiana.org.br",
+      "website": null,
+      "priestName": "Pe. Vanderson de Souza Gomes",
+      "foundedYear": 2014,
+      "sources": [
+        {
+          "url": "https://dioceseroogga.org.br/paroquia/paroquia-salesiana-sao-joao-batista/",
+          "title": "Paróquia Salesiana São João Batista | Diocese de Rondonópolis",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Forania São João Batista.",
+      "communities": [
+        {
+          "name": "Matriz São João Batista",
+          "address": null,
+          "neighborhood": "Parque Universitário",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-salesiana-sao-joao-batista/",
+              "title": "Paróquia Salesiana São João Batista | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Jardim Tancredo Neves",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-salesiana-sao-joao-batista/",
+              "title": "Paróquia Salesiana São João Batista | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Parque Residencial Universitário",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-salesiana-sao-joao-batista/",
+              "title": "Paróquia Salesiana São João Batista | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Pedra Noventa",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-salesiana-sao-joao-batista/",
+              "title": "Paróquia Salesiana São João Batista | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Vila Olinda",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-salesiana-sao-joao-batista/",
+              "title": "Paróquia Salesiana São João Batista | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Jardim Ana Carla",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-salesiana-sao-joao-batista/",
+              "title": "Paróquia Salesiana São João Batista | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Jardim das Paineiras",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-salesiana-sao-joao-batista/",
+              "title": "Paróquia Salesiana São João Batista | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Gleba Rio Vermelho",
+          "address": null,
+          "neighborhood": "rural",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-salesiana-sao-joao-batista/",
+              "title": "Paróquia Salesiana São João Batista | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Cabeceira do Almoço",
+          "address": null,
+          "neighborhood": "rural",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-salesiana-sao-joao-batista/",
+              "title": "Paróquia Salesiana São João Batista | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Várzea do Ouro",
+          "address": null,
+          "neighborhood": "rural",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-salesiana-sao-joao-batista/",
+              "title": "Paróquia Salesiana São João Batista | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Boa Vista",
+          "address": null,
+          "neighborhood": "rural",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-salesiana-sao-joao-batista/",
+              "title": "Paróquia Salesiana São João Batista | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Jardim Morumbi",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-salesiana-sao-joao-batista/",
+              "title": "Paróquia Salesiana São João Batista | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Jardim Maracanã",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-salesiana-sao-joao-batista/",
+              "title": "Paróquia Salesiana São João Batista | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Jardim Maria Tereza",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-salesiana-sao-joao-batista/",
+              "title": "Paróquia Salesiana São João Batista | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Residencial Acácia",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-salesiana-sao-joao-batista/",
+              "title": "Paróquia Salesiana São João Batista | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Vila Romana",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-salesiana-sao-joao-batista/",
+              "title": "Paróquia Salesiana São João Batista | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Residencial Magnólia",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-salesiana-sao-joao-batista/",
+              "title": "Paróquia Salesiana São João Batista | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Dona Fiuca",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-salesiana-sao-joao-batista/",
+              "title": "Paróquia Salesiana São João Batista | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São João Batista",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-salesiana-sao-joao-batista/",
+              "title": "Paróquia Salesiana São João Batista | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São João Batista",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-salesiana-sao-joao-batista/",
+              "title": "Paróquia Salesiana São João Batista | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São João Batista",
+          "dayOfWeek": 2,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-salesiana-sao-joao-batista/",
+              "title": "Paróquia Salesiana São João Batista | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São João Batista",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-salesiana-sao-joao-batista/",
+              "title": "Paróquia Salesiana São João Batista | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São João Batista",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-salesiana-sao-joao-batista/",
+              "title": "Paróquia Salesiana São João Batista | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "sao-domingos-savio-rondonopolis",
+      "name": "Paróquia São Domingos Sávio",
+      "city": "Rondonópolis",
+      "state": "MT",
+      "neighborhood": "Jardim Atlântico",
+      "address": "Rua Vicente de Carvalho, n° 41, bairro Jardim Atlântico",
+      "zipCode": "78735-702",
+      "phone": "(66) 9601-3574",
+      "email": "paroquia.s.domingossavio@hotmail",
+      "website": null,
+      "priestName": "Pe. José Éder Ribeiro Lima",
+      "foundedYear": 2013,
+      "sources": [
+        {
+          "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-domingos-savio/",
+          "title": "Paróquia São Domingos Sávio | Diocese de Rondonópolis",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Forania Nossa Senhora Aparecida.",
+      "communities": [
+        {
+          "name": "Matriz São Domingos Sávio",
+          "address": null,
+          "neighborhood": "Jardim Atlântico",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-domingos-savio/",
+              "title": "Paróquia São Domingos Sávio | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Jardim Atlântico",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-domingos-savio/",
+              "title": "Paróquia São Domingos Sávio | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Parque São Jorge",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-domingos-savio/",
+              "title": "Paróquia São Domingos Sávio | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Bairro Cidade de Deus",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-domingos-savio/",
+              "title": "Paróquia São Domingos Sávio | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Lar dos Idosos",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-domingos-savio/",
+              "title": "Paróquia São Domingos Sávio | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Bairro Azaléia",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-domingos-savio/",
+              "title": "Paróquia São Domingos Sávio | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Residencial Farias",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-domingos-savio/",
+              "title": "Paróquia São Domingos Sávio | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Vila Paulista",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-domingos-savio/",
+              "title": "Paróquia São Domingos Sávio | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Alto Miranda",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-domingos-savio/",
+              "title": "Paróquia São Domingos Sávio | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Alfredo de Castro",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-domingos-savio/",
+              "title": "Paróquia São Domingos Sávio | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Vila Três Pontes",
+          "address": null,
+          "neighborhood": "rural",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-domingos-savio/",
+              "title": "Paróquia São Domingos Sávio | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Rio Vermelho",
+          "address": null,
+          "neighborhood": "rural",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-domingos-savio/",
+              "title": "Paróquia São Domingos Sávio | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Gleba Dom Bosco",
+          "address": null,
+          "neighborhood": "rural",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-domingos-savio/",
+              "title": "Paróquia São Domingos Sávio | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São Domingos Sávio",
+          "dayOfWeek": 0,
+          "time": "07:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-domingos-savio/",
+              "title": "Paróquia São Domingos Sávio | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Domingos Sávio",
+          "dayOfWeek": 0,
+          "time": "09:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-domingos-savio/",
+              "title": "Paróquia São Domingos Sávio | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Domingos Sávio",
+          "dayOfWeek": 0,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-domingos-savio/",
+              "title": "Paróquia São Domingos Sávio | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Domingos Sávio",
+          "dayOfWeek": 4,
+          "time": "05:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-domingos-savio/",
+              "title": "Paróquia São Domingos Sávio | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Domingos Sávio",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Recorrência mensal informada pela fonte: \"1° Sexta-feira de cada mês\"",
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-domingos-savio/",
+              "title": "Paróquia São Domingos Sávio | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Domingos Sávio",
+          "dayOfWeek": 6,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-domingos-savio/",
+              "title": "Paróquia São Domingos Sávio | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "santa-terezinha-do-menino-jesus-rondonopolis",
+      "name": "Paróquia Santa Terezinha do Menino Jesus",
+      "city": "Rondonópolis",
+      "state": "MT",
+      "neighborhood": "Jardim Novo Horizonte",
+      "address": "Rua Rio Grande do Sul, nº 2747, bairro Jardim Novo Horizonte, caixa Postal 26",
+      "zipCode": "78705-570",
+      "phone": "(66) 3421-1506 / (66) 99608-7917",
+      "email": "paroquiastateresinha_roo@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Lauri Rodrigues da Silva",
+      "foundedYear": 1993,
+      "sources": [
+        {
+          "url": "https://dioceseroogga.org.br/paroquia/paroquia-santa-terezinha-do-menino-jesus/",
+          "title": "Paróquia Santa Terezinha do Menino Jesus | Diocese de Rondonópolis",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Forania São João Batista. A ficha só traz a lista de comunidades \"ATÉ O PRIMEIRO DESMEMBRAMENTO\" (histórica; várias passaram para a Paróquia Salesiana São João Batista), por isso communities ficou vazio.",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-santa-terezinha-do-menino-jesus/",
+              "title": "Paróquia Santa Terezinha do Menino Jesus | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-santa-terezinha-do-menino-jesus/",
+              "title": "Paróquia Santa Terezinha do Menino Jesus | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 2,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-santa-terezinha-do-menino-jesus/",
+              "title": "Paróquia Santa Terezinha do Menino Jesus | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-santa-terezinha-do-menino-jesus/",
+              "title": "Paróquia Santa Terezinha do Menino Jesus | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-santa-terezinha-do-menino-jesus/",
+              "title": "Paróquia Santa Terezinha do Menino Jesus | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-santa-terezinha-do-menino-jesus/",
+              "title": "Paróquia Santa Terezinha do Menino Jesus | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "sao-jose-esposo-rondonopolis",
+      "name": "Paróquia São José Esposo",
+      "city": "Rondonópolis",
+      "state": "MT",
+      "neighborhood": "Conjunto São José II",
+      "address": "Av. Vereador Lourenço Neto, nº 810, bairro Conjunto São José II",
+      "zipCode": "78715-840",
+      "phone": "(66) 9 9952-2378",
+      "email": "psjesposo@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Arthur Moreira Brito",
+      "foundedYear": 1993,
+      "sources": [
+        {
+          "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-esposo/",
+          "title": "Paróquia São José Esposo | Diocese de Rondonópolis",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Forania São João Batista.",
+      "communities": [
+        {
+          "name": "Matriz São José Esposo",
+          "address": null,
+          "neighborhood": "Conjunto São José II",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-esposo/",
+              "title": "Paróquia São José Esposo | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Jardim Anel Viário",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-esposo/",
+              "title": "Paróquia São José Esposo | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Jardim Nova Era",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-esposo/",
+              "title": "Paróquia São José Esposo | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Jardim Eldorado",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-esposo/",
+              "title": "Paróquia São José Esposo | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Jardim Tropical",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-esposo/",
+              "title": "Paróquia São José Esposo | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Jardim Kênia",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-esposo/",
+              "title": "Paróquia São José Esposo | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Conjunto São José III",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-esposo/",
+              "title": "Paróquia São José Esposo | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Jardim Serra Dourada",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-esposo/",
+              "title": "Paróquia São José Esposo | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Jardim Santa Fé",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-esposo/",
+              "title": "Paróquia São José Esposo | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Vila Castelo",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-esposo/",
+              "title": "Paróquia São José Esposo | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Conjunto São José II",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-esposo/",
+              "title": "Paróquia São José Esposo | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Jardim Tropical II",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-esposo/",
+              "title": "Paróquia São José Esposo | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Jardim do Sol",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-esposo/",
+              "title": "Paróquia São José Esposo | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Residencial João de Barro",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-esposo/",
+              "title": "Paróquia São José Esposo | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Jardim Liberdade",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-esposo/",
+              "title": "Paróquia São José Esposo | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Jardim Carlos Bezerra",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-esposo/",
+              "title": "Paróquia São José Esposo | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Conjunto Marechal Rondon",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-esposo/",
+              "title": "Paróquia São José Esposo | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Jardim Nova Era I e II",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-esposo/",
+              "title": "Paróquia São José Esposo | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Residencial Dom Osório",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-esposo/",
+              "title": "Paróquia São José Esposo | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São José Esposo",
+          "dayOfWeek": 0,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-esposo/",
+              "title": "Paróquia São José Esposo | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São José Esposo",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-esposo/",
+              "title": "Paróquia São José Esposo | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São José Esposo",
+          "dayOfWeek": 0,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-esposo/",
+              "title": "Paróquia São José Esposo | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São José Esposo",
+          "dayOfWeek": 1,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-esposo/",
+              "title": "Paróquia São José Esposo | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São José Esposo",
+          "dayOfWeek": 2,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-esposo/",
+              "title": "Paróquia São José Esposo | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São José Esposo",
+          "dayOfWeek": 3,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-esposo/",
+              "title": "Paróquia São José Esposo | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São José Esposo",
+          "dayOfWeek": 4,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-esposo/",
+              "title": "Paróquia São José Esposo | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São José Esposo",
+          "dayOfWeek": 5,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-esposo/",
+              "title": "Paróquia São José Esposo | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São José Esposo",
+          "dayOfWeek": 6,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-esposo/",
+              "title": "Paróquia São José Esposo | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São José Esposo",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-esposo/",
+              "title": "Paróquia São José Esposo | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "sagrado-coracao-de-jesus-rondonopolis",
+      "name": "Paróquia Sagrado Coração de Jesus",
+      "city": "Rondonópolis",
+      "state": "MT",
+      "neighborhood": "Centro",
+      "address": "Rua Arnaldo Estevão, nº 414, centro, Caixa Postal 122",
+      "zipCode": "78700-150",
+      "phone": "(66) 3421-3501 / (66) 9984-5803",
+      "email": "psagrado@terra.com.br",
+      "website": null,
+      "priestName": "Frei Neuzimar Santana Campos e Silva",
+      "foundedYear": 1959,
+      "sources": [
+        {
+          "url": "https://dioceseroogga.org.br/paroquia/paroquia-sagrado-coracao-de-jesus/",
+          "title": "Paróquia Sagrado Coração de Jesus | Diocese de Rondonópolis",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Forania Sagrado Coração de Jesus.",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sagrado-coracao-de-jesus/",
+              "title": "Paróquia Sagrado Coração de Jesus | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "10:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sagrado-coracao-de-jesus/",
+              "title": "Paróquia Sagrado Coração de Jesus | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sagrado-coracao-de-jesus/",
+              "title": "Paróquia Sagrado Coração de Jesus | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-aparecida-rondonopolis",
+      "name": "Paróquia Nossa Senhora Aparecida",
+      "city": "Rondonópolis",
+      "state": "MT",
+      "neighborhood": "Vila Aurora",
+      "address": "Av. Sagrada Família, nº 876, Vila Aurora",
+      "zipCode": null,
+      "phone": "(66) 99964-8057 - (66) 3022-5507",
+      "email": "paroquiamaeaparecidaroo@gmail.com",
+      "website": null,
+      "priestName": "Pe. Jefferson Klayton Vilhame Aragão",
+      "foundedYear": 1979,
+      "sources": [
+        {
+          "url": "https://dioceseroogga.org.br/paroquia/paroquia-nossa-senhora-aparecida/",
+          "title": "Paróquia Nossa Senhora Aparecida | Diocese de Rondonópolis",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Forania Nossa Senhora Aparecida. O bloco \"Clero\" da ficha lista dois padres com a função \"Pároco\" (Pe. José Éder Ribeiro Lima e Pe. Jefferson Klayton Vilhame Aragão); o texto da própria ficha diz que, em 16/11/2024, Pe. Jefferson Klayton assumiu como pároco tendo Pe. José Éder como cooperador - e a ficha de São Domingos Sávio traz Pe. José Éder como pároco de lá. Adotado Pe. Jefferson Klayton; precisa de validação humana.",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora Aparecida",
+          "address": null,
+          "neighborhood": "Vila Aurora",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-nossa-senhora-aparecida/",
+              "title": "Paróquia Nossa Senhora Aparecida | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São Sebastião",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-nossa-senhora-aparecida/",
+              "title": "Paróquia Nossa Senhora Aparecida | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Santa Luzia",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-nossa-senhora-aparecida/",
+              "title": "Paróquia Nossa Senhora Aparecida | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Sagrada Família",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-nossa-senhora-aparecida/",
+              "title": "Paróquia Nossa Senhora Aparecida | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São Miguel",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-nossa-senhora-aparecida/",
+              "title": "Paróquia Nossa Senhora Aparecida | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São Cristóvão",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-nossa-senhora-aparecida/",
+              "title": "Paróquia Nossa Senhora Aparecida | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nossa Senhora das Graças",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-nossa-senhora-aparecida/",
+              "title": "Paróquia Nossa Senhora Aparecida | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora Aparecida",
+          "dayOfWeek": 0,
+          "time": "07:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-nossa-senhora-aparecida/",
+              "title": "Paróquia Nossa Senhora Aparecida | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora Aparecida",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-nossa-senhora-aparecida/",
+              "title": "Paróquia Nossa Senhora Aparecida | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora Aparecida",
+          "dayOfWeek": 1,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-nossa-senhora-aparecida/",
+              "title": "Paróquia Nossa Senhora Aparecida | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora Aparecida",
+          "dayOfWeek": 2,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-nossa-senhora-aparecida/",
+              "title": "Paróquia Nossa Senhora Aparecida | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora Aparecida",
+          "dayOfWeek": 3,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-nossa-senhora-aparecida/",
+              "title": "Paróquia Nossa Senhora Aparecida | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora Aparecida",
+          "dayOfWeek": 4,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-nossa-senhora-aparecida/",
+              "title": "Paróquia Nossa Senhora Aparecida | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora Aparecida",
+          "dayOfWeek": 5,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-nossa-senhora-aparecida/",
+              "title": "Paróquia Nossa Senhora Aparecida | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora Aparecida",
+          "dayOfWeek": 6,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-nossa-senhora-aparecida/",
+              "title": "Paróquia Nossa Senhora Aparecida | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora Aparecida",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-nossa-senhora-aparecida/",
+              "title": "Paróquia Nossa Senhora Aparecida | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora Aparecida",
+          "dayOfWeek": 5,
+          "time": "05:30",
+          "type": "MASS",
+          "notes": "Recorrência mensal informada pela fonte: \"Primeira Sexta da cada mês\"",
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-nossa-senhora-aparecida/",
+              "title": "Paróquia Nossa Senhora Aparecida | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora Aparecida",
+          "dayOfWeek": 6,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-nossa-senhora-aparecida/",
+              "title": "Paróquia Nossa Senhora Aparecida | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "bom-pastor-rondonopolis",
+      "name": "Paróquia Bom Pastor",
+      "city": "Rondonópolis",
+      "state": "MT",
+      "neighborhood": "Bom Pastor",
+      "address": "Rua São Francisco Félix, nº 520, Bairro Bom Pastor",
+      "zipCode": null,
+      "phone": "(66) 3424- 9466 / (66) 9 9639-0644",
+      "email": "pbompastorroo@terra.com.br",
+      "website": null,
+      "priestName": "Frei Wainer José de Queiroz",
+      "foundedYear": 1973,
+      "sources": [
+        {
+          "url": "https://dioceseroogga.org.br/paroquia/paroquia-bom-pastor/",
+          "title": "Paróquia Bom Pastor | Diocese de Rondonópolis",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Forania Sagrado Coração de Jesus.",
+      "communities": [
+        {
+          "name": "Matriz Bom Pastor",
+          "address": null,
+          "neighborhood": "Bom Pastor",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-bom-pastor/",
+              "title": "Paróquia Bom Pastor | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Assunção",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-bom-pastor/",
+              "title": "Paróquia Bom Pastor | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Dom Bosco",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-bom-pastor/",
+              "title": "Paróquia Bom Pastor | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Sagrada Família",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-bom-pastor/",
+              "title": "Paróquia Bom Pastor | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Santa Terezinha",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-bom-pastor/",
+              "title": "Paróquia Bom Pastor | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São João Batista",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-bom-pastor/",
+              "title": "Paróquia Bom Pastor | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Jesus Misericordioso",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-bom-pastor/",
+              "title": "Paróquia Bom Pastor | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nossa Senhora do Amparo",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-bom-pastor/",
+              "title": "Paróquia Bom Pastor | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Bom Pastor",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-bom-pastor/",
+              "title": "Paróquia Bom Pastor | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Bom Pastor",
+          "dayOfWeek": 0,
+          "time": "09:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-bom-pastor/",
+              "title": "Paróquia Bom Pastor | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Bom Pastor",
+          "dayOfWeek": 0,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-bom-pastor/",
+              "title": "Paróquia Bom Pastor | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Bom Pastor",
+          "dayOfWeek": 1,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-bom-pastor/",
+              "title": "Paróquia Bom Pastor | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Bom Pastor",
+          "dayOfWeek": 2,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-bom-pastor/",
+              "title": "Paróquia Bom Pastor | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Bom Pastor",
+          "dayOfWeek": 3,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-bom-pastor/",
+              "title": "Paróquia Bom Pastor | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Bom Pastor",
+          "dayOfWeek": 4,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-bom-pastor/",
+              "title": "Paróquia Bom Pastor | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Bom Pastor",
+          "dayOfWeek": 5,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-bom-pastor/",
+              "title": "Paróquia Bom Pastor | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Bom Pastor",
+          "dayOfWeek": 6,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-bom-pastor/",
+              "title": "Paróquia Bom Pastor | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "sao-jose-operario-rondonopolis",
+      "name": "Paróquia São José Operário",
+      "city": "Rondonópolis",
+      "state": "MT",
+      "neighborhood": "Vila Operária",
+      "address": "Av. Bandeirantes, 5526 - Vila Operaria",
+      "zipCode": "78720-587",
+      "phone": "(66) 3426-1001 (66) 9 9964-3383",
+      "email": "psjoperarioroo@gmail.com",
+      "website": null,
+      "priestName": "Pe. Volnei Luiz Weber",
+      "foundedYear": 1967,
+      "sources": [
+        {
+          "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-operario/",
+          "title": "Paróquia São José Operário | Diocese de Rondonópolis",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Forania Sagrado Coração de Jesus.",
+      "communities": [
+        {
+          "name": "Matriz São José Operário",
+          "address": null,
+          "neighborhood": "Vila Operária",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-operario/",
+              "title": "Paróquia São José Operário | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Clube de Desenvolvimento",
+          "address": null,
+          "neighborhood": "Vila Operária",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-operario/",
+              "title": "Paróquia São José Operário | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Dom Oscar Romero",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-operario/",
+              "title": "Paróquia São José Operário | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Jardim Brasil",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-operario/",
+              "title": "Paróquia São José Operário | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Jardim Luzdayara",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-operario/",
+              "title": "Paróquia São José Operário | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Jardim Primavera",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-operario/",
+              "title": "Paróquia São José Operário | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Jardim Rivera",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-operario/",
+              "title": "Paróquia São José Operário | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Jardim das Flores",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-operario/",
+              "title": "Paróquia São José Operário | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Jardim Dom Bosco",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-operario/",
+              "title": "Paróquia São José Operário | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Jardim Ipiranga",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-operario/",
+              "title": "Paróquia São José Operário | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Jardim Itapuã",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-operario/",
+              "title": "Paróquia São José Operário | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Jardim Sumaré",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-operario/",
+              "title": "Paróquia São José Operário | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Lageadinho",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-operario/",
+              "title": "Paróquia São José Operário | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nossa Senhora da Glória",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-operario/",
+              "title": "Paróquia São José Operário | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Padre João Bosco Burnier",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-operario/",
+              "title": "Paróquia São José Operário | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Recanto dos Idosos",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-operario/",
+              "title": "Paróquia São José Operário | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Vila Esplanada",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-operario/",
+              "title": "Paróquia São José Operário | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Vila Ipê",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-operario/",
+              "title": "Paróquia São José Operário | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Vila Itamaraty",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-operario/",
+              "title": "Paróquia São José Operário | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Vila Mariana",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-operario/",
+              "title": "Paróquia São José Operário | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Vila Mineira",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-operario/",
+              "title": "Paróquia São José Operário | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Vila Operária",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-operario/",
+              "title": "Paróquia São José Operário | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Vila Padre Rodolfo",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-operario/",
+              "title": "Paróquia São José Operário | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Vila União",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-operario/",
+              "title": "Paróquia São José Operário | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Vila Verde",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-operario/",
+              "title": "Paróquia São José Operário | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Chácaras Globo Recreio",
+          "address": null,
+          "neighborhood": "rural",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-operario/",
+              "title": "Paróquia São José Operário | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Fazenda Aldeinha e Bocodore",
+          "address": null,
+          "neighborhood": "rural",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-operario/",
+              "title": "Paróquia São José Operário | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Fazenda Estiva",
+          "address": null,
+          "neighborhood": "rural",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-operario/",
+              "title": "Paróquia São José Operário | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Vila Bueno",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-operario/",
+              "title": "Paróquia São José Operário | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Vila Naboreiro",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-operario/",
+              "title": "Paróquia São José Operário | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São José Operário",
+          "dayOfWeek": 0,
+          "time": "07:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-operario/",
+              "title": "Paróquia São José Operário | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São José Operário",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-operario/",
+              "title": "Paróquia São José Operário | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São José Operário",
+          "dayOfWeek": 5,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-operario/",
+              "title": "Paróquia São José Operário | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São José Operário",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-operario/",
+              "title": "Paróquia São José Operário | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São José Operário",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/paroquia-sao-jose-operario/",
+              "title": "Paróquia São José Operário | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "catedral-santa-cruz-rondonopolis",
+      "name": "Catedral Santa Cruz",
+      "city": "Rondonópolis",
+      "state": "MT",
+      "neighborhood": "Santa Cruz",
+      "address": "Rua Dom Pedro II, nº 1811 / Bairro Santa Cruz / Caixa Postal 249",
+      "zipCode": null,
+      "phone": "(66) 3421-6503 / (66) 9 8437-8424",
+      "email": "catedralstacruzroo@gmail.com",
+      "website": null,
+      "priestName": "Pe. Erivelton Almeida Postil",
+      "foundedYear": 1973,
+      "sources": [
+        {
+          "url": "https://dioceseroogga.org.br/paroquia/catedral-santa-cruz/",
+          "title": "Catedral Santa Cruz | Diocese de Rondonópolis",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Forania Sagrado Coração de Jesus.",
+      "communities": [
+        {
+          "name": "Catedral Santa Cruz",
+          "address": null,
+          "neighborhood": "Santa Cruz",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/catedral-santa-cruz/",
+              "title": "Catedral Santa Cruz | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Comunidade Jardim Santa Clara / Vila Duarte",
+          "address": null,
+          "neighborhood": "Jardim Santa Clara / Vila Duarte",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/catedral-santa-cruz/",
+              "title": "Catedral Santa Cruz | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Comunidade São Lucas",
+          "address": null,
+          "neighborhood": "Jardim Vera Cruz",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/catedral-santa-cruz/",
+              "title": "Catedral Santa Cruz | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Comunidade Monte Líbano",
+          "address": null,
+          "neighborhood": "Monte Líbano",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/catedral-santa-cruz/",
+              "title": "Catedral Santa Cruz | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Comunidade Pindorama",
+          "address": null,
+          "neighborhood": "Pindorama",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/catedral-santa-cruz/",
+              "title": "Catedral Santa Cruz | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Comunidade São Mateus",
+          "address": null,
+          "neighborhood": "Jardim Adriana (Vila Adriana)",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/catedral-santa-cruz/",
+              "title": "Catedral Santa Cruz | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Comunidade Divino Espírito Santo",
+          "address": null,
+          "neighborhood": "Vila Planalto",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/catedral-santa-cruz/",
+              "title": "Catedral Santa Cruz | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Comunidade Residencial Quitéria",
+          "address": null,
+          "neighborhood": "Residencial Quitéria",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/catedral-santa-cruz/",
+              "title": "Catedral Santa Cruz | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Catedral Santa Cruz",
+          "dayOfWeek": 0,
+          "time": "07:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/catedral-santa-cruz/",
+              "title": "Catedral Santa Cruz | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral Santa Cruz",
+          "dayOfWeek": 0,
+          "time": "10:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/catedral-santa-cruz/",
+              "title": "Catedral Santa Cruz | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral Santa Cruz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/catedral-santa-cruz/",
+              "title": "Catedral Santa Cruz | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral Santa Cruz",
+          "dayOfWeek": 2,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/catedral-santa-cruz/",
+              "title": "Catedral Santa Cruz | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral Santa Cruz",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/catedral-santa-cruz/",
+              "title": "Catedral Santa Cruz | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral Santa Cruz",
+          "dayOfWeek": 2,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": "Recorrência mensal informada pela fonte: \"A segunda terça de cada mês ás 15:00 missa dos idosos.\"",
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/catedral-santa-cruz/",
+              "title": "Catedral Santa Cruz | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Catedral Santa Cruz",
+          "dayOfWeek": 2,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/catedral-santa-cruz/",
+              "title": "Catedral Santa Cruz | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral Santa Cruz",
+          "dayOfWeek": 5,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/catedral-santa-cruz/",
+              "title": "Catedral Santa Cruz | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral Santa Cruz",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Recorrência mensal informada pela fonte: \"A segunda sexta de cada mês ás 19:00 missa dos imigrantes\"",
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/catedral-santa-cruz/",
+              "title": "Catedral Santa Cruz | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Catedral Santa Cruz",
+          "dayOfWeek": 5,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": "Recorrência mensal informada pela fonte: \"Primeira Sexta de cada mês\"",
+          "sources": [
+            {
+              "url": "https://dioceseroogga.org.br/paroquia/catedral-santa-cruz/",
+              "title": "Catedral Santa Cruz | Diocese de Rondonópolis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    }
+  ],
+  "coverage": {
+    "parishesFound": 22,
+    "parishesExpected": 22,
+    "notes": "Cobertura completa: as 22 paróquias do custom post type \"paroquia\" do site diocesano (X-WP-Total = 22) batem exatamente com as 22 paróquias registradas pelo catholic-hierarchy.org (estatística de 2022), e a soma das 5 foranias da taxonomia do site também dá 22 (4+5+5+5+3). Municípios com sede paroquial: Rondonópolis (10), Alto Araguaia, Alto Taquari, Alto Garças, Itiquira, Tesouro, Guiratinga, São José do Povo, Pedra Preta, Dom Aquino, Jaciara e Juscimeira (2). São Pedro da Cipa aparece como comunidade da Paróquia Bom Jesus (Juscimeira), fechando os 13 municípios da diocese."
+  }
+}

@@ -1,0 +1,1101 @@
+{
+  "diocese": {
+    "name": "Diocese de Juína",
+    "type": "Diocese",
+    "slug": "juina",
+    "city": "Juína",
+    "state": "MT",
+    "address": "Rua Bispo Dom Franco Dalla Valle, 187, Módulo 03 – Caixa Postal 201",
+    "zipCode": "78320-000",
+    "phone": "(66) 3566-2928",
+    "email": null,
+    "website": "https://www.diocesejuina.com.br",
+    "bishopName": "Dom Neri José Tondello",
+    "sources": [
+      {
+        "url": "https://www.diocesejuina.com.br/paroquias",
+        "title": "Diocese de Juína — Paróquias (lista oficial, 14 fichas)",
+        "accessedAt": "2026-09-11"
+      },
+      {
+        "url": "https://www.diocesejuina.com.br/",
+        "title": "Diocese de Juína — página inicial (rodapé com endereço e telefone)",
+        "accessedAt": "2026-09-11"
+      },
+      {
+        "url": "https://minhareceita.org/",
+        "title": "Receita Federal via minhareceita.org — filiais do CNPJ 02.452.683 (Diocese de Juína): 15 paróquias ativas, a cúria e o seminário",
+        "accessedAt": "2026-09-11"
+      },
+      {
+        "url": "https://www.catholic-hierarchy.org/diocese/djuin.html",
+        "title": "catholic-hierarchy.org — Juína (Diocese)",
+        "accessedAt": "2026-09-11"
+      },
+      {
+        "url": "https://gcatholic.org/dioceses/diocese/juin0.htm",
+        "title": "gcatholic.org — Diocese of Juína",
+        "accessedAt": "2026-09-11"
+      }
+    ],
+    "confidence": "alta"
+  },
+  "parishes": [
+    {
+      "slug": "sagrado-coracao-de-jesus-juina",
+      "name": "Catedral Sagrado Coração de Jesus",
+      "city": "Juína",
+      "state": "MT",
+      "neighborhood": "Módulo 01",
+      "address": "Rua Holmis Ioris, 471 – Módulo 01",
+      "zipCode": "78320-000",
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": "Padre Ítalo Virgílio Francallanti",
+      "foundedYear": 1976,
+      "sources": [
+        {
+          "url": "https://www.diocesejuina.com.br/paroquias",
+          "title": "Diocese de Juína — Paróquias (lista oficial, 14 fichas)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.diocesejuina.com.br/paroquia/catedral-sagrado-coracao-de-jesus--juina",
+          "title": "Diocese de Juína — Catedral Sagrado Coração de Jesus - Juína",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://minhareceita.org/",
+          "title": "Receita Federal via minhareceita.org — filiais do CNPJ 02.452.683 (Diocese de Juína): 15 paróquias ativas, a cúria e o seminário",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Catedral Sagrado Coração de Jesus",
+          "address": null,
+          "neighborhood": "Módulo 01",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesejuina.com.br/paroquia/catedral-sagrado-coracao-de-jesus--juina",
+              "title": "Diocese de Juína — Catedral Sagrado Coração de Jesus - Juína",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-da-paz-juina",
+      "name": "Paróquia Nossa Senhora da Paz",
+      "city": "Juína",
+      "state": "MT",
+      "neighborhood": "Padre Duílio",
+      "address": "Rua dos Ipês, 382 S – Bairro Padre Duílio",
+      "zipCode": "78320-000",
+      "phone": "(66) 3566-2379",
+      "email": null,
+      "website": null,
+      "priestName": "Padre Ernesto Backes Junior",
+      "foundedYear": 2015,
+      "sources": [
+        {
+          "url": "https://www.diocesejuina.com.br/paroquias",
+          "title": "Diocese de Juína — Paróquias (lista oficial, 14 fichas)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.diocesejuina.com.br/paroquia/paroquia-nossa-senhora-da-paz--juina",
+          "title": "Diocese de Juína — Paróquia Nossa Senhora da Paz - Juína",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://minhareceita.org/",
+          "title": "Receita Federal via minhareceita.org — filiais do CNPJ 02.452.683 (Diocese de Juína): 15 paróquias ativas, a cúria e o seminário",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora da Paz",
+          "address": null,
+          "neighborhood": "Padre Duílio",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesejuina.com.br/paroquia/paroquia-nossa-senhora-da-paz--juina",
+              "title": "Diocese de Juína — Paróquia Nossa Senhora da Paz - Juína",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora da Paz",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesejuina.com.br/paroquia/paroquia-nossa-senhora-da-paz--juina",
+              "title": "Diocese de Juína — Paróquia Nossa Senhora da Paz - Juína",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Paz",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesejuina.com.br/paroquia/paroquia-nossa-senhora-da-paz--juina",
+              "title": "Diocese de Juína — Paróquia Nossa Senhora da Paz - Juína",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Paz",
+          "dayOfWeek": 1,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Recorrência mensal: 1ª segunda-feira do mês. O MassSchedule só guarda dia da semana; carregar exige modelagem de recorrência.",
+          "sources": [
+            {
+              "url": "https://www.diocesejuina.com.br/paroquia/paroquia-nossa-senhora-da-paz--juina",
+              "title": "Diocese de Juína — Paróquia Nossa Senhora da Paz - Juína",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "santo-antonio-castanheira",
+      "name": "Paróquia Santo Antônio",
+      "city": "Castanheira",
+      "state": "MT",
+      "neighborhood": "Santo Antônio",
+      "address": "Rua 4 de Julho, 211 – Bairro Santo Antônio",
+      "zipCode": "78345-000",
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": 1988,
+      "sources": [
+        {
+          "url": "https://www.diocesejuina.com.br/paroquias",
+          "title": "Diocese de Juína — Paróquias (lista oficial, 14 fichas)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.diocesejuina.com.br/paroquia/paroquia-santo-antonio--castanheira",
+          "title": "Diocese de Juína — Paróquia Santo Antônio - Castanheira",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://minhareceita.org/",
+          "title": "Receita Federal via minhareceita.org — filiais do CNPJ 02.452.683 (Diocese de Juína): 15 paróquias ativas, a cúria e o seminário",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Santo Antônio",
+          "address": null,
+          "neighborhood": "Santo Antônio",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesejuina.com.br/paroquia/paroquia-santo-antonio--castanheira",
+              "title": "Diocese de Juína — Paróquia Santo Antônio - Castanheira",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "sao-pedro-apostolo-juruena",
+      "name": "Paróquia São Pedro Apóstolo",
+      "city": "Juruena",
+      "state": "MT",
+      "neighborhood": "Centro",
+      "address": "Rua São João Evangelista, s/n – Centro",
+      "zipCode": "78340-000",
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": 1989,
+      "sources": [
+        {
+          "url": "https://www.diocesejuina.com.br/paroquias",
+          "title": "Diocese de Juína — Paróquias (lista oficial, 14 fichas)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.diocesejuina.com.br/paroquia/paroquia-sao-pedro-apostolo--juruena",
+          "title": "Diocese de Juína — Paróquia São Pedro Apóstolo - Juruena",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://minhareceita.org/",
+          "title": "Receita Federal via minhareceita.org — filiais do CNPJ 02.452.683 (Diocese de Juína): 15 paróquias ativas, a cúria e o seminário",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Comunidade São Sebastião",
+          "address": null,
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesejuina.com.br/paroquia/paroquia-sao-pedro-apostolo--juruena",
+              "title": "Diocese de Juína — Paróquia São Pedro Apóstolo - Juruena",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "sao-rafael-aripuana",
+      "name": "Paróquia São Rafael",
+      "city": "Aripuanã",
+      "state": "MT",
+      "neighborhood": "Jardim Planalto",
+      "address": "Rua JP1, 815 – Jardim Planalto",
+      "zipCode": "78325-000",
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": 2022,
+      "sources": [
+        {
+          "url": "https://www.diocesejuina.com.br/paroquias",
+          "title": "Diocese de Juína — Paróquias (lista oficial, 14 fichas)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.diocesejuina.com.br/paroquia/paroquia-sao-rafael--aripuana",
+          "title": "Diocese de Juína — Paróquia São Rafael - Aripuanã",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://minhareceita.org/",
+          "title": "Receita Federal via minhareceita.org — filiais do CNPJ 02.452.683 (Diocese de Juína): 15 paróquias ativas, a cúria e o seminário",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Rafael",
+          "address": null,
+          "neighborhood": "Jardim Planalto",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesejuina.com.br/paroquia/paroquia-sao-rafael--aripuana",
+              "title": "Diocese de Juína — Paróquia São Rafael - Aripuanã",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "sao-sebastiao-aripuana",
+      "name": "Paróquia São Sebastião",
+      "city": "Aripuanã",
+      "state": "MT",
+      "neighborhood": "Conselvan",
+      "address": "Rua Cerejeira, s/n – Distrito de Conselvan",
+      "zipCode": "78325-000",
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": 2022,
+      "sources": [
+        {
+          "url": "https://www.diocesejuina.com.br/paroquias",
+          "title": "Diocese de Juína — Paróquias (lista oficial, 14 fichas)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.diocesejuina.com.br/paroquia/paroquia-sao-sebastiao--conselvan",
+          "title": "Diocese de Juína — Paróquia São Sebastião - Conselvan",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://minhareceita.org/",
+          "title": "Receita Federal via minhareceita.org — filiais do CNPJ 02.452.683 (Diocese de Juína): 15 paróquias ativas, a cúria e o seminário",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Sebastião",
+          "address": null,
+          "neighborhood": "Conselvan",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesejuina.com.br/paroquia/paroquia-sao-sebastiao--conselvan",
+              "title": "Diocese de Juína — Paróquia São Sebastião - Conselvan",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "santissima-trindade-cotriguacu",
+      "name": "Paróquia Santíssima Trindade",
+      "city": "Cotriguaçu",
+      "state": "MT",
+      "neighborhood": "Nova União",
+      "address": "Rua 7 de Setembro, s/n – Distrito de Nova União",
+      "zipCode": "78330-000",
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": 2004,
+      "sources": [
+        {
+          "url": "https://www.diocesejuina.com.br/paroquias",
+          "title": "Diocese de Juína — Paróquias (lista oficial, 14 fichas)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.diocesejuina.com.br/paroquia/paroquia-santissima-trindade--nova-uniao",
+          "title": "Diocese de Juína — Paróquia Santíssima Trindade - Nova União",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://minhareceita.org/",
+          "title": "Receita Federal via minhareceita.org — filiais do CNPJ 02.452.683 (Diocese de Juína): 15 paróquias ativas, a cúria e o seminário",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Santíssima Trindade",
+          "address": null,
+          "neighborhood": "Nova União",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesejuina.com.br/paroquia/paroquia-santissima-trindade--nova-uniao",
+              "title": "Diocese de Juína — Paróquia Santíssima Trindade - Nova União",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "senhor-bom-jesus-colniza",
+      "name": "Paróquia Senhor Bom Jesus",
+      "city": "Colniza",
+      "state": "MT",
+      "neighborhood": "Guariba",
+      "address": "Rua G, s/n – Distrito de Guariba",
+      "zipCode": "78335-000",
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": 2010,
+      "sources": [
+        {
+          "url": "https://www.diocesejuina.com.br/paroquias",
+          "title": "Diocese de Juína — Paróquias (lista oficial, 14 fichas)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.diocesejuina.com.br/paroquia/paroquia-senhor-bom-jesus--guariba",
+          "title": "Diocese de Juína — Paróquia Senhor Bom Jesus - Guariba",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://minhareceita.org/",
+          "title": "Receita Federal via minhareceita.org — filiais do CNPJ 02.452.683 (Diocese de Juína): 15 paróquias ativas, a cúria e o seminário",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Senhor Bom Jesus",
+          "address": null,
+          "neighborhood": "Guariba",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesejuina.com.br/paroquia/paroquia-senhor-bom-jesus--guariba",
+              "title": "Diocese de Juína — Paróquia Senhor Bom Jesus - Guariba",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "santa-catarina-de-alexandria-juina",
+      "name": "Paróquia Santa Catarina de Alexandria",
+      "city": "Juína",
+      "state": "MT",
+      "neighborhood": "Módulo 06",
+      "address": "Rua Presidente Prudente, s/n – Módulo 06",
+      "zipCode": "78320-000",
+      "phone": null,
+      "email": "prqsantacatarinadealexandria@gmail.com",
+      "website": "https://www.instagram.com/paroquiasantacatarinajuina",
+      "priestName": null,
+      "foundedYear": 2024,
+      "sources": [
+        {
+          "url": "https://www.diocesejuina.com.br/paroquias",
+          "title": "Diocese de Juína — Paróquias (lista oficial, 14 fichas)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.diocesejuina.com.br/paroquia/paroquia-santa-catarina-de-alexandria",
+          "title": "Diocese de Juína — Paróquia Santa Catarina de Alexandria",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://minhareceita.org/",
+          "title": "Receita Federal via minhareceita.org — filiais do CNPJ 02.452.683 (Diocese de Juína): 15 paróquias ativas, a cúria e o seminário",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Comunidade Santa Catarina",
+          "address": null,
+          "neighborhood": "Módulo 06",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesejuina.com.br/paroquia/paroquia-santa-catarina-de-alexandria",
+              "title": "Diocese de Juína — Paróquia Santa Catarina de Alexandria",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nossa Senhora da Luz",
+          "address": null,
+          "neighborhood": "Distrito de Filadélfia",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesejuina.com.br/paroquia/paroquia-santa-catarina-de-alexandria",
+              "title": "Diocese de Juína — Paróquia Santa Catarina de Alexandria",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nossa Senhora da Guia",
+          "address": null,
+          "neighborhood": "Iracema II – Distrito de Filadélfia",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesejuina.com.br/paroquia/paroquia-santa-catarina-de-alexandria",
+              "title": "Diocese de Juína — Paróquia Santa Catarina de Alexandria",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Santa Laura",
+          "address": null,
+          "neighborhood": "Tracema II – Distrito de Filadélfia",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesejuina.com.br/paroquia/paroquia-santa-catarina-de-alexandria",
+              "title": "Diocese de Juína — Paróquia Santa Catarina de Alexandria",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São Pedro",
+          "address": null,
+          "neighborhood": "Linha 4",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesejuina.com.br/paroquia/paroquia-santa-catarina-de-alexandria",
+              "title": "Diocese de Juína — Paróquia Santa Catarina de Alexandria",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São Paulo",
+          "address": null,
+          "neighborhood": "Distrito de Filadélfia",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesejuina.com.br/paroquia/paroquia-santa-catarina-de-alexandria",
+              "title": "Diocese de Juína — Paróquia Santa Catarina de Alexandria",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São Geraldo",
+          "address": null,
+          "neighborhood": "Linha 4",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesejuina.com.br/paroquia/paroquia-santa-catarina-de-alexandria",
+              "title": "Diocese de Juína — Paróquia Santa Catarina de Alexandria",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Cristo Redentor",
+          "address": null,
+          "neighborhood": "Linha 4",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesejuina.com.br/paroquia/paroquia-santa-catarina-de-alexandria",
+              "title": "Diocese de Juína — Paróquia Santa Catarina de Alexandria",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Santa Bernadete",
+          "address": null,
+          "neighborhood": "Linha 4",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesejuina.com.br/paroquia/paroquia-santa-catarina-de-alexandria",
+              "title": "Diocese de Juína — Paróquia Santa Catarina de Alexandria",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nome de Maria",
+          "address": null,
+          "neighborhood": "Linha 5",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesejuina.com.br/paroquia/paroquia-santa-catarina-de-alexandria",
+              "title": "Diocese de Juína — Paróquia Santa Catarina de Alexandria",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Santo Antônio",
+          "address": null,
+          "neighborhood": "Iracema II – Distrito de Filadélfia",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesejuina.com.br/paroquia/paroquia-santa-catarina-de-alexandria",
+              "title": "Diocese de Juína — Paróquia Santa Catarina de Alexandria",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nossa Senhora da Salete",
+          "address": null,
+          "neighborhood": "Linha 5",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesejuina.com.br/paroquia/paroquia-santa-catarina-de-alexandria",
+              "title": "Diocese de Juína — Paróquia Santa Catarina de Alexandria",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "santo-agostinho-juina",
+      "name": "Paróquia Santo Agostinho",
+      "city": "Juína",
+      "state": "MT",
+      "neighborhood": "Módulo 05",
+      "address": "Avenida Mato Grosso, 605 – Módulo 05",
+      "zipCode": "78320-000",
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": 2000,
+      "sources": [
+        {
+          "url": "https://www.diocesejuina.com.br/paroquias",
+          "title": "Diocese de Juína — Paróquias (lista oficial, 14 fichas)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.diocesejuina.com.br/paroquia/paroquia-santo-agostinho--juina",
+          "title": "Diocese de Juína — Paróquia Santo Agostinho - Juína",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://minhareceita.org/",
+          "title": "Receita Federal via minhareceita.org — filiais do CNPJ 02.452.683 (Diocese de Juína): 15 paróquias ativas, a cúria e o seminário",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Santo Agostinho",
+          "address": null,
+          "neighborhood": "Módulo 05",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesejuina.com.br/paroquia/paroquia-santo-agostinho--juina",
+              "title": "Diocese de Juína — Paróquia Santo Agostinho - Juína",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Santa Luzia",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesejuina.com.br/paroquia/paroquia-santo-agostinho--juina",
+              "title": "Diocese de Juína — Paróquia Santo Agostinho - Juína",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "sao-francisco-de-assis-aripuana",
+      "name": "Paróquia São Francisco de Assis",
+      "city": "Aripuanã",
+      "state": "MT",
+      "neighborhood": "Centro",
+      "address": "Rua Padre Ezequiel Ramim, 415 – Centro",
+      "zipCode": "78325-000",
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": 1982,
+      "sources": [
+        {
+          "url": "https://www.diocesejuina.com.br/paroquias",
+          "title": "Diocese de Juína — Paróquias (lista oficial, 14 fichas)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.diocesejuina.com.br/paroquia/paroquia-sao-francisco--aripuana",
+          "title": "Diocese de Juína — Paróquia São Francisco - Aripuanã",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://minhareceita.org/",
+          "title": "Receita Federal via minhareceita.org — filiais do CNPJ 02.452.683 (Diocese de Juína): 15 paróquias ativas, a cúria e o seminário",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Francisco de Assis",
+          "address": null,
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesejuina.com.br/paroquia/paroquia-sao-francisco--aripuana",
+              "title": "Diocese de Juína — Paróquia São Francisco - Aripuanã",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São Francisco de Assis",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesejuina.com.br/paroquia/paroquia-sao-francisco--aripuana",
+              "title": "Diocese de Juína — Paróquia São Francisco - Aripuanã",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São Francisco de Assis",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesejuina.com.br/paroquia/paroquia-sao-francisco--aripuana",
+              "title": "Diocese de Juína — Paróquia São Francisco - Aripuanã",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São Francisco de Assis",
+          "dayOfWeek": 1,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesejuina.com.br/paroquia/paroquia-sao-francisco--aripuana",
+              "title": "Diocese de Juína — Paróquia São Francisco - Aripuanã",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-aparecida-cotriguacu",
+      "name": "Paróquia Nossa Senhora Aparecida",
+      "city": "Cotriguaçu",
+      "state": "MT",
+      "neighborhood": "Centro",
+      "address": "Rua 20 de Dezembro, 124 – Centro",
+      "zipCode": "78330-000",
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": 1997,
+      "sources": [
+        {
+          "url": "https://www.diocesejuina.com.br/paroquias",
+          "title": "Diocese de Juína — Paróquias (lista oficial, 14 fichas)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.diocesejuina.com.br/paroquia/paroquia-nossa-senhora-aparecida--cotriguacu",
+          "title": "Diocese de Juína — Paróquia Nossa Senhora Aparecida - Cotriguaçu",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://minhareceita.org/",
+          "title": "Receita Federal via minhareceita.org — filiais do CNPJ 02.452.683 (Diocese de Juína): 15 paróquias ativas, a cúria e o seminário",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora Aparecida",
+          "address": null,
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesejuina.com.br/paroquia/paroquia-nossa-senhora-aparecida--cotriguacu",
+              "title": "Diocese de Juína — Paróquia Nossa Senhora Aparecida - Cotriguaçu",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "sao-jose-operario-brasnorte",
+      "name": "Paróquia São José Operário",
+      "city": "Brasnorte",
+      "state": "MT",
+      "neighborhood": "Centro",
+      "address": "Rua da Matriz, 01 – Centro",
+      "zipCode": "78350-000",
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesejuina.com.br/paroquias",
+          "title": "Diocese de Juína — Paróquias (lista oficial, 14 fichas)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.diocesejuina.com.br/paroquia/paroquia-sao-jose-operario--brasnorte",
+          "title": "Diocese de Juína — Paróquia São José Operário - Brasnorte",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://minhareceita.org/",
+          "title": "Receita Federal via minhareceita.org — filiais do CNPJ 02.452.683 (Diocese de Juína): 15 paróquias ativas, a cúria e o seminário",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São José Operário",
+          "address": null,
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesejuina.com.br/paroquia/paroquia-sao-jose-operario--brasnorte",
+              "title": "Diocese de Juína — Paróquia São José Operário - Brasnorte",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "sagrada-familia-colniza",
+      "name": "Paróquia Sagrada Família",
+      "city": "Colniza",
+      "state": "MT",
+      "neighborhood": "Centro",
+      "address": "Rua Tarumã, 233 – Centro",
+      "zipCode": "78335-000",
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": 1999,
+      "sources": [
+        {
+          "url": "https://www.diocesejuina.com.br/paroquias",
+          "title": "Diocese de Juína — Paróquias (lista oficial, 14 fichas)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.diocesejuina.com.br/paroquia/paroquia-sagrada-familia--colniza",
+          "title": "Diocese de Juína — Paróquia Sagrada Família - Colniza",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://minhareceita.org/",
+          "title": "Receita Federal via minhareceita.org — filiais do CNPJ 02.452.683 (Diocese de Juína): 15 paróquias ativas, a cúria e o seminário",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Sagrada Família",
+          "address": null,
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesejuina.com.br/paroquia/paroquia-sagrada-familia--colniza",
+              "title": "Diocese de Juína — Paróquia Sagrada Família - Colniza",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Sagrada Família",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesejuina.com.br/paroquia/paroquia-sagrada-familia--colniza",
+              "title": "Diocese de Juína — Paróquia Sagrada Família - Colniza",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Sagrada Família",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesejuina.com.br/paroquia/paroquia-sagrada-familia--colniza",
+              "title": "Diocese de Juína — Paróquia Sagrada Família - Colniza",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Sagrada Família",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesejuina.com.br/paroquia/paroquia-sagrada-familia--colniza",
+              "title": "Diocese de Juína — Paróquia Sagrada Família - Colniza",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Sagrada Família",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Missa em honra a São José.",
+          "sources": [
+            {
+              "url": "https://www.diocesejuina.com.br/paroquia/paroquia-sagrada-familia--colniza",
+              "title": "Diocese de Juína — Paróquia Sagrada Família - Colniza",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Sagrada Família",
+          "dayOfWeek": 4,
+          "time": "19:30",
+          "type": "ADORATION",
+          "notes": "Adoração ao Santíssimo Sacramento.",
+          "sources": [
+            {
+              "url": "https://www.diocesejuina.com.br/paroquia/paroquia-sagrada-familia--colniza",
+              "title": "Diocese de Juína — Paróquia Sagrada Família - Colniza",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-auxiliadora-rondolandia",
+      "name": "Paróquia Nossa Senhora Auxiliadora",
+      "city": "Rondolândia",
+      "state": "MT",
+      "neighborhood": "Centro",
+      "address": "Rua Dom Bosco, s/n – Centro",
+      "zipCode": "78338-000",
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://minhareceita.org/",
+          "title": "Receita Federal via minhareceita.org — filiais do CNPJ 02.452.683 (Diocese de Juína): 15 paróquias ativas, a cúria e o seminário",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://gcatholic.org/dioceses/diocese/juin0.htm",
+          "title": "gcatholic.org — Diocese of Juína",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": []
+    }
+  ],
+  "coverage": {
+    "parishesFound": 15,
+    "parishesExpected": 15,
+    "notes": "O site oficial lista 14 paróquias; a varredura das filiais do CNPJ da diocese (02.452.683) na Receita Federal revelou a 15ª — Paróquia Nossa Senhora Auxiliadora, em Rondolândia/MT (ativa desde 02/04/1998), que a diocese não publica. Com ela, o total bate com os 15 registrados por gcatholic.org e catholic-hierarchy.org (2022/2023). As 17 filiais ativas do CNPJ são exatamente estas 15 paróquias + a cúria + o Seminário Sagrado Coração de Jesus (Várzea Grande/MT, não é paróquia e não entra) — prova de completude. Todas as 15 têm endereço e CEP. Horários: só 3 paróquias publicam grade (N. Sra. da Paz, São Francisco de Assis/Aripuanã e Sagrada Família/Colniza). Comunidades nominadas: só Santa Catarina de Alexandria (12)."
+  }
+}

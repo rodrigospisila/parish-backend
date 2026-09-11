@@ -124,7 +124,13 @@ enxame de validação. Nunca inventar: campo desconhecido = `null`.
 - APIs internas devolvem a listagem canônica de uma vez: WordPress REST
   (`/wp-json/wp/v2/<tipo>?per_page=100&page=N`; `X-WP-Total` dá o total, `modified` diz se a página
   está velha), `__NEXT_DATA__`, **payload RSC** (foi o único caminho em Sete Lagoas) e sitemap XML.
-- **Horário publicado como imagem** (cartaz PNG) pode ser lido: Araçatuba saiu completa assim.
+- **Conteúdo publicado como imagem pode ser lido**: Araçatuba saiu completa pelos cartazes de horário
+  em PNG, e Diamantino publica a lista inteira das 21 paróquias em imagens de 2560×848 — o agente
+  recortou o painel de texto e leu endereço, CEP, telefone, e-mail e pároco de todas.
+- **Confira toda grade contra o HTML ou a API antes de gravar.** Em Lucas do Rio Verde (MT) uma
+  leitura automática devolveu uma grade que **não existe na fonte** (comunidade inventada, adoração
+  às 22h); só apareceu no cotejo com o JSON do handler `.ashx`. Horário que aparece em snippet de
+  busca ou resumo, e não no documento, não entra.
 - E-mail ofuscado pelo Cloudflare vem em `data-cfemail` e pode ser decodificado.
 - **"Fundada em" de muitos portais é a data de cadastro no CMS**, não a fundação — em Itapetininga 22
   paróquias repetiam a mesma data de 2025, em São Carlos 65 repetiam 18/05/2025. Data recente ou

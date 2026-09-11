@@ -1,0 +1,5063 @@
+{
+  "diocese": {
+    "name": "Diocese de Barra do Garças",
+    "type": "Diocese",
+    "slug": "barra-do-garcas",
+    "city": "Barra do Garças",
+    "state": "MT",
+    "address": "Rua Carlos Gomes, 567 – Campinas",
+    "zipCode": "78600-172",
+    "phone": "(66) 3401-9025",
+    "email": "curia@diocesebarradogarcas.org.br",
+    "website": "https://diocesebarradogarcas.org.br",
+    "bishopName": "Dom Paulo Renato Fernandes Gonçalves de Campos",
+    "sources": [
+      {
+        "url": "https://diocesebarradogarcas.org.br/paroquias/",
+        "title": "Diocese de Barra do Garças — Paróquias (lista oficial)",
+        "accessedAt": "2026-09-11"
+      },
+      {
+        "url": "https://diocesebarradogarcas.org.br/wp-json/wp/v2/horarios-das-missas?per_page=100",
+        "title": "Diocese de Barra do Garças — API WordPress do tipo \"Horários das missas\" (85 comunidades, taxonomia \"paroquias\", modificadas jul/ago 2026)",
+        "accessedAt": "2026-09-11"
+      },
+      {
+        "url": "https://diocesebarradogarcas.org.br/horarios-de-missa/",
+        "title": "Diocese de Barra do Garças — Horários de Missa (filtro por paróquia)",
+        "accessedAt": "2026-09-11"
+      },
+      {
+        "url": "https://www.catholic-hierarchy.org/diocese/dbrdg.html",
+        "title": "catholic-hierarchy.org — Barra do Garças (Diocese)",
+        "accessedAt": "2026-09-11"
+      },
+      {
+        "url": "https://gcatholic.org/dioceses/diocese/barr2.htm",
+        "title": "gcatholic.org — Diocese of Barra do Garças",
+        "accessedAt": "2026-09-11"
+      }
+    ],
+    "confidence": "alta"
+  },
+  "parishes": [
+    {
+      "slug": "nossa-senhora-da-guia-barra-do-garcas",
+      "name": "Catedral Nossa Senhora da Guia",
+      "city": "Barra do Garças",
+      "state": "MT",
+      "neighborhood": "Centro",
+      "address": "Avenida Ministro João Alberto, 221 – Centro",
+      "zipCode": "78600-172",
+      "phone": "(66) 3401-5105",
+      "email": "catedralbg@gmail.com",
+      "website": null,
+      "priestName": "Pe. Cristiano Ribeiro Dias",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesebarradogarcas.org.br/paroquias/",
+          "title": "Diocese de Barra do Garças — Paróquias (lista oficial)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-da-guia/",
+          "title": "Diocese de Barra do Garças — Catedral Nossa Senhora da Guia",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Catedral Nossa Senhora da Guia",
+          "address": "Avenida Ministro João Alberto, 221",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-da-guia/",
+              "title": "Catedral Nossa Senhora da Guia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Jesus o Bom Pastor",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-da-guia/",
+              "title": "Catedral Nossa Senhora da Guia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São Sebastião",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-da-guia/",
+              "title": "Catedral Nossa Senhora da Guia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São Luiz Guanella",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-da-guia/",
+              "title": "Catedral Nossa Senhora da Guia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nossa Senhora do Perpétuo Socorro",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-da-guia/",
+              "title": "Catedral Nossa Senhora da Guia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Comunidade Sagrado Coração de Jesus",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-da-guia/",
+              "title": "Catedral Nossa Senhora da Guia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Lar dos Idosos",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/wp-json/wp/v2/horarios-das-missas?per_page=100",
+              "title": "Diocese de Barra do Garças — API WordPress do tipo \"Horários das missas\" (85 comunidades, taxonomia \"paroquias\", modificadas jul/ago 2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Catedral Nossa Senhora da Guia",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-da-guia/",
+              "title": "Catedral Nossa Senhora da Guia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Catedral Nossa Senhora da Guia",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-da-guia/",
+              "title": "Catedral Nossa Senhora da Guia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Catedral Nossa Senhora da Guia",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-da-guia/",
+              "title": "Catedral Nossa Senhora da Guia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Catedral Nossa Senhora da Guia",
+          "dayOfWeek": 1,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-da-guia/",
+              "title": "Catedral Nossa Senhora da Guia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Catedral Nossa Senhora da Guia",
+          "dayOfWeek": 2,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-da-guia/",
+              "title": "Catedral Nossa Senhora da Guia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Catedral Nossa Senhora da Guia",
+          "dayOfWeek": 2,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-da-guia/",
+              "title": "Catedral Nossa Senhora da Guia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Catedral Nossa Senhora da Guia",
+          "dayOfWeek": 3,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-da-guia/",
+              "title": "Catedral Nossa Senhora da Guia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Catedral Nossa Senhora da Guia",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-da-guia/",
+              "title": "Catedral Nossa Senhora da Guia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Catedral Nossa Senhora da Guia",
+          "dayOfWeek": 4,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-da-guia/",
+              "title": "Catedral Nossa Senhora da Guia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Catedral Nossa Senhora da Guia",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-da-guia/",
+              "title": "Catedral Nossa Senhora da Guia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Catedral Nossa Senhora da Guia",
+          "dayOfWeek": 5,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-da-guia/",
+              "title": "Catedral Nossa Senhora da Guia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Catedral Nossa Senhora da Guia",
+          "dayOfWeek": 5,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-da-guia/",
+              "title": "Catedral Nossa Senhora da Guia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Catedral Nossa Senhora da Guia",
+          "dayOfWeek": 6,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-da-guia/",
+              "title": "Catedral Nossa Senhora da Guia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Comunidade Jesus o Bom Pastor",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-da-guia/",
+              "title": "Catedral Nossa Senhora da Guia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Comunidade São Sebastião",
+          "dayOfWeek": 6,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-da-guia/",
+              "title": "Catedral Nossa Senhora da Guia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Comunidade São Luiz Guanella",
+          "dayOfWeek": 2,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-da-guia/",
+              "title": "Catedral Nossa Senhora da Guia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Comunidade Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 6,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": "Recorrência mensal: 2º e 4º sábado do mês. O MassSchedule só guarda dia da semana; carregar exige modelagem de recorrência.",
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-da-guia/",
+              "title": "Catedral Nossa Senhora da Guia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Sagrado Coração de Jesus",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Recorrência mensal: 2º e 4º sábado do mês. O MassSchedule só guarda dia da semana; carregar exige modelagem de recorrência.",
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-da-guia/",
+              "title": "Catedral Nossa Senhora da Guia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-auxiliadora-barra-do-garcas",
+      "name": "Paróquia Nossa Senhora Auxiliadora",
+      "city": "Barra do Garças",
+      "state": "MT",
+      "neighborhood": null,
+      "address": "Rua Germano Bezerra",
+      "zipCode": null,
+      "phone": "(66) 3401-1009",
+      "email": "paroquiansauxiliadora13@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Cassio Lucindo da Silva",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesebarradogarcas.org.br/paroquias/",
+          "title": "Diocese de Barra do Garças — Paróquias (lista oficial)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-auxiliadora/",
+          "title": "Diocese de Barra do Garças — Paróquia Nossa Senhora Auxiliadora",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora Auxiliadora",
+          "address": "Rua Germano Bezerra",
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-auxiliadora/",
+              "title": "Paróquia Nossa Senhora Auxiliadora",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora de Fátima",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-auxiliadora/",
+              "title": "Paróquia Nossa Senhora Auxiliadora",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Santo André",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-auxiliadora/",
+              "title": "Paróquia Nossa Senhora Auxiliadora",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Divino Pai Eterno",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-auxiliadora/",
+              "title": "Paróquia Nossa Senhora Auxiliadora",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Santa Terezinha",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/wp-json/wp/v2/horarios-das-missas?per_page=100",
+              "title": "Diocese de Barra do Garças — API WordPress do tipo \"Horários das missas\" (85 comunidades, taxonomia \"paroquias\", modificadas jul/ago 2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora Auxiliadora",
+          "dayOfWeek": 2,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-auxiliadora/",
+              "title": "Paróquia Nossa Senhora Auxiliadora",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora Auxiliadora",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-auxiliadora/",
+              "title": "Paróquia Nossa Senhora Auxiliadora",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora Auxiliadora",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-auxiliadora/",
+              "title": "Paróquia Nossa Senhora Auxiliadora",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora Auxiliadora",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-auxiliadora/",
+              "title": "Paróquia Nossa Senhora Auxiliadora",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora Auxiliadora",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-auxiliadora/",
+              "title": "Paróquia Nossa Senhora Auxiliadora",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Capela Nossa Senhora de Fátima",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-auxiliadora/",
+              "title": "Paróquia Nossa Senhora Auxiliadora",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Capela Nossa Senhora de Fátima",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-auxiliadora/",
+              "title": "Paróquia Nossa Senhora Auxiliadora",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Capela Santo André",
+          "dayOfWeek": 5,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-auxiliadora/",
+              "title": "Paróquia Nossa Senhora Auxiliadora",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Capela Santo André",
+          "dayOfWeek": 0,
+          "time": "07:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-auxiliadora/",
+              "title": "Paróquia Nossa Senhora Auxiliadora",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Comunidade Divino Pai Eterno",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-auxiliadora/",
+              "title": "Paróquia Nossa Senhora Auxiliadora",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "santo-antonio-barra-do-garcas",
+      "name": "Paróquia Santo Antônio",
+      "city": "Barra do Garças",
+      "state": "MT",
+      "neighborhood": "Cidade Velha",
+      "address": "Praça Nossa Senhora Aparecida – Cidade Velha",
+      "zipCode": null,
+      "phone": "(66) 3401-1661",
+      "email": "paroquiasantoantoniobg@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Waldomiro Bronakowski",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesebarradogarcas.org.br/paroquias/",
+          "title": "Diocese de Barra do Garças — Paróquias (lista oficial)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesebarradogarcas.org.br/paroquia-santo-antonio/",
+          "title": "Diocese de Barra do Garças — Paróquia Santo Antônio",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Santo Antônio",
+          "address": "Praça Nossa Senhora Aparecida",
+          "neighborhood": "Cidade Velha",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-santo-antonio/",
+              "title": "Paróquia Santo Antônio",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São Pedro",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-santo-antonio/",
+              "title": "Paróquia Santo Antônio",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São Domingos Sávio",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-santo-antonio/",
+              "title": "Paróquia Santo Antônio",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São João Bosco",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-santo-antonio/",
+              "title": "Paróquia Santo Antônio",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São José",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-santo-antonio/",
+              "title": "Paróquia Santo Antônio",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Santo Antônio",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-santo-antonio/",
+              "title": "Paróquia Santo Antônio",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Santo Antônio",
+          "dayOfWeek": 0,
+          "time": "10:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-santo-antonio/",
+              "title": "Paróquia Santo Antônio",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Santo Antônio",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-santo-antonio/",
+              "title": "Paróquia Santo Antônio",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Santo Antônio",
+          "dayOfWeek": 1,
+          "time": "06:10",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-santo-antonio/",
+              "title": "Paróquia Santo Antônio",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Santo Antônio",
+          "dayOfWeek": 1,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-santo-antonio/",
+              "title": "Paróquia Santo Antônio",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Santo Antônio",
+          "dayOfWeek": 2,
+          "time": "06:10",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-santo-antonio/",
+              "title": "Paróquia Santo Antônio",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Santo Antônio",
+          "dayOfWeek": 3,
+          "time": "06:10",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-santo-antonio/",
+              "title": "Paróquia Santo Antônio",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Santo Antônio",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-santo-antonio/",
+              "title": "Paróquia Santo Antônio",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Santo Antônio",
+          "dayOfWeek": 4,
+          "time": "06:10",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-santo-antonio/",
+              "title": "Paróquia Santo Antônio",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Santo Antônio",
+          "dayOfWeek": 4,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-santo-antonio/",
+              "title": "Paróquia Santo Antônio",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Santo Antônio",
+          "dayOfWeek": 5,
+          "time": "06:10",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-santo-antonio/",
+              "title": "Paróquia Santo Antônio",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Santo Antônio",
+          "dayOfWeek": 5,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-santo-antonio/",
+              "title": "Paróquia Santo Antônio",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Santo Antônio",
+          "dayOfWeek": 6,
+          "time": "06:10",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-santo-antonio/",
+              "title": "Paróquia Santo Antônio",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Santo Antônio",
+          "dayOfWeek": 6,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-santo-antonio/",
+              "title": "Paróquia Santo Antônio",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Comunidade São Pedro",
+          "dayOfWeek": 0,
+          "time": "09:15",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-santo-antonio/",
+              "title": "Paróquia Santo Antônio",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Comunidade São Domingos Sávio",
+          "dayOfWeek": 2,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-santo-antonio/",
+              "title": "Paróquia Santo Antônio",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Comunidade São Domingos Sávio",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-santo-antonio/",
+              "title": "Paróquia Santo Antônio",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Comunidade São João Bosco",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-santo-antonio/",
+              "title": "Paróquia Santo Antônio",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Comunidade São José",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-santo-antonio/",
+              "title": "Paróquia Santo Antônio",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Comunidade São José",
+          "dayOfWeek": 0,
+          "time": "17:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-santo-antonio/",
+              "title": "Paróquia Santo Antônio",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "sao-francisco-de-assis-barra-do-garcas",
+      "name": "Paróquia São Francisco de Assis",
+      "city": "Barra do Garças",
+      "state": "MT",
+      "neighborhood": "Vila Maria",
+      "address": "Rua Padre Zeferino Agostini, s/n – Vila Maria",
+      "zipCode": null,
+      "phone": "(66) 3405-5000",
+      "email": "contato@paroquiasaofrancisco.com.br",
+      "website": null,
+      "priestName": "Pe. José Cândido da Silva",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesebarradogarcas.org.br/paroquias/",
+          "title": "Diocese de Barra do Garças — Paróquias (lista oficial)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesebarradogarcas.org.br/paroquia-sao-francisco-de-assis/",
+          "title": "Diocese de Barra do Garças — Paróquia São Francisco de Assis",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Francisco de Assis",
+          "address": "Rua Padre Zeferino Agostini, s/n",
+          "neighborhood": "Vila Maria",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-francisco-de-assis/",
+              "title": "Paróquia São Francisco de Assis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Santa Terezinha – Nova Barra do Garças",
+          "address": null,
+          "neighborhood": "Nova Barra do Garças",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-francisco-de-assis/",
+              "title": "Paróquia São Francisco de Assis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora Aparecida – Jardim Piracema",
+          "address": null,
+          "neighborhood": "Jardim Piracema",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-francisco-de-assis/",
+              "title": "Paróquia São Francisco de Assis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São José – Bairro São José",
+          "address": null,
+          "neighborhood": "São José",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-francisco-de-assis/",
+              "title": "Paróquia São Francisco de Assis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nossa Senhora de Fátima – Ouro Fino",
+          "address": null,
+          "neighborhood": "Ouro Fino",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-francisco-de-assis/",
+              "title": "Paróquia São Francisco de Assis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nossa Senhora Auxiliadora – Vale dos Sonhos",
+          "address": null,
+          "neighborhood": "Vale dos Sonhos",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-francisco-de-assis/",
+              "title": "Paróquia São Francisco de Assis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nossa Senhora de Guadalupe – Abel Lira",
+          "address": null,
+          "neighborhood": "Abel Lira",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-francisco-de-assis/",
+              "title": "Paróquia São Francisco de Assis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Divino Pai Eterno – Voadeira",
+          "address": null,
+          "neighborhood": "Voadeira",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-francisco-de-assis/",
+              "title": "Paróquia São Francisco de Assis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nossa Senhora das Graças – Novo Horizonte",
+          "address": null,
+          "neighborhood": "Novo Horizonte",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-francisco-de-assis/",
+              "title": "Paróquia São Francisco de Assis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Santa Luzia – Palmares",
+          "address": null,
+          "neighborhood": "Palmares",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-francisco-de-assis/",
+              "title": "Paróquia São Francisco de Assis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Imaculada Conceição – Nova Barra Norte",
+          "address": null,
+          "neighborhood": "Nova Barra Norte",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-francisco-de-assis/",
+              "title": "Paróquia São Francisco de Assis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São João Batista – Nova Barra Sul",
+          "address": null,
+          "neighborhood": "Nova Barra Sul",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-francisco-de-assis/",
+              "title": "Paróquia São Francisco de Assis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nossa Senhora do Perpétuo Socorro",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-francisco-de-assis/",
+              "title": "Paróquia São Francisco de Assis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela das Irmãs – Vila Maria",
+          "address": null,
+          "neighborhood": "Vila Maria",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-francisco-de-assis/",
+              "title": "Paróquia São Francisco de Assis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Comunidade Nossa Senhora das Graças da Medalha Milagrosa",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/wp-json/wp/v2/horarios-das-missas?per_page=100",
+              "title": "Diocese de Barra do Garças — API WordPress do tipo \"Horários das missas\" (85 comunidades, taxonomia \"paroquias\", modificadas jul/ago 2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São Francisco de Assis",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-francisco-de-assis/",
+              "title": "Paróquia São Francisco de Assis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São Francisco de Assis",
+          "dayOfWeek": 4,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-francisco-de-assis/",
+              "title": "Paróquia São Francisco de Assis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Comunidade Santa Terezinha – Nova Barra do Garças",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-francisco-de-assis/",
+              "title": "Paróquia São Francisco de Assis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Capela Nossa Senhora Aparecida – Jardim Piracema",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-francisco-de-assis/",
+              "title": "Paróquia São Francisco de Assis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Capela São José – Bairro São José",
+          "dayOfWeek": 0,
+          "time": "09:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-francisco-de-assis/",
+              "title": "Paróquia São Francisco de Assis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Comunidade Nossa Senhora de Fátima – Ouro Fino",
+          "dayOfWeek": 0,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-francisco-de-assis/",
+              "title": "Paróquia São Francisco de Assis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Comunidade Nossa Senhora de Fátima – Ouro Fino",
+          "dayOfWeek": 5,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Recorrência mensal: 1ª sexta-feira do mês. O MassSchedule só guarda dia da semana; carregar exige modelagem de recorrência.",
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-francisco-de-assis/",
+              "title": "Paróquia São Francisco de Assis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Nossa Senhora Auxiliadora – Vale dos Sonhos",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": "Recorrência mensal: 1º domingo do mês. O MassSchedule só guarda dia da semana; carregar exige modelagem de recorrência.",
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-francisco-de-assis/",
+              "title": "Paróquia São Francisco de Assis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Nossa Senhora Auxiliadora – Vale dos Sonhos",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Recorrência mensal: 3º sábado do mês. O MassSchedule só guarda dia da semana; carregar exige modelagem de recorrência.",
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-francisco-de-assis/",
+              "title": "Paróquia São Francisco de Assis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Nossa Senhora de Guadalupe – Abel Lira",
+          "dayOfWeek": 2,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-francisco-de-assis/",
+              "title": "Paróquia São Francisco de Assis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Comunidade Divino Pai Eterno – Voadeira",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Recorrência mensal: 1ª quarta-feira do mês. O MassSchedule só guarda dia da semana; carregar exige modelagem de recorrência.",
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-francisco-de-assis/",
+              "title": "Paróquia São Francisco de Assis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Nossa Senhora das Graças – Novo Horizonte",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Recorrência mensal: 3ª quarta-feira do mês. O MassSchedule só guarda dia da semana; carregar exige modelagem de recorrência.",
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-francisco-de-assis/",
+              "title": "Paróquia São Francisco de Assis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Santa Luzia – Palmares",
+          "dayOfWeek": 5,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-francisco-de-assis/",
+              "title": "Paróquia São Francisco de Assis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Comunidade Imaculada Conceição – Nova Barra Norte",
+          "dayOfWeek": 6,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-francisco-de-assis/",
+              "title": "Paróquia São Francisco de Assis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Comunidade São João Batista – Nova Barra Sul",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-francisco-de-assis/",
+              "title": "Paróquia São Francisco de Assis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Capela das Irmãs – Vila Maria",
+          "dayOfWeek": 2,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-francisco-de-assis/",
+              "title": "Paróquia São Francisco de Assis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-aparecida-pontal-do-araguaia",
+      "name": "Paróquia Nossa Senhora Aparecida",
+      "city": "Pontal do Araguaia",
+      "state": "MT",
+      "neighborhood": "Setor João Rocha",
+      "address": "Rua José Jorge de Almeida, 43 – Setor João Rocha",
+      "zipCode": null,
+      "phone": "(66) 99255-4283",
+      "email": "paroquian.s.aparecida@outlook.com",
+      "website": null,
+      "priestName": "Pe. Douglas Aires da Silva",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesebarradogarcas.org.br/paroquias/",
+          "title": "Diocese de Barra do Garças — Paróquias (lista oficial)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-aparecida/",
+          "title": "Diocese de Barra do Garças — Paróquia Nossa Senhora Aparecida",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora Aparecida",
+          "address": "Rua José Jorge de Almeida, 43",
+          "neighborhood": "Setor João Rocha",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-aparecida/",
+              "title": "Paróquia Nossa Senhora Aparecida",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Igreja São Miguel",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-aparecida/",
+              "title": "Paróquia Nossa Senhora Aparecida",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Assentamento Brilhante",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-aparecida/",
+              "title": "Paróquia Nossa Senhora Aparecida",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Agrovila Arara",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-aparecida/",
+              "title": "Paróquia Nossa Senhora Aparecida",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Farinheira",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-aparecida/",
+              "title": "Paróquia Nossa Senhora Aparecida",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora Aparecida",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-aparecida/",
+              "title": "Paróquia Nossa Senhora Aparecida",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora Aparecida",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-aparecida/",
+              "title": "Paróquia Nossa Senhora Aparecida",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora Aparecida",
+          "dayOfWeek": 4,
+          "time": "15:00",
+          "type": "ADORATION",
+          "notes": "Adoração ao Santíssimo a partir das 15h, antes da missa das 19h.",
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-aparecida/",
+              "title": "Paróquia Nossa Senhora Aparecida",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora Aparecida",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-aparecida/",
+              "title": "Paróquia Nossa Senhora Aparecida",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora Aparecida",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-aparecida/",
+              "title": "Paróquia Nossa Senhora Aparecida",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Igreja São Miguel",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-aparecida/",
+              "title": "Paróquia Nossa Senhora Aparecida",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Assentamento Brilhante",
+          "dayOfWeek": 0,
+          "time": "10:00",
+          "type": "MASS",
+          "notes": "Recorrência mensal: 3º domingo do mês. O MassSchedule só guarda dia da semana; carregar exige modelagem de recorrência.",
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-aparecida/",
+              "title": "Paróquia Nossa Senhora Aparecida",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Agrovila Arara",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Recorrência mensal: 1º sábado do mês. O MassSchedule só guarda dia da semana; carregar exige modelagem de recorrência.",
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-aparecida/",
+              "title": "Paróquia Nossa Senhora Aparecida",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Farinheira",
+          "dayOfWeek": 0,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": "Recorrência mensal: 3º domingo do mês. O MassSchedule só guarda dia da semana; carregar exige modelagem de recorrência.",
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-aparecida/",
+              "title": "Paróquia Nossa Senhora Aparecida",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-da-piedade-araguaiana",
+      "name": "Paróquia Nossa Senhora da Piedade",
+      "city": "Araguaiana",
+      "state": "MT",
+      "neighborhood": null,
+      "address": "Avenida Presidente Vargas",
+      "zipCode": null,
+      "phone": "(66) 3499-1242",
+      "email": "nsdapiedade@gmail.com",
+      "website": null,
+      "priestName": "Pe. Gilberto Farias",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesebarradogarcas.org.br/paroquias/",
+          "title": "Diocese de Barra do Garças — Paróquias (lista oficial)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-da-piedade/",
+          "title": "Diocese de Barra do Garças — Paróquia Nossa Senhora da Piedade",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora da Piedade",
+          "address": "Avenida Presidente Vargas",
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-da-piedade/",
+              "title": "Paróquia Nossa Senhora da Piedade",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Santa Luzia",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-da-piedade/",
+              "title": "Paróquia Nossa Senhora da Piedade",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nossa Senhora das Graças – Cachoeirinha",
+          "address": null,
+          "neighborhood": "Cachoeirinha",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-da-piedade/",
+              "title": "Paróquia Nossa Senhora da Piedade",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nossa Senhora Aparecida – Córrego Grande",
+          "address": null,
+          "neighborhood": "Córrego Grande",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-da-piedade/",
+              "title": "Paróquia Nossa Senhora da Piedade",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Santo Antônio – Cachoeira Grande",
+          "address": null,
+          "neighborhood": "Cachoeira Grande",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-da-piedade/",
+              "title": "Paróquia Nossa Senhora da Piedade",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nossa Senhora Aparecida – Jardim Paraíso",
+          "address": null,
+          "neighborhood": "Jardim Paraíso",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-da-piedade/",
+              "title": "Paróquia Nossa Senhora da Piedade",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora da Piedade",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-da-piedade/",
+              "title": "Paróquia Nossa Senhora da Piedade",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Capela Santa Luzia",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-da-piedade/",
+              "title": "Paróquia Nossa Senhora da Piedade",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Capela Santa Luzia",
+          "dayOfWeek": 1,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-da-piedade/",
+              "title": "Paróquia Nossa Senhora da Piedade",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Capela Santa Luzia",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-da-piedade/",
+              "title": "Paróquia Nossa Senhora da Piedade",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Capela Santa Luzia",
+          "dayOfWeek": 5,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-da-piedade/",
+              "title": "Paróquia Nossa Senhora da Piedade",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Comunidade Nossa Senhora das Graças – Cachoeirinha",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-da-piedade/",
+              "title": "Paróquia Nossa Senhora da Piedade",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Comunidade Nossa Senhora Aparecida – Córrego Grande",
+          "dayOfWeek": 0,
+          "time": "11:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-da-piedade/",
+              "title": "Paróquia Nossa Senhora da Piedade",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Comunidade Santo Antônio – Cachoeira Grande",
+          "dayOfWeek": 2,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-da-piedade/",
+              "title": "Paróquia Nossa Senhora da Piedade",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Comunidade Nossa Senhora Aparecida – Jardim Paraíso",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-da-piedade/",
+              "title": "Paróquia Nossa Senhora da Piedade",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "senhor-bom-jesus-da-lapa-general-carneiro",
+      "name": "Paróquia Senhor Bom Jesus da Lapa",
+      "city": "General Carneiro",
+      "state": "MT",
+      "neighborhood": null,
+      "address": "Praça da Matriz",
+      "zipCode": null,
+      "phone": "(66) 99226-7214",
+      "email": "paroquiasenhorbomjesusdalapa@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Raphael Santos Barbosa",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesebarradogarcas.org.br/paroquias/",
+          "title": "Diocese de Barra do Garças — Paróquias (lista oficial)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesebarradogarcas.org.br/paroquia-senhor-bom-jesus-da-lapa/",
+          "title": "Diocese de Barra do Garças — Paróquia Senhor Bom Jesus da Lapa",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Senhor Bom Jesus da Lapa",
+          "address": "Praça da Matriz",
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-senhor-bom-jesus-da-lapa/",
+              "title": "Paróquia Senhor Bom Jesus da Lapa",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São José",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-senhor-bom-jesus-da-lapa/",
+              "title": "Paróquia Senhor Bom Jesus da Lapa",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Senhor Bom Jesus da Lapa",
+          "dayOfWeek": 3,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-senhor-bom-jesus-da-lapa/",
+              "title": "Paróquia Senhor Bom Jesus da Lapa",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Senhor Bom Jesus da Lapa",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-senhor-bom-jesus-da-lapa/",
+              "title": "Paróquia Senhor Bom Jesus da Lapa",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Senhor Bom Jesus da Lapa",
+          "dayOfWeek": 5,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-senhor-bom-jesus-da-lapa/",
+              "title": "Paróquia Senhor Bom Jesus da Lapa",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Senhor Bom Jesus da Lapa",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-senhor-bom-jesus-da-lapa/",
+              "title": "Paróquia Senhor Bom Jesus da Lapa",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Senhor Bom Jesus da Lapa",
+          "dayOfWeek": 0,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-senhor-bom-jesus-da-lapa/",
+              "title": "Paróquia Senhor Bom Jesus da Lapa",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Capela São José",
+          "dayOfWeek": 2,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-senhor-bom-jesus-da-lapa/",
+              "title": "Paróquia Senhor Bom Jesus da Lapa",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "sao-jose-operario-araguainha",
+      "name": "Paróquia São José Operário",
+      "city": "Araguainha",
+      "state": "MT",
+      "neighborhood": "Centro",
+      "address": "Praça Padre Augustino Guglierme, s/n – Centro",
+      "zipCode": "78615-000",
+      "phone": "(66) 99694-4198",
+      "email": "saojoseoperarioaraguainha@gmail.com",
+      "website": null,
+      "priestName": "Pe. Vandilson Pereira Sobrinho",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesebarradogarcas.org.br/paroquias/",
+          "title": "Diocese de Barra do Garças — Paróquias (lista oficial)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesebarradogarcas.org.br/paroquia-sao-jose-operario/",
+          "title": "Diocese de Barra do Garças — Paróquia São José Operário",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São José Operário",
+          "address": "Praça Padre Augustino Guglierme, s/n",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-jose-operario/",
+              "title": "Paróquia São José Operário",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São José Operário",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-jose-operario/",
+              "title": "Paróquia São José Operário",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São José Operário",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-jose-operario/",
+              "title": "Paróquia São José Operário",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "senhor-bom-jesus-da-lapa-ponte-branca",
+      "name": "Paróquia Senhor Bom Jesus da Lapa",
+      "city": "Ponte Branca",
+      "state": "MT",
+      "neighborhood": null,
+      "address": "Rua Coronel Belmiro Nogueira, s/n",
+      "zipCode": "78610-000",
+      "phone": "(66) 98447-1122",
+      "email": "paroquiasenhorbomjesusdalapa@gmail.com",
+      "website": null,
+      "priestName": "Pe. Vandilson Pereira Sobrinho",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesebarradogarcas.org.br/paroquias/",
+          "title": "Diocese de Barra do Garças — Paróquias (lista oficial)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesebarradogarcas.org.br/paroquia-senhor-bom-jesus-da-lapa-2/",
+          "title": "Diocese de Barra do Garças — Paróquia Senhor Bom Jesus da Lapa",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Senhor Bom Jesus da Lapa",
+          "address": "Rua Coronel Belmiro Nogueira, s/n",
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-senhor-bom-jesus-da-lapa-2/",
+              "title": "Paróquia Senhor Bom Jesus da Lapa",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora Aparecida",
+          "address": "Rua Tiradentes – Vila Nova",
+          "neighborhood": "Vila Nova",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-senhor-bom-jesus-da-lapa-2/",
+              "title": "Paróquia Senhor Bom Jesus da Lapa",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Senhor Bom Jesus da Lapa",
+          "dayOfWeek": 5,
+          "time": "16:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-senhor-bom-jesus-da-lapa-2/",
+              "title": "Paróquia Senhor Bom Jesus da Lapa",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Senhor Bom Jesus da Lapa",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-senhor-bom-jesus-da-lapa-2/",
+              "title": "Paróquia Senhor Bom Jesus da Lapa",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Capela Nossa Senhora Aparecida",
+          "dayOfWeek": 2,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-senhor-bom-jesus-da-lapa-2/",
+              "title": "Paróquia Senhor Bom Jesus da Lapa",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-da-abadia-ribeiraozinho",
+      "name": "Paróquia Nossa Senhora da Abadia",
+      "city": "Ribeirãozinho",
+      "state": "MT",
+      "neighborhood": null,
+      "address": "Rua Antônio João",
+      "zipCode": null,
+      "phone": "(66) 99926-4338",
+      "email": "comunidaderib@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Clever Morato",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesebarradogarcas.org.br/paroquias/",
+          "title": "Diocese de Barra do Garças — Paróquias (lista oficial)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-da-abadia/",
+          "title": "Diocese de Barra do Garças — Paróquia Nossa Senhora da Abadia",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora da Abadia",
+          "address": "Rua Antônio João",
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-da-abadia/",
+              "title": "Paróquia Nossa Senhora da Abadia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora Aparecida – Colônia Couto Magalhães",
+          "address": null,
+          "neighborhood": "Distrito da Colônia",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-da-abadia/",
+              "title": "Paróquia Nossa Senhora da Abadia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora da Abadia",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-da-abadia/",
+              "title": "Paróquia Nossa Senhora da Abadia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Abadia",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-da-abadia/",
+              "title": "Paróquia Nossa Senhora da Abadia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Capela Nossa Senhora Aparecida – Colônia Couto Magalhães",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Recorrência mensal: última sexta-feira do mês. O MassSchedule só guarda dia da semana; carregar exige modelagem de recorrência.",
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-da-abadia/",
+              "title": "Paróquia Nossa Senhora da Abadia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "sao-joao-bosco-torixoreu",
+      "name": "Paróquia São João Bosco",
+      "city": "Torixoréu",
+      "state": "MT",
+      "neighborhood": null,
+      "address": "Rua 15 de Novembro",
+      "zipCode": null,
+      "phone": "(66) 3406-1455",
+      "email": "paroquiasaojoaobosco@bol.com.br",
+      "website": null,
+      "priestName": "Pe. Clever Morato",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesebarradogarcas.org.br/paroquias/",
+          "title": "Diocese de Barra do Garças — Paróquias (lista oficial)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesebarradogarcas.org.br/paroquia-sao-joao-bosco/",
+          "title": "Diocese de Barra do Garças — Paróquia São João Bosco",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São João Bosco",
+          "address": "Rua 15 de Novembro",
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-joao-bosco/",
+              "title": "Paróquia São João Bosco",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São José Operário",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-joao-bosco/",
+              "title": "Paróquia São João Bosco",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Divino Pai Eterno",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-joao-bosco/",
+              "title": "Paróquia São João Bosco",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela de Todos os Santos – Furnas",
+          "address": null,
+          "neighborhood": "Furnas",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-joao-bosco/",
+              "title": "Paróquia São João Bosco",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora Aparecida – Serrinha",
+          "address": null,
+          "neighborhood": "Serrinha",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-joao-bosco/",
+              "title": "Paróquia São João Bosco",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São João Bosco",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-joao-bosco/",
+              "title": "Paróquia São João Bosco",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São João Bosco",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-joao-bosco/",
+              "title": "Paróquia São João Bosco",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Capela São José Operário",
+          "dayOfWeek": 2,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-joao-bosco/",
+              "title": "Paróquia São João Bosco",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Capela Divino Pai Eterno",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-joao-bosco/",
+              "title": "Paróquia São João Bosco",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Capela de Todos os Santos – Furnas",
+          "dayOfWeek": 0,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": "Recorrência mensal: 1º domingo do mês. O MassSchedule só guarda dia da semana; carregar exige modelagem de recorrência.",
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-joao-bosco/",
+              "title": "Paróquia São João Bosco",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Capela Nossa Senhora Aparecida – Serrinha",
+          "dayOfWeek": 0,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": "Recorrência mensal: 2º domingo do mês. O MassSchedule só guarda dia da semana; carregar exige modelagem de recorrência.",
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-joao-bosco/",
+              "title": "Paróquia São João Bosco",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-aparecida-agua-boa",
+      "name": "Paróquia Nossa Senhora Aparecida",
+      "city": "Água Boa",
+      "state": "MT",
+      "neighborhood": "Centro",
+      "address": "Avenida Planalto, 550 – Centro",
+      "zipCode": "78635-000",
+      "phone": "(66) 98412-0790",
+      "email": "contato@paroquiaaguaboa.com.br",
+      "website": "https://paroquiaaguaboa.com.br",
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesebarradogarcas.org.br/paroquias/",
+          "title": "Diocese de Barra do Garças — Paróquias (lista oficial)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://paroquiaaguaboa.com.br/",
+          "title": "Paróquia Nossa Senhora Aparecida — Água Boa/MT (site oficial)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesebarradogarcas.org.br/wp-json/wp/v2/horarios-das-missas?per_page=100",
+          "title": "Diocese de Barra do Garças — API WordPress do tipo \"Horários das missas\" (85 comunidades, taxonomia \"paroquias\", modificadas jul/ago 2026)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora Aparecida",
+          "address": "Avenida Planalto, 550",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://paroquiaaguaboa.com.br/",
+              "title": "Paróquia Nossa Senhora Aparecida — Água Boa/MT (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São José – Vila Nova",
+          "address": null,
+          "neighborhood": "Vila Nova",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://paroquiaaguaboa.com.br/",
+              "title": "Paróquia Nossa Senhora Aparecida — Água Boa/MT (site oficial)",
+              "accessedAt": "2026-09-11"
+            },
+            {
+              "url": "https://diocesebarradogarcas.org.br/wp-json/wp/v2/horarios-das-missas?per_page=100",
+              "title": "Diocese de Barra do Garças — API WordPress do tipo \"Horários das missas\" (85 comunidades, taxonomia \"paroquias\", modificadas jul/ago 2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Bom Jesus – Guarujá",
+          "address": null,
+          "neighborhood": "Guarujá",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://paroquiaaguaboa.com.br/",
+              "title": "Paróquia Nossa Senhora Aparecida — Água Boa/MT (site oficial)",
+              "accessedAt": "2026-09-11"
+            },
+            {
+              "url": "https://diocesebarradogarcas.org.br/wp-json/wp/v2/horarios-das-missas?per_page=100",
+              "title": "Diocese de Barra do Garças — API WordPress do tipo \"Horários das missas\" (85 comunidades, taxonomia \"paroquias\", modificadas jul/ago 2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nossa Senhora das Graças e do Trabalho – Universitário",
+          "address": null,
+          "neighborhood": "Universitário",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://paroquiaaguaboa.com.br/",
+              "title": "Paróquia Nossa Senhora Aparecida — Água Boa/MT (site oficial)",
+              "accessedAt": "2026-09-11"
+            },
+            {
+              "url": "https://diocesebarradogarcas.org.br/wp-json/wp/v2/horarios-das-missas?per_page=100",
+              "title": "Diocese de Barra do Garças — API WordPress do tipo \"Horários das missas\" (85 comunidades, taxonomia \"paroquias\", modificadas jul/ago 2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora Aparecida",
+          "dayOfWeek": 2,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://paroquiaaguaboa.com.br/",
+              "title": "Paróquia Nossa Senhora Aparecida — Água Boa/MT (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora Aparecida",
+          "dayOfWeek": 2,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://paroquiaaguaboa.com.br/",
+              "title": "Paróquia Nossa Senhora Aparecida — Água Boa/MT (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora Aparecida",
+          "dayOfWeek": 4,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://paroquiaaguaboa.com.br/",
+              "title": "Paróquia Nossa Senhora Aparecida — Água Boa/MT (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora Aparecida",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://paroquiaaguaboa.com.br/",
+              "title": "Paróquia Nossa Senhora Aparecida — Água Boa/MT (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora Aparecida",
+          "dayOfWeek": 5,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://paroquiaaguaboa.com.br/",
+              "title": "Paróquia Nossa Senhora Aparecida — Água Boa/MT (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora Aparecida",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://paroquiaaguaboa.com.br/",
+              "title": "Paróquia Nossa Senhora Aparecida — Água Boa/MT (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora Aparecida",
+          "dayOfWeek": 6,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://paroquiaaguaboa.com.br/",
+              "title": "Paróquia Nossa Senhora Aparecida — Água Boa/MT (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora Aparecida",
+          "dayOfWeek": 0,
+          "time": "07:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://paroquiaaguaboa.com.br/",
+              "title": "Paróquia Nossa Senhora Aparecida — Água Boa/MT (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora Aparecida",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://paroquiaaguaboa.com.br/",
+              "title": "Paróquia Nossa Senhora Aparecida — Água Boa/MT (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Comunidade São José – Vila Nova",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://paroquiaaguaboa.com.br/",
+              "title": "Paróquia Nossa Senhora Aparecida — Água Boa/MT (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Comunidade Bom Jesus – Guarujá",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://paroquiaaguaboa.com.br/",
+              "title": "Paróquia Nossa Senhora Aparecida — Água Boa/MT (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Comunidade Nossa Senhora das Graças e do Trabalho – Universitário",
+          "dayOfWeek": 0,
+          "time": "10:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://paroquiaaguaboa.com.br/",
+              "title": "Paróquia Nossa Senhora Aparecida — Água Boa/MT (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "sao-sebastiao-cocalinho",
+      "name": "Paróquia São Sebastião",
+      "city": "Cocalinho",
+      "state": "MT",
+      "neighborhood": "Centro",
+      "address": "Avenida Araguaia, s/n – Centro",
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesebarradogarcas.org.br/paroquias/",
+          "title": "Diocese de Barra do Garças — Paróquias (lista oficial)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesebarradogarcas.org.br/paroquia-sao-sebastiao-cocalinho/",
+          "title": "Diocese de Barra do Garças — Paróquia São Sebastião",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Sebastião",
+          "address": "Avenida Araguaia, s/n",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-sebastiao-cocalinho/",
+              "title": "Paróquia São Sebastião",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Santo Expedito",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-sebastiao-cocalinho/",
+              "title": "Paróquia São Sebastião",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São José – Alto Cocalinho",
+          "address": null,
+          "neighborhood": "Alto Cocalinho",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/wp-json/wp/v2/horarios-das-missas?per_page=100",
+              "title": "Diocese de Barra do Garças — API WordPress do tipo \"Horários das missas\" (85 comunidades, taxonomia \"paroquias\", modificadas jul/ago 2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-sebastiao-cocalinho/",
+              "title": "Paróquia São Sebastião",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-sebastiao-cocalinho/",
+              "title": "Paróquia São Sebastião",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 4,
+          "time": "08:00",
+          "type": "CONFESSION",
+          "notes": "Quintas-feiras, das 8h às 11h: atendimento e confissões.",
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-sebastiao-cocalinho/",
+              "title": "Paróquia São Sebastião",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 4,
+          "time": "18:00",
+          "type": "ADORATION",
+          "notes": "Adoração e bênção do Santíssimo antes da missa.",
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-sebastiao-cocalinho/",
+              "title": "Paróquia São Sebastião",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 4,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-sebastiao-cocalinho/",
+              "title": "Paróquia São Sebastião",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Capela Santo Expedito",
+          "dayOfWeek": 2,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-sebastiao-cocalinho/",
+              "title": "Paróquia São Sebastião",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-de-nazare-nova-nazare",
+      "name": "Paróquia Nossa Senhora de Nazaré",
+      "city": "Nova Nazaré",
+      "state": "MT",
+      "neighborhood": "Centro",
+      "address": "Rua Frei Agustinni, s/n – Centro",
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Wallace Teófilo Marques",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesebarradogarcas.org.br/paroquias/",
+          "title": "Diocese de Barra do Garças — Paróquias (lista oficial)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-de-nazare/",
+          "title": "Diocese de Barra do Garças — Paróquia Nossa Senhora de Nazaré",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora de Nazaré",
+          "address": "Rua Frei Agustinni, s/n",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-de-nazare/",
+              "title": "Paróquia Nossa Senhora de Nazaré",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Santa Luzia – P.A. Estrela",
+          "address": null,
+          "neighborhood": "P.A. Estrela",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-de-nazare/",
+              "title": "Paróquia Nossa Senhora de Nazaré",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Sagrado Coração de Jesus – Água Boa III",
+          "address": null,
+          "neighborhood": "Água Boa III",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-de-nazare/",
+              "title": "Paróquia Nossa Senhora de Nazaré",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Fazenda Nova Geração",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-de-nazare/",
+              "title": "Paróquia Nossa Senhora de Nazaré",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Pesqueiros Nossa Senhora Aparecida",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-de-nazare/",
+              "title": "Paróquia Nossa Senhora de Nazaré",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora de Nazaré",
+          "dayOfWeek": 5,
+          "time": "15:00",
+          "type": "ADORATION",
+          "notes": "Recorrência mensal: 1ª sexta-feira do mês. O MassSchedule só guarda dia da semana; carregar exige modelagem de recorrência.",
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-de-nazare/",
+              "title": "Paróquia Nossa Senhora de Nazaré",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora de Nazaré",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Recorrência mensal: 1ª sexta-feira do mês. O MassSchedule só guarda dia da semana; carregar exige modelagem de recorrência.",
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-de-nazare/",
+              "title": "Paróquia Nossa Senhora de Nazaré",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora de Nazaré",
+          "dayOfWeek": 6,
+          "time": "17:00",
+          "type": "CONFESSION",
+          "notes": "Atendimentos a partir das 17h, antes da missa das 19h.",
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-de-nazare/",
+              "title": "Paróquia Nossa Senhora de Nazaré",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora de Nazaré",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-de-nazare/",
+              "title": "Paróquia Nossa Senhora de Nazaré",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Capela Santa Luzia – P.A. Estrela",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Recorrência mensal: 1ª quarta-feira do mês. O MassSchedule só guarda dia da semana; carregar exige modelagem de recorrência.",
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-de-nazare/",
+              "title": "Paróquia Nossa Senhora de Nazaré",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Capela Sagrado Coração de Jesus – Água Boa III",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Recorrência mensal: 2ª quarta-feira do mês. O MassSchedule só guarda dia da semana; carregar exige modelagem de recorrência.",
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-de-nazare/",
+              "title": "Paróquia Nossa Senhora de Nazaré",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Fazenda Nova Geração",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Recorrência mensal: 3ª quarta-feira do mês. O MassSchedule só guarda dia da semana; carregar exige modelagem de recorrência.",
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-de-nazare/",
+              "title": "Paróquia Nossa Senhora de Nazaré",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Pesqueiros Nossa Senhora Aparecida",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Recorrência mensal: 4ª quarta-feira do mês. O MassSchedule só guarda dia da semana; carregar exige modelagem de recorrência.",
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-de-nazare/",
+              "title": "Paróquia Nossa Senhora de Nazaré",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-auxiliadora-canarana",
+      "name": "Paróquia Nossa Senhora Auxiliadora",
+      "city": "Canarana",
+      "state": "MT",
+      "neighborhood": null,
+      "address": "Rua Miraguaí",
+      "zipCode": null,
+      "phone": "(66) 3478-1220",
+      "email": "paroquiacanarana@yahoo.com.br",
+      "website": null,
+      "priestName": "Pe. Francisco Bernadone",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesebarradogarcas.org.br/paroquias/",
+          "title": "Diocese de Barra do Garças — Paróquias (lista oficial)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-auxiliadora-2/",
+          "title": "Diocese de Barra do Garças — Paróquia Nossa Senhora Auxiliadora",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesebarradogarcas.org.br/wp-json/wp/v2/horarios-das-missas?per_page=100",
+          "title": "Diocese de Barra do Garças — API WordPress do tipo \"Horários das missas\" (85 comunidades, taxonomia \"paroquias\", modificadas jul/ago 2026)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora Auxiliadora",
+          "address": "Rua Miraguaí",
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-auxiliadora-2/",
+              "title": "Paróquia Nossa Senhora Auxiliadora",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Francisco",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-auxiliadora-2/",
+              "title": "Paróquia Nossa Senhora Auxiliadora",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Divino Pai Eterno",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-auxiliadora-2/",
+              "title": "Paróquia Nossa Senhora Auxiliadora",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora Aparecida",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-auxiliadora-2/",
+              "title": "Paróquia Nossa Senhora Auxiliadora",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora das Graças",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-auxiliadora-2/",
+              "title": "Paróquia Nossa Senhora Auxiliadora",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora de Fátima – Culuene",
+          "address": null,
+          "neighborhood": "Culuene",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-auxiliadora-2/",
+              "title": "Paróquia Nossa Senhora Auxiliadora",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São Luís Guanella",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-auxiliadora-2/",
+              "title": "Paróquia Nossa Senhora Auxiliadora",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Miguel Arcanjo",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-auxiliadora-2/",
+              "title": "Paróquia Nossa Senhora Auxiliadora",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nossa Senhora de La Salette",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-auxiliadora-2/",
+              "title": "Paróquia Nossa Senhora Auxiliadora",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Santa Luzia – Garapú II",
+          "address": null,
+          "neighborhood": "Garapú II",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/wp-json/wp/v2/horarios-das-missas?per_page=100",
+              "title": "Diocese de Barra do Garças — API WordPress do tipo \"Horários das missas\" (85 comunidades, taxonomia \"paroquias\", modificadas jul/ago 2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Assentamento Pequi",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/wp-json/wp/v2/horarios-das-missas?per_page=100",
+              "title": "Diocese de Barra do Garças — API WordPress do tipo \"Horários das missas\" (85 comunidades, taxonomia \"paroquias\", modificadas jul/ago 2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Auto Posto Marajó",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/wp-json/wp/v2/horarios-das-missas?per_page=100",
+              "title": "Diocese de Barra do Garças — API WordPress do tipo \"Horários das missas\" (85 comunidades, taxonomia \"paroquias\", modificadas jul/ago 2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Colégio Jesus, Maria e José",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-auxiliadora-2/",
+              "title": "Paróquia Nossa Senhora Auxiliadora",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Fazenda Bom Jesus",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-auxiliadora-2/",
+              "title": "Paróquia Nossa Senhora Auxiliadora",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Fazenda Nova Esperança",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-auxiliadora-2/",
+              "title": "Paróquia Nossa Senhora Auxiliadora",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Fazenda Cocal",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-auxiliadora-2/",
+              "title": "Paróquia Nossa Senhora Auxiliadora",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Fazenda Stella",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-auxiliadora-2/",
+              "title": "Paróquia Nossa Senhora Auxiliadora",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora Auxiliadora",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-auxiliadora-2/",
+              "title": "Paróquia Nossa Senhora Auxiliadora",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora Auxiliadora",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-auxiliadora-2/",
+              "title": "Paróquia Nossa Senhora Auxiliadora",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora Auxiliadora",
+          "dayOfWeek": 2,
+          "time": "06:15",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-auxiliadora-2/",
+              "title": "Paróquia Nossa Senhora Auxiliadora",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora Auxiliadora",
+          "dayOfWeek": 3,
+          "time": "06:15",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-auxiliadora-2/",
+              "title": "Paróquia Nossa Senhora Auxiliadora",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora Auxiliadora",
+          "dayOfWeek": 4,
+          "time": "06:15",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-auxiliadora-2/",
+              "title": "Paróquia Nossa Senhora Auxiliadora",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora Auxiliadora",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-auxiliadora-2/",
+              "title": "Paróquia Nossa Senhora Auxiliadora",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora Auxiliadora",
+          "dayOfWeek": 5,
+          "time": "06:15",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-auxiliadora-2/",
+              "title": "Paróquia Nossa Senhora Auxiliadora",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora Auxiliadora",
+          "dayOfWeek": 5,
+          "time": "18:00",
+          "type": "ADORATION",
+          "notes": "Recorrência mensal: 1ª sexta-feira do mês (adoração e missa às 18h). O MassSchedule só guarda dia da semana; carregar exige modelagem de recorrência.",
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-auxiliadora-2/",
+              "title": "Paróquia Nossa Senhora Auxiliadora",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora Auxiliadora",
+          "dayOfWeek": 5,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": "Recorrência mensal: 1ª sexta-feira do mês. O MassSchedule só guarda dia da semana; carregar exige modelagem de recorrência.",
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-auxiliadora-2/",
+              "title": "Paróquia Nossa Senhora Auxiliadora",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Capela São Francisco",
+          "dayOfWeek": 0,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-auxiliadora-2/",
+              "title": "Paróquia Nossa Senhora Auxiliadora",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Capela Divino Pai Eterno",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Recorrência mensal: 3ª quarta-feira do mês. O MassSchedule só guarda dia da semana; carregar exige modelagem de recorrência.",
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-auxiliadora-2/",
+              "title": "Paróquia Nossa Senhora Auxiliadora",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Capela Nossa Senhora Aparecida",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Recorrência mensal: 1ª quarta-feira do mês. O MassSchedule só guarda dia da semana; carregar exige modelagem de recorrência.",
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-auxiliadora-2/",
+              "title": "Paróquia Nossa Senhora Auxiliadora",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Capela Nossa Senhora das Graças",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Recorrência mensal: 2ª quarta-feira do mês. O MassSchedule só guarda dia da semana; carregar exige modelagem de recorrência.",
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-auxiliadora-2/",
+              "title": "Paróquia Nossa Senhora Auxiliadora",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Capela Nossa Senhora de Fátima – Culuene",
+          "dayOfWeek": 4,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Recorrência mensal: 4ª quinta-feira do mês. O MassSchedule só guarda dia da semana; carregar exige modelagem de recorrência.",
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-auxiliadora-2/",
+              "title": "Paróquia Nossa Senhora Auxiliadora",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade São Luís Guanella",
+          "dayOfWeek": 2,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Recorrência mensal: 4ª terça-feira do mês. O MassSchedule só guarda dia da semana; carregar exige modelagem de recorrência.",
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-auxiliadora-2/",
+              "title": "Paróquia Nossa Senhora Auxiliadora",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Capela São Miguel Arcanjo",
+          "dayOfWeek": 6,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-auxiliadora-2/",
+              "title": "Paróquia Nossa Senhora Auxiliadora",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Colégio Jesus, Maria e José",
+          "dayOfWeek": 1,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-auxiliadora-2/",
+              "title": "Paróquia Nossa Senhora Auxiliadora",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Fazenda Bom Jesus",
+          "dayOfWeek": 2,
+          "time": "07:30",
+          "type": "MASS",
+          "notes": "Recorrência mensal: 3ª terça-feira do mês. O MassSchedule só guarda dia da semana; carregar exige modelagem de recorrência.",
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-auxiliadora-2/",
+              "title": "Paróquia Nossa Senhora Auxiliadora",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Fazenda Nova Esperança",
+          "dayOfWeek": 2,
+          "time": "10:30",
+          "type": "MASS",
+          "notes": "Recorrência mensal: 3ª terça-feira do mês. O MassSchedule só guarda dia da semana; carregar exige modelagem de recorrência.",
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-auxiliadora-2/",
+              "title": "Paróquia Nossa Senhora Auxiliadora",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Fazenda Cocal",
+          "dayOfWeek": 4,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": "Recorrência mensal: 4ª quinta-feira do mês. O MassSchedule só guarda dia da semana; carregar exige modelagem de recorrência.",
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-auxiliadora-2/",
+              "title": "Paróquia Nossa Senhora Auxiliadora",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Fazenda Stella",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Recorrência mensal: 2ª sexta-feira do mês. O MassSchedule só guarda dia da semana; carregar exige modelagem de recorrência.",
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-auxiliadora-2/",
+              "title": "Paróquia Nossa Senhora Auxiliadora",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Nossa Senhora de La Salette",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Recorrência mensal: 2ª e 4ª sexta-feira do mês. O MassSchedule só guarda dia da semana; carregar exige modelagem de recorrência.",
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-nossa-senhora-auxiliadora-2/",
+              "title": "Paróquia Nossa Senhora Auxiliadora",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "sagrado-coracao-de-jesus-general-carneiro",
+      "name": "Paróquia Sagrado Coração de Jesus",
+      "city": "General Carneiro",
+      "state": "MT",
+      "neighborhood": "Aldeia Indígena Meruri",
+      "address": "Aldeia Indígena Meruri – BR-070, km 112 – Caixa Postal 14",
+      "zipCode": "78620-000",
+      "phone": "(66) 99683-5299",
+      "email": "pscjesusmeruri@diocesebarradogarcas.org.br",
+      "website": null,
+      "priestName": "Pe. Angelo Cesar Cenerino, SDB",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesebarradogarcas.org.br/paroquias/",
+          "title": "Diocese de Barra do Garças — Paróquias (lista oficial)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesebarradogarcas.org.br/paroquia-sagrado-coracao-de-jesus-meruri/",
+          "title": "Diocese de Barra do Garças — Paróquia Sagrado Coração de Jesus",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Sagrado Coração de Jesus",
+          "address": "BR-070, km 112",
+          "neighborhood": "Aldeia Indígena Meruri",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sagrado-coracao-de-jesus-meruri/",
+              "title": "Paróquia Sagrado Coração de Jesus",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nossa Senhora Aparecida – Paredão Grande",
+          "address": null,
+          "neighborhood": "Paredão Grande",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sagrado-coracao-de-jesus-meruri/",
+              "title": "Paróquia Sagrado Coração de Jesus",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Aldeia Garças",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sagrado-coracao-de-jesus-meruri/",
+              "title": "Paróquia Sagrado Coração de Jesus",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Aldeia Nabure eiao",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sagrado-coracao-de-jesus-meruri/",
+              "title": "Paróquia Sagrado Coração de Jesus",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Aldeia Koge Ekureu",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sagrado-coracao-de-jesus-meruri/",
+              "title": "Paróquia Sagrado Coração de Jesus",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Aldeia Meri ore eda",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sagrado-coracao-de-jesus-meruri/",
+              "title": "Paróquia Sagrado Coração de Jesus",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Sagrado Coração de Jesus",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sagrado-coracao-de-jesus-meruri/",
+              "title": "Paróquia Sagrado Coração de Jesus",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Sagrado Coração de Jesus",
+          "dayOfWeek": 1,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sagrado-coracao-de-jesus-meruri/",
+              "title": "Paróquia Sagrado Coração de Jesus",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Sagrado Coração de Jesus",
+          "dayOfWeek": 2,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sagrado-coracao-de-jesus-meruri/",
+              "title": "Paróquia Sagrado Coração de Jesus",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Sagrado Coração de Jesus",
+          "dayOfWeek": 3,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sagrado-coracao-de-jesus-meruri/",
+              "title": "Paróquia Sagrado Coração de Jesus",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Sagrado Coração de Jesus",
+          "dayOfWeek": 4,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sagrado-coracao-de-jesus-meruri/",
+              "title": "Paróquia Sagrado Coração de Jesus",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Sagrado Coração de Jesus",
+          "dayOfWeek": 5,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sagrado-coracao-de-jesus-meruri/",
+              "title": "Paróquia Sagrado Coração de Jesus",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Sagrado Coração de Jesus",
+          "dayOfWeek": 6,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sagrado-coracao-de-jesus-meruri/",
+              "title": "Paróquia Sagrado Coração de Jesus",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Comunidade Nossa Senhora Aparecida – Paredão Grande",
+          "dayOfWeek": 6,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sagrado-coracao-de-jesus-meruri/",
+              "title": "Paróquia Sagrado Coração de Jesus",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-das-gracas-nova-xavantina",
+      "name": "Paróquia Nossa Senhora das Graças",
+      "city": "Nova Xavantina",
+      "state": "MT",
+      "neighborhood": "Centro",
+      "address": "Rua Leonardo Vilas Boas, 251 – Centro",
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesebarradogarcas.org.br/paroquias/",
+          "title": "Diocese de Barra do Garças — Paróquias (lista oficial)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesebarradogarcas.org.br/paroquia-sao-sebastiao/",
+          "title": "Diocese de Barra do Garças — Paróquia São Sebastião (Nova Xavantina), com a grade do Santuário N. Sra. das Graças",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesebarradogarcas.org.br/wp-json/wp/v2/horarios-das-missas?per_page=100",
+          "title": "Diocese de Barra do Garças — API WordPress do tipo \"Horários das missas\" (85 comunidades, taxonomia \"paroquias\", modificadas jul/ago 2026)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora das Graças",
+          "address": "Rua Leonardo Vilas Boas, 251",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-sebastiao/",
+              "title": "Diocese de Barra do Garças — Paróquia São Sebastião (Nova Xavantina), com a grade do Santuário N. Sra. das Graças",
+              "accessedAt": "2026-09-11"
+            },
+            {
+              "url": "https://diocesebarradogarcas.org.br/wp-json/wp/v2/horarios-das-missas?per_page=100",
+              "title": "Diocese de Barra do Garças — API WordPress do tipo \"Horários das missas\" (85 comunidades, taxonomia \"paroquias\", modificadas jul/ago 2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora Auxiliadora – Xavantina Velha",
+          "address": null,
+          "neighborhood": "Xavantina Velha",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-sebastiao/",
+              "title": "Diocese de Barra do Garças — Paróquia São Sebastião (Nova Xavantina), com a grade do Santuário N. Sra. das Graças",
+              "accessedAt": "2026-09-11"
+            },
+            {
+              "url": "https://diocesebarradogarcas.org.br/wp-json/wp/v2/horarios-das-missas?per_page=100",
+              "title": "Diocese de Barra do Garças — API WordPress do tipo \"Horários das missas\" (85 comunidades, taxonomia \"paroquias\", modificadas jul/ago 2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Capela Bom Jesus – Centro Oeste",
+          "address": null,
+          "neighborhood": "Centro Oeste",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-sebastiao/",
+              "title": "Diocese de Barra do Garças — Paróquia São Sebastião (Nova Xavantina), com a grade do Santuário N. Sra. das Graças",
+              "accessedAt": "2026-09-11"
+            },
+            {
+              "url": "https://diocesebarradogarcas.org.br/wp-json/wp/v2/horarios-das-missas?per_page=100",
+              "title": "Diocese de Barra do Garças — API WordPress do tipo \"Horários das missas\" (85 comunidades, taxonomia \"paroquias\", modificadas jul/ago 2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Capela São José – Bairro Deus é Amor",
+          "address": null,
+          "neighborhood": "Deus é Amor",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-sebastiao/",
+              "title": "Diocese de Barra do Garças — Paróquia São Sebastião (Nova Xavantina), com a grade do Santuário N. Sra. das Graças",
+              "accessedAt": "2026-09-11"
+            },
+            {
+              "url": "https://diocesebarradogarcas.org.br/wp-json/wp/v2/horarios-das-missas?per_page=100",
+              "title": "Diocese de Barra do Garças — API WordPress do tipo \"Horários das missas\" (85 comunidades, taxonomia \"paroquias\", modificadas jul/ago 2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Capela São Cristóvão – Região Vale da Serra",
+          "address": null,
+          "neighborhood": "Vale da Serra",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-sebastiao/",
+              "title": "Diocese de Barra do Garças — Paróquia São Sebastião (Nova Xavantina), com a grade do Santuário N. Sra. das Graças",
+              "accessedAt": "2026-09-11"
+            },
+            {
+              "url": "https://diocesebarradogarcas.org.br/wp-json/wp/v2/horarios-das-missas?per_page=100",
+              "title": "Diocese de Barra do Garças — API WordPress do tipo \"Horários das missas\" (85 comunidades, taxonomia \"paroquias\", modificadas jul/ago 2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Capela São Pedro – Região Indianópolis",
+          "address": null,
+          "neighborhood": "Indianópolis",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-sebastiao/",
+              "title": "Diocese de Barra do Garças — Paróquia São Sebastião (Nova Xavantina), com a grade do Santuário N. Sra. das Graças",
+              "accessedAt": "2026-09-11"
+            },
+            {
+              "url": "https://diocesebarradogarcas.org.br/wp-json/wp/v2/horarios-das-missas?per_page=100",
+              "title": "Diocese de Barra do Garças — API WordPress do tipo \"Horários das missas\" (85 comunidades, taxonomia \"paroquias\", modificadas jul/ago 2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Comunidades Rurais",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/wp-json/wp/v2/horarios-das-missas?per_page=100",
+              "title": "Diocese de Barra do Garças — API WordPress do tipo \"Horários das missas\" (85 comunidades, taxonomia \"paroquias\", modificadas jul/ago 2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora das Graças",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-sebastiao/",
+              "title": "Diocese de Barra do Garças — Paróquia São Sebastião (Nova Xavantina), com a grade do Santuário N. Sra. das Graças",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora das Graças",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-sebastiao/",
+              "title": "Diocese de Barra do Garças — Paróquia São Sebastião (Nova Xavantina), com a grade do Santuário N. Sra. das Graças",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora das Graças",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-sebastiao/",
+              "title": "Diocese de Barra do Garças — Paróquia São Sebastião (Nova Xavantina), com a grade do Santuário N. Sra. das Graças",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Capela Nossa Senhora Auxiliadora – Xavantina Velha",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-sebastiao/",
+              "title": "Diocese de Barra do Garças — Paróquia São Sebastião (Nova Xavantina), com a grade do Santuário N. Sra. das Graças",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Capela Bom Jesus – Centro Oeste",
+          "dayOfWeek": 6,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-sebastiao/",
+              "title": "Diocese de Barra do Garças — Paróquia São Sebastião (Nova Xavantina), com a grade do Santuário N. Sra. das Graças",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Capela São José – Bairro Deus é Amor",
+          "dayOfWeek": 0,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-sebastiao/",
+              "title": "Diocese de Barra do Garças — Paróquia São Sebastião (Nova Xavantina), com a grade do Santuário N. Sra. das Graças",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Capela São Cristóvão – Região Vale da Serra",
+          "dayOfWeek": 0,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": "Recorrência mensal: 2º e 4º domingo do mês. O MassSchedule só guarda dia da semana; carregar exige modelagem de recorrência.",
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-sebastiao/",
+              "title": "Diocese de Barra do Garças — Paróquia São Sebastião (Nova Xavantina), com a grade do Santuário N. Sra. das Graças",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Capela São Pedro – Região Indianópolis",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Recorrência mensal: 2º e 4º sábado do mês. O MassSchedule só guarda dia da semana; carregar exige modelagem de recorrência.",
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-sebastiao/",
+              "title": "Diocese de Barra do Garças — Paróquia São Sebastião (Nova Xavantina), com a grade do Santuário N. Sra. das Graças",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "sao-sebastiao-nova-xavantina",
+      "name": "Paróquia São Sebastião",
+      "city": "Nova Xavantina",
+      "state": "MT",
+      "neighborhood": null,
+      "address": "Rua São Luiz",
+      "zipCode": null,
+      "phone": "(66) 3438-1508",
+      "email": "capela_s@hotmail.com",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesebarradogarcas.org.br/paroquias/",
+          "title": "Diocese de Barra do Garças — Paróquias (lista oficial)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesebarradogarcas.org.br/paroquia-sao-sebastiao/",
+          "title": "Diocese de Barra do Garças — Paróquia São Sebastião",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesebarradogarcas.org.br/wp-json/wp/v2/horarios-das-missas?per_page=100",
+          "title": "Diocese de Barra do Garças — API WordPress do tipo \"Horários das missas\" (85 comunidades, taxonomia \"paroquias\", modificadas jul/ago 2026)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Sebastião",
+          "address": "Rua São Luiz",
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-sebastiao/",
+              "title": "Paróquia São Sebastião",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Miguel Arcanjo – Bairro Tonetto",
+          "address": "Rua Araras",
+          "neighborhood": "Tonetto",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-sebastiao/",
+              "title": "Paróquia São Sebastião",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora da Guia – Jardim Tropical",
+          "address": null,
+          "neighborhood": "Jardim Tropical",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-sebastiao/",
+              "title": "Paróquia São Sebastião",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora Aparecida – Bairro Estilac",
+          "address": null,
+          "neighborhood": "Estilac",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-sebastiao/",
+              "title": "Paróquia São Sebastião",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nossa Senhora Aparecida – Fazenda Nova Viena",
+          "address": null,
+          "neighborhood": "Fazenda Nova Viena",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-sebastiao/",
+              "title": "Paróquia São Sebastião",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São João Batista – Região do Piaus",
+          "address": null,
+          "neighborhood": "Região do Piaus",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-sebastiao/",
+              "title": "Paróquia São Sebastião",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nossa Senhora de Fátima – Região Banco da Terra",
+          "address": null,
+          "neighborhood": "Banco da Terra",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-sebastiao/",
+              "title": "Paróquia São Sebastião",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nossa Senhora Aparecida – Fazenda Jaó",
+          "address": null,
+          "neighborhood": "Fazenda Jaó",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-sebastiao/",
+              "title": "Paróquia São Sebastião",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Divino Pai Eterno – Região Rancho Amigo",
+          "address": null,
+          "neighborhood": "Rancho Amigo",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-sebastiao/",
+              "title": "Paróquia São Sebastião",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora do Perpétuo Socorro – Região Rancho Amigo",
+          "address": null,
+          "neighborhood": "Rancho Amigo",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-sebastiao/",
+              "title": "Paróquia São Sebastião",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora Aparecida – Região P.A. Safra",
+          "address": null,
+          "neighborhood": "P.A. Safra",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-sebastiao/",
+              "title": "Paróquia São Sebastião",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Paulo Apóstolo – Região P.A. Safra",
+          "address": null,
+          "neighborhood": "P.A. Safra",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-sebastiao/",
+              "title": "Paróquia São Sebastião",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Bom Jesus – Vila Canaã do Leste",
+          "address": null,
+          "neighborhood": "Vila Canaã do Leste / P.A. Safra",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-sebastiao/",
+              "title": "Paróquia São Sebastião",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nossa Senhora Aparecida – Região Marimbondo",
+          "address": null,
+          "neighborhood": "Marimbondo",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-sebastiao/",
+              "title": "Paróquia São Sebastião",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Santo Antônio – Região Cachoeira",
+          "address": null,
+          "neighborhood": "Região Cachoeira",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-sebastiao/",
+              "title": "Paróquia São Sebastião",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidades rurais",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/wp-json/wp/v2/horarios-das-missas?per_page=100",
+              "title": "Diocese de Barra do Garças — API WordPress do tipo \"Horários das missas\" (85 comunidades, taxonomia \"paroquias\", modificadas jul/ago 2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-sebastiao/",
+              "title": "Paróquia São Sebastião",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 5,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Recorrência mensal: 1ª sexta-feira do mês. O MassSchedule só guarda dia da semana; carregar exige modelagem de recorrência.",
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-sebastiao/",
+              "title": "Paróquia São Sebastião",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-sebastiao/",
+              "title": "Paróquia São Sebastião",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-sebastiao/",
+              "title": "Paróquia São Sebastião",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Capela São Miguel Arcanjo – Bairro Tonetto",
+          "dayOfWeek": 2,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-sebastiao/",
+              "title": "Paróquia São Sebastião",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Capela Nossa Senhora da Guia – Jardim Tropical",
+          "dayOfWeek": 2,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-sebastiao/",
+              "title": "Paróquia São Sebastião",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Capela Nossa Senhora Aparecida – Bairro Estilac",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-sebastiao/",
+              "title": "Paróquia São Sebastião",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Comunidade Nossa Senhora Aparecida – Fazenda Nova Viena",
+          "dayOfWeek": 4,
+          "time": "07:30",
+          "type": "MASS",
+          "notes": "Recorrência mensal: 1ª quinta-feira do mês. O MassSchedule só guarda dia da semana; carregar exige modelagem de recorrência.",
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-sebastiao/",
+              "title": "Paróquia São Sebastião",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Capela São João Batista – Região do Piaus",
+          "dayOfWeek": 5,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": "Recorrência mensal: 2ª sexta-feira do mês. O MassSchedule só guarda dia da semana; carregar exige modelagem de recorrência.",
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-sebastiao/",
+              "title": "Paróquia São Sebastião",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Nossa Senhora de Fátima – Região Banco da Terra",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Recorrência mensal: 3ª sexta-feira do mês. O MassSchedule só guarda dia da semana; carregar exige modelagem de recorrência.",
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-sebastiao/",
+              "title": "Paróquia São Sebastião",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Nossa Senhora Aparecida – Fazenda Jaó",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Recorrência mensal: 4ª sexta-feira do mês. O MassSchedule só guarda dia da semana; carregar exige modelagem de recorrência.",
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-sebastiao/",
+              "title": "Paróquia São Sebastião",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Capela Divino Pai Eterno – Região Rancho Amigo",
+          "dayOfWeek": 6,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": "Recorrência mensal: 1º sábado do mês. O MassSchedule só guarda dia da semana; carregar exige modelagem de recorrência.",
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-sebastiao/",
+              "title": "Paróquia São Sebastião",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Capela Nossa Senhora do Perpétuo Socorro – Região Rancho Amigo",
+          "dayOfWeek": 6,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": "Recorrência mensal: 1º sábado do mês. O MassSchedule só guarda dia da semana; carregar exige modelagem de recorrência.",
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-sebastiao/",
+              "title": "Paróquia São Sebastião",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Capela Nossa Senhora Aparecida – Região P.A. Safra",
+          "dayOfWeek": 6,
+          "time": "10:00",
+          "type": "MASS",
+          "notes": "Recorrência mensal: 3º sábado do mês. O MassSchedule só guarda dia da semana; carregar exige modelagem de recorrência.",
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-sebastiao/",
+              "title": "Paróquia São Sebastião",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Capela São Paulo Apóstolo – Região P.A. Safra",
+          "dayOfWeek": 6,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": "Recorrência mensal: 3º sábado do mês. O MassSchedule só guarda dia da semana; carregar exige modelagem de recorrência.",
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-sebastiao/",
+              "title": "Paróquia São Sebastião",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Capela Bom Jesus – Vila Canaã do Leste",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Recorrência mensal: 3º sábado do mês. O MassSchedule só guarda dia da semana; carregar exige modelagem de recorrência.",
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-sebastiao/",
+              "title": "Paróquia São Sebastião",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Nossa Senhora Aparecida – Região Marimbondo",
+          "dayOfWeek": 0,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": "Recorrência mensal: 1º domingo do mês. O MassSchedule só guarda dia da semana; carregar exige modelagem de recorrência.",
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-sebastiao/",
+              "title": "Paróquia São Sebastião",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Capela Santo Antônio – Região Cachoeira",
+          "dayOfWeek": 0,
+          "time": "10:00",
+          "type": "MASS",
+          "notes": "Recorrência mensal: 3º domingo do mês. O MassSchedule só guarda dia da semana; carregar exige modelagem de recorrência.",
+          "sources": [
+            {
+              "url": "https://diocesebarradogarcas.org.br/paroquia-sao-sebastiao/",
+              "title": "Paróquia São Sebastião",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "sao-jose-general-carneiro",
+      "name": "Paróquia São José",
+      "city": "General Carneiro",
+      "state": "MT",
+      "neighborhood": "Sangradouro",
+      "address": null,
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesebarradogarcas.org.br/paroquias/",
+          "title": "Diocese de Barra do Garças — Paróquias (lista oficial)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-domingos-savio-nova-xavantina",
+      "name": "Paróquia São Domingos Sávio",
+      "city": "Nova Xavantina",
+      "state": "MT",
+      "neighborhood": null,
+      "address": null,
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesebarradogarcas.org.br/paroquias/",
+          "title": "Diocese de Barra do Garças — Paróquias (lista oficial)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": []
+    }
+  ],
+  "coverage": {
+    "parishesFound": 20,
+    "parishesExpected": 20,
+    "notes": "A página oficial /paroquias/ exibe 21 cartões, mas \"Paróquia Nossa Senhora Auxiliadora — Barra do Garças\" aparece duas vezes: são 20 paróquias distintas. gcatholic.org registra 20 paróquias (estatística de 31/12/2022) — bate exatamente. catholic-hierarchy.org registra 30 para 2022, divergência não resolvida (provavelmente conta quase-paróquias/áreas pastorais). 18 das 20 têm endereço, telefone e grade de missas vindos das fichas oficiais da diocese; faltam ficha e horário de \"Paróquia São José\" (Sangradouro/General Carneiro) e \"Paróquia São Domingos Sávio\" (paróquia pessoal do povo Xavante, Nova Xavantina)."
+  }
+}

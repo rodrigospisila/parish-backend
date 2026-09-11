@@ -1,0 +1,3230 @@
+{
+ "diocese": {
+  "name": "Diocese de Corumbá",
+  "type": "Diocese",
+  "slug": "corumba",
+  "city": "Corumbá",
+  "state": "MS",
+  "address": "Rua Major Gama, 1332 – Centro",
+  "zipCode": "79332-040",
+  "phone": "(67) 9 9254-3733",
+  "email": "curiacorumba@terra.com.br",
+  "website": "https://diocesecorumba.org.br",
+  "bishopName": "Dom João Batista de Oliveira, S.V.D.",
+  "sources": [
+   {
+    "url": "https://diocesecorumba.org.br/paroquias/",
+    "title": "Paróquias — Diocese de Santa Cruz de Corumbá (site oficial; custom post type \"paroquia\", 9 fichas)",
+    "accessedAt": "2026-09-11"
+   },
+   {
+    "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+    "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+    "accessedAt": "2026-09-11"
+   },
+   {
+    "url": "https://pt.wikipedia.org/wiki/Diocese_de_Corumb%C3%A1",
+    "title": "Diocese de Corumbá — Wikipédia: nome oficial 'Diocese de Santa Cruz de Corumbá'; 9 paróquias em 1 forania; municípios de Corumbá e Ladário; 65.303 km²; criada em 10/03/1910; Dom João Batista de Oliveira, S.V.D. (desde 2024)",
+    "accessedAt": "2026-09-11"
+   },
+   {
+    "url": "https://catholic-hierarchy.org/diocese/dcoru.html",
+    "title": "Corumbá (Diocese) [Catholic-Hierarchy]",
+    "accessedAt": "2026-09-11"
+   }
+  ],
+  "confidence": "alta"
+ },
+ "parishes": [
+  {
+   "slug": "capela-naval-cristo-redentor-corumba",
+   "name": "Capela Naval Cristo Redentor",
+   "city": "Corumbá",
+   "state": "MS",
+   "neighborhood": null,
+   "address": null,
+   "zipCode": null,
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "forania": "Forania de Corumbá",
+   "notes": "Capela naval da Marinha do Brasil (6º Distrito Naval), em Corumbá; a diocese publica missa fixa de domingo.",
+   "sources": [
+    {
+     "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+     "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "status": "nao-paroquial",
+   "loadAsParish": true,
+   "communities": [
+    {
+     "name": "Capela Naval Cristo Redentor",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Capela Naval Cristo Redentor",
+     "dayOfWeek": 0,
+     "time": "10:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ]
+  },
+  {
+   "slug": "capelania-asilo-sao-jose-corumba",
+   "name": "Capelania Asilo São José",
+   "city": "Corumbá",
+   "state": "MS",
+   "neighborhood": null,
+   "address": null,
+   "zipCode": null,
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "forania": "Forania de Corumbá",
+   "notes": "Capelania do Asilo São José, em Corumbá; a diocese publica missa fixa semanal.",
+   "sources": [
+    {
+     "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+     "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "status": "nao-paroquial",
+   "loadAsParish": true,
+   "communities": [
+    {
+     "name": "Capelania Asilo São José",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Capelania Asilo São José",
+     "dayOfWeek": 4,
+     "time": "14:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ]
+  },
+  {
+   "slug": "capelania-hospital-santa-casa-corumba",
+   "name": "Capelania Hospital Santa Casa",
+   "city": "Corumbá",
+   "state": "MS",
+   "neighborhood": null,
+   "address": null,
+   "zipCode": null,
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "forania": "Forania de Corumbá",
+   "notes": "Capelania da Santa Casa de Corumbá; a diocese publica missa fixa semanal (a grade diocesana traz 'Quinta-feia', erro de digitação de 'Quinta-feira').",
+   "sources": [
+    {
+     "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+     "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "status": "nao-paroquial",
+   "loadAsParish": true,
+   "communities": [
+    {
+     "name": "Capelania Hospital Santa Casa",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Capelania Hospital Santa Casa",
+     "dayOfWeek": 4,
+     "time": "16:00",
+     "type": "MASS",
+     "notes": "A grade diocesana publica o dia como \"Quinta-feia\" (erro de digitação de \"Quinta-feira\")",
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-da-candelaria-corumba",
+   "name": "Catedral Nossa Senhora da Candelária",
+   "city": "Corumbá",
+   "state": "MS",
+   "neighborhood": "Centro",
+   "address": "Praça da República, 01 - Centro",
+   "zipCode": null,
+   "phone": "(67) 3232-3459 | (67) 99831-9834",
+   "email": "pnossasenhoradacandelaria@gmail.com",
+   "website": null,
+   "priestName": "Padre Júlio Cesar Silva Mônaco",
+   "foundedYear": 1887,
+   "forania": "Forania de Corumbá",
+   "notes": "Criação segundo o site da diocese: 04/10/1887. Clero publicado: Diácono Jeferson Domingos da Fonseca (Diácono Colaborador); Padre Júlio Cesar Silva Mônaco (Pároco). A grade de horários desta paróquia (custom post type horario-missa) foi editada pela diocese em 2026-08-10.",
+   "sources": [
+    {
+     "url": "https://diocesecorumba.org.br/paroquia/paroquia-nossa-senhora-da-candelaria-catedral/",
+     "title": "Paróquia Catedral Nossa Senhora da Candelária — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2025-04-01)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://diocesecorumba.org.br/paroquias/",
+     "title": "Paróquias — Diocese de Santa Cruz de Corumbá (site oficial; custom post type \"paroquia\", 9 fichas)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+     "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Catedral Nossa Senhora da Candelária",
+     "address": "Praça da República, 01 - Centro",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-nossa-senhora-da-candelaria-catedral/",
+       "title": "Paróquia Catedral Nossa Senhora da Candelária — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2025-04-01)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Comunidade Nossa Senhora Aparecida",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-nossa-senhora-da-candelaria-catedral/",
+       "title": "Paróquia Catedral Nossa Senhora da Candelária — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2025-04-01)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Comunidade São Benedito",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-nossa-senhora-da-candelaria-catedral/",
+       "title": "Paróquia Catedral Nossa Senhora da Candelária — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2025-04-01)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Comunidade Imaculada Conceição (Cenic)",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-nossa-senhora-da-candelaria-catedral/",
+       "title": "Paróquia Catedral Nossa Senhora da Candelária — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2025-04-01)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Catedral Nossa Senhora da Candelária",
+     "dayOfWeek": 0,
+     "time": "09:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-nossa-senhora-da-candelaria-catedral/",
+       "title": "Paróquia Catedral Nossa Senhora da Candelária — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2025-04-01)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Catedral Nossa Senhora da Candelária",
+     "dayOfWeek": 0,
+     "time": "10:00",
+     "type": "MASS",
+     "notes": "Com. Nossa Senhora de Caacupé (local: Catedral)",
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-nossa-senhora-da-candelaria-catedral/",
+       "title": "Paróquia Catedral Nossa Senhora da Candelária — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2025-04-01)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Catedral Nossa Senhora da Candelária",
+     "dayOfWeek": 0,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-nossa-senhora-da-candelaria-catedral/",
+       "title": "Paróquia Catedral Nossa Senhora da Candelária — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2025-04-01)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Catedral Nossa Senhora da Candelária",
+     "dayOfWeek": 1,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-nossa-senhora-da-candelaria-catedral/",
+       "title": "Paróquia Catedral Nossa Senhora da Candelária — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2025-04-01)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Catedral Nossa Senhora da Candelária",
+     "dayOfWeek": 2,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-nossa-senhora-da-candelaria-catedral/",
+       "title": "Paróquia Catedral Nossa Senhora da Candelária — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2025-04-01)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Catedral Nossa Senhora da Candelária",
+     "dayOfWeek": 3,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-nossa-senhora-da-candelaria-catedral/",
+       "title": "Paróquia Catedral Nossa Senhora da Candelária — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2025-04-01)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Catedral Nossa Senhora da Candelária",
+     "dayOfWeek": 4,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-nossa-senhora-da-candelaria-catedral/",
+       "title": "Paróquia Catedral Nossa Senhora da Candelária — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2025-04-01)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Catedral Nossa Senhora da Candelária",
+     "dayOfWeek": 5,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-nossa-senhora-da-candelaria-catedral/",
+       "title": "Paróquia Catedral Nossa Senhora da Candelária — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2025-04-01)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Catedral Nossa Senhora da Candelária",
+     "dayOfWeek": 6,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-nossa-senhora-da-candelaria-catedral/",
+       "title": "Paróquia Catedral Nossa Senhora da Candelária — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2025-04-01)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Comunidade Nossa Senhora Aparecida",
+     "dayOfWeek": 2,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-nossa-senhora-da-candelaria-catedral/",
+       "title": "Paróquia Catedral Nossa Senhora da Candelária — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2025-04-01)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Comunidade Nossa Senhora Aparecida",
+     "dayOfWeek": 0,
+     "time": "08:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-nossa-senhora-da-candelaria-catedral/",
+       "title": "Paróquia Catedral Nossa Senhora da Candelária — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2025-04-01)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Comunidade São Benedito",
+     "dayOfWeek": 5,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-nossa-senhora-da-candelaria-catedral/",
+       "title": "Paróquia Catedral Nossa Senhora da Candelária — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2025-04-01)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Comunidade São Benedito",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-nossa-senhora-da-candelaria-catedral/",
+       "title": "Paróquia Catedral Nossa Senhora da Candelária — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2025-04-01)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Comunidade Imaculada Conceição (Cenic)",
+     "dayOfWeek": 0,
+     "time": "10:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-nossa-senhora-da-candelaria-catedral/",
+       "title": "Paróquia Catedral Nossa Senhora da Candelária — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2025-04-01)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ]
+  },
+  {
+   "slug": "imaculada-conceicao-corumba",
+   "name": "Paróquia Imaculada Conceição",
+   "city": "Corumbá",
+   "state": "MS",
+   "neighborhood": "Distrito de Albuquerque",
+   "address": "Distrito de Albuquerque",
+   "zipCode": null,
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Padre Adimir Brito Calonga",
+   "foundedYear": 2009,
+   "forania": "Forania de Corumbá",
+   "notes": "Sede no distrito de Albuquerque, a 70 km da sede de Corumbá, no Pantanal; atende comunidades ribeirinhas e rurais com missa mensal. Criação segundo o site da diocese: 08/12/2009. Clero publicado: Padre Adimir Brito Calonga (Pároco). A grade de horários desta paróquia (custom post type horario-missa) foi editada pela diocese em 2025-04-01.",
+   "sources": [
+    {
+     "url": "https://diocesecorumba.org.br/paroquia/paroquia-imaculada-conceicao-de-maria/",
+     "title": "Paróquia Imaculada Conceição – Albuquerque — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2025-04-01)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://diocesecorumba.org.br/paroquias/",
+     "title": "Paróquias — Diocese de Santa Cruz de Corumbá (site oficial; custom post type \"paroquia\", 9 fichas)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+     "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Imaculada Conceição",
+     "address": "Distrito de Albuquerque",
+     "neighborhood": "Distrito de Albuquerque",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-imaculada-conceicao-de-maria/",
+       "title": "Paróquia Imaculada Conceição – Albuquerque — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2025-04-01)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Comunidade São Francisco de Assis - URUCUM",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-imaculada-conceicao-de-maria/",
+       "title": "Paróquia Imaculada Conceição – Albuquerque — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2025-04-01)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Comunidade Santo Antônio - Porto Esperança",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-imaculada-conceicao-de-maria/",
+       "title": "Paróquia Imaculada Conceição – Albuquerque — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2025-04-01)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Comunidade Nossa Senhora Aparecida - Mato Grande",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-imaculada-conceicao-de-maria/",
+       "title": "Paróquia Imaculada Conceição – Albuquerque — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2025-04-01)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Comunidade Divino Espírito Santo - Mato Grande",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-imaculada-conceicao-de-maria/",
+       "title": "Paróquia Imaculada Conceição – Albuquerque — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2025-04-01)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Comunidade São Gabriel (Sr Ney)",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-imaculada-conceicao-de-maria/",
+       "title": "Paróquia Imaculada Conceição – Albuquerque — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2025-04-01)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Comunidade São Gabriel (Dona Vera)",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-imaculada-conceicao-de-maria/",
+       "title": "Paróquia Imaculada Conceição – Albuquerque — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2025-04-01)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Imaculada Conceição",
+     "dayOfWeek": 0,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-imaculada-conceicao-de-maria/",
+       "title": "Paróquia Imaculada Conceição – Albuquerque — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2025-04-01)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Imaculada Conceição",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-imaculada-conceicao-de-maria/",
+       "title": "Paróquia Imaculada Conceição – Albuquerque — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2025-04-01)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Comunidade São Francisco de Assis - URUCUM",
+     "dayOfWeek": 0,
+     "time": "10:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-imaculada-conceicao-de-maria/",
+       "title": "Paróquia Imaculada Conceição – Albuquerque — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2025-04-01)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Comunidade Santo Antônio - Porto Esperança",
+     "dayOfWeek": 6,
+     "time": "15:00",
+     "type": "MASS",
+     "notes": "Recorrência mensal publicada pela diocese: \"1º Sábado do Mês\"",
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-imaculada-conceicao-de-maria/",
+       "title": "Paróquia Imaculada Conceição – Albuquerque — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2025-04-01)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Comunidade Nossa Senhora Aparecida - Mato Grande",
+     "dayOfWeek": 6,
+     "time": "15:00",
+     "type": "MASS",
+     "notes": "Recorrência mensal publicada pela diocese: \"3º Sábado do Mês\"",
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-imaculada-conceicao-de-maria/",
+       "title": "Paróquia Imaculada Conceição – Albuquerque — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2025-04-01)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Comunidade Divino Espírito Santo - Mato Grande",
+     "dayOfWeek": 6,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "Recorrência mensal publicada pela diocese: \"3° Sábado do Mês\"",
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-imaculada-conceicao-de-maria/",
+       "title": "Paróquia Imaculada Conceição – Albuquerque — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2025-04-01)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Comunidade São Gabriel (Sr Ney)",
+     "dayOfWeek": 6,
+     "time": "15:00",
+     "type": "MASS",
+     "notes": "Recorrência mensal publicada pela diocese: \"4° Sábado do Mês\"",
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-imaculada-conceicao-de-maria/",
+       "title": "Paróquia Imaculada Conceição – Albuquerque — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2025-04-01)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Comunidade São Gabriel (Dona Vera)",
+     "dayOfWeek": 6,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": "Recorrência mensal publicada pela diocese: \"4° Sábado do Mês\"",
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-imaculada-conceicao-de-maria/",
+       "title": "Paróquia Imaculada Conceição – Albuquerque — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2025-04-01)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-de-fatima-corumba",
+   "name": "Paróquia Nossa Senhora de Fátima",
+   "city": "Corumbá",
+   "state": "MS",
+   "neighborhood": "Nossa Senhora de Fátima",
+   "address": "R. Vinte Um de Setembro, 2405 - Nossa Sra. de Fátima, Corumbá - MS, 79331-090",
+   "zipCode": "79331-090",
+   "phone": "(67) 3233-3655",
+   "email": null,
+   "website": null,
+   "priestName": "Padre Anselmo Cristofori C.S.",
+   "foundedYear": null,
+   "forania": "Forania de Corumbá",
+   "notes": "Clero publicado: Padre Anselmo Cristofori C.S. (Pároco); Padre Antônio Garcia Peres Neto C.S. (Vigário). A grade de horários desta paróquia (custom post type horario-missa) foi editada pela diocese em 2026-08-10.",
+   "sources": [
+    {
+     "url": "https://diocesecorumba.org.br/paroquia/paroquia-nossa-senhora-de-fatima/",
+     "title": "Paróquia Nossa Senhora de Fátima — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-12-03)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://diocesecorumba.org.br/paroquias/",
+     "title": "Paróquias — Diocese de Santa Cruz de Corumbá (site oficial; custom post type \"paroquia\", 9 fichas)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+     "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora de Fátima",
+     "address": "R. Vinte Um de Setembro, 2405 - Nossa Sra. de Fátima, Corumbá - MS, 79331-090",
+     "neighborhood": "Nossa Senhora de Fátima",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-nossa-senhora-de-fatima/",
+       "title": "Paróquia Nossa Senhora de Fátima — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-12-03)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Comunidade Menino Jesus",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-nossa-senhora-de-fatima/",
+       "title": "Paróquia Nossa Senhora de Fátima — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-12-03)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Comunidade Nossa Senhora do Carmo",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-nossa-senhora-de-fatima/",
+       "title": "Paróquia Nossa Senhora de Fátima — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-12-03)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Comunidade São Tiago Apóstolo",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-nossa-senhora-de-fatima/",
+       "title": "Paróquia Nossa Senhora de Fátima — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-12-03)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Comunidade Cristo Redentor",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-nossa-senhora-de-fatima/",
+       "title": "Paróquia Nossa Senhora de Fátima — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-12-03)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Comunidade Santa Luzia",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-nossa-senhora-de-fatima/",
+       "title": "Paróquia Nossa Senhora de Fátima — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-12-03)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Comunidade São Francisco de Assis",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-nossa-senhora-de-fatima/",
+       "title": "Paróquia Nossa Senhora de Fátima — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-12-03)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Comunidade Santa Dulce dos Pobres",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-nossa-senhora-de-fatima/",
+       "title": "Paróquia Nossa Senhora de Fátima — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-12-03)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Nossa Senhora de Fátima",
+     "dayOfWeek": 0,
+     "time": "07:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-nossa-senhora-de-fatima/",
+       "title": "Paróquia Nossa Senhora de Fátima — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-12-03)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Nossa Senhora de Fátima",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-nossa-senhora-de-fatima/",
+       "title": "Paróquia Nossa Senhora de Fátima — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-12-03)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Nossa Senhora de Fátima",
+     "dayOfWeek": 1,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-nossa-senhora-de-fatima/",
+       "title": "Paróquia Nossa Senhora de Fátima — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-12-03)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Nossa Senhora de Fátima",
+     "dayOfWeek": 2,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-nossa-senhora-de-fatima/",
+       "title": "Paróquia Nossa Senhora de Fátima — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-12-03)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Nossa Senhora de Fátima",
+     "dayOfWeek": 3,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-nossa-senhora-de-fatima/",
+       "title": "Paróquia Nossa Senhora de Fátima — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-12-03)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Nossa Senhora de Fátima",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-nossa-senhora-de-fatima/",
+       "title": "Paróquia Nossa Senhora de Fátima — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-12-03)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Nossa Senhora de Fátima",
+     "dayOfWeek": 5,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-nossa-senhora-de-fatima/",
+       "title": "Paróquia Nossa Senhora de Fátima — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-12-03)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Comunidade Menino Jesus",
+     "dayOfWeek": 0,
+     "time": "08:45",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-nossa-senhora-de-fatima/",
+       "title": "Paróquia Nossa Senhora de Fátima — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-12-03)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Comunidade Nossa Senhora do Carmo",
+     "dayOfWeek": 0,
+     "time": "09:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-nossa-senhora-de-fatima/",
+       "title": "Paróquia Nossa Senhora de Fátima — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-12-03)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Comunidade São Tiago Apóstolo",
+     "dayOfWeek": 0,
+     "time": "07:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-nossa-senhora-de-fatima/",
+       "title": "Paróquia Nossa Senhora de Fátima — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-12-03)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Comunidade Cristo Redentor",
+     "dayOfWeek": 0,
+     "time": "07:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-nossa-senhora-de-fatima/",
+       "title": "Paróquia Nossa Senhora de Fátima — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-12-03)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Comunidade Cristo Redentor",
+     "dayOfWeek": 0,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-nossa-senhora-de-fatima/",
+       "title": "Paróquia Nossa Senhora de Fátima — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-12-03)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Comunidade Santa Luzia",
+     "dayOfWeek": 6,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-nossa-senhora-de-fatima/",
+       "title": "Paróquia Nossa Senhora de Fátima — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-12-03)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Comunidade São Francisco de Assis",
+     "dayOfWeek": 6,
+     "time": "17:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-nossa-senhora-de-fatima/",
+       "title": "Paróquia Nossa Senhora de Fátima — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-12-03)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Comunidade Santa Dulce dos Pobres",
+     "dayOfWeek": 6,
+     "time": "16:30",
+     "type": "MASS",
+     "notes": "Recorrência mensal publicada pela diocese: \"2º e 4º – Sábado do mês\"",
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-nossa-senhora-de-fatima/",
+       "title": "Paróquia Nossa Senhora de Fátima — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-12-03)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "sagrado-coracao-de-jesus-corumba",
+   "name": "Paróquia Sagrado Coração de Jesus",
+   "city": "Corumbá",
+   "state": "MS",
+   "neighborhood": "Aeroporto",
+   "address": "Rua Major Gama 1300 - Aeroporto, Corumbá - MS, 79332-040",
+   "zipCode": "79332-040",
+   "phone": "(67) 3231 3709",
+   "email": "paroquiasagradocoracaodejesus@hotmail.com.br",
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "forania": "Forania de Corumbá",
+   "notes": "O site publica 'Nenhum resultado encontrado' no bloco de clero desta paróquia; a ficha da Paróquia São José Operário informa que Pe. Celso Ricardo da Silva é 'Pároco Sagrado Coração e Administrador São José Operário'. A grade de horários desta paróquia (custom post type horario-missa) foi editada pela diocese em 2026-09-03.",
+   "sources": [
+    {
+     "url": "https://diocesecorumba.org.br/paroquia/paroquia-sagrado-coracao-de-jesus/",
+     "title": "Paróquia Sagrado Coração De Jesus — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-11-22)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://diocesecorumba.org.br/paroquias/",
+     "title": "Paróquias — Diocese de Santa Cruz de Corumbá (site oficial; custom post type \"paroquia\", 9 fichas)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+     "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Sagrado Coração de Jesus",
+     "address": "Rua Major Gama 1300 - Aeroporto, Corumbá - MS, 79332-040",
+     "neighborhood": "Aeroporto",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-sagrado-coracao-de-jesus/",
+       "title": "Paróquia Sagrado Coração De Jesus — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-11-22)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Comunidade Santa Teresinha do Menino Jesus",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-sagrado-coracao-de-jesus/",
+       "title": "Paróquia Sagrado Coração De Jesus — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-11-22)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Sagrado Coração de Jesus",
+     "dayOfWeek": 4,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-sagrado-coracao-de-jesus/",
+       "title": "Paróquia Sagrado Coração De Jesus — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-11-22)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Sagrado Coração de Jesus",
+     "dayOfWeek": 5,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-sagrado-coracao-de-jesus/",
+       "title": "Paróquia Sagrado Coração De Jesus — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-11-22)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Sagrado Coração de Jesus",
+     "dayOfWeek": 6,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-sagrado-coracao-de-jesus/",
+       "title": "Paróquia Sagrado Coração De Jesus — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-11-22)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Sagrado Coração de Jesus",
+     "dayOfWeek": 0,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-sagrado-coracao-de-jesus/",
+       "title": "Paróquia Sagrado Coração De Jesus — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-11-22)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Sagrado Coração de Jesus",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-sagrado-coracao-de-jesus/",
+       "title": "Paróquia Sagrado Coração De Jesus — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-11-22)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Comunidade Santa Teresinha do Menino Jesus",
+     "dayOfWeek": 1,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-sagrado-coracao-de-jesus/",
+       "title": "Paróquia Sagrado Coração De Jesus — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-11-22)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Comunidade Santa Teresinha do Menino Jesus",
+     "dayOfWeek": 2,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-sagrado-coracao-de-jesus/",
+       "title": "Paróquia Sagrado Coração De Jesus — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-11-22)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ]
+  },
+  {
+   "slug": "sao-bartolomeu-corumba",
+   "name": "Paróquia São Bartolomeu",
+   "city": "Corumbá",
+   "state": "MS",
+   "neighborhood": "Vila Guarani",
+   "address": "R. Marechal Deodoro, lote 01 - Vila Guarani, Corumbá - MS, 79321-220",
+   "zipCode": "79321-220",
+   "phone": "(67) 99153-8507",
+   "email": "saobartolomeucorumba@gmail.com",
+   "website": null,
+   "priestName": "Padre José Luiz Bezerra de Lima Aguiar",
+   "foundedYear": 2013,
+   "forania": "Forania de Corumbá",
+   "notes": "Criação segundo o site da diocese: 2013. Clero publicado: Padre José Luiz Bezerra de Lima Aguiar (Pároco). A grade de horários desta paróquia (custom post type horario-missa) foi editada pela diocese em 2025-04-02.",
+   "sources": [
+    {
+     "url": "https://diocesecorumba.org.br/paroquia/paroquia-sao-bartolomeu/",
+     "title": "Paróquia São Bartolomeu — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-11-22)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://diocesecorumba.org.br/paroquias/",
+     "title": "Paróquias — Diocese de Santa Cruz de Corumbá (site oficial; custom post type \"paroquia\", 9 fichas)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+     "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz São Bartolomeu",
+     "address": "R. Marechal Deodoro, lote 01 - Vila Guarani, Corumbá - MS, 79321-220",
+     "neighborhood": "Vila Guarani",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-sao-bartolomeu/",
+       "title": "Paróquia São Bartolomeu — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-11-22)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Comunidade Nossa Senhora Auxiliadora",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-sao-bartolomeu/",
+       "title": "Paróquia São Bartolomeu — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-11-22)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Comunidade Nossa Senhora das Graças",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-sao-bartolomeu/",
+       "title": "Paróquia São Bartolomeu — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-11-22)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Comunidade Nossa Senhora do Pantanal",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-sao-bartolomeu/",
+       "title": "Paróquia São Bartolomeu — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-11-22)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Comunidade Santa Cruz",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-sao-bartolomeu/",
+       "title": "Paróquia São Bartolomeu — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-11-22)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Comunidade São Gabriel Arcanjo",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-sao-bartolomeu/",
+       "title": "Paróquia São Bartolomeu — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-11-22)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz São Bartolomeu",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-sao-bartolomeu/",
+       "title": "Paróquia São Bartolomeu — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-11-22)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz São Bartolomeu",
+     "dayOfWeek": 0,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-sao-bartolomeu/",
+       "title": "Paróquia São Bartolomeu — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-11-22)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Comunidade Nossa Senhora Auxiliadora",
+     "dayOfWeek": 6,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-sao-bartolomeu/",
+       "title": "Paróquia São Bartolomeu — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-11-22)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Comunidade Nossa Senhora Auxiliadora",
+     "dayOfWeek": 2,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-sao-bartolomeu/",
+       "title": "Paróquia São Bartolomeu — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-11-22)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Comunidade Nossa Senhora das Graças",
+     "dayOfWeek": 6,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-sao-bartolomeu/",
+       "title": "Paróquia São Bartolomeu — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-11-22)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Comunidade Nossa Senhora das Graças",
+     "dayOfWeek": 2,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-sao-bartolomeu/",
+       "title": "Paróquia São Bartolomeu — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-11-22)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Comunidade Nossa Senhora do Pantanal",
+     "dayOfWeek": 0,
+     "time": "09:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-sao-bartolomeu/",
+       "title": "Paróquia São Bartolomeu — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-11-22)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Comunidade Nossa Senhora do Pantanal",
+     "dayOfWeek": 3,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-sao-bartolomeu/",
+       "title": "Paróquia São Bartolomeu — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-11-22)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Comunidade Santa Cruz",
+     "dayOfWeek": 6,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-sao-bartolomeu/",
+       "title": "Paróquia São Bartolomeu — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-11-22)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Comunidade São Gabriel Arcanjo",
+     "dayOfWeek": 0,
+     "time": "09:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-sao-bartolomeu/",
+       "title": "Paróquia São Bartolomeu — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-11-22)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Comunidade São Gabriel Arcanjo",
+     "dayOfWeek": 3,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-sao-bartolomeu/",
+       "title": "Paróquia São Bartolomeu — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-11-22)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "sao-jose-operario-corumba",
+   "name": "Paróquia São José Operário",
+   "city": "Corumbá",
+   "state": "MS",
+   "neighborhood": "Maria Leite",
+   "address": "R. Eugênio Cunha, S/n - Maria Leite, Corumbá - MS, 79310-720",
+   "zipCode": "79310-720",
+   "phone": "(67) 99976-9223",
+   "email": "paroquiasjo@hotmail.com",
+   "website": null,
+   "priestName": "Padre Celso Ricardo da Silva",
+   "foundedYear": 2007,
+   "forania": "Forania de Corumbá",
+   "notes": "Criação segundo o site da diocese: 2007. Clero publicado: Padre Celso Ricardo da Silva (Pároco Sagrado Coração e Administrador São José Operário). Atendimento: Horários de Atendimento da Secretaria: Segunda a sexta-feira, das 8h às 17h30. A grade de horários desta paróquia (custom post type horario-missa) foi editada pela diocese em 2026-09-03.",
+   "sources": [
+    {
+     "url": "https://diocesecorumba.org.br/paroquia/paroquia-sao-jose/",
+     "title": "Paróquia São José Operário — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-11-22)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://diocesecorumba.org.br/paroquias/",
+     "title": "Paróquias — Diocese de Santa Cruz de Corumbá (site oficial; custom post type \"paroquia\", 9 fichas)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+     "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz São José Operário",
+     "address": "R. Eugênio Cunha, S/n - Maria Leite, Corumbá - MS, 79310-720",
+     "neighborhood": "Maria Leite",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-sao-jose/",
+       "title": "Paróquia São José Operário — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-11-22)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Comunidade Nossa Senhora do Perpétuo Socorro",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-sao-jose/",
+       "title": "Paróquia São José Operário — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-11-22)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Comunidade Santo Antônio de Pádua",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-sao-jose/",
+       "title": "Paróquia São José Operário — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-11-22)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Comunidade São Sebastião",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-sao-jose/",
+       "title": "Paróquia São José Operário — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-11-22)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Comunidade São Vicente",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-sao-jose/",
+       "title": "Paróquia São José Operário — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-11-22)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz São José Operário",
+     "dayOfWeek": 0,
+     "time": "06:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-sao-jose/",
+       "title": "Paróquia São José Operário — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-11-22)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz São José Operário",
+     "dayOfWeek": 1,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-sao-jose/",
+       "title": "Paróquia São José Operário — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-11-22)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Comunidade Nossa Senhora do Perpétuo Socorro",
+     "dayOfWeek": 6,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-sao-jose/",
+       "title": "Paróquia São José Operário — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-11-22)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Comunidade Nossa Senhora do Perpétuo Socorro",
+     "dayOfWeek": 0,
+     "time": "08:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-sao-jose/",
+       "title": "Paróquia São José Operário — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-11-22)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Comunidade Nossa Senhora do Perpétuo Socorro",
+     "dayOfWeek": 3,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-sao-jose/",
+       "title": "Paróquia São José Operário — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-11-22)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Comunidade Santo Antônio de Pádua",
+     "dayOfWeek": 0,
+     "time": "09:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-sao-jose/",
+       "title": "Paróquia São José Operário — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-11-22)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Comunidade Santo Antônio de Pádua",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-sao-jose/",
+       "title": "Paróquia São José Operário — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-11-22)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Comunidade São Sebastião",
+     "dayOfWeek": 6,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-sao-jose/",
+       "title": "Paróquia São José Operário — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-11-22)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Comunidade São Sebastião",
+     "dayOfWeek": 0,
+     "time": "10:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-sao-jose/",
+       "title": "Paróquia São José Operário — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-11-22)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Comunidade São Vicente",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-sao-jose/",
+       "title": "Paróquia São José Operário — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-11-22)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Comunidade São Vicente",
+     "dayOfWeek": 2,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-sao-jose/",
+       "title": "Paróquia São José Operário — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-11-22)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ]
+  },
+  {
+   "slug": "sao-joao-bosco-corumba",
+   "name": "Paróquia São João Bosco",
+   "city": "Corumbá",
+   "state": "MS",
+   "neighborhood": "Dom Bosco",
+   "address": "R. Dom Aquino Correa, 2758 - Dom Bosco, Corumbá - MS 79333-070",
+   "zipCode": "79333-070",
+   "phone": "(67) 3231-1727",
+   "email": "paroquiasjbosco@hotmail.com",
+   "website": null,
+   "priestName": "Padre Jair Marques de Araújo, SDB",
+   "foundedYear": null,
+   "forania": "Forania de Corumbá",
+   "notes": "Clero publicado: Padre Jair Marques de Araújo, SDB (Pároco); Padre Eduardo Pereira de Moura, SDB (Vigário). A grade de horários desta paróquia (custom post type horario-missa) foi editada pela diocese em 2026-08-10.",
+   "sources": [
+    {
+     "url": "https://diocesecorumba.org.br/paroquia/paroquia-sao-joao-bosco/",
+     "title": "Paróquia São João Bosco — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2026-08-10)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://diocesecorumba.org.br/paroquias/",
+     "title": "Paróquias — Diocese de Santa Cruz de Corumbá (site oficial; custom post type \"paroquia\", 9 fichas)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+     "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz São João Bosco",
+     "address": "R. Dom Aquino Correa, 2758 - Dom Bosco, Corumbá - MS 79333-070",
+     "neighborhood": "Dom Bosco",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-sao-joao-bosco/",
+       "title": "Paróquia São João Bosco — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2026-08-10)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Comunidade São Pedro",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-sao-joao-bosco/",
+       "title": "Paróquia São João Bosco — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2026-08-10)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Comunidade São Marcos – Tamarineiro II Sul",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-sao-joao-bosco/",
+       "title": "Paróquia São João Bosco — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2026-08-10)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Comunidade Santo Antônio – Taquaral – Agrovila III",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-sao-joao-bosco/",
+       "title": "Paróquia São João Bosco — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2026-08-10)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Comunidade São Paulo – Tamarineiro I",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-sao-joao-bosco/",
+       "title": "Paróquia São João Bosco — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2026-08-10)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Comunidade Bom Jesus – Taquaral – Agrovila II",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-sao-joao-bosco/",
+       "title": "Paróquia São João Bosco — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2026-08-10)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Comunidade Divino Espírito Santo – Tamarineiro I",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-sao-joao-bosco/",
+       "title": "Paróquia São João Bosco — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2026-08-10)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Comunidade Nossa Senhora Fátima – Taquaral",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-sao-joao-bosco/",
+       "title": "Paróquia São João Bosco — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2026-08-10)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Comunidade Santa Luzia – Taquaral – Agrovila II",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-sao-joao-bosco/",
+       "title": "Paróquia São João Bosco — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2026-08-10)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz São João Bosco",
+     "dayOfWeek": 0,
+     "time": "07:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-sao-joao-bosco/",
+       "title": "Paróquia São João Bosco — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2026-08-10)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz São João Bosco",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-sao-joao-bosco/",
+       "title": "Paróquia São João Bosco — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2026-08-10)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Comunidade São Pedro",
+     "dayOfWeek": 0,
+     "time": "07:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-sao-joao-bosco/",
+       "title": "Paróquia São João Bosco — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2026-08-10)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Comunidade São Marcos – Tamarineiro II Sul",
+     "dayOfWeek": 6,
+     "time": "16:00",
+     "type": "MASS",
+     "notes": "Recorrência mensal publicada pela diocese: \"1º e 3º – Sábado - mês\"",
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-sao-joao-bosco/",
+       "title": "Paróquia São João Bosco — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2026-08-10)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Comunidade Santo Antônio – Taquaral – Agrovila III",
+     "dayOfWeek": 6,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": "Recorrência mensal publicada pela diocese: \"1º e 3º – Sábado - mês\"",
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-sao-joao-bosco/",
+       "title": "Paróquia São João Bosco — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2026-08-10)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Comunidade São Paulo – Tamarineiro I",
+     "dayOfWeek": 6,
+     "time": "16:00",
+     "type": "MASS",
+     "notes": "Recorrência mensal publicada pela diocese: \"2º e 4º – Sábado - mês\"",
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-sao-joao-bosco/",
+       "title": "Paróquia São João Bosco — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2026-08-10)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Comunidade Bom Jesus – Taquaral – Agrovila II",
+     "dayOfWeek": 6,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": "Recorrência mensal publicada pela diocese: \"2º e 4º – Sábado - mês\"",
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-sao-joao-bosco/",
+       "title": "Paróquia São João Bosco — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2026-08-10)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Comunidade Divino Espírito Santo – Tamarineiro I",
+     "dayOfWeek": 0,
+     "time": "09:30",
+     "type": "MASS",
+     "notes": "Recorrência mensal publicada pela diocese: \"1º e 3º – Domingo - mês\"",
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-sao-joao-bosco/",
+       "title": "Paróquia São João Bosco — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2026-08-10)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Comunidade Nossa Senhora Fátima – Taquaral",
+     "dayOfWeek": 0,
+     "time": "16:00",
+     "type": "MASS",
+     "notes": "Recorrência mensal publicada pela diocese: \"1º e 3º – Domingo - mês\"",
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-sao-joao-bosco/",
+       "title": "Paróquia São João Bosco — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2026-08-10)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Comunidade Santa Luzia – Taquaral – Agrovila II",
+     "dayOfWeek": 0,
+     "time": "16:00",
+     "type": "MASS",
+     "notes": "Recorrência mensal publicada pela diocese: \"2º e 4º – Domingo - mês\"",
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-sao-joao-bosco/",
+       "title": "Paróquia São João Bosco — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2026-08-10)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-auxiliadora-corumba",
+   "name": "Santuário Nossa Senhora Auxiliadora",
+   "city": "Corumbá",
+   "state": "MS",
+   "neighborhood": "Centro",
+   "address": "R. Dom Aquino Correa, 1037 - Centro",
+   "zipCode": null,
+   "phone": "(67) 3231-3113",
+   "email": "santuarionsa@steresa.org.br",
+   "website": null,
+   "priestName": "Padre João dos Santos Barbosa Neto, SDB",
+   "foundedYear": 1950,
+   "forania": "Forania de Corumbá",
+   "notes": "Santuário diocesano confiado aos Salesianos; o site o publica na lista de paróquias. Criação segundo o site da diocese: 24/05/1950. Clero publicado: Padre João dos Santos Barbosa Neto, SDB (Reitor do Santuário Nossa Senhora Auxiliadora). A grade de horários desta paróquia (custom post type horario-missa) foi editada pela diocese em 2024-11-03.",
+   "sources": [
+    {
+     "url": "https://diocesecorumba.org.br/paroquia/santuario-nossa-senhora-auxiliadora/",
+     "title": "Santuário Nossa Senhora Auxiliadora — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2025-04-01)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://diocesecorumba.org.br/paroquias/",
+     "title": "Paróquias — Diocese de Santa Cruz de Corumbá (site oficial; custom post type \"paroquia\", 9 fichas)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+     "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Santuário Nossa Senhora Auxiliadora",
+     "address": "R. Dom Aquino Correa, 1037 - Centro",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/santuario-nossa-senhora-auxiliadora/",
+       "title": "Santuário Nossa Senhora Auxiliadora — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2025-04-01)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Santuário Nossa Senhora Auxiliadora",
+     "dayOfWeek": 1,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/santuario-nossa-senhora-auxiliadora/",
+       "title": "Santuário Nossa Senhora Auxiliadora — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2025-04-01)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Santuário Nossa Senhora Auxiliadora",
+     "dayOfWeek": 2,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/santuario-nossa-senhora-auxiliadora/",
+       "title": "Santuário Nossa Senhora Auxiliadora — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2025-04-01)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Santuário Nossa Senhora Auxiliadora",
+     "dayOfWeek": 3,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/santuario-nossa-senhora-auxiliadora/",
+       "title": "Santuário Nossa Senhora Auxiliadora — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2025-04-01)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Santuário Nossa Senhora Auxiliadora",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/santuario-nossa-senhora-auxiliadora/",
+       "title": "Santuário Nossa Senhora Auxiliadora — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2025-04-01)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Santuário Nossa Senhora Auxiliadora",
+     "dayOfWeek": 5,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/santuario-nossa-senhora-auxiliadora/",
+       "title": "Santuário Nossa Senhora Auxiliadora — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2025-04-01)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Santuário Nossa Senhora Auxiliadora",
+     "dayOfWeek": 6,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/santuario-nossa-senhora-auxiliadora/",
+       "title": "Santuário Nossa Senhora Auxiliadora — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2025-04-01)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Santuário Nossa Senhora Auxiliadora",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/santuario-nossa-senhora-auxiliadora/",
+       "title": "Santuário Nossa Senhora Auxiliadora — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2025-04-01)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Santuário Nossa Senhora Auxiliadora",
+     "dayOfWeek": 0,
+     "time": "09:00",
+     "type": "MASS",
+     "notes": "Missa da Catequese",
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/santuario-nossa-senhora-auxiliadora/",
+       "title": "Santuário Nossa Senhora Auxiliadora — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2025-04-01)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Santuário Nossa Senhora Auxiliadora",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/santuario-nossa-senhora-auxiliadora/",
+       "title": "Santuário Nossa Senhora Auxiliadora — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2025-04-01)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-dos-remedios-ladario",
+   "name": "Paróquia Nossa Senhora dos Remédios",
+   "city": "Ladário",
+   "state": "MS",
+   "neighborhood": "Setor 2",
+   "address": "R. Couto, 339 - St. 2, Ladário - MS, 79370-000",
+   "zipCode": "79370-000",
+   "phone": "(67) 4042-5358 e (67) 98468-2330",
+   "email": "pnsremediosladario@hotmail.com",
+   "website": null,
+   "priestName": "Padre Francisco Fábio da Costa Vieira",
+   "foundedYear": 1939,
+   "forania": "Forania de Corumbá",
+   "notes": "Única paróquia do município de Ladário. A matriz é publicada como 'Santuário (Matriz)'. Criação segundo o site da diocese: 1939. Clero publicado: Padre Francisco Fábio da Costa Vieira (Pároco). A grade de horários desta paróquia (custom post type horario-missa) foi editada pela diocese em 2026-08-17.",
+   "sources": [
+    {
+     "url": "https://diocesecorumba.org.br/paroquia/paroquia-nossa-senhora-dos-remedios/",
+     "title": "Paróquia Nossa Senhora dos Remédios — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-11-30)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://diocesecorumba.org.br/paroquias/",
+     "title": "Paróquias — Diocese de Santa Cruz de Corumbá (site oficial; custom post type \"paroquia\", 9 fichas)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+     "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora dos Remédios",
+     "address": "R. Couto, 339 - St. 2, Ladário - MS, 79370-000",
+     "neighborhood": "Setor 2",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-nossa-senhora-dos-remedios/",
+       "title": "Paróquia Nossa Senhora dos Remédios — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-11-30)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Comunidade Nossa Senhora das Mercês",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-nossa-senhora-dos-remedios/",
+       "title": "Paróquia Nossa Senhora dos Remédios — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-11-30)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Comunidade Sagrada Família de Nazaré",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-nossa-senhora-dos-remedios/",
+       "title": "Paróquia Nossa Senhora dos Remédios — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-11-30)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Comunidade Santo Antônio de Pádua",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-nossa-senhora-dos-remedios/",
+       "title": "Paróquia Nossa Senhora dos Remédios — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-11-30)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Comunidade Santo Expedito",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-nossa-senhora-dos-remedios/",
+       "title": "Paróquia Nossa Senhora dos Remédios — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-11-30)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Comunidade São João Batista (Lampião Aceso)",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-nossa-senhora-dos-remedios/",
+       "title": "Paróquia Nossa Senhora dos Remédios — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-11-30)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Comunidade São José Patrono da Igreja",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-nossa-senhora-dos-remedios/",
+       "title": "Paróquia Nossa Senhora dos Remédios — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-11-30)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Nossa Senhora dos Remédios",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-nossa-senhora-dos-remedios/",
+       "title": "Paróquia Nossa Senhora dos Remédios — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-11-30)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Nossa Senhora dos Remédios",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-nossa-senhora-dos-remedios/",
+       "title": "Paróquia Nossa Senhora dos Remédios — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-11-30)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Nossa Senhora dos Remédios",
+     "dayOfWeek": 6,
+     "time": "17:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-nossa-senhora-dos-remedios/",
+       "title": "Paróquia Nossa Senhora dos Remédios — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-11-30)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Nossa Senhora dos Remédios",
+     "dayOfWeek": 1,
+     "time": "12:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-nossa-senhora-dos-remedios/",
+       "title": "Paróquia Nossa Senhora dos Remédios — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-11-30)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Nossa Senhora dos Remédios",
+     "dayOfWeek": 2,
+     "time": "12:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-nossa-senhora-dos-remedios/",
+       "title": "Paróquia Nossa Senhora dos Remédios — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-11-30)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Nossa Senhora dos Remédios",
+     "dayOfWeek": 3,
+     "time": "12:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-nossa-senhora-dos-remedios/",
+       "title": "Paróquia Nossa Senhora dos Remédios — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-11-30)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Nossa Senhora dos Remédios",
+     "dayOfWeek": 4,
+     "time": "12:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-nossa-senhora-dos-remedios/",
+       "title": "Paróquia Nossa Senhora dos Remédios — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-11-30)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Nossa Senhora dos Remédios",
+     "dayOfWeek": 5,
+     "time": "12:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-nossa-senhora-dos-remedios/",
+       "title": "Paróquia Nossa Senhora dos Remédios — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-11-30)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Comunidade Nossa Senhora das Mercês",
+     "dayOfWeek": 6,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-nossa-senhora-dos-remedios/",
+       "title": "Paróquia Nossa Senhora dos Remédios — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-11-30)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Comunidade Sagrada Família de Nazaré",
+     "dayOfWeek": 0,
+     "time": "08:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-nossa-senhora-dos-remedios/",
+       "title": "Paróquia Nossa Senhora dos Remédios — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-11-30)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Comunidade Santo Antônio de Pádua",
+     "dayOfWeek": 0,
+     "time": "08:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-nossa-senhora-dos-remedios/",
+       "title": "Paróquia Nossa Senhora dos Remédios — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-11-30)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Comunidade Santo Expedito",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-nossa-senhora-dos-remedios/",
+       "title": "Paróquia Nossa Senhora dos Remédios — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-11-30)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Comunidade São João Batista (Lampião Aceso)",
+     "dayOfWeek": 0,
+     "time": "10:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-nossa-senhora-dos-remedios/",
+       "title": "Paróquia Nossa Senhora dos Remédios — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-11-30)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Comunidade São José Patrono da Igreja",
+     "dayOfWeek": 0,
+     "time": "10:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesecorumba.org.br/paroquia/paroquia-nossa-senhora-dos-remedios/",
+       "title": "Paróquia Nossa Senhora dos Remédios — ficha oficial na Diocese de Santa Cruz de Corumbá (endereço, telefone, e-mail, clero e grade completa de missas por comunidade; atualizada em 2024-11-30)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://diocesecorumba.org.br/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Santa Cruz de Corumbá (site oficial; grade agregada, inclui as capelanias)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ]
+  }
+ ],
+ "coverage": {
+  "parishesFound": 9,
+  "parishesExpected": 9,
+  "notes": "COBERTURA INTEGRAL — 9 de 9 paróquias, de fonte oficial única. A diocese expõe dois custom post types na REST API: 'paroquia' (9 fichas, com endereço, telefone, e-mail ofuscado pelo Cloudflare, ano de criação, clero com função) e 'horario-missa' (13 posts). O conteúdo dos posts de horário NÃO aparece na REST nem na página individual deles — só é renderizado na ficha da paróquia, em repeaters ACF do plugin Dynamic Content for Elementor (div.dce-acf-repeater-item, campos tipo_horario / dia_semana_horario / horario_horario / observacoes_horario). A coluna 'Observação' de cada linha NOMEIA A COMUNIDADE, o que permitiu montar as 52 comunidades e os 102 horários a partir da mesma fonte. Os 2 municípios da diocese estão cobertos: Corumbá (8 paróquias) e Ladário (1). Além das 9 paróquias, entram 3 capelanias marcadas 'nao-paroquial' com loadAsParish, porque a grade diocesana publica missa fixa para elas: Capela Naval Cristo Redentor (Marinha), Capelania do Asilo São José e Capelania do Hospital Santa Casa. Elas só aparecem na página /horarios-de-missas/, não na lista de paróquias. CONFIANÇA DOS HORÁRIOS: 66 'alta' (grade editada pela diocese entre 10/08 e 03/09/2026), 23 'media' (paróquias cuja grade não é editada desde 2024-11 ou 2025-04: Santuário N. Sra. Auxiliadora, São Bartolomeu e Imaculada Conceição de Albuquerque — fonte oficial sem sinal de atualidade) e 13 'baixa', todos de recorrência mensal. A recorrência mensal é a marca do Pantanal, como esperado: a Paróquia São João Bosco atende 7 comunidades de assentamento (Tamarineiro I e II, Taquaral/Agrovilas II e III) em '1º e 3º' ou '2º e 4º' sábado/domingo do mês, e a Paróquia Imaculada Conceição de Albuquerque atende Porto Esperança, Mato Grande e as duas São Gabriel uma vez por mês. A regra literal está no campo notes de cada horário."
+ }
+}

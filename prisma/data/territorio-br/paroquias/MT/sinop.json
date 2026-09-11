@@ -1,0 +1,5580 @@
+{
+  "diocese": {
+    "name": "Diocese de Sinop",
+    "type": "Diocese",
+    "slug": "sinop",
+    "city": "Sinop",
+    "state": "MT",
+    "address": "Av. das Itaúbas, 1639 - Jardim Paraíso II",
+    "zipCode": "78556-140",
+    "phone": "(66) 3531-3105",
+    "email": "curia@diocesedesinop.com.br",
+    "website": "https://diocesedesinop.com.br",
+    "bishopName": "Dom Canísio Klaus",
+    "sources": [
+      {
+        "url": "https://diocesedesinop.com.br/",
+        "title": "Diocese de Sinop - Portal oficial",
+        "accessedAt": "2026-09-11"
+      },
+      {
+        "url": "https://diocesedesinop.com.br/paroquia-sitemap.xml",
+        "title": "Sitemap do custom post type \"paroquia\" | Diocese de Sinop",
+        "accessedAt": "2026-09-11"
+      },
+      {
+        "url": "https://cnbbo2.org.br/diocese-de-sinop/",
+        "title": "Diocese de Sinop | CNBB Regional Oeste 2",
+        "accessedAt": "2026-09-11"
+      },
+      {
+        "url": "https://www.catholic-hierarchy.org/diocese/dsino.html",
+        "title": "Diocese of Sinop - catholic-hierarchy.org",
+        "accessedAt": "2026-09-11"
+      }
+    ],
+    "confidence": "alta",
+    "notes": "Erigida em 06/02/1982 (constituição apostólica Sinopensis). 191.039 km2, 28 municípios, 6 foranias: Alta Floresta, Colíder, Juara, Peixoto de Azevedo, Sinop e Vera. A CNBB Regional Oeste 2 registra 33 paróquias, cerca de 1.200 comunidades e 3 aldeias indígenas."
+  },
+  "parishes": [
+    {
+      "slug": "bom-pastor-alta-floresta",
+      "name": "Paróquia Bom Pastor",
+      "city": "Alta Floresta",
+      "state": "MT",
+      "neighborhood": null,
+      "address": "Av. Bom Pastor, 655 - Caixa Postal 01",
+      "zipCode": "78580-000",
+      "phone": "(66) 3521-4239",
+      "email": "pbompastor@diocesedesinop.com.br",
+      "website": null,
+      "priestName": "Pe. Gervásio Freire da Silva, SDN",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedesinop.com.br/paroquia/paroquia-bom-pastor/",
+          "title": "PARÓQUIA BOM PASTOR | Diocese de Sinop",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://cnbbo2.org.br/diocese-de-sinop/",
+          "title": "Diocese de Sinop | CNBB Regional Oeste 2",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Alta+Floresta",
+              "title": "Horário de Missa - Alta+Floresta - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Alta+Floresta",
+              "title": "Horário de Missa - Alta+Floresta - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ],
+      "notes": "Forania de Alta Floresta."
+    },
+    {
+      "slug": "santa-cecilia-apiacas",
+      "name": "Paróquia Santa Cecília",
+      "city": "Apiacás",
+      "state": "MT",
+      "neighborhood": "Pioneiro",
+      "address": "Rua Cascavel, 307 - Caixa Postal 02",
+      "zipCode": "78595-000",
+      "phone": "(66) 3593-1265",
+      "email": "psantacecilia@diocesedesinop.com.br",
+      "website": null,
+      "priestName": "Pe. José Roberto Domingos",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedesinop.com.br/paroquia/paroquia-santa-cecilia/",
+          "title": "PARÓQUIA SANTA CECÍLIA | Diocese de Sinop",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://cnbbo2.org.br/diocese-de-sinop/",
+          "title": "Diocese de Sinop | CNBB Regional Oeste 2",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [],
+      "notes": "Forania de Alta Floresta. O diretório diocesano registra Pe. José Roberto Domingos como pároco desta paróquia E da Paróquia Nossa Senhora Aparecida de Peixoto de Azevedo. Precisa de validação humana. Nenhuma fonte pública publica horário fixo desta paróquia."
+    },
+    {
+      "slug": "santa-cruz-alta-floresta",
+      "name": "Paróquia Santa Cruz",
+      "city": "Alta Floresta",
+      "state": "MT",
+      "neighborhood": null,
+      "address": "Praça Pe. Geraldo Silva, 1912 - Caixa Postal 14",
+      "zipCode": "78580-000",
+      "phone": "(66) 3521-2071",
+      "email": "psantacruz@diocesedesinop.com.br",
+      "website": "https://www.alodizimista.net",
+      "priestName": "Pe. Renato Dutra Borges, SDN",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedesinop.com.br/paroquia/paroquia-santa-cruz/",
+          "title": "PARÓQUIA SANTA CRUZ | Diocese de Sinop",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://cnbbo2.org.br/diocese-de-sinop/",
+          "title": "Diocese de Sinop | CNBB Regional Oeste 2",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.alodizimista.net/comunidades",
+          "title": "Comunidades - Paróquia Santa Cruz, Alta Floresta (site oficial)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Santa Cruz",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.alodizimista.net/comunidades",
+              "title": "Comunidades - Paróquia Santa Cruz, Alta Floresta (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nossa Senhora de Fátima",
+          "address": null,
+          "neighborhood": "urbana",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.alodizimista.net/comunidades",
+              "title": "Comunidades - Paróquia Santa Cruz, Alta Floresta (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Santo Antônio",
+          "address": null,
+          "neighborhood": "urbana",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.alodizimista.net/comunidades",
+              "title": "Comunidades - Paróquia Santa Cruz, Alta Floresta (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São Francisco",
+          "address": null,
+          "neighborhood": "urbana",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.alodizimista.net/comunidades",
+              "title": "Comunidades - Paróquia Santa Cruz, Alta Floresta (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São Judas Tadeu",
+          "address": null,
+          "neighborhood": "urbana",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.alodizimista.net/comunidades",
+              "title": "Comunidades - Paróquia Santa Cruz, Alta Floresta (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São João Batista",
+          "address": null,
+          "neighborhood": "urbana",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.alodizimista.net/comunidades",
+              "title": "Comunidades - Paróquia Santa Cruz, Alta Floresta (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Bom Jesus",
+          "address": null,
+          "neighborhood": "urbana",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.alodizimista.net/comunidades",
+              "title": "Comunidades - Paróquia Santa Cruz, Alta Floresta (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Sagrada Família",
+          "address": null,
+          "neighborhood": "urbana",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.alodizimista.net/comunidades",
+              "title": "Comunidades - Paróquia Santa Cruz, Alta Floresta (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Santa Maria",
+          "address": null,
+          "neighborhood": "urbana",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.alodizimista.net/comunidades",
+              "title": "Comunidades - Paróquia Santa Cruz, Alta Floresta (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São José Operário",
+          "address": null,
+          "neighborhood": "urbana",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.alodizimista.net/comunidades",
+              "title": "Comunidades - Paróquia Santa Cruz, Alta Floresta (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São Marcos",
+          "address": null,
+          "neighborhood": "urbana",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.alodizimista.net/comunidades",
+              "title": "Comunidades - Paróquia Santa Cruz, Alta Floresta (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Padre Júlio Maria",
+          "address": null,
+          "neighborhood": "urbana",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.alodizimista.net/comunidades",
+              "title": "Comunidades - Paróquia Santa Cruz, Alta Floresta (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Redenção",
+          "address": null,
+          "neighborhood": "urbana",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.alodizimista.net/comunidades",
+              "title": "Comunidades - Paróquia Santa Cruz, Alta Floresta (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São Brás",
+          "address": null,
+          "neighborhood": "urbana",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.alodizimista.net/comunidades",
+              "title": "Comunidades - Paróquia Santa Cruz, Alta Floresta (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Imaculada Conceição",
+          "address": null,
+          "neighborhood": "urbana",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.alodizimista.net/comunidades",
+              "title": "Comunidades - Paróquia Santa Cruz, Alta Floresta (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade União",
+          "address": null,
+          "neighborhood": "urbana",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.alodizimista.net/comunidades",
+              "title": "Comunidades - Paróquia Santa Cruz, Alta Floresta (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Sagrado Coração de Jesus",
+          "address": null,
+          "neighborhood": "urbana",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.alodizimista.net/comunidades",
+              "title": "Comunidades - Paróquia Santa Cruz, Alta Floresta (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Santa Catarina",
+          "address": null,
+          "neighborhood": "urbana",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.alodizimista.net/comunidades",
+              "title": "Comunidades - Paróquia Santa Cruz, Alta Floresta (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São Paulo Apóstolo",
+          "address": null,
+          "neighborhood": "urbana",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.alodizimista.net/comunidades",
+              "title": "Comunidades - Paróquia Santa Cruz, Alta Floresta (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Bonsucesso",
+          "address": null,
+          "neighborhood": "rural",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.alodizimista.net/comunidades",
+              "title": "Comunidades - Paróquia Santa Cruz, Alta Floresta (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Santa Terezinha",
+          "address": null,
+          "neighborhood": "rural",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.alodizimista.net/comunidades",
+              "title": "Comunidades - Paróquia Santa Cruz, Alta Floresta (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nossa Senhora de Guadalupe",
+          "address": null,
+          "neighborhood": "rural",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.alodizimista.net/comunidades",
+              "title": "Comunidades - Paróquia Santa Cruz, Alta Floresta (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Monte Alegre",
+          "address": null,
+          "neighborhood": "rural",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.alodizimista.net/comunidades",
+              "title": "Comunidades - Paróquia Santa Cruz, Alta Floresta (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Ouro Verde",
+          "address": null,
+          "neighborhood": "rural",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.alodizimista.net/comunidades",
+              "title": "Comunidades - Paróquia Santa Cruz, Alta Floresta (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São João Evangelista",
+          "address": null,
+          "neighborhood": "rural",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.alodizimista.net/comunidades",
+              "title": "Comunidades - Paróquia Santa Cruz, Alta Floresta (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Novo Oriente",
+          "address": null,
+          "neighborhood": "rural",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.alodizimista.net/comunidades",
+              "title": "Comunidades - Paróquia Santa Cruz, Alta Floresta (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Estrela do Sul",
+          "address": null,
+          "neighborhood": "rural",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.alodizimista.net/comunidades",
+              "title": "Comunidades - Paróquia Santa Cruz, Alta Floresta (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Santa Helena",
+          "address": null,
+          "neighborhood": "rural",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.alodizimista.net/comunidades",
+              "title": "Comunidades - Paróquia Santa Cruz, Alta Floresta (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nova Esperança",
+          "address": null,
+          "neighborhood": "rural",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.alodizimista.net/comunidades",
+              "title": "Comunidades - Paróquia Santa Cruz, Alta Floresta (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Bela Vista",
+          "address": null,
+          "neighborhood": "rural",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.alodizimista.net/comunidades",
+              "title": "Comunidades - Paróquia Santa Cruz, Alta Floresta (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Água Limpa",
+          "address": null,
+          "neighborhood": "rural",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.alodizimista.net/comunidades",
+              "title": "Comunidades - Paróquia Santa Cruz, Alta Floresta (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Sol Nascente",
+          "address": null,
+          "neighborhood": "rural",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.alodizimista.net/comunidades",
+              "title": "Comunidades - Paróquia Santa Cruz, Alta Floresta (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Central",
+          "address": null,
+          "neighborhood": "rural",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.alodizimista.net/comunidades",
+              "title": "Comunidades - Paróquia Santa Cruz, Alta Floresta (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Rio Verde",
+          "address": null,
+          "neighborhood": "rural",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.alodizimista.net/comunidades",
+              "title": "Comunidades - Paróquia Santa Cruz, Alta Floresta (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Bom Recanto",
+          "address": null,
+          "neighborhood": "rural",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.alodizimista.net/comunidades",
+              "title": "Comunidades - Paróquia Santa Cruz, Alta Floresta (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Mirassol",
+          "address": null,
+          "neighborhood": "rural",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.alodizimista.net/comunidades",
+              "title": "Comunidades - Paróquia Santa Cruz, Alta Floresta (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Morada da Paz",
+          "address": null,
+          "neighborhood": "rural",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.alodizimista.net/comunidades",
+              "title": "Comunidades - Paróquia Santa Cruz, Alta Floresta (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Serra Verde",
+          "address": null,
+          "neighborhood": "rural",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.alodizimista.net/comunidades",
+              "title": "Comunidades - Paróquia Santa Cruz, Alta Floresta (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Santa Lúcia",
+          "address": null,
+          "neighborhood": "rural",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.alodizimista.net/comunidades",
+              "title": "Comunidades - Paróquia Santa Cruz, Alta Floresta (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São Francisco (rural)",
+          "address": null,
+          "neighborhood": "rural",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.alodizimista.net/comunidades",
+              "title": "Comunidades - Paróquia Santa Cruz, Alta Floresta (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Montes Claros",
+          "address": null,
+          "neighborhood": "rural",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.alodizimista.net/comunidades",
+              "title": "Comunidades - Paróquia Santa Cruz, Alta Floresta (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Menino Jesus",
+          "address": null,
+          "neighborhood": "rural",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.alodizimista.net/comunidades",
+              "title": "Comunidades - Paróquia Santa Cruz, Alta Floresta (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Morada Nova",
+          "address": null,
+          "neighborhood": "rural",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.alodizimista.net/comunidades",
+              "title": "Comunidades - Paróquia Santa Cruz, Alta Floresta (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Ourolanda",
+          "address": null,
+          "neighborhood": "rural",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.alodizimista.net/comunidades",
+              "title": "Comunidades - Paróquia Santa Cruz, Alta Floresta (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São Mateus",
+          "address": null,
+          "neighborhood": "rural",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.alodizimista.net/comunidades",
+              "title": "Comunidades - Paróquia Santa Cruz, Alta Floresta (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São João Batista (rural)",
+          "address": null,
+          "neighborhood": "rural",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.alodizimista.net/comunidades",
+              "title": "Comunidades - Paróquia Santa Cruz, Alta Floresta (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Novo Cruzeiro",
+          "address": null,
+          "neighborhood": "rural",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.alodizimista.net/comunidades",
+              "title": "Comunidades - Paróquia Santa Cruz, Alta Floresta (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Novo Horizonte",
+          "address": null,
+          "neighborhood": "rural",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.alodizimista.net/comunidades",
+              "title": "Comunidades - Paróquia Santa Cruz, Alta Floresta (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Terra Santa",
+          "address": null,
+          "neighborhood": "rural",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.alodizimista.net/comunidades",
+              "title": "Comunidades - Paróquia Santa Cruz, Alta Floresta (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Tessalônica",
+          "address": null,
+          "neighborhood": "rural",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.alodizimista.net/comunidades",
+              "title": "Comunidades - Paróquia Santa Cruz, Alta Floresta (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Atenas",
+          "address": null,
+          "neighborhood": "rural",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.alodizimista.net/comunidades",
+              "title": "Comunidades - Paróquia Santa Cruz, Alta Floresta (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Monte Santo",
+          "address": null,
+          "neighborhood": "rural",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.alodizimista.net/comunidades",
+              "title": "Comunidades - Paróquia Santa Cruz, Alta Floresta (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Santa Cruz",
+          "dayOfWeek": 0,
+          "time": "07:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/alta-floresta-mt/",
+              "title": "Horário de Missa em alta-floresta-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            },
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Alta+Floresta",
+              "title": "Horário de Missa - Alta+Floresta - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Comunidade Santa Catarina",
+          "dayOfWeek": 0,
+          "time": "07:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/alta-floresta-mt/",
+              "title": "Horário de Missa em alta-floresta-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Santa Cruz",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/alta-floresta-mt/",
+              "title": "Horário de Missa em alta-floresta-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            },
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Alta+Floresta",
+              "title": "Horário de Missa - Alta+Floresta - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Comunidade São Brás",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/alta-floresta-mt/",
+              "title": "Horário de Missa em alta-floresta-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Santa Cruz",
+          "dayOfWeek": 4,
+          "time": "14:30",
+          "type": "CONFESSION",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Alta+Floresta",
+              "title": "Horário de Missa - Alta+Floresta - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Santa Cruz",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/alta-floresta-mt/",
+              "title": "Horário de Missa em alta-floresta-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Santa Cruz",
+          "dayOfWeek": 4,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Alta+Floresta",
+              "title": "Horário de Missa - Alta+Floresta - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade São Judas Tadeu",
+          "dayOfWeek": 5,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/alta-floresta-mt/",
+              "title": "Horário de Missa em alta-floresta-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Redenção",
+          "dayOfWeek": 6,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/alta-floresta-mt/",
+              "title": "Horário de Missa em alta-floresta-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade São João Batista",
+          "dayOfWeek": 6,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/alta-floresta-mt/",
+              "title": "Horário de Missa em alta-floresta-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Santa Maria",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/alta-floresta-mt/",
+              "title": "Horário de Missa em alta-floresta-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ],
+      "notes": "Forania de Alta Floresta."
+    },
+    {
+      "slug": "santo-antonio-nova-monte-verde",
+      "name": "Paróquia Santo Antônio",
+      "city": "Nova Monte Verde",
+      "state": "MT",
+      "neighborhood": null,
+      "address": "Rua Rondonópolis, 32 - Caixa Postal 12",
+      "zipCode": "78593-000",
+      "phone": "(66) 3597-1445",
+      "email": "psantonio@diocesedesinop.com.br",
+      "website": null,
+      "priestName": "Pe. Thiago Silvestro",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedesinop.com.br/paroquia/paroquia-santo-antonio-4/",
+          "title": "PARÓQUIA SANTO ANTÔNIO | Diocese de Sinop",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://cnbbo2.org.br/diocese-de-sinop/",
+          "title": "Diocese de Sinop | CNBB Regional Oeste 2",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/nova-monte-verde-mt/",
+              "title": "Horário de Missa em nova-monte-verde-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/nova-monte-verde-mt/",
+              "title": "Horário de Missa em nova-monte-verde-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ],
+      "notes": "Forania de Alta Floresta."
+    },
+    {
+      "slug": "santo-antonio-paranaita",
+      "name": "Paróquia Santo Antônio",
+      "city": "Paranaíta",
+      "state": "MT",
+      "neighborhood": "Centro",
+      "address": "Av. João Lopo de Souza, L2",
+      "zipCode": "78590-000",
+      "phone": "(66) 3563-1500",
+      "email": "psantonio@diocesedesinop.com.br",
+      "website": null,
+      "priestName": "Pe. Domício Herculano Silveira de Barros, SDN",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedesinop.com.br/paroquia/paroquia-santo-antonio-5/",
+          "title": "PARÓQUIA SANTO ANTÔNIO | Diocese de Sinop",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://cnbbo2.org.br/diocese-de-sinop/",
+          "title": "Diocese de Sinop | CNBB Regional Oeste 2",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [],
+      "notes": "Forania de Alta Floresta. Nenhuma fonte pública publica horário fixo desta paróquia."
+    },
+    {
+      "slug": "sao-paulo-apostolo-carlinda",
+      "name": "Paróquia São Paulo Apóstolo",
+      "city": "Carlinda",
+      "state": "MT",
+      "neighborhood": null,
+      "address": "Rua Tancredo de Almeida Neves, 37 - Caixa Postal 15",
+      "zipCode": "78587-000",
+      "phone": "(66) 3525-1268",
+      "email": "pspauloapostolo@diocesedesinop.com.br",
+      "website": null,
+      "priestName": "Pe. Vailto Venâncio Filho",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedesinop.com.br/paroquia/paroquia-sao-paulo-apostolo/",
+          "title": "PARÓQUIA SÃO PAULO APÓSTOLO | Diocese de Sinop",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://cnbbo2.org.br/diocese-de-sinop/",
+          "title": "Diocese de Sinop | CNBB Regional Oeste 2",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [],
+      "notes": "Forania de Alta Floresta. Nenhuma fonte pública publica horário fixo desta paróquia."
+    },
+    {
+      "slug": "sao-pedro-nova-bandeirantes",
+      "name": "Paróquia São Pedro",
+      "city": "Nova Bandeirantes",
+      "state": "MT",
+      "neighborhood": "Centro",
+      "address": "Av. José Francisco Otênio, 20 - Caixa Postal 37",
+      "zipCode": "78565-000",
+      "phone": "(66) 3572-1107",
+      "email": "pspedro_band@diocesedesinop.com.br",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedesinop.com.br/paroquia/paroquia-sao-pedro-3/",
+          "title": "PARÓQUIA SÃO PEDRO | Diocese de Sinop",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://cnbbo2.org.br/diocese-de-sinop/",
+          "title": "Diocese de Sinop | CNBB Regional Oeste 2",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "08:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Nova+Bandeirantes",
+              "title": "Horário de Missa - Nova+Bandeirantes - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Nova+Bandeirantes",
+              "title": "Horário de Missa - Nova+Bandeirantes - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Recorrência mensal informada pela fonte: \"Primeira Sexta-feira: 19:30\"",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Nova+Bandeirantes",
+              "title": "Horário de Missa - Nova+Bandeirantes - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": "Recorrência mensal informada pela fonte: \"Primeiro Sábado: 08:00\"",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Nova+Bandeirantes",
+              "title": "Horário de Missa - Nova+Bandeirantes - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Nova+Bandeirantes",
+              "title": "Horário de Missa - Nova+Bandeirantes - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ],
+      "notes": "Forania de Alta Floresta. O diretório diocesano ainda registra como pároco o Frei Gastone Pozzobon, falecido em junho de 2022 (nota de falecimento publicada pela própria diocese). priestName ficou null - precisa de validação humana."
+    },
+    {
+      "slug": "nossa-senhora-da-imaculada-conceicao-marcelandia",
+      "name": "Paróquia Nossa Senhora da Imaculada Conceição",
+      "city": "Marcelândia",
+      "state": "MT",
+      "neighborhood": "Centro",
+      "address": "Av. Colonizador José Ianquini, 620 - Caixa Postal 23",
+      "zipCode": "78535-000",
+      "phone": "(66) 3536-1262",
+      "email": "pnsimaculada@diocesedesinop.com.br",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedesinop.com.br/paroquia/paroquia-nossa-senhora-da-imaculada-conceicao/",
+          "title": "PARÓQUIA NOSSA SENHORA DA IMACULADA CONCEIÇÃO | Diocese de Sinop",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://cnbbo2.org.br/diocese-de-sinop/",
+          "title": "Diocese de Sinop | CNBB Regional Oeste 2",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Igreja Matriz Nossa Senhora da Imaculada Conceição",
+          "address": null,
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/marcelandia-mt/",
+              "title": "Horário de Missa em marcelandia-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "name": "Comunidade São Cristóvão",
+          "address": null,
+          "neighborhood": "Setor Industrial - Av. Colonizador José Bianchini",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/marcelandia-mt/",
+              "title": "Horário de Missa em marcelandia-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Igreja Matriz Nossa Senhora da Imaculada Conceição",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/marcelandia-mt/",
+              "title": "Horário de Missa em marcelandia-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            },
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Marcelandia",
+              "title": "Horário de Missa - Marcelandia - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Comunidade São Cristóvão",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/marcelandia-mt/",
+              "title": "Horário de Missa em marcelandia-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Igreja Matriz Nossa Senhora da Imaculada Conceição",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Marcelandia",
+              "title": "Horário de Missa - Marcelandia - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Igreja Matriz Nossa Senhora da Imaculada Conceição",
+          "dayOfWeek": 4,
+          "time": "17:00",
+          "type": "CONFESSION",
+          "notes": "Quinta-feira, 17h-19h",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Marcelandia",
+              "title": "Horário de Missa - Marcelandia - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Igreja Matriz Nossa Senhora da Imaculada Conceição",
+          "dayOfWeek": 4,
+          "time": "18:30",
+          "type": "CONFESSION",
+          "notes": "Quinta-feira, 18h30-19h",
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/marcelandia-mt/",
+              "title": "Horário de Missa em marcelandia-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Igreja Matriz Nossa Senhora da Imaculada Conceição",
+          "dayOfWeek": 4,
+          "time": "18:30",
+          "type": "ADORATION",
+          "notes": "Quinta-feira, 18h30-19h30",
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/marcelandia-mt/",
+              "title": "Horário de Missa em marcelandia-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Igreja Matriz Nossa Senhora da Imaculada Conceição",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/marcelandia-mt/",
+              "title": "Horário de Missa em marcelandia-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Igreja Matriz Nossa Senhora da Imaculada Conceição",
+          "dayOfWeek": 4,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Marcelandia",
+              "title": "Horário de Missa - Marcelandia - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Igreja Matriz Nossa Senhora da Imaculada Conceição",
+          "dayOfWeek": 5,
+          "time": "09:00",
+          "type": "CONFESSION",
+          "notes": "Sexta-feira, 9h-11h e 14h-17h30",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Marcelandia",
+              "title": "Horário de Missa - Marcelandia - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Igreja Matriz Nossa Senhora da Imaculada Conceição",
+          "dayOfWeek": 5,
+          "time": "14:00",
+          "type": "CONFESSION",
+          "notes": "Sexta-feira, 9h-11h e 14h-17h30",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Marcelandia",
+              "title": "Horário de Missa - Marcelandia - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Igreja Matriz Nossa Senhora da Imaculada Conceição",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/marcelandia-mt/",
+              "title": "Horário de Missa em marcelandia-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ],
+      "notes": "Forania de Colíder."
+    },
+    {
+      "slug": "papa-joao-xxiii-colider",
+      "name": "Paróquia Papa João XXIII",
+      "city": "Colíder",
+      "state": "MT",
+      "neighborhood": "Centro",
+      "address": "Rua Cuiabá, 60 - Caixa Postal 63",
+      "zipCode": "78500-000",
+      "phone": "(66) 3541-1212",
+      "email": "ppjxxiii@diocesedesinop.com.br",
+      "website": null,
+      "priestName": "Frei Edson Marcos Minski, OAD",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedesinop.com.br/paroquia/paroquia-papa-joao-xxiii/",
+          "title": "PARÓQUIA PAPA JOÃO XXIII | Diocese de Sinop",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://cnbbo2.org.br/diocese-de-sinop/",
+          "title": "Diocese de Sinop | CNBB Regional Oeste 2",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Igreja Matriz Papa João XXIII",
+          "address": null,
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/colider-mt/",
+              "title": "Horário de Missa em colider-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "name": "Comunidade Nossa Senhora da Guia",
+          "address": null,
+          "neighborhood": "Nossa Senhora da Guia - Av. São Paulo, 279",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/colider-mt/",
+              "title": "Horário de Missa em colider-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Igreja Matriz Papa João XXIII",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/colider-mt/",
+              "title": "Horário de Missa em colider-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            },
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Colider",
+              "title": "Horário de Missa - Colider - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Igreja Matriz Papa João XXIII",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/colider-mt/",
+              "title": "Horário de Missa em colider-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Igreja Matriz Papa João XXIII",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Colider",
+              "title": "Horário de Missa - Colider - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Igreja Matriz Papa João XXIII",
+          "dayOfWeek": 2,
+          "time": "08:00",
+          "type": "CONFESSION",
+          "notes": "Terça a sexta-feira, 8h-11h",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Colider",
+              "title": "Horário de Missa - Colider - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Igreja Matriz Papa João XXIII",
+          "dayOfWeek": 3,
+          "time": "08:00",
+          "type": "CONFESSION",
+          "notes": "Terça a sexta-feira, 8h-11h",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Colider",
+              "title": "Horário de Missa - Colider - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Igreja Matriz Papa João XXIII",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Recorrência mensal informada pela fonte: \"Primeira Quarta-feira: 19:30\"",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Colider",
+              "title": "Horário de Missa - Colider - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Igreja Matriz Papa João XXIII",
+          "dayOfWeek": 4,
+          "time": "08:00",
+          "type": "CONFESSION",
+          "notes": "Terça a sexta-feira, 8h-11h",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Colider",
+              "title": "Horário de Missa - Colider - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Igreja Matriz Papa João XXIII",
+          "dayOfWeek": 4,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/colider-mt/",
+              "title": "Horário de Missa em colider-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            },
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Colider",
+              "title": "Horário de Missa - Colider - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Igreja Matriz Papa João XXIII",
+          "dayOfWeek": 5,
+          "time": "08:00",
+          "type": "CONFESSION",
+          "notes": "Terça a sexta-feira, 8h-11h",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Colider",
+              "title": "Horário de Missa - Colider - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Igreja Matriz Papa João XXIII",
+          "dayOfWeek": 5,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Recorrência mensal informada pela fonte: \"Primeira Sexta-feira: 19:30\"",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Colider",
+              "title": "Horário de Missa - Colider - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Igreja Matriz Papa João XXIII",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/colider-mt/",
+              "title": "Horário de Missa em colider-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Igreja Matriz Papa João XXIII",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Colider",
+              "title": "Horário de Missa - Colider - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ],
+      "notes": "Forania de Colíder."
+    },
+    {
+      "slug": "sagrado-coracao-de-jesus-nova-canaa-do-norte",
+      "name": "Paróquia Sagrado Coração de Jesus",
+      "city": "Nova Canaã do Norte",
+      "state": "MT",
+      "neighborhood": "Centro",
+      "address": "Av. Paraná, 129 - Caixa Postal 21",
+      "zipCode": "78515-000",
+      "phone": "(66) 3551-1168",
+      "email": "pscjesus@diocesedesinop.com.br",
+      "website": null,
+      "priestName": "Frei Edecir Calegari",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedesinop.com.br/paroquia/paroquia-sagrado-coracao-de-jesus/",
+          "title": "PARÓQUIA SAGRADO CORAÇÃO DE JESUS | Diocese de Sinop",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://cnbbo2.org.br/diocese-de-sinop/",
+          "title": "Diocese de Sinop | CNBB Regional Oeste 2",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Igreja Matriz Sagrado Coração de Jesus",
+          "address": null,
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/nova-canaa-do-norte-mt/",
+              "title": "Horário de Missa em nova-canaa-do-norte-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "name": "Comunidade Santa Paulina",
+          "address": null,
+          "neighborhood": "Av. São Paulo, 210",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/nova-canaa-do-norte-mt/",
+              "title": "Horário de Missa em nova-canaa-do-norte-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "name": "Comunidade Sagrada Família",
+          "address": null,
+          "neighborhood": "Av. Paraná, 65",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/nova-canaa-do-norte-mt/",
+              "title": "Horário de Missa em nova-canaa-do-norte-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "name": "Comunidade São Francisco",
+          "address": null,
+          "neighborhood": "Rua Francisco Pinheiro da Costa, s/n",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/nova-canaa-do-norte-mt/",
+              "title": "Horário de Missa em nova-canaa-do-norte-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Comunidade Sagrada Família",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": "Recorrência mensal informada pela fonte: \"Missas: 1ro Domingo de cada mês: 7:00\"",
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/nova-canaa-do-norte-mt/",
+              "title": "Horário de Missa em nova-canaa-do-norte-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade São Francisco",
+          "dayOfWeek": 0,
+          "time": "08:15",
+          "type": "MASS",
+          "notes": "Recorrência mensal informada pela fonte: \"Missas: 1ro Domingo de cada mês: 8:15\"",
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/nova-canaa-do-norte-mt/",
+              "title": "Horário de Missa em nova-canaa-do-norte-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Santa Paulina",
+          "dayOfWeek": 0,
+          "time": "08:30",
+          "type": "MASS",
+          "notes": "Recorrência mensal informada pela fonte: \"Missas: 2do Domingo de cada mês: 8:30\"",
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/nova-canaa-do-norte-mt/",
+              "title": "Horário de Missa em nova-canaa-do-norte-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Igreja Matriz Sagrado Coração de Jesus",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/nova-canaa-do-norte-mt/",
+              "title": "Horário de Missa em nova-canaa-do-norte-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            },
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Nova+Canaa+do+Norte",
+              "title": "Horário de Missa - Nova+Canaa+do+Norte - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Igreja Matriz Sagrado Coração de Jesus",
+          "dayOfWeek": 2,
+          "time": "13:30",
+          "type": "CONFESSION",
+          "notes": "Terça-feira, 13h30-17h",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Nova+Canaa+do+Norte",
+              "title": "Horário de Missa - Nova+Canaa+do+Norte - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Igreja Matriz Sagrado Coração de Jesus",
+          "dayOfWeek": 4,
+          "time": "08:30",
+          "type": "CONFESSION",
+          "notes": "Quinta-feira, 8h30-11h e 13h30-17h",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Nova+Canaa+do+Norte",
+              "title": "Horário de Missa - Nova+Canaa+do+Norte - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Igreja Matriz Sagrado Coração de Jesus",
+          "dayOfWeek": 4,
+          "time": "13:30",
+          "type": "CONFESSION",
+          "notes": "Quinta-feira, 8h30-11h e 13h30-17h",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Nova+Canaa+do+Norte",
+              "title": "Horário de Missa - Nova+Canaa+do+Norte - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Igreja Matriz Sagrado Coração de Jesus",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Nova+Canaa+do+Norte",
+              "title": "Horário de Missa - Nova+Canaa+do+Norte - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Igreja Matriz Sagrado Coração de Jesus",
+          "dayOfWeek": 4,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/nova-canaa-do-norte-mt/",
+              "title": "Horário de Missa em nova-canaa-do-norte-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Igreja Matriz Sagrado Coração de Jesus",
+          "dayOfWeek": 5,
+          "time": "08:30",
+          "type": "CONFESSION",
+          "notes": "Sexta-feira, 8h30-11h e 13h30-17h",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Nova+Canaa+do+Norte",
+              "title": "Horário de Missa - Nova+Canaa+do+Norte - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Igreja Matriz Sagrado Coração de Jesus",
+          "dayOfWeek": 5,
+          "time": "13:30",
+          "type": "CONFESSION",
+          "notes": "Sexta-feira, 8h30-11h e 13h30-17h",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Nova+Canaa+do+Norte",
+              "title": "Horário de Missa - Nova+Canaa+do+Norte - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Igreja Matriz Sagrado Coração de Jesus",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/nova-canaa-do-norte-mt/",
+              "title": "Horário de Missa em nova-canaa-do-norte-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            },
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Nova+Canaa+do+Norte",
+              "title": "Horário de Missa - Nova+Canaa+do+Norte - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "notes": "Forania de Colíder."
+    },
+    {
+      "slug": "sao-pedro-itauba",
+      "name": "Paróquia São Pedro",
+      "city": "Itaúba",
+      "state": "MT",
+      "neighborhood": "Centro",
+      "address": "Av. Brasil, 698",
+      "zipCode": "78510-000",
+      "phone": "(66) 3561-1151 / (66) 99968-7582",
+      "email": "pspedro-ita@diocesedesinop.com.br",
+      "website": null,
+      "priestName": "Pe. Adevaldo Pereira da Mota",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedesinop.com.br/paroquia/paroquia-sao-pedro/",
+          "title": "PARÓQUIA SÃO PEDRO | Diocese de Sinop",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://cnbbo2.org.br/diocese-de-sinop/",
+          "title": "Diocese de Sinop | CNBB Regional Oeste 2",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [],
+      "notes": "Forania de Colíder. Nenhuma fonte pública publica horário fixo desta paróquia."
+    },
+    {
+      "slug": "nossa-senhora-dos-navegantes-porto-dos-gauchos",
+      "name": "Paróquia Nossa Senhora dos Navegantes",
+      "city": "Porto dos Gaúchos",
+      "state": "MT",
+      "neighborhood": "Centro",
+      "address": "Praça Leopoldina Wilke, 804 - Caixa Postal 12",
+      "zipCode": "78560-000",
+      "phone": "(66) 3526-1183",
+      "email": "pnsnavegantes@diocesedesinop.com.br",
+      "website": null,
+      "priestName": "Pe. Belmiro Rauber, SCJ",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedesinop.com.br/paroquia/paroquia-nossa-senhora-dos-navegantes/",
+          "title": "PARÓQUIA NOSSA SENHORA DOS NAVEGANTES | Diocese de Sinop",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://cnbbo2.org.br/diocese-de-sinop/",
+          "title": "Diocese de Sinop | CNBB Regional Oeste 2",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [],
+      "notes": "Forania de Juara. Nenhuma fonte pública publica horário fixo desta paróquia."
+    },
+    {
+      "slug": "santo-antonio-tabapora",
+      "name": "Paróquia Santo Antônio",
+      "city": "Tabaporã",
+      "state": "MT",
+      "neighborhood": null,
+      "address": "Av. Dr. Carlos Vidoto, 170 - Caixa Postal 49",
+      "zipCode": "78563-000",
+      "phone": "(66) 3557-1205",
+      "email": "paroquiasantoantoniotaba@diocesedesinop.com.br",
+      "website": null,
+      "priestName": "Pe. Agnaldo Nunes de Faria, SCJ",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedesinop.com.br/paroquia/paroquia-santo-antonio-3/",
+          "title": "PARÓQUIA SANTO ANTÔNIO | Diocese de Sinop",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://cnbbo2.org.br/diocese-de-sinop/",
+          "title": "Diocese de Sinop | CNBB Regional Oeste 2",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Tabapora",
+              "title": "Horário de Missa - Tabapora - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Tabapora",
+              "title": "Horário de Missa - Tabapora - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 2,
+          "time": "06:15",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Tabapora",
+              "title": "Horário de Missa - Tabapora - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 2,
+          "time": "08:00",
+          "type": "CONFESSION",
+          "notes": "Terça a sexta-feira, 8h-17h30",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Tabapora",
+              "title": "Horário de Missa - Tabapora - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "08:00",
+          "type": "CONFESSION",
+          "notes": "Terça a sexta-feira, 8h-17h30",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Tabapora",
+              "title": "Horário de Missa - Tabapora - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "15:15",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Tabapora",
+              "title": "Horário de Missa - Tabapora - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Recorrência mensal informada pela fonte: \"Terceira Quarta-feira: 19:30\"",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Tabapora",
+              "title": "Horário de Missa - Tabapora - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "08:00",
+          "type": "CONFESSION",
+          "notes": "Terça a sexta-feira, 8h-17h30",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Tabapora",
+              "title": "Horário de Missa - Tabapora - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Recorrência mensal informada pela fonte: \"Quinta-feira 19:30 (sempre a penúltima do mês)\"",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Tabapora",
+              "title": "Horário de Missa - Tabapora - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "08:00",
+          "type": "CONFESSION",
+          "notes": "Terça a sexta-feira, 8h-17h30",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Tabapora",
+              "title": "Horário de Missa - Tabapora - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Recorrência mensal informada pela fonte: \"Primeira Sexta-feira: 19:30\"",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Tabapora",
+              "title": "Horário de Missa - Tabapora - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Tabapora",
+              "title": "Horário de Missa - Tabapora - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ],
+      "notes": "Forania de Juara."
+    },
+    {
+      "slug": "sao-jose-juara",
+      "name": "Paróquia São José",
+      "city": "Juara",
+      "state": "MT",
+      "neighborhood": "Centro",
+      "address": "Rua São Paulo, 40 W",
+      "zipCode": "78575-000",
+      "phone": "(66) 3556-1493",
+      "email": "psjose-juara@diocesedesinop.com.br",
+      "website": null,
+      "priestName": "Pe. Vagno Aparecido Reato, SCJ",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedesinop.com.br/paroquia/paroquia-sao-jose-2/",
+          "title": "PARÓQUIA SÃO JOSÉ | Diocese de Sinop",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://cnbbo2.org.br/diocese-de-sinop/",
+          "title": "Diocese de Sinop | CNBB Regional Oeste 2",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São José",
+          "address": null,
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/juara-mt/",
+              "title": "Horário de Missa em juara-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "name": "Comunidade Sagrado Coração de Jesus",
+          "address": null,
+          "neighborhood": "Av. Rio Grande do Sul",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/juara-mt/",
+              "title": "Horário de Missa em juara-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "name": "Comunidade Santa Terezinha do Menino Jesus",
+          "address": null,
+          "neighborhood": "Jardim América - R. Paraná, 237",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/juara-mt/",
+              "title": "Horário de Missa em juara-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São José",
+          "dayOfWeek": 0,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/juara-mt/",
+              "title": "Horário de Missa em juara-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Sagrado Coração de Jesus",
+          "dayOfWeek": 0,
+          "time": "07:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/juara-mt/",
+              "title": "Horário de Missa em juara-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São José",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/juara-mt/",
+              "title": "Horário de Missa em juara-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Santa Terezinha do Menino Jesus",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/juara-mt/",
+              "title": "Horário de Missa em juara-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São José",
+          "dayOfWeek": 2,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/juara-mt/",
+              "title": "Horário de Missa em juara-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São José",
+          "dayOfWeek": 3,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/juara-mt/",
+              "title": "Horário de Missa em juara-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São José",
+          "dayOfWeek": 4,
+          "time": "18:00",
+          "type": "ADORATION",
+          "notes": "Quinta-feira, 18h-19h",
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/juara-mt/",
+              "title": "Horário de Missa em juara-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São José",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/juara-mt/",
+              "title": "Horário de Missa em juara-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Santa Terezinha do Menino Jesus",
+          "dayOfWeek": 4,
+          "time": "19:30",
+          "type": "ADORATION",
+          "notes": "Quinta-feira, 19h30-20h30",
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/juara-mt/",
+              "title": "Horário de Missa em juara-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Sagrado Coração de Jesus",
+          "dayOfWeek": 5,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Recorrência mensal informada pela fonte: \"Missas: 1ª sexta-feira do mês, 19:30\"",
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/juara-mt/",
+              "title": "Horário de Missa em juara-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Santa Terezinha do Menino Jesus",
+          "dayOfWeek": 5,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Recorrência mensal informada pela fonte: \"Missas: 1ª sexta-feira do mês, 19:30\"",
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/juara-mt/",
+              "title": "Horário de Missa em juara-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São José",
+          "dayOfWeek": 6,
+          "time": "20:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/juara-mt/",
+              "title": "Horário de Missa em juara-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ],
+      "notes": "Forania de Juara."
+    },
+    {
+      "slug": "sao-pedro-novo-horizonte-do-norte",
+      "name": "Paróquia São Pedro",
+      "city": "Novo Horizonte do Norte",
+      "state": "MT",
+      "neighborhood": null,
+      "address": "Rua Padre Guinter, s/n",
+      "zipCode": "78570-000",
+      "phone": "(66) 3559-1218",
+      "email": "pspedro-hor@diocesedesinop.com.br",
+      "website": null,
+      "priestName": "Pe. Antônio Jezufino da Silva Neto, SCJ",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedesinop.com.br/paroquia/paroquia-sao-pedro-2/",
+          "title": "PARÓQUIA SÃO PEDRO | Diocese de Sinop",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://cnbbo2.org.br/diocese-de-sinop/",
+          "title": "Diocese de Sinop | CNBB Regional Oeste 2",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/novo-horizonte-do-norte-mt/",
+              "title": "Horário de Missa em novo-horizonte-do-norte-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/novo-horizonte-do-norte-mt/",
+              "title": "Horário de Missa em novo-horizonte-do-norte-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "18:30",
+          "type": "ADORATION",
+          "notes": "Quinta-feira, 18h30-19h30",
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/novo-horizonte-do-norte-mt/",
+              "title": "Horário de Missa em novo-horizonte-do-norte-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/novo-horizonte-do-norte-mt/",
+              "title": "Horário de Missa em novo-horizonte-do-norte-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ],
+      "notes": "Forania de Juara."
+    },
+    {
+      "slug": "nossa-senhora-aparecida-terra-nova-do-norte",
+      "name": "Paróquia Nossa Senhora Aparecida",
+      "city": "Terra Nova do Norte",
+      "state": "MT",
+      "neighborhood": null,
+      "address": "Av. Norberto Schwantes, 2000 - Caixa Postal 145",
+      "zipCode": "78505-000",
+      "phone": "(66) 3534-1440 / (66) 99659-7472",
+      "email": "pnsaparecidatnn@diocesedesinop.com.br",
+      "website": null,
+      "priestName": "Pe. Gilson Cristiano Tardivo",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedesinop.com.br/paroquia/paroquia-n-sra-aparecida/",
+          "title": "PARÓQUIA N. SRª APARECIDA | Diocese de Sinop",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://cnbbo2.org.br/diocese-de-sinop/",
+          "title": "Diocese de Sinop | CNBB Regional Oeste 2",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [],
+      "notes": "Forania de Peixoto de Azevedo. Nenhuma fonte pública publica horário fixo desta paróquia."
+    },
+    {
+      "slug": "nossa-senhora-aparecida-peixoto-de-azevedo",
+      "name": "Paróquia Nossa Senhora Aparecida",
+      "city": "Peixoto de Azevedo",
+      "state": "MT",
+      "neighborhood": null,
+      "address": "Rua Tancredo Neves, 225 - Caixa Postal 79",
+      "zipCode": "78530-000",
+      "phone": "(66) 3575-1409",
+      "email": "pnsaparecida.pei@diocesedesinop.com.br",
+      "website": null,
+      "priestName": "Pe. José Roberto Domingos",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedesinop.com.br/paroquia/paroquia-nossa-senhora-aparecida-2/",
+          "title": "PARÓQUIA NOSSA SENHORA APARECIDA | Diocese de Sinop",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://cnbbo2.org.br/diocese-de-sinop/",
+          "title": "Diocese de Sinop | CNBB Regional Oeste 2",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [],
+      "notes": "Forania de Peixoto de Azevedo. O diretório diocesano registra Pe. José Roberto Domingos como pároco desta paróquia E da Paróquia Santa Cecília de Apiacás. Precisa de validação humana. Nenhuma fonte pública publica horário fixo desta paróquia."
+    },
+    {
+      "slug": "nossa-senhora-das-dores-novo-mundo",
+      "name": "Paróquia Nossa Senhora das Dores",
+      "city": "Novo Mundo",
+      "state": "MT",
+      "neighborhood": null,
+      "address": "Rua Turmalina, s/n - em frente à Praça Central - Caixa Postal 06",
+      "zipCode": "78528-000",
+      "phone": "(66) 3539-6251",
+      "email": "pnsdores@diocesedesinop.com.br",
+      "website": null,
+      "priestName": "Pe. Luiz Gonzaga Fontanella Córdova",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedesinop.com.br/paroquia/paroquia-nossa-senhora-das-dores/",
+          "title": "PARÓQUIA NOSSA SENHORA DAS DORES | Diocese de Sinop",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://cnbbo2.org.br/diocese-de-sinop/",
+          "title": "Diocese de Sinop | CNBB Regional Oeste 2",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [],
+      "notes": "Forania de Peixoto de Azevedo. Nenhuma fonte pública publica horário fixo desta paróquia."
+    },
+    {
+      "slug": "santa-mae-de-deus-matupa",
+      "name": "Paróquia Santa Mãe de Deus",
+      "city": "Matupá",
+      "state": "MT",
+      "neighborhood": "ZH 1",
+      "address": "Rua 09, 93",
+      "zipCode": "78525-000",
+      "phone": "(66) 3595-1283",
+      "email": "pmaededeus@diocesedesinop.com.br",
+      "website": null,
+      "priestName": "Pe. Antônio Damin",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedesinop.com.br/paroquia/paroquia-santa-mae-de-deus/",
+          "title": "PARÓQUIA SANTA MÃE DE DEUS | Diocese de Sinop",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://cnbbo2.org.br/diocese-de-sinop/",
+          "title": "Diocese de Sinop | CNBB Regional Oeste 2",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Igreja Matriz Santa Mãe de Deus",
+          "address": null,
+          "neighborhood": "ZH 1",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/matupa-mt/",
+              "title": "Horário de Missa em matupa-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "name": "Comunidade São Cristóvão",
+          "address": null,
+          "neighborhood": "Av. Vítor F. Donine, 1038",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/matupa-mt/",
+              "title": "Horário de Missa em matupa-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Igreja Matriz Santa Mãe de Deus",
+          "dayOfWeek": 0,
+          "time": "07:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/matupa-mt/",
+              "title": "Horário de Missa em matupa-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade São Cristóvão",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/matupa-mt/",
+              "title": "Horário de Missa em matupa-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Igreja Matriz Santa Mãe de Deus",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/matupa-mt/",
+              "title": "Horário de Missa em matupa-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ],
+      "notes": "Forania de Peixoto de Azevedo."
+    },
+    {
+      "slug": "santo-antonio-nova-guarita",
+      "name": "Paróquia Santo Antônio",
+      "city": "Nova Guarita",
+      "state": "MT",
+      "neighborhood": null,
+      "address": "Av. dos Migrantes, 244",
+      "zipCode": "78508-000",
+      "phone": "(66) 3574-1144 / (66) 98458-2464",
+      "email": "psantonio-gua@diocesedesinop.com.br",
+      "website": null,
+      "priestName": "Pe. Vitorio Sachi",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedesinop.com.br/paroquia/paroquia-santo-antonio-2/",
+          "title": "PARÓQUIA SANTO ANTÔNIO | Diocese de Sinop",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://cnbbo2.org.br/diocese-de-sinop/",
+          "title": "Diocese de Sinop | CNBB Regional Oeste 2",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [],
+      "notes": "Forania de Peixoto de Azevedo. Nenhuma fonte pública publica horário fixo desta paróquia."
+    },
+    {
+      "slug": "sao-jose-uniao-do-norte-peixoto-de-azevedo",
+      "name": "Paróquia São José",
+      "city": "Peixoto de Azevedo",
+      "state": "MT",
+      "neighborhood": "União do Norte",
+      "address": "Rua João Paulo II, s/n - Caixa Postal 122",
+      "zipCode": "78530-000",
+      "phone": "(66) 3504-1066",
+      "email": "psjuniaodonorte@diocesedesinop.com.br",
+      "website": null,
+      "priestName": "Pe. Luiz Carli",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedesinop.com.br/paroquia/paroquia-sao-jose/",
+          "title": "PARÓQUIA SÃO JOSÉ | Diocese de Sinop",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://cnbbo2.org.br/diocese-de-sinop/",
+          "title": "Diocese de Sinop | CNBB Regional Oeste 2",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [],
+      "notes": "Forania de Peixoto de Azevedo. Sede no distrito de União do Norte, município de Peixoto de Azevedo. Nenhuma fonte pública publica horário fixo desta paróquia."
+    },
+    {
+      "slug": "nossa-senhora-do-rosario-guaranta-do-norte",
+      "name": "Paróquia Nossa Senhora do Rosário",
+      "city": "Guarantã do Norte",
+      "state": "MT",
+      "neighborhood": null,
+      "address": "Rua Cambará, 863 - Caixa Postal 28",
+      "zipCode": "78520-000",
+      "phone": "(66) 3552-1290 / (66) 99967-3525",
+      "email": "pnsrosario@diocesedesinop.com.br",
+      "website": null,
+      "priestName": "Frei Carlos Topanotti",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedesinop.com.br/paroquia/prq-nossa-senhora-do-rosario/",
+          "title": "PARÓQUIA NOSSA SENHORA DO ROSÁRIO | Diocese de Sinop",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://cnbbo2.org.br/diocese-de-sinop/",
+          "title": "Diocese de Sinop | CNBB Regional Oeste 2",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [],
+      "notes": "Forania de Peixoto de Azevedo. Nenhuma fonte pública publica horário fixo desta paróquia."
+    },
+    {
+      "slug": "catedral-sagrado-coracao-de-jesus-sinop",
+      "name": "Catedral Sagrado Coração de Jesus",
+      "city": "Sinop",
+      "state": "MT",
+      "neighborhood": "Centro",
+      "address": "Av. Gov. Júlio Campos - Praça da Catedral - Caixa Postal 640",
+      "zipCode": "78550-286",
+      "phone": "(66) 3531-2433",
+      "email": "catedral.sagrado@hotmail.com",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedesinop.com.br/paroquia/paroquia-catedral-sagrado-coracao-de-jesus/",
+          "title": "PARÓQUIA CATEDRAL SAGRADO CORAÇÃO DE JESUS | Diocese de Sinop",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://cnbbo2.org.br/diocese-de-sinop/",
+          "title": "Diocese de Sinop | CNBB Regional Oeste 2",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/sinop-mt/",
+              "title": "Horário de Missa em sinop-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            },
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Sinop",
+              "title": "Horário de Missa - Sinop - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/sinop-mt/",
+              "title": "Horário de Missa em sinop-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            },
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Sinop",
+              "title": "Horário de Missa - Sinop - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 1,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Recorrência mensal informada pela fonte: \"Segunda Segunda-feira: 19:30\"",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Sinop",
+              "title": "Horário de Missa - Sinop - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 2,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/sinop-mt/",
+              "title": "Horário de Missa em sinop-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            },
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Sinop",
+              "title": "Horário de Missa - Sinop - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/sinop-mt/",
+              "title": "Horário de Missa em sinop-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            },
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Sinop",
+              "title": "Horário de Missa - Sinop - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/sinop-mt/",
+              "title": "Horário de Missa em sinop-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            },
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Sinop",
+              "title": "Horário de Missa - Sinop - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "18:00",
+          "type": "CONFESSION",
+          "notes": "Quinta-feira, 18h00-18h30",
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/sinop-mt/",
+              "title": "Horário de Missa em sinop-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "14:00",
+          "type": "ADORATION",
+          "notes": "Sexta-feira, 14h00-17h30",
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/sinop-mt/",
+              "title": "Horário de Missa em sinop-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/sinop-mt/",
+              "title": "Horário de Missa em sinop-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            },
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Sinop",
+              "title": "Horário de Missa - Sinop - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/sinop-mt/",
+              "title": "Horário de Missa em sinop-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            },
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Sinop",
+              "title": "Horário de Missa - Sinop - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "notes": "Forania de Sinop."
+    },
+    {
+      "slug": "nossa-senhora-da-gloria-claudia",
+      "name": "Paróquia Nossa Senhora da Glória",
+      "city": "Cláudia",
+      "state": "MT",
+      "neighborhood": null,
+      "address": "Av. Gaspar Dutra, 1124 - Caixa Postal 534",
+      "zipCode": "78540-000",
+      "phone": "(66) 3546-1269",
+      "email": "paroquiadeclaudiamt@hotmail.com",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedesinop.com.br/paroquia/paroquia-nossa-senhora-da-gloria/",
+          "title": "PARÓQUIA NOSSA SENHORA DA GLÓRIA | Diocese de Sinop",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://cnbbo2.org.br/diocese-de-sinop/",
+          "title": "Diocese de Sinop | CNBB Regional Oeste 2",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/claudia-mt/",
+              "title": "Horário de Missa em claudia-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Claudia",
+              "title": "Horário de Missa - Claudia - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/claudia-mt/",
+              "title": "Horário de Missa em claudia-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Claudia",
+              "title": "Horário de Missa - Claudia - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "08:00",
+          "type": "CONFESSION",
+          "notes": "Quarta-feira, 8h-11h e 14h-17h",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Claudia",
+              "title": "Horário de Missa - Claudia - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "14:00",
+          "type": "CONFESSION",
+          "notes": "Quarta-feira, 8h-11h e 14h-17h",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Claudia",
+              "title": "Horário de Missa - Claudia - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/claudia-mt/",
+              "title": "Horário de Missa em claudia-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "ADORATION",
+          "notes": "Quinta-feira, 19h00-20h00",
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/claudia-mt/",
+              "title": "Horário de Missa em claudia-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "CONFESSION",
+          "notes": "Quinta-feira, 19h",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Claudia",
+              "title": "Horário de Missa - Claudia - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "08:00",
+          "type": "CONFESSION",
+          "notes": "Sexta-feira, 8h-11h e 14h-17h",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Claudia",
+              "title": "Horário de Missa - Claudia - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "14:00",
+          "type": "CONFESSION",
+          "notes": "Sexta-feira, 8h-11h e 14h-17h",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Claudia",
+              "title": "Horário de Missa - Claudia - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Recorrência mensal informada pela fonte: \"PRIMEIRA SEXTA FEIRA DO MÊS\"",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Claudia",
+              "title": "Horário de Missa - Claudia - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/claudia-mt/",
+              "title": "Horário de Missa em claudia-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Claudia",
+              "title": "Horário de Missa - Claudia - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ],
+      "notes": "Forania de Sinop."
+    },
+    {
+      "slug": "santo-antonio-sinop",
+      "name": "Paróquia Santo Antônio",
+      "city": "Sinop",
+      "state": "MT",
+      "neighborhood": "Setor Comercial",
+      "address": "Av. das Sibipirunas, 3093 - Caixa Postal 73",
+      "zipCode": "78550-230",
+      "phone": "(66) 3531-2004",
+      "email": "paroquiasantoantoniosinop@hotmail.com",
+      "website": "https://www.santoantoniosinop.org.br",
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedesinop.com.br/paroquia/paroquia-santo-antonio/",
+          "title": "PARÓQUIA SANTO ANTÔNIO | Diocese de Sinop",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://cnbbo2.org.br/diocese-de-sinop/",
+          "title": "Diocese de Sinop | CNBB Regional Oeste 2",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.santoantoniosinop.org.br/institucional/horarios-de-missa",
+          "title": "Horários de Missa - Paróquia Santo Antônio, Sinop (site oficial)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Santo Antônio",
+          "address": null,
+          "neighborhood": "Setor Comercial",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.santoantoniosinop.org.br/comunidades",
+              "title": "Comunidades - Paróquia Santo Antônio, Sinop (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Todos os Santos",
+          "address": null,
+          "neighborhood": "Jardim Botânico - Avenida das Acácias, 1171",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.santoantoniosinop.org.br/comunidades",
+              "title": "Comunidades - Paróquia Santo Antônio, Sinop (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nossa Senhora de Lourdes",
+          "address": null,
+          "neighborhood": "Setor Industrial",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.santoantoniosinop.org.br/comunidades",
+              "title": "Comunidades - Paróquia Santo Antônio, Sinop (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nossa Senhora da Salete",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.santoantoniosinop.org.br/comunidades",
+              "title": "Comunidades - Paróquia Santo Antônio, Sinop (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São José",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.santoantoniosinop.org.br/comunidades",
+              "title": "Comunidades - Paróquia Santo Antônio, Sinop (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São Marcos",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.santoantoniosinop.org.br/comunidades",
+              "title": "Comunidades - Paróquia Santo Antônio, Sinop (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Comunidade Nossa Senhora de Lourdes",
+          "dayOfWeek": 0,
+          "time": "07:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.santoantoniosinop.org.br/institucional/horarios-de-missa",
+              "title": "Horários de Missa - Paróquia Santo Antônio, Sinop (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Santo Antônio",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.santoantoniosinop.org.br/institucional/horarios-de-missa",
+              "title": "Horários de Missa - Paróquia Santo Antônio, Sinop (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Comunidade Todos os Santos",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.santoantoniosinop.org.br/institucional/horarios-de-missa",
+              "title": "Horários de Missa - Paróquia Santo Antônio, Sinop (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Santo Antônio",
+          "dayOfWeek": 0,
+          "time": "10:00",
+          "type": "MASS",
+          "notes": "Recorrência mensal informada pela fonte: \"último domingo, 10h - missa das crianças\"",
+          "sources": [
+            {
+              "url": "https://www.santoantoniosinop.org.br/institucional/horarios-de-missa",
+              "title": "Horários de Missa - Paróquia Santo Antônio, Sinop (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Nossa Senhora da Salete",
+          "dayOfWeek": 0,
+          "time": "14:30",
+          "type": "MASS",
+          "notes": "Recorrência mensal informada pela fonte: \"2º e último domingo, 14h30\"",
+          "sources": [
+            {
+              "url": "https://www.santoantoniosinop.org.br/institucional/horarios-de-missa",
+              "title": "Horários de Missa - Paróquia Santo Antônio, Sinop (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade São José",
+          "dayOfWeek": 0,
+          "time": "16:30",
+          "type": "MASS",
+          "notes": "Recorrência mensal informada pela fonte: \"2º e último domingo, 16h30\"",
+          "sources": [
+            {
+              "url": "https://www.santoantoniosinop.org.br/institucional/horarios-de-missa",
+              "title": "Horários de Missa - Paróquia Santo Antônio, Sinop (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Santo Antônio",
+          "dayOfWeek": 0,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.santoantoniosinop.org.br/institucional/horarios-de-missa",
+              "title": "Horários de Missa - Paróquia Santo Antônio, Sinop (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Comunidade São Marcos",
+          "dayOfWeek": 0,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": "Recorrência mensal informada pela fonte: \"2º e último domingo, 18h30\"",
+          "sources": [
+            {
+              "url": "https://www.santoantoniosinop.org.br/institucional/horarios-de-missa",
+              "title": "Horários de Missa - Paróquia Santo Antônio, Sinop (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Santo Antônio",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.santoantoniosinop.org.br/institucional/horarios-de-missa",
+              "title": "Horários de Missa - Paróquia Santo Antônio, Sinop (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Santo Antônio",
+          "dayOfWeek": 1,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.santoantoniosinop.org.br/institucional/horarios-de-missa",
+              "title": "Horários de Missa - Paróquia Santo Antônio, Sinop (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Santo Antônio",
+          "dayOfWeek": 2,
+          "time": "06:15",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.santoantoniosinop.org.br/institucional/horarios-de-missa",
+              "title": "Horários de Missa - Paróquia Santo Antônio, Sinop (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Santo Antônio",
+          "dayOfWeek": 3,
+          "time": "06:15",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.santoantoniosinop.org.br/institucional/horarios-de-missa",
+              "title": "Horários de Missa - Paróquia Santo Antônio, Sinop (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Santo Antônio",
+          "dayOfWeek": 3,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": "Missa da saúde",
+          "sources": [
+            {
+              "url": "https://www.santoantoniosinop.org.br/institucional/horarios-de-missa",
+              "title": "Horários de Missa - Paróquia Santo Antônio, Sinop (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Santo Antônio",
+          "dayOfWeek": 4,
+          "time": "06:15",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.santoantoniosinop.org.br/institucional/horarios-de-missa",
+              "title": "Horários de Missa - Paróquia Santo Antônio, Sinop (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Santo Antônio",
+          "dayOfWeek": 5,
+          "time": "06:15",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.santoantoniosinop.org.br/institucional/horarios-de-missa",
+              "title": "Horários de Missa - Paróquia Santo Antônio, Sinop (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Santo Antônio",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "ADORATION",
+          "notes": "Recorrência mensal informada pela fonte: \"1ª sexta-feira: adoração 19h e missa 19h30\"",
+          "sources": [
+            {
+              "url": "https://www.santoantoniosinop.org.br/institucional/horarios-de-missa",
+              "title": "Horários de Missa - Paróquia Santo Antônio, Sinop (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Todos os Santos",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "ADORATION",
+          "notes": "Recorrência mensal informada pela fonte: \"1ª sexta-feira: adoração 19h e missa 19h30\"",
+          "sources": [
+            {
+              "url": "https://www.santoantoniosinop.org.br/institucional/horarios-de-missa",
+              "title": "Horários de Missa - Paróquia Santo Antônio, Sinop (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Santo Antônio",
+          "dayOfWeek": 5,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Recorrência mensal informada pela fonte: \"1ª sexta-feira: adoração 19h e missa 19h30\"",
+          "sources": [
+            {
+              "url": "https://www.santoantoniosinop.org.br/institucional/horarios-de-missa",
+              "title": "Horários de Missa - Paróquia Santo Antônio, Sinop (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Todos os Santos",
+          "dayOfWeek": 5,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Recorrência mensal informada pela fonte: \"1ª sexta-feira: adoração 19h e missa 19h30\"",
+          "sources": [
+            {
+              "url": "https://www.santoantoniosinop.org.br/institucional/horarios-de-missa",
+              "title": "Horários de Missa - Paróquia Santo Antônio, Sinop (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Santo Antônio",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.santoantoniosinop.org.br/institucional/horarios-de-missa",
+              "title": "Horários de Missa - Paróquia Santo Antônio, Sinop (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Comunidade Todos os Santos",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.santoantoniosinop.org.br/institucional/horarios-de-missa",
+              "title": "Horários de Missa - Paróquia Santo Antônio, Sinop (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "notes": "Forania de Sinop."
+    },
+    {
+      "slug": "sao-camilo-sinop",
+      "name": "Paróquia São Camilo de Lellis",
+      "city": "Sinop",
+      "state": "MT",
+      "neighborhood": "Jardim das Primaveras",
+      "address": "Rua das Thumbérgias, 227 - Caixa Postal 61",
+      "zipCode": "78550-382",
+      "phone": "(66) 3531-2495 / (66) 99719-1038",
+      "email": "secretaria.pscamilo@terra.com.br",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedesinop.com.br/paroquia/paroquia-sao-camilo/",
+          "title": "PARÓQUIA SÃO CAMILO | Diocese de Sinop",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://cnbbo2.org.br/diocese-de-sinop/",
+          "title": "Diocese de Sinop | CNBB Regional Oeste 2",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/sinop-mt/",
+              "title": "Horário de Missa em sinop-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            },
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Sinop",
+              "title": "Horário de Missa - Sinop - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/sinop-mt/",
+              "title": "Horário de Missa em sinop-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            },
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Sinop",
+              "title": "Horário de Missa - Sinop - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 2,
+          "time": "06:15",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/sinop-mt/",
+              "title": "Horário de Missa em sinop-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 2,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Sinop",
+              "title": "Horário de Missa - Sinop - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/sinop-mt/",
+              "title": "Horário de Missa em sinop-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            },
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Sinop",
+              "title": "Horário de Missa - Sinop - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "06:15",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/sinop-mt/",
+              "title": "Horário de Missa em sinop-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Recorrência mensal informada pela fonte: \"Primeira Sexta-feira: 19:30\"",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Sinop",
+              "title": "Horário de Missa - Sinop - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/sinop-mt/",
+              "title": "Horário de Missa em sinop-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            },
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Sinop",
+              "title": "Horário de Missa - Sinop - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "notes": "Forania de Sinop."
+    },
+    {
+      "slug": "sao-cristovao-sinop",
+      "name": "Paróquia São Cristóvão",
+      "city": "Sinop",
+      "state": "MT",
+      "neighborhood": "São Cristóvão",
+      "address": "Rua Colonizador Ênio Pipino, s/n - Caixa Postal 201",
+      "zipCode": "78550-000",
+      "phone": "(66) 3531-8442 / (66) 99668-4696",
+      "email": "paroquiasc@terra.com.br",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedesinop.com.br/paroquia/paroquia-sao-cristovao/",
+          "title": "PARÓQUIA SÃO CRISTÓVÃO | Diocese de Sinop",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://cnbbo2.org.br/diocese-de-sinop/",
+          "title": "Diocese de Sinop | CNBB Regional Oeste 2",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Cristóvão",
+          "address": null,
+          "neighborhood": "São Cristóvão",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/sinop-mt/",
+              "title": "Horário de Missa em sinop-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "name": "Comunidade Nossa Senhora Aparecida",
+          "address": null,
+          "neighborhood": "Jardim Celeste - Av. dos Jatobás, 994",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/sinop-mt/",
+              "title": "Horário de Missa em sinop-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São Cristóvão",
+          "dayOfWeek": 0,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/sinop-mt/",
+              "title": "Horário de Missa em sinop-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Nossa Senhora Aparecida",
+          "dayOfWeek": 0,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/sinop-mt/",
+              "title": "Horário de Missa em sinop-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Cristóvão",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/sinop-mt/",
+              "title": "Horário de Missa em sinop-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            },
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Sinop",
+              "title": "Horário de Missa - Sinop - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Comunidade Nossa Senhora Aparecida",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/sinop-mt/",
+              "title": "Horário de Missa em sinop-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Cristóvão",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/sinop-mt/",
+              "title": "Horário de Missa em sinop-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            },
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Sinop",
+              "title": "Horário de Missa - Sinop - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São Cristóvão",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Sinop",
+              "title": "Horário de Missa - Sinop - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Nossa Senhora Aparecida",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/sinop-mt/",
+              "title": "Horário de Missa em sinop-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Nossa Senhora Aparecida",
+          "dayOfWeek": 4,
+          "time": "06:15",
+          "type": "ADORATION",
+          "notes": "Quinta-feira, 6h15-14h45",
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/sinop-mt/",
+              "title": "Horário de Missa em sinop-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Nossa Senhora Aparecida",
+          "dayOfWeek": 4,
+          "time": "08:00",
+          "type": "CONFESSION",
+          "notes": "Quinta-feira, 8h00-10h30",
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/sinop-mt/",
+              "title": "Horário de Missa em sinop-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Cristóvão",
+          "dayOfWeek": 4,
+          "time": "15:00",
+          "type": "ADORATION",
+          "notes": "Quinta-feira, 15h00-17h30",
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/sinop-mt/",
+              "title": "Horário de Missa em sinop-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Nossa Senhora Aparecida",
+          "dayOfWeek": 4,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/sinop-mt/",
+              "title": "Horário de Missa em sinop-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Cristóvão",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/sinop-mt/",
+              "title": "Horário de Missa em sinop-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Cristóvão",
+          "dayOfWeek": 5,
+          "time": "16:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Sinop",
+              "title": "Horário de Missa - Sinop - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Nossa Senhora Aparecida",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Recorrência mensal informada pela fonte: \"Missas: 1ª sexta-feira do mês, 19:00\"",
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/sinop-mt/",
+              "title": "Horário de Missa em sinop-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Cristóvão",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/sinop-mt/",
+              "title": "Horário de Missa em sinop-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            },
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Sinop",
+              "title": "Horário de Missa - Sinop - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "notes": "Forania de Sinop."
+    },
+    {
+      "slug": "sao-francisco-de-assis-sinop",
+      "name": "Paróquia São Francisco de Assis",
+      "city": "Sinop",
+      "state": "MT",
+      "neighborhood": "Jardim Imperial",
+      "address": "Av. dos Ingás, 4411",
+      "zipCode": "78555-036",
+      "phone": "(66) 3532-3052",
+      "email": "psfranciscoassis@yahoo.com.br",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedesinop.com.br/paroquia/paroquia-sao-francisco-de-assis/",
+          "title": "PARÓQUIA SÃO FRANCISCO DE ASSIS | Diocese de Sinop",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://cnbbo2.org.br/diocese-de-sinop/",
+          "title": "Diocese de Sinop | CNBB Regional Oeste 2",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "07:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/sinop-mt/",
+              "title": "Horário de Missa em sinop-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            },
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Sinop",
+              "title": "Horário de Missa - Sinop - MT",
+              "accessedAt": "2026-09-11"
+            },
+            {
+              "url": "https://missahora.com.br/mato-grosso/sinop/paroquia-sao-francisco-de-assis/",
+              "title": "Horários da Missa - paroquia-sao-francisco-de-assis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/sinop-mt/",
+              "title": "Horário de Missa em sinop-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Sinop",
+              "title": "Horário de Missa - Sinop - MT",
+              "accessedAt": "2026-09-11"
+            },
+            {
+              "url": "https://missahora.com.br/mato-grosso/sinop/paroquia-sao-francisco-de-assis/",
+              "title": "Horários da Missa - paroquia-sao-francisco-de-assis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 2,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/sinop-mt/",
+              "title": "Horário de Missa em sinop-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            },
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Sinop",
+              "title": "Horário de Missa - Sinop - MT",
+              "accessedAt": "2026-09-11"
+            },
+            {
+              "url": "https://missahora.com.br/mato-grosso/sinop/paroquia-sao-francisco-de-assis/",
+              "title": "Horários da Missa - paroquia-sao-francisco-de-assis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/sinop-mt/",
+              "title": "Horário de Missa em sinop-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            },
+            {
+              "url": "https://missahora.com.br/mato-grosso/sinop/paroquia-sao-francisco-de-assis/",
+              "title": "Horários da Missa - paroquia-sao-francisco-de-assis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "08:00",
+          "type": "ADORATION",
+          "notes": "Quinta-feira, 8h00-9h00",
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/sinop-mt/",
+              "title": "Horário de Missa em sinop-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Sinop",
+              "title": "Horário de Missa - Sinop - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Recorrência mensal informada pela fonte: \"Primeira Sexta-feira: 19:30\"",
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/sinop-mt/",
+              "title": "Horário de Missa em sinop-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            },
+            {
+              "url": "https://missahora.com.br/mato-grosso/sinop/paroquia-sao-francisco-de-assis/",
+              "title": "Horários da Missa - paroquia-sao-francisco-de-assis",
+              "accessedAt": "2026-09-11"
+            },
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Sinop",
+              "title": "Horário de Missa - Sinop - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/sinop-mt/",
+              "title": "Horário de Missa em sinop-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Sinop",
+              "title": "Horário de Missa - Sinop - MT",
+              "accessedAt": "2026-09-11"
+            },
+            {
+              "url": "https://missahora.com.br/mato-grosso/sinop/paroquia-sao-francisco-de-assis/",
+              "title": "Horários da Missa - paroquia-sao-francisco-de-assis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "notes": "Forania de Sinop."
+    },
+    {
+      "slug": "nossa-senhora-aparecida-nova-ubirata",
+      "name": "Paróquia Nossa Senhora Aparecida",
+      "city": "Nova Ubiratã",
+      "state": "MT",
+      "neighborhood": null,
+      "address": "Rua São Paulo, 1441 - Caixa Postal 08",
+      "zipCode": "78888-000",
+      "phone": "(66) 3579-1531",
+      "email": "paroquianossasaparecida@hotmail.com",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedesinop.com.br/paroquia/paroquia-nossa-senhora-aparecida/",
+          "title": "PARÓQUIA NOSSA SENHORA APARECIDA | Diocese de Sinop",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://cnbbo2.org.br/diocese-de-sinop/",
+          "title": "Diocese de Sinop | CNBB Regional Oeste 2",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/nova-ubirata-mt/",
+              "title": "Horário de Missa em nova-ubirata-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Nova+Ubirata",
+              "title": "Horário de Missa - Nova+Ubirata - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 1,
+          "time": "19:00",
+          "type": "ROSARY",
+          "notes": "Terço dos homens, segunda-feira às 19h",
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/nova-ubirata-mt/",
+              "title": "Horário de Missa em nova-ubirata-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/nova-ubirata-mt/",
+              "title": "Horário de Missa em nova-ubirata-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Nova+Ubirata",
+              "title": "Horário de Missa - Nova+Ubirata - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "08:00",
+          "type": "ADORATION",
+          "notes": "Quinta-feira, 8h-9h",
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/nova-ubirata-mt/",
+              "title": "Horário de Missa em nova-ubirata-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Recorrência mensal informada pela fonte: \"Missas: 1ª sexta-feira do mês, 19:00\"",
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/nova-ubirata-mt/",
+              "title": "Horário de Missa em nova-ubirata-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Recorrência mensal informada pela fonte: \"Primeira Sexta-feira: 19:30\"",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Nova+Ubirata",
+              "title": "Horário de Missa - Nova+Ubirata - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/nova-ubirata-mt/",
+              "title": "Horário de Missa em nova-ubirata-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=MT&cidade=Nova+Ubirata",
+              "title": "Horário de Missa - Nova+Ubirata - MT",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ],
+      "notes": "Forania de Vera."
+    },
+    {
+      "slug": "santa-luzia-sorriso",
+      "name": "Paróquia Santa Luzia",
+      "city": "Sorriso",
+      "state": "MT",
+      "neighborhood": "Industrial",
+      "address": "Rua Turmalinas, 644 - Caixa Postal 353",
+      "zipCode": "78890-000",
+      "phone": "(66) 3544-8892 / (66) 99716-1589",
+      "email": "psluzia@vsp.com.br",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedesinop.com.br/paroquia/paroquia-santa-luzia/",
+          "title": "PARÓQUIA SANTA LUZIA | Diocese de Sinop",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://cnbbo2.org.br/diocese-de-sinop/",
+          "title": "Diocese de Sinop | CNBB Regional Oeste 2",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Santa Luzia",
+          "address": null,
+          "neighborhood": "Industrial",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/sorriso-mt/",
+              "title": "Horário de Missa em sorriso-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "name": "Comunidade Nossa Senhora do Caravaggio",
+          "address": null,
+          "neighborhood": "Caravagio - MT-242",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/sorriso-mt/",
+              "title": "Horário de Missa em sorriso-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Santa Luzia",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/sorriso-mt/",
+              "title": "Horário de Missa em sorriso-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Santa Luzia",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/sorriso-mt/",
+              "title": "Horário de Missa em sorriso-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Santa Luzia",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/sorriso-mt/",
+              "title": "Horário de Missa em sorriso-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Santa Luzia",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Recorrência mensal informada pela fonte: \"Missas: 1ª sexta-feira do mês, 19:00\"",
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/sorriso-mt/",
+              "title": "Horário de Missa em sorriso-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Nossa Senhora do Caravaggio",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Recorrência mensal informada pela fonte: \"Missas: 2da Sexta de cada mês: 19:00\"",
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/cidade/sorriso-mt/",
+              "title": "Horário de Missa em sorriso-mt | Lírio Católico",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ],
+      "notes": "Forania de Vera."
+    },
+    {
+      "slug": "sao-judas-tadeu-vera",
+      "name": "Paróquia São Judas Tadeu",
+      "city": "Vera",
+      "state": "MT",
+      "neighborhood": null,
+      "address": "Av. Nicarágua, 2236",
+      "zipCode": "78880-000",
+      "phone": "(66) 3583-1427",
+      "email": "psjtadeu@yahoo.com.br",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedesinop.com.br/paroquia/paroquia-sao-judas-tadeu/",
+          "title": "PARÓQUIA SÃO JUDAS TADEU | Diocese de Sinop",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://cnbbo2.org.br/diocese-de-sinop/",
+          "title": "Diocese de Sinop | CNBB Regional Oeste 2",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [],
+      "notes": "Forania de Vera. Nenhuma fonte pública publica horário fixo desta paróquia."
+    },
+    {
+      "slug": "sao-pedro-apostolo-sorriso",
+      "name": "Paróquia São Pedro Apóstolo",
+      "city": "Sorriso",
+      "state": "MT",
+      "neighborhood": "Centro",
+      "address": "Av. Natalino João Brescansim, 1592 - Caixa Postal 14",
+      "zipCode": "78890-000",
+      "phone": "(66) 3544-1355 / (66) 99959-9375",
+      "email": "pspedrosorrisomt@hotmail.com",
+      "website": "https://www.pspedrosorriso.com.br",
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedesinop.com.br/paroquia/paroquia-sao-pedro-apostolo-2/",
+          "title": "PARÓQUIA SÃO PEDRO APÓSTOLO | Diocese de Sinop",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://cnbbo2.org.br/diocese-de-sinop/",
+          "title": "Diocese de Sinop | CNBB Regional Oeste 2",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.pspedrosorriso.com.br/institucional/horarios-de-missa",
+          "title": "Horários de Missa - Paróquia São Pedro Apóstolo, Sorriso (site oficial)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Igreja Matriz São Pedro Apóstolo",
+          "address": null,
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.pspedrosorriso.com.br/institucional/horarios-de-missa",
+              "title": "Horários de Missa - Paróquia São Pedro Apóstolo, Sorriso (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Igreja Nossa Senhora Aparecida",
+          "address": null,
+          "neighborhood": "Bairro São José",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.pspedrosorriso.com.br/institucional/horarios-de-missa",
+              "title": "Horários de Missa - Paróquia São Pedro Apóstolo, Sorriso (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Igreja Nossa Senhora da Saúde",
+          "address": null,
+          "neighborhood": "Casulo",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.pspedrosorriso.com.br/institucional/horarios-de-missa",
+              "title": "Horários de Missa - Paróquia São Pedro Apóstolo, Sorriso (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Igreja Nossa Senhora de Fátima",
+          "address": null,
+          "neighborhood": "Bairro União",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.pspedrosorriso.com.br/institucional/horarios-de-missa",
+              "title": "Horários de Missa - Paróquia São Pedro Apóstolo, Sorriso (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Igreja Nossa Senhora do Carmo",
+          "address": null,
+          "neighborhood": "Bairro Tropical",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.pspedrosorriso.com.br/institucional/horarios-de-missa",
+              "title": "Horários de Missa - Paróquia São Pedro Apóstolo, Sorriso (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santuário Nossa Senhora do Sorriso",
+          "address": null,
+          "neighborhood": "Mont Serrat",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.pspedrosorriso.com.br/institucional/horarios-de-missa",
+              "title": "Horários de Missa - Paróquia São Pedro Apóstolo, Sorriso (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Igreja Nossa Senhora dos Navegantes",
+          "address": null,
+          "neighborhood": "Linha Navegantes",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.pspedrosorriso.com.br/institucional/horarios-de-missa",
+              "title": "Horários de Missa - Paróquia São Pedro Apóstolo, Sorriso (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Igreja Rainha da Paz",
+          "address": null,
+          "neighborhood": "Flor do Cerrado",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.pspedrosorriso.com.br/institucional/horarios-de-missa",
+              "title": "Horários de Missa - Paróquia São Pedro Apóstolo, Sorriso (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Igreja Sagrado Coração de Jesus",
+          "address": null,
+          "neighborhood": "Rota do Sol",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.pspedrosorriso.com.br/institucional/horarios-de-missa",
+              "title": "Horários de Missa - Paróquia São Pedro Apóstolo, Sorriso (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Igreja Santa Catarina de Alexandria",
+          "address": null,
+          "neighborhood": "Portal Kaiabi",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.pspedrosorriso.com.br/institucional/horarios-de-missa",
+              "title": "Horários de Missa - Paróquia São Pedro Apóstolo, Sorriso (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Igreja Santa Rita de Cássia e São Francisco de Assis",
+          "address": null,
+          "neighborhood": "Morada do Sol",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.pspedrosorriso.com.br/institucional/horarios-de-missa",
+              "title": "Horários de Missa - Paróquia São Pedro Apóstolo, Sorriso (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Igreja Santíssima Trindade",
+          "address": null,
+          "neighborhood": "Bairro Barreiro",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.pspedrosorriso.com.br/institucional/horarios-de-missa",
+              "title": "Horários de Missa - Paróquia São Pedro Apóstolo, Sorriso (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Igreja Santíssimo Redentor",
+          "address": null,
+          "neighborhood": "Bairro Bom Jesus",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.pspedrosorriso.com.br/institucional/horarios-de-missa",
+              "title": "Horários de Missa - Paróquia São Pedro Apóstolo, Sorriso (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Igreja Santo Antônio",
+          "address": null,
+          "neighborhood": "Pontal do Verde",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.pspedrosorriso.com.br/institucional/horarios-de-missa",
+              "title": "Horários de Missa - Paróquia São Pedro Apóstolo, Sorriso (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Igreja São José",
+          "address": null,
+          "neighborhood": "Jardim Bela Vista",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.pspedrosorriso.com.br/institucional/horarios-de-missa",
+              "title": "Horários de Missa - Paróquia São Pedro Apóstolo, Sorriso (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Igreja São Miguel Arcanjo",
+          "address": null,
+          "neighborhood": "Jardim Alvorada",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.pspedrosorriso.com.br/institucional/horarios-de-missa",
+              "title": "Horários de Missa - Paróquia São Pedro Apóstolo, Sorriso (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Igreja São Miguel Arcanjo",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.pspedrosorriso.com.br/institucional/horarios-de-missa",
+              "title": "Horários de Missa - Paróquia São Pedro Apóstolo, Sorriso (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Igreja Matriz São Pedro Apóstolo",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.pspedrosorriso.com.br/institucional/horarios-de-missa",
+              "title": "Horários de Missa - Paróquia São Pedro Apóstolo, Sorriso (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Igreja Rainha da Paz",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.pspedrosorriso.com.br/institucional/horarios-de-missa",
+              "title": "Horários de Missa - Paróquia São Pedro Apóstolo, Sorriso (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Igreja Santa Catarina de Alexandria",
+          "dayOfWeek": 0,
+          "time": "08:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.pspedrosorriso.com.br/institucional/horarios-de-missa",
+              "title": "Horários de Missa - Paróquia São Pedro Apóstolo, Sorriso (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Igreja Nossa Senhora Aparecida",
+          "dayOfWeek": 0,
+          "time": "09:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.pspedrosorriso.com.br/institucional/horarios-de-missa",
+              "title": "Horários de Missa - Paróquia São Pedro Apóstolo, Sorriso (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Igreja Santíssimo Redentor",
+          "dayOfWeek": 0,
+          "time": "09:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.pspedrosorriso.com.br/institucional/horarios-de-missa",
+              "title": "Horários de Missa - Paróquia São Pedro Apóstolo, Sorriso (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Igreja Matriz São Pedro Apóstolo",
+          "dayOfWeek": 0,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.pspedrosorriso.com.br/institucional/horarios-de-missa",
+              "title": "Horários de Missa - Paróquia São Pedro Apóstolo, Sorriso (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Igreja Matriz São Pedro Apóstolo",
+          "dayOfWeek": 0,
+          "time": "17:00",
+          "type": "CONFESSION",
+          "notes": "Domingo, 17h-20h",
+          "sources": [
+            {
+              "url": "https://www.pspedrosorriso.com.br/institucional/horarios-de-missa",
+              "title": "Horários de Missa - Paróquia São Pedro Apóstolo, Sorriso (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Santuário Nossa Senhora do Sorriso",
+          "dayOfWeek": 0,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.pspedrosorriso.com.br/institucional/horarios-de-missa",
+              "title": "Horários de Missa - Paróquia São Pedro Apóstolo, Sorriso (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Igreja Matriz São Pedro Apóstolo",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.pspedrosorriso.com.br/institucional/horarios-de-missa",
+              "title": "Horários de Missa - Paróquia São Pedro Apóstolo, Sorriso (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Igreja São José",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.pspedrosorriso.com.br/institucional/horarios-de-missa",
+              "title": "Horários de Missa - Paróquia São Pedro Apóstolo, Sorriso (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Igreja Matriz São Pedro Apóstolo",
+          "dayOfWeek": 2,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.pspedrosorriso.com.br/institucional/horarios-de-missa",
+              "title": "Horários de Missa - Paróquia São Pedro Apóstolo, Sorriso (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Igreja Matriz São Pedro Apóstolo",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.pspedrosorriso.com.br/institucional/horarios-de-missa",
+              "title": "Horários de Missa - Paróquia São Pedro Apóstolo, Sorriso (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Igreja Nossa Senhora do Carmo",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Recorrência mensal informada pela fonte: \"2ª quarta-feira, 19h30\"",
+          "sources": [
+            {
+              "url": "https://www.pspedrosorriso.com.br/institucional/horarios-de-missa",
+              "title": "Horários de Missa - Paróquia São Pedro Apóstolo, Sorriso (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Igreja Nossa Senhora dos Navegantes",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.pspedrosorriso.com.br/institucional/horarios-de-missa",
+              "title": "Horários de Missa - Paróquia São Pedro Apóstolo, Sorriso (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Igreja São José",
+          "dayOfWeek": 4,
+          "time": "16:00",
+          "type": "MASS",
+          "notes": "Recorrência mensal informada pela fonte: \"1ª quinta-feira, 16h - Apostolado da Oração\"",
+          "sources": [
+            {
+              "url": "https://www.pspedrosorriso.com.br/institucional/horarios-de-missa",
+              "title": "Horários de Missa - Paróquia São Pedro Apóstolo, Sorriso (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Igreja Matriz São Pedro Apóstolo",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.pspedrosorriso.com.br/institucional/horarios-de-missa",
+              "title": "Horários de Missa - Paróquia São Pedro Apóstolo, Sorriso (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Igreja Nossa Senhora de Fátima",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.pspedrosorriso.com.br/institucional/horarios-de-missa",
+              "title": "Horários de Missa - Paróquia São Pedro Apóstolo, Sorriso (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Igreja Nossa Senhora da Saúde",
+          "dayOfWeek": 4,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.pspedrosorriso.com.br/institucional/horarios-de-missa",
+              "title": "Horários de Missa - Paróquia São Pedro Apóstolo, Sorriso (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Igreja Matriz São Pedro Apóstolo",
+          "dayOfWeek": 5,
+          "time": "16:00",
+          "type": "MASS",
+          "notes": "Recorrência mensal informada pela fonte: \"1ª sexta-feira, 16h - Apostolado da Oração\"",
+          "sources": [
+            {
+              "url": "https://www.pspedrosorriso.com.br/institucional/horarios-de-missa",
+              "title": "Horários de Missa - Paróquia São Pedro Apóstolo, Sorriso (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Igreja Matriz São Pedro Apóstolo",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.pspedrosorriso.com.br/institucional/horarios-de-missa",
+              "title": "Horários de Missa - Paróquia São Pedro Apóstolo, Sorriso (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Igreja Santíssima Trindade",
+          "dayOfWeek": 5,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.pspedrosorriso.com.br/institucional/horarios-de-missa",
+              "title": "Horários de Missa - Paróquia São Pedro Apóstolo, Sorriso (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Igreja Santo Antônio",
+          "dayOfWeek": 5,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.pspedrosorriso.com.br/institucional/horarios-de-missa",
+              "title": "Horários de Missa - Paróquia São Pedro Apóstolo, Sorriso (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Igreja Matriz São Pedro Apóstolo",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.pspedrosorriso.com.br/institucional/horarios-de-missa",
+              "title": "Horários de Missa - Paróquia São Pedro Apóstolo, Sorriso (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Igreja Sagrado Coração de Jesus",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.pspedrosorriso.com.br/institucional/horarios-de-missa",
+              "title": "Horários de Missa - Paróquia São Pedro Apóstolo, Sorriso (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Igreja Santa Rita de Cássia e São Francisco de Assis",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.pspedrosorriso.com.br/institucional/horarios-de-missa",
+              "title": "Horários de Missa - Paróquia São Pedro Apóstolo, Sorriso (site oficial)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "notes": "Forania de Vera. O site oficial da paróquia (pspedrosorriso.com.br) publica endereço \"Rua Cândido Rondon, 2845-B, Centro\"; o diretório diocesano traz \"Av. Natalino João Brescansim, 1592\". Precisa de validação humana."
+    },
+    {
+      "slug": "sao-pedro-apostolo-feliz-natal",
+      "name": "Paróquia São Pedro Apóstolo",
+      "city": "Feliz Natal",
+      "state": "MT",
+      "neighborhood": null,
+      "address": "Av. Maravilha, s/n",
+      "zipCode": "78885-000",
+      "phone": "(66) 3585-2051",
+      "email": "cspapostolo@hotmail.com",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedesinop.com.br/paroquia/paroquia-sao-pedro-apostolo/",
+          "title": "PARÓQUIA SÃO PEDRO APÓSTOLO | Diocese de Sinop",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://cnbbo2.org.br/diocese-de-sinop/",
+          "title": "Diocese de Sinop | CNBB Regional Oeste 2",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [],
+      "notes": "Forania de Vera. Nenhuma fonte pública publica horário fixo desta paróquia."
+    }
+  ],
+  "coverage": {
+    "parishesFound": 33,
+    "parishesExpected": 33,
+    "notes": "As 33 paróquias vêm do custom post type \"paroquia\" do site diocesano, recuperado pelo paroquia-sitemap.xml (o CPT não é exposto na REST API). O número bate com a ficha da CNBB Regional Oeste 2 (33 paróquias, ~1.200 comunidades, 6 foranias) e com o menu de foranias do próprio site. O catholic-hierarchy.org registra 34 paróquias em 2023 - uma a mais, possivelmente criada depois da última atualização do site. ATENÇÃO: as fichas de paróquia do site diocesano datam de 2020-2022 (último post do portal é de 14/11/2022); endereços, telefones, e-mails e párocos podem estar desatualizados. A diocese NÃO publica horário de missa nem lista de comunidades - os horários deste arquivo vêm dos sites oficiais de 3 paróquias e, no resto, de agregadores."
+  }
+}
