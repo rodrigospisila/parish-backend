@@ -43,9 +43,13 @@ function validateDioceseFile(file) {
     totals.parishes += 1;
     // Homônimas na mesma cidade são legítimas se o bairro/endereço difere (o
     // importador acrescenta o bairro ao nome); duplicata real = mesmo bairro também
+    // Entrada já marcada para ficar fora da carga (duplicada, extinta, outra
+    // jurisdição) não conflita com a que vai entrar — o par é intencional
+    const carrega = !p.status || p.status === 'ativa' || p.status === 'confirmada'
+      || (p.loadAsParish && p.status === 'nao-paroquial');
     const key = `${norm(p.name)}|${norm(p.city)}|${norm(p.neighborhood || p.address || '')}`;
-    if (seen.has(key)) warn(file, `paróquia duplicada: ${p.name} (${p.city}, ${p.neighborhood || p.address || 'sem bairro'})`); seen.add(key);
-    if (/^(Capela|Igreja|Capelania|Miss[ãa]o|Orat[óo]rio|Comunidade|Mosteiro|Convento|Monjas|Monges|Abadia|Carmelo|Semin[áa]rio|Setor Mission[áa]rio)\b/i.test(p.name || '')) console.log(`  · ${path.basename(file)}: unidade não paroquial (${p.loadAsParish ? 'entra por loadAsParish' : 'o importador ignora'}): ${p.name}`);
+    if (carrega) { if (seen.has(key)) warn(file, `paróquia duplicada: ${p.name} (${p.city}, ${p.neighborhood || p.address || 'sem bairro'})`); seen.add(key); }
+    if (/^(Capela|Igreja|Capelania|Miss[ãa]o|Orat[óo]rio|Comunidade|Mosteiro|Convento|Monjas|Monges|Abadia|Carmelo|Semin[áa]rio|Setor Mission[áa]rio|Porci[úu]ncula)\b/i.test(p.name || '')) console.log(`  · ${path.basename(file)}: unidade não paroquial (${p.loadAsParish ? 'entra por loadAsParish' : 'o importador ignora'}): ${p.name}`);
     // "Rede de Comunidades", "Área Pastoral/Missionária", "Unidade/Região Pastoral" e
     // "Curato" são unidades com pároco/curato próprio, equivalentes a paróquia (Rio
     // Grande, Mogi, São Miguel, Campo Limpo, S.J. do Rio Preto, BH, Mariana, Campanha)
