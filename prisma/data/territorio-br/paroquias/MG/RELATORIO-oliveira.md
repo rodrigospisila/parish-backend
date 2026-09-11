@@ -132,7 +132,7 @@ Dois registros ficaram com ressalva explícita em `notes`:
 | `missas.com.br` | existe página para 19 das 23 cidades — **todas vazias** (nenhuma igreja cadastrada). |
 | `missahora.com.br` / `horariosmissa.com.br` | "Não há missas disponíveis". |
 | `paroquianossasenhoradocarmo.com` (Campo Belo, o único site paroquial publicado pela diocese) | **fora do ar** — NXDOMAIN confirmado por DNS-over-HTTPS. |
-| Redes sociais | as páginas oficiais que foi possível localizar (Facebook e Instagram de Aguanil, Facebook de Bom Sucesso e da própria diocese) foram baixadas com User-Agent do Googlebot e lidas: **nenhuma publica a grade fixa em texto** — a apresentação de Aguanil e de Bom Sucesso só descreve a página, e os horários, quando aparecem, estão dentro de cartazes em imagem. A busca automatizada de páginas das outras 27 paróquias esbarrou no bloqueio do DuckDuckGo (o endpoint HTML passou a devolver desafio de bot depois de duas consultas). |
+| Redes sociais | as páginas oficiais que foi possível localizar (Facebook e Instagram de Aguanil, Facebook de Bom Sucesso e da própria diocese) foram baixadas com User-Agent do Googlebot e lidas: **nenhuma publica a grade fixa em texto** — a apresentação de Aguanil e de Bom Sucesso só descreve a página, e os horários, quando aparecem, estão dentro de cartazes em imagem. A busca automatizada de perfis para as outras **28** paróquias foi rodada até o fim e voltou vazia: o DuckDuckGo (endpoint HTML, único motor que ainda aceitava raspagem) passou a responder desafio de bot e HTTP 403 depois das duas primeiras consultas, e nem Bing, Mojeek, Brave ou Startpage devolveram resultado utilizável. Ou seja: só há perfil conhecido para 2 das 30 paróquias, e nenhum dos dois publica horário. |
 
 ### Conclusão
 
