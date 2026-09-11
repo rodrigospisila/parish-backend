@@ -1,0 +1,831 @@
+{
+  "diocese": {
+    "name": "Diocese de Itumbiara",
+    "type": "Diocese",
+    "slug": "itumbiara",
+    "city": "Itumbiara",
+    "state": "GO",
+    "address": "Rua 9, nº 172, Village Beira Rio, Caixa Postal 93",
+    "zipCode": "75524-050",
+    "phone": "(64) 3431-7867",
+    "email": "secretaria@diocesedeitumbiara.com.br",
+    "website": "https://diocesedeitumbiara.com.br",
+    "bishopName": "Dom José Aparecido Gonçalves de Almeida",
+    "sources": [
+      { "url": "https://diocesedeitumbiara.com.br/paroquias/", "title": "Paróquias — Diocese de Itumbiara (catálogo por forania, com endereço, contatos, clero e horários de missa)", "accessedAt": "2026-09-11" },
+      { "url": "https://diocesedeitumbiara.com.br/clero-diocesano/", "title": "Clero Diocesano — Diocese de Itumbiara", "accessedAt": "2026-09-11" },
+      { "url": "https://www.catholic-hierarchy.org/diocese/ditum.html", "title": "catholic-hierarchy.org — Itumbiara (Diocese): 27 paróquias (2023)", "accessedAt": "2026-09-11" }
+    ],
+    "confidence": "alta",
+    "notes": "O endereço da cúria publicado no rodapé do site (Rua 9, nº 172, Village Beira Rio, CEP 75524-050) difere do registrado em dioceses.json (Rua Francisco Andrade Ribeiro 79, CEP 75503-100)."
+  },
+  "parishes": [
+    {
+      "slug": "santa-rita-de-cassia-itumbiara",
+      "name": "Catedral Santa Rita de Cássia",
+      "city": "Itumbiara", "state": "GO", "neighborhood": "Centro",
+      "address": "Praça da República, 27, Centro, Caixa Postal 209",
+      "zipCode": "75503-020", "phone": "(64) 3431-2214", "email": "catedral@diocesedeitumbiara.com.br", "website": null,
+      "priestName": "Pe. José Luiz de Castro", "foundedYear": 1882,
+      "sources": [
+        { "url": "https://diocesedeitumbiara.com.br/paroquias/", "title": "Paróquias — Forania Santa Rita de Cássia", "accessedAt": "2026-09-11" },
+        { "url": "https://diocesedeitumbiara.com.br/clero-diocesano/", "title": "Clero Diocesano (Pe. José Luiz de Castro, pároco e vigário geral)", "accessedAt": "2026-09-11" }
+      ],
+      "confidence": "alta",
+      "notes": "Sé da diocese. Telefone alternativo (64) 3431-5962. Vigário: Pe. Mateus Henrique da Silva. Diácono: Roberto Leonardo da Silva. Vigário forâneo da forania: Pe. Cláudio José de Carvalho.",
+      "communities": [
+        { "name": "Catedral Santa Rita de Cássia", "address": "Praça da República, 27, Centro", "neighborhood": "Centro", "isMatriz": true, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "name": "Capela Santa Terezinha", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "name": "Capela Menino Jesus de Praga", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" }
+      ],
+      "schedules": [
+        { "community": "Capela Santa Terezinha", "dayOfWeek": 6, "time": "18:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Catedral Santa Rita de Cássia", "dayOfWeek": 6, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Capela Menino Jesus de Praga", "dayOfWeek": 0, "time": "08:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Catedral Santa Rita de Cássia", "dayOfWeek": 0, "time": "07:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Catedral Santa Rita de Cássia", "dayOfWeek": 0, "time": "10:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Catedral Santa Rita de Cássia", "dayOfWeek": 0, "time": "18:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Catedral Santa Rita de Cássia", "dayOfWeek": 0, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Catedral Santa Rita de Cássia", "dayOfWeek": 1, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Catedral Santa Rita de Cássia", "dayOfWeek": 2, "time": "07:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Catedral Santa Rita de Cássia", "dayOfWeek": 2, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Catedral Santa Rita de Cássia", "dayOfWeek": 3, "time": "07:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Catedral Santa Rita de Cássia", "dayOfWeek": 3, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Catedral Santa Rita de Cássia", "dayOfWeek": 4, "time": "07:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Catedral Santa Rita de Cássia", "dayOfWeek": 4, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Catedral Santa Rita de Cássia", "dayOfWeek": 5, "time": "07:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Catedral Santa Rita de Cássia", "dayOfWeek": 5, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Catedral Santa Rita de Cássia", "dayOfWeek": 6, "time": "08:30", "type": "MASS", "notes": "Somente no 2º sábado do mês — Missa com Unção dos Enfermos (recorrência mensal)", "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "baixa" }
+      ]
+    },
+    {
+      "slug": "cristo-rei-itumbiara",
+      "name": "Paróquia Cristo Rei",
+      "city": "Itumbiara", "state": "GO", "neighborhood": "Santos Dumont",
+      "address": "Av. Santos Dumont, 1033, Santos Dumont, Caixa Postal 34",
+      "zipCode": "75530-050", "phone": "(64) 3404-3004", "email": "reiitumbiara@diocesedeitumbiara.com.br", "website": null,
+      "priestName": "Pe. Alisson Cosme César, MSC (administrador paroquial)", "foundedYear": 1970,
+      "sources": [
+        { "url": "https://diocesedeitumbiara.com.br/paroquias/", "title": "Paróquias — Forania Santa Rita de Cássia", "accessedAt": "2026-09-11" },
+        { "url": "https://diocesedeitumbiara.com.br/clero-diocesano/", "title": "Clero Diocesano", "accessedAt": "2026-09-11" }
+      ],
+      "confidence": "alta",
+      "notes": "Diácono: José Carlos de Souza. A missa de terça (Novena de Santo Expedito) e a de sexta não indicam o local; atribuídas à matriz pela regra do README.",
+      "communities": [
+        { "name": "Matriz Cristo Rei", "address": "Av. Santos Dumont, 1033", "neighborhood": "Santos Dumont", "isMatriz": true, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "name": "Capela Nossa Senhora de Fátima (Conjunto Morada dos Sonhos)", "address": null, "neighborhood": "Conjunto Morada dos Sonhos", "isMatriz": false, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "name": "Capela Santo Expedito e Nossa Senhora de Lourdes (Dionária Rocha)", "address": null, "neighborhood": "Dionária Rocha", "isMatriz": false, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "name": "Capela Nossa Senhora Aparecida", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" }
+      ],
+      "schedules": [
+        { "community": "Capela Nossa Senhora de Fátima (Conjunto Morada dos Sonhos)", "dayOfWeek": 6, "time": "18:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Capela Santo Expedito e Nossa Senhora de Lourdes (Dionária Rocha)", "dayOfWeek": 6, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz Cristo Rei", "dayOfWeek": 0, "time": "07:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz Cristo Rei", "dayOfWeek": 0, "time": "09:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz Cristo Rei", "dayOfWeek": 0, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Capela Nossa Senhora Aparecida", "dayOfWeek": 0, "time": "07:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Capela Nossa Senhora Aparecida", "dayOfWeek": 0, "time": "18:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz Cristo Rei", "dayOfWeek": 2, "time": "19:00", "type": "MASS", "notes": "Novena de Santo Expedito; a fonte não indica o local", "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "media" },
+        { "community": "Matriz Cristo Rei", "dayOfWeek": 3, "time": "19:30", "type": "MASS", "notes": "Missa da Esperança", "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Capela Nossa Senhora Aparecida", "dayOfWeek": 4, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz Cristo Rei", "dayOfWeek": 5, "time": "19:00", "type": "ADORATION", "notes": "Adoração ao Santíssimo Sacramento", "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz Cristo Rei", "dayOfWeek": 5, "time": "19:30", "type": "MASS", "notes": "Missa do Sagrado Coração de Jesus", "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-aparecida-cachoeira-dourada",
+      "name": "Paróquia Nossa Senhora Aparecida",
+      "city": "Cachoeira Dourada", "state": "GO", "neighborhood": null,
+      "address": "Av. Brasil, s/n, Caixa Postal 03",
+      "zipCode": "75560-000", "phone": "(64) 99660-3226", "email": "aparecidacachoeira@diocesedeitumbiara.com.br", "website": null,
+      "priestName": "Pe. Vinícius Gustavo Nascimento Oliveira (administrador paroquial)", "foundedYear": 1988,
+      "sources": [
+        { "url": "https://diocesedeitumbiara.com.br/paroquias/", "title": "Paróquias — Forania Santa Rita de Cássia", "accessedAt": "2026-09-11" },
+        { "url": "https://diocesedeitumbiara.com.br/clero-diocesano/", "title": "Clero Diocesano (também chanceler do bispado)", "accessedAt": "2026-09-11" }
+      ],
+      "confidence": "alta",
+      "communities": [
+        { "name": "Matriz Nossa Senhora Aparecida", "address": "Av. Brasil, s/n", "neighborhood": null, "isMatriz": true, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "name": "Capela São Vicente de Paulo (Almerindonópolis)", "address": null, "neighborhood": "Almerindonópolis", "isMatriz": false, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "name": "Capela Nossa Senhora Aparecida e São Sebastião (Nilópolis)", "address": null, "neighborhood": "Nilópolis", "isMatriz": false, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "name": "Capela São Sebastião", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "name": "Capela São José Operário", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" }
+      ],
+      "schedules": [
+        { "community": "Capela São Vicente de Paulo (Almerindonópolis)", "dayOfWeek": 6, "time": "18:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Capela Nossa Senhora Aparecida e São Sebastião (Nilópolis)", "dayOfWeek": 6, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Capela São Sebastião", "dayOfWeek": 0, "time": "08:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz Nossa Senhora Aparecida", "dayOfWeek": 0, "time": "09:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz Nossa Senhora Aparecida", "dayOfWeek": 0, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz Nossa Senhora Aparecida", "dayOfWeek": 3, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Capela São José Operário", "dayOfWeek": 4, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-das-gracas-itumbiara",
+      "name": "Paróquia Nossa Senhora das Graças",
+      "city": "Itumbiara", "state": "GO", "neighborhood": "Setor Nova Aurora",
+      "address": "Av. Calixto Jorge, 333, Setor Nova Aurora",
+      "zipCode": "75522-320", "phone": "(64) 3433-1410", "email": "gracasitumbiara@diocesedeitumbiara.com.br", "website": null,
+      "priestName": "Pe. Walisson Rodrigues Freitas", "foundedYear": 1976,
+      "sources": [
+        { "url": "https://diocesedeitumbiara.com.br/paroquias/", "title": "Paróquias — Forania Santa Rita de Cássia", "accessedAt": "2026-09-11" },
+        { "url": "https://diocesedeitumbiara.com.br/clero-diocesano/", "title": "Clero Diocesano (também coordenador diocesano de pastoral e vigário forâneo da Forania N. Sra. d'Abadia)", "accessedAt": "2026-09-11" }
+      ],
+      "confidence": "alta",
+      "communities": [
+        { "name": "Matriz Nossa Senhora das Graças", "address": "Av. Calixto Jorge, 333", "neighborhood": "Setor Nova Aurora", "isMatriz": true, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "name": "Capela Divino Espírito Santo", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "name": "Centro Comunitário Dom Antônio Lino", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "name": "Capela São José", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" }
+      ],
+      "schedules": [
+        { "community": "Capela Divino Espírito Santo", "dayOfWeek": 6, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Centro Comunitário Dom Antônio Lino", "dayOfWeek": 0, "time": "07:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Capela São José", "dayOfWeek": 0, "time": "17:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz Nossa Senhora das Graças", "dayOfWeek": 0, "time": "09:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz Nossa Senhora das Graças", "dayOfWeek": 0, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz Nossa Senhora das Graças", "dayOfWeek": 1, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz Nossa Senhora das Graças", "dayOfWeek": 2, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Centro Comunitário Dom Antônio Lino", "dayOfWeek": 3, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz Nossa Senhora das Graças", "dayOfWeek": 4, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz Nossa Senhora das Graças", "dayOfWeek": 5, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "santo-antonio-de-padua-itumbiara",
+      "name": "Paróquia Santo Antônio de Pádua",
+      "city": "Itumbiara", "state": "GO", "neighborhood": "Vila Vitória II",
+      "address": "Rua V-016, s/n, Vila Vitória II",
+      "zipCode": "75533-620", "phone": "(64) 3404-8235", "email": "antonioitumbiara@diocesedeitumbiara.com.br", "website": null,
+      "priestName": "Pe. Tiago Donizete de Paula Lopes, MSC", "foundedYear": null,
+      "sources": [
+        { "url": "https://diocesedeitumbiara.com.br/paroquias/", "title": "Paróquias — Forania Santa Rita de Cássia", "accessedAt": "2026-09-11" },
+        { "url": "https://diocesedeitumbiara.com.br/clero-diocesano/", "title": "Clero Diocesano", "accessedAt": "2026-09-11" }
+      ],
+      "confidence": "alta",
+      "notes": "Diácono: José Menezes Gimenes. A missa de quinta-feira às 19h30 é publicada como \"Zonas Rurais\", sem nomear a comunidade — não foi gravada.",
+      "communities": [
+        { "name": "Matriz Santo Antônio de Pádua", "address": "Rua V-016, s/n", "neighborhood": "Vila Vitória II", "isMatriz": true, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "name": "Capela Santa Francisca Xavier Cabrini", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "name": "Capela Nossa Senhora da Rosa Mística", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "name": "Capela Santa Luzia", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" }
+      ],
+      "schedules": [
+        { "community": "Capela Santa Francisca Xavier Cabrini", "dayOfWeek": 6, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Capela Nossa Senhora da Rosa Mística", "dayOfWeek": 0, "time": "08:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz Santo Antônio de Pádua", "dayOfWeek": 0, "time": "09:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz Santo Antônio de Pádua", "dayOfWeek": 0, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Capela Santa Luzia", "dayOfWeek": 0, "time": "18:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz Santo Antônio de Pádua", "dayOfWeek": 2, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Capela Nossa Senhora da Rosa Mística", "dayOfWeek": 3, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz Santo Antônio de Pádua", "dayOfWeek": 5, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz Santo Antônio de Pádua", "dayOfWeek": 6, "time": "07:00", "type": "MASS", "notes": "Somente no 1º sábado do mês — recorrência mensal", "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "baixa" }
+      ]
+    },
+    {
+      "slug": "sao-jose-inaciolandia",
+      "name": "Paróquia São José",
+      "city": "Inaciolândia", "state": "GO", "neighborhood": null,
+      "address": "Praça da Matriz, s/n",
+      "zipCode": "75554-000", "phone": "(64) 3435-1734", "email": "joseinaciolandia@diocesedeitumbiara.com.br", "website": null,
+      "priestName": "Frei Manoel Martins Neto, OFMCap (administrador paroquial)", "foundedYear": null,
+      "sources": [
+        { "url": "https://diocesedeitumbiara.com.br/paroquias/", "title": "Paróquias — Forania Santa Rita de Cássia", "accessedAt": "2026-09-11" },
+        { "url": "https://diocesedeitumbiara.com.br/clero-diocesano/", "title": "Clero Diocesano", "accessedAt": "2026-09-11" }
+      ],
+      "confidence": "alta",
+      "notes": "WhatsApp (64) 99296-7585.",
+      "communities": [
+        { "name": "Matriz São José", "address": "Praça da Matriz, s/n", "neighborhood": null, "isMatriz": true, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" }
+      ],
+      "schedules": [
+        { "community": "Matriz São José", "dayOfWeek": 0, "time": "09:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz São José", "dayOfWeek": 0, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz São José", "dayOfWeek": 5, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz São José", "dayOfWeek": 1, "time": "10:00", "type": "CONFESSION", "notes": "Confissões de segunda a sexta, das 10h às 11h e das 16h às 17h", "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz São José", "dayOfWeek": 2, "time": "10:00", "type": "CONFESSION", "notes": "Confissões de segunda a sexta, das 10h às 11h e das 16h às 17h", "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz São José", "dayOfWeek": 3, "time": "10:00", "type": "CONFESSION", "notes": "Confissões de segunda a sexta, das 10h às 11h e das 16h às 17h", "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz São José", "dayOfWeek": 4, "time": "10:00", "type": "CONFESSION", "notes": "Confissões de segunda a sexta, das 10h às 11h e das 16h às 17h", "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz São José", "dayOfWeek": 5, "time": "10:00", "type": "CONFESSION", "notes": "Confissões de segunda a sexta, das 10h às 11h e das 16h às 17h", "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "sao-pedro-e-sao-paulo-itumbiara",
+      "name": "Paróquia São Pedro e São Paulo",
+      "city": "Itumbiara", "state": "GO", "neighborhood": "Paranaíba",
+      "address": "Rua Paranaíba, 1595, Bairro Paranaíba",
+      "zipCode": "75526-250", "phone": "(64) 99660-0451", "email": "pedropauloitumbiara@diocesedeitumbiara.com.br", "website": null,
+      "priestName": "Pe. André Oliveira Teixeira", "foundedYear": 1993,
+      "sources": [
+        { "url": "https://diocesedeitumbiara.com.br/paroquias/", "title": "Paróquias — Forania Santa Rita de Cássia", "accessedAt": "2026-09-11" },
+        { "url": "https://diocesedeitumbiara.com.br/clero-diocesano/", "title": "Clero Diocesano", "accessedAt": "2026-09-11" }
+      ],
+      "confidence": "alta",
+      "notes": "A missa de terça-feira às 19h é publicada como \"(setores)\", sem nomear a comunidade — não foi gravada. O agregador missahora.com.br publica uma grade divergente (terça 19h30, quinta 19h30, sábado 18h) e não foi usado.",
+      "communities": [
+        { "name": "Matriz São Pedro e São Paulo", "address": "Rua Paranaíba, 1595", "neighborhood": "Paranaíba", "isMatriz": true, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "name": "Capela Nossa Senhora das Dores e São Sebastião (Sarandi)", "address": null, "neighborhood": "Sarandi", "isMatriz": false, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" }
+      ],
+      "schedules": [
+        { "community": "Capela Nossa Senhora das Dores e São Sebastião (Sarandi)", "dayOfWeek": 6, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz São Pedro e São Paulo", "dayOfWeek": 0, "time": "08:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz São Pedro e São Paulo", "dayOfWeek": 0, "time": "18:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz São Pedro e São Paulo", "dayOfWeek": 3, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz São Pedro e São Paulo", "dayOfWeek": 4, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz São Pedro e São Paulo", "dayOfWeek": 5, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "sao-sebastiao-e-sao-benedito-itumbiara",
+      "name": "Paróquia São Sebastião e São Benedito",
+      "city": "Itumbiara", "state": "GO", "neighborhood": "Afonso Pena",
+      "address": "Av. Osvaldo Cruz, 254, Bairro Afonso Pena",
+      "zipCode": "75500-000", "phone": "(64) 3430-4241", "email": "sebastiaoitumbiara@diocesedeitumbiara.com.br", "website": null,
+      "priestName": "Pe. Irandes Carlos Ferreira", "foundedYear": 1975,
+      "sources": [
+        { "url": "https://diocesedeitumbiara.com.br/paroquias/", "title": "Paróquias — Forania Santa Rita de Cássia", "accessedAt": "2026-09-11" },
+        { "url": "https://diocesedeitumbiara.com.br/clero-diocesano/", "title": "Clero Diocesano", "accessedAt": "2026-09-11" }
+      ],
+      "confidence": "alta",
+      "notes": "Diácono cooperador: Ariovaldo José Macedo Gois.",
+      "communities": [
+        { "name": "Matriz São Sebastião e São Benedito", "address": "Av. Osvaldo Cruz, 254", "neighborhood": "Afonso Pena", "isMatriz": true, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "name": "Capela Sagrado Coração de Jesus", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "name": "Capela São Judas Tadeu", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "name": "Capela São Benedito", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" }
+      ],
+      "schedules": [
+        { "community": "Capela Sagrado Coração de Jesus", "dayOfWeek": 6, "time": "18:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Capela São Judas Tadeu", "dayOfWeek": 6, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Capela São Benedito", "dayOfWeek": 0, "time": "07:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz São Sebastião e São Benedito", "dayOfWeek": 0, "time": "09:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz São Sebastião e São Benedito", "dayOfWeek": 0, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz São Sebastião e São Benedito", "dayOfWeek": 2, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz São Sebastião e São Benedito", "dayOfWeek": 4, "time": "20:00", "type": "MASS", "notes": "Somente na 1ª quinta-feira do mês, com adoração das 14h às 20h — recorrência mensal", "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "baixa" },
+        { "community": "Capela São Judas Tadeu", "dayOfWeek": 0, "time": "19:30", "type": "MASS", "notes": "Todo dia 28 do mês, em qualquer dia da semana — recorrência mensal por data fixa", "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "baixa" }
+      ]
+    },
+    {
+      "slug": "senhor-bom-jesus-bom-jesus-de-goias",
+      "name": "Paróquia Senhor Bom Jesus",
+      "city": "Bom Jesus de Goiás", "state": "GO", "neighborhood": null,
+      "address": "Rua Cinco, 115, Sala 01, Qd. 13, Lt. 03, Caixa Postal 18",
+      "zipCode": "75570-000", "phone": "(64) 3608-2200", "email": "bomjesusbomjesus@diocesedeitumbiara.com.br", "website": null,
+      "priestName": "Pe. Marcos Antônio Alves Marins", "foundedYear": 1975,
+      "sources": [
+        { "url": "https://diocesedeitumbiara.com.br/paroquias/", "title": "Paróquias — Forania Santa Rita de Cássia", "accessedAt": "2026-09-11" },
+        { "url": "https://diocesedeitumbiara.com.br/clero-diocesano/", "title": "Clero Diocesano (Pe. Pablo Henrique de Faria consta como pároco da Paróquia Senhor Bom Jesus)", "accessedAt": "2026-09-11" }
+      ],
+      "confidence": "alta",
+      "notes": "A diocese escreve a cidade como \"Bom Jesus-GO\"; o município é Bom Jesus de Goiás (CEP 75570-000). Divergência de pároco: a página de paróquias diz Pe. Marcos Antônio Alves Marins (que o clero registra como pároco de Edéia) e a página do clero diz Pe. Pablo Henrique de Faria.",
+      "communities": [
+        { "name": "Nova Matriz Senhor Bom Jesus", "address": "Rua Cinco, 115, Qd. 13, Lt. 03", "neighborhood": null, "isMatriz": true, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "name": "Capela São Sebastião", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "name": "Capela São Vicente", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "name": "Comunidade Nossa Senhora de Fátima (Feirinha)", "address": null, "neighborhood": "Feirinha", "isMatriz": false, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "name": "Capela Meia-Ponte", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" }
+      ],
+      "schedules": [
+        { "community": "Capela São Sebastião", "dayOfWeek": 6, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Capela São Vicente", "dayOfWeek": 0, "time": "07:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Nova Matriz Senhor Bom Jesus", "dayOfWeek": 0, "time": "09:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Comunidade Nossa Senhora de Fátima (Feirinha)", "dayOfWeek": 0, "time": "09:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Capela Meia-Ponte", "dayOfWeek": 0, "time": "16:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Capela São Vicente", "dayOfWeek": 0, "time": "18:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Nova Matriz Senhor Bom Jesus", "dayOfWeek": 0, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Nova Matriz Senhor Bom Jesus", "dayOfWeek": 3, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Nova Matriz Senhor Bom Jesus", "dayOfWeek": 4, "time": "07:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Capela São Sebastião", "dayOfWeek": 4, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-dabadia-piracanjuba",
+      "name": "Paróquia Nossa Senhora d'Abadia",
+      "city": "Piracanjuba", "state": "GO", "neighborhood": null,
+      "address": "Praça Dimas Costas, 173, Caixa Postal 41",
+      "zipCode": "75640-970", "phone": "(64) 99243-8221", "email": "nsabadia.pba@diocesedeitumbiara.com.br", "website": null,
+      "priestName": "Pe. Samir Gervásio Ferreira", "foundedYear": 1885,
+      "sources": [
+        { "url": "https://diocesedeitumbiara.com.br/paroquias/", "title": "Paróquias — Forania Nossa Senhora d'Abadia", "accessedAt": "2026-09-11" },
+        { "url": "https://diocesedeitumbiara.com.br/clero-diocesano/", "title": "Clero Diocesano", "accessedAt": "2026-09-11" }
+      ],
+      "confidence": "alta",
+      "notes": "Divergência de vigário: a página de paróquias diz Frei Reinaldo dos Santos Pereira, OFMCap; o clero diocesano diz Pe. Lenilson Oliveira Paula Silva (também chanceler do bispado).",
+      "communities": [
+        { "name": "Matriz Nossa Senhora d'Abadia", "address": "Praça Dimas Costas, 173", "neighborhood": null, "isMatriz": true, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "name": "Comunidade Santa Terezinha", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "name": "Capela Santa Luiza", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "name": "Capela São Vicente", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "name": "Capela Divino Pai Eterno", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "name": "Capela São Sebastião", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" }
+      ],
+      "schedules": [
+        { "community": "Comunidade Santa Terezinha", "dayOfWeek": 6, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz Nossa Senhora d'Abadia", "dayOfWeek": 0, "time": "08:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz Nossa Senhora d'Abadia", "dayOfWeek": 0, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Capela Santa Luiza", "dayOfWeek": 0, "time": "07:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Capela São Vicente", "dayOfWeek": 0, "time": "10:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Capela Divino Pai Eterno", "dayOfWeek": 0, "time": "10:00", "type": "MASS", "notes": "Somente no 1º e 3º domingo do mês — recorrência mensal", "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "baixa" },
+        { "community": "Capela São Sebastião", "dayOfWeek": 0, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz Nossa Senhora d'Abadia", "dayOfWeek": 2, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz Nossa Senhora d'Abadia", "dayOfWeek": 5, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Capela São Sebastião", "dayOfWeek": 3, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz Nossa Senhora d'Abadia", "dayOfWeek": 3, "time": "08:30", "type": "CONFESSION", "notes": "Confissões quarta e quinta, das 8h30 às 11h e das 14h30 às 17h30", "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz Nossa Senhora d'Abadia", "dayOfWeek": 4, "time": "08:30", "type": "CONFESSION", "notes": "Confissões quarta e quinta, das 8h30 às 11h e das 14h30 às 17h30", "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "santa-rita-de-cassia-pontalina",
+      "name": "Paróquia Santa Rita de Cássia",
+      "city": "Pontalina", "state": "GO", "neighborhood": "Centro",
+      "address": "Av. Comercial, 220, Centro",
+      "zipCode": "75620-000", "phone": "(64) 99327-8297", "email": "ritapontalina@diocesedeitumbiara.com.br", "website": null,
+      "priestName": "Pe. Valcir de Souza Peres, MSJ", "foundedYear": 1954,
+      "sources": [
+        { "url": "https://diocesedeitumbiara.com.br/paroquias/", "title": "Paróquias — Forania Nossa Senhora d'Abadia", "accessedAt": "2026-09-11" },
+        { "url": "https://diocesedeitumbiara.com.br/clero-diocesano/", "title": "Clero Diocesano (administrador paroquial)", "accessedAt": "2026-09-11" }
+      ],
+      "confidence": "alta",
+      "notes": "Atendida pelo Instituto Missionários São José (MSJ). Vigário: Pe. José Judas Tadeu Rebelato, MSJ. A celebração de segunda-feira às 19h30 na Capela N. Sra. Aparecida é CELEBRAÇÃO DA PALAVRA, não missa, e não foi gravada.",
+      "communities": [
+        { "name": "Matriz Santa Rita de Cássia", "address": "Av. Comercial, 220, Centro", "neighborhood": "Centro", "isMatriz": true, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "name": "Capela Nossa Senhora Aparecida", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "name": "Capela São Francisco de Assis", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "name": "Capela Nossa Senhora da Paz", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "name": "Capela Santo Antônio", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "name": "Capela Nossa Senhora da Guia", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" }
+      ],
+      "schedules": [
+        { "community": "Capela Nossa Senhora Aparecida", "dayOfWeek": 6, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz Santa Rita de Cássia", "dayOfWeek": 0, "time": "07:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Capela São Francisco de Assis", "dayOfWeek": 0, "time": "09:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Capela Nossa Senhora da Paz", "dayOfWeek": 0, "time": "11:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Capela Santo Antônio", "dayOfWeek": 0, "time": "17:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz Santa Rita de Cássia", "dayOfWeek": 0, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Capela Santo Antônio", "dayOfWeek": 2, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Capela São Francisco de Assis", "dayOfWeek": 3, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz Santa Rita de Cássia", "dayOfWeek": 4, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz Santa Rita de Cássia", "dayOfWeek": 5, "time": "17:00", "type": "MASS", "notes": "Somente na 1ª sexta-feira do mês — recorrência mensal", "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "baixa" },
+        { "community": "Capela Nossa Senhora da Paz", "dayOfWeek": 5, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Capela Nossa Senhora da Guia", "dayOfWeek": 6, "time": "17:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz Santa Rita de Cássia", "dayOfWeek": 2, "time": "08:00", "type": "CONFESSION", "notes": "Confissões de terça a sexta, das 8h às 12h e das 14h às 18h", "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz Santa Rita de Cássia", "dayOfWeek": 3, "time": "08:00", "type": "CONFESSION", "notes": "Confissões de terça a sexta, das 8h às 12h e das 14h às 18h", "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz Santa Rita de Cássia", "dayOfWeek": 4, "time": "08:00", "type": "CONFESSION", "notes": "Confissões de terça a sexta, das 8h às 12h e das 14h às 18h", "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz Santa Rita de Cássia", "dayOfWeek": 5, "time": "08:00", "type": "CONFESSION", "notes": "Confissões de terça a sexta, das 8h às 12h e das 14h às 18h", "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz Santa Rita de Cássia", "dayOfWeek": 6, "time": "08:00", "type": "CONFESSION", "notes": "Confissões no sábado, das 8h às 12h", "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "santo-antonio-edeia",
+      "name": "Paróquia Santo Antônio",
+      "city": "Edéia", "state": "GO", "neighborhood": "Centro",
+      "address": "Praça da Matriz, s/n, Centro, Caixa Postal 025",
+      "zipCode": "75940-000", "phone": "(64) 3492-2308", "email": "antonioedeia@diocesedeitumbiara.com.br", "website": null,
+      "priestName": "Pe. Marcos Antônio Alves Marins", "foundedYear": 1969,
+      "sources": [
+        { "url": "https://diocesedeitumbiara.com.br/paroquias/", "title": "Paróquias — Forania Nossa Senhora d'Abadia", "accessedAt": "2026-09-11" },
+        { "url": "https://diocesedeitumbiara.com.br/clero-diocesano/", "title": "Clero Diocesano (também coordenador diocesano de pastoral)", "accessedAt": "2026-09-11" }
+      ],
+      "confidence": "alta",
+      "notes": "Pároco emérito: Pe. Antônio Pires Galvão.",
+      "communities": [
+        { "name": "Matriz Santo Antônio", "address": "Praça da Matriz, s/n, Centro", "neighborhood": "Centro", "isMatriz": true, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "name": "Capela Nossa Senhora Aparecida", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "name": "Capela São Sebastião", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" }
+      ],
+      "schedules": [
+        { "community": "Capela Nossa Senhora Aparecida", "dayOfWeek": 0, "time": "07:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Capela São Sebastião", "dayOfWeek": 0, "time": "09:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz Santo Antônio", "dayOfWeek": 0, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Capela São Sebastião", "dayOfWeek": 2, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz Santo Antônio", "dayOfWeek": 2, "time": "15:00", "type": "CONFESSION", "notes": "Confissões de terça a sexta, das 15h às 18h", "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz Santo Antônio", "dayOfWeek": 3, "time": "15:00", "type": "CONFESSION", "notes": "Confissões de terça a sexta, das 15h às 18h", "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz Santo Antônio", "dayOfWeek": 4, "time": "15:00", "type": "CONFESSION", "notes": "Confissões de terça a sexta, das 15h às 18h", "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz Santo Antônio", "dayOfWeek": 5, "time": "15:00", "type": "CONFESSION", "notes": "Confissões de terça a sexta, das 15h às 18h", "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "sao-sebastiao-e-nossa-senhora-do-rosario-mairipotaba",
+      "name": "Paróquia São Sebastião e Nossa Senhora do Rosário",
+      "city": "Mairipotaba", "state": "GO", "neighborhood": "Centro",
+      "address": "Rua João Manuel, 281, Centro",
+      "zipCode": "75630-000", "phone": "(64) 3419-1155", "email": "rosariomairipotaba@diocesedeitumbiara.com.br", "website": null,
+      "priestName": "Pe. Ilson Suaris de Faria", "foundedYear": 1974,
+      "sources": [
+        { "url": "https://diocesedeitumbiara.com.br/paroquias/", "title": "Paróquias — Forania Nossa Senhora d'Abadia", "accessedAt": "2026-09-11" },
+        { "url": "https://diocesedeitumbiara.com.br/clero-diocesano/", "title": "Clero Diocesano (o mesmo pároco atende Cromínia, Professor Jamil e Mairipotaba)", "accessedAt": "2026-09-11" }
+      ],
+      "confidence": "alta",
+      "notes": "A diocese avisa que o telefone é o mesmo de Cromínia.",
+      "communities": [
+        { "name": "Matriz São Sebastião e Nossa Senhora do Rosário", "address": "Rua João Manuel, 281, Centro", "neighborhood": "Centro", "isMatriz": true, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" }
+      ],
+      "schedules": [
+        { "community": "Matriz São Sebastião e Nossa Senhora do Rosário", "dayOfWeek": 0, "time": "18:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz São Sebastião e Nossa Senhora do Rosário", "dayOfWeek": 4, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-das-gracas-professor-jamil",
+      "name": "Paróquia Nossa Senhora das Graças",
+      "city": "Professor Jamil", "state": "GO", "neighborhood": "Centro",
+      "address": "Casa Paroquial, s/n, Centro",
+      "zipCode": "75645-000", "phone": "(64) 99335-3458", "email": "gracasjamil@diocesedeitumbiara.com.br", "website": null,
+      "priestName": "Pe. Ilson Suaris de Faria", "foundedYear": 1974,
+      "sources": [
+        { "url": "https://diocesedeitumbiara.com.br/paroquias/", "title": "Paróquias — Forania Nossa Senhora d'Abadia", "accessedAt": "2026-09-11" },
+        { "url": "https://diocesedeitumbiara.com.br/clero-diocesano/", "title": "Clero Diocesano", "accessedAt": "2026-09-11" }
+      ],
+      "confidence": "alta",
+      "notes": "O telefone publicado é o mesmo da Paróquia São Sebastião de Aloândia.",
+      "communities": [
+        { "name": "Matriz Nossa Senhora das Graças", "address": "Casa Paroquial, s/n, Centro", "neighborhood": "Centro", "isMatriz": true, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" }
+      ],
+      "schedules": [
+        { "community": "Matriz Nossa Senhora das Graças", "dayOfWeek": 0, "time": "10:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz Nossa Senhora das Graças", "dayOfWeek": 2, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz Nossa Senhora das Graças", "dayOfWeek": 3, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz Nossa Senhora das Graças", "dayOfWeek": 4, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz Nossa Senhora das Graças", "dayOfWeek": 5, "time": "07:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "santa-barbara-crominia",
+      "name": "Paróquia Santa Bárbara",
+      "city": "Cromínia", "state": "GO", "neighborhood": null,
+      "address": "Av. Rio Branco, 384",
+      "zipCode": "75635-000", "phone": "(64) 3419-1155", "email": "barbaracrominia@diocesedeitumbiara.com.br", "website": null,
+      "priestName": "Pe. Ilson Suaris de Faria", "foundedYear": 1975,
+      "sources": [
+        { "url": "https://diocesedeitumbiara.com.br/paroquias/", "title": "Paróquias — Forania Nossa Senhora d'Abadia", "accessedAt": "2026-09-11" },
+        { "url": "https://diocesedeitumbiara.com.br/clero-diocesano/", "title": "Clero Diocesano", "accessedAt": "2026-09-11" }
+      ],
+      "confidence": "alta",
+      "communities": [
+        { "name": "Matriz Santa Bárbara", "address": "Av. Rio Branco, 384", "neighborhood": null, "isMatriz": true, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "name": "Capela Santo Antônio", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "name": "Capela São Sebastião", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "name": "Capela Nossa Senhora Aparecida", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "name": "Capela São José", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "name": "Capela Nossa Senhora da Guia", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "name": "Capela Santa Luzia", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "name": "Capela Nossa Senhora d'Abadia", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" }
+      ],
+      "schedules": [
+        { "community": "Matriz Santa Bárbara", "dayOfWeek": 0, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz Santa Bárbara", "dayOfWeek": 5, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Capela Santo Antônio", "dayOfWeek": 1, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Capela São Sebastião", "dayOfWeek": 1, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Capela Nossa Senhora Aparecida", "dayOfWeek": 2, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Capela São José", "dayOfWeek": 6, "time": "11:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Capela Nossa Senhora da Guia", "dayOfWeek": 6, "time": "16:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Capela Santa Luzia", "dayOfWeek": 6, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Capela Nossa Senhora d'Abadia", "dayOfWeek": 6, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "sao-sebastiao-vicentinopolis",
+      "name": "Paróquia São Sebastião",
+      "city": "Vicentinópolis", "state": "GO", "neighborhood": "Centro",
+      "address": "Praça da Matriz, s/n, Centro, Caixa Postal 14",
+      "zipCode": "75555-000", "phone": "(64) 99616-7633", "email": "sebastiaovicentinopolis@diocesedeitumbiara.com.br", "website": null,
+      "priestName": "Pe. Antônio Miguel da Silva", "foundedYear": 1990,
+      "sources": [
+        { "url": "https://diocesedeitumbiara.com.br/paroquias/", "title": "Paróquias — Forania Nossa Senhora d'Abadia", "accessedAt": "2026-09-11" },
+        { "url": "https://diocesedeitumbiara.com.br/clero-diocesano/", "title": "Clero Diocesano", "accessedAt": "2026-09-11" }
+      ],
+      "confidence": "alta",
+      "communities": [
+        { "name": "Matriz São Sebastião", "address": "Praça da Matriz, s/n, Centro", "neighborhood": "Centro", "isMatriz": true, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "name": "Capela Santa Bárbara", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" }
+      ],
+      "schedules": [
+        { "community": "Capela Santa Bárbara", "dayOfWeek": 6, "time": "18:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz São Sebastião", "dayOfWeek": 0, "time": "08:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz São Sebastião", "dayOfWeek": 0, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz São Sebastião", "dayOfWeek": 3, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz São Sebastião", "dayOfWeek": 4, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz São Sebastião", "dayOfWeek": 5, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-da-conceicao-aparecida-edealina",
+      "name": "Paróquia Nossa Senhora da Conceição Aparecida",
+      "city": "Edealina", "state": "GO", "neighborhood": "Centro",
+      "address": "Av. 21, Qd. 46, s/n, Centro",
+      "zipCode": "75945-000", "phone": "(64) 98441-9641", "email": "aparecidaedealina@diocesedeitumbiara.com.br", "website": null,
+      "priestName": "Pe. Cláudio José de Carvalho", "foundedYear": null,
+      "sources": [
+        { "url": "https://diocesedeitumbiara.com.br/paroquias/", "title": "Paróquias — Forania Nossa Senhora d'Abadia", "accessedAt": "2026-09-11" },
+        { "url": "https://diocesedeitumbiara.com.br/clero-diocesano/", "title": "Clero Diocesano (também ecônomo da diocese e vigário forâneo da Forania Santa Rita de Cássia)", "accessedAt": "2026-09-11" }
+      ],
+      "confidence": "alta",
+      "communities": [
+        { "name": "Matriz Nossa Senhora da Conceição Aparecida", "address": "Av. 21, Qd. 46, s/n, Centro", "neighborhood": "Centro", "isMatriz": true, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "name": "Comunidade Cerâmica", "address": null, "neighborhood": "Cerâmica", "isMatriz": false, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" }
+      ],
+      "schedules": [
+        { "community": "Comunidade Cerâmica", "dayOfWeek": 6, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz Nossa Senhora da Conceição Aparecida", "dayOfWeek": 0, "time": "09:30", "type": "MASS", "notes": "Missa com as crianças", "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz Nossa Senhora da Conceição Aparecida", "dayOfWeek": 0, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz Nossa Senhora da Conceição Aparecida", "dayOfWeek": 3, "time": "19:00", "type": "MASS", "notes": "Novena do Perpétuo Socorro", "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz Nossa Senhora da Conceição Aparecida", "dayOfWeek": 4, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz Nossa Senhora da Conceição Aparecida", "dayOfWeek": 4, "time": "15:00", "type": "CONFESSION", "notes": "Confissões das 15h às 18h, durante a exposição do Santíssimo", "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz Nossa Senhora da Conceição Aparecida", "dayOfWeek": 0, "time": "18:00", "type": "CONFESSION", "notes": "Confissões de domingo a quarta, das 18h às 19h", "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz Nossa Senhora da Conceição Aparecida", "dayOfWeek": 1, "time": "18:00", "type": "CONFESSION", "notes": "Confissões de domingo a quarta, das 18h às 19h", "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz Nossa Senhora da Conceição Aparecida", "dayOfWeek": 2, "time": "18:00", "type": "CONFESSION", "notes": "Confissões de domingo a quarta, das 18h às 19h", "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz Nossa Senhora da Conceição Aparecida", "dayOfWeek": 3, "time": "18:00", "type": "CONFESSION", "notes": "Confissões de domingo a quarta, das 18h às 19h", "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-da-abadia-buriti-alegre",
+      "name": "Paróquia Nossa Senhora da Abadia",
+      "city": "Buriti Alegre", "state": "GO", "neighborhood": "Centro",
+      "address": "Rua 24 de Junho, 290, Centro, Caixa Postal 18",
+      "zipCode": "75660-000", "phone": "(64) 3444-2053", "email": "abadiaburiti@diocesedeitumbiara.com.br", "website": null,
+      "priestName": "Pe. Paulo Afonso Mendes", "foundedYear": 1925,
+      "sources": [
+        { "url": "https://diocesedeitumbiara.com.br/paroquias/", "title": "Paróquias — Forania Divino Pai Eterno", "accessedAt": "2026-09-11" },
+        { "url": "https://diocesedeitumbiara.com.br/clero-diocesano/", "title": "Clero Diocesano (também vigário forâneo da Forania Divino Pai Eterno)", "accessedAt": "2026-09-11" }
+      ],
+      "confidence": "alta",
+      "notes": "A diocese não publica missa na igreja matriz desta paróquia: todas as celebrações aparecem nas igrejas São Sebastião e Nossa Senhora do Rosário. A missa de 1ª segunda-feira às 19h é publicada como \"Setores\", sem nomear a comunidade, e não foi gravada.",
+      "communities": [
+        { "name": "Matriz Nossa Senhora da Abadia", "address": "Rua 24 de Junho, 290, Centro", "neighborhood": "Centro", "isMatriz": true, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "name": "Igreja Nossa Senhora do Rosário", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "name": "Igreja São Sebastião", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "name": "Santa Casa de Misericórdia", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "name": "Comunidade Corumbazul/Iate", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" }
+      ],
+      "schedules": [
+        { "community": "Igreja São Sebastião", "dayOfWeek": 0, "time": "08:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Igreja Nossa Senhora do Rosário", "dayOfWeek": 0, "time": "09:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Igreja Nossa Senhora do Rosário", "dayOfWeek": 0, "time": "15:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Igreja Nossa Senhora do Rosário", "dayOfWeek": 0, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Igreja Nossa Senhora do Rosário", "dayOfWeek": 2, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Igreja São Sebastião", "dayOfWeek": 3, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Santa Casa de Misericórdia", "dayOfWeek": 4, "time": "15:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Comunidade Corumbazul/Iate", "dayOfWeek": 6, "time": "16:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Igreja São Sebastião", "dayOfWeek": 4, "time": "19:00", "type": "MASS", "notes": "Somente na 1ª quinta-feira do mês — recorrência mensal", "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "baixa" },
+        { "community": "Igreja São Sebastião", "dayOfWeek": 5, "time": "19:00", "type": "MASS", "notes": "Somente na 1ª e na 3ª sexta-feira do mês — recorrência mensal", "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "baixa" },
+        { "community": "Matriz Nossa Senhora da Abadia", "dayOfWeek": 2, "time": "09:00", "type": "CONFESSION", "notes": "Confissões de terça a sexta, das 9h às 11h", "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz Nossa Senhora da Abadia", "dayOfWeek": 3, "time": "09:00", "type": "CONFESSION", "notes": "Confissões de terça a sexta, das 9h às 11h", "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz Nossa Senhora da Abadia", "dayOfWeek": 4, "time": "09:00", "type": "CONFESSION", "notes": "Confissões de terça a sexta, das 9h às 11h", "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz Nossa Senhora da Abadia", "dayOfWeek": 5, "time": "09:00", "type": "CONFESSION", "notes": "Confissões de terça a sexta, das 9h às 11h", "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-do-carmo-morrinhos",
+      "name": "Paróquia Nossa Senhora do Carmo",
+      "city": "Morrinhos", "state": "GO", "neighborhood": "Centro",
+      "address": "Rua Alagoas, 397, Centro, Caixa Postal 27",
+      "zipCode": "75650-000", "phone": "(64) 3413-1453", "email": "carmomorrinhos@diocesedeitumbiara.com.br", "website": null,
+      "priestName": "Pe. Wesley Souza Dias Barroso, CSS", "foundedYear": 1974,
+      "sources": [
+        { "url": "https://diocesedeitumbiara.com.br/paroquias/", "title": "Paróquias — Forania Divino Pai Eterno", "accessedAt": "2026-09-11" },
+        { "url": "https://diocesedeitumbiara.com.br/clero-diocesano/", "title": "Clero Diocesano (Pe. Wesley Souza Dias Barroso, CSS, pároco)", "accessedAt": "2026-09-11" }
+      ],
+      "confidence": "alta",
+      "notes": "A página de paróquias não nomeia o pároco (campo \"Vigário:\" vazio); o nome veio da página do clero. Diáconos: João Antônio Nani e José dos Reis Rosa.",
+      "communities": [
+        { "name": "Matriz Nossa Senhora do Carmo", "address": "Rua Alagoas, 397, Centro", "neighborhood": "Centro", "isMatriz": true, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "name": "Capela Nossa Senhora Aparecida e São Sebastião", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "name": "Capela São João Batista", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "name": "Capela São Paulo Apóstolo", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "name": "Capela Santos Esposos", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" }
+      ],
+      "schedules": [
+        { "community": "Matriz Nossa Senhora do Carmo", "dayOfWeek": 6, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Capela Nossa Senhora Aparecida e São Sebastião", "dayOfWeek": 0, "time": "07:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Capela Nossa Senhora Aparecida e São Sebastião", "dayOfWeek": 0, "time": "10:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Capela Nossa Senhora Aparecida e São Sebastião", "dayOfWeek": 0, "time": "18:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Capela São João Batista", "dayOfWeek": 0, "time": "09:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Capela São Paulo Apóstolo", "dayOfWeek": 0, "time": "18:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Capela Santos Esposos", "dayOfWeek": 0, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Capela Nossa Senhora Aparecida e São Sebastião", "dayOfWeek": 3, "time": "07:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz Nossa Senhora do Carmo", "dayOfWeek": 3, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Capela Nossa Senhora Aparecida e São Sebastião", "dayOfWeek": 4, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz Nossa Senhora do Carmo", "dayOfWeek": 5, "time": "07:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz Nossa Senhora do Carmo", "dayOfWeek": 2, "time": "09:00", "type": "CONFESSION", "notes": "Confissões de terça a sexta, das 9h às 11h e das 15h às 17h", "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz Nossa Senhora do Carmo", "dayOfWeek": 3, "time": "09:00", "type": "CONFESSION", "notes": "Confissões de terça a sexta, das 9h às 11h e das 15h às 17h", "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz Nossa Senhora do Carmo", "dayOfWeek": 4, "time": "09:00", "type": "CONFESSION", "notes": "Confissões de terça a sexta, das 9h às 11h e das 15h às 17h", "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz Nossa Senhora do Carmo", "dayOfWeek": 5, "time": "09:00", "type": "CONFESSION", "notes": "Confissões de terça a sexta, das 9h às 11h e das 15h às 17h", "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-da-abadia-joviania",
+      "name": "Paróquia Nossa Senhora da Abadia",
+      "city": "Joviânia", "state": "GO", "neighborhood": "Centro",
+      "address": "Rua Clarindo Vieira do Carmo, 700, Centro",
+      "zipCode": "75610-000", "phone": "(64) 99247-0198", "email": "abadiajoviania@diocesedeitumbiara.com.br", "website": null,
+      "priestName": "Pe. Eduardo dos Santos Ribeiro", "foundedYear": 1975,
+      "sources": [
+        { "url": "https://diocesedeitumbiara.com.br/paroquias/", "title": "Paróquias — Forania Divino Pai Eterno", "accessedAt": "2026-09-11" },
+        { "url": "https://diocesedeitumbiara.com.br/clero-diocesano/", "title": "Clero Diocesano (o mesmo pároco atende Joviânia e Aloândia)", "accessedAt": "2026-09-11" }
+      ],
+      "confidence": "alta",
+      "communities": [
+        { "name": "Matriz Nossa Senhora da Abadia", "address": "Rua Clarindo Vieira do Carmo, 700, Centro", "neighborhood": "Centro", "isMatriz": true, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "name": "Capela São José Operário", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "name": "Capela São Sebastião", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "name": "Comunidade Guarilândia (Biriba)", "address": null, "neighborhood": "Guarilândia", "isMatriz": false, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" }
+      ],
+      "schedules": [
+        { "community": "Capela São José Operário", "dayOfWeek": 6, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz Nossa Senhora da Abadia", "dayOfWeek": 0, "time": "06:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Capela São José Operário", "dayOfWeek": 0, "time": "07:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Capela São Sebastião", "dayOfWeek": 0, "time": "09:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Capela São Sebastião", "dayOfWeek": 0, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Capela São Sebastião", "dayOfWeek": 1, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Capela São Sebastião", "dayOfWeek": 2, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Capela São Sebastião", "dayOfWeek": 3, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Capela São Sebastião", "dayOfWeek": 4, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Capela São José Operário", "dayOfWeek": 5, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Comunidade Guarilândia (Biriba)", "dayOfWeek": 6, "time": "17:00", "type": "MASS", "notes": "Somente no 1º sábado do mês — recorrência mensal", "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "baixa" }
+      ]
+    },
+    {
+      "slug": "divino-pai-eterno-panama",
+      "name": "Santuário Diocesano Divino Pai Eterno",
+      "city": "Panamá", "state": "GO", "neighborhood": null,
+      "address": "Praça da Matriz, s/n",
+      "zipCode": "75580-000", "phone": "(64) 3479-1136", "email": "santuariopanama@diocesedeitumbiara.com.br", "website": null,
+      "priestName": "Pe. Jarbas Rodrigues Matos, CSS (reitor e pároco)", "foundedYear": 1978,
+      "sources": [
+        { "url": "https://diocesedeitumbiara.com.br/paroquias/", "title": "Paróquias — Forania Divino Pai Eterno (com ereção canônica de 1978)", "accessedAt": "2026-09-11" },
+        { "url": "https://diocesedeitumbiara.com.br/clero-diocesano/", "title": "Clero Diocesano (\"Reitor e Pároco da Paróquia Santuário Divino Pai Eterno – Panamá-GO\")", "accessedAt": "2026-09-11" }
+      ],
+      "confidence": "alta",
+      "notes": "É paróquia e santuário ao mesmo tempo — a diocese a lista entre as paróquias, com ereção canônica, e o clero a chama de \"Paróquia Santuário\". Por isso entra como paróquia, sem marcador de status.",
+      "communities": [
+        { "name": "Santuário Divino Pai Eterno", "address": "Praça da Matriz, s/n", "neighborhood": null, "isMatriz": true, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" }
+      ],
+      "schedules": [
+        { "community": "Santuário Divino Pai Eterno", "dayOfWeek": 6, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Santuário Divino Pai Eterno", "dayOfWeek": 0, "time": "09:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Santuário Divino Pai Eterno", "dayOfWeek": 3, "time": "19:00", "type": "MASS", "notes": "Missa e Novena de N. Sra. do Perpétuo Socorro", "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Santuário Divino Pai Eterno", "dayOfWeek": 4, "time": "17:00", "type": "ADORATION", "notes": "Adoração ao Santíssimo Sacramento", "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Santuário Divino Pai Eterno", "dayOfWeek": 4, "time": "19:00", "type": "MASS", "notes": "Missa e Novena do Divino Pai Eterno", "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Santuário Divino Pai Eterno", "dayOfWeek": 2, "time": "09:00", "type": "CONFESSION", "notes": "Confissões de terça a sexta, das 9h às 11h e das 15h às 17h", "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Santuário Divino Pai Eterno", "dayOfWeek": 3, "time": "09:00", "type": "CONFESSION", "notes": "Confissões de terça a sexta, das 9h às 11h e das 15h às 17h", "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Santuário Divino Pai Eterno", "dayOfWeek": 4, "time": "09:00", "type": "CONFESSION", "notes": "Confissões de terça a sexta, das 9h às 11h e das 15h às 17h", "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Santuário Divino Pai Eterno", "dayOfWeek": 5, "time": "09:00", "type": "CONFESSION", "notes": "Confissões de terça a sexta, das 9h às 11h e das 15h às 17h", "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "divino-pai-eterno-agua-limpa",
+      "name": "Paróquia Divino Pai Eterno",
+      "city": "Água Limpa", "state": "GO", "neighborhood": "Centro",
+      "address": "Praça da Matriz, s/n, Qd. 5, Lt. 6, Centro",
+      "zipCode": "75665-000", "phone": "(64) 99231-5733", "email": "paieternoagualimpa@diocesedeitumbiara.com.br", "website": null,
+      "priestName": "Pe. João Batista Irias dos Santos, CSS (administrador paroquial)", "foundedYear": 1988,
+      "sources": [
+        { "url": "https://diocesedeitumbiara.com.br/paroquias/", "title": "Paróquias — Forania Divino Pai Eterno", "accessedAt": "2026-09-11" },
+        { "url": "https://diocesedeitumbiara.com.br/clero-diocesano/", "title": "Clero Diocesano", "accessedAt": "2026-09-11" }
+      ],
+      "confidence": "alta",
+      "notes": "A diocese publica um único horário: sábado às 19h30. Não há missa dominical publicada.",
+      "communities": [
+        { "name": "Matriz Divino Pai Eterno", "address": "Praça da Matriz, s/n, Centro", "neighborhood": "Centro", "isMatriz": true, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" }
+      ],
+      "schedules": [
+        { "community": "Matriz Divino Pai Eterno", "dayOfWeek": 6, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "sao-sebastiao-aloandia",
+      "name": "Paróquia São Sebastião",
+      "city": "Aloândia", "state": "GO", "neighborhood": "Centro",
+      "address": "Praça Pedro Ciríaco, s/n, Centro",
+      "zipCode": "75615-000", "phone": "(64) 99335-3458", "email": "sebastiaoaloandia@diocesedeitumbiara.com.br", "website": null,
+      "priestName": "Pe. Eduardo dos Santos Ribeiro", "foundedYear": 1988,
+      "sources": [
+        { "url": "https://diocesedeitumbiara.com.br/paroquias/", "title": "Paróquias — Forania Divino Pai Eterno", "accessedAt": "2026-09-11" },
+        { "url": "https://diocesedeitumbiara.com.br/clero-diocesano/", "title": "Clero Diocesano", "accessedAt": "2026-09-11" }
+      ],
+      "confidence": "alta",
+      "notes": "O telefone publicado é o mesmo da Paróquia N. Sra. das Graças de Professor Jamil.",
+      "communities": [
+        { "name": "Matriz São Sebastião", "address": "Praça Pedro Ciríaco, s/n, Centro", "neighborhood": "Centro", "isMatriz": true, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" }
+      ],
+      "schedules": [
+        { "community": "Matriz São Sebastião", "dayOfWeek": 0, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz São Sebastião", "dayOfWeek": 4, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "santissima-trindade-goiatuba",
+      "name": "Paróquia Santíssima Trindade",
+      "city": "Goiatuba", "state": "GO", "neighborhood": "Central",
+      "address": "Rua Rio Negro, 500, Central",
+      "zipCode": "75600-000", "phone": "(64) 99283-0364", "email": "trindadegoiatuba@diocesedeitumbiara.com.br", "website": null,
+      "priestName": "Pe. Fernando de Assis Queiroz, CSS", "foundedYear": null,
+      "sources": [
+        { "url": "https://diocesedeitumbiara.com.br/paroquias/", "title": "Paróquias — Forania Divino Pai Eterno", "accessedAt": "2026-09-11" },
+        { "url": "https://diocesedeitumbiara.com.br/clero-diocesano/", "title": "Clero Diocesano", "accessedAt": "2026-09-11" }
+      ],
+      "confidence": "alta",
+      "notes": "Diáconos: Marcos Cândido de Oliveira, CSS, e Ubiraci Ricardo Teixeira (a página de paróquias grafa \"Marcos Cândido de Souza\").",
+      "communities": [
+        { "name": "Matriz Santíssima Trindade", "address": "Rua Rio Negro, 500, Central", "neighborhood": "Central", "isMatriz": true, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "name": "Capela São Francisco de Assis", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "name": "Capela Santa Clara", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "name": "Capela Sagrado Coração de Jesus", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "name": "Capela Rainha da Paz", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "name": "Capela Nossa Senhora Aparecida", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" }
+      ],
+      "schedules": [
+        { "community": "Capela São Francisco de Assis", "dayOfWeek": 0, "time": "07:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz Santíssima Trindade", "dayOfWeek": 0, "time": "09:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz Santíssima Trindade", "dayOfWeek": 0, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz Santíssima Trindade", "dayOfWeek": 0, "time": "17:30", "type": "MASS", "notes": "Somente no 1º domingo do mês — Missa com as crianças (recorrência mensal)", "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "baixa" },
+        { "community": "Capela Santa Clara", "dayOfWeek": 0, "time": "18:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Capela São Francisco de Assis", "dayOfWeek": 0, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz Santíssima Trindade", "dayOfWeek": 2, "time": "19:30", "type": "MASS", "notes": "Missa e Novena do Perpétuo Socorro", "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Capela São Francisco de Assis", "dayOfWeek": 3, "time": "07:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz Santíssima Trindade", "dayOfWeek": 4, "time": "18:30", "type": "ADORATION", "notes": "Adoração ao Santíssimo", "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz Santíssima Trindade", "dayOfWeek": 4, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Capela Sagrado Coração de Jesus", "dayOfWeek": 5, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Capela Rainha da Paz", "dayOfWeek": 6, "time": "18:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Capela Nossa Senhora Aparecida", "dayOfWeek": 6, "time": "18:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz Santíssima Trindade", "dayOfWeek": 6, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz Santíssima Trindade", "dayOfWeek": 2, "time": "15:30", "type": "CONFESSION", "notes": "Confissões de terça a sexta, das 15h30 às 18h", "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz Santíssima Trindade", "dayOfWeek": 3, "time": "15:30", "type": "CONFESSION", "notes": "Confissões de terça a sexta, das 15h30 às 18h", "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz Santíssima Trindade", "dayOfWeek": 4, "time": "15:30", "type": "CONFESSION", "notes": "Confissões de terça a sexta, das 15h30 às 18h", "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz Santíssima Trindade", "dayOfWeek": 5, "time": "15:30", "type": "CONFESSION", "notes": "Confissões de terça a sexta, das 15h30 às 18h", "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "cristo-redentor-morrinhos",
+      "name": "Paróquia Cristo Redentor",
+      "city": "Morrinhos", "state": "GO", "neighborhood": "Setor Central",
+      "address": "Rua 19, Qd. 25, Lt. 0, nº 225, Setor Central",
+      "zipCode": "75650-000", "phone": "(64) 3413-0265", "email": "redentormorrinhos@diocesedeitumbiara.com.br", "website": null,
+      "priestName": "Pe. Erick Meneses Silva", "foundedYear": null,
+      "sources": [
+        { "url": "https://diocesedeitumbiara.com.br/paroquias/", "title": "Paróquias — Forania Divino Pai Eterno", "accessedAt": "2026-09-11" },
+        { "url": "https://diocesedeitumbiara.com.br/clero-diocesano/", "title": "Clero Diocesano", "accessedAt": "2026-09-11" }
+      ],
+      "confidence": "alta",
+      "notes": "Diáconos: Celso Elias Peres e Valter José Tagliari.",
+      "communities": [
+        { "name": "Matriz Cristo Redentor", "address": "Rua 19, Qd. 25, nº 225, Setor Central", "neighborhood": "Setor Central", "isMatriz": true, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "name": "Capela Santa Rita", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "name": "Capela Santo Agostinho", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "name": "Capela São Pedro", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "name": "Capela São Francisco", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "name": "Capela São José Operário", "address": null, "neighborhood": null, "isMatriz": false, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" }
+      ],
+      "schedules": [
+        { "community": "Capela Santa Rita", "dayOfWeek": 6, "time": "18:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Capela Santo Agostinho", "dayOfWeek": 6, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Capela São Pedro", "dayOfWeek": 0, "time": "07:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz Cristo Redentor", "dayOfWeek": 0, "time": "09:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Capela São Francisco", "dayOfWeek": 0, "time": "17:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Capela São José Operário", "dayOfWeek": 0, "time": "18:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz Cristo Redentor", "dayOfWeek": 0, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Capela São José Operário", "dayOfWeek": 3, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Capela São Francisco", "dayOfWeek": 4, "time": "19:00", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" },
+        { "community": "Matriz Cristo Redentor", "dayOfWeek": 5, "time": "19:30", "type": "MASS", "notes": null, "sources": [{ "url": "https://diocesedeitumbiara.com.br/paroquias/" }], "confidence": "alta" }
+      ]
+    },
+    {
+      "slug": "sao-sebastiao-goiatuba",
+      "name": "Paróquia São Sebastião",
+      "city": "Goiatuba", "state": "GO", "neighborhood": "Centro",
+      "address": "Rua Meia Ponte, 288, Centro",
+      "zipCode": "75600-970", "phone": "(64) 3495-1450", "email": "sebastiaogoiatuba@diocesedeitumbiara.com.br", "website": null,
+      "priestName": "Pe. Joaquim de Jesus Rocha Cavalcante", "foundedYear": null,
+      "sources": [
+        { "url": "https://diocesedeitumbiara.com.br/paroquias/", "title": "Paróquias — Forania Divino Pai Eterno", "accessedAt": "2026-09-11" },
+        { "url": "https://diocesedeitumbiara.com.br/clero-diocesano/", "title": "Clero Diocesano", "accessedAt": "2026-09-11" }
+      ],
+      "confidence": "alta",
+      "notes": "Telefone alternativo (64) 98437-0664. Diáconos: José Antônio da Silva e Ney José Cardoso (a página de paróquias grafa \"Ney José do Amaral\"). É a única paróquia da diocese cuja ficha na página de paróquias termina sem a seção de horários — nenhum horário publicado.",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-jose-porteirao",
+      "name": "Quase-paróquia São José",
+      "city": "Porteirão", "state": "GO", "neighborhood": null,
+      "address": null,
+      "zipCode": null, "phone": null, "email": null, "website": null,
+      "priestName": "Pe. Valdir José Barcelos (administrador paroquial)", "foundedYear": null,
+      "sources": [
+        { "url": "https://diocesedeitumbiara.com.br/clero-diocesano/", "title": "Clero Diocesano — \"Administrador paroquial da Quase Paróquia São José – Porteirão-GO\"", "accessedAt": "2026-09-11" },
+        { "url": "https://diocesedeitumbiara.com.br/pe-valdir-jose-barcelos/", "title": "Pe. Valdir José Barcelos — Diocese de Itumbiara", "accessedAt": "2026-09-11" }
+      ],
+      "confidence": "alta",
+      "notes": "NÃO consta na página /paroquias/ do site — só existe na página do clero diocesano. É a 27ª circunscrição paroquial e o que fecha a contagem do catholic-hierarchy. Sem endereço, telefone, e-mail ou horários publicados em nenhuma fonte.",
+      "communities": [],
+      "schedules": []
+    }
+  ],
+  "coverage": {
+    "parishesFound": 27,
+    "parishesExpected": 27,
+    "notes": "Cobertura de 100%. A página https://diocesedeitumbiara.com.br/paroquias/ (lastmod declarado no page-sitemap: 02/09/2026) é um catálogo completo por forania — Santa Rita de Cássia 9, Nossa Senhora d'Abadia 8, Divino Pai Eterno 9 — com endereço, CEP, telefone, e-mail, clero, horário de secretaria, horário de confissão e a grade de missas por capela de 25 das 26 fichas. A 27ª paróquia, a Quase-paróquia São José de Porteirão, NÃO está nessa página: foi encontrada na página /clero-diocesano/ (lastmod 02/09/2026), que registra seu administrador paroquial. O Santuário Diocesano Divino Pai Eterno de Panamá entra como paróquia (tem ereção canônica de 1978 e o clero o chama de \"Paróquia Santuário\"). Só 2 das 27 entram sem nenhum horário: São Sebastião de Goiatuba (a ficha termina abruptamente na seção de secretaria) e Porteirão. O agregador missahora.com.br tem fichas da Catedral e de São Pedro e São Paulo, ambas divergentes da fonte oficial — foram descartadas e registradas no relatório."
+  }
+}
