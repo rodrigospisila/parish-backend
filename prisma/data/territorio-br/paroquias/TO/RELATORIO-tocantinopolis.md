@@ -101,3 +101,6 @@ Apóstolo (Ananás). Duas delas ganharam o nome do pároco pela própria página
 8. **Endereço da cúria** (Rua XV de Novembro, 245, 77900-000) e telefone (63) 3415-2847 vieram
    de resumo de busca, não de página lida diretamente — conferir.
 9. **1 horário `baixa`**: Santa Rita de Cássia (Augustinópolis), "1ª sexta do mês, 19h".
+10. **Não "corrigir" o nome de Nazaré**: "Paróquia Nossa Senhora de Nazaré", em **Nazaré**,
+    parece violar a regra de não pôr a cidade no nome, mas não viola — o município leva o nome
+    da padroeira. Falso positivo de validador automático.

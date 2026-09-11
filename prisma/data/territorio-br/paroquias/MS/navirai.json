@@ -1,0 +1,1001 @@
+{
+  "diocese": {
+    "name": "Diocese de Naviraí",
+    "type": "Diocese",
+    "slug": "navirai",
+    "city": "Naviraí",
+    "state": "MS",
+    "address": "Rua Campanário, 144 - Centro",
+    "zipCode": "79947-006",
+    "phone": "(67) 3461-0318",
+    "email": null,
+    "website": "https://diocesedenavirai.org.br",
+    "bishopName": "Dom Ettore Dotti, C.S.F.",
+    "sources": [
+      {
+        "url": "https://diocesedenavirai.org.br/foranias",
+        "title": "Foranias - Diocese de Naviraí (diretório com endereço, CEP, telefone, e-mail, pároco e data de criação das 24 paróquias)",
+        "accessedAt": "2026-09-11"
+      },
+      {
+        "url": "https://minhareceita.org/14815628000150",
+        "title": "Receita Federal (via minhareceita.org) - CNPJ 14.815.628/0001-50, filial da Mitra Diocesana de Naviraí",
+        "accessedAt": "2026-09-11"
+      },
+      {
+        "url": "https://gcatholic.org/churches/local/navi0",
+        "title": "Churches in the Diocese of Naviraí - GCatholic (20 igrejas, atualizado 2026-01-01)",
+        "accessedAt": "2026-09-11"
+      }
+    ],
+    "confidence": "alta",
+    "notes": "Criada em 2011, sufragânea de Campo Grande; abrange 20 municípios do sul de MS, organizados em 4 foranias (Ivinhema, Naviraí, Nova Andradina e Tacuru, conforme o GCatholic). O site diocesano NÃO informa a que forania pertence cada paróquia - por isso nenhuma paróquia traz forania em notes. O dioceses.json registra o CEP 79950-000; o rodapé do site atual traz 79947-006."
+  },
+  "parishes": [
+    {
+      "slug": "sao-joao-batista-anaurilandia",
+      "name": "Paróquia São João Batista",
+      "city": "Anaurilândia",
+      "state": "MS",
+      "neighborhood": null,
+      "address": "Rua Barão do Rio Branco, 831 - Caixa Postal 17",
+      "zipCode": "79770-000",
+      "phone": "(67) 3445-1207 / (67) 98151-8894",
+      "email": "psjb.anaurilandia@yahoo.com",
+      "website": null,
+      "priestName": "Pe. Fabiano Francisco da Silva",
+      "foundedYear": 1971,
+      "sources": [
+        {
+          "url": "https://diocesedenavirai.org.br/foranias",
+          "title": "Foranias - Diocese de Naviraí (diretório com endereço, CEP, telefone, e-mail, pároco e data de criação das 24 paróquias)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedenavirai.org.br/paroquias",
+          "title": "Paróquias - Diocese de Naviraí",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://minhareceita.org/14815628000907",
+          "title": "Receita Federal (via minhareceita.org) - CNPJ 14.815.628/0009-07, filial da Mitra Diocesana de Naviraí",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://gcatholic.org/churches/local/navi0",
+          "title": "Churches in the Diocese of Naviraí - GCatholic (20 igrejas, atualizado 2026-01-01)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Criação: 28/08/1971.",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-pedro-apostolo-angelica",
+      "name": "Paróquia São Pedro Apóstolo",
+      "city": "Angélica",
+      "state": "MS",
+      "neighborhood": "Jardim das Flores",
+      "address": "Avenida 13 de Maio, 461 - Jardim das Flores",
+      "zipCode": "79785-000",
+      "phone": "(67) 3446-1377",
+      "email": "paroquiaangelica@gmail.com",
+      "website": null,
+      "priestName": "Pe. Arilço Chaves Nantes",
+      "foundedYear": 1979,
+      "sources": [
+        {
+          "url": "https://diocesedenavirai.org.br/foranias",
+          "title": "Foranias - Diocese de Naviraí (diretório com endereço, CEP, telefone, e-mail, pároco e data de criação das 24 paróquias)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedenavirai.org.br/paroquias",
+          "title": "Paróquias - Diocese de Naviraí",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://minhareceita.org/14815628000583",
+          "title": "Receita Federal (via minhareceita.org) - CNPJ 14.815.628/0005-83, filial da Mitra Diocesana de Naviraí",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://gcatholic.org/churches/local/navi0",
+          "title": "Churches in the Diocese of Naviraí - GCatholic (20 igrejas, atualizado 2026-01-01)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Criação: 25/03/1979. Diácono: Severino Teixeira de Souza. O CEP publicado pelo site vem com ponto no lugar do hífen (\"79.785.000\").",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-joao-batista-bataguassu",
+      "name": "Paróquia São João Batista",
+      "city": "Bataguassu",
+      "state": "MS",
+      "neighborhood": "Centro",
+      "address": "Avenida Cuiabá, 481 - Centro, Caixa Postal 20",
+      "zipCode": "79780-000",
+      "phone": "(67) 3541-1282 / (67) 99844-7613",
+      "email": "pastoralpsjb.btg@gmail.com",
+      "website": null,
+      "priestName": "Pe. Everton Rodrigues Soares dos Santos, PSDP",
+      "foundedYear": 1954,
+      "sources": [
+        {
+          "url": "https://diocesedenavirai.org.br/foranias",
+          "title": "Foranias - Diocese de Naviraí (diretório com endereço, CEP, telefone, e-mail, pároco e data de criação das 24 paróquias)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedenavirai.org.br/paroquias",
+          "title": "Paróquias - Diocese de Naviraí",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://minhareceita.org/14815628001040",
+          "title": "Receita Federal (via minhareceita.org) - CNPJ 14.815.628/0010-40, filial da Mitra Diocesana de Naviraí",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://gcatholic.org/churches/local/navi0",
+          "title": "Churches in the Diocese of Naviraí - GCatholic (20 igrejas, atualizado 2026-01-01)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Criação: 01/05/1954. Vigário: Pe. Itacir Gasparetto, PSDP. Pobres Servos da Divina Providência. Segundo e-mail publicado: financeiropsjb.btg@gmail.com.",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "santo-antonio-de-padua-bataypora",
+      "name": "Paróquia Santo Antônio de Pádua",
+      "city": "Batayporã",
+      "state": "MS",
+      "neighborhood": null,
+      "address": "Rua Paschoal José da Silva, 1300 - Caixa Postal 18",
+      "zipCode": "79760-000",
+      "phone": "(67) 3443-1247",
+      "email": "paroquia.santonio@terra.com.br",
+      "website": null,
+      "priestName": "Pe. José Haroldo de Oliveira, PSDP",
+      "foundedYear": 1971,
+      "sources": [
+        {
+          "url": "https://diocesedenavirai.org.br/foranias",
+          "title": "Foranias - Diocese de Naviraí (diretório com endereço, CEP, telefone, e-mail, pároco e data de criação das 24 paróquias)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedenavirai.org.br/paroquias",
+          "title": "Paróquias - Diocese de Naviraí",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://minhareceita.org/14815628000826",
+          "title": "Receita Federal (via minhareceita.org) - CNPJ 14.815.628/0008-26, filial da Mitra Diocesana de Naviraí",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://gcatholic.org/churches/local/navi0",
+          "title": "Churches in the Diocese of Naviraí - GCatholic (20 igrejas, atualizado 2026-01-01)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Criação: 05/11/1971. Vigário: Pe. Celestino Sandi, PSDP. O site grafa \"Santo António\" (com acento agudo).",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-aparecida-eldorado",
+      "name": "Paróquia Nossa Senhora Aparecida",
+      "city": "Eldorado",
+      "state": "MS",
+      "neighborhood": null,
+      "address": "Rua Venceslau Onório da Silva, 838 - Caixa Postal 05",
+      "zipCode": "79970-000",
+      "phone": "(67) 3473-1234",
+      "email": "paroquia_eldorado@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Eurico Martins",
+      "foundedYear": 1974,
+      "sources": [
+        {
+          "url": "https://diocesedenavirai.org.br/foranias",
+          "title": "Foranias - Diocese de Naviraí (diretório com endereço, CEP, telefone, e-mail, pároco e data de criação das 24 paróquias)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedenavirai.org.br/paroquias",
+          "title": "Paróquias - Diocese de Naviraí",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://minhareceita.org/14815628001806",
+          "title": "Receita Federal (via minhareceita.org) - CNPJ 14.815.628/0018-06, filial da Mitra Diocesana de Naviraí",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://gcatholic.org/churches/local/navi0",
+          "title": "Churches in the Diocese of Naviraí - GCatholic (20 igrejas, atualizado 2026-01-01)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Criação: 27/10/1974. Vigário: Pe. Roberto Pinto.",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-imaculada-conceicao-iguatemi",
+      "name": "Paróquia Nossa Senhora Imaculada Conceição",
+      "city": "Iguatemi",
+      "state": "MS",
+      "neighborhood": "Centro",
+      "address": "Rua Nilzo Otano Peixoto, 488 - Centro",
+      "zipCode": "79960-000",
+      "phone": "(67) 3471-1244",
+      "email": "paroquia.iguatemi@uol.com.br",
+      "website": null,
+      "priestName": "Pe. Anisberto Bonfim da Silva, SMBN",
+      "foundedYear": 1978,
+      "sources": [
+        {
+          "url": "https://diocesedenavirai.org.br/foranias",
+          "title": "Foranias - Diocese de Naviraí (diretório com endereço, CEP, telefone, e-mail, pároco e data de criação das 24 paróquias)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedenavirai.org.br/paroquias",
+          "title": "Paróquias - Diocese de Naviraí",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://minhareceita.org/14815628001717",
+          "title": "Receita Federal (via minhareceita.org) - CNPJ 14.815.628/0017-17, filial da Mitra Diocesana de Naviraí",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://gcatholic.org/churches/local/navi0",
+          "title": "Churches in the Diocese of Naviraí - GCatholic (20 igrejas, atualizado 2026-01-01)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Criação: 04/03/1978. Vigário: Pe. Marcos Paulo Fernandes.",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-do-perpetuo-socorro-itaquirai",
+      "name": "Paróquia Nossa Senhora do Perpétuo Socorro",
+      "city": "Itaquiraí",
+      "state": "MS",
+      "neighborhood": null,
+      "address": "Rua Verbo Divino, 833 - Caixa Postal 06",
+      "zipCode": "79965-000",
+      "phone": "(67) 3476-1131 / (67) 98222-8463",
+      "email": "paroquiaverbitas@gmail.com",
+      "website": null,
+      "priestName": "Pe. William Beck, SVD",
+      "foundedYear": 1980,
+      "sources": [
+        {
+          "url": "https://diocesedenavirai.org.br/foranias",
+          "title": "Foranias - Diocese de Naviraí (diretório com endereço, CEP, telefone, e-mail, pároco e data de criação das 24 paróquias)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedenavirai.org.br/paroquias",
+          "title": "Paróquias - Diocese de Naviraí",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://minhareceita.org/14815628002012",
+          "title": "Receita Federal (via minhareceita.org) - CNPJ 14.815.628/0020-12, filial da Mitra Diocesana de Naviraí",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://gcatholic.org/churches/local/navi0",
+          "title": "Churches in the Diocese of Naviraí - GCatholic (20 igrejas, atualizado 2026-01-01)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Criação: 22/02/1980. Vigário: Pe. Arul Sathish Kumar G. Karan, SVD. Diácono: Silvio Jair Delai. Verbitas (SVD).",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-da-conceicao-aparecida-ivinhema",
+      "name": "Paróquia Nossa Senhora da Conceição Aparecida",
+      "city": "Ivinhema",
+      "state": "MS",
+      "neighborhood": "Piravevê",
+      "address": "Rua Antônio Mateus da Silva, 750 - Piravevê",
+      "zipCode": "79740-000",
+      "phone": "(67) 3442-2736",
+      "email": "pnsenhoraaparecidadeivinhema@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Ademir Carvalho França",
+      "foundedYear": 2020,
+      "sources": [
+        {
+          "url": "https://diocesedenavirai.org.br/foranias",
+          "title": "Foranias - Diocese de Naviraí (diretório com endereço, CEP, telefone, e-mail, pároco e data de criação das 24 paróquias)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedenavirai.org.br/paroquias",
+          "title": "Paróquias - Diocese de Naviraí",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://minhareceita.org/14815628002446",
+          "title": "Receita Federal (via minhareceita.org) - CNPJ 14.815.628/0024-46, filial da Mitra Diocesana de Naviraí",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://gcatholic.org/churches/local/navi0",
+          "title": "Churches in the Diocese of Naviraí - GCatholic (20 igrejas, atualizado 2026-01-01)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Criação: 16/02/2020. Vigário: Pe. Antônio Augusto Mondoni. Diácono: José Maria Pascoal. Paróquia nova - não consta da lista do GCatholic.",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-paulo-apostolo-ivinhema",
+      "name": "Paróquia São Paulo Apóstolo",
+      "city": "Ivinhema",
+      "state": "MS",
+      "neighborhood": "Centro",
+      "address": "Avenida Reynaldo Massi, 1757 - Centro, Caixa Postal 33",
+      "zipCode": "79740-000",
+      "phone": "(67) 3442-1601 / (67) 99965-1136",
+      "email": "contato@paroquiadeivinhema.com",
+      "website": null,
+      "priestName": "Pe. Edielson Bonin de Pádua",
+      "foundedYear": 1971,
+      "sources": [
+        {
+          "url": "https://diocesedenavirai.org.br/foranias",
+          "title": "Foranias - Diocese de Naviraí (diretório com endereço, CEP, telefone, e-mail, pároco e data de criação das 24 paróquias)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedenavirai.org.br/paroquias",
+          "title": "Paróquias - Diocese de Naviraí",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://minhareceita.org/14815628000664",
+          "title": "Receita Federal (via minhareceita.org) - CNPJ 14.815.628/0006-64, filial da Mitra Diocesana de Naviraí",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://gcatholic.org/churches/local/navi0",
+          "title": "Churches in the Diocese of Naviraí - GCatholic (20 igrejas, atualizado 2026-01-01)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Criação: 05/11/1971. Vigário: Pe. Antônio Augusto Mondoni. Diácono: Ilton Tenório Albuquerque. O site paroquial publicado (www.paroquiadeivinhema.com.br) está fora do ar.",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-aparecida-japora",
+      "name": "Paróquia Nossa Senhora Aparecida",
+      "city": "Japorã",
+      "state": "MS",
+      "neighborhood": "Centro",
+      "address": "Travessa Jacira das Graças, s/n - Centro",
+      "zipCode": "79985-000",
+      "phone": "(67) 3475-1524",
+      "email": "paroquiajapora@gmail.com",
+      "website": null,
+      "priestName": "Pe. Jacobus Ongirwalu, SVD",
+      "foundedYear": 2019,
+      "sources": [
+        {
+          "url": "https://diocesedenavirai.org.br/foranias",
+          "title": "Foranias - Diocese de Naviraí (diretório com endereço, CEP, telefone, e-mail, pároco e data de criação das 24 paróquias)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedenavirai.org.br/paroquias",
+          "title": "Paróquias - Diocese de Naviraí",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://minhareceita.org/14815628002365",
+          "title": "Receita Federal (via minhareceita.org) - CNPJ 14.815.628/0023-65, filial da Mitra Diocesana de Naviraí",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://gcatholic.org/churches/local/navi0",
+          "title": "Churches in the Diocese of Naviraí - GCatholic (20 igrejas, atualizado 2026-01-01)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Criação: 24/02/2019. Administrador paroquial (conhecido como Pe. Tiago). Paróquia nova - não consta da lista do GCatholic.",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-pedro-jatei",
+      "name": "Paróquia São Pedro",
+      "city": "Jateí",
+      "state": "MS",
+      "neighborhood": null,
+      "address": "Avenida Bernadete Santos Leite, 473",
+      "zipCode": "79720-000",
+      "phone": "(67) 3465-1090",
+      "email": "pspjatei@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Declair Cardoso da Silva",
+      "foundedYear": 2006,
+      "sources": [
+        {
+          "url": "https://diocesedenavirai.org.br/foranias",
+          "title": "Foranias - Diocese de Naviraí (diretório com endereço, CEP, telefone, e-mail, pároco e data de criação das 24 paróquias)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedenavirai.org.br/paroquias",
+          "title": "Paróquias - Diocese de Naviraí",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://minhareceita.org/14815628001202",
+          "title": "Receita Federal (via minhareceita.org) - CNPJ 14.815.628/0012-02, filial da Mitra Diocesana de Naviraí",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://gcatholic.org/churches/local/navi0",
+          "title": "Churches in the Diocese of Naviraí - GCatholic (20 igrejas, atualizado 2026-01-01)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Criação: 01/01/2006. O site paroquial publicado (www.paroquiasaopedrojatei.com.br) está fora do ar.",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "santa-luzia-juti",
+      "name": "Paróquia Santa Luzia",
+      "city": "Juti",
+      "state": "MS",
+      "neighborhood": null,
+      "address": "Rua Antônio Ignácio Freire, 1075",
+      "zipCode": "79955-000",
+      "phone": "(67) 3463-1153",
+      "email": "igrejasantaluziajuti@gmail.com",
+      "website": null,
+      "priestName": "Pe. Moacir Miguel dos Santos",
+      "foundedYear": 2008,
+      "sources": [
+        {
+          "url": "https://diocesedenavirai.org.br/foranias",
+          "title": "Foranias - Diocese de Naviraí (diretório com endereço, CEP, telefone, e-mail, pároco e data de criação das 24 paróquias)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedenavirai.org.br/paroquias",
+          "title": "Paróquias - Diocese de Naviraí",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://minhareceita.org/14815628001393",
+          "title": "Receita Federal (via minhareceita.org) - CNPJ 14.815.628/0013-93, filial da Mitra Diocesana de Naviraí",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://gcatholic.org/churches/local/navi0",
+          "title": "Churches in the Diocese of Naviraí - GCatholic (20 igrejas, atualizado 2026-01-01)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Criação: 17/08/2008. O site da diocese grafa a cidade como \"Jutí\"; a grafia oficial do município é Juti.",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-das-gracas-mundo-novo",
+      "name": "Paróquia Nossa Senhora das Graças",
+      "city": "Mundo Novo",
+      "state": "MS",
+      "neighborhood": null,
+      "address": "Av. Juscelino Kubitschek de Oliveira, 1050 - Caixa Postal 66",
+      "zipCode": "79980-000",
+      "phone": "(67) 3474-1053",
+      "email": "nsgracasmn@yahoo.com.br",
+      "website": null,
+      "priestName": "Pe. Bernardus Sapu, SVD",
+      "foundedYear": 1963,
+      "sources": [
+        {
+          "url": "https://diocesedenavirai.org.br/foranias",
+          "title": "Foranias - Diocese de Naviraí (diretório com endereço, CEP, telefone, e-mail, pároco e data de criação das 24 paróquias)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedenavirai.org.br/paroquias",
+          "title": "Paróquias - Diocese de Naviraí",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://minhareceita.org/14815628002101",
+          "title": "Receita Federal (via minhareceita.org) - CNPJ 14.815.628/0021-01, filial da Mitra Diocesana de Naviraí",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://gcatholic.org/churches/local/navi0",
+          "title": "Churches in the Diocese of Naviraí - GCatholic (20 igrejas, atualizado 2026-01-01)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Criação: 25/02/1963. Vigário: Pe. Jenish Sesaiyan, SVD.",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-de-fatima-navirai",
+      "name": "Catedral Nossa Senhora de Fátima",
+      "city": "Naviraí",
+      "state": "MS",
+      "neighborhood": null,
+      "address": "Praça Prefeito Euclides Antônio Fabris, 23 - Caixa Postal 29",
+      "zipCode": "79950-000",
+      "phone": "(67) 3461-1377 / (67) 3461-4867 / (67) 99871-8047",
+      "email": "cnf.navirai@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Sidnei Rodrigues Ribeiro",
+      "foundedYear": 1972,
+      "sources": [
+        {
+          "url": "https://diocesedenavirai.org.br/foranias",
+          "title": "Foranias - Diocese de Naviraí (diretório com endereço, CEP, telefone, e-mail, pároco e data de criação das 24 paróquias)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedenavirai.org.br/paroquias",
+          "title": "Paróquias - Diocese de Naviraí",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://minhareceita.org/14815628001989",
+          "title": "Receita Federal (via minhareceita.org) - CNPJ 14.815.628/0019-89, filial da Mitra Diocesana de Naviraí",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://gcatholic.org/churches/local/navi0",
+          "title": "Churches in the Diocese of Naviraí - GCatholic (20 igrejas, atualizado 2026-01-01)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Catedral da diocese (sé episcopal). Criação: 20/02/1972. Diácono: Ruan Vinicius Paixão.",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-das-gracas-navirai",
+      "name": "Paróquia Nossa Senhora das Graças",
+      "city": "Naviraí",
+      "state": "MS",
+      "neighborhood": "Jardim Progresso",
+      "address": "Av. João Paulo II, 383 - Jardim Progresso",
+      "zipCode": "79950-000",
+      "phone": "(67) 3461-3351",
+      "email": "pns_gracas@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Silvester Anas, SVD",
+      "foundedYear": 2011,
+      "sources": [
+        {
+          "url": "https://diocesedenavirai.org.br/foranias",
+          "title": "Foranias - Diocese de Naviraí (diretório com endereço, CEP, telefone, e-mail, pároco e data de criação das 24 paróquias)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedenavirai.org.br/paroquias",
+          "title": "Paróquias - Diocese de Naviraí",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://minhareceita.org/14815628001555",
+          "title": "Receita Federal (via minhareceita.org) - CNPJ 14.815.628/0015-55, filial da Mitra Diocesana de Naviraí",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://gcatholic.org/churches/local/navi0",
+          "title": "Churches in the Diocese of Naviraí - GCatholic (20 igrejas, atualizado 2026-01-01)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Criação: 15/12/2011.",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-jose-nova-andradina",
+      "name": "Paróquia São José",
+      "city": "Nova Andradina",
+      "state": "MS",
+      "neighborhood": null,
+      "address": "Rua Johann Gill, 1721",
+      "zipCode": "79750-000",
+      "phone": "(67) 99602-9902",
+      "email": "paroquiasaojose.na@gmail.com",
+      "website": null,
+      "priestName": "Pe. Renato Nascimento Batista",
+      "foundedYear": 2023,
+      "sources": [
+        {
+          "url": "https://diocesedenavirai.org.br/foranias",
+          "title": "Foranias - Diocese de Naviraí (diretório com endereço, CEP, telefone, e-mail, pároco e data de criação das 24 paróquias)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedenavirai.org.br/paroquias",
+          "title": "Paróquias - Diocese de Naviraí",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://minhareceita.org/14815628002608",
+          "title": "Receita Federal (via minhareceita.org) - CNPJ 14.815.628/0026-08, filial da Mitra Diocesana de Naviraí",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://gcatholic.org/churches/local/navi0",
+          "title": "Churches in the Diocese of Naviraí - GCatholic (20 igrejas, atualizado 2026-01-01)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Criação: 18/02/2023. Paróquia nova - não consta da lista do GCatholic.",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "imaculado-coracao-de-maria-nova-andradina",
+      "name": "Santuário Diocesano Imaculado Coração de Maria",
+      "city": "Nova Andradina",
+      "state": "MS",
+      "neighborhood": null,
+      "address": "Rua Imaculada Conceição, 1158 - Caixa Postal 06",
+      "zipCode": "79750-000",
+      "phone": "(67) 3441-1547 / (67) 3441-1436",
+      "email": "paroquianan@terra.com.br",
+      "website": null,
+      "priestName": "Pe. Celso Vieira da Cruz, CSsR",
+      "foundedYear": 1971,
+      "sources": [
+        {
+          "url": "https://diocesedenavirai.org.br/foranias",
+          "title": "Foranias - Diocese de Naviraí (diretório com endereço, CEP, telefone, e-mail, pároco e data de criação das 24 paróquias)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedenavirai.org.br/paroquias",
+          "title": "Paróquias - Diocese de Naviraí",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://minhareceita.org/14815628001121",
+          "title": "Receita Federal (via minhareceita.org) - CNPJ 14.815.628/0011-21, filial da Mitra Diocesana de Naviraí",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://gcatholic.org/churches/local/navi0",
+          "title": "Churches in the Diocese of Naviraí - GCatholic (20 igrejas, atualizado 2026-01-01)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Paróquia desde 05/11/1971; elevada a Santuário Diocesano em 19/02/2012. Reitor e pároco. Vigário: Pe. Matheus Luiz da Rocha, CSsR. Diáconos: Sócrates Emmanuel Pereira Pavon, Franco José Vieira e Lécio Gavinha Lopes. Redentoristas. O site paroquial publicado (www.paroquianovaandradina.com.br) está fora do ar.",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-vicente-nova-andradina",
+      "name": "Paróquia São Vicente",
+      "city": "Nova Andradina",
+      "state": "MS",
+      "neighborhood": null,
+      "address": "Rua Onofre Gonçalves Lopes, 849",
+      "zipCode": "79750-000",
+      "phone": "(67) 99944-6633",
+      "email": "saovicenteparoquiana@gmail.com",
+      "website": null,
+      "priestName": "Pe. Paulo Santos da Silva",
+      "foundedYear": 2023,
+      "sources": [
+        {
+          "url": "https://diocesedenavirai.org.br/foranias",
+          "title": "Foranias - Diocese de Naviraí (diretório com endereço, CEP, telefone, e-mail, pároco e data de criação das 24 paróquias)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedenavirai.org.br/paroquias",
+          "title": "Paróquias - Diocese de Naviraí",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://minhareceita.org/14815628002527",
+          "title": "Receita Federal (via minhareceita.org) - CNPJ 14.815.628/0025-27, filial da Mitra Diocesana de Naviraí",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://gcatholic.org/churches/local/navi0",
+          "title": "Churches in the Diocese of Naviraí - GCatholic (20 igrejas, atualizado 2026-01-01)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Criação: 19/02/2023. Diácono: Cícero Vieira Brais. DIVERGÊNCIA DE NOME: o cadastro da Receita Federal registra \"PAROQUIA SAO VICENTE DE PAULO\"; o site da diocese publica \"Paróquia São Vicente\". Paróquia nova - não consta da lista do GCatholic.",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-do-perpetuo-socorro-sete-quedas",
+      "name": "Paróquia Nossa Senhora do Perpétuo Socorro",
+      "city": "Sete Quedas",
+      "state": "MS",
+      "neighborhood": null,
+      "address": "Rua Marechal Cândido Rondon, 36",
+      "zipCode": "79935-000",
+      "phone": "(67) 3479-1334",
+      "email": "pnsps7qms@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Afonso Gomes Chivela, SMBN",
+      "foundedYear": 1978,
+      "sources": [
+        {
+          "url": "https://diocesedenavirai.org.br/foranias",
+          "title": "Foranias - Diocese de Naviraí (diretório com endereço, CEP, telefone, e-mail, pároco e data de criação das 24 paróquias)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedenavirai.org.br/paroquias",
+          "title": "Paróquias - Diocese de Naviraí",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://minhareceita.org/14815628001636",
+          "title": "Receita Federal (via minhareceita.org) - CNPJ 14.815.628/0016-36, filial da Mitra Diocesana de Naviraí",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://gcatholic.org/churches/local/navi0",
+          "title": "Churches in the Diocese of Naviraí - GCatholic (20 igrejas, atualizado 2026-01-01)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Criação: 04/03/1978.",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-joao-batista-paranhos",
+      "name": "Paróquia São João Batista",
+      "city": "Paranhos",
+      "state": "MS",
+      "neighborhood": null,
+      "address": "Rua Sete de Setembro, 1055 - Caixa Postal 13",
+      "zipCode": "79925-000",
+      "phone": "(67) 99989-1327",
+      "email": "paroquia.sjbparanhos@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Marcolino Capingana, SMBN",
+      "foundedYear": 1990,
+      "sources": [
+        {
+          "url": "https://diocesedenavirai.org.br/foranias",
+          "title": "Foranias - Diocese de Naviraí (diretório com endereço, CEP, telefone, e-mail, pároco e data de criação das 24 paróquias)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedenavirai.org.br/paroquias",
+          "title": "Paróquias - Diocese de Naviraí",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://minhareceita.org/14815628000230",
+          "title": "Receita Federal (via minhareceita.org) - CNPJ 14.815.628/0002-30, filial da Mitra Diocesana de Naviraí",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://gcatholic.org/churches/local/navi0",
+          "title": "Churches in the Diocese of Naviraí - GCatholic (20 igrejas, atualizado 2026-01-01)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Criação: 20/04/1990.",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-pedro-e-sao-paulo-nova-casa-verde",
+      "name": "Paróquia São Pedro e São Paulo",
+      "city": "Nova Casa Verde",
+      "state": "MS",
+      "neighborhood": null,
+      "address": "Rua Dilson Casarotto, 308 - Caixa Postal 15",
+      "zipCode": "79758-000",
+      "phone": "(67) 3499-1476 / (67) 99655-0568",
+      "email": "paspd.spaulo@yahoo.com.br",
+      "website": null,
+      "priestName": "Pe. Francisco Israel Pontes Brito",
+      "foundedYear": 2007,
+      "sources": [
+        {
+          "url": "https://diocesedenavirai.org.br/foranias",
+          "title": "Foranias - Diocese de Naviraí (diretório com endereço, CEP, telefone, e-mail, pároco e data de criação das 24 paróquias)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedenavirai.org.br/paroquias",
+          "title": "Paróquias - Diocese de Naviraí",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://minhareceita.org/14815628000745",
+          "title": "Receita Federal (via minhareceita.org) - CNPJ 14.815.628/0007-45, filial da Mitra Diocesana de Naviraí",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://gcatholic.org/churches/local/navi0",
+          "title": "Churches in the Diocese of Naviraí - GCatholic (20 igrejas, atualizado 2026-01-01)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Criação: 20/09/2007. Nova Casa Verde é distrito de Nova Andradina: o cadastro da Receita Federal e o GCatholic registram a paróquia em \"Nova Andradina\"; o site da diocese usa o nome do distrito, adotado aqui.",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-aparecida-novo-horizonte-do-sul",
+      "name": "Paróquia Nossa Senhora Aparecida",
+      "city": "Novo Horizonte do Sul",
+      "state": "MS",
+      "neighborhood": null,
+      "address": "Rua São Vicente de Paulo, 472",
+      "zipCode": "79745-000",
+      "phone": "(67) 3447-1004",
+      "email": "pnsraaparecida.nhs@gmail.com",
+      "website": null,
+      "priestName": "Pe. Osvaldecir Leandro Mendes",
+      "foundedYear": 1996,
+      "sources": [
+        {
+          "url": "https://diocesedenavirai.org.br/foranias",
+          "title": "Foranias - Diocese de Naviraí (diretório com endereço, CEP, telefone, e-mail, pároco e data de criação das 24 paróquias)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedenavirai.org.br/paroquias",
+          "title": "Paróquias - Diocese de Naviraí",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://minhareceita.org/14815628000400",
+          "title": "Receita Federal (via minhareceita.org) - CNPJ 14.815.628/0004-00, filial da Mitra Diocesana de Naviraí",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://gcatholic.org/churches/local/navi0",
+          "title": "Churches in the Diocese of Naviraí - GCatholic (20 igrejas, atualizado 2026-01-01)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Criação: 08/05/1996.",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-aparecida-taquarussu",
+      "name": "Paróquia Nossa Senhora Aparecida",
+      "city": "Taquarussu",
+      "state": "MS",
+      "neighborhood": "Centro",
+      "address": "Rua Professora Nahir Rodrigues Nogueira, 1025 - Centro",
+      "zipCode": "79765-000",
+      "phone": "(67) 3444-1115",
+      "email": "paroquianosraparecida@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Ewerton Garcia Costa",
+      "foundedYear": 1981,
+      "sources": [
+        {
+          "url": "https://diocesedenavirai.org.br/foranias",
+          "title": "Foranias - Diocese de Naviraí (diretório com endereço, CEP, telefone, e-mail, pároco e data de criação das 24 paróquias)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedenavirai.org.br/paroquias",
+          "title": "Paróquias - Diocese de Naviraí",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://minhareceita.org/14815628000311",
+          "title": "Receita Federal (via minhareceita.org) - CNPJ 14.815.628/0003-11, filial da Mitra Diocesana de Naviraí",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://gcatholic.org/churches/local/navi0",
+          "title": "Churches in the Diocese of Naviraí - GCatholic (20 igrejas, atualizado 2026-01-01)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Criação: 04/03/1981.",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-sebastiao-tacuru",
+      "name": "Paróquia São Sebastião",
+      "city": "Tacuru",
+      "state": "MS",
+      "neighborhood": null,
+      "address": "Rua Wanderlei Ortiz Lima, 610",
+      "zipCode": "79975-000",
+      "phone": "(67) 99650-4593",
+      "email": "paroquia.tacuru@gmail.com",
+      "website": null,
+      "priestName": "Pe. Antônio Marinho",
+      "foundedYear": 1993,
+      "sources": [
+        {
+          "url": "https://diocesedenavirai.org.br/foranias",
+          "title": "Foranias - Diocese de Naviraí (diretório com endereço, CEP, telefone, e-mail, pároco e data de criação das 24 paróquias)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedenavirai.org.br/paroquias",
+          "title": "Paróquias - Diocese de Naviraí",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://minhareceita.org/14815628001474",
+          "title": "Receita Federal (via minhareceita.org) - CNPJ 14.815.628/0014-74, filial da Mitra Diocesana de Naviraí",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://gcatholic.org/churches/local/navi0",
+          "title": "Churches in the Diocese of Naviraí - GCatholic (20 igrejas, atualizado 2026-01-01)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Criação: 13/05/1993. O site publica o CEP com a UF truncada (\"79.975-000 – TACURU – M\").",
+      "communities": [],
+      "schedules": []
+    }
+  ],
+  "coverage": {
+    "parishesFound": 24,
+    "parishesExpected": 24,
+    "notes": "Duas fontes independentes fecham em 24 paróquias: (1) a página oficial /foranias, que é na prática o diretório completo da diocese, com endereço, CEP, telefone, e-mail, pároco, vigários, diáconos e data de criação de cada paróquia; (2) o cadastro de filiais do CNPJ da Mitra Diocesana de Naviraí (raiz 14.815.628) no minhareceita.org - 28 filiais ATIVAS, das quais 24 são paróquias/santuário e 4 não são (cúria 0001, Centro Cultural e Recreativo 0022, Câmara de Instrução Processual 0027 e Centro Diocesano São Paulo VI 0028), nada além da 0028. ATENÇÃO: a página /paroquias do próprio site lista só 19 - faltam Anaurilândia, Batayporã, Eldorado, Iguatemi e Novo Horizonte do Sul. O GCatholic lista 20 (atualizado 2026-01-01): não tem as 4 paróquias criadas de 2019 em diante (Japorã 2019, Ivinhema/N.Sra. da Conceição Aparecida 2020, Nova Andradina/São José e São Vicente 2023). A diocese não publica horários de missa - nenhum registro de horário neste arquivo."
+  }
+}

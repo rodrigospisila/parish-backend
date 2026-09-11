@@ -101,3 +101,8 @@ Cada um traz a **regra literal publicada** em `notes`.
     16h) não geraram registro — os locais não constam como comunidade.
 13. **Discrepância de contagem**: o buscador do Google resume o site como "41 paróquias"; o
     diretório atual lista **47** + o santuário. Usei o diretório.
+14. **Não "corrigir" nome que repete a cidade**: Paróquia Nossa Senhora da Natividade
+    (**Natividade**), Paróquia Nossa Senhora de Fátima (**Fátima**) e Paróquia São Miguel e
+    Almas (**Almas**) parecem violar a regra de não pôr a cidade no nome, mas **não violam** —
+    são municípios batizados com o nome do próprio padroeiro. Um validador automático acusa
+    falso positivo aqui.

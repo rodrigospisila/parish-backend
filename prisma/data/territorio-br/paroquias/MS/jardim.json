@@ -1,0 +1,622 @@
+{
+  "diocese": {
+    "name": "Diocese de Jardim",
+    "type": "Diocese",
+    "slug": "jardim",
+    "city": "Jardim",
+    "state": "MS",
+    "address": "Rua Campo Grande, 869 - Vila Angélica",
+    "zipCode": "79240-000",
+    "phone": "(67) 3251-1101",
+    "email": null,
+    "website": "https://diocesedejardim.com.br",
+    "bishopName": "Dom Pedro Cesário Palma, O.F.M. Cap.",
+    "sources": [
+      {
+        "url": "https://diocesedejardim.com.br/",
+        "title": "Diocese Portal Jardim - portal oficial (dados lidos da API do app, entidade \"Paroquia\")",
+        "accessedAt": "2026-09-11"
+      },
+      {
+        "url": "https://minhareceita.org/15462021000104",
+        "title": "Receita Federal (via minhareceita.org) - CNPJ 15.462.021/0001-04, filial da Mitra Diocesana de Jardim",
+        "accessedAt": "2026-09-11"
+      },
+      {
+        "url": "https://gcatholic.org/churches/local/jard0",
+        "title": "Churches in the Diocese of Jardim - GCatholic (13 igrejas, atualizado 2026-01-01)",
+        "accessedAt": "2026-09-11"
+      }
+    ],
+    "confidence": "alta",
+    "notes": "Erigida por João Paulo II em 30/01/1981, sufragânea de Campo Grande; abrange 12 municípios do sudoeste de MS em 2 foranias (Jardim e Pantaneira). ATENÇÃO: o dioceses.json registra o website como http://diocesejardim.blogspot.com; o portal oficial atual é https://diocesedejardim.com.br (não alterei o dioceses.json)."
+  },
+  "parishes": [
+    {
+      "slug": "nossa-senhora-de-lourdes-anastacio",
+      "name": "Paróquia Nossa Senhora de Lourdes",
+      "city": "Anastácio",
+      "state": "MS",
+      "neighborhood": "Centro",
+      "address": "Rua Municipal, 913",
+      "zipCode": "79210-000",
+      "phone": "(67) 3245-1102",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedejardim.com.br/",
+          "title": "Diocese Portal Jardim - portal oficial (dados lidos da API do app, entidade \"Paroquia\")",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://base44.app/api/apps/699a9316fa75f477839407da/entities/Paroquia",
+          "title": "API do portal oficial da Diocese de Jardim - entidade Paroquia (13 registros)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://gcatholic.org/churches/local/jard0",
+          "title": "Churches in the Diocese of Jardim - GCatholic (13 igrejas, atualizado 2026-01-01)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://minhareceita.org/15462021001097",
+          "title": "Receita Federal (via minhareceita.org) - CNPJ 15.462.021/0010-97, filial da Mitra Diocesana de Jardim",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Forania Pantaneira. DIVERGÊNCIA DE ENDEREÇO: o portal diocesano publica \"Rua Municipal, 913\" e o cadastro da Receita Federal registra \"Rua João Leite Ribeiro, s/n - Centro\". Gravei o do portal. CEP do cadastro da Receita Federal (filial 0010 do CNPJ da Mitra Diocesana de Jardim).",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-da-imaculada-conceicao-aquidauana",
+      "name": "Paróquia Nossa Senhora da Imaculada Conceição",
+      "city": "Aquidauana",
+      "state": "MS",
+      "neighborhood": "Centro",
+      "address": "Praça N. Sra. da Imaculada Conceição, s/n - Centro",
+      "zipCode": "79200-000",
+      "phone": "(67) 3241-3086",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedejardim.com.br/",
+          "title": "Diocese Portal Jardim - portal oficial (dados lidos da API do app, entidade \"Paroquia\")",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://base44.app/api/apps/699a9316fa75f477839407da/entities/Paroquia",
+          "title": "API do portal oficial da Diocese de Jardim - entidade Paroquia (13 registros)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://gcatholic.org/churches/local/jard0",
+          "title": "Churches in the Diocese of Jardim - GCatholic (13 igrejas, atualizado 2026-01-01)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://minhareceita.org/15462021000287",
+          "title": "Receita Federal (via minhareceita.org) - CNPJ 15.462.021/0002-87, filial da Mitra Diocesana de Jardim",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Forania Pantaneira. CEP do cadastro da Receita Federal (filial 0002 do CNPJ da Mitra Diocesana de Jardim).",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "santo-afonso-maria-de-ligorio-bela-vista",
+      "name": "Paróquia Santo Afonso Maria de Ligório",
+      "city": "Bela Vista",
+      "state": "MS",
+      "neighborhood": null,
+      "address": "Rua Santo Afonso, 660",
+      "zipCode": "79260-000",
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedejardim.com.br/",
+          "title": "Diocese Portal Jardim - portal oficial (dados lidos da API do app, entidade \"Paroquia\")",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://base44.app/api/apps/699a9316fa75f477839407da/entities/Paroquia",
+          "title": "API do portal oficial da Diocese de Jardim - entidade Paroquia (13 registros)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://gcatholic.org/churches/local/jard0",
+          "title": "Churches in the Diocese of Jardim - GCatholic (13 igrejas, atualizado 2026-01-01)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://minhareceita.org/15462021000368",
+          "title": "Receita Federal (via minhareceita.org) - CNPJ 15.462.021/0003-68, filial da Mitra Diocesana de Jardim",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Forania Jardim. CEP do cadastro da Receita Federal (filial 0003 do CNPJ da Mitra Diocesana de Jardim).",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-do-perpetuo-socorro-bodoquena",
+      "name": "Paróquia Nossa Senhora do Perpétuo Socorro",
+      "city": "Bodoquena",
+      "state": "MS",
+      "neighborhood": "Centro",
+      "address": "Av. Manoel Rodrigues Oliveira, 211",
+      "zipCode": "79390-000",
+      "phone": "(67) 3268-1410",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedejardim.com.br/",
+          "title": "Diocese Portal Jardim - portal oficial (dados lidos da API do app, entidade \"Paroquia\")",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://base44.app/api/apps/699a9316fa75f477839407da/entities/Paroquia",
+          "title": "API do portal oficial da Diocese de Jardim - entidade Paroquia (13 registros)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://gcatholic.org/churches/local/jard0",
+          "title": "Churches in the Diocese of Jardim - GCatholic (13 igrejas, atualizado 2026-01-01)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://minhareceita.org/15462021001259",
+          "title": "Receita Federal (via minhareceita.org) - CNPJ 15.462.021/0012-59, filial da Mitra Diocesana de Jardim",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Forania Pantaneira. DIVERGÊNCIA DE ENDEREÇO: o portal diocesano publica \"Av. Manoel Rodrigues Oliveira, 211\" e o cadastro da Receita Federal registra \"Rua Irmãs Pastorinhas, s/n - Centro\". Gravei o do portal. CEP do cadastro da Receita Federal (filial 0012 do CNPJ da Mitra Diocesana de Jardim).",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-pedro-apostolo-bonito",
+      "name": "Paróquia São Pedro Apóstolo",
+      "city": "Bonito",
+      "state": "MS",
+      "neighborhood": null,
+      "address": "Rua Cel. Nelson Felício, 767",
+      "zipCode": "79290-000",
+      "phone": "(67) 3255-1150",
+      "email": "pspa.bonito@gmail.com",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedejardim.com.br/",
+          "title": "Diocese Portal Jardim - portal oficial (dados lidos da API do app, entidade \"Paroquia\")",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://base44.app/api/apps/699a9316fa75f477839407da/entities/Paroquia",
+          "title": "API do portal oficial da Diocese de Jardim - entidade Paroquia (13 registros)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://gcatholic.org/churches/local/jard0",
+          "title": "Churches in the Diocese of Jardim - GCatholic (13 igrejas, atualizado 2026-01-01)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://minhareceita.org/15462021000449",
+          "title": "Receita Federal (via minhareceita.org) - CNPJ 15.462.021/0004-49, filial da Mitra Diocesana de Jardim",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Forania Jardim. DIVERGÊNCIA DE ENDEREÇO: o portal diocesano publica \"Rua Cel. Nelson Felício, 767\" e o cadastro da Receita Federal registra \"Praça da Liberdade, 84\". Gravei o do portal. CEP do cadastro da Receita Federal (filial 0004 do CNPJ da Mitra Diocesana de Jardim).",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-do-perpetuo-socorro-caracol",
+      "name": "Paróquia Nossa Senhora do Perpétuo Socorro",
+      "city": "Caracol",
+      "state": "MS",
+      "neighborhood": "Centro",
+      "address": "Rua Tiradentes, 40 - Centro",
+      "zipCode": "79270-000",
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedejardim.com.br/",
+          "title": "Diocese Portal Jardim - portal oficial (dados lidos da API do app, entidade \"Paroquia\")",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://base44.app/api/apps/699a9316fa75f477839407da/entities/Paroquia",
+          "title": "API do portal oficial da Diocese de Jardim - entidade Paroquia (13 registros)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://gcatholic.org/churches/local/jard0",
+          "title": "Churches in the Diocese of Jardim - GCatholic (13 igrejas, atualizado 2026-01-01)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://minhareceita.org/15462021001410",
+          "title": "Receita Federal (via minhareceita.org) - CNPJ 15.462.021/0014-10, filial da Mitra Diocesana de Jardim",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Forania Jardim. CEP do cadastro da Receita Federal (filial 0014 do CNPJ da Mitra Diocesana de Jardim).",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-do-rosario-dois-irmaos-do-buriti",
+      "name": "Paróquia Nossa Senhora do Rosário",
+      "city": "Dois Irmãos do Buriti",
+      "state": "MS",
+      "neighborhood": "Centro",
+      "address": "Rua Antônio Martins de Souza, 1710 - Centro",
+      "zipCode": "79217-000",
+      "phone": "(67) 3243-1163",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedejardim.com.br/",
+          "title": "Diocese Portal Jardim - portal oficial (dados lidos da API do app, entidade \"Paroquia\")",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://base44.app/api/apps/699a9316fa75f477839407da/entities/Paroquia",
+          "title": "API do portal oficial da Diocese de Jardim - entidade Paroquia (13 registros)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://gcatholic.org/churches/local/jard0",
+          "title": "Churches in the Diocese of Jardim - GCatholic (13 igrejas, atualizado 2026-01-01)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://minhareceita.org/15462021001330",
+          "title": "Receita Federal (via minhareceita.org) - CNPJ 15.462.021/0013-30, filial da Mitra Diocesana de Jardim",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Forania Pantaneira. CEP do cadastro da Receita Federal (filial 0013 do CNPJ da Mitra Diocesana de Jardim).",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-jose-guia-lopes-da-laguna",
+      "name": "Paróquia São José",
+      "city": "Guia Lopes da Laguna",
+      "state": "MS",
+      "neighborhood": null,
+      "address": "Praça Cel. Camisão, s/n",
+      "zipCode": "79230-000",
+      "phone": "(67) 3269-1268",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedejardim.com.br/",
+          "title": "Diocese Portal Jardim - portal oficial (dados lidos da API do app, entidade \"Paroquia\")",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://base44.app/api/apps/699a9316fa75f477839407da/entities/Paroquia",
+          "title": "API do portal oficial da Diocese de Jardim - entidade Paroquia (13 registros)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://gcatholic.org/churches/local/jard0",
+          "title": "Churches in the Diocese of Jardim - GCatholic (13 igrejas, atualizado 2026-01-01)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://minhareceita.org/15462021000520",
+          "title": "Receita Federal (via minhareceita.org) - CNPJ 15.462.021/0005-20, filial da Mitra Diocesana de Jardim",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Forania Jardim. CEP do cadastro da Receita Federal (filial 0005 do CNPJ da Mitra Diocesana de Jardim).",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-de-fatima-jardim",
+      "name": "Catedral Nossa Senhora de Fátima",
+      "city": "Jardim",
+      "state": "MS",
+      "neighborhood": "Vila Angélica",
+      "address": "Av. Mato Grosso, 42A - Vila Angélica",
+      "zipCode": "79240-000",
+      "phone": "(67) 3251-1464",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedejardim.com.br/",
+          "title": "Diocese Portal Jardim - portal oficial (dados lidos da API do app, entidade \"Paroquia\")",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://base44.app/api/apps/699a9316fa75f477839407da/entities/Paroquia",
+          "title": "API do portal oficial da Diocese de Jardim - entidade Paroquia (13 registros)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://gcatholic.org/churches/local/jard0",
+          "title": "Churches in the Diocese of Jardim - GCatholic (13 igrejas, atualizado 2026-01-01)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://minhareceita.org/15462021001178",
+          "title": "Receita Federal (via minhareceita.org) - CNPJ 15.462.021/0011-78, filial da Mitra Diocesana de Jardim",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Forania Jardim. Catedral da diocese (sé episcopal). DIVERGÊNCIA DE ENDEREÇO: o portal diocesano publica \"Av. Mato Grosso, 42A - Vila Angélica\" e o cadastro da Receita Federal registra \"Avenida Onze de Dezembro, s/n - Vila Angélica\". Gravei o do portal. CEP do cadastro da Receita Federal (filial 0011 do CNPJ da Mitra Diocesana de Jardim).",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": "Único horário publicado pelo portal diocesano (campo \"horarios_missas\" da ficha), em texto livre: \"Domingo: 8h e 19h | Quarta e Sexta: 19h\". O portal é novo (registros criados em 2026) e das 13 paróquias só a catedral tem o campo preenchido - por isso media.",
+          "sources": [
+            {
+              "url": "https://base44.app/api/apps/699a9316fa75f477839407da/entities/Paroquia",
+              "title": "API do portal oficial da Diocese de Jardim - entidade Paroquia (13 registros)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Único horário publicado pelo portal diocesano (campo \"horarios_missas\" da ficha), em texto livre: \"Domingo: 8h e 19h | Quarta e Sexta: 19h\". O portal é novo (registros criados em 2026) e das 13 paróquias só a catedral tem o campo preenchido - por isso media.",
+          "sources": [
+            {
+              "url": "https://base44.app/api/apps/699a9316fa75f477839407da/entities/Paroquia",
+              "title": "API do portal oficial da Diocese de Jardim - entidade Paroquia (13 registros)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Único horário publicado pelo portal diocesano (campo \"horarios_missas\" da ficha), em texto livre: \"Domingo: 8h e 19h | Quarta e Sexta: 19h\". O portal é novo (registros criados em 2026) e das 13 paróquias só a catedral tem o campo preenchido - por isso media.",
+          "sources": [
+            {
+              "url": "https://base44.app/api/apps/699a9316fa75f477839407da/entities/Paroquia",
+              "title": "API do portal oficial da Diocese de Jardim - entidade Paroquia (13 registros)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Único horário publicado pelo portal diocesano (campo \"horarios_missas\" da ficha), em texto livre: \"Domingo: 8h e 19h | Quarta e Sexta: 19h\". O portal é novo (registros criados em 2026) e das 13 paróquias só a catedral tem o campo preenchido - por isso media.",
+          "sources": [
+            {
+              "url": "https://base44.app/api/apps/699a9316fa75f477839407da/entities/Paroquia",
+              "title": "API do portal oficial da Diocese de Jardim - entidade Paroquia (13 registros)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "santo-antonio-de-padua-jardim",
+      "name": "Paróquia Santo Antônio de Pádua",
+      "city": "Jardim",
+      "state": "MS",
+      "neighborhood": "Centro",
+      "address": "Rua Cel. Juvêncio, 92 - Centro",
+      "zipCode": "79240-000",
+      "phone": "(67) 3251-1273",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedejardim.com.br/",
+          "title": "Diocese Portal Jardim - portal oficial (dados lidos da API do app, entidade \"Paroquia\")",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://base44.app/api/apps/699a9316fa75f477839407da/entities/Paroquia",
+          "title": "API do portal oficial da Diocese de Jardim - entidade Paroquia (13 registros)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://gcatholic.org/churches/local/jard0",
+          "title": "Churches in the Diocese of Jardim - GCatholic (13 igrejas, atualizado 2026-01-01)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://minhareceita.org/15462021000600",
+          "title": "Receita Federal (via minhareceita.org) - CNPJ 15.462.021/0006-00, filial da Mitra Diocesana de Jardim",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Forania Jardim. DIVERGÊNCIA DE ENDEREÇO: o portal diocesano publica \"Rua Cel. Juvêncio, 92 - Centro\" e o cadastro da Receita Federal registra \"Avenida Duque de Caxias, s/n\". Gravei o do portal. CEP do cadastro da Receita Federal (filial 0006 do CNPJ da Mitra Diocesana de Jardim).",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-do-carmo-miranda",
+      "name": "Paróquia Nossa Senhora do Carmo",
+      "city": "Miranda",
+      "state": "MS",
+      "neighborhood": "Centro",
+      "address": "Praça Agenor Carrilho, 246 - Centro",
+      "zipCode": "79380-000",
+      "phone": "(67) 3242-1031",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedejardim.com.br/",
+          "title": "Diocese Portal Jardim - portal oficial (dados lidos da API do app, entidade \"Paroquia\")",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://base44.app/api/apps/699a9316fa75f477839407da/entities/Paroquia",
+          "title": "API do portal oficial da Diocese de Jardim - entidade Paroquia (13 registros)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://gcatholic.org/churches/local/jard0",
+          "title": "Churches in the Diocese of Jardim - GCatholic (13 igrejas, atualizado 2026-01-01)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://minhareceita.org/15462021000791",
+          "title": "Receita Federal (via minhareceita.org) - CNPJ 15.462.021/0007-91, filial da Mitra Diocesana de Jardim",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Forania Pantaneira. CEP do cadastro da Receita Federal (filial 0007 do CNPJ da Mitra Diocesana de Jardim).",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "santa-rita-de-cassia-nioaque",
+      "name": "Paróquia Santa Rita de Cássia",
+      "city": "Nioaque",
+      "state": "MS",
+      "neighborhood": "Centro",
+      "address": "Rua Quintino Bocaiúva, 880 - Centro",
+      "zipCode": "79220-000",
+      "phone": "(67) 3236-2960",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedejardim.com.br/",
+          "title": "Diocese Portal Jardim - portal oficial (dados lidos da API do app, entidade \"Paroquia\")",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://base44.app/api/apps/699a9316fa75f477839407da/entities/Paroquia",
+          "title": "API do portal oficial da Diocese de Jardim - entidade Paroquia (13 registros)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://gcatholic.org/churches/local/jard0",
+          "title": "Churches in the Diocese of Jardim - GCatholic (13 igrejas, atualizado 2026-01-01)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://minhareceita.org/15462021000872",
+          "title": "Receita Federal (via minhareceita.org) - CNPJ 15.462.021/0008-72, filial da Mitra Diocesana de Jardim",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Forania Jardim. CEP do cadastro da Receita Federal (filial 0008 do CNPJ da Mitra Diocesana de Jardim).",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sagrado-coracao-de-jesus-porto-murtinho",
+      "name": "Paróquia Sagrado Coração de Jesus",
+      "city": "Porto Murtinho",
+      "state": "MS",
+      "neighborhood": null,
+      "address": "Rua Treze de Maio, 385",
+      "zipCode": "79280-000",
+      "phone": "(67) 3287-1275",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedejardim.com.br/",
+          "title": "Diocese Portal Jardim - portal oficial (dados lidos da API do app, entidade \"Paroquia\")",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://base44.app/api/apps/699a9316fa75f477839407da/entities/Paroquia",
+          "title": "API do portal oficial da Diocese de Jardim - entidade Paroquia (13 registros)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://gcatholic.org/churches/local/jard0",
+          "title": "Churches in the Diocese of Jardim - GCatholic (13 igrejas, atualizado 2026-01-01)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://minhareceita.org/15462021000953",
+          "title": "Receita Federal (via minhareceita.org) - CNPJ 15.462.021/0009-53, filial da Mitra Diocesana de Jardim",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Forania Jardim. DIVERGÊNCIA DE ENDEREÇO: o portal diocesano publica \"Rua Treze de Maio, 385\" e o cadastro da Receita Federal registra \"Rua Quinze de Novembro, 401\". Gravei o do portal. CEP do cadastro da Receita Federal (filial 0009 do CNPJ da Mitra Diocesana de Jardim).",
+      "communities": [],
+      "schedules": []
+    }
+  ],
+  "coverage": {
+    "parishesFound": 13,
+    "parishesExpected": 13,
+    "notes": "Três fontes independentes fecham em 13 paróquias: (1) o portal oficial diocesedejardim.com.br, um SPA cujo conteúdo só existe via API (entidade \"Paroquia\" do app base44, 13 registros com cidade, endereço, telefone, padroeiro e forania); (2) o GCatholic, 13 igrejas nas mesmas 12 cidades e nas mesmas 2 foranias (Jardim e Pantaneira), atualizado 2026-01-01; (3) o cadastro de filiais do CNPJ da Mitra Diocesana de Jardim (raiz 15.462.021) no minhareceita.org - 15 filiais ATIVAS: a mitra (0001), 13 paróquias e o Colégio Diocesano Dom Bosco (0015, BAIXADA), nada além. Horários: só a catedral publica, e em texto livre."
+  }
+}
