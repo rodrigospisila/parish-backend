@@ -1035,7 +1035,68 @@
           "confidence": "alta"
         }
       ],
-      "schedules": []
+      "schedules": [
+        {
+          "community": "Matriz São Judas Tadeu",
+          "dayOfWeek": 0,
+          "time": "08:30",
+          "type": "MASS",
+          "notes": "Fonte única não oficial: ficha do agregador horariodemissa.com.br, que declara \"última atualização em 08/05/2013\" — anterior à pandemia e sem revisão desde então. Precisa de confirmação com a paróquia.",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=n559L",
+              "title": "Horário de Missa — Paróquia São Judas Tadeu, Caratinga/MG (ficha atualizada em 08/05/2013)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Judas Tadeu",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Fonte única não oficial: ficha do agregador horariodemissa.com.br, que declara \"última atualização em 08/05/2013\" — anterior à pandemia e sem revisão desde então. Precisa de confirmação com a paróquia.",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=n559L",
+              "title": "Horário de Missa — Paróquia São Judas Tadeu, Caratinga/MG (ficha atualizada em 08/05/2013)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Judas Tadeu",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Fonte única não oficial: ficha do agregador horariodemissa.com.br, que declara \"última atualização em 08/05/2013\" — anterior à pandemia e sem revisão desde então. Precisa de confirmação com a paróquia.",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=n559L",
+              "title": "Horário de Missa — Paróquia São Judas Tadeu, Caratinga/MG (ficha atualizada em 08/05/2013)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Judas Tadeu",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "A mesma ficha traz ainda \"Todo dia 28: 19:30\" (missa mensal do padroeiro), que não cabe no modelo por ser recorrência por dia do mês e não por dia da semana. Fonte única não oficial: ficha do agregador horariodemissa.com.br, que declara \"última atualização em 08/05/2013\" — anterior à pandemia e sem revisão desde então. Precisa de confirmação com a paróquia.",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=n559L",
+              "title": "Horário de Missa — Paróquia São Judas Tadeu, Caratinga/MG (ficha atualizada em 08/05/2013)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
     },
     {
       "slug": "senhor-bom-jesus-caratinga",
@@ -8184,7 +8245,53 @@
           "confidence": "alta"
         }
       ],
-      "schedules": []
+      "schedules": [
+        {
+          "community": "Matriz Santa Helena",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": "Fonte única não oficial: ficha do agregador horariodemissa.com.br, que declara \"última atualização em 14/07/2014\" — anterior à pandemia e sem revisão desde então. Precisa de confirmação com a paróquia.",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=cj327",
+              "title": "Horário de Missa — Paróquia Santa Helena, Caputira/MG (ficha atualizada em 14/07/2014)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Santa Helena",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Fonte única não oficial: ficha do agregador horariodemissa.com.br, que declara \"última atualização em 14/07/2014\" — anterior à pandemia e sem revisão desde então. Precisa de confirmação com a paróquia.",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=cj327",
+              "title": "Horário de Missa — Paróquia Santa Helena, Caputira/MG (ficha atualizada em 14/07/2014)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Santa Helena",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "A fonte diz \"19:00 (missa da saúde)\". Fonte única não oficial: ficha do agregador horariodemissa.com.br, que declara \"última atualização em 14/07/2014\" — anterior à pandemia e sem revisão desde então. Precisa de confirmação com a paróquia.",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=cj327",
+              "title": "Horário de Missa — Paróquia Santa Helena, Caputira/MG (ficha atualizada em 14/07/2014)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
     },
     {
       "slug": "santa-margarida-de-antioquia-santa-margarida",
@@ -9035,7 +9142,233 @@
           "confidence": "alta"
         }
       ],
-      "schedules": []
+      "schedules": [
+        {
+          "community": "Matriz São Lourenço",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": "Fonte única não oficial: ficha do agregador horariodemissa.com.br, que declara \"última atualização em 23/04/2013\" — anterior à pandemia e sem revisão desde então. Precisa de confirmação com a paróquia.",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=q4295",
+              "title": "Horário de Missa — Paróquia São Lourenço, Manhuaçu/MG (ficha atualizada em 23/04/2013)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Lourenço",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": "Fonte única não oficial: ficha do agregador horariodemissa.com.br, que declara \"última atualização em 23/04/2013\" — anterior à pandemia e sem revisão desde então. Precisa de confirmação com a paróquia.",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=q4295",
+              "title": "Horário de Missa — Paróquia São Lourenço, Manhuaçu/MG (ficha atualizada em 23/04/2013)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Lourenço",
+          "dayOfWeek": 0,
+          "time": "16:30",
+          "type": "MASS",
+          "notes": "Fonte única não oficial: ficha do agregador horariodemissa.com.br, que declara \"última atualização em 23/04/2013\" — anterior à pandemia e sem revisão desde então. Precisa de confirmação com a paróquia.",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=q4295",
+              "title": "Horário de Missa — Paróquia São Lourenço, Manhuaçu/MG (ficha atualizada em 23/04/2013)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Lourenço",
+          "dayOfWeek": 0,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": "Fonte única não oficial: ficha do agregador horariodemissa.com.br, que declara \"última atualização em 23/04/2013\" — anterior à pandemia e sem revisão desde então. Precisa de confirmação com a paróquia.",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=q4295",
+              "title": "Horário de Missa — Paróquia São Lourenço, Manhuaçu/MG (ficha atualizada em 23/04/2013)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Lourenço",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Fonte única não oficial: ficha do agregador horariodemissa.com.br, que declara \"última atualização em 23/04/2013\" — anterior à pandemia e sem revisão desde então. Precisa de confirmação com a paróquia.",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=q4295",
+              "title": "Horário de Missa — Paróquia São Lourenço, Manhuaçu/MG (ficha atualizada em 23/04/2013)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Lourenço",
+          "dayOfWeek": 2,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": "A fonte diz \"06:00 (Capela do Hospital César Leite)\" — capela não listada entre as comunidades da paróquia; gravado em \"Matriz\" por falta de comunidade correspondente. Fonte única não oficial: ficha do agregador horariodemissa.com.br, que declara \"última atualização em 23/04/2013\" — anterior à pandemia e sem revisão desde então. Precisa de confirmação com a paróquia.",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=q4295",
+              "title": "Horário de Missa — Paróquia São Lourenço, Manhuaçu/MG (ficha atualizada em 23/04/2013)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Lourenço",
+          "dayOfWeek": 2,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": "A fonte diz \"15:00 (Asilo São Vicente de Paulo)\" — não listado entre as comunidades da paróquia; gravado em \"Matriz\" por falta de comunidade correspondente. Fonte única não oficial: ficha do agregador horariodemissa.com.br, que declara \"última atualização em 23/04/2013\" — anterior à pandemia e sem revisão desde então. Precisa de confirmação com a paróquia.",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=q4295",
+              "title": "Horário de Missa — Paróquia São Lourenço, Manhuaçu/MG (ficha atualizada em 23/04/2013)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Lourenço",
+          "dayOfWeek": 2,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Fonte única não oficial: ficha do agregador horariodemissa.com.br, que declara \"última atualização em 23/04/2013\" — anterior à pandemia e sem revisão desde então. Precisa de confirmação com a paróquia.",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=q4295",
+              "title": "Horário de Missa — Paróquia São Lourenço, Manhuaçu/MG (ficha atualizada em 23/04/2013)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Lourenço",
+          "dayOfWeek": 3,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": "A fonte diz \"06:00 (Capela do Hospital César Leite)\" — capela não listada entre as comunidades da paróquia; gravado em \"Matriz\" por falta de comunidade correspondente. Fonte única não oficial: ficha do agregador horariodemissa.com.br, que declara \"última atualização em 23/04/2013\" — anterior à pandemia e sem revisão desde então. Precisa de confirmação com a paróquia.",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=q4295",
+              "title": "Horário de Missa — Paróquia São Lourenço, Manhuaçu/MG (ficha atualizada em 23/04/2013)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Lourenço",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Fonte única não oficial: ficha do agregador horariodemissa.com.br, que declara \"última atualização em 23/04/2013\" — anterior à pandemia e sem revisão desde então. Precisa de confirmação com a paróquia.",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=q4295",
+              "title": "Horário de Missa — Paróquia São Lourenço, Manhuaçu/MG (ficha atualizada em 23/04/2013)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Lourenço",
+          "dayOfWeek": 4,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": "A fonte diz \"06:00 (Capela do Hospital César Leite)\" — capela não listada entre as comunidades da paróquia; gravado em \"Matriz\" por falta de comunidade correspondente. Fonte única não oficial: ficha do agregador horariodemissa.com.br, que declara \"última atualização em 23/04/2013\" — anterior à pandemia e sem revisão desde então. Precisa de confirmação com a paróquia.",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=q4295",
+              "title": "Horário de Missa — Paróquia São Lourenço, Manhuaçu/MG (ficha atualizada em 23/04/2013)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Lourenço",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Fonte única não oficial: ficha do agregador horariodemissa.com.br, que declara \"última atualização em 23/04/2013\" — anterior à pandemia e sem revisão desde então. Precisa de confirmação com a paróquia.",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=q4295",
+              "title": "Horário de Missa — Paróquia São Lourenço, Manhuaçu/MG (ficha atualizada em 23/04/2013)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Lourenço",
+          "dayOfWeek": 5,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": "A fonte diz \"06:00 (Capela do Hospital César Leite)\" — capela não listada entre as comunidades da paróquia; gravado em \"Matriz\" por falta de comunidade correspondente. Fonte única não oficial: ficha do agregador horariodemissa.com.br, que declara \"última atualização em 23/04/2013\" — anterior à pandemia e sem revisão desde então. Precisa de confirmação com a paróquia.",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=q4295",
+              "title": "Horário de Missa — Paróquia São Lourenço, Manhuaçu/MG (ficha atualizada em 23/04/2013)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Lourenço",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Fonte única não oficial: ficha do agregador horariodemissa.com.br, que declara \"última atualização em 23/04/2013\" — anterior à pandemia e sem revisão desde então. Precisa de confirmação com a paróquia.",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=q4295",
+              "title": "Horário de Missa — Paróquia São Lourenço, Manhuaçu/MG (ficha atualizada em 23/04/2013)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Lourenço",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Fonte única não oficial: ficha do agregador horariodemissa.com.br, que declara \"última atualização em 23/04/2013\" — anterior à pandemia e sem revisão desde então. Precisa de confirmação com a paróquia.",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=q4295",
+              "title": "Horário de Missa — Paróquia São Lourenço, Manhuaçu/MG (ficha atualizada em 23/04/2013)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
     },
     {
       "slug": "bom-pastor-manhuacu",
@@ -12473,7 +12806,53 @@
           "confidence": "alta"
         }
       ],
-      "schedules": []
+      "schedules": [
+        {
+          "community": "Matriz Santa Luzia",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.facebook.com/paroquiasantaluziacarangola",
+              "title": "Paróquia Santa Luzia — Carangola/MG — bloco de apresentação da página oficial no Facebook (link publicado pela diocese): \"SANTUÁRIO DE SANTA LUZIA — HORÁRIOS DE MISSAS: Domingo: 7h; 9h; 18h\"",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Santa Luzia",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.facebook.com/paroquiasantaluziacarangola",
+              "title": "Paróquia Santa Luzia — Carangola/MG — bloco de apresentação da página oficial no Facebook (link publicado pela diocese): \"SANTUÁRIO DE SANTA LUZIA — HORÁRIOS DE MISSAS: Domingo: 7h; 9h; 18h\"",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Santa Luzia",
+          "dayOfWeek": 0,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.facebook.com/paroquiasantaluziacarangola",
+              "title": "Paróquia Santa Luzia — Carangola/MG — bloco de apresentação da página oficial no Facebook (link publicado pela diocese): \"SANTUÁRIO DE SANTA LUZIA — HORÁRIOS DE MISSAS: Domingo: 7h; 9h; 18h\"",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
     },
     {
       "slug": "sao-francisco-de-assis-sao-francisco-do-gloria",
@@ -14150,7 +14529,68 @@
           "confidence": "alta"
         }
       ],
-      "schedules": []
+      "schedules": [
+        {
+          "community": "Matriz Bom Jesus",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": "Fonte única não oficial: ficha do agregador horariodemissa.com.br, que declara \"última atualização em 28/12/2013\" — anterior à pandemia e sem revisão desde então. Precisa de confirmação com a paróquia.",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=wxHuq",
+              "title": "Horário de Missa — Paróquia Senhor Bom Jesus, Manhumirim/MG (ficha atualizada em 28/12/2013)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Bom Jesus",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": "Fonte única não oficial: ficha do agregador horariodemissa.com.br, que declara \"última atualização em 28/12/2013\" — anterior à pandemia e sem revisão desde então. Precisa de confirmação com a paróquia.",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=wxHuq",
+              "title": "Horário de Missa — Paróquia Senhor Bom Jesus, Manhumirim/MG (ficha atualizada em 28/12/2013)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Bom Jesus",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Fonte única não oficial: ficha do agregador horariodemissa.com.br, que declara \"última atualização em 28/12/2013\" — anterior à pandemia e sem revisão desde então. Precisa de confirmação com a paróquia.",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=wxHuq",
+              "title": "Horário de Missa — Paróquia Senhor Bom Jesus, Manhumirim/MG (ficha atualizada em 28/12/2013)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Bom Jesus",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Fonte única não oficial: ficha do agregador horariodemissa.com.br, que declara \"última atualização em 28/12/2013\" — anterior à pandemia e sem revisão desde então. Precisa de confirmação com a paróquia.",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=wxHuq",
+              "title": "Horário de Missa — Paróquia Senhor Bom Jesus, Manhumirim/MG (ficha atualizada em 28/12/2013)",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
     },
     {
       "slug": "nossa-senhora-mae-dos-homens-martins-soares",
@@ -15715,7 +16155,68 @@
           "confidence": "alta"
         }
       ],
-      "schedules": []
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.facebook.com/imaculadaconceicao.vermelhonovo",
+              "title": "Paróquia de Nossa Senhora da Conceição de Vermelho Novo/MG — bloco de apresentação da página oficial no Facebook (link publicado pela diocese): \"Missas 07:00 | 09:00 | 19:00 Domingo / Missa 1ª sexta do mês | 07:00\"",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.facebook.com/imaculadaconceicao.vermelhonovo",
+              "title": "Paróquia de Nossa Senhora da Conceição de Vermelho Novo/MG — bloco de apresentação da página oficial no Facebook (link publicado pela diocese): \"Missas 07:00 | 09:00 | 19:00 Domingo / Missa 1ª sexta do mês | 07:00\"",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.facebook.com/imaculadaconceicao.vermelhonovo",
+              "title": "Paróquia de Nossa Senhora da Conceição de Vermelho Novo/MG — bloco de apresentação da página oficial no Facebook (link publicado pela diocese): \"Missas 07:00 | 09:00 | 19:00 Domingo / Missa 1ª sexta do mês | 07:00\"",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 5,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": "Recorrência mensal (não cabe no modelo semanal): regra literal da fonte \"Missa 1ª sexta do mês | 07:00\".",
+          "sources": [
+            {
+              "url": "https://www.facebook.com/imaculadaconceicao.vermelhonovo",
+              "title": "Paróquia de Nossa Senhora da Conceição de Vermelho Novo/MG — bloco de apresentação da página oficial no Facebook (link publicado pela diocese): \"Missas 07:00 | 09:00 | 19:00 Domingo / Missa 1ª sexta do mês | 07:00\"",
+              "accessedAt": "2026-09-10"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
     },
     {
       "slug": "santa-barbara-santa-barbara-do-leste",
@@ -16558,6 +17059,6 @@
   "coverage": {
     "parishesFound": 61,
     "parishesExpected": 61,
-    "notes": "O site oficial publica 61 paróquias em 9 foranias, distribuídas por 54 municípios — todas foram coletadas com nome, cidade, endereço da igreja matriz, telefone, e-mail, pároco e lista de comunidades. O Catholic-Hierarchy registra 58 paróquias (dados de 2023); a diferença é compatível com criações recentes (ex.: São João Batista de Reduto, 27/02/2022) e com a paróquia 'ad experimentum' de Alvarenga. O site NÃO publica horários de missa — nenhuma paróquia tem `schedules`."
+    "notes": "O site oficial publica 61 paróquias em 9 foranias, distribuídas por 54 municípios — todas foram coletadas com nome, cidade, endereço da igreja matriz, telefone, e-mail, pároco e lista de comunidades. O Catholic-Hierarchy registra 58 paróquias (dados de 2023); a diferença é compatível com criações recentes (ex.: São João Batista de Reduto, 27/02/2022) e com a paróquia 'ad experimentum' de Alvarenga. O site NÃO publica horários de missa — nenhuma paróquia tem `schedules`. | Rodada de horários (2026-09-10) — CONFIRMADO que a diocese não publica horário de missa. O site roda o mesmo tema/CMS da Diocese de Patos de Minas, que TEM o recurso de missas: o sitemap do Yoast lista os custom post types paroquia, clero, album, video, evento etc., mas NÃO existe missa-sitemap.xml, não existe página /horarios-de-missas/ e o feed oficial do tema (diocesecaratinga.org.br/json/) devolve \"missas\" com os 7 dias da semana VAZIOS. As 61 páginas de paróquia foram baixadas e lidas uma a uma: nenhuma contém a palavra \"missa\" num contexto de grade de horário. Foram então varridas as 49 cidades da diocese no horariodemissa.com.br (38 fichas, só 4 com horário, todas de 2013/2014) e o missas.com.br (páginas vazias). Das 61 paróquias, apenas 14 publicam link de rede social na página diocesana; todas as 20 páginas de Facebook/Instagram correspondentes foram baixadas (User-Agent do Googlebot) e só 2 publicam a grade fixa no bloco de apresentação: N. Sra. da Conceição de Vermelho Novo e Santa Luzia de Carangola. O site próprio pnsacarangola.com.br (N. Sra. Aparecida de Carangola), publicado pela diocese, está fora do ar (NXDOMAIN). Resultado: 33 horários em 6 paróquias — 6 \"alta\" (redes oficiais) e 27 \"baixa\" (agregador de 2013/2014 e uma missa mensal)."
   }
 }

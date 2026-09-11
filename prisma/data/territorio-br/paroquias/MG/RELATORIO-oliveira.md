@@ -98,3 +98,53 @@ Quatro paróquias têm sede em distrito. `city` recebeu o **município**, o dist
 11. **Setores pastorais x comunidades**: Cana Verde e Morro do Ferro listam "Setores Pastorais"/
     "Setores urbanos" em vez de comunidades. Foram gravados como comunidades — verificar se são
     de fato lugares de celebração.
+
+
+---
+
+## Rodada de HORÁRIOS — 2026-09-10
+
+A rodada anterior fechou com `schedules: []` nas 30 paróquias. Esta rodada acrescentou
+**17 horários**, todos com `confidence: "baixa"` (nenhum entra em produção sem validação),
+em **3 das 30 paróquias**.
+
+### O que foi acrescentado
+
+| Paróquia | Cidade | Comunidade | Horários | Fonte |
+|---|---|---|---|---|
+| Paróquia Nossa Senhora das Mercês | Campo Belo | Matriz de Nossa Senhora das Mercês | dom 07h/09h/19h, ter 19h, qua 07h, qui 19h, sex 19h, sáb 19h (**8**) | `horariodemissa.com.br/igreja.php?k=rddmP` — ficha de **09/07/2013** |
+| Paróquia Nossa Senhora do Carmo | Campo Belo | Matriz de Nossa Senhora do Carmo | dom 07h/19h, sáb 19h (**3**) | `…k=uPrLe` — ficha de **09/09/2013** |
+| Paróquia São João Batista | Morro do Ferro (Oliveira) | Matriz de São João Batista | dom 09h/14h/19h, sex 18h, sáb 19h + **confissão** sáb 09h (**6**) | `…k=znBSI` — ficha de **09/11/2013** |
+
+Dois registros ficaram com ressalva explícita em `notes`:
+- **Morro do Ferro, domingo 14h** — a fonte diz literalmente "14:00 (Na comunidades rurais)": não é
+  na matriz e não nomeia a comunidade. Gravado em "Matriz" só por falta de local identificado.
+- **Morro do Ferro, confissão de sábado** — a fonte diz "09:00 às 17:00 (no escritório paroquial)";
+  o modelo só guarda o horário de início.
+
+### Fontes varridas e o que cada uma devolveu
+
+| Fonte | Resultado |
+|---|---|
+| `dioceseoliveira.org.br` (WordPress) | o `wp-sitemap.xml` só tem `post` e `page` — **não há custom post type de missa nem página de horários**. A página `/paroquias/` (6 páginas, a mesma da rodada anterior) traz decreto de criação, endereço, telefone, e-mail, pároco e a lista completa de comunidades/ermidas/oratórios, mas **nenhum horário**. |
+| `dioceseoliveira.org.br/download/` | 4 PDFs. O único candidato, o **Diretório Pastoral Diocesano (1ª ed., 184 páginas)**, foi baixado e teve o texto extraído: é normativo (sacramentos, taxas, disciplina) e **não traz quadro de horários** — as 166 ocorrências de "missa" são doutrinárias. |
+| `horariodemissa.com.br` | varridas as **23 cidades e distritos** da diocese → 24 fichas; **só 3 têm horário** (as da tabela acima). As demais (Aguanil, Bom Sucesso ×2, Cana Verde, Candeias, Carmo da Mata, Carmópolis, Cristais, Itaguara, Oliveira ×3, Passa Tempo, Perdões, Piracema, Ribeirão Vermelho, Santana do Jacaré, Santo Antônio do Amparo, São Tiago ×2 e a 3ª de Campo Belo) dizem literalmente "(Nenhum horário de Missa informado)". |
+| `missas.com.br` | existe página para 19 das 23 cidades — **todas vazias** (nenhuma igreja cadastrada). |
+| `missahora.com.br` / `horariosmissa.com.br` | "Não há missas disponíveis". |
+| `paroquianossasenhoradocarmo.com` (Campo Belo, o único site paroquial publicado pela diocese) | **fora do ar** — NXDOMAIN confirmado por DNS-over-HTTPS. |
+| Redes sociais | as páginas oficiais que foi possível localizar (Facebook e Instagram de Aguanil, Facebook de Bom Sucesso e da própria diocese) foram baixadas com User-Agent do Googlebot e lidas: **nenhuma publica a grade fixa em texto** — a apresentação de Aguanil e de Bom Sucesso só descreve a página, e os horários, quando aparecem, estão dentro de cartazes em imagem. A busca automatizada de páginas das outras 27 paróquias esbarrou no bloqueio do DuckDuckGo (o endpoint HTML passou a devolver desafio de bot depois de duas consultas). |
+
+### Conclusão
+
+A Diocese de Oliveira, suas 30 paróquias e os agregadores **não publicam horário de missa em
+texto indexável**, salvo as 3 fichas de 2013 acima. Para completar de verdade, o caminho é:
+(a) baixar e ler os **cartazes em imagem** dos Facebook/Instagram paroquiais — foi assim que
+Araçatuba saiu completa — o que exige antes descobrir os perfis de cada paróquia; ou
+(b) contato direto com as secretarias (a diocese publica telefone e e-mail de todas as 30).
+
+### Ponto novo para o enxame de validação
+
+As comunidades extraídas da rodada anterior têm **artefatos de quebra de linha da fonte** que
+viraram "comunidade": entradas como `"Urbanas:"`, `"Setores urbanos:"`, `"da Paz"` (quebra de
+"Nossa Senhora Rainha / da Paz") aparecem em `communities`. Não foram tocadas nesta rodada
+(o escopo era só horários), mas precisam de limpeza antes da carga.
