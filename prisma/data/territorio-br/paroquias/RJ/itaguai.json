@@ -1,0 +1,4593 @@
+{
+  "diocese": {
+    "name": "Diocese de Itaguaí",
+    "type": "Diocese",
+    "slug": "itaguai",
+    "city": "Itaguaí",
+    "state": "RJ",
+    "address": "Rua Coronel Freitas, 45, Centro",
+    "zipCode": "23815-260",
+    "phone": "(21) 2688-3292",
+    "email": "diocese@dioceseitaguai.org.br",
+    "website": "https://dioceseitaguai.org.br",
+    "bishopName": "Dom Paulo Celso Dias do Nascimento",
+    "sources": [
+      {
+        "url": "https://web.archive.org/web/20250801004501/https://dioceseitaguai.org.br/",
+        "title": "Diocese de Itaguai - site oficial (captura do Arquivo da Internet de 01/08/2025; o site esta fora do ar hoje, erro 500)",
+        "accessedAt": "2026-09-11"
+      },
+      {
+        "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/paroquias/",
+        "title": "Diocese de Itaguai - \"Paroquias\" (site oficial, captura do Arquivo da Internet)",
+        "accessedAt": "2026-09-11"
+      },
+      {
+        "url": "https://web.archive.org/web/20250501103300id_/https://dioceseitaguai.org.br/paroquia-sitemap1.xml",
+        "title": "Diocese de Itaguai - sitemap XML do tipo de post \"paroquia\" (19 paroquias, captura de 01/05/2025)",
+        "accessedAt": "2026-09-11"
+      },
+      {
+        "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+        "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+        "accessedAt": "2026-09-11"
+      },
+      {
+        "url": "https://www.catholic-hierarchy.org/diocese/ditag.html",
+        "title": "catholic-hierarchy.org - Itaguai (Diocese): 21 paroquias, 320.590 catolicos (2023)",
+        "accessedAt": "2026-09-11"
+      }
+    ],
+    "confidence": "alta"
+  },
+  "parishes": [
+    {
+      "slug": "catedral-sao-francisco-xavier-itaguai",
+      "name": "Catedral São Francisco Xavier",
+      "city": "Itaguaí",
+      "state": "RJ",
+      "neighborhood": "Centro",
+      "address": "Rua Coronel Freitas, 45",
+      "zipCode": "23815-260",
+      "phone": "(21) 2688-1200",
+      "email": "catedralsaofranciscoxavier@hotmail.com",
+      "website": null,
+      "priestName": "Padre Wagner Emídio de Souza",
+      "foundedYear": 1795,
+      "setor": "Setor Itaguaí",
+      "sources": [
+        {
+          "url": "https://web.archive.org/web/20260314020755/https://dioceseitaguai.org.br/paroquia/catedral-de-sao-francisco-xavier-centro/",
+          "title": "Diocese de Itaguai - ficha da paroquia (site oficial, captura do Arquivo da Internet)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-catedral-sao-francisco-xavier/",
+          "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/paroquias/",
+          "title": "Diocese de Itaguai - \"Paroquias\" (site oficial, captura do Arquivo da Internet)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Catedral São Francisco Xavier",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-catedral-sao-francisco-xavier/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Matriz São Francisco Xavier – Patronato",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-catedral-sao-francisco-xavier/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São José Operário – Vila Margarida",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-catedral-sao-francisco-xavier/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São João Batista – Engenho",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-catedral-sao-francisco-xavier/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Mateus – Parque Paraíso",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-catedral-sao-francisco-xavier/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santa Teresinha – Engenho",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-catedral-sao-francisco-xavier/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora Aparecida – Jardim Mar",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-catedral-sao-francisco-xavier/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora Aparecida – Raiz da Serra",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-catedral-sao-francisco-xavier/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Mateus",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314020755/https://dioceseitaguai.org.br/paroquia/catedral-de-sao-francisco-xavier-centro/",
+              "title": "Diocese de Itaguai - ficha da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora Aparecida – Campelo",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314020755/https://dioceseitaguai.org.br/paroquia/catedral-de-sao-francisco-xavier-centro/",
+              "title": "Diocese de Itaguai - ficha da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Catedral São Francisco Xavier",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+              "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Catedral São Francisco Xavier",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+              "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Catedral São Francisco Xavier",
+          "dayOfWeek": 1,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+              "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Catedral São Francisco Xavier",
+          "dayOfWeek": 2,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+              "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Catedral São Francisco Xavier",
+          "dayOfWeek": 3,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+              "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Catedral São Francisco Xavier",
+          "dayOfWeek": 4,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+              "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Catedral São Francisco Xavier",
+          "dayOfWeek": 5,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+              "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Catedral São Francisco Xavier",
+          "dayOfWeek": 6,
+          "time": "16:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+              "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "santa-teresinha-do-menino-jesus-piranema-itaguai",
+      "name": "Paróquia Santa Teresinha do Menino Jesus",
+      "city": "Itaguaí",
+      "state": "RJ",
+      "neighborhood": "Piranema",
+      "address": "Rua Rosemere Alves Pereira da Silva, 1, Quadra C",
+      "zipCode": "23832-060",
+      "phone": "(21) 96782-0670",
+      "email": "paroquiadepiranema@gmail.com",
+      "website": null,
+      "priestName": null,
+      "foundedYear": 1970,
+      "setor": "Setor Itaguaí",
+      "sources": [
+        {
+          "url": "https://web.archive.org/web/20250614014201/https://dioceseitaguai.org.br/paroquia/paroquia-santa-teresinha-do-menino-jesus-piranema/",
+          "title": "Diocese de Itaguai - ficha da paroquia (site oficial, captura do Arquivo da Internet)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-santa-terezinha/",
+          "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://web.archive.org/web/20250501103300id_/https://dioceseitaguai.org.br/paroquia-sitemap1.xml",
+          "title": "Diocese de Itaguai - sitemap XML do tipo de post \"paroquia\" (19 paroquias, captura de 01/05/2025)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz de Santa Teresinha – Piranema",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-santa-terezinha/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Francisco de Assis – Canto do Rio",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-santa-terezinha/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora do Rosário de Fátima – Boa Fé",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-santa-terezinha/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora Aparecida – Rio da Guarda",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-santa-terezinha/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santo Antônio – Piranema",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-santa-terezinha/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santa Rosa de Lima – Piranema",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-santa-terezinha/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora da Conceição Aparecida",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20250614014201/https://dioceseitaguai.org.br/paroquia/paroquia-santa-teresinha-do-menino-jesus-piranema/",
+              "title": "Diocese de Itaguai - ficha da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "sao-francisco-de-assis-itaguai",
+      "name": "Paróquia São Francisco de Assis",
+      "city": "Itaguaí",
+      "state": "RJ",
+      "neighborhood": "Brisamar",
+      "address": null,
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "setor": "Setor Itaguaí",
+      "sources": [
+        {
+          "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-sao-francisco-de-assis/",
+          "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://web.archive.org/web/20250501103300id_/https://dioceseitaguai.org.br/paroquia-sitemap1.xml",
+          "title": "Diocese de Itaguai - sitemap XML do tipo de post \"paroquia\" (19 paroquias, captura de 01/05/2025)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz de São Francisco de Assis – Brisamar",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-sao-francisco-de-assis/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santo Antônio – Leandro",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-sao-francisco-de-assis/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Benedito – Coroa Grande",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-sao-francisco-de-assis/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São João Batista – Mazomba",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-sao-francisco-de-assis/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São José – Vila Geni",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-sao-francisco-de-assis/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora das Graças – Mazombinha",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-sao-francisco-de-assis/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Pedro – Ilha da Madeira",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-sao-francisco-de-assis/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Sebastião – Brisamar",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-sao-francisco-de-assis/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "sao-paulo-apostolo-itaguai",
+      "name": "Paróquia São Paulo Apóstolo",
+      "city": "Itaguaí",
+      "state": "RJ",
+      "neighborhood": "Califórnia",
+      "address": "Rua da Glória, 57",
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "setor": "Setor Itaguaí",
+      "sources": [
+        {
+          "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-sao-paulo-apostolo/",
+          "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+          "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://web.archive.org/web/20250501103300id_/https://dioceseitaguai.org.br/paroquia-sitemap1.xml",
+          "title": "Diocese de Itaguai - sitemap XML do tipo de post \"paroquia\" (19 paroquias, captura de 01/05/2025)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz de São Paulo Apóstolo – Califórnia",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-sao-paulo-apostolo/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora das Graças – Califórnia",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-sao-paulo-apostolo/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora de Monte Serrat – Monte Serrat",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-sao-paulo-apostolo/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora Aparecida – Jardim América",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-sao-paulo-apostolo/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora de Fátima – Amendoeira",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-sao-paulo-apostolo/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santa Cândida e São Judas Tadeu – Santa Cândida",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-sao-paulo-apostolo/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santa Rita de Cássia – Teixeira",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-sao-paulo-apostolo/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora do Rosário – Agrovila",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-sao-paulo-apostolo/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora Aparecida – Chaperó",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-sao-paulo-apostolo/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora de Lourdes – Agrovila",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-sao-paulo-apostolo/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora da Glória – Agrovila",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-sao-paulo-apostolo/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santo Antônio de Pádua – Ibirapitanga",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-sao-paulo-apostolo/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santa Ana – Estrela do Céu",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-sao-paulo-apostolo/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz de São Paulo Apóstolo – Califórnia",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+              "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz de São Paulo Apóstolo – Califórnia",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+              "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz de São Paulo Apóstolo – Califórnia",
+          "dayOfWeek": 5,
+          "time": "16:00",
+          "type": "ADORATION",
+          "notes": "A fonte diz \"a partir das 16h, tem Adoracao\"",
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+              "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "maria-mae-da-igreja-seropedica",
+      "name": "Paróquia Maria Mãe da Igreja",
+      "city": "Seropédica",
+      "state": "RJ",
+      "neighborhood": "Campo Lindo",
+      "address": "Rua Pedro Galvão, Km 40",
+      "zipCode": null,
+      "phone": "(21) 2682-7809",
+      "email": null,
+      "website": null,
+      "priestName": "Padre Mauro Rodrigues Brandão",
+      "foundedYear": null,
+      "setor": "Setor Seropédica",
+      "sources": [
+        {
+          "url": "https://web.archive.org/web/20250614014148/https://dioceseitaguai.org.br/paroquia/paroquia-maria-mae-da-igreja-dom-bosco/",
+          "title": "Diocese de Itaguai - ficha da paroquia (site oficial, captura do Arquivo da Internet)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-maria-mae-da-igreja/",
+          "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+          "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Maria Mãe da Igreja",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-maria-mae-da-igreja/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora Aparecida – Campo Lindo",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-maria-mae-da-igreja/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora da Imaculada Conceição – Campo Lindo",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-maria-mae-da-igreja/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São José – Jardim das Acácias",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-maria-mae-da-igreja/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Jorge – Parque Vera Cruz",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-maria-mae-da-igreja/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Maria Mãe da Igreja",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+              "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Nossa Senhora da Imaculada Conceição – Campo Lindo",
+          "dayOfWeek": 0,
+          "time": "10:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+              "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "São Jorge – Parque Vera Cruz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+              "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Nossa Senhora Aparecida – Campo Lindo",
+          "dayOfWeek": 6,
+          "time": "17:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+              "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "São José – Jardim das Acácias",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+              "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "santa-teresinha-do-menino-jesus-seropedica",
+      "name": "Paróquia Santa Teresinha do Menino Jesus",
+      "city": "Seropédica",
+      "state": "RJ",
+      "neighborhood": "Boa Esperança",
+      "address": "Estrada Antiga Rio–São Paulo, Km 50",
+      "zipCode": "23890-000",
+      "phone": "(21) 2682-1001",
+      "email": "pascompsantateresinha@gmail.com",
+      "website": null,
+      "priestName": "Padre Luiz Antonio Dorneles Soares",
+      "foundedYear": null,
+      "setor": "Setor Seropédica",
+      "sources": [
+        {
+          "url": "https://web.archive.org/web/20250614014205/https://dioceseitaguai.org.br/paroquia/paroquia-santa-teresinha-do-menino-jesus-seropedica/",
+          "title": "Diocese de Itaguai - ficha da paroquia (site oficial, captura do Arquivo da Internet)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-santa-teresinha/",
+          "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://web.archive.org/web/20250501103300id_/https://dioceseitaguai.org.br/paroquia-sitemap1.xml",
+          "title": "Diocese de Itaguai - sitemap XML do tipo de post \"paroquia\" (19 paroquias, captura de 01/05/2025)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz de Santa Teresinha – Boa Esperança",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-santa-teresinha/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Miguel",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-santa-teresinha/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santo Antônio – Parque Industrial",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-santa-teresinha/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Sebastião – Boa Esperança",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-santa-teresinha/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Pedro – Santa Sofia",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-santa-teresinha/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Benedito – Fazenda Caxias",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-santa-teresinha/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora da Conceição – Parque Serrinha",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-santa-teresinha/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora de Fátima – Cabral",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-santa-teresinha/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Cristóvão – Santa Sofia",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-santa-teresinha/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora da Natividade – Fazenda Caxias",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-santa-teresinha/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santa Luzia – Boa Esperança",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-santa-teresinha/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz de Santa Teresinha – Boa Esperança",
+          "dayOfWeek": 0,
+          "time": "10:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+              "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz de Santa Teresinha – Boa Esperança",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+              "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz de Santa Teresinha – Boa Esperança",
+          "dayOfWeek": 1,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+              "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz de Santa Teresinha – Boa Esperança",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+              "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz de Santa Teresinha – Boa Esperança",
+          "dayOfWeek": 5,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+              "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-das-gracas-ecologia-seropedica",
+      "name": "Paróquia Nossa Senhora das Graças",
+      "city": "Seropédica",
+      "state": "RJ",
+      "neighborhood": "Ecologia",
+      "address": "Rua do Cruzeiro, 37 (Km 47)",
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "setor": "Setor Seropédica",
+      "sources": [
+        {
+          "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-nossa-senhora-das-gracas-2/",
+          "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+          "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz de Nossa Senhora das Graças – Ecologia",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-nossa-senhora-das-gracas-2/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora Aparecida – Coletivo",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-nossa-senhora-das-gracas-2/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora da Conceição – Jardim Maracanã",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-nossa-senhora-das-gracas-2/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São José – Boa Esperança",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-nossa-senhora-das-gracas-2/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora Aparecida e Nossa Senhora de Fátima – Incra",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-nossa-senhora-das-gracas-2/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora Aparecida – Sol da Manhã – Jardim Maracanã",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-nossa-senhora-das-gracas-2/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz de Nossa Senhora das Graças – Ecologia",
+          "dayOfWeek": 0,
+          "time": "09:15",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+              "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "São José – Boa Esperança",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+              "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Nossa Senhora Aparecida e Nossa Senhora de Fátima – Incra",
+          "dayOfWeek": 0,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+              "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Nossa Senhora da Conceição – Jardim Maracanã",
+          "dayOfWeek": 6,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+              "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-da-guia-mangaratiba",
+      "name": "Paróquia Nossa Senhora da Guia",
+      "city": "Mangaratiba",
+      "state": "RJ",
+      "neighborhood": "Centro",
+      "address": "Rua Coronel Moreira da Silva (Praça Roberto Simões)",
+      "zipCode": "23860-000",
+      "phone": "(21) 2789-1543",
+      "email": "pnossasenhoradaguia@gmail.com",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "setor": "Setor Itaguaí",
+      "sources": [
+        {
+          "url": "https://web.archive.org/web/20250614014153/https://dioceseitaguai.org.br/paroquia/paroquia-nossa-senhora-da-guia-mangaratiba/",
+          "title": "Diocese de Itaguai - ficha da paroquia (site oficial, captura do Arquivo da Internet)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-nossa-senhora-da-guia/",
+          "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/paroquias/",
+          "title": "Diocese de Itaguai - \"Paroquias\" (site oficial, captura do Arquivo da Internet)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora da Guia – Centro",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-nossa-senhora-da-guia/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora das Graças – Praia do Saco",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-nossa-senhora-da-guia/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São José – Ibicuí",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-nossa-senhora-da-guia/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora do Carmo – El Ranchito",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-nossa-senhora-da-guia/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora Aparecida – Junqueira",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-nossa-senhora-da-guia/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "A fonte anota \"nao tem igreja\"."
+        },
+        {
+          "name": "São Paulo Apóstolo – Acampamento",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-nossa-senhora-da-guia/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São João Marcos – Serra do Piloto",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-nossa-senhora-da-guia/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Sebastião – Fazenda Rubião",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-nossa-senhora-da-guia/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Pedro – Sahy",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-nossa-senhora-da-guia/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Francisco e Santo Antônio – Condomínio Porto Belo",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-nossa-senhora-da-guia/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora da Guia – Centro",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+              "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Guia – Centro",
+          "dayOfWeek": 1,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+              "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Guia – Centro",
+          "dayOfWeek": 3,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+              "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Guia – Centro",
+          "dayOfWeek": 4,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+              "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Guia – Centro",
+          "dayOfWeek": 5,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+              "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Guia – Centro",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+              "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-das-gracas-muriqui-mangaratiba",
+      "name": "Paróquia Nossa Senhora das Graças",
+      "city": "Mangaratiba",
+      "state": "RJ",
+      "neighborhood": "Vila Muriqui",
+      "address": "Rua Doze de Outubro, 392",
+      "zipCode": null,
+      "phone": "(21) 2780-1674",
+      "email": null,
+      "website": null,
+      "priestName": "Padre Cícero Gomes Alves",
+      "foundedYear": null,
+      "setor": "Setor Itaguaí",
+      "sources": [
+        {
+          "url": "https://web.archive.org/web/20250614014140/https://dioceseitaguai.org.br/paroquia/paroquia-nossa-senhora-das-gracas-ecologia/",
+          "title": "Diocese de Itaguai - ficha da paroquia (site oficial, captura do Arquivo da Internet)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-nossa-senhora-das-gracas/",
+          "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+          "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz de Nossa Senhora das Graças – Muriqui",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-nossa-senhora-das-gracas/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Sebastião",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-nossa-senhora-das-gracas/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora Aparecida – Pedreira",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-nossa-senhora-das-gracas/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora da Glória – Praia Grande",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-nossa-senhora-das-gracas/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz de Nossa Senhora das Graças – Muriqui",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+              "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz de Nossa Senhora das Graças – Muriqui",
+          "dayOfWeek": 0,
+          "time": "10:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+              "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz de Nossa Senhora das Graças – Muriqui",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+              "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz de Nossa Senhora das Graças – Muriqui",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+              "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-de-santana-itacuruca-mangaratiba",
+      "name": "Paróquia Nossa Senhora de Sant’Ana",
+      "city": "Mangaratiba",
+      "state": "RJ",
+      "neighborhood": "Itacuruçá",
+      "address": "Praça Padre Luiz Quattropanni, 78, Centro",
+      "zipCode": "23880-000",
+      "phone": "(21) 96979-5679",
+      "email": "senhorasantaannaparoquia@gmail.com",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "setor": "Setor Itaguaí",
+      "sources": [
+        {
+          "url": "https://web.archive.org/web/20250614014219/https://dioceseitaguai.org.br/paroquia/paroquia-santana-itacuruca/",
+          "title": "Diocese de Itaguai - ficha da paroquia (site oficial, captura do Arquivo da Internet)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-senhora-santanna/",
+          "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/paroquias/",
+          "title": "Diocese de Itaguai - \"Paroquias\" (site oficial, captura do Arquivo da Internet)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz de Senhora Sant’Ana – Itacuruçá",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-senhora-santanna/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Sagrado Coração de Jesus – Gamboa, Ilha de Itacuruçá",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-senhora-santanna/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Sagrado Coração de Maria – Flexeira, Ilha de Itacuruçá",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-senhora-santanna/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Pedro – Catita, Ilha de Jaguanum",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-senhora-santanna/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora dos Navegantes – Calhaus, Ilha de Jaguanum",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-senhora-santanna/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-da-conceicao-conceicao-de-jacarei-mangaratiba",
+      "name": "Paróquia Nossa Senhora da Conceição",
+      "city": "Mangaratiba",
+      "state": "RJ",
+      "neighborhood": "Conceição de Jacareí",
+      "address": "Rua da Praia, 205",
+      "zipCode": "23885-000",
+      "phone": null,
+      "email": "contato@conceicaodejacarei.com.br",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "setor": "Setor SIM",
+      "sources": [
+        {
+          "url": "https://web.archive.org/web/20260314025114/https://dioceseitaguai.org.br/paroquia/paroquia-nossa-senhora-da-conceicao-conceicao-de-jacarei/",
+          "title": "Diocese de Itaguai - ficha da paroquia (site oficial, captura do Arquivo da Internet)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-nossa-senhora-da-conceicao-2/",
+          "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/paroquias/",
+          "title": "Diocese de Itaguai - \"Paroquias\" (site oficial, captura do Arquivo da Internet)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz de Nossa Senhora da Conceição – Conceição de Jacareí",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-nossa-senhora-da-conceicao-2/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Brás – Fazenda Ingaíba",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-nossa-senhora-da-conceicao-2/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santo Antônio – Portogalo",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-nossa-senhora-da-conceicao-2/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Sebastião – Garatucaia",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-nossa-senhora-da-conceicao-2/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Francisco de Assis – Cantagalo",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-nossa-senhora-da-conceicao-2/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-da-conceicao-centro-angra-dos-reis",
+      "name": "Paróquia Nossa Senhora da Conceição",
+      "city": "Angra dos Reis",
+      "state": "RJ",
+      "neighborhood": "Centro",
+      "address": "Rua Pereira Peixoto, 105",
+      "zipCode": null,
+      "phone": "(24) 3364-5368",
+      "email": "matrizangra@hotmail.com",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "setor": "Setor Angra 1",
+      "sources": [
+        {
+          "url": "https://web.archive.org/web/20260314014842/https://dioceseitaguai.org.br/paroquia/paroquia-nossa-senhora-da-imaculada-conceicao-centro/",
+          "title": "Diocese de Itaguai - ficha da paroquia (site oficial, captura do Arquivo da Internet)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://web.archive.org/web/20210411005930/https://dioceseitaguai.org.br/comunidades-da-paroquia-nossa-senhora-da-conceicao/",
+          "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+          "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz de Nossa Senhora da Conceição – Centro",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20210411005930/https://dioceseitaguai.org.br/comunidades-da-paroquia-nossa-senhora-da-conceicao/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora do Carmo e Santo Elias – Morro do Carmo",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20210411005930/https://dioceseitaguai.org.br/comunidades-da-paroquia-nossa-senhora-da-conceicao/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora da Piedade – Ilha da Gipóia",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20210411005930/https://dioceseitaguai.org.br/comunidades-da-paroquia-nossa-senhora-da-conceicao/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora Aparecida – Vila Velha",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20210411005930/https://dioceseitaguai.org.br/comunidades-da-paroquia-nossa-senhora-da-conceicao/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Senhor do Bonfim – Ilha do Bonfim",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20210411005930/https://dioceseitaguai.org.br/comunidades-da-paroquia-nossa-senhora-da-conceicao/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Bento",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20210411005930/https://dioceseitaguai.org.br/comunidades-da-paroquia-nossa-senhora-da-conceicao/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "A fonte anota \"nao tem igreja\"."
+        },
+        {
+          "name": "São Francisco de Assis – Morro do Abel",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20210411005930/https://dioceseitaguai.org.br/comunidades-da-paroquia-nossa-senhora-da-conceicao/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "A fonte anota \"igreja em construcao\" (2021)."
+        },
+        {
+          "name": "Nossa Senhora das Graças – Morro da Carioca",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20210411005930/https://dioceseitaguai.org.br/comunidades-da-paroquia-nossa-senhora-da-conceicao/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santo Antônio – Morro de Santo Antônio",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20210411005930/https://dioceseitaguai.org.br/comunidades-da-paroquia-nossa-senhora-da-conceicao/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "A fonte anota \"nao tem igreja\"."
+        },
+        {
+          "name": "Menino Jesus de Praga – Morro da Caixa d’Água",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20210411005930/https://dioceseitaguai.org.br/comunidades-da-paroquia-nossa-senhora-da-conceicao/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santa Isabel – Morro de Peres",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20210411005930/https://dioceseitaguai.org.br/comunidades-da-paroquia-nossa-senhora-da-conceicao/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "A fonte anota \"nao tem igreja\"."
+        },
+        {
+          "name": "Sagrada Família – Morro do Tatu",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20210411005930/https://dioceseitaguai.org.br/comunidades-da-paroquia-nossa-senhora-da-conceicao/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "A fonte anota \"nao tem igreja\"."
+        },
+        {
+          "name": "Nossa Senhora de Fátima – Praia do Anil",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20210411005930/https://dioceseitaguai.org.br/comunidades-da-paroquia-nossa-senhora-da-conceicao/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "A fonte anota \"nao tem igreja\"."
+        },
+        {
+          "name": "Nossa Senhora de Fátima – Morro da Fortaleza",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20210411005930/https://dioceseitaguai.org.br/comunidades-da-paroquia-nossa-senhora-da-conceicao/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "A fonte anota \"igreja em construcao\" (2021)."
+        },
+        {
+          "name": "Igreja Santa Luzia",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+              "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz de Nossa Senhora da Conceição – Centro",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+              "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz de Nossa Senhora da Conceição – Centro",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+              "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Nossa Senhora do Carmo e Santo Elias – Morro do Carmo",
+          "dayOfWeek": 0,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+              "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Nossa Senhora do Carmo e Santo Elias – Morro do Carmo",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+              "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz de Nossa Senhora da Conceição – Centro",
+          "dayOfWeek": 2,
+          "time": "12:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+              "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Nossa Senhora do Carmo e Santo Elias – Morro do Carmo",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+              "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Nossa Senhora do Carmo e Santo Elias – Morro do Carmo",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+              "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz de Nossa Senhora da Conceição – Centro",
+          "dayOfWeek": 5,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+              "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Nossa Senhora do Carmo e Santo Elias – Morro do Carmo",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+              "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-aparecida-balneario-angra-dos-reis",
+      "name": "Paróquia Nossa Senhora Aparecida",
+      "city": "Angra dos Reis",
+      "state": "RJ",
+      "neighborhood": "Balneário",
+      "address": "Alameda Luiza Angélica, 433",
+      "zipCode": "23906-195",
+      "phone": "(24) 3367-1084",
+      "email": "paroquia.nsa12@gmail.com",
+      "website": null,
+      "priestName": "Padre Roberto Carlos Pereira",
+      "foundedYear": 2005,
+      "setor": "Setor Angra 1",
+      "sources": [
+        {
+          "url": "https://web.archive.org/web/20260314024753/https://dioceseitaguai.org.br/paroquia/paroquia-nossa-senhroa-aparecida-balneario/",
+          "title": "Diocese de Itaguai - ficha da paroquia (site oficial, captura do Arquivo da Internet)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+          "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora Aparecida – Balneário",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314024753/https://dioceseitaguai.org.br/paroquia/paroquia-nossa-senhroa-aparecida-balneario/",
+              "title": "Diocese de Itaguai - ficha da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora dos Anjos",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314024753/https://dioceseitaguai.org.br/paroquia/paroquia-nossa-senhroa-aparecida-balneario/",
+              "title": "Diocese de Itaguai - ficha da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora dos Navegantes",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314024753/https://dioceseitaguai.org.br/paroquia/paroquia-nossa-senhroa-aparecida-balneario/",
+              "title": "Diocese de Itaguai - ficha da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Pedro",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314024753/https://dioceseitaguai.org.br/paroquia/paroquia-nossa-senhroa-aparecida-balneario/",
+              "title": "Diocese de Itaguai - ficha da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Cristóvão",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314024753/https://dioceseitaguai.org.br/paroquia/paroquia-nossa-senhroa-aparecida-balneario/",
+              "title": "Diocese de Itaguai - ficha da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santa Cruz",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314024753/https://dioceseitaguai.org.br/paroquia/paroquia-nossa-senhroa-aparecida-balneario/",
+              "title": "Diocese de Itaguai - ficha da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora da Glória",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314024753/https://dioceseitaguai.org.br/paroquia/paroquia-nossa-senhroa-aparecida-balneario/",
+              "title": "Diocese de Itaguai - ficha da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Nicolau",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314024753/https://dioceseitaguai.org.br/paroquia/paroquia-nossa-senhroa-aparecida-balneario/",
+              "title": "Diocese de Itaguai - ficha da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora Aparecida – Balneário",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+              "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora Aparecida – Balneário",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+              "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Nossa Senhora dos Navegantes",
+          "dayOfWeek": 0,
+          "time": "10:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+              "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "São Nicolau",
+          "dayOfWeek": 0,
+          "time": "10:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+              "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "São Pedro",
+          "dayOfWeek": 0,
+          "time": "17:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+              "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora Aparecida – Balneário",
+          "dayOfWeek": 4,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+              "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "cristo-rei-japuiba-angra-dos-reis",
+      "name": "Paróquia Cristo Rei",
+      "city": "Angra dos Reis",
+      "state": "RJ",
+      "neighborhood": "Nova Angra",
+      "address": "Travessa Gaspar, 1",
+      "zipCode": "23933-270",
+      "phone": "(24) 3377-4729",
+      "email": "secretariapcrangra@gmail.com",
+      "website": null,
+      "priestName": "Padre Wanderson da Silva Ferreira",
+      "foundedYear": null,
+      "setor": "Setor Angra 2",
+      "sources": [
+        {
+          "url": "https://web.archive.org/web/20260314024843/https://dioceseitaguai.org.br/paroquia/paroquia-cristo-rei-japuiba/",
+          "title": "Diocese de Itaguai - ficha da paroquia (site oficial, captura do Arquivo da Internet)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-cristo-rei/",
+          "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz do Divino Espírito Santo – Nova Angra",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-cristo-rei/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santíssima Trindade – Japuíba",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-cristo-rei/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Sagrada Família – Areal (Km 6)",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-cristo-rei/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santa Cruz – Morro da Cruz",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-cristo-rei/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Cristo Ressuscitado – Enseada",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-cristo-rei/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Bom Pastor – Encruzo da Enseada",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-cristo-rei/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora do Amparo – Serra d’Água",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-cristo-rei/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Bom Jesus – Belém",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-cristo-rei/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Francisco de Assis – Águas Lindas",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-cristo-rei/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santa Teresinha – Campo Belo",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-cristo-rei/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Jesus Menino – Divinéia",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-cristo-rei/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Sagrado Coração de Jesus – Vila Nova",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-cristo-rei/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora Aparecida – Praia da Ribeira",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-cristo-rei/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Jorge – Banqueta",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-cristo-rei/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "A fonte anota \"nao tem igreja, em construcao\"."
+        },
+        {
+          "name": "Divina Misericórdia – Serra d’Água",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314024843/https://dioceseitaguai.org.br/paroquia/paroquia-cristo-rei-japuiba/",
+              "title": "Diocese de Itaguai - ficha da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz do Divino Espírito Santo – Nova Angra",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+              "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz do Divino Espírito Santo – Nova Angra",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+              "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz do Divino Espírito Santo – Nova Angra",
+          "dayOfWeek": 4,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+              "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "santissima-trindade-jacuecanga-angra-dos-reis",
+      "name": "Paróquia Santíssima Trindade",
+      "city": "Angra dos Reis",
+      "state": "RJ",
+      "neighborhood": "Jacuecanga",
+      "address": "Rua Marquês de Tamandaré, 95",
+      "zipCode": null,
+      "phone": "(24) 3361-2258",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "setor": "Setor Angra 2",
+      "sources": [
+        {
+          "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-santissima-trindade/",
+          "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+          "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://web.archive.org/web/20250501103300id_/https://dioceseitaguai.org.br/paroquia-sitemap1.xml",
+          "title": "Diocese de Itaguai - sitemap XML do tipo de post \"paroquia\" (19 paroquias, captura de 01/05/2025)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz da Santíssima Trindade – Jacuecanga",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-santissima-trindade/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora Aparecida – Camorim Pequeno",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-santissima-trindade/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora do Rosário – Camorim",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-santissima-trindade/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora Aparecida – Praia do Machado",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-santissima-trindade/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora Aparecida – Lambicada",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-santissima-trindade/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São José Operário – Village",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-santissima-trindade/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Sagrado Coração de Jesus – Monsuaba",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-santissima-trindade/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora Aparecida – Caputera 1",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-santissima-trindade/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Jorge – Caputera 2",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-santissima-trindade/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São João Batista – Petrobras",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-santissima-trindade/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora de Fátima – Água Santa",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-santissima-trindade/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz da Santíssima Trindade – Jacuecanga",
+          "dayOfWeek": 0,
+          "time": "10:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+              "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "São José Operário – Village",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+              "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Nossa Senhora de Fátima – Água Santa",
+          "dayOfWeek": 0,
+          "time": "08:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+              "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Nossa Senhora Aparecida – Caputera 1",
+          "dayOfWeek": 0,
+          "time": "08:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+              "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "São Jorge – Caputera 2",
+          "dayOfWeek": 0,
+          "time": "08:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+              "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz da Santíssima Trindade – Jacuecanga",
+          "dayOfWeek": 1,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+              "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Sagrado Coração de Jesus – Monsuaba",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+              "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "sao-jose-operario-parque-mambucaba-angra-dos-reis",
+      "name": "Paróquia São José Operário",
+      "city": "Angra dos Reis",
+      "state": "RJ",
+      "neighborhood": "Parque Mambucaba",
+      "address": "Rua Francisco Magalhães de Castro, 626",
+      "zipCode": "23954-210",
+      "phone": "(24) 3362-3044",
+      "email": "sjo.secretaria@hotmail.com",
+      "website": null,
+      "priestName": "Padre José Eduardo Moura Lima",
+      "foundedYear": 1982,
+      "setor": "Setor Angra 2",
+      "sources": [
+        {
+          "url": "https://web.archive.org/web/20250614014144/https://dioceseitaguai.org.br/paroquia/paroquia-sao-jose-operario-parque-mambucaba/",
+          "title": "Diocese de Itaguai - ficha da paroquia (site oficial, captura do Arquivo da Internet)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-sao-jose-operario/",
+          "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz de São José Operário – Parque Mambucaba",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-sao-jose-operario/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Francisco de Assis – Vilas",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-sao-jose-operario/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Paulo Apóstolo – Campo da Gringa",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-sao-jose-operario/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santa Luzia – Boa Vista",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-sao-jose-operario/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora do Rosário – Vila Histórica",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-sao-jose-operario/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "A fonte anota \"igreja em restauracao\"."
+        },
+        {
+          "name": "Nossa Senhora das Graças – Praia Brava",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-sao-jose-operario/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Francisco de Assis – Guariba",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-sao-jose-operario/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "A fonte anota \"nao tem igreja\"."
+        },
+        {
+          "name": "São Vicente de Paulo",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20250614014144/https://dioceseitaguai.org.br/paroquia/paroquia-sao-jose-operario-parque-mambucaba/",
+              "title": "Diocese de Itaguai - ficha da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz de São José Operário – Parque Mambucaba",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+              "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz de São José Operário – Parque Mambucaba",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+              "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz de São José Operário – Parque Mambucaba",
+          "dayOfWeek": 1,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+              "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz de São José Operário – Parque Mambucaba",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+              "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "sao-sebastiao-frade-angra-dos-reis",
+      "name": "Paróquia São Sebastião",
+      "city": "Angra dos Reis",
+      "state": "RJ",
+      "neighborhood": "Frade",
+      "address": "Rua São Sebastião, 41 (Rua do Cartório, 17)",
+      "zipCode": "23946-070",
+      "phone": "(24) 99839-8229",
+      "email": "paroquiasaosebastiaofrade@gmail.com",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "setor": "Setor Angra 2",
+      "sources": [
+        {
+          "url": "https://web.archive.org/web/20250614014213/https://dioceseitaguai.org.br/paroquia/paroquia-sao-sebastiao-frade/",
+          "title": "Diocese de Itaguai - ficha da paroquia (site oficial, captura do Arquivo da Internet)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-sao-sebastiao-frade/",
+          "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz de São Sebastião – Frade",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-sao-sebastiao-frade/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora do Carmo – Sertãozinho do Frade",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-sao-sebastiao-frade/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "A fonte anota \"nao tem igreja\"."
+        },
+        {
+          "name": "Nossa Senhora Aparecida – Gamboa",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-sao-sebastiao-frade/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santa Rita – Bracuí",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-sao-sebastiao-frade/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São José – Bracuí",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-sao-sebastiao-frade/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santo Expedito – Praia de Itinga",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-sao-sebastiao-frade/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santo Antônio – Sertão do Bracuí",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-sao-sebastiao-frade/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "A fonte anota \"nao tem igreja\"."
+        },
+        {
+          "name": "Nossa Senhora da Lapa – Ariró",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-sao-sebastiao-frade/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora da Esperança – Frade",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/comunidades-da-paroquia-sao-sebastiao-frade/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "A fonte anota \"nao tem igreja\"."
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz de São Sebastião – Frade",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+              "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz de São Sebastião – Frade",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+              "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "sao-sebastiao-ilha-grande-angra-dos-reis",
+      "name": "Paróquia São Sebastião",
+      "city": "Angra dos Reis",
+      "state": "RJ",
+      "neighborhood": "Ilha Grande",
+      "address": "Rua Dona Romana, 113, Vila do Abraão",
+      "zipCode": null,
+      "phone": "(24) 3370-5715",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "setor": "Setor Angra 1",
+      "sources": [
+        {
+          "url": "https://web.archive.org/web/20250614014209/https://dioceseitaguai.org.br/paroquia/paroquia-sao-sebastiao-ilha-grande/",
+          "title": "Diocese de Itaguai - ficha da paroquia (site oficial, captura do Arquivo da Internet)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://web.archive.org/web/20210418172825/https://dioceseitaguai.org.br/comunidades-da-paroquia-sao-sebastiao-ilha-grande/",
+          "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz de São Sebastião – Praia do Abraão",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20210418172825/https://dioceseitaguai.org.br/comunidades-da-paroquia-sao-sebastiao-ilha-grande/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Benedito – Praia de Palmas",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20210418172825/https://dioceseitaguai.org.br/comunidades-da-paroquia-sao-sebastiao-ilha-grande/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Senhora Sant’Ana – Praia de Lopes Mendes",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20210418172825/https://dioceseitaguai.org.br/comunidades-da-paroquia-sao-sebastiao-ilha-grande/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Cosme e São Damião – Praia da Enseada",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20210418172825/https://dioceseitaguai.org.br/comunidades-da-paroquia-sao-sebastiao-ilha-grande/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Senhora Sant’Ana – Praia da Freguesia de Santana",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20210418172825/https://dioceseitaguai.org.br/comunidades-da-paroquia-sao-sebastiao-ilha-grande/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Espírito Santo – Praia do Bananal",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20210418172825/https://dioceseitaguai.org.br/comunidades-da-paroquia-sao-sebastiao-ilha-grande/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Senhora Sant’Ana – Praia do Matariz",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20210418172825/https://dioceseitaguai.org.br/comunidades-da-paroquia-sao-sebastiao-ilha-grande/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Pedro – Praia Longa",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20210418172825/https://dioceseitaguai.org.br/comunidades-da-paroquia-sao-sebastiao-ilha-grande/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora da Lapa – Praia de Araçatiba",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20210418172825/https://dioceseitaguai.org.br/comunidades-da-paroquia-sao-sebastiao-ilha-grande/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santa Cruz – Praia do Aventureiro",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20210418172825/https://dioceseitaguai.org.br/comunidades-da-paroquia-sao-sebastiao-ilha-grande/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Pedro – Ponta do Leste",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20210418172825/https://dioceseitaguai.org.br/comunidades-da-paroquia-sao-sebastiao-ilha-grande/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Sagrado Coração – Praia da Parnaioca",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20210418172825/https://dioceseitaguai.org.br/comunidades-da-paroquia-sao-sebastiao-ilha-grande/",
+              "title": "Diocese de Itaguai - lista de comunidades da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz de São Sebastião – Praia do Abraão",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+              "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz de São Sebastião – Praia do Abraão",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+              "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-do-rosario-camorim-grande-angra-dos-reis",
+      "name": "Paróquia Nossa Senhora do Rosário",
+      "city": "Angra dos Reis",
+      "state": "RJ",
+      "neighborhood": "Camorim Grande",
+      "address": "Avenida João Pedro II, 364",
+      "zipCode": null,
+      "phone": "(24) 3367-8058",
+      "email": "paroquiarosariodeangra@outlook.com",
+      "website": null,
+      "priestName": "Padre Carlos Eduardo Alves da Silva",
+      "foundedYear": 2016,
+      "setor": "Setor Angra 1",
+      "sources": [
+        {
+          "url": "https://web.archive.org/web/20250614014136/https://dioceseitaguai.org.br/paroquia/paroquia-nossa-senhora-do-rosario-camorim-grande/",
+          "title": "Diocese de Itaguai - ficha da paroquia (site oficial, captura do Arquivo da Internet)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://web.archive.org/web/2026/https://dioceseitaguai.org.br/paroquias/",
+          "title": "Diocese de Itaguai - \"Paroquias\" (site oficial, captura do Arquivo da Internet)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora do Rosário – Camorim Grande",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20250614014136/https://dioceseitaguai.org.br/paroquia/paroquia-nossa-senhora-do-rosario-camorim-grande/",
+              "title": "Diocese de Itaguai - ficha da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Frei Galvão – Lambicada",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20250614014136/https://dioceseitaguai.org.br/paroquia/paroquia-nossa-senhora-do-rosario-camorim-grande/",
+              "title": "Diocese de Itaguai - ficha da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora Aparecida – Praia do Machado",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20250614014136/https://dioceseitaguai.org.br/paroquia/paroquia-nossa-senhora-do-rosario-camorim-grande/",
+              "title": "Diocese de Itaguai - ficha da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Benedito – Camorim Pequeno",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20250614014136/https://dioceseitaguai.org.br/paroquia/paroquia-nossa-senhora-do-rosario-camorim-grande/",
+              "title": "Diocese de Itaguai - ficha da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Sebastião – Sapinhatuba 3",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20250614014136/https://dioceseitaguai.org.br/paroquia/paroquia-nossa-senhora-do-rosario-camorim-grande/",
+              "title": "Diocese de Itaguai - ficha da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-dos-remedios-paraty",
+      "name": "Paróquia Nossa Senhora dos Remédios",
+      "city": "Paraty",
+      "state": "RJ",
+      "neighborhood": "Centro Histórico",
+      "address": "Praça Monsenhor Hélio Pires",
+      "zipCode": "23970-970",
+      "phone": "(24) 99949-4989",
+      "email": "secretariadaparoquia@hotmail.com",
+      "website": null,
+      "priestName": null,
+      "foundedYear": 1646,
+      "setor": "Setor Paraty",
+      "sources": [
+        {
+          "url": "https://web.archive.org/web/20260514021144/https://dioceseitaguai.org.br/paroquia/paroquia-nossa-senhora-dos-remedios/",
+          "title": "Diocese de Itaguai - ficha da paroquia (site oficial, captura do Arquivo da Internet)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+          "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz de Nossa Senhora dos Remédios – Centro Histórico",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260514021144/https://dioceseitaguai.org.br/paroquia/paroquia-nossa-senhora-dos-remedios/",
+              "title": "Diocese de Itaguai - ficha da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São José Operário – Ilha das Cobras",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260514021144/https://dioceseitaguai.org.br/paroquia/paroquia-nossa-senhora-dos-remedios/",
+              "title": "Diocese de Itaguai - ficha da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora Aparecida – Mangueira",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260514021144/https://dioceseitaguai.org.br/paroquia/paroquia-nossa-senhora-dos-remedios/",
+              "title": "Diocese de Itaguai - ficha da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Francisco de Assis – Chácara da Saudade",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260514021144/https://dioceseitaguai.org.br/paroquia/paroquia-nossa-senhora-dos-remedios/",
+              "title": "Diocese de Itaguai - ficha da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São João Batista – Jabaquara",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260514021144/https://dioceseitaguai.org.br/paroquia/paroquia-nossa-senhora-dos-remedios/",
+              "title": "Diocese de Itaguai - ficha da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora do Carmo – Laranjeiras",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260514021144/https://dioceseitaguai.org.br/paroquia/paroquia-nossa-senhora-dos-remedios/",
+              "title": "Diocese de Itaguai - ficha da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora das Graças – Patrimônio",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260514021144/https://dioceseitaguai.org.br/paroquia/paroquia-nossa-senhora-dos-remedios/",
+              "title": "Diocese de Itaguai - ficha da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Benedito – Campinho",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260514021144/https://dioceseitaguai.org.br/paroquia/paroquia-nossa-senhora-dos-remedios/",
+              "title": "Diocese de Itaguai - ficha da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Judas Tadeu – Independência",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260514021144/https://dioceseitaguai.org.br/paroquia/paroquia-nossa-senhora-dos-remedios/",
+              "title": "Diocese de Itaguai - ficha da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora da Conceição – Paraty Mirim",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260514021144/https://dioceseitaguai.org.br/paroquia/paroquia-nossa-senhora-dos-remedios/",
+              "title": "Diocese de Itaguai - ficha da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Sant’Anna – Cabral",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260514021144/https://dioceseitaguai.org.br/paroquia/paroquia-nossa-senhora-dos-remedios/",
+              "title": "Diocese de Itaguai - ficha da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São José – Corisco",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260514021144/https://dioceseitaguai.org.br/paroquia/paroquia-nossa-senhora-dos-remedios/",
+              "title": "Diocese de Itaguai - ficha da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora da Penha – Penha",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260514021144/https://dioceseitaguai.org.br/paroquia/paroquia-nossa-senhora-dos-remedios/",
+              "title": "Diocese de Itaguai - ficha da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São João Batista – Ponte Branca",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260514021144/https://dioceseitaguai.org.br/paroquia/paroquia-nossa-senhora-dos-remedios/",
+              "title": "Diocese de Itaguai - ficha da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Sagrada Família – Condado",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260514021144/https://dioceseitaguai.org.br/paroquia/paroquia-nossa-senhora-dos-remedios/",
+              "title": "Diocese de Itaguai - ficha da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santa Cruz – Várzea",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260514021144/https://dioceseitaguai.org.br/paroquia/paroquia-nossa-senhora-dos-remedios/",
+              "title": "Diocese de Itaguai - ficha da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora dos Remédios – Corumbê",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260514021144/https://dioceseitaguai.org.br/paroquia/paroquia-nossa-senhora-dos-remedios/",
+              "title": "Diocese de Itaguai - ficha da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Cristóvão – Praia Grande",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260514021144/https://dioceseitaguai.org.br/paroquia/paroquia-nossa-senhora-dos-remedios/",
+              "title": "Diocese de Itaguai - ficha da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Pedro e São Paulo – Ilha do Araújo",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260514021144/https://dioceseitaguai.org.br/paroquia/paroquia-nossa-senhora-dos-remedios/",
+              "title": "Diocese de Itaguai - ficha da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santa Cruz – Graúna",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260514021144/https://dioceseitaguai.org.br/paroquia/paroquia-nossa-senhora-dos-remedios/",
+              "title": "Diocese de Itaguai - ficha da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Roque",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260514021144/https://dioceseitaguai.org.br/paroquia/paroquia-nossa-senhora-dos-remedios/",
+              "title": "Diocese de Itaguai - ficha da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora da Conceição – Barra Grande",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260514021144/https://dioceseitaguai.org.br/paroquia/paroquia-nossa-senhora-dos-remedios/",
+              "title": "Diocese de Itaguai - ficha da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora da Penha – Taquari",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260514021144/https://dioceseitaguai.org.br/paroquia/paroquia-nossa-senhora-dos-remedios/",
+              "title": "Diocese de Itaguai - ficha da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Vicente de Paulo – Sertão do Taquari",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260514021144/https://dioceseitaguai.org.br/paroquia/paroquia-nossa-senhora-dos-remedios/",
+              "title": "Diocese de Itaguai - ficha da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santa Cruz – Tarituba",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260514021144/https://dioceseitaguai.org.br/paroquia/paroquia-nossa-senhora-dos-remedios/",
+              "title": "Diocese de Itaguai - ficha da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santa Luzia – Ponta Grossa",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260514021144/https://dioceseitaguai.org.br/paroquia/paroquia-nossa-senhora-dos-remedios/",
+              "title": "Diocese de Itaguai - ficha da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santa Cruz – Mamanguá",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260514021144/https://dioceseitaguai.org.br/paroquia/paroquia-nossa-senhora-dos-remedios/",
+              "title": "Diocese de Itaguai - ficha da paroquia (site oficial, captura do Arquivo da Internet)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Igreja Nossa Senhora do Rosário – Largo do Rosário, Centro Histórico",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+              "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Capela Nossa Senhora das Dores – Centro Histórico",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+              "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz de Nossa Senhora dos Remédios – Centro Histórico",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+              "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "São Francisco de Assis – Chácara da Saudade",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+              "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Igreja Nossa Senhora do Rosário – Largo do Rosário, Centro Histórico",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+              "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Capela Nossa Senhora das Dores – Centro Histórico",
+          "dayOfWeek": 5,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+              "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Igreja Nossa Senhora do Rosário – Largo do Rosário, Centro Histórico",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://web.archive.org/web/20260314020726/https://dioceseitaguai.org.br/horarios-das-missas/",
+              "title": "Diocese de Itaguai - \"Horarios das Missas\" (site oficial, captura do Arquivo da Internet de 14/03/2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    }
+  ],
+  "coverage": {
+    "parishesFound": 20,
+    "parishesExpected": 21,
+    "notes": "O SITE OFICIAL ESTA FORA DO AR: dioceseitaguai.org.br devolve HTTP 500 em toda URL (inclusive /wp-json/ e sitemaps) em 11/09/2026 - e um WordPress quebrado, nao um dominio perdido; o Fortinet da rede local tambem bloqueia o dominio, contornado com DNS-over-HTTPS + curl --resolve. Toda a diocese foi reconstruida pelo Arquivo da Internet, que tem capturas recentes e boas: /paroquias/ e as fichas /paroquia/<slug>/ (com ano de criacao, telefone, e-mail, endereco, comunidades e paroco), os 19 posts /comunidades-da-*/ e a pagina /horarios-das-missas/. O sitemap XML do tipo de post \"paroquia\" (captura de 01/05/2025) fechou a lista canonica de fichas: 19 URLs. Uma 20a paroquia (N. Sra. das Gracas, Ecologia/Seropedica) so aparece nos posts de comunidades e na pagina de horarios - a ficha dela nunca foi capturada, e o slug \"paroquia-nossa-senhora-das-gracas-ecologia\" do sitemap na verdade abre a paroquia de MURIQUI/Mangaratiba. Total: 20 paroquias contra as 21 que catholic-hierarchy publica para 2023 (95%). Setores: Itaguai, Seropedica, Angra 1, Angra 2 e Paraty; regionais PAR e SIM. HORARIOS: 69 horarios da pagina oficial \"Horarios das Missas\", capturada em 02/04/2025, 19/06/2025, 15/10/2025, 06/02/2026 e 14/03/2026. O diff entre a captura de 04/2025 e a de 03/2026 nao muda NENHUM horario (so a desofuscacao de um e-mail), ou seja: e fonte oficial SEM sinal de atualizacao -> confidence media pela escala do README. Missas mensais foram omitidas (1a segunda do mes na Igreja Santa Luzia, Angra)."
+  }
+}

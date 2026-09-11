@@ -110,7 +110,7 @@ async function importDioceses() {
  * são unidades com pároco, equivalentes a paróquia.
  */
 const isNonParishUnit = (name: string) =>
-  /^(Capela|Igreja|Capelania|Miss[ãa]o|Orat[óo]rio|Comunidade|Mosteiro|Convento|Monjas|Monges|Abadia|Carmelo|Semin[áa]rio)\b/i.test(name.trim());
+  /^(Capela|Igreja|Capelania|Miss[ãa]o|Orat[óo]rio|Comunidade|Mosteiro|Convento|Monjas|Monges|Abadia|Carmelo|Semin[áa]rio|Setor Mission[áa]rio)\b/i.test(name.trim());
 
 /**
  * Nome de comunidade que na verdade é lixo de raspagem: rótulo de seção

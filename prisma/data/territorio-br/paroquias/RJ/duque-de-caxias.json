@@ -1,0 +1,1819 @@
+{
+  "diocese": {
+    "name": "Diocese de Duque de Caxias",
+    "type": "Diocese",
+    "slug": "duque-de-caxias",
+    "city": "Duque de Caxias",
+    "state": "RJ",
+    "address": "Avenida Governador Leonel de Moura Brizola, 1861, Centro",
+    "zipCode": "25010-009",
+    "phone": "(21) 3552-9900",
+    "email": "contato@diocesededuquedecaxias.org.br",
+    "website": "https://diocesededuquedecaxias.org.br",
+    "bishopName": "Dom Tarcísio Nascentes dos Santos",
+    "sources": [
+      {
+        "url": "https://diocesededuquedecaxias.org.br/",
+        "title": "Diocese de Duque de Caxias - site oficial (rodape com endereco, telefone e e-mail)",
+        "accessedAt": "2026-09-11"
+      },
+      {
+        "url": "https://minhareceita.org/27212968000219",
+        "title": "Receita Federal (minhareceita.org) - Mitra Diocesana de Duque de Caxias 27.212.968/0002-19",
+        "accessedAt": "2026-09-11"
+      },
+      {
+        "url": "https://www.catholic-hierarchy.org/diocese/ddudc.html",
+        "title": "catholic-hierarchy.org - Duque de Caxias (Diocese): 24 paroquias (estatistica de 2023)",
+        "accessedAt": "2026-09-11"
+      }
+    ],
+    "confidence": "alta"
+  },
+  "parishes": [
+    {
+      "slug": "catedral-santo-antonio-duque-de-caxias",
+      "name": "Catedral de Santo Antônio",
+      "city": "Duque de Caxias",
+      "state": "RJ",
+      "neighborhood": "Centro",
+      "address": "Avenida Governador Leonel de Moura Brizola (antiga Av. Presidente Kennedy), 1861",
+      "zipCode": "25010-009",
+      "phone": "(21) 3552-9900",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "pastoralRegion": "Região Pastoral Centro",
+      "sources": [
+        {
+          "url": "https://minhareceita.org/27212968000219",
+          "title": "Receita Federal (minhareceita.org) - CATEDRAL DE SANTO ANTONIO, filial 0002/19 da Mitra Diocesana de Duque de Caxias",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesededuquedecaxias.org.br/regiao-pastoral-centro-promove-mutirao-de-confissoes-na-quaresma/",
+          "title": "Diocese de Duque de Caxias - Regiao Pastoral Centro promove Mutirao de Confissoes na Quaresma (2026)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=Duque+de+Caxias&opcoes=cidade_opcoes&submit=12345678",
+          "title": "horariodemissa.com.br - horarios de missa em Duque de Caxias/RJ",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=Duque+de+Caxias&opcoes=cidade_opcoes&submit=12345678",
+              "title": "horariodemissa.com.br - horarios de missa em Duque de Caxias/RJ",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=Duque+de+Caxias&opcoes=cidade_opcoes&submit=12345678",
+              "title": "horariodemissa.com.br - horarios de missa em Duque de Caxias/RJ",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=Duque+de+Caxias&opcoes=cidade_opcoes&submit=12345678",
+              "title": "horariodemissa.com.br - horarios de missa em Duque de Caxias/RJ",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 1,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=Duque+de+Caxias&opcoes=cidade_opcoes&submit=12345678",
+              "title": "horariodemissa.com.br - horarios de missa em Duque de Caxias/RJ",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 2,
+          "time": "07:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=Duque+de+Caxias&opcoes=cidade_opcoes&submit=12345678",
+              "title": "horariodemissa.com.br - horarios de missa em Duque de Caxias/RJ",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "12:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=Duque+de+Caxias&opcoes=cidade_opcoes&submit=12345678",
+              "title": "horariodemissa.com.br - horarios de missa em Duque de Caxias/RJ",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=Duque+de+Caxias&opcoes=cidade_opcoes&submit=12345678",
+              "title": "horariodemissa.com.br - horarios de missa em Duque de Caxias/RJ",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "07:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=Duque+de+Caxias&opcoes=cidade_opcoes&submit=12345678",
+              "title": "horariodemissa.com.br - horarios de missa em Duque de Caxias/RJ",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=Duque+de+Caxias&opcoes=cidade_opcoes&submit=12345678",
+              "title": "horariodemissa.com.br - horarios de missa em Duque de Caxias/RJ",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 2,
+          "time": "09:00",
+          "type": "CONFESSION",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=Duque+de+Caxias&opcoes=cidade_opcoes&submit=12345678",
+              "title": "horariodemissa.com.br - horarios de missa em Duque de Caxias/RJ",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "09:00",
+          "type": "CONFESSION",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=Duque+de+Caxias&opcoes=cidade_opcoes&submit=12345678",
+              "title": "horariodemissa.com.br - horarios de missa em Duque de Caxias/RJ",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-de-fatima-jardim-25-de-agosto-duque-de-caxias",
+      "name": "Paróquia Nossa Senhora de Fátima",
+      "city": "Duque de Caxias",
+      "state": "RJ",
+      "neighborhood": "Jardim Vinte e Cinco de Agosto",
+      "address": "Rua Professor José de Souza Herdy, 836",
+      "zipCode": "25071-202",
+      "phone": "(21) 2671-5785",
+      "email": null,
+      "website": "https://www.facebook.com/nsfatima25agosto",
+      "priestName": null,
+      "foundedYear": null,
+      "pastoralRegion": "Região Pastoral Centro",
+      "sources": [
+        {
+          "url": "https://minhareceita.org/27212968000308",
+          "title": "Receita Federal (minhareceita.org) - PAROQUIA NOSSA SENHORA DE FATIMA, filial 0003/08 da Mitra Diocesana de Duque de Caxias",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesededuquedecaxias.org.br/regiao-pastoral-centro-promove-mutirao-de-confissoes-na-quaresma/",
+          "title": "Diocese de Duque de Caxias - Regiao Pastoral Centro promove Mutirao de Confissoes na Quaresma (2026)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=Duque+de+Caxias&opcoes=cidade_opcoes&submit=12345678",
+          "title": "horariodemissa.com.br - horarios de missa em Duque de Caxias/RJ",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "07:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=Duque+de+Caxias&opcoes=cidade_opcoes&submit=12345678",
+              "title": "horariodemissa.com.br - horarios de missa em Duque de Caxias/RJ",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=Duque+de+Caxias&opcoes=cidade_opcoes&submit=12345678",
+              "title": "horariodemissa.com.br - horarios de missa em Duque de Caxias/RJ",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=Duque+de+Caxias&opcoes=cidade_opcoes&submit=12345678",
+              "title": "horariodemissa.com.br - horarios de missa em Duque de Caxias/RJ",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 2,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=Duque+de+Caxias&opcoes=cidade_opcoes&submit=12345678",
+              "title": "horariodemissa.com.br - horarios de missa em Duque de Caxias/RJ",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=Duque+de+Caxias&opcoes=cidade_opcoes&submit=12345678",
+              "title": "horariodemissa.com.br - horarios de missa em Duque de Caxias/RJ",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=Duque+de+Caxias&opcoes=cidade_opcoes&submit=12345678",
+              "title": "horariodemissa.com.br - horarios de missa em Duque de Caxias/RJ",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 2,
+          "time": "15:00",
+          "type": "CONFESSION",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=Duque+de+Caxias&opcoes=cidade_opcoes&submit=12345678",
+              "title": "horariodemissa.com.br - horarios de missa em Duque de Caxias/RJ",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "15:00",
+          "type": "CONFESSION",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=Duque+de+Caxias&opcoes=cidade_opcoes&submit=12345678",
+              "title": "horariodemissa.com.br - horarios de missa em Duque de Caxias/RJ",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "imaculada-conceicao-duque-de-caxias",
+      "name": "Paróquia Imaculada Conceição",
+      "city": "Duque de Caxias",
+      "state": "RJ",
+      "neighborhood": "Vila São Luís",
+      "address": "Praça da Bandeira, s/n",
+      "zipCode": "25065-100",
+      "phone": "(21) 2771-5282",
+      "email": null,
+      "website": "https://www.facebook.com/groups/paroquiaimaculada/",
+      "priestName": null,
+      "foundedYear": null,
+      "pastoralRegion": "Região Pastoral Centro",
+      "sources": [
+        {
+          "url": "https://minhareceita.org/27212968000480",
+          "title": "Receita Federal (minhareceita.org) - PAROQUIA IMACULADA CONCEICAO, filial 0004/80 da Mitra Diocesana de Duque de Caxias",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "http://diocesededuquedecaxiasrj.blogspot.com/p/paroquias.html",
+          "title": "Diocese de Duque de Caxias - blog da Pascom, pagina \"Paroquias\" (lista antiga, ~2012)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=Duque+de+Caxias&opcoes=cidade_opcoes&submit=12345678",
+          "title": "horariodemissa.com.br - horarios de missa em Duque de Caxias/RJ",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=Duque+de+Caxias&opcoes=cidade_opcoes&submit=12345678",
+              "title": "horariodemissa.com.br - horarios de missa em Duque de Caxias/RJ",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=Duque+de+Caxias&opcoes=cidade_opcoes&submit=12345678",
+              "title": "horariodemissa.com.br - horarios de missa em Duque de Caxias/RJ",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=Duque+de+Caxias&opcoes=cidade_opcoes&submit=12345678",
+              "title": "horariodemissa.com.br - horarios de missa em Duque de Caxias/RJ",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=Duque+de+Caxias&opcoes=cidade_opcoes&submit=12345678",
+              "title": "horariodemissa.com.br - horarios de missa em Duque de Caxias/RJ",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=Duque+de+Caxias&opcoes=cidade_opcoes&submit=12345678",
+              "title": "horariodemissa.com.br - horarios de missa em Duque de Caxias/RJ",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "15:00",
+          "type": "CONFESSION",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=Duque+de+Caxias&opcoes=cidade_opcoes&submit=12345678",
+              "title": "horariodemissa.com.br - horarios de missa em Duque de Caxias/RJ",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "15:00",
+          "type": "CONFESSION",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=Duque+de+Caxias&opcoes=cidade_opcoes&submit=12345678",
+              "title": "horariodemissa.com.br - horarios de missa em Duque de Caxias/RJ",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "sao-sebastiao-gramacho-duque-de-caxias",
+      "name": "Paróquia São Sebastião",
+      "city": "Duque de Caxias",
+      "state": "RJ",
+      "neighborhood": "Gramacho",
+      "address": "Avenida General Rondon, s/n, Quadra 7 Lote 56",
+      "zipCode": "25250-180",
+      "phone": "(21) 3671-6698",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "pastoralRegion": "Região Pastoral Centro",
+      "sources": [
+        {
+          "url": "https://minhareceita.org/27212968000561",
+          "title": "Receita Federal (minhareceita.org) - PAROQUIA SAO SEBASTIAO, filial 0005/61 da Mitra Diocesana de Duque de Caxias",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "http://diocesededuquedecaxiasrj.blogspot.com/p/paroquias.html",
+          "title": "Diocese de Duque de Caxias - blog da Pascom, pagina \"Paroquias\" (lista antiga, ~2012)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=Duque+de+Caxias&opcoes=cidade_opcoes&submit=12345678",
+          "title": "horariodemissa.com.br - horarios de missa em Duque de Caxias/RJ",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "santa-teresinha-do-menino-jesus-duque-de-caxias",
+      "name": "Paróquia Santa Teresinha do Menino Jesus",
+      "city": "Duque de Caxias",
+      "state": "RJ",
+      "neighborhood": "Parque Lafaiete",
+      "address": "Rua Joaquim Peçanha, 80",
+      "zipCode": "25025-090",
+      "phone": "(21) 2771-9781",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "pastoralRegion": "Região Pastoral Centro",
+      "sources": [
+        {
+          "url": "https://minhareceita.org/27212968000642",
+          "title": "Receita Federal (minhareceita.org) - PAROQUIA SANTA TEREZINHA, filial 0006/42 da Mitra Diocesana de Duque de Caxias",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesededuquedecaxias.org.br/regiao-pastoral-centro-promove-mutirao-de-confissoes-na-quaresma/",
+          "title": "Diocese de Duque de Caxias - Regiao Pastoral Centro promove Mutirao de Confissoes na Quaresma (2026)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=Duque+de+Caxias&opcoes=cidade_opcoes&submit=12345678",
+          "title": "horariodemissa.com.br - horarios de missa em Duque de Caxias/RJ",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-do-pilar-duque-de-caxias",
+      "name": "Paróquia Nossa Senhora do Pilar",
+      "city": "Duque de Caxias",
+      "state": "RJ",
+      "neighborhood": "Pilar",
+      "address": "Rua E, s/n",
+      "zipCode": "25235-000",
+      "phone": "(21) 3676-1591",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "pastoralRegion": "Região Pastoral Periferia",
+      "sources": [
+        {
+          "url": "https://minhareceita.org/27212968000723",
+          "title": "Receita Federal (minhareceita.org) - PAROQUIA NOSSA SENHORA DO PILAR, filial 0007/23 da Mitra Diocesana de Duque de Caxias",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "http://diocesededuquedecaxiasrj.blogspot.com/p/paroquias.html",
+          "title": "Diocese de Duque de Caxias - blog da Pascom, pagina \"Paroquias\" (lista antiga, ~2012)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=Duque+de+Caxias&opcoes=cidade_opcoes&submit=12345678",
+          "title": "horariodemissa.com.br - horarios de missa em Duque de Caxias/RJ",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-de-fatima-parada-angelica-duque-de-caxias",
+      "name": "Paróquia Nossa Senhora de Fátima",
+      "city": "Duque de Caxias",
+      "state": "RJ",
+      "neighborhood": "Parada Angélica",
+      "address": "Praça Adolfo David, s/n",
+      "zipCode": "25272-190",
+      "phone": "(21) 3778-1799",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "pastoralRegion": "Região Pastoral Periferia",
+      "sources": [
+        {
+          "url": "https://minhareceita.org/27212968000804",
+          "title": "Receita Federal (minhareceita.org) - PAROQUIA NOSSA SENHORA DE FATIMA, filial 0008/04 da Mitra Diocesana de Duque de Caxias",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "http://diocesededuquedecaxiasrj.blogspot.com/p/paroquias.html",
+          "title": "Diocese de Duque de Caxias - blog da Pascom, pagina \"Paroquias\" (lista antiga, ~2012)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=Duque+de+Caxias&opcoes=cidade_opcoes&submit=12345678",
+          "title": "horariodemissa.com.br - horarios de missa em Duque de Caxias/RJ",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-das-gracas-xerem-duque-de-caxias",
+      "name": "Paróquia Nossa Senhora das Graças",
+      "city": "Duque de Caxias",
+      "state": "RJ",
+      "neighborhood": "Xerém",
+      "address": "Ladeira da Capela, 9",
+      "zipCode": "25212-070",
+      "phone": "(21) 3679-1503",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "pastoralRegion": "Região Pastoral Periferia",
+      "sources": [
+        {
+          "url": "https://minhareceita.org/27212968000995",
+          "title": "Receita Federal (minhareceita.org) - PAROQUIA NOSSA SENHORA DAS GRACAS, filial 0009/95 da Mitra Diocesana de Duque de Caxias",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "http://diocesededuquedecaxiasrj.blogspot.com/p/paroquias.html",
+          "title": "Diocese de Duque de Caxias - blog da Pascom, pagina \"Paroquias\" (lista antiga, ~2012)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=Duque+de+Caxias&opcoes=cidade_opcoes&submit=12345678",
+          "title": "horariodemissa.com.br - horarios de missa em Duque de Caxias/RJ",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Comunidade Santa Rosa de Lima",
+          "address": "Rodovia Washington Luiz, 12322",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=Duque+de+Caxias&opcoes=cidade_opcoes&submit=12345678",
+              "title": "horariodemissa.com.br - horarios de missa em Duque de Caxias/RJ",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "sao-joao-batista-sao-joao-de-meriti",
+      "name": "Paróquia São João Batista",
+      "city": "São João de Meriti",
+      "state": "RJ",
+      "neighborhood": "Centro",
+      "address": "Praça Getúlio Vargas, s/n",
+      "zipCode": "25520-580",
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "pastoralRegion": "Região Pastoral São João de Meriti",
+      "sources": [
+        {
+          "url": "https://minhareceita.org/27212968001029",
+          "title": "Receita Federal (minhareceita.org) - PAROQUIA SAO JOAO BATISTA, filial 0010/29 da Mitra Diocesana de Duque de Caxias",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesededuquedecaxias.org.br/regiao-pastoral-sao-joao-de-meriti-promove-mutirao-de-confissoes-na-quaresma/",
+          "title": "Diocese de Duque de Caxias - Regiao Pastoral Sao Joao de Meriti promove Mutirao de Confissoes na Quaresma (2026)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=S%C3%A3o+Jo%C3%A3o+de+Meriti&opcoes=cidade_opcoes&submit=12345678",
+          "title": "horariodemissa.com.br - horarios de missa em Sao Joao de Meriti/RJ",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=S%C3%A3o+Jo%C3%A3o+de+Meriti&opcoes=cidade_opcoes&submit=12345678",
+              "title": "horariodemissa.com.br - horarios de missa em Sao Joao de Meriti/RJ",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=S%C3%A3o+Jo%C3%A3o+de+Meriti&opcoes=cidade_opcoes&submit=12345678",
+              "title": "horariodemissa.com.br - horarios de missa em Sao Joao de Meriti/RJ",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:45",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=S%C3%A3o+Jo%C3%A3o+de+Meriti&opcoes=cidade_opcoes&submit=12345678",
+              "title": "horariodemissa.com.br - horarios de missa em Sao Joao de Meriti/RJ",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=S%C3%A3o+Jo%C3%A3o+de+Meriti&opcoes=cidade_opcoes&submit=12345678",
+              "title": "horariodemissa.com.br - horarios de missa em Sao Joao de Meriti/RJ",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 1,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=S%C3%A3o+Jo%C3%A3o+de+Meriti&opcoes=cidade_opcoes&submit=12345678",
+              "title": "horariodemissa.com.br - horarios de missa em Sao Joao de Meriti/RJ",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 2,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=S%C3%A3o+Jo%C3%A3o+de+Meriti&opcoes=cidade_opcoes&submit=12345678",
+              "title": "horariodemissa.com.br - horarios de missa em Sao Joao de Meriti/RJ",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 2,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=S%C3%A3o+Jo%C3%A3o+de+Meriti&opcoes=cidade_opcoes&submit=12345678",
+              "title": "horariodemissa.com.br - horarios de missa em Sao Joao de Meriti/RJ",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=S%C3%A3o+Jo%C3%A3o+de+Meriti&opcoes=cidade_opcoes&submit=12345678",
+              "title": "horariodemissa.com.br - horarios de missa em Sao Joao de Meriti/RJ",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=S%C3%A3o+Jo%C3%A3o+de+Meriti&opcoes=cidade_opcoes&submit=12345678",
+              "title": "horariodemissa.com.br - horarios de missa em Sao Joao de Meriti/RJ",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=S%C3%A3o+Jo%C3%A3o+de+Meriti&opcoes=cidade_opcoes&submit=12345678",
+              "title": "horariodemissa.com.br - horarios de missa em Sao Joao de Meriti/RJ",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=S%C3%A3o+Jo%C3%A3o+de+Meriti&opcoes=cidade_opcoes&submit=12345678",
+              "title": "horariodemissa.com.br - horarios de missa em Sao Joao de Meriti/RJ",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=S%C3%A3o+Jo%C3%A3o+de+Meriti&opcoes=cidade_opcoes&submit=12345678",
+              "title": "horariodemissa.com.br - horarios de missa em Sao Joao de Meriti/RJ",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=S%C3%A3o+Jo%C3%A3o+de+Meriti&opcoes=cidade_opcoes&submit=12345678",
+              "title": "horariodemissa.com.br - horarios de missa em Sao Joao de Meriti/RJ",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=S%C3%A3o+Jo%C3%A3o+de+Meriti&opcoes=cidade_opcoes&submit=12345678",
+              "title": "horariodemissa.com.br - horarios de missa em Sao Joao de Meriti/RJ",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "sao-sebastiao-sao-joao-de-meriti",
+      "name": "Paróquia São Sebastião",
+      "city": "São João de Meriti",
+      "state": "RJ",
+      "neighborhood": "Praça da Bandeira",
+      "address": "Rua Joaquim Nabuco, 169",
+      "zipCode": "25560-160",
+      "phone": "(21) 3751-0552",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "pastoralRegion": "Região Pastoral São João de Meriti",
+      "sources": [
+        {
+          "url": "https://minhareceita.org/27212968001100",
+          "title": "Receita Federal (minhareceita.org) - PAROQUIA SAO SEBASTIAO, filial 0011/00 da Mitra Diocesana de Duque de Caxias",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesededuquedecaxias.org.br/regiao-pastoral-sao-joao-de-meriti-promove-mutirao-de-confissoes-na-quaresma/",
+          "title": "Diocese de Duque de Caxias - Regiao Pastoral Sao Joao de Meriti promove Mutirao de Confissoes na Quaresma (2026)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=S%C3%A3o+Jo%C3%A3o+de+Meriti&opcoes=cidade_opcoes&submit=12345678",
+          "title": "horariodemissa.com.br - horarios de missa em Sao Joao de Meriti/RJ",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-mateus-sao-joao-de-meriti",
+      "name": "Paróquia São Mateus",
+      "city": "São João de Meriti",
+      "state": "RJ",
+      "neighborhood": "São Mateus",
+      "address": "Rua Antônio Hermont, 107",
+      "zipCode": "25525-641",
+      "phone": "(21) 3756-2142",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "pastoralRegion": "Região Pastoral São João de Meriti",
+      "sources": [
+        {
+          "url": "https://minhareceita.org/27212968001290",
+          "title": "Receita Federal (minhareceita.org) - PAROQUIA SAO MATEUS, filial 0012/90 da Mitra Diocesana de Duque de Caxias",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesededuquedecaxias.org.br/regiao-pastoral-sao-joao-de-meriti-promove-mutirao-de-confissoes-na-quaresma/",
+          "title": "Diocese de Duque de Caxias - Regiao Pastoral Sao Joao de Meriti promove Mutirao de Confissoes na Quaresma (2026)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=S%C3%A3o+Jo%C3%A3o+de+Meriti&opcoes=cidade_opcoes&submit=12345678",
+          "title": "horariodemissa.com.br - horarios de missa em Sao Joao de Meriti/RJ",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-das-gracas-eden-sao-joao-de-meriti",
+      "name": "Paróquia Nossa Senhora das Graças",
+      "city": "São João de Meriti",
+      "state": "RJ",
+      "neighborhood": "Éden",
+      "address": "Praça Nossa Senhora das Graças, s/n (Rua Alba de Albuquerque)",
+      "zipCode": "25535-010",
+      "phone": "(21) 3756-0881",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "pastoralRegion": "Região Pastoral São João de Meriti",
+      "sources": [
+        {
+          "url": "https://minhareceita.org/27212968001371",
+          "title": "Receita Federal (minhareceita.org) - PAROQUIA NOSSA SENHORA DAS GRACAS, filial 0013/71 da Mitra Diocesana de Duque de Caxias",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesededuquedecaxias.org.br/regiao-pastoral-sao-joao-de-meriti-promove-mutirao-de-confissoes-na-quaresma/",
+          "title": "Diocese de Duque de Caxias - Regiao Pastoral Sao Joao de Meriti promove Mutirao de Confissoes na Quaresma (2026)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=S%C3%A3o+Jo%C3%A3o+de+Meriti&opcoes=cidade_opcoes&submit=12345678",
+          "title": "horariodemissa.com.br - horarios de missa em Sao Joao de Meriti/RJ",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-das-gracas-agostinho-porto-sao-joao-de-meriti",
+      "name": "Paróquia Nossa Senhora das Graças",
+      "city": "São João de Meriti",
+      "state": "RJ",
+      "neighborhood": "Agostinho Porto",
+      "address": "Rua Cândido Maio, 133",
+      "zipCode": "25510-292",
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "pastoralRegion": "Região Pastoral São João de Meriti",
+      "sources": [
+        {
+          "url": "https://minhareceita.org/27212968001452",
+          "title": "Receita Federal (minhareceita.org) - PAROQUIA NOSSA SENHORA DAS GRACAS, filial 0014/52 da Mitra Diocesana de Duque de Caxias",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesededuquedecaxias.org.br/regiao-pastoral-sao-joao-de-meriti-promove-mutirao-de-confissoes-na-quaresma/",
+          "title": "Diocese de Duque de Caxias - Regiao Pastoral Sao Joao de Meriti promove Mutirao de Confissoes na Quaresma (2026)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-da-conceicao-sao-joao-de-meriti",
+      "name": "Paróquia Nossa Senhora da Conceição",
+      "city": "São João de Meriti",
+      "state": "RJ",
+      "neighborhood": "Coelho da Rocha",
+      "address": "Rua Cecília, 375",
+      "zipCode": "25550-030",
+      "phone": "(21) 2656-4260",
+      "email": null,
+      "website": "https://www.facebook.com/pnsccoelhodarocha",
+      "priestName": null,
+      "foundedYear": null,
+      "pastoralRegion": "Região Pastoral São João de Meriti",
+      "sources": [
+        {
+          "url": "https://minhareceita.org/27212968001533",
+          "title": "Receita Federal (minhareceita.org) - PAROQUIA NOSSA SENHORA DA CONCEICAO, filial 0015/33 da Mitra Diocesana de Duque de Caxias",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesededuquedecaxias.org.br/regiao-pastoral-sao-joao-de-meriti-promove-mutirao-de-confissoes-na-quaresma/",
+          "title": "Diocese de Duque de Caxias - Regiao Pastoral Sao Joao de Meriti promove Mutirao de Confissoes na Quaresma (2026)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=S%C3%A3o+Jo%C3%A3o+de+Meriti&opcoes=cidade_opcoes&submit=12345678",
+          "title": "horariodemissa.com.br - horarios de missa em Sao Joao de Meriti/RJ",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Igreja São José",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=S%C3%A3o+Jo%C3%A3o+de+Meriti&opcoes=cidade_opcoes&submit=12345678",
+              "title": "horariodemissa.com.br - horarios de missa em Sao Joao de Meriti/RJ",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "name": "Igreja Nossa Senhora da Saúde",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=S%C3%A3o+Jo%C3%A3o+de+Meriti&opcoes=cidade_opcoes&submit=12345678",
+              "title": "horariodemissa.com.br - horarios de missa em Sao Joao de Meriti/RJ",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "name": "Igreja Nossa Senhora de Fátima",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=S%C3%A3o+Jo%C3%A3o+de+Meriti&opcoes=cidade_opcoes&submit=12345678",
+              "title": "horariodemissa.com.br - horarios de missa em Sao Joao de Meriti/RJ",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=S%C3%A3o+Jo%C3%A3o+de+Meriti&opcoes=cidade_opcoes&submit=12345678",
+              "title": "horariodemissa.com.br - horarios de missa em Sao Joao de Meriti/RJ",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Igreja São José",
+          "dayOfWeek": 0,
+          "time": "09:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=S%C3%A3o+Jo%C3%A3o+de+Meriti&opcoes=cidade_opcoes&submit=12345678",
+              "title": "horariodemissa.com.br - horarios de missa em Sao Joao de Meriti/RJ",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Igreja Nossa Senhora da Saúde",
+          "dayOfWeek": 0,
+          "time": "11:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=S%C3%A3o+Jo%C3%A3o+de+Meriti&opcoes=cidade_opcoes&submit=12345678",
+              "title": "horariodemissa.com.br - horarios de missa em Sao Joao de Meriti/RJ",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Igreja Nossa Senhora de Fátima",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=S%C3%A3o+Jo%C3%A3o+de+Meriti&opcoes=cidade_opcoes&submit=12345678",
+              "title": "horariodemissa.com.br - horarios de missa em Sao Joao de Meriti/RJ",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 1,
+          "time": "19:15",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=S%C3%A3o+Jo%C3%A3o+de+Meriti&opcoes=cidade_opcoes&submit=12345678",
+              "title": "horariodemissa.com.br - horarios de missa em Sao Joao de Meriti/RJ",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "19:15",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=S%C3%A3o+Jo%C3%A3o+de+Meriti&opcoes=cidade_opcoes&submit=12345678",
+              "title": "horariodemissa.com.br - horarios de missa em Sao Joao de Meriti/RJ",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-de-fatima-vilar-dos-teles-sao-joao-de-meriti",
+      "name": "Paróquia Nossa Senhora de Fátima",
+      "city": "São João de Meriti",
+      "state": "RJ",
+      "neighborhood": "Vilar dos Teles",
+      "address": "Avenida Automóvel Clube, 2110",
+      "zipCode": "25561-170",
+      "phone": "(21) 3751-5019",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "pastoralRegion": "Região Pastoral São João de Meriti",
+      "sources": [
+        {
+          "url": "https://minhareceita.org/27212968001614",
+          "title": "Receita Federal (minhareceita.org) - PAROQUIA NOSSA SENHORA DE FATIMA, filial 0016/14 da Mitra Diocesana de Duque de Caxias",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=S%C3%A3o+Jo%C3%A3o+de+Meriti&opcoes=cidade_opcoes&submit=12345678",
+          "title": "horariodemissa.com.br - horarios de missa em Sao Joao de Meriti/RJ",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-da-gloria-sao-joao-de-meriti",
+      "name": "Paróquia Nossa Senhora da Glória",
+      "city": "São João de Meriti",
+      "state": "RJ",
+      "neighborhood": "Jardim Meriti",
+      "address": "Rua Dinorá Silva, 4",
+      "zipCode": "25555-501",
+      "phone": "(21) 2699-1100",
+      "email": null,
+      "website": "http://www.igrejanossasenhoradagloria.com.br/",
+      "priestName": null,
+      "foundedYear": null,
+      "pastoralRegion": "Região Pastoral São João de Meriti",
+      "sources": [
+        {
+          "url": "https://minhareceita.org/27212968001886",
+          "title": "Receita Federal (minhareceita.org) - PAROQUIA NOSSA SENHORA DA GLORIA, filial 0018/86 da Mitra Diocesana de Duque de Caxias",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesededuquedecaxias.org.br/regiao-pastoral-sao-joao-de-meriti-promove-mutirao-de-confissoes-na-quaresma/",
+          "title": "Diocese de Duque de Caxias - Regiao Pastoral Sao Joao de Meriti promove Mutirao de Confissoes na Quaresma (2026)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=S%C3%A3o+Jo%C3%A3o+de+Meriti&opcoes=cidade_opcoes&submit=12345678",
+          "title": "horariodemissa.com.br - horarios de missa em Sao Joao de Meriti/RJ",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "07:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=S%C3%A3o+Jo%C3%A3o+de+Meriti&opcoes=cidade_opcoes&submit=12345678",
+              "title": "horariodemissa.com.br - horarios de missa em Sao Joao de Meriti/RJ",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "17:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=S%C3%A3o+Jo%C3%A3o+de+Meriti&opcoes=cidade_opcoes&submit=12345678",
+              "title": "horariodemissa.com.br - horarios de missa em Sao Joao de Meriti/RJ",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=S%C3%A3o+Jo%C3%A3o+de+Meriti&opcoes=cidade_opcoes&submit=12345678",
+              "title": "horariodemissa.com.br - horarios de missa em Sao Joao de Meriti/RJ",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 2,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=S%C3%A3o+Jo%C3%A3o+de+Meriti&opcoes=cidade_opcoes&submit=12345678",
+              "title": "horariodemissa.com.br - horarios de missa em Sao Joao de Meriti/RJ",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=S%C3%A3o+Jo%C3%A3o+de+Meriti&opcoes=cidade_opcoes&submit=12345678",
+              "title": "horariodemissa.com.br - horarios de missa em Sao Joao de Meriti/RJ",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "sagrado-coracao-de-jesus-sao-joao-de-meriti",
+      "name": "Paróquia Sagrado Coração de Jesus",
+      "city": "São João de Meriti",
+      "state": "RJ",
+      "neighborhood": "Parque Araruama",
+      "address": "Rua das Rosas, 25",
+      "zipCode": "25585-490",
+      "phone": "(21) 3671-7577",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "pastoralRegion": "Região Pastoral São João de Meriti",
+      "sources": [
+        {
+          "url": "https://minhareceita.org/27212968002343",
+          "title": "Receita Federal (minhareceita.org) - PAROQUIA SAGRADO CORACAO DE JESUS, filial 0023/43 da Mitra Diocesana de Duque de Caxias",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesededuquedecaxias.org.br/regiao-pastoral-sao-joao-de-meriti-promove-mutirao-de-confissoes-na-quaresma/",
+          "title": "Diocese de Duque de Caxias - Regiao Pastoral Sao Joao de Meriti promove Mutirao de Confissoes na Quaresma (2026)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=S%C3%A3o+Jo%C3%A3o+de+Meriti&opcoes=cidade_opcoes&submit=12345678",
+          "title": "horariodemissa.com.br - horarios de missa em Sao Joao de Meriti/RJ",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "santa-clara-de-assis-duque-de-caxias",
+      "name": "Paróquia Santa Clara de Assis",
+      "city": "Duque de Caxias",
+      "state": "RJ",
+      "neighborhood": "Imbariê",
+      "address": "Rua Ferreira de Menezes, s/n, Quadra 19",
+      "zipCode": "25266-080",
+      "phone": "(21) 3778-1045",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "pastoralRegion": "Região Pastoral Periferia",
+      "sources": [
+        {
+          "url": "https://minhareceita.org/27212968002424",
+          "title": "Receita Federal (minhareceita.org) - PAROQUIA SANTA CLARA, filial 0024/24 da Mitra Diocesana de Duque de Caxias",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "http://diocesededuquedecaxiasrj.blogspot.com/p/paroquias.html",
+          "title": "Diocese de Duque de Caxias - blog da Pascom, pagina \"Paroquias\" (lista antiga, ~2012)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=Duque+de+Caxias&opcoes=cidade_opcoes&submit=12345678",
+          "title": "horariodemissa.com.br - horarios de missa em Duque de Caxias/RJ",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "santa-cruz-duque-de-caxias",
+      "name": "Paróquia Santa Cruz",
+      "city": "Duque de Caxias",
+      "state": "RJ",
+      "neighborhood": "Santa Cruz da Serra",
+      "address": "Praça Bahia, 60 (Avenida Automóvel Clube, Lote 22 Quadra B)",
+      "zipCode": "25260-000",
+      "phone": "(21) 3679-1051",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "pastoralRegion": "Região Pastoral Periferia",
+      "sources": [
+        {
+          "url": "https://minhareceita.org/27212968002505",
+          "title": "Receita Federal (minhareceita.org) - PARAQUIA SANTA CRUZ, filial 0025/05 da Mitra Diocesana de Duque de Caxias",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "http://diocesededuquedecaxiasrj.blogspot.com/p/paroquias.html",
+          "title": "Diocese de Duque de Caxias - blog da Pascom, pagina \"Paroquias\" (lista antiga, ~2012)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=Duque+de+Caxias&opcoes=cidade_opcoes&submit=12345678",
+          "title": "horariodemissa.com.br - horarios de missa em Duque de Caxias/RJ",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-francisco-de-assis-duque-de-caxias",
+      "name": "Paróquia São Francisco de Assis",
+      "city": "Duque de Caxias",
+      "state": "RJ",
+      "neighborhood": "Campos Elíseos",
+      "address": "Rua Carmem Domingues Pinto, s/n, Lote 05 Quadra 02",
+      "zipCode": "25225-174",
+      "phone": "(21) 35529900",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "pastoralRegion": "Região Pastoral Periferia",
+      "sources": [
+        {
+          "url": "https://minhareceita.org/27212968002939",
+          "title": "Receita Federal (minhareceita.org) - PAROQUIA SAO FRANCISCO DE ASSIS, filial 0029/39 da Mitra Diocesana de Duque de Caxias",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "http://diocesededuquedecaxiasrj.blogspot.com/p/paroquias.html",
+          "title": "Diocese de Duque de Caxias - blog da Pascom, pagina \"Paroquias\" (lista antiga, ~2012)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-bento-duque-de-caxias",
+      "name": "Paróquia São Bento",
+      "city": "Duque de Caxias",
+      "state": "RJ",
+      "neighborhood": "Parque Fluminense",
+      "address": "Estrada General Carlos M. de Medeiros (Rua do China), s/n, Lote 15 Quadra F",
+      "zipCode": "25045-100",
+      "phone": "(21) 3135-4646",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "pastoralRegion": "Região Pastoral Centro",
+      "sources": [
+        {
+          "url": "https://minhareceita.org/27212968003153",
+          "title": "Receita Federal (minhareceita.org) - PAROQUIA SAO BENTO, filial 0031/53 da Mitra Diocesana de Duque de Caxias",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "http://diocesededuquedecaxiasrj.blogspot.com/p/paroquias.html",
+          "title": "Diocese de Duque de Caxias - blog da Pascom, pagina \"Paroquias\" (lista antiga, ~2012)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=Duque+de+Caxias&opcoes=cidade_opcoes&submit=12345678",
+          "title": "horariodemissa.com.br - horarios de missa em Duque de Caxias/RJ",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Igreja Sagrada Família",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=Duque+de+Caxias&opcoes=cidade_opcoes&submit=12345678",
+              "title": "horariodemissa.com.br - horarios de missa em Duque de Caxias/RJ",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Igreja Sagrada Família",
+          "dayOfWeek": 0,
+          "time": "07:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=Duque+de+Caxias&opcoes=cidade_opcoes&submit=12345678",
+              "title": "horariodemissa.com.br - horarios de missa em Duque de Caxias/RJ",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Igreja Sagrada Família",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=Duque+de+Caxias&opcoes=cidade_opcoes&submit=12345678",
+              "title": "horariodemissa.com.br - horarios de missa em Duque de Caxias/RJ",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Igreja Sagrada Família",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=Duque+de+Caxias&opcoes=cidade_opcoes&submit=12345678",
+              "title": "horariodemissa.com.br - horarios de missa em Duque de Caxias/RJ",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Igreja Sagrada Família",
+          "dayOfWeek": 5,
+          "time": "17:00",
+          "type": "CONFESSION",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/search.php?uf=RJ&cidade=Duque+de+Caxias&opcoes=cidade_opcoes&submit=12345678",
+              "title": "horariodemissa.com.br - horarios de missa em Duque de Caxias/RJ",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "sao-joao-paulo-ii-duque-de-caxias",
+      "name": "Paróquia São João Paulo II",
+      "city": "Duque de Caxias",
+      "state": "RJ",
+      "neighborhood": "Gramacho",
+      "address": "Rua Rio Branco, 1649",
+      "zipCode": "25035-246",
+      "phone": "(21) 98388231",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "pastoralRegion": "Região Pastoral Centro",
+      "sources": [
+        {
+          "url": "https://minhareceita.org/27212968003315",
+          "title": "Receita Federal (minhareceita.org) - PAROQUIA SAO JOAO PAULO II, filial 0033/15 da Mitra Diocesana de Duque de Caxias",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesededuquedecaxias.org.br/regiao-pastoral-centro-promove-mutirao-de-confissoes-na-quaresma/",
+          "title": "Diocese de Duque de Caxias - Regiao Pastoral Centro promove Mutirao de Confissoes na Quaresma (2026)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-do-rosario-duque-de-caxias",
+      "name": "Paróquia Nossa Senhora do Rosário",
+      "city": "Duque de Caxias",
+      "state": "RJ",
+      "neighborhood": "Parque Uruguaiana",
+      "address": "Rua Doutor João Hercílio Gross, s/n, Lote 12 Quadra 08",
+      "zipCode": "25212-690",
+      "phone": "(21) 90183011",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "pastoralRegion": null,
+      "sources": [
+        {
+          "url": "https://minhareceita.org/27212968003404",
+          "title": "Receita Federal (minhareceita.org) - PAROQUIA NOSSA SENHORA DO ROSARIO, filial 0034/04 da Mitra Diocesana de Duque de Caxias",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "media",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sagrada-familia-duque-de-caxias",
+      "name": "Paróquia Sagrada Família",
+      "city": "Duque de Caxias",
+      "state": "RJ",
+      "neighborhood": "Parque Senhor do Bonfim",
+      "address": "Rua Senhor do Bonfim, s/n",
+      "zipCode": "25025-146",
+      "phone": "(21) 20313377",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "pastoralRegion": "Região Pastoral Centro",
+      "sources": [
+        {
+          "url": "https://minhareceita.org/27212968003587",
+          "title": "Receita Federal (minhareceita.org) - PAROQUIA SAGRADA FAMILIA, filial 0035/87 da Mitra Diocesana de Duque de Caxias",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesededuquedecaxias.org.br/regiao-pastoral-centro-promove-mutirao-de-confissoes-na-quaresma/",
+          "title": "Diocese de Duque de Caxias - Regiao Pastoral Centro promove Mutirao de Confissoes na Quaresma (2026)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Igreja Senhor do Bonfim",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesededuquedecaxias.org.br/regiao-pastoral-centro-promove-mutirao-de-confissoes-na-quaresma/",
+              "title": "Diocese de Duque de Caxias - Regiao Pastoral Centro promove Mutirao de Confissoes na Quaresma (2026)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-de-fatima-vila-rosali-sao-joao-de-meriti",
+      "name": "Paróquia Nossa Senhora de Fátima",
+      "city": "São João de Meriti",
+      "state": "RJ",
+      "neighborhood": "Vila Rosali",
+      "address": "FLUMINENSE 372",
+      "zipCode": "25510-142",
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "pastoralRegion": "Região Pastoral São João de Meriti",
+      "status": "nao-paroquial",
+      "notes": "CNPJ BAIXADO na Receita Federal e ausente de toda comunicacao recente da diocese; provavelmente extinta ou incorporada a outra paroquia. Nao carregar sem validacao humana.",
+      "sources": [
+        {
+          "url": "https://minhareceita.org/27212968001703",
+          "title": "Receita Federal (minhareceita.org) - PAROQUIA NOSSA SENHORA DE FATIMA, filial 0017/03 da Mitra Diocesana de Duque de Caxias",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "baixa",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "curato-sao-judas-tadeu-sao-joao-de-meriti",
+      "name": "Curato São Judas Tadeu",
+      "city": "São João de Meriti",
+      "state": "RJ",
+      "neighborhood": "Grande Rio",
+      "address": "ENEIAS MIRANDA SN",
+      "zipCode": "25540-000",
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "pastoralRegion": "Região Pastoral São João de Meriti",
+      "status": "nao-paroquial",
+      "notes": "CNPJ BAIXADO na Receita Federal e ausente de toda comunicacao recente da diocese; provavelmente extinta ou incorporada a outra paroquia. Nao carregar sem validacao humana.",
+      "sources": [
+        {
+          "url": "https://minhareceita.org/27212968001967",
+          "title": "Receita Federal (minhareceita.org) - CURATO SAO JUDAS TADEU, filial 0019/67 da Mitra Diocesana de Duque de Caxias",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "baixa",
+      "communities": [],
+      "schedules": []
+    }
+  ],
+  "coverage": {
+    "parishesFound": 24,
+    "parishesExpected": 24,
+    "notes": "A diocese NAO publica lista de paroquias: o menu \"Paroquias\" do site oficial leva a uma categoria de noticias, nao a um diretorio, e a API REST do WordPress confirma que nao existe nenhuma pagina ou tipo de post de paroquia (14 paginas ao todo). O blog antigo da Pascom (diocesededuquedecaxiasrj.blogspot.com/p/paroquias.html, de ~2012) lista so 12 paroquias e deixa a secao \"Regiao Sao Joao de Meriti\" vazia. A lista foi entao fechada pelo cadastro da Receita Federal: as 35 filiais do CNPJ 27.212.968 da Mitra Diocesana de Duque de Caxias foram varridas uma a uma em minhareceita.org (0001 a 0047; 12 404 seguidos depois de 0035). Sairam 24 paroquias ATIVAS - exatamente o numero que catholic-hierarchy.org publica para 2023 - mais 2 registros BAIXADOS (N. Sra. de Fatima/Vila Rosali e Curato Sao Judas Tadeu), marcados com status nao-paroquial e confidence baixa para nao entrarem na carga. 22 das 24 foram corroboradas por uma segunda fonte (posts do Mutirao de Confissoes 2026 da diocese, que listam as paroquias por Regiao Pastoral, ou fichas do horariodemissa.com.br) e ficaram alta; 2 tem fonte unica e ficaram media. Regioes pastorais confirmadas: Centro, Periferia e Sao Joao de Meriti. COMUNIDADES: nenhuma fonte publica lista de capelas - so 6 comunidades foram capturadas de passagem. HORARIOS: a diocese nao publica grade; os 46 horarios vem so de horariodemissa.com.br e entram como baixa."
+  }
+}

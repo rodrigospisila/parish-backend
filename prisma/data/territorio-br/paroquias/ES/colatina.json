@@ -1,0 +1,3389 @@
+{
+  "diocese": {
+    "name": "Diocese de Colatina",
+    "type": "Diocese",
+    "slug": "colatina",
+    "city": "Colatina",
+    "state": "ES",
+    "address": "Rua Santa Maria, 350",
+    "zipCode": "29700-200",
+    "phone": "(27) 2102-5000",
+    "email": "curia@diocesedecolatina.org.br",
+    "website": "https://diocesedecolatina.org.br",
+    "bishopName": "Dom Lauro Sérgio Versiani Barbosa",
+    "sources": [
+      {
+        "url": "https://diocesedecolatina.org.br/paroquias/",
+        "title": "Diocese de Colatina — Paróquias (listagem oficial: 31 paróquias em 5 áreas pastorais + Santuário Diocesano)",
+        "accessedAt": "2026-09-11"
+      },
+      {
+        "url": "https://diocesedecolatina.org.br/estrutura/",
+        "title": "Diocese de Colatina — Cúria Diocesana (contatos)",
+        "accessedAt": "2026-09-11"
+      },
+      {
+        "url": "https://www.catholic-hierarchy.org/diocese/dcola.html",
+        "title": "catholic-hierarchy.org — Colatina (Diocese): 31 paróquias em 2023 (Annuario Pontificio)",
+        "accessedAt": "2026-09-11"
+      }
+    ],
+    "confidence": "alta"
+  },
+  "parishes": [
+    {
+      "slug": "coracao-eucaristico-de-jesus-aracruz",
+      "name": "Paróquia Coração Eucarístico de Jesus",
+      "city": "Aracruz",
+      "state": "ES",
+      "neighborhood": "Guaraná",
+      "address": "Avenida Gabriel Pandolphi, 316",
+      "zipCode": "29195-409",
+      "phone": "27 99873-2592 (Financeiro) – 27 99782-8454 (Pastoral)",
+      "email": "pceucaristico@hotmail.com",
+      "website": "https://sites.google.com/view/paroquiacej/home",
+      "priestName": "Padre Roberto Carlos Rodrigues",
+      "foundedYear": 2005,
+      "forania": "Área Pastoral BR-101 Sul",
+      "jurisdictionNote": null,
+      "notes": "28 comunidades segundo o site diocesano",
+      "sources": [
+        {
+          "url": "https://diocesedecolatina.org.br/coracao-eucaristico-de-jesus/",
+          "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2024-04-29)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedecolatina.org.br/paroquias/",
+          "title": "Diocese de Colatina — Paróquias (listagem oficial por área pastoral)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": "Matriz: 1º, 3º e 5º domingos do mês",
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/coracao-eucaristico-de-jesus/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-04-29)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Matriz: 2º e 4º domingos do mês",
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/coracao-eucaristico-de-jesus/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-04-29)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "imaculada-conceicao-aracruz",
+      "name": "Paróquia Imaculada Conceição",
+      "city": "Aracruz",
+      "state": "ES",
+      "neighborhood": "Coqueiral",
+      "address": "Avenida dos Coqueiros, 202",
+      "zipCode": "29199-054",
+      "phone": "(27) 3250-2915",
+      "email": "mdccoqueiral@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Suderlan Tozo Binda",
+      "foundedYear": 1996,
+      "forania": "Área Pastoral BR-101 Sul",
+      "jurisdictionNote": null,
+      "notes": null,
+      "sources": [
+        {
+          "url": "https://diocesedecolatina.org.br/imaculada-conceicao/",
+          "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2021-09-17)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedecolatina.org.br/paroquias/",
+          "title": "Diocese de Colatina — Paróquias (listagem oficial por área pastoral)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "santa-teresinha-do-menino-jesus-aracruz",
+      "name": "Paróquia Santa Teresinha do Menino Jesus",
+      "city": "Aracruz",
+      "state": "ES",
+      "neighborhood": "Bela Vista",
+      "address": "Rua Giuseppe Testa, 77",
+      "zipCode": "29192-080",
+      "phone": "(27) 99824-0432",
+      "email": "santateresinha.financeiro@hotmail.com",
+      "website": null,
+      "priestName": "Padre Jésus Bento Fioresi",
+      "foundedYear": null,
+      "forania": "Área Pastoral BR-101 Sul",
+      "jurisdictionNote": null,
+      "notes": "Redes sociais oficiais: https://www.facebook.com/profile.php, https://www.instagram.com/pstmjaracruz/; CONFLITO DE FONTE: a ficha do clero atualizada em 06/06/2026 dá Pe. Marcelo Keller Santiago como pároco daqui, enquanto a ficha da Paróquia São Pedro (Baixo Guandu) o registra como pároco de lá. Validar.",
+      "sources": [
+        {
+          "url": "https://diocesedecolatina.org.br/santa-teresinha-do-menino-jesus/",
+          "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2024-04-30)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedecolatina.org.br/paroquias/",
+          "title": "Diocese de Colatina — Paróquias (listagem oficial por área pastoral)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedecolatina.org.br/clero/",
+          "title": "Diocese de Colatina — Clero (fichas dos presbíteros, com a paróquia de cada um)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/santa-teresinha-do-menino-jesus/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/santa-teresinha-do-menino-jesus/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "sao-joao-batista-aracruz",
+      "name": "Paróquia São João Batista",
+      "city": "Aracruz",
+      "state": "ES",
+      "neighborhood": "Centro",
+      "address": "Praça São João Batista",
+      "zipCode": "29190-054",
+      "phone": "(27) 3256-1456",
+      "email": "secretaria@paroquiasjbatista.com.br",
+      "website": "https://www.paroquiasjbatista.com.br",
+      "priestName": "Padre Antonio Luiz Pazolini Pandolfi",
+      "foundedYear": null,
+      "forania": "Área Pastoral BR-101 Sul",
+      "jurisdictionNote": null,
+      "notes": "Também celebra missa todo dia 12 do mês às 12h (N. Sra. Aparecida) e todo dia 21 às 15h (N. Sra. da Saúde) — recorrência por dia do mês",
+      "sources": [
+        {
+          "url": "https://diocesedecolatina.org.br/sao-joao-batista-3/",
+          "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2020-02-13)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedecolatina.org.br/paroquias/",
+          "title": "Diocese de Colatina — Paróquias (listagem oficial por área pastoral)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/sao-joao-batista-3/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2020-02-13)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/sao-joao-batista-3/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2020-02-13)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/sao-joao-batista-3/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2020-02-13)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "primeira sexta-feira do mês",
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/sao-joao-batista-3/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2020-02-13)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/sao-joao-batista-3/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2020-02-13)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "sao-pedro-baixo-guandu",
+      "name": "Paróquia São Pedro",
+      "city": "Baixo Guandu",
+      "state": "ES",
+      "neighborhood": "Centro",
+      "address": "Praça São Pedro",
+      "zipCode": "29730-000",
+      "phone": "(27) 99900 1790",
+      "email": "secretaria@pspbg.com.br",
+      "website": "https://www.pspbg.com.br",
+      "priestName": "Padre Marcelo Keller Santiago",
+      "foundedYear": null,
+      "forania": "Área Pastoral Linha Ita",
+      "jurisdictionNote": null,
+      "notes": "E-mails por assunto: secretaria@pspbg.com.br (pastoral/matrimônio), batisterio@pspbg.com.br (registros), financeiro@pspbg.com.br; Confissões: \"às terças e quartas-feiras durante a manhã\" — sem horário exato na fonte; E-mails adicionais: batisterio@pspbg.com.br, financeiro@pspbg.com.br; Redes sociais oficiais: https://www.facebook.com/mdcparoquiasaopedro, https://www.instagram.com/paroquiasaopedro_bg/; CONFLITO DE FONTE: a ficha da paróquia registra Pe. Marcelo Keller Santiago como pároco, mas a ficha do clero de 06/06/2026 o dá como pároco de Santa Terezinha do Menino Jesus (Bela Vista, Aracruz). Validar.",
+      "sources": [
+        {
+          "url": "https://diocesedecolatina.org.br/sao-pedro-4/",
+          "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2024-06-17)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedecolatina.org.br/paroquias/",
+          "title": "Diocese de Colatina — Paróquias (listagem oficial por área pastoral)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedecolatina.org.br/clero/",
+          "title": "Diocese de Colatina — Clero (fichas dos presbíteros, com a paróquia de cada um)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/sao-pedro-4/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-06-17)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/sao-pedro-4/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-06-17)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 2,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/sao-pedro-4/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-06-17)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "sagrado-coracao-de-jesus-colatina",
+      "name": "Catedral Sagrado Coração de Jesus",
+      "city": "Colatina",
+      "state": "ES",
+      "neighborhood": "Centro",
+      "address": "Praça Frei José, 26",
+      "zipCode": "29700-230",
+      "phone": "(27) 2102-5010 | (27)2102-5011",
+      "email": "secretaria@catedraldecolatina.org.br",
+      "website": "https://www.catedraldecolatina.org.br",
+      "priestName": "Pe. Irineu Claudino Sales",
+      "foundedYear": 1927,
+      "forania": "Área Pastoral de Colatina",
+      "jurisdictionNote": null,
+      "notes": "11 comunidades segundo o site diocesano; Também celebra missa votiva do Sagrado Coração na 1ª sexta-feira do mês às 12h e 19h; catedral aberta todos os dias das 6h às 20h; Redes sociais oficiais: https://www.facebook.com/catedralcolatina, https://www.instagram.com/catedraldecolatina/",
+      "sources": [
+        {
+          "url": "https://diocesedecolatina.org.br/sagrado-coracao-de-jesus-catedral/",
+          "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2024-10-14)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedecolatina.org.br/paroquias/",
+          "title": "Diocese de Colatina — Paróquias (listagem oficial por área pastoral)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/sagrado-coracao-de-jesus-catedral/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-10-14)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/sagrado-coracao-de-jesus-catedral/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-10-14)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/sagrado-coracao-de-jesus-catedral/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-10-14)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 1,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/sagrado-coracao-de-jesus-catedral/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-10-14)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 2,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/sagrado-coracao-de-jesus-catedral/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-10-14)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/sagrado-coracao-de-jesus-catedral/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-10-14)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "12:00",
+          "type": "MASS",
+          "notes": "1ª quinta-feira do mês, missa pelas vocações",
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/sagrado-coracao-de-jesus-catedral/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-10-14)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/sagrado-coracao-de-jesus-catedral/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-10-14)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "12:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/sagrado-coracao-de-jesus-catedral/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-10-14)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/sagrado-coracao-de-jesus-catedral/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-10-14)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/sagrado-coracao-de-jesus-catedral/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-10-14)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "divino-espirito-santo-colatina",
+      "name": "Paróquia Divino Espírito Santo",
+      "city": "Colatina",
+      "state": "ES",
+      "neighborhood": "Maria das Graças",
+      "address": "Travessa Antônio Zago, 304",
+      "zipCode": "29705-080",
+      "phone": "(27)3711-7953",
+      "email": "pespiritosanto@yahoo.com.br",
+      "website": null,
+      "priestName": "Padre Cremilson Silva Gomes",
+      "foundedYear": 2006,
+      "forania": "Área Pastoral de Colatina",
+      "jurisdictionNote": null,
+      "notes": "18 comunidades segundo o site diocesano; Redes sociais oficiais: https://www.facebook.com/divino.espiritosanto.50999, https://www.instagram.com/paroquiadivespiritosanto_",
+      "sources": [
+        {
+          "url": "https://diocesedecolatina.org.br/divino-espirito-santo/",
+          "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2024-04-30)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedecolatina.org.br/paroquias/",
+          "title": "Diocese de Colatina — Paróquias (listagem oficial por área pastoral)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Divino Espírito Santo",
+          "address": null,
+          "neighborhood": "Maria das Graças",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/divino-espirito-santo/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "São José Operário",
+          "address": null,
+          "neighborhood": "Maria das Graças",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/divino-espirito-santo/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "São Geraldo",
+          "address": null,
+          "neighborhood": "Lacê",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/divino-espirito-santo/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "São João Evangelista",
+          "address": null,
+          "neighborhood": "Santa Helena",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/divino-espirito-santo/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Nossa Senhora da Saúde",
+          "address": null,
+          "neighborhood": "Santa Fé",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/divino-espirito-santo/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Santo Antônio",
+          "address": null,
+          "neighborhood": "Lajinha do Oito",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/divino-espirito-santo/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "São Paulo da Cruz",
+          "address": null,
+          "neighborhood": "Córrego do Onze",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/divino-espirito-santo/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Nossa Senhora de Fátima",
+          "address": null,
+          "neighborhood": "Brejal",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/divino-espirito-santo/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Nossa Senhora da Penha",
+          "address": null,
+          "neighborhood": "Córrego do Ageu",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/divino-espirito-santo/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Santa Rita de Cássia",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/divino-espirito-santo/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "São João Batista",
+          "address": null,
+          "neighborhood": "Timbui de Baixo",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/divino-espirito-santo/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "São João Batista",
+          "address": null,
+          "neighborhood": "Timbui de Cima",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/divino-espirito-santo/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "São Sebastião",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/divino-espirito-santo/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Nossa Senhora dos Navegantes",
+          "address": null,
+          "neighborhood": "Córrego Germano",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/divino-espirito-santo/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Sagrado Coração de Jesus",
+          "address": null,
+          "neighborhood": "Taquarussu",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/divino-espirito-santo/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Santo Antônio",
+          "address": null,
+          "neighborhood": "Bonicenha",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/divino-espirito-santo/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Sagrado Coração de Jesus",
+          "address": null,
+          "neighborhood": "Bela Vista",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/divino-espirito-santo/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Divino Espírito Santo",
+          "address": null,
+          "neighborhood": "Fazenda Batista",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/divino-espirito-santo/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "São Pedro",
+          "address": null,
+          "neighborhood": "Pedrolândia",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/divino-espirito-santo/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Divino Espírito Santo",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/divino-espirito-santo/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Divino Espírito Santo",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/divino-espirito-santo/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Divino Espírito Santo",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/divino-espirito-santo/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "imaculado-coracao-de-maria-colatina",
+      "name": "Paróquia Imaculado Coração de Maria",
+      "city": "Colatina",
+      "state": "ES",
+      "neighborhood": "São Silvano",
+      "address": "Rua Orestes Bongiovani, 10",
+      "zipCode": "29706-110",
+      "phone": "(27) 995072251 / (27)37212075",
+      "email": "pic_maria@hotmail.com",
+      "website": "https://www.picmaria.com",
+      "priestName": "Padre Paulo Sérgio Miranda",
+      "foundedYear": 1952,
+      "forania": "Área Pastoral de Colatina",
+      "jurisdictionNote": null,
+      "notes": null,
+      "sources": [
+        {
+          "url": "https://diocesedecolatina.org.br/imaculado-coracao-de-maria/",
+          "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2024-04-30)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedecolatina.org.br/paroquias/",
+          "title": "Diocese de Colatina — Paróquias (listagem oficial por área pastoral)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedecolatina.org.br/clero/",
+          "title": "Diocese de Colatina — Clero (fichas dos presbíteros, com a paróquia de cada um)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Imaculado Coração de Maria",
+          "address": null,
+          "neighborhood": "São Silvano",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/imaculado-coracao-de-maria/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "São Camilo de Lélis",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/imaculado-coracao-de-maria/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "São José",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/imaculado-coracao-de-maria/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "São Pedro",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/imaculado-coracao-de-maria/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Nossa Senhora da Penha",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/imaculado-coracao-de-maria/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Pe. José de Anchieta",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/imaculado-coracao-de-maria/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Nossa Senhora Aparecida",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/imaculado-coracao-de-maria/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "São Francisco de Assis",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/imaculado-coracao-de-maria/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "São Miguel",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/imaculado-coracao-de-maria/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "São Brás",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/imaculado-coracao-de-maria/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "São Paulo Apóstolo",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/imaculado-coracao-de-maria/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Imaculado Coração de Maria",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/imaculado-coracao-de-maria/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Imaculado Coração de Maria",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/imaculado-coracao-de-maria/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Imaculado Coração de Maria",
+          "dayOfWeek": 0,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/imaculado-coracao-de-maria/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Imaculado Coração de Maria",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/imaculado-coracao-de-maria/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Imaculado Coração de Maria",
+          "dayOfWeek": 1,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/imaculado-coracao-de-maria/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Imaculado Coração de Maria",
+          "dayOfWeek": 2,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/imaculado-coracao-de-maria/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Imaculado Coração de Maria",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/imaculado-coracao-de-maria/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Imaculado Coração de Maria",
+          "dayOfWeek": 4,
+          "time": "12:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/imaculado-coracao-de-maria/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Imaculado Coração de Maria",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/imaculado-coracao-de-maria/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Imaculado Coração de Maria",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/imaculado-coracao-de-maria/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-da-gloria-colatina",
+      "name": "Paróquia Nossa Senhora da Glória",
+      "city": "Colatina",
+      "state": "ES",
+      "neighborhood": "Vila Lenira",
+      "address": "Rua Mafalda Galimbertti, 380",
+      "zipCode": "29702-370",
+      "phone": "(27) 3722-1821",
+      "email": "secretaria@paroquiansgloria.org.br",
+      "website": "https://www.paroquiansgloria.org.br",
+      "priestName": "padre Zúlian Jorge de Miranda",
+      "foundedYear": null,
+      "forania": "Área Pastoral de Colatina",
+      "jurisdictionNote": null,
+      "notes": "24 comunidades segundo o site diocesano; E-mails adicionais: financeiro@paroquiansgloria.org.br",
+      "sources": [
+        {
+          "url": "https://diocesedecolatina.org.br/nossa-senhora-da-gloria/",
+          "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2020-02-20)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedecolatina.org.br/paroquias/",
+          "title": "Diocese de Colatina — Paróquias (listagem oficial por área pastoral)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-da-penha-colatina",
+      "name": "Paróquia Nossa Senhora da Penha",
+      "city": "Colatina",
+      "state": "ES",
+      "neighborhood": "Honório Fraga",
+      "address": "Av. Nossa Senhora da Penha, Praça Cônego Geraldo Meyer, 527",
+      "zipCode": "29704-389",
+      "phone": "(27) 3721-6371",
+      "email": "comunidadematriz@hotmail.com",
+      "website": null,
+      "priestName": "Padre Wilderson das Virgens Gama",
+      "foundedYear": null,
+      "forania": "Área Pastoral de Colatina",
+      "jurisdictionNote": null,
+      "notes": "17 comunidades segundo o site diocesano; CONFLITO DE FONTE: a ficha da paróquia (10/2024) registra Pe. Paulo Sérgio Ribeiro Barbosa como pároco; a ficha do clero atualizada em 15/06/2026 põe Pe. Wilderson das Virgens Gama como pároco daqui (ele consta como pároco de Santa Rita de Cássia na ficha daquela paróquia). Validar.",
+      "sources": [
+        {
+          "url": "https://diocesedecolatina.org.br/paroquia-nossa-senhora-da-penha/",
+          "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2024-10-22)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedecolatina.org.br/paroquias/",
+          "title": "Diocese de Colatina — Paróquias (listagem oficial por área pastoral)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedecolatina.org.br/clero/",
+          "title": "Diocese de Colatina — Clero (fichas dos presbíteros, com a paróquia de cada um)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora da Penha",
+          "address": null,
+          "neighborhood": "Honório Fraga",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/paroquia-nossa-senhora-da-penha/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2024-10-22)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Comunidade Bom Pastor",
+          "address": null,
+          "neighborhood": "Novo Horizonte",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/paroquia-nossa-senhora-da-penha/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2024-10-22)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Comunidade Sagrada Família",
+          "address": null,
+          "neighborhood": "Columbia",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/paroquia-nossa-senhora-da-penha/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2024-10-22)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Comunidade Nossa Senhora da Saúde (Córrego Saúde)",
+          "address": null,
+          "neighborhood": "Columbia",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/paroquia-nossa-senhora-da-penha/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2024-10-22)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Comunidade São Marcos",
+          "address": null,
+          "neighborhood": "São Marcos",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/paroquia-nossa-senhora-da-penha/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2024-10-22)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Comunidade Nossa Senhora da Saúde (Córrego Chaves)",
+          "address": null,
+          "neighborhood": "Itapina",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/paroquia-nossa-senhora-da-penha/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2024-10-22)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Comunidade Nossa Senhora do Perpétuo Socorro",
+          "address": null,
+          "neighborhood": "Itapina",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/paroquia-nossa-senhora-da-penha/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2024-10-22)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Comunidade Sagrada Família (Porto Belo)",
+          "address": null,
+          "neighborhood": "Itapina",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/paroquia-nossa-senhora-da-penha/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2024-10-22)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Comunidade São Sebastião",
+          "address": null,
+          "neighborhood": "Itapina",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/paroquia-nossa-senhora-da-penha/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2024-10-22)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Comunidade Jesus Salvador",
+          "address": null,
+          "neighborhood": "São João",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/paroquia-nossa-senhora-da-penha/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2024-10-22)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Comunidade Santa Terezinha (IFES)",
+          "address": null,
+          "neighborhood": "São João",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/paroquia-nossa-senhora-da-penha/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2024-10-22)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Comunidade Santo Antônio",
+          "address": null,
+          "neighborhood": "São João",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/paroquia-nossa-senhora-da-penha/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2024-10-22)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Comunidade São João (São João Grande)",
+          "address": null,
+          "neighborhood": "São João",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/paroquia-nossa-senhora-da-penha/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2024-10-22)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Comunidade São José",
+          "address": null,
+          "neighborhood": "São João",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/paroquia-nossa-senhora-da-penha/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2024-10-22)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Comunidade São Judas Tadeu",
+          "address": null,
+          "neighborhood": "São João",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/paroquia-nossa-senhora-da-penha/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2024-10-22)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Comunidade Santo Agostinho (São Julião)",
+          "address": null,
+          "neighborhood": "São João",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/paroquia-nossa-senhora-da-penha/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2024-10-22)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Comunidade São Pedro (São Pedro Frio)",
+          "address": null,
+          "neighborhood": "São João",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/paroquia-nossa-senhora-da-penha/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2024-10-22)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "sagrada-familia-colatina",
+      "name": "Paróquia Sagrada Família",
+      "city": "Colatina",
+      "state": "ES",
+      "neighborhood": "Carlos Germano Naumann",
+      "address": "Rodovia Gether Lopes de Faria, Km 08, número 3479",
+      "zipCode": "29705-200",
+      "phone": "(27) 3723-6400",
+      "email": "paroquiasf@outlook.com",
+      "website": "https://psagradafamilia.org.br",
+      "priestName": "Pe. David Campos Maciel Neto",
+      "foundedYear": 2010,
+      "forania": "Área Pastoral de Colatina",
+      "jurisdictionNote": null,
+      "notes": "37 comunidades segundo o site diocesano; E-mails adicionais: psffiananceiro2@gmail.com",
+      "sources": [
+        {
+          "url": "https://diocesedecolatina.org.br/sagrada-familia-4-2/",
+          "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2024-04-29)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedecolatina.org.br/paroquias/",
+          "title": "Diocese de Colatina — Paróquias (listagem oficial por área pastoral)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/sagrada-familia-4-2/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-04-29)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/sagrada-familia-4-2/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-04-29)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/sagrada-familia-4-2/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-04-29)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": "toda primeira sexta-feira do mês",
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/sagrada-familia-4-2/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-04-29)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "santa-clara-de-assis-colatina",
+      "name": "Paróquia Santa Clara de Assis",
+      "city": "Colatina",
+      "state": "ES",
+      "neighborhood": "São Vicente",
+      "address": "Rua Ferdinando Chister, 13",
+      "zipCode": "29700-455",
+      "phone": "27 3722-6449",
+      "email": "paraclara11@yahoo.com.br",
+      "website": null,
+      "priestName": "Frei Pedro de Oliveira Rodrigues, OFM",
+      "foundedYear": 2008,
+      "forania": "Área Pastoral de Colatina",
+      "jurisdictionNote": null,
+      "notes": "20 comunidades segundo o site diocesano",
+      "sources": [
+        {
+          "url": "https://diocesedecolatina.org.br/santa-clara-de-assis/",
+          "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2024-04-30)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedecolatina.org.br/paroquias/",
+          "title": "Diocese de Colatina — Paróquias (listagem oficial por área pastoral)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedecolatina.org.br/clero/",
+          "title": "Diocese de Colatina — Clero (fichas dos presbíteros, com a paróquia de cada um)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "domingos intercalados",
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/santa-clara-de-assis/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "16:00",
+          "type": "MASS",
+          "notes": "2ª quarta-feira do mês, Missa da Saúde",
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/santa-clara-de-assis/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "sao-sebastiao-governador-lindenberg",
+      "name": "Paróquia São Sebastião",
+      "city": "Governador Lindenberg",
+      "state": "ES",
+      "neighborhood": "Novo Brasil",
+      "address": "Praça Cônego João Guilherme",
+      "zipCode": "29724-000",
+      "phone": "(27) 99730-4107 (pastoral); (27) 99885-0286 (financeiro)",
+      "email": "paroquiass@hotmail.com",
+      "website": null,
+      "priestName": "Padre Neil Joaquim de Almeida",
+      "foundedYear": null,
+      "forania": "Área Pastoral do Café",
+      "jurisdictionNote": null,
+      "notes": "Redes sociais oficiais: https://www.facebook.com/sebastiao.brasil.5, https://www.instagram.com/ps.sebastiao",
+      "sources": [
+        {
+          "url": "https://diocesedecolatina.org.br/sao-sebastiao-2/",
+          "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2024-10-11)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedecolatina.org.br/paroquias/",
+          "title": "Diocese de Colatina — Paróquias (listagem oficial por área pastoral)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/sao-sebastiao-2/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-10-11)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "sao-marcos-ibiracu",
+      "name": "Paróquia São Marcos",
+      "city": "Ibiraçu",
+      "state": "ES",
+      "neighborhood": "Centro",
+      "address": "Praça São Marcos, 3",
+      "zipCode": "29670-000",
+      "phone": "(27) 3257-1381",
+      "email": "paroquiasaomarcos@hotmail.com",
+      "website": null,
+      "priestName": "Padre Malvino Xavier da Silva",
+      "foundedYear": 1900,
+      "forania": "Área Pastoral BR-101 Sul",
+      "jurisdictionNote": null,
+      "notes": "20 comunidades segundo o site diocesano",
+      "sources": [
+        {
+          "url": "https://diocesedecolatina.org.br/sao-marcos-2/",
+          "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2022-08-22)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedecolatina.org.br/paroquias/",
+          "title": "Diocese de Colatina — Paróquias (listagem oficial por área pastoral)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "santuario-diocesano-nossa-senhora-da-saude-ibiracu",
+      "name": "Santuário Diocesano Nossa Senhora da Saúde",
+      "city": "Ibiraçu",
+      "state": "ES",
+      "neighborhood": null,
+      "address": null,
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": "Padre Luismar Passarelli (reitor)",
+      "foundedYear": 1998,
+      "forania": null,
+      "jurisdictionNote": null,
+      "status": "nao-paroquial",
+      "notes": "Primeira igrejinha da região de Ibiraçu, erguida pelos imigrantes italianos; elevada a Santuário Diocesano por Dom Geraldo Lyrio Rocha em 1998. Em 2007 Bento XVI declarou Nossa Senhora da Saúde padroeira da diocese. Festa em 21 de novembro. O site diocesano o lista junto das paróquias, mas não é paróquia e não publica horário fixo de missa — por isso fica fora da carga.",
+      "sources": [
+        {
+          "url": "https://diocesedecolatina.org.br/santuario-diocesano-nossa-senhora-da-saude/",
+          "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2019-05-07)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedecolatina.org.br/paroquias/",
+          "title": "Diocese de Colatina — Paróquias (listagem oficial por área pastoral)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedecolatina.org.br/clero/",
+          "title": "Diocese de Colatina — Clero (fichas dos presbíteros, com a paróquia de cada um)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-medianeira-de-todas-as-gracas-itaguacu",
+      "name": "Paróquia Nossa Senhora Medianeira de Todas as Graças",
+      "city": "Itaguaçu",
+      "state": "ES",
+      "neighborhood": "Centro",
+      "address": "Avenida Dezessete de Fevereiro, 308",
+      "zipCode": "29690-000",
+      "phone": "(27) 99963-4938",
+      "email": "nossamedianeira@hotmail.com",
+      "website": null,
+      "priestName": "Padre Antonio Paulo Mascarenhas França",
+      "foundedYear": null,
+      "forania": "Área Pastoral Linha Ita",
+      "jurisdictionNote": null,
+      "notes": null,
+      "sources": [
+        {
+          "url": "https://diocesedecolatina.org.br/nossa-senhora-medianeira-de-todas-as-gracas/",
+          "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2024-04-30)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedecolatina.org.br/paroquias/",
+          "title": "Diocese de Colatina — Paróquias (listagem oficial por área pastoral)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/nossa-senhora-medianeira-de-todas-as-gracas/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/nossa-senhora-medianeira-de-todas-as-gracas/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-auxiliadora-itarana",
+      "name": "Paróquia Nossa Senhora Auxiliadora",
+      "city": "Itarana",
+      "state": "ES",
+      "neighborhood": null,
+      "address": "Rua Bernardo Niewind, s/n",
+      "zipCode": "29620-000",
+      "phone": "(27) 99755-1522",
+      "email": "paroquiadeitarana@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Giovani Marenot Vedoato",
+      "foundedYear": null,
+      "forania": "Área Pastoral Linha Ita",
+      "jurisdictionNote": null,
+      "notes": "Redes sociais oficiais: https://www.instagram.com/paroquia.nsa.itarana",
+      "sources": [
+        {
+          "url": "https://diocesedecolatina.org.br/pe-devaldo-lorencutti-3/",
+          "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2024-04-30)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedecolatina.org.br/paroquias/",
+          "title": "Diocese de Colatina — Paróquias (listagem oficial por área pastoral)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/pe-devaldo-lorencutti-3/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/pe-devaldo-lorencutti-3/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "sao-jose-joao-neiva",
+      "name": "Paróquia São José",
+      "city": "João Neiva",
+      "state": "ES",
+      "neighborhood": "Centro",
+      "address": "Praça Nossa Senhora do Líbano, 80",
+      "zipCode": "29680-000",
+      "phone": "(27)99871 1581",
+      "email": "mdcolatina@hotmail.com",
+      "website": null,
+      "priestName": "Padre Antonio Wilson Almança",
+      "foundedYear": null,
+      "forania": "Área Pastoral BR-101 Sul",
+      "jurisdictionNote": null,
+      "notes": null,
+      "sources": [
+        {
+          "url": "https://diocesedecolatina.org.br/sao-jose-3-2/",
+          "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2024-04-30)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedecolatina.org.br/paroquias/",
+          "title": "Diocese de Colatina — Paróquias (listagem oficial por área pastoral)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": "a fonte diz \"domingos às 7h OU às 19h\" — alternância não detalhada",
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/sao-jose-3-2/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "a fonte diz \"domingos às 7h OU às 19h\" — alternância não detalhada",
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/sao-jose-3-2/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/sao-jose-3-2/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "sao-francisco-de-assis-laranja-da-terra",
+      "name": "Paróquia São Francisco de Assis",
+      "city": "Laranja da Terra",
+      "state": "ES",
+      "neighborhood": "Centro",
+      "address": "Avenida Luiz Obermuller",
+      "zipCode": "29615-000",
+      "phone": "27 99574-7379",
+      "email": "pmsfrassis@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Marcelo Pinto Pádua",
+      "foundedYear": 2008,
+      "forania": "Área Pastoral Linha Ita",
+      "jurisdictionNote": null,
+      "notes": "11 comunidades segundo o site diocesano; A própria paróquia se identifica como \"Paróquia Missionária São Francisco de Assis\" nas redes sociais; Redes sociais oficiais: https://www.instagram.com/paroquiams.franciscodeassis",
+      "sources": [
+        {
+          "url": "https://diocesedecolatina.org.br/sao-francisco-de-assis-2/",
+          "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2024-04-30)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedecolatina.org.br/paroquias/",
+          "title": "Diocese de Colatina — Paróquias (listagem oficial por área pastoral)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/sao-francisco-de-assis-2/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "bom-pastor-linhares",
+      "name": "Paróquia Bom Pastor",
+      "city": "Linhares",
+      "state": "ES",
+      "neighborhood": "Interlagos",
+      "address": "Rua Felipe dos Santos, 386",
+      "zipCode": "29903-120",
+      "phone": "(27) 3371-1121",
+      "email": "paroquiabompastorlns@hotmail.com",
+      "website": null,
+      "priestName": "Padre Selesio Petri",
+      "foundedYear": 1998,
+      "forania": "Área Pastoral BR-101 Norte",
+      "jurisdictionNote": null,
+      "notes": "7 comunidades segundo o site diocesano",
+      "sources": [
+        {
+          "url": "https://diocesedecolatina.org.br/bom-pastor-2/",
+          "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2020-02-13)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedecolatina.org.br/paroquias/",
+          "title": "Diocese de Colatina — Paróquias (listagem oficial por área pastoral)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-da-conceicao-linhares",
+      "name": "Paróquia Nossa Senhora da Conceição",
+      "city": "Linhares",
+      "state": "ES",
+      "neighborhood": "Centro",
+      "address": "Avenida João Felipe Calmon, 919",
+      "zipCode": "29900-010",
+      "phone": "(27) 3264-0560",
+      "email": "paroquiansc1918@hotmail.com",
+      "website": null,
+      "priestName": "Padre Devaldo Lorenzutti",
+      "foundedYear": 1918,
+      "forania": "Área Pastoral BR-101 Norte",
+      "jurisdictionNote": null,
+      "notes": null,
+      "sources": [
+        {
+          "url": "https://diocesedecolatina.org.br/nossa-senhora-da-conceicao/",
+          "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2023-11-06)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedecolatina.org.br/paroquias/",
+          "title": "Diocese de Colatina — Paróquias (listagem oficial por área pastoral)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "ADORATION",
+          "notes": "Adoração ao Santíssimo",
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/nossa-senhora-da-conceicao/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2023-11-06)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "08:00",
+          "type": "CONFESSION",
+          "notes": "das 8h às 11h",
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/nossa-senhora-da-conceicao/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2023-11-06)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "14:00",
+          "type": "CONFESSION",
+          "notes": "das 14h às 17h",
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/nossa-senhora-da-conceicao/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2023-11-06)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "08:00",
+          "type": "CONFESSION",
+          "notes": "das 8h às 11h",
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/nossa-senhora-da-conceicao/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2023-11-06)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "14:00",
+          "type": "CONFESSION",
+          "notes": "das 14h às 17h",
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/nossa-senhora-da-conceicao/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2023-11-06)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/nossa-senhora-da-conceicao/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2023-11-06)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": "missa das crianças",
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/nossa-senhora-da-conceicao/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2023-11-06)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/nossa-senhora-da-conceicao/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2023-11-06)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 1,
+          "time": "12:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/nossa-senhora-da-conceicao/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2023-11-06)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 2,
+          "time": "12:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/nossa-senhora-da-conceicao/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2023-11-06)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "12:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/nossa-senhora-da-conceicao/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2023-11-06)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "12:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/nossa-senhora-da-conceicao/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2023-11-06)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "12:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/nossa-senhora-da-conceicao/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2023-11-06)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "santa-rita-de-cassia-linhares",
+      "name": "Paróquia Santa Rita de Cássia",
+      "city": "Linhares",
+      "state": "ES",
+      "neighborhood": "Araçá",
+      "address": "Rua Capitão José Maria, 442",
+      "zipCode": "29901-452",
+      "phone": "(27)-3264.2395 e (27) 99974.2777",
+      "email": "secretaria@paroquiasantarita.org.br",
+      "website": "https://paroquiasantarita.org.br",
+      "priestName": "Padre Wilderson das Virgens Gama",
+      "foundedYear": null,
+      "forania": "Área Pastoral BR-101 Norte",
+      "jurisdictionNote": null,
+      "notes": "Também celebra missa \"todo dia 22 de cada mês\", em devoção a Santa Rita de Cássia — recorrência por dia do mês; CONFLITO DE FONTE: a ficha da paróquia registra Pe. Wilderson das Virgens Gama como pároco, mas a ficha do clero de 15/06/2026 o dá como pároco da Paróquia N. Sra. da Penha (Honório Fraga). O clero lista Pe. Waldemir Costa Pereira como vigário paroquial daqui. Validar quem é o pároco.",
+      "sources": [
+        {
+          "url": "https://diocesedecolatina.org.br/pe-devaldo-lorencutti-2/",
+          "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2024-04-30)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedecolatina.org.br/paroquias/",
+          "title": "Diocese de Colatina — Paróquias (listagem oficial por área pastoral)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedecolatina.org.br/clero/",
+          "title": "Diocese de Colatina — Clero (fichas dos presbíteros, com a paróquia de cada um)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/pe-devaldo-lorencutti-2/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/pe-devaldo-lorencutti-2/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/pe-devaldo-lorencutti-2/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "santissima-trindade-linhares",
+      "name": "Paróquia Santíssima Trindade",
+      "city": "Linhares",
+      "state": "ES",
+      "neighborhood": "Novo Horizonte",
+      "address": "Rua Nova Venécia, 01",
+      "zipCode": "29902-360",
+      "phone": "(27)3373-1900 / (27) 99963-4977",
+      "email": "paroquiassma_trindade@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Marciel Agnezi Serafim",
+      "foundedYear": null,
+      "forania": "Área Pastoral BR-101 Norte",
+      "jurisdictionNote": null,
+      "notes": "Missa dominical das 7h transmitida ao vivo pela Rádio Globo Linhares 870 AM; jornal mensal \"Voz da Trindade\"; E-mails adicionais: financeiroparoquial@gmail.com; Redes sociais oficiais: https://www.facebook.com/mdcparoquiasantissimatrindade, https://www.instagran.com/mdc.ssmatrindade",
+      "sources": [
+        {
+          "url": "https://diocesedecolatina.org.br/santissima-trindade-3/",
+          "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2024-10-14)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedecolatina.org.br/paroquias/",
+          "title": "Diocese de Colatina — Paróquias (listagem oficial por área pastoral)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/santissima-trindade-3/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-10-14)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "16:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/santissima-trindade-3/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-10-14)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/santissima-trindade-3/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-10-14)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "1ª quinta-feira de cada mês",
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/santissima-trindade-3/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-10-14)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "1ª sexta-feira de cada mês",
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/santissima-trindade-3/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-10-14)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "sao-joao-paulo-ii-linhares",
+      "name": "Paróquia São João Paulo II",
+      "city": "Linhares",
+      "state": "ES",
+      "neighborhood": "São José",
+      "address": "Av. João Bonicenha, Quadra 36",
+      "zipCode": "29905-110",
+      "phone": "(27) 99719-6525",
+      "email": "paroquia_joaopaulo@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Fábio Chagas da Silva",
+      "foundedYear": null,
+      "forania": "Área Pastoral BR-101 Norte",
+      "jurisdictionNote": null,
+      "notes": "E-mails adicionais: financeiro.joaopaulo2@gmail.com",
+      "sources": [
+        {
+          "url": "https://diocesedecolatina.org.br/pe-devaldo-lorencutti-2-2/",
+          "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2024-04-30)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedecolatina.org.br/paroquias/",
+          "title": "Diocese de Colatina — Paróquias (listagem oficial por área pastoral)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "08:00",
+          "type": "CONFESSION",
+          "notes": "das 8h às 11h",
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/pe-devaldo-lorencutti-2-2/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "13:00",
+          "type": "CONFESSION",
+          "notes": "das 13h às 17h",
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/pe-devaldo-lorencutti-2-2/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "08:00",
+          "type": "CONFESSION",
+          "notes": "das 8h às 11h",
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/pe-devaldo-lorencutti-2-2/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "13:00",
+          "type": "CONFESSION",
+          "notes": "das 13h às 17h",
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/pe-devaldo-lorencutti-2-2/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": "domingos, 8h e 19h de forma intercalada",
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/pe-devaldo-lorencutti-2-2/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "domingos, 8h e 19h de forma intercalada",
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/pe-devaldo-lorencutti-2-2/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "última quinta-feira do mês, missa com a juventude",
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/pe-devaldo-lorencutti-2-2/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "primeira sexta-feira do mês",
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/pe-devaldo-lorencutti-2-2/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "sao-paulo-apostolo-linhares",
+      "name": "Paróquia São Paulo Apóstolo",
+      "city": "Linhares",
+      "state": "ES",
+      "neighborhood": "Bebedouro",
+      "address": "Rua Benevenuto Zorzanelli, 687",
+      "zipCode": "29915-115",
+      "phone": "(27) 3373-0587",
+      "email": "paroquia.spapostolo@gmail.com",
+      "website": null,
+      "priestName": "Padre Romildo da Silva Almeida",
+      "foundedYear": null,
+      "forania": "Área Pastoral BR-101 Norte",
+      "jurisdictionNote": null,
+      "notes": null,
+      "sources": [
+        {
+          "url": "https://diocesedecolatina.org.br/sao-paulo-apostolo-3/",
+          "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2024-04-29)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedecolatina.org.br/paroquias/",
+          "title": "Diocese de Colatina — Paróquias (listagem oficial por área pastoral)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-auxiliadora-marilandia",
+      "name": "Paróquia Nossa Senhora Auxiliadora",
+      "city": "Marilândia",
+      "state": "ES",
+      "neighborhood": "Centro",
+      "address": "Rua São Tarcísio, 133",
+      "zipCode": "29725-000",
+      "phone": "(27) 3724-1330",
+      "email": "paroquiamarilandia@hotmail.com",
+      "website": null,
+      "priestName": "Pe. José Valdecy Romão",
+      "foundedYear": null,
+      "forania": "Área Pastoral do Café",
+      "jurisdictionNote": null,
+      "notes": "Também celebra missa \"todo dia 21 do mês, às 19h\" — recorrência por dia do mês, fora do modelo de MassSchedule",
+      "sources": [
+        {
+          "url": "https://diocesedecolatina.org.br/nossa-senhora-auxiliadora-2/",
+          "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2024-10-14)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedecolatina.org.br/paroquias/",
+          "title": "Diocese de Colatina — Paróquias (listagem oficial por área pastoral)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/nossa-senhora-auxiliadora-2/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-10-14)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/nossa-senhora-auxiliadora-2/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-10-14)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": "toda 1ª sexta-feira do mês",
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/nossa-senhora-auxiliadora-2/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-10-14)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/nossa-senhora-auxiliadora-2/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-10-14)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "santa-luzia-pancas",
+      "name": "Paróquia Santa Luzia",
+      "city": "Pancas",
+      "state": "ES",
+      "neighborhood": "Centro",
+      "address": "Praça João XXIII, 226",
+      "zipCode": "29750-000",
+      "phone": "(27) 3726-1131",
+      "email": "paroquiasantaluzia@outlook.com",
+      "website": null,
+      "priestName": "Pe. Paulo César da Silva",
+      "foundedYear": 1955,
+      "forania": "Área Pastoral do Café",
+      "jurisdictionNote": null,
+      "notes": "30 comunidades segundo o site diocesano",
+      "sources": [
+        {
+          "url": "https://diocesedecolatina.org.br/santa-luzia-3/",
+          "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2024-10-12)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedecolatina.org.br/paroquias/",
+          "title": "Diocese de Colatina — Paróquias (listagem oficial por área pastoral)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-do-rosario-de-fatima-rio-bananal",
+      "name": "Paróquia Nossa Senhora do Rosário de Fátima",
+      "city": "Rio Bananal",
+      "state": "ES",
+      "neighborhood": "Centro",
+      "address": "Rua João Cipriano, 91",
+      "zipCode": "29920-000",
+      "phone": "(27) 3265-1275",
+      "email": "pnsrosariofatima@gmail.com",
+      "website": null,
+      "priestName": "Padre Geraldo Dionísio Bazílio",
+      "foundedYear": 1953,
+      "forania": "Área Pastoral BR-101 Norte",
+      "jurisdictionNote": null,
+      "notes": "64 comunidades segundo o site diocesano; Redes sociais oficiais: https://www.facebook.com/PNSFRiobananal, https://www.instagram.com/pnsrfriobananal; Administrada pelos orionitas",
+      "sources": [
+        {
+          "url": "https://diocesedecolatina.org.br/nossa-senhora-do-rosario-de-fatima/",
+          "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2024-04-30)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedecolatina.org.br/paroquias/",
+          "title": "Diocese de Colatina — Paróquias (listagem oficial por área pastoral)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedecolatina.org.br/clero/",
+          "title": "Diocese de Colatina — Clero (fichas dos presbíteros, com a paróquia de cada um)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/nossa-senhora-do-rosario-de-fatima/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "10:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/nossa-senhora-do-rosario-de-fatima/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/nossa-senhora-do-rosario-de-fatima/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 1,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/nossa-senhora-do-rosario-de-fatima/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 2,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/nossa-senhora-do-rosario-de-fatima/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/nossa-senhora-do-rosario-de-fatima/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/nossa-senhora-do-rosario-de-fatima/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/nossa-senhora-do-rosario-de-fatima/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/nossa-senhora-do-rosario-de-fatima/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "santa-teresa-santa-teresa",
+      "name": "Paróquia Santa Teresa",
+      "city": "Santa Teresa",
+      "state": "ES",
+      "neighborhood": "Centro",
+      "address": "Rua Cel. Bonfim Júnior, 37",
+      "zipCode": "29650-000",
+      "phone": "(27) 3259-1662",
+      "email": "secretaria.pst@hotmail.com",
+      "website": "https://www.paroquiasantateresadavila.org.br",
+      "priestName": "Frei José Wiliam Corrêa de Araújo",
+      "foundedYear": 1898,
+      "forania": "Área Pastoral Linha Ita",
+      "jurisdictionNote": null,
+      "notes": "50 comunidades segundo o site diocesano; E-mails adicionais: paroquiasateresa@hotmail.com; Administrada pelos capuchinhos",
+      "sources": [
+        {
+          "url": "https://diocesedecolatina.org.br/santa-teresa/",
+          "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2024-04-30)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedecolatina.org.br/paroquias/",
+          "title": "Diocese de Colatina — Paróquias (listagem oficial por área pastoral)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedecolatina.org.br/clero/",
+          "title": "Diocese de Colatina — Clero (fichas dos presbíteros, com a paróquia de cada um)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/santa-teresa/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/santa-teresa/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 1,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/santa-teresa/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "cristo-rei-sooretama",
+      "name": "Paróquia Cristo Rei",
+      "city": "Sooretama",
+      "state": "ES",
+      "neighborhood": "Centro",
+      "address": "Rua Cristo Rei, 259",
+      "zipCode": "29927-000",
+      "phone": "(27)99954-4042",
+      "email": "cristoreisooretama@outlook.com.br",
+      "website": null,
+      "priestName": "Padre Gabrielle Stella",
+      "foundedYear": 1990,
+      "forania": "Área Pastoral BR-101 Norte",
+      "jurisdictionNote": null,
+      "notes": "27 comunidades segundo o site diocesano; Administrada pela Pia Sociedade São Caetano; Pe. Marcelo Morais de Araújo Souza é pároco \"in solidum\"",
+      "sources": [
+        {
+          "url": "https://diocesedecolatina.org.br/cristo-rei/",
+          "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2024-04-30)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedecolatina.org.br/paroquias/",
+          "title": "Diocese de Colatina — Paróquias (listagem oficial por área pastoral)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedecolatina.org.br/clero/",
+          "title": "Diocese de Colatina — Clero (fichas dos presbíteros, com a paróquia de cada um)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "08:00",
+          "type": "CONFESSION",
+          "notes": "das 8h às 11h",
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/cristo-rei/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "13:00",
+          "type": "CONFESSION",
+          "notes": "das 13h às 17h",
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/cristo-rei/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "08:00",
+          "type": "CONFESSION",
+          "notes": "das 8h às 11h",
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/cristo-rei/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "13:00",
+          "type": "CONFESSION",
+          "notes": "das 13h às 17h",
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/cristo-rei/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/cristo-rei/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/cristo-rei/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "toda primeira sexta-feira do mês",
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/cristo-rei/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-04-30)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "sao-domingos-sao-domingos-do-norte",
+      "name": "Paróquia São Domingos",
+      "city": "São Domingos do Norte",
+      "state": "ES",
+      "neighborhood": "Centro",
+      "address": "Avenida Honório Fraga, 351",
+      "zipCode": "29745-000",
+      "phone": "(27) 3742-1288",
+      "email": "mdc_saodomingos@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Joseumar Miranda da Silva",
+      "foundedYear": 1948,
+      "forania": "Área Pastoral do Café",
+      "jurisdictionNote": null,
+      "notes": "27 comunidades segundo o site diocesano",
+      "sources": [
+        {
+          "url": "https://diocesedecolatina.org.br/sao-domingos/",
+          "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2021-09-17)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedecolatina.org.br/paroquias/",
+          "title": "Diocese de Colatina — Paróquias (listagem oficial por área pastoral)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-roque-sao-roque-do-canaa",
+      "name": "Paróquia São Roque",
+      "city": "São Roque do Canaã",
+      "state": "ES",
+      "neighborhood": "Centro",
+      "address": "Rua Atílio Dalla Bernardina, 390",
+      "zipCode": null,
+      "phone": "(27) 3729-1151",
+      "email": "mdc_saoroque@hotmail.com",
+      "website": null,
+      "priestName": "Padre Adriano Marcos Luchi",
+      "foundedYear": 1954,
+      "forania": "Área Pastoral de Colatina",
+      "jurisdictionNote": null,
+      "notes": null,
+      "sources": [
+        {
+          "url": "https://diocesedecolatina.org.br/sao-roque/",
+          "title": "Diocese de Colatina — ficha oficial da paróquia (última modificação registrada no CMS em 2024-10-22)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedecolatina.org.br/paroquias/",
+          "title": "Diocese de Colatina — Paróquias (listagem oficial por área pastoral)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/sao-roque/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-10-22)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/sao-roque/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-10-22)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecolatina.org.br/sao-roque/",
+              "title": "Diocese de Colatina — ficha oficial da paróquia (horários de missa/confissão publicados na própria ficha) (última modificação registrada no CMS em 2024-10-22)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    }
+  ],
+  "coverage": {
+    "parishesFound": 31,
+    "parishesExpected": 31,
+    "notes": "31 paróquias na listagem oficial da diocese, exatamente o número do Anuário Pontifício de 2023 (catholic-hierarchy). O arquivo traz 32 entradas: a 32ª é o Santuário Diocesano Nossa Senhora da Saúde (Ibiraçu), marcado \"nao-paroquial\" e fora da carga. Cobertura de paróquias: 100%. Endereço e telefone de 31/31; CEP de 30/31. Horários de missa publicados pela própria diocese em 23 das 31 paróquias."
+  }
+}

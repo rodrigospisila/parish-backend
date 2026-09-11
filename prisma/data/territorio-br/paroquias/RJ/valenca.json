@@ -1,0 +1,5611 @@
+{
+  "diocese": {
+    "name": "Diocese de Valença",
+    "type": "Diocese",
+    "slug": "valenca",
+    "city": "Valença",
+    "state": "RJ",
+    "address": "Praça Visconde do Rio Preto, 375, Centro",
+    "zipCode": "27600-000",
+    "phone": "(24) 2452-0207",
+    "email": null,
+    "website": "https://diocesedevalenca.org",
+    "bishopName": "Dom Nelson Francelino Ferreira",
+    "sources": [
+      {
+        "url": "https://diocesedevalenca.org/diocese-de-valenca/",
+        "title": "Diocese de Valença – RJ",
+        "accessedAt": "2026-09-11"
+      },
+      {
+        "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+        "title": "Nossas Paróquias – Cúria de Valença",
+        "accessedAt": "2026-09-11"
+      },
+      {
+        "url": "https://www.catholic-hierarchy.org/diocese/dvalb.html",
+        "title": "Valença (Diocese) [Catholic-Hierarchy]",
+        "accessedAt": "2026-09-11"
+      }
+    ],
+    "confidence": "alta"
+  },
+  "parishes": [
+    {
+      "slug": "nossa-senhora-da-gloria-valenca",
+      "name": "Catedral Nossa Senhora da Glória",
+      "city": "Valença",
+      "state": "RJ",
+      "neighborhood": "Centro",
+      "address": "Praça Manoel Gomes Leal, s/n, Centro, Valença – RJ",
+      "zipCode": "27600-000",
+      "phone": "(24) 2453-4248",
+      "email": "contato@catedralvalenca.org.br",
+      "website": null,
+      "priestName": "Padre Edilson Medeiros de Barros",
+      "foundedYear": 1813,
+      "sources": [
+        {
+          "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+          "title": "Nossas Paroquias - Curia de Valenca",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora da Glória",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Santa Luzia",
+          "address": null,
+          "neighborhood": "Santa Luzia",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Santa Cruz",
+          "address": null,
+          "neighborhood": "Morro do Cruzeiro",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São Cristóvão",
+          "address": null,
+          "neighborhood": "São Cristóvão",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Santo Antônio",
+          "address": null,
+          "neighborhood": "Chácara Caetano Pentagna",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Nossa Senhora do Carmo",
+          "address": null,
+          "neighborhood": "Laranjeiras",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Nossa Senhora do Rosário",
+          "address": null,
+          "neighborhood": "Nossa Senhora do Rosário",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Hotel dos Engenheiros",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Sagrado Coração de Jesus",
+          "address": null,
+          "neighborhood": "Colégio Sagrado Coração de Jesus",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Santa Isabel Prima de Maria",
+          "address": null,
+          "neighborhood": "Santa Casa de Misericórdia",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "Nome publicado pela Cúria como \"Santa Isabel Prima de Maria8\"; o 8 final foi tratado como erro de digitação. Capela da Santa Casa de Misericórdia."
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Santa Isabel Prima de Maria",
+          "dayOfWeek": 3,
+          "time": "16:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=YUZly",
+              "title": "Horário de Missa (agregador) - ficha atualizada em 31/01/2013",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Sagrado Coração de Jesus",
+          "dayOfWeek": 1,
+          "time": "17:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=wApMR",
+              "title": "Horário de Missa (agregador) - ficha atualizada em 31/01/2013",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Sagrado Coração de Jesus",
+          "dayOfWeek": 5,
+          "time": "17:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=wApMR",
+              "title": "Horário de Missa (agregador) - ficha atualizada em 31/01/2013",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Glória",
+          "dayOfWeek": 0,
+          "time": "07:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=bwaTi",
+              "title": "Horário de Missa (agregador) - ficha atualizada em 10/01/2015",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Glória",
+          "dayOfWeek": 0,
+          "time": "09:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=bwaTi",
+              "title": "Horário de Missa (agregador) - ficha atualizada em 10/01/2015",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Glória",
+          "dayOfWeek": 0,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=bwaTi",
+              "title": "Horário de Missa (agregador) - ficha atualizada em 10/01/2015",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Glória",
+          "dayOfWeek": 1,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=bwaTi",
+              "title": "Horário de Missa (agregador) - ficha atualizada em 10/01/2015",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Glória",
+          "dayOfWeek": 2,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=bwaTi",
+              "title": "Horário de Missa (agregador) - ficha atualizada em 10/01/2015",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Glória",
+          "dayOfWeek": 3,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=bwaTi",
+              "title": "Horário de Missa (agregador) - ficha atualizada em 10/01/2015",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Glória",
+          "dayOfWeek": 4,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=bwaTi",
+              "title": "Horário de Missa (agregador) - ficha atualizada em 10/01/2015",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Glória",
+          "dayOfWeek": 5,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=bwaTi",
+              "title": "Horário de Missa (agregador) - ficha atualizada em 10/01/2015",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Glória",
+          "dayOfWeek": 6,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=bwaTi",
+              "title": "Horário de Missa (agregador) - ficha atualizada em 10/01/2015",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Glória",
+          "dayOfWeek": 1,
+          "time": "07:30",
+          "type": "CONFESSION",
+          "notes": "após a missa",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=bwaTi",
+              "title": "Horário de Missa (agregador) - ficha atualizada em 10/01/2015",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Glória",
+          "dayOfWeek": 2,
+          "time": "07:30",
+          "type": "CONFESSION",
+          "notes": "após a missa",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=bwaTi",
+              "title": "Horário de Missa (agregador) - ficha atualizada em 10/01/2015",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Glória",
+          "dayOfWeek": 3,
+          "time": "07:30",
+          "type": "CONFESSION",
+          "notes": "após a missa",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=bwaTi",
+              "title": "Horário de Missa (agregador) - ficha atualizada em 10/01/2015",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Glória",
+          "dayOfWeek": 4,
+          "time": "07:30",
+          "type": "CONFESSION",
+          "notes": "após a missa",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=bwaTi",
+              "title": "Horário de Missa (agregador) - ficha atualizada em 10/01/2015",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Glória",
+          "dayOfWeek": 5,
+          "time": "07:30",
+          "type": "CONFESSION",
+          "notes": "após a missa",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=bwaTi",
+              "title": "Horário de Missa (agregador) - ficha atualizada em 10/01/2015",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Glória",
+          "dayOfWeek": 6,
+          "time": "07:30",
+          "type": "CONFESSION",
+          "notes": "após a missa",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=bwaTi",
+              "title": "Horário de Missa (agregador) - ficha atualizada em 10/01/2015",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Nossa Senhora do Rosário",
+          "dayOfWeek": 0,
+          "time": "16:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=EGKtF",
+              "title": "Horário de Missa (agregador) - ficha atualizada em 31/01/2013",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Nossa Senhora do Rosário",
+          "dayOfWeek": 6,
+          "time": "20:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=EGKtF",
+              "title": "Horário de Missa (agregador) - ficha atualizada em 31/01/2013",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "imaculada-conceicao-da-aparecida-sapucaia",
+      "name": "Paróquia Imaculada Conceição da Aparecida",
+      "city": "Sapucaia",
+      "state": "RJ",
+      "neighborhood": "Vila Nossa Senhora Aparecida",
+      "address": "Praça Miguel Casagrande, nº 12, Centro, Vila Nossa Senhora Aparecida – 3º Distrito de Sapucaia – RJ",
+      "zipCode": "25886-000",
+      "phone": "(24) 2271-4110",
+      "email": "paroquiaicdaaparecida@ig.com.br",
+      "website": null,
+      "priestName": "Padre Eduardo Fernando Henriques Neto",
+      "foundedYear": 1842,
+      "sources": [
+        {
+          "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+          "title": "Nossas Paroquias - Curia de Valenca",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Imaculada Conceição da Aparecida",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São Francisco de Assis",
+          "address": null,
+          "neighborhood": "Moreiras",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Senhora Sant’Ana",
+          "address": null,
+          "neighborhood": "Jamapará",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São Judas Tadeu",
+          "address": null,
+          "neighborhood": "Barão",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Nossa Senhora de Fátima",
+          "address": null,
+          "neighborhood": "Taquara",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Sagrado Coração de Jesus",
+          "address": null,
+          "neighborhood": "Clube dos 200",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Capela de São Sebastião",
+          "address": null,
+          "neighborhood": "Vila São Sebastião",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São Judas Tadeu (Pedra de Amolar)",
+          "address": null,
+          "neighborhood": "Pedra de Amolar",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Menino Jesus de Praga",
+          "address": null,
+          "neighborhood": "Volta do Pião",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Santa Teresinha",
+          "address": null,
+          "neighborhood": "Vila do Pião",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Santo Aníbal Maria",
+          "address": null,
+          "neighborhood": "Santa Cruz",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Santa Rosa de Lima",
+          "address": null,
+          "neighborhood": "Souza",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-aparecida-comendador-levy-gasparian",
+      "name": "Paróquia Nossa Senhora Aparecida",
+      "city": "Comendador Levy Gasparian",
+      "state": "RJ",
+      "neighborhood": "Centro",
+      "address": "Rua Hellen Pifano, 141, Centro, Cdor. Levy Gasparian – RJ",
+      "zipCode": "25870-000",
+      "phone": "(24) 2254-1269",
+      "email": "pansaparecidalevy@gmail.com",
+      "website": null,
+      "priestName": "Padre Jefferson Francisco dos Santos, IMCIM",
+      "foundedYear": 2005,
+      "sources": [
+        {
+          "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+          "title": "Nossas Paroquias - Curia de Valenca",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora Aparecida",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Santo Antônio",
+          "address": null,
+          "neighborhood": "Grotão",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São Brás",
+          "address": null,
+          "neighborhood": "Fábrica",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São Domingos Gusmão",
+          "address": null,
+          "neighborhood": "Gulf",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Santa Bárbara",
+          "address": null,
+          "neighborhood": "Fonseca Almeida",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São Cristóvão",
+          "address": null,
+          "neighborhood": "Fernandes Pinheiro",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Santo Expedito",
+          "address": null,
+          "neighborhood": "Boca da Barra",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São Jorge",
+          "address": null,
+          "neighborhood": "Conjunto Luiz Bento Argon",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São Miguel Arcanjo",
+          "address": null,
+          "neighborhood": "Av. Reginaldo Maia",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Nossa Senhora das Graças",
+          "address": null,
+          "neighborhood": "Fonseca 2",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São Francisco de Assis",
+          "address": null,
+          "neighborhood": "Travessa Gumieri",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Santa Rita de Cássia",
+          "address": null,
+          "neighborhood": "Morro do SAAELEG",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São Mateus",
+          "address": null,
+          "neighborhood": "Barreira Fiscal",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-aparecida-valenca",
+      "name": "Paróquia Nossa Senhora Aparecida",
+      "city": "Valença",
+      "state": "RJ",
+      "neighborhood": "Aparecida",
+      "address": "Rua Francisco Medeiros, 303, Aparecida, Valença – RJ",
+      "zipCode": "27600-000",
+      "phone": "(24) 2453-4127",
+      "email": "pansava@gmail.com",
+      "website": null,
+      "priestName": "Padre Luiz Fraga Magalhães",
+      "foundedYear": 1968,
+      "sources": [
+        {
+          "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+          "title": "Nossas Paroquias - Curia de Valenca",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora Aparecida",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Nossa Senhora de Fátima",
+          "address": null,
+          "neighborhood": "Belo Horizonte",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Santa Teresinha",
+          "address": null,
+          "neighborhood": "Santa Cruz",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São João Batista",
+          "address": null,
+          "neighborhood": "João Dias",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São Judas Tadeu",
+          "address": null,
+          "neighborhood": "Chacrinha",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Nossa Senhora das Graças",
+          "address": null,
+          "neighborhood": "Varginha",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Santa Cruz",
+          "address": null,
+          "neighborhood": "Cooperativa",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Nossa Senhora de Nazaré",
+          "address": null,
+          "neighborhood": "Canteiro",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Santo Antônio",
+          "address": null,
+          "neighborhood": "Vale Verde e Chica Cobra",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Nossa Senhora de Lourdes",
+          "address": null,
+          "neighborhood": "Brasil Novo, Santa Terezinha, Terceira Turma, Mutirão",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São Francisco de Assis",
+          "address": null,
+          "neighborhood": "São Francisco",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Eremitério Frei Ave-Maria",
+          "address": null,
+          "neighborhood": "Esteves",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora Aparecida",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=0SI4H",
+              "title": "Horário de Missa (agregador) - ficha atualizada em 30/09/2015",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora Aparecida",
+          "dayOfWeek": 2,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=0SI4H",
+              "title": "Horário de Missa (agregador) - ficha atualizada em 30/09/2015",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora Aparecida",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=0SI4H",
+              "title": "Horário de Missa (agregador) - ficha atualizada em 30/09/2015",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-da-conceicao-paty-do-alferes",
+      "name": "Paróquia Nossa Senhora da Conceição",
+      "city": "Paty do Alferes",
+      "state": "RJ",
+      "neighborhood": "Centro",
+      "address": "Largo da Matriz, 145, Paty do Alferes -RJ",
+      "zipCode": "26950-000",
+      "phone": "(24) 2485-1037",
+      "email": "igrejamatrizpaty@yahoo.com.br",
+      "website": null,
+      "priestName": "Padre Welder de Carvalho Silva",
+      "foundedYear": 1726,
+      "sources": [
+        {
+          "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+          "title": "Nossas Paroquias - Curia de Valenca",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora da Conceição",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Comunidade Nossa Senhora de Aparecida",
+          "address": null,
+          "neighborhood": "Poaia",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Comunidade Nossa Senhora das Graças",
+          "address": null,
+          "neighborhood": "Rio Pardo",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Capela Santo Antônio",
+          "address": null,
+          "neighborhood": "Palmares",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Capela São Francisco de Assis",
+          "address": null,
+          "neighborhood": "Arcozelo",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Capela São José",
+          "address": null,
+          "neighborhood": "Esperança",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Capela São Pedro e São Paulo",
+          "address": null,
+          "neighborhood": "Pedras Ruivas",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Capela Bom Jesus",
+          "address": null,
+          "neighborhood": "Vargem do Manejo",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Capela Nossa Senhora da Conceição",
+          "address": null,
+          "neighborhood": "Coqueiros",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Capela Santa Terezinha",
+          "address": null,
+          "neighborhood": "Maravilha",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Capela Santo Antônio (Goiabal)",
+          "address": null,
+          "neighborhood": "Goiabal",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Irmãs Franciscanas Alcantarinas",
+          "address": null,
+          "neighborhood": "Centro",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Capela Nossa senhora de Fátima",
+          "address": null,
+          "neighborhood": "Grotão",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-da-conceicao-vassouras",
+      "name": "Paróquia Nossa Senhora da Conceição",
+      "city": "Vassouras",
+      "state": "RJ",
+      "neighborhood": "Centro",
+      "address": "Praça Sebastião de Lacerda,03, Centro, Vassouras – RJ",
+      "zipCode": "27700-000",
+      "phone": "(24) 2471-1618",
+      "email": "janthonius@uol.com.br",
+      "website": null,
+      "priestName": "Padre José Antônio da Silva",
+      "foundedYear": 1828,
+      "sources": [
+        {
+          "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+          "title": "Nossas Paroquias - Curia de Valenca",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora da Conceição",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Santo Antônio",
+          "address": null,
+          "neighborhood": "Aliança",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São Benedito",
+          "address": null,
+          "neighborhood": "Bacia de Pedra",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São Paulo Apóstolo",
+          "address": null,
+          "neighborhood": "Barreiro",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São Pedro",
+          "address": null,
+          "neighborhood": "Campo Limpo",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Divino Salvador",
+          "address": null,
+          "neighborhood": "Capim Angola",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São José",
+          "address": null,
+          "neighborhood": "Cavalheira",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Sant’ Ana",
+          "address": null,
+          "neighborhood": "Demétrio Ribeiro",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Nossa Senhora Aparecida",
+          "address": null,
+          "neighborhood": "Esquina da Alegria",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Santa Cruz",
+          "address": null,
+          "neighborhood": "Estiva",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Santo Antônio de Santana Galvão",
+          "address": null,
+          "neighborhood": "Fazenda São Luís da Boa Sorte",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São Sebastião",
+          "address": null,
+          "neighborhood": "Grecco",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São Roque",
+          "address": null,
+          "neighborhood": "Ipiranga",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Santo Antônio (Mancusi)",
+          "address": null,
+          "neighborhood": "Mancusi",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Nossa Senhora Aparecida (Massambará)",
+          "address": null,
+          "neighborhood": "Massambará",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São Francisco",
+          "address": null,
+          "neighborhood": "Matadouro",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Nossa Senhora Aparecida (Mello Afonso)",
+          "address": null,
+          "neighborhood": "Mello Afonso",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São Benedito (Memorial Manuel Congo)",
+          "address": null,
+          "neighborhood": "Memorial Manuel Congo",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Santa Edwiges",
+          "address": null,
+          "neighborhood": "Morro Santa Rita",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Nossa Senhora Aparecida (Pirauí)",
+          "address": null,
+          "neighborhood": "Pirauí",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Nossa Senhora da Luz",
+          "address": null,
+          "neighborhood": "Pocinhos",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São João Paulo II",
+          "address": null,
+          "neighborhood": "Represa",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Sant’ Ana (Residência)",
+          "address": null,
+          "neighborhood": "Residência",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Nossa Senhora do Rosário",
+          "address": null,
+          "neighborhood": "Rosário",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Santo Expedito",
+          "address": null,
+          "neighborhood": "Rua Projetada",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Santa Amália",
+          "address": null,
+          "neighborhood": "Santa Amália",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São Jorge",
+          "address": null,
+          "neighborhood": "São Jorge",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São José (São José)",
+          "address": null,
+          "neighborhood": "São José",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 0,
+          "time": "10:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=PRp0Z",
+              "title": "Horário de Missa (agregador) - ficha atualizada em 20/09/2013",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=PRp0Z",
+              "title": "Horário de Missa (agregador) - ficha atualizada em 20/09/2013",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=PRp0Z",
+              "title": "Horário de Missa (agregador) - ficha atualizada em 20/09/2013",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 5,
+          "time": "09:00",
+          "type": "CONFESSION",
+          "notes": "horário de início de um intervalo",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=PRp0Z",
+              "title": "Horário de Missa (agregador) - ficha atualizada em 20/09/2013",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 6,
+          "time": "09:00",
+          "type": "CONFESSION",
+          "notes": "horário de início de um intervalo",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=PRp0Z",
+              "title": "Horário de Missa (agregador) - ficha atualizada em 20/09/2013",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-de-fatima-tres-rios",
+      "name": "Paróquia Nossa Senhora de Fátima",
+      "city": "Três Rios",
+      "state": "RJ",
+      "neighborhood": "Monte Castelo",
+      "address": "Avenida Antônio Teixeira Peçanha, 407, Bairro Monte Castelo",
+      "zipCode": "25810-240",
+      "phone": "(24) 2030-0546",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Márcio Xavier Lima da Silva",
+      "foundedYear": 2020,
+      "sources": [
+        {
+          "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+          "title": "Nossas Paroquias - Curia de Valenca",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Nossa Senhora de Fátima",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Nossa Senhora das Graças",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São Francisco de Assis",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Santa Teresinha do Menino Jesus",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Santa Bárbara",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Cristo Rei",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São João Paulo II",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Santa Edwiges",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Santa Rosa de Lima",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-da-gloria-miguel-pereira",
+      "name": "Paróquia Nossa Senhora da Glória",
+      "city": "Miguel Pereira",
+      "state": "RJ",
+      "neighborhood": "Governador Portela",
+      "address": "Largo da Matriz, s/nº, Governador Portela, Miguel Pereira – RJ",
+      "zipCode": "26910-000",
+      "phone": "(24) 2484-1044",
+      "email": null,
+      "website": null,
+      "priestName": "Padre Alessandro Guedes",
+      "foundedYear": 1965,
+      "sources": [
+        {
+          "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+          "title": "Nossas Paroquias - Curia de Valenca",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora da Glória",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Nossa Senhora das Graças",
+          "address": null,
+          "neighborhood": "Francisco Fragoso",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Nossa Senhora de Lourdes",
+          "address": null,
+          "neighborhood": "Javari",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São Sebastião",
+          "address": null,
+          "neighborhood": "Pouso Alegre",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-de-monte-serrat-comendador-levy-gasparian",
+      "name": "Paróquia Nossa Senhora de Monte Serrat",
+      "city": "Comendador Levy Gasparian",
+      "state": "RJ",
+      "neighborhood": "Monte Serrat",
+      "address": "Rua José Cláudio, 19, Centro, Mont Serrat, Cdor. Levy Gasparian – RJ",
+      "zipCode": "25870-000",
+      "phone": "(24) 2254-1269",
+      "email": "pansaparecidalevy@gmail.com",
+      "website": null,
+      "priestName": "Pe. Jefferson Francisco dos Santos, IMCIM",
+      "foundedYear": 1957,
+      "sources": [
+        {
+          "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+          "title": "Nossas Paroquias - Curia de Valenca",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora do Monte Serrat",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Santo Antônio",
+          "address": null,
+          "neighborhood": "Afonso Arinos",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-do-patrocinio-valenca",
+      "name": "Paróquia Nossa Senhora do Patrocínio",
+      "city": "Valença",
+      "state": "RJ",
+      "neighborhood": "Barão de Juparanã",
+      "address": "Rua Barão de Santa Mônica, 273, Barão de Juparanã – Valença – RJ",
+      "zipCode": "27610-000",
+      "phone": "(24) 2471-5131",
+      "email": "nspatrocinio@gmail.com",
+      "website": null,
+      "priestName": "Padre Gétero Rangel da Costa Junior",
+      "foundedYear": 1913,
+      "sources": [
+        {
+          "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+          "title": "Nossas Paroquias - Curia de Valenca",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora do Patrocínio",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Sant’Anna",
+          "address": null,
+          "neighborhood": "Lacerda",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Nossa Senhora Aparecida",
+          "address": null,
+          "neighborhood": "Ponte do Paraíso",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São José",
+          "address": null,
+          "neighborhood": "Loteamento",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Santo Antônio",
+          "address": null,
+          "neighborhood": "Quirino",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São Sebastião",
+          "address": null,
+          "neighborhood": "Barão de Vassouras",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora do Patrocínio",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=sioeh",
+              "title": "Horário de Missa (agregador) - ficha atualizada em 08/01/2015",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Patrocínio",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=sioeh",
+              "title": "Horário de Missa (agregador) - ficha atualizada em 08/01/2015",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "santa-isabel-rainha-de-portugal-valenca",
+      "name": "Paróquia Santa Isabel Rainha de Portugal",
+      "city": "Valença",
+      "state": "RJ",
+      "neighborhood": "Santa Isabel do Rio Preto",
+      "address": "Rua Prof. Jovina Salles, 89, Santa Isabel do Rio Preto – Valença – RJ",
+      "zipCode": "27640-000",
+      "phone": "(24) 9 8111-2182",
+      "email": "paroquisantaisabel20@gmail.com",
+      "website": null,
+      "priestName": "Padre Victor de Souza Pereira",
+      "foundedYear": 1852,
+      "sources": [
+        {
+          "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+          "title": "Nossas Paroquias - Curia de Valenca",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Santa Izabel Rainha de Portugal",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São Bento",
+          "address": null,
+          "neighborhood": "São Bento",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São José",
+          "address": null,
+          "neighborhood": "Cabeleira",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São Pedro",
+          "address": null,
+          "neighborhood": "Fazenda Velha",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Nossa Senhora Aparecida",
+          "address": null,
+          "neighborhood": "Leite de Souza",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São José (Quilombo São José da Serra)",
+          "address": null,
+          "neighborhood": "Quilombo São José da Serra",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São Sebastião",
+          "address": null,
+          "neighborhood": "Santa Isabel",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Estrada de São Joaquim",
+          "address": null,
+          "neighborhood": "Comunidade Santo Inácio",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "santa-luzia-tres-rios",
+      "name": "Paróquia Santa Luzia",
+      "city": "Três Rios",
+      "state": "RJ",
+      "neighborhood": "Vila Isabel",
+      "address": "Praça de Santa Luzia, nº 6, Vila Isabel, Três Rios – RJ",
+      "zipCode": "25802-290",
+      "phone": "(24) 2255-7217",
+      "email": "p.st.luzia@ig.com.br",
+      "website": null,
+      "priestName": "Padre Júlio César Maia de Almeida",
+      "foundedYear": 1987,
+      "sources": [
+        {
+          "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+          "title": "Nossas Paroquias - Curia de Valenca",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Santa Luzia",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São Carlos Barromeu",
+          "address": null,
+          "neighborhood": "Morro São Carlos",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Santa Rita de Cássia",
+          "address": null,
+          "neighborhood": "Barros Franco",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Bom Pastor",
+          "address": null,
+          "neighborhood": "Morro dos Caetanos",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Sagrada Família",
+          "address": null,
+          "neighborhood": "Jaqueira",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Santa Cecília",
+          "address": null,
+          "neighborhood": "Palmital",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Nossa Senhora das Graças",
+          "address": null,
+          "neighborhood": "Vila Paraíso",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Nossa Senhora da Conceição",
+          "address": null,
+          "neighborhood": "Rua Direita",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Santa Francisca Xavier Cabrini",
+          "address": null,
+          "neighborhood": "Cariri",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São Francisco de Assis",
+          "address": null,
+          "neighborhood": "Morada do Sol",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Santa Terezinha",
+          "address": null,
+          "neighborhood": "Pedreira Vila Isabel",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "santa-rosa-de-lima-valenca",
+      "name": "Paróquia Santa Rosa de Lima",
+      "city": "Valença",
+      "state": "RJ",
+      "neighborhood": "Benfica",
+      "address": "Rua Getúlio Vargas, 986, Benfica, Valença – RJ",
+      "zipCode": "27600-000",
+      "phone": "(24) 2453-4006",
+      "email": "paroquiasantarosavalenca@gmail.com",
+      "website": null,
+      "priestName": "Padre Juvenal Aranha Neto",
+      "foundedYear": 1999,
+      "sources": [
+        {
+          "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+          "title": "Nossas Paroquias - Curia de Valenca",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Santa Rosa de Lima",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Santa Rita de Cássia",
+          "address": null,
+          "neighborhood": "Parque Pentagna",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Santa Clara",
+          "address": null,
+          "neighborhood": "Santa Clara",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Santa Maria",
+          "address": null,
+          "neighborhood": "Santa Maria",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Nossa Senhora da Glória",
+          "address": null,
+          "neighborhood": "Fazenda da Glória",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Nossa Senhora da Penha",
+          "address": null,
+          "neighborhood": "Biquinha",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Santo Expedito",
+          "address": null,
+          "neighborhood": "Vadinho Fonseca",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São Pedro Apóstolo",
+          "address": null,
+          "neighborhood": "Cambota",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Nossa Senhora das Graças",
+          "address": null,
+          "neighborhood": "Cidade de Deus",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São Geraldo Majela",
+          "address": null,
+          "neighborhood": "Paraíso de Cima",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Sagrada Família",
+          "address": null,
+          "neighborhood": "Paraíso de Baixo",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São Bento",
+          "address": null,
+          "neighborhood": "São Bento",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Ainda sem padroeiro",
+          "address": null,
+          "neighborhood": "Santa Rosa II",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "santa-teresa-d-avila-rio-das-flores",
+      "name": "Paróquia Santa Teresa d’Ávila",
+      "city": "Rio das Flores",
+      "state": "RJ",
+      "neighborhood": "Centro",
+      "address": "Praça Manoel Duarte, 03, Rio das Flores – RJ",
+      "zipCode": "27660-000",
+      "phone": "(24) 2458-1159",
+      "email": null,
+      "website": null,
+      "priestName": "Padre Marcos Ribeiro Silvestre",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+          "title": "Nossas Paroquias - Curia de Valenca",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Santa Tereza D’ávila",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São Pedro e São Paulo",
+          "address": null,
+          "neighborhood": "Abarracamento",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Nossa Senhora Aparecida",
+          "address": null,
+          "neighborhood": "Aparecida",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Nossa Senhora de Fátima",
+          "address": null,
+          "neighborhood": "Bairro de Fátima",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São Vicente de Paulo",
+          "address": null,
+          "neighborhood": "Bairro dos Ingleses",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São Lourenço",
+          "address": null,
+          "neighborhood": "Barreiro",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São Sebastião",
+          "address": null,
+          "neighborhood": "Cachoeira do Funil",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São Sebastião (Carvalhaes)",
+          "address": null,
+          "neighborhood": "Carvalhaes",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São Sebastião (Formoso)",
+          "address": null,
+          "neighborhood": "Formoso",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São Sebastião (Porto Velho)",
+          "address": null,
+          "neighborhood": "Porto Velho",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São José",
+          "address": null,
+          "neighborhood": "Taboas",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Sagrado Coração de Jesus",
+          "address": null,
+          "neighborhood": "Três Ilhas",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Nossa Senhora do Rosário e São Judas Tadeu",
+          "address": null,
+          "neighborhood": "Independência",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Nossa Senhora Aparecida (Manoel Duarte)",
+          "address": null,
+          "neighborhood": "Manoel Duarte",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Nossa Senhora das Dores",
+          "address": null,
+          "neighborhood": "Porto das Flores",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Santo Expedito",
+          "address": null,
+          "neighborhood": "Santa Rosa",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Santana e Santa Luzia",
+          "address": null,
+          "neighborhood": "Travessão de Baixo",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São Cristóvão e Nossa Senhora do Nazaré",
+          "address": null,
+          "neighborhood": "Sossego",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São Francisco",
+          "address": null,
+          "neighborhood": "Bairro José Dutra Navarro",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São Brás",
+          "address": null,
+          "neighborhood": "Pombal",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São Sebastião (Torres)",
+          "address": null,
+          "neighborhood": "Torres",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "santa-teresinha-do-menino-jesus-valenca",
+      "name": "Paróquia Santa Teresinha do Menino Jesus",
+      "city": "Valença",
+      "state": "RJ",
+      "neighborhood": "Parapeúna",
+      "address": "Rua São Pedro, 245, Parapeúna – Valença – RJ",
+      "zipCode": "27625-000",
+      "phone": "(24) 2453-9263",
+      "email": "paroquiasteteresinha@gmail.com",
+      "website": null,
+      "priestName": "Padre Levi da Cruz",
+      "foundedYear": 1935,
+      "sources": [
+        {
+          "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+          "title": "Nossas Paroquias - Curia de Valenca",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Santa Terezinha do Menino Jesus",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Santa Tereza D’ávila",
+          "address": null,
+          "neighborhood": "João Honório",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São Fernando",
+          "address": null,
+          "neighborhood": "Coronel Cardoso",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Nossa Senhora da Glória",
+          "address": null,
+          "neighborhood": "Glória",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São Judas Tadeu",
+          "address": null,
+          "neighborhood": "Antônio Lopes",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Santo Antônio de Pádua",
+          "address": null,
+          "neighborhood": "Bastos",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Nossa Senhora Rosa Mística",
+          "address": null,
+          "neighborhood": "Paiolinho",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Santa Luzia",
+          "address": null,
+          "neighborhood": "Santa Luzia",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Nossa Senhora Aparecida",
+          "address": null,
+          "neighborhood": "Chaves",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São José",
+          "address": null,
+          "neighborhood": "Arieira",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Sagrado Coração de Jesus",
+          "address": null,
+          "neighborhood": "Chalet",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Santa Delfina",
+          "address": null,
+          "neighborhood": "Engenheiro Alberto Furtado",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São Luís da França",
+          "address": null,
+          "neighborhood": "Mineiros",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "santo-antonio-sapucaia",
+      "name": "Paróquia Santo Antônio",
+      "city": "Sapucaia",
+      "state": "RJ",
+      "neighborhood": "Centro",
+      "address": "Praça Barão de Ayuruoca. nº 80, Centro, Sapucaia – RJ",
+      "zipCode": "25880-000",
+      "phone": "(24) 99319-9026",
+      "email": "p.antsapucaia@yahoo.com.br",
+      "website": null,
+      "priestName": "Padre Luciano Simões",
+      "foundedYear": 1856,
+      "sources": [
+        {
+          "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+          "title": "Nossas Paroquias - Curia de Valenca",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Santo Antônio",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Senhora Sant’Ana",
+          "address": null,
+          "neighborhood": "Anta",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São José",
+          "address": null,
+          "neighborhood": "Bairro de São José",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Santa Tereza D’Ávila",
+          "address": null,
+          "neighborhood": "Benjamim Constant",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São Francisco de Assis",
+          "address": null,
+          "neighborhood": "Moreiras",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Nossa Senhora das Graças",
+          "address": null,
+          "neighborhood": "Santa Bárbara",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Santo Antônio",
+          "address": null,
+          "neighborhood": "Santo Antônio de Vista Alegre",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São João Batista",
+          "address": null,
+          "neighborhood": "São João",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São Sebastião",
+          "address": null,
+          "neighborhood": "Sapucaia de Minas",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São José (Serra Morena)",
+          "address": null,
+          "neighborhood": "Serra Morena",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Santa Tereza D’ávila (Benjamin)",
+          "address": null,
+          "neighborhood": "Benjamin",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "santo-antonio-da-estiva-miguel-pereira",
+      "name": "Paróquia Santo Antônio da Estiva",
+      "city": "Miguel Pereira",
+      "state": "RJ",
+      "neighborhood": "Centro",
+      "address": "Av. da Paz, 70, Centro, Miguel Pereira – RJ",
+      "zipCode": "26900-000",
+      "phone": "(24) 2484-4306",
+      "email": "paroquiasantoantoniomp@yahoo.com.br",
+      "website": null,
+      "priestName": "Padre Carlos Alberto Nascimento Barbosa",
+      "foundedYear": 1953,
+      "sources": [
+        {
+          "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+          "title": "Nossas Paroquias - Curia de Valenca",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Santo Antônio da Estiva",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São José Operário",
+          "address": null,
+          "neighborhood": "Praça da Ponte",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Santa Luzia",
+          "address": null,
+          "neighborhood": "Ramada",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Santa Luzia (Vale das Princesas (Facão))",
+          "address": null,
+          "neighborhood": "Vale das Princesas (Facão)",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Nossa Senhora da Piedade",
+          "address": null,
+          "neighborhood": "Vera Cruz",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Lagoinho",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São Judas Tadeu",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Conceição",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "santo-antonio-valenca",
+      "name": "Paróquia Santo Antônio",
+      "city": "Valença",
+      "state": "RJ",
+      "neighborhood": "Conservatória",
+      "address": "Rua Santo Antônio, 07 , Conservatória – Valença – RJ",
+      "zipCode": "27630-000",
+      "phone": "(24) 2438-1406",
+      "email": "igrejadeconservatoria@bol.com.br",
+      "website": null,
+      "priestName": "Padre Damião da Cruz",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+          "title": "Nossas Paroquias - Curia de Valenca",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Santo Antônio",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São Pedro",
+          "address": null,
+          "neighborhood": "Pedro Carlos",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Menino Jesus de Praga",
+          "address": null,
+          "neighborhood": "Desvio Gomes",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Sagrada Família",
+          "address": null,
+          "neighborhood": "Loteamento Rancho Novo",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Nossa Senhora Aparecida",
+          "address": null,
+          "neighborhood": "Raia",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Santa Cruz / Santa Rita",
+          "address": null,
+          "neighborhood": "Santa Cruz e Sabão",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São Francisco de Assis",
+          "address": null,
+          "neighborhood": "Jardim Seresta",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São João Batista",
+          "address": null,
+          "neighborhood": "Corte de Pedra",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Santo Antônio",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=RaYMU",
+              "title": "Horário de Missa (agregador) - ficha atualizada em 09/07/2013",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Santo Antônio",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=RaYMU",
+              "title": "Horário de Missa (agregador) - ficha atualizada em 09/07/2013",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "santo-antonio-dos-pobres-paraiba-do-sul",
+      "name": "Paróquia Santo Antônio dos Pobres",
+      "city": "Paraíba do Sul",
+      "state": "RJ",
+      "neighborhood": null,
+      "address": "Av. A. J. Miranda de Carvalho, s/n, Paraíba do Sul – RJ",
+      "zipCode": "25850-000",
+      "phone": "(24) 2263-6126",
+      "email": "paroquiasantoantoniodospobres@yahoo.com.br",
+      "website": null,
+      "priestName": "Padre Waldir de Paula Felipe",
+      "foundedYear": 1855,
+      "sources": [
+        {
+          "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+          "title": "Nossas Paroquias - Curia de Valenca",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Santo Antônio dos Pobres",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Santa Edwiges",
+          "address": null,
+          "neighborhood": "Bela Vista",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São Sebastião",
+          "address": null,
+          "neighborhood": "Fernando",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Nossa Senhora Aparecida",
+          "address": null,
+          "neighborhood": "Queima-Sangue",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Nossa Senhora da Conceição",
+          "address": null,
+          "neighborhood": "Marrecas",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Nossa Senhora Aparecida (Inema)",
+          "address": null,
+          "neighborhood": "Inema",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Nossa Senhora da Glória",
+          "address": null,
+          "neighborhood": "Werneck",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Nossa Senhora Aparecida (Jataí)",
+          "address": null,
+          "neighborhood": "Jataí",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Imaculado Coração de Maria",
+          "address": null,
+          "neighborhood": "Cavarú",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Sagrada Família de Nazaré",
+          "address": null,
+          "neighborhood": "Andrade Costa",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Nossa Senhora da Glória (Fazenda da Glória)",
+          "address": null,
+          "neighborhood": "Fazenda da Glória",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "sao-jose-operario-tres-rios",
+      "name": "Paróquia São José Operário",
+      "city": "Três Rios",
+      "state": "RJ",
+      "neighborhood": "Triângulo",
+      "address": "Rua São José, 1628, Triângulo, Três Rios – RJ",
+      "zipCode": "22820-150",
+      "phone": "(24) 2252-1504",
+      "email": "paroquia@saojoseoperariotresrios.com",
+      "website": null,
+      "priestName": "Padre Medoro de Oliveira Souza Neto",
+      "foundedYear": 1965,
+      "sources": [
+        {
+          "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+          "title": "Nossas Paroquias - Curia de Valenca",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São José Operário",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Nossa Senhora de Fátima",
+          "address": null,
+          "neighborhood": "Moura Brasil",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Nossa Senhora Aparecida",
+          "address": null,
+          "neighborhood": "Pilões",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Santa Rita de Cássia",
+          "address": null,
+          "neighborhood": "Ponte das Garças",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Santo Antônio",
+          "address": null,
+          "neighborhood": "Ponto Azul",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São José Operário",
+          "dayOfWeek": 0,
+          "time": "08:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=IXnb5",
+              "title": "Horário de Missa (agregador) - ficha atualizada em 07/07/2013",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São José Operário",
+          "dayOfWeek": 6,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=IXnb5",
+              "title": "Horário de Missa (agregador) - ficha atualizada em 07/07/2013",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "sao-pedro-e-sao-paulo-paraiba-do-sul",
+      "name": "Paróquia São Pedro e São Paulo",
+      "city": "Paraíba do Sul",
+      "state": "RJ",
+      "neighborhood": "Centro",
+      "address": "Praça São Pedro e São Paulo, s/n, Paraíba do Sul – RJ",
+      "zipCode": "25850-000",
+      "phone": "(24) 2263-1040",
+      "email": "paroquiaspsp2017@gmail.com",
+      "website": null,
+      "priestName": "Frei Michel da Cruz Alves dos Santos, OFM Conv.",
+      "foundedYear": 1860,
+      "sources": [
+        {
+          "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+          "title": "Nossas Paroquias - Curia de Valenca",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Pedro e São Paulo",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São Geraldo",
+          "address": null,
+          "neighborhood": "Barão de Angra",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São Cristóvão",
+          "address": null,
+          "neighborhood": "Limoeiro",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Santa Rita de Cássia",
+          "address": null,
+          "neighborhood": "Parque Marone",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Sant’Ana",
+          "address": null,
+          "neighborhood": "Lava Pés",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Rosário",
+          "address": null,
+          "neighborhood": "Centro",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Santa Josefa",
+          "address": null,
+          "neighborhood": "Liberdade",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São José Operário",
+          "address": null,
+          "neighborhood": "Vieira Cortez",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São José",
+          "address": null,
+          "neighborhood": "Loteamento",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São Francisco",
+          "address": null,
+          "neighborhood": "Fazendo Ubá",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Santo Antônio",
+          "address": null,
+          "neighborhood": "Andrade Pinto",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São Pedro e São Paulo",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=urY0c",
+              "title": "Horário de Missa (agregador) - ficha atualizada em 24/08/2016",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Pedro e São Paulo",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=urY0c",
+              "title": "Horário de Missa (agregador) - ficha atualizada em 24/08/2016",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Pedro e São Paulo",
+          "dayOfWeek": 0,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=urY0c",
+              "title": "Horário de Missa (agregador) - ficha atualizada em 24/08/2016",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Pedro e São Paulo",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=urY0c",
+              "title": "Horário de Missa (agregador) - ficha atualizada em 24/08/2016",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Pedro e São Paulo",
+          "dayOfWeek": 2,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=urY0c",
+              "title": "Horário de Missa (agregador) - ficha atualizada em 24/08/2016",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Pedro e São Paulo",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=urY0c",
+              "title": "Horário de Missa (agregador) - ficha atualizada em 24/08/2016",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Pedro e São Paulo",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=urY0c",
+              "title": "Horário de Missa (agregador) - ficha atualizada em 24/08/2016",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Pedro e São Paulo",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=urY0c",
+              "title": "Horário de Missa (agregador) - ficha atualizada em 24/08/2016",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Pedro e São Paulo",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=urY0c",
+              "title": "Horário de Missa (agregador) - ficha atualizada em 24/08/2016",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "sao-sebastiao-tres-rios",
+      "name": "Paróquia São Sebastião",
+      "city": "Três Rios",
+      "state": "RJ",
+      "neighborhood": "Centro",
+      "address": "Rua Padre Conrado, 231, Centro, Três Rios – RJ",
+      "zipCode": "25804-080",
+      "phone": "(24) 2252-0555",
+      "email": "paroquiasaosebastiaotr@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Karel Kelalu, SVD",
+      "foundedYear": 1925,
+      "sources": [
+        {
+          "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+          "title": "Nossas Paroquias - Curia de Valenca",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Sebastião",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Nossa Senhora de Fátima",
+          "address": null,
+          "neighborhood": "Monte Castelo",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Nossa Senhora de Guadalupe",
+          "address": null,
+          "neighborhood": "Habitat",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Nossa Senhora das Graças",
+          "address": null,
+          "neighborhood": "Purys",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Nossa Senhora da Conceição",
+          "address": null,
+          "neighborhood": "Cantagalo",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Nossa Senhora Rainha da Paz",
+          "address": null,
+          "neighborhood": "Centro",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Nossa Senhora Aparecida",
+          "address": null,
+          "neighborhood": "Cantagalo",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Nossa Senhora da Piedade",
+          "address": null,
+          "neighborhood": "Cantagalo",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Nossa Senhora da Penha",
+          "address": null,
+          "neighborhood": "Centro",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Nossa Senhora do Rosário",
+          "address": null,
+          "neighborhood": "Cidade Nova",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Nossa Senhora da Rosa Mística",
+          "address": null,
+          "neighborhood": "Centro",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Santa Terezinha",
+          "address": null,
+          "neighborhood": "Santa Terezinha",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Santa Edwiges",
+          "address": null,
+          "neighborhood": "Cidade Nova",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Santa Bárbara",
+          "address": null,
+          "neighborhood": "Santa Terezinha",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Santa Rosa de Lima",
+          "address": null,
+          "neighborhood": "Cidade Nova",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São João Batista",
+          "address": null,
+          "neighborhood": "Caixa D’água",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São Francisco de Assis",
+          "address": null,
+          "neighborhood": "Purys",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Sagrado Coração de Jesus",
+          "address": null,
+          "neighborhood": "Cantagalo",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São João Paulo II",
+          "address": null,
+          "neighborhood": "Mirante Sul",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São Judas",
+          "address": null,
+          "neighborhood": "Centro",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Cristo Rei",
+          "address": null,
+          "neighborhood": "Boa União",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "sao-sebastiao-do-monte-d-ouro-valenca",
+      "name": "Paróquia São Sebastião do Monte d’Ouro",
+      "city": "Valença",
+      "state": "RJ",
+      "neighborhood": "Monte d’Ouro",
+      "address": "Rua Padre José de Albuquerque, 120, Monte D’ouro, Valença – RJ",
+      "zipCode": "27600-000",
+      "phone": "(24) 2452-7267",
+      "email": "pamontedouro@bol.com.br",
+      "website": null,
+      "priestName": "Padre Henrique Azevedo Garcia",
+      "foundedYear": 1955,
+      "sources": [
+        {
+          "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+          "title": "Nossas Paroquias - Curia de Valenca",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Sebastião do Monte D’ouro",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Santo Antônio",
+          "address": null,
+          "neighborhood": "Carambita",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São Cristóvão e Sant’Ana",
+          "address": null,
+          "neighborhood": "Jardim Valença",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Bom Pastor",
+          "address": null,
+          "neighborhood": "Dudu Lopes",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São José e Santa Luzia",
+          "address": null,
+          "neighborhood": "Passagem",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São José e Sagrada Família",
+          "address": null,
+          "neighborhood": "São José das Palmeiras",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Nossa Senhora da Conceição",
+          "address": null,
+          "neighborhood": "Matadouro",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Nossa Senhora de Fátima",
+          "address": null,
+          "neighborhood": "Bairro de Fátima",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "Comunidade itinerante"
+        },
+        {
+          "name": "Sagrado Coração de Maria",
+          "address": null,
+          "neighborhood": "Chácara Stivanin",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "Comunidade itinerante"
+        },
+        {
+          "name": "Santa Rita",
+          "address": null,
+          "neighborhood": "Alicácio/Barroso",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "Comunidade itinerante"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "sao-sebastiao-do-rio-bonito-valenca",
+      "name": "Paróquia São Sebastião do Rio Bonito",
+      "city": "Valença",
+      "state": "RJ",
+      "neighborhood": "Pentagna",
+      "address": "Praça da Matriz, s/n, Pentagna, Valença-RJ",
+      "zipCode": null,
+      "phone": "(24) 24527518",
+      "email": null,
+      "website": null,
+      "priestName": "Padre Rullian José Kopke Sarmento dos Santos",
+      "foundedYear": 1961,
+      "sources": [
+        {
+          "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+          "title": "Nossas Paroquias - Curia de Valenca",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Sebastião do Rio Bonito",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São João Batista",
+          "address": null,
+          "neighborhood": "João Bonito",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São Judas Tadeu",
+          "address": null,
+          "neighborhood": "Ponte Funda",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Nossa Senhora Aparecida",
+          "address": null,
+          "neighborhood": "Osório",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Nossa Senhora da Conceição",
+          "address": null,
+          "neighborhood": "Santa Inácia",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Nossa Senhora das Graças",
+          "address": null,
+          "neighborhood": "Harmonia",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Nossa Senhora da Conceição (Vargas)",
+          "address": null,
+          "neighborhood": "Vargas",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Nossa Senhora de Fátima",
+          "address": null,
+          "neighborhood": "Figueira",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São Francisco",
+          "address": null,
+          "neighborhood": "Cláudio",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "São Benedito",
+          "address": null,
+          "neighborhood": "Coroas",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Sagrado Coração de Jesus",
+          "address": null,
+          "neighborhood": "Fazenda de Coroas",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-da-conceicao-avelar-paty-do-alferes",
+      "name": "Paróquia Nossa Senhora da Conceição",
+      "city": "Paty do Alferes",
+      "state": "RJ",
+      "neighborhood": "Avelar",
+      "address": "Rua Irineu Avelar, 112, Centro, Avelar, Paty do Alferes – RJ",
+      "zipCode": "26980-000",
+      "phone": "(24) 2080-3785",
+      "email": "pnsdcavelar@gmail.com",
+      "website": null,
+      "priestName": "Padre Itamar Andrade Santos",
+      "foundedYear": 1984,
+      "sources": [
+        {
+          "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+          "title": "Nossas Paroquias - Curia de Valenca",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Comunidade Matriz de Nossa Senhora da Conceição",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Comunidade de São Sebastião da Granja",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Comunidade de Nossa Senhora de Fátima",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Comunidade de Nossa Senhora das Graças",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Comunidade de São Sebastião da Saudade",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Comunidade de Nossa Senhora aparecida",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Comunidade de Nossa Senhora da Conceição do Horizonte",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Capela de São José",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Capela de São Joaquim e Santana",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Capela de Nossa Senhora de Fátima da Colônia do Centro",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Capela de Nossa Senhora da Conceição da Fazenda das Antas",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Capela do Sagrado Coração de Jesus",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+              "title": "Nossas Paroquias - Curia de Valenca",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "santa-rita-de-cassia-vassouras",
+      "name": "Quase-paróquia Santa Rita de Cássia",
+      "city": "Vassouras",
+      "state": "RJ",
+      "neighborhood": "Madruga",
+      "address": "Praça Avelino Gomes, 25, Madruga, Vassouras – RJ",
+      "zipCode": "27700-000",
+      "phone": "(24) 2471-2942",
+      "email": "janthonius@uol.com.br",
+      "website": null,
+      "priestName": "José Antônio da Silva",
+      "foundedYear": 1988,
+      "sources": [
+        {
+          "url": "https://www.curiadevalenca.com.br/nossas-paroquias/",
+          "title": "Nossas Paroquias - Curia de Valenca",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-sebastiao-de-ferreiros-vassouras",
+      "name": "Paróquia São Sebastião de Ferreiros",
+      "city": "Vassouras",
+      "state": "RJ",
+      "neighborhood": "Ferreiros",
+      "address": "RJ-115",
+      "zipCode": "27705-000",
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.horariodemissa.com.br/igreja.php?k=9V2pg",
+          "title": "Horário de Missa (agregador) - ficha atualizada em 31/01/2013",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "baixa",
+      "communities": [],
+      "schedules": [],
+      "notes": "Nao consta na lista oficial da Curia de Valenca (11/09/2026); registrada apenas pelo agregador, com ficha de 2013. Pode ser paroquia real (o Anuario Pontificio 2024 conta 28) ou capela/comunidade da Paroquia Nossa Senhora da Conceicao de Vassouras. Precisa de validacao humana."
+    }
+  ],
+  "coverage": {
+    "parishesFound": 27,
+    "parishesExpected": 28,
+    "notes": "26 registros vieram da lista oficial \"Nossas Paróquias\" da Cúria de Valença (25 paróquias + 1 quase-paróquia), todos com endereço, CEP, telefone, pároco, data de criação e lista de comunidades. O Anuário Pontifício 2024 (catholic-hierarchy) conta 28 paróquias. A 27ª entrada (São Sebastião de Ferreiros, Vassouras) veio só do agregador e está como baixa. Duas igrejas próximas que o agregador atribui à região — N. Sra. da Conceição de Bemposta (Três Rios) e Sant'Ana de Inconfidência (Paraíba do Sul) — foram EXCLUÍDAS: pertencem à Diocese de Petrópolis. A diocese não publica horários de missa; os 43 horários vêm do agregador horariodemissa.com.br, com fichas de 2013–2016 (pré-pandemia), logo confiança baixa."
+  }
+}
