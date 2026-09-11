@@ -1,0 +1,4204 @@
+{
+ "diocese": {
+  "name": "Arquidiocese de Feira de Santana",
+  "type": "Arquidiocese",
+  "slug": "feira-de-santana",
+  "city": "Feira de Santana",
+  "state": "BA",
+  "address": null,
+  "zipCode": null,
+  "phone": null,
+  "email": null,
+  "website": "https://arquidiocese-fsa.org.br",
+  "bishopName": null,
+  "sources": [
+   {
+    "url": "https://arquidiocese-fsa.org.br",
+    "title": "Arquidiocese de Feira de Santana — site oficial",
+    "accessedAt": "2026-09-11"
+   },
+   {
+    "url": "https://arquidiocese-fsa.org.br/paroquias/",
+    "title": "Paróquias — Arquidiocese de Feira de Santana",
+    "accessedAt": "2026-09-11"
+   }
+  ],
+  "confidence": "alta"
+ },
+ "parishes": [
+  {
+   "slug": "senhora-santana-feira-de-santana",
+   "name": "Paróquia Senhora Sant'Ana",
+   "city": "Feira de Santana",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Pç Monsenhor Renato Galvão, s/n",
+   "zipCode": "44001-970",
+   "phone": "(75) 3623-0055",
+   "email": "paroquia@catedraldesantana.com.br",
+   "website": "https://www.catedraldesantana.com.br",
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://arquidiocese-fsa.org.br/paroquias/",
+     "title": "Paróquias — Arquidiocese de Feira de Santana",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Senhora Sant'Ana",
+     "address": "Pç Monsenhor Renato Galvão, s/n",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://arquidiocese-fsa.org.br/paroquias/",
+       "title": "Paróquias — Arquidiocese de Feira de Santana",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Senhora Sant'Ana",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": "matriz",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=Tswa0",
+       "title": "Horário de Missa — Catedral Metropolitana de Sant'Ana (dados de 17/02/2018)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Senhora Sant'Ana",
+     "dayOfWeek": 1,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=Tswa0",
+       "title": "Horário de Missa — Catedral Metropolitana de Sant'Ana (dados de 17/02/2018)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Senhora Sant'Ana",
+     "dayOfWeek": 2,
+     "time": "12:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=Tswa0",
+       "title": "Horário de Missa — Catedral Metropolitana de Sant'Ana (dados de 17/02/2018)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Senhora Sant'Ana",
+     "dayOfWeek": 2,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=Tswa0",
+       "title": "Horário de Missa — Catedral Metropolitana de Sant'Ana (dados de 17/02/2018)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Senhora Sant'Ana",
+     "dayOfWeek": 2,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=Tswa0",
+       "title": "Horário de Missa — Catedral Metropolitana de Sant'Ana (dados de 17/02/2018)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Senhora Sant'Ana",
+     "dayOfWeek": 3,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=Tswa0",
+       "title": "Horário de Missa — Catedral Metropolitana de Sant'Ana (dados de 17/02/2018)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Senhora Sant'Ana",
+     "dayOfWeek": 4,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=Tswa0",
+       "title": "Horário de Missa — Catedral Metropolitana de Sant'Ana (dados de 17/02/2018)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Senhora Sant'Ana",
+     "dayOfWeek": 5,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=Tswa0",
+       "title": "Horário de Missa — Catedral Metropolitana de Sant'Ana (dados de 17/02/2018)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Senhora Sant'Ana",
+     "dayOfWeek": 6,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": "Capela São Francisco de Assis (Dispensário Sant'Ana",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=Tswa0",
+       "title": "Horário de Missa — Catedral Metropolitana de Sant'Ana (dados de 17/02/2018)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Senhora Sant'Ana",
+     "dayOfWeek": 0,
+     "time": "10:00",
+     "type": "MASS",
+     "notes": "Primeiro Domingo",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=Tswa0",
+       "title": "Horário de Missa — Catedral Metropolitana de Sant'Ana (dados de 17/02/2018)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Senhora Sant'Ana",
+     "dayOfWeek": 0,
+     "time": "16:00",
+     "type": "MASS",
+     "notes": "Segundo Domingo / Com N Sra da Glória - Conj. Feira IV",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=Tswa0",
+       "title": "Horário de Missa — Catedral Metropolitana de Sant'Ana (dados de 17/02/2018)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Senhora Sant'Ana",
+     "dayOfWeek": 0,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": "Quarto Domingo / Capela Nossa Senhora do Perpétuo Socorro - Chácara São Cosme",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=Tswa0",
+       "title": "Horário de Missa — Catedral Metropolitana de Sant'Ana (dados de 17/02/2018)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Senhora Sant'Ana",
+     "dayOfWeek": 2,
+     "time": "15:30",
+     "type": "CONFESSION",
+     "notes": "às 17:00",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=Tswa0",
+       "title": "Horário de Missa — Catedral Metropolitana de Sant'Ana (dados de 17/02/2018)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Senhora Sant'Ana",
+     "dayOfWeek": 5,
+     "time": "15:30",
+     "type": "CONFESSION",
+     "notes": "às 17:00",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=Tswa0",
+       "title": "Horário de Missa — Catedral Metropolitana de Sant'Ana (dados de 17/02/2018)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Senhora Sant'Ana",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://buscamissa.com.br/paroquia/ba/feira-de-santana/catedral-metropolitana-de-sant-ana",
+       "title": "Horários de Missa — Catedral Metropolitana de Sant'Ana (BuscaMissa)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Senhora Sant'Ana",
+     "dayOfWeek": 0,
+     "time": "10:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://buscamissa.com.br/paroquia/ba/feira-de-santana/catedral-metropolitana-de-sant-ana",
+       "title": "Horários de Missa — Catedral Metropolitana de Sant'Ana (BuscaMissa)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Senhora Sant'Ana",
+     "dayOfWeek": 0,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://buscamissa.com.br/paroquia/ba/feira-de-santana/catedral-metropolitana-de-sant-ana",
+       "title": "Horários de Missa — Catedral Metropolitana de Sant'Ana (BuscaMissa)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Senhora Sant'Ana",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://buscamissa.com.br/paroquia/ba/feira-de-santana/catedral-metropolitana-de-sant-ana",
+       "title": "Horários de Missa — Catedral Metropolitana de Sant'Ana (BuscaMissa)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Senhora Sant'Ana",
+     "dayOfWeek": 1,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://buscamissa.com.br/paroquia/ba/feira-de-santana/catedral-metropolitana-de-sant-ana",
+       "title": "Horários de Missa — Catedral Metropolitana de Sant'Ana (BuscaMissa)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Senhora Sant'Ana",
+     "dayOfWeek": 2,
+     "time": "12:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://buscamissa.com.br/paroquia/ba/feira-de-santana/catedral-metropolitana-de-sant-ana",
+       "title": "Horários de Missa — Catedral Metropolitana de Sant'Ana (BuscaMissa)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Senhora Sant'Ana",
+     "dayOfWeek": 2,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://buscamissa.com.br/paroquia/ba/feira-de-santana/catedral-metropolitana-de-sant-ana",
+       "title": "Horários de Missa — Catedral Metropolitana de Sant'Ana (BuscaMissa)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Senhora Sant'Ana",
+     "dayOfWeek": 3,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://buscamissa.com.br/paroquia/ba/feira-de-santana/catedral-metropolitana-de-sant-ana",
+       "title": "Horários de Missa — Catedral Metropolitana de Sant'Ana (BuscaMissa)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Senhora Sant'Ana",
+     "dayOfWeek": 4,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://buscamissa.com.br/paroquia/ba/feira-de-santana/catedral-metropolitana-de-sant-ana",
+       "title": "Horários de Missa — Catedral Metropolitana de Sant'Ana (BuscaMissa)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Senhora Sant'Ana",
+     "dayOfWeek": 5,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://buscamissa.com.br/paroquia/ba/feira-de-santana/catedral-metropolitana-de-sant-ana",
+       "title": "Horários de Missa — Catedral Metropolitana de Sant'Ana (BuscaMissa)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Senhora Sant'Ana",
+     "dayOfWeek": 5,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://buscamissa.com.br/paroquia/ba/feira-de-santana/catedral-metropolitana-de-sant-ana",
+       "title": "Horários de Missa — Catedral Metropolitana de Sant'Ana (BuscaMissa)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "senhor-dos-passos-feira-de-santana",
+   "name": "Paróquia Santuário Senhor dos Passos",
+   "city": "Feira de Santana",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Av. Senhor dos Passos, s/n",
+   "zipCode": "44010-230",
+   "phone": "(75) 3623-1347",
+   "email": "pascom@paroquiasenhordospassos.com.br",
+   "website": "https://www.santuariosenhordospassos.com.br",
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://arquidiocese-fsa.org.br/paroquias/",
+     "title": "Paróquias — Arquidiocese de Feira de Santana",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Senhor dos Passos",
+     "address": "Av. Senhor dos Passos, s/n",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://arquidiocese-fsa.org.br/paroquias/",
+       "title": "Paróquias — Arquidiocese de Feira de Santana",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Senhor dos Passos",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": "Capela N Sra da Piedade e Com. Irmã Dulce",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=3rzqq",
+       "title": "Horário de Missa — Paróquia Senhor dos Passos (dados de 25/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Senhor dos Passos",
+     "dayOfWeek": 0,
+     "time": "08:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=3rzqq",
+       "title": "Horário de Missa — Paróquia Senhor dos Passos (dados de 25/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Senhor dos Passos",
+     "dayOfWeek": 0,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": "Capela N Sra da Piedade e Com. Irmã Dulce",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=3rzqq",
+       "title": "Horário de Missa — Paróquia Senhor dos Passos (dados de 25/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Senhor dos Passos",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=3rzqq",
+       "title": "Horário de Missa — Paróquia Senhor dos Passos (dados de 25/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Senhor dos Passos",
+     "dayOfWeek": 1,
+     "time": "08:30",
+     "type": "MASS",
+     "notes": "Capela N Sra da Piedade",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=3rzqq",
+       "title": "Horário de Missa — Paróquia Senhor dos Passos (dados de 25/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Senhor dos Passos",
+     "dayOfWeek": 1,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": "Capela N Sra da Piedade",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=3rzqq",
+       "title": "Horário de Missa — Paróquia Senhor dos Passos (dados de 25/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Senhor dos Passos",
+     "dayOfWeek": 2,
+     "time": "07:15",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=3rzqq",
+       "title": "Horário de Missa — Paróquia Senhor dos Passos (dados de 25/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Senhor dos Passos",
+     "dayOfWeek": 3,
+     "time": "07:15",
+     "type": "MASS",
+     "notes": "Capela N Sra da Piedade",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=3rzqq",
+       "title": "Horário de Missa — Paróquia Senhor dos Passos (dados de 25/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Senhor dos Passos",
+     "dayOfWeek": 3,
+     "time": "12:00",
+     "type": "MASS",
+     "notes": "Capela N Sra da Piedade",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=3rzqq",
+       "title": "Horário de Missa — Paróquia Senhor dos Passos (dados de 25/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Senhor dos Passos",
+     "dayOfWeek": 3,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": "Capela N Sra da Piedade",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=3rzqq",
+       "title": "Horário de Missa — Paróquia Senhor dos Passos (dados de 25/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Senhor dos Passos",
+     "dayOfWeek": 4,
+     "time": "07:15",
+     "type": "MASS",
+     "notes": "Capela N Sra da Piedade",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=3rzqq",
+       "title": "Horário de Missa — Paróquia Senhor dos Passos (dados de 25/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Senhor dos Passos",
+     "dayOfWeek": 4,
+     "time": "12:00",
+     "type": "MASS",
+     "notes": "Capela N Sra da Piedade",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=3rzqq",
+       "title": "Horário de Missa — Paróquia Senhor dos Passos (dados de 25/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Senhor dos Passos",
+     "dayOfWeek": 4,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": "Capela N Sra da Piedade",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=3rzqq",
+       "title": "Horário de Missa — Paróquia Senhor dos Passos (dados de 25/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Senhor dos Passos",
+     "dayOfWeek": 5,
+     "time": "07:15",
+     "type": "MASS",
+     "notes": "Capela N Sra da Piedade",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=3rzqq",
+       "title": "Horário de Missa — Paróquia Senhor dos Passos (dados de 25/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Senhor dos Passos",
+     "dayOfWeek": 5,
+     "time": "12:00",
+     "type": "MASS",
+     "notes": "Capela N Sra da Piedade",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=3rzqq",
+       "title": "Horário de Missa — Paróquia Senhor dos Passos (dados de 25/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Senhor dos Passos",
+     "dayOfWeek": 5,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": "Capela N Sra da Piedade",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=3rzqq",
+       "title": "Horário de Missa — Paróquia Senhor dos Passos (dados de 25/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Senhor dos Passos",
+     "dayOfWeek": 6,
+     "time": "07:15",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=3rzqq",
+       "title": "Horário de Missa — Paróquia Senhor dos Passos (dados de 25/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Senhor dos Passos",
+     "dayOfWeek": 6,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=3rzqq",
+       "title": "Horário de Missa — Paróquia Senhor dos Passos (dados de 25/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Senhor dos Passos",
+     "dayOfWeek": 1,
+     "time": "08:30",
+     "type": "CONFESSION",
+     "notes": "às 11:30",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=3rzqq",
+       "title": "Horário de Missa — Paróquia Senhor dos Passos (dados de 25/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Senhor dos Passos",
+     "dayOfWeek": 3,
+     "time": "08:30",
+     "type": "CONFESSION",
+     "notes": "às 11:30",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=3rzqq",
+       "title": "Horário de Missa — Paróquia Senhor dos Passos (dados de 25/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Senhor dos Passos",
+     "dayOfWeek": 4,
+     "time": "08:30",
+     "type": "CONFESSION",
+     "notes": "às 11:30",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=3rzqq",
+       "title": "Horário de Missa — Paróquia Senhor dos Passos (dados de 25/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Senhor dos Passos",
+     "dayOfWeek": 5,
+     "time": "08:30",
+     "type": "CONFESSION",
+     "notes": "às 11:30",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=3rzqq",
+       "title": "Horário de Missa — Paróquia Senhor dos Passos (dados de 25/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "santo-antonio-feira-de-santana",
+   "name": "Paróquia Santuário Santo Antônio",
+   "city": "Feira de Santana",
+   "state": "BA",
+   "neighborhood": "Capuchinhos",
+   "address": "Av. Presidente Dutra, s/n",
+   "zipCode": "44050-000",
+   "phone": "(75) 99703-6702",
+   "email": "psantoantonio@ig.com.br",
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://arquidiocese-fsa.org.br/paroquias/",
+     "title": "Paróquias — Arquidiocese de Feira de Santana",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Santo Antônio",
+     "address": "Av. Presidente Dutra, s/n",
+     "neighborhood": "Capuchinhos",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://arquidiocese-fsa.org.br/paroquias/",
+       "title": "Paróquias — Arquidiocese de Feira de Santana",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Santo Antônio",
+     "dayOfWeek": 0,
+     "time": "06:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=upF5R",
+       "title": "Horário de Missa — Paróquia Santo Antônio (dados de 25/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Santo Antônio",
+     "dayOfWeek": 0,
+     "time": "08:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=upF5R",
+       "title": "Horário de Missa — Paróquia Santo Antônio (dados de 25/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Santo Antônio",
+     "dayOfWeek": 0,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=upF5R",
+       "title": "Horário de Missa — Paróquia Santo Antônio (dados de 25/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Santo Antônio",
+     "dayOfWeek": 2,
+     "time": "06:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=upF5R",
+       "title": "Horário de Missa — Paróquia Santo Antônio (dados de 25/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Santo Antônio",
+     "dayOfWeek": 2,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=upF5R",
+       "title": "Horário de Missa — Paróquia Santo Antônio (dados de 25/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Santo Antônio",
+     "dayOfWeek": 3,
+     "time": "06:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=upF5R",
+       "title": "Horário de Missa — Paróquia Santo Antônio (dados de 25/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Santo Antônio",
+     "dayOfWeek": 3,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=upF5R",
+       "title": "Horário de Missa — Paróquia Santo Antônio (dados de 25/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Santo Antônio",
+     "dayOfWeek": 4,
+     "time": "06:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=upF5R",
+       "title": "Horário de Missa — Paróquia Santo Antônio (dados de 25/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Santo Antônio",
+     "dayOfWeek": 4,
+     "time": "20:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=upF5R",
+       "title": "Horário de Missa — Paróquia Santo Antônio (dados de 25/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Santo Antônio",
+     "dayOfWeek": 5,
+     "time": "06:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=upF5R",
+       "title": "Horário de Missa — Paróquia Santo Antônio (dados de 25/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Santo Antônio",
+     "dayOfWeek": 6,
+     "time": "06:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=upF5R",
+       "title": "Horário de Missa — Paróquia Santo Antônio (dados de 25/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "cristo-redentor-feira-de-santana",
+   "name": "Paróquia Cristo Redentor",
+   "city": "Feira de Santana",
+   "state": "BA",
+   "neighborhood": "Brasília",
+   "address": "Rua Lopes Rodrigues, 10",
+   "zipCode": "44062-360",
+   "phone": "(75) 3223-4423",
+   "email": "pcredentor@oi.com.br",
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://arquidiocese-fsa.org.br/paroquias/",
+     "title": "Paróquias — Arquidiocese de Feira de Santana",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Cristo Redentor",
+     "address": "Rua Lopes Rodrigues, 10",
+     "neighborhood": "Brasília",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://arquidiocese-fsa.org.br/paroquias/",
+       "title": "Paróquias — Arquidiocese de Feira de Santana",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Cristo Redentor",
+     "dayOfWeek": 0,
+     "time": "07:30",
+     "type": "MASS",
+     "notes": "Com. N. Sra. do Rosário e Com. Cristo Operário",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=0cZbK",
+       "title": "Horário de Missa — Paróquia Cristo Redentor (dados de 26/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Cristo Redentor",
+     "dayOfWeek": 0,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": "Com. N. Sra. do Rosário e Com. Cristo Operário",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=0cZbK",
+       "title": "Horário de Missa — Paróquia Cristo Redentor (dados de 26/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Cristo Redentor",
+     "dayOfWeek": 3,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=0cZbK",
+       "title": "Horário de Missa — Paróquia Cristo Redentor (dados de 26/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Cristo Redentor",
+     "dayOfWeek": 4,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": "Adoração ao Santíssimo",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=0cZbK",
+       "title": "Horário de Missa — Paróquia Cristo Redentor (dados de 26/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Cristo Redentor",
+     "dayOfWeek": 6,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "Com. Sagrada Família",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=0cZbK",
+       "title": "Horário de Missa — Paróquia Cristo Redentor (dados de 26/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-de-fatima-feira-de-santana",
+   "name": "Paróquia Nossa Senhora de Fátima",
+   "city": "Feira de Santana",
+   "state": "BA",
+   "neighborhood": "Caseb",
+   "address": "Av. João Durval Carneiro, s/n",
+   "zipCode": "44045-000",
+   "phone": "(75) 3623-1107",
+   "email": "paroquiacaseb@gmail.com",
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://arquidiocese-fsa.org.br/paroquias/",
+     "title": "Paróquias — Arquidiocese de Feira de Santana",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora de Fátima",
+     "address": "Av. João Durval Carneiro, s/n",
+     "neighborhood": "Caseb",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://arquidiocese-fsa.org.br/paroquias/",
+       "title": "Paróquias — Arquidiocese de Feira de Santana",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Nossa Senhora de Fátima",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=RYFRJ",
+       "title": "Horário de Missa — Paróquia Nossa Senhora de Fátima (dados de 18/01/2015)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora de Fátima",
+     "dayOfWeek": 0,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=RYFRJ",
+       "title": "Horário de Missa — Paróquia Nossa Senhora de Fátima (dados de 18/01/2015)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora de Fátima",
+     "dayOfWeek": 0,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=RYFRJ",
+       "title": "Horário de Missa — Paróquia Nossa Senhora de Fátima (dados de 18/01/2015)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora de Fátima",
+     "dayOfWeek": 2,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=RYFRJ",
+       "title": "Horário de Missa — Paróquia Nossa Senhora de Fátima (dados de 18/01/2015)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora de Fátima",
+     "dayOfWeek": 2,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=RYFRJ",
+       "title": "Horário de Missa — Paróquia Nossa Senhora de Fátima (dados de 18/01/2015)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora de Fátima",
+     "dayOfWeek": 3,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=RYFRJ",
+       "title": "Horário de Missa — Paróquia Nossa Senhora de Fátima (dados de 18/01/2015)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora de Fátima",
+     "dayOfWeek": 3,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=RYFRJ",
+       "title": "Horário de Missa — Paróquia Nossa Senhora de Fátima (dados de 18/01/2015)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora de Fátima",
+     "dayOfWeek": 4,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=RYFRJ",
+       "title": "Horário de Missa — Paróquia Nossa Senhora de Fátima (dados de 18/01/2015)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora de Fátima",
+     "dayOfWeek": 4,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=RYFRJ",
+       "title": "Horário de Missa — Paróquia Nossa Senhora de Fátima (dados de 18/01/2015)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora de Fátima",
+     "dayOfWeek": 5,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=RYFRJ",
+       "title": "Horário de Missa — Paróquia Nossa Senhora de Fátima (dados de 18/01/2015)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora de Fátima",
+     "dayOfWeek": 5,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=RYFRJ",
+       "title": "Horário de Missa — Paróquia Nossa Senhora de Fátima (dados de 18/01/2015)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora de Fátima",
+     "dayOfWeek": 6,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=RYFRJ",
+       "title": "Horário de Missa — Paróquia Nossa Senhora de Fátima (dados de 18/01/2015)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora de Fátima",
+     "dayOfWeek": 4,
+     "time": "15:00",
+     "type": "CONFESSION",
+     "notes": "às 17:00",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=RYFRJ",
+       "title": "Horário de Missa — Paróquia Nossa Senhora de Fátima (dados de 18/01/2015)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-do-carmo-feira-de-santana",
+   "name": "Paróquia Nossa Senhora do Carmo",
+   "city": "Feira de Santana",
+   "state": "BA",
+   "neighborhood": "Serraria Brasil",
+   "address": "Rua Vasco Filho, s/n",
+   "zipCode": "40301-110",
+   "phone": null,
+   "email": "sec.paroquiadocarmo@gmail.com",
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://arquidiocese-fsa.org.br/paroquias/",
+     "title": "Paróquias — Arquidiocese de Feira de Santana",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora do Carmo",
+     "address": "Rua Vasco Filho, s/n",
+     "neighborhood": "Serraria Brasil",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://arquidiocese-fsa.org.br/paroquias/",
+       "title": "Paróquias — Arquidiocese de Feira de Santana",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "sao-joao-xxiii-feira-de-santana",
+   "name": "Paróquia São João XXIII",
+   "city": "Feira de Santana",
+   "state": "BA",
+   "neighborhood": "SIM",
+   "address": "Rua Artêmia Pires Freitas, 10.570",
+   "zipCode": "44085-370",
+   "phone": "(75) 99906-1788",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://arquidiocese-fsa.org.br/paroquias/",
+     "title": "Paróquias — Arquidiocese de Feira de Santana",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz São João XXIII",
+     "address": "Rua Artêmia Pires Freitas, 10.570",
+     "neighborhood": "SIM",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://arquidiocese-fsa.org.br/paroquias/",
+       "title": "Paróquias — Arquidiocese de Feira de Santana",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "senhor-do-bonfim-feira-de-santana",
+   "name": "Paróquia Senhor do Bonfim",
+   "city": "Feira de Santana",
+   "state": "BA",
+   "neighborhood": ",",
+   "address": "Rua Perolina Angélica, 294",
+   "zipCode": "44022-032",
+   "phone": "(75) 3221-4255",
+   "email": "psbonfimfsa@hotmail.com",
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://arquidiocese-fsa.org.br/paroquias/",
+     "title": "Paróquias — Arquidiocese de Feira de Santana",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Senhor do Bonfim",
+     "address": "Rua Perolina Angélica, 294",
+     "neighborhood": ",",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://arquidiocese-fsa.org.br/paroquias/",
+       "title": "Paróquias — Arquidiocese de Feira de Santana",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Senhor do Bonfim",
+     "dayOfWeek": 0,
+     "time": "07:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://buscamissa.com.br/paroquia/ba/feira-de-santana/santuario-senhor-do-bonfim",
+       "title": "Horários de Missa — Santuário Senhor do Bonfim (BuscaMissa)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Senhor do Bonfim",
+     "dayOfWeek": 0,
+     "time": "10:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://buscamissa.com.br/paroquia/ba/feira-de-santana/santuario-senhor-do-bonfim",
+       "title": "Horários de Missa — Santuário Senhor do Bonfim (BuscaMissa)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Senhor do Bonfim",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://buscamissa.com.br/paroquia/ba/feira-de-santana/santuario-senhor-do-bonfim",
+       "title": "Horários de Missa — Santuário Senhor do Bonfim (BuscaMissa)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Senhor do Bonfim",
+     "dayOfWeek": 1,
+     "time": "06:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://buscamissa.com.br/paroquia/ba/feira-de-santana/santuario-senhor-do-bonfim",
+       "title": "Horários de Missa — Santuário Senhor do Bonfim (BuscaMissa)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Senhor do Bonfim",
+     "dayOfWeek": 2,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://buscamissa.com.br/paroquia/ba/feira-de-santana/santuario-senhor-do-bonfim",
+       "title": "Horários de Missa — Santuário Senhor do Bonfim (BuscaMissa)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Senhor do Bonfim",
+     "dayOfWeek": 3,
+     "time": "18:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://buscamissa.com.br/paroquia/ba/feira-de-santana/santuario-senhor-do-bonfim",
+       "title": "Horários de Missa — Santuário Senhor do Bonfim (BuscaMissa)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Senhor do Bonfim",
+     "dayOfWeek": 4,
+     "time": "12:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://buscamissa.com.br/paroquia/ba/feira-de-santana/santuario-senhor-do-bonfim",
+       "title": "Horários de Missa — Santuário Senhor do Bonfim (BuscaMissa)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Senhor do Bonfim",
+     "dayOfWeek": 5,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://buscamissa.com.br/paroquia/ba/feira-de-santana/santuario-senhor-do-bonfim",
+       "title": "Horários de Missa — Santuário Senhor do Bonfim (BuscaMissa)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Senhor do Bonfim",
+     "dayOfWeek": 6,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://buscamissa.com.br/paroquia/ba/feira-de-santana/santuario-senhor-do-bonfim",
+       "title": "Horários de Missa — Santuário Senhor do Bonfim (BuscaMissa)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Senhor do Bonfim",
+     "dayOfWeek": 6,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://buscamissa.com.br/paroquia/ba/feira-de-santana/santuario-senhor-do-bonfim",
+       "title": "Horários de Missa — Santuário Senhor do Bonfim (BuscaMissa)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-do-perpetuo-socorro-feira-de-santana",
+   "name": "Paróquia Nossa Senhora do Perpétuo Socorro",
+   "city": "Feira de Santana",
+   "state": "BA",
+   "neighborhood": "Tomba",
+   "address": "Praça Macário Barreto, 35",
+   "zipCode": "44063-260",
+   "phone": "(75) 3622-2184",
+   "email": "paroquiadotomba@ig.com.br",
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://arquidiocese-fsa.org.br/paroquias/",
+     "title": "Paróquias — Arquidiocese de Feira de Santana",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora do Perpétuo Socorro",
+     "address": "Praça Macário Barreto, 35",
+     "neighborhood": "Tomba",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://arquidiocese-fsa.org.br/paroquias/",
+       "title": "Paróquias — Arquidiocese de Feira de Santana",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=iOvEE",
+       "title": "Horário de Missa — Paróquia Nossa Senhora do Perpétuo Socorro (dados de 25/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=iOvEE",
+       "title": "Horário de Missa — Paróquia Nossa Senhora do Perpétuo Socorro (dados de 25/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+     "dayOfWeek": 2,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=iOvEE",
+       "title": "Horário de Missa — Paróquia Nossa Senhora do Perpétuo Socorro (dados de 25/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+     "dayOfWeek": 4,
+     "time": "11:00",
+     "type": "MASS",
+     "notes": "Adoração e Missa da Misercórdia",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=iOvEE",
+       "title": "Horário de Missa — Paróquia Nossa Senhora do Perpétuo Socorro (dados de 25/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+     "dayOfWeek": 5,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=iOvEE",
+       "title": "Horário de Missa — Paróquia Nossa Senhora do Perpétuo Socorro (dados de 25/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+     "dayOfWeek": 0,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": "Primeiro Domingo / Capela Nossa Senhora das Graças - Tamandarí",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=iOvEE",
+       "title": "Horário de Missa — Paróquia Nossa Senhora do Perpétuo Socorro (dados de 25/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+     "dayOfWeek": 0,
+     "time": "09:00",
+     "type": "MASS",
+     "notes": "Segundo Domingo / Capela São Camilo - Liberdade",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=iOvEE",
+       "title": "Horário de Missa — Paróquia Nossa Senhora do Perpétuo Socorro (dados de 25/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+     "dayOfWeek": 0,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": "Terceiro Domingo / Capela Nossa Senhora das Graças - Tamandarí",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=iOvEE",
+       "title": "Horário de Missa — Paróquia Nossa Senhora do Perpétuo Socorro (dados de 25/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+     "dayOfWeek": 0,
+     "time": "09:00",
+     "type": "MASS",
+     "notes": "Quarto Domingo / Capela São Camilo - Liberdade",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=iOvEE",
+       "title": "Horário de Missa — Paróquia Nossa Senhora do Perpétuo Socorro (dados de 25/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+     "dayOfWeek": 6,
+     "time": "06:00",
+     "type": "MASS",
+     "notes": "Primeiro Sábado / Missa do Movimento Sacerdotal Mariano",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=iOvEE",
+       "title": "Horário de Missa — Paróquia Nossa Senhora do Perpétuo Socorro (dados de 25/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+     "dayOfWeek": 2,
+     "time": "16:00",
+     "type": "CONFESSION",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=iOvEE",
+       "title": "Horário de Missa — Paróquia Nossa Senhora do Perpétuo Socorro (dados de 25/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+     "dayOfWeek": 3,
+     "time": "16:00",
+     "type": "CONFESSION",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=iOvEE",
+       "title": "Horário de Missa — Paróquia Nossa Senhora do Perpétuo Socorro (dados de 25/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+     "dayOfWeek": 4,
+     "time": "16:00",
+     "type": "CONFESSION",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=iOvEE",
+       "title": "Horário de Missa — Paróquia Nossa Senhora do Perpétuo Socorro (dados de 25/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+     "dayOfWeek": 5,
+     "time": "16:00",
+     "type": "CONFESSION",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=iOvEE",
+       "title": "Horário de Missa — Paróquia Nossa Senhora do Perpétuo Socorro (dados de 25/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "santa-clara-de-assis-feira-de-santana",
+   "name": "Paróquia Santa Clara de Assis",
+   "city": "Feira de Santana",
+   "state": "BA",
+   "neighborhood": "Panorama",
+   "address": "Av. Amado Bahia, 2015",
+   "zipCode": "44052-360",
+   "phone": "(75) 3616-4126",
+   "email": "psca.fsa@gmail.com",
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://arquidiocese-fsa.org.br/paroquias/",
+     "title": "Paróquias — Arquidiocese de Feira de Santana",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Santa Clara de Assis",
+     "address": "Av. Amado Bahia, 2015",
+     "neighborhood": "Panorama",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://arquidiocese-fsa.org.br/paroquias/",
+       "title": "Paróquias — Arquidiocese de Feira de Santana",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-aparecida-feira-de-santana",
+   "name": "Paróquia Nossa Senhora Aparecida",
+   "city": "Feira de Santana",
+   "state": "BA",
+   "neighborhood": "Conjunto Feira IX",
+   "address": "Rua A, s/ n",
+   "zipCode": "44017-680",
+   "phone": "(75) 3623-5233",
+   "email": "senhoraaparecida84@gmail.com",
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://arquidiocese-fsa.org.br/paroquias/",
+     "title": "Paróquias — Arquidiocese de Feira de Santana",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora Aparecida",
+     "address": "Rua A, s/ n",
+     "neighborhood": "Conjunto Feira IX",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://arquidiocese-fsa.org.br/paroquias/",
+       "title": "Paróquias — Arquidiocese de Feira de Santana",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "santissima-trindade-feira-de-santana",
+   "name": "Paróquia Santíssima Trindade",
+   "city": "Feira de Santana",
+   "state": "BA",
+   "neighborhood": "D – Conjunto Feira X",
+   "address": "Rua A, 76",
+   "zipCode": "44085-000",
+   "phone": "(75) 3623-6638",
+   "email": "paroquiasstrindade10@gmail.com",
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://arquidiocese-fsa.org.br/paroquias/",
+     "title": "Paróquias — Arquidiocese de Feira de Santana",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Santíssima Trindade",
+     "address": "Rua A, 76",
+     "neighborhood": "D – Conjunto Feira X",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://arquidiocese-fsa.org.br/paroquias/",
+       "title": "Paróquias — Arquidiocese de Feira de Santana",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Santíssima Trindade",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=gBkGN",
+       "title": "Horário de Missa — Paróquia Santíssima Trindade (dados de 21/06/2014)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Santíssima Trindade",
+     "dayOfWeek": 0,
+     "time": "09:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=gBkGN",
+       "title": "Horário de Missa — Paróquia Santíssima Trindade (dados de 21/06/2014)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Santíssima Trindade",
+     "dayOfWeek": 0,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=gBkGN",
+       "title": "Horário de Missa — Paróquia Santíssima Trindade (dados de 21/06/2014)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Santíssima Trindade",
+     "dayOfWeek": 2,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=gBkGN",
+       "title": "Horário de Missa — Paróquia Santíssima Trindade (dados de 21/06/2014)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Santíssima Trindade",
+     "dayOfWeek": 3,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=gBkGN",
+       "title": "Horário de Missa — Paróquia Santíssima Trindade (dados de 21/06/2014)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Santíssima Trindade",
+     "dayOfWeek": 4,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=gBkGN",
+       "title": "Horário de Missa — Paróquia Santíssima Trindade (dados de 21/06/2014)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Santíssima Trindade",
+     "dayOfWeek": 5,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=gBkGN",
+       "title": "Horário de Missa — Paróquia Santíssima Trindade (dados de 21/06/2014)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "imaculada-conceicao-feira-de-santana",
+   "name": "Paróquia Imaculada Conceição",
+   "city": "Feira de Santana",
+   "state": "BA",
+   "neighborhood": "Conceição I",
+   "address": "Rua Calamar, 531",
+   "zipCode": "44040-160",
+   "phone": "(75) 3487-7105",
+   "email": "imaculadaconceicaofsa@gmail.com",
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://arquidiocese-fsa.org.br/paroquias/",
+     "title": "Paróquias — Arquidiocese de Feira de Santana",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Imaculada Conceição",
+     "address": "Rua Calamar, 531",
+     "neighborhood": "Conceição I",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://arquidiocese-fsa.org.br/paroquias/",
+       "title": "Paróquias — Arquidiocese de Feira de Santana",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "sao-jose-operario-feira-de-santana",
+   "name": "Paróquia São José Operário",
+   "city": "Feira de Santana",
+   "state": "BA",
+   "neighborhood": "Campo Limpo",
+   "address": "Praça Duque de Caxias, s/n",
+   "zipCode": "44023-110",
+   "phone": "(75) 8844-5456",
+   "email": "psjoperario@hotmail.com",
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://arquidiocese-fsa.org.br/paroquias/",
+     "title": "Paróquias — Arquidiocese de Feira de Santana",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz São José Operário",
+     "address": "Praça Duque de Caxias, s/n",
+     "neighborhood": "Campo Limpo",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://arquidiocese-fsa.org.br/paroquias/",
+       "title": "Paróquias — Arquidiocese de Feira de Santana",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-das-gracas-feira-de-santana",
+   "name": "Paróquia Nossa Senhora das Graças",
+   "city": "Feira de Santana",
+   "state": "BA",
+   "neighborhood": "Cidade Nova",
+   "address": "Rua Pelé, s/n",
+   "zipCode": "44032-539",
+   "phone": "(75) 3224-1436",
+   "email": "p.nsg@ig.com.br",
+   "website": "https://www.senhoradasgracas.com.br",
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://arquidiocese-fsa.org.br/paroquias/",
+     "title": "Paróquias — Arquidiocese de Feira de Santana",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora das Graças",
+     "address": "Rua Pelé, s/n",
+     "neighborhood": "Cidade Nova",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://arquidiocese-fsa.org.br/paroquias/",
+       "title": "Paróquias — Arquidiocese de Feira de Santana",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Nossa Senhora das Graças",
+     "dayOfWeek": 0,
+     "time": "09:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=w8WRG",
+       "title": "Horário de Missa — Paróquia Nossa Senhora das Graças (dados de 26/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora das Graças",
+     "dayOfWeek": 0,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=w8WRG",
+       "title": "Horário de Missa — Paróquia Nossa Senhora das Graças (dados de 26/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora das Graças",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=w8WRG",
+       "title": "Horário de Missa — Paróquia Nossa Senhora das Graças (dados de 26/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora das Graças",
+     "dayOfWeek": 1,
+     "time": "06:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=w8WRG",
+       "title": "Horário de Missa — Paróquia Nossa Senhora das Graças (dados de 26/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora das Graças",
+     "dayOfWeek": 1,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=w8WRG",
+       "title": "Horário de Missa — Paróquia Nossa Senhora das Graças (dados de 26/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora das Graças",
+     "dayOfWeek": 2,
+     "time": "06:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=w8WRG",
+       "title": "Horário de Missa — Paróquia Nossa Senhora das Graças (dados de 26/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora das Graças",
+     "dayOfWeek": 2,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=w8WRG",
+       "title": "Horário de Missa — Paróquia Nossa Senhora das Graças (dados de 26/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora das Graças",
+     "dayOfWeek": 3,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=w8WRG",
+       "title": "Horário de Missa — Paróquia Nossa Senhora das Graças (dados de 26/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora das Graças",
+     "dayOfWeek": 4,
+     "time": "06:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=w8WRG",
+       "title": "Horário de Missa — Paróquia Nossa Senhora das Graças (dados de 26/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora das Graças",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=w8WRG",
+       "title": "Horário de Missa — Paróquia Nossa Senhora das Graças (dados de 26/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora das Graças",
+     "dayOfWeek": 5,
+     "time": "06:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=w8WRG",
+       "title": "Horário de Missa — Paróquia Nossa Senhora das Graças (dados de 26/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora das Graças",
+     "dayOfWeek": 5,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=w8WRG",
+       "title": "Horário de Missa — Paróquia Nossa Senhora das Graças (dados de 26/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora das Graças",
+     "dayOfWeek": 6,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=w8WRG",
+       "title": "Horário de Missa — Paróquia Nossa Senhora das Graças (dados de 26/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora das Graças",
+     "dayOfWeek": 0,
+     "time": "09:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://buscamissa.com.br/paroquia/ba/feira-de-santana/paroquia-nossa-senhora-das-gracas",
+       "title": "Horários de Missa — Paróquia Nossa Senhora das Graças (BuscaMissa)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Nossa Senhora das Graças",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://buscamissa.com.br/paroquia/ba/feira-de-santana/paroquia-nossa-senhora-das-gracas",
+       "title": "Horários de Missa — Paróquia Nossa Senhora das Graças (BuscaMissa)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Nossa Senhora das Graças",
+     "dayOfWeek": 2,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://buscamissa.com.br/paroquia/ba/feira-de-santana/paroquia-nossa-senhora-das-gracas",
+       "title": "Horários de Missa — Paróquia Nossa Senhora das Graças (BuscaMissa)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Nossa Senhora das Graças",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://buscamissa.com.br/paroquia/ba/feira-de-santana/paroquia-nossa-senhora-das-gracas",
+       "title": "Horários de Missa — Paróquia Nossa Senhora das Graças (BuscaMissa)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Nossa Senhora das Graças",
+     "dayOfWeek": 5,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://buscamissa.com.br/paroquia/ba/feira-de-santana/paroquia-nossa-senhora-das-gracas",
+       "title": "Horários de Missa — Paróquia Nossa Senhora das Graças (BuscaMissa)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Nossa Senhora das Graças",
+     "dayOfWeek": 6,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://buscamissa.com.br/paroquia/ba/feira-de-santana/paroquia-nossa-senhora-das-gracas",
+       "title": "Horários de Missa — Paróquia Nossa Senhora das Graças (BuscaMissa)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "santa-dulce-dos-pobres-feira-de-santana",
+   "name": "Paróquia Santa Dulce dos Pobres",
+   "city": "Feira de Santana",
+   "state": "BA",
+   "neighborhood": "Pampalona",
+   "address": "Rua Joana Pereira, 60",
+   "zipCode": "44031-095",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://arquidiocese-fsa.org.br/paroquias/",
+     "title": "Paróquias — Arquidiocese de Feira de Santana",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Santa Dulce dos Pobres",
+     "address": "Rua Joana Pereira, 60",
+     "neighborhood": "Pampalona",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://arquidiocese-fsa.org.br/paroquias/",
+       "title": "Paróquias — Arquidiocese de Feira de Santana",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-de-guadalupe-feira-de-santana",
+   "name": "Paróquia Nossa Senhora de Guadalupe",
+   "city": "Feira de Santana",
+   "state": "BA",
+   "neighborhood": "Distrito de Jaíba",
+   "address": null,
+   "zipCode": null,
+   "phone": null,
+   "email": "paroquiansguadalupefsa@gmail.com",
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://arquidiocese-fsa.org.br/paroquias/",
+     "title": "Paróquias — Arquidiocese de Feira de Santana",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora de Guadalupe",
+     "address": null,
+     "neighborhood": "Distrito de Jaíba",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://arquidiocese-fsa.org.br/paroquias/",
+       "title": "Paróquias — Arquidiocese de Feira de Santana",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "sao-francisco-de-assis-feira-de-santana",
+   "name": "Paróquia São Francisco de Assis",
+   "city": "Feira de Santana",
+   "state": "BA",
+   "neighborhood": "Gabriela",
+   "address": "Rua Cavalo de Aço, 30",
+   "zipCode": "44022-230",
+   "phone": "(75) 98341-6050",
+   "email": "psfassis@gmail.com",
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://arquidiocese-fsa.org.br/paroquias/",
+     "title": "Paróquias — Arquidiocese de Feira de Santana",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz São Francisco de Assis",
+     "address": "Rua Cavalo de Aço, 30",
+     "neighborhood": "Gabriela",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://arquidiocese-fsa.org.br/paroquias/",
+       "title": "Paróquias — Arquidiocese de Feira de Santana",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "sao-joao-paulo-ii-feira-de-santana",
+   "name": "Paróquia São João Paulo II",
+   "city": "Feira de Santana",
+   "state": "BA",
+   "neighborhood": "conj. João Paulo II – Mangabeira",
+   "address": "Rua O, s/n",
+   "zipCode": "44056-568",
+   "phone": "(75) 3021-3955",
+   "email": "saojoaopauloiiparoquia@gmail.com",
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://arquidiocese-fsa.org.br/paroquias/",
+     "title": "Paróquias — Arquidiocese de Feira de Santana",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz São João Paulo II",
+     "address": "Rua O, s/n",
+     "neighborhood": "conj. João Paulo II – Mangabeira",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://arquidiocese-fsa.org.br/paroquias/",
+       "title": "Paróquias — Arquidiocese de Feira de Santana",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz São João Paulo II",
+     "dayOfWeek": 0,
+     "time": "07:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=5wy7L",
+       "title": "Horário de Missa — Paróquia João Paulo II (dados de 26/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São João Paulo II",
+     "dayOfWeek": 4,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=5wy7L",
+       "title": "Horário de Missa — Paróquia João Paulo II (dados de 26/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "todos-os-santos-feira-de-santana",
+   "name": "Paróquia Todos os Santos",
+   "city": "Feira de Santana",
+   "state": "BA",
+   "neighborhood": "Queimadinha",
+   "address": "Av. Bahia, 185",
+   "zipCode": "44031-440",
+   "phone": "(75) 3021-3383",
+   "email": "paroquiatos@bol.com.br",
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://arquidiocese-fsa.org.br/paroquias/",
+     "title": "Paróquias — Arquidiocese de Feira de Santana",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Todos os Santos",
+     "address": "Av. Bahia, 185",
+     "neighborhood": "Queimadinha",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://arquidiocese-fsa.org.br/paroquias/",
+       "title": "Paróquias — Arquidiocese de Feira de Santana",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-do-resgate-das-umburanas-antonio-cardoso",
+   "name": "Paróquia Nossa Senhora do Resgate das Umburanas",
+   "city": "Antônio Cardoso",
+   "state": "BA",
+   "neighborhood": null,
+   "address": "Praça da Matriz, s/n",
+   "zipCode": "44180-000",
+   "phone": "(75) 8712-0500",
+   "email": "paroquia.nsu.ac22@gmail.com",
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://arquidiocese-fsa.org.br/paroquias/",
+     "title": "Paróquias — Arquidiocese de Feira de Santana",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora do Resgate das Umburanas",
+     "address": "Praça da Matriz, s/n",
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://arquidiocese-fsa.org.br/paroquias/",
+       "title": "Paróquias — Arquidiocese de Feira de Santana",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-da-conceicao-anguera",
+   "name": "Paróquia Nossa Senhora da Conceição",
+   "city": "Anguera",
+   "state": "BA",
+   "neighborhood": null,
+   "address": "Praça Artur Vieira, s/n",
+   "zipCode": "44670-000",
+   "phone": "(75) 3239-2123",
+   "email": "paanguera@hotmail.com",
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://arquidiocese-fsa.org.br/paroquias/",
+     "title": "Paróquias — Arquidiocese de Feira de Santana",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora da Conceição",
+     "address": "Praça Artur Vieira, s/n",
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://arquidiocese-fsa.org.br/paroquias/",
+       "title": "Paróquias — Arquidiocese de Feira de Santana",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-de-lourdes-ipecaeta",
+   "name": "Paróquia Nossa Senhora de Lourdes",
+   "city": "Ipecaetá",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça 19 de Julho, s/n",
+   "zipCode": "44680-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://arquidiocese-fsa.org.br/paroquias/",
+     "title": "Paróquias — Arquidiocese de Feira de Santana",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora de Lourdes",
+     "address": "Praça 19 de Julho, s/n",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://arquidiocese-fsa.org.br/paroquias/",
+       "title": "Paróquias — Arquidiocese de Feira de Santana",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "santo-estevao-santo-estevao",
+   "name": "Paróquia Santo Estevão",
+   "city": "Santo Estevão",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça da Matriz, s/n",
+   "zipCode": "44190-000",
+   "phone": "(75) 3245-2880",
+   "email": "paroquia_sto_estevao@yahoo.com.br",
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://arquidiocese-fsa.org.br/paroquias/",
+     "title": "Paróquias — Arquidiocese de Feira de Santana",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Santo Estevão",
+     "address": "Praça da Matriz, s/n",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://arquidiocese-fsa.org.br/paroquias/",
+       "title": "Paróquias — Arquidiocese de Feira de Santana",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-do-bom-conselho-serra-preta",
+   "name": "Paróquia Nossa Senhora do Bom Conselho",
+   "city": "Serra Preta",
+   "state": "BA",
+   "neighborhood": null,
+   "address": "Praça da Matriz, 12",
+   "zipCode": "44660-000",
+   "phone": "(75) 3609-1470",
+   "email": "paroquiaserrapreta@hotmail.com",
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://arquidiocese-fsa.org.br/paroquias/",
+     "title": "Paróquias — Arquidiocese de Feira de Santana",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora do Bom Conselho",
+     "address": "Praça da Matriz, 12",
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://arquidiocese-fsa.org.br/paroquias/",
+       "title": "Paróquias — Arquidiocese de Feira de Santana",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "senhor-do-bonfim-feira-de-santana-2",
+   "name": "Paróquia Senhor do Bonfim",
+   "city": "Feira de Santana",
+   "state": "BA",
+   "neighborhood": null,
+   "address": "Praça Cupertino Lacerda, s/n",
+   "zipCode": "44120-000",
+   "phone": "(75) 3021-3955",
+   "email": "contato@paroquiasenhordobonfim.com.br",
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://arquidiocese-fsa.org.br/paroquias/",
+     "title": "Paróquias — Arquidiocese de Feira de Santana",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Senhor do Bonfim",
+     "address": "Praça Cupertino Lacerda, s/n",
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://arquidiocese-fsa.org.br/paroquias/",
+       "title": "Paróquias — Arquidiocese de Feira de Santana",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-dos-remedios-feira-de-santana",
+   "name": "Paróquia Nossa Senhora dos Remédios",
+   "city": "Feira de Santana",
+   "state": "BA",
+   "neighborhood": "Gameleira",
+   "address": "Praça da Matriz, s/n",
+   "zipCode": "44130-000",
+   "phone": "(75) 3021-3383",
+   "email": "paroquiansr1610@hotmail.com",
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://arquidiocese-fsa.org.br/paroquias/",
+     "title": "Paróquias — Arquidiocese de Feira de Santana",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora dos Remédios",
+     "address": "Praça da Matriz, s/n",
+     "neighborhood": "Gameleira",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://arquidiocese-fsa.org.br/paroquias/",
+       "title": "Paróquias — Arquidiocese de Feira de Santana",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "sao-goncalo-do-amarante-sao-goncalo-dos-campos",
+   "name": "Paróquia São Gonçalo do Amarante",
+   "city": "São Gonçalo dos Campos",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça Padre Bráulio Seixas, 09",
+   "zipCode": "44330-000",
+   "phone": "(75) 3246-1440",
+   "email": "saogoncalo1696@hotmail.com",
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://arquidiocese-fsa.org.br/paroquias/",
+     "title": "Paróquias — Arquidiocese de Feira de Santana",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz São Gonçalo do Amarante",
+     "address": "Praça Padre Bráulio Seixas, 09",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://arquidiocese-fsa.org.br/paroquias/",
+       "title": "Paróquias — Arquidiocese de Feira de Santana",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-da-conceicao-conceicao-da-feira",
+   "name": "Paróquia Nossa Senhora da Conceição",
+   "city": "Conceição da Feira",
+   "state": "BA",
+   "neighborhood": null,
+   "address": "Praça da Bandeira, s/n",
+   "zipCode": "44320-000",
+   "phone": "(75) 3244-2155",
+   "email": "pnsconceicaodafeira@gmail.com",
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://arquidiocese-fsa.org.br/paroquias/",
+     "title": "Paróquias — Arquidiocese de Feira de Santana",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora da Conceição",
+     "address": "Praça da Bandeira, s/n",
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://arquidiocese-fsa.org.br/paroquias/",
+       "title": "Paróquias — Arquidiocese de Feira de Santana",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-da-lapa-amelia-rodrigues",
+   "name": "Paróquia Nossa Senhora da Lapa",
+   "city": "Amélia Rodrigues",
+   "state": "BA",
+   "neighborhood": null,
+   "address": "Praça da Matriz, s/n",
+   "zipCode": "44230-000",
+   "phone": "(75) 3242-2103",
+   "email": "paroquianossasenhoradalapa@hotmail.com",
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://arquidiocese-fsa.org.br/paroquias/",
+     "title": "Paróquias — Arquidiocese de Feira de Santana",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora da Lapa",
+     "address": "Praça da Matriz, s/n",
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://arquidiocese-fsa.org.br/paroquias/",
+       "title": "Paróquias — Arquidiocese de Feira de Santana",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-da-conceicao-conceicao-do-jacuipe",
+   "name": "Paróquia Nossa Senhora da Conceição",
+   "city": "Conceição do Jacuípe",
+   "state": "BA",
+   "neighborhood": null,
+   "address": "Praça Manuel Teixeira de Freitas, s/n",
+   "zipCode": "44245-000",
+   "phone": "(75) 3243-2002",
+   "email": "conceicaodojacuipe@gmail.com",
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://arquidiocese-fsa.org.br/paroquias/",
+     "title": "Paróquias — Arquidiocese de Feira de Santana",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora da Conceição",
+     "address": "Praça Manuel Teixeira de Freitas, s/n",
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://arquidiocese-fsa.org.br/paroquias/",
+       "title": "Paróquias — Arquidiocese de Feira de Santana",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-dos-humildes-feira-de-santana",
+   "name": "Paróquia Nossa Senhora dos Humildes",
+   "city": "Feira de Santana",
+   "state": "BA",
+   "neighborhood": "Distrito de Humildes",
+   "address": "Praça da Matriz, s/n",
+   "zipCode": "44135-000",
+   "phone": "(75) 3683-1501",
+   "email": "phumildes@yahoo.com",
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://arquidiocese-fsa.org.br/paroquias/",
+     "title": "Paróquias — Arquidiocese de Feira de Santana",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora dos Humildes",
+     "address": "Praça da Matriz, s/n",
+     "neighborhood": "Distrito de Humildes",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://arquidiocese-fsa.org.br/paroquias/",
+       "title": "Paróquias — Arquidiocese de Feira de Santana",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-da-purificacao-dos-campos-irara",
+   "name": "Paróquia Nossa Senhora da Purificação dos Campos",
+   "city": "Irará",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça. Pedro Nogueira, s/n",
+   "zipCode": "44255-000",
+   "phone": "(75) 98216-5542",
+   "email": "pnsdpi@gmail.com",
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://arquidiocese-fsa.org.br/paroquias/",
+     "title": "Paróquias — Arquidiocese de Feira de Santana",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora da Purificação dos Campos",
+     "address": "Praça. Pedro Nogueira, s/n",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://arquidiocese-fsa.org.br/paroquias/",
+       "title": "Paróquias — Arquidiocese de Feira de Santana",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-da-imaculada-conceicao-ouricangas",
+   "name": "Paróquia Nossa Senhora da Imaculada Conceição",
+   "city": "Ouriçangas",
+   "state": "BA",
+   "neighborhood": null,
+   "address": "Praça Cônego Estrela s/n",
+   "zipCode": "48150-000",
+   "phone": "(75) 3447-2134",
+   "email": "nossaigreja2011@gmail.com",
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://arquidiocese-fsa.org.br/paroquias/",
+     "title": "Paróquias — Arquidiocese de Feira de Santana",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora da Imaculada Conceição",
+     "address": "Praça Cônego Estrela s/n",
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://arquidiocese-fsa.org.br/paroquias/",
+       "title": "Paróquias — Arquidiocese de Feira de Santana",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "sao-joao-batista-agua-fria",
+   "name": "Paróquia São João Batista",
+   "city": "Água Fria",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça da Matriz, s/n",
+   "zipCode": "48170-000",
+   "phone": "(75) 98371-4057",
+   "email": "paroquiasaojoaobatista17@gmail.com",
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://arquidiocese-fsa.org.br/paroquias/",
+     "title": "Paróquias — Arquidiocese de Feira de Santana",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz São João Batista",
+     "address": "Praça da Matriz, s/n",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://arquidiocese-fsa.org.br/paroquias/",
+       "title": "Paróquias — Arquidiocese de Feira de Santana",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "santissimo-coracao-de-maria-coracao-de-maria",
+   "name": "Paróquia Santíssimo Coração de Maria",
+   "city": "Coração de Maria",
+   "state": "BA",
+   "neighborhood": null,
+   "address": "Praça Dr. Araújo Pinho, 406",
+   "zipCode": "44250-000",
+   "phone": "(75) 3248-2121",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://arquidiocese-fsa.org.br/paroquias/",
+     "title": "Paróquias — Arquidiocese de Feira de Santana",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Santíssimo Coração de Maria",
+     "address": "Praça Dr. Araújo Pinho, 406",
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://arquidiocese-fsa.org.br/paroquias/",
+       "title": "Paróquias — Arquidiocese de Feira de Santana",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Santíssimo Coração de Maria",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=GMlJz",
+       "title": "Horário de Missa — Paróquia Sagrado Coração de Maria (dados de 21/10/2016)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Santíssimo Coração de Maria",
+     "dayOfWeek": 0,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=GMlJz",
+       "title": "Horário de Missa — Paróquia Sagrado Coração de Maria (dados de 21/10/2016)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Santíssimo Coração de Maria",
+     "dayOfWeek": 2,
+     "time": "19:15",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=GMlJz",
+       "title": "Horário de Missa — Paróquia Sagrado Coração de Maria (dados de 21/10/2016)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Santíssimo Coração de Maria",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=GMlJz",
+       "title": "Horário de Missa — Paróquia Sagrado Coração de Maria (dados de 21/10/2016)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-das-dores-coracao-de-maria",
+   "name": "Paróquia Nossa Senhora das Dores",
+   "city": "Coração de Maria",
+   "state": "BA",
+   "neighborhood": "Distrito de Retiro",
+   "address": "Praça Padre Caetano Aragão, s/n",
+   "zipCode": "44250-000",
+   "phone": "(75) 99704-1480",
+   "email": "paroquiansdretiro@gmail.com",
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://arquidiocese-fsa.org.br/paroquias/",
+     "title": "Paróquias — Arquidiocese de Feira de Santana",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora das Dores",
+     "address": "Praça Padre Caetano Aragão, s/n",
+     "neighborhood": "Distrito de Retiro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://arquidiocese-fsa.org.br/paroquias/",
+       "title": "Paróquias — Arquidiocese de Feira de Santana",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "sagrado-coracao-de-jesus-pedrao",
+   "name": "Paróquia Sagrado Coração de Jesus",
+   "city": "Pedrão",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Rua Álvaro Ribeiro Lima, 110",
+   "zipCode": "48140-000",
+   "phone": null,
+   "email": "sec.daparoquia2014@gmail.com",
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://arquidiocese-fsa.org.br/paroquias/",
+     "title": "Paróquias — Arquidiocese de Feira de Santana",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Sagrado Coração de Jesus",
+     "address": "Rua Álvaro Ribeiro Lima, 110",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://arquidiocese-fsa.org.br/paroquias/",
+       "title": "Paróquias — Arquidiocese de Feira de Santana",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "senhor-do-bonfim-candeal",
+   "name": "Paróquia Senhor do Bonfim",
+   "city": "Candeal",
+   "state": "BA",
+   "neighborhood": null,
+   "address": "Praça Senhor do Bonfim, S/N",
+   "zipCode": "48710-000",
+   "phone": "(75) 98363-3440",
+   "email": "paroquiabonfim.candeal@gmail.com",
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://arquidiocese-fsa.org.br/paroquias/",
+     "title": "Paróquias — Arquidiocese de Feira de Santana",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Senhor do Bonfim",
+     "address": "Praça Senhor do Bonfim, S/N",
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://arquidiocese-fsa.org.br/paroquias/",
+       "title": "Paróquias — Arquidiocese de Feira de Santana",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "santa-barbara-santa-barbara",
+   "name": "Paróquia Santa Bárbara",
+   "city": "Santa Bárbara",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça da Matriz, s/n",
+   "zipCode": "44150-000",
+   "phone": "(75) 3236-1207",
+   "email": "paroquiasantabarbara2017@gmail.com",
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://arquidiocese-fsa.org.br/paroquias/",
+     "title": "Paróquias — Arquidiocese de Feira de Santana",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Santa Bárbara",
+     "address": "Praça da Matriz, s/n",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://arquidiocese-fsa.org.br/paroquias/",
+       "title": "Paróquias — Arquidiocese de Feira de Santana",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "senhor-do-bomfim-feira-de-santana",
+   "name": "Paróquia Senhor do Bomfim",
+   "city": "Feira de Santana",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça João Nery, 14",
+   "zipCode": "44260-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://arquidiocese-fsa.org.br/paroquias/",
+     "title": "Paróquias — Arquidiocese de Feira de Santana",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Senhor do Bomfim",
+     "address": "Praça João Nery, 14",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://arquidiocese-fsa.org.br/paroquias/",
+       "title": "Paróquias — Arquidiocese de Feira de Santana",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "santo-antonio-tanquinho",
+   "name": "Paróquia Santo Antônio",
+   "city": "Tanquinho",
+   "state": "BA",
+   "neighborhood": null,
+   "address": "Rua Quatorze de Agosto, 08",
+   "zipCode": "44160-000",
+   "phone": "(75) 3249-2198",
+   "email": "paroquiasantoantonio.tanquinho@hotmail.com",
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://arquidiocese-fsa.org.br/paroquias/",
+     "title": "Paróquias — Arquidiocese de Feira de Santana",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Santo Antônio",
+     "address": "Rua Quatorze de Agosto, 08",
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://arquidiocese-fsa.org.br/paroquias/",
+       "title": "Paróquias — Arquidiocese de Feira de Santana",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "sao-jose-das-itapororocas-feira-de-santana",
+   "name": "Paróquia São José das Itapororocas",
+   "city": "Feira de Santana",
+   "state": "BA",
+   "neighborhood": null,
+   "address": "Praça São José, s/n",
+   "zipCode": "44110-000",
+   "phone": "(75) 3204-7084",
+   "email": "itapororocas@hotmail.com",
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://arquidiocese-fsa.org.br/paroquias/",
+     "title": "Paróquias — Arquidiocese de Feira de Santana",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz São José das Itapororocas",
+     "address": "Praça São José, s/n",
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://arquidiocese-fsa.org.br/paroquias/",
+       "title": "Paróquias — Arquidiocese de Feira de Santana",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-do-carmo-feira-de-santana-2",
+   "name": "Paróquia Nossa Senhora do Carmo",
+   "city": "Feira de Santana",
+   "state": "BA",
+   "neighborhood": "Distrito de Jaguara",
+   "address": "Largo da Matriz, s/n",
+   "zipCode": "44125-000",
+   "phone": null,
+   "email": "pnscjaguara@gmail.com",
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://arquidiocese-fsa.org.br/paroquias/",
+     "title": "Paróquias — Arquidiocese de Feira de Santana",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora do Carmo",
+     "address": "Largo da Matriz, s/n",
+     "neighborhood": "Distrito de Jaguara",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://arquidiocese-fsa.org.br/paroquias/",
+       "title": "Paróquias — Arquidiocese de Feira de Santana",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "sao-vicente-ferrer-feira-de-santana",
+   "name": "Paróquia São Vicente Ferrer",
+   "city": "Feira de Santana",
+   "state": "BA",
+   "neighborhood": "Distrito de Tiquaruçu",
+   "address": "Praça da Matriz São Vicente, s/n",
+   "zipCode": "44140-000",
+   "phone": null,
+   "email": "paroquiasvferrer2019@gmail.com",
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://arquidiocese-fsa.org.br/paroquias/",
+     "title": "Paróquias — Arquidiocese de Feira de Santana",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz São Vicente Ferrer",
+     "address": "Praça da Matriz São Vicente, s/n",
+     "neighborhood": "Distrito de Tiquaruçu",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://arquidiocese-fsa.org.br/paroquias/",
+       "title": "Paróquias — Arquidiocese de Feira de Santana",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "sao-roque-feira-de-santana",
+   "name": "Paróquia São Roque",
+   "city": "Feira de Santana",
+   "state": "BA",
+   "neighborhood": "Distrito de Matinha",
+   "address": "Praça da Matinha, s/n",
+   "zipCode": "44118-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://arquidiocese-fsa.org.br/paroquias/",
+     "title": "Paróquias — Arquidiocese de Feira de Santana",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz São Roque",
+     "address": "Praça da Matinha, s/n",
+     "neighborhood": "Distrito de Matinha",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://arquidiocese-fsa.org.br/paroquias/",
+       "title": "Paróquias — Arquidiocese de Feira de Santana",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "capela-nossa-senhora-de-lourdes-colegio-padre-ovidio-feira-de-santana",
+   "name": "Capela Nossa Senhora de Lourdes (Colégio Padre Ovídio)",
+   "city": "Feira de Santana",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Av. Senhor dos Passos, 269",
+   "zipCode": null,
+   "phone": "(75) 3604-5050",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "status": "nao-paroquial",
+   "loadAsParish": true,
+   "notes": "Capela de colégio no Centro de Feira de Santana; não paroquial.",
+   "sources": [
+    {
+     "url": "https://www.horariodemissa.com.br/igreja.php?k=jUily",
+     "title": "Horário de Missa — Capela Nossa Senhora de Lourdes (Colégio Padre Ovídio)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "media",
+   "communities": [
+    {
+     "name": "Capela Nossa Senhora de Lourdes (Colégio Padre Ovídio)",
+     "address": "Av. Senhor dos Passos, 269",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=jUily",
+       "title": "Horário de Missa — Capela Nossa Senhora de Lourdes (Colégio Padre Ovídio)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Capela Nossa Senhora de Lourdes (Colégio Padre Ovídio)",
+     "dayOfWeek": 0,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=jUily",
+       "title": "Horário de Missa — Capela Nossa Senhora de Lourdes (Colégio Padre Ovídio) (dados de 24/01/2015)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Capela Nossa Senhora de Lourdes (Colégio Padre Ovídio)",
+     "dayOfWeek": 2,
+     "time": "06:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=jUily",
+       "title": "Horário de Missa — Capela Nossa Senhora de Lourdes (Colégio Padre Ovídio) (dados de 24/01/2015)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Capela Nossa Senhora de Lourdes (Colégio Padre Ovídio)",
+     "dayOfWeek": 3,
+     "time": "06:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=jUily",
+       "title": "Horário de Missa — Capela Nossa Senhora de Lourdes (Colégio Padre Ovídio) (dados de 24/01/2015)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Capela Nossa Senhora de Lourdes (Colégio Padre Ovídio)",
+     "dayOfWeek": 4,
+     "time": "06:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=jUily",
+       "title": "Horário de Missa — Capela Nossa Senhora de Lourdes (Colégio Padre Ovídio) (dados de 24/01/2015)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Capela Nossa Senhora de Lourdes (Colégio Padre Ovídio)",
+     "dayOfWeek": 5,
+     "time": "06:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=jUily",
+       "title": "Horário de Missa — Capela Nossa Senhora de Lourdes (Colégio Padre Ovídio) (dados de 24/01/2015)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "igreja-nossa-senhora-dos-remedios-centro-feira-de-santana",
+   "name": "Igreja Nossa Senhora dos Remédios",
+   "city": "Feira de Santana",
+   "state": "BA",
+   "neighborhood": null,
+   "address": "Rua Dezoito de Setembro 140 Centro",
+   "zipCode": null,
+   "phone": "(75) 3623-1347",
+   "email": null,
+   "website": "http://www.paroquiasenhordospassos.com.br/",
+   "priestName": null,
+   "foundedYear": null,
+   "status": "nao-paroquial",
+   "loadAsParish": true,
+   "notes": "Igreja no Centro de Feira de Santana (Rua Dezoito de Setembro, 140); não confundir com a Paróquia Nossa Senhora dos Remédios do distrito de Ipuaçu. Paróquia de vínculo não confirmada.",
+   "sources": [
+    {
+     "url": "https://www.horariodemissa.com.br/igreja.php?k=7AyMR",
+     "title": "Horário de Missa — Igreja Nossa Senhora dos Remédios",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "media",
+   "communities": [
+    {
+     "name": "Igreja Nossa Senhora dos Remédios",
+     "address": "Rua Dezoito de Setembro 140 Centro",
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=7AyMR",
+       "title": "Horário de Missa — Igreja Nossa Senhora dos Remédios",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Igreja Nossa Senhora dos Remédios",
+     "dayOfWeek": 1,
+     "time": "12:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=7AyMR",
+       "title": "Horário de Missa — Igreja Nossa Senhora dos Remédios (dados de 25/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "capela-nossa-senhora-da-piedade-hospital-feira-de-santana",
+   "name": "Capela Nossa Senhora da Piedade (Hospital Dom Pedro de Alcântara)",
+   "city": "Feira de Santana",
+   "state": "BA",
+   "neighborhood": null,
+   "address": "Rua Edelvira de Oliveira, Hospital Dom Pedro de Alcantara Kalilândia",
+   "zipCode": null,
+   "phone": "(75) 3623-1347",
+   "email": null,
+   "website": "paroquiasenhordospassos.com.br",
+   "priestName": null,
+   "foundedYear": null,
+   "status": "nao-paroquial",
+   "loadAsParish": true,
+   "notes": "Capela hospitalar no bairro Kalilândia; não paroquial.",
+   "sources": [
+    {
+     "url": "https://www.horariodemissa.com.br/igreja.php?k=BwGQ0",
+     "title": "Horário de Missa — Capela Nossa Senhora da Piedade",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "media",
+   "communities": [
+    {
+     "name": "Capela Nossa Senhora da Piedade (Hospital Dom Pedro de Alcântara)",
+     "address": "Rua Edelvira de Oliveira, Hospital Dom Pedro de Alcantara Kalilândia",
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=BwGQ0",
+       "title": "Horário de Missa — Capela Nossa Senhora da Piedade",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Capela Nossa Senhora da Piedade (Hospital Dom Pedro de Alcântara)",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": "Capela Nossa Senhora do Carmo - Serraria Brasil",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=BwGQ0",
+       "title": "Horário de Missa — Capela Nossa Senhora da Piedade (dados de 25/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Capela Nossa Senhora da Piedade (Hospital Dom Pedro de Alcântara)",
+     "dayOfWeek": 0,
+     "time": "08:30",
+     "type": "MASS",
+     "notes": "Capela Nossa Senhora do Carmo - Serraria Brasil",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=BwGQ0",
+       "title": "Horário de Missa — Capela Nossa Senhora da Piedade (dados de 25/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Capela Nossa Senhora da Piedade (Hospital Dom Pedro de Alcântara)",
+     "dayOfWeek": 1,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=BwGQ0",
+       "title": "Horário de Missa — Capela Nossa Senhora da Piedade (dados de 25/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Capela Nossa Senhora da Piedade (Hospital Dom Pedro de Alcântara)",
+     "dayOfWeek": 2,
+     "time": "12:00",
+     "type": "MASS",
+     "notes": "2a terça Capela Nossa Senhora do Carmo - Serraria Brasil",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=BwGQ0",
+       "title": "Horário de Missa — Capela Nossa Senhora da Piedade (dados de 25/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Capela Nossa Senhora da Piedade (Hospital Dom Pedro de Alcântara)",
+     "dayOfWeek": 2,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": "2a terça Capela Nossa Senhora do Carmo - Serraria Brasil",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=BwGQ0",
+       "title": "Horário de Missa — Capela Nossa Senhora da Piedade (dados de 25/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Capela Nossa Senhora da Piedade (Hospital Dom Pedro de Alcântara)",
+     "dayOfWeek": 2,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": "2a terça Capela Nossa Senhora do Carmo - Serraria Brasil",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=BwGQ0",
+       "title": "Horário de Missa — Capela Nossa Senhora da Piedade (dados de 25/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Capela Nossa Senhora da Piedade (Hospital Dom Pedro de Alcântara)",
+     "dayOfWeek": 3,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=BwGQ0",
+       "title": "Horário de Missa — Capela Nossa Senhora da Piedade (dados de 25/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Capela Nossa Senhora da Piedade (Hospital Dom Pedro de Alcântara)",
+     "dayOfWeek": 4,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": "2a quinta do mês - Capela Nossa Senhora do Perpétuo Socorro - Chácara São Cosme",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=BwGQ0",
+       "title": "Horário de Missa — Capela Nossa Senhora da Piedade (dados de 25/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Capela Nossa Senhora da Piedade (Hospital Dom Pedro de Alcântara)",
+     "dayOfWeek": 4,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": "2a quinta do mês - Capela Nossa Senhora do Perpétuo Socorro - Chácara São Cosme",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=BwGQ0",
+       "title": "Horário de Missa — Capela Nossa Senhora da Piedade (dados de 25/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Capela Nossa Senhora da Piedade (Hospital Dom Pedro de Alcântara)",
+     "dayOfWeek": 5,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": "1a sexta do mês",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=BwGQ0",
+       "title": "Horário de Missa — Capela Nossa Senhora da Piedade (dados de 25/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Capela Nossa Senhora da Piedade (Hospital Dom Pedro de Alcântara)",
+     "dayOfWeek": 6,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": "Dispensário Sant´Ana",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=BwGQ0",
+       "title": "Horário de Missa — Capela Nossa Senhora da Piedade (dados de 25/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  }
+ ],
+ "coverage": {
+  "parishesFound": 46,
+  "parishesExpected": 46,
+  "notes": "A própria página oficial declara 46 paróquias em 19 municípios além de Feira de Santana, e as 46 foram extraídas de lá com endereço, CEP, telefone e e-mail (confiança alta). A Arquidiocese não publica horários nem comunidades. Os horários vieram de horariodemissa.com.br (rebaixados a baixa: as fichas de Feira e região foram atualizadas pela última vez entre 2013 e 2018) e de buscamissa.com.br (atual, confiança media, só 3 paróquias). Entradas com status \"nao-paroquial\" são capelas com missa publicada e não contam no total."
+ }
+}

@@ -1,0 +1,4401 @@
+{
+ "diocese": {
+  "name": "Diocese de Crato",
+  "type": "Diocese",
+  "slug": "crato",
+  "city": "Crato",
+  "state": "CE",
+  "address": "Rua Dom Quintino, 808 - Centro",
+  "zipCode": "63100-070",
+  "phone": "(88) 3521-1110",
+  "email": "curia@diocesedecrato.org",
+  "website": "https://diocesedecrato.org/",
+  "bishopName": "Dom Magnus Henrique Lopes, OFMCap",
+  "sources": [
+   {
+    "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/",
+    "title": "Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+    "accessedAt": "2026-09-11"
+   },
+   {
+    "url": "https://www.catholic-hierarchy.org/diocese/dcrat.html",
+    "title": "Crato (Diocese) [Catholic-Hierarchy]",
+    "accessedAt": "2026-09-11"
+   }
+  ],
+  "confidence": "alta"
+ },
+ "parishes": [
+  {
+   "slug": "imaculada-conceicao-crato",
+   "name": "Área Pastoral Imaculada Conceição",
+   "city": "Crato",
+   "state": "CE",
+   "neighborhood": "Santa Fé (distrito)",
+   "address": null,
+   "zipCode": null,
+   "phone": null,
+   "email": null,
+   "website": "https://www.facebook.com/DiocesedeCratoCE/",
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/area-pastoral-imaculada-conceicao-santa-fe/",
+     "title": "Área Pastoral Imaculada Conceição — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquias/",
+     "title": "Paróquias — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Imaculada Conceição",
+     "address": null,
+     "neighborhood": "Santa Fé (distrito)",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/area-pastoral-imaculada-conceicao-santa-fe/",
+       "title": "Área Pastoral Imaculada Conceição — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Imaculada Conceição",
+     "dayOfWeek": 0,
+     "time": "10:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "sao-sebastiao-crato",
+   "name": "Paróquia São Sebastião",
+   "city": "Crato",
+   "state": "CE",
+   "neighborhood": "Dom Quintino (distrito)",
+   "address": null,
+   "zipCode": null,
+   "phone": null,
+   "email": null,
+   "website": "https://www.facebook.com/DiocesedeCratoCE/",
+   "priestName": "Pe. Cicero Felipe Tavares",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sao-sebastiao-dom-quintino-distrito-de-crato/",
+     "title": "Paróquia São Sebastião — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquias/",
+     "title": "Paróquias — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz São Sebastião",
+     "address": null,
+     "neighborhood": "Dom Quintino (distrito)",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sao-sebastiao-dom-quintino-distrito-de-crato/",
+       "title": "Paróquia São Sebastião — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz São Sebastião",
+     "dayOfWeek": 0,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": "1º e 2º domingos do mês",
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Sebastião",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "3º e 4º domingos do mês",
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "santuario-eucaristico-diocesano-crato",
+   "name": "Santuário Eucarístico Diocesano",
+   "city": "Crato",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Rua Senador Pompeu, 27",
+   "zipCode": null,
+   "phone": "(88) 3521-1115",
+   "email": null,
+   "website": "https://www.facebook.com/DiocesedeCratoCE/",
+   "priestName": "Pe. Rocildo Alves Lima Filho",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/santuario-eucaristico-diocesano-crato/",
+     "title": "Santuário Eucarístico Diocesano — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquias/",
+     "title": "Paróquias — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Santuário Eucarístico Diocesano",
+     "address": "Rua Senador Pompeu, 27",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/santuario-eucaristico-diocesano-crato/",
+       "title": "Santuário Eucarístico Diocesano — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Santuário Eucarístico Diocesano",
+     "dayOfWeek": 1,
+     "time": "09:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Santuário Eucarístico Diocesano",
+     "dayOfWeek": 1,
+     "time": "18:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Santuário Eucarístico Diocesano",
+     "dayOfWeek": 2,
+     "time": "18:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Santuário Eucarístico Diocesano",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Santuário Eucarístico Diocesano",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    }
+   ],
+   "status": "nao-paroquial",
+   "loadAsParish": true,
+   "notes": "Santuário Eucarístico Diocesano; a diocese o lista entre as paróquias da Forânea 1 e publica grade de missas."
+  },
+  {
+   "slug": "sagrada-familia-crato",
+   "name": "Paróquia Sagrada Família",
+   "city": "Crato",
+   "state": "CE",
+   "neighborhood": "Vila Alta",
+   "address": "Rua Antonio Xenofonte, 451",
+   "zipCode": null,
+   "phone": "(88) 98111-6392 (WhatsApp)",
+   "email": null,
+   "website": "https://www.facebook.com/DiocesedeCratoCE/",
+   "priestName": "Pe. Ranilson Belém",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sagrada-familia-crato/",
+     "title": "Paróquia Sagrada Família — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquias/",
+     "title": "Paróquias — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Sagrada Família",
+     "address": "Rua Antonio Xenofonte, 451",
+     "neighborhood": "Vila Alta",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sagrada-familia-crato/",
+       "title": "Paróquia Sagrada Família — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Sagrada Família",
+     "dayOfWeek": 2,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Sagrada Família",
+     "dayOfWeek": 0,
+     "time": "06:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Sagrada Família",
+     "dayOfWeek": 0,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "sao-jose-operario-crato",
+   "name": "Paróquia São José Operário",
+   "city": "Crato",
+   "state": "CE",
+   "neighborhood": "Distrito Ponta da serra",
+   "address": "Praça Manuel Ribeiro, 25",
+   "zipCode": "63138-000",
+   "phone": "98177-9368 (WhatsApp)",
+   "email": null,
+   "website": "https://www.facebook.com/DiocesedeCratoCE/",
+   "priestName": "Pe. Paulo Lemos",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sao-jose-operario-ponta-da-serra/",
+     "title": "Paróquia São José Operário — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquias/",
+     "title": "Paróquias — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz São José Operário",
+     "address": "Praça Manuel Ribeiro, 25",
+     "neighborhood": "Distrito Ponta da serra",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sao-jose-operario-ponta-da-serra/",
+       "title": "Paróquia São José Operário — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz São José Operário",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "sagrado-coracao-de-jesus-crato",
+   "name": "Paróquia Sagrado Coração de Jesus",
+   "city": "Crato",
+   "state": "CE",
+   "neighborhood": "Novo Crato",
+   "address": "Rua João Alves Rocha",
+   "zipCode": "63113-080",
+   "phone": "(88) 2131-4248",
+   "email": null,
+   "website": "https://www.facebook.com/DiocesedeCratoCE/",
+   "priestName": "Pe. Francisco Georgerlanio de Brito Felipe",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sagrado-coracao-de-jesus-crato/",
+     "title": "Paróquia Sagrado Coração de Jesus — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquias/",
+     "title": "Paróquias — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Sagrado Coração de Jesus",
+     "address": "Rua João Alves Rocha",
+     "neighborhood": "Novo Crato",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sagrado-coracao-de-jesus-crato/",
+       "title": "Paróquia Sagrado Coração de Jesus — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Sagrado Coração de Jesus",
+     "dayOfWeek": 1,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Sagrado Coração de Jesus",
+     "dayOfWeek": 2,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Sagrado Coração de Jesus",
+     "dayOfWeek": 0,
+     "time": "06:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Sagrado Coração de Jesus",
+     "dayOfWeek": 0,
+     "time": "09:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Sagrado Coração de Jesus",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "sao-francisco-de-assis-crato",
+   "name": "Paróquia São Francisco de Assis",
+   "city": "Crato",
+   "state": "CE",
+   "neighborhood": "Pinto Madeira",
+   "address": "Rua São Francisco, 717",
+   "zipCode": "63100-970",
+   "phone": "(88) 2156-5276 (WhatsApp) Telefone Adicional: 88-9984-3688",
+   "email": null,
+   "website": "https://www.facebook.com/DiocesedeCratoCE/",
+   "priestName": "Pe. Arileudo da Silva Machado",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sao-francisco-de-assis/",
+     "title": "Paróquia São Francisco de Assis — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquias/",
+     "title": "Paróquias — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz São Francisco de Assis",
+     "address": "Rua São Francisco, 717",
+     "neighborhood": "Pinto Madeira",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sao-francisco-de-assis/",
+       "title": "Paróquia São Francisco de Assis — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz São Francisco de Assis",
+     "dayOfWeek": 2,
+     "time": "18:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz São Francisco de Assis",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz São Francisco de Assis",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "sao-miguel-crato",
+   "name": "Paróquia São Miguel",
+   "city": "Crato",
+   "state": "CE",
+   "neighborhood": "São Miguel",
+   "address": "Rua Dr. Gesteira, 612",
+   "zipCode": "63122-050",
+   "phone": "(88) 3521-8476; (88) 99604-3945 (WhatsApp)",
+   "email": null,
+   "website": "https://www.facebook.com/DiocesedeCratoCE/",
+   "priestName": "Pe. Paulo Evangelista da Costa da Silva Vigário: Pe. Maykel Galvão",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sao-miguel-crato/",
+     "title": "Paróquia São Miguel — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquias/",
+     "title": "Paróquias — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz São Miguel",
+     "address": "Rua Dr. Gesteira, 612",
+     "neighborhood": "São Miguel",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sao-miguel-crato/",
+       "title": "Paróquia São Miguel — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz São Miguel",
+     "dayOfWeek": 2,
+     "time": "18:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz São Miguel",
+     "dayOfWeek": 0,
+     "time": "06:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz São Miguel",
+     "dayOfWeek": 0,
+     "time": "18:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-aparecida-crato",
+   "name": "Paróquia Nossa Senhora Aparecida",
+   "city": "Crato",
+   "state": "CE",
+   "neighborhood": "Gisélia Pinheiro",
+   "address": "Rua da Capela, 21",
+   "zipCode": null,
+   "phone": "(88) 2156-0613 (WhatsApp)",
+   "email": null,
+   "website": "https://www.facebook.com/DiocesedeCratoCE/",
+   "priestName": "Pe. Leonys Cristyan de Macedo dos Anjos",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-nossa-senhora-aparecida-crato/",
+     "title": "Paróquia Nossa Senhora Aparecida — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquias/",
+     "title": "Paróquias — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora Aparecida",
+     "address": "Rua da Capela, 21",
+     "neighborhood": "Gisélia Pinheiro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-nossa-senhora-aparecida-crato/",
+       "title": "Paróquia Nossa Senhora Aparecida — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Nossa Senhora Aparecida",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Nossa Senhora Aparecida",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-de-fatima-crato",
+   "name": "Paróquia Nossa Senhora de Fátima",
+   "city": "Crato",
+   "state": "CE",
+   "neighborhood": "Pimenta",
+   "address": "Rua N. Sra. de Fátima",
+   "zipCode": "63105-140",
+   "phone": "(88) 3523-2487",
+   "email": null,
+   "website": "https://www.facebook.com/DiocesedeCratoCE/",
+   "priestName": "Pe. Antônio Edson Bantim de Oliveira",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-nossa-senhora-de-fatima-crato/",
+     "title": "Paróquia Nossa Senhora de Fátima — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquias/",
+     "title": "Paróquias — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora de Fátima",
+     "address": "Rua N. Sra. de Fátima",
+     "neighborhood": "Pimenta",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-nossa-senhora-de-fatima-crato/",
+       "title": "Paróquia Nossa Senhora de Fátima — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Nossa Senhora de Fátima",
+     "dayOfWeek": 1,
+     "time": "06:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Nossa Senhora de Fátima",
+     "dayOfWeek": 2,
+     "time": "06:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Nossa Senhora de Fátima",
+     "dayOfWeek": 0,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Nossa Senhora de Fátima",
+     "dayOfWeek": 0,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Nossa Senhora de Fátima",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-da-penha-crato",
+   "name": "Paróquia Sé Catedral Nossa Senhora da Penha",
+   "city": "Crato",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Praça da Sé, 624",
+   "zipCode": null,
+   "phone": "(88) 3521-0309",
+   "email": null,
+   "website": "https://www.facebook.com/DiocesedeCratoCE/",
+   "priestName": "Pe. Francisco Wesley Barbosa Barros",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/se-catedral-nossa-senhora-da-penha/",
+     "title": "Paróquia Sé Catedral Nossa Senhora da Penha — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquias/",
+     "title": "Paróquias — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Sé Catedral Nossa Senhora da Penha",
+     "address": "Praça da Sé, 624",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/se-catedral-nossa-senhora-da-penha/",
+       "title": "Paróquia Sé Catedral Nossa Senhora da Penha — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Sé Catedral Nossa Senhora da Penha",
+     "dayOfWeek": 1,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Sé Catedral Nossa Senhora da Penha",
+     "dayOfWeek": 2,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Sé Catedral Nossa Senhora da Penha",
+     "dayOfWeek": 0,
+     "time": "09:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Sé Catedral Nossa Senhora da Penha",
+     "dayOfWeek": 0,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Sé Catedral Nossa Senhora da Penha",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "bom-jesus-barbalha",
+   "name": "Área Pastoral Bom Jesus",
+   "city": "Barbalha",
+   "state": "CE",
+   "neighborhood": "Caldas",
+   "address": "Rua Daniel Cordeiro das Neves",
+   "zipCode": null,
+   "phone": null,
+   "email": null,
+   "website": "https://www.facebook.com/DiocesedeCratoCE/",
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/areapastoralbomjesusbarbalha/",
+     "title": "Área Pastoral Bom Jesus — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquias/",
+     "title": "Paróquias — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Bom Jesus",
+     "address": "Rua Daniel Cordeiro das Neves",
+     "neighborhood": "Caldas",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/areapastoralbomjesusbarbalha/",
+       "title": "Área Pastoral Bom Jesus — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-das-candeias-juazeiro-do-norte",
+   "name": "Paróquia Nossa Senhora das Candeias",
+   "city": "Juazeiro do Norte",
+   "state": "CE",
+   "neighborhood": "Frei Damião",
+   "address": "Padre Vitorino Vicente, 82",
+   "zipCode": null,
+   "phone": null,
+   "email": null,
+   "website": "https://www.facebook.com/DiocesedeCratoCE/",
+   "priestName": "Pe. Antônio Hilton da Silva Rocha",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-nossa-senhora-das-candeias/",
+     "title": "Paróquia Nossa Senhora das Candeias — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquias/",
+     "title": "Paróquias — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora das Candeias",
+     "address": "Padre Vitorino Vicente, 82",
+     "neighborhood": "Frei Damião",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-nossa-senhora-das-candeias/",
+       "title": "Paróquia Nossa Senhora das Candeias — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Nossa Senhora das Candeias",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Nossa Senhora das Candeias",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "sao-francisco-das-chagas-juazeiro-do-norte",
+   "name": "Paróquia São Francisco das Chagas",
+   "city": "Juazeiro do Norte",
+   "state": "CE",
+   "neighborhood": null,
+   "address": null,
+   "zipCode": null,
+   "phone": "(88) 2155-3446",
+   "email": null,
+   "website": "https://www.facebook.com/DiocesedeCratoCE/",
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sao-francisco-das-chagas-juazeiro/",
+     "title": "Paróquia São Francisco das Chagas — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquias/",
+     "title": "Paróquias — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz São Francisco das Chagas",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sao-francisco-das-chagas-juazeiro/",
+       "title": "Paróquia São Francisco das Chagas — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz São Francisco das Chagas",
+     "dayOfWeek": 1,
+     "time": "06:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sao-francisco-das-chagas-juazeiro/",
+       "title": "Paróquia São Francisco das Chagas – Juazeiro do Norte",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz São Francisco das Chagas",
+     "dayOfWeek": 1,
+     "time": "16:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sao-francisco-das-chagas-juazeiro/",
+       "title": "Paróquia São Francisco das Chagas – Juazeiro do Norte",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz São Francisco das Chagas",
+     "dayOfWeek": 1,
+     "time": "18:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sao-francisco-das-chagas-juazeiro/",
+       "title": "Paróquia São Francisco das Chagas – Juazeiro do Norte",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz São Francisco das Chagas",
+     "dayOfWeek": 2,
+     "time": "06:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sao-francisco-das-chagas-juazeiro/",
+       "title": "Paróquia São Francisco das Chagas – Juazeiro do Norte",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz São Francisco das Chagas",
+     "dayOfWeek": 2,
+     "time": "16:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sao-francisco-das-chagas-juazeiro/",
+       "title": "Paróquia São Francisco das Chagas – Juazeiro do Norte",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz São Francisco das Chagas",
+     "dayOfWeek": 2,
+     "time": "18:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sao-francisco-das-chagas-juazeiro/",
+       "title": "Paróquia São Francisco das Chagas – Juazeiro do Norte",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz São Francisco das Chagas",
+     "dayOfWeek": 4,
+     "time": "06:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sao-francisco-das-chagas-juazeiro/",
+       "title": "Paróquia São Francisco das Chagas – Juazeiro do Norte",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz São Francisco das Chagas",
+     "dayOfWeek": 4,
+     "time": "16:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sao-francisco-das-chagas-juazeiro/",
+       "title": "Paróquia São Francisco das Chagas – Juazeiro do Norte",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz São Francisco das Chagas",
+     "dayOfWeek": 4,
+     "time": "18:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sao-francisco-das-chagas-juazeiro/",
+       "title": "Paróquia São Francisco das Chagas – Juazeiro do Norte",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz São Francisco das Chagas",
+     "dayOfWeek": 5,
+     "time": "06:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sao-francisco-das-chagas-juazeiro/",
+       "title": "Paróquia São Francisco das Chagas – Juazeiro do Norte",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz São Francisco das Chagas",
+     "dayOfWeek": 5,
+     "time": "16:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sao-francisco-das-chagas-juazeiro/",
+       "title": "Paróquia São Francisco das Chagas – Juazeiro do Norte",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz São Francisco das Chagas",
+     "dayOfWeek": 5,
+     "time": "18:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sao-francisco-das-chagas-juazeiro/",
+       "title": "Paróquia São Francisco das Chagas – Juazeiro do Norte",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz São Francisco das Chagas",
+     "dayOfWeek": 3,
+     "time": "06:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sao-francisco-das-chagas-juazeiro/",
+       "title": "Paróquia São Francisco das Chagas – Juazeiro do Norte",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz São Francisco das Chagas",
+     "dayOfWeek": 3,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": "Missa e Hora da Graça",
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sao-francisco-das-chagas-juazeiro/",
+       "title": "Paróquia São Francisco das Chagas – Juazeiro do Norte",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz São Francisco das Chagas",
+     "dayOfWeek": 6,
+     "time": "06:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sao-francisco-das-chagas-juazeiro/",
+       "title": "Paróquia São Francisco das Chagas – Juazeiro do Norte",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz São Francisco das Chagas",
+     "dayOfWeek": 6,
+     "time": "18:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sao-francisco-das-chagas-juazeiro/",
+       "title": "Paróquia São Francisco das Chagas – Juazeiro do Norte",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz São Francisco das Chagas",
+     "dayOfWeek": 0,
+     "time": "06:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sao-francisco-das-chagas-juazeiro/",
+       "title": "Paróquia São Francisco das Chagas – Juazeiro do Norte",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz São Francisco das Chagas",
+     "dayOfWeek": 0,
+     "time": "09:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sao-francisco-das-chagas-juazeiro/",
+       "title": "Paróquia São Francisco das Chagas – Juazeiro do Norte",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz São Francisco das Chagas",
+     "dayOfWeek": 0,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sao-francisco-das-chagas-juazeiro/",
+       "title": "Paróquia São Francisco das Chagas – Juazeiro do Norte",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz São Francisco das Chagas",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sao-francisco-das-chagas-juazeiro/",
+       "title": "Paróquia São Francisco das Chagas – Juazeiro do Norte",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz São Francisco das Chagas",
+     "dayOfWeek": 2,
+     "time": "16:00",
+     "type": "CONFESSION",
+     "notes": "Terça a sábado, 16h",
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sao-francisco-das-chagas-juazeiro/",
+       "title": "Paróquia São Francisco das Chagas – Juazeiro do Norte",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz São Francisco das Chagas",
+     "dayOfWeek": 3,
+     "time": "16:00",
+     "type": "CONFESSION",
+     "notes": "Terça a sábado, 16h",
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sao-francisco-das-chagas-juazeiro/",
+       "title": "Paróquia São Francisco das Chagas – Juazeiro do Norte",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz São Francisco das Chagas",
+     "dayOfWeek": 4,
+     "time": "16:00",
+     "type": "CONFESSION",
+     "notes": "Terça a sábado, 16h",
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sao-francisco-das-chagas-juazeiro/",
+       "title": "Paróquia São Francisco das Chagas – Juazeiro do Norte",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz São Francisco das Chagas",
+     "dayOfWeek": 5,
+     "time": "16:00",
+     "type": "CONFESSION",
+     "notes": "Terça a sábado, 16h",
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sao-francisco-das-chagas-juazeiro/",
+       "title": "Paróquia São Francisco das Chagas – Juazeiro do Norte",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz São Francisco das Chagas",
+     "dayOfWeek": 6,
+     "time": "16:00",
+     "type": "CONFESSION",
+     "notes": "Terça a sábado, 16h",
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sao-francisco-das-chagas-juazeiro/",
+       "title": "Paróquia São Francisco das Chagas – Juazeiro do Norte",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz São Francisco das Chagas",
+     "dayOfWeek": 0,
+     "time": "05:30",
+     "type": "CONFESSION",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sao-francisco-das-chagas-juazeiro/",
+       "title": "Paróquia São Francisco das Chagas – Juazeiro do Norte",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz São Francisco das Chagas",
+     "dayOfWeek": 4,
+     "time": "17:00",
+     "type": "ADORATION",
+     "notes": "Todas as quintas-feiras, após a missa das 16h",
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sao-francisco-das-chagas-juazeiro/",
+       "title": "Paróquia São Francisco das Chagas – Juazeiro do Norte",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "sagrado-coracao-de-jesus-distrito-padre-cicero-juazeiro-do-norte",
+   "name": "Paróquia Sagrado Coração de Jesus",
+   "city": "Juazeiro do Norte",
+   "state": "CE",
+   "neighborhood": "Distrito Padre Cícero",
+   "address": null,
+   "zipCode": null,
+   "phone": null,
+   "email": null,
+   "website": "https://www.facebook.com/DiocesedeCratoCE/",
+   "priestName": "Pe. Sebastião Bandeira Gonçalves",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sagrado-coracao-de-jesus-juazeiro/",
+     "title": "Paróquia Sagrado Coração de Jesus — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquias/",
+     "title": "Paróquias — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Sagrado Coração de Jesus",
+     "address": null,
+     "neighborhood": "Distrito Padre Cícero",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sagrado-coracao-de-jesus-juazeiro/",
+       "title": "Paróquia Sagrado Coração de Jesus — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-auxiliadora-juazeiro-do-norte",
+   "name": "Paróquia Nossa Senhora Auxiliadora",
+   "city": "Juazeiro do Norte",
+   "state": "CE",
+   "neighborhood": "Antonio Vieira",
+   "address": null,
+   "zipCode": null,
+   "phone": null,
+   "email": null,
+   "website": "https://www.facebook.com/DiocesedeCratoCE/",
+   "priestName": "Pe. Francisco Luís dos Santos",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-nossa-senhora-auxiliadora-juazeiro-do-norte/",
+     "title": "Paróquia Nossa Senhora Auxiliadora — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquias/",
+     "title": "Paróquias — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora Auxiliadora",
+     "address": null,
+     "neighborhood": "Antonio Vieira",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-nossa-senhora-auxiliadora-juazeiro-do-norte/",
+       "title": "Paróquia Nossa Senhora Auxiliadora — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Nossa Senhora Auxiliadora",
+     "dayOfWeek": 0,
+     "time": "06:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Nossa Senhora Auxiliadora",
+     "dayOfWeek": 0,
+     "time": "10:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "sao-cristovao-juazeiro-do-norte",
+   "name": "Paróquia São Cristóvão",
+   "city": "Juazeiro do Norte",
+   "state": "CE",
+   "neighborhood": "Aeroporto",
+   "address": null,
+   "zipCode": null,
+   "phone": null,
+   "email": null,
+   "website": "https://www.facebook.com/DiocesedeCratoCE/",
+   "priestName": "Pe. Leonardo Pinheiro de Brito",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sao-cristovao-juazeiro-do-norte/",
+     "title": "Paróquia São Cristóvão — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquias/",
+     "title": "Paróquias — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz São Cristóvão",
+     "address": null,
+     "neighborhood": "Aeroporto",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sao-cristovao-juazeiro-do-norte/",
+       "title": "Paróquia São Cristóvão — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz São Cristóvão",
+     "dayOfWeek": 0,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz São Cristóvão",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "sao-jose-do-limoeiro-juazeiro-do-norte",
+   "name": "Paróquia São José do Limoeiro",
+   "city": "Juazeiro do Norte",
+   "state": "CE",
+   "neighborhood": "Limoeiro",
+   "address": "Rua Madre Mª Vilac, 6",
+   "zipCode": "63010-970",
+   "phone": "(88) 3572-1916 / 98838-6070 (WhatsApp)/ 99960-0068",
+   "email": null,
+   "website": "https://www.facebook.com/DiocesedeCratoCE/",
+   "priestName": "José Adelino Martins Dantas",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sao-jose-do-limoeiro-juazeiro-do-norte/",
+     "title": "Paróquia São José do Limoeiro — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquias/",
+     "title": "Paróquias — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz São José do Limoeiro",
+     "address": "Rua Madre Mª Vilac, 6",
+     "neighborhood": "Limoeiro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sao-jose-do-limoeiro-juazeiro-do-norte/",
+       "title": "Paróquia São José do Limoeiro — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz São José do Limoeiro",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz São José do Limoeiro",
+     "dayOfWeek": 0,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "sao-joao-bosco-juazeiro-do-norte",
+   "name": "Paróquia São João Bosco",
+   "city": "Juazeiro do Norte",
+   "state": "CE",
+   "neighborhood": "Triangulo",
+   "address": "Rua Geralda feitosa, 04",
+   "zipCode": "63041-080",
+   "phone": "(88) 98829-8485",
+   "email": "paroquiasaojoaobosco.jua@gmail.com",
+   "website": "https://www.facebook.com/DiocesedeCratoCE/",
+   "priestName": "Pe. Alberto Neves",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sao-joao-bosco/",
+     "title": "Paróquia São João Bosco — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquias/",
+     "title": "Paróquias — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz São João Bosco",
+     "address": "Rua Geralda feitosa, 04",
+     "neighborhood": "Triangulo",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sao-joao-bosco/",
+       "title": "Paróquia São João Bosco — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz São João Bosco",
+     "dayOfWeek": 0,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-de-lourdes-juazeiro-do-norte",
+   "name": "Paróquia Nossa Senhora de Lourdes",
+   "city": "Juazeiro do Norte",
+   "state": "CE",
+   "neighborhood": "São Miguel",
+   "address": "Ruão São Francisco, 1141",
+   "zipCode": "63100-210",
+   "phone": "(88) 3085-8310 (WhatsApp)",
+   "email": null,
+   "website": "https://www.facebook.com/DiocesedeCratoCE/",
+   "priestName": "Pe. César Retrão Vigário: Pe. Emanuel Dias",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-nossa-senhora-de-lourdes-juazeiro-do-norte/",
+     "title": "Paróquia Nossa Senhora de Lourdes — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquias/",
+     "title": "Paróquias — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora de Lourdes",
+     "address": "Ruão São Francisco, 1141",
+     "neighborhood": "São Miguel",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-nossa-senhora-de-lourdes-juazeiro-do-norte/",
+       "title": "Paróquia Nossa Senhora de Lourdes — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Nossa Senhora de Lourdes",
+     "dayOfWeek": 0,
+     "time": "06:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Nossa Senhora de Lourdes",
+     "dayOfWeek": 0,
+     "time": "09:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Nossa Senhora de Lourdes",
+     "dayOfWeek": 0,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Nossa Senhora de Lourdes",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "sao-pedro-caririacu",
+   "name": "Paróquia São Pedro",
+   "city": "Caririaçu",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Rua Carlos Morais, 561",
+   "zipCode": "63220-000",
+   "phone": "(88) 3547-1292",
+   "email": null,
+   "website": "https://www.facebook.com/DiocesedeCratoCE/",
+   "priestName": "Pe. Cícero Caboclo",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sao-pedro-caririacu/",
+     "title": "Paróquia São Pedro — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquias/",
+     "title": "Paróquias — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz São Pedro",
+     "address": "Rua Carlos Morais, 561",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sao-pedro-caririacu/",
+       "title": "Paróquia São Pedro — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz São Pedro",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz São Pedro",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "sao-vicente-de-paulo-barbalha",
+   "name": "Paróquia São Vicente de Paulo",
+   "city": "Barbalha",
+   "state": "CE",
+   "neighborhood": "Alto da Alegria",
+   "address": "Rua Madre Ildoara, 272",
+   "zipCode": "63180-000",
+   "phone": "(88) 3532-0423",
+   "email": null,
+   "website": "https://www.facebook.com/DiocesedeCratoCE/",
+   "priestName": "Pe. Francisco Edvaldo Marques",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sao-vicente-de-paulo/",
+     "title": "Paróquia São Vicente de Paulo — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquias/",
+     "title": "Paróquias — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz São Vicente de Paulo",
+     "address": "Rua Madre Ildoara, 272",
+     "neighborhood": "Alto da Alegria",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sao-vicente-de-paulo/",
+       "title": "Paróquia São Vicente de Paulo — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz São Vicente de Paulo",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz São Vicente de Paulo",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "santo-antonio-barbalha",
+   "name": "Paróquia Santo Antônio",
+   "city": "Barbalha",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Pça. Da Matriz, 43",
+   "zipCode": "63180-000",
+   "phone": "(88) 3532-1212. Telefone Adicional: (88) 3532-1168",
+   "email": null,
+   "website": "https://www.facebook.com/DiocesedeCratoCE/",
+   "priestName": "Pe. Joaquim Ivo Vigário: Pe. Luciano Virgulino",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-santo-antonio-barbalha/",
+     "title": "Paróquia Santo Antônio — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquias/",
+     "title": "Paróquias — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Santo Antônio",
+     "address": "Pça. Da Matriz, 43",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-santo-antonio-barbalha/",
+       "title": "Paróquia Santo Antônio — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "sagrado-coracao-de-jesus-salesianos-juazeiro-do-norte",
+   "name": "Paróquia Sagrado Coração de Jesus",
+   "city": "Juazeiro do Norte",
+   "state": "CE",
+   "neighborhood": "Salesianos",
+   "address": "Rua Pe. Cícero, 1440",
+   "zipCode": null,
+   "phone": "(88) 98868-6749 (WhatsApp)/ 99671-8197",
+   "email": null,
+   "website": "https://www.facebook.com/DiocesedeCratoCE/",
+   "priestName": "Pe. Fábio Luciano (SDB)",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sagrado-coracao-de-jesus-juazeiro-2/",
+     "title": "Paróquia Sagrado Coração de Jesus — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquias/",
+     "title": "Paróquias — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Sagrado Coração de Jesus",
+     "address": "Rua Pe. Cícero, 1440",
+     "neighborhood": "Salesianos",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sagrado-coracao-de-jesus-juazeiro-2/",
+       "title": "Paróquia Sagrado Coração de Jesus — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "basilica-menor-santuario-n-sra-das-dores-juazeiro-do-norte",
+   "name": "Paróquia Basílica Menor Santuário N. Sra. das Dores",
+   "city": "Juazeiro do Norte",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Rua Pe. Cícero, 147",
+   "zipCode": "63010-020",
+   "phone": "(88) 3572-3850",
+   "email": null,
+   "website": "https://www.facebook.com/DiocesedeCratoCE/",
+   "priestName": "Pe. Cícero José da Silva",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-basilica-menor-santuario-n-sra-das-dores/",
+     "title": "Paróquia Basílica Menor Santuário N. Sra. das Dores — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquias/",
+     "title": "Paróquias — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Basílica Menor Santuário N. Sra. das Dores",
+     "address": "Rua Pe. Cícero, 147",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-basilica-menor-santuario-n-sra-das-dores/",
+       "title": "Paróquia Basílica Menor Santuário N. Sra. das Dores — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Basílica Menor Santuário N. Sra. das Dores",
+     "dayOfWeek": 0,
+     "time": "05:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Basílica Menor Santuário N. Sra. das Dores",
+     "dayOfWeek": 0,
+     "time": "09:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Basílica Menor Santuário N. Sra. das Dores",
+     "dayOfWeek": 0,
+     "time": "16:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Basílica Menor Santuário N. Sra. das Dores",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-aparecida-juazeiro-do-norte",
+   "name": "Paróquia Nossa Senhora Aparecida",
+   "city": "Juazeiro do Norte",
+   "state": "CE",
+   "neighborhood": "Romeirão",
+   "address": "Rua Pio Norões, 493",
+   "zipCode": "63050-660",
+   "phone": "(88) 3571-2111",
+   "email": null,
+   "website": "https://www.facebook.com/DiocesedeCratoCE/",
+   "priestName": "Pe. Vaudênio Nergino Ferreira",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/nossa-senhora-aparecida/",
+     "title": "Paróquia Nossa Senhora Aparecida — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquias/",
+     "title": "Paróquias — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora Aparecida",
+     "address": "Rua Pio Norões, 493",
+     "neighborhood": "Romeirão",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/nossa-senhora-aparecida/",
+       "title": "Paróquia Nossa Senhora Aparecida — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Nossa Senhora Aparecida",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Nossa Senhora Aparecida",
+     "dayOfWeek": 0,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Nossa Senhora Aparecida",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "sao-sebastiao-mauriti",
+   "name": "Paróquia São Sebastião",
+   "city": "Mauriti",
+   "state": "CE",
+   "neighborhood": null,
+   "address": null,
+   "zipCode": null,
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquias/",
+     "title": "Paróquias — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "media",
+   "communities": [
+    {
+     "name": "Matriz São Sebastião",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquias/",
+       "title": "Paróquias — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [],
+   "notes": "Ficha não capturada pelo Arquivo da Internet e site fora do ar em 11/09/2026; só o nome e a cidade vieram da página de paróquias."
+  },
+  {
+   "slug": "sao-francisco-de-assis-brejo-santo",
+   "name": "Paróquia São Francisco de Assis",
+   "city": "Brejo Santo",
+   "state": "CE",
+   "neighborhood": "São Francisco",
+   "address": "Rua José Francisco da Silva, 315",
+   "zipCode": null,
+   "phone": null,
+   "email": null,
+   "website": "https://www.facebook.com/DiocesedeCratoCE/",
+   "priestName": "Pe. Arnaldo Pereira do Nascimento",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sao-francisco-de-assis-3/",
+     "title": "Paróquia São Francisco de Assis — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquias/",
+     "title": "Paróquias — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz São Francisco de Assis",
+     "address": "Rua José Francisco da Silva, 315",
+     "neighborhood": "São Francisco",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sao-francisco-de-assis-3/",
+       "title": "Paróquia São Francisco de Assis — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-da-conceicao-porteiras",
+   "name": "Paróquia Nossa Senhora da Conceição",
+   "city": "Porteiras",
+   "state": "CE",
+   "neighborhood": null,
+   "address": "Rua Luiz Grangeiro, 23",
+   "zipCode": null,
+   "phone": "(88) 98120-8013 (WhatsApp)/ 3557-1158 Missas: Sábado, às 19h; Domingo, às 7h",
+   "email": null,
+   "website": "https://www.facebook.com/DiocesedeCratoCE/",
+   "priestName": "Pe. José Sampaio Alves",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-nossa-senhora-da-conceicao/",
+     "title": "Paróquia Nossa Senhora da Conceição — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquias/",
+     "title": "Paróquias — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora da Conceição",
+     "address": "Rua Luiz Grangeiro, 23",
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-nossa-senhora-da-conceicao/",
+       "title": "Paróquia Nossa Senhora da Conceição — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Nossa Senhora da Conceição",
+     "dayOfWeek": 6,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-nossa-senhora-da-conceicao/",
+       "title": "Paróquia Nossa Senhora da Conceição – Porteiras",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Nossa Senhora da Conceição",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-nossa-senhora-da-conceicao/",
+       "title": "Paróquia Nossa Senhora da Conceição – Porteiras",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-da-saude-penaforte",
+   "name": "Paróquia Nossa Senhora da Saúde",
+   "city": "Penaforte",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Rua João Ângelo, 29",
+   "zipCode": "63280-000",
+   "phone": "(88) 98826-3007 (WhatsApp)",
+   "email": null,
+   "website": "https://www.facebook.com/DiocesedeCratoCE/",
+   "priestName": "Pe. Lindolfo Lindomar Ferreira da Cunha",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-nossa-senhora-da-saude-penaforte/",
+     "title": "Paróquia Nossa Senhora da Saúde — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquias/",
+     "title": "Paróquias — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora da Saúde",
+     "address": "Rua João Ângelo, 29",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-nossa-senhora-da-saude-penaforte/",
+       "title": "Paróquia Nossa Senhora da Saúde — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Nossa Senhora da Saúde",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-nossa-senhora-da-saude-penaforte/",
+       "title": "Paróquia Nossa Senhora da Saúde – Penaforte",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Nossa Senhora da Saúde",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-nossa-senhora-da-saude-penaforte/",
+       "title": "Paróquia Nossa Senhora da Saúde – Penaforte",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "sagrado-coracao-de-jesus-palestina",
+   "name": "Paróquia Sagrado Coração de Jesus",
+   "city": "Palestina",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Rua João Felipe",
+   "zipCode": "63210-000",
+   "phone": null,
+   "email": null,
+   "website": "https://www.facebook.com/DiocesedeCratoCE/",
+   "priestName": "Pe. Ismael Vogas Evangelista Sousa",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sagrado-coracao-de-jesus-palestina/",
+     "title": "Paróquia Sagrado Coração de Jesus — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquias/",
+     "title": "Paróquias — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Sagrado Coração de Jesus",
+     "address": "Rua João Felipe",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sagrado-coracao-de-jesus-palestina/",
+       "title": "Paróquia Sagrado Coração de Jesus — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "sao-jose-missao-velha",
+   "name": "Paróquia São José",
+   "city": "Missão Velha",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Rua Mons. Horácio, 93",
+   "zipCode": "63200-000",
+   "phone": "(88) 3542-1214",
+   "email": null,
+   "website": "https://www.facebook.com/DiocesedeCratoCE/",
+   "priestName": "Pe. Antônio Luíz do Nascimento",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sao-jose-missao-velha/",
+     "title": "Paróquia São José — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquias/",
+     "title": "Paróquias — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz São José",
+     "address": "Rua Mons. Horácio, 93",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sao-jose-missao-velha/",
+       "title": "Paróquia São José — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz São José",
+     "dayOfWeek": 0,
+     "time": "06:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz São José",
+     "dayOfWeek": 0,
+     "time": "09:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz São José",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-dos-milagres-milagres",
+   "name": "Paróquia Nossa Senhora dos Milagres",
+   "city": "Milagres",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Rua Santos Dumont, 70",
+   "zipCode": "63250-000",
+   "phone": "(88) 99365-4355 (WhatsApp)",
+   "email": null,
+   "website": "https://www.facebook.com/DiocesedeCratoCE/",
+   "priestName": "Pe. Ronaldo do Nascimento Oliveira",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-nossa-senhora-dos-milagres-milagres/",
+     "title": "Paróquia Nossa Senhora dos Milagres — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquias/",
+     "title": "Paróquias — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora dos Milagres",
+     "address": "Rua Santos Dumont, 70",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-nossa-senhora-dos-milagres-milagres/",
+       "title": "Paróquia Nossa Senhora dos Milagres — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Nossa Senhora dos Milagres",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Nossa Senhora dos Milagres",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "imaculada-conceicao-mauriti",
+   "name": "Paróquia Imaculada Conceição",
+   "city": "Mauriti",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Rua Major Jose Francisco",
+   "zipCode": "63210-000",
+   "phone": "(88) 3552-1327",
+   "email": null,
+   "website": "https://www.facebook.com/DiocesedeCratoCE/",
+   "priestName": "Pe. Edvan Carlos Guedes",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-imaculada-conceicao-mauriti/",
+     "title": "Paróquia Imaculada Conceição — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquias/",
+     "title": "Paróquias — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Imaculada Conceição",
+     "address": "Rua Major Jose Francisco",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-imaculada-conceicao-mauriti/",
+       "title": "Paróquia Imaculada Conceição — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Imaculada Conceição",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Imaculada Conceição",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "senhora-santana-jati",
+   "name": "Paróquia Senhora Santana",
+   "city": "Jati",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Rua M. Luís, 138",
+   "zipCode": "63275-000",
+   "phone": "(88) 98838-2832 (WhatsApp)",
+   "email": null,
+   "website": "https://www.facebook.com/DiocesedeCratoCE/",
+   "priestName": "Pe. Francisco de Assis Ferreira Ramos",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-senhora-santana-jati/",
+     "title": "Paróquia Senhora Santana — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquias/",
+     "title": "Paróquias — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Senhora Santana",
+     "address": "Rua M. Luís, 138",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-senhora-santana-jati/",
+       "title": "Paróquia Senhora Santana — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "santo-antonio-jardim",
+   "name": "Paróquia Santo Antônio",
+   "city": "Jardim",
+   "state": "CE",
+   "neighborhood": null,
+   "address": "Rua Pe. Miguel Coelho, 9",
+   "zipCode": "63290-000",
+   "phone": "(88) 3555-1906",
+   "email": null,
+   "website": "https://www.facebook.com/DiocesedeCratoCE/",
+   "priestName": "Pe. Aureliano de Sousa Gondim",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-santo-antonio-jardim/",
+     "title": "Paróquia Santo Antônio — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquias/",
+     "title": "Paróquias — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Santo Antônio",
+     "address": "Rua Pe. Miguel Coelho, 9",
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-santo-antonio-jardim/",
+       "title": "Paróquia Santo Antônio — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-das-dores-missao-velha",
+   "name": "Paróquia Nossa Senhora das Dores",
+   "city": "Missão Velha",
+   "state": "CE",
+   "neighborhood": "Distrito de Jamacaru",
+   "address": "Rua Felix Italiano, 286",
+   "zipCode": "63207-000",
+   "phone": "(88) 98109-2747 (WhatsApp)",
+   "email": null,
+   "website": "https://www.facebook.com/DiocesedeCratoCE/",
+   "priestName": "Pe. Tales Eduardo Santos Figueredo",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-nossa-senhora-das-dores-jamacaru/",
+     "title": "Paróquia Nossa Senhora das Dores — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquias/",
+     "title": "Paróquias — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora das Dores",
+     "address": "Rua Felix Italiano, 286",
+     "neighborhood": "Distrito de Jamacaru",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-nossa-senhora-das-dores-jamacaru/",
+       "title": "Paróquia Nossa Senhora das Dores — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Nossa Senhora das Dores",
+     "dayOfWeek": 0,
+     "time": "09:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Nossa Senhora das Dores",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "sagrado-coracao-de-jesus-brejo-santo",
+   "name": "Paróquia Sagrado Coração de Jesus",
+   "city": "Brejo Santo",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Rua Manoel Inácio de Lucena, 638",
+   "zipCode": "63260-000",
+   "phone": null,
+   "email": null,
+   "website": "https://www.facebook.com/DiocesedeCratoCE/",
+   "priestName": "Pe. Acúrcio de Oliveira Barros",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sagrado-coracao-de-jesus-brejo-santo/",
+     "title": "Paróquia Sagrado Coração de Jesus — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquias/",
+     "title": "Paróquias — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Sagrado Coração de Jesus",
+     "address": "Rua Manoel Inácio de Lucena, 638",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sagrado-coracao-de-jesus-brejo-santo/",
+       "title": "Paróquia Sagrado Coração de Jesus — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Sagrado Coração de Jesus",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Sagrado Coração de Jesus",
+     "dayOfWeek": 0,
+     "time": "18:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "santo-antonio-barro",
+   "name": "Paróquia Santo Antônio",
+   "city": "Barro",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Rua Justino Alves Feitosa, 162",
+   "zipCode": "63380-000",
+   "phone": "(88) 3554-1062",
+   "email": "[email protected]",
+   "website": "https://www.facebook.com/DiocesedeCratoCE/",
+   "priestName": "Pe. José Claúdio da Silva",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-santo-antonio-barro/",
+     "title": "Paróquia Santo Antônio — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquias/",
+     "title": "Paróquias — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Santo Antônio",
+     "address": "Rua Justino Alves Feitosa, 162",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-santo-antonio-barro/",
+       "title": "Paróquia Santo Antônio — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Santo Antônio",
+     "dayOfWeek": 0,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Santo Antônio",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "imaculado-coracao-de-maria-abaiara",
+   "name": "Paróquia Imaculado Coração de Maria",
+   "city": "Abaiara",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Rua Jose Leite Martins, 431",
+   "zipCode": "63240-000",
+   "phone": "(88) 3558-1232",
+   "email": null,
+   "website": "https://www.facebook.com/DiocesedeCratoCE/",
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-imaculado-coracao-de-maria-abaiara/",
+     "title": "Paróquia Imaculado Coração de Maria — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquias/",
+     "title": "Paróquias — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Imaculado Coração de Maria",
+     "address": "Rua Jose Leite Martins, 431",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-imaculado-coracao-de-maria-abaiara/",
+       "title": "Paróquia Imaculado Coração de Maria — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-da-conceicao-barro",
+   "name": "Paróquia Nossa Senhora da Conceição",
+   "city": "Barro",
+   "state": "CE",
+   "neighborhood": "Distrito de Iara",
+   "address": null,
+   "zipCode": null,
+   "phone": null,
+   "email": null,
+   "website": "https://www.facebook.com/DiocesedeCratoCE/",
+   "priestName": "Pe. Valderí Tavares",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/nossa-senhora-da-conceicao-barro-ceara/",
+     "title": "Paróquia Nossa Senhora da Conceição — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquias/",
+     "title": "Paróquias — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora da Conceição",
+     "address": null,
+     "neighborhood": "Distrito de Iara",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/nossa-senhora-da-conceicao-barro-ceara/",
+       "title": "Paróquia Nossa Senhora da Conceição — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Nossa Senhora da Conceição",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-da-conceicao-ipaumirim",
+   "name": "Paróquia Nossa Senhora da Conceição",
+   "city": "Ipaumirim",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Rua Mons. Carlos de Morais, 90",
+   "zipCode": "63340-000",
+   "phone": null,
+   "email": null,
+   "website": "https://www.facebook.com/DiocesedeCratoCE/",
+   "priestName": "Pe. José Gonçalves da Silva",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-nossa-senhora-da-conceicao-ipaumirim-ceara/",
+     "title": "Paróquia Nossa Senhora da Conceição — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquias/",
+     "title": "Paróquias — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora da Conceição",
+     "address": "Rua Mons. Carlos de Morais, 90",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-nossa-senhora-da-conceicao-ipaumirim-ceara/",
+       "title": "Paróquia Nossa Senhora da Conceição — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "sao-raimundo-nonato-varzea-alegre",
+   "name": "Paróquia São Raimundo Nonato",
+   "city": "Várzea Alegre",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Rua Major Joaquim Alves, 248",
+   "zipCode": "63540-000",
+   "phone": null,
+   "email": null,
+   "website": "https://www.facebook.com/DiocesedeCratoCE/",
+   "priestName": "Pe. Benedito Evaldo Alves Vigário: Pe. Jardel Phellipe",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sao-raimundo-nonato-varzea-alegre/",
+     "title": "Paróquia São Raimundo Nonato — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquias/",
+     "title": "Paróquias — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz São Raimundo Nonato",
+     "address": "Rua Major Joaquim Alves, 248",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sao-raimundo-nonato-varzea-alegre/",
+       "title": "Paróquia São Raimundo Nonato — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "sao-goncalo-do-amarante-umari",
+   "name": "Paróquia São Gonçalo do Amarante",
+   "city": "Umari",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Rua Cel. Antonio Malheiros, 276",
+   "zipCode": null,
+   "phone": null,
+   "email": null,
+   "website": "https://www.facebook.com/DiocesedeCratoCE/",
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sao-goncalo-do-amarante-umari/",
+     "title": "Paróquia São Gonçalo do Amarante — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquias/",
+     "title": "Paróquias — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz São Gonçalo do Amarante",
+     "address": "Rua Cel. Antonio Malheiros, 276",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sao-goncalo-do-amarante-umari/",
+       "title": "Paróquia São Gonçalo do Amarante — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [],
+   "notes": "A ficha oficial traz CEP 63100-210 (Crato/Juazeiro) para uma paróquia em Umari — descartado."
+  },
+  {
+   "slug": "sao-sebastiao-lavras-da-mangabeira",
+   "name": "Paróquia São Sebastião",
+   "city": "Lavras da Mangabeira",
+   "state": "CE",
+   "neighborhood": "Distrito de Mangabeira",
+   "address": "Rua Pedro Mangueira",
+   "zipCode": "63307-000",
+   "phone": null,
+   "email": null,
+   "website": "https://www.facebook.com/DiocesedeCratoCE/",
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sao-sebastiao-mangabeira/",
+     "title": "Paróquia São Sebastião — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquias/",
+     "title": "Paróquias — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz São Sebastião",
+     "address": "Rua Pedro Mangueira",
+     "neighborhood": "Distrito de Mangabeira",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sao-sebastiao-mangabeira/",
+       "title": "Paróquia São Sebastião — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "sao-francisco-das-chagas-baixio",
+   "name": "Paróquia São Francisco das Chagas",
+   "city": "Baixio",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Av. Lucas Ricarte de Alencar, 107",
+   "zipCode": "63320-000",
+   "phone": null,
+   "email": null,
+   "website": "https://www.facebook.com/DiocesedeCratoCE/",
+   "priestName": "Pe. Damião da Silva Peixoto",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sao-francisco-das-chagas-baixio/",
+     "title": "Paróquia São Francisco das Chagas — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquias/",
+     "title": "Paróquias — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz São Francisco das Chagas",
+     "address": "Av. Lucas Ricarte de Alencar, 107",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sao-francisco-das-chagas-baixio/",
+       "title": "Paróquia São Francisco das Chagas — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "sao-vicente-ferrer-lavras-da-mangabeira",
+   "name": "Paróquia São Vicente Ferrer",
+   "city": "Lavras da Mangabeira",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Rua Pe. Alzir Sampaio, 9",
+   "zipCode": "63300-000",
+   "phone": null,
+   "email": null,
+   "website": "https://www.facebook.com/DiocesedeCratoCE/",
+   "priestName": "Pe. Joaquim Cláudio de Freitas",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sao-vicente-ferrer/",
+     "title": "Paróquia São Vicente Ferrer — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquias/",
+     "title": "Paróquias — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz São Vicente Ferrer",
+     "address": "Rua Pe. Alzir Sampaio, 9",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sao-vicente-ferrer/",
+       "title": "Paróquia São Vicente Ferrer — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-do-rosario-lavras-da-mangabeira",
+   "name": "Paróquia Nossa Senhora do Rosário",
+   "city": "Lavras da Mangabeira",
+   "state": "CE",
+   "neighborhood": "Quitaiús (distrito)",
+   "address": "Distrito de Quitaiús",
+   "zipCode": "63308-000",
+   "phone": "(88) 3536-5109",
+   "email": null,
+   "website": "https://www.facebook.com/DiocesedeCratoCE/",
+   "priestName": "Pe. Bruno Ferreira da Silva",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-nossa-senhora-do-rosario/",
+     "title": "Paróquia Nossa Senhora do Rosário — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquias/",
+     "title": "Paróquias — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora do Rosário",
+     "address": "Distrito de Quitaiús",
+     "neighborhood": "Quitaiús (distrito)",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-nossa-senhora-do-rosario/",
+       "title": "Paróquia Nossa Senhora do Rosário — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-da-conceicao-grangeiro",
+   "name": "Paróquia Nossa Senhora da Conceição",
+   "city": "Grangeiro",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Rua David Grangeiro",
+   "zipCode": null,
+   "phone": "(88) 3519-1070",
+   "email": null,
+   "website": "https://www.facebook.com/DiocesedeCratoCE/",
+   "priestName": "Pe. Francisco Erivano Galdino Clemente",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/nossa-senhora-da-conceicao-grangeiro/",
+     "title": "Paróquia Nossa Senhora da Conceição — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquias/",
+     "title": "Paróquias — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora da Conceição",
+     "address": "Rua David Grangeiro",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/nossa-senhora-da-conceicao-grangeiro/",
+       "title": "Paróquia Nossa Senhora da Conceição — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-da-conceicao-farias-brito",
+   "name": "Paróquia Nossa Senhora da Conceição",
+   "city": "Farias Brito",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Praça Moriá",
+   "zipCode": "63185-000",
+   "phone": null,
+   "email": null,
+   "website": "https://www.facebook.com/DiocesedeCratoCE/",
+   "priestName": "Pe. Cicero Leandro Cavalcante",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/nossa-senhora-da-conceicao-faria-brito/",
+     "title": "Paróquia Nossa Senhora da Conceição — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquias/",
+     "title": "Paróquias — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora da Conceição",
+     "address": "Praça Moriá",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/nossa-senhora-da-conceicao-faria-brito/",
+       "title": "Paróquia Nossa Senhora da Conceição — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "senhor-menino-deus-aurora",
+   "name": "Paróquia Senhor Menino Deus",
+   "city": "Aurora",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Rua São Vicente, 159",
+   "zipCode": null,
+   "phone": "(88) 3543-1319",
+   "email": null,
+   "website": "https://www.facebook.com/DiocesedeCratoCE/",
+   "priestName": "Pe. José Cláudio da Silva",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/senhor-menino-deus/",
+     "title": "Paróquia Senhor Menino Deus — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquias/",
+     "title": "Paróquias — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Senhor Menino Deus",
+     "address": "Rua São Vicente, 159",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/senhor-menino-deus/",
+       "title": "Paróquia Senhor Menino Deus — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "sao-francisco-de-assis-salitre",
+   "name": "Paróquia São Francisco de Assis",
+   "city": "Salitre",
+   "state": "CE",
+   "neighborhood": null,
+   "address": null,
+   "zipCode": null,
+   "phone": null,
+   "email": null,
+   "website": "https://www.facebook.com/DiocesedeCratoCE/",
+   "priestName": "Pe Antônio Marcus Dantas Vigário: Pe. Vinicius Ricarto",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sao-francisco-de-assis-2/",
+     "title": "Paróquia São Francisco de Assis — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquias/",
+     "title": "Paróquias — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz São Francisco de Assis",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sao-francisco-de-assis-2/",
+       "title": "Paróquia São Francisco de Assis — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-das-angustias-tarrafas",
+   "name": "Paróquia Nossa Senhora das Angustias",
+   "city": "Tarrafas",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Rua José Pereira Leite, 26",
+   "zipCode": "63145-000",
+   "phone": null,
+   "email": null,
+   "website": "https://www.facebook.com/DiocesedeCratoCE/",
+   "priestName": "Pe . Thiago Ferreira Brito",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-nossa-senhora-das-angustias-tarrafas/",
+     "title": "Paróquia Nossa Senhora das Angustias — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquias/",
+     "title": "Paróquias — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora das Angustias",
+     "address": "Rua José Pereira Leite, 26",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-nossa-senhora-das-angustias-tarrafas/",
+       "title": "Paróquia Nossa Senhora das Angustias — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "senhora-santana-santana-do-cariri",
+   "name": "Paróquia Senhora Santana",
+   "city": "Santana do Cariri",
+   "state": "CE",
+   "neighborhood": null,
+   "address": "Rua Pe. Cristiano Coelho, 304",
+   "zipCode": null,
+   "phone": "(88) 3545-1485. Telefone Adicional: (88) 9688-0892",
+   "email": null,
+   "website": "https://www.facebook.com/DiocesedeCratoCE/",
+   "priestName": "Pe. Idemário da Silva Muniz Vigário: Pe. Cicero da Silva Lopes",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-senhora-santana-santana-do-cariri/",
+     "title": "Paróquia Senhora Santana — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquias/",
+     "title": "Paróquias — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Senhora Santana",
+     "address": "Rua Pe. Cristiano Coelho, 304",
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-senhora-santana-santana-do-cariri/",
+       "title": "Paróquia Senhora Santana — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "sao-jose-potengi",
+   "name": "Paróquia São José",
+   "city": "Potengi",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Rua Maria Guedes da Silva, 58",
+   "zipCode": "63160-000",
+   "phone": "(88) 3538-1266",
+   "email": null,
+   "website": "https://www.facebook.com/DiocesedeCratoCE/",
+   "priestName": "Pe. Tales Eduardo Santos Figueiredo",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sao-jose-potengi/",
+     "title": "Paróquia São José — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquias/",
+     "title": "Paróquias — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz São José",
+     "address": "Rua Maria Guedes da Silva, 58",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sao-jose-potengi/",
+       "title": "Paróquia São José — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "sao-sebastiao-nova-olinda",
+   "name": "Paróquia São Sebastião",
+   "city": "Nova Olinda",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Rua Jeremias Pereira",
+   "zipCode": "63165-970",
+   "phone": "(88) 3546-1550",
+   "email": null,
+   "website": "https://www.facebook.com/DiocesedeCratoCE/",
+   "priestName": "Pe. Luciano Pinheiro de Brito",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sao-sebastiao-nova-olinda/",
+     "title": "Paróquia São Sebastião — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquias/",
+     "title": "Paróquias — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz São Sebastião",
+     "address": "Rua Jeremias Pereira",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-sao-sebastiao-nova-olinda/",
+       "title": "Paróquia São Sebastião — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-das-dores-assare",
+   "name": "Paróquia Nossa Senhora das Dores",
+   "city": "Assaré",
+   "state": "CE",
+   "neighborhood": "centro",
+   "address": "Rua Cel. Pedro Onofre, 11",
+   "zipCode": "63140-000",
+   "phone": null,
+   "email": null,
+   "website": "https://www.facebook.com/DiocesedeCratoCE/",
+   "priestName": "Pe. José Ricardo de Barros Sales",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-nossa-senhora-das-dores-assare/",
+     "title": "Paróquia Nossa Senhora das Dores — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquias/",
+     "title": "Paróquias — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora das Dores",
+     "address": "Rua Cel. Pedro Onofre, 11",
+     "neighborhood": "centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-nossa-senhora-das-dores-assare/",
+       "title": "Paróquia Nossa Senhora das Dores — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "santo-antonio-araripe",
+   "name": "Paróquia Santo Antônio",
+   "city": "Araripe",
+   "state": "CE",
+   "neighborhood": null,
+   "address": null,
+   "zipCode": null,
+   "phone": null,
+   "email": null,
+   "website": "https://www.facebook.com/DiocesedeCratoCE/",
+   "priestName": "Pe. José Maycon de Lacerda Sales",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-santo-antonio-araripe/",
+     "title": "Paróquia Santo Antônio — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquias/",
+     "title": "Paróquias — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Santo Antônio",
+     "address": "Rua Cel. Pedro Onofre, 11",
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-santo-antonio-araripe/",
+       "title": "Paróquia Santo Antônio — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [],
+   "notes": "A ficha oficial repete endereço e CEP da Paróquia N. Sra. das Dores de Assaré (\"Rua Cel. Pedro Onofre, 11\", 63140-000) — descartados por erro evidente da fonte."
+  },
+  {
+   "slug": "santo-antonio-antonina-do-norte",
+   "name": "Paróquia Santo Antônio",
+   "city": "Antonina do Norte",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Rua Santo Antônio, 115",
+   "zipCode": "63570-000",
+   "phone": null,
+   "email": null,
+   "website": "https://www.facebook.com/DiocesedeCratoCE/",
+   "priestName": "Pe. Reginaldo Pedro da Silva",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-santo-antonio-antonina-do-norte/",
+     "title": "Paróquia Santo Antônio — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquias/",
+     "title": "Paróquias — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Santo Antônio",
+     "address": "Rua Santo Antônio, 115",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-santo-antonio-antonina-do-norte/",
+       "title": "Paróquia Santo Antônio — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "santa-teresa-de-jesus-altaneira",
+   "name": "Paróquia Santa Teresa de Jesus",
+   "city": "Altaneira",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Rua Furtado Leite, 149",
+   "zipCode": "63195-000",
+   "phone": null,
+   "email": null,
+   "website": "https://www.facebook.com/DiocesedeCratoCE/",
+   "priestName": "Pe. Jeferson dos Santos Pereira",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-santa-teresa-de-jesus-altaneira/",
+     "title": "Paróquia Santa Teresa de Jesus — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquias/",
+     "title": "Paróquias — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Santa Teresa de Jesus",
+     "address": "Rua Furtado Leite, 149",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquia-santa-teresa-de-jesus-altaneira/",
+       "title": "Paróquia Santa Teresa de Jesus — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-da-penha-campos-sales",
+   "name": "Paróquia Nossa Senhora da Penha",
+   "city": "Campos Sales",
+   "state": "CE",
+   "neighborhood": null,
+   "address": "Rua Manoel Morais, 01, Centro",
+   "zipCode": "63150-000",
+   "phone": null,
+   "email": null,
+   "website": "https://www.facebook.com/DiocesedeCratoCE/",
+   "priestName": "Pe. José Adauto dos Santos Alencar (SSCCV) Pároco emérito: Monsenhor José Wilton Leite",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/nossa-senhora-da-penha-2/",
+     "title": "Paróquia Nossa Senhora da Penha — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquias/",
+     "title": "Paróquias — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora da Penha",
+     "address": "Rua Manoel Morais, 01, Centro",
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/nossa-senhora-da-penha-2/",
+       "title": "Paróquia Nossa Senhora da Penha — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "menino-jesus-de-praga-juazeiro-do-norte",
+   "name": "Paróquia Menino Jesus de Praga",
+   "city": "Juazeiro do Norte",
+   "state": "CE",
+   "neighborhood": null,
+   "address": null,
+   "zipCode": null,
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquias/menino-jesus-de-praga/",
+     "title": "Paróquia Menino Jesus de Praga — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquias/",
+     "title": "Paróquias — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Menino Jesus de Praga",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/paroquias/menino-jesus-de-praga/",
+       "title": "Paróquia Menino Jesus de Praga — Diocese de Crato (Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Menino Jesus de Praga",
+     "dayOfWeek": 0,
+     "time": "06:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Menino Jesus de Praga",
+     "dayOfWeek": 0,
+     "time": "09:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Menino Jesus de Praga",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20260514135529/https://diocesedecrato.org/horarios-de-missas/",
+       "title": "Horários de Missas — Diocese de Crato (captura do Arquivo da Internet, 14/05/2026)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  }
+ ],
+ "coverage": {
+  "parishesFound": 62,
+  "parishesExpected": 57,
+  "notes": "Lista integral da página /paroquias/ do site oficial (61 entradas em 5 Regiões Forâneas: 59 paróquias + 2 áreas pastorais), mais a Paróquia Menino Jesus de Praga, que aparece na página de horários e no CPT do site mas não na página de paróquias — 62 entradas. catholic-hierarchy registra 57 paróquias + 3 missões. **O site estava fora do ar em 11/09/2026** (erro de banco do WordPress em todas as URLs); tudo foi lido em capturas do Arquivo da Internet de 14/05/2026."
+ }
+}

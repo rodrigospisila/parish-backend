@@ -131,7 +131,18 @@ enxame de validação. Nunca inventar: campo desconhecido = `null`.
   leitura automática devolveu uma grade que **não existe na fonte** (comunidade inventada, adoração
   às 22h); só apareceu no cotejo com o JSON do handler `.ashx`. Horário que aparece em snippet de
   busca ou resumo, e não no documento, não entra.
+- **Site Wix** entrega as coleções inteiras em `<script id="wix-warmup-data">` →
+  `platform.appsWarmupData.dataBinding.dataStore.recordsByCollectionId`, e o `schemas` ao lado dá o
+  `displayName` de cada campo (foi assim que `image_fld_1112` virou a coluna "1ª Sexta" em Caruaru).
+  O `/sitemap.xml` lista os `dynamic-<pagina>_p_<uuid>-sitemap.xml` com todos os itens dinâmicos.
 - E-mail ofuscado pelo Cloudflare vem em `data-cfemail` e pode ser decodificado.
+- **Confira a data da ficha do agregador, não só a do site.** No `horariodemissa.com.br` a ficha
+  individual (`igreja.php?k=…`) mostra a última atualização: na Bahia, 148 de 151 fichas são de
+  2013–2018 e caem pela regra pré-pandemia. Alternativas mais novas: `buscamissa.com.br` (marca
+  "Confirmado") e `liriocatolico.com.br` (separa capela da matriz).
+- **Domínio diocesano tomado por site de apostas já apareceu três vezes** (Botucatu, Tocantinópolis e
+  Palmares). Antes de dar um site como oficial, confira o conteúdo; e antes de dar a diocese como
+  offline, procure um domínio alternativo — no caso de Palmares o site vivo era outro endereço.
 - **"Fundada em" de muitos portais é a data de cadastro no CMS**, não a fundação — em Itapetininga 22
   paróquias repetiam a mesma data de 2025, em São Carlos 65 repetiam 18/05/2025. Data recente ou
   repetida em massa → `null`.

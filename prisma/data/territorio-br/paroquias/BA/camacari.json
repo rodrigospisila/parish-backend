@@ -1,0 +1,6322 @@
+{
+ "diocese": {
+  "name": "Diocese de Camaçari",
+  "type": "Diocese",
+  "slug": "camacari",
+  "city": "Camaçari",
+  "state": "BA",
+  "address": "Mitra Diocesana de Camaçari, Rua da Bomba, 302, Natal",
+  "zipCode": "42802-605",
+  "phone": "(71) 3627-3393",
+  "email": null,
+  "website": "https://www.diocesedecamacari.com.br",
+  "bishopName": null,
+  "sources": [
+   {
+    "url": "https://www.diocesedecamacari.com.br",
+    "title": "Diocese de Camaçari — site oficial",
+    "accessedAt": "2026-09-11"
+   },
+   {
+    "url": "https://www.diocesedecamacari.com.br/paroquias",
+    "title": "Paróquias — Diocese de Camaçari",
+    "accessedAt": "2026-09-11"
+   },
+   {
+    "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+    "title": "Horários das Missas — Diocese de Camaçari",
+    "accessedAt": "2026-09-11"
+   }
+  ],
+  "confidence": "alta"
+ },
+ "parishes": [
+  {
+   "slug": "santa-maria-camacari",
+   "name": "Capelania Santa Maria",
+   "city": "Camaçari",
+   "state": "BA",
+   "neighborhood": null,
+   "address": null,
+   "zipCode": null,
+   "phone": null,
+   "email": null,
+   "website": "https://www.diocesedecamacari.com.br/paroquia/capelania-santa-maria--condominio-interlagos-camacari-",
+   "priestName": "Cônego Luiz Orlando",
+   "foundedYear": 2022,
+   "sources": [
+    {
+     "url": "https://www.diocesedecamacari.com.br/paroquias",
+     "title": "Paróquias — Diocese de Camaçari",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://www.diocesedecamacari.com.br/paroquia/capelania-santa-maria--condominio-interlagos-camacari-",
+     "title": "Capelania Santa Maria — Diocese de Camaçari",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Santa Maria",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [],
+   "status": "nao-paroquial",
+   "loadAsParish": true,
+   "notes": "Capelania do condomínio Interlagos, criada em 30/12/2022; a diocese a lista entre as paróquias mas não é paróquia."
+  },
+  {
+   "slug": "divino-espirito-santo-camacari",
+   "name": "Paróquia Divino Espírito Santo",
+   "city": "Camaçari",
+   "state": "BA",
+   "neighborhood": null,
+   "address": "Praça Matriz, Vila de Abrantes, s/n (Orla Marítima) - Vilas de Abrantes - Camaçari/BA",
+   "zipCode": "42810-010",
+   "phone": "(71) 3623-1815",
+   "email": "divino@diocesedecamacari.com.br",
+   "website": "https://www.diocesedecamacari.com.br/paroquia/divino-espirito-santo--vila-de-abrantes-camacari-",
+   "priestName": "Pe.Fabricio Lima Souza, SDB",
+   "foundedYear": 1757,
+   "sources": [
+    {
+     "url": "https://www.diocesedecamacari.com.br/paroquias",
+     "title": "Paróquias — Diocese de Camaçari",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://www.diocesedecamacari.com.br/paroquia/divino-espirito-santo--vila-de-abrantes-camacari-",
+     "title": "Paróquia Divino Espírito Santo — Diocese de Camaçari",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Divino Espírito Santo",
+     "address": "Praça Matriz, Vila de Abrantes, s/n (Orla Marítima) - Vilas de Abrantes - Camaçari/BA - CEP 42810-010",
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "do Divino Espírito Santo",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Nossa Senhora Aparecida",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "São Bento",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Nossa Senhora de Fátima",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "São Miguel",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "São Francisco",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Nossa Senhora do Parto",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Nossa Senhora da Conceição",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Santa Maria",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "São Roque",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Senhora Santana",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "São Francisco",
+     "address": null,
+     "neighborhood": "Jauá",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Mãe Rainha",
+     "address": null,
+     "neighborhood": "Bela Vista",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Ecumênica AlphaVille",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Divino Espírito Santo",
+     "dayOfWeek": 0,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Divino Espírito Santo",
+     "dayOfWeek": 0,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "São Francisco",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Ecumênica AlphaVille",
+     "dayOfWeek": 0,
+     "time": "09:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Divino Espírito Santo",
+     "dayOfWeek": 0,
+     "time": "10:00",
+     "type": "MASS",
+     "notes": "recorrência mensal/quinzenal — texto original: \"2º domingo  Cordoaria - 10h\" | local publicado: \"2º Cordoaria\" (comunidade não consta da lista oficial)",
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Divino Espírito Santo",
+     "dayOfWeek": 0,
+     "time": "10:00",
+     "type": "MASS",
+     "notes": "recorrência mensal/quinzenal — texto original: \"4º domingo Catu - 10h\" | local publicado: \"4º Catu\" (comunidade não consta da lista oficial)",
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Divino Espírito Santo",
+     "dayOfWeek": 2,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Divino Espírito Santo",
+     "dayOfWeek": 3,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "recorrência mensal/quinzenal — texto original: \"1ª Quarta - F.DA Caixa -  19h\" | local publicado: \"1ª - F.DA Caixa\" (comunidade não consta da lista oficial)",
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Divino Espírito Santo",
+     "dayOfWeek": 3,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "recorrência mensal/quinzenal — texto original: \"- 3ª Quarta  Cajazeiras - 19h\" | local publicado: \"3ª Cajazeiras\" (comunidade não consta da lista oficial)",
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Divino Espírito Santo",
+     "dayOfWeek": 4,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Divino Espírito Santo",
+     "dayOfWeek": 5,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": "recorrência mensal/quinzenal — texto original: \"1ª Sexta Matriz  - 18h  e Catu - 19h\"",
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Divino Espírito Santo",
+     "dayOfWeek": 5,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "recorrência mensal/quinzenal — texto original: \"1ª Sexta Matriz  - 18h  e Catu - 19h\" | local publicado: \"Catu\" (comunidade não consta da lista oficial)",
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Divino Espírito Santo",
+     "dayOfWeek": 5,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "recorrência mensal/quinzenal — texto original: \"2ª Sexta - Phoc - 19h\" | local publicado: \"2ª - Phoc\" (comunidade não consta da lista oficial)",
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Divino Espírito Santo",
+     "dayOfWeek": 5,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "recorrência mensal/quinzenal — texto original: \"3ª Sexta - Buris 19h\" | local publicado: \"3ª - Buris\" (comunidade não consta da lista oficial)",
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Divino Espírito Santo",
+     "dayOfWeek": 6,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": "local publicado: \"Interlagos\" (comunidade não consta da lista oficial)",
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Divino Espírito Santo",
+     "dayOfWeek": 6,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": "local publicado: \"Pé de Areias\" (comunidade não consta da lista oficial)",
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Divino Espírito Santo",
+     "dayOfWeek": 6,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": "local publicado: \"Areias\" (comunidade não consta da lista oficial)",
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Divino Espírito Santo",
+     "dayOfWeek": 6,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": "recorrência mensal/quinzenal — texto original: \"1º,3º sábado - Mutirão 19h30\" | local publicado: \"1º,3º - Mutirão\" (comunidade não consta da lista oficial)",
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Divino Espírito Santo",
+     "dayOfWeek": 6,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": "recorrência mensal/quinzenal — texto original: \"2º sábado - Malicia - 19h30\" | local publicado: \"2º - Malicia\" (comunidade não consta da lista oficial)",
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "São Francisco",
+     "dayOfWeek": 5,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "recorrência mensal/quinzenal — texto original: \"2ª,3ª,4ª sexta - Jauá 19h\"",
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-da-boa-viagem-dias-davila",
+   "name": "Paróquia Nossa Senhora da Boa Viagem",
+   "city": "Dias d'Ávila",
+   "state": "BA",
+   "neighborhood": null,
+   "address": "Avenida Brasil, 406, Centro - Dias Davila - 4",
+   "zipCode": "28500-000",
+   "phone": "(71) 8691-9083",
+   "email": null,
+   "website": "https://www.diocesedecamacari.com.br/paroquia/nossa-senhora-da-boa-viagem-dias-d-avila-",
+   "priestName": "Cônego Osmar Freire Monteiro Júnior",
+   "foundedYear": 1981,
+   "sources": [
+    {
+     "url": "https://www.diocesedecamacari.com.br/paroquias",
+     "title": "Paróquias — Diocese de Camaçari",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://www.diocesedecamacari.com.br/paroquia/nossa-senhora-da-boa-viagem-dias-d-avila-",
+     "title": "Paróquia Nossa Senhora da Boa Viagem — Diocese de Camaçari",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora da Boa Viagem",
+     "address": "Avenida Brasil, 406, Centro - Dias Davila - 428500-000",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "São Roque",
+     "address": null,
+     "neighborhood": "Centro",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Nossa Senhora da Conceição",
+     "address": null,
+     "neighborhood": "Centro",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Santo Antônio de Capuame",
+     "address": null,
+     "neighborhood": "Nova Dias D`Avila",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Sagrado Coração de Jesus",
+     "address": null,
+     "neighborhood": "Vila Petrópolis",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Jesus Misericordioso",
+     "address": null,
+     "neighborhood": "Condomínio",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "São Francisco",
+     "address": null,
+     "neighborhood": "Assentamento",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "São Genaro",
+     "address": null,
+     "neighborhood": "Genaro",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Senhora Sant'Ana",
+     "address": null,
+     "neighborhood": "Isaura",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Senhor do Bonfim",
+     "address": null,
+     "neighborhood": "Garcia D’Avila",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Santa Luzia",
+     "address": null,
+     "neighborhood": "Urbis",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Nossa Senhora de Lourdes",
+     "address": null,
+     "neighborhood": "Imbassaí",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Nossa Senhora do Bom Parto",
+     "address": null,
+     "neighborhood": "Biribeira",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Santa Helena",
+     "address": null,
+     "neighborhood": "Barragem de Santa Helena",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Nossa Senhora de Guadalupe",
+     "address": null,
+     "neighborhood": "Bosque",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Santa Dulce dos Pobres",
+     "address": null,
+     "neighborhood": "Garcia D’Ávila",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Nossa Senhora da Boa Viagem",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Nossa Senhora da Boa Viagem",
+     "dayOfWeek": 0,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Nossa Senhora da Boa Viagem",
+     "dayOfWeek": 0,
+     "time": "09:00",
+     "type": "MASS",
+     "notes": "local publicado: \"Com. Sto. Antônio\" (comunidade não consta da lista oficial)",
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Nossa Senhora da Boa Viagem",
+     "dayOfWeek": 2,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Nossa Senhora da Boa Viagem",
+     "dayOfWeek": 2,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "local publicado: \"Com. Sto. Antônio\" (comunidade não consta da lista oficial)",
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Jesus Misericordioso",
+     "dayOfWeek": 3,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Nossa Senhora da Boa Viagem",
+     "dayOfWeek": 4,
+     "time": "06:30",
+     "type": "MASS",
+     "notes": "local publicado: \"Com. Sto. Antônio\" (comunidade não consta da lista oficial)",
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Nossa Senhora da Boa Viagem",
+     "dayOfWeek": 4,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": "local publicado: \"Com. N. Sra. da Conceição\" (comunidade não consta da lista oficial)",
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Nossa Senhora da Boa Viagem",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "local publicado: \"N. Sra. de Guadalupe\" (comunidade não consta da lista oficial)",
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "São Genaro",
+     "dayOfWeek": 6,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Nossa Senhora da Boa Viagem",
+     "dayOfWeek": 6,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": "local publicado: \"Com. Sta. Luzia\" (comunidade não consta da lista oficial)",
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-da-conceicao-simoes-filho",
+   "name": "Paróquia Nossa Senhora da Conceição",
+   "city": "Simões Filho",
+   "state": "BA",
+   "neighborhood": null,
+   "address": "Avenida Rivaldo Guimarães, 284, Cia I – Qd. 03",
+   "zipCode": "43700-000",
+   "phone": "(71) 9693-3649",
+   "email": null,
+   "website": "https://www.diocesedecamacari.com.br/paroquia/nossa-senhora-da-conceicao-simoes-filho-",
+   "priestName": "Pe.Rogério Rosa",
+   "foundedYear": 1987,
+   "sources": [
+    {
+     "url": "https://www.diocesedecamacari.com.br/paroquias",
+     "title": "Paróquias — Diocese de Camaçari",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://www.diocesedecamacari.com.br/paroquia/nossa-senhora-da-conceicao-simoes-filho-",
+     "title": "Paróquia Nossa Senhora da Conceição — Diocese de Camaçari",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora da Conceição",
+     "address": "Avenida Rivaldo Guimarães, 284, Cia I – Qd. 03 - CEP 43700-000",
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "José Operário",
+     "address": null,
+     "neighborhood": "CIA II",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Nossa Senhora Aparecida",
+     "address": null,
+     "neighborhood": "Coroa da Lagoa",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Cristo Ressuscitado e Nossa Senhora de Fátima",
+     "address": null,
+     "neighborhood": "Vida Nova",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Santo Antônio de Pádua",
+     "address": null,
+     "neighborhood": "Santo Antônio do Rio das Pedras",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Nossa Senhora Rosa Mística",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Sagrado Coração de Jesus",
+     "address": null,
+     "neighborhood": "Recanto do Sol",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "São Francisco de Assis",
+     "address": null,
+     "neighborhood": "Tanque do Coronel",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Santa Rita de Cássia e Bem-Aventurada Dulce dos Pobres",
+     "address": null,
+     "neighborhood": "Baixa da Jaqueira",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-da-luz-simoes-filho",
+   "name": "Paróquia Nossa Senhora da Luz",
+   "city": "Simões Filho",
+   "state": "BA",
+   "neighborhood": null,
+   "address": "Rua Travessa da Mangabeira, s/n - Nova Pitanga - Simões Filho",
+   "zipCode": "43700-000",
+   "phone": "(71) 3396-3600",
+   "email": null,
+   "website": "https://www.diocesedecamacari.com.br/paroquia/nossa-senhora-da-luz--simoes-filho",
+   "priestName": "Vigário : Cônego André Alexandre Passos",
+   "foundedYear": 2011,
+   "sources": [
+    {
+     "url": "https://www.diocesedecamacari.com.br/paroquias",
+     "title": "Paróquias — Diocese de Camaçari",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://www.diocesedecamacari.com.br/paroquia/nossa-senhora-da-luz--simoes-filho",
+     "title": "Paróquia Nossa Senhora da Luz — Diocese de Camaçari",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora da Luz",
+     "address": "Rua Travessa da Mangabeira, s/n - Nova Pitanga - Simões Filho - CEP 43700-000",
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Santo Antônio de Pádua",
+     "address": null,
+     "neighborhood": "Coboco",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "São Lucas Evangelista",
+     "address": null,
+     "neighborhood": "Cova da Gia",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Nossa Senhora da Anunciação",
+     "address": null,
+     "neighborhood": "Oceania",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Nossa Senhora das Graças",
+     "address": null,
+     "neighborhood": "(Saruim",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Nossa Senhora do Rosário",
+     "address": null,
+     "neighborhood": "Oitizeiro",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Nossa Senhora de Guadalupe",
+     "address": null,
+     "neighborhood": "São Conrado",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Santo Antônio de Pádua",
+     "address": null,
+     "neighborhood": "Goes Calmon",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "São Paulo Apóstolo",
+     "address": null,
+     "neighborhood": "Simões Filho I",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Santa Luzia",
+     "address": null,
+     "neighborhood": "Pitanguinha",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-das-candeias-candeias",
+   "name": "Santuário Nossa Senhora das Candeias",
+   "city": "Candeias",
+   "state": "BA",
+   "neighborhood": null,
+   "address": "Travessa São Francisco de Assis  07 - Centro, Candeias - BA",
+   "zipCode": "43810-010",
+   "phone": "(71) 3601-1942",
+   "email": null,
+   "website": "https://www.diocesedecamacari.com.br/paroquia/nossa-senhora-das-candeias-candeias-",
+   "priestName": "Fr. Thiago Noronha Costa",
+   "foundedYear": 1894,
+   "sources": [
+    {
+     "url": "https://www.diocesedecamacari.com.br/paroquias",
+     "title": "Paróquias — Diocese de Camaçari",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://www.diocesedecamacari.com.br/paroquia/nossa-senhora-das-candeias-candeias-",
+     "title": "Santuário Nossa Senhora das Candeias — Diocese de Camaçari",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora das Candeias",
+     "address": "Travessa São Francisco de Assis  07 - Centro, Candeias - BA, 43810-010",
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Nossa Senhora Virgem dos Pobres",
+     "address": null,
+     "neighborhood": "Malembá",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Santo Antônio",
+     "address": null,
+     "neighborhood": "Santo Antônio",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "São José",
+     "address": null,
+     "neighborhood": "Areia",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Santa Luzia",
+     "address": null,
+     "neighborhood": "Nova Brasília",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "São Maximiliano Maria Kolbe",
+     "address": null,
+     "neighborhood": "Urbis II",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Rainha da Paz",
+     "address": null,
+     "neighborhood": "Sarandi",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "São Tomé",
+     "address": null,
+     "neighborhood": "Malembá de Baixo",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Santa Clara",
+     "address": null,
+     "neighborhood": "Santa Clara",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "São Gonçalo",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Santa Rita",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Mãe Rainha três vezes Admirável",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Nossa Senhora da Encarnação",
+     "address": null,
+     "neighborhood": "Passé",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Nossa Senhora de Fátima",
+     "address": null,
+     "neighborhood": "Triângulo",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Nossa Senhora das Candeias",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Nossa Senhora das Candeias",
+     "dayOfWeek": 0,
+     "time": "10:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Nossa Senhora das Candeias",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Nossa Senhora das Candeias",
+     "dayOfWeek": 1,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Nossa Senhora das Candeias",
+     "dayOfWeek": 2,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Nossa Senhora das Candeias",
+     "dayOfWeek": 3,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Nossa Senhora das Candeias",
+     "dayOfWeek": 4,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Nossa Senhora das Candeias",
+     "dayOfWeek": 5,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Nossa Senhora das Candeias",
+     "dayOfWeek": 6,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Nossa Senhora das Candeias",
+     "dayOfWeek": 6,
+     "time": "16:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ]
+  },
+  {
+   "slug": "sao-thomaz-de-cantuaria-camacari",
+   "name": "Catedral São Thomaz de Cantuária",
+   "city": "Camaçari",
+   "state": "BA",
+   "neighborhood": null,
+   "address": "Av. Concêntrica, 15, Camaçari de Dentro – Camaçari/BA",
+   "zipCode": "42804-906",
+   "phone": null,
+   "email": null,
+   "website": "https://www.diocesedecamacari.com.br/paroquia/paroquia-catedral-sao-thomaz-de-cantuaria-camacari-",
+   "priestName": "Pe. Milton Santos Pereira",
+   "foundedYear": 1966,
+   "sources": [
+    {
+     "url": "https://www.diocesedecamacari.com.br/paroquias",
+     "title": "Paróquias — Diocese de Camaçari",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://www.diocesedecamacari.com.br/paroquia/paroquia-catedral-sao-thomaz-de-cantuaria-camacari-",
+     "title": "Catedral São Thomaz de Cantuária — Diocese de Camaçari",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz São Thomaz de Cantuária",
+     "address": "Av. Concêntrica, 15, Camaçari de Dentro – Camaçari/BA  CEP 42804-906",
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Sagrado Coração de Jesus",
+     "address": null,
+     "neighborhood": "Parque Florestal",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Santa Cruz",
+     "address": null,
+     "neighborhood": "Alto da Cruz",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "São Francisco de Assis",
+     "address": null,
+     "neighborhood": "Bomba",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "São Paulo Apóstolo",
+     "address": null,
+     "neighborhood": "Ficam",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Santo André Apóstolo",
+     "address": null,
+     "neighborhood": "Mangueiral",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Nossa Senhora da Conceição",
+     "address": null,
+     "neighborhood": "Camaçari de Dentro",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Nossa Senhora Aparecida",
+     "address": null,
+     "neighborhood": "Pq Satélite",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz São Thomaz de Cantuária",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz São Thomaz de Cantuária",
+     "dayOfWeek": 0,
+     "time": "09:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz São Thomaz de Cantuária",
+     "dayOfWeek": 0,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz São Thomaz de Cantuária",
+     "dayOfWeek": 1,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz São Thomaz de Cantuária",
+     "dayOfWeek": 3,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz São Thomaz de Cantuária",
+     "dayOfWeek": 4,
+     "time": "08:00",
+     "type": "ADORATION",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz São Thomaz de Cantuária",
+     "dayOfWeek": 4,
+     "time": "17:00",
+     "type": "ADORATION",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz São Thomaz de Cantuária",
+     "dayOfWeek": 5,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz São Thomaz de Cantuária",
+     "dayOfWeek": 5,
+     "time": "12:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz São Thomaz de Cantuária",
+     "dayOfWeek": 6,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ]
+  },
+  {
+   "slug": "cristo-ressuscitado-camacari",
+   "name": "Paróquia Cristo Ressuscitado",
+   "city": "Camaçari",
+   "state": "BA",
+   "neighborhood": null,
+   "address": "Rua da Linha, 633 - Verdes Horizontes, Camaçari/BA",
+   "zipCode": null,
+   "phone": "(71) 9293-0279",
+   "email": null,
+   "website": "https://www.diocesedecamacari.com.br/paroquia/paroquia-cristo-ressuscitado-camacari-",
+   "priestName": "Côn.Paulo Bitencourtt",
+   "foundedYear": 2015,
+   "sources": [
+    {
+     "url": "https://www.diocesedecamacari.com.br/paroquias",
+     "title": "Paróquias — Diocese de Camaçari",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://www.diocesedecamacari.com.br/paroquia/paroquia-cristo-ressuscitado-camacari-",
+     "title": "Paróquia Cristo Ressuscitado — Diocese de Camaçari",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Cristo Ressuscitado",
+     "address": "Rua da Linha, 633 - Verdes Horizontes, Camaçari/BA",
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "São Benedito",
+     "address": null,
+     "neighborhood": "Ponto Certo",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Santa Dulce dos Pobres",
+     "address": null,
+     "neighborhood": "Piaçaveira",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Divino Espírito Santo",
+     "address": null,
+     "neighborhood": "Dois de Julho",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Sagrada Família",
+     "address": null,
+     "neighborhood": "Verde Horizonte",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Cristo Ressuscitado",
+     "dayOfWeek": 0,
+     "time": "07:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Cristo Ressuscitado",
+     "dayOfWeek": 0,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Sagrada Família",
+     "dayOfWeek": 0,
+     "time": "10:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Divino Espírito Santo",
+     "dayOfWeek": 2,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Sagrada Família",
+     "dayOfWeek": 3,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Santa Dulce dos Pobres",
+     "dayOfWeek": 3,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Cristo Ressuscitado",
+     "dayOfWeek": 4,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": "local publicado: \"Cristo Ressuscitado - Inocoop\" (comunidade não consta da lista oficial)",
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Cristo Ressuscitado",
+     "dayOfWeek": 4,
+     "time": "18:30",
+     "type": "ADORATION",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Cristo Ressuscitado",
+     "dayOfWeek": 6,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": "recorrência mensal/quinzenal — texto original: \"Sábado - Igreja Matriz  8h (Quinzenal)\"",
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "São Benedito",
+     "dayOfWeek": 6,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": "recorrência mensal/quinzenal — texto original: \"São Benedito (Ponto Certo) 17h (Quinzenal)\"",
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-de-fatima-camacari",
+   "name": "Quase-paróquia Nossa Senhora de Fátima",
+   "city": "Camaçari",
+   "state": "BA",
+   "neighborhood": null,
+   "address": null,
+   "zipCode": null,
+   "phone": "(71) 9902-1695",
+   "email": null,
+   "website": "https://www.diocesedecamacari.com.br/paroquia/paroquia-nossa-senhora-de-fatima--barra-do-pojuca-camacari-",
+   "priestName": "Côn. Euclides Cardoso Moreira",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://www.diocesedecamacari.com.br/paroquias",
+     "title": "Paróquias — Diocese de Camaçari",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://www.diocesedecamacari.com.br/paroquia/paroquia-nossa-senhora-de-fatima--barra-do-pojuca-camacari-",
+     "title": "Quase-paróquia Nossa Senhora de Fátima — Diocese de Camaçari",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora de Fátima",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Nossa Senhora de Fátima",
+     "dayOfWeek": 0,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Nossa Senhora de Fátima",
+     "dayOfWeek": 0,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Nossa Senhora de Fátima",
+     "dayOfWeek": 0,
+     "time": "16:00",
+     "type": "MASS",
+     "notes": "local publicado: \"Cachoeirinha\" (comunidade não consta da lista oficial)",
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Nossa Senhora de Fátima",
+     "dayOfWeek": 2,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Nossa Senhora de Fátima",
+     "dayOfWeek": 3,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Nossa Senhora de Fátima",
+     "dayOfWeek": 3,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "local publicado: \"Sagrada Família\" (comunidade não consta da lista oficial)",
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Nossa Senhora de Fátima",
+     "dayOfWeek": 3,
+     "time": "16:00",
+     "type": "MASS",
+     "notes": "local publicado: \"Joia\" (comunidade não consta da lista oficial)",
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Nossa Senhora de Fátima",
+     "dayOfWeek": 3,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": "local publicado: \"Tiririca\" (comunidade não consta da lista oficial)",
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Nossa Senhora de Fátima",
+     "dayOfWeek": 4,
+     "time": "06:15",
+     "type": "MASS",
+     "notes": "local publicado: \"Com. São Sebastião (Cachoeirinha)\" (comunidade não consta da lista oficial)",
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Nossa Senhora de Fátima",
+     "dayOfWeek": 4,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Nossa Senhora de Fátima",
+     "dayOfWeek": 5,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Nossa Senhora de Fátima",
+     "dayOfWeek": 6,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": "local publicado: \"Condomínio da Espera – Itacimirim\" (comunidade não consta da lista oficial)",
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-luz-do-monte-sao-francisco-do-conde",
+   "name": "Paróquia Nossa Senhora Luz do Monte",
+   "city": "São Francisco do Conde",
+   "state": "BA",
+   "neighborhood": null,
+   "address": null,
+   "zipCode": null,
+   "phone": "(71) 9161-3737",
+   "email": null,
+   "website": "https://www.diocesedecamacari.com.br/paroquia/paroquia-nossa-senhora-luz-do-monte-sao-francisco-do-conde-",
+   "priestName": "Pe.Ailton Jesus",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://www.diocesedecamacari.com.br/paroquias",
+     "title": "Paróquias — Diocese de Camaçari",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://www.diocesedecamacari.com.br/paroquia/paroquia-nossa-senhora-luz-do-monte-sao-francisco-do-conde-",
+     "title": "Paróquia Nossa Senhora Luz do Monte — Diocese de Camaçari",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora Luz do Monte",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "santa-luzia-camacari",
+   "name": "Paróquia Santa Luzia",
+   "city": "Camaçari",
+   "state": "BA",
+   "neighborhood": null,
+   "address": "Rotatória da Rua 06, s/n, Gleba C -  Camaçari/ BA",
+   "zipCode": "42803-120",
+   "phone": "(71) 3622-4688",
+   "email": null,
+   "website": "https://www.diocesedecamacari.com.br/paroquia/paroquia-santa-luzia-camacari-",
+   "priestName": "Pe.José André da Silva Jesus",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://www.diocesedecamacari.com.br/paroquias",
+     "title": "Paróquias — Diocese de Camaçari",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://www.diocesedecamacari.com.br/paroquia/paroquia-santa-luzia-camacari-",
+     "title": "Paróquia Santa Luzia — Diocese de Camaçari",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Santa Luzia",
+     "address": "Rotatória da Rua 06, s/n, Gleba C -  Camaçari/ BA - CEP: 42803-120",
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "São José",
+     "address": null,
+     "neighborhood": "PHOC II",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Imaculado Coração de Maria",
+     "address": null,
+     "neighborhood": "Bairro do 46",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Nossa Senhora da Visitação",
+     "address": null,
+     "neighborhood": "POCH I",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Santa Luzia",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Santa Luzia",
+     "dayOfWeek": 0,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "São José",
+     "dayOfWeek": 0,
+     "time": "10:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Nossa Senhora da Visitação",
+     "dayOfWeek": 2,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "São José",
+     "dayOfWeek": 3,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Santa Luzia",
+     "dayOfWeek": 4,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Imaculado Coração de Maria",
+     "dayOfWeek": 4,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Santa Luzia",
+     "dayOfWeek": 5,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Imaculado Coração de Maria",
+     "dayOfWeek": 6,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Nossa Senhora da Visitação",
+     "dayOfWeek": 6,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ]
+  },
+  {
+   "slug": "sao-francisco-de-arembepe-camacari",
+   "name": "Paróquia São Francisco de Arembepe",
+   "city": "Camaçari",
+   "state": "BA",
+   "neighborhood": null,
+   "address": "Praça das Amendoeiras, 34, Largo de São Francisco – Arembepe",
+   "zipCode": null,
+   "phone": "(71) 9997-0784",
+   "email": null,
+   "website": "https://www.diocesedecamacari.com.br/paroquia/paroquia-sao-francisco-de-arembepe-camacari-",
+   "priestName": "Pe. Christian Bernard A. Vienne",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://www.diocesedecamacari.com.br/paroquias",
+     "title": "Paróquias — Diocese de Camaçari",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://www.diocesedecamacari.com.br/paroquia/paroquia-sao-francisco-de-arembepe-camacari-",
+     "title": "Paróquia São Francisco de Arembepe — Diocese de Camaçari",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz São Francisco de Arembepe",
+     "address": "Praça das Amendoeiras, 34, Largo de São Francisco – Arembepe",
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "N. Sra da Conceição",
+     "address": null,
+     "neighborhood": "Volta do Rubalo",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "São Paulo",
+     "address": null,
+     "neighborhood": "Fonte das Águas",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "N. Sra das Candeias",
+     "address": null,
+     "neighborhood": "Coqueiro de Arembepe",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Santo Antônio",
+     "address": null,
+     "neighborhood": "Rancho Alegre",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Santo Antônio",
+     "address": null,
+     "neighborhood": "Vilarejo",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Senhor dos Passos",
+     "address": null,
+     "neighborhood": "Cetrel",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Nossa Senhora de Loreto",
+     "address": null,
+     "neighborhood": "Colônia Boa União",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "São José",
+     "address": null,
+     "neighborhood": "Tucunaré",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Nossa Senhora Aparecida",
+     "address": null,
+     "neighborhood": "Fazenda Açú",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "N. Sra das Candeias",
+     "dayOfWeek": 6,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "N. Sra das Candeias",
+     "dayOfWeek": 6,
+     "time": "18:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz São Francisco de Arembepe",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": "local publicado: \"Com. N.Sra da Condeição (Volta do Robalo)\" (comunidade não consta da lista oficial)",
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz São Francisco de Arembepe",
+     "dayOfWeek": 0,
+     "time": "09:00",
+     "type": "MASS",
+     "notes": "local publicado: \"Com. N.Sra da Condeição (Volta do Robalo)\" (comunidade não consta da lista oficial)",
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz São Francisco de Arembepe",
+     "dayOfWeek": 0,
+     "time": "17:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Santo Antônio",
+     "dayOfWeek": 2,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Santo Antônio",
+     "dayOfWeek": 2,
+     "time": "18:30",
+     "type": "CONFESSION",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz São Francisco de Arembepe",
+     "dayOfWeek": 3,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": "recorrência mensal/quinzenal — texto original: \"Quarta 7h Missa na Matriz 1ª e 3ª Semana - Senhor dos Passos 19h - Missa 2ª e 4ª Semana - Menino Jesus (Cetrel) 19h Missa\"",
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Francisco de Arembepe",
+     "dayOfWeek": 3,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "recorrência mensal/quinzenal — texto original: \"Quarta 7h Missa na Matriz 1ª e 3ª Semana - Senhor dos Passos 19h - Missa 2ª e 4ª Semana - Menino Jesus (Cetrel) 19h Missa\"",
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Senhor dos Passos",
+     "dayOfWeek": 3,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "recorrência mensal/quinzenal — texto original: \"Quarta 7h Missa na Matriz 1ª e 3ª Semana - Senhor dos Passos 19h - Missa 2ª e 4ª Semana - Menino Jesus (Cetrel) 19h Missa\"",
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Francisco de Arembepe",
+     "dayOfWeek": 4,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz São Francisco de Arembepe",
+     "dayOfWeek": 4,
+     "time": "18:30",
+     "type": "CONFESSION",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz São Francisco de Arembepe",
+     "dayOfWeek": 5,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "São José",
+     "dayOfWeek": 5,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "sao-goncalo-sao-francisco-do-conde",
+   "name": "Paróquia São Gonçalo",
+   "city": "São Francisco do Conde",
+   "state": "BA",
+   "neighborhood": null,
+   "address": "Rua João Florêncio Gomes, s/n, Centro - São Francisco do Conde/BA",
+   "zipCode": "43900-000",
+   "phone": "(71) 3651-1074",
+   "email": null,
+   "website": "https://www.diocesedecamacari.com.br/paroquia/paroquia-sao-goncalo-sao-francisco-do-conde-",
+   "priestName": "Frei Macelo Freitas, OFM",
+   "foundedYear": 1696,
+   "sources": [
+    {
+     "url": "https://www.diocesedecamacari.com.br/paroquias",
+     "title": "Paróquias — Diocese de Camaçari",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://www.diocesedecamacari.com.br/paroquia/paroquia-sao-goncalo-sao-francisco-do-conde-",
+     "title": "Paróquia São Gonçalo — Diocese de Camaçari",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz São Gonçalo",
+     "address": "Rua João Florêncio Gomes, s/n, Centro - São Francisco do Conde/BA - CEP 43900-000",
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz São Gonçalo",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": "Convento",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=KlbEO",
+       "title": "Horário de Missa — Paróquia de São Gonçalo (dados de 03/10/2013)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Gonçalo",
+     "dayOfWeek": 0,
+     "time": "17:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=KlbEO",
+       "title": "Horário de Missa — Paróquia de São Gonçalo (dados de 03/10/2013)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Gonçalo",
+     "dayOfWeek": 2,
+     "time": "17:30",
+     "type": "MASS",
+     "notes": "Convento",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=KlbEO",
+       "title": "Horário de Missa — Paróquia de São Gonçalo (dados de 03/10/2013)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Gonçalo",
+     "dayOfWeek": 5,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=KlbEO",
+       "title": "Horário de Missa — Paróquia de São Gonçalo (dados de 03/10/2013)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Gonçalo",
+     "dayOfWeek": 6,
+     "time": "06:00",
+     "type": "MASS",
+     "notes": "Capela NS da Conceição da Praia",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=KlbEO",
+       "title": "Horário de Missa — Paróquia de São Gonçalo (dados de 03/10/2013)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Gonçalo",
+     "dayOfWeek": 2,
+     "time": "08:00",
+     "type": "CONFESSION",
+     "notes": "às 12:00",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=KlbEO",
+       "title": "Horário de Missa — Paróquia de São Gonçalo (dados de 03/10/2013)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Gonçalo",
+     "dayOfWeek": 2,
+     "time": "14:00",
+     "type": "CONFESSION",
+     "notes": "às 17:00",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=KlbEO",
+       "title": "Horário de Missa — Paróquia de São Gonçalo (dados de 03/10/2013)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Gonçalo",
+     "dayOfWeek": 3,
+     "time": "08:00",
+     "type": "CONFESSION",
+     "notes": "às 12:00",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=KlbEO",
+       "title": "Horário de Missa — Paróquia de São Gonçalo (dados de 03/10/2013)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Gonçalo",
+     "dayOfWeek": 3,
+     "time": "14:00",
+     "type": "CONFESSION",
+     "notes": "às 17:00",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=KlbEO",
+       "title": "Horário de Missa — Paróquia de São Gonçalo (dados de 03/10/2013)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Gonçalo",
+     "dayOfWeek": 4,
+     "time": "08:00",
+     "type": "CONFESSION",
+     "notes": "às 12:00",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=KlbEO",
+       "title": "Horário de Missa — Paróquia de São Gonçalo (dados de 03/10/2013)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Gonçalo",
+     "dayOfWeek": 4,
+     "time": "14:00",
+     "type": "CONFESSION",
+     "notes": "às 17:00",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=KlbEO",
+       "title": "Horário de Missa — Paróquia de São Gonçalo (dados de 03/10/2013)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Gonçalo",
+     "dayOfWeek": 5,
+     "time": "08:00",
+     "type": "CONFESSION",
+     "notes": "às 12:00",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=KlbEO",
+       "title": "Horário de Missa — Paróquia de São Gonçalo (dados de 03/10/2013)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Gonçalo",
+     "dayOfWeek": 5,
+     "time": "14:00",
+     "type": "CONFESSION",
+     "notes": "às 17:00",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=KlbEO",
+       "title": "Horário de Missa — Paróquia de São Gonçalo (dados de 03/10/2013)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-de-nazare-da-passagem-candeias",
+   "name": "Quase-paróquia Nossa Senhora de Nazaré da Passagem",
+   "city": "Candeias",
+   "state": "BA",
+   "neighborhood": null,
+   "address": null,
+   "zipCode": null,
+   "phone": "(71) 9951-3004",
+   "email": null,
+   "website": "https://www.diocesedecamacari.com.br/paroquia/quase-paroquia-nossa-senhora-de-nazare-da-passagem--candeias-",
+   "priestName": null,
+   "foundedYear": 2025,
+   "sources": [
+    {
+     "url": "https://www.diocesedecamacari.com.br/paroquias",
+     "title": "Paróquias — Diocese de Camaçari",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://www.diocesedecamacari.com.br/paroquia/quase-paroquia-nossa-senhora-de-nazare-da-passagem--candeias-",
+     "title": "Quase-paróquia Nossa Senhora de Nazaré da Passagem — Diocese de Camaçari",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora de Nazaré da Passagem",
+     "address": null,
+     "neighborhood": "Passagem dos Teixeiras",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Menino Jesus",
+     "address": null,
+     "neighborhood": "Menino Jesus",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Santa Dulce dos pobres",
+     "address": null,
+     "neighborhood": "Saldanha",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Nossa Senhora do Rosário",
+     "address": null,
+     "neighborhood": "Rosário",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Nossa Senhora das Graças",
+     "address": null,
+     "neighborhood": "Boca da Mata",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "São Pedro Apóstolo",
+     "address": null,
+     "neighborhood": "Cantagalo",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "São José de Anchieta",
+     "address": null,
+     "neighborhood": "Posto Sanca",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Santo Antônio",
+     "address": null,
+     "neighborhood": "Alto do Ipê",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "São Roque",
+     "address": null,
+     "neighborhood": "Caboto",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "São Domingos de Gusmão",
+     "address": null,
+     "neighborhood": "Fazenda Madeira",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "São José",
+     "address": null,
+     "neighborhood": "Vila Esperança",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Santa Bárbara",
+     "address": null,
+     "neighborhood": "Caroba 1",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Nossa Senhora de Nazaré da Passagem",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Nossa Senhora de Nazaré da Passagem",
+     "dayOfWeek": 0,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ]
+  },
+  {
+   "slug": "sagrado-coracao-de-jesus-sao-sebastiao-do-passe",
+   "name": "Quase-paróquia Sagrado Coração de Jesus",
+   "city": "São Sebastião do Passé",
+   "state": "BA",
+   "neighborhood": null,
+   "address": null,
+   "zipCode": null,
+   "phone": "(71) 9907-5346",
+   "email": null,
+   "website": "https://www.diocesedecamacari.com.br/paroquia/quase-paroquia-sagrado-coracao-de-jesus--nazare-do-jacuipe-sao-sebastiao-do-passe-",
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://www.diocesedecamacari.com.br/paroquias",
+     "title": "Paróquias — Diocese de Camaçari",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://www.diocesedecamacari.com.br/paroquia/quase-paroquia-sagrado-coracao-de-jesus--nazare-do-jacuipe-sao-sebastiao-do-passe-",
+     "title": "Quase-paróquia Sagrado Coração de Jesus — Diocese de Camaçari",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Sagrado Coração de Jesus",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Nossa Senhora da Guia",
+     "address": null,
+     "neighborhood": "Maracangalha",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "São João Batista",
+     "address": null,
+     "neighborhood": "Pinheiro",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "São Miguel Arcanjo",
+     "address": null,
+     "neighborhood": "Estado",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Santo André",
+     "address": null,
+     "neighborhood": "Santo André",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "São Diogo",
+     "address": null,
+     "neighborhood": "Gearí",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "sao-jose-operario-camacari",
+   "name": "Quase-paróquia São José Operário",
+   "city": "Camaçari",
+   "state": "BA",
+   "neighborhood": null,
+   "address": "Rua Atos dos Apóstolos, Castelo Forte, Terceira Etapa - Parque das Mangabas",
+   "zipCode": null,
+   "phone": "(71) 3623-5055",
+   "email": "cemisericordia@hotmail.com",
+   "website": "https://www.diocesedecamacari.com.br/paroquia/quase-paroquia-sao-jose-operario-camacari-",
+   "priestName": "Pe. Reinaldo Balbino",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://www.diocesedecamacari.com.br/paroquias",
+     "title": "Paróquias — Diocese de Camaçari",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://www.diocesedecamacari.com.br/paroquia/quase-paroquia-sao-jose-operario-camacari-",
+     "title": "Quase-paróquia São José Operário — Diocese de Camaçari",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz São José Operário",
+     "address": "Rua Atos dos Apóstolos, Castelo Forte, Terceira Etapa - Parque das Mangabas",
+     "neighborhood": "Bairro Novo",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Nossa Senhora de Guadalupe",
+     "address": null,
+     "neighborhood": "Novo Horizonte",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Nossa Senhora de Fátima",
+     "address": null,
+     "neighborhood": "Nova Vitória",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "São Lucas",
+     "address": null,
+     "neighborhood": "Parque das Palmeiras",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "São Cristóvão",
+     "address": null,
+     "neighborhood": "Jardim Limoeiro",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Nossa Senhora da Glória",
+     "address": null,
+     "neighborhood": "Parque das Mangabas",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Santo Antônio de Pádua",
+     "address": null,
+     "neighborhood": "Machadinho",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Nossa Senhora da Guia",
+     "address": null,
+     "neighborhood": "Montenegro",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "São Miguel Arcanjo",
+     "address": null,
+     "neighborhood": "Serra Verde",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Santa Clara de Assis",
+     "address": null,
+     "neighborhood": "Parque das Mangabas",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "São José Operário",
+     "address": null,
+     "neighborhood": "Sol Nascente",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz São José Operário",
+     "dayOfWeek": 0,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz São José Operário",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "ADORATION",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ]
+  },
+  {
+   "slug": "sagrada-familia-jesus-maria-e-jose-madre-de-deus",
+   "name": "Paróquia Sagrada Família Jesus, Maria e José",
+   "city": "Madre de Deus",
+   "state": "BA",
+   "neighborhood": null,
+   "address": "Rua Frei Godofredo Rauls, 254, Centro – Madre de Deus",
+   "zipCode": "42600-000",
+   "phone": "(71) 9996-3747",
+   "email": null,
+   "website": "https://www.diocesedecamacari.com.br/paroquia/sagrada-familia-jesus-maria-e-jose-madre-de-deus-",
+   "priestName": "Pe.José Miguel dos Santos",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://www.diocesedecamacari.com.br/paroquias",
+     "title": "Paróquias — Diocese de Camaçari",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://www.diocesedecamacari.com.br/paroquia/sagrada-familia-jesus-maria-e-jose-madre-de-deus-",
+     "title": "Paróquia Sagrada Família Jesus, Maria e José — Diocese de Camaçari",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Sagrada Família Jesus, Maria e José",
+     "address": "Rua Frei Godofredo Rauls, 254, Centro – Madre de Deus - CEP 42600-000",
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Cristo Rei",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Imaculada Conceição",
+     "address": null,
+     "neighborhood": "Suape",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Bom Jesus dos Passos",
+     "address": null,
+     "neighborhood": "Ilha Bom Jesus dos Passos",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Senhor do Bonfim",
+     "address": null,
+     "neighborhood": "Praia",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Imaculada Conceição",
+     "address": null,
+     "neighborhood": "Ilha Maria Guarda",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "São Pedro",
+     "address": null,
+     "neighborhood": "Cação",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Nossa Senhora do Loreto",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Nossa Senhora do Parto",
+     "address": null,
+     "neighborhood": "Paramana",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Nossa Senhora de Guadalupe",
+     "address": null,
+     "neighborhood": "Ponta de Nossa Senhora",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "santana-camacari",
+   "name": "Paróquia Sant'Ana",
+   "city": "Camaçari",
+   "state": "BA",
+   "neighborhood": null,
+   "address": "Avenida do Canal, Gleba A - Camaçari/BA",
+   "zipCode": "42807-710",
+   "phone": "(71) 3621-9877",
+   "email": null,
+   "website": "https://www.diocesedecamacari.com.br/paroquia/sant-ana-camacari-",
+   "priestName": "Pe.Luiz Felipe Montecinos",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://www.diocesedecamacari.com.br/paroquias",
+     "title": "Paróquias — Diocese de Camaçari",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://www.diocesedecamacari.com.br/paroquia/sant-ana-camacari-",
+     "title": "Paróquia Sant'Ana — Diocese de Camaçari",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Sant'Ana",
+     "address": "Avenida do Canal, Gleba A - Camaçari/BA CEP 42807-710",
+     "neighborhood": "Gleba A",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Cristo Rei",
+     "address": null,
+     "neighborhood": "Cristo Redentor",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Nossa Senhora do Perpétuo Socorro",
+     "address": null,
+     "neighborhood": "Buri-Satuba",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "São Pedro",
+     "address": null,
+     "neighborhood": "Gleba H",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Santo Antônio",
+     "address": null,
+     "neighborhood": "Triangulo",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "São João Batista",
+     "address": null,
+     "neighborhood": "Jaraguá",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Sant'Ana",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Sant'Ana",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Nossa Senhora do Perpétuo Socorro",
+     "dayOfWeek": 0,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Santo Antônio",
+     "dayOfWeek": 2,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Sant'Ana",
+     "dayOfWeek": 5,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ]
+  },
+  {
+   "slug": "santa-marcelina-sao-sebastiao-do-passe",
+   "name": "Paróquia Santa Marcelina",
+   "city": "São Sebastião do Passé",
+   "state": "BA",
+   "neighborhood": null,
+   "address": null,
+   "zipCode": null,
+   "phone": "(71) 8716-0906",
+   "email": "santamarcelina@diocesedecamacari.com.br",
+   "website": "https://www.diocesedecamacari.com.br/paroquia/santa-marcelina-sao-sebastiao-do-passe",
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://www.diocesedecamacari.com.br/paroquias",
+     "title": "Paróquias — Diocese de Camaçari",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://www.diocesedecamacari.com.br/paroquia/santa-marcelina-sao-sebastiao-do-passe",
+     "title": "Paróquia Santa Marcelina — Diocese de Camaçari",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Santa Marcelina",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Santa Inês",
+     "address": null,
+     "neighborhood": "Panema",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "São José",
+     "address": null,
+     "neighborhood": "Lamarão",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Nossa Senhora Do Perpétuo Socorro",
+     "address": null,
+     "neighborhood": "Montevidinho",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Menino Jesus De Praga",
+     "address": null,
+     "neighborhood": "Água Branca",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Nossa Senhora Aparecida",
+     "address": null,
+     "neighborhood": "Flexas",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Santa Rita De Cássia",
+     "address": null,
+     "neighborhood": "Jacaré Ii",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Santa Cecília",
+     "address": null,
+     "neighborhood": "Jacaré I",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "São Lucas",
+     "address": null,
+     "neighborhood": "Jacarandá",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Santa Luzia",
+     "address": null,
+     "neighborhood": "Conceição",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Frei Galvão",
+     "address": null,
+     "neighborhood": "Alegre",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Santa Marcelina",
+     "address": null,
+     "neighborhood": "Urbis II",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Dulce Dos Pobres",
+     "address": null,
+     "neighborhood": "Irmã Dulce/ Vivenda Do Sol / Conj. Habitacional Jacildo Mesquita",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Divina Misericórdia",
+     "address": null,
+     "neighborhood": "Agostinho Amaral",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Nossa Senhora Da Conceição",
+     "address": null,
+     "neighborhood": "Jangada",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Nossa Senhora Auxiliadora",
+     "address": null,
+     "neighborhood": "Barragem",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Nossa Senhora Da Conceição",
+     "address": null,
+     "neighborhood": "Massapê",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "São Bento",
+     "address": null,
+     "neighborhood": "Bento",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Santa Teresinha",
+     "address": null,
+     "neighborhood": "Pedrinhas",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Santo Antônio",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "santo-antonio-de-santanna-galvao-dias-davila",
+   "name": "Paróquia Santo Antônio de Sant'Anna Galvão",
+   "city": "Dias d'Ávila",
+   "state": "BA",
+   "neighborhood": null,
+   "address": "Praça Aloisio Valverde, s/n - Lessa Ribeiro - Dias D´Ávila/BA - Cep",
+   "zipCode": "42850-000",
+   "phone": "(71) 9274-9389",
+   "email": "comunidadecatolica.kadosh@outlook.com",
+   "website": "https://www.diocesedecamacari.com.br/paroquia/santo-antonio-de-sant-anna-galvao-dias-d-avila-",
+   "priestName": "Pe.Fernando Pereira dos Santos",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://www.diocesedecamacari.com.br/paroquias",
+     "title": "Paróquias — Diocese de Camaçari",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://www.diocesedecamacari.com.br/paroquia/santo-antonio-de-sant-anna-galvao-dias-d-avila-",
+     "title": "Paróquia Santo Antônio de Sant'Anna Galvão — Diocese de Camaçari",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Santo Antônio de Sant'Anna Galvão",
+     "address": "Praça Aloisio Valverde, s/n - Lessa Ribeiro - Dias D´Ávila/BA - Cep 42850-000",
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Nossa Senhora Aparecida",
+     "address": null,
+     "neighborhood": "Entroncamento",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "São José Operário",
+     "address": null,
+     "neighborhood": "Leandrinho",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Cristo Rei",
+     "address": null,
+     "neighborhood": "Varginha",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "São José do Lessa",
+     "address": null,
+     "neighborhood": "Matriz/Lessa",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Sagrada Família",
+     "address": null,
+     "neighborhood": "Com. Kadosh",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Santa Terezinha",
+     "address": null,
+     "neighborhood": "Sta Terezinha",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Santo Antônio de Pádua",
+     "address": null,
+     "neighborhood": "Indaiá",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Santo Expedito",
+     "address": null,
+     "neighborhood": "Concórdia",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Nossa Senhora da Conceição",
+     "address": null,
+     "neighborhood": "Jd. Futurama",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Santo Antônio de Sant'Anna Galvão",
+     "dayOfWeek": 0,
+     "time": "07:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Santo Antônio de Sant'Anna Galvão",
+     "dayOfWeek": 0,
+     "time": "10:00",
+     "type": "MASS",
+     "notes": "local publicado: \"Com. N. Sra. Aparecida\" (comunidade não consta da lista oficial)",
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ]
+  },
+  {
+   "slug": "sao-bento-camacari",
+   "name": "Paróquia São Bento",
+   "city": "Camaçari",
+   "state": "BA",
+   "neighborhood": null,
+   "address": "Estrada Velha de Monte Gordo, Monte Gordo",
+   "zipCode": "42839-796",
+   "phone": "(71) 3674-7045",
+   "email": null,
+   "website": "https://www.diocesedecamacari.com.br/paroquia/sao-bento--monte-gordo-camacari-",
+   "priestName": "Pe. Luis Carrescia",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://www.diocesedecamacari.com.br/paroquias",
+     "title": "Paróquias — Diocese de Camaçari",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://www.diocesedecamacari.com.br/paroquia/sao-bento--monte-gordo-camacari-",
+     "title": "Paróquia São Bento — Diocese de Camaçari",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz São Bento",
+     "address": "Estrada Velha de Monte Gordo, Monte Gordo  CEP: 42839-796",
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz São Bento",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz São Bento",
+     "dayOfWeek": 0,
+     "time": "08:30",
+     "type": "MASS",
+     "notes": "local publicado: \"Barra de Jacuípe\" (comunidade não consta da lista oficial)",
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz São Bento",
+     "dayOfWeek": 3,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz São Bento",
+     "dayOfWeek": 6,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": "local publicado: \"Capela da Sagrada Família em Guarajuba\" (comunidade não consta da lista oficial)",
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ]
+  },
+  {
+   "slug": "sao-francisco-de-assis-candeias",
+   "name": "Paróquia São Francisco de Assis",
+   "city": "Candeias",
+   "state": "BA",
+   "neighborhood": null,
+   "address": "Rua Itajubara, s/n, bairro São Francisco Candeias/BA",
+   "zipCode": "43815-450",
+   "phone": "(71) 3601-4872",
+   "email": "cambatente.na.fe.@hotmail.com",
+   "website": "https://www.diocesedecamacari.com.br/paroquia/sao-francisco-de-assis-candeias-",
+   "priestName": "Pe.Ronaldo dos Santos Galdino",
+   "foundedYear": 2011,
+   "sources": [
+    {
+     "url": "https://www.diocesedecamacari.com.br/paroquias",
+     "title": "Paróquias — Diocese de Camaçari",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://www.diocesedecamacari.com.br/paroquia/sao-francisco-de-assis-candeias-",
+     "title": "Paróquia São Francisco de Assis — Diocese de Camaçari",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz São Francisco de Assis",
+     "address": "Rua Itajubara, s/n, bairro São Francisco Candeias/BA - CEP 43815-450",
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Nª Senhora Aparecida",
+     "address": null,
+     "neighborhood": "Dom Avelar",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Nª Senhora Rainha dos Anjos",
+     "address": null,
+     "neighborhood": "Fazenda Mamão",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Nª Senhora das Graças",
+     "address": null,
+     "neighborhood": "Boca da Mata",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "São Roque",
+     "address": null,
+     "neighborhood": "Caboto",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "São Pedro",
+     "address": null,
+     "neighborhood": "Canta Galo",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Nª Senhora do Rosário",
+     "address": null,
+     "neighborhood": "Rosário",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "São José de Anchieta",
+     "address": null,
+     "neighborhood": "Posto Sanca",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Jesus Bom Pastor",
+     "address": null,
+     "neighborhood": "Pindoba",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "São José",
+     "address": null,
+     "neighborhood": "Pasto de Fora",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Nº Senhora de Nazaré",
+     "address": null,
+     "neighborhood": "Passagem dos Teixeiras",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Sagrado Coração de Jesus",
+     "address": null,
+     "neighborhood": "Ouro Negro",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Menino Jesus de Praga",
+     "address": null,
+     "neighborhood": "Menino Jesus",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "São Domingos de Gusmão",
+     "address": null,
+     "neighborhood": "Madeira",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Santo Antônio",
+     "address": null,
+     "neighborhood": "Colônia",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Santo Antônio",
+     "address": null,
+     "neighborhood": "Jabequara de Areia",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "São Cristovão, Sant’Ana e São Joaquim",
+     "address": null,
+     "neighborhood": "Urbis I",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Nª Senhora de La Salette",
+     "address": null,
+     "neighborhood": "Caroba II",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Santa Bárbara",
+     "address": null,
+     "neighborhood": "Caroba I",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "São Miguel Arcanjo (Massuim), Comunidade de Santa Dulce dos Pobres",
+     "address": null,
+     "neighborhood": "Saldanha",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz São Francisco de Assis",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz São Francisco de Assis",
+     "dayOfWeek": 0,
+     "time": "10:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz São Francisco de Assis",
+     "dayOfWeek": 0,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz São Francisco de Assis",
+     "dayOfWeek": 2,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz São Francisco de Assis",
+     "dayOfWeek": 3,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz São Francisco de Assis",
+     "dayOfWeek": 4,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz São Francisco de Assis",
+     "dayOfWeek": 5,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ]
+  },
+  {
+   "slug": "sao-joao-batista-simoes-filho",
+   "name": "Paróquia São João Batista",
+   "city": "Simões Filho",
+   "state": "BA",
+   "neighborhood": null,
+   "address": "Rua Largo da Copa, 03, Ilha de São João",
+   "zipCode": "43700-000",
+   "phone": "(71) 8475-5280",
+   "email": null,
+   "website": "https://www.diocesedecamacari.com.br/paroquia/sao-joao-batista-simoes-filho-",
+   "priestName": "Cônego Reginaldo de Freitas",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://www.diocesedecamacari.com.br/paroquias",
+     "title": "Paróquias — Diocese de Camaçari",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://www.diocesedecamacari.com.br/paroquia/sao-joao-batista-simoes-filho-",
+     "title": "Paróquia São João Batista — Diocese de Camaçari",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz São João Batista",
+     "address": "Rua Largo da Copa, 03, Ilha de São João CEP 43700-000",
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Santo Antônio de Mapele",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Santa Luzia",
+     "address": null,
+     "neighborhood": "em Santa Luzia",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Cristo Ressuscitado",
+     "address": null,
+     "neighborhood": "Sossego",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Santo Antônio de Aratu, Comunidade Sagrada Família",
+     "address": null,
+     "neighborhood": "Mapele",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "sao-miguel-de-cotegipe-simoes-filho",
+   "name": "Paróquia São Miguel de Cotegipe",
+   "city": "Simões Filho",
+   "state": "BA",
+   "neighborhood": null,
+   "address": "Praça Noêmia Meireles Ramos, s/n, Centro - Simões Filho",
+   "zipCode": "43700-000",
+   "phone": "(71) 9994-4802",
+   "email": null,
+   "website": "https://www.diocesedecamacari.com.br/paroquia/sao-miguel-de-cotegipe-simoes-filho-",
+   "priestName": "Pe. Carlos Fernando Dias",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://www.diocesedecamacari.com.br/paroquias",
+     "title": "Paróquias — Diocese de Camaçari",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://www.diocesedecamacari.com.br/paroquia/sao-miguel-de-cotegipe-simoes-filho-",
+     "title": "Paróquia São Miguel de Cotegipe — Diocese de Camaçari",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz São Miguel de Cotegipe",
+     "address": "Praça Noêmia Meireles Ramos, s/n, Centro - Simões Filho CEP 43700-000",
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Nossa Senhora do Carmo",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Senhor do Bonfim",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Nossa Senhora das Graças",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Santos Anjos",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "São João de Deus",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "São Francisco de Assis",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Cristo Rei",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Santa Mônica",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Santa Rosa de Lima",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Nossa Senhora do Perpétuo Socorro",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Santo Agostino",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Nossa Senhora de Fátima",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "São Cristóvão",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "São José",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Nossa Senhora das Candeias",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Menino Jesus",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "São Miguel",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "sao-roque-terra-nova",
+   "name": "Paróquia São Roque",
+   "city": "Terra Nova",
+   "state": "BA",
+   "neighborhood": null,
+   "address": "Praça São Roque, Centro - Terra Nova",
+   "zipCode": "44270-000",
+   "phone": "(75) 3238-2159",
+   "email": null,
+   "website": "https://www.diocesedecamacari.com.br/paroquia/sao-roque-terra-nova-",
+   "priestName": "Pe.Valmir Miranda",
+   "foundedYear": 2001,
+   "sources": [
+    {
+     "url": "https://www.diocesedecamacari.com.br/paroquias",
+     "title": "Paróquias — Diocese de Camaçari",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://www.diocesedecamacari.com.br/paroquia/sao-roque-terra-nova-",
+     "title": "Paróquia São Roque — Diocese de Camaçari",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz São Roque",
+     "address": "Praça São Roque, Centro - Terra Nova CEP 44270-000",
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "São Francisco de Assis",
+     "address": null,
+     "neighborhood": "Caípe",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Nossa Senhora do Divino Pranto",
+     "address": null,
+     "neighborhood": "Caípe",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Nossa Senhora de Lourdes",
+     "address": null,
+     "neighborhood": "Alto da Bela-vista",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "São Pedro",
+     "address": null,
+     "neighborhood": "Rio Fundo",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Santa Luzia",
+     "address": null,
+     "neighborhood": "Canabrava",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Nossa Senhora das Mercês",
+     "address": null,
+     "neighborhood": "Mercês",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "São João Batista",
+     "address": null,
+     "neighborhood": "Bengue",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Nossa Senhora das Dores",
+     "address": null,
+     "neighborhood": "Olho d’Água",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Nossa Senhora da Conceição",
+     "address": null,
+     "neighborhood": "Paranaguá",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Nossa Senhora do Perpetuo Socorro",
+     "address": null,
+     "neighborhood": "Brejo do André",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Nossa Senhora do Bom Parto",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz São Roque",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=cwK0r",
+       "title": "Horário de Missa — Igreja de São Roque (dados de 02/01/2018)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Roque",
+     "dayOfWeek": 2,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=cwK0r",
+       "title": "Horário de Missa — Igreja de São Roque (dados de 02/01/2018)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Roque",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=cwK0r",
+       "title": "Horário de Missa — Igreja de São Roque (dados de 02/01/2018)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Roque",
+     "dayOfWeek": 5,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=cwK0r",
+       "title": "Horário de Missa — Igreja de São Roque (dados de 02/01/2018)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "sao-sebastiao-sao-sebastiao-do-passe",
+   "name": "Paróquia São Sebastião",
+   "city": "São Sebastião do Passé",
+   "state": "BA",
+   "neighborhood": null,
+   "address": "Praça 12 de Outubro, 234, Centro  -São Sebastião do Passé",
+   "zipCode": "43850-000",
+   "phone": "(71) 9150-0115",
+   "email": null,
+   "website": "https://www.diocesedecamacari.com.br/paroquia/sao-sebastiao-do-passe-sao-sebastiao-do-passe-",
+   "priestName": "Pe.Márcio de Oliveira Santos",
+   "foundedYear": 1718,
+   "sources": [
+    {
+     "url": "https://www.diocesedecamacari.com.br/paroquias",
+     "title": "Paróquias — Diocese de Camaçari",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://www.diocesedecamacari.com.br/paroquia/sao-sebastiao-do-passe-sao-sebastiao-do-passe-",
+     "title": "Paróquia São Sebastião — Diocese de Camaçari",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz São Sebastião",
+     "address": "Praça 12 de Outubro, 234, Centro  -São Sebastião do Passé CEP 43850-000",
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "sao-tome-apostolo-camacari",
+   "name": "Paróquia São Tomé Apóstolo",
+   "city": "Camaçari",
+   "state": "BA",
+   "neighborhood": null,
+   "address": "Rua Acácia Amarela, 02, Gleba E  – Camaçari/BA",
+   "zipCode": "42808-815",
+   "phone": "(71) 3627-1496",
+   "email": null,
+   "website": "https://www.diocesedecamacari.com.br/paroquia/sao-tome-apostolo-camacari-",
+   "priestName": "Pe.Cleomario Soledade",
+   "foundedYear": 2007,
+   "sources": [
+    {
+     "url": "https://www.diocesedecamacari.com.br/paroquias",
+     "title": "Paróquias — Diocese de Camaçari",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://www.diocesedecamacari.com.br/paroquia/sao-tome-apostolo-camacari-",
+     "title": "Paróquia São Tomé Apóstolo — Diocese de Camaçari",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz São Tomé Apóstolo",
+     "address": "Rua Acácia Amarela, 02, Gleba E  – Camaçari/BA  - CEP 42808-815",
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Nossa Senhora de Fátima",
+     "address": null,
+     "neighborhood": "Recanto das Arvores",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Nossa Senhora da Graça",
+     "address": null,
+     "neighborhood": "Phoc III",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Mãe Rainha",
+     "address": null,
+     "neighborhood": "Parque Verde I",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Nossa Senhora Aparecida",
+     "address": null,
+     "neighborhood": "Parque Verde I",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Nossa Senhora do Carmo",
+     "address": null,
+     "neighborhood": "Parque Verde II",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/paroquias",
+       "title": "Paróquias — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz São Tomé Apóstolo",
+     "dayOfWeek": 2,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Nossa Senhora do Carmo",
+     "dayOfWeek": 3,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz São Tomé Apóstolo",
+     "dayOfWeek": 5,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Mãe Rainha",
+     "dayOfWeek": 6,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": "recorrência mensal/quinzenal — texto original: \"1° e 3° SÁBADO\tCom. Mãe Rainha\t18h\"",
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Nossa Senhora Aparecida",
+     "dayOfWeek": 6,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "recorrência mensal/quinzenal — texto original: \"1° e 3° SÁBADO\tCom. Nossa Senhora Aparecida 19h\"",
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Nossa Senhora de Fátima",
+     "dayOfWeek": 6,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": "recorrência mensal/quinzenal — texto original: \"2° e 4° SÁBADO\tCom. Nossa Senhora de Fátima 18h\"",
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Tomé Apóstolo",
+     "dayOfWeek": 6,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "recorrência mensal/quinzenal — texto original: \"2° e 4° SÁBADO\tCom. Nossa Senhora das Graças 19h\" | local publicado: \"2° e 4° Com. Nossa Senhora das Graças\" (comunidade não consta da lista oficial)",
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Tomé Apóstolo",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz São Tomé Apóstolo",
+     "dayOfWeek": 0,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz São Tomé Apóstolo",
+     "dayOfWeek": 0,
+     "time": "09:00",
+     "type": "MASS",
+     "notes": "recorrência mensal/quinzenal — texto original: \"1° Domingo  Com. Santo Antônio 9h\" | local publicado: \"1° Com. Santo Antônio\" (comunidade não consta da lista oficial)",
+     "sources": [
+      {
+       "url": "https://www.diocesedecamacari.com.br/horarios-de-missa",
+       "title": "Horários das Missas — Diocese de Camaçari",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  }
+ ],
+ "coverage": {
+  "parishesFound": 26,
+  "parishesExpected": 27,
+  "notes": "A diocese declara 27 paróquias em 8 municípios (Camaçari, Candeias, Dias d'Ávila, Madre de Deus, São Francisco do Conde, São Sebastião do Passé, Simões Filho e Terra Nova). A página oficial /paroquias lista 28 itens: 26 paróquias/quase-paróquias, a Capelania Santa Maria (marcada como nao-paroquial) e \"Paróquias do Litoral de Camaçari\", que é só um agrupamento de horários e foi descartado. Falta, portanto, 1 paróquia para o número declarado — provável que a diocese conte a capelania ou que a página esteja desatualizada. Nomes, endereços, CEP, telefone, e-mail, pároco, ano de criação e comunidades vieram das fichas oficiais; 129 dos 146 horários vêm do quadro oficial /horarios-de-missa."
+ }
+}

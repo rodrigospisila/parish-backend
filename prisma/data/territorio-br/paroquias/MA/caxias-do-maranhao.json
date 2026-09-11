@@ -1,0 +1,1703 @@
+{
+  "diocese": {
+    "name": "Diocese de Caxias do Maranhão",
+    "type": "Diocese",
+    "slug": "caxias-do-maranhao",
+    "city": "Caxias",
+    "state": "MA",
+    "address": "Cúria Diocesana, Praça Magalhães de Almeida, 744, Centro",
+    "zipCode": "65606-060",
+    "phone": "(99) 8828-0059",
+    "email": "diocesedecaxias1@bol.com.br",
+    "website": "https://diocesedecaxiasdomaranhao.org",
+    "bishopName": "Dom Sebastião Lima Duarte",
+    "sources": [
+      {
+        "url": "https://diocesedecaxiasdomaranhao.org/",
+        "title": "Diocese de Caxias do Maranhão — site oficial",
+        "accessedAt": "2026-09-11"
+      },
+      {
+        "url": "https://diocesedecaxiasdomaranhao.org/wp-json/wp/v2/pages?per_page=100",
+        "title": "Diocese de Caxias — API REST do WordPress (fichas de paróquia como páginas)",
+        "accessedAt": "2026-09-11"
+      },
+      {
+        "url": "https://pt.wikipedia.org/wiki/Diocese_de_Caxias_do_Maranh%C3%A3o",
+        "title": "Wikipédia — Diocese de Caxias do Maranhão (lista de paróquias por município, citando o site oficial)",
+        "accessedAt": "2026-09-11"
+      },
+      {
+        "url": "https://www.catholic-hierarchy.org/diocese/dcxdm.html",
+        "title": "catholic-hierarchy.org — Diocese of Caxias do Maranhão (2023: 31 paróquias)",
+        "accessedAt": "2026-09-11"
+      }
+    ],
+    "confidence": "alta"
+  },
+  "parishes": [
+    {
+      "slug": "sao-joao-batista-e-santa-teresinha-aldeias-altas",
+      "name": "Paróquia São João Batista e Santa Teresinha",
+      "city": "Aldeias Altas",
+      "state": "MA",
+      "neighborhood": "Centro",
+      "address": "Rua José Feitosa Mourão, Centro",
+      "zipCode": "65610-000",
+      "phone": "(99) 98819-3776",
+      "email": "paroquiasaojoao19@gmail.com",
+      "website": null,
+      "priestName": "Pe. Francisco de Assis",
+      "foundedYear": 1988,
+      "sources": [
+        {
+          "url": "https://diocesedecaxiasdomaranhao.org/?page_id=1244",
+          "title": "Diocese de Caxias do Maranhão — Paróquia São João Batista e Santa Teresinha (Aldeias Altas)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://pt.wikipedia.org/wiki/Diocese_de_Caxias_do_Maranh%C3%A3o",
+          "title": "Wikipédia — Diocese de Caxias do Maranhão (lista de paróquias por município, citando o site oficial)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São João Batista e Santa Teresinha",
+          "address": "Rua José Feitosa Mourão, Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecaxiasdomaranhao.org/?page_id=1244",
+              "title": "Diocese de Caxias do Maranhão — Paróquia São João Batista e Santa Teresinha (Aldeias Altas)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "santo-antonio-barao-de-grajau",
+      "name": "Paróquia Santo Antônio",
+      "city": "Barão de Grajaú",
+      "state": "MA",
+      "neighborhood": "Praça Santo Antônio",
+      "address": "Rua Magalhães de Almeida, 387, Praça Santo Antônio",
+      "zipCode": "65600-000",
+      "phone": "(89) 3523-1526 | (99) 98809-2126",
+      "email": "w.josepedro@hotmail.com",
+      "website": null,
+      "priestName": "Pe. José Pedro",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedecaxiasdomaranhao.org/?page_id=1369",
+          "title": "Diocese de Caxias do Maranhão — Paróquia Santo Antônio (Barão de Grajaú)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://pt.wikipedia.org/wiki/Diocese_de_Caxias_do_Maranh%C3%A3o",
+          "title": "Wikipédia — Diocese de Caxias do Maranhão (lista de paróquias por município, citando o site oficial)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Santo Antônio",
+          "address": "Rua Magalhães de Almeida, 387, Praça Santo Antônio",
+          "neighborhood": "Praça Santo Antônio",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecaxiasdomaranhao.org/?page_id=1369",
+              "title": "Diocese de Caxias do Maranhão — Paróquia Santo Antônio (Barão de Grajaú)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "santo-antonio-buriti-bravo",
+      "name": "Paróquia Santo Antônio",
+      "city": "Buriti Bravo",
+      "state": "MA",
+      "neighborhood": "Centro",
+      "address": "Praça Coronel Raimundo Moreira Lima, Centro",
+      "zipCode": "65685-000",
+      "phone": "(99) 98534-3449",
+      "email": "santoantoniobb@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Luiz Carlos Conceição",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedecaxiasdomaranhao.org/?page_id=1361",
+          "title": "Diocese de Caxias do Maranhão — Paróquia Santo Antônio (Buriti Bravo)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://pt.wikipedia.org/wiki/Diocese_de_Caxias_do_Maranh%C3%A3o",
+          "title": "Wikipédia — Diocese de Caxias do Maranhão (lista de paróquias por município, citando o site oficial)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Santo Antônio",
+          "address": "Praça Coronel Raimundo Moreira Lima, Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecaxiasdomaranhao.org/?page_id=1361",
+              "title": "Diocese de Caxias do Maranhão — Paróquia Santo Antônio (Buriti Bravo)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-dos-remedios-caxias",
+      "name": "Catedral Nossa Senhora dos Remédios",
+      "city": "Caxias",
+      "state": "MA",
+      "neighborhood": "Centro",
+      "address": "Praça Magalhães de Almeida, 744, Centro",
+      "zipCode": "65606-250",
+      "phone": null,
+      "email": "catedralnsradosremedios1658@gmail.com",
+      "website": null,
+      "priestName": "Pe. José o Divino (cooperador do bispo na Catedral)",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedecaxiasdomaranhao.org/?page_id=1441",
+          "title": "Diocese de Caxias do Maranhão — Catedral Nossa Senhora dos Remédios (Caxias)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://pt.wikipedia.org/wiki/Diocese_de_Caxias_do_Maranh%C3%A3o",
+          "title": "Wikipédia — Diocese de Caxias do Maranhão (lista de paróquias por município, citando o site oficial)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Catedral Nossa Senhora dos Remédios",
+          "address": "Praça Magalhães de Almeida, 744, Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecaxiasdomaranhao.org/?page_id=1441",
+              "title": "Diocese de Caxias do Maranhão — Catedral Nossa Senhora dos Remédios (Caxias)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-da-conceicao-e-sao-jose-caxias",
+      "name": "Paróquia Nossa Senhora da Conceição e São José",
+      "city": "Caxias",
+      "state": "MA",
+      "neighborhood": "Centro",
+      "address": "Praça Cândido Mendes, C.P. 35",
+      "zipCode": "65606-010",
+      "phone": "(99) 3521-3925 | (99) 3521-1819",
+      "email": "matrizcj@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Sérgio de Souza",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedecaxiasdomaranhao.org/?page_id=1235",
+          "title": "Diocese de Caxias do Maranhão — Paróquia Nossa Senhora da Conceição e São José (Caxias)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://pt.wikipedia.org/wiki/Diocese_de_Caxias_do_Maranh%C3%A3o",
+          "title": "Wikipédia — Diocese de Caxias do Maranhão (lista de paróquias por município, citando o site oficial)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora da Conceição e São José",
+          "address": "Praça Cândido Mendes, C.P. 35",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecaxiasdomaranhao.org/?page_id=1235",
+              "title": "Diocese de Caxias do Maranhão — Paróquia Nossa Senhora da Conceição e São José (Caxias)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-das-gracas-caxias",
+      "name": "Paróquia Nossa Senhora das Graças",
+      "city": "Caxias",
+      "state": "MA",
+      "neighborhood": null,
+      "address": "Rua dos Frades, 1040, C.P. 55",
+      "zipCode": "65600-970",
+      "phone": "(99) 3521-2203 | (99) 98169-1814",
+      "email": "nossasenhoradasgracas89@gmail.com",
+      "website": null,
+      "priestName": "Pe. Gothardo Freitas",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedecaxiasdomaranhao.org/?page_id=1240",
+          "title": "Diocese de Caxias do Maranhão — Paróquia Nossa Senhora das Graças (Caxias)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://pt.wikipedia.org/wiki/Diocese_de_Caxias_do_Maranh%C3%A3o",
+          "title": "Wikipédia — Diocese de Caxias do Maranhão (lista de paróquias por município, citando o site oficial)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora das Graças",
+          "address": "Rua dos Frades, 1040, C.P. 55",
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecaxiasdomaranhao.org/?page_id=1240",
+              "title": "Diocese de Caxias do Maranhão — Paróquia Nossa Senhora das Graças (Caxias)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-de-nazare-caxias",
+      "name": "Paróquia Nossa Senhora de Nazaré",
+      "city": "Caxias",
+      "state": "MA",
+      "neighborhood": "Trezidela",
+      "address": "Rua São José, 1999, Trezidela, C.P. 45",
+      "zipCode": "65607-970",
+      "phone": "(99) 3521-1630",
+      "email": "paroquianazare@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Sebastião Francisco Pereira",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedecaxiasdomaranhao.org/?page_id=1242",
+          "title": "Diocese de Caxias do Maranhão — Paróquia Nossa Senhora de Nazaré (Caxias)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://pt.wikipedia.org/wiki/Diocese_de_Caxias_do_Maranh%C3%A3o",
+          "title": "Wikipédia — Diocese de Caxias do Maranhão (lista de paróquias por município, citando o site oficial)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora de Nazaré",
+          "address": "Rua São José, 1999, Trezidela, C.P. 45",
+          "neighborhood": "Trezidela",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecaxiasdomaranhao.org/?page_id=1242",
+              "title": "Diocese de Caxias do Maranhão — Paróquia Nossa Senhora de Nazaré (Caxias)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-do-perpetuo-socorro-caxias",
+      "name": "Paróquia Nossa Senhora do Perpétuo Socorro",
+      "city": "Caxias",
+      "state": "MA",
+      "neighborhood": "Volta Redonda",
+      "address": "Avenida da Coheb, s/n, Volta Redonda",
+      "zipCode": "65606-470",
+      "phone": null,
+      "email": "paroquianazare@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Raimundo Nonato dos Santos (Beto) — vigário",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedecaxiasdomaranhao.org/?page_id=3604",
+          "title": "Diocese de Caxias do Maranhão — Paróquia Nossa Senhora do Perpétuo Socorro (Caxias)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://pt.wikipedia.org/wiki/Diocese_de_Caxias_do_Maranh%C3%A3o",
+          "title": "Wikipédia — Diocese de Caxias do Maranhão (lista de paróquias por município, citando o site oficial)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora do Perpétuo Socorro",
+          "address": "Avenida da Coheb, s/n, Volta Redonda",
+          "neighborhood": "Volta Redonda",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecaxiasdomaranhao.org/?page_id=3604",
+              "title": "Diocese de Caxias do Maranhão — Paróquia Nossa Senhora do Perpétuo Socorro (Caxias)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "sao-benedito-caxias",
+      "name": "Paróquia São Benedito",
+      "city": "Caxias",
+      "state": "MA",
+      "neighborhood": "Centro",
+      "address": "Praça Vespasiano Ramos, Rua Pe. Geroza, 829, C.P. 09",
+      "zipCode": "65602-080",
+      "phone": "(99) 3521-5157 | (99) 98851-0342",
+      "email": "sbeneditocx@gmail.com",
+      "website": null,
+      "priestName": "Pe. José Ribamar Cavalcante Lima",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedecaxiasdomaranhao.org/?page_id=1237",
+          "title": "Diocese de Caxias do Maranhão — Paróquia São Benedito (Caxias)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://pt.wikipedia.org/wiki/Diocese_de_Caxias_do_Maranh%C3%A3o",
+          "title": "Wikipédia — Diocese de Caxias do Maranhão (lista de paróquias por município, citando o site oficial)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Benedito",
+          "address": "Praça Vespasiano Ramos, Rua Pe. Geroza, 829, C.P. 09",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecaxiasdomaranhao.org/?page_id=1237",
+              "title": "Diocese de Caxias do Maranhão — Paróquia São Benedito (Caxias)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Menino Jesus de Praga",
+          "address": null,
+          "neighborhood": "Seriema",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecaxiasdomaranhao.org/2024/06/19/capelas-sbeneditocx/",
+              "title": "Diocese de Caxias — Capelas da Paróquia de São Benedito (Setor Sagrada Família)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São João Batista",
+          "address": null,
+          "neighborhood": "Seriema",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecaxiasdomaranhao.org/2024/06/19/capelas-sbeneditocx/",
+              "title": "Diocese de Caxias — Capelas da Paróquia de São Benedito (Setor Sagrada Família)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São Francisco",
+          "address": null,
+          "neighborhood": "Castelo Branco",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecaxiasdomaranhao.org/2024/06/19/capelas-sbeneditocx/",
+              "title": "Diocese de Caxias — Capelas da Paróquia de São Benedito (Setor Sagrada Família)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nossa Senhora das Graças e São Cristóvão",
+          "address": null,
+          "neighborhood": "Residencial Sabiá",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecaxiasdomaranhao.org/2024/06/19/capelas-sbeneditocx/",
+              "title": "Diocese de Caxias — Capelas da Paróquia de São Benedito (Setor Sagrada Família)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nossa Senhora das Dores",
+          "address": null,
+          "neighborhood": "Refinaria",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecaxiasdomaranhao.org/2024/06/19/capelas-sbeneditocx/",
+              "title": "Diocese de Caxias — Capelas da Paróquia de São Benedito (Setor Sagrada Família)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Santa Rita",
+          "address": null,
+          "neighborhood": "Pequizeiro",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecaxiasdomaranhao.org/2024/06/19/capelas-sbeneditocx/",
+              "title": "Diocese de Caxias — Capelas da Paróquia de São Benedito (Setor Unidos pelo Amor)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nossa Senhora da Conceição",
+          "address": null,
+          "neighborhood": "Matadouro Velho",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecaxiasdomaranhao.org/2024/06/19/capelas-sbeneditocx/",
+              "title": "Diocese de Caxias — Capelas da Paróquia de São Benedito (Setor Unidos pelo Amor)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nossa Senhora de Fátima",
+          "address": null,
+          "neighborhood": "Castelo Branco",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecaxiasdomaranhao.org/2024/06/19/capelas-sbeneditocx/",
+              "title": "Diocese de Caxias — Capelas da Paróquia de São Benedito (Setor Unidos pelo Amor)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Santa Catarina de Labouré",
+          "address": null,
+          "neighborhood": "Baixinha",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecaxiasdomaranhao.org/2024/06/19/capelas-sbeneditocx/",
+              "title": "Diocese de Caxias — Capelas da Paróquia de São Benedito (Setor Unidos pelo Amor)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Raimundo Nonato",
+          "address": null,
+          "neighborhood": "Refinaria",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecaxiasdomaranhao.org/2024/06/19/capelas-sbeneditocx/",
+              "title": "Diocese de Caxias — Capelas da Paróquia de São Benedito (Setor Unidos pelo Amor)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São José",
+          "address": null,
+          "neighborhood": "Vila Conquista",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecaxiasdomaranhao.org/2024/06/19/capelas-sbeneditocx/",
+              "title": "Diocese de Caxias — Capelas da Paróquia de São Benedito (Setor Unidos pelo Amor)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nossa Senhora do Rosário",
+          "address": null,
+          "neighborhood": "Praça Rui Barbosa, Centro Histórico",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecaxiasdomaranhao.org/2024/06/19/capelas-sbeneditocx/",
+              "title": "Diocese de Caxias — Capelas da Paróquia de São Benedito (Setor Luz das Missões)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São Sebastião",
+          "address": null,
+          "neighborhood": "Centro",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecaxiasdomaranhao.org/2024/06/19/capelas-sbeneditocx/",
+              "title": "Diocese de Caxias — Capelas da Paróquia de São Benedito (Setor Luz das Missões)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Santa Teresinha",
+          "address": null,
+          "neighborhood": "Av. Santos Dumont, Centro",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecaxiasdomaranhao.org/2024/06/19/capelas-sbeneditocx/",
+              "title": "Diocese de Caxias — Capelas da Paróquia de São Benedito (Setor Luz das Missões)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Divino Espírito Santo",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecaxiasdomaranhao.org/2024/06/19/capelas-sbeneditocx/",
+              "title": "Diocese de Caxias — Capelas da Paróquia de São Benedito (Setor Luz das Missões)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São Francisco e Santo Antônio",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecaxiasdomaranhao.org/2024/06/19/capelas-sbeneditocx/",
+              "title": "Diocese de Caxias — Capelas da Paróquia de São Benedito (Setor Luz das Missões)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Santo Expedito",
+          "address": null,
+          "neighborhood": "Antenor Viana",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecaxiasdomaranhao.org/2024/06/19/capelas-sbeneditocx/",
+              "title": "Diocese de Caxias — Capelas da Paróquia de São Benedito (Setor Missionários do Reino)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nossa Senhora Aparecida",
+          "address": null,
+          "neighborhood": "Bacuri",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecaxiasdomaranhao.org/2024/06/19/capelas-sbeneditocx/",
+              "title": "Diocese de Caxias — Capelas da Paróquia de São Benedito (Setor Missionários do Reino)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Santa Rita do Bairro São Francisco",
+          "address": null,
+          "neighborhood": "São Francisco",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecaxiasdomaranhao.org/2024/06/19/capelas-sbeneditocx/",
+              "title": "Diocese de Caxias — Capelas da Paróquia de São Benedito (Setor Missionários do Reino)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São Pedro",
+          "address": null,
+          "neighborhood": "Teso Duro",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecaxiasdomaranhao.org/2024/06/19/capelas-sbeneditocx/",
+              "title": "Diocese de Caxias — Capelas da Paróquia de São Benedito (Setor Missionários do Reino)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Divino Pai Eterno",
+          "address": null,
+          "neighborhood": "Conjunto Habitacional Eugênio Coutinho",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecaxiasdomaranhao.org/2024/06/19/capelas-sbeneditocx/",
+              "title": "Diocese de Caxias — Capelas da Paróquia de São Benedito (Setor Missionários do Reino)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-da-consolacao-colinas",
+      "name": "Paróquia Nossa Senhora da Consolação",
+      "city": "Colinas",
+      "state": "MA",
+      "neighborhood": "Centro",
+      "address": "Praça Dias Carneiro, Centro",
+      "zipCode": "65690-000",
+      "phone": "(99) 98218-0052",
+      "email": "nossasenhoradaconsolacao@outlook.com",
+      "website": null,
+      "priestName": "Pe. Rogério",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedecaxiasdomaranhao.org/?page_id=1359",
+          "title": "Diocese de Caxias do Maranhão — Paróquia Nossa Senhora da Consolação (Colinas)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://pt.wikipedia.org/wiki/Diocese_de_Caxias_do_Maranh%C3%A3o",
+          "title": "Wikipédia — Diocese de Caxias do Maranhão (lista de paróquias por município, citando o site oficial)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora da Consolação",
+          "address": "Praça Dias Carneiro, Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecaxiasdomaranhao.org/?page_id=1359",
+              "title": "Diocese de Caxias do Maranhão — Paróquia Nossa Senhora da Consolação (Colinas)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-de-lurdes-fortuna",
+      "name": "Paróquia Nossa Senhora de Lurdes",
+      "city": "Fortuna",
+      "state": "MA",
+      "neighborhood": "Centro",
+      "address": "Rua Trinta e um de Dezembro, Centro",
+      "zipCode": "65695-000",
+      "phone": "(99) 99400-9852 | (99) 3574-1378",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Edilson Figueredo",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedecaxiasdomaranhao.org/?page_id=3771",
+          "title": "Diocese de Caxias do Maranhão — Paróquia Nossa Senhora de Lurdes (Fortuna)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://pt.wikipedia.org/wiki/Diocese_de_Caxias_do_Maranh%C3%A3o",
+          "title": "Wikipédia — Diocese de Caxias do Maranhão (lista de paróquias por município, citando o site oficial)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora de Lurdes",
+          "address": "Rua Trinta e um de Dezembro, Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecaxiasdomaranhao.org/?page_id=3771",
+              "title": "Diocese de Caxias do Maranhão — Paróquia Nossa Senhora de Lurdes (Fortuna)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-das-gracas-goncalves-dias",
+      "name": "Paróquia Nossa Senhora das Graças",
+      "city": "Gonçalves Dias",
+      "state": "MA",
+      "neighborhood": "Centro",
+      "address": "Rua Rui Barbosa, Centro",
+      "zipCode": "65775-000",
+      "phone": "(99) 3562-1414 | (99) 98545-3867",
+      "email": "nossasenhoradasgracasp7@gmail.com",
+      "website": null,
+      "priestName": "Pe. Ricardo Rios",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedecaxiasdomaranhao.org/?page_id=1251",
+          "title": "Diocese de Caxias do Maranhão — Paróquia Nossa Senhora das Graças (Gonçalves Dias)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://pt.wikipedia.org/wiki/Diocese_de_Caxias_do_Maranh%C3%A3o",
+          "title": "Wikipédia — Diocese de Caxias do Maranhão (lista de paróquias por município, citando o site oficial)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora das Graças",
+          "address": "Rua Rui Barbosa, Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecaxiasdomaranhao.org/?page_id=1251",
+              "title": "Diocese de Caxias do Maranhão — Paróquia Nossa Senhora das Graças (Gonçalves Dias)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "sao-raimundo-nonato-governador-eugenio-barros",
+      "name": "Paróquia São Raimundo Nonato",
+      "city": "Governador Eugênio Barros",
+      "state": "MA",
+      "neighborhood": "Centro",
+      "address": "Rua Sete de Setembro, 2162, Centro",
+      "zipCode": "65780-000",
+      "phone": "(99) 3564-1362 | (99) 98439-0780",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Willyan Kelson",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedecaxiasdomaranhao.org/?page_id=1249",
+          "title": "Diocese de Caxias do Maranhão — Paróquia São Raimundo Nonato (Governador Eugênio Barros)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://pt.wikipedia.org/wiki/Diocese_de_Caxias_do_Maranh%C3%A3o",
+          "title": "Wikipédia — Diocese de Caxias do Maranhão (lista de paróquias por município, citando o site oficial)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Raimundo Nonato",
+          "address": "Rua Sete de Setembro, 2162, Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecaxiasdomaranhao.org/?page_id=1249",
+              "title": "Diocese de Caxias do Maranhão — Paróquia São Raimundo Nonato (Governador Eugênio Barros)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "sao-francisco-patrono-da-ecologia-governador-luiz-rocha",
+      "name": "Paróquia São Francisco — Patrono da Ecologia",
+      "city": "Governador Luiz Rocha",
+      "state": "MA",
+      "neighborhood": "Centro",
+      "address": "Rua Beira Mar, Centro",
+      "zipCode": "65795-000",
+      "phone": "(99) 98450-4551",
+      "email": null,
+      "website": null,
+      "priestName": "Ir. Rosângela Macêdo (administradora paroquial)",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedecaxiasdomaranhao.org/?page_id=3751",
+          "title": "Diocese de Caxias do Maranhão — Paróquia São Francisco — Patrono da Ecologia (Governador Luiz Rocha)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://pt.wikipedia.org/wiki/Diocese_de_Caxias_do_Maranh%C3%A3o",
+          "title": "Wikipédia — Diocese de Caxias do Maranhão (lista de paróquias por município, citando o site oficial)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Francisco — Patrono da Ecologia",
+          "address": "Rua Beira Mar, Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecaxiasdomaranhao.org/?page_id=3751",
+              "title": "Diocese de Caxias do Maranhão — Paróquia São Francisco — Patrono da Ecologia (Governador Luiz Rocha)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-das-gracas-graca-aranha",
+      "name": "Paróquia Nossa Senhora das Graças",
+      "city": "Graça Aranha",
+      "state": "MA",
+      "neighborhood": "Centro",
+      "address": "Rua São Francisco, Centro",
+      "zipCode": "65785-000",
+      "phone": "(99) 99139-9612",
+      "email": null,
+      "website": null,
+      "priestName": "Frei Paulo Sérgio",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedecaxiasdomaranhao.org/?page_id=3614",
+          "title": "Diocese de Caxias do Maranhão — Paróquia Nossa Senhora das Graças (Graça Aranha)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://pt.wikipedia.org/wiki/Diocese_de_Caxias_do_Maranh%C3%A3o",
+          "title": "Wikipédia — Diocese de Caxias do Maranhão (lista de paróquias por município, citando o site oficial)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora das Graças",
+          "address": "Rua São Francisco, Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecaxiasdomaranhao.org/?page_id=3614",
+              "title": "Diocese de Caxias do Maranhão — Paróquia Nossa Senhora das Graças (Graça Aranha)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "sao-francisco-jatoba",
+      "name": "Paróquia São Francisco",
+      "city": "Jatobá",
+      "state": "MA",
+      "neighborhood": "Centro",
+      "address": "Praça São Francisco, Centro",
+      "zipCode": "65795-000",
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": "Ir. Helena Maria Tessarim (administradora paroquial)",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedecaxiasdomaranhao.org/?page_id=3777",
+          "title": "Diocese de Caxias do Maranhão — Paróquia São Francisco (Jatobá)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://pt.wikipedia.org/wiki/Diocese_de_Caxias_do_Maranh%C3%A3o",
+          "title": "Wikipédia — Diocese de Caxias do Maranhão (lista de paróquias por município, citando o site oficial)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Francisco",
+          "address": "Praça São Francisco, Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecaxiasdomaranhao.org/?page_id=3777",
+              "title": "Diocese de Caxias do Maranhão — Paróquia São Francisco (Jatobá)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "santo-antonio-lagoa-do-mato",
+      "name": "Paróquia Santo Antônio",
+      "city": "Lagoa do Mato",
+      "state": "MA",
+      "neighborhood": "Centro",
+      "address": "Rua do Sol, s/n, Centro",
+      "zipCode": "65683-000",
+      "phone": "(99) 3492-1199",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Valdenilson Fonseca",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedecaxiasdomaranhao.org/?page_id=1363",
+          "title": "Diocese de Caxias do Maranhão — Paróquia Santo Antônio (Lagoa do Mato)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://pt.wikipedia.org/wiki/Diocese_de_Caxias_do_Maranh%C3%A3o",
+          "title": "Wikipédia — Diocese de Caxias do Maranhão (lista de paróquias por município, citando o site oficial)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Santo Antônio",
+          "address": "Rua do Sol, s/n, Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecaxiasdomaranhao.org/?page_id=1363",
+              "title": "Diocese de Caxias do Maranhão — Paróquia Santo Antônio (Lagoa do Mato)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-da-conceicao-e-divino-espirito-santo-matoes",
+      "name": "Paróquia Nossa Senhora da Conceição e Divino Espírito Santo",
+      "city": "Matões",
+      "state": "MA",
+      "neighborhood": null,
+      "address": "Rua 15 de Novembro, 445",
+      "zipCode": "65645-000",
+      "phone": "(99) 3576-1133 | (99) 3576-1251",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Maurício George",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedecaxiasdomaranhao.org/?page_id=1373",
+          "title": "Diocese de Caxias do Maranhão — Paróquia Nossa Senhora da Conceição e Divino Espírito Santo (Matões)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://pt.wikipedia.org/wiki/Diocese_de_Caxias_do_Maranh%C3%A3o",
+          "title": "Wikipédia — Diocese de Caxias do Maranhão (lista de paróquias por município, citando o site oficial)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora da Conceição e Divino Espírito Santo",
+          "address": "Rua 15 de Novembro, 445",
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecaxiasdomaranhao.org/?page_id=1373",
+              "title": "Diocese de Caxias do Maranhão — Paróquia Nossa Senhora da Conceição e Divino Espírito Santo (Matões)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-das-gracas-parnarama",
+      "name": "Paróquia Nossa Senhora das Graças",
+      "city": "Parnarama",
+      "state": "MA",
+      "neighborhood": null,
+      "address": "Avenida Imperatriz, 295",
+      "zipCode": "65640-000",
+      "phone": "(99) 3577-1460 | (99) 98248-195",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Gildenor Pinheiro",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedecaxiasdomaranhao.org/?page_id=1375",
+          "title": "Diocese de Caxias do Maranhão — Paróquia Nossa Senhora das Graças (Parnarama)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://pt.wikipedia.org/wiki/Diocese_de_Caxias_do_Maranh%C3%A3o",
+          "title": "Wikipédia — Diocese de Caxias do Maranhão (lista de paróquias por município, citando o site oficial)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora das Graças",
+          "address": "Avenida Imperatriz, 295",
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecaxiasdomaranhao.org/?page_id=1375",
+              "title": "Diocese de Caxias do Maranhão — Paróquia Nossa Senhora das Graças (Parnarama)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "sao-sebastiao-passagem-franca",
+      "name": "Paróquia São Sebastião",
+      "city": "Passagem Franca",
+      "state": "MA",
+      "neighborhood": "Centro",
+      "address": "Praça Getúlio Vargas, 144, Centro",
+      "zipCode": "65680-000",
+      "phone": "(99) 3558-1188 | (99) 98412-2077",
+      "email": "saosebastiaoparoquia8@gmail.com",
+      "website": null,
+      "priestName": "Pe. José Pedro",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedecaxiasdomaranhao.org/?page_id=1365",
+          "title": "Diocese de Caxias do Maranhão — Paróquia São Sebastião (Passagem Franca)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://pt.wikipedia.org/wiki/Diocese_de_Caxias_do_Maranh%C3%A3o",
+          "title": "Wikipédia — Diocese de Caxias do Maranhão (lista de paróquias por município, citando o site oficial)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Sebastião",
+          "address": "Praça Getúlio Vargas, 144, Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecaxiasdomaranhao.org/?page_id=1365",
+              "title": "Diocese de Caxias do Maranhão — Paróquia São Sebastião (Passagem Franca)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "divino-espirito-santo-senador-alexandre-costa",
+      "name": "Paróquia Divino Espírito Santo",
+      "city": "Senador Alexandre Costa",
+      "state": "MA",
+      "neighborhood": "Centro",
+      "address": "Rua da Cultura, 101, Centro",
+      "zipCode": "65600-000",
+      "phone": "(99) 3569-1048",
+      "email": "divinoespiritosanto1985@gmail.com",
+      "website": null,
+      "priestName": "Pe. Sildo Morais",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedecaxiasdomaranhao.org/?page_id=1246",
+          "title": "Diocese de Caxias do Maranhão — Paróquia Divino Espírito Santo (Senador Alexandre Costa)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://pt.wikipedia.org/wiki/Diocese_de_Caxias_do_Maranh%C3%A3o",
+          "title": "Wikipédia — Diocese de Caxias do Maranhão (lista de paróquias por município, citando o site oficial)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Divino Espírito Santo",
+          "address": "Rua da Cultura, 101, Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecaxiasdomaranhao.org/?page_id=1246",
+              "title": "Diocese de Caxias do Maranhão — Paróquia Divino Espírito Santo (Senador Alexandre Costa)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "sao-benedito-sucupira-do-riachao",
+      "name": "Paróquia São Benedito",
+      "city": "Sucupira do Riachão",
+      "state": "MA",
+      "neighborhood": null,
+      "address": null,
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedecaxiasdomaranhao.org/?page_id=3623",
+          "title": "Diocese de Caxias do Maranhão — Paróquia São Benedito (Sucupira do Riachão)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://pt.wikipedia.org/wiki/Diocese_de_Caxias_do_Maranh%C3%A3o",
+          "title": "Wikipédia — Diocese de Caxias do Maranhão (lista de paróquias por município, citando o site oficial)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "media",
+      "communities": [
+        {
+          "name": "Matriz São Benedito",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecaxiasdomaranhao.org/?page_id=3623",
+              "title": "Diocese de Caxias do Maranhão — Paróquia São Benedito (Sucupira do Riachão)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-do-perpetuo-socorro-sao-domingos-do-maranhao",
+      "name": "Paróquia Nossa Senhora do Perpétuo Socorro",
+      "city": "São Domingos do Maranhão",
+      "state": "MA",
+      "neighborhood": "Centro",
+      "address": "Rua Paulo Ramos, Centro",
+      "zipCode": "65790-000",
+      "phone": "(99) 98819-8195 | (99) 3578-1348",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Antônio Edgar",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedecaxiasdomaranhao.org/?page_id=3758",
+          "title": "Diocese de Caxias do Maranhão — Paróquia Nossa Senhora do Perpétuo Socorro (São Domingos do Maranhão)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://pt.wikipedia.org/wiki/Diocese_de_Caxias_do_Maranh%C3%A3o",
+          "title": "Wikipédia — Diocese de Caxias do Maranhão (lista de paróquias por município, citando o site oficial)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora do Perpétuo Socorro",
+          "address": "Rua Paulo Ramos, Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecaxiasdomaranhao.org/?page_id=3758",
+              "title": "Diocese de Caxias do Maranhão — Paróquia Nossa Senhora do Perpétuo Socorro (São Domingos do Maranhão)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "sao-francisco-de-assis-sao-francisco-do-maranhao",
+      "name": "Paróquia São Francisco de Assis",
+      "city": "São Francisco do Maranhão",
+      "state": "MA",
+      "neighborhood": null,
+      "address": "Rua Alarico Pacheco, s/n",
+      "zipCode": "65650-000",
+      "phone": "(99) 98153-2720",
+      "email": "psfranciscodeassisma@gmail.com",
+      "website": null,
+      "priestName": "Pe. Romão Batista da Silva",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedecaxiasdomaranhao.org/?page_id=1371",
+          "title": "Diocese de Caxias do Maranhão — Paróquia São Francisco de Assis (São Francisco do Maranhão)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://pt.wikipedia.org/wiki/Diocese_de_Caxias_do_Maranh%C3%A3o",
+          "title": "Wikipédia — Diocese de Caxias do Maranhão (lista de paróquias por município, citando o site oficial)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Francisco de Assis",
+          "address": "Rua Alarico Pacheco, s/n",
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecaxiasdomaranhao.org/?page_id=1371",
+              "title": "Diocese de Caxias do Maranhão — Paróquia São Francisco de Assis (São Francisco do Maranhão)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "sao-joao-batista-sao-joao-do-soter",
+      "name": "Paróquia São João Batista",
+      "city": "São João do Sóter",
+      "state": "MA",
+      "neighborhood": "Centro",
+      "address": "Avenida Esperança, 01, Centro",
+      "zipCode": "65615-000",
+      "phone": null,
+      "email": "psjb2019@hotmail.com",
+      "website": null,
+      "priestName": "Diác. Nicolau de Jesus Bezerra (administrador paroquial)",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedecaxiasdomaranhao.org/?page_id=3733",
+          "title": "Diocese de Caxias do Maranhão — Paróquia São João Batista (São João do Sóter)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://pt.wikipedia.org/wiki/Diocese_de_Caxias_do_Maranh%C3%A3o",
+          "title": "Wikipédia — Diocese de Caxias do Maranhão (lista de paróquias por município, citando o site oficial)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São João Batista",
+          "address": "Avenida Esperança, 01, Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecaxiasdomaranhao.org/?page_id=3733",
+              "title": "Diocese de Caxias do Maranhão — Paróquia São João Batista (São João do Sóter)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "sao-joao-batista-sao-joao-dos-patos",
+      "name": "Paróquia São João Batista",
+      "city": "São João dos Patos",
+      "state": "MA",
+      "neighborhood": "Centro",
+      "address": "Praça São João, 187, Centro",
+      "zipCode": "65665-000",
+      "phone": "(99) 3551-2174 | (99) 98438-8577",
+      "email": "par.sjbatista63@gmail.com",
+      "website": null,
+      "priestName": "Pe. Franciélio dos Santos",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedecaxiasdomaranhao.org/?page_id=1367",
+          "title": "Diocese de Caxias do Maranhão — Paróquia São João Batista (São João dos Patos)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://pt.wikipedia.org/wiki/Diocese_de_Caxias_do_Maranh%C3%A3o",
+          "title": "Wikipédia — Diocese de Caxias do Maranhão (lista de paróquias por município, citando o site oficial)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São João Batista",
+          "address": "Praça São João, 187, Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecaxiasdomaranhao.org/?page_id=1367",
+              "title": "Diocese de Caxias do Maranhão — Paróquia São João Batista (São João dos Patos)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "menino-jesus-de-praga-timon",
+      "name": "Paróquia Menino Jesus de Praga",
+      "city": "Timon",
+      "state": "MA",
+      "neighborhood": "Parque Alvorada",
+      "address": "Rua Jerônimo Silva, 1475, Parque Alvorada",
+      "zipCode": "65633-180",
+      "phone": "(99) 3212-8870 | (86) 98808-5857",
+      "email": "paroquiameninojesusdepragatimon@gmail.com",
+      "website": null,
+      "priestName": "Pe. Silvério",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedecaxiasdomaranhao.org/?page_id=1408",
+          "title": "Diocese de Caxias do Maranhão — Paróquia Menino Jesus de Praga (Timon)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://pt.wikipedia.org/wiki/Diocese_de_Caxias_do_Maranh%C3%A3o",
+          "title": "Wikipédia — Diocese de Caxias do Maranhão (lista de paróquias por município, citando o site oficial)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Menino Jesus de Praga",
+          "address": "Rua Jerônimo Silva, 1475, Parque Alvorada",
+          "neighborhood": "Parque Alvorada",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecaxiasdomaranhao.org/?page_id=1408",
+              "title": "Diocese de Caxias do Maranhão — Paróquia Menino Jesus de Praga (Timon)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "santo-antonio-timon",
+      "name": "Paróquia Santo Antônio",
+      "city": "Timon",
+      "state": "MA",
+      "neighborhood": null,
+      "address": "Rua Odilo Costa, 1118",
+      "zipCode": "65630-250",
+      "phone": "(99) 3212-1767 | (99) 3212-1986",
+      "email": "santoantoniomatriz@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Mauro Sérgio Silva Cunha",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedecaxiasdomaranhao.org/?page_id=1405",
+          "title": "Diocese de Caxias do Maranhão — Paróquia Santo Antônio (Timon)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://pt.wikipedia.org/wiki/Diocese_de_Caxias_do_Maranh%C3%A3o",
+          "title": "Wikipédia — Diocese de Caxias do Maranhão (lista de paróquias por município, citando o site oficial)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Santo Antônio",
+          "address": "Rua Odilo Costa, 1118",
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecaxiasdomaranhao.org/?page_id=1405",
+              "title": "Diocese de Caxias do Maranhão — Paróquia Santo Antônio (Timon)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "sao-francisco-de-assis-timon",
+      "name": "Paróquia São Francisco de Assis",
+      "city": "Timon",
+      "state": "MA",
+      "neighborhood": "Parque Piauí",
+      "address": "Rua Pernambuco, 293, Parque Piauí",
+      "zipCode": null,
+      "phone": "(99) 3212-3529 | (99) 3212-5076",
+      "email": "saofranciscotimon@gmail.com",
+      "website": null,
+      "priestName": "Pe. João Paulo",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedecaxiasdomaranhao.org/?page_id=1411",
+          "title": "Diocese de Caxias do Maranhão — Paróquia São Francisco de Assis (Timon)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://pt.wikipedia.org/wiki/Diocese_de_Caxias_do_Maranh%C3%A3o",
+          "title": "Wikipédia — Diocese de Caxias do Maranhão (lista de paróquias por município, citando o site oficial)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Francisco de Assis",
+          "address": "Rua Pernambuco, 293, Parque Piauí",
+          "neighborhood": "Parque Piauí",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecaxiasdomaranhao.org/?page_id=1411",
+              "title": "Diocese de Caxias do Maranhão — Paróquia São Francisco de Assis (Timon)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "sao-jose-timon",
+      "name": "Paróquia São José",
+      "city": "Timon",
+      "state": "MA",
+      "neighborhood": null,
+      "address": "Rua São José, 235",
+      "zipCode": "65630-130",
+      "phone": "(99) 3317-8928 | (99) 3212-2442",
+      "email": "paroquia.saojose.caxias@gmail.com",
+      "website": null,
+      "priestName": "Pe. José Marques da Alcobaça",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedecaxiasdomaranhao.org/?page_id=1402",
+          "title": "Diocese de Caxias do Maranhão — Paróquia São José (Timon)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://pt.wikipedia.org/wiki/Diocese_de_Caxias_do_Maranh%C3%A3o",
+          "title": "Wikipédia — Diocese de Caxias do Maranhão (lista de paróquias por município, citando o site oficial)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São José",
+          "address": "Rua São José, 235",
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecaxiasdomaranhao.org/?page_id=1402",
+              "title": "Diocese de Caxias do Maranhão — Paróquia São José (Timon)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "sao-pedro-e-sao-paulo-timon",
+      "name": "Paróquia São Pedro e São Paulo",
+      "city": "Timon",
+      "state": "MA",
+      "neighborhood": null,
+      "address": null,
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedecaxiasdomaranhao.org/?page_id=3633",
+          "title": "Diocese de Caxias do Maranhão — Paróquia São Pedro e São Paulo (Timon)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://pt.wikipedia.org/wiki/Diocese_de_Caxias_do_Maranh%C3%A3o",
+          "title": "Wikipédia — Diocese de Caxias do Maranhão (lista de paróquias por município, citando o site oficial)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "media",
+      "communities": [
+        {
+          "name": "Matriz São Pedro e São Paulo",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecaxiasdomaranhao.org/?page_id=3633",
+              "title": "Diocese de Caxias do Maranhão — Paróquia São Pedro e São Paulo (Timon)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "schedules": []
+    }
+  ],
+  "coverage": {
+    "parishesFound": 31,
+    "parishesExpected": 31,
+    "notes": "31/31. O site publica as fichas como páginas comuns do WordPress (não há tipo personalizado nem índice navegável: /paroquias/ mostra uma paróquia só). Foram lidas 37 páginas com título de paróquia: 29 com conteúdo, 2 pares duplicados (Fortuna e São Domingos do Maranhão, com fichas antiga e nova) e 6 páginas vazias. Duas dessas vazias são paróquias reais que só o título identifica — São Pedro e São Paulo (Timon) e São Benedito (Sucupira do Riachão) —, confirmadas pela lista por município da Wikipédia, que cita a própria página /paroquias/ da diocese. O total bate com as 31 do Anuário Pontifício 2024. A diocese NÃO publica horário de missa em nenhuma ficha: schedules vazio em todas."
+  }
+}

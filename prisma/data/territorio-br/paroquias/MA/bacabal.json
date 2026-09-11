@@ -1,0 +1,1952 @@
+{
+  "diocese": {
+    "name": "Diocese de Bacabal",
+    "type": "Diocese",
+    "slug": "bacabal",
+    "city": "Bacabal",
+    "state": "MA",
+    "address": "Cúria Diocesana, Rua Teixeira Mendes, 45, Centro",
+    "zipCode": "65700-000",
+    "phone": "(99) 8820-0085",
+    "email": "curiadiocesana@diocesedebacabal.org.br",
+    "website": "https://diocesedebacabal.org.br",
+    "bishopName": "Dom Armando Martín Gutiérrez, F.A.M.",
+    "sources": [
+      {
+        "url": "https://diocesedebacabal.org.br/",
+        "title": "Diocese de Bacabal — site oficial",
+        "accessedAt": "2026-09-11"
+      },
+      {
+        "url": "https://diocesedebacabal.org.br/paroquias",
+        "title": "Diocese de Bacabal — Paróquias (26 fichas em 5 foranias)",
+        "accessedAt": "2026-09-11"
+      },
+      {
+        "url": "https://diocesedebacabal.org.br/municipios",
+        "title": "Diocese de Bacabal — Municípios (26)",
+        "accessedAt": "2026-09-11"
+      },
+      {
+        "url": "https://www.catholic-hierarchy.org/diocese/dbaca.html",
+        "title": "catholic-hierarchy.org — Diocese of Bacabal (2022: 24 paróquias)",
+        "accessedAt": "2026-09-11"
+      }
+    ],
+    "confidence": "alta"
+  },
+  "parishes": [
+    {
+      "slug": "santa-teresinha-bacabal",
+      "name": "Catedral de Santa Teresinha",
+      "city": "Bacabal",
+      "state": "MA",
+      "neighborhood": "Centro",
+      "address": "Praça Santa Teresinha, n 01, Centro",
+      "zipCode": null,
+      "phone": "(99) 98250-2172",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. José Francisco Rodrigues Neto",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedebacabal.org.br/paroquias/38/catedral-de-santa-teresinha",
+          "title": "Diocese de Bacabal — Catedral de Santa Teresinha (Bacabal)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedebacabal.org.br/paroquias",
+          "title": "Diocese de Bacabal — Paróquias (Forania Santa Teresinha)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Catedral de Santa Teresinha",
+          "address": "Praça Santa Teresinha, n 01, Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedebacabal.org.br/paroquias/38/catedral-de-santa-teresinha",
+              "title": "Diocese de Bacabal — Catedral de Santa Teresinha (Bacabal)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Catedral de Santa Teresinha",
+          "dayOfWeek": 2,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedebacabal.org.br/paroquias/38/catedral-de-santa-teresinha",
+              "title": "Diocese de Bacabal — Catedral de Santa Teresinha (Bacabal)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral de Santa Teresinha",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedebacabal.org.br/paroquias/38/catedral-de-santa-teresinha",
+              "title": "Diocese de Bacabal — Catedral de Santa Teresinha (Bacabal)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral de Santa Teresinha",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedebacabal.org.br/paroquias/38/catedral-de-santa-teresinha",
+              "title": "Diocese de Bacabal — Catedral de Santa Teresinha (Bacabal)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral de Santa Teresinha",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedebacabal.org.br/paroquias/38/catedral-de-santa-teresinha",
+              "title": "Diocese de Bacabal — Catedral de Santa Teresinha (Bacabal)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "communitiesReportedByParish": 24
+    },
+    {
+      "slug": "imaculado-coracao-de-nossa-senhora-de-fatima-bacabal",
+      "name": "Paróquia Imaculado Coração de Nossa Senhora de Fátima",
+      "city": "Bacabal",
+      "state": "MA",
+      "neighborhood": "Areia",
+      "address": "Rua Viriato Correia, 650, Areia",
+      "zipCode": null,
+      "phone": "(99) 981362833",
+      "email": "paroquiaicnsfatima@gmail.com",
+      "website": null,
+      "priestName": "Pe. Lauro Henrique Conrado Carvalho",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedebacabal.org.br/paroquias/30/paroquia-imaculado-coracao-de-nossa-senhora-de-fatima",
+          "title": "Diocese de Bacabal — Paróquia Imaculado Coração de Nossa Senhora de Fátima (Bacabal)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedebacabal.org.br/paroquias",
+          "title": "Diocese de Bacabal — Paróquias (Forania Santa Teresinha)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Imaculado Coração de Nossa Senhora de Fátima",
+          "address": "Rua Viriato Correia, 650, Areia",
+          "neighborhood": "Areia",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedebacabal.org.br/paroquias/30/paroquia-imaculado-coracao-de-nossa-senhora-de-fatima",
+              "title": "Diocese de Bacabal — Paróquia Imaculado Coração de Nossa Senhora de Fátima (Bacabal)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Imaculado Coração de Nossa Senhora de Fátima",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedebacabal.org.br/paroquias/30/paroquia-imaculado-coracao-de-nossa-senhora-de-fatima",
+              "title": "Diocese de Bacabal — Paróquia Imaculado Coração de Nossa Senhora de Fátima (Bacabal)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Imaculado Coração de Nossa Senhora de Fátima",
+          "dayOfWeek": 0,
+          "time": "07:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedebacabal.org.br/paroquias/30/paroquia-imaculado-coracao-de-nossa-senhora-de-fatima",
+              "title": "Diocese de Bacabal — Paróquia Imaculado Coração de Nossa Senhora de Fátima (Bacabal)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Imaculado Coração de Nossa Senhora de Fátima",
+          "dayOfWeek": 0,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedebacabal.org.br/paroquias/30/paroquia-imaculado-coracao-de-nossa-senhora-de-fatima",
+              "title": "Diocese de Bacabal — Paróquia Imaculado Coração de Nossa Senhora de Fátima (Bacabal)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "santana-e-sao-joaquim-bacabal",
+      "name": "Paróquia Sant'Ana e São Joaquim",
+      "city": "Bacabal",
+      "state": "MA",
+      "neighborhood": "Centro",
+      "address": "Rua Raimundo Correia, Centro",
+      "zipCode": null,
+      "phone": "(99) 3621-1272",
+      "email": "paroquiasantabac@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Denner Emerson",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedebacabal.org.br/paroquias/9/paroquia-sant-ana-e-sao-joaquim",
+          "title": "Diocese de Bacabal — Paróquia Sant'Ana e São Joaquim (Bacabal)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedebacabal.org.br/paroquias",
+          "title": "Diocese de Bacabal — Paróquias (Forania Santa Teresinha)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Sant'Ana e São Joaquim",
+          "address": "Rua Raimundo Correia, Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedebacabal.org.br/paroquias/9/paroquia-sant-ana-e-sao-joaquim",
+              "title": "Diocese de Bacabal — Paróquia Sant'Ana e São Joaquim (Bacabal)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Sant'Ana e São Joaquim",
+          "dayOfWeek": 2,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedebacabal.org.br/paroquias/9/paroquia-sant-ana-e-sao-joaquim",
+              "title": "Diocese de Bacabal — Paróquia Sant'Ana e São Joaquim (Bacabal)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Sant'Ana e São Joaquim",
+          "dayOfWeek": 3,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedebacabal.org.br/paroquias/9/paroquia-sant-ana-e-sao-joaquim",
+              "title": "Diocese de Bacabal — Paróquia Sant'Ana e São Joaquim (Bacabal)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Sant'Ana e São Joaquim",
+          "dayOfWeek": 4,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedebacabal.org.br/paroquias/9/paroquia-sant-ana-e-sao-joaquim",
+              "title": "Diocese de Bacabal — Paróquia Sant'Ana e São Joaquim (Bacabal)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Sant'Ana e São Joaquim",
+          "dayOfWeek": 5,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedebacabal.org.br/paroquias/9/paroquia-sant-ana-e-sao-joaquim",
+              "title": "Diocese de Bacabal — Paróquia Sant'Ana e São Joaquim (Bacabal)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Sant'Ana e São Joaquim",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedebacabal.org.br/paroquias/9/paroquia-sant-ana-e-sao-joaquim",
+              "title": "Diocese de Bacabal — Paróquia Sant'Ana e São Joaquim (Bacabal)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Sant'Ana e São Joaquim",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedebacabal.org.br/paroquias/9/paroquia-sant-ana-e-sao-joaquim",
+              "title": "Diocese de Bacabal — Paróquia Sant'Ana e São Joaquim (Bacabal)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "sao-francisco-das-chagas-bacabal",
+      "name": "Paróquia São Francisco das Chagas",
+      "city": "Bacabal",
+      "state": "MA",
+      "neighborhood": null,
+      "address": "Rua Magalhães de Almeida, 1121",
+      "zipCode": null,
+      "phone": "(99) 3621-1288",
+      "email": "par.sao.francisco@hotmail.com",
+      "website": null,
+      "priestName": "Frei Pedro Nazário de Sousa Filho, Ofm.",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedebacabal.org.br/paroquias/10/paroquia-sao-francisco-das-chagas",
+          "title": "Diocese de Bacabal — Paróquia São Francisco das Chagas (Bacabal)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedebacabal.org.br/paroquias",
+          "title": "Diocese de Bacabal — Paróquias (Forania Santa Teresinha)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Francisco das Chagas",
+          "address": "Rua Magalhães de Almeida, 1121",
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedebacabal.org.br/paroquias/10/paroquia-sao-francisco-das-chagas",
+              "title": "Diocese de Bacabal — Paróquia São Francisco das Chagas (Bacabal)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São Francisco das Chagas",
+          "dayOfWeek": 2,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedebacabal.org.br/paroquias/10/paroquia-sao-francisco-das-chagas",
+              "title": "Diocese de Bacabal — Paróquia São Francisco das Chagas (Bacabal)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Francisco das Chagas",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedebacabal.org.br/paroquias/10/paroquia-sao-francisco-das-chagas",
+              "title": "Diocese de Bacabal — Paróquia São Francisco das Chagas (Bacabal)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Francisco das Chagas",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedebacabal.org.br/paroquias/10/paroquia-sao-francisco-das-chagas",
+              "title": "Diocese de Bacabal — Paróquia São Francisco das Chagas (Bacabal)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Francisco das Chagas",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedebacabal.org.br/paroquias/10/paroquia-sao-francisco-das-chagas",
+              "title": "Diocese de Bacabal — Paróquia São Francisco das Chagas (Bacabal)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Francisco das Chagas",
+          "dayOfWeek": 0,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedebacabal.org.br/paroquias/10/paroquia-sao-francisco-das-chagas",
+              "title": "Diocese de Bacabal — Paróquia São Francisco das Chagas (Bacabal)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Francisco das Chagas",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedebacabal.org.br/paroquias/10/paroquia-sao-francisco-das-chagas",
+              "title": "Diocese de Bacabal — Paróquia São Francisco das Chagas (Bacabal)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "sagrados-coracoes-de-jesus-e-maria-bom-lugar",
+      "name": "Paróquia Sagrados Corações de Jesus e Maria",
+      "city": "Bom Lugar",
+      "state": "MA",
+      "neighborhood": "Centro",
+      "address": "Rua Carlos Irmãos, Centro",
+      "zipCode": null,
+      "phone": "(99) 3623-1101",
+      "email": "psfaassis@outlook.com",
+      "website": null,
+      "priestName": "Pe. José Ribamar Cardoso Lima",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedebacabal.org.br/paroquias/26/paroquia-sagrados-coracoes-de-jesus-e-maria",
+          "title": "Diocese de Bacabal — Paróquia Sagrados Corações de Jesus e Maria (Bom Lugar)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedebacabal.org.br/paroquias",
+          "title": "Diocese de Bacabal — Paróquias (Forania Santa Teresinha)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Sagrados Corações de Jesus e Maria",
+          "address": "Rua Carlos Irmãos, Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedebacabal.org.br/paroquias/26/paroquia-sagrados-coracoes-de-jesus-e-maria",
+              "title": "Diocese de Bacabal — Paróquia Sagrados Corações de Jesus e Maria (Bom Lugar)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Sagrados Corações de Jesus e Maria",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedebacabal.org.br/paroquias/26/paroquia-sagrados-coracoes-de-jesus-e-maria",
+              "title": "Diocese de Bacabal — Paróquia Sagrados Corações de Jesus e Maria (Bom Lugar)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Sagrados Corações de Jesus e Maria",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedebacabal.org.br/paroquias/26/paroquia-sagrados-coracoes-de-jesus-e-maria",
+              "title": "Diocese de Bacabal — Paróquia Sagrados Corações de Jesus e Maria (Bom Lugar)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Sagrados Corações de Jesus e Maria",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedebacabal.org.br/paroquias/26/paroquia-sagrados-coracoes-de-jesus-e-maria",
+              "title": "Diocese de Bacabal — Paróquia Sagrados Corações de Jesus e Maria (Bom Lugar)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "virgem-do-perpetuo-socorro-brejo-de-areia",
+      "name": "Quase-paróquia Virgem do Perpetuo Socorro",
+      "city": "Brejo de Areia",
+      "state": "MA",
+      "neighborhood": null,
+      "address": null,
+      "zipCode": null,
+      "phone": null,
+      "email": "irmateresinhas@gmail.com",
+      "website": null,
+      "priestName": "Frei Hernane Costa",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedebacabal.org.br/paroquias/37/quase-paroquia-virgem-do-perpetuo-socorro",
+          "title": "Diocese de Bacabal — Quase Paróquia Virgem do Perpetuo Socorro (Brejo de Areia)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedebacabal.org.br/paroquias",
+          "title": "Diocese de Bacabal — Paróquias (Forania Sagrado Coração de Jesus)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Virgem do Perpetuo Socorro",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedebacabal.org.br/paroquias/37/quase-paroquia-virgem-do-perpetuo-socorro",
+              "title": "Diocese de Bacabal — Quase Paróquia Virgem do Perpetuo Socorro (Brejo de Areia)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "sao-sebastiao-capinzal-do-norte",
+      "name": "Paróquia São Sebastião",
+      "city": "Capinzal do Norte",
+      "state": "MA",
+      "neighborhood": "Centro",
+      "address": "Rua da Matriz, 60, Centro",
+      "zipCode": null,
+      "phone": "(99) 3665-1070",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Railson de Oliveira Silva",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedebacabal.org.br/paroquias/28/paroquia-sao-sebastiao",
+          "title": "Diocese de Bacabal — Paróquia São Sebastião (Capinzal do Norte)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedebacabal.org.br/paroquias",
+          "title": "Diocese de Bacabal — Paróquias (Forania Nossa Sra. do Perpetuo Socorro)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Sebastião",
+          "address": "Rua da Matriz, 60, Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedebacabal.org.br/paroquias/28/paroquia-sao-sebastiao",
+              "title": "Diocese de Bacabal — Paróquia São Sebastião (Capinzal do Norte)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-do-rosario-de-fatima-esperantinopolis",
+      "name": "Paróquia Nossa Senhora do Rosário de Fátima",
+      "city": "Esperantinópolis",
+      "state": "MA",
+      "neighborhood": "Centro",
+      "address": "Rua Três de Agosto, Centro",
+      "zipCode": null,
+      "phone": "(99) 3645-1225",
+      "email": "paroquia_nsrf@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Airton de Andrade Bezerra",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedebacabal.org.br/paroquias/11/paroquia-nossa-senhora-do-rosario-de-fatima",
+          "title": "Diocese de Bacabal — Paróquia Nossa Senhora do Rosário de Fátima (Esperantinópolis)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedebacabal.org.br/paroquias",
+          "title": "Diocese de Bacabal — Paróquias (Forania São Pedro)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora do Rosário de Fátima",
+          "address": "Rua Três de Agosto, Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedebacabal.org.br/paroquias/11/paroquia-nossa-senhora-do-rosario-de-fatima",
+              "title": "Diocese de Bacabal — Paróquia Nossa Senhora do Rosário de Fátima (Esperantinópolis)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "maria-imaculada-igarape-grande",
+      "name": "Paróquia Maria Imaculada",
+      "city": "Igarapé Grande",
+      "state": "MA",
+      "neighborhood": "Centro",
+      "address": "Praça Mariano Costa, Centro",
+      "zipCode": null,
+      "phone": "(99) 3647-1508",
+      "email": "paroquiamimaculada@hotmail.com",
+      "website": null,
+      "priestName": "Frei Clécio Pires",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedebacabal.org.br/paroquias/22/paroquia-maria-imaculada",
+          "title": "Diocese de Bacabal — Paróquia Maria Imaculada (Igarapé Grande)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedebacabal.org.br/paroquias",
+          "title": "Diocese de Bacabal — Paróquias (Forania São Pedro)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Maria Imaculada",
+          "address": "Praça Mariano Costa, Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedebacabal.org.br/paroquias/22/paroquia-maria-imaculada",
+              "title": "Diocese de Bacabal — Paróquia Maria Imaculada (Igarapé Grande)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "sao-francisco-de-assis-lago-verde",
+      "name": "Paróquia São Francisco de Assis",
+      "city": "Lago Verde",
+      "state": "MA",
+      "neighborhood": "Centro",
+      "address": "Rua 13 de maio, Centro",
+      "zipCode": null,
+      "phone": "(99) 3635-1318",
+      "email": "psfaassis@outlook.com",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedebacabal.org.br/paroquias/29/paroquia-sao-francisco-de-assis",
+          "title": "Diocese de Bacabal — Paróquia São Francisco de Assis (Lago Verde)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedebacabal.org.br/paroquias",
+          "title": "Diocese de Bacabal — Paróquias (Forania Santa Teresinha)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Francisco de Assis",
+          "address": "Rua 13 de maio, Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedebacabal.org.br/paroquias/29/paroquia-sao-francisco-de-assis",
+              "title": "Diocese de Bacabal — Paróquia São Francisco de Assis (Lago Verde)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "sao-jose-lago-da-pedra",
+      "name": "Paróquia São José",
+      "city": "Lago da Pedra",
+      "state": "MA",
+      "neighborhood": "Centro",
+      "address": "Rua Humberto de Campos, 173, Centro",
+      "zipCode": null,
+      "phone": "(99) 3654-0142",
+      "email": "paroquiasaojoseldp@outlook.com",
+      "website": null,
+      "priestName": "Frei Fernandes Henrique",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedebacabal.org.br/paroquias/12/paroquia-sao-jose",
+          "title": "Diocese de Bacabal — Paróquia São José (Lago da Pedra)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedebacabal.org.br/paroquias",
+          "title": "Diocese de Bacabal — Paróquias (Forania São José)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São José",
+          "address": "Rua Humberto de Campos, 173, Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedebacabal.org.br/paroquias/12/paroquia-sao-jose",
+              "title": "Diocese de Bacabal — Paróquia São José (Lago da Pedra)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "sao-francisco-de-assis-lago-dos-rodrigues",
+      "name": "Paróquia São Francisco de Assis",
+      "city": "Lago dos Rodrigues",
+      "state": "MA",
+      "neighborhood": "Centro",
+      "address": "Rua Frei José, Centro",
+      "zipCode": null,
+      "phone": "99 98416-0141",
+      "email": null,
+      "website": null,
+      "priestName": "Frei Francisco das Chagas Azevedo Silva, OFM",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedebacabal.org.br/paroquias/32/paroquia-sao-francisco-de-assis",
+          "title": "Diocese de Bacabal — Paróquia São Francisco de Assis (Lago dos Rodrigues)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedebacabal.org.br/paroquias",
+          "title": "Diocese de Bacabal — Paróquias (Forania São José)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Francisco de Assis",
+          "address": "Rua Frei José, Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedebacabal.org.br/paroquias/32/paroquia-sao-francisco-de-assis",
+              "title": "Diocese de Bacabal — Paróquia São Francisco de Assis (Lago dos Rodrigues)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São Francisco de Assis",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedebacabal.org.br/paroquias/32/paroquia-sao-francisco-de-assis",
+              "title": "Diocese de Bacabal — Paróquia São Francisco de Assis (Lago dos Rodrigues)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Francisco de Assis",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedebacabal.org.br/paroquias/32/paroquia-sao-francisco-de-assis",
+              "title": "Diocese de Bacabal — Paróquia São Francisco de Assis (Lago dos Rodrigues)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Francisco de Assis",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedebacabal.org.br/paroquias/32/paroquia-sao-francisco-de-assis",
+              "title": "Diocese de Bacabal — Paróquia São Francisco de Assis (Lago dos Rodrigues)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Francisco de Assis",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedebacabal.org.br/paroquias/32/paroquia-sao-francisco-de-assis",
+              "title": "Diocese de Bacabal — Paróquia São Francisco de Assis (Lago dos Rodrigues)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "sao-jose-da-providencia-lagoa-grande-do-maranhao",
+      "name": "Paróquia São José da Providência",
+      "city": "Lagoa Grande do Maranhão",
+      "state": "MA",
+      "neighborhood": "Centro",
+      "address": "Rua 13 de maio, Centro",
+      "zipCode": null,
+      "phone": "(99) 98420-6390",
+      "email": "e.lessajunior@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Edmar Gomes Lessa Filho",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedebacabal.org.br/paroquias/33/paroquia-sao-jose-da-providencia",
+          "title": "Diocese de Bacabal — Paróquia São José da Providência (Lagoa Grande do Maranhão)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedebacabal.org.br/paroquias",
+          "title": "Diocese de Bacabal — Paróquias (Forania São José)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São José da Providência",
+          "address": "Rua 13 de maio, Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedebacabal.org.br/paroquias/33/paroquia-sao-jose-da-providencia",
+              "title": "Diocese de Bacabal — Paróquia São José da Providência (Lagoa Grande do Maranhão)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-do-perpetuo-socorro-lima-campos",
+      "name": "Paróquia Nossa Senhora do Perpétuo Socorro",
+      "city": "Lima Campos",
+      "state": "MA",
+      "neighborhood": "Centro",
+      "address": "Rua Newton Belo, 945, Centro",
+      "zipCode": null,
+      "phone": "(99) 3646-1154",
+      "email": "paroquianspslc@gmail.com",
+      "website": null,
+      "priestName": "Pe. Luís Portela Filho",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedebacabal.org.br/paroquias/13/paroquia-nossa-senhora-do-perpetuo-socorro",
+          "title": "Diocese de Bacabal — Paróquia Nossa Senhora do Perpétuo Socorro (Lima Campos)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedebacabal.org.br/paroquias",
+          "title": "Diocese de Bacabal — Paróquias (Forania Nossa Sra. do Perpetuo Socorro)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora do Perpétuo Socorro",
+          "address": "Rua Newton Belo, 945, Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedebacabal.org.br/paroquias/13/paroquia-nossa-senhora-do-perpetuo-socorro",
+              "title": "Diocese de Bacabal — Paróquia Nossa Senhora do Perpétuo Socorro (Lima Campos)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "sagrado-coracao-de-jesus-olho-dagua-das-cunhas",
+      "name": "Paróquia Sagrado Coração de Jesus",
+      "city": "Olho d'Água das Cunhãs",
+      "state": "MA",
+      "neighborhood": "Centro",
+      "address": "Rua João Pessoa, Centro",
+      "zipCode": null,
+      "phone": "(98) 3664-5215",
+      "email": "scj.paroquia@yahoo.com.br",
+      "website": null,
+      "priestName": "Pe. Antonio Ribeiro Silva",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedebacabal.org.br/paroquias/14/paroquia-sagrado-coracao-de-jesus",
+          "title": "Diocese de Bacabal — Paróquia Sagrado Coração de Jesus (Olho d'Água das Cunhãs)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedebacabal.org.br/paroquias",
+          "title": "Diocese de Bacabal — Paróquias (Forania Sagrado Coração de Jesus)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Sagrado Coração de Jesus",
+          "address": "Rua João Pessoa, Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedebacabal.org.br/paroquias/14/paroquia-sagrado-coracao-de-jesus",
+              "title": "Diocese de Bacabal — Paróquia Sagrado Coração de Jesus (Olho d'Água das Cunhãs)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-da-conceicao-paulo-ramos",
+      "name": "Paróquia Nossa Senhora da Conceição",
+      "city": "Paulo Ramos",
+      "state": "MA",
+      "neighborhood": "Centro",
+      "address": "Rua Santos Dumont, 3, Centro",
+      "zipCode": null,
+      "phone": "(98) 3655-0052",
+      "email": "paroquiapauloramos@yahoo.com.br",
+      "website": null,
+      "priestName": "Pe. José Ribamar da Silva",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedebacabal.org.br/paroquias/15/paroquia-nossa-senhora-da-conceicao",
+          "title": "Diocese de Bacabal — Paróquia Nossa Senhora da Conceição (Paulo Ramos)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedebacabal.org.br/paroquias",
+          "title": "Diocese de Bacabal — Paróquias (Forania São José)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora da Conceição",
+          "address": "Rua Santos Dumont, 3, Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedebacabal.org.br/paroquias/15/paroquia-nossa-senhora-da-conceicao",
+              "title": "Diocese de Bacabal — Paróquia Nossa Senhora da Conceição (Paulo Ramos)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedebacabal.org.br/paroquias/15/paroquia-nossa-senhora-da-conceicao",
+              "title": "Diocese de Bacabal — Paróquia Nossa Senhora da Conceição (Paulo Ramos)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedebacabal.org.br/paroquias/15/paroquia-nossa-senhora-da-conceicao",
+              "title": "Diocese de Bacabal — Paróquia Nossa Senhora da Conceição (Paulo Ramos)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedebacabal.org.br/paroquias/15/paroquia-nossa-senhora-da-conceicao",
+              "title": "Diocese de Bacabal — Paróquia Nossa Senhora da Conceição (Paulo Ramos)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 0,
+          "time": "10:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedebacabal.org.br/paroquias/15/paroquia-nossa-senhora-da-conceicao",
+              "title": "Diocese de Bacabal — Paróquia Nossa Senhora da Conceição (Paulo Ramos)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedebacabal.org.br/paroquias/15/paroquia-nossa-senhora-da-conceicao",
+              "title": "Diocese de Bacabal — Paróquia Nossa Senhora da Conceição (Paulo Ramos)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "sao-benedito-pedreiras",
+      "name": "Paróquia Santuário São Benedito",
+      "city": "Pedreiras",
+      "state": "MA",
+      "neighborhood": "Centro",
+      "address": "Rua Ciro Rêgo, 211, Centro",
+      "zipCode": null,
+      "phone": "(99) 3642-1296",
+      "email": "psbeneditoped@gmail.com",
+      "website": null,
+      "priestName": "Pe. José Geraldo Teófilo da Silva",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedebacabal.org.br/paroquias/16/paroquia-santuario-sao-benedito",
+          "title": "Diocese de Bacabal — Paróquia Santuário São Benedito (Pedreiras)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedebacabal.org.br/paroquias",
+          "title": "Diocese de Bacabal — Paróquias (Forania Nossa Sra. do Perpetuo Socorro)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Benedito",
+          "address": "Rua Ciro Rêgo, 211, Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedebacabal.org.br/paroquias/16/paroquia-santuario-sao-benedito",
+              "title": "Diocese de Bacabal — Paróquia Santuário São Benedito (Pedreiras)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São Benedito",
+          "dayOfWeek": 4,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedebacabal.org.br/paroquias/16/paroquia-santuario-sao-benedito",
+              "title": "Diocese de Bacabal — Paróquia Santuário São Benedito (Pedreiras)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Benedito",
+          "dayOfWeek": 5,
+          "time": "17:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedebacabal.org.br/paroquias/16/paroquia-santuario-sao-benedito",
+              "title": "Diocese de Bacabal — Paróquia Santuário São Benedito (Pedreiras)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Benedito",
+          "dayOfWeek": 0,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedebacabal.org.br/paroquias/16/paroquia-santuario-sao-benedito",
+              "title": "Diocese de Bacabal — Paróquia Santuário São Benedito (Pedreiras)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Benedito",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedebacabal.org.br/paroquias/16/paroquia-santuario-sao-benedito",
+              "title": "Diocese de Bacabal — Paróquia Santuário São Benedito (Pedreiras)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Benedito",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedebacabal.org.br/paroquias/16/paroquia-santuario-sao-benedito",
+              "title": "Diocese de Bacabal — Paróquia Santuário São Benedito (Pedreiras)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "santana-mestra-pio-xii",
+      "name": "Paróquia Sant'Ana Mestra",
+      "city": "Pio XII",
+      "state": "MA",
+      "neighborhood": "Centro",
+      "address": "Pça. da Matriz, Centro",
+      "zipCode": null,
+      "phone": "(98) 3654-0142",
+      "email": "santanamestra@hotmail.com",
+      "website": null,
+      "priestName": "Pe. José Alberto de Carvalho Saturnino",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedebacabal.org.br/paroquias/17/paroquia-sant-ana-mestra",
+          "title": "Diocese de Bacabal — Paróquia Sant'Ana Mestra (Pio XII)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedebacabal.org.br/paroquias",
+          "title": "Diocese de Bacabal — Paróquias (Forania Sagrado Coração de Jesus)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Sant'Ana Mestra",
+          "address": "Pça. da Matriz, Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedebacabal.org.br/paroquias/17/paroquia-sant-ana-mestra",
+              "title": "Diocese de Bacabal — Paróquia Sant'Ana Mestra (Pio XII)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "sao-pedro-pocao-de-pedras",
+      "name": "Paróquia São Pedro",
+      "city": "Poção de Pedras",
+      "state": "MA",
+      "neighborhood": "Centro",
+      "address": "Rua Senador Vitorino Freire, 33, Centro",
+      "zipCode": null,
+      "phone": "(99) 3636-1185",
+      "email": "meurejose1@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Cícero Pereira Ló",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedebacabal.org.br/paroquias/18/paroquia-sao-pedro",
+          "title": "Diocese de Bacabal — Paróquia São Pedro (Poção de Pedras)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedebacabal.org.br/paroquias",
+          "title": "Diocese de Bacabal — Paróquias (Forania São Pedro)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Pedro",
+          "address": "Rua Senador Vitorino Freire, 33, Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedebacabal.org.br/paroquias/18/paroquia-sao-pedro",
+              "title": "Diocese de Bacabal — Paróquia São Pedro (Poção de Pedras)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "santo-antonio-santo-antonio-dos-lopes",
+      "name": "Paróquia Santo Antônio",
+      "city": "Santo Antônio dos Lopes",
+      "state": "MA",
+      "neighborhood": "Centro",
+      "address": "Rua da Matriz, Centro",
+      "zipCode": null,
+      "phone": "(99) 3666-1905",
+      "email": "paroquiasa@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Frederico Santos Carvalho",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedebacabal.org.br/paroquias/36/paroquia-santo-antonio",
+          "title": "Diocese de Bacabal — Paróquia Santo Antônio (Santo Antônio dos Lopes)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedebacabal.org.br/paroquias",
+          "title": "Diocese de Bacabal — Paróquias (Forania Nossa Sra. do Perpetuo Socorro)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Santo Antônio",
+          "address": "Rua da Matriz, Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedebacabal.org.br/paroquias/36/paroquia-santo-antonio",
+              "title": "Diocese de Bacabal — Paróquia Santo Antônio (Santo Antônio dos Lopes)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-das-gracas-satubinha",
+      "name": "Quase-paróquia Nossa Senhora das Graças",
+      "city": "Satubinha",
+      "state": "MA",
+      "neighborhood": "Centro",
+      "address": "Rua Cesário Fahd, 625, Centro",
+      "zipCode": null,
+      "phone": "(98) 3683-1156",
+      "email": "nsg_paroquia@hotmail.com",
+      "website": null,
+      "priestName": "Pe. José Almeci Calixto de Araújo",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedebacabal.org.br/paroquias/27/quase-paroquia-nossa-senhora-das-gracas",
+          "title": "Diocese de Bacabal — Quase-Paróquia Nossa Senhora das Graças (Satubinha)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedebacabal.org.br/paroquias",
+          "title": "Diocese de Bacabal — Paróquias (Forania Sagrado Coração de Jesus)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora das Graças",
+          "address": "Rua Cesário Fahd, 625, Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedebacabal.org.br/paroquias/27/quase-paroquia-nossa-senhora-das-gracas",
+              "title": "Diocese de Bacabal — Quase-Paróquia Nossa Senhora das Graças (Satubinha)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "sao-luis-gonzaga-sao-luis-gonzaga-do-maranhao",
+      "name": "Paróquia São Luís Gonzaga",
+      "city": "São Luís Gonzaga do Maranhão",
+      "state": "MA",
+      "neighborhood": "Centro",
+      "address": "Praça da Bandeira, Centro",
+      "zipCode": null,
+      "phone": "(99) 3631-1110",
+      "email": "igreja.slg@gmail.com",
+      "website": null,
+      "priestName": "Pe. Johon Sidney Oliveira Morais",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedebacabal.org.br/paroquias/19/paroquia-sao-luis-gonzaga",
+          "title": "Diocese de Bacabal — Paróquia São Luís Gonzaga (São Luís Gonzaga do Maranhão)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedebacabal.org.br/paroquias",
+          "title": "Diocese de Bacabal — Paróquias (Forania Santa Teresinha)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Luís Gonzaga",
+          "address": "Praça da Bandeira, Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedebacabal.org.br/paroquias/19/paroquia-sao-luis-gonzaga",
+              "title": "Diocese de Bacabal — Paróquia São Luís Gonzaga (São Luís Gonzaga do Maranhão)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São Luís Gonzaga",
+          "dayOfWeek": 4,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedebacabal.org.br/paroquias/19/paroquia-sao-luis-gonzaga",
+              "title": "Diocese de Bacabal — Paróquia São Luís Gonzaga (São Luís Gonzaga do Maranhão)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Luís Gonzaga",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedebacabal.org.br/paroquias/19/paroquia-sao-luis-gonzaga",
+              "title": "Diocese de Bacabal — Paróquia São Luís Gonzaga (São Luís Gonzaga do Maranhão)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Luís Gonzaga",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedebacabal.org.br/paroquias/19/paroquia-sao-luis-gonzaga",
+              "title": "Diocese de Bacabal — Paróquia São Luís Gonzaga (São Luís Gonzaga do Maranhão)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "sao-raimundo-sao-raimundo-do-doca-bezerra",
+      "name": "Paróquia São Raimundo",
+      "city": "São Raimundo do Doca Bezerra",
+      "state": "MA",
+      "neighborhood": "Centro",
+      "address": "Av. Bezerra, Centro",
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Jadiel Batista",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedebacabal.org.br/paroquias/35/paroquia-sao-raimundo",
+          "title": "Diocese de Bacabal — Paróquia São Raimundo (São Raimundo do Doca Bezerra)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedebacabal.org.br/paroquias",
+          "title": "Diocese de Bacabal — Paróquias (Forania São Pedro)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Raimundo",
+          "address": "Av. Bezerra, Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedebacabal.org.br/paroquias/35/paroquia-sao-raimundo",
+              "title": "Diocese de Bacabal — Paróquia São Raimundo (São Raimundo do Doca Bezerra)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "sao-joao-batista-sao-roberto",
+      "name": "Paróquia São João Batista",
+      "city": "São Roberto",
+      "state": "MA",
+      "neighborhood": "Centro",
+      "address": "Av. João Castelo, Centro",
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Francisco Emerson Paiva Silva",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedebacabal.org.br/paroquias/34/paroquia-sao-joao-batista",
+          "title": "Diocese de Bacabal — Paróquia São João Batista (São Roberto)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedebacabal.org.br/paroquias",
+          "title": "Diocese de Bacabal — Paróquias (Forania São Pedro)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São João Batista",
+          "address": "Av. João Castelo, Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedebacabal.org.br/paroquias/34/paroquia-sao-joao-batista",
+              "title": "Diocese de Bacabal — Paróquia São João Batista (São Roberto)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São João Batista",
+          "dayOfWeek": 0,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedebacabal.org.br/paroquias/34/paroquia-sao-joao-batista",
+              "title": "Diocese de Bacabal — Paróquia São João Batista (São Roberto)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "santo-antonio-de-padua-trizidela-do-vale",
+      "name": "Paróquia Santo Antônio de Pádua",
+      "city": "Trizidela do Vale",
+      "state": "MA",
+      "neighborhood": "Centro",
+      "address": "Rua Nova, Centro",
+      "zipCode": null,
+      "phone": "(99) 98142-1559",
+      "email": "paroquiastoantoniotrizidela@hotmail.com",
+      "website": null,
+      "priestName": "Frei Luís Spelgatti",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedebacabal.org.br/paroquias/20/paroquia-santo-antonio-de-padua",
+          "title": "Diocese de Bacabal — Paróquia Santo Antônio de Pádua (Trizidela do Vale)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedebacabal.org.br/paroquias",
+          "title": "Diocese de Bacabal — Paróquias (Forania Nossa Sra. do Perpetuo Socorro)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Santo Antônio de Pádua",
+          "address": "Rua Nova, Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedebacabal.org.br/paroquias/20/paroquia-santo-antonio-de-padua",
+              "title": "Diocese de Bacabal — Paróquia Santo Antônio de Pádua (Trizidela do Vale)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Santo Antônio de Pádua",
+          "dayOfWeek": 1,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedebacabal.org.br/paroquias/20/paroquia-santo-antonio-de-padua",
+              "title": "Diocese de Bacabal — Paróquia Santo Antônio de Pádua (Trizidela do Vale)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Santo Antônio de Pádua",
+          "dayOfWeek": 2,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedebacabal.org.br/paroquias/20/paroquia-santo-antonio-de-padua",
+              "title": "Diocese de Bacabal — Paróquia Santo Antônio de Pádua (Trizidela do Vale)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Santo Antônio de Pádua",
+          "dayOfWeek": 3,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedebacabal.org.br/paroquias/20/paroquia-santo-antonio-de-padua",
+              "title": "Diocese de Bacabal — Paróquia Santo Antônio de Pádua (Trizidela do Vale)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Santo Antônio de Pádua",
+          "dayOfWeek": 4,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedebacabal.org.br/paroquias/20/paroquia-santo-antonio-de-padua",
+              "title": "Diocese de Bacabal — Paróquia Santo Antônio de Pádua (Trizidela do Vale)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Santo Antônio de Pádua",
+          "dayOfWeek": 5,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedebacabal.org.br/paroquias/20/paroquia-santo-antonio-de-padua",
+              "title": "Diocese de Bacabal — Paróquia Santo Antônio de Pádua (Trizidela do Vale)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Santo Antônio de Pádua",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedebacabal.org.br/paroquias/20/paroquia-santo-antonio-de-padua",
+              "title": "Diocese de Bacabal — Paróquia Santo Antônio de Pádua (Trizidela do Vale)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Santo Antônio de Pádua",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedebacabal.org.br/paroquias/20/paroquia-santo-antonio-de-padua",
+              "title": "Diocese de Bacabal — Paróquia Santo Antônio de Pádua (Trizidela do Vale)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-de-fatima-vitorino-freire",
+      "name": "Paróquia Nossa Senhora de Fátima",
+      "city": "Vitorino Freire",
+      "state": "MA",
+      "neighborhood": "Centro",
+      "address": "Pça. Nossa Senhora de Fátima, Centro",
+      "zipCode": null,
+      "phone": "(98) 98413-5627",
+      "email": "paroquiavitorinofreire@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Sérgio Gonsalves",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedebacabal.org.br/paroquias/21/paroquia-nossa-senhora-de-fatima",
+          "title": "Diocese de Bacabal — Paróquia Nossa Senhora de Fátima (Vitorino Freire)",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedebacabal.org.br/paroquias",
+          "title": "Diocese de Bacabal — Paróquias (Forania Sagrado Coração de Jesus)",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora de Fátima",
+          "address": "Pça. Nossa Senhora de Fátima, Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedebacabal.org.br/paroquias/21/paroquia-nossa-senhora-de-fatima",
+              "title": "Diocese de Bacabal — Paróquia Nossa Senhora de Fátima (Vitorino Freire)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora de Fátima",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedebacabal.org.br/paroquias/21/paroquia-nossa-senhora-de-fatima",
+              "title": "Diocese de Bacabal — Paróquia Nossa Senhora de Fátima (Vitorino Freire)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora de Fátima",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedebacabal.org.br/paroquias/21/paroquia-nossa-senhora-de-fatima",
+              "title": "Diocese de Bacabal — Paróquia Nossa Senhora de Fátima (Vitorino Freire)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora de Fátima",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedebacabal.org.br/paroquias/21/paroquia-nossa-senhora-de-fatima",
+              "title": "Diocese de Bacabal — Paróquia Nossa Senhora de Fátima (Vitorino Freire)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    }
+  ],
+  "coverage": {
+    "parishesFound": 24,
+    "parishesExpected": 24,
+    "notes": "A página /paroquias lista 26 fichas em 5 foranias: 24 paróquias plenas e 2 quase-paróquias (Brejo de Areia e Satubinha). As 24 batem exatamente com o Anuário Pontifício 2023 registrado em catholic-hierarchy.org. O site é atualizado — a foto da Catedral foi trocada em 10/09/2026 —, por isso os horários publicados entram como 'alta'. Só 12 das 26 paróquias publicam grade. A diocese não publica lista de comunidades/capelas: só o texto histórico de algumas fichas diz quantas existem (a Catedral declara 24, sendo 7 na cidade e 17 na zona rural) — esse número ficou em 'communitiesReportedByParish'."
+  }
+}

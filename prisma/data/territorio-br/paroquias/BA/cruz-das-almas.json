@@ -1,0 +1,1685 @@
+{
+ "diocese": {
+  "name": "Diocese de Cruz das Almas",
+  "type": "Diocese",
+  "slug": "cruz-das-almas",
+  "city": "Cruz das Almas",
+  "state": "BA",
+  "address": "Praça Senador Temístocles, s/n, Centro",
+  "zipCode": "44380-000",
+  "phone": "(75) 3199-1954",
+  "email": "contato@diocesedecruzdasalmas.com.br",
+  "website": "https://www.diocesedecruzdasalmas.com.br",
+  "bishopName": "Dom Antônio Tourinho Neto",
+  "sources": [
+   {
+    "url": "https://www.diocesedecruzdasalmas.com.br",
+    "title": "Diocese de Cruz das Almas — site oficial",
+    "accessedAt": "2026-09-11"
+   },
+   {
+    "url": "https://www.diocesedecruzdasalmas.com.br/par%C3%B3quias",
+    "title": "Paróquias — Diocese de Cruz das Almas",
+    "accessedAt": "2026-09-11"
+   }
+  ],
+  "confidence": "alta"
+ },
+ "parishes": [
+  {
+   "slug": "nossa-senhora-do-bom-sucesso-cruz-das-almas",
+   "name": "Catedral Nossa Senhora do Bom Sucesso",
+   "city": "Cruz das Almas",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça Senador Temistocles, s/n",
+   "zipCode": "44380-000",
+   "phone": "(75) 3621-4021",
+   "email": null,
+   "website": "http://www.pnsbscruz.com.br",
+   "priestName": "Pe. Joelson Alves de Andrade",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://www.diocesedecruzdasalmas.com.br/par%C3%B3quias",
+     "title": "Paróquias — Diocese de Cruz das Almas",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/igreja.php?k=y98D2",
+     "title": "Horário de Missa — Paróquia Nossa Senhora do Bom Sucesso (dados de 22/11/2017)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora do Bom Sucesso",
+     "address": "Praça Senador Temistocles, s/n",
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedecruzdasalmas.com.br/par%C3%B3quias",
+       "title": "Paróquias — Diocese de Cruz das Almas",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Nossa Senhora do Bom Sucesso",
+     "dayOfWeek": 0,
+     "time": "07:30",
+     "type": "MASS",
+     "notes": "Com. São Roque",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=y98D2",
+       "title": "Horário de Missa — Paróquia Nossa Senhora do Bom Sucesso (dados de 22/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora do Bom Sucesso",
+     "dayOfWeek": 0,
+     "time": "10:00",
+     "type": "MASS",
+     "notes": "Com. São Roque",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=y98D2",
+       "title": "Horário de Missa — Paróquia Nossa Senhora do Bom Sucesso (dados de 22/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora do Bom Sucesso",
+     "dayOfWeek": 1,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=y98D2",
+       "title": "Horário de Missa — Paróquia Nossa Senhora do Bom Sucesso (dados de 22/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora do Bom Sucesso",
+     "dayOfWeek": 2,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": "Com. Santo Antonio",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=y98D2",
+       "title": "Horário de Missa — Paróquia Nossa Senhora do Bom Sucesso (dados de 22/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora do Bom Sucesso",
+     "dayOfWeek": 3,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=y98D2",
+       "title": "Horário de Missa — Paróquia Nossa Senhora do Bom Sucesso (dados de 22/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora do Bom Sucesso",
+     "dayOfWeek": 4,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=y98D2",
+       "title": "Horário de Missa — Paróquia Nossa Senhora do Bom Sucesso (dados de 22/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora do Bom Sucesso",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=y98D2",
+       "title": "Horário de Missa — Paróquia Nossa Senhora do Bom Sucesso (dados de 22/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora do Bom Sucesso",
+     "dayOfWeek": 5,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": "última sexta do mês Com. Ana Lúcia –Nossa Senhora de Lurdes",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=y98D2",
+       "title": "Horário de Missa — Paróquia Nossa Senhora do Bom Sucesso (dados de 22/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora do Bom Sucesso",
+     "dayOfWeek": 5,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": "última sexta do mês Com. Ana Lúcia –Nossa Senhora de Lurdes",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=y98D2",
+       "title": "Horário de Missa — Paróquia Nossa Senhora do Bom Sucesso (dados de 22/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora do Bom Sucesso",
+     "dayOfWeek": 6,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=y98D2",
+       "title": "Horário de Missa — Paróquia Nossa Senhora do Bom Sucesso (dados de 22/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora do Bom Sucesso",
+     "dayOfWeek": 6,
+     "time": "16:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=y98D2",
+       "title": "Horário de Missa — Paróquia Nossa Senhora do Bom Sucesso (dados de 22/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora do Bom Sucesso",
+     "dayOfWeek": 3,
+     "time": "08:30",
+     "type": "CONFESSION",
+     "notes": "após a missa",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=y98D2",
+       "title": "Horário de Missa — Paróquia Nossa Senhora do Bom Sucesso (dados de 22/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora do Bom Sucesso",
+     "dayOfWeek": 4,
+     "time": "18:00",
+     "type": "CONFESSION",
+     "notes": "matriz",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=y98D2",
+       "title": "Horário de Missa — Paróquia Nossa Senhora do Bom Sucesso (dados de 22/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora do Bom Sucesso",
+     "dayOfWeek": 5,
+     "time": "08:30",
+     "type": "CONFESSION",
+     "notes": "após a missa",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=y98D2",
+       "title": "Horário de Missa — Paróquia Nossa Senhora do Bom Sucesso (dados de 22/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "sao-jose-operario-cruz-das-almas",
+   "name": "Paróquia São José Operário",
+   "city": "Cruz das Almas",
+   "state": "BA",
+   "neighborhood": "Coplan",
+   "address": "Rua 2, s/n",
+   "zipCode": "44380-000",
+   "phone": "(75) 3621-3204",
+   "email": null,
+   "website": "http://psjca.wordpress.com",
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://www.diocesedecruzdasalmas.com.br/par%C3%B3quias",
+     "title": "Paróquias — Diocese de Cruz das Almas",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/igreja.php?k=CIngN",
+     "title": "Horário de Missa — Paróquia São José (dados de 05/03/2013)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz São José Operário",
+     "address": "Rua 2, s/n",
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedecruzdasalmas.com.br/par%C3%B3quias",
+       "title": "Paróquias — Diocese de Cruz das Almas",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-da-conceicao-sapeacu",
+   "name": "Paróquia Nossa Senhora da Conceição",
+   "city": "Sapeaçu",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça JJ Seabra, s/n",
+   "zipCode": "44530-000",
+   "phone": "(75) 3627-2148",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Osnir Brandão dos Santos",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://www.diocesedecruzdasalmas.com.br/par%C3%B3quias",
+     "title": "Paróquias — Diocese de Cruz das Almas",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/igreja.php?k=koujn",
+     "title": "Horário de Missa — Paróquia Nossa Senhora da Conceição (dados de 23/11/2017)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora da Conceição",
+     "address": "Praça JJ Seabra, s/n",
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedecruzdasalmas.com.br/par%C3%B3quias",
+       "title": "Paróquias — Diocese de Cruz das Almas",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Nossa Senhora da Conceição",
+     "dayOfWeek": 0,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=koujn",
+       "title": "Horário de Missa — Paróquia Nossa Senhora da Conceição (dados de 23/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora da Conceição",
+     "dayOfWeek": 2,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=koujn",
+       "title": "Horário de Missa — Paróquia Nossa Senhora da Conceição (dados de 23/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora da Conceição",
+     "dayOfWeek": 5,
+     "time": "09:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=koujn",
+       "title": "Horário de Missa — Paróquia Nossa Senhora da Conceição (dados de 23/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-da-conceicao-governador-mangabeira",
+   "name": "Paróquia Nossa Senhora da Conceição",
+   "city": "Governador Mangabeira",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça Castro Alves, s/n",
+   "zipCode": "44350-000",
+   "phone": "(75) 3638-2565",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Jerônimo Santos Silva",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://www.diocesedecruzdasalmas.com.br/par%C3%B3quias",
+     "title": "Paróquias — Diocese de Cruz das Almas",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/igreja.php?k=trfVC",
+     "title": "Horário de Missa — Paróquia Nossa Senhora da Conceição (dados de 23/11/2017)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora da Conceição",
+     "address": "Praça Castro Alves, s/n",
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedecruzdasalmas.com.br/par%C3%B3quias",
+       "title": "Paróquias — Diocese de Cruz das Almas",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Nossa Senhora da Conceição",
+     "dayOfWeek": 0,
+     "time": "07:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=trfVC",
+       "title": "Horário de Missa — Paróquia Nossa Senhora da Conceição (dados de 23/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora da Conceição",
+     "dayOfWeek": 4,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=trfVC",
+       "title": "Horário de Missa — Paróquia Nossa Senhora da Conceição (dados de 23/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora da Conceição",
+     "dayOfWeek": 5,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=trfVC",
+       "title": "Horário de Missa — Paróquia Nossa Senhora da Conceição (dados de 23/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "sao-joao-batista-cabaceiras-do-paraguacu",
+   "name": "Paróquia São João Batista",
+   "city": "Cabaceiras do Paraguaçu",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça Castro Alves, s/n",
+   "zipCode": "44345-000",
+   "phone": "(75) 3681-1190",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Jurandir da Silva Paz",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://www.diocesedecruzdasalmas.com.br/par%C3%B3quias",
+     "title": "Paróquias — Diocese de Cruz das Almas",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/igreja.php?k=UOJDB",
+     "title": "Horário de Missa — Paróquia São João Batista (dados de 22/11/2017)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz São João Batista",
+     "address": "Praça Castro Alves, s/n",
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedecruzdasalmas.com.br/par%C3%B3quias",
+       "title": "Paróquias — Diocese de Cruz das Almas",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz São João Batista",
+     "dayOfWeek": 0,
+     "time": "19:15",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=UOJDB",
+       "title": "Horário de Missa — Paróquia São João Batista (dados de 22/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São João Batista",
+     "dayOfWeek": 3,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=UOJDB",
+       "title": "Horário de Missa — Paróquia São João Batista (dados de 22/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São João Batista",
+     "dayOfWeek": 4,
+     "time": "07:15",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=UOJDB",
+       "title": "Horário de Missa — Paróquia São João Batista (dados de 22/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São João Batista",
+     "dayOfWeek": 5,
+     "time": "06:00",
+     "type": "MASS",
+     "notes": "1a sexta do mês",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=UOJDB",
+       "title": "Horário de Missa — Paróquia São João Batista (dados de 22/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "santo-antonio-geolandia",
+   "name": "Paróquia Santo Antônio",
+   "city": "Cabaceiras do Paraguaçu",
+   "state": "BA",
+   "neighborhood": "Geolândia",
+   "address": null,
+   "zipCode": null,
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://www.diocesedecruzdasalmas.com.br/par%C3%B3quias",
+     "title": "Paróquias — Diocese de Cruz das Almas",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Santo Antônio",
+     "address": null,
+     "neighborhood": "Geolândia",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedecruzdasalmas.com.br/par%C3%B3quias",
+       "title": "Paróquias — Diocese de Cruz das Almas",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "sao-pedro-do-monte-muritiba",
+   "name": "Paróquia São Pedro do Monte",
+   "city": "Muritiba",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Rua Anfilófio de Castro, 25",
+   "zipCode": "44340-000",
+   "phone": "(75) 3424-2055",
+   "email": null,
+   "website": null,
+   "priestName": "Côn. José Oliveira Santos",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://www.diocesedecruzdasalmas.com.br/par%C3%B3quias",
+     "title": "Paróquias — Diocese de Cruz das Almas",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/igreja.php?k=8qmyd",
+     "title": "Horário de Missa — Paróquia São Pedro do Monte (dados de 23/11/2017)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz São Pedro do Monte",
+     "address": "Rua Anfilófio de Castro, 25",
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedecruzdasalmas.com.br/par%C3%B3quias",
+       "title": "Paróquias — Diocese de Cruz das Almas",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz São Pedro do Monte",
+     "dayOfWeek": 0,
+     "time": "07:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=8qmyd",
+       "title": "Horário de Missa — Paróquia São Pedro do Monte (dados de 23/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Pedro do Monte",
+     "dayOfWeek": 3,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=8qmyd",
+       "title": "Horário de Missa — Paróquia São Pedro do Monte (dados de 23/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Pedro do Monte",
+     "dayOfWeek": 5,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "Bonfim",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=8qmyd",
+       "title": "Horário de Missa — Paróquia São Pedro do Monte (dados de 23/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-do-rosario-cachoeira",
+   "name": "Paróquia Nossa Senhora do Rosário",
+   "city": "Cachoeira",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Rua Ana Neri, s/n",
+   "zipCode": "44300-000",
+   "phone": "(75) 3425-3179",
+   "email": null,
+   "website": "https://www.paroquiadorosario.org",
+   "priestName": "Côn. Hélio Cezar Leal Vilas-Bôas",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://www.diocesedecruzdasalmas.com.br/par%C3%B3quias",
+     "title": "Paróquias — Diocese de Cruz das Almas",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/igreja.php?k=INN5l",
+     "title": "Horário de Missa — Paróquia Nossa Senhora do Rosário (dados de 23/11/2017)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora do Rosário",
+     "address": "Rua Ana Neri, s/n",
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedecruzdasalmas.com.br/par%C3%B3quias",
+       "title": "Paróquias — Diocese de Cruz das Almas",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Nossa Senhora do Rosário",
+     "dayOfWeek": 0,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": "Igreja de N. Sra. da Conceição do Monte",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=INN5l",
+       "title": "Horário de Missa — Paróquia Nossa Senhora do Rosário (dados de 23/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora do Rosário",
+     "dayOfWeek": 0,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": "Igreja de N. Sra. da Conceição do Monte",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=INN5l",
+       "title": "Horário de Missa — Paróquia Nossa Senhora do Rosário (dados de 23/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora do Rosário",
+     "dayOfWeek": 3,
+     "time": "07:30",
+     "type": "MASS",
+     "notes": "Capela da Santa Casa de Misericórdia",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=INN5l",
+       "title": "Horário de Missa — Paróquia Nossa Senhora do Rosário (dados de 23/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora do Rosário",
+     "dayOfWeek": 4,
+     "time": "12:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=INN5l",
+       "title": "Horário de Missa — Paróquia Nossa Senhora do Rosário (dados de 23/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "sao-tiago-santiago-do-iguape",
+   "name": "Paróquia São Tiago",
+   "city": "Cachoeira",
+   "state": "BA",
+   "neighborhood": "Santiago do Iguape",
+   "address": "Praça da Matriz, s/n",
+   "zipCode": "44310-000",
+   "phone": "(75) 3414-5182",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Thierry Bierlaire",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://www.diocesedecruzdasalmas.com.br/par%C3%B3quias",
+     "title": "Paróquias — Diocese de Cruz das Almas",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/igreja.php?k=lAXOA",
+     "title": "Horário de Missa — Paróquia São Tiago (dados de 23/11/2017)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz São Tiago",
+     "address": "Praça da Matriz, s/n",
+     "neighborhood": "Santiago do Iguape",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedecruzdasalmas.com.br/par%C3%B3quias",
+       "title": "Paróquias — Diocese de Cruz das Almas",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz São Tiago",
+     "dayOfWeek": 0,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": "Calembá 1o e 3o domingo",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=lAXOA",
+       "title": "Horário de Missa — Paróquia São Tiago (dados de 23/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Tiago",
+     "dayOfWeek": 0,
+     "time": "10:00",
+     "type": "MASS",
+     "notes": "Calembá 1o e 3o domingo",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=lAXOA",
+       "title": "Horário de Missa — Paróquia São Tiago (dados de 23/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Tiago",
+     "dayOfWeek": 6,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": "Com. Engenho Novo 1o e 3o sábados",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=lAXOA",
+       "title": "Horário de Missa — Paróquia São Tiago (dados de 23/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "senhor-deus-menino-sao-felix",
+   "name": "Paróquia Senhor Deus Menino",
+   "city": "São Félix",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça José Ramos, s/n",
+   "zipCode": "44360-000",
+   "phone": "(75) 3438-4322",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. João Carlos dos Santos Pestana",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://www.diocesedecruzdasalmas.com.br/par%C3%B3quias",
+     "title": "Paróquias — Diocese de Cruz das Almas",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/igreja.php?k=c7mcl",
+     "title": "Horário de Missa — Paróquia Senhor Deus Menino (dados de 23/11/2017)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Senhor Deus Menino",
+     "address": "Praça José Ramos, s/n",
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedecruzdasalmas.com.br/par%C3%B3quias",
+       "title": "Paróquias — Diocese de Cruz das Almas",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Senhor Deus Menino",
+     "dayOfWeek": 0,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=c7mcl",
+       "title": "Horário de Missa — Paróquia Senhor Deus Menino (dados de 23/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Senhor Deus Menino",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=c7mcl",
+       "title": "Horário de Missa — Paróquia Senhor Deus Menino (dados de 23/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Senhor Deus Menino",
+     "dayOfWeek": 2,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=c7mcl",
+       "title": "Horário de Missa — Paróquia Senhor Deus Menino (dados de 23/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Senhor Deus Menino",
+     "dayOfWeek": 3,
+     "time": "17:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=c7mcl",
+       "title": "Horário de Missa — Paróquia Senhor Deus Menino (dados de 23/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Senhor Deus Menino",
+     "dayOfWeek": 4,
+     "time": "12:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=c7mcl",
+       "title": "Horário de Missa — Paróquia Senhor Deus Menino (dados de 23/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Senhor Deus Menino",
+     "dayOfWeek": 5,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=c7mcl",
+       "title": "Horário de Missa — Paróquia Senhor Deus Menino (dados de 23/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Senhor Deus Menino",
+     "dayOfWeek": 6,
+     "time": "06:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=c7mcl",
+       "title": "Horário de Missa — Paróquia Senhor Deus Menino (dados de 23/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "sao-bartolomeu-maragogipe",
+   "name": "Paróquia São Bartolomeu",
+   "city": "Maragogipe",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça da Matriz, 13",
+   "zipCode": "44420-000",
+   "phone": "(75) 3526-1027",
+   "email": null,
+   "website": "http://paroquiadesaobartolomeu.blogspot.com.br",
+   "priestName": "Pe. Dvanildo de Jesus Ribeiro",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://www.diocesedecruzdasalmas.com.br/par%C3%B3quias",
+     "title": "Paróquias — Diocese de Cruz das Almas",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/igreja.php?k=4ZKGn",
+     "title": "Horário de Missa — Paróquia São Bartolomeu (dados de 23/11/2017)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz São Bartolomeu",
+     "address": "Praça da Matriz, 13",
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedecruzdasalmas.com.br/par%C3%B3quias",
+       "title": "Paróquias — Diocese de Cruz das Almas",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz São Bartolomeu",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=4ZKGn",
+       "title": "Horário de Missa — Paróquia São Bartolomeu (dados de 23/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Bartolomeu",
+     "dayOfWeek": 1,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": "matriz",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=4ZKGn",
+       "title": "Horário de Missa — Paróquia São Bartolomeu (dados de 23/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Bartolomeu",
+     "dayOfWeek": 2,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": "Capelas das comunidades da Paróquia",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=4ZKGn",
+       "title": "Horário de Missa — Paróquia São Bartolomeu (dados de 23/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Bartolomeu",
+     "dayOfWeek": 3,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=4ZKGn",
+       "title": "Horário de Missa — Paróquia São Bartolomeu (dados de 23/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Bartolomeu",
+     "dayOfWeek": 4,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=4ZKGn",
+       "title": "Horário de Missa — Paróquia São Bartolomeu (dados de 23/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Bartolomeu",
+     "dayOfWeek": 5,
+     "time": "09:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=4ZKGn",
+       "title": "Horário de Missa — Paróquia São Bartolomeu (dados de 23/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Bartolomeu",
+     "dayOfWeek": 6,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=4ZKGn",
+       "title": "Horário de Missa — Paróquia São Bartolomeu (dados de 23/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-da-vitoria-sao-roque-do-paraguacu",
+   "name": "Paróquia Nossa Senhora da Vitória",
+   "city": "Maragogipe",
+   "state": "BA",
+   "neighborhood": "São Roque do Paraguaçu",
+   "address": null,
+   "zipCode": null,
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://www.diocesedecruzdasalmas.com.br/par%C3%B3quias",
+     "title": "Paróquias — Diocese de Cruz das Almas",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora da Vitória",
+     "address": null,
+     "neighborhood": "São Roque do Paraguaçu",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedecruzdasalmas.com.br/par%C3%B3quias",
+       "title": "Paróquias — Diocese de Cruz das Almas",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-da-purificacao-santo-amaro",
+   "name": "Paróquia Nossa Senhora da Purificação",
+   "city": "Santo Amaro",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça da Purificação, 35",
+   "zipCode": "44200-000",
+   "phone": "(75) 3241-1172",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Raimundo Mário de Santana",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://www.diocesedecruzdasalmas.com.br/par%C3%B3quias",
+     "title": "Paróquias — Diocese de Cruz das Almas",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/igreja.php?k=AdtgB",
+     "title": "Horário de Missa — Paroquia Nossa Senhora da Purificação (dados de 23/11/2017)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora da Purificação",
+     "address": "Praça da Purificação, 35",
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedecruzdasalmas.com.br/par%C3%B3quias",
+       "title": "Paróquias — Diocese de Cruz das Almas",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-do-rosario-santo-amaro",
+   "name": "Paróquia Nossa Senhora do Rosário",
+   "city": "Santo Amaro",
+   "state": "BA",
+   "neighborhood": "Rosário",
+   "address": "Praça Comendador Sampaio, s/n",
+   "zipCode": "44200-000",
+   "phone": "(75) 3241-1896",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Kleber Santana",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://www.diocesedecruzdasalmas.com.br/par%C3%B3quias",
+     "title": "Paróquias — Diocese de Cruz das Almas",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/igreja.php?k=uh7VI",
+     "title": "Horário de Missa — Paróquia Nossa Senhora do Rosário (dados de 23/11/2017)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora do Rosário",
+     "address": "Praça Comendador Sampaio, s/n",
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedecruzdasalmas.com.br/par%C3%B3quias",
+       "title": "Paróquias — Diocese de Cruz das Almas",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Nossa Senhora do Rosário",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=uh7VI",
+       "title": "Horário de Missa — Paróquia Nossa Senhora do Rosário (dados de 23/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora do Rosário",
+     "dayOfWeek": 2,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=uh7VI",
+       "title": "Horário de Missa — Paróquia Nossa Senhora do Rosário (dados de 23/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora do Rosário",
+     "dayOfWeek": 4,
+     "time": "12:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=uh7VI",
+       "title": "Horário de Missa — Paróquia Nossa Senhora do Rosário (dados de 23/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora do Rosário",
+     "dayOfWeek": 5,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": "1a do mês",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=uh7VI",
+       "title": "Horário de Missa — Paróquia Nossa Senhora do Rosário (dados de 23/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-da-oliveira-oliveira-dos-campinhos",
+   "name": "Paróquia Nossa Senhora da Oliveira",
+   "city": "Santo Amaro",
+   "state": "BA",
+   "neighborhood": "Oliveira dos Campinhos",
+   "address": "Praça da Matriz, s/n. Campinhos",
+   "zipCode": "44200-000",
+   "phone": "(75) 3208-1123",
+   "email": null,
+   "website": "paroquiansradaoliveira.com",
+   "priestName": "Pe. Francisco de Jesus Filho",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://www.diocesedecruzdasalmas.com.br/par%C3%B3quias",
+     "title": "Paróquias — Diocese de Cruz das Almas",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/igreja.php?k=hMu23",
+     "title": "Horário de Missa — Nossa Senhora da Oliveira (dados de 23/11/2017)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora da Oliveira",
+     "address": "Praça da Matriz, s/n. Campinhos",
+     "neighborhood": "Oliveira dos Campinhos",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedecruzdasalmas.com.br/par%C3%B3quias",
+       "title": "Paróquias — Diocese de Cruz das Almas",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Nossa Senhora da Oliveira",
+     "dayOfWeek": 2,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": "Missa Devocional a Santo Antônio",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=hMu23",
+       "title": "Horário de Missa — Nossa Senhora da Oliveira (dados de 23/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora da Oliveira",
+     "dayOfWeek": 4,
+     "time": "18:30",
+     "type": "MASS",
+     "notes": "Adoração ao Santíssimo Sacramento",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=hMu23",
+       "title": "Horário de Missa — Nossa Senhora da Oliveira (dados de 23/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-da-soledade-acupe",
+   "name": "Paróquia Nossa Senhora da Soledade",
+   "city": "Santo Amaro",
+   "state": "BA",
+   "neighborhood": "Acupe",
+   "address": "Travessa Renato Leone, 1A",
+   "zipCode": "42228-000",
+   "phone": "(75) 3201-2895",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Adílson Silva dos Santos",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://www.diocesedecruzdasalmas.com.br/par%C3%B3quias",
+     "title": "Paróquias — Diocese de Cruz das Almas",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/igreja.php?k=PHOVF",
+     "title": "Horário de Missa — Paróquia Nossa Senhora da Soledade (dados de 23/11/2017)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora da Soledade",
+     "address": "Travessa Renato Leone, 1A",
+     "neighborhood": "Acupe",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedecruzdasalmas.com.br/par%C3%B3quias",
+       "title": "Paróquias — Diocese de Cruz das Almas",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Nossa Senhora da Soledade",
+     "dayOfWeek": 0,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=PHOVF",
+       "title": "Horário de Missa — Paróquia Nossa Senhora da Soledade (dados de 23/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora da Soledade",
+     "dayOfWeek": 3,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=PHOVF",
+       "title": "Horário de Missa — Paróquia Nossa Senhora da Soledade (dados de 23/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora da Soledade",
+     "dayOfWeek": 4,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=PHOVF",
+       "title": "Horário de Missa — Paróquia Nossa Senhora da Soledade (dados de 23/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora da Soledade",
+     "dayOfWeek": 5,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": "1a sexta do mês",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=PHOVF",
+       "title": "Horário de Missa — Paróquia Nossa Senhora da Soledade (dados de 23/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora da Soledade",
+     "dayOfWeek": 6,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=PHOVF",
+       "title": "Horário de Missa — Paróquia Nossa Senhora da Soledade (dados de 23/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora da Soledade",
+     "dayOfWeek": 5,
+     "time": "09:00",
+     "type": "CONFESSION",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=PHOVF",
+       "title": "Horário de Missa — Paróquia Nossa Senhora da Soledade (dados de 23/11/2017)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "sao-domingos-de-gusmao-saubara",
+   "name": "Paróquia São Domingos de Gusmão",
+   "city": "Saubara",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Rua Ananias Requião, 46",
+   "zipCode": "44220-000",
+   "phone": "(75) 3696-1033",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://www.diocesedecruzdasalmas.com.br/par%C3%B3quias",
+     "title": "Paróquias — Diocese de Cruz das Almas",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/igreja.php?k=OnZ9W",
+     "title": "Horário de Missa — São Domingos de Gusmão / Saubara (dados de 06/05/2013)",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz São Domingos de Gusmão",
+     "address": "Rua Ananias Requião, 46",
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedecruzdasalmas.com.br/par%C3%B3quias",
+       "title": "Paróquias — Diocese de Cruz das Almas",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  }
+ ],
+ "coverage": {
+  "parishesFound": 17,
+  "parishesExpected": 17,
+  "notes": "A diocese declara 17 paróquias e 185 comunidades em 10 municípios; as 17 estão listadas na página oficial /paróquias, agrupadas em 3 foranias, com nome e município (confiança alta). O site não publica endereço, telefone, pároco nem comunidades fora de pop-ups do Wix que não são servidos ao leitor automático, por isso esses campos vieram do horariodemissa.com.br quando existiam. Os 185 nomes de comunidades NÃO foram obtidos."
+ }
+}

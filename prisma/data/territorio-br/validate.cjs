@@ -9,7 +9,7 @@ const norm = (s) => String(s ?? '').normalize('NFD').replace(/[̀-ͯ]/g, '').toL
 let problems = 0;
 const warn = (file, msg) => { problems += 1; console.log(`  ! ${path.basename(file)}: ${msg}`); };
 
-const totals = { dioceses: 0, parishes: 0, communities: 0, schedules: 0, byConf: { alta: 0, media: 0, baixa: 0 } };
+const totals = { dioceses: 0, parishes: 0, communities: 0, schedules: 0, semDia: 0, byConf: { alta: 0, media: 0, baixa: 0 } };
 
 function checkSources(file, label, sources) {
   if (!Array.isArray(sources) || sources.length === 0) warn(file, `${label}: sem fontes`);
@@ -70,7 +70,12 @@ function validateDioceseFile(file) {
     }
     for (const s of p.schedules ?? []) {
       totals.schedules += 1;
-      if (!Number.isInteger(s.dayOfWeek) || s.dayOfWeek < 0 || s.dayOfWeek > 6) warn(file, `${p.name}: dayOfWeek inválido (${s.dayOfWeek})`);
+      // `dayOfWeek: null` em registro baixa é marcador deliberado: missa real de
+      // recorrência que não cabe no modelo semanal ("todo dia 13"), guardada com a
+      // regra literal em notes. O importador a descarta; ela espera a modelagem.
+      const semDia = s.dayOfWeek === null && (s.confidence ?? p.confidence) === 'baixa';
+      if (semDia) totals.semDia += 1;
+      else if (!Number.isInteger(s.dayOfWeek) || s.dayOfWeek < 0 || s.dayOfWeek > 6) warn(file, `${p.name}: dayOfWeek inválido (${s.dayOfWeek})`);
       if (!/^([01]\d|2[0-3]):[0-5]\d$/.test(s.time ?? '')) warn(file, `${p.name}: time inválido (${s.time})`);
       if (s.type && !TYPES.has(String(s.type).toUpperCase())) warn(file, `${p.name}: type inválido (${s.type})`);
       const target = norm(s.community ?? 'Matriz');
@@ -93,5 +98,6 @@ if (fs.existsSync(base)) {
   }
 }
 console.log(`\nTotais: ${totals.dioceses} dioceses · ${totals.parishes} paróquias · ${totals.communities} comunidades · ${totals.schedules} horários · confiança alta ${totals.byConf.alta} / media ${totals.byConf.media} / baixa ${totals.byConf.baixa}`);
+if (totals.semDia) console.log(`${totals.semDia} horário(s) sem dia da semana (recorrência por data fixa do mês) — fora do modelo, aguardando decisão`);
 console.log(problems ? `\n${problems} problema(s) encontrado(s)` : '\nSem problemas de formato.');
 process.exit(problems ? 1 : 0);

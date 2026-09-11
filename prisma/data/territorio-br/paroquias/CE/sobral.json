@@ -1,0 +1,4088 @@
+{
+ "diocese": {
+  "name": "Diocese de Sobral",
+  "type": "Diocese",
+  "slug": "sobral",
+  "city": "Sobral",
+  "state": "CE",
+  "address": "Rua Maestro José Pedro, 70 - Centro",
+  "zipCode": "62010-260",
+  "phone": "(88) 3611-0545",
+  "email": "diocesedesobral@yahoo.com.br",
+  "website": "https://diocesedesobral.com.br/",
+  "bishopName": "Dom José Luiz Gomes de Vasconcelos",
+  "sources": [
+   {
+    "url": "https://diocesedesobral.com.br/curia-diocesana/",
+    "title": "Cúria Diocesana — Diocese de Sobral",
+    "accessedAt": "2026-09-11"
+   },
+   {
+    "url": "https://diocesedesobral.com.br/dados-gerais/",
+    "title": "Dados Gerais — Diocese de Sobral",
+    "accessedAt": "2026-09-11"
+   },
+   {
+    "url": "https://www.catholic-hierarchy.org/diocese/dsobr.html",
+    "title": "Sobral (Diocese) [Catholic-Hierarchy]",
+    "accessedAt": "2026-09-11"
+   }
+  ],
+  "confidence": "alta"
+ },
+ "parishes": [
+  {
+   "slug": "nossa-senhora-da-conceicao-se-sobral",
+   "name": "Catedral Nossa Senhora da Conceição (Sé)",
+   "city": "Sobral",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Praça da Sé, 100",
+   "zipCode": "62010-380",
+   "phone": "(88) 3611-0848",
+   "email": null,
+   "website": "https://www.facebook.com/catedralse",
+   "priestName": "Pe. José Canafístula Gomes",
+   "foundedYear": 1757,
+   "sources": [
+    {
+     "url": "https://diocesedesobral.com.br/regioes-episcopais/sede/",
+     "title": "Região Episcopal Sede — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://diocesedesobral.com.br/dom-jose-luiz-gomes-de-vasconcelos-2/clero/incardinados-residentes/",
+     "title": "Clero — Incardinados residentes — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/search.php?uf=CE&cidade=sobral&opcoes=cidade_opcoes",
+     "title": "Horário de Missa — Sobral/CE",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Catedral Nossa Senhora da Conceição (Sé)",
+     "address": "Praça da Sé, 100",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedesobral.com.br/regioes-episcopais/sede/",
+       "title": "Região Episcopal Sede — Diocese de Sobral",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Catedral Nossa Senhora da Conceição (Sé)",
+     "dayOfWeek": 0,
+     "time": "06:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/locais-e-horarios-de-missas-em-sobral/",
+       "title": "Locais e Horários de Missas em Sobral — Paróquia Santa Luzia (atualizado 31/01/2025)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Catedral Nossa Senhora da Conceição (Sé)",
+     "dayOfWeek": 0,
+     "time": "09:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/locais-e-horarios-de-missas-em-sobral/",
+       "title": "Locais e Horários de Missas em Sobral — Paróquia Santa Luzia (atualizado 31/01/2025)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Catedral Nossa Senhora da Conceição (Sé)",
+     "dayOfWeek": 0,
+     "time": "16:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/locais-e-horarios-de-missas-em-sobral/",
+       "title": "Locais e Horários de Missas em Sobral — Paróquia Santa Luzia (atualizado 31/01/2025)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Catedral Nossa Senhora da Conceição (Sé)",
+     "dayOfWeek": 0,
+     "time": "18:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/locais-e-horarios-de-missas-em-sobral/",
+       "title": "Locais e Horários de Missas em Sobral — Paróquia Santa Luzia (atualizado 31/01/2025)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Catedral Nossa Senhora da Conceição (Sé)",
+     "dayOfWeek": 1,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/locais-e-horarios-de-missas-em-sobral/",
+       "title": "Locais e Horários de Missas em Sobral — Paróquia Santa Luzia (atualizado 31/01/2025)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Catedral Nossa Senhora da Conceição (Sé)",
+     "dayOfWeek": 2,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/locais-e-horarios-de-missas-em-sobral/",
+       "title": "Locais e Horários de Missas em Sobral — Paróquia Santa Luzia (atualizado 31/01/2025)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Catedral Nossa Senhora da Conceição (Sé)",
+     "dayOfWeek": 3,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/locais-e-horarios-de-missas-em-sobral/",
+       "title": "Locais e Horários de Missas em Sobral — Paróquia Santa Luzia (atualizado 31/01/2025)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Catedral Nossa Senhora da Conceição (Sé)",
+     "dayOfWeek": 4,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/locais-e-horarios-de-missas-em-sobral/",
+       "title": "Locais e Horários de Missas em Sobral — Paróquia Santa Luzia (atualizado 31/01/2025)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Catedral Nossa Senhora da Conceição (Sé)",
+     "dayOfWeek": 5,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/locais-e-horarios-de-missas-em-sobral/",
+       "title": "Locais e Horários de Missas em Sobral — Paróquia Santa Luzia (atualizado 31/01/2025)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Catedral Nossa Senhora da Conceição (Sé)",
+     "dayOfWeek": 6,
+     "time": "09:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/locais-e-horarios-de-missas-em-sobral/",
+       "title": "Locais e Horários de Missas em Sobral — Paróquia Santa Luzia (atualizado 31/01/2025)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Catedral Nossa Senhora da Conceição (Sé)",
+     "dayOfWeek": 6,
+     "time": "18:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/locais-e-horarios-de-missas-em-sobral/",
+       "title": "Locais e Horários de Missas em Sobral — Paróquia Santa Luzia (atualizado 31/01/2025)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "cristo-ressuscitado-sobral",
+   "name": "Paróquia do Cristo Ressuscitado",
+   "city": "Sobral",
+   "state": "CE",
+   "neighborhood": "Padre Ibiapina",
+   "address": "Av. Ressurreição, 926",
+   "zipCode": "62022-345",
+   "phone": "(88) 3611-3349",
+   "email": null,
+   "website": "https://www.facebook.com/ParoquiadoCristoRessuscitado",
+   "priestName": "Pe. Raimundo Nonato Leonardo Bastos",
+   "foundedYear": 1995,
+   "sources": [
+    {
+     "url": "https://diocesedesobral.com.br/regioes-episcopais/sede/",
+     "title": "Região Episcopal Sede — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://diocesedesobral.com.br/dom-jose-luiz-gomes-de-vasconcelos-2/clero/incardinados-residentes/",
+     "title": "Clero — Incardinados residentes — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/search.php?uf=CE&cidade=sobral&opcoes=cidade_opcoes",
+     "title": "Horário de Missa — Sobral/CE",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Cristo Ressuscitado",
+     "address": "Av. Ressurreição, 926",
+     "neighborhood": "Padre Ibiapina",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedesobral.com.br/regioes-episcopais/sede/",
+       "title": "Região Episcopal Sede — Diocese de Sobral",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Santuário Diocesano Tabor da Mãe Rainha",
+     "address": "Rua Cel. Sabino Guimarães",
+     "neighborhood": "Padre Ibiapina",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://diocesedesobral.com.br/regioes-episcopais/santuarios/",
+       "title": "Santuários — Diocese de Sobral",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Cristo Ressuscitado",
+     "dayOfWeek": 0,
+     "time": "10:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/locais-e-horarios-de-missas-em-sobral/",
+       "title": "Locais e Horários de Missas em Sobral — Paróquia Santa Luzia (atualizado 31/01/2025)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Cristo Ressuscitado",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/locais-e-horarios-de-missas-em-sobral/",
+       "title": "Locais e Horários de Missas em Sobral — Paróquia Santa Luzia (atualizado 31/01/2025)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Cristo Ressuscitado",
+     "dayOfWeek": 2,
+     "time": "18:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/locais-e-horarios-de-missas-em-sobral/",
+       "title": "Locais e Horários de Missas em Sobral — Paróquia Santa Luzia (atualizado 31/01/2025)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Cristo Ressuscitado",
+     "dayOfWeek": 3,
+     "time": "18:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/locais-e-horarios-de-missas-em-sobral/",
+       "title": "Locais e Horários de Missas em Sobral — Paróquia Santa Luzia (atualizado 31/01/2025)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Cristo Ressuscitado",
+     "dayOfWeek": 4,
+     "time": "18:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/locais-e-horarios-de-missas-em-sobral/",
+       "title": "Locais e Horários de Missas em Sobral — Paróquia Santa Luzia (atualizado 31/01/2025)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Cristo Ressuscitado",
+     "dayOfWeek": 5,
+     "time": "18:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/locais-e-horarios-de-missas-em-sobral/",
+       "title": "Locais e Horários de Missas em Sobral — Paróquia Santa Luzia (atualizado 31/01/2025)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Cristo Ressuscitado",
+     "dayOfWeek": 6,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/locais-e-horarios-de-missas-em-sobral/",
+       "title": "Locais e Horários de Missas em Sobral — Paróquia Santa Luzia (atualizado 31/01/2025)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-do-carmo-sobral",
+   "name": "Paróquia Nossa Senhora do Carmo",
+   "city": "Sobral",
+   "state": "CE",
+   "neighborhood": "Taperuaba (distrito)",
+   "address": "Av. Nossa Senhora do Carmo, s/n – Centro",
+   "zipCode": "62106-000",
+   "phone": null,
+   "email": null,
+   "website": "https://www.facebook.com/ParoquiaNossaSenhoradoCarmo",
+   "priestName": "Pe. Francisco Fábio Gomes Ferreira",
+   "foundedYear": 2009,
+   "sources": [
+    {
+     "url": "https://diocesedesobral.com.br/regioes-episcopais/sede/",
+     "title": "Região Episcopal Sede — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://diocesedesobral.com.br/dom-jose-luiz-gomes-de-vasconcelos-2/clero/incardinados-residentes/",
+     "title": "Clero — Incardinados residentes — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora do Carmo",
+     "address": "Av. Nossa Senhora do Carmo, s/n – Centro",
+     "neighborhood": "Taperuaba (distrito)",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedesobral.com.br/regioes-episcopais/sede/",
+       "title": "Região Episcopal Sede — Diocese de Sobral",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-do-patrocinio-sobral",
+   "name": "Paróquia Nossa Senhora do Patrocínio",
+   "city": "Sobral",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Praça Osvaldo Rangel, s/n",
+   "zipCode": "62010-810",
+   "phone": "(88) 3611-1372",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Agnaldo Temóteo da Silveira",
+   "foundedYear": 1916,
+   "sources": [
+    {
+     "url": "https://diocesedesobral.com.br/regioes-episcopais/sede/",
+     "title": "Região Episcopal Sede — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://diocesedesobral.com.br/dom-jose-luiz-gomes-de-vasconcelos-2/clero/incardinados-residentes/",
+     "title": "Clero — Incardinados residentes — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/search.php?uf=CE&cidade=sobral&opcoes=cidade_opcoes",
+     "title": "Horário de Missa — Sobral/CE",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora do Patrocínio",
+     "address": "Praça Osvaldo Rangel, s/n",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedesobral.com.br/regioes-episcopais/sede/",
+       "title": "Região Episcopal Sede — Diocese de Sobral",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Nossa Senhora do Patrocínio",
+     "dayOfWeek": 0,
+     "time": "06:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/locais-e-horarios-de-missas-em-sobral/",
+       "title": "Locais e Horários de Missas em Sobral — Paróquia Santa Luzia (atualizado 31/01/2025)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Nossa Senhora do Patrocínio",
+     "dayOfWeek": 0,
+     "time": "09:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/locais-e-horarios-de-missas-em-sobral/",
+       "title": "Locais e Horários de Missas em Sobral — Paróquia Santa Luzia (atualizado 31/01/2025)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Nossa Senhora do Patrocínio",
+     "dayOfWeek": 0,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/locais-e-horarios-de-missas-em-sobral/",
+       "title": "Locais e Horários de Missas em Sobral — Paróquia Santa Luzia (atualizado 31/01/2025)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Nossa Senhora do Patrocínio",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/locais-e-horarios-de-missas-em-sobral/",
+       "title": "Locais e Horários de Missas em Sobral — Paróquia Santa Luzia (atualizado 31/01/2025)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Nossa Senhora do Patrocínio",
+     "dayOfWeek": 1,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/locais-e-horarios-de-missas-em-sobral/",
+       "title": "Locais e Horários de Missas em Sobral — Paróquia Santa Luzia (atualizado 31/01/2025)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Nossa Senhora do Patrocínio",
+     "dayOfWeek": 2,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/locais-e-horarios-de-missas-em-sobral/",
+       "title": "Locais e Horários de Missas em Sobral — Paróquia Santa Luzia (atualizado 31/01/2025)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Nossa Senhora do Patrocínio",
+     "dayOfWeek": 3,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/locais-e-horarios-de-missas-em-sobral/",
+       "title": "Locais e Horários de Missas em Sobral — Paróquia Santa Luzia (atualizado 31/01/2025)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Nossa Senhora do Patrocínio",
+     "dayOfWeek": 4,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/locais-e-horarios-de-missas-em-sobral/",
+       "title": "Locais e Horários de Missas em Sobral — Paróquia Santa Luzia (atualizado 31/01/2025)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Nossa Senhora do Patrocínio",
+     "dayOfWeek": 5,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/locais-e-horarios-de-missas-em-sobral/",
+       "title": "Locais e Horários de Missas em Sobral — Paróquia Santa Luzia (atualizado 31/01/2025)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Nossa Senhora do Patrocínio",
+     "dayOfWeek": 6,
+     "time": "18:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/locais-e-horarios-de-missas-em-sobral/",
+       "title": "Locais e Horários de Missas em Sobral — Paróquia Santa Luzia (atualizado 31/01/2025)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-de-fatima-sobral",
+   "name": "Paróquia Nossa Senhora de Fátima",
+   "city": "Sobral",
+   "state": "CE",
+   "neighborhood": "Sinhá Sabóia",
+   "address": "Av. Senador Fernandes Távora, 2500",
+   "zipCode": "62050-382",
+   "phone": "(88) 3612-1260",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Francisco Edinardo Gomes de Oliveira",
+   "foundedYear": 1983,
+   "sources": [
+    {
+     "url": "https://diocesedesobral.com.br/regioes-episcopais/sede/",
+     "title": "Região Episcopal Sede — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://diocesedesobral.com.br/dom-jose-luiz-gomes-de-vasconcelos-2/clero/incardinados-residentes/",
+     "title": "Clero — Incardinados residentes — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/search.php?uf=CE&cidade=sobral&opcoes=cidade_opcoes",
+     "title": "Horário de Missa — Sobral/CE",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora de Fátima",
+     "address": "Av. Senador Fernandes Távora, 2500",
+     "neighborhood": "Sinhá Sabóia",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedesobral.com.br/regioes-episcopais/sede/",
+       "title": "Região Episcopal Sede — Diocese de Sobral",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Nossa Senhora de Fátima",
+     "dayOfWeek": 0,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/locais-e-horarios-de-missas-em-sobral/",
+       "title": "Locais e Horários de Missas em Sobral — Paróquia Santa Luzia (atualizado 31/01/2025)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Nossa Senhora de Fátima",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/locais-e-horarios-de-missas-em-sobral/",
+       "title": "Locais e Horários de Missas em Sobral — Paróquia Santa Luzia (atualizado 31/01/2025)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Nossa Senhora de Fátima",
+     "dayOfWeek": 2,
+     "time": "18:15",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/locais-e-horarios-de-missas-em-sobral/",
+       "title": "Locais e Horários de Missas em Sobral — Paróquia Santa Luzia (atualizado 31/01/2025)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Nossa Senhora de Fátima",
+     "dayOfWeek": 3,
+     "time": "18:15",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/locais-e-horarios-de-missas-em-sobral/",
+       "title": "Locais e Horários de Missas em Sobral — Paróquia Santa Luzia (atualizado 31/01/2025)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Nossa Senhora de Fátima",
+     "dayOfWeek": 4,
+     "time": "18:15",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/locais-e-horarios-de-missas-em-sobral/",
+       "title": "Locais e Horários de Missas em Sobral — Paróquia Santa Luzia (atualizado 31/01/2025)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Nossa Senhora de Fátima",
+     "dayOfWeek": 5,
+     "time": "15:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/locais-e-horarios-de-missas-em-sobral/",
+       "title": "Locais e Horários de Missas em Sobral — Paróquia Santa Luzia (atualizado 31/01/2025)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Nossa Senhora de Fátima",
+     "dayOfWeek": 5,
+     "time": "18:15",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/locais-e-horarios-de-missas-em-sobral/",
+       "title": "Locais e Horários de Missas em Sobral — Paróquia Santa Luzia (atualizado 31/01/2025)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Nossa Senhora de Fátima",
+     "dayOfWeek": 6,
+     "time": "18:15",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/locais-e-horarios-de-missas-em-sobral/",
+       "title": "Locais e Horários de Missas em Sobral — Paróquia Santa Luzia (atualizado 31/01/2025)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "santo-antonio-sobral",
+   "name": "Paróquia Santo Antônio",
+   "city": "Sobral",
+   "state": "CE",
+   "neighborhood": "Aracatiaçu (distrito)",
+   "address": "Rua Pedro Rocha, 81",
+   "zipCode": "62111-000",
+   "phone": "(88) 3615-6140",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Manoel Gilson Silva Paiva",
+   "foundedYear": 1862,
+   "sources": [
+    {
+     "url": "https://diocesedesobral.com.br/regioes-episcopais/sede/",
+     "title": "Região Episcopal Sede — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://diocesedesobral.com.br/dom-jose-luiz-gomes-de-vasconcelos-2/clero/incardinados-residentes/",
+     "title": "Clero — Incardinados residentes — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/search.php?uf=CE&cidade=sobral&opcoes=cidade_opcoes",
+     "title": "Horário de Missa — Sobral/CE",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Santo Antônio",
+     "address": "Rua Pedro Rocha, 81",
+     "neighborhood": "Aracatiaçu (distrito)",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedesobral.com.br/regioes-episcopais/sede/",
+       "title": "Região Episcopal Sede — Diocese de Sobral",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Santuário Diocesano Nossa Senhora de Fátima",
+     "address": "Rua Nossa Senhora de Fátima – Centro",
+     "neighborhood": "Aracatiaçu",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://diocesedesobral.com.br/regioes-episcopais/santuarios/",
+       "title": "Santuários — Diocese de Sobral",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "sao-francisco-de-assis-forquilha",
+   "name": "Paróquia São Francisco de Assis",
+   "city": "Forquilha",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Praça Dona Juraci Dias Carneiro, 135",
+   "zipCode": "62115-000",
+   "phone": "(88) 3619-1153",
+   "email": null,
+   "website": "https://www.facebook.com/paroquiasaofranciscodeassisforquilha",
+   "priestName": "Pe. Gerson Luiz Peres Gomes",
+   "foundedYear": 1992,
+   "sources": [
+    {
+     "url": "https://diocesedesobral.com.br/regioes-episcopais/sede/",
+     "title": "Região Episcopal Sede — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://diocesedesobral.com.br/dom-jose-luiz-gomes-de-vasconcelos-2/clero/incardinados-residentes/",
+     "title": "Clero — Incardinados residentes — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/search.php?uf=CE&cidade=sobral&opcoes=cidade_opcoes",
+     "title": "Horário de Missa — Sobral/CE",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz São Francisco de Assis",
+     "address": "Praça Dona Juraci Dias Carneiro, 135",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedesobral.com.br/regioes-episcopais/sede/",
+       "title": "Região Episcopal Sede — Diocese de Sobral",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "sao-jose-sobral",
+   "name": "Paróquia São José",
+   "city": "Sobral",
+   "state": "CE",
+   "neighborhood": "Sumaré",
+   "address": "Rua Nossa Senhora do Carmo, 113",
+   "zipCode": "62014-160",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Josivan de Carvalho Cruz",
+   "foundedYear": 2013,
+   "sources": [
+    {
+     "url": "https://diocesedesobral.com.br/regioes-episcopais/sede/",
+     "title": "Região Episcopal Sede — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://diocesedesobral.com.br/dom-jose-luiz-gomes-de-vasconcelos-2/clero/incardinados-residentes/",
+     "title": "Clero — Incardinados residentes — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz São José",
+     "address": "Rua Nossa Senhora do Carmo, 113",
+     "neighborhood": "Sumaré",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedesobral.com.br/regioes-episcopais/sede/",
+       "title": "Região Episcopal Sede — Diocese de Sobral",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz São José",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/locais-e-horarios-de-missas-em-sobral/",
+       "title": "Locais e Horários de Missas em Sobral — Paróquia Santa Luzia (atualizado 31/01/2025)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz São José",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/locais-e-horarios-de-missas-em-sobral/",
+       "title": "Locais e Horários de Missas em Sobral — Paróquia Santa Luzia (atualizado 31/01/2025)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz São José",
+     "dayOfWeek": 2,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/locais-e-horarios-de-missas-em-sobral/",
+       "title": "Locais e Horários de Missas em Sobral — Paróquia Santa Luzia (atualizado 31/01/2025)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz São José",
+     "dayOfWeek": 3,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/locais-e-horarios-de-missas-em-sobral/",
+       "title": "Locais e Horários de Missas em Sobral — Paróquia Santa Luzia (atualizado 31/01/2025)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz São José",
+     "dayOfWeek": 4,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/locais-e-horarios-de-missas-em-sobral/",
+       "title": "Locais e Horários de Missas em Sobral — Paróquia Santa Luzia (atualizado 31/01/2025)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz São José",
+     "dayOfWeek": 5,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/locais-e-horarios-de-missas-em-sobral/",
+       "title": "Locais e Horários de Missas em Sobral — Paróquia Santa Luzia (atualizado 31/01/2025)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz São José",
+     "dayOfWeek": 6,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/locais-e-horarios-de-missas-em-sobral/",
+       "title": "Locais e Horários de Missas em Sobral — Paróquia Santa Luzia (atualizado 31/01/2025)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "santa-luzia-sobral",
+   "name": "Paróquia Santa Luzia",
+   "city": "Sobral",
+   "state": "CE",
+   "neighborhood": "Renato Parente",
+   "address": "Av. Mãe Rainha, 732 – Fazenda Pé da Serra, CE-440",
+   "zipCode": "62033-135",
+   "phone": null,
+   "email": null,
+   "website": "https://santaluziasobral.com/",
+   "priestName": "Pe. José Airton Liberato Silva",
+   "foundedYear": 2021,
+   "sources": [
+    {
+     "url": "https://diocesedesobral.com.br/regioes-episcopais/sede/",
+     "title": "Região Episcopal Sede — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://diocesedesobral.com.br/dom-jose-luiz-gomes-de-vasconcelos-2/clero/incardinados-residentes/",
+     "title": "Clero — Incardinados residentes — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Santa Luzia",
+     "address": "Av. Mãe Rainha, 732 – Fazenda Pé da Serra, CE-440",
+     "neighborhood": "Renato Parente",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedesobral.com.br/regioes-episcopais/sede/",
+       "title": "Região Episcopal Sede — Diocese de Sobral",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Ermida São José",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/",
+       "title": "Paróquia Santa Luzia (Sobral)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Capela do Sagrado Coração de Jesus",
+     "address": null,
+     "neighborhood": "Boqueirão",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/",
+       "title": "Paróquia Santa Luzia (Sobral)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Capela Nossa Senhora das Graças",
+     "address": null,
+     "neighborhood": "Boqueirão",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/",
+       "title": "Paróquia Santa Luzia (Sobral)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Santa Luzia",
+     "dayOfWeek": 0,
+     "time": "07:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/",
+       "title": "Paróquia Santa Luzia (Sobral)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Santa Luzia",
+     "dayOfWeek": 0,
+     "time": "10:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/",
+       "title": "Paróquia Santa Luzia (Sobral)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Santa Luzia",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/",
+       "title": "Paróquia Santa Luzia (Sobral)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Santa Luzia",
+     "dayOfWeek": 4,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/",
+       "title": "Paróquia Santa Luzia (Sobral)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Ermida São José",
+     "dayOfWeek": 0,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/",
+       "title": "Paróquia Santa Luzia (Sobral)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://santaluziasobral.com/locais-e-horarios-de-missas-em-sobral/",
+       "title": "Locais e Horários de Missas em Sobral — Paróquia Santa Luzia (atualizado 31/01/2025)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Santa Luzia",
+     "dayOfWeek": 4,
+     "time": "17:00",
+     "type": "CONFESSION",
+     "notes": "Quintas-feiras das 17h às 19h",
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/",
+       "title": "Paróquia Santa Luzia (Sobral)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Capela do Sagrado Coração de Jesus",
+     "dayOfWeek": 6,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": "1º e 3º sábados do mês",
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/",
+       "title": "Paróquia Santa Luzia (Sobral)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Capela Nossa Senhora das Graças",
+     "dayOfWeek": 6,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": "2º e 4º sábados do mês",
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/",
+       "title": "Paróquia Santa Luzia (Sobral)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "santa-teresinha-do-menino-jesus-sobral",
+   "name": "Paróquia Santa Teresinha do Menino Jesus",
+   "city": "Sobral",
+   "state": "CE",
+   "neighborhood": "Jaibaras (distrito)",
+   "address": "Rua Santa Terezinha, s/n – Centro",
+   "zipCode": "62107-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Elânio Carvalho Alcântara",
+   "foundedYear": 2008,
+   "sources": [
+    {
+     "url": "https://diocesedesobral.com.br/regioes-episcopais/sede/",
+     "title": "Região Episcopal Sede — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://diocesedesobral.com.br/dom-jose-luiz-gomes-de-vasconcelos-2/clero/incardinados-residentes/",
+     "title": "Clero — Incardinados residentes — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Santa Teresinha do Menino Jesus",
+     "address": "Rua Santa Terezinha, s/n – Centro",
+     "neighborhood": "Jaibaras (distrito)",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedesobral.com.br/regioes-episcopais/sede/",
+       "title": "Região Episcopal Sede — Diocese de Sobral",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "sagrado-coracao-de-jesus-sobral",
+   "name": "Paróquia do Sagrado Coração de Jesus",
+   "city": "Sobral",
+   "state": "CE",
+   "neighborhood": "Coração de Jesus",
+   "address": "Rua José Euclides Ferreira Gomes",
+   "zipCode": "62011-970",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": 2011,
+   "sources": [
+    {
+     "url": "https://diocesedesobral.com.br/regioes-episcopais/sede/",
+     "title": "Região Episcopal Sede — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Sagrado Coração de Jesus",
+     "address": "Rua José Euclides Ferreira Gomes",
+     "neighborhood": "Coração de Jesus",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedesobral.com.br/regioes-episcopais/sede/",
+       "title": "Região Episcopal Sede — Diocese de Sobral",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Sagrado Coração de Jesus",
+     "dayOfWeek": 0,
+     "time": "06:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/locais-e-horarios-de-missas-em-sobral/",
+       "title": "Locais e Horários de Missas em Sobral — Paróquia Santa Luzia (atualizado 31/01/2025)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Sagrado Coração de Jesus",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/locais-e-horarios-de-missas-em-sobral/",
+       "title": "Locais e Horários de Missas em Sobral — Paróquia Santa Luzia (atualizado 31/01/2025)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Sagrado Coração de Jesus",
+     "dayOfWeek": 2,
+     "time": "18:15",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/locais-e-horarios-de-missas-em-sobral/",
+       "title": "Locais e Horários de Missas em Sobral — Paróquia Santa Luzia (atualizado 31/01/2025)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Sagrado Coração de Jesus",
+     "dayOfWeek": 3,
+     "time": "18:15",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/locais-e-horarios-de-missas-em-sobral/",
+       "title": "Locais e Horários de Missas em Sobral — Paróquia Santa Luzia (atualizado 31/01/2025)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Sagrado Coração de Jesus",
+     "dayOfWeek": 4,
+     "time": "18:15",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/locais-e-horarios-de-missas-em-sobral/",
+       "title": "Locais e Horários de Missas em Sobral — Paróquia Santa Luzia (atualizado 31/01/2025)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Sagrado Coração de Jesus",
+     "dayOfWeek": 5,
+     "time": "18:15",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/locais-e-horarios-de-missas-em-sobral/",
+       "title": "Locais e Horários de Missas em Sobral — Paróquia Santa Luzia (atualizado 31/01/2025)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Sagrado Coração de Jesus",
+     "dayOfWeek": 6,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/locais-e-horarios-de-missas-em-sobral/",
+       "title": "Locais e Horários de Missas em Sobral — Paróquia Santa Luzia (atualizado 31/01/2025)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "sao-paulo-apostolo-sobral",
+   "name": "Paróquia São Paulo Apóstolo",
+   "city": "Sobral",
+   "state": "CE",
+   "neighborhood": "Terrenos Novos",
+   "address": "Rua Luiz Santos Aquino, 473",
+   "zipCode": "62031-175",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. José Fábio da Mota",
+   "foundedYear": 2007,
+   "sources": [
+    {
+     "url": "https://diocesedesobral.com.br/regioes-episcopais/sede/",
+     "title": "Região Episcopal Sede — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://diocesedesobral.com.br/dom-jose-luiz-gomes-de-vasconcelos-2/clero/incardinados-residentes/",
+     "title": "Clero — Incardinados residentes — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz São Paulo Apóstolo",
+     "address": "Rua Luiz Santos Aquino, 473",
+     "neighborhood": "Terrenos Novos",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedesobral.com.br/regioes-episcopais/sede/",
+       "title": "Região Episcopal Sede — Diocese de Sobral",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz São Paulo Apóstolo",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/locais-e-horarios-de-missas-em-sobral/",
+       "title": "Locais e Horários de Missas em Sobral — Paróquia Santa Luzia (atualizado 31/01/2025)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz São Paulo Apóstolo",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/locais-e-horarios-de-missas-em-sobral/",
+       "title": "Locais e Horários de Missas em Sobral — Paróquia Santa Luzia (atualizado 31/01/2025)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz São Paulo Apóstolo",
+     "dayOfWeek": 3,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/locais-e-horarios-de-missas-em-sobral/",
+       "title": "Locais e Horários de Missas em Sobral — Paróquia Santa Luzia (atualizado 31/01/2025)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz São Paulo Apóstolo",
+     "dayOfWeek": 4,
+     "time": "18:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/locais-e-horarios-de-missas-em-sobral/",
+       "title": "Locais e Horários de Missas em Sobral — Paróquia Santa Luzia (atualizado 31/01/2025)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz São Paulo Apóstolo",
+     "dayOfWeek": 5,
+     "time": "18:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/locais-e-horarios-de-missas-em-sobral/",
+       "title": "Locais e Horários de Missas em Sobral — Paróquia Santa Luzia (atualizado 31/01/2025)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz São Paulo Apóstolo",
+     "dayOfWeek": 6,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/locais-e-horarios-de-missas-em-sobral/",
+       "title": "Locais e Horários de Missas em Sobral — Paróquia Santa Luzia (atualizado 31/01/2025)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-da-saude-sobral",
+   "name": "Área Pastoral Nossa Senhora da Saúde",
+   "city": "Sobral",
+   "state": "CE",
+   "neighborhood": "Jordão (distrito)",
+   "address": "Praça da Matriz, s/n",
+   "zipCode": "62108-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Francisco de Assis Neto",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedesobral.com.br/regioes-episcopais/sede/",
+     "title": "Região Episcopal Sede — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://diocesedesobral.com.br/dom-jose-luiz-gomes-de-vasconcelos-2/clero/incardinados-residentes/",
+     "title": "Clero — Incardinados residentes — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora da Saúde",
+     "address": "Praça da Matriz, s/n",
+     "neighborhood": "Jordão (distrito)",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedesobral.com.br/regioes-episcopais/sede/",
+       "title": "Região Episcopal Sede — Diocese de Sobral",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "divina-misericordia-sobral",
+   "name": "Área Pastoral da Divina Misericórdia",
+   "city": "Sobral",
+   "state": "CE",
+   "neighborhood": "Boa Vizinhança",
+   "address": "Av. Isabela Moreira Gomes, 901, Quadra 13",
+   "zipCode": "62053-820",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Raimundo Ítalo Arcanjo de Souza",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedesobral.com.br/regioes-episcopais/sede/",
+     "title": "Região Episcopal Sede — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://diocesedesobral.com.br/dom-jose-luiz-gomes-de-vasconcelos-2/clero/incardinados-residentes/",
+     "title": "Clero — Incardinados residentes — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Divina Misericórdia",
+     "address": "Av. Isabela Moreira Gomes, 901, Quadra 13",
+     "neighborhood": "Boa Vizinhança",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedesobral.com.br/regioes-episcopais/sede/",
+       "title": "Região Episcopal Sede — Diocese de Sobral",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Divina Misericórdia",
+     "dayOfWeek": 0,
+     "time": "17:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/locais-e-horarios-de-missas-em-sobral/",
+       "title": "Locais e Horários de Missas em Sobral — Paróquia Santa Luzia (atualizado 31/01/2025)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Divina Misericórdia",
+     "dayOfWeek": 2,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/locais-e-horarios-de-missas-em-sobral/",
+       "title": "Locais e Horários de Missas em Sobral — Paróquia Santa Luzia (atualizado 31/01/2025)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz Divina Misericórdia",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/locais-e-horarios-de-missas-em-sobral/",
+       "title": "Locais e Horários de Missas em Sobral — Paróquia Santa Luzia (atualizado 31/01/2025)",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-da-conceicao-acarau",
+   "name": "Paróquia Nossa Senhora da Conceição",
+   "city": "Acaraú",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Rua José Domingues Regadas, 66",
+   "zipCode": "62580-000",
+   "phone": "(88) 3661-1151",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. João Batista Rodrigues Vasconcelos",
+   "foundedYear": 1832,
+   "sources": [
+    {
+     "url": "https://diocesedesobral.com.br/regioes-episcopais/acarau/",
+     "title": "Região Episcopal do Acaraú — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://diocesedesobral.com.br/dom-jose-luiz-gomes-de-vasconcelos-2/clero/incardinados-residentes/",
+     "title": "Clero — Incardinados residentes — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/search.php?uf=CE&cidade=sobral&opcoes=cidade_opcoes",
+     "title": "Horário de Missa — Sobral/CE",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora da Conceição",
+     "address": "Rua José Domingues Regadas, 66",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedesobral.com.br/regioes-episcopais/acarau/",
+       "title": "Região Episcopal do Acaraú — Diocese de Sobral",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-da-conceicao-bela-cruz",
+   "name": "Paróquia Nossa Senhora da Conceição",
+   "city": "Bela Cruz",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Rua Capitão Miguel Lopes, 400",
+   "zipCode": "62570-000",
+   "phone": "(88) 3663-1139",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Francisco Cláudio do Nascimento",
+   "foundedYear": 1941,
+   "sources": [
+    {
+     "url": "https://diocesedesobral.com.br/regioes-episcopais/acarau/",
+     "title": "Região Episcopal do Acaraú — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://diocesedesobral.com.br/dom-jose-luiz-gomes-de-vasconcelos-2/clero/incardinados-residentes/",
+     "title": "Clero — Incardinados residentes — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/search.php?uf=CE&cidade=sobral&opcoes=cidade_opcoes",
+     "title": "Horário de Missa — Sobral/CE",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora da Conceição",
+     "address": "Rua Capitão Miguel Lopes, 400",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedesobral.com.br/regioes-episcopais/acarau/",
+       "title": "Região Episcopal do Acaraú — Diocese de Sobral",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "imaculado-coracao-de-maria-morrinhos",
+   "name": "Paróquia Imaculado Coração de Maria",
+   "city": "Morrinhos",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Praça do Sagrado Coração de Maria, s/n",
+   "zipCode": "62550-000",
+   "phone": "(88) 3665-1168",
+   "email": null,
+   "website": null,
+   "priestName": "Mons. Manuel Rômulo Rocha",
+   "foundedYear": 1958,
+   "sources": [
+    {
+     "url": "https://diocesedesobral.com.br/regioes-episcopais/acarau/",
+     "title": "Região Episcopal do Acaraú — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://diocesedesobral.com.br/dom-jose-luiz-gomes-de-vasconcelos-2/clero/incardinados-residentes/",
+     "title": "Clero — Incardinados residentes — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/search.php?uf=CE&cidade=sobral&opcoes=cidade_opcoes",
+     "title": "Horário de Missa — Sobral/CE",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Imaculado Coração de Maria",
+     "address": "Praça do Sagrado Coração de Maria, s/n",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedesobral.com.br/regioes-episcopais/acarau/",
+       "title": "Região Episcopal do Acaraú — Diocese de Sobral",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "imaculada-conceicao-de-nossa-senhora-marco",
+   "name": "Paróquia Imaculada Conceição de Nossa Senhora",
+   "city": "Marco",
+   "state": "CE",
+   "neighborhood": "Panacuí (distrito)",
+   "address": "Rua Francisco Ferreira Gomes, 25 – Centro",
+   "zipCode": "62565-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Francisco Florêncio da Costa",
+   "foundedYear": 2016,
+   "sources": [
+    {
+     "url": "https://diocesedesobral.com.br/regioes-episcopais/acarau/",
+     "title": "Região Episcopal do Acaraú — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://diocesedesobral.com.br/dom-jose-luiz-gomes-de-vasconcelos-2/clero/incardinados-residentes/",
+     "title": "Clero — Incardinados residentes — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Imaculada Conceição de Nossa Senhora",
+     "address": "Rua Francisco Ferreira Gomes, 25 – Centro",
+     "neighborhood": "Panacuí (distrito)",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedesobral.com.br/regioes-episcopais/acarau/",
+       "title": "Região Episcopal do Acaraú — Diocese de Sobral",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "sao-francisco-de-assis-centro-cruz",
+   "name": "Paróquia São Francisco de Assis",
+   "city": "Cruz",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Rua 06 de Abril, s/n",
+   "zipCode": "62595-000",
+   "phone": "(88) 3660-1285",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Jacó Sidarta de Sousa Vieira",
+   "foundedYear": 1958,
+   "sources": [
+    {
+     "url": "https://diocesedesobral.com.br/regioes-episcopais/acarau/",
+     "title": "Região Episcopal do Acaraú — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://diocesedesobral.com.br/dom-jose-luiz-gomes-de-vasconcelos-2/clero/incardinados-residentes/",
+     "title": "Clero — Incardinados residentes — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/search.php?uf=CE&cidade=sobral&opcoes=cidade_opcoes",
+     "title": "Horário de Missa — Sobral/CE",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz São Francisco de Assis",
+     "address": "Rua 06 de Abril, s/n",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedesobral.com.br/regioes-episcopais/acarau/",
+       "title": "Região Episcopal do Acaraú — Diocese de Sobral",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "sao-francisco-morrinhos",
+   "name": "Paróquia São Francisco",
+   "city": "Morrinhos",
+   "state": "CE",
+   "neighborhood": "Sítio Alegre (distrito)",
+   "address": "Rua da Matriz, s/n – Centro",
+   "zipCode": "62550-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. João Robson Cabral",
+   "foundedYear": 2017,
+   "sources": [
+    {
+     "url": "https://diocesedesobral.com.br/regioes-episcopais/acarau/",
+     "title": "Região Episcopal do Acaraú — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://diocesedesobral.com.br/dom-jose-luiz-gomes-de-vasconcelos-2/clero/incardinados-residentes/",
+     "title": "Clero — Incardinados residentes — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz São Francisco",
+     "address": "Rua da Matriz, s/n – Centro",
+     "neighborhood": "Sítio Alegre (distrito)",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedesobral.com.br/regioes-episcopais/acarau/",
+       "title": "Região Episcopal do Acaraú — Diocese de Sobral",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "sao-francisco-de-assis-caicara-distrito-cruz",
+   "name": "Paróquia São Francisco de Assis",
+   "city": "Cruz",
+   "state": "CE",
+   "neighborhood": "Caiçara (distrito)",
+   "address": "Rua Mons. Sabino, 84",
+   "zipCode": "62597-000",
+   "phone": "(88) 3660-1285",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": 2017,
+   "sources": [
+    {
+     "url": "https://diocesedesobral.com.br/regioes-episcopais/acarau/",
+     "title": "Região Episcopal do Acaraú — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/search.php?uf=CE&cidade=sobral&opcoes=cidade_opcoes",
+     "title": "Horário de Missa — Sobral/CE",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz São Francisco de Assis",
+     "address": "Rua Mons. Sabino, 84",
+     "neighborhood": "Caiçara (distrito)",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedesobral.com.br/regioes-episcopais/acarau/",
+       "title": "Região Episcopal do Acaraú — Diocese de Sobral",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "sao-joao-batista-aranau-distrito-acarau",
+   "name": "Paróquia São João Batista",
+   "city": "Acaraú",
+   "state": "CE",
+   "neighborhood": "Aranaú (distrito)",
+   "address": "Rua Edmilson Cruz, s/n – Centro",
+   "zipCode": "62585-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Severino Dias Rodrigues",
+   "foundedYear": 2008,
+   "sources": [
+    {
+     "url": "https://diocesedesobral.com.br/regioes-episcopais/acarau/",
+     "title": "Região Episcopal do Acaraú — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://diocesedesobral.com.br/dom-jose-luiz-gomes-de-vasconcelos-2/clero/incardinados-residentes/",
+     "title": "Clero — Incardinados residentes — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz São João Batista",
+     "address": "Rua Edmilson Cruz, s/n – Centro",
+     "neighborhood": "Aranaú (distrito)",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedesobral.com.br/regioes-episcopais/acarau/",
+       "title": "Região Episcopal do Acaraú — Diocese de Sobral",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "sao-joao-batista-celsolandia-distrito-acarau",
+   "name": "Paróquia São João Batista",
+   "city": "Acaraú",
+   "state": "CE",
+   "neighborhood": "Celsolândia (distrito)",
+   "address": "Praça São João Batista, s/n – Centro",
+   "zipCode": "62580-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Francisco Eduardo Neto Filho",
+   "foundedYear": 2009,
+   "sources": [
+    {
+     "url": "https://diocesedesobral.com.br/regioes-episcopais/acarau/",
+     "title": "Região Episcopal do Acaraú — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://diocesedesobral.com.br/dom-jose-luiz-gomes-de-vasconcelos-2/clero/incardinados-residentes/",
+     "title": "Clero — Incardinados residentes — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz São João Batista",
+     "address": "Praça São João Batista, s/n – Centro",
+     "neighborhood": "Celsolândia (distrito)",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedesobral.com.br/regioes-episcopais/acarau/",
+       "title": "Região Episcopal do Acaraú — Diocese de Sobral",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "sao-manuel-marco",
+   "name": "Paróquia São Manuel",
+   "city": "Marco",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Rua Padre Apoliano, 169",
+   "zipCode": "62560-000",
+   "phone": "(88) 3664-1017",
+   "email": null,
+   "website": null,
+   "priestName": "Mons. Raimundo Nonato Timbó de Paiva",
+   "foundedYear": 1941,
+   "sources": [
+    {
+     "url": "https://diocesedesobral.com.br/regioes-episcopais/acarau/",
+     "title": "Região Episcopal do Acaraú — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://diocesedesobral.com.br/dom-jose-luiz-gomes-de-vasconcelos-2/clero/incardinados-residentes/",
+     "title": "Clero — Incardinados residentes — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/search.php?uf=CE&cidade=sobral&opcoes=cidade_opcoes",
+     "title": "Horário de Missa — Sobral/CE",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz São Manuel",
+     "address": "Rua Padre Apoliano, 169",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedesobral.com.br/regioes-episcopais/acarau/",
+       "title": "Região Episcopal do Acaraú — Diocese de Sobral",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Santuário Diocesano Sagrado Coração de Jesus",
+     "address": "Rua Maria Ceci Neves, s/n",
+     "neighborhood": "Coração de Jesus",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://diocesedesobral.com.br/regioes-episcopais/santuarios/",
+       "title": "Santuários — Diocese de Sobral",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "senhora-sant-ana-santana-do-acarau",
+   "name": "Paróquia Senhora Sant’Ana",
+   "city": "Santana do Acaraú",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Rua Pedro Arcanjo, 165",
+   "zipCode": "62150-000",
+   "phone": "(88) 3644-1222",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Francisco Júnior Melo",
+   "foundedYear": 1848,
+   "sources": [
+    {
+     "url": "https://diocesedesobral.com.br/regioes-episcopais/acarau/",
+     "title": "Região Episcopal do Acaraú — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://diocesedesobral.com.br/dom-jose-luiz-gomes-de-vasconcelos-2/clero/incardinados-residentes/",
+     "title": "Clero — Incardinados residentes — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/search.php?uf=CE&cidade=sobral&opcoes=cidade_opcoes",
+     "title": "Horário de Missa — Sobral/CE",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Senhora Sant’Ana",
+     "address": "Rua Pedro Arcanjo, 165",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedesobral.com.br/regioes-episcopais/acarau/",
+       "title": "Região Episcopal do Acaraú — Diocese de Sobral",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "santa-luzia-jijoca-de-jericoacoara",
+   "name": "Paróquia Santa Luzia",
+   "city": "Jijoca de Jericoacoara",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Av. Manoel Teixeira, s/n",
+   "zipCode": "62598-000",
+   "phone": "(88) 3669-1442",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Francisco Fábio do Nascimento Araújo",
+   "foundedYear": 1987,
+   "sources": [
+    {
+     "url": "https://diocesedesobral.com.br/regioes-episcopais/acarau/",
+     "title": "Região Episcopal do Acaraú — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://diocesedesobral.com.br/dom-jose-luiz-gomes-de-vasconcelos-2/clero/incardinados-residentes/",
+     "title": "Clero — Incardinados residentes — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/search.php?uf=CE&cidade=sobral&opcoes=cidade_opcoes",
+     "title": "Horário de Missa — Sobral/CE",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Santa Luzia",
+     "address": "Av. Manoel Teixeira, s/n",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedesobral.com.br/regioes-episcopais/acarau/",
+       "title": "Região Episcopal do Acaraú — Diocese de Sobral",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "sao-francisco-de-assis-santana-do-acarau",
+   "name": "Área Missionária São Francisco de Assis",
+   "city": "Santana do Acaraú",
+   "state": "CE",
+   "neighborhood": "Parapuí (distrito)",
+   "address": null,
+   "zipCode": "62150-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedesobral.com.br/regioes-episcopais/acarau/",
+     "title": "Região Episcopal do Acaraú — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz São Francisco de Assis",
+     "address": null,
+     "neighborhood": "Parapuí (distrito)",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedesobral.com.br/regioes-episcopais/acarau/",
+       "title": "Região Episcopal do Acaraú — Diocese de Sobral",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "sao-pedro-acarau",
+   "name": "Área Missionária São Pedro",
+   "city": "Acaraú",
+   "state": "CE",
+   "neighborhood": "Cauassu (distrito)",
+   "address": null,
+   "zipCode": null,
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedesobral.com.br/regioes-episcopais/acarau/",
+     "title": "Região Episcopal do Acaraú — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz São Pedro",
+     "address": null,
+     "neighborhood": "Cauassu (distrito)",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedesobral.com.br/regioes-episcopais/acarau/",
+       "title": "Região Episcopal do Acaraú — Diocese de Sobral",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "senhora-sant-ana-varjota",
+   "name": "Paróquia Senhora Sant’Ana",
+   "city": "Varjota",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Rua Artur Ramos, 420",
+   "zipCode": "62265-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Tomé da Silva",
+   "foundedYear": 2008,
+   "sources": [
+    {
+     "url": "https://diocesedesobral.com.br/regioes-episcopais/araras/",
+     "title": "Região Episcopal do Araras — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://diocesedesobral.com.br/dom-jose-luiz-gomes-de-vasconcelos-2/clero/incardinados-residentes/",
+     "title": "Clero — Incardinados residentes — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Senhora Sant’Ana",
+     "address": "Rua Artur Ramos, 420",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedesobral.com.br/regioes-episcopais/araras/",
+       "title": "Região Episcopal do Araras — Diocese de Sobral",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-da-conceicao-hidrolandia",
+   "name": "Paróquia Nossa Senhora da Conceição",
+   "city": "Hidrolândia",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Rua Geci Maciel de França, 229",
+   "zipCode": "62270-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Marcos Neves de Oliveira",
+   "foundedYear": 1997,
+   "sources": [
+    {
+     "url": "https://diocesedesobral.com.br/regioes-episcopais/araras/",
+     "title": "Região Episcopal do Araras — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://diocesedesobral.com.br/dom-jose-luiz-gomes-de-vasconcelos-2/clero/incardinados-residentes/",
+     "title": "Clero — Incardinados residentes — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora da Conceição",
+     "address": "Rua Geci Maciel de França, 229",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedesobral.com.br/regioes-episcopais/araras/",
+       "title": "Região Episcopal do Araras — Diocese de Sobral",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-do-perpetuo-socorro-reriutaba",
+   "name": "Paróquia Nossa Senhora do Perpétuo Socorro",
+   "city": "Reriutaba",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Rua Mons. José Ataíde, 190",
+   "zipCode": "62260-000",
+   "phone": "(88) 3637-1193",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. João Bosco Arruda Linhares",
+   "foundedYear": 1936,
+   "sources": [
+    {
+     "url": "https://diocesedesobral.com.br/regioes-episcopais/araras/",
+     "title": "Região Episcopal do Araras — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://diocesedesobral.com.br/dom-jose-luiz-gomes-de-vasconcelos-2/clero/incardinados-residentes/",
+     "title": "Clero — Incardinados residentes — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/search.php?uf=CE&cidade=sobral&opcoes=cidade_opcoes",
+     "title": "Horário de Missa — Sobral/CE",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora do Perpétuo Socorro",
+     "address": "Rua Mons. José Ataíde, 190",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedesobral.com.br/regioes-episcopais/araras/",
+       "title": "Região Episcopal do Araras — Diocese de Sobral",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-do-perpetuo-socorro-pires-ferreira",
+   "name": "Paróquia Nossa Senhora do Perpétuo Socorro",
+   "city": "Pires Ferreira",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Rua Frei Julian, s/n",
+   "zipCode": "62255-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Manoelito Quinto Vieira",
+   "foundedYear": 2009,
+   "sources": [
+    {
+     "url": "https://diocesedesobral.com.br/regioes-episcopais/araras/",
+     "title": "Região Episcopal do Araras — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://diocesedesobral.com.br/dom-jose-luiz-gomes-de-vasconcelos-2/clero/incardinados-residentes/",
+     "title": "Clero — Incardinados residentes — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora do Perpétuo Socorro",
+     "address": "Rua Frei Julian, s/n",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedesobral.com.br/regioes-episcopais/araras/",
+       "title": "Região Episcopal do Araras — Diocese de Sobral",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-do-rosario-groairas",
+   "name": "Paróquia Nossa Senhora do Rosário",
+   "city": "Groaíras",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Praça Pe. Mororó, 150",
+   "zipCode": "62190-000",
+   "phone": "(88) 3611-3677",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": 1943,
+   "sources": [
+    {
+     "url": "https://diocesedesobral.com.br/regioes-episcopais/araras/",
+     "title": "Região Episcopal do Araras — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/search.php?uf=CE&cidade=sobral&opcoes=cidade_opcoes",
+     "title": "Horário de Missa — Sobral/CE",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora do Rosário",
+     "address": "Praça Pe. Mororó, 150",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedesobral.com.br/regioes-episcopais/araras/",
+       "title": "Região Episcopal do Araras — Diocese de Sobral",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "santa-quiteria-santa-quiteria",
+   "name": "Paróquia Santa Quitéria",
+   "city": "Santa Quitéria",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Rua Francisco Pinto, 145",
+   "zipCode": "62280-000",
+   "phone": "(88) 3628-0403",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Manoel Domício Morais",
+   "foundedYear": 1823,
+   "sources": [
+    {
+     "url": "https://diocesedesobral.com.br/regioes-episcopais/araras/",
+     "title": "Região Episcopal do Araras — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://diocesedesobral.com.br/dom-jose-luiz-gomes-de-vasconcelos-2/clero/incardinados-residentes/",
+     "title": "Clero — Incardinados residentes — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/search.php?uf=CE&cidade=sobral&opcoes=cidade_opcoes",
+     "title": "Horário de Missa — Sobral/CE",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Santa Quitéria",
+     "address": "Rua Francisco Pinto, 145",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedesobral.com.br/regioes-episcopais/araras/",
+       "title": "Região Episcopal do Araras — Diocese de Sobral",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "santa-maria-madalena-catunda",
+   "name": "Paróquia Santa Maria Madalena",
+   "city": "Catunda",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Rua São José, s/n",
+   "zipCode": "62297-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": 2008,
+   "sources": [
+    {
+     "url": "https://diocesedesobral.com.br/regioes-episcopais/araras/",
+     "title": "Região Episcopal do Araras — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Santa Maria Madalena",
+     "address": "Rua São José, s/n",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedesobral.com.br/regioes-episcopais/araras/",
+       "title": "Região Episcopal do Araras — Diocese de Sobral",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "sao-sebastiao-ipu",
+   "name": "Paróquia São Sebastião",
+   "city": "Ipu",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Rua Dr. Chagas Pinto, 525",
+   "zipCode": "62250-000",
+   "phone": "(88) 3823-1458",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. José Edmilson Eugênio Nascimento",
+   "foundedYear": 1865,
+   "sources": [
+    {
+     "url": "https://diocesedesobral.com.br/regioes-episcopais/araras/",
+     "title": "Região Episcopal do Araras — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://diocesedesobral.com.br/dom-jose-luiz-gomes-de-vasconcelos-2/clero/incardinados-residentes/",
+     "title": "Clero — Incardinados residentes — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/search.php?uf=CE&cidade=sobral&opcoes=cidade_opcoes",
+     "title": "Horário de Missa — Sobral/CE",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz São Sebastião",
+     "address": "Rua Dr. Chagas Pinto, 525",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedesobral.com.br/regioes-episcopais/araras/",
+       "title": "Região Episcopal do Araras — Diocese de Sobral",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "santo-antonio-de-padua-carire",
+   "name": "Paróquia Santo Antônio de Pádua",
+   "city": "Cariré",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Praça da Bandeira, 10",
+   "zipCode": "62184-000",
+   "phone": "(88) 3646-1108",
+   "email": null,
+   "website": "https://www.facebook.com/paroquiadecarire",
+   "priestName": "Pe. João Batista Nery de Abreu",
+   "foundedYear": 1920,
+   "sources": [
+    {
+     "url": "https://diocesedesobral.com.br/regioes-episcopais/araras/",
+     "title": "Região Episcopal do Araras — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://diocesedesobral.com.br/dom-jose-luiz-gomes-de-vasconcelos-2/clero/incardinados-residentes/",
+     "title": "Clero — Incardinados residentes — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/search.php?uf=CE&cidade=sobral&opcoes=cidade_opcoes",
+     "title": "Horário de Missa — Sobral/CE",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Santo Antônio de Pádua",
+     "address": "Praça da Bandeira, 10",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedesobral.com.br/regioes-episcopais/araras/",
+       "title": "Região Episcopal do Araras — Diocese de Sobral",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Santo Antônio de Pádua",
+     "dayOfWeek": 0,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=CE&cidade=sobral&opcoes=cidade_opcoes",
+       "title": "Horário de Missa — Sobral/CE",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Santo Antônio de Pádua",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=CE&cidade=sobral&opcoes=cidade_opcoes",
+       "title": "Horário de Missa — Sobral/CE",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-do-amparo-senador-sa",
+   "name": "Paróquia Nossa Senhora do Amparo",
+   "city": "Senador Sá",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Rua Pe. Delmonte, 317",
+   "zipCode": "62470-000",
+   "phone": "(88) 3643-1044",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. José Marcone Martins",
+   "foundedYear": 1952,
+   "sources": [
+    {
+     "url": "https://diocesedesobral.com.br/regioes-episcopais/coreau/",
+     "title": "Região Episcopal Vale do Coreaú — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://diocesedesobral.com.br/dom-jose-luiz-gomes-de-vasconcelos-2/clero/incardinados-residentes/",
+     "title": "Clero — Incardinados residentes — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/search.php?uf=CE&cidade=sobral&opcoes=cidade_opcoes",
+     "title": "Horário de Missa — Sobral/CE",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora do Amparo",
+     "address": "Rua Pe. Delmonte, 317",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedesobral.com.br/regioes-episcopais/coreau/",
+       "title": "Região Episcopal Vale do Coreaú — Diocese de Sobral",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-da-conceicao-meruoca",
+   "name": "Paróquia Nossa Senhora da Conceição",
+   "city": "Meruoca",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Praça Mons. Diogo, 62",
+   "zipCode": "62130-000",
+   "phone": "(88) 3649-1131",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Fábio Soares Duarte",
+   "foundedYear": 1879,
+   "sources": [
+    {
+     "url": "https://diocesedesobral.com.br/regioes-episcopais/coreau/",
+     "title": "Região Episcopal Vale do Coreaú — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://diocesedesobral.com.br/dom-jose-luiz-gomes-de-vasconcelos-2/clero/incardinados-residentes/",
+     "title": "Clero — Incardinados residentes — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/search.php?uf=CE&cidade=sobral&opcoes=cidade_opcoes",
+     "title": "Horário de Missa — Sobral/CE",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora da Conceição",
+     "address": "Praça Mons. Diogo, 62",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedesobral.com.br/regioes-episcopais/coreau/",
+       "title": "Região Episcopal Vale do Coreaú — Diocese de Sobral",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-da-conceicao-moraujo",
+   "name": "Paróquia Nossa Senhora da Conceição",
+   "city": "Moraújo",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Rua Francisco Saturnino, 66",
+   "zipCode": "62480-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. João Batista Oliveira",
+   "foundedYear": 2009,
+   "sources": [
+    {
+     "url": "https://diocesedesobral.com.br/regioes-episcopais/coreau/",
+     "title": "Região Episcopal Vale do Coreaú — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://diocesedesobral.com.br/dom-jose-luiz-gomes-de-vasconcelos-2/clero/incardinados-residentes/",
+     "title": "Clero — Incardinados residentes — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora da Conceição",
+     "address": "Rua Francisco Saturnino, 66",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedesobral.com.br/regioes-episcopais/coreau/",
+       "title": "Região Episcopal Vale do Coreaú — Diocese de Sobral",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-da-conceicao-martinopole",
+   "name": "Paróquia Nossa Senhora da Conceição",
+   "city": "Martinópole",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Rua Miguel Nicodemos, 103",
+   "zipCode": "62450-000",
+   "phone": "(88) 3624-1344",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. José Elmir Gomes",
+   "foundedYear": 1946,
+   "sources": [
+    {
+     "url": "https://diocesedesobral.com.br/regioes-episcopais/coreau/",
+     "title": "Região Episcopal Vale do Coreaú — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://diocesedesobral.com.br/dom-jose-luiz-gomes-de-vasconcelos-2/clero/incardinados-residentes/",
+     "title": "Clero — Incardinados residentes — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/search.php?uf=CE&cidade=sobral&opcoes=cidade_opcoes",
+     "title": "Horário de Missa — Sobral/CE",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora da Conceição",
+     "address": "Rua Miguel Nicodemos, 103",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedesobral.com.br/regioes-episcopais/coreau/",
+       "title": "Região Episcopal Vale do Coreaú — Diocese de Sobral",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-do-livramento-uruoca",
+   "name": "Paróquia Nossa Senhora do Livramento",
+   "city": "Uruoca",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Av. Antônio Moreira, 346",
+   "zipCode": "62460-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Emídio Moura Gomes",
+   "foundedYear": 2008,
+   "sources": [
+    {
+     "url": "https://diocesedesobral.com.br/regioes-episcopais/coreau/",
+     "title": "Região Episcopal Vale do Coreaú — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://diocesedesobral.com.br/dom-jose-luiz-gomes-de-vasconcelos-2/clero/incardinados-residentes/",
+     "title": "Clero — Incardinados residentes — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora do Livramento",
+     "address": "Av. Antônio Moreira, 346",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedesobral.com.br/regioes-episcopais/coreau/",
+       "title": "Região Episcopal Vale do Coreaú — Diocese de Sobral",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-do-perpetuo-socorro-alcantaras",
+   "name": "Paróquia Nossa Senhora do Perpétuo Socorro",
+   "city": "Alcântaras",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Rua Antunino Cunha, s/n",
+   "zipCode": "62120-000",
+   "phone": "(88) 3640-1059",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. José Lucione Queiroz Holanda",
+   "foundedYear": 2006,
+   "sources": [
+    {
+     "url": "https://diocesedesobral.com.br/regioes-episcopais/coreau/",
+     "title": "Região Episcopal Vale do Coreaú — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://diocesedesobral.com.br/dom-jose-luiz-gomes-de-vasconcelos-2/clero/incardinados-residentes/",
+     "title": "Clero — Incardinados residentes — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/search.php?uf=CE&cidade=sobral&opcoes=cidade_opcoes",
+     "title": "Horário de Missa — Sobral/CE",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora do Perpétuo Socorro",
+     "address": "Rua Antunino Cunha, s/n",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedesobral.com.br/regioes-episcopais/coreau/",
+       "title": "Região Episcopal Vale do Coreaú — Diocese de Sobral",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-do-perpetuo-socorro-massape",
+   "name": "Paróquia Nossa Senhora do Perpétuo Socorro",
+   "city": "Massapê",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Praça da Matriz, s/n",
+   "zipCode": "62140-000",
+   "phone": "(88) 3643-1004",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Emanuel Franklin Leitão Júnior",
+   "foundedYear": 1911,
+   "sources": [
+    {
+     "url": "https://diocesedesobral.com.br/regioes-episcopais/coreau/",
+     "title": "Região Episcopal Vale do Coreaú — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://diocesedesobral.com.br/dom-jose-luiz-gomes-de-vasconcelos-2/clero/incardinados-residentes/",
+     "title": "Clero — Incardinados residentes — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/search.php?uf=CE&cidade=sobral&opcoes=cidade_opcoes",
+     "title": "Horário de Missa — Sobral/CE",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora do Perpétuo Socorro",
+     "address": "Praça da Matriz, s/n",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedesobral.com.br/regioes-episcopais/coreau/",
+       "title": "Região Episcopal Vale do Coreaú — Diocese de Sobral",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=CE&cidade=sobral&opcoes=cidade_opcoes",
+       "title": "Horário de Missa — Sobral/CE",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=CE&cidade=sobral&opcoes=cidade_opcoes",
+       "title": "Horário de Missa — Sobral/CE",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+     "dayOfWeek": 2,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=CE&cidade=sobral&opcoes=cidade_opcoes",
+       "title": "Horário de Missa — Sobral/CE",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+     "dayOfWeek": 3,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=CE&cidade=sobral&opcoes=cidade_opcoes",
+       "title": "Horário de Missa — Sobral/CE",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=CE&cidade=sobral&opcoes=cidade_opcoes",
+       "title": "Horário de Missa — Sobral/CE",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+     "dayOfWeek": 6,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=CE&cidade=sobral&opcoes=cidade_opcoes",
+       "title": "Horário de Missa — Sobral/CE",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-da-piedade-coreau",
+   "name": "Paróquia Nossa Senhora da Piedade",
+   "city": "Coreaú",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Praça da Matriz, 202",
+   "zipCode": "62160-000",
+   "phone": "(88) 3645-1239",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Fábio Sousa Barbosa",
+   "foundedYear": 1868,
+   "sources": [
+    {
+     "url": "https://diocesedesobral.com.br/regioes-episcopais/coreau/",
+     "title": "Região Episcopal Vale do Coreaú — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://diocesedesobral.com.br/dom-jose-luiz-gomes-de-vasconcelos-2/clero/incardinados-residentes/",
+     "title": "Clero — Incardinados residentes — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/search.php?uf=CE&cidade=sobral&opcoes=cidade_opcoes",
+     "title": "Horário de Missa — Sobral/CE",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora da Piedade",
+     "address": "Praça da Matriz, 202",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedesobral.com.br/regioes-episcopais/coreau/",
+       "title": "Região Episcopal Vale do Coreaú — Diocese de Sobral",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-da-saude-frecheirinha",
+   "name": "Paróquia Nossa Senhora da Saúde",
+   "city": "Frecheirinha",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Rua Tenente Eufrásio, 619",
+   "zipCode": "62340-000",
+   "phone": "(88) 3611-2495",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Francisco Júlio Nascimento",
+   "foundedYear": 1950,
+   "sources": [
+    {
+     "url": "https://diocesedesobral.com.br/regioes-episcopais/coreau/",
+     "title": "Região Episcopal Vale do Coreaú — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://diocesedesobral.com.br/dom-jose-luiz-gomes-de-vasconcelos-2/clero/incardinados-residentes/",
+     "title": "Clero — Incardinados residentes — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/search.php?uf=CE&cidade=sobral&opcoes=cidade_opcoes",
+     "title": "Horário de Missa — Sobral/CE",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora da Saúde",
+     "address": "Rua Tenente Eufrásio, 619",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedesobral.com.br/regioes-episcopais/coreau/",
+       "title": "Região Episcopal Vale do Coreaú — Diocese de Sobral",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "senhora-sant-ana-mucambo",
+   "name": "Paróquia Senhora Sant’Ana",
+   "city": "Mucambo",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Praça Santana, 45",
+   "zipCode": "62170-000",
+   "phone": "(88) 3654-1132",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Luiz César Silvino Evangelista",
+   "foundedYear": 1951,
+   "sources": [
+    {
+     "url": "https://diocesedesobral.com.br/regioes-episcopais/coreau/",
+     "title": "Região Episcopal Vale do Coreaú — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://diocesedesobral.com.br/dom-jose-luiz-gomes-de-vasconcelos-2/clero/incardinados-residentes/",
+     "title": "Clero — Incardinados residentes — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/search.php?uf=CE&cidade=sobral&opcoes=cidade_opcoes",
+     "title": "Horário de Missa — Sobral/CE",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Senhora Sant’Ana",
+     "address": "Praça Santana, 45",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedesobral.com.br/regioes-episcopais/coreau/",
+       "title": "Região Episcopal Vale do Coreaú — Diocese de Sobral",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "sao-joao-batista-pacuja",
+   "name": "Paróquia São João Batista",
+   "city": "Pacujá",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Av. Dracon Barreto, 159",
+   "zipCode": "62180-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. João Jesuíno Marques",
+   "foundedYear": 2009,
+   "sources": [
+    {
+     "url": "https://diocesedesobral.com.br/regioes-episcopais/coreau/",
+     "title": "Região Episcopal Vale do Coreaú — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://diocesedesobral.com.br/dom-jose-luiz-gomes-de-vasconcelos-2/clero/incardinados-residentes/",
+     "title": "Clero — Incardinados residentes — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz São João Batista",
+     "address": "Av. Dracon Barreto, 159",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedesobral.com.br/regioes-episcopais/coreau/",
+       "title": "Região Episcopal Vale do Coreaú — Diocese de Sobral",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "sao-luiz-gonzaga-massape",
+   "name": "Paróquia São Luiz Gonzaga",
+   "city": "Massapê",
+   "state": "CE",
+   "neighborhood": "Padre Linhares (distrito)",
+   "address": "Rua Principal, s/n – Centro",
+   "zipCode": "62140-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Samoel Pereira de Melo",
+   "foundedYear": 2017,
+   "sources": [
+    {
+     "url": "https://diocesedesobral.com.br/regioes-episcopais/coreau/",
+     "title": "Região Episcopal Vale do Coreaú — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://diocesedesobral.com.br/dom-jose-luiz-gomes-de-vasconcelos-2/clero/incardinados-residentes/",
+     "title": "Clero — Incardinados residentes — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz São Luiz Gonzaga",
+     "address": "Rua Principal, s/n – Centro",
+     "neighborhood": "Padre Linhares (distrito)",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedesobral.com.br/regioes-episcopais/coreau/",
+       "title": "Região Episcopal Vale do Coreaú — Diocese de Sobral",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "sao-francisco-sobral",
+   "name": "Área Pastoral de São Francisco",
+   "city": "Sobral",
+   "state": "CE",
+   "neighborhood": "Rafael Arruda (distrito)",
+   "address": "Rua José Alfredo Arruda, s/n",
+   "zipCode": "62113-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Francisco Eufrázio Pontes Ribeiro",
+   "foundedYear": 2013,
+   "sources": [
+    {
+     "url": "https://diocesedesobral.com.br/regioes-episcopais/coreau/",
+     "title": "Região Episcopal Vale do Coreaú — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    },
+    {
+     "url": "https://diocesedesobral.com.br/dom-jose-luiz-gomes-de-vasconcelos-2/clero/incardinados-residentes/",
+     "title": "Clero — Incardinados residentes — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz São Francisco",
+     "address": "Rua José Alfredo Arruda, s/n",
+     "neighborhood": "Rafael Arruda (distrito)",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedesobral.com.br/regioes-episcopais/coreau/",
+       "title": "Região Episcopal Vale do Coreaú — Diocese de Sobral",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "sao-francisco-de-assis-sobral",
+   "name": "Santuário São Francisco de Assis",
+   "city": "Sobral",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Rua Dr. João do Monte, 678",
+   "zipCode": "62010-999",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedesobral.com.br/regioes-episcopais/santuarios/",
+     "title": "Santuários — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Santuário São Francisco de Assis",
+     "address": "Rua Dr. João do Monte, 678",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedesobral.com.br/regioes-episcopais/santuarios/",
+       "title": "Santuários — Diocese de Sobral",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Santuário São Francisco de Assis",
+     "dayOfWeek": 0,
+     "time": "06:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/locais-e-horarios-de-missas-em-sobral/",
+       "title": "Locais e Horários de Missas em Sobral — Paróquia Santa Luzia (atualizado 31/01/2025)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=CE&cidade=sobral&opcoes=cidade_opcoes",
+       "title": "Horário de Missa — Sobral/CE",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Santuário São Francisco de Assis",
+     "dayOfWeek": 0,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/locais-e-horarios-de-missas-em-sobral/",
+       "title": "Locais e Horários de Missas em Sobral — Paróquia Santa Luzia (atualizado 31/01/2025)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=CE&cidade=sobral&opcoes=cidade_opcoes",
+       "title": "Horário de Missa — Sobral/CE",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Santuário São Francisco de Assis",
+     "dayOfWeek": 0,
+     "time": "10:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/locais-e-horarios-de-missas-em-sobral/",
+       "title": "Locais e Horários de Missas em Sobral — Paróquia Santa Luzia (atualizado 31/01/2025)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=CE&cidade=sobral&opcoes=cidade_opcoes",
+       "title": "Horário de Missa — Sobral/CE",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Santuário São Francisco de Assis",
+     "dayOfWeek": 0,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/locais-e-horarios-de-missas-em-sobral/",
+       "title": "Locais e Horários de Missas em Sobral — Paróquia Santa Luzia (atualizado 31/01/2025)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=CE&cidade=sobral&opcoes=cidade_opcoes",
+       "title": "Horário de Missa — Sobral/CE",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Santuário São Francisco de Assis",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/locais-e-horarios-de-missas-em-sobral/",
+       "title": "Locais e Horários de Missas em Sobral — Paróquia Santa Luzia (atualizado 31/01/2025)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=CE&cidade=sobral&opcoes=cidade_opcoes",
+       "title": "Horário de Missa — Sobral/CE",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Santuário São Francisco de Assis",
+     "dayOfWeek": 1,
+     "time": "06:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/locais-e-horarios-de-missas-em-sobral/",
+       "title": "Locais e Horários de Missas em Sobral — Paróquia Santa Luzia (atualizado 31/01/2025)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=CE&cidade=sobral&opcoes=cidade_opcoes",
+       "title": "Horário de Missa — Sobral/CE",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Santuário São Francisco de Assis",
+     "dayOfWeek": 1,
+     "time": "17:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/locais-e-horarios-de-missas-em-sobral/",
+       "title": "Locais e Horários de Missas em Sobral — Paróquia Santa Luzia (atualizado 31/01/2025)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=CE&cidade=sobral&opcoes=cidade_opcoes",
+       "title": "Horário de Missa — Sobral/CE",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Santuário São Francisco de Assis",
+     "dayOfWeek": 2,
+     "time": "06:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/locais-e-horarios-de-missas-em-sobral/",
+       "title": "Locais e Horários de Missas em Sobral — Paróquia Santa Luzia (atualizado 31/01/2025)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=CE&cidade=sobral&opcoes=cidade_opcoes",
+       "title": "Horário de Missa — Sobral/CE",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Santuário São Francisco de Assis",
+     "dayOfWeek": 2,
+     "time": "17:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/locais-e-horarios-de-missas-em-sobral/",
+       "title": "Locais e Horários de Missas em Sobral — Paróquia Santa Luzia (atualizado 31/01/2025)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=CE&cidade=sobral&opcoes=cidade_opcoes",
+       "title": "Horário de Missa — Sobral/CE",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Santuário São Francisco de Assis",
+     "dayOfWeek": 3,
+     "time": "06:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/locais-e-horarios-de-missas-em-sobral/",
+       "title": "Locais e Horários de Missas em Sobral — Paróquia Santa Luzia (atualizado 31/01/2025)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=CE&cidade=sobral&opcoes=cidade_opcoes",
+       "title": "Horário de Missa — Sobral/CE",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Santuário São Francisco de Assis",
+     "dayOfWeek": 3,
+     "time": "17:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/locais-e-horarios-de-missas-em-sobral/",
+       "title": "Locais e Horários de Missas em Sobral — Paróquia Santa Luzia (atualizado 31/01/2025)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=CE&cidade=sobral&opcoes=cidade_opcoes",
+       "title": "Horário de Missa — Sobral/CE",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Santuário São Francisco de Assis",
+     "dayOfWeek": 4,
+     "time": "06:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/locais-e-horarios-de-missas-em-sobral/",
+       "title": "Locais e Horários de Missas em Sobral — Paróquia Santa Luzia (atualizado 31/01/2025)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=CE&cidade=sobral&opcoes=cidade_opcoes",
+       "title": "Horário de Missa — Sobral/CE",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Santuário São Francisco de Assis",
+     "dayOfWeek": 4,
+     "time": "17:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/locais-e-horarios-de-missas-em-sobral/",
+       "title": "Locais e Horários de Missas em Sobral — Paróquia Santa Luzia (atualizado 31/01/2025)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=CE&cidade=sobral&opcoes=cidade_opcoes",
+       "title": "Horário de Missa — Sobral/CE",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Santuário São Francisco de Assis",
+     "dayOfWeek": 5,
+     "time": "06:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/locais-e-horarios-de-missas-em-sobral/",
+       "title": "Locais e Horários de Missas em Sobral — Paróquia Santa Luzia (atualizado 31/01/2025)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=CE&cidade=sobral&opcoes=cidade_opcoes",
+       "title": "Horário de Missa — Sobral/CE",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Santuário São Francisco de Assis",
+     "dayOfWeek": 5,
+     "time": "17:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/locais-e-horarios-de-missas-em-sobral/",
+       "title": "Locais e Horários de Missas em Sobral — Paróquia Santa Luzia (atualizado 31/01/2025)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=CE&cidade=sobral&opcoes=cidade_opcoes",
+       "title": "Horário de Missa — Sobral/CE",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Santuário São Francisco de Assis",
+     "dayOfWeek": 6,
+     "time": "06:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/locais-e-horarios-de-missas-em-sobral/",
+       "title": "Locais e Horários de Missas em Sobral — Paróquia Santa Luzia (atualizado 31/01/2025)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=CE&cidade=sobral&opcoes=cidade_opcoes",
+       "title": "Horário de Missa — Sobral/CE",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Santuário São Francisco de Assis",
+     "dayOfWeek": 6,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/locais-e-horarios-de-missas-em-sobral/",
+       "title": "Locais e Horários de Missas em Sobral — Paróquia Santa Luzia (atualizado 31/01/2025)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=CE&cidade=sobral&opcoes=cidade_opcoes",
+       "title": "Horário de Missa — Sobral/CE",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Santuário São Francisco de Assis",
+     "dayOfWeek": 6,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santaluziasobral.com/locais-e-horarios-de-missas-em-sobral/",
+       "title": "Locais e Horários de Missas em Sobral — Paróquia Santa Luzia (atualizado 31/01/2025)",
+       "accessedAt": "2026-09-11"
+      },
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=CE&cidade=sobral&opcoes=cidade_opcoes",
+       "title": "Horário de Missa — Sobral/CE",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Santuário São Francisco de Assis",
+     "dayOfWeek": 1,
+     "time": "16:30",
+     "type": "CONFESSION",
+     "notes": "Segunda a sexta, 16h30 às 17h30",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=CE&cidade=sobral&opcoes=cidade_opcoes",
+       "title": "Horário de Missa — Sobral/CE",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Santuário São Francisco de Assis",
+     "dayOfWeek": 2,
+     "time": "16:30",
+     "type": "CONFESSION",
+     "notes": "Segunda a sexta, 16h30 às 17h30",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=CE&cidade=sobral&opcoes=cidade_opcoes",
+       "title": "Horário de Missa — Sobral/CE",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Santuário São Francisco de Assis",
+     "dayOfWeek": 3,
+     "time": "16:30",
+     "type": "CONFESSION",
+     "notes": "Segunda a sexta, 16h30 às 17h30",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=CE&cidade=sobral&opcoes=cidade_opcoes",
+       "title": "Horário de Missa — Sobral/CE",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Santuário São Francisco de Assis",
+     "dayOfWeek": 4,
+     "time": "16:30",
+     "type": "CONFESSION",
+     "notes": "Segunda a sexta, 16h30 às 17h30",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=CE&cidade=sobral&opcoes=cidade_opcoes",
+       "title": "Horário de Missa — Sobral/CE",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Santuário São Francisco de Assis",
+     "dayOfWeek": 5,
+     "time": "16:30",
+     "type": "CONFESSION",
+     "notes": "Segunda a sexta, 16h30 às 17h30",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/search.php?uf=CE&cidade=sobral&opcoes=cidade_opcoes",
+       "title": "Horário de Missa — Sobral/CE",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "media"
+    }
+   ],
+   "status": "nao-paroquial",
+   "loadAsParish": true
+  },
+  {
+   "slug": "sao-bento-sobral",
+   "name": "Santuário Diocesano São Bento",
+   "city": "Sobral",
+   "state": "CE",
+   "neighborhood": "Comunidade Lagoa Queimada",
+   "address": "Comunidade Lagoa Queimada, s/n (Fazenda da Esperança)",
+   "zipCode": "62104-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedesobral.com.br/regioes-episcopais/santuarios/",
+     "title": "Santuários — Diocese de Sobral",
+     "accessedAt": "2026-09-11"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Santuário Diocesano São Bento",
+     "address": "Comunidade Lagoa Queimada, s/n (Fazenda da Esperança)",
+     "neighborhood": "Comunidade Lagoa Queimada",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedesobral.com.br/regioes-episcopais/santuarios/",
+       "title": "Santuários — Diocese de Sobral",
+       "accessedAt": "2026-09-11"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [],
+   "status": "nao-paroquial",
+   "notes": "Santuário diocesano na Fazenda da Esperança; sem horário publicado."
+  }
+ ],
+ "coverage": {
+  "parishesFound": 52,
+  "parishesExpected": 45,
+  "notes": "45 paróquias + 5 áreas pastorais/missionárias (quase-paróquias) + 2 santuários diocesanos sem paróquia própria, exatamente como o site oficial da diocese publica (\"29 municípios com 45 Paróquias, 5 Áreas Pastorais e 4 Santuários Diocesanos\"). Os outros 3 santuários diocesanos (Sagrado Coração de Jesus/Marco, N. Sra. de Fátima/Aracatiaçu e Tabor da Mãe Rainha/Sobral) pertencem a paróquias e entraram como comunidades delas. Horários: a diocese não os publica; só a cidade de Sobral tem grade confiável."
+ }
+}
