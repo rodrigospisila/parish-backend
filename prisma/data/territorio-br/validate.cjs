@@ -49,7 +49,7 @@ function validateDioceseFile(file) {
       || (p.loadAsParish && p.status === 'nao-paroquial');
     const key = `${norm(p.name)}|${norm(p.city)}|${norm(p.neighborhood || p.address || '')}`;
     if (carrega) { if (seen.has(key)) warn(file, `paróquia duplicada: ${p.name} (${p.city}, ${p.neighborhood || p.address || 'sem bairro'})`); seen.add(key); }
-    if (/^(Capela|Igreja|Igrejinha|Capelania|Miss[ãa]o|Orat[óo]rio|Comunidade|Mosteiro|Convento|Monjas|Monges|Abadia|Carmelo|Semin[áa]rio|Setor Mission[áa]rio|Porci[úu]ncula|Centro (Diocesano|Pastoral|de))\b/i.test(p.name || '')) console.log(`  · ${path.basename(file)}: unidade não paroquial (${p.loadAsParish ? 'entra por loadAsParish' : 'o importador ignora'}): ${p.name}`);
+    if (/^(Capela|Igreja|Igrejinha|Capelania|Miss[ãa]o|Orat[óo]rio|Comunidade|Mosteiro|Convento|Monjas|Monges|Abadia|Carmelo|Semin[áa]rio|Setor Mission[áa]rio|Porci[úu]ncula|Centro (Diocesano|Pastoral|de)|Casa)\b/i.test(p.name || '')) console.log(`  · ${path.basename(file)}: unidade não paroquial (${p.loadAsParish ? 'entra por loadAsParish' : 'o importador ignora'}): ${p.name}`);
     // "Rede de Comunidades", "Área Pastoral/Missionária", "Unidade/Região Pastoral" e
     // "Curato" são unidades com pároco/curato próprio, equivalentes a paróquia (Rio
     // Grande, Mogi, São Miguel, Campo Limpo, S.J. do Rio Preto, BH, Mariana, Campanha)

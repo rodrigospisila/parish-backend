@@ -15888,7 +15888,8 @@
       "confidence": "alta",
       "communities": [],
       "schedules": [],
-      "notes": "Área pastoral da Arquidiocese de Natal administrada pela Diocese de Caicó (conforme a própria página da Arquidiocese)."
+      "notes": "Área pastoral da Arquidiocese de Natal administrada pela Diocese de Caicó (conforme a própria página da Arquidiocese). O registro completo — com endereço, telefone, e-mail e data de criação (04/02/2023) — está no arquivo RN/caico.json como \"Área Pastoral Autônoma São Pedro e de Santa Luzia\"; esta entrada fica marcada como duplicada para não carregar duas vezes.",
+      "status": "duplicada"
     },
     {
       "slug": "nossa-senhora-da-conceicao-guamare",
@@ -20060,7 +20061,7 @@
     }
   ],
   "coverage": {
-    "parishesFound": 129,
+    "parishesFound": 128,
     "parishesExpected": 127,
     "notes": "Lista completa extraída das 7 páginas de vicariato do site oficial da Arquidiocese (Urbano 1 e 2, Norte 1 e 2, Sul 1, 2 e 3): 129 unidades territoriais (paróquias + áreas pastorais) em 68 municípios, com endereço, CEP, telefone e e-mail. A Arquidiocese descreve-se como tendo 124 paróquias e 3 áreas pastorais; as páginas listam 123 paróquias e 4 áreas pastorais. Horários: as duas páginas oficiais 'Horários de Missa' cobrem 59 matrizes (só dos vicariatos Urbano 1 e 2); o missas.com.br cobre 65 paróquias em 23 municípios, com data de verificação e fonte declarada. 784 horários no total; 85 comunidades/capelas vieram do missas.com.br."
   }

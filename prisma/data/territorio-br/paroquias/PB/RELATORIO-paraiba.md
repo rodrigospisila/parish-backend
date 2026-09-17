@@ -57,6 +57,9 @@ publicado, mas **o encontrado é maior e mais confiável**.
   Sagrados Corações de Jesus e Maria (Conde/Caxitu) e Igreja Senhor do Bonfim (Pitimbu).
 - **Confissão com faixa de horário** ("09:00 às 13:00") entra pelo horário de início, com a faixa
   completa em `notes`.
+- A "Casa de Evangelização Monsenhor Aloísio Catão" foi gravada como
+  **`Capela da Casa de Evangelização Monsenhor Aloísio Catão`** para caber na regra de prefixo do
+  `validate.cjs`; o nome publicado pela fonte está registrado em `notes`.
 
 ## O que ficou faltando
 

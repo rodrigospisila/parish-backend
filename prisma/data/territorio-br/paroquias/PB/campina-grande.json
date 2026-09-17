@@ -1,0 +1,3908 @@
+{
+  "diocese": {
+    "name": "Diocese de Campina Grande",
+    "type": "Diocese",
+    "slug": "campina-grande",
+    "city": "Campina Grande",
+    "state": "PB",
+    "address": "Cúria Diocesana — Rua Afonso Campos, 251, Centro",
+    "zipCode": "58400-235",
+    "phone": "(83) 3321-4199",
+    "email": null,
+    "website": "https://diocesecg.org",
+    "bishopName": "Dom Dulcênio Fontes de Matos",
+    "sources": [
+      {
+        "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+        "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+        "accessedAt": "2026-09-11"
+      },
+      {
+        "url": "https://diocesecg.org/pagina/curia-diocesana",
+        "title": "Cúria Diocesana | Diocese de Campina Grande",
+        "accessedAt": "2026-09-11"
+      }
+    ],
+    "confidence": "alta"
+  },
+  "parishes": [
+    {
+      "slug": "catedral-nossa-senhora-da-conceicao-campina-grande",
+      "name": "Catedral Nossa Senhora da Conceição",
+      "city": "Campina Grande",
+      "state": "PB",
+      "neighborhood": "Centro",
+      "address": "Av. Floriano Peixoto, S/N",
+      "zipCode": "58400-165",
+      "phone": "(83) 3321-3140",
+      "email": "catedralcg@gmail.com",
+      "website": "http://www.catedralcg.org.br",
+      "priestName": "Pe. Luciano Guedes da Silva",
+      "foundedYear": 1769,
+      "forania": "Forania Cidade Leste",
+      "sources": [
+        {
+          "url": "https://diocesecg.org/pagina/forania-cidade-leste",
+          "title": "Forania Cidade Leste | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+          "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/igreja.php?k=QST9i",
+          "title": "Horário de Missa — Catedral Diocesana Nossa Senhora da Conceição",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "10:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=QST9i",
+              "title": "Horário de Missa — Catedral Diocesana Nossa Senhora da Conceição",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=QST9i",
+              "title": "Horário de Missa — Catedral Diocesana Nossa Senhora da Conceição",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=QST9i",
+              "title": "Horário de Missa — Catedral Diocesana Nossa Senhora da Conceição",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 2,
+          "time": "12:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=QST9i",
+              "title": "Horário de Missa — Catedral Diocesana Nossa Senhora da Conceição",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 2,
+          "time": "17:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=QST9i",
+              "title": "Horário de Missa — Catedral Diocesana Nossa Senhora da Conceição",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "12:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=QST9i",
+              "title": "Horário de Missa — Catedral Diocesana Nossa Senhora da Conceição",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "17:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=QST9i",
+              "title": "Horário de Missa — Catedral Diocesana Nossa Senhora da Conceição",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "12:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=QST9i",
+              "title": "Horário de Missa — Catedral Diocesana Nossa Senhora da Conceição",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "17:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=QST9i",
+              "title": "Horário de Missa — Catedral Diocesana Nossa Senhora da Conceição",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "12:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=QST9i",
+              "title": "Horário de Missa — Catedral Diocesana Nossa Senhora da Conceição",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "17:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=QST9i",
+              "title": "Horário de Missa — Catedral Diocesana Nossa Senhora da Conceição",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=QST9i",
+              "title": "Horário de Missa — Catedral Diocesana Nossa Senhora da Conceição",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "15:30",
+          "type": "CONFESSION",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=QST9i",
+              "title": "Horário de Missa — Catedral Diocesana Nossa Senhora da Conceição",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "santo-antonio-campina-grande",
+      "name": "Paróquia Santo Antônio",
+      "city": "Campina Grande",
+      "state": "PB",
+      "neighborhood": "Santo Antônio",
+      "address": "Rua Santo Antônio, S/N",
+      "zipCode": "58406-025",
+      "phone": "(83) 3321-2574",
+      "email": "psantoantoniocg@gmail.com",
+      "website": null,
+      "priestName": "Pe. José Alexandre Moreira",
+      "foundedYear": 1962,
+      "forania": "Forania Cidade Leste",
+      "sources": [
+        {
+          "url": "https://diocesecg.org/pagina/forania-cidade-leste",
+          "title": "Forania Cidade Leste | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+          "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-joao-maria-vianney-e-sao-sebastiao-campina-grande",
+      "name": "Paróquia São João Maria Vianney e São Sebastião",
+      "city": "Campina Grande",
+      "state": "PB",
+      "neighborhood": "Alto Branco",
+      "address": "Rua Estelita Cruz, 2300",
+      "zipCode": "58401-470",
+      "phone": "(83) 3341-1790, (83) 3343-4226",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Leandro Márcio de Normândia",
+      "foundedYear": 2006,
+      "forania": "Forania Cidade Leste",
+      "sources": [
+        {
+          "url": "https://diocesecg.org/pagina/forania-cidade-leste",
+          "title": "Forania Cidade Leste | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+          "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/igreja.php?k=UjvrY",
+          "title": "Horário de Missa — Paróquia São Sebastião e São João Maria Vianney - Seminário",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": "08:00 (Capela do Seminário)",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=UjvrY",
+              "title": "Horário de Missa — Paróquia São Sebastião e São João Maria Vianney - Seminário",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=UjvrY",
+              "title": "Horário de Missa — Paróquia São Sebastião e São João Maria Vianney - Seminário",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=UjvrY",
+              "title": "Horário de Missa — Paróquia São Sebastião e São João Maria Vianney - Seminário",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "19:30 (Capela do Seminário)",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=UjvrY",
+              "title": "Horário de Missa — Paróquia São Sebastião e São João Maria Vianney - Seminário",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "sao-jose-jose-pinheiro-campina-grande",
+      "name": "Paróquia São José",
+      "city": "Campina Grande",
+      "state": "PB",
+      "neighborhood": "José Pinheiro",
+      "address": "Rua Campos Sales, 623",
+      "zipCode": "58407-450",
+      "phone": "(83) 3322-2970",
+      "email": "psaojosecg@yahoo.com.br",
+      "website": null,
+      "priestName": "Pe. Henrique Benjamim Pereira Nascimento, SCJ",
+      "foundedYear": 1951,
+      "forania": "Forania Cidade Leste",
+      "sources": [
+        {
+          "url": "https://diocesecg.org/pagina/forania-cidade-leste",
+          "title": "Forania Cidade Leste | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+          "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-judas-tadeu-campina-grande",
+      "name": "Paróquia São Judas Tadeu",
+      "city": "Campina Grande",
+      "state": "PB",
+      "neighborhood": "Nações",
+      "address": "Rua Benedito Mota, 100",
+      "zipCode": "58401-718",
+      "phone": "(83) 3201-2078",
+      "email": "paroquia.saojudas@hotmail.com",
+      "website": null,
+      "priestName": "Pe. José Vanildo",
+      "foundedYear": 2009,
+      "forania": "Forania Cidade Leste",
+      "sources": [
+        {
+          "url": "https://diocesecg.org/pagina/forania-cidade-leste",
+          "title": "Forania Cidade Leste | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+          "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "imaculado-coracao-de-maria-e-sagrado-coracao-de-jesus-campina-grande",
+      "name": "Paróquia Imaculado Coração de Maria e Sagrado Coração de Jesus",
+      "city": "Campina Grande",
+      "state": "PB",
+      "neighborhood": "Monte Castelo",
+      "address": "Rua Gonçalves Dias, S/N",
+      "zipCode": "58407-060",
+      "phone": "(83) 3065-5705",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Josandro de Macedo Félix",
+      "foundedYear": 2009,
+      "forania": "Forania Cidade Leste",
+      "sources": [
+        {
+          "url": "https://diocesecg.org/pagina/forania-cidade-leste",
+          "title": "Forania Cidade Leste | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+          "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "santa-teresinha-massaranduba",
+      "name": "Paróquia Santa Teresinha",
+      "city": "Massaranduba",
+      "state": "PB",
+      "neighborhood": "Centro",
+      "address": "Rua José Benício, 67",
+      "zipCode": "58120-000",
+      "phone": "(83) 3399-1108",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Antoniel Batista",
+      "foundedYear": 2000,
+      "forania": "Forania Cidade Leste",
+      "sources": [
+        {
+          "url": "https://diocesecg.org/pagina/forania-cidade-leste",
+          "title": "Forania Cidade Leste | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+          "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-de-fatima-campina-grande",
+      "name": "Paróquia Nossa Senhora de Fátima",
+      "city": "Campina Grande",
+      "state": "PB",
+      "neighborhood": "Palmeira",
+      "address": "Rua Ana Azevedo, S/N",
+      "zipCode": "58401-093",
+      "phone": "(83) 3321-0799",
+      "email": null,
+      "website": "http://www.paroquiadefatimacg.com.br/",
+      "priestName": "Pe. Haroldo Andrade",
+      "foundedYear": 1991,
+      "forania": "Forania Cidade Norte",
+      "sources": [
+        {
+          "url": "https://diocesecg.org/pagina/forania-cidade-norte",
+          "title": "Forania Cidade Norte | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+          "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/igreja.php?k=Yfgno",
+          "title": "Horário de Missa — Paróquia Nossa Senhora de Fátima",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=Yfgno",
+              "title": "Horário de Missa — Paróquia Nossa Senhora de Fátima",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=Yfgno",
+              "title": "Horário de Missa — Paróquia Nossa Senhora de Fátima",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 2,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=Yfgno",
+              "title": "Horário de Missa — Paróquia Nossa Senhora de Fátima",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=Yfgno",
+              "title": "Horário de Missa — Paróquia Nossa Senhora de Fátima",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=Yfgno",
+              "title": "Horário de Missa — Paróquia Nossa Senhora de Fátima",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=Yfgno",
+              "title": "Horário de Missa — Paróquia Nossa Senhora de Fátima",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "14:30",
+          "type": "CONFESSION",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=Yfgno",
+              "title": "Horário de Missa — Paróquia Nossa Senhora de Fátima",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "14:30",
+          "type": "CONFESSION",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=Yfgno",
+              "title": "Horário de Missa — Paróquia Nossa Senhora de Fátima",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "14:30",
+          "type": "CONFESSION",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=Yfgno",
+              "title": "Horário de Missa — Paróquia Nossa Senhora de Fátima",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "santuario-divina-misericordia-campina-grande",
+      "name": "Santuário Diocesano Divina Misericórdia",
+      "city": "Campina Grande",
+      "state": "PB",
+      "neighborhood": "Bairro Cuités",
+      "address": "Rua Avenida Paris, 2200",
+      "zipCode": "58401-718",
+      "phone": "(83) 3322-5864",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Paulo Sérgio Araújo Gouveia",
+      "foundedYear": null,
+      "forania": "Forania Cidade Norte",
+      "sources": [
+        {
+          "url": "https://diocesecg.org/pagina/forania-cidade-norte",
+          "title": "Forania Cidade Norte | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+          "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-do-rosario-campina-grande",
+      "name": "Paróquia Nossa Senhora do Rosário",
+      "city": "Campina Grande",
+      "state": "PB",
+      "neighborhood": "Prata",
+      "address": "Rua Nilo Peçanha, S/N",
+      "zipCode": "58400-515",
+      "phone": "(83) 3321-3445, (83) 3342-4613",
+      "email": "sec.rosario@hotmail.com",
+      "website": "https://rosario.org.br",
+      "priestName": "Pe. José Hermes Fernandes de Macedo",
+      "foundedYear": 1940,
+      "forania": "Forania Cidade Norte",
+      "sources": [
+        {
+          "url": "https://diocesecg.org/pagina/forania-cidade-norte",
+          "title": "Forania Cidade Norte | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+          "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/igreja.php?k=5Oh9g",
+          "title": "Horário de Missa — Paróquia Nossa Senhora do Rosário",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "07:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=5Oh9g",
+              "title": "Horário de Missa — Paróquia Nossa Senhora do Rosário",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "16:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=5Oh9g",
+              "title": "Horário de Missa — Paróquia Nossa Senhora do Rosário",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=5Oh9g",
+              "title": "Horário de Missa — Paróquia Nossa Senhora do Rosário",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 2,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=5Oh9g",
+              "title": "Horário de Missa — Paróquia Nossa Senhora do Rosário",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=5Oh9g",
+              "title": "Horário de Missa — Paróquia Nossa Senhora do Rosário",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=5Oh9g",
+              "title": "Horário de Missa — Paróquia Nossa Senhora do Rosário",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=5Oh9g",
+              "title": "Horário de Missa — Paróquia Nossa Senhora do Rosário",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=5Oh9g",
+              "title": "Horário de Missa — Paróquia Nossa Senhora do Rosário",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "15:00",
+          "type": "CONFESSION",
+          "notes": "15:00 às 17:00",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=5Oh9g",
+              "title": "Horário de Missa — Paróquia Nossa Senhora do Rosário",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "santa-rosa-de-lima-campina-grande",
+      "name": "Paróquia Santa Rosa de Lima",
+      "city": "Campina Grande",
+      "state": "PB",
+      "neighborhood": "Santa Rosa",
+      "address": "Rua do Sol, 1367",
+      "zipCode": "58416-540",
+      "phone": "(83) 3063-2470",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Douglas Junior",
+      "foundedYear": 2009,
+      "forania": "Forania Cidade Norte",
+      "sources": [
+        {
+          "url": "https://diocesecg.org/pagina/forania-cidade-norte",
+          "title": "Forania Cidade Norte | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+          "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-cristovao-campina-grande",
+      "name": "Paróquia São Cristóvão",
+      "city": "Campina Grande",
+      "state": "PB",
+      "neighborhood": "Centenário",
+      "address": "Rua Delmiro Gouveia, S/N",
+      "zipCode": "58428-016",
+      "phone": "(83) 3341-5584",
+      "email": "pascomsccg@gmail.com",
+      "website": null,
+      "priestName": "Pe. Antônio Nelson da Silva",
+      "foundedYear": 1960,
+      "forania": "Forania Cidade Norte",
+      "sources": [
+        {
+          "url": "https://diocesecg.org/pagina/forania-cidade-norte",
+          "title": "Forania Cidade Norte | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+          "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-francisco-de-assis-conceicao-campina-grande",
+      "name": "Paróquia São Francisco de Assis",
+      "city": "Campina Grande",
+      "state": "PB",
+      "neighborhood": "Conceição",
+      "address": "Rua São Francisco, 195",
+      "zipCode": "58401-279",
+      "phone": "(83) 3341-5429",
+      "email": "paroquiasaofranciscocg@yahoo.com",
+      "website": "http://paroquiasaofranciscocg.com.br/",
+      "priestName": "Frei Wellignton Reis",
+      "foundedYear": 1952,
+      "forania": "Forania Cidade Norte",
+      "sources": [
+        {
+          "url": "https://diocesecg.org/pagina/forania-cidade-norte",
+          "title": "Forania Cidade Norte | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+          "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/igreja.php?k=nJBcs",
+          "title": "Horário de Missa — Paróquia São Francisco de Assis",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=nJBcs",
+              "title": "Horário de Missa — Paróquia São Francisco de Assis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=nJBcs",
+              "title": "Horário de Missa — Paróquia São Francisco de Assis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=nJBcs",
+              "title": "Horário de Missa — Paróquia São Francisco de Assis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 2,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=nJBcs",
+              "title": "Horário de Missa — Paróquia São Francisco de Assis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=nJBcs",
+              "title": "Horário de Missa — Paróquia São Francisco de Assis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=nJBcs",
+              "title": "Horário de Missa — Paróquia São Francisco de Assis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 2,
+          "time": "08:00",
+          "type": "CONFESSION",
+          "notes": "08:00 às 11:00",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=nJBcs",
+              "title": "Horário de Missa — Paróquia São Francisco de Assis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 2,
+          "time": "14:00",
+          "type": "CONFESSION",
+          "notes": "14:00 às 17:00",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=nJBcs",
+              "title": "Horário de Missa — Paróquia São Francisco de Assis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "08:00",
+          "type": "CONFESSION",
+          "notes": "08:00 às 11:00",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=nJBcs",
+              "title": "Horário de Missa — Paróquia São Francisco de Assis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "14:00",
+          "type": "CONFESSION",
+          "notes": "14:00 às 17:00",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=nJBcs",
+              "title": "Horário de Missa — Paróquia São Francisco de Assis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "08:00",
+          "type": "CONFESSION",
+          "notes": "08:00 às 11:00",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=nJBcs",
+              "title": "Horário de Missa — Paróquia São Francisco de Assis",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "senhor-do-bonfim-puxinana",
+      "name": "Paróquia Senhor do Bonfim",
+      "city": "Puxinanã",
+      "state": "PB",
+      "neighborhood": "Distrito de Jenipapo",
+      "address": "Praça Frei Paulo, S/N",
+      "zipCode": "58115-000",
+      "phone": "(83) 99955-1918",
+      "email": "paroquiasenhordbonfim@gmail.com",
+      "website": null,
+      "priestName": "Padre Joseque Moysés Barbosa Vilela Borges",
+      "foundedYear": 2024,
+      "forania": "Forania Cidade Norte",
+      "sources": [
+        {
+          "url": "https://diocesecg.org/pagina/forania-cidade-norte",
+          "title": "Forania Cidade Norte | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+          "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sagrada-familia-campina-grande",
+      "name": "Paróquia Sagrada Família",
+      "city": "Campina Grande",
+      "state": "PB",
+      "neighborhood": "Conjunto Rocha Cavalcante",
+      "address": null,
+      "zipCode": "58423-215",
+      "phone": "(83) 3339-7330",
+      "email": "secretariasagradafamilia.cg@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Isaias Rodrigues dos Santos",
+      "foundedYear": 1999,
+      "forania": "Forania Cidade Oeste",
+      "sources": [
+        {
+          "url": "https://diocesecg.org/pagina/forania-cidade-oeste",
+          "title": "Forania Cidade Oeste | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+          "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-do-perpetuo-socorro-bodocongo-campina-grande",
+      "name": "Paróquia Nossa Senhora do Perpétuo Socorro",
+      "city": "Campina Grande",
+      "state": "PB",
+      "neighborhood": "Bodocongó",
+      "address": "Rua Aprígio Veloso, 1369",
+      "zipCode": "58430-380",
+      "phone": "(83) 3333-1640",
+      "email": "perpetuosocorro_bodocongo@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Bruno Câmara, CSSR",
+      "foundedYear": 1952,
+      "forania": "Forania Cidade Oeste",
+      "sources": [
+        {
+          "url": "https://diocesecg.org/pagina/forania-cidade-oeste",
+          "title": "Forania Cidade Oeste | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+          "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-jose-distrito-de-sao-jose-da-mata-campina-grande",
+      "name": "Paróquia São José",
+      "city": "Campina Grande",
+      "state": "PB",
+      "neighborhood": "Distrito de São José da Mata",
+      "address": null,
+      "zipCode": "58441-000",
+      "phone": "(83) 3314-1573",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Lúcio Flávio Falcão de Araújo",
+      "foundedYear": 2009,
+      "forania": "Forania Cidade Oeste",
+      "sources": [
+        {
+          "url": "https://diocesecg.org/pagina/forania-cidade-oeste",
+          "title": "Forania Cidade Oeste | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+          "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/igreja.php?k=QSO2V",
+          "title": "Horário de Missa — Paróquia de São José",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "07:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=QSO2V",
+              "title": "Horário de Missa — Paróquia de São José",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-aparecida-campina-grande",
+      "name": "Paróquia Nossa Senhora Aparecida",
+      "city": "Campina Grande",
+      "state": "PB",
+      "neighborhood": "Presidente Médici",
+      "address": "Rua Senador João Cavalcante de Arruda, 265",
+      "zipCode": "58417-580",
+      "phone": "(83) 2148-9562",
+      "email": "paroquiansacg@gmail.com",
+      "website": null,
+      "priestName": "Pe. Denis Alves de Lima, CRL",
+      "foundedYear": 2005,
+      "forania": "Forania Cidade Oeste",
+      "sources": [
+        {
+          "url": "https://diocesecg.org/pagina/forania-cidade-oeste",
+          "title": "Forania Cidade Oeste | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+          "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "jesus-libertador-campina-grande",
+      "name": "Paróquia Jesus Libertador",
+      "city": "Campina Grande",
+      "state": "PB",
+      "neighborhood": "Malvinas",
+      "address": "Rua José Moisés Medeiros Neto, 369",
+      "zipCode": "58433-124",
+      "phone": "(83) 3339-1230",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Daniel Araujo Linhares",
+      "foundedYear": 2016,
+      "forania": "Forania Cidade Oeste",
+      "sources": [
+        {
+          "url": "https://diocesecg.org/pagina/forania-cidade-oeste",
+          "title": "Forania Cidade Oeste | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+          "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/igreja.php?k=EmF4f",
+          "title": "Horário de Missa — Paróquia Jesus Libertador",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=EmF4f",
+              "title": "Horário de Missa — Paróquia Jesus Libertador",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=EmF4f",
+              "title": "Horário de Missa — Paróquia Jesus Libertador",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 2,
+          "time": "17:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=EmF4f",
+              "title": "Horário de Missa — Paróquia Jesus Libertador",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "17:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=EmF4f",
+              "title": "Horário de Missa — Paróquia Jesus Libertador",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "17:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=EmF4f",
+              "title": "Horário de Missa — Paróquia Jesus Libertador",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "17:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=EmF4f",
+              "title": "Horário de Missa — Paróquia Jesus Libertador",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 2,
+          "time": "15:00",
+          "type": "CONFESSION",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=EmF4f",
+              "title": "Horário de Missa — Paróquia Jesus Libertador",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "15:00",
+          "type": "CONFESSION",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=EmF4f",
+              "title": "Horário de Missa — Paróquia Jesus Libertador",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "15:00",
+          "type": "CONFESSION",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=EmF4f",
+              "title": "Horário de Missa — Paróquia Jesus Libertador",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "09:00",
+          "type": "CONFESSION",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=EmF4f",
+              "title": "Horário de Missa — Paróquia Jesus Libertador",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-das-dores-e-sao-lucas-campina-grande",
+      "name": "Paróquia Nossa Senhora das Dores e São Lucas",
+      "city": "Campina Grande",
+      "state": "PB",
+      "neighborhood": "Estreito",
+      "address": null,
+      "zipCode": "58400-970",
+      "phone": "(83) 3337-4329",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Eude Gomes Araújo",
+      "foundedYear": 2018,
+      "forania": "Forania Cidade Oeste",
+      "sources": [
+        {
+          "url": "https://diocesecg.org/pagina/forania-cidade-oeste",
+          "title": "Forania Cidade Oeste | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+          "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [],
+      "notes": "Comunidades citadas pela Diocese: Estreito, Lucas, Catolé de Zé Ferreira, Jardim Verdejante. O CEP 58400-970 é de caixa postal (Caixa Postal 327)."
+    },
+    {
+      "slug": "nossa-senhora-do-perpetuo-socorro-conjunto-acacio-figueiredo-campina-grande",
+      "name": "Paróquia Nossa Senhora do Perpétuo Socorro",
+      "city": "Campina Grande",
+      "state": "PB",
+      "neighborhood": "Conjunto Acácio Figueiredo",
+      "address": "Rua Manoel Batista, s/n",
+      "zipCode": "58427-560",
+      "phone": "(83) 3341-3003",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Rogério Epifânio Roque",
+      "foundedYear": null,
+      "forania": "Forania Cidade Oeste",
+      "sources": [
+        {
+          "url": "https://diocesecg.org/pagina/forania-cidade-oeste",
+          "title": "Forania Cidade Oeste | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+          "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [],
+      "notes": "Endereço para correspondência na página da Diocese: Rua João Bezerra Paz, 23 – Catolé, 58410-425."
+    },
+    {
+      "slug": "sao-pedro-campina-grande",
+      "name": "Paróquia São Pedro",
+      "city": "Campina Grande",
+      "state": "PB",
+      "neighborhood": "Conjunto Severino Cabral",
+      "address": "Rua Coronel João Figueiredo",
+      "zipCode": "58430-220",
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": "Padre Severino Firmino da Silva",
+      "foundedYear": null,
+      "forania": "Forania Cidade Oeste",
+      "sources": [
+        {
+          "url": "https://diocesecg.org/pagina/forania-cidade-oeste",
+          "title": "Forania Cidade Oeste | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+          "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "santissima-trindade-campina-grande",
+      "name": "Paróquia Santíssima Trindade",
+      "city": "Campina Grande",
+      "state": "PB",
+      "neighborhood": "Catolé",
+      "address": "Rua Raimundo Nonato de Araújo, 1100",
+      "zipCode": "58410-570",
+      "phone": "(83) 3337-7473",
+      "email": "secretaria@santissimatrindade.org",
+      "website": null,
+      "priestName": "Pe. Jorge Rodrigues",
+      "foundedYear": 2009,
+      "forania": "Forania Cidade Sul",
+      "sources": [
+        {
+          "url": "https://diocesecg.org/pagina/forania-cidade-sul",
+          "title": "Forania Cidade Sul | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+          "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-da-conceicao-campina-grande",
+      "name": "Paróquia Nossa Senhora da Conceição",
+      "city": "Campina Grande",
+      "state": "PB",
+      "neighborhood": "Distrito de Galante",
+      "address": null,
+      "zipCode": "58446-000",
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": "Pe. João Jorge Rietveld",
+      "foundedYear": 2012,
+      "forania": "Forania Cidade Sul",
+      "sources": [
+        {
+          "url": "https://diocesecg.org/pagina/forania-cidade-sul",
+          "title": "Forania Cidade Sul | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+          "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-das-gracas-campina-grande",
+      "name": "Paróquia Nossa Senhora das Graças",
+      "city": "Campina Grande",
+      "state": "PB",
+      "neighborhood": "Liberdade",
+      "address": "Rua Amazonas, 590",
+      "zipCode": "58414-280",
+      "phone": "(83) 3341-2880",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Fabiano Melo de Oliveira",
+      "foundedYear": 1951,
+      "forania": "Forania Cidade Sul",
+      "sources": [
+        {
+          "url": "https://diocesecg.org/pagina/forania-cidade-sul",
+          "title": "Forania Cidade Sul | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+          "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/igreja.php?k=K2Byk",
+          "title": "Horário de Missa — Paróquia Nossa Senhora das Graças",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=K2Byk",
+              "title": "Horário de Missa — Paróquia Nossa Senhora das Graças",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=K2Byk",
+              "title": "Horário de Missa — Paróquia Nossa Senhora das Graças",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=K2Byk",
+              "title": "Horário de Missa — Paróquia Nossa Senhora das Graças",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=K2Byk",
+              "title": "Horário de Missa — Paróquia Nossa Senhora das Graças",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "15:00",
+          "type": "CONFESSION",
+          "notes": "15:00 às 17:00",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=K2Byk",
+              "title": "Horário de Missa — Paróquia Nossa Senhora das Graças",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "15:00",
+          "type": "CONFESSION",
+          "notes": "15:00 às 17:00",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=K2Byk",
+              "title": "Horário de Missa — Paróquia Nossa Senhora das Graças",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "15:00",
+          "type": "CONFESSION",
+          "notes": "15:00 às 17:00",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=K2Byk",
+              "title": "Horário de Missa — Paróquia Nossa Senhora das Graças",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "sagrado-coracao-de-jesus-campina-grande",
+      "name": "Paróquia Sagrado Coração de Jesus",
+      "city": "Campina Grande",
+      "state": "PB",
+      "neighborhood": "Catolé",
+      "address": "Rua Luiz Sodré Filho, 685",
+      "zipCode": "58410-480",
+      "phone": "(83) 3077-8684",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Márcio Henrique Mendes Fernandes",
+      "foundedYear": 1961,
+      "forania": "Forania Cidade Sul",
+      "sources": [
+        {
+          "url": "https://diocesecg.org/pagina/forania-cidade-sul",
+          "title": "Forania Cidade Sul | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+          "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/igreja.php?k=AzRDL",
+          "title": "Horário de Missa — Paróquia Sagrado Coração de Jesus",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "17:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=AzRDL",
+              "title": "Horário de Missa — Paróquia Sagrado Coração de Jesus",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=AzRDL",
+              "title": "Horário de Missa — Paróquia Sagrado Coração de Jesus",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "imaculada-conceicao-queimadas",
+      "name": "Paróquia Imaculada Conceição",
+      "city": "Queimadas",
+      "state": "PB",
+      "neighborhood": "Bairro Ligeiro",
+      "address": "Rua José de Sousa Barbosa, S/N",
+      "zipCode": "58475-972",
+      "phone": "(83) 99182-6857",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Antônio Raimundo Pereira de Jesus, RCJ",
+      "foundedYear": 2009,
+      "forania": "Forania Cidade Sul",
+      "sources": [
+        {
+          "url": "https://diocesecg.org/pagina/forania-cidade-sul",
+          "title": "Forania Cidade Sul | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+          "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-joao-paulo-ii-e-nossa-senhora-de-fatima-campina-grande",
+      "name": "Paróquia São João Paulo II e Nossa Senhora de Fátima",
+      "city": "Campina Grande",
+      "state": "PB",
+      "neighborhood": "Aluízio Campos",
+      "address": null,
+      "zipCode": null,
+      "phone": "(83) 99622-0904",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Rodolfo Figueroa Lucena",
+      "foundedYear": null,
+      "forania": "Forania Cidade Sul",
+      "sources": [
+        {
+          "url": "https://diocesecg.org/pagina/forania-cidade-sul",
+          "title": "Forania Cidade Sul | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+          "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-francisco-de-assis-cruzeiro-campina-grande",
+      "name": "Paróquia São Francisco de Assis",
+      "city": "Campina Grande",
+      "state": "PB",
+      "neighborhood": "Cruzeiro",
+      "address": "Av. Almirante Barroso",
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Ednaldo Gomes da Silva",
+      "foundedYear": null,
+      "forania": "Forania Cidade Sul",
+      "sources": [
+        {
+          "url": "https://diocesecg.org/pagina/forania-cidade-sul",
+          "title": "Forania Cidade Sul | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+          "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-da-guia-queimadas",
+      "name": "Paróquia Nossa Senhora da Guia",
+      "city": "Queimadas",
+      "state": "PB",
+      "neighborhood": "Centro",
+      "address": "Largo da Matriz, 34",
+      "zipCode": null,
+      "phone": "(83) 3392-1092",
+      "email": "paroquiaqueimadas@hotmail.com",
+      "website": "http://www.paroquiaqueimadas.com.br",
+      "priestName": "Pe. Henrique Gustavo",
+      "foundedYear": null,
+      "forania": "Forania Agreste I",
+      "sources": [
+        {
+          "url": "https://diocesecg.org/pagina/forania-agreste-i",
+          "title": "Forania Agreste I | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+          "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/igreja.php?k=qlCKc",
+          "title": "Horário de Missa — Paróquia Nossa Senhora da Guia",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=qlCKc",
+              "title": "Horário de Missa — Paróquia Nossa Senhora da Guia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=qlCKc",
+              "title": "Horário de Missa — Paróquia Nossa Senhora da Guia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": "06:00 (Exposição do Santíssimo após a Missa)",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=qlCKc",
+              "title": "Horário de Missa — Paróquia Nossa Senhora da Guia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=qlCKc",
+              "title": "Horário de Missa — Paróquia Nossa Senhora da Guia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 2,
+          "time": "08:30",
+          "type": "CONFESSION",
+          "notes": "08:30 às 11:30",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=qlCKc",
+              "title": "Horário de Missa — Paróquia Nossa Senhora da Guia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 2,
+          "time": "14:30",
+          "type": "CONFESSION",
+          "notes": "14:30 às 17:00",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=qlCKc",
+              "title": "Horário de Missa — Paróquia Nossa Senhora da Guia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "08:30",
+          "type": "CONFESSION",
+          "notes": "08:30 às 11:30",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=qlCKc",
+              "title": "Horário de Missa — Paróquia Nossa Senhora da Guia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "14:30",
+          "type": "CONFESSION",
+          "notes": "14:30 às 17:00",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=qlCKc",
+              "title": "Horário de Missa — Paróquia Nossa Senhora da Guia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "08:30",
+          "type": "CONFESSION",
+          "notes": "08:30 às 11:30",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=qlCKc",
+              "title": "Horário de Missa — Paróquia Nossa Senhora da Guia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "14:30",
+          "type": "CONFESSION",
+          "notes": "14:30 às 17:00",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=qlCKc",
+              "title": "Horário de Missa — Paróquia Nossa Senhora da Guia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "08:30",
+          "type": "CONFESSION",
+          "notes": "08:30 às 11:30",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=qlCKc",
+              "title": "Horário de Missa — Paróquia Nossa Senhora da Guia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "14:30",
+          "type": "CONFESSION",
+          "notes": "14:30 às 17:00",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=qlCKc",
+              "title": "Horário de Missa — Paróquia Nossa Senhora da Guia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-do-desterro-boqueirao",
+      "name": "Paróquia Nossa Senhora do Desterro",
+      "city": "Boqueirão",
+      "state": "PB",
+      "neighborhood": "Centro",
+      "address": "Av. Nossa Senhora do Desterro",
+      "zipCode": "58450-000",
+      "phone": "(83) 3391-1214",
+      "email": "paroquiadeboqueirao@hotmail.com",
+      "website": null,
+      "priestName": "Pe. João Igor Pereira Alves de Sales",
+      "foundedYear": 1961,
+      "forania": "Forania Agreste I",
+      "sources": [
+        {
+          "url": "https://diocesecg.org/pagina/forania-agreste-i",
+          "title": "Forania Agreste I | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+          "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [],
+      "municipios": "Boqueirão"
+    },
+    {
+      "slug": "area-pastoral-nossa-senhora-da-conceicao-caturite",
+      "name": "Área Pastoral Nossa Senhora da Conceição",
+      "city": "Caturité",
+      "state": "PB",
+      "neighborhood": null,
+      "address": null,
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": "Padre João Igor Pereira Alves de Sales",
+      "foundedYear": null,
+      "forania": "Forania Agreste I",
+      "sources": [
+        {
+          "url": "https://diocesecg.org/pagina/forania-agreste-i",
+          "title": "Forania Agreste I | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+          "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [],
+      "municipios": "Caturité"
+    },
+    {
+      "slug": "nossa-senhora-da-conceicao-e-sao-bento-cabaceiras",
+      "name": "Paróquia Nossa Senhora da Conceição e São Bento",
+      "city": "Cabaceiras",
+      "state": "PB",
+      "neighborhood": "Centro",
+      "address": "Rua Joaquim Gomes Henriques, S/N",
+      "zipCode": "58480-000",
+      "phone": "(83) 3356-1132",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. André da Silva Morais",
+      "foundedYear": 1835,
+      "forania": "Forania Agreste I",
+      "sources": [
+        {
+          "url": "https://diocesecg.org/pagina/forania-agreste-i",
+          "title": "Forania Agreste I | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+          "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [],
+      "municipios": "Cabaceiras e São Domingos do Cariri"
+    },
+    {
+      "slug": "sao-joao-batista-fagundes",
+      "name": "Paróquia São João Batista",
+      "city": "Fagundes",
+      "state": "PB",
+      "neighborhood": "Centro",
+      "address": "Rua Monsenhor Sales, S/N",
+      "zipCode": "58487-000",
+      "phone": "(83) 98211-9885",
+      "email": "paroquiasjb100@gmail.com",
+      "website": null,
+      "priestName": "Pe. Israel Pedro de Oliveira Júnior",
+      "foundedYear": 1913,
+      "forania": "Forania Agreste I",
+      "sources": [
+        {
+          "url": "https://diocesecg.org/pagina/forania-agreste-i",
+          "title": "Forania Agreste I | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+          "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-miguel-arcanjo-barra-de-sao-miguel",
+      "name": "Paróquia São Miguel Arcanjo",
+      "city": "Barra de São Miguel",
+      "state": "PB",
+      "neighborhood": "Centro",
+      "address": "Praça Ismael Nahon, S/N",
+      "zipCode": "58483-000",
+      "phone": "(83) 3358-1108",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. José Claudino",
+      "foundedYear": 2011,
+      "forania": "Forania Agreste I",
+      "sources": [
+        {
+          "url": "https://diocesecg.org/pagina/forania-agreste-i",
+          "title": "Forania Agreste I | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+          "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "santa-ana-e-sao-joaquim-barra-de-santana",
+      "name": "Paróquia Santa Ana e São Joaquim",
+      "city": "Barra de Santana",
+      "state": "PB",
+      "neighborhood": null,
+      "address": "Rua Elvira Amorim, S/N - Praça da Matriz",
+      "zipCode": "58458-000",
+      "phone": "(83) 3346-1009",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. José Marcos Ferreira de Queiroga",
+      "foundedYear": 2013,
+      "forania": "Forania Agreste I",
+      "sources": [
+        {
+          "url": "https://diocesecg.org/pagina/forania-agreste-i",
+          "title": "Forania Agreste I | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+          "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [],
+      "municipios": "Barra de Santana, e Riacho de Santo Antonio"
+    },
+    {
+      "slug": "sao-pedro-e-sao-paulo-queimadas",
+      "name": "Paróquia São Pedro e São Paulo",
+      "city": "Queimadas",
+      "state": "PB",
+      "neighborhood": null,
+      "address": null,
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Carlos Antonio de Araújo",
+      "foundedYear": 2023,
+      "forania": "Forania Agreste I",
+      "sources": [
+        {
+          "url": "https://diocesecg.org/pagina/forania-agreste-i",
+          "title": "Forania Agreste I | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+          "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-jose-alcantil",
+      "name": "Paróquia São José",
+      "city": "Alcantil",
+      "state": "PB",
+      "neighborhood": "Centro",
+      "address": "Av. São José, 182",
+      "zipCode": "58460-000",
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": "Frei Givaldo Domingos, OFV",
+      "foundedYear": 1837,
+      "forania": "Forania Agreste II",
+      "sources": [
+        {
+          "url": "https://diocesecg.org/pagina/forania-agreste-ii",
+          "title": "Forania Agreste II | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+          "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "martires-sao-severino-e-santa-cecilia-santa-cecilia",
+      "name": "Paróquia Mártires São Severino e Santa Cecília",
+      "city": "Santa Cecília",
+      "state": "PB",
+      "neighborhood": null,
+      "address": "Praça da Matriz, S/N",
+      "zipCode": "58463-000",
+      "phone": "(83) 3642-1073",
+      "email": null,
+      "website": null,
+      "priestName": "Frei Givaldo Domingos, OFV",
+      "foundedYear": 2014,
+      "forania": "Forania Agreste II",
+      "sources": [
+        {
+          "url": "https://diocesecg.org/pagina/forania-agreste-ii",
+          "title": "Forania Agreste II | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+          "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-do-rosario-aroeiras",
+      "name": "Paróquia Nossa Senhora do Rosário",
+      "city": "Aroeiras",
+      "state": "PB",
+      "neighborhood": "Centro",
+      "address": "Rua Padre Leonel Franca, 177",
+      "zipCode": "58489-000",
+      "phone": "(83) 3396-1674",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Francisco Possiano da Silva",
+      "foundedYear": 1953,
+      "forania": "Forania Agreste II",
+      "sources": [
+        {
+          "url": "https://diocesecg.org/pagina/forania-agreste-ii",
+          "title": "Forania Agreste II | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+          "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [],
+      "municipios": "Aroeiras"
+    },
+    {
+      "slug": "nossa-senhora-livramento-umbuzeiro",
+      "name": "Paróquia Nossa Senhora Livramento",
+      "city": "Umbuzeiro",
+      "state": "PB",
+      "neighborhood": null,
+      "address": null,
+      "zipCode": "58497-000",
+      "phone": "(83) 3395-1327",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Francisco Evaristo",
+      "foundedYear": 1902,
+      "forania": "Forania Agreste II",
+      "sources": [
+        {
+          "url": "https://diocesecg.org/pagina/forania-agreste-ii",
+          "title": "Forania Agreste II | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+          "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/igreja.php?k=XMPRz",
+          "title": "Horário de Missa — Paróquia de Nossa Senhora do Livramento",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=XMPRz",
+              "title": "Horário de Missa — Paróquia de Nossa Senhora do Livramento",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=XMPRz",
+              "title": "Horário de Missa — Paróquia de Nossa Senhora do Livramento",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=XMPRz",
+              "title": "Horário de Missa — Paróquia de Nossa Senhora do Livramento",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=XMPRz",
+              "title": "Horário de Missa — Paróquia de Nossa Senhora do Livramento",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-das-dores-natuba",
+      "name": "Paróquia Nossa Senhora das Dores",
+      "city": "Natuba",
+      "state": "PB",
+      "neighborhood": "Centro",
+      "address": "Rua Presidente João Pessoa, S/N",
+      "zipCode": "58494-000",
+      "phone": "(83) 98180-0928",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Lucas Pereira da Silva",
+      "foundedYear": 2014,
+      "forania": "Forania Agreste II",
+      "sources": [
+        {
+          "url": "https://diocesecg.org/pagina/forania-agreste-ii",
+          "title": "Forania Agreste II | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+          "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-jose-gado-bravo",
+      "name": "Paróquia São José",
+      "city": "Gado Bravo",
+      "state": "PB",
+      "neighborhood": "Centro",
+      "address": "Rua Severino Filipe Barbosa, S/N",
+      "zipCode": "58492-000",
+      "phone": "(83) 98807-0368",
+      "email": null,
+      "website": null,
+      "priestName": "Padre Allan Pereira",
+      "foundedYear": 2025,
+      "forania": "Forania Agreste II",
+      "sources": [
+        {
+          "url": "https://diocesecg.org/pagina/forania-agreste-ii",
+          "title": "Forania Agreste II | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+          "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-bom-conselho-esperanca",
+      "name": "Paróquia Nossa Senhora Bom Conselho",
+      "city": "Esperança",
+      "state": "PB",
+      "neighborhood": "Centro",
+      "address": "Av. Manoel Rodrigues, S/N",
+      "zipCode": "58135-000",
+      "phone": "(83) 3361-2053",
+      "email": "sec.bomconselho@gmail.com",
+      "website": null,
+      "priestName": "Pe. Evanilson José Sousa",
+      "foundedYear": 1908,
+      "forania": "Forania Brejo",
+      "sources": [
+        {
+          "url": "https://diocesecg.org/pagina/forania-brejo",
+          "title": "Forania Brejo | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+          "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "santa-ana-alagoa-nova",
+      "name": "Paróquia Santa Ana",
+      "city": "Alagoa Nova",
+      "state": "PB",
+      "neighborhood": "Centro",
+      "address": "Rua Presidente Getúlio Vargas, S/N",
+      "zipCode": "58125-000",
+      "phone": "(83) 3365-1120",
+      "email": "pqdesantaanaan@gmail.com",
+      "website": null,
+      "priestName": "Pe. Flávio Pereira dos Santos",
+      "foundedYear": 1837,
+      "forania": "Forania Brejo",
+      "sources": [
+        {
+          "url": "https://diocesecg.org/pagina/forania-brejo",
+          "title": "Forania Brejo | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+          "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [],
+      "municipios": "Alagoa Nova"
+    },
+    {
+      "slug": "sao-jose-areial",
+      "name": "Paróquia São José",
+      "city": "Areial",
+      "state": "PB",
+      "neighborhood": "Centro",
+      "address": "Rua da Matriz, S/N",
+      "zipCode": "58140-000",
+      "phone": "(83) 3368-1223",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Danilo Cesar",
+      "foundedYear": 2006,
+      "forania": "Forania Brejo",
+      "sources": [
+        {
+          "url": "https://diocesecg.org/pagina/forania-brejo",
+          "title": "Forania Brejo | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+          "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-do-carmo-puxinana",
+      "name": "Paróquia Nossa Senhora do Carmo",
+      "city": "Puxinanã",
+      "state": "PB",
+      "neighborhood": "Centro",
+      "address": "Rua: 28 de Janeiro, S/N",
+      "zipCode": "58115-000",
+      "phone": "(83) 98861-1837, (83) 99933-2107",
+      "email": "paroquianscpuxinana@hotmail.com",
+      "website": "http://paroquiadepuxinana.blogspot.com",
+      "priestName": "Pe. Antônio Araújo",
+      "foundedYear": 2010,
+      "forania": "Forania Brejo",
+      "sources": [
+        {
+          "url": "https://diocesecg.org/pagina/forania-brejo",
+          "title": "Forania Brejo | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+          "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/igreja.php?k=0dP67",
+          "title": "Horário de Missa — Paróquia Nossa Senhora do Carmo",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "07:30",
+          "type": "MASS",
+          "notes": "07:30 (Comunidade da Santíssima Trindade)",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=0dP67",
+              "title": "Horário de Missa — Paróquia Nossa Senhora do Carmo",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": "09:00 (Matriz)",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=0dP67",
+              "title": "Horário de Missa — Paróquia Nossa Senhora do Carmo",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "19:30 (Matriz)",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=0dP67",
+              "title": "Horário de Missa — Paróquia Nossa Senhora do Carmo",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=0dP67",
+              "title": "Horário de Missa — Paróquia Nossa Senhora do Carmo",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=0dP67",
+              "title": "Horário de Missa — Paróquia Nossa Senhora do Carmo",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-da-conceicao-pocinhos",
+      "name": "Paróquia Nossa Senhora da Conceição",
+      "city": "Pocinhos",
+      "state": "PB",
+      "neighborhood": "Centro",
+      "address": "Rua Getúlio Vargas, S/N",
+      "zipCode": "58150-000",
+      "phone": "(83) 3384-1298",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. João Afonso",
+      "foundedYear": 1908,
+      "forania": "Forania Brejo",
+      "sources": [
+        {
+          "url": "https://diocesecg.org/pagina/forania-brejo",
+          "title": "Forania Brejo | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+          "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-sebastiao-sao-sebastiao-de-lagoa-de-roca",
+      "name": "Paróquia São Sebastião",
+      "city": "São Sebastião de Lagoa de Roça",
+      "state": "PB",
+      "neighborhood": "Centro",
+      "address": "Rua José Rodrigues Coura, S/N",
+      "zipCode": "58119-000",
+      "phone": "(83) 3387-1012, (83) 3387-1268",
+      "email": "comunicaçaoparoquiasaosebastiao@gmail.com",
+      "website": null,
+      "priestName": "Pe. Fagner Wellington Graciano da Silva",
+      "foundedYear": 2005,
+      "forania": "Forania Brejo",
+      "sources": [
+        {
+          "url": "https://diocesecg.org/pagina/forania-brejo",
+          "title": "Forania Brejo | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+          "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-perpetuo-socorro-lagoa-seca",
+      "name": "Paróquia Nossa Senhora Perpétuo Socorro",
+      "city": "Lagoa Seca",
+      "state": "PB",
+      "neighborhood": "Centro",
+      "address": "Rua da Conceição, S/N",
+      "zipCode": "58117-000",
+      "phone": "(83) 99641-6616",
+      "email": "paroquialspb@yahoo.com",
+      "website": null,
+      "priestName": "Pe. Aparecido Francisco Camargo",
+      "foundedYear": 1951,
+      "forania": "Forania Brejo",
+      "sources": [
+        {
+          "url": "https://diocesecg.org/pagina/forania-brejo",
+          "title": "Forania Brejo | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+          "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-jose-montadas",
+      "name": "Paróquia São José",
+      "city": "Montadas",
+      "state": "PB",
+      "neighborhood": "Centro",
+      "address": "Rua Mons. João Coutinho, 02",
+      "zipCode": "58145-000",
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Francisco de Assis Meira",
+      "foundedYear": 2018,
+      "forania": "Forania Brejo",
+      "sources": [
+        {
+          "url": "https://diocesecg.org/pagina/forania-brejo",
+          "title": "Forania Brejo | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+          "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [],
+      "municipios": "Montadas"
+    },
+    {
+      "slug": "area-pastoral-sao-sebastiao-matinhas",
+      "name": "Área Pastoral São Sebastião",
+      "city": "Matinhas",
+      "state": "PB",
+      "neighborhood": "Centro",
+      "address": "Rua Gov. Antonio Mariz, 78",
+      "zipCode": "58128-000",
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Flávio Pereira dos Santos",
+      "foundedYear": null,
+      "forania": "Forania Brejo",
+      "sources": [
+        {
+          "url": "https://diocesecg.org/pagina/forania-brejo",
+          "title": "Forania Brejo | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+          "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [],
+      "notes": "A Diocese registra: \"sob os cuidados dos padres e diácono de Alagoa Nova\".",
+      "municipios": "Matinhas"
+    },
+    {
+      "slug": "nossa-senhora-dos-milagres-sao-joao-do-cariri",
+      "name": "Paróquia Nossa Senhora dos Milagres",
+      "city": "São João do Cariri",
+      "state": "PB",
+      "neighborhood": "Centro",
+      "address": "Rua Dr. Brandão, S/N",
+      "zipCode": "58590-000",
+      "phone": "(83) 3355-1010",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Humberto Carneiro Monte Júnior",
+      "foundedYear": 1997,
+      "forania": "Forania Cariri I",
+      "sources": [
+        {
+          "url": "https://diocesecg.org/pagina/forania-cariri-i",
+          "title": "Forania Cariri I | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+          "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-da-conceicao-serra-branca",
+      "name": "Paróquia Nossa Senhora da Conceição",
+      "city": "Serra Branca",
+      "state": "PB",
+      "neighborhood": "Centro",
+      "address": "Rua Joaquim de Andrade Gaião, 111",
+      "zipCode": "58580-000",
+      "phone": "(83) 3354-2211, (83) 3354-2240",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Joselito Ferreira da Silva",
+      "foundedYear": 1932,
+      "forania": "Forania Cariri I",
+      "sources": [
+        {
+          "url": "https://diocesecg.org/pagina/forania-cariri-i",
+          "title": "Forania Cariri I | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+          "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [],
+      "municipios": "Coxixola, Serra Branca"
+    },
+    {
+      "slug": "nossa-senhora-das-dores-sao-jose-dos-cordeiros",
+      "name": "Paróquia Nossa Senhora das Dores",
+      "city": "São José dos Cordeiros",
+      "state": "PB",
+      "neighborhood": "Centro",
+      "address": "Rua Antero Torreão, S/N",
+      "zipCode": "58570-000",
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Manoel Cristino Silva das Chagas",
+      "foundedYear": 2014,
+      "forania": "Forania Cariri I",
+      "sources": [
+        {
+          "url": "https://diocesecg.org/pagina/forania-cariri-i",
+          "title": "Forania Cariri I | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+          "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "bom-jesus-dos-martirios-boa-vista",
+      "name": "Paróquia Bom Jesus dos Martírios",
+      "city": "Boa Vista",
+      "state": "PB",
+      "neighborhood": "Centro",
+      "address": "Travessa do Bom Jesus, S/N",
+      "zipCode": "58123-000",
+      "phone": "(83) 3313-1464",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Saulo Rodrigues Pinto",
+      "foundedYear": 2010,
+      "forania": "Forania Cariri I",
+      "sources": [
+        {
+          "url": "https://diocesecg.org/pagina/forania-cariri-i",
+          "title": "Forania Cariri I | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+          "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-pedro-caraubas",
+      "name": "Paróquia São Pedro",
+      "city": "Caraúbas",
+      "state": "PB",
+      "neighborhood": "Centro",
+      "address": "Rua Dr. Mauro de Farias, 335",
+      "zipCode": "58595-000",
+      "phone": "(83) 3359-1118, (83) 3307-1095",
+      "email": "paroquiadecaraubas@gmail.com",
+      "website": null,
+      "priestName": "Padre Adriel Falcão",
+      "foundedYear": 1923,
+      "forania": "Forania Cariri I",
+      "sources": [
+        {
+          "url": "https://diocesecg.org/pagina/forania-cariri-i",
+          "title": "Forania Cariri I | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+          "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [],
+      "municipios": "Caraúbas e Congo"
+    },
+    {
+      "slug": "area-pastoral-santa-ana-congo",
+      "name": "Área Pastoral Santa Ana",
+      "city": "Congo",
+      "state": "PB",
+      "neighborhood": "Centro",
+      "address": "Rua Capitão José Lucas da Silva",
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Adriel Falcão",
+      "foundedYear": null,
+      "forania": "Forania Cariri I",
+      "sources": [
+        {
+          "url": "https://diocesecg.org/pagina/forania-cariri-i",
+          "title": "Forania Cariri I | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+          "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [],
+      "municipios": "Congo"
+    },
+    {
+      "slug": "sao-jose-parari",
+      "name": "Paróquia São José",
+      "city": "Parari",
+      "state": "PB",
+      "neighborhood": "Centro",
+      "address": "Rua Euclides Alves Caluête, 50",
+      "zipCode": "58575-000",
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Bruno Costa de Medeiros",
+      "foundedYear": 2014,
+      "forania": "Forania Cariri I",
+      "sources": [
+        {
+          "url": "https://diocesecg.org/pagina/forania-cariri-i",
+          "title": "Forania Cariri I | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+          "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [],
+      "municipios": "Parari"
+    },
+    {
+      "slug": "area-pastoral-sagrado-coracao-de-jesus-e-santo-andre-santo-andre",
+      "name": "Área Pastoral Sagrado Coração de Jesus e Santo André",
+      "city": "Santo André",
+      "state": "PB",
+      "neighborhood": "Centro",
+      "address": "Avenida Fenelon Medeiros, 100",
+      "zipCode": "58675-000",
+      "phone": null,
+      "email": "areapastoraldesantoandre@gmail.com",
+      "website": null,
+      "priestName": "Pe. Bruno Costa de Medeiros",
+      "foundedYear": null,
+      "forania": "Forania Cariri I",
+      "sources": [
+        {
+          "url": "https://diocesecg.org/pagina/forania-cariri-i",
+          "title": "Forania Cariri I | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+          "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-sebastiao-gurjao",
+      "name": "Paróquia São Sebastião",
+      "city": "Gurjão",
+      "state": "PB",
+      "neighborhood": null,
+      "address": "Praça Major Raulino Maracajá",
+      "zipCode": "58670-000",
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Manoel Cristino das Chagas",
+      "foundedYear": null,
+      "forania": "Forania Cariri I",
+      "sources": [
+        {
+          "url": "https://diocesecg.org/pagina/forania-cariri-i",
+          "title": "Forania Cariri I | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+          "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-das-dores-monteiro",
+      "name": "Paróquia Nossa Senhora das Dores",
+      "city": "Monteiro",
+      "state": "PB",
+      "neighborhood": "Centro",
+      "address": "Rua Coronel Santa Cruz, S/N",
+      "zipCode": "58500-000",
+      "phone": "(83) 3351-2216",
+      "email": "paroquiademonteiro@hotmail.com",
+      "website": null,
+      "priestName": "Pe. José Aldevan Guedes Pereira",
+      "foundedYear": 1875,
+      "forania": "Forania Cariri II",
+      "sources": [
+        {
+          "url": "https://diocesecg.org/pagina/forania-cariri-ii",
+          "title": "Forania Cariri II | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+          "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-da-conceicao-sume",
+      "name": "Paróquia Nossa Senhora da Conceição",
+      "city": "Sumé",
+      "state": "PB",
+      "neighborhood": "Centro",
+      "address": "Praça Cônego Sílvio, S/N",
+      "zipCode": "58540-000",
+      "phone": "(83) 3353-2219",
+      "email": null,
+      "website": "https://www.facebook.com/paroquiadesume",
+      "priestName": "Pe. José Marcondes Neves",
+      "foundedYear": 1943,
+      "forania": "Forania Cariri II",
+      "sources": [
+        {
+          "url": "https://diocesecg.org/pagina/forania-cariri-ii",
+          "title": "Forania Cariri II | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+          "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/igreja.php?k=stvgX",
+          "title": "Horário de Missa — Paróquia Nossa Senhora da Conceição",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=stvgX",
+              "title": "Horário de Missa — Paróquia Nossa Senhora da Conceição",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 1,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=stvgX",
+              "title": "Horário de Missa — Paróquia Nossa Senhora da Conceição",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=stvgX",
+              "title": "Horário de Missa — Paróquia Nossa Senhora da Conceição",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-do-rosario-prata",
+      "name": "Paróquia Nossa Senhora do Rosário",
+      "city": "Prata",
+      "state": "PB",
+      "neighborhood": "Centro",
+      "address": "Av. Ananiano Ramos Galvão, 15",
+      "zipCode": "58550-000",
+      "phone": "(83) 9983-6323",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Gustavo Ferreira de Sousa",
+      "foundedYear": 2009,
+      "forania": "Forania Cariri II",
+      "sources": [
+        {
+          "url": "https://diocesecg.org/pagina/forania-cariri-ii",
+          "title": "Forania Cariri II | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+          "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [],
+      "municipios": "Amparo, Ouro Velho e Prata"
+    },
+    {
+      "slug": "sao-sebastiao-sao-sebastiao-do-umbuzeiro",
+      "name": "Paróquia São Sebastião",
+      "city": "São Sebastião do Umbuzeiro",
+      "state": "PB",
+      "neighborhood": "Centro",
+      "address": "Praça Nilo Feitosa, S/N",
+      "zipCode": "58510-000",
+      "phone": "(83) 3304-1009, (83) 3304-1064",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Helton Moura",
+      "foundedYear": 1912,
+      "forania": "Forania Cariri II",
+      "sources": [
+        {
+          "url": "https://diocesecg.org/pagina/forania-cariri-ii",
+          "title": "Forania Cariri II | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+          "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [],
+      "municipios": "São Sebastião do Umbuzeiro e Zabelê"
+    },
+    {
+      "slug": "sao-jose-camalau",
+      "name": "Paróquia São José",
+      "city": "Camalaú",
+      "state": "PB",
+      "neighborhood": "Centro",
+      "address": "Rua São José, S/N",
+      "zipCode": "58530-000",
+      "phone": "(83) 3302-1233",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Erinaldo Lima Silva",
+      "foundedYear": 2013,
+      "forania": "Forania Cariri II",
+      "sources": [
+        {
+          "url": "https://diocesecg.org/pagina/forania-cariri-ii",
+          "title": "Forania Cariri II | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+          "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [],
+      "municipios": "Camalaú e São João do Tigre"
+    },
+    {
+      "slug": "sao-sebastiao-picui",
+      "name": "Paróquia São Sebastião",
+      "city": "Picuí",
+      "state": "PB",
+      "neighborhood": "Centro",
+      "address": "Rua São Sebastião, 01",
+      "zipCode": "58187-000",
+      "phone": "(83) 3371-2410",
+      "email": "paroquiapicui@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Claudeci Silva Soares",
+      "foundedYear": 1864,
+      "forania": "Forania Curimataú",
+      "sources": [
+        {
+          "url": "https://diocesecg.org/pagina/forania-curimatau",
+          "title": "Forania Curimataú | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+          "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [],
+      "municipios": "Frei Martinho e Picuí"
+    },
+    {
+      "slug": "nossa-senhora-da-conceicao-e-santa-rosa-de-lima-barra-de-santa-rosa",
+      "name": "Paróquia Nossa Senhora da Conceição e Santa Rosa de Lima",
+      "city": "Barra de Santa Rosa",
+      "state": "PB",
+      "neighborhood": "Centro",
+      "address": "Praça Frei Martinho, S/N",
+      "zipCode": "58170-000",
+      "phone": "(83) 99141-8344",
+      "email": "paroquianscsrl@gmail.com",
+      "website": null,
+      "priestName": "Pe. Danilo Cesar de S. Bezerra",
+      "foundedYear": 1973,
+      "forania": "Forania Curimataú",
+      "sources": [
+        {
+          "url": "https://diocesecg.org/pagina/forania-curimatau",
+          "title": "Forania Curimataú | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+          "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [],
+      "municipios": "Barra de Santa Rosa"
+    },
+    {
+      "slug": "nossa-senhora-do-desterro-barauna",
+      "name": "Paróquia Nossa Senhora do Desterro",
+      "city": "Baraúna",
+      "state": "PB",
+      "neighborhood": null,
+      "address": "Rua Padre Apolônio Gaudêncio, Nº 15",
+      "zipCode": "58188-000",
+      "phone": "(83) 3633-1033",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Emanuel Augusto de Souza Leite",
+      "foundedYear": 2014,
+      "forania": "Forania Curimataú",
+      "sources": [
+        {
+          "url": "https://diocesecg.org/pagina/forania-curimatau",
+          "title": "Forania Curimataú | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+          "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/igreja.php?k=WeKeS",
+          "title": "Horário de Missa — Paroquia Nossa Senhora do Desterro",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=WeKeS",
+              "title": "Horário de Missa — Paroquia Nossa Senhora do Desterro",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=WeKeS",
+              "title": "Horário de Missa — Paroquia Nossa Senhora do Desterro",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "08:00",
+          "type": "CONFESSION",
+          "notes": "08:00 às 12:00",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=WeKeS",
+              "title": "Horário de Missa — Paroquia Nossa Senhora do Desterro",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "08:00",
+          "type": "CONFESSION",
+          "notes": "08:00 às 12:00",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=WeKeS",
+              "title": "Horário de Missa — Paroquia Nossa Senhora do Desterro",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "08:00",
+          "type": "CONFESSION",
+          "notes": "08:00 às 12:00",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=WeKeS",
+              "title": "Horário de Missa — Paroquia Nossa Senhora do Desterro",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ],
+      "municipios": "Baraúna e Sossego"
+    },
+    {
+      "slug": "sao-severino-bispo-nova-floresta",
+      "name": "Paróquia São Severino Bispo",
+      "city": "Nova Floresta",
+      "state": "PB",
+      "neighborhood": "Centro",
+      "address": "Rua Felinto Florentino, 599",
+      "zipCode": "58178-000",
+      "phone": "(83) 3374-1190",
+      "email": "paroquiasaoseverinobispo@gmail.com",
+      "website": null,
+      "priestName": "Pe. Tadeu Laurentino de Oliveira",
+      "foundedYear": 2010,
+      "forania": "Forania Curimataú",
+      "sources": [
+        {
+          "url": "https://diocesecg.org/pagina/forania-curimatau",
+          "title": "Forania Curimataú | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+          "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-das-merces-cuite",
+      "name": "Paróquia Nossa Senhora das Mercês",
+      "city": "Cuité",
+      "state": "PB",
+      "neighborhood": "Centro",
+      "address": "Rua Caetano Dantas, 84",
+      "zipCode": "58175-000",
+      "phone": "(83) 3372-2362",
+      "email": "paroquiadasmerces.cuite@gmail.com",
+      "website": null,
+      "priestName": "Pe. João Paulo Souto Victor",
+      "foundedYear": 1801,
+      "forania": "Forania Curimataú",
+      "sources": [
+        {
+          "url": "https://diocesecg.org/pagina/forania-curimatau",
+          "title": "Forania Curimataú | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+          "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-de-fatima-damiao",
+      "name": "Paróquia Nossa Senhora de Fátima",
+      "city": "Damião",
+      "state": "PB",
+      "neighborhood": null,
+      "address": null,
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Francisco de Assis Tomáz do Nascimento",
+      "foundedYear": 2026,
+      "forania": "Forania Curimataú",
+      "sources": [
+        {
+          "url": "https://diocesecg.org/pagina/forania-curimatau",
+          "title": "Forania Curimataú | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+          "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-jose-juazeirinho",
+      "name": "Paróquia São José",
+      "city": "Juazeirinho",
+      "state": "PB",
+      "neighborhood": "Centro",
+      "address": "Praça São José, S/N",
+      "zipCode": "58660-000",
+      "phone": "(83) 99331-7588",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Fernando Jacinto Dias",
+      "foundedYear": 1966,
+      "forania": "Forania Sericar",
+      "sources": [
+        {
+          "url": "https://diocesecg.org/pagina/forania-sericar",
+          "title": "Forania Sericar | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+          "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [],
+      "municipios": "Juazeirinho e Tenório"
+    },
+    {
+      "slug": "nossa-senhora-da-luz-pedra-lavrada",
+      "name": "Paróquia Nossa Senhora da Luz",
+      "city": "Pedra Lavrada",
+      "state": "PB",
+      "neighborhood": "Centro",
+      "address": "Praça Eugenio Vasconcelos, S/N",
+      "zipCode": "58180-000",
+      "phone": "(83) 3375-4344",
+      "email": "pnsdl@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Antônio Batista",
+      "foundedYear": 1859,
+      "forania": "Forania Sericar",
+      "sources": [
+        {
+          "url": "https://diocesecg.org/pagina/forania-sericar",
+          "title": "Forania Sericar | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+          "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [],
+      "municipios": "Nova Palmeira e Pedra Lavrada"
+    },
+    {
+      "slug": "santa-ana-soledade",
+      "name": "Paróquia Santa Ana",
+      "city": "Soledade",
+      "state": "PB",
+      "neighborhood": "Centro",
+      "address": "Rua Dr. Gouveia Nóbrega, S/N",
+      "zipCode": "58155-000",
+      "phone": "(83) 3383-1599",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. João Bosco Félix",
+      "foundedYear": 1913,
+      "forania": "Forania Sericar",
+      "sources": [
+        {
+          "url": "https://diocesecg.org/pagina/forania-sericar",
+          "title": "Forania Sericar | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+          "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [],
+      "municipios": "Seridó e Soledade"
+    },
+    {
+      "slug": "sao-severino-bispo-e-nossa-senhora-do-perpetuo-socorro-cubati",
+      "name": "Paróquia São Severino Bispo e Nossa Senhora do Perpétuo Socorro",
+      "city": "Cubati",
+      "state": "PB",
+      "neighborhood": "Centro",
+      "address": "Rua São Severino, s/n",
+      "zipCode": "58167-000",
+      "phone": "(83) 98654-3931",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Onaldo da Costa Soares",
+      "foundedYear": 2016,
+      "forania": "Forania Sericar",
+      "sources": [
+        {
+          "url": "https://diocesecg.org/pagina/forania-sericar",
+          "title": "Forania Sericar | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+          "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-sebastiao-olivedos",
+      "name": "Paróquia São Sebastião",
+      "city": "Olivedos",
+      "state": "PB",
+      "neighborhood": null,
+      "address": null,
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Igor Matos",
+      "foundedYear": 2023,
+      "forania": "Forania Sericar",
+      "sources": [
+        {
+          "url": "https://diocesecg.org/pagina/forania-sericar",
+          "title": "Forania Sericar | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+          "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-vicente-ferrer-e-santo-antonio-sao-vicente-do-serido",
+      "name": "Paróquia São Vicente Ferrer e Santo Antônio",
+      "city": "São Vicente do Seridó",
+      "state": "PB",
+      "neighborhood": null,
+      "address": null,
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Roberto Neves",
+      "foundedYear": 2024,
+      "forania": "Forania Sericar",
+      "sources": [
+        {
+          "url": "https://diocesecg.org/pagina/forania-sericar",
+          "title": "Forania Sericar | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesecg.org/pagina/paroquias-e-areas-pastorais",
+          "title": "Paróquias e Áreas Pastorais | Diocese de Campina Grande",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    }
+  ],
+  "coverage": {
+    "parishesFound": 78,
+    "parishesExpected": 78,
+    "notes": "Lista extraída das 11 páginas de forania do site oficial (diocesecg.org), que trazem ano de criação, pároco, endereço, CEP, telefone, e-mail e, às vezes, os municípios atendidos. 78 unidades (paróquias, áreas pastorais e 1 santuário diocesano) em 50 municípios. Horários: a Diocese não publica grade de missas; os 95 horários vêm do horariodemissa.com.br (fonte única não oficial) e estão todos como confidence=baixa."
+  }
+}

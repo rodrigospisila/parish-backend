@@ -1,0 +1,1505 @@
+{
+  "diocese": {
+    "name": "Diocese de Patos",
+    "type": "Diocese",
+    "slug": "patos",
+    "city": "Patos",
+    "state": "PB",
+    "address": "Cúria Diocesana — Rua Peregrino Filho, 76, Centro",
+    "zipCode": "58700-450",
+    "phone": "(83) 3421-2250",
+    "email": "contato@diocesedepatospb.org.br",
+    "website": "https://diocesedepatospb.org.br",
+    "bishopName": "Dom Eraldo Bispo da Silva",
+    "sources": [
+      {
+        "url": "https://diocesedepatospb.org.br/foranias/",
+        "title": "Foranias | Diocese de Patos",
+        "accessedAt": "2026-09-11"
+      },
+      {
+        "url": "https://diocesedepatospb.org.br/",
+        "title": "Diocese de Patos",
+        "accessedAt": "2026-09-11"
+      },
+      {
+        "url": "https://www.catholic-hierarchy.org/diocese/dpato.html",
+        "title": "Patos (Diocese) [Catholic-Hierarchy]",
+        "accessedAt": "2026-09-11"
+      }
+    ],
+    "confidence": "alta"
+  },
+  "parishes": [
+    {
+      "slug": "nossa-senhora-da-conceicao-sao-mamede",
+      "name": "Paróquia Nossa Senhora da Conceição",
+      "city": "São Mamede",
+      "state": "PB",
+      "neighborhood": "Centro",
+      "address": "Rua Manoel Augusto de Araújo, 75",
+      "zipCode": null,
+      "phone": "(83) 98793-7935",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "forania": "Forania Vale do Sabugi",
+      "sources": [
+        {
+          "url": "https://diocesedepatospb.org.br/foranias/",
+          "title": "Foranias | Diocese de Patos",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/igreja.php?k=lz8dK",
+          "title": "Horário de Missa — Paróquia de Nossa Senhora da Conceição",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=lz8dK",
+              "title": "Horário de Missa — Paróquia de Nossa Senhora da Conceição",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=lz8dK",
+              "title": "Horário de Missa — Paróquia de Nossa Senhora da Conceição",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=lz8dK",
+              "title": "Horário de Missa — Paróquia de Nossa Senhora da Conceição",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "16:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=lz8dK",
+              "title": "Horário de Missa — Paróquia de Nossa Senhora da Conceição",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "15:00",
+          "type": "CONFESSION",
+          "notes": "15:00 às 17:00 (Matriz)",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=lz8dK",
+              "title": "Horário de Missa — Paróquia de Nossa Senhora da Conceição",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "santa-luzia-santa-luzia",
+      "name": "Paróquia Santa Luzia",
+      "city": "Santa Luzia",
+      "state": "PB",
+      "neighborhood": "Centro",
+      "address": "Pça: Silvino Cabral da Nobrega, s/n",
+      "zipCode": null,
+      "phone": "(83) 3461-2741",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "forania": "Forania Vale do Sabugi",
+      "sources": [
+        {
+          "url": "https://diocesedepatospb.org.br/foranias/",
+          "title": "Foranias | Diocese de Patos",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/igreja.php?k=vv6UF",
+          "title": "Horário de Missa — Paróquia Santa Luzia",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=vv6UF",
+              "title": "Horário de Missa — Paróquia Santa Luzia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=vv6UF",
+              "title": "Horário de Missa — Paróquia Santa Luzia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 1,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=vv6UF",
+              "title": "Horário de Missa — Paróquia Santa Luzia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=vv6UF",
+              "title": "Horário de Missa — Paróquia Santa Luzia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "16:00",
+          "type": "MASS",
+          "notes": "16:00 (Igreja do Rosário)",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=vv6UF",
+              "title": "Horário de Missa — Paróquia Santa Luzia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "19:00 (Igreja S. José Operário)",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=vv6UF",
+              "title": "Horário de Missa — Paróquia Santa Luzia",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "santo-onofre-junco-do-serido",
+      "name": "Paróquia Santo Onofre",
+      "city": "Junco do Seridó",
+      "state": "PB",
+      "neighborhood": null,
+      "address": null,
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "forania": "Forania Vale do Sabugi",
+      "sources": [
+        {
+          "url": "https://diocesedepatospb.org.br/foranias/",
+          "title": "Foranias | Diocese de Patos",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-jose-sao-jose-do-sabugi",
+      "name": "Paróquia São José",
+      "city": "São José do Sabugi",
+      "state": "PB",
+      "neighborhood": null,
+      "address": null,
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "forania": "Forania Vale do Sabugi",
+      "sources": [
+        {
+          "url": "https://diocesedepatospb.org.br/foranias/",
+          "title": "Foranias | Diocese de Patos",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-francisco-varzea",
+      "name": "Paróquia São Francisco",
+      "city": "Várzea",
+      "state": "PB",
+      "neighborhood": null,
+      "address": null,
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "forania": "Forania Vale do Sabugi",
+      "sources": [
+        {
+          "url": "https://diocesedepatospb.org.br/foranias/",
+          "title": "Foranias | Diocese de Patos",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "area-pastoral-sao-jose-operario-santa-luzia",
+      "name": "Área Pastoral São José Operário",
+      "city": "Santa Luzia",
+      "state": "PB",
+      "neighborhood": null,
+      "address": null,
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "forania": "Forania Vale do Sabugi",
+      "sources": [
+        {
+          "url": "https://diocesedepatospb.org.br/foranias/",
+          "title": "Foranias | Diocese de Patos",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-da-conceicao-malta",
+      "name": "Paróquia Nossa Senhora da Conceição",
+      "city": "Malta",
+      "state": "PB",
+      "neighborhood": "Centro",
+      "address": "R: Solon de lucena, s/n",
+      "zipCode": null,
+      "phone": "(83) 3471-1219",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "forania": "Forania de Malta",
+      "sources": [
+        {
+          "url": "https://diocesedepatospb.org.br/foranias/",
+          "title": "Foranias | Diocese de Patos",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/igreja.php?k=0cdSO",
+          "title": "Horário de Missa — Paróquia Nossa Senhora da Conceição",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-sebastiao-condado",
+      "name": "Paróquia São Sebastião",
+      "city": "Condado",
+      "state": "PB",
+      "neighborhood": "Centro",
+      "address": "R: Pe. Amâncio Leite, 24",
+      "zipCode": null,
+      "phone": "(83) 3438-1001",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "forania": "Forania de Malta",
+      "sources": [
+        {
+          "url": "https://diocesedepatospb.org.br/foranias/",
+          "title": "Foranias | Diocese de Patos",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/igreja.php?k=Rktkb",
+          "title": "Horário de Missa — Paróquia São Sebastião",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-do-desterro-vista-serrana",
+      "name": "Paróquia Nossa Senhora do Desterro",
+      "city": "Vista Serrana",
+      "state": "PB",
+      "neighborhood": null,
+      "address": null,
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "forania": "Forania de Malta",
+      "sources": [
+        {
+          "url": "https://diocesedepatospb.org.br/foranias/",
+          "title": "Foranias | Diocese de Patos",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-do-desterro-desterro",
+      "name": "Paróquia Nossa Senhora do Desterro",
+      "city": "Desterro",
+      "state": "PB",
+      "neighborhood": "Centro",
+      "address": "Praça da Matriz",
+      "zipCode": null,
+      "phone": "(83) 3473-1056",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "forania": "Forania da Serra de Teixeira",
+      "sources": [
+        {
+          "url": "https://diocesedepatospb.org.br/foranias/",
+          "title": "Foranias | Diocese de Patos",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/igreja.php?k=FG8HS",
+          "title": "Horário de Missa — Paróquia Nossa Senhora do Desterro",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "santa-maria-madalena-teixeira",
+      "name": "Paróquia Santa Maria Madalena",
+      "city": "Teixeira",
+      "state": "PB",
+      "neighborhood": "Centro",
+      "address": "R: Dr.. Manuel Dantas, s/n",
+      "zipCode": null,
+      "phone": "(83) 3472-2125",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "forania": "Forania da Serra de Teixeira",
+      "sources": [
+        {
+          "url": "https://diocesedepatospb.org.br/foranias/",
+          "title": "Foranias | Diocese de Patos",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/igreja.php?k=cwNrv",
+          "title": "Horário de Missa — Paróquia Santa Madalena",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "imaculada-conceicao-de-maria-imaculada",
+      "name": "Paróquia Imaculada Conceição de Maria",
+      "city": "Imaculada",
+      "state": "PB",
+      "neighborhood": "Centro",
+      "address": "R: do Comércio, s/n",
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "forania": "Forania da Serra de Teixeira",
+      "sources": [
+        {
+          "url": "https://diocesedepatospb.org.br/foranias/",
+          "title": "Foranias | Diocese de Patos",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/igreja.php?k=jqPHP",
+          "title": "Horário de Missa — Paróquia Nossa Senhora da Conceção",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-francisco-matureia",
+      "name": "Paróquia São Francisco",
+      "city": "Maturéia",
+      "state": "PB",
+      "neighborhood": null,
+      "address": null,
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "forania": "Forania da Serra de Teixeira",
+      "sources": [
+        {
+          "url": "https://diocesedepatospb.org.br/foranias/",
+          "title": "Foranias | Diocese de Patos",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-jose-cacimbas",
+      "name": "Paróquia São José",
+      "city": "Cacimbas",
+      "state": "PB",
+      "neighborhood": null,
+      "address": null,
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "forania": "Forania da Serra de Teixeira",
+      "sources": [
+        {
+          "url": "https://diocesedepatospb.org.br/foranias/",
+          "title": "Foranias | Diocese de Patos",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-da-guia-patos",
+      "name": "Catedral Nossa Senhora da Guia",
+      "city": "Patos",
+      "state": "PB",
+      "neighborhood": "Centro",
+      "address": "R: Peregrino Filho, 67",
+      "zipCode": null,
+      "phone": "(83) 3421-3732",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "forania": "Forania do Vale das Espinharas",
+      "sources": [
+        {
+          "url": "https://diocesedepatospb.org.br/foranias/",
+          "title": "Foranias | Diocese de Patos",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/igreja.php?k=JbM4i",
+          "title": "Horário de Missa — Catedral Diocesana Nossa Senhora da Guia",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-de-fatima-patos",
+      "name": "Paróquia Nossa Senhora de Fátima",
+      "city": "Patos",
+      "state": "PB",
+      "neighborhood": "Belo Horizonte",
+      "address": "R: Horácio Nóbrega, s/n",
+      "zipCode": null,
+      "phone": "(83) 3421-2619",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "forania": "Forania do Vale das Espinharas",
+      "sources": [
+        {
+          "url": "https://diocesedepatospb.org.br/foranias/",
+          "title": "Foranias | Diocese de Patos",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/igreja.php?k=hHbfB",
+          "title": "Horário de Missa — Paróquia Nossa Senhora de fátima",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "santo-antonio-patos",
+      "name": "Paróquia Santo Antônio",
+      "city": "Patos",
+      "state": "PB",
+      "neighborhood": "Santo Antônio",
+      "address": "Rua Escritor Augusto dos Anjos, 316",
+      "zipCode": null,
+      "phone": "(83) 3421-2534",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "forania": "Forania do Vale das Espinharas",
+      "sources": [
+        {
+          "url": "https://diocesedepatospb.org.br/foranias/",
+          "title": "Foranias | Diocese de Patos",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/igreja.php?k=qKMQa",
+          "title": "Horário de Missa — Paróquia Santo Antônio",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=qKMQa",
+              "title": "Horário de Missa — Paróquia Santo Antônio",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=qKMQa",
+              "title": "Horário de Missa — Paróquia Santo Antônio",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "16:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=qKMQa",
+              "title": "Horário de Missa — Paróquia Santo Antônio",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=qKMQa",
+              "title": "Horário de Missa — Paróquia Santo Antônio",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 1,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=qKMQa",
+              "title": "Horário de Missa — Paróquia Santo Antônio",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 2,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=qKMQa",
+              "title": "Horário de Missa — Paróquia Santo Antônio",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=qKMQa",
+              "title": "Horário de Missa — Paróquia Santo Antônio",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "sao-sebastiao-patos",
+      "name": "Paróquia São Sebastião",
+      "city": "Patos",
+      "state": "PB",
+      "neighborhood": "São Sebastião",
+      "address": "R: Lima Campos, 173",
+      "zipCode": null,
+      "phone": "(83) 3421-2540",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "forania": "Forania do Vale das Espinharas",
+      "sources": [
+        {
+          "url": "https://diocesedepatospb.org.br/foranias/",
+          "title": "Foranias | Diocese de Patos",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/igreja.php?k=4xrFe",
+          "title": "Horário de Missa — Paróquia São Sebastião",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-pedro-patos",
+      "name": "Paróquia São Pedro",
+      "city": "Patos",
+      "state": "PB",
+      "neighborhood": "Jatoba",
+      "address": "R; Mauel Reinaldo, 50",
+      "zipCode": null,
+      "phone": "(83) 3421-2534",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "forania": "Forania do Vale das Espinharas",
+      "sources": [
+        {
+          "url": "https://diocesedepatospb.org.br/foranias/",
+          "title": "Foranias | Diocese de Patos",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/igreja.php?k=Se6q7",
+          "title": "Horário de Missa — Paróquia São Pedro",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-do-perpetuo-socorro-patos",
+      "name": "Paróquia Nossa Senhora do Perpétuo Socorro",
+      "city": "Patos",
+      "state": "PB",
+      "neighborhood": null,
+      "address": null,
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "forania": "Forania do Vale das Espinharas",
+      "sources": [
+        {
+          "url": "https://diocesedepatospb.org.br/foranias/",
+          "title": "Foranias | Diocese de Patos",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sagrado-coracao-de-jesus-patos",
+      "name": "Paróquia Sagrado Coração de Jesus",
+      "city": "Patos",
+      "state": "PB",
+      "neighborhood": null,
+      "address": null,
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "forania": "Forania do Vale das Espinharas",
+      "sources": [
+        {
+          "url": "https://diocesedepatospb.org.br/foranias/",
+          "title": "Foranias | Diocese de Patos",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-das-neves-patos",
+      "name": "Paróquia Nossa Senhora das Neves",
+      "city": "Patos",
+      "state": "PB",
+      "neighborhood": null,
+      "address": null,
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "forania": "Forania do Vale das Espinharas",
+      "sources": [
+        {
+          "url": "https://diocesedepatospb.org.br/foranias/",
+          "title": "Foranias | Diocese de Patos",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-das-dores-mae-d-agua",
+      "name": "Paróquia Nossa Senhora das Dores",
+      "city": "Mãe d'Água",
+      "state": "PB",
+      "neighborhood": null,
+      "address": null,
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "forania": "Forania do Vale das Espinharas",
+      "sources": [
+        {
+          "url": "https://diocesedepatospb.org.br/foranias/",
+          "title": "Foranias | Diocese de Patos",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-jose-sao-jose-de-espinharas",
+      "name": "Paróquia São José",
+      "city": "São José de Espinharas",
+      "state": "PB",
+      "neighborhood": null,
+      "address": null,
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "forania": "Forania do Vale das Espinharas",
+      "sources": [
+        {
+          "url": "https://diocesedepatospb.org.br/foranias/",
+          "title": "Foranias | Diocese de Patos",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "santa-terezinha-santa-teresinha",
+      "name": "Paróquia Santa Terezinha",
+      "city": "Santa Teresinha",
+      "state": "PB",
+      "neighborhood": null,
+      "address": null,
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "forania": "Forania do Vale das Espinharas",
+      "sources": [
+        {
+          "url": "https://diocesedepatospb.org.br/foranias/",
+          "title": "Foranias | Diocese de Patos",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-jose-sao-jose-do-bonfim",
+      "name": "Paróquia São José",
+      "city": "São José do Bonfim",
+      "state": "PB",
+      "neighborhood": null,
+      "address": null,
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "forania": "Forania do Vale das Espinharas",
+      "sources": [
+        {
+          "url": "https://diocesedepatospb.org.br/foranias/",
+          "title": "Foranias | Diocese de Patos",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "area-pastoral-santa-luzia-patos",
+      "name": "Área Pastoral Santa Luzia",
+      "city": "Patos",
+      "state": "PB",
+      "neighborhood": null,
+      "address": null,
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "forania": "Forania do Vale das Espinharas",
+      "sources": [
+        {
+          "url": "https://diocesedepatospb.org.br/foranias/",
+          "title": "Foranias | Diocese de Patos",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "area-pastoral-sao-francisco-patos",
+      "name": "Área Pastoral São Francisco",
+      "city": "Patos",
+      "state": "PB",
+      "neighborhood": null,
+      "address": null,
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "forania": "Forania do Vale das Espinharas",
+      "sources": [
+        {
+          "url": "https://diocesedepatospb.org.br/foranias/",
+          "title": "Foranias | Diocese de Patos",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-da-conceicao-agua-branca",
+      "name": "Paróquia Nossa Senhora da Conceição",
+      "city": "Água Branca",
+      "state": "PB",
+      "neighborhood": "Centro",
+      "address": "Praça da Matriz",
+      "zipCode": null,
+      "phone": "(83) 3421-4142",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "forania": "Forania da Serra de Princesa Isabel",
+      "sources": [
+        {
+          "url": "https://diocesedepatospb.org.br/foranias/",
+          "title": "Foranias | Diocese de Patos",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/igreja.php?k=pR9L4",
+          "title": "Horário de Missa — Paróquia Imaculada Conceição",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "santa-terezinha-juru",
+      "name": "Paróquia Santa Terezinha",
+      "city": "Juru",
+      "state": "PB",
+      "neighborhood": "Centro",
+      "address": "Praça da Matriz",
+      "zipCode": null,
+      "phone": "(83) 3484-1040",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "forania": "Forania da Serra de Princesa Isabel",
+      "sources": [
+        {
+          "url": "https://diocesedepatospb.org.br/foranias/",
+          "title": "Foranias | Diocese de Patos",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/igreja.php?k=rZsgz",
+          "title": "Horário de Missa — Paróquia Santa Terezinha",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-miguel-arcanjo-tavares",
+      "name": "Paróquia São Miguel Arcanjo",
+      "city": "Tavares",
+      "state": "PB",
+      "neighborhood": "Centro",
+      "address": "Praça da Matriz",
+      "zipCode": null,
+      "phone": "(83) 3457-2209",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "forania": "Forania da Serra de Princesa Isabel",
+      "sources": [
+        {
+          "url": "https://diocesedepatospb.org.br/foranias/",
+          "title": "Foranias | Diocese de Patos",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/igreja.php?k=Ii8zC",
+          "title": "Horário de Missa — Paróquia São Miguel",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-do-bom-conselho-princesa",
+      "name": "Paróquia Nossa Senhora do Bom Conselho",
+      "city": "Princesa",
+      "state": "PB",
+      "neighborhood": null,
+      "address": null,
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "forania": "Forania da Serra de Princesa Isabel",
+      "sources": [
+        {
+          "url": "https://diocesedepatospb.org.br/foranias/",
+          "title": "Foranias | Diocese de Patos",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-das-dores-manaira",
+      "name": "Paróquia Nossa Senhora das Dores",
+      "city": "Manaíra",
+      "state": "PB",
+      "neighborhood": null,
+      "address": null,
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "forania": "Forania da Serra de Princesa Isabel",
+      "sources": [
+        {
+          "url": "https://diocesedepatospb.org.br/foranias/",
+          "title": "Foranias | Diocese de Patos",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-sebastiao-catingueira",
+      "name": "Paróquia São Sebastião",
+      "city": "Catingueira",
+      "state": "PB",
+      "neighborhood": "Centro",
+      "address": "Rua: Lourenço Dantas de Goes",
+      "zipCode": null,
+      "phone": "(83) 3421-4118",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "forania": "Forania do Vale do Piancó",
+      "sources": [
+        {
+          "url": "https://diocesedepatospb.org.br/foranias/",
+          "title": "Foranias | Diocese de Patos",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/igreja.php?k=aneW0",
+          "title": "Horário de Missa — Paróquia São Sebastião",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=aneW0",
+              "title": "Horário de Missa — Paróquia São Sebastião",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=aneW0",
+              "title": "Horário de Missa — Paróquia São Sebastião",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=aneW0",
+              "title": "Horário de Missa — Paróquia São Sebastião",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "sao-joao-batista-olho-d-agua",
+      "name": "Paróquia São João Batista",
+      "city": "Olho d'Água",
+      "state": "PB",
+      "neighborhood": null,
+      "address": null,
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "forania": "Forania do Vale do Piancó",
+      "sources": [
+        {
+          "url": "https://diocesedepatospb.org.br/foranias/",
+          "title": "Foranias | Diocese de Patos",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "santo-antonio-pianco",
+      "name": "Paróquia Santo Antônio",
+      "city": "Piancó",
+      "state": "PB",
+      "neighborhood": "Centro",
+      "address": "R: Euclides Leite, s/n",
+      "zipCode": null,
+      "phone": "(83) 3452-2268",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "forania": "Forania do Vale do Piancó",
+      "sources": [
+        {
+          "url": "https://diocesedepatospb.org.br/foranias/",
+          "title": "Foranias | Diocese de Patos",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/igreja.php?k=gOOZf",
+          "title": "Horário de Missa — Paróquia Santo anônio",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "senhora-sant-ana-santana-dos-garrotes",
+      "name": "Paróquia Senhora Sant’Ana",
+      "city": "Santana dos Garrotes",
+      "state": "PB",
+      "neighborhood": "Centro",
+      "address": "R; do Comércio, s/n",
+      "zipCode": null,
+      "phone": "(83) 3451-2341",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "forania": "Forania do Vale do Piancó",
+      "sources": [
+        {
+          "url": "https://diocesedepatospb.org.br/foranias/",
+          "title": "Foranias | Diocese de Patos",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/igreja.php?k=44eA8",
+          "title": "Horário de Missa — Paróquia Santana",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-dos-remedios-nova-olinda",
+      "name": "Paróquia Nossa Senhora dos Remédios",
+      "city": "Nova Olinda",
+      "state": "PB",
+      "neighborhood": "Centro",
+      "address": "Praça da Matriz",
+      "zipCode": null,
+      "phone": "(83) 3459-1025",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "forania": "Forania do Vale do Piancó",
+      "sources": [
+        {
+          "url": "https://diocesedepatospb.org.br/foranias/",
+          "title": "Foranias | Diocese de Patos",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/igreja.php?k=9fODn",
+          "title": "Horário de Missa — Paróquia Nossa Snhora dos Remédios",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-da-conceicao-taperoa",
+      "name": "Paróquia Nossa Senhora da Conceição",
+      "city": "Taperoá",
+      "state": "PB",
+      "neighborhood": "Centro",
+      "address": "R: da Matriz, s/n",
+      "zipCode": null,
+      "phone": "(83) 3463-2222",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "forania": "Forania da Serra do Cariri",
+      "sources": [
+        {
+          "url": "https://diocesedepatospb.org.br/foranias/",
+          "title": "Foranias | Diocese de Patos",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/igreja.php?k=OIt2r",
+          "title": "Horário de Missa — Paróquia Nossa Senhora da Conceição",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-do-livramento-livramento",
+      "name": "Paróquia Nossa Senhora do Livramento",
+      "city": "Livramento",
+      "state": "PB",
+      "neighborhood": "Centro",
+      "address": "Rua Tenente Francisco Genesio",
+      "zipCode": null,
+      "phone": "(83) 3421-4124",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "forania": "Forania da Serra do Cariri",
+      "sources": [
+        {
+          "url": "https://diocesedepatospb.org.br/foranias/",
+          "title": "Foranias | Diocese de Patos",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/igreja.php?k=D7OvX",
+          "title": "Horário de Missa — Paróquia Nossa Senhora do Livramento",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=D7OvX",
+              "title": "Horário de Missa — Paróquia Nossa Senhora do Livramento",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-da-assuncao-assuncao",
+      "name": "Paróquia Nossa Senhora da Assunção",
+      "city": "Assunção",
+      "state": "PB",
+      "neighborhood": null,
+      "address": null,
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "forania": "Forania da Serra do Cariri",
+      "sources": [
+        {
+          "url": "https://diocesedepatospb.org.br/foranias/",
+          "title": "Foranias | Diocese de Patos",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    }
+  ],
+  "coverage": {
+    "parishesFound": 41,
+    "parishesExpected": 41,
+    "notes": "A página /foranias/ do site oficial lista as 7 foranias com o nome e o município de cada paróquia e área pastoral — 41 entradas em 31 municípios — mas NÃO publica endereço, telefone, e-mail, pároco nem ano de criação; o site não tem página por paróquia. Endereço/bairro/telefone de 21 delas e os 22 horários vieram do horariodemissa.com.br (fonte única não oficial) — os horários estão todos como confidence=baixa."
+  }
+}

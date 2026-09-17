@@ -1,0 +1,2741 @@
+{
+  "diocese": {
+    "name": "Diocese de Cajazeiras",
+    "type": "Diocese",
+    "slug": "cajazeiras",
+    "city": "Cajazeiras",
+    "state": "PB",
+    "address": "Cúria Diocesana — Rua Padre Rolim, 571, Centro",
+    "zipCode": "58900-000",
+    "phone": "(83) 3531-1335",
+    "email": null,
+    "website": "https://diocesedecajazeiras.com.br",
+    "bishopName": "Dom Francisco de Assis Gabriel dos Santos",
+    "sources": [
+      {
+        "url": "https://diocesedecajazeiras.com.br/",
+        "title": "Diocese de Cajazeiras",
+        "accessedAt": "2026-09-11"
+      },
+      {
+        "url": "https://diocesedecajazeiras.com.br/governo-diocesano/",
+        "title": "Governo Diocesano | Diocese de Cajazeiras",
+        "accessedAt": "2026-09-11"
+      }
+    ],
+    "confidence": "alta"
+  },
+  "parishes": [
+    {
+      "slug": "sagrada-familia-cajazeiras",
+      "name": "Paróquia Sagrada Família",
+      "city": "Cajazeiras",
+      "state": "PB",
+      "neighborhood": "Jardim Oásis",
+      "address": "Rua José Antônio Silva, s/n",
+      "zipCode": null,
+      "phone": "(83) 98170-6031",
+      "email": "sagradafamiliacaja@gmail.com",
+      "website": null,
+      "priestName": "Padre Emanuel Anchieta Lacerda de Andrade",
+      "foundedYear": 2003,
+      "foundedDate": "21/08/2003",
+      "forania": "Forania de Cajazeiras",
+      "sources": [
+        {
+          "url": "https://diocesedecajazeiras.com.br/forania-de-cajazeiras/",
+          "title": "Forania de Cajazeiras | Diocese de Cajazeiras",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/igreja.php?k=tYBXa",
+          "title": "Horário de Missa — Paróquia Sagrada Família",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=tYBXa",
+              "title": "Horário de Missa — Paróquia Sagrada Família",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=tYBXa",
+              "title": "Horário de Missa — Paróquia Sagrada Família",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=tYBXa",
+              "title": "Horário de Missa — Paróquia Sagrada Família",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=tYBXa",
+              "title": "Horário de Missa — Paróquia Sagrada Família",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=tYBXa",
+              "title": "Horário de Missa — Paróquia Sagrada Família",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "08:00",
+          "type": "CONFESSION",
+          "notes": "08:00 às 12:00",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=tYBXa",
+              "title": "Horário de Missa — Paróquia Sagrada Família",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "sao-jose-operario-cajazeiras",
+      "name": "Paróquia São José Operário",
+      "city": "Cajazeiras",
+      "state": "PB",
+      "neighborhood": "das Casas Populares",
+      "address": "Rua Francisco Braga Barreto, s/n",
+      "zipCode": "58900-000",
+      "phone": "(83) 99195-8556",
+      "email": "paroquiasj_operario@hotmail.com",
+      "website": null,
+      "priestName": "Padre Bruno Dias de Lira",
+      "foundedYear": 2003,
+      "foundedDate": "21/08/2003",
+      "forania": "Forania de Cajazeiras",
+      "sources": [
+        {
+          "url": "https://diocesedecajazeiras.com.br/forania-de-cajazeiras/",
+          "title": "Forania de Cajazeiras | Diocese de Cajazeiras",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-joao-bosco-cajazeiras",
+      "name": "Paróquia São João Bosco",
+      "city": "Cajazeiras",
+      "state": "PB",
+      "neighborhood": null,
+      "address": "Praça Camilo de Holanda, s/n",
+      "zipCode": "58900-000",
+      "phone": "(83) 3531-3225",
+      "email": "paroquiasjbosco@yahoo.com.br",
+      "website": null,
+      "priestName": "Padre Thiago Dias Ramalho",
+      "foundedYear": 1966,
+      "foundedDate": "11/04/1966",
+      "forania": "Forania de Cajazeiras",
+      "sources": [
+        {
+          "url": "https://diocesedecajazeiras.com.br/forania-de-cajazeiras/",
+          "title": "Forania de Cajazeiras | Diocese de Cajazeiras",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/igreja.php?k=f5xym",
+          "title": "Horário de Missa — Paróquia São João Bosco",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": "08:00 (Matriz)",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=f5xym",
+              "title": "Horário de Missa — Paróquia São João Bosco",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "10:00",
+          "type": "MASS",
+          "notes": "10:00 (Capela dos Remédios)",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=f5xym",
+              "title": "Horário de Missa — Paróquia São João Bosco",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "19:00 (Matriz)",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=f5xym",
+              "title": "Horário de Missa — Paróquia São João Bosco",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=f5xym",
+              "title": "Horário de Missa — Paróquia São João Bosco",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=f5xym",
+              "title": "Horário de Missa — Paróquia São João Bosco",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=f5xym",
+              "title": "Horário de Missa — Paróquia São João Bosco",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "19:00 (Matriz)",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=f5xym",
+              "title": "Horário de Missa — Paróquia São João Bosco",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "19:00 (Capela Santo Antônio)",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=f5xym",
+              "title": "Horário de Missa — Paróquia São João Bosco",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "08:00",
+          "type": "CONFESSION",
+          "notes": "08:00 às 12:00",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=f5xym",
+              "title": "Horário de Missa — Paróquia São João Bosco",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "quase-paroquia-sagrado-coracao-de-jesus-bom-jesus",
+      "name": "Quase-paróquia Sagrado Coração de Jesus",
+      "city": "Bom Jesus",
+      "state": "PB",
+      "neighborhood": null,
+      "address": "Praça Prefeito Antônio Rolim, s/n",
+      "zipCode": "58930-000",
+      "phone": null,
+      "email": "paroquiascj1918@gmail.com",
+      "website": null,
+      "priestName": "Padre Francisco Josimar Chaves – RSF",
+      "foundedYear": 2002,
+      "foundedDate": "21/08/2002",
+      "forania": "Forania de Cajazeiras",
+      "sources": [
+        {
+          "url": "https://diocesedecajazeiras.com.br/forania-de-cajazeiras/",
+          "title": "Forania de Cajazeiras | Diocese de Cajazeiras",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "catedral-nossa-senhora-da-piedade-cajazeiras",
+      "name": "Catedral Nossa Senhora da Piedade",
+      "city": "Cajazeiras",
+      "state": "PB",
+      "neighborhood": null,
+      "address": "Rua Padre Rolim, s/n, Caixa Postal 35",
+      "zipCode": "58900-000",
+      "phone": "(83) 3531-1242",
+      "email": "paroquiapiedadecz@hotmail.com",
+      "website": null,
+      "priestName": "Padre Janilson Rolim Veríssimo",
+      "foundedYear": 1859,
+      "foundedDate": "29/08/1859",
+      "forania": "Forania de Cajazeiras",
+      "sources": [
+        {
+          "url": "https://diocesedecajazeiras.com.br/forania-de-cajazeiras/",
+          "title": "Forania de Cajazeiras | Diocese de Cajazeiras",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/igreja.php?k=yJTb9",
+          "title": "Horário de Missa — Catedral Diocesana Nossa Senhora da Piedade",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=yJTb9",
+              "title": "Horário de Missa — Catedral Diocesana Nossa Senhora da Piedade",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=yJTb9",
+              "title": "Horário de Missa — Catedral Diocesana Nossa Senhora da Piedade",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 2,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=yJTb9",
+              "title": "Horário de Missa — Catedral Diocesana Nossa Senhora da Piedade",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=yJTb9",
+              "title": "Horário de Missa — Catedral Diocesana Nossa Senhora da Piedade",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=yJTb9",
+              "title": "Horário de Missa — Catedral Diocesana Nossa Senhora da Piedade",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=yJTb9",
+              "title": "Horário de Missa — Catedral Diocesana Nossa Senhora da Piedade",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=yJTb9",
+              "title": "Horário de Missa — Catedral Diocesana Nossa Senhora da Piedade",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "08:00",
+          "type": "CONFESSION",
+          "notes": "08:00 às 12:00",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=yJTb9",
+              "title": "Horário de Missa — Catedral Diocesana Nossa Senhora da Piedade",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-de-fatima-cajazeiras",
+      "name": "Paróquia Nossa Senhora de Fátima",
+      "city": "Cajazeiras",
+      "state": "PB",
+      "neighborhood": null,
+      "address": "Praça da Matriz, s/n",
+      "zipCode": "58900-000",
+      "phone": "(83) 3531-1243",
+      "email": "paroquianossasenhoradefatimacz@gmail.com",
+      "website": null,
+      "priestName": "Padre Antônio Neto da Silva",
+      "foundedYear": 1957,
+      "foundedDate": "11/01/1957",
+      "forania": "Forania de Cajazeiras",
+      "sources": [
+        {
+          "url": "https://diocesedecajazeiras.com.br/forania-de-cajazeiras/",
+          "title": "Forania de Cajazeiras | Diocese de Cajazeiras",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/igreja.php?k=adE0g",
+          "title": "Horário de Missa — Paróquia Nossa Senhora de Fátima",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=adE0g",
+              "title": "Horário de Missa — Paróquia Nossa Senhora de Fátima",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=adE0g",
+              "title": "Horário de Missa — Paróquia Nossa Senhora de Fátima",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 2,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=adE0g",
+              "title": "Horário de Missa — Paróquia Nossa Senhora de Fátima",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=adE0g",
+              "title": "Horário de Missa — Paróquia Nossa Senhora de Fátima",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=adE0g",
+              "title": "Horário de Missa — Paróquia Nossa Senhora de Fátima",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=adE0g",
+              "title": "Horário de Missa — Paróquia Nossa Senhora de Fátima",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=adE0g",
+              "title": "Horário de Missa — Paróquia Nossa Senhora de Fátima",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "08:00",
+          "type": "CONFESSION",
+          "notes": "08:00 às 12:00",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=adE0g",
+              "title": "Horário de Missa — Paróquia Nossa Senhora de Fátima",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "santo-afonso-de-ligorio-carrapateira",
+      "name": "Paróquia Santo Afonso de Ligório",
+      "city": "Carrapateira",
+      "state": "PB",
+      "neighborhood": "Centro",
+      "address": "Rua Pedro Vieira, s/n",
+      "zipCode": "58945-000",
+      "phone": null,
+      "email": "paroquiasantoafonso@hotmail.com",
+      "website": null,
+      "priestName": "Padre Francisco Felix Alves",
+      "foundedYear": 2011,
+      "foundedDate": "01/08/2011",
+      "forania": "Forania de Cajazeiras",
+      "sources": [
+        {
+          "url": "https://diocesedecajazeiras.com.br/forania-de-cajazeiras/",
+          "title": "Forania de Cajazeiras | Diocese de Cajazeiras",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-da-conceicao-cachoeira-dos-indios",
+      "name": "Paróquia Nossa Senhora da Conceição",
+      "city": "Cachoeira dos Índios",
+      "state": "PB",
+      "neighborhood": null,
+      "address": "Rua da Matriz, s/n – Centro",
+      "zipCode": "58935-000",
+      "phone": "(83) 99863-9287",
+      "email": "pnsccachoeiradosindios@gmail.com",
+      "website": null,
+      "priestName": "Padre Deusimar Silva Gomes",
+      "foundedYear": 1963,
+      "foundedDate": "15/01/1963",
+      "forania": "Forania de Cajazeiras",
+      "sources": [
+        {
+          "url": "https://diocesedecajazeiras.com.br/forania-de-cajazeiras/",
+          "title": "Forania de Cajazeiras | Diocese de Cajazeiras",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "santo-antonio-de-padua-bonito-de-santa-fe",
+      "name": "Paróquia Santo Antônio de Pádua",
+      "city": "Bonito de Santa Fé",
+      "state": "PB",
+      "neighborhood": null,
+      "address": "Rua Solidônio Leite Palitot, 33",
+      "zipCode": "58960-000",
+      "phone": null,
+      "email": "paroquiadebonito@gmail.com",
+      "website": null,
+      "priestName": "Padre Francisco Mendes Silva",
+      "foundedYear": 1920,
+      "foundedDate": "19/12/1920",
+      "forania": "Forania de Cajazeiras",
+      "sources": [
+        {
+          "url": "https://diocesedecajazeiras.com.br/forania-de-cajazeiras/",
+          "title": "Forania de Cajazeiras | Diocese de Cajazeiras",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-francisco-de-assis-monte-horebe",
+      "name": "Paróquia São Francisco de Assis",
+      "city": "Monte Horebe",
+      "state": "PB",
+      "neighborhood": null,
+      "address": "Rua Pedro Gondin, 15",
+      "zipCode": "58950-000",
+      "phone": null,
+      "email": "paroquiasaofranciscomh@gmail.com",
+      "website": null,
+      "priestName": "Padre Franciarley Duarte de Sousa",
+      "foundedYear": 1963,
+      "foundedDate": "15/01/1963",
+      "forania": "Forania de Cajazeiras",
+      "sources": [
+        {
+          "url": "https://diocesedecajazeiras.com.br/forania-de-cajazeiras/",
+          "title": "Forania de Cajazeiras | Diocese de Cajazeiras",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-jose-sao-jose-de-piranhas",
+      "name": "Paróquia São José",
+      "city": "São José de Piranhas",
+      "state": "PB",
+      "neighborhood": null,
+      "address": "Rua Juvêncio Andrade, 442",
+      "zipCode": "58935-000",
+      "phone": "(83) 99397-1670",
+      "email": "paroquiasaojosedepiranhas@hotmail.com",
+      "website": null,
+      "priestName": "Padre Damião Nunes Viana",
+      "foundedYear": 1840,
+      "foundedDate": "10/11/1840",
+      "forania": "Forania de Cajazeiras",
+      "sources": [
+        {
+          "url": "https://diocesedecajazeiras.com.br/forania-de-cajazeiras/",
+          "title": "Forania de Cajazeiras | Diocese de Cajazeiras",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-sebastiao-sao-bento",
+      "name": "Paróquia São Sebastião",
+      "city": "São Bento",
+      "state": "PB",
+      "neighborhood": null,
+      "address": "Rua da Matriz, s/n",
+      "zipCode": "58865-000",
+      "phone": "(83) 99805-1810",
+      "email": "paroquiasssbento@hotmail.com",
+      "website": null,
+      "priestName": "Padre Francisco de Assis da Silva",
+      "foundedYear": 1960,
+      "foundedDate": "13/01/1960",
+      "forania": "Forania de Catolé do Rocha",
+      "sources": [
+        {
+          "url": "https://diocesedecajazeiras.com.br/forania-de-catole-do-rocha/",
+          "title": "Forania de Catolé do Rocha | Diocese de Cajazeiras",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/igreja.php?k=u20tJ",
+          "title": "Horário de Missa — Paróquia São Sebastião",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=u20tJ",
+              "title": "Horário de Missa — Paróquia São Sebastião",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=u20tJ",
+              "title": "Horário de Missa — Paróquia São Sebastião",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 1,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=u20tJ",
+              "title": "Horário de Missa — Paróquia São Sebastião",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "05:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=u20tJ",
+              "title": "Horário de Missa — Paróquia São Sebastião",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-dos-remedios-jerico",
+      "name": "Paróquia Nossa Senhora dos Remédios",
+      "city": "Jericó",
+      "state": "PB",
+      "neighborhood": null,
+      "address": "Rua Pe. Jerônimo Munoz Martin, s/n",
+      "zipCode": "58830-000",
+      "phone": null,
+      "email": "paroquiaremdiosjeroco@gmail.com",
+      "website": null,
+      "priestName": "Padre José Gomes do Nascimento",
+      "foundedYear": 1960,
+      "foundedDate": "13/01/1960",
+      "forania": "Forania de Catolé do Rocha",
+      "sources": [
+        {
+          "url": "https://diocesedecajazeiras.com.br/forania-de-catole-do-rocha/",
+          "title": "Forania de Catolé do Rocha | Diocese de Cajazeiras",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-jose-operario-bom-sucesso",
+      "name": "Paróquia São José Operário",
+      "city": "Bom Sucesso",
+      "state": "PB",
+      "neighborhood": null,
+      "address": "Praça Cícero Ferreira da Silva",
+      "zipCode": "58887-000",
+      "phone": null,
+      "email": "saojoseoperariobs@hotmail.com",
+      "website": null,
+      "priestName": "Padre Anderson Rodrigues da Silva",
+      "foundedYear": 1987,
+      "foundedDate": "18/12/1987",
+      "forania": "Forania de Catolé do Rocha",
+      "sources": [
+        {
+          "url": "https://diocesedecajazeiras.com.br/forania-de-catole-do-rocha/",
+          "title": "Forania de Catolé do Rocha | Diocese de Cajazeiras",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-francisco-de-assis-riacho-dos-cavalos",
+      "name": "Paróquia São Francisco de Assis",
+      "city": "Riacho dos Cavalos",
+      "state": "PB",
+      "neighborhood": null,
+      "address": "Rua Joaquim Vieira de Andrade, 37",
+      "zipCode": "58870-000",
+      "phone": null,
+      "email": "psparoquiasaofrancisco11@gmail.com",
+      "website": null,
+      "priestName": "Padre Thiers Queiroga Alves Melo",
+      "foundedYear": 2009,
+      "foundedDate": "15/04/2009",
+      "forania": "Forania de Catolé do Rocha",
+      "sources": [
+        {
+          "url": "https://diocesedecajazeiras.com.br/forania-de-catole-do-rocha/",
+          "title": "Forania de Catolé do Rocha | Diocese de Cajazeiras",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sagrada-familia-brejo-dos-santos",
+      "name": "Paróquia Sagrada Família",
+      "city": "Brejo dos Santos",
+      "state": "PB",
+      "neighborhood": null,
+      "address": "Rua Apolônio Pereira, 120, Praça da Matriz",
+      "zipCode": "58880-000",
+      "phone": null,
+      "email": "paroquiasagradafamilia16@hotmail.com",
+      "website": null,
+      "priestName": "Padre Jackson de Sá Mendes",
+      "foundedYear": 2010,
+      "foundedDate": "11/04/2010",
+      "forania": "Forania de Catolé do Rocha",
+      "sources": [
+        {
+          "url": "https://diocesedecajazeiras.com.br/forania-de-catole-do-rocha/",
+          "title": "Forania de Catolé do Rocha | Diocese de Cajazeiras",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-bernardo-sao-bento",
+      "name": "Paróquia São Bernardo",
+      "city": "São Bento",
+      "state": "PB",
+      "neighborhood": null,
+      "address": "Rua Antônio J. dos Santos, 74",
+      "zipCode": "58865-000",
+      "phone": "(83) 99895-9793",
+      "email": "psaobernardo@hotmail.com",
+      "website": null,
+      "priestName": "Padre Josenildo Jáder Abrantes de Oliveira",
+      "foundedYear": 2014,
+      "foundedDate": "28/01/2014",
+      "forania": "Forania de Catolé do Rocha",
+      "sources": [
+        {
+          "url": "https://diocesedecajazeiras.com.br/forania-de-catole-do-rocha/",
+          "title": "Forania de Catolé do Rocha | Diocese de Cajazeiras",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-dos-remedios-catole-do-rocha",
+      "name": "Paróquia Nossa Senhora dos Remédios",
+      "city": "Catolé do Rocha",
+      "state": "PB",
+      "neighborhood": null,
+      "address": "Rua Fundador Rocha, 70",
+      "zipCode": "58884-000",
+      "phone": "(83) 3441-1292",
+      "email": "nsdosremedios_catole@hotmail.com",
+      "website": null,
+      "priestName": "Frei José Mário de Almeida – OFMCap",
+      "foundedYear": 1835,
+      "foundedDate": "25/05/1835",
+      "forania": "Forania de Catolé do Rocha",
+      "sources": [
+        {
+          "url": "https://diocesedecajazeiras.com.br/forania-de-catole-do-rocha/",
+          "title": "Forania de Catolé do Rocha | Diocese de Cajazeiras",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-dos-milagres-brejo-do-cruz",
+      "name": "Paróquia Nossa Senhora dos Milagres",
+      "city": "Brejo do Cruz",
+      "state": "PB",
+      "neighborhood": null,
+      "address": "Rua da Matriz, s/n",
+      "zipCode": "58890-000",
+      "phone": null,
+      "email": "paroquiansmilagresbrejodocruz@gmail.com",
+      "website": null,
+      "priestName": "Padre Janduí de Sá Alves",
+      "foundedYear": 1975,
+      "foundedDate": "04/01/1975",
+      "forania": "Forania de Catolé do Rocha",
+      "sources": [
+        {
+          "url": "https://diocesedecajazeiras.com.br/forania-de-catole-do-rocha/",
+          "title": "Forania de Catolé do Rocha | Diocese de Cajazeiras",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-sebastiao-belem-do-brejo-do-cruz",
+      "name": "Paróquia São Sebastião",
+      "city": "Belém do Brejo do Cruz",
+      "state": "PB",
+      "neighborhood": null,
+      "address": "Rua da Matriz, s/n",
+      "zipCode": "58895-000",
+      "phone": null,
+      "email": "psaosebastiaobbc@gmail.com",
+      "website": null,
+      "priestName": "Padre José Maria Linhares de Losse",
+      "foundedYear": 1963,
+      "foundedDate": "15/01/1963",
+      "forania": "Forania de Catolé do Rocha",
+      "sources": [
+        {
+          "url": "https://diocesedecajazeiras.com.br/forania-de-catole-do-rocha/",
+          "title": "Forania de Catolé do Rocha | Diocese de Cajazeiras",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "area-pastoral-sao-jose-mato-grosso",
+      "name": "Área Pastoral São José",
+      "city": "Mato Grosso",
+      "state": "PB",
+      "neighborhood": null,
+      "address": "Rua Antônio Pereira Nunes",
+      "zipCode": "58832-000",
+      "phone": null,
+      "email": "areapastoral.matogrossopb@gmail.com",
+      "website": null,
+      "priestName": "Padre Raimundo Martins Sobrinho Junior",
+      "foundedYear": 2018,
+      "foundedDate": "01/11/2018",
+      "forania": "Forania de Catolé do Rocha",
+      "sources": [
+        {
+          "url": "https://diocesedecajazeiras.com.br/forania-de-catole-do-rocha/",
+          "title": "Forania de Catolé do Rocha | Diocese de Cajazeiras",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-do-rosario-ibiara",
+      "name": "Paróquia Nossa Senhora do Rosário",
+      "city": "Ibiara",
+      "state": "PB",
+      "neighborhood": null,
+      "address": "Rua da Matriz, s/n",
+      "zipCode": "58980-000",
+      "phone": "(83) 98717-4727",
+      "email": "secretaria.paroquial.ibiara@gmail.com",
+      "website": null,
+      "priestName": "Padre Janecildo Soares de Sousa",
+      "foundedYear": 1960,
+      "foundedDate": "13/01/1960",
+      "forania": "Forania de Itaporanga",
+      "sources": [
+        {
+          "url": "https://diocesedecajazeiras.com.br/forania-de-itaporanga/",
+          "title": "Forania de Itaporanga | Diocese de Cajazeiras",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sant-ana-santana-de-mangueira",
+      "name": "Paróquia Sant’Ana",
+      "city": "Santana de Mangueira",
+      "state": "PB",
+      "neighborhood": null,
+      "address": "Praça da Matriz – s/n",
+      "zipCode": "58985-000",
+      "phone": null,
+      "email": "prsenhorasantana@hotmail.com",
+      "website": null,
+      "priestName": "Jose Alberto Bezerra Ferreira",
+      "foundedYear": 2012,
+      "foundedDate": "26/07/2012",
+      "forania": "Forania de Itaporanga",
+      "sources": [
+        {
+          "url": "https://diocesedecajazeiras.com.br/forania-de-itaporanga/",
+          "title": "Forania de Itaporanga | Diocese de Cajazeiras",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sagrada-familia-serra-grande",
+      "name": "Paróquia Sagrada Família",
+      "city": "Serra Grande",
+      "state": "PB",
+      "neighborhood": null,
+      "address": "Rua Travessa Pedro Abílio, 07, Centro Praça da Matriz",
+      "zipCode": "58955-000",
+      "phone": null,
+      "email": "paroquiasagradafamilia2019@gmail.com",
+      "website": null,
+      "priestName": "Padre Aulucelio de Almeida Batista",
+      "foundedYear": 2013,
+      "foundedDate": "22/02/2013",
+      "forania": "Forania de Itaporanga",
+      "sources": [
+        {
+          "url": "https://diocesedecajazeiras.com.br/forania-de-itaporanga/",
+          "title": "Forania de Itaporanga | Diocese de Cajazeiras",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-jose-curral-velho",
+      "name": "Paróquia São José",
+      "city": "Curral Velho",
+      "state": "PB",
+      "neighborhood": null,
+      "address": "Rua São José, s/n",
+      "zipCode": "58990-000",
+      "phone": null,
+      "email": "paroquiasaojosecv@outlook.com",
+      "website": null,
+      "priestName": "Padre Eliseu Soares",
+      "foundedYear": 2013,
+      "foundedDate": "28/08/2013",
+      "forania": "Forania de Itaporanga",
+      "sources": [
+        {
+          "url": "https://diocesedecajazeiras.com.br/forania-de-itaporanga/",
+          "title": "Forania de Itaporanga | Diocese de Cajazeiras",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-da-conceicao-diamante",
+      "name": "Paróquia Nossa Senhora da Conceição",
+      "city": "Diamante",
+      "state": "PB",
+      "neighborhood": null,
+      "address": "Rua da Matriz, s/n",
+      "zipCode": "58994-000",
+      "phone": null,
+      "email": "pnscdiamante@outlook.com",
+      "website": null,
+      "priestName": "Padre Eliseu Soares de Oliveira",
+      "foundedYear": 1963,
+      "foundedDate": "15/01/1963",
+      "forania": "Forania de Itaporanga",
+      "sources": [
+        {
+          "url": "https://diocesedecajazeiras.com.br/forania-de-itaporanga/",
+          "title": "Forania de Itaporanga | Diocese de Cajazeiras",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-da-conceicao-boa-ventura",
+      "name": "Paróquia Nossa Senhora da Conceição",
+      "city": "Boa Ventura",
+      "state": "PB",
+      "neighborhood": null,
+      "address": "Rua da Matriz, s/n",
+      "zipCode": "58993-000",
+      "phone": "(83) 92001-6478",
+      "email": "paroquia.n.s.conceicaobv@gmail.com",
+      "website": null,
+      "priestName": "Padre Thiago Lacerda",
+      "foundedYear": 1963,
+      "foundedDate": "15/01/1963",
+      "forania": "Forania de Itaporanga",
+      "sources": [
+        {
+          "url": "https://diocesedecajazeiras.com.br/forania-de-itaporanga/",
+          "title": "Forania de Itaporanga | Diocese de Cajazeiras",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-dos-remedios-igaracy",
+      "name": "Paróquia Nossa Senhora dos Remédios",
+      "city": "Igaracy",
+      "state": "PB",
+      "neighborhood": null,
+      "address": "Rua Antônio Severo Brasileiro, s/n",
+      "zipCode": "58775-000",
+      "phone": "(83) 3480-1092",
+      "email": "paroquiansr_igaracypb@hotmail.com",
+      "website": null,
+      "priestName": "Padre Glauciliano Gaudino Alves",
+      "foundedYear": 1966,
+      "foundedDate": "11/04/1966",
+      "forania": "Forania de Itaporanga",
+      "sources": [
+        {
+          "url": "https://diocesedecajazeiras.com.br/forania-de-itaporanga/",
+          "title": "Forania de Itaporanga | Diocese de Cajazeiras",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-jose-sao-jose-de-caiana",
+      "name": "Paróquia São José",
+      "city": "São José de Caiana",
+      "state": "PB",
+      "neighborhood": null,
+      "address": "Rua dos Poderes, 52",
+      "zipCode": "58784-000",
+      "phone": null,
+      "email": "paroquiasjdecaiana@gmail.com",
+      "website": null,
+      "priestName": "Padre Aulucelio de Almeida Batista",
+      "foundedYear": 1968,
+      "foundedDate": "13/01/1968",
+      "forania": "Forania de Itaporanga",
+      "sources": [
+        {
+          "url": "https://diocesedecajazeiras.com.br/forania-de-itaporanga/",
+          "title": "Forania de Itaporanga | Diocese de Cajazeiras",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-do-perpetuo-socorro-pedra-branca",
+      "name": "Paróquia Nossa Senhora do Perpétuo Socorro",
+      "city": "Pedra Branca",
+      "state": "PB",
+      "neighborhood": null,
+      "address": "Rua da Matriz, s/n",
+      "zipCode": "58790-000",
+      "phone": null,
+      "email": "paroquia.nsperpetuosocorro@outlook.com",
+      "website": null,
+      "priestName": "Padre José Cavalcante Filho",
+      "foundedYear": 1968,
+      "foundedDate": "13/01/1968",
+      "forania": "Forania de Itaporanga",
+      "sources": [
+        {
+          "url": "https://diocesedecajazeiras.com.br/forania-de-itaporanga/",
+          "title": "Forania de Itaporanga | Diocese de Cajazeiras",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-da-conceicao-itaporanga",
+      "name": "Paróquia Nossa Senhora da Conceição",
+      "city": "Itaporanga",
+      "state": "PB",
+      "neighborhood": null,
+      "address": "Praça do Centenário, s/n",
+      "zipCode": "58780-000",
+      "phone": "(83) 3451-2270",
+      "email": "paroquiadeitaporanga@hotmail.com",
+      "website": null,
+      "priestName": "Padre Walter Fernandes Anacleto",
+      "foundedYear": 1860,
+      "foundedDate": "11/06/1860",
+      "forania": "Forania de Itaporanga",
+      "sources": [
+        {
+          "url": "https://diocesedecajazeiras.com.br/forania-de-itaporanga/",
+          "title": "Forania de Itaporanga | Diocese de Cajazeiras",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/igreja.php?k=1lUIt",
+          "title": "Horário de Missa — Paróquia Nossa Senhora da Conceição",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=1lUIt",
+              "title": "Horário de Missa — Paróquia Nossa Senhora da Conceição",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=1lUIt",
+              "title": "Horário de Missa — Paróquia Nossa Senhora da Conceição",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 2,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=1lUIt",
+              "title": "Horário de Missa — Paróquia Nossa Senhora da Conceição",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=1lUIt",
+              "title": "Horário de Missa — Paróquia Nossa Senhora da Conceição",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=1lUIt",
+              "title": "Horário de Missa — Paróquia Nossa Senhora da Conceição",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "sao-sebastiao-aguiar",
+      "name": "Paróquia São Sebastião",
+      "city": "Aguiar",
+      "state": "PB",
+      "neighborhood": null,
+      "address": "Rua da Matriz, s/n",
+      "zipCode": "58778-000",
+      "phone": "(83) 98108-9071",
+      "email": "paroquia.aguiar@gmail.com",
+      "website": null,
+      "priestName": "Padre Kleverton Caio Dantas Bezerra",
+      "foundedYear": 1984,
+      "foundedDate": "08/10/1984",
+      "forania": "Forania de Itaporanga",
+      "sources": [
+        {
+          "url": "https://diocesedecajazeiras.com.br/forania-de-itaporanga/",
+          "title": "Forania de Itaporanga | Diocese de Cajazeiras",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-da-conceicao-conceicao",
+      "name": "Paróquia Nossa Senhora da Conceição",
+      "city": "Conceição",
+      "state": "PB",
+      "neighborhood": null,
+      "address": "Praça Cônego Antônio Andrade, 201",
+      "zipCode": "58970-000",
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": "Padre José Elias de Sousa Sá",
+      "foundedYear": 1966,
+      "foundedDate": "09/10/1966",
+      "forania": "Forania de Itaporanga",
+      "sources": [
+        {
+          "url": "https://diocesedecajazeiras.com.br/forania-de-itaporanga/",
+          "title": "Forania de Itaporanga | Diocese de Cajazeiras",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "area-pastoral-santa-ines-santa-ines",
+      "name": "Área Pastoral Santa Inês",
+      "city": "Santa Inês",
+      "state": "PB",
+      "neighborhood": null,
+      "address": "Praça Marciana Vieira, s/n",
+      "zipCode": "58978-000",
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": "Padre Cícero Gomes de Lira",
+      "foundedYear": 1963,
+      "foundedDate": "15/01/1963",
+      "forania": "Forania de Itaporanga",
+      "sources": [
+        {
+          "url": "https://diocesedecajazeiras.com.br/forania-de-itaporanga/",
+          "title": "Forania de Itaporanga | Diocese de Cajazeiras",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "santa-rita-de-cassia-coremas",
+      "name": "Paróquia Santa Rita de Cássia",
+      "city": "Coremas",
+      "state": "PB",
+      "neighborhood": null,
+      "address": "Rua José Peregrino de Araújo, 12 Centro",
+      "zipCode": "58770-000",
+      "phone": "(83) 3433-1224",
+      "email": "paroquiasantaritacoremas@hotmail.com",
+      "website": null,
+      "priestName": "Padre Francisco Alves Rodrigues",
+      "foundedYear": 1956,
+      "foundedDate": "13/01/1956",
+      "forania": "Forania de Pombal",
+      "sources": [
+        {
+          "url": "https://diocesedecajazeiras.com.br/forania-de-pombal/",
+          "title": "Forania de Pombal | Diocese de Cajazeiras",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-jose-lagoa",
+      "name": "Paróquia São José",
+      "city": "Lagoa",
+      "state": "PB",
+      "neighborhood": null,
+      "address": "Rua José Sinfrônio, 08",
+      "zipCode": "58835-000",
+      "phone": null,
+      "email": "paroquiasaojose57@gmail.com",
+      "website": null,
+      "priestName": "Padre Francisco Junior da Silva",
+      "foundedYear": 1963,
+      "foundedDate": "15/01/1963",
+      "forania": "Forania de Pombal",
+      "sources": [
+        {
+          "url": "https://diocesedecajazeiras.com.br/forania-de-pombal/",
+          "title": "Forania de Pombal | Diocese de Cajazeiras",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/igreja.php?k=AoF4I",
+          "title": "Horário de Missa — São José",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=AoF4I",
+              "title": "Horário de Missa — São José",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "05:00",
+          "type": "MASS",
+          "notes": "05:00 (Igreja de São Francisco)",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=AoF4I",
+              "title": "Horário de Missa — São José",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-da-conceicao-cajazeirinhas",
+      "name": "Paróquia Nossa Senhora da Conceição",
+      "city": "Cajazeirinhas",
+      "state": "PB",
+      "neighborhood": null,
+      "address": "Rua da Matriz, s/n",
+      "zipCode": "58855-000",
+      "phone": null,
+      "email": "nossasenhoradc@gmail.com",
+      "website": null,
+      "priestName": "Padre Marcos Felix do Nascimento – RSF",
+      "foundedYear": 2009,
+      "foundedDate": "25/03/2009",
+      "forania": "Forania de Pombal",
+      "sources": [
+        {
+          "url": "https://diocesedecajazeiras.com.br/forania-de-pombal/",
+          "title": "Forania de Pombal | Diocese de Cajazeiras",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-francisco-sao-bentinho",
+      "name": "Paróquia São Francisco",
+      "city": "São Bentinho",
+      "state": "PB",
+      "neighborhood": null,
+      "address": "Rua Francisco Felinto dos Santos, s/n",
+      "zipCode": "58857-000",
+      "phone": null,
+      "email": "saofranciscosbpb@gmail.com",
+      "website": null,
+      "priestName": "Padre Marcos Felix do Nascimento – RSF",
+      "foundedYear": 2009,
+      "foundedDate": "25/03/2009",
+      "forania": "Forania de Pombal",
+      "sources": [
+        {
+          "url": "https://diocesedecajazeiras.com.br/forania-de-pombal/",
+          "title": "Forania de Pombal | Diocese de Cajazeiras",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-domingos-de-gusmao-sao-domingos",
+      "name": "Paróquia São Domingos de Gusmão",
+      "city": "São Domingos",
+      "state": "PB",
+      "neighborhood": null,
+      "address": "Rua: Antônia Pereira da Nóbrega, Praça da Matriz",
+      "zipCode": "58853-000",
+      "phone": null,
+      "email": "saodomingosdegusmao@outlook.com",
+      "website": null,
+      "priestName": "Padre José de Sousa Santos",
+      "foundedYear": 2010,
+      "foundedDate": "08/08/2010",
+      "forania": "Forania de Pombal",
+      "sources": [
+        {
+          "url": "https://diocesedecajazeiras.com.br/forania-de-pombal/",
+          "title": "Forania de Pombal | Diocese de Cajazeiras",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-judas-tadeu-pombal",
+      "name": "Paróquia São Judas Tadeu",
+      "city": "Pombal",
+      "state": "PB",
+      "neighborhood": null,
+      "address": "Rua Odilon José Assis, s/n – Vila Nova",
+      "zipCode": "58840-000",
+      "phone": null,
+      "email": "paroquiasaojudastadeu@outlook.com",
+      "website": null,
+      "priestName": "Padre Francisco Geraldo de Sousa",
+      "foundedYear": 2014,
+      "foundedDate": "29/08/2014",
+      "forania": "Forania de Pombal",
+      "sources": [
+        {
+          "url": "https://diocesedecajazeiras.com.br/forania-de-pombal/",
+          "title": "Forania de Pombal | Diocese de Cajazeiras",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-do-bom-sucesso-pombal",
+      "name": "Paróquia Nossa Senhora do Bom Sucesso",
+      "city": "Pombal",
+      "state": "PB",
+      "neighborhood": null,
+      "address": "Praça Getúlio Vargas, s/n",
+      "zipCode": "58840-000",
+      "phone": "(83) 3431-1290",
+      "email": "paroquiansrabomsucessopombal@gmail.com",
+      "website": null,
+      "priestName": "Padre Rodolfo de Caldas Cavalcante",
+      "foundedYear": 1772,
+      "foundedDate": "04/05/1772",
+      "forania": "Forania de Pombal",
+      "sources": [
+        {
+          "url": "https://diocesedecajazeiras.com.br/forania-de-pombal/",
+          "title": "Forania de Pombal | Diocese de Cajazeiras",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/igreja.php?k=hXFQA",
+          "title": "Horário de Missa — Nossa Senhora do Bom Sucesso",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": "06:00 (Capela de Nossa Senhora de Fátima)",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=hXFQA",
+              "title": "Horário de Missa — Nossa Senhora do Bom Sucesso",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": "07:00 (Igreja de Nossa Senhora do Rosário)",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=hXFQA",
+              "title": "Horário de Missa — Nossa Senhora do Bom Sucesso",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=hXFQA",
+              "title": "Horário de Missa — Nossa Senhora do Bom Sucesso",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": "17:00 (Igreja de São Judas Tadeu)",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=hXFQA",
+              "title": "Horário de Missa — Nossa Senhora do Bom Sucesso",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=hXFQA",
+              "title": "Horário de Missa — Nossa Senhora do Bom Sucesso",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "19:00 (Capela Nossa Senhora do Perpétuo Socorro - Capela do Abrigo)",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=hXFQA",
+              "title": "Horário de Missa — Nossa Senhora do Bom Sucesso",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=hXFQA",
+              "title": "Horário de Missa — Nossa Senhora do Bom Sucesso",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=hXFQA",
+              "title": "Horário de Missa — Nossa Senhora do Bom Sucesso",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "sao-pedro-pombal",
+      "name": "Paróquia São Pedro",
+      "city": "Pombal",
+      "state": "PB",
+      "neighborhood": null,
+      "address": "Rua Herculano José de Sous, s/n, Pereiros",
+      "zipCode": "58840-000",
+      "phone": null,
+      "email": "pspedropombal@outlook.com",
+      "website": null,
+      "priestName": "Padre Nicodemos Pereira da Silva",
+      "foundedYear": 1966,
+      "foundedDate": "11/04/1966",
+      "forania": "Forania de Pombal",
+      "sources": [
+        {
+          "url": "https://diocesedecajazeiras.com.br/forania-de-pombal/",
+          "title": "Forania de Pombal | Diocese de Cajazeiras",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/igreja.php?k=0SCx4",
+          "title": "Horário de Missa — Paróquia São Pedro Apóstolo",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=0SCx4",
+              "title": "Horário de Missa — Paróquia São Pedro Apóstolo",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 1,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": "17:00 (Capela do cemitério Nossa Senhora do Carmo)",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=0SCx4",
+              "title": "Horário de Missa — Paróquia São Pedro Apóstolo",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=0SCx4",
+              "title": "Horário de Missa — Paróquia São Pedro Apóstolo",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 2,
+          "time": "15:00",
+          "type": "CONFESSION",
+          "notes": "15:00 às 17:00 (Padre Aldeone)",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=0SCx4",
+              "title": "Horário de Missa — Paróquia São Pedro Apóstolo",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "CONFESSION",
+          "notes": "19:00 às 20:00 (Padre Franco)",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=0SCx4",
+              "title": "Horário de Missa — Paróquia São Pedro Apóstolo",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "sao-jose-paulista",
+      "name": "Paróquia São José",
+      "city": "Paulista",
+      "state": "PB",
+      "neighborhood": null,
+      "address": "Praça da Matriz, s/n",
+      "zipCode": "58860-000",
+      "phone": null,
+      "email": "paroquiasaojose99@gmail.com",
+      "website": null,
+      "priestName": "Padre Rossivan Lopes da Costa",
+      "foundedYear": 1963,
+      "foundedDate": "15/01/1963",
+      "forania": "Forania de Pombal",
+      "sources": [
+        {
+          "url": "https://diocesedecajazeiras.com.br/forania-de-pombal/",
+          "title": "Forania de Pombal | Diocese de Cajazeiras",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-do-rosario-sao-joao-do-rio-do-peixe",
+      "name": "Paróquia Nossa Senhora do Rosário",
+      "city": "São João do Rio do Peixe",
+      "state": "PB",
+      "neighborhood": null,
+      "address": "Rua da Matriz, s/n",
+      "zipCode": "58910-000",
+      "phone": null,
+      "email": "maedorosario1863@gmail.com",
+      "website": null,
+      "priestName": "Padre Moisés Alves Pereira",
+      "foundedYear": 1863,
+      "foundedDate": "28/11/1863",
+      "forania": "Forania de São João do Rio do Peixe",
+      "sources": [
+        {
+          "url": "https://diocesedecajazeiras.com.br/forania-de-sao-joao-do-rio-do-peixe/",
+          "title": "Forania de São João do Rio do Peixe | Diocese de Cajazeiras",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "menino-deus-triunfo",
+      "name": "Paróquia Menino Deus",
+      "city": "Triunfo",
+      "state": "PB",
+      "neighborhood": null,
+      "address": "Rua da Matriz, s/n",
+      "zipCode": "58920-000",
+      "phone": null,
+      "email": "pmdtf@hotmail.com",
+      "website": null,
+      "priestName": "Padre João Aldcélio Ponciano",
+      "foundedYear": 1963,
+      "foundedDate": "15/01/1963",
+      "forania": "Forania de São João do Rio do Peixe",
+      "sources": [
+        {
+          "url": "https://diocesedecajazeiras.com.br/forania-de-sao-joao-do-rio-do-peixe/",
+          "title": "Forania de São João do Rio do Peixe | Diocese de Cajazeiras",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "santa-helena-santa-helena",
+      "name": "Paróquia Santa Helena",
+      "city": "Santa Helena",
+      "state": "PB",
+      "neighborhood": null,
+      "address": "Rua da Matriz, s/n",
+      "zipCode": "58925-000",
+      "phone": null,
+      "email": "santahelenapsh@gmail.com",
+      "website": null,
+      "priestName": "Padre Anderson Braga",
+      "foundedYear": 1967,
+      "foundedDate": "14/01/1967",
+      "forania": "Forania de São João do Rio do Peixe",
+      "sources": [
+        {
+          "url": "https://diocesedecajazeiras.com.br/forania-de-sao-joao-do-rio-do-peixe/",
+          "title": "Forania de São João do Rio do Peixe | Diocese de Cajazeiras",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-francisco-de-assis-poco-dantas",
+      "name": "Paróquia São Francisco de Assis",
+      "city": "Poço Dantas",
+      "state": "PB",
+      "neighborhood": null,
+      "address": "Rua Odilon Francisco de Oliveira, 01",
+      "zipCode": "58933-000",
+      "phone": null,
+      "email": "psparoquiasaofrancisco11@gmail.com",
+      "website": null,
+      "priestName": "Padre Everton Gabriel",
+      "foundedYear": 2005,
+      "foundedDate": "29/06/2005",
+      "forania": "Forania de São João do Rio do Peixe",
+      "sources": [
+        {
+          "url": "https://diocesedecajazeiras.com.br/forania-de-sao-joao-do-rio-do-peixe/",
+          "title": "Forania de São João do Rio do Peixe | Diocese de Cajazeiras",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-jose-operario-joca-claudino",
+      "name": "Paróquia São José Operário",
+      "city": "Joca Claudino",
+      "state": "PB",
+      "neighborhood": null,
+      "address": "Rua Praça da Matriz – Centro",
+      "zipCode": "58928-000",
+      "phone": null,
+      "email": "paroquiasaojoseoperario80@gmail.com",
+      "website": null,
+      "priestName": "Padre Agripino Ferreira de Assis",
+      "foundedYear": 2008,
+      "foundedDate": "01/05/2008",
+      "forania": "Forania de São João do Rio do Peixe",
+      "sources": [
+        {
+          "url": "https://diocesedecajazeiras.com.br/forania-de-sao-joao-do-rio-do-peixe/",
+          "title": "Forania de São João do Rio do Peixe | Diocese de Cajazeiras",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-gerardo-majella-poco-de-jose-de-moura",
+      "name": "Paróquia São Gerardo Majella",
+      "city": "Poço de José de Moura",
+      "state": "PB",
+      "neighborhood": null,
+      "address": "Av. Frei Damião, 88 Centro",
+      "zipCode": "58908-000",
+      "phone": "(83) 9622-7720",
+      "email": "psaogeraldomajella@gmail.com",
+      "website": null,
+      "priestName": "Padre Milton Alexandre",
+      "foundedYear": 2010,
+      "foundedDate": "11/04/2010",
+      "forania": "Forania de São João do Rio do Peixe",
+      "sources": [
+        {
+          "url": "https://diocesedecajazeiras.com.br/forania-de-sao-joao-do-rio-do-peixe/",
+          "title": "Forania de São João do Rio do Peixe | Diocese de Cajazeiras",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sagrada-familia-de-belem-uirauna",
+      "name": "Paróquia Sagrada Família de Belém",
+      "city": "Uiraúna",
+      "state": "PB",
+      "neighborhood": null,
+      "address": "Rua José Vieira Bujari, 22",
+      "zipCode": "58915-000",
+      "phone": null,
+      "email": "paroquiajesusmariaejose2020@gmail.com",
+      "website": null,
+      "priestName": "Padre Agripino Ferreira",
+      "foundedYear": 1923,
+      "foundedDate": "03/05/1923",
+      "forania": "Forania de São João do Rio do Peixe",
+      "sources": [
+        {
+          "url": "https://diocesedecajazeiras.com.br/forania-de-sao-joao-do-rio-do-peixe/",
+          "title": "Forania de São João do Rio do Peixe | Diocese de Cajazeiras",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-dos-milagres-bernardino-batista",
+      "name": "Paróquia Nossa Senhora dos Milagres",
+      "city": "Bernardino Batista",
+      "state": "PB",
+      "neighborhood": null,
+      "address": "Praça da Matriz, s/n",
+      "zipCode": "58922-000",
+      "phone": null,
+      "email": "paroquiansm.2019@gmail.com",
+      "website": null,
+      "priestName": "Padre Everton Gabriel Vieira de Sousa",
+      "foundedYear": null,
+      "foundedDate": null,
+      "forania": "Forania de São João do Rio do Peixe",
+      "sources": [
+        {
+          "url": "https://diocesedecajazeiras.com.br/forania-de-sao-joao-do-rio-do-peixe/",
+          "title": "Forania de São João do Rio do Peixe | Diocese de Cajazeiras",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [],
+      "notes": "A página da Diocese não informa a data de criação desta paróquia."
+    },
+    {
+      "slug": "sagrado-coracao-de-jesus-sao-francisco",
+      "name": "Paróquia Sagrado Coração de Jesus",
+      "city": "São Francisco",
+      "state": "PB",
+      "neighborhood": null,
+      "address": "Rua Celedom Pereira Lopes, 62",
+      "zipCode": "58818-000",
+      "phone": null,
+      "email": "paroquiadocoracaodejesus@gmail.com",
+      "website": null,
+      "priestName": "Padre Sebastião Francisco de Oliveira Neto",
+      "foundedYear": 2008,
+      "foundedDate": "19/05/2008",
+      "forania": "Forania de Sousa",
+      "sources": [
+        {
+          "url": "https://diocesedecajazeiras.com.br/forania-de-sousa/",
+          "title": "Forania de Sousa | Diocese de Cajazeiras",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "santo-antonio-marizopolis",
+      "name": "Paróquia Santo Antônio",
+      "city": "Marizópolis",
+      "state": "PB",
+      "neighborhood": null,
+      "address": "Casa Paroquial, s/n",
+      "zipCode": "58819-000",
+      "phone": null,
+      "email": "paroquiasantoantoniomz13@gmail.com",
+      "website": null,
+      "priestName": "Padre Francisco Cleides de Oliveira – IJMP",
+      "foundedYear": 2004,
+      "foundedDate": "08/12/2004",
+      "forania": "Forania de Sousa",
+      "sources": [
+        {
+          "url": "https://diocesedecajazeiras.com.br/forania-de-sousa/",
+          "title": "Forania de Sousa | Diocese de Cajazeiras",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-da-conceicao-aparecida-aparecida",
+      "name": "Paróquia Nossa Senhora da Conceição Aparecida",
+      "city": "Aparecida",
+      "state": "PB",
+      "neighborhood": null,
+      "address": "Rua Olinto José de Almeida, 143 – Centro",
+      "zipCode": "58823-000",
+      "phone": null,
+      "email": "paroquianscaparecida@outlook.com",
+      "website": null,
+      "priestName": "Padre Francinário Linhares da Silva",
+      "foundedYear": 2004,
+      "foundedDate": "12/12/2004",
+      "forania": "Forania de Sousa",
+      "sources": [
+        {
+          "url": "https://diocesedecajazeiras.com.br/forania-de-sousa/",
+          "title": "Forania de Sousa | Diocese de Cajazeiras",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-dos-remedios-sousa",
+      "name": "Paróquia Nossa Senhora dos Remédios",
+      "city": "Sousa",
+      "state": "PB",
+      "neighborhood": null,
+      "address": "Praça Côn. Bernardino Vieira, s/n",
+      "zipCode": "58800-000",
+      "phone": "(83) 3521-1274",
+      "email": "matrizdesousa@outlook.com",
+      "website": null,
+      "priestName": "Padre Antônio Sérgio Mota",
+      "foundedYear": 1784,
+      "foundedDate": "07/03/1784",
+      "forania": "Forania de Sousa",
+      "sources": [
+        {
+          "url": "https://diocesedecajazeiras.com.br/forania-de-sousa/",
+          "title": "Forania de Sousa | Diocese de Cajazeiras",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-sebastiao-lastro",
+      "name": "Paróquia São Sebastião",
+      "city": "Lastro",
+      "state": "PB",
+      "neighborhood": null,
+      "address": "Rua da Matriz, s/n",
+      "zipCode": "58820-000",
+      "phone": null,
+      "email": "paroquiasaosebastiao5@gmail.com",
+      "website": null,
+      "priestName": "Padre Damião Pereira da Silva",
+      "foundedYear": 1984,
+      "foundedDate": "08/10/1984",
+      "forania": "Forania de Sousa",
+      "sources": [
+        {
+          "url": "https://diocesedecajazeiras.com.br/forania-de-sousa/",
+          "title": "Forania de Sousa | Diocese de Cajazeiras",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sagrado-coracao-de-jesus-santa-cruz",
+      "name": "Paróquia Sagrado Coração de Jesus",
+      "city": "Santa Cruz",
+      "state": "PB",
+      "neighborhood": null,
+      "address": "Praça da Matriz",
+      "zipCode": "58824-000",
+      "phone": "(83) 92001-6478",
+      "email": "paraquiascjscruz@gmail.com",
+      "website": null,
+      "priestName": "Padre Francisco Silvio Roberto RSF",
+      "foundedYear": 1963,
+      "foundedDate": "15/01/1963",
+      "forania": "Forania de Sousa",
+      "sources": [
+        {
+          "url": "https://diocesedecajazeiras.com.br/forania-de-sousa/",
+          "title": "Forania de Sousa | Diocese de Cajazeiras",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/igreja.php?k=RaTFH",
+          "title": "Horário de Missa — Paróquia Sagrado Coração de Jesus",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=RaTFH",
+              "title": "Horário de Missa — Paróquia Sagrado Coração de Jesus",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=RaTFH",
+              "title": "Horário de Missa — Paróquia Sagrado Coração de Jesus",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=RaTFH",
+              "title": "Horário de Missa — Paróquia Sagrado Coração de Jesus",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "sao-joaquim-e-sant-ana-vieiropolis",
+      "name": "Paróquia São Joaquim e Sant’Ana",
+      "city": "Vieirópolis",
+      "state": "PB",
+      "neighborhood": null,
+      "address": "Rua Hermenegildo Vieira Costa, Praça da Matriz",
+      "zipCode": "58822-000",
+      "phone": null,
+      "email": "contatopsjs@gmail.com",
+      "website": null,
+      "priestName": "Padre Damião Pereira da Silva",
+      "foundedYear": 2012,
+      "foundedDate": "06/01/2012",
+      "forania": "Forania de Sousa",
+      "sources": [
+        {
+          "url": "https://diocesedecajazeiras.com.br/forania-de-sousa/",
+          "title": "Forania de Sousa | Diocese de Cajazeiras",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-goncalo-sousa",
+      "name": "Paróquia São Gonçalo",
+      "city": "Sousa",
+      "state": "PB",
+      "neighborhood": null,
+      "address": "Rua Dezesseis, s/n, Centro, Distrito de São Gonçalo",
+      "zipCode": "58814-000",
+      "phone": "(83) 3556-1230",
+      "email": "paroquiasaogoncalo.sousa@hotmail.com",
+      "website": null,
+      "priestName": "Padre Erivânio de Sousa de Assis",
+      "foundedYear": 2013,
+      "foundedDate": "28/10/2013",
+      "forania": "Forania de Sousa",
+      "sources": [
+        {
+          "url": "https://diocesedecajazeiras.com.br/forania-de-sousa/",
+          "title": "Forania de Sousa | Diocese de Cajazeiras",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-joao-batista-sousa",
+      "name": "Paróquia São João Batista",
+      "city": "Sousa",
+      "state": "PB",
+      "neighborhood": null,
+      "address": "Rua: Helena Pastora, 01, Alto do Cruzeiro",
+      "zipCode": "58806-020",
+      "phone": "(83) 99820-2429",
+      "email": "paroquiasaojoaobatista2014@hotmail.com",
+      "website": null,
+      "priestName": "Padre José Wandemberg Ferreira da Silva",
+      "foundedYear": 2014,
+      "foundedDate": "29/08/2014",
+      "forania": "Forania de Sousa",
+      "sources": [
+        {
+          "url": "https://diocesedecajazeiras.com.br/forania-de-sousa/",
+          "title": "Forania de Sousa | Diocese de Cajazeiras",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sant-ana-sousa",
+      "name": "Paróquia Sant’Ana",
+      "city": "Sousa",
+      "state": "PB",
+      "neighborhood": "Estação",
+      "address": "Rua Joaquim Pinto Neto, 10",
+      "zipCode": "58807-275",
+      "phone": "(83) 99153-2501",
+      "email": "secretaria@matrizsantana.com.br",
+      "website": null,
+      "priestName": "Padre Paulo Diniz Ferreira",
+      "foundedYear": 1960,
+      "foundedDate": "11/04/1960",
+      "forania": "Forania de Sousa",
+      "sources": [
+        {
+          "url": "https://diocesedecajazeiras.com.br/forania-de-sousa/",
+          "title": "Forania de Sousa | Diocese de Cajazeiras",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "sao-jose-sao-jose-da-lagoa-tapada",
+      "name": "Paróquia São José",
+      "city": "São José da Lagoa Tapada",
+      "state": "PB",
+      "neighborhood": null,
+      "address": "Rua da Matriz, s/n",
+      "zipCode": "58815-000",
+      "phone": null,
+      "email": "paroquiasaojoselp@hotmail.com",
+      "website": null,
+      "priestName": "Padre Ernaldo José",
+      "foundedYear": 1960,
+      "foundedDate": "13/01/1960",
+      "forania": "Forania de Sousa",
+      "sources": [
+        {
+          "url": "https://diocesedecajazeiras.com.br/forania-de-sousa/",
+          "title": "Forania de Sousa | Diocese de Cajazeiras",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    },
+    {
+      "slug": "santuario-bom-jesus-eucaristico-aparecido-de-sousa-sousa",
+      "name": "Santuário Bom Jesus Eucarístico Aparecido de Sousa",
+      "city": "Sousa",
+      "state": "PB",
+      "neighborhood": "Centro",
+      "address": "Rua. Cel. José Gomes de Sá, 38",
+      "zipCode": "58800-050",
+      "phone": null,
+      "email": "bomjesus.euc@yahoo.com",
+      "website": null,
+      "priestName": "Padre Severino Elias Neto",
+      "foundedYear": 1958,
+      "foundedDate": "10/01/1958",
+      "forania": "Forania de Sousa",
+      "sources": [
+        {
+          "url": "https://diocesedecajazeiras.com.br/forania-de-sousa/",
+          "title": "Forania de Sousa | Diocese de Cajazeiras",
+          "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/igreja.php?k=7MEMY",
+          "title": "Horário de Missa — Santuário Eucarístico Bom Jesus Aparecido",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=7MEMY",
+              "title": "Horário de Missa — Santuário Eucarístico Bom Jesus Aparecido",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=7MEMY",
+              "title": "Horário de Missa — Santuário Eucarístico Bom Jesus Aparecido",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 2,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=7MEMY",
+              "title": "Horário de Missa — Santuário Eucarístico Bom Jesus Aparecido",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=7MEMY",
+              "title": "Horário de Missa — Santuário Eucarístico Bom Jesus Aparecido",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "10:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=7MEMY",
+              "title": "Horário de Missa — Santuário Eucarístico Bom Jesus Aparecido",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=7MEMY",
+              "title": "Horário de Missa — Santuário Eucarístico Bom Jesus Aparecido",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 2,
+          "time": "14:00",
+          "type": "CONFESSION",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=7MEMY",
+              "title": "Horário de Missa — Santuário Eucarístico Bom Jesus Aparecido",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "sao-sebastiao-nazarezinho",
+      "name": "Paróquia São Sebastião",
+      "city": "Nazarezinho",
+      "state": "PB",
+      "neighborhood": null,
+      "address": "Rua da Matriz, s/n – Centro",
+      "zipCode": "58817-000",
+      "phone": "(83) 98115-1518",
+      "email": "paroquiasaosebastiaonazarezinho@hotmail.com",
+      "website": null,
+      "priestName": "Padre Sydenando Alecrim de Lima",
+      "foundedYear": 1963,
+      "foundedDate": "15/01/1963",
+      "forania": "Forania de Sousa",
+      "sources": [
+        {
+          "url": "https://diocesedecajazeiras.com.br/forania-de-sousa/",
+          "title": "Forania de Sousa | Diocese de Cajazeiras",
+          "accessedAt": "2026-09-11"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": []
+    }
+  ],
+  "coverage": {
+    "parishesFound": 64,
+    "parishesExpected": 64,
+    "notes": "Lista extraída das 6 páginas de forania do site oficial (diocesedecajazeiras.com.br), que trazem data de criação, pároco, vigário, endereço, CEP e e-mail de cada paróquia. 64 unidades (paróquias, 1 quase-paróquia, 2 áreas pastorais e 1 santuário) em 53 municípios. A página /paroquias/ responde 404; só as páginas de forania funcionam. Horários: a Diocese não publica grade; os 65 horários vêm do horariodemissa.com.br e estão todos como confidence=baixa."
+  }
+}
