@@ -1,0 +1,4216 @@
+{
+  "diocese": {
+    "name": "Diocese de Pesqueira",
+    "type": "Diocese",
+    "slug": "pesqueira",
+    "city": "Pesqueira",
+    "state": "PE",
+    "address": "Rua Cardeal Arcoverde, 23 - Centro",
+    "zipCode": "55200-000",
+    "phone": "(87) 3835-1562",
+    "email": "secpastoralpesqueira@gmail.com",
+    "website": "https://diocesedepesqueira.com.br",
+    "bishopName": "Dom José Luiz Ferreira Salles, C.SS.R.",
+    "sources": [
+      {
+        "url": "https://diocesedepesqueira.com.br/paroquias/",
+        "title": "Paróquias | Diocese de Pesqueira (35 fichas: 27 paróquias, 5 áreas pastorais/missionária, 1 reitoria e 2 santuários)",
+        "accessedAt": "2026-09-17"
+      },
+      {
+        "url": "https://diocesedepesqueira.com.br/wp-json/wp/v2/paroquia?per_page=100",
+        "title": "WP REST API — tipo 'paroquia' (X-WP-Total: 35; campo 'modified' de cada ficha; taxonomia 'local_paroquia' com as 4 regiões pastorais)",
+        "accessedAt": "2026-09-17"
+      },
+      {
+        "url": "https://diocesedepesqueira.com.br/clero/",
+        "title": "Clero | Diocese de Pesqueira (57 fichas com paróquia e função)",
+        "accessedAt": "2026-09-17"
+      },
+      {
+        "url": "https://diocesedepesqueira.com.br/bispo-diocesano/",
+        "title": "Bispo Diocesano | Diocese de Pesqueira — Dom José Luiz Ferreira Salles, CSsR (posse em 14/04/2012)",
+        "accessedAt": "2026-09-17"
+      },
+      {
+        "url": "https://minhareceita.org/10714251000191",
+        "title": "Receita Federal (CNPJ 10.714.251) via minhareceita.org — varredura das filiais 0001 a 0080: 27 paróquias ativas (26 + o Convento dos Franciscanos, sede da Imaculada Conceição), 5 áreas, 1 reitoria",
+        "accessedAt": "2026-09-17"
+      },
+      {
+        "url": "https://pt.wikipedia.org/wiki/Diocese_de_Pesqueira",
+        "title": "Wikipédia — Diocese de Pesqueira (25 paróquias em 13 municípios — número anterior às criações de 2022 e 2024)",
+        "accessedAt": "2026-09-17"
+      },
+      {
+        "url": "https://www.catholic-hierarchy.org/diocese/dpesq.html",
+        "title": "catholic-hierarchy.org — Pesqueira (Diocese): 25 paróquias em 2021; 22 em 2023 (provável erro do anuário)",
+        "accessedAt": "2026-09-17"
+      }
+    ],
+    "confidence": "alta"
+  },
+  "parishes": [
+    {
+      "slug": "santa-agueda-pesqueira",
+      "name": "Catedral Santa Águeda",
+      "city": "Pesqueira",
+      "state": "PE",
+      "neighborhood": "Centro",
+      "address": "Praça Dom José Lopes, Centro",
+      "zipCode": "55200-000",
+      "phone": "(87) 3835-6707",
+      "email": "catedralsantaagueda7@gmail.com",
+      "website": null,
+      "priestName": "Pe. Fábio Pereira dos Santos",
+      "foundedYear": 1870,
+      "sources": [
+        {
+          "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-de-santa-agueda/",
+          "title": "Paróquia de Santa Águeda – Pesqueira | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 11/08/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedepesqueira.com.br/clero/",
+          "title": "Clero | Diocese de Pesqueira (57 fichas com paróquia e função de cada padre; alteradas entre julho e setembro de 2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://minhareceita.org/10714251003026",
+          "title": "Receita Federal (CNPJ) via minhareceita.org — filial 10714251003026 da Diocese de Pesqueira: Paróquia Santa Águeda, Praça Dom José Lopes, 130 (situação ATIVA)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Nome na fonte: 'Paróquia de Santa Águeda – Pesqueira'; é a catedral diocesana (e-mail e Instagram oficiais usam 'catedral': @catedraldepesqueira). Região Pastoral Pesqueira. O pároco é também o vigário geral. Segundo telefone: (87) 99180-0978. A Receita Federal registra o nº 130 da praça. Secretaria: seg. a sex. 8h-12h e 13h-16h; sáb. 8h-12h. O Lírio Católico traz uma grade diferente e implausível (19h todos os dias) — não aproveitada.",
+      "communities": [
+        {
+          "name": "Catedral Santa Águeda",
+          "address": "Praça Dom José Lopes, Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-de-santa-agueda/",
+              "title": "Paróquia de Santa Águeda – Pesqueira | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 11/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Catedral Santa Águeda",
+          "dayOfWeek": 2,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-de-santa-agueda/",
+              "title": "Paróquia de Santa Águeda – Pesqueira | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 11/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral Santa Águeda",
+          "dayOfWeek": 3,
+          "time": "09:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-de-santa-agueda/",
+              "title": "Paróquia de Santa Águeda – Pesqueira | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 11/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral Santa Águeda",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-de-santa-agueda/",
+              "title": "Paróquia de Santa Águeda – Pesqueira | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 11/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral Santa Águeda",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-de-santa-agueda/",
+              "title": "Paróquia de Santa Águeda – Pesqueira | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 11/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral Santa Águeda",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-de-santa-agueda/",
+              "title": "Paróquia de Santa Águeda – Pesqueira | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 11/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral Santa Águeda",
+          "dayOfWeek": 0,
+          "time": "10:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-de-santa-agueda/",
+              "title": "Paróquia de Santa Águeda – Pesqueira | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 11/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral Santa Águeda",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-de-santa-agueda/",
+              "title": "Paróquia de Santa Águeda – Pesqueira | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 11/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "cristo-rei-pesqueira",
+      "name": "Paróquia Cristo Rei",
+      "city": "Pesqueira",
+      "state": "PE",
+      "neighborhood": "Pitanga",
+      "address": "Av. Dr. Carlito Didier Pitta, nº 681 - Pitanga",
+      "zipCode": "55200-000",
+      "phone": "(87) 3835-1776",
+      "email": "paroquiacrisreireina@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Alan Hildeu Felício, CP",
+      "foundedYear": 1959,
+      "sources": [
+        {
+          "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-cristo-rei/",
+          "title": "Paróquia Cristo Rei | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 08/09/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedepesqueira.com.br/clero/",
+          "title": "Clero | Diocese de Pesqueira (57 fichas com paróquia e função de cada padre; alteradas entre julho e setembro de 2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://minhareceita.org/10714251003450",
+          "title": "Receita Federal (CNPJ) via minhareceita.org — filial 10714251003450 da Diocese de Pesqueira: Paróquia de Cristo Rei, Av. Carlito Didier Pitta, 681, Pitanga (situação ATIVA)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Região Pastoral Pesqueira; confiada aos passionistas (CP). Vigário paroquial: Pe. Anderson Carlos Ramos, CP (também em São Geraldo Majella, Arcoverde). Segundo telefone: (87) 99160-5948. Instagram: @cristorei_pesqueira. Secretaria: seg. a sex. 8h-12h e 14h-17h.",
+      "communities": [
+        {
+          "name": "Matriz Cristo Rei",
+          "address": "Av. Dr. Carlito Didier Pitta, nº 681 - Pitanga",
+          "neighborhood": "Pitanga",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-cristo-rei/",
+              "title": "Paróquia Cristo Rei | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 08/09/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Cristo Rei",
+          "dayOfWeek": 2,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-cristo-rei/",
+              "title": "Paróquia Cristo Rei | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 08/09/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Cristo Rei",
+          "dayOfWeek": 4,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-cristo-rei/",
+              "title": "Paróquia Cristo Rei | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 08/09/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Cristo Rei",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-cristo-rei/",
+              "title": "Paróquia Cristo Rei | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 08/09/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Cristo Rei",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-cristo-rei/",
+              "title": "Paróquia Cristo Rei | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 08/09/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Cristo Rei",
+          "dayOfWeek": 5,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": "1ª sexta-feira de cada mês, às 18h",
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-cristo-rei/",
+              "title": "Paróquia Cristo Rei | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 08/09/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-da-imaculada-conceicao-pesqueira",
+      "name": "Paróquia Nossa Senhora da Imaculada Conceição",
+      "city": "Pesqueira",
+      "state": "PE",
+      "neighborhood": "Prado",
+      "address": "Av. Carlos de Brito, nº 194 - Prado",
+      "zipCode": "55200-000",
+      "phone": "(87) 3835-1001",
+      "email": "paroquiadaimaculdaconceicao@hotmail.com",
+      "website": null,
+      "priestName": "Frei Juscelino da Silva Pinto, OFM",
+      "foundedYear": 1960,
+      "sources": [
+        {
+          "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-da-imaculada-conceicao/",
+          "title": "Paróquia Nossa Senhora da Imaculada Conceição – Pesqueira | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 04/08/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedepesqueira.com.br/clero/",
+          "title": "Clero | Diocese de Pesqueira (57 fichas com paróquia e função de cada padre; alteradas entre julho e setembro de 2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://minhareceita.org/10714251000353",
+          "title": "Receita Federal (CNPJ) via minhareceita.org — filial 10714251000353 da Diocese de Pesqueira: Convento dos Franciscanos, Av. Carlos de Brito, 194, Prado (situação ATIVA)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Região Pastoral Pesqueira; paróquia franciscana (OFM) — no cadastro da Receita Federal o estabelecimento deste endereço é o 'Convento dos Franciscanos'. Vigários paroquiais: Frei Izael Silva de Santana, OFM, e Frei Artur Bruno Secundino Medeiros, OFM. WhatsApp: (87) 98835-5786. Instagram: @psimaculadaconceicao. A ficha publica 'Quarta à Sábado 19h', 'Terça-feira 06h e 19h' e 'Domingo 06h, 09h e 19h'. Secretaria: ter. a sáb. 8h-12h e 13h30-17h30.",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora da Imaculada Conceição",
+          "address": "Av. Carlos de Brito, nº 194 - Prado",
+          "neighborhood": "Prado",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-da-imaculada-conceicao/",
+              "title": "Paróquia Nossa Senhora da Imaculada Conceição – Pesqueira | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 04/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora da Imaculada Conceição",
+          "dayOfWeek": 2,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-da-imaculada-conceicao/",
+              "title": "Paróquia Nossa Senhora da Imaculada Conceição – Pesqueira | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 04/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Imaculada Conceição",
+          "dayOfWeek": 2,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-da-imaculada-conceicao/",
+              "title": "Paróquia Nossa Senhora da Imaculada Conceição – Pesqueira | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 04/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Imaculada Conceição",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-da-imaculada-conceicao/",
+              "title": "Paróquia Nossa Senhora da Imaculada Conceição – Pesqueira | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 04/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Imaculada Conceição",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-da-imaculada-conceicao/",
+              "title": "Paróquia Nossa Senhora da Imaculada Conceição – Pesqueira | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 04/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Imaculada Conceição",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-da-imaculada-conceicao/",
+              "title": "Paróquia Nossa Senhora da Imaculada Conceição – Pesqueira | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 04/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Imaculada Conceição",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-da-imaculada-conceicao/",
+              "title": "Paróquia Nossa Senhora da Imaculada Conceição – Pesqueira | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 04/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Imaculada Conceição",
+          "dayOfWeek": 0,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-da-imaculada-conceicao/",
+              "title": "Paróquia Nossa Senhora da Imaculada Conceição – Pesqueira | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 04/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Imaculada Conceição",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-da-imaculada-conceicao/",
+              "title": "Paróquia Nossa Senhora da Imaculada Conceição – Pesqueira | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 04/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Imaculada Conceição",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-da-imaculada-conceicao/",
+              "title": "Paróquia Nossa Senhora da Imaculada Conceição – Pesqueira | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 04/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-das-montanhas-pesqueira",
+      "name": "Paróquia Nossa Senhora das Montanhas",
+      "city": "Pesqueira",
+      "state": "PE",
+      "neighborhood": "Cimbres (distrito)",
+      "address": "Praça Cacique Xikão, s/n - Cimbres",
+      "zipCode": "55205-000",
+      "phone": "(87) 98149-2169",
+      "email": "pnsdasmontanhas@gmail.com",
+      "website": null,
+      "priestName": "Pe. Mailson Regis, C.Ss.R",
+      "foundedYear": 1692,
+      "sources": [
+        {
+          "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-das-montanhas/",
+          "title": "Paróquia Nossa Senhora das Montanhas – Cimbres | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 09/09/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedepesqueira.com.br/clero/",
+          "title": "Clero | Diocese de Pesqueira (57 fichas com paróquia e função de cada padre; alteradas entre julho e setembro de 2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://minhareceita.org/10714251004006",
+          "title": "Receita Federal (CNPJ) via minhareceita.org — filial 10714251004006 da Diocese de Pesqueira: Paróquia Nossa Senhora das Montanhas (CEP 55205-000, distrito de Cimbres) (situação ATIVA)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Região Pastoral Pesqueira; vila de Cimbres, território do povo Xukuru; confiada aos redentoristas. O pároco é também reitor do Santuário Nossa Senhora das Graças (Aldeia Guarda). Criada em 1692 segundo a ficha. Instagram: @paroquiadasmontanhasdecimbres. Secretaria: ter. a sex. 8h-12h e 13h-17h; sáb. 8h-12h.",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora das Montanhas",
+          "address": "Praça Cacique Xikão, s/n - Cimbres",
+          "neighborhood": "Cimbres (distrito)",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-das-montanhas/",
+              "title": "Paróquia Nossa Senhora das Montanhas – Cimbres | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 09/09/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora das Montanhas",
+          "dayOfWeek": 0,
+          "time": "09:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-das-montanhas/",
+              "title": "Paróquia Nossa Senhora das Montanhas – Cimbres | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 09/09/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-da-conceicao-alagoinha",
+      "name": "Paróquia Nossa Senhora da Conceição",
+      "city": "Alagoinha",
+      "state": "PE",
+      "neighborhood": "Centro",
+      "address": "Praça Barão do Rio Branco (ao lado da Câmara de Vereadores)",
+      "zipCode": "55260-000",
+      "phone": "(87) 99204-2699",
+      "email": "paroquiaalagoinha@gmail.com",
+      "website": null,
+      "priestName": "Pe. Pedro Francisco Monteiro Neto",
+      "foundedYear": 1932,
+      "sources": [
+        {
+          "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-da-conceicao-alagoinha/",
+          "title": "Paróquia Nossa Senhora da Conceição – Alagoinha | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 11/08/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedepesqueira.com.br/clero/",
+          "title": "Clero | Diocese de Pesqueira (57 fichas com paróquia e função de cada padre; alteradas entre julho e setembro de 2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://minhareceita.org/10714251003107",
+          "title": "Receita Federal (CNPJ) via minhareceita.org — filial 10714251003107 da Diocese de Pesqueira: Paróquia Nossa Senhora da Conceição, Av. Rio Branco, s/n, Centro (situação ATIVA)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Região Pastoral Pesqueira. Instagram: @paroquiaalagoinha. Secretaria: seg. a sex. 8h-12h e 14h-17h; sáb. 8h-12h.",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora da Conceição",
+          "address": "Praça Barão do Rio Branco (ao lado da Câmara de Vereadores)",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-da-conceicao-alagoinha/",
+              "title": "Paróquia Nossa Senhora da Conceição – Alagoinha | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 11/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-da-conceicao-alagoinha/",
+              "title": "Paróquia Nossa Senhora da Conceição – Alagoinha | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 11/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-da-conceicao-alagoinha/",
+              "title": "Paróquia Nossa Senhora da Conceição – Alagoinha | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 11/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-da-conceicao-alagoinha/",
+              "title": "Paróquia Nossa Senhora da Conceição – Alagoinha | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 11/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 5,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": "Primeira sexta-feira de cada mês, às 8h",
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-da-conceicao-alagoinha/",
+              "title": "Paróquia Nossa Senhora da Conceição – Alagoinha | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 11/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-das-dores-pocao",
+      "name": "Paróquia Nossa Senhora das Dores",
+      "city": "Poção",
+      "state": "PE",
+      "neighborhood": "Centro",
+      "address": "Praça Monsenhor Estanislau, nº 139 - Centro",
+      "zipCode": "55240-000",
+      "phone": "(87) 99200-5963",
+      "email": "dorespar@gmail.com",
+      "website": null,
+      "priestName": "Pe. Carlos Eduardo Pereira Santos",
+      "foundedYear": 1960,
+      "sources": [
+        {
+          "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-das-dores/",
+          "title": "Paróquia Nossa Senhora das Dores | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 11/08/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedepesqueira.com.br/clero/",
+          "title": "Clero | Diocese de Pesqueira (57 fichas com paróquia e função de cada padre; alteradas entre julho e setembro de 2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://minhareceita.org/10714251004260",
+          "title": "Receita Federal (CNPJ) via minhareceita.org — filial 10714251004260 da Diocese de Pesqueira: Paróquia Nossa Senhora das Dores, Praça Monsenhor Estanislau, s/n, Centro (situação ATIVA)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Região Pastoral Pesqueira. O Pe. Carlos Eduardo consta como administrador paroquial. Instagram: @paroquiadepocao. Secretaria: seg. a sex. 8h-12h e 14h-17h; sáb. 8h-12h.",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora das Dores",
+          "address": "Praça Monsenhor Estanislau, nº 139 - Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-das-dores/",
+              "title": "Paróquia Nossa Senhora das Dores | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 11/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora das Dores",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-das-dores/",
+              "title": "Paróquia Nossa Senhora das Dores | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 11/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora das Dores",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-das-dores/",
+              "title": "Paróquia Nossa Senhora das Dores | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 11/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora das Dores",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-das-dores/",
+              "title": "Paróquia Nossa Senhora das Dores | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 11/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora das Dores",
+          "dayOfWeek": 5,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": "1ª sexta-feira do mês, às 8h",
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-das-dores/",
+              "title": "Paróquia Nossa Senhora das Dores | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 11/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora das Dores",
+          "dayOfWeek": 2,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Última terça-feira do mês, às 19h",
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-das-dores/",
+              "title": "Paróquia Nossa Senhora das Dores | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 11/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "sagrado-coracao-de-jesus-sanharo",
+      "name": "Paróquia Sagrado Coração de Jesus",
+      "city": "Sanharó",
+      "state": "PE",
+      "neighborhood": "Centro",
+      "address": "Rua Dr. José Mariano",
+      "zipCode": "55250-000",
+      "phone": "(87) 3836-1153",
+      "email": "paroquiascjsanharo@gmail.com",
+      "website": null,
+      "priestName": "Pe. Marcílio Dimas Batista",
+      "foundedYear": 1954,
+      "sources": [
+        {
+          "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-sagrado-coracao-de-jesus-sanharo/",
+          "title": "Paróquia Sagrado Coração de Jesus – Sanharó | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 10/09/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedepesqueira.com.br/clero/",
+          "title": "Clero | Diocese de Pesqueira (57 fichas com paróquia e função de cada padre; alteradas entre julho e setembro de 2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://minhareceita.org/10714251003530",
+          "title": "Receita Federal (CNPJ) via minhareceita.org — filial 10714251003530 da Diocese de Pesqueira: Paróquia Sagrado Coração, Praça Coração de Jesus, s/n, Centro (situação ATIVA)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "O Pe. Marcílio consta como administrador paroquial (e coordenador da Região Pastoral Pesqueira); a taxonomia do site, porém, põe a paróquia na Região Pastoral Belo Jardim. WhatsApp: (87) 98804-3830. Instagram: @pscjsanharo_oficial. A Receita Federal registra 'Praça Coração de Jesus, s/n'. Secretaria: seg. a sex. 8h-12h e 14h-17h.",
+      "communities": [
+        {
+          "name": "Matriz Sagrado Coração de Jesus",
+          "address": "Rua Dr. José Mariano",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-sagrado-coracao-de-jesus-sanharo/",
+              "title": "Paróquia Sagrado Coração de Jesus – Sanharó | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 10/09/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Sagrado Coração de Jesus",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-sagrado-coracao-de-jesus-sanharo/",
+              "title": "Paróquia Sagrado Coração de Jesus – Sanharó | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 10/09/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Sagrado Coração de Jesus",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-sagrado-coracao-de-jesus-sanharo/",
+              "title": "Paróquia Sagrado Coração de Jesus – Sanharó | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 10/09/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Sagrado Coração de Jesus",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-sagrado-coracao-de-jesus-sanharo/",
+              "title": "Paróquia Sagrado Coração de Jesus – Sanharó | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 10/09/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Sagrado Coração de Jesus",
+          "dayOfWeek": 0,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-sagrado-coracao-de-jesus-sanharo/",
+              "title": "Paróquia Sagrado Coração de Jesus – Sanharó | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 10/09/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Sagrado Coração de Jesus",
+          "dayOfWeek": 5,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": "1ª sexta-feira do mês, às 7h",
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-sagrado-coracao-de-jesus-sanharo/",
+              "title": "Paróquia Sagrado Coração de Jesus – Sanharó | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 10/09/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Sagrado Coração de Jesus",
+          "dayOfWeek": 1,
+          "time": "08:00",
+          "type": "ADORATION",
+          "notes": "Exposição do Santíssimo Sacramento, de segunda a sexta, das 8h às 12h (a ficha rotula a linha como 'Missa')",
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-sagrado-coracao-de-jesus-sanharo/",
+              "title": "Paróquia Sagrado Coração de Jesus – Sanharó | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 10/09/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Sagrado Coração de Jesus",
+          "dayOfWeek": 2,
+          "time": "08:00",
+          "type": "ADORATION",
+          "notes": "Exposição do Santíssimo Sacramento, de segunda a sexta, das 8h às 12h (a ficha rotula a linha como 'Missa')",
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-sagrado-coracao-de-jesus-sanharo/",
+              "title": "Paróquia Sagrado Coração de Jesus – Sanharó | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 10/09/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Sagrado Coração de Jesus",
+          "dayOfWeek": 3,
+          "time": "08:00",
+          "type": "ADORATION",
+          "notes": "Exposição do Santíssimo Sacramento, de segunda a sexta, das 8h às 12h (a ficha rotula a linha como 'Missa')",
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-sagrado-coracao-de-jesus-sanharo/",
+              "title": "Paróquia Sagrado Coração de Jesus – Sanharó | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 10/09/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Sagrado Coração de Jesus",
+          "dayOfWeek": 4,
+          "time": "08:00",
+          "type": "ADORATION",
+          "notes": "Exposição do Santíssimo Sacramento, de segunda a sexta, das 8h às 12h (a ficha rotula a linha como 'Missa')",
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-sagrado-coracao-de-jesus-sanharo/",
+              "title": "Paróquia Sagrado Coração de Jesus – Sanharó | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 10/09/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Sagrado Coração de Jesus",
+          "dayOfWeek": 5,
+          "time": "08:00",
+          "type": "ADORATION",
+          "notes": "Exposição do Santíssimo Sacramento, de segunda a sexta, das 8h às 12h (a ficha rotula a linha como 'Missa')",
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-sagrado-coracao-de-jesus-sanharo/",
+              "title": "Paróquia Sagrado Coração de Jesus – Sanharó | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 10/09/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-da-conceicao-belo-jardim",
+      "name": "Paróquia Nossa Senhora da Conceição",
+      "city": "Belo Jardim",
+      "state": "PE",
+      "neighborhood": "Centro",
+      "address": "Rua Marechal Deodoro - Centro",
+      "zipCode": null,
+      "phone": "(81) 99284-1742",
+      "email": "pnscbelojardim@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Adjailson dos Santos Araújo",
+      "foundedYear": 1884,
+      "sources": [
+        {
+          "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-da-conceicao-belo-jardim/",
+          "title": "Paróquia Nossa Senhora da Conceição – Belo Jardim | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 04/08/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedepesqueira.com.br/clero/",
+          "title": "Clero | Diocese de Pesqueira (57 fichas com paróquia e função de cada padre; alteradas entre julho e setembro de 2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://minhareceita.org/10714251004774",
+          "title": "Receita Federal (CNPJ) via minhareceita.org — filial 10714251004774 da Diocese de Pesqueira: Paróquia Nossa Senhora da Conceição, Praça da Conceição, s/n, Centro (situação ATIVA)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Região Pastoral Belo Jardim. Instagram/Facebook: @paroquiadaconceicaobj. A Receita Federal registra 'Praça da Conceição, s/n' e o CEP 55150-001 (não gravado: Belo Jardim tem CEP por logradouro). Secretaria: seg. a sex. 8h-12h e 14h-17h; sáb. 8h-12h. ATENÇÃO: nas linhas de sábado e domingo a coluna de observação cita uma comunidade; pela regra do dataset, local incerto = Matriz, mas os horários de sábado e domingo ficaram 'media'.",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora da Conceição",
+          "address": "Rua Marechal Deodoro - Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-da-conceicao-belo-jardim/",
+              "title": "Paróquia Nossa Senhora da Conceição – Belo Jardim | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 04/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Eclesial Missionária Nossa Senhora das Dores",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-da-conceicao-belo-jardim/",
+              "title": "Paróquia Nossa Senhora da Conceição – Belo Jardim | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 04/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Comunidade Eclesial Missionária São José Operário",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-da-conceicao-belo-jardim/",
+              "title": "Paróquia Nossa Senhora da Conceição – Belo Jardim | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 04/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 3,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-da-conceicao-belo-jardim/",
+              "title": "Paróquia Nossa Senhora da Conceição – Belo Jardim | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 04/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 5,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-da-conceicao-belo-jardim/",
+              "title": "Paróquia Nossa Senhora da Conceição – Belo Jardim | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 04/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 6,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": "A ficha publica 'Sábado — 17h e 19h' com a observação 'Comunidade Eclesial Missionária Nossa Senhora das Dores', sem dizer qual horário (ou se algum) é na comunidade",
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-da-conceicao-belo-jardim/",
+              "title": "Paróquia Nossa Senhora da Conceição – Belo Jardim | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 04/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "A ficha publica 'Sábado — 17h e 19h' com a observação 'Comunidade Eclesial Missionária Nossa Senhora das Dores', sem dizer qual horário (ou se algum) é na comunidade",
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-da-conceicao-belo-jardim/",
+              "title": "Paróquia Nossa Senhora da Conceição – Belo Jardim | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 04/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": "A ficha publica 'Domingo — 07h, 17h e 19h' com a observação 'Comunidade Eclesial Missionária São José Operário', sem dizer qual horário (ou se algum) é na comunidade",
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-da-conceicao-belo-jardim/",
+              "title": "Paróquia Nossa Senhora da Conceição – Belo Jardim | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 04/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 0,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": "A ficha publica 'Domingo — 07h, 17h e 19h' com a observação 'Comunidade Eclesial Missionária São José Operário', sem dizer qual horário (ou se algum) é na comunidade",
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-da-conceicao-belo-jardim/",
+              "title": "Paróquia Nossa Senhora da Conceição – Belo Jardim | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 04/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "A ficha publica 'Domingo — 07h, 17h e 19h' com a observação 'Comunidade Eclesial Missionária São José Operário', sem dizer qual horário (ou se algum) é na comunidade",
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-da-conceicao-belo-jardim/",
+              "title": "Paróquia Nossa Senhora da Conceição – Belo Jardim | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 04/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-da-saude-belo-jardim",
+      "name": "Paróquia Nossa Senhora da Saúde",
+      "city": "Belo Jardim",
+      "state": "PE",
+      "neighborhood": "Cohab I",
+      "address": "Avenida Nossa Senhora da Saúde, nº 366 - Cohab I",
+      "zipCode": null,
+      "phone": "(81) 3726-4305",
+      "email": "paroquia.nssaude@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Fábio de Lima Santos",
+      "foundedYear": 2001,
+      "sources": [
+        {
+          "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-da-saude/",
+          "title": "Paróquia Nossa Senhora da Saúde – Belo Jardim | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 11/08/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedepesqueira.com.br/clero/",
+          "title": "Clero | Diocese de Pesqueira (57 fichas com paróquia e função de cada padre; alteradas entre julho e setembro de 2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://minhareceita.org/10714251000434",
+          "title": "Receita Federal (CNPJ) via minhareceita.org — filial 10714251000434 da Diocese de Pesqueira: Paróquia Nossa Senhora da Saúde, Av. Nossa Senhora da Saúde, 366, Cohab I (situação ATIVA)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5099-igreja-nossa-senhora-da-saude/",
+          "title": "Lírio Católico — Igreja Nossa Senhora da Saúde, Belo Jardim/PE (agregador; carga de 2026-09)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Região Pastoral Belo Jardim; o pároco é também coordenador diocesano de pastoral. WhatsApp: (81) 99121-2882. Instagram/Facebook: @paroquiadasaudebjpe. A ficha publica o domingo como '19h e 17h30'; o Lírio Católico (2026) confirma quinta 19h, sábado 19h e domingo 17h30, mas traz domingo 7h em vez de 19h. CEP não gravado (a Receita traz 55150-001). Secretaria: seg. a sex. 8h-12h e 14h-17h; sáb. 8h-11h.",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora da Saúde",
+          "address": "Avenida Nossa Senhora da Saúde, nº 366 - Cohab I",
+          "neighborhood": "Cohab I",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-da-saude/",
+              "title": "Paróquia Nossa Senhora da Saúde – Belo Jardim | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 11/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora da Saúde",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-da-saude/",
+              "title": "Paróquia Nossa Senhora da Saúde – Belo Jardim | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 11/08/2026)",
+              "accessedAt": "2026-09-17"
+            },
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5099-igreja-nossa-senhora-da-saude/",
+              "title": "Lírio Católico — Igreja Nossa Senhora da Saúde, Belo Jardim/PE (agregador; carga de 2026-09)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Saúde",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-da-saude/",
+              "title": "Paróquia Nossa Senhora da Saúde – Belo Jardim | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 11/08/2026)",
+              "accessedAt": "2026-09-17"
+            },
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5099-igreja-nossa-senhora-da-saude/",
+              "title": "Lírio Católico — Igreja Nossa Senhora da Saúde, Belo Jardim/PE (agregador; carga de 2026-09)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Saúde",
+          "dayOfWeek": 0,
+          "time": "17:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-da-saude/",
+              "title": "Paróquia Nossa Senhora da Saúde – Belo Jardim | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 11/08/2026)",
+              "accessedAt": "2026-09-17"
+            },
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5099-igreja-nossa-senhora-da-saude/",
+              "title": "Lírio Católico — Igreja Nossa Senhora da Saúde, Belo Jardim/PE (agregador; carga de 2026-09)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Saúde",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-da-saude/",
+              "title": "Paróquia Nossa Senhora da Saúde – Belo Jardim | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 11/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Saúde",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Primeira sexta-feira do mês, às 19h — missa do Apostolado da Oração e das Mãos Ensanguentadas de Jesus",
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-da-saude/",
+              "title": "Paróquia Nossa Senhora da Saúde – Belo Jardim | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 11/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Saúde",
+          "dayOfWeek": 6,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": "Terceiro sábado do mês, às 15h — missa das crianças",
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-da-saude/",
+              "title": "Paróquia Nossa Senhora da Saúde – Belo Jardim | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 11/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-do-bom-conselho-belo-jardim",
+      "name": "Paróquia Nossa Senhora do Bom Conselho",
+      "city": "Belo Jardim",
+      "state": "PE",
+      "neighborhood": "Bom Conselho",
+      "address": "Av. Nossa Senhora do Bom Conselho, nº 129 - Bom Conselho",
+      "zipCode": null,
+      "phone": "(81) 97342-9887",
+      "email": "pnsbomconselho@gmail.com",
+      "website": null,
+      "priestName": "Pe. Allan de Lima Sobral",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-do-bom-conselho-belo-jardim/",
+          "title": "Paróquia Nossa Senhora do Bom Conselho – Belo Jardim | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 14/07/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedepesqueira.com.br/clero/",
+          "title": "Clero | Diocese de Pesqueira (57 fichas com paróquia e função de cada padre; alteradas entre julho e setembro de 2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://minhareceita.org/10714251004502",
+          "title": "Receita Federal (CNPJ) via minhareceita.org — filial 10714251004502 da Diocese de Pesqueira: Paróquia Bom Conselho, Av. Bom Conselho, 129, Bom Conselho (situação ATIVA)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5097-paroquia-nossa-senhora-do-bom-conselho/",
+          "title": "Lírio Católico — Paróquia Nossa Senhora do Bom Conselho, Belo Jardim/PE (agregador; carga de 2026-09)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Região Pastoral Belo Jardim; o pároco é também chanceler da cúria. A ficha não traz ano de criação nem horários de missa. Instagram (via Lírio Católico): @pnsbomconselho.bj. CEP não gravado (Receita: 55150-001; horariodemissa.com.br, ficha de 2013: 55153-180). Secretaria: seg. a sex. 8h-12h e 14h-18h; sáb. 8h-12h.",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora do Bom Conselho",
+          "address": "Av. Nossa Senhora do Bom Conselho, nº 129 - Bom Conselho",
+          "neighborhood": "Bom Conselho",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-do-bom-conselho-belo-jardim/",
+              "title": "Paróquia Nossa Senhora do Bom Conselho – Belo Jardim | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 14/07/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora do Bom Conselho",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Só no Lírio Católico (agregador); a ficha da diocese não publica horários",
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5097-paroquia-nossa-senhora-do-bom-conselho/",
+              "title": "Lírio Católico — Paróquia Nossa Senhora do Bom Conselho, Belo Jardim/PE (agregador; carga de 2026-09)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Bom Conselho",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Só no Lírio Católico (agregador); a ficha da diocese não publica horários",
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5097-paroquia-nossa-senhora-do-bom-conselho/",
+              "title": "Lírio Católico — Paróquia Nossa Senhora do Bom Conselho, Belo Jardim/PE (agregador; carga de 2026-09)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "sao-pedro-e-sao-paulo-belo-jardim",
+      "name": "Paróquia São Pedro e São Paulo",
+      "city": "Belo Jardim",
+      "state": "PE",
+      "neighborhood": "São Pedro",
+      "address": "Rua Benjamin Constant, nº 16 - São Pedro",
+      "zipCode": null,
+      "phone": "(81) 99244-6278",
+      "email": "sec.paroquiaspsp@gmail.com",
+      "website": null,
+      "priestName": "Pe. José Luiz Gomes da Silva",
+      "foundedYear": 1964,
+      "sources": [
+        {
+          "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-sao-pedro-e-sao-paulo/",
+          "title": "Paróquia São Pedro e São Paulo – Belo Jardim | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 08/09/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedepesqueira.com.br/clero/",
+          "title": "Clero | Diocese de Pesqueira (57 fichas com paróquia e função de cada padre; alteradas entre julho e setembro de 2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://minhareceita.org/10714251004855",
+          "title": "Receita Federal (CNPJ) via minhareceita.org — filial 10714251004855 da Diocese de Pesqueira: Paróquia de São Pedro e São Paulo Apóstolos, Vila Dr. Fernando Dias de Abreu, s/n, São Pedro (situação ATIVA)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5102-santuario-de-sao-pedro-e-sao-paulo-apostolos/",
+          "title": "Lírio Católico — Santuário de São Pedro e São Paulo Apóstolos, Belo Jardim/PE (agregador; carga de 2026-09)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Região Pastoral Belo Jardim. Diácono: Waldvon Araújo Monteiro. A ficha separa os locais: 'Oratório de São Pedro' (segunda a sexta 19h; sábado 7h) e 'Matriz São Pedro e São Paulo' (sábado 19h; domingo 7h, 9h e 19h). O Lírio Católico cadastra a matriz como 'Santuário de São Pedro e São Paulo Apóstolos' (Rua José Lopes da Silva) e confirma os três horários de domingo. Instagram: @paroquiaspedrospaulobj. A Receita registra outro logradouro (Vila Dr. Fernando Dias de Abreu, s/n, CEP 55150-660) — CEP não gravado. Secretaria: seg. a sex. 8h-12h e 14h-17h; sáb. 7h30-11h30.",
+      "communities": [
+        {
+          "name": "Matriz São Pedro e São Paulo",
+          "address": "Rua Benjamin Constant, nº 16 - São Pedro",
+          "neighborhood": "São Pedro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-sao-pedro-e-sao-paulo/",
+              "title": "Paróquia São Pedro e São Paulo – Belo Jardim | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 08/09/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Oratório de São Pedro",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-sao-pedro-e-sao-paulo/",
+              "title": "Paróquia São Pedro e São Paulo – Belo Jardim | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 08/09/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Oratório de São Pedro",
+          "dayOfWeek": 1,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-sao-pedro-e-sao-paulo/",
+              "title": "Paróquia São Pedro e São Paulo – Belo Jardim | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 08/09/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Oratório de São Pedro",
+          "dayOfWeek": 2,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-sao-pedro-e-sao-paulo/",
+              "title": "Paróquia São Pedro e São Paulo – Belo Jardim | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 08/09/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Oratório de São Pedro",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-sao-pedro-e-sao-paulo/",
+              "title": "Paróquia São Pedro e São Paulo – Belo Jardim | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 08/09/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Oratório de São Pedro",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-sao-pedro-e-sao-paulo/",
+              "title": "Paróquia São Pedro e São Paulo – Belo Jardim | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 08/09/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Oratório de São Pedro",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-sao-pedro-e-sao-paulo/",
+              "title": "Paróquia São Pedro e São Paulo – Belo Jardim | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 08/09/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Oratório de São Pedro",
+          "dayOfWeek": 6,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-sao-pedro-e-sao-paulo/",
+              "title": "Paróquia São Pedro e São Paulo – Belo Jardim | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 08/09/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Pedro e São Paulo",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-sao-pedro-e-sao-paulo/",
+              "title": "Paróquia São Pedro e São Paulo – Belo Jardim | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 08/09/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Pedro e São Paulo",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-sao-pedro-e-sao-paulo/",
+              "title": "Paróquia São Pedro e São Paulo – Belo Jardim | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 08/09/2026)",
+              "accessedAt": "2026-09-17"
+            },
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5102-santuario-de-sao-pedro-e-sao-paulo-apostolos/",
+              "title": "Lírio Católico — Santuário de São Pedro e São Paulo Apóstolos, Belo Jardim/PE (agregador; carga de 2026-09)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Pedro e São Paulo",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-sao-pedro-e-sao-paulo/",
+              "title": "Paróquia São Pedro e São Paulo – Belo Jardim | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 08/09/2026)",
+              "accessedAt": "2026-09-17"
+            },
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5102-santuario-de-sao-pedro-e-sao-paulo-apostolos/",
+              "title": "Lírio Católico — Santuário de São Pedro e São Paulo Apóstolos, Belo Jardim/PE (agregador; carga de 2026-09)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Pedro e São Paulo",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-sao-pedro-e-sao-paulo/",
+              "title": "Paróquia São Pedro e São Paulo – Belo Jardim | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 08/09/2026)",
+              "accessedAt": "2026-09-17"
+            },
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5102-santuario-de-sao-pedro-e-sao-paulo-apostolos/",
+              "title": "Lírio Católico — Santuário de São Pedro e São Paulo Apóstolos, Belo Jardim/PE (agregador; carga de 2026-09)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "sao-manoel-da-paciencia-belo-jardim",
+      "name": "Paróquia São Manoel da Paciência",
+      "city": "Belo Jardim",
+      "state": "PE",
+      "neighborhood": "Xucuru (distrito)",
+      "address": "Praça José Justino de Oliveira - Xucuru",
+      "zipCode": "55165-000",
+      "phone": "(81) 98181-0133",
+      "email": "areapastoral.manoeldapaciencia@gmail.com",
+      "website": null,
+      "priestName": "Pe. Jailson José da Silva",
+      "foundedYear": 2024,
+      "sources": [
+        {
+          "url": "https://diocesedepesqueira.com.br/paroquia/area-pastoral-sao-manoel-da-paciencia/",
+          "title": "Paróquia São Manoel da Paciência | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 08/09/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedepesqueira.com.br/clero/",
+          "title": "Clero | Diocese de Pesqueira (57 fichas com paróquia e função de cada padre; alteradas entre julho e setembro de 2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://minhareceita.org/10714251005746",
+          "title": "Receita Federal (CNPJ) via minhareceita.org — filial 10714251005746 da Diocese de Pesqueira: Paróquia de São Manoel da Paciência, Rua Manoel Pereira de Araújo, 01, Xucuru (situação ATIVA)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Região Pastoral Belo Jardim. Antiga área pastoral, elevada a paróquia em 17/06/2024 (a URL e o e-mail ainda dizem 'área pastoral'). A ficha não diz o município; o distrito de Xucuru, em Belo Jardim, vem do cadastro da Receita Federal (filial aberta em 2018). Instagram: @saomanoeldapaciencia. Secretaria: seg. a sex. 8h-12h e 13h-17h; sáb. 8h-12h.",
+      "communities": [
+        {
+          "name": "Matriz São Manoel da Paciência",
+          "address": "Praça José Justino de Oliveira - Xucuru",
+          "neighborhood": "Xucuru (distrito)",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/area-pastoral-sao-manoel-da-paciencia/",
+              "title": "Paróquia São Manoel da Paciência | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 08/09/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São Manoel da Paciência",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/area-pastoral-sao-manoel-da-paciencia/",
+              "title": "Paróquia São Manoel da Paciência | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 08/09/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Manoel da Paciência",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/area-pastoral-sao-manoel-da-paciencia/",
+              "title": "Paróquia São Manoel da Paciência | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 08/09/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "sao-jose-brejo-da-madre-de-deus",
+      "name": "Paróquia São José",
+      "city": "Brejo da Madre de Deus",
+      "state": "PE",
+      "neighborhood": "Centro",
+      "address": "Rua São José - Centro",
+      "zipCode": "55170-000",
+      "phone": "(81) 93500-5938",
+      "email": "paroquiasaojosebmd@gmail.com",
+      "website": null,
+      "priestName": "Pe. João Paulo Queiroz Valença",
+      "foundedYear": 1792,
+      "sources": [
+        {
+          "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-de-sao-jose-brejo-da-madre-de-deus/",
+          "title": "Paróquia de São José – Brejo da Madre de Deus | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 11/08/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedepesqueira.com.br/clero/",
+          "title": "Clero | Diocese de Pesqueira (57 fichas com paróquia e função de cada padre; alteradas entre julho e setembro de 2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://minhareceita.org/10714251004936",
+          "title": "Receita Federal (CNPJ) via minhareceita.org — filial 10714251004936 da Diocese de Pesqueira: Paróquia São José, Rua São José, s/n, Centro (situação ATIVA)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Região Pastoral Brejo da Madre de Deus. Telefone gravado como publicado ('81 93500-5938') — conferir. Instagram: @psj_brejo. Secretaria: seg. a sex. 8h-12h e 14h-18h; sáb. 8h-12h.",
+      "communities": [
+        {
+          "name": "Matriz São José",
+          "address": "Rua São José - Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-de-sao-jose-brejo-da-madre-de-deus/",
+              "title": "Paróquia de São José – Brejo da Madre de Deus | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 11/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São José",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-de-sao-jose-brejo-da-madre-de-deus/",
+              "title": "Paróquia de São José – Brejo da Madre de Deus | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 11/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São José",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-de-sao-jose-brejo-da-madre-de-deus/",
+              "title": "Paróquia de São José – Brejo da Madre de Deus | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 11/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São José",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-de-sao-jose-brejo-da-madre-de-deus/",
+              "title": "Paróquia de São José – Brejo da Madre de Deus | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 11/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São José",
+          "dayOfWeek": 5,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": "1ª sexta-feira do mês, às 7h",
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-de-sao-jose-brejo-da-madre-de-deus/",
+              "title": "Paróquia de São José – Brejo da Madre de Deus | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 11/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-da-conceicao-fazenda-nova-brejo-da-madre-de-deus",
+      "name": "Paróquia Nossa Senhora da Conceição",
+      "city": "Brejo da Madre de Deus",
+      "state": "PE",
+      "neighborhood": "Fazenda Nova (distrito)",
+      "address": "Avenida Soares da Costa, s/n - Centro - Distrito de Fazenda Nova",
+      "zipCode": "55175-000",
+      "phone": "(81) 98190-3881",
+      "email": "pnsc.fazendanova@gmail.com",
+      "website": null,
+      "priestName": "Pe. Paulo César do Nascimento",
+      "foundedYear": 1966,
+      "sources": [
+        {
+          "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-da-conceicao-brejo-da-madre-de-deus/",
+          "title": "Paróquia Nossa Senhora da Conceição – Brejo da Madre de Deus | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 02/08/2024)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedepesqueira.com.br/clero/",
+          "title": "Clero | Diocese de Pesqueira (57 fichas com paróquia e função de cada padre; alteradas entre julho e setembro de 2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://minhareceita.org/10714251004421",
+          "title": "Receita Federal (CNPJ) via minhareceita.org — filial 10714251004421 da Diocese de Pesqueira: Paróquia Nossa Senhora da Conceição, Praça da Conceição, s/n, Fazenda Nova (situação ATIVA)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Região Pastoral Brejo da Madre de Deus; paróquia do distrito de Fazenda Nova (Nova Jerusalém). A ficha não é alterada desde 02/08/2024 (mais de 12 meses) — horários gravados como 'media'.",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora da Conceição",
+          "address": "Avenida Soares da Costa, s/n - Centro - Distrito de Fazenda Nova",
+          "neighborhood": "Fazenda Nova (distrito)",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-da-conceicao-brejo-da-madre-de-deus/",
+              "title": "Paróquia Nossa Senhora da Conceição – Brejo da Madre de Deus | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 02/08/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-da-conceicao-brejo-da-madre-de-deus/",
+              "title": "Paróquia Nossa Senhora da Conceição – Brejo da Madre de Deus | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 02/08/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-da-conceicao-brejo-da-madre-de-deus/",
+              "title": "Paróquia Nossa Senhora da Conceição – Brejo da Madre de Deus | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 02/08/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-da-conceicao-brejo-da-madre-de-deus/",
+              "title": "Paróquia Nossa Senhora da Conceição – Brejo da Madre de Deus | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 02/08/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 2,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "1ª terça-feira do mês, às 19h30",
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-da-conceicao-brejo-da-madre-de-deus/",
+              "title": "Paróquia Nossa Senhora da Conceição – Brejo da Madre de Deus | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 02/08/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 5,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "1ª sexta-feira do mês, às 19h30",
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-da-conceicao-brejo-da-madre-de-deus/",
+              "title": "Paróquia Nossa Senhora da Conceição – Brejo da Madre de Deus | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 02/08/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "sao-domingos-brejo-da-madre-de-deus",
+      "name": "Paróquia São Domingos",
+      "city": "Brejo da Madre de Deus",
+      "state": "PE",
+      "neighborhood": "São Domingos (distrito)",
+      "address": "Av. Luiz Cecílio de Santana - São Domingos",
+      "zipCode": "55178-000",
+      "phone": "(81) 9282-6295",
+      "email": "psdomingosbrejo@gmail.com",
+      "website": null,
+      "priestName": "Pe. Alexandre Justino",
+      "foundedYear": 1997,
+      "sources": [
+        {
+          "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-sao-domingos/",
+          "title": "Paróquia São Domingos – Brejo da Madre de Deus | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 14/09/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedepesqueira.com.br/clero/",
+          "title": "Clero | Diocese de Pesqueira (57 fichas com paróquia e função de cada padre; alteradas entre julho e setembro de 2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://minhareceita.org/10714251002569",
+          "title": "Receita Federal (CNPJ) via minhareceita.org — filial 10714251002569 da Diocese de Pesqueira: Paróquia de São Domingos, Rua Luiz Cecílio de Santana, 251 (situação ATIVA)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Região Pastoral Brejo da Madre de Deus; distrito de São Domingos. O Pe. Alexandre consta como administrador paroquial. Telefone publicado com 8 dígitos ('81 9282-6295'), provavelmente faltando o 9 inicial — gravado como está. Instagram: @psdomingosbrejo. A Receita registra o nº 251. Secretaria: seg. a sex. 8h-12h e 14h-18h.",
+      "communities": [
+        {
+          "name": "Matriz São Domingos",
+          "address": "Av. Luiz Cecílio de Santana - São Domingos",
+          "neighborhood": "São Domingos (distrito)",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-sao-domingos/",
+              "title": "Paróquia São Domingos – Brejo da Madre de Deus | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 14/09/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São Domingos",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-sao-domingos/",
+              "title": "Paróquia São Domingos – Brejo da Madre de Deus | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 14/09/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Domingos",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-sao-domingos/",
+              "title": "Paróquia São Domingos – Brejo da Madre de Deus | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 14/09/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Domingos",
+          "dayOfWeek": 0,
+          "time": "11:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-sao-domingos/",
+              "title": "Paróquia São Domingos – Brejo da Madre de Deus | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 14/09/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Domingos",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-sao-domingos/",
+              "title": "Paróquia São Domingos – Brejo da Madre de Deus | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 14/09/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Domingos",
+          "dayOfWeek": 5,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": "1ª sexta-feira do mês, às 8h",
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-sao-domingos/",
+              "title": "Paróquia São Domingos – Brejo da Madre de Deus | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 14/09/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "sao-sebastiao-jatauba",
+      "name": "Paróquia São Sebastião",
+      "city": "Jataúba",
+      "state": "PE",
+      "neighborhood": "Centro",
+      "address": "Rua São Sebastião, nº 86 - Centro",
+      "zipCode": "55180-000",
+      "phone": "(81) 98177-6407",
+      "email": "jataubasaosebastiao@gmail.com",
+      "website": null,
+      "priestName": "Pe. Renato de Lima Estevão",
+      "foundedYear": 1964,
+      "sources": [
+        {
+          "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-sao-sebastiao/",
+          "title": "Paróquia São Sebastião – Jataúba | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 11/08/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedepesqueira.com.br/clero/",
+          "title": "Clero | Diocese de Pesqueira (57 fichas com paróquia e função de cada padre; alteradas entre julho e setembro de 2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://minhareceita.org/10714251004693",
+          "title": "Receita Federal (CNPJ) via minhareceita.org — filial 10714251004693 da Diocese de Pesqueira: Paróquia São Sebastião, Rua José Rodrigues de Siqueira, s/n, Centro (situação ATIVA)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Região Pastoral Brejo da Madre de Deus. O Pe. Renato consta como administrador paroquial. Instagram: @paroquiasaosebastiaojatauba. A Receita registra 'Rua José Rodrigues de Siqueira, s/n'. Secretaria: seg. a sex. 8h-12h e 14h-18h.",
+      "communities": [
+        {
+          "name": "Matriz São Sebastião",
+          "address": "Rua São Sebastião, nº 86 - Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-sao-sebastiao/",
+              "title": "Paróquia São Sebastião – Jataúba | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 11/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-sao-sebastiao/",
+              "title": "Paróquia São Sebastião – Jataúba | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 11/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-sao-sebastiao/",
+              "title": "Paróquia São Sebastião – Jataúba | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 11/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-sao-sebastiao/",
+              "title": "Paróquia São Sebastião – Jataúba | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 11/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-sao-sebastiao/",
+              "title": "Paróquia São Sebastião – Jataúba | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 11/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Primeira sexta-feira do mês, às 19h",
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-sao-sebastiao/",
+              "title": "Paróquia São Sebastião – Jataúba | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 11/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-do-livramento-arcoverde",
+      "name": "Paróquia Nossa Senhora do Livramento",
+      "city": "Arcoverde",
+      "state": "PE",
+      "neighborhood": "Centro",
+      "address": "Praça do Livramento, s/n - Centro",
+      "zipCode": "56510-100",
+      "phone": "(87) 99158-7001",
+      "email": "paroquiadolivramento@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Adeildo Sebastião Ferreira",
+      "foundedYear": 1919,
+      "sources": [
+        {
+          "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-do-livramento/",
+          "title": "Paroquia Nossa Senhora do Livramento – Arcoverde | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 11/08/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedepesqueira.com.br/clero/",
+          "title": "Clero | Diocese de Pesqueira (57 fichas com paróquia e função de cada padre; alteradas entre julho e setembro de 2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://minhareceita.org/10714251002801",
+          "title": "Receita Federal (CNPJ) via minhareceita.org — filial 10714251002801 da Diocese de Pesqueira: Paróquia de Livramento, Praça do Livramento, s/n, Centro (situação ATIVA)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Região Pastoral Arcoverde; matriz da padroeira da cidade. Instagram: @paroquiadolivramento. CEP do cadastro da Receita Federal. Secretaria: seg. a sex. 8h-12h e 14h-18h; sáb. 8h-12h.",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora do Livramento",
+          "address": "Praça do Livramento, s/n - Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-do-livramento/",
+              "title": "Paroquia Nossa Senhora do Livramento – Arcoverde | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 11/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora do Livramento",
+          "dayOfWeek": 2,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-do-livramento/",
+              "title": "Paroquia Nossa Senhora do Livramento – Arcoverde | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 11/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Livramento",
+          "dayOfWeek": 4,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-do-livramento/",
+              "title": "Paroquia Nossa Senhora do Livramento – Arcoverde | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 11/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Livramento",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-do-livramento/",
+              "title": "Paroquia Nossa Senhora do Livramento – Arcoverde | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 11/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Livramento",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-do-livramento/",
+              "title": "Paroquia Nossa Senhora do Livramento – Arcoverde | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 11/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Livramento",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-do-livramento/",
+              "title": "Paroquia Nossa Senhora do Livramento – Arcoverde | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 11/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Livramento",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "1ª sexta-feira do mês, às 19h",
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-do-livramento/",
+              "title": "Paroquia Nossa Senhora do Livramento – Arcoverde | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 11/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "sao-cristovao-arcoverde",
+      "name": "Paróquia São Cristóvão",
+      "city": "Arcoverde",
+      "state": "PE",
+      "neighborhood": "São Cristóvão",
+      "address": "Praça São Cristóvão - São Cristóvão",
+      "zipCode": "56512-660",
+      "phone": "(87) 3822-2693",
+      "email": "pscparoquiasaocristovao@gmail.com",
+      "website": null,
+      "priestName": "Pe. Marconni José Barbosa",
+      "foundedYear": 1958,
+      "sources": [
+        {
+          "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-sao-cristovao/",
+          "title": "Paróquia São Cristóvão | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 14/07/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedepesqueira.com.br/clero/",
+          "title": "Clero | Diocese de Pesqueira (57 fichas com paróquia e função de cada padre; alteradas entre julho e setembro de 2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://minhareceita.org/10714251003298",
+          "title": "Receita Federal (CNPJ) via minhareceita.org — filial 10714251003298 da Diocese de Pesqueira: Paróquia São Cristóvão, Rua São Cristóvão, s/n, São Cristóvão (situação ATIVA)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Região Pastoral Arcoverde; o pároco é também vigário judicial. WhatsApp: (87) 99126-2888. Instagram: @cristovao.sao. CEP do cadastro da Receita Federal (que registra 'Rua São Cristóvão, s/n'). Secretaria: seg. a sex. 8h-12h e 14h-18h; sáb. 8h-12h.",
+      "communities": [
+        {
+          "name": "Matriz São Cristóvão",
+          "address": "Praça São Cristóvão - São Cristóvão",
+          "neighborhood": "São Cristóvão",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-sao-cristovao/",
+              "title": "Paróquia São Cristóvão | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 14/07/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São Cristóvão",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-sao-cristovao/",
+              "title": "Paróquia São Cristóvão | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 14/07/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Cristóvão",
+          "dayOfWeek": 0,
+          "time": "10:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-sao-cristovao/",
+              "title": "Paróquia São Cristóvão | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 14/07/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Cristóvão",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-sao-cristovao/",
+              "title": "Paróquia São Cristóvão | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 14/07/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Cristóvão",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "1ª sexta-feira do mês, às 19h",
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-sao-cristovao/",
+              "title": "Paróquia São Cristóvão | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 14/07/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "sao-geraldo-majella-arcoverde",
+      "name": "Paróquia São Geraldo Majella",
+      "city": "Arcoverde",
+      "state": "PE",
+      "neighborhood": "São Geraldo",
+      "address": "Rua Félix Amaro, nº 10 - São Geraldo",
+      "zipCode": null,
+      "phone": "(87) 3821-0521",
+      "email": "psgeraldo@gmail.com",
+      "website": null,
+      "priestName": "Pe. Leonildo Pedo dos Santos, CP",
+      "foundedYear": 1992,
+      "sources": [
+        {
+          "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-sao-geraldo-majella/",
+          "title": "Paróquia São Geraldo Majella – Arcoverde | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 11/08/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedepesqueira.com.br/clero/",
+          "title": "Clero | Diocese de Pesqueira (57 fichas com paróquia e função de cada padre; alteradas entre julho e setembro de 2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://minhareceita.org/10714251003883",
+          "title": "Receita Federal (CNPJ) via minhareceita.org — filial 10714251003883 da Diocese de Pesqueira: Paróquia São Geraldo, Rua São Geraldo, 23, São Geraldo (situação ATIVA)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Região Pastoral Arcoverde; criada em 05/01/1992; confiada aos passionistas (CP). Vigário paroquial: Pe. Anderson Carlos Ramos, CP. Instagram: @psgeraldomajella. A Receita registra outro logradouro (Rua São Geraldo, 23, CEP 56515-280) — CEP não gravado. Secretaria: seg. a sex. 8h-12h e 14h-18h; sáb. 8h-12h.",
+      "communities": [
+        {
+          "name": "Matriz São Geraldo Majella",
+          "address": "Rua Félix Amaro, nº 10 - São Geraldo",
+          "neighborhood": "São Geraldo",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-sao-geraldo-majella/",
+              "title": "Paróquia São Geraldo Majella – Arcoverde | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 11/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São Geraldo Majella",
+          "dayOfWeek": 1,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-sao-geraldo-majella/",
+              "title": "Paróquia São Geraldo Majella – Arcoverde | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 11/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Geraldo Majella",
+          "dayOfWeek": 2,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-sao-geraldo-majella/",
+              "title": "Paróquia São Geraldo Majella – Arcoverde | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 11/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Geraldo Majella",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-sao-geraldo-majella/",
+              "title": "Paróquia São Geraldo Majella – Arcoverde | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 11/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Geraldo Majella",
+          "dayOfWeek": 4,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-sao-geraldo-majella/",
+              "title": "Paróquia São Geraldo Majella – Arcoverde | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 11/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Geraldo Majella",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-sao-geraldo-majella/",
+              "title": "Paróquia São Geraldo Majella – Arcoverde | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 11/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Geraldo Majella",
+          "dayOfWeek": 6,
+          "time": "16:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-sao-geraldo-majella/",
+              "title": "Paróquia São Geraldo Majella – Arcoverde | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 11/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Geraldo Majella",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-sao-geraldo-majella/",
+              "title": "Paróquia São Geraldo Majella – Arcoverde | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 11/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Geraldo Majella",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-sao-geraldo-majella/",
+              "title": "Paróquia São Geraldo Majella – Arcoverde | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 11/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-mae-da-santa-esperanca-arcoverde",
+      "name": "Paróquia Nossa Senhora Mãe da Santa Esperança",
+      "city": "Arcoverde",
+      "state": "PE",
+      "neighborhood": "Boa Esperança",
+      "address": "Rua Otacílio Cassiano da Silva, nº 181 - Boa Esperança",
+      "zipCode": "56508-232",
+      "phone": "(87) 98836-1913",
+      "email": "areapastoralmaedasantaesperanc@gmail.com",
+      "website": null,
+      "priestName": "Pe. José Glauco Teixeira Lins Filho",
+      "foundedYear": 2022,
+      "sources": [
+        {
+          "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-mae-da-santa-esperanca/",
+          "title": "Paróquia Nossa Senhora Mãe da Santa Esperança – Arcoverde | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 04/08/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedepesqueira.com.br/clero/",
+          "title": "Clero | Diocese de Pesqueira (57 fichas com paróquia e função de cada padre; alteradas entre julho e setembro de 2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://minhareceita.org/10714251005584",
+          "title": "Receita Federal (CNPJ) via minhareceita.org — filial 10714251005584 da Diocese de Pesqueira: Paróquia de Nossa Senhora Mãe da Santa Esperança, Rua Otacílio Cassiano da Silva, 181, Boa Esperança (situação ATIVA)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Região Pastoral Arcoverde; antiga área pastoral (filial da Receita aberta em 2017), paróquia desde 2022. O Pe. José Glauco consta como administrador paroquial. A ficha escreve o endereço como 'Boa Esperanca / Salão'. Instagram: @paroquia.maedasantaesperanca. CEP do cadastro da Receita Federal. Secretaria: seg. a sex. 13h30-17h30.",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora Mãe da Santa Esperança",
+          "address": "Rua Otacílio Cassiano da Silva, nº 181 - Boa Esperança",
+          "neighborhood": "Boa Esperança",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-mae-da-santa-esperanca/",
+              "title": "Paróquia Nossa Senhora Mãe da Santa Esperança – Arcoverde | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 04/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora Mãe da Santa Esperança",
+          "dayOfWeek": 2,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-mae-da-santa-esperanca/",
+              "title": "Paróquia Nossa Senhora Mãe da Santa Esperança – Arcoverde | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 04/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora Mãe da Santa Esperança",
+          "dayOfWeek": 4,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-mae-da-santa-esperanca/",
+              "title": "Paróquia Nossa Senhora Mãe da Santa Esperança – Arcoverde | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 04/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora Mãe da Santa Esperança",
+          "dayOfWeek": 6,
+          "time": "16:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-mae-da-santa-esperanca/",
+              "title": "Paróquia Nossa Senhora Mãe da Santa Esperança – Arcoverde | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 04/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora Mãe da Santa Esperança",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-mae-da-santa-esperanca/",
+              "title": "Paróquia Nossa Senhora Mãe da Santa Esperança – Arcoverde | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 04/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora Mãe da Santa Esperança",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-mae-da-santa-esperanca/",
+              "title": "Paróquia Nossa Senhora Mãe da Santa Esperança – Arcoverde | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 04/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora Mãe da Santa Esperança",
+          "dayOfWeek": 5,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "1ª sexta-feira do mês, às 19h30",
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-mae-da-santa-esperanca/",
+              "title": "Paróquia Nossa Senhora Mãe da Santa Esperança – Arcoverde | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 04/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora Mãe da Santa Esperança",
+          "dayOfWeek": 6,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": "1º sábado do mês, às 6h30",
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-mae-da-santa-esperanca/",
+              "title": "Paróquia Nossa Senhora Mãe da Santa Esperança – Arcoverde | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 04/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "sao-felix-de-cantalice-buique",
+      "name": "Paróquia São Félix de Cantalice",
+      "city": "Buíque",
+      "state": "PE",
+      "neighborhood": "Centro",
+      "address": "Praça Major França, nº 14 - Centro",
+      "zipCode": "56520-000",
+      "phone": "(87) 3855-7209",
+      "email": "pfelixdecantalice@gmail.com",
+      "website": null,
+      "priestName": "Frei Itamar dos Santos Neri, O. Carm.",
+      "foundedYear": 1792,
+      "sources": [
+        {
+          "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-sao-felix-de-cantalice/",
+          "title": "Paróquia São Félix de Cantalice | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 04/08/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedepesqueira.com.br/clero/",
+          "title": "Clero | Diocese de Pesqueira (57 fichas com paróquia e função de cada padre; alteradas entre julho e setembro de 2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://minhareceita.org/10714251002992",
+          "title": "Receita Federal (CNPJ) via minhareceita.org — filial 10714251002992 da Diocese de Pesqueira: Paróquia São Félix, Praça Major França, s/n, Centro (situação ATIVA)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Região Pastoral Arcoverde; confiada aos carmelitas. Vigários paroquiais: Frei Severino do Ramo de Freitas Castro e Frei José Edson da Silva (O. Carm.). WhatsApp: (87) 98114-1773. Instagram: @felixcantalice_. Secretaria: ter. a sex. 8h-12h e 14h-17h; sáb. e dom. 8h-12h.",
+      "communities": [
+        {
+          "name": "Matriz São Félix de Cantalice",
+          "address": "Praça Major França, nº 14 - Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-sao-felix-de-cantalice/",
+              "title": "Paróquia São Félix de Cantalice | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 04/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São Félix de Cantalice",
+          "dayOfWeek": 4,
+          "time": "16:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-sao-felix-de-cantalice/",
+              "title": "Paróquia São Félix de Cantalice | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 04/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Félix de Cantalice",
+          "dayOfWeek": 6,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-sao-felix-de-cantalice/",
+              "title": "Paróquia São Félix de Cantalice | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 04/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Félix de Cantalice",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-sao-felix-de-cantalice/",
+              "title": "Paróquia São Félix de Cantalice | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 04/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Félix de Cantalice",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-sao-felix-de-cantalice/",
+              "title": "Paróquia São Félix de Cantalice | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 04/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Félix de Cantalice",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-sao-felix-de-cantalice/",
+              "title": "Paróquia São Félix de Cantalice | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 04/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Félix de Cantalice",
+          "dayOfWeek": 5,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": "1ª sexta-feira de cada mês, às 9h",
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-sao-felix-de-cantalice/",
+              "title": "Paróquia São Félix de Cantalice | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 04/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "santa-clara-de-assis-tupanatinga",
+      "name": "Paróquia Santa Clara de Assis",
+      "city": "Tupanatinga",
+      "state": "PE",
+      "neighborhood": "Centro",
+      "address": "Praça Coronel José Emílio de Melo",
+      "zipCode": "56540-000",
+      "phone": "(87) 3856-1279",
+      "email": "paroquiasantaclara2010@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Antônio da Silva Ferreira",
+      "foundedYear": 1969,
+      "sources": [
+        {
+          "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-santa-clara-de-assis/",
+          "title": "Paróquia Santa Clara de Assis – Tupanatinga | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 04/08/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedepesqueira.com.br/clero/",
+          "title": "Clero | Diocese de Pesqueira (57 fichas com paróquia e função de cada padre; alteradas entre julho e setembro de 2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://minhareceita.org/10714251002720",
+          "title": "Receita Federal (CNPJ) via minhareceita.org — filial 10714251002720 da Diocese de Pesqueira: Paróquia Santa Clara, Rua Santa Clara, 02, Centro (situação ATIVA)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Região Pastoral Arcoverde. Vigário paroquial: Pe. Samuel Rogério dos Santos Briano. WhatsApp: (87) 98161-7406. Instagram: @pascomtupanatinga. Secretaria: ter. a sex. 8h-12h e 14h-17h; sáb. 8h-12h; dom. das 8h até o fim da missa.",
+      "communities": [
+        {
+          "name": "Matriz Santa Clara de Assis",
+          "address": "Praça Coronel José Emílio de Melo",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-santa-clara-de-assis/",
+              "title": "Paróquia Santa Clara de Assis – Tupanatinga | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 04/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Santa Clara de Assis",
+          "dayOfWeek": 0,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-santa-clara-de-assis/",
+              "title": "Paróquia Santa Clara de Assis – Tupanatinga | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 04/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Santa Clara de Assis",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-santa-clara-de-assis/",
+              "title": "Paróquia Santa Clara de Assis – Tupanatinga | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 04/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Santa Clara de Assis",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-santa-clara-de-assis/",
+              "title": "Paróquia Santa Clara de Assis – Tupanatinga | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 04/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Santa Clara de Assis",
+          "dayOfWeek": 4,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Missa da Graça",
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-santa-clara-de-assis/",
+              "title": "Paróquia Santa Clara de Assis – Tupanatinga | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 04/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-da-conceicao-pedra",
+      "name": "Paróquia Nossa Senhora da Conceição",
+      "city": "Pedra",
+      "state": "PE",
+      "neighborhood": "Centro",
+      "address": "Praça da Conceição, nº 114",
+      "zipCode": "55280-000",
+      "phone": "(87) 99159-7883",
+      "email": "conceicaodapedra20@gmail.com",
+      "website": null,
+      "priestName": "Pe. Pedro José de Lima",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-da-conceicao-pedra/",
+          "title": "Paróquia Nossa Senhora da Conceição – Pedra | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 10/09/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedepesqueira.com.br/clero/",
+          "title": "Clero | Diocese de Pesqueira (57 fichas com paróquia e função de cada padre; alteradas entre julho e setembro de 2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://minhareceita.org/10714251003379",
+          "title": "Receita Federal (CNPJ) via minhareceita.org — filial 10714251003379 da Diocese de Pesqueira: Paróquia Nossa Senhora da Conceição, Rua Nossa Senhora da Conceição, s/n, Centro (situação ATIVA)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5148-paroquia-nossa-senhora-da-conceicao/",
+          "title": "Lírio Católico — Paróquia Nossa Senhora da Conceição, Pedra/PE (agregador; carga de 2026-09)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Região Pastoral Arcoverde. O Pe. Pedro José consta como administrador paroquial. A ficha não traz o ano de criação. Instagram (via Lírio Católico): @paroquiadaconceicao_. O Lírio Católico (2026) confirma os três horários e acrescenta adoração na quinta às 19h30. Secretaria: seg. a sex. 8h-12h e 14h-17h; sáb. 8h-12h.",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora da Conceição",
+          "address": "Praça da Conceição, nº 114",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-da-conceicao-pedra/",
+              "title": "Paróquia Nossa Senhora da Conceição – Pedra | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 10/09/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 4,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-da-conceicao-pedra/",
+              "title": "Paróquia Nossa Senhora da Conceição – Pedra | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 10/09/2026)",
+              "accessedAt": "2026-09-17"
+            },
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5148-paroquia-nossa-senhora-da-conceicao/",
+              "title": "Lírio Católico — Paróquia Nossa Senhora da Conceição, Pedra/PE (agregador; carga de 2026-09)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 0,
+          "time": "07:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-da-conceicao-pedra/",
+              "title": "Paróquia Nossa Senhora da Conceição – Pedra | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 10/09/2026)",
+              "accessedAt": "2026-09-17"
+            },
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5148-paroquia-nossa-senhora-da-conceicao/",
+              "title": "Lírio Católico — Paróquia Nossa Senhora da Conceição, Pedra/PE (agregador; carga de 2026-09)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-da-conceicao-pedra/",
+              "title": "Paróquia Nossa Senhora da Conceição – Pedra | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 10/09/2026)",
+              "accessedAt": "2026-09-17"
+            },
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5148-paroquia-nossa-senhora-da-conceicao/",
+              "title": "Lírio Católico — Paróquia Nossa Senhora da Conceição, Pedra/PE (agregador; carga de 2026-09)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "sao-jose-venturosa",
+      "name": "Paróquia São José",
+      "city": "Venturosa",
+      "state": "PE",
+      "neighborhood": "Centro",
+      "address": "Rua São José, nº 14 - Centro",
+      "zipCode": "55270-000",
+      "phone": "(87) 99151-0863",
+      "email": "paroquiasaojoseventurosa@gmail.com",
+      "website": null,
+      "priestName": "Pe. Alexssandro de Oliveira Lima",
+      "foundedYear": 1965,
+      "sources": [
+        {
+          "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-sao-jose-venturosa/",
+          "title": "Paróquia São José – Venturosa | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 11/08/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedepesqueira.com.br/clero/",
+          "title": "Clero | Diocese de Pesqueira (57 fichas com paróquia e função de cada padre; alteradas entre julho e setembro de 2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://minhareceita.org/10714251003700",
+          "title": "Receita Federal (CNPJ) via minhareceita.org — filial 10714251003700 da Diocese de Pesqueira: Paróquia São José, Rua São José, 14, Centro (situação ATIVA)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Região Pastoral Arcoverde. O Pe. Alexssandro consta como administrador paroquial. Instagram/Facebook: @paroquiasaojoseventurosa. Secretaria: seg. a sex. 8h-12h e 14h-18h.",
+      "communities": [
+        {
+          "name": "Matriz São José",
+          "address": "Rua São José, nº 14 - Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-sao-jose-venturosa/",
+              "title": "Paróquia São José – Venturosa | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 11/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São José",
+          "dayOfWeek": 4,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-sao-jose-venturosa/",
+              "title": "Paróquia São José – Venturosa | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 11/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São José",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-sao-jose-venturosa/",
+              "title": "Paróquia São José – Venturosa | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 11/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São José",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-sao-jose-venturosa/",
+              "title": "Paróquia São José – Venturosa | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 11/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-da-conceicao-sertania",
+      "name": "Paróquia Nossa Senhora da Conceição",
+      "city": "Sertânia",
+      "state": "PE",
+      "neighborhood": "Centro",
+      "address": "Rua Amaro Lafayette, s/n - Centro",
+      "zipCode": "56600-000",
+      "phone": "(87) 99641-6515",
+      "email": "pnscsertania25@gmail.com",
+      "website": null,
+      "priestName": "Pe. Gilvan Manuel da Silva Sousa, CM",
+      "foundedYear": 1842,
+      "sources": [
+        {
+          "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-da-conceicao-sertania/",
+          "title": "Paróquia Nossa Senhora da Conceição – Sertânia | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 04/08/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedepesqueira.com.br/clero/",
+          "title": "Clero | Diocese de Pesqueira (57 fichas com paróquia e função de cada padre; alteradas entre julho e setembro de 2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://minhareceita.org/10714251003611",
+          "title": "Receita Federal (CNPJ) via minhareceita.org — filial 10714251003611 da Diocese de Pesqueira: Paróquia Nossa Senhora da Conceição, Praça Nossa Senhora da Conceição, s/n, Centro (situação ATIVA)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Região Pastoral Arcoverde; confiada aos vicentinos (CM), que atendem as duas paróquias da cidade. Vigário paroquial: Pe. Lenilton da Silva dos Anjos, CM (a ficha da paróquia lista o vigário antes do pároco; a função vem das fichas do clero). Secretaria: seg. a sex. 8h-12h e 14h-17h; sáb. 8h-12h.",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora da Conceição",
+          "address": "Rua Amaro Lafayette, s/n - Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-da-conceicao-sertania/",
+              "title": "Paróquia Nossa Senhora da Conceição – Sertânia | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 04/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 2,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-da-conceicao-sertania/",
+              "title": "Paróquia Nossa Senhora da Conceição – Sertânia | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 04/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-da-conceicao-sertania/",
+              "title": "Paróquia Nossa Senhora da Conceição – Sertânia | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 04/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-da-conceicao-sertania/",
+              "title": "Paróquia Nossa Senhora da Conceição – Sertânia | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 04/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 0,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-nossa-senhora-da-conceicao-sertania/",
+              "title": "Paróquia Nossa Senhora da Conceição – Sertânia | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 04/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "sagrado-coracao-de-jesus-sertania",
+      "name": "Paróquia Sagrado Coração de Jesus",
+      "city": "Sertânia",
+      "state": "PE",
+      "neighborhood": "Centro",
+      "address": "Av. Agamenon Magalhães - Centro",
+      "zipCode": "56600-000",
+      "phone": "(87) 99641-5900",
+      "email": "paroquiascj_sertania@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Gilvan Manuel da Silva Sousa, CM",
+      "foundedYear": 1983,
+      "sources": [
+        {
+          "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-sagrado-coracao-de-jesus-sertania/",
+          "title": "Paróquia Sagrado Coração de Jesus – Sertânia | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 04/08/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedepesqueira.com.br/clero/",
+          "title": "Clero | Diocese de Pesqueira (57 fichas com paróquia e função de cada padre; alteradas entre julho e setembro de 2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://minhareceita.org/10714251004340",
+          "title": "Receita Federal (CNPJ) via minhareceita.org — filial 10714251004340 da Diocese de Pesqueira: Paróquia Sagrado Coração de Jesus, Av. Agamenon Magalhães, 100, Centro (situação ATIVA)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Confiada aos vicentinos (CM), junto com a Paróquia Nossa Senhora da Conceição; vigário paroquial Pe. Lenilton da Silva dos Anjos, CM. A taxonomia do site a põe na 'Região Pastoral Belo Jardim' — provável erro de cadastro (Sertânia fica na região de Arcoverde). A ficha grafa o horário de quinta e sexta como '19'. Instagram: @coracaodejesus.sertania. A Receita registra o nº 100. Secretaria: seg. a sex. 8h-12h e 14h-17h; sáb. 8h-12h.",
+      "communities": [
+        {
+          "name": "Matriz Sagrado Coração de Jesus",
+          "address": "Av. Agamenon Magalhães - Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-sagrado-coracao-de-jesus-sertania/",
+              "title": "Paróquia Sagrado Coração de Jesus – Sertânia | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 04/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Sagrado Coração de Jesus",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-sagrado-coracao-de-jesus-sertania/",
+              "title": "Paróquia Sagrado Coração de Jesus – Sertânia | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 04/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Sagrado Coração de Jesus",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-sagrado-coracao-de-jesus-sertania/",
+              "title": "Paróquia Sagrado Coração de Jesus – Sertânia | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 04/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Sagrado Coração de Jesus",
+          "dayOfWeek": 6,
+          "time": "10:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-sagrado-coracao-de-jesus-sertania/",
+              "title": "Paróquia Sagrado Coração de Jesus – Sertânia | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 04/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Sagrado Coração de Jesus",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-sagrado-coracao-de-jesus-sertania/",
+              "title": "Paróquia Sagrado Coração de Jesus – Sertânia | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 04/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Sagrado Coração de Jesus",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-sagrado-coracao-de-jesus-sertania/",
+              "title": "Paróquia Sagrado Coração de Jesus – Sertânia | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 04/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "sao-jose-cruzeiro-do-nordeste-sertania",
+      "name": "Paróquia São José",
+      "city": "Sertânia",
+      "state": "PE",
+      "neighborhood": "Cruzeiro do Nordeste (distrito)",
+      "address": "Rua Francisco Antônio, s/n - Cruzeiro do Nordeste",
+      "zipCode": "56600-000",
+      "phone": "(87) 8849-1377",
+      "email": "paroquiadesaojosecruzeiro@gmail.com",
+      "website": null,
+      "priestName": "Pe. Luciano José Souza",
+      "foundedYear": 1997,
+      "sources": [
+        {
+          "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-sao-jose-do-cruzeiro-do-nordeste/",
+          "title": "Paróquia São José do Cruzeiro do Nordeste | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 08/09/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedepesqueira.com.br/clero/",
+          "title": "Clero | Diocese de Pesqueira (57 fichas com paróquia e função de cada padre; alteradas entre julho e setembro de 2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://minhareceita.org/10714251004189",
+          "title": "Receita Federal (CNPJ) via minhareceita.org — filial 10714251004189 da Diocese de Pesqueira: Paróquia São José, Rua Francisco Antônio, s/n, Cruzeiro do Nordeste (situação ATIVA)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Região Pastoral Arcoverde. Nome na fonte: 'Paróquia São José do Cruzeiro do Nordeste' (distrito de Sertânia). O Pe. Luciano consta como administrador paroquial. A ficha NÃO publica horários de missa. Telefone publicado com 8 dígitos ('(87) 8849-1377'), provavelmente faltando o 9 inicial — gravado como está. CEP do cadastro da Receita Federal (geral de Sertânia). Secretaria: seg. a sex. 8h-12h e 13h-17h; sáb. 8h-13h.",
+      "communities": [
+        {
+          "name": "Matriz São José",
+          "address": "Rua Francisco Antônio, s/n - Cruzeiro do Nordeste",
+          "neighborhood": "Cruzeiro do Nordeste (distrito)",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/paroquia-sao-jose-do-cruzeiro-do-nordeste/",
+              "title": "Paróquia São José do Cruzeiro do Nordeste | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 08/09/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-do-carmo-pesqueira",
+      "name": "Área Pastoral Nossa Senhora do Carmo",
+      "city": "Pesqueira",
+      "state": "PE",
+      "neighborhood": "Vila Anápolis",
+      "address": "Rua Alípio José de Oliveira, nº 70 - Vila Anápolis",
+      "zipCode": "55200-000",
+      "phone": "(87) 99145-8332",
+      "email": "apnsenhoradocarmo@gmail.com",
+      "website": null,
+      "priestName": "Pe. Eduardo de Freitas Valença",
+      "foundedYear": 2010,
+      "sources": [
+        {
+          "url": "https://diocesedepesqueira.com.br/paroquia/area-pastoral-nossa-senhora-do-carmo/",
+          "title": "Área Pastoral Nossa Senhora do Carmo | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 02/08/2024)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedepesqueira.com.br/clero/",
+          "title": "Clero | Diocese de Pesqueira (57 fichas com paróquia e função de cada padre; alteradas entre julho e setembro de 2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://minhareceita.org/10714251005150",
+          "title": "Receita Federal (CNPJ) via minhareceita.org — filial 10714251005150 da Diocese de Pesqueira: Área Pastoral Nossa Senhora do Carmo, Rua Alípio José de Oliveira, 70, Vila Anápolis (situação ATIVA)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "status": "nao-paroquial",
+      "loadAsParish": true,
+      "notes": "Região Pastoral Pesqueira. Área pastoral (unidade pré-paroquial com administrador próprio). Capela inaugurada em 1992; área pastoral desde 2010. Facebook: apn.carmo. Secretaria: seg. a sex. 7h30-11h30. A ficha não é alterada desde 02/08/2024 (mais de 12 meses) — horários gravados como 'media'.",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora do Carmo",
+          "address": "Rua Alípio José de Oliveira, nº 70 - Vila Anápolis",
+          "neighborhood": "Vila Anápolis",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/area-pastoral-nossa-senhora-do-carmo/",
+              "title": "Área Pastoral Nossa Senhora do Carmo | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 02/08/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora do Carmo",
+          "dayOfWeek": 0,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/area-pastoral-nossa-senhora-do-carmo/",
+              "title": "Área Pastoral Nossa Senhora do Carmo | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 02/08/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Carmo",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/area-pastoral-nossa-senhora-do-carmo/",
+              "title": "Área Pastoral Nossa Senhora do Carmo | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 02/08/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Carmo",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "1ª sexta-feira de cada mês, às 19h",
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/area-pastoral-nossa-senhora-do-carmo/",
+              "title": "Área Pastoral Nossa Senhora do Carmo | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 02/08/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "santa-terezinha-pesqueira",
+      "name": "Área Pastoral Santa Terezinha",
+      "city": "Pesqueira",
+      "state": "PE",
+      "neighborhood": "Mutuca (distrito)",
+      "address": "Rua Igreja Matriz de Mutuca, 58 - Mutuca",
+      "zipCode": "55200-000",
+      "phone": "(87) 98159-5073",
+      "email": "areasantaterezinha@gmail.com",
+      "website": null,
+      "priestName": "Pe. Fábio Costa, FSA",
+      "foundedYear": 2018,
+      "sources": [
+        {
+          "url": "https://diocesedepesqueira.com.br/paroquia/area-pastoral-santa-terezinha-mutuca/",
+          "title": "Área Pastoral Santa Terezinha – Mutuca | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 04/08/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedepesqueira.com.br/clero/",
+          "title": "Clero | Diocese de Pesqueira (57 fichas com paróquia e função de cada padre; alteradas entre julho e setembro de 2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://minhareceita.org/10714251005827",
+          "title": "Receita Federal (CNPJ) via minhareceita.org — filial 10714251005827 da Diocese de Pesqueira: Área Pastoral Missionária Santa Terezinha do Menino Jesus, Rua Airton Sena, 48, Mutuca (situação ATIVA)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "status": "nao-paroquial",
+      "loadAsParish": true,
+      "notes": "Região Pastoral Pesqueira; distrito de Mutuca. Área pastoral criada em 06/2018, confiada aos padres FSA; vigários Pe. Rômulo Balbino e Pe. Thiago Farias do Nascimento (FSA). A Receita Federal registra 'Rua Airton Sena, 48' (filial aberta em 15/08/2025).",
+      "communities": [
+        {
+          "name": "Matriz Santa Terezinha",
+          "address": "Rua Igreja Matriz de Mutuca, 58 - Mutuca",
+          "neighborhood": "Mutuca (distrito)",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/area-pastoral-santa-terezinha-mutuca/",
+              "title": "Área Pastoral Santa Terezinha – Mutuca | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 04/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Santa Terezinha",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/area-pastoral-santa-terezinha-mutuca/",
+              "title": "Área Pastoral Santa Terezinha – Mutuca | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 04/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Santa Terezinha",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/area-pastoral-santa-terezinha-mutuca/",
+              "title": "Área Pastoral Santa Terezinha – Mutuca | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 04/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Santa Terezinha",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/area-pastoral-santa-terezinha-mutuca/",
+              "title": "Área Pastoral Santa Terezinha – Mutuca | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 04/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Santa Terezinha",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/area-pastoral-santa-terezinha-mutuca/",
+              "title": "Área Pastoral Santa Terezinha – Mutuca | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 04/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Santa Terezinha",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Terceira quinta-feira do mês, às 19h",
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/area-pastoral-santa-terezinha-mutuca/",
+              "title": "Área Pastoral Santa Terezinha – Mutuca | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 04/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Santa Terezinha",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Primeira sexta-feira do mês, às 19h",
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/area-pastoral-santa-terezinha-mutuca/",
+              "title": "Área Pastoral Santa Terezinha – Mutuca | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 04/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "sao-vicente-ferrer-belo-jardim",
+      "name": "Área Pastoral São Vicente Férrer",
+      "city": "Belo Jardim",
+      "state": "PE",
+      "neighborhood": "Serra dos Ventos (distrito)",
+      "address": "Rua do Comércio, nº 100 - Serra dos Ventos",
+      "zipCode": "55160-000",
+      "phone": "(81) 98426-5538",
+      "email": "apsvicenteferrer26@gmail.com",
+      "website": null,
+      "priestName": "Pe. Erivânio Moraes de Macedo",
+      "foundedYear": 2007,
+      "sources": [
+        {
+          "url": "https://diocesedepesqueira.com.br/paroquia/area-pastoral-sao-vicente-ferrer/",
+          "title": "Área Pastoral São Vicente Férrer – Belo Jardim | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 05/08/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedepesqueira.com.br/clero/",
+          "title": "Clero | Diocese de Pesqueira (57 fichas com paróquia e função de cada padre; alteradas entre julho e setembro de 2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://minhareceita.org/10714251005312",
+          "title": "Receita Federal (CNPJ) via minhareceita.org — filial 10714251005312 da Diocese de Pesqueira: Área Pastoral São Vicente Férrer, Travessa São Vicente, 7, Serra dos Ventos (situação ATIVA)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "status": "nao-paroquial",
+      "loadAsParish": true,
+      "notes": "Região Pastoral Belo Jardim; distrito de Serra dos Ventos. O Pe. Erivânio (ecônomo da cúria) consta como 'pároco' da área. A Receita Federal registra 'Travessa São Vicente, 7'. Secretaria: ter. a sex. 7h30-12h; sáb. 8h-12h.",
+      "communities": [
+        {
+          "name": "Matriz São Vicente Férrer",
+          "address": "Rua do Comércio, nº 100 - Serra dos Ventos",
+          "neighborhood": "Serra dos Ventos (distrito)",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/area-pastoral-sao-vicente-ferrer/",
+              "title": "Área Pastoral São Vicente Férrer – Belo Jardim | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 05/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São Vicente Férrer",
+          "dayOfWeek": 0,
+          "time": "08:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/area-pastoral-sao-vicente-ferrer/",
+              "title": "Área Pastoral São Vicente Férrer – Belo Jardim | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 05/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Vicente Férrer",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/area-pastoral-sao-vicente-ferrer/",
+              "title": "Área Pastoral São Vicente Férrer – Belo Jardim | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 05/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Vicente Férrer",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "1ª sexta-feira do mês, às 19h (a ficha deixa a coluna do dia em branco)",
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/area-pastoral-sao-vicente-ferrer/",
+              "title": "Área Pastoral São Vicente Férrer – Belo Jardim | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 05/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "sao-bartolomeu-e-santa-rita-belo-jardim",
+      "name": "Área Missionária São Bartolomeu e Santa Rita",
+      "city": "Belo Jardim",
+      "state": "PE",
+      "neighborhood": "Frei Damião",
+      "address": "Rua Irene Maciel de Lira - Frei Damião",
+      "zipCode": "55151-010",
+      "phone": "(81) 97307-1787",
+      "email": "areapastoralbj@gmail.com",
+      "website": null,
+      "priestName": "Pe. Fabiano da Silva",
+      "foundedYear": 2017,
+      "sources": [
+        {
+          "url": "https://diocesedepesqueira.com.br/paroquia/area-missionaria-sao-bartolomeu-e-santa-rita/",
+          "title": "Área Missionaria São Bartolomeu e Santa Rita – Belo Jardim | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 17/07/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedepesqueira.com.br/clero/",
+          "title": "Clero | Diocese de Pesqueira (57 fichas com paróquia e função de cada padre; alteradas entre julho e setembro de 2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://minhareceita.org/10714251005665",
+          "title": "Receita Federal (CNPJ) via minhareceita.org — filial 10714251005665 da Diocese de Pesqueira: Área Missionária São Bartolomeu e Santa Rita, Rua Irene Maciel de Lira, s/n, Frei Damião (situação ATIVA)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "status": "nao-paroquial",
+      "loadAsParish": true,
+      "notes": "Região Pastoral Belo Jardim. O Pe. Fabiano consta como administrador da área. A ficha NÃO publica horários de missa. Instagram: @areapastoralbj. CEP do cadastro da Receita Federal.",
+      "communities": [
+        {
+          "name": "Matriz São Bartolomeu e Santa Rita",
+          "address": "Rua Irene Maciel de Lira - Frei Damião",
+          "neighborhood": "Frei Damião",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/area-missionaria-sao-bartolomeu-e-santa-rita/",
+              "title": "Área Missionaria São Bartolomeu e Santa Rita – Belo Jardim | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 17/07/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "santo-antonio-arcoverde",
+      "name": "Área Pastoral Santo Antônio",
+      "city": "Arcoverde",
+      "state": "PE",
+      "neighborhood": "Serra das Varas",
+      "address": null,
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Antônio Maciel de Almeida Filho",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedepesqueira.com.br/paroquia/area-pastoral-santo-antonio-serra-das-varas/",
+          "title": "Área Pastoral Santo Antônio – Serra das Varas | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 04/08/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedepesqueira.com.br/clero/",
+          "title": "Clero | Diocese de Pesqueira (57 fichas com paróquia e função de cada padre; alteradas entre julho e setembro de 2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://minhareceita.org/10714251005231",
+          "title": "Receita Federal (CNPJ) via minhareceita.org — filial 10714251005231 da Diocese de Pesqueira: Área Pastoral Santo Antônio, Sítio Mocó, s/n, zona rural (situação ATIVA)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "status": "nao-paroquial",
+      "loadAsParish": true,
+      "notes": "Região Pastoral Arcoverde; Serra das Varas (zona rural). A ficha só traz o nome do padre — todos os outros campos estão em branco. O Pe. Antônio Maciel consta como administrador da área e auxiliar no Santuário da Divina Misericórdia. A Receita Federal registra a área no Sítio Mocó, s/n, zona rural de Arcoverde (filial de 2016).",
+      "communities": [
+        {
+          "name": "Matriz Santo Antônio",
+          "address": null,
+          "neighborhood": "Serra das Varas",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/area-pastoral-santo-antonio-serra-das-varas/",
+              "title": "Área Pastoral Santo Antônio – Serra das Varas | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 04/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-das-gracas-pesqueira",
+      "name": "Santuário Nossa Senhora das Graças",
+      "city": "Pesqueira",
+      "state": "PE",
+      "neighborhood": "Cimbres (distrito) - Aldeia Guarda",
+      "address": "Aldeia Guarda - Cimbres",
+      "zipCode": null,
+      "phone": "(81) 98641-3511",
+      "email": "santuariodagraca1936cimbrespe@gmail.com",
+      "website": null,
+      "priestName": "Pe. Mailson Regis, C.Ss.R",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedepesqueira.com.br/paroquia/santuario-nossa-senhora-das-gracas-cimbres/",
+          "title": "Santuário Nossa Senhora das Graças – Cimbres | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 08/09/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedepesqueira.com.br/clero/",
+          "title": "Clero | Diocese de Pesqueira (57 fichas com paróquia e função de cada padre; alteradas entre julho e setembro de 2026)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "status": "nao-paroquial",
+      "loadAsParish": true,
+      "notes": "Região Pastoral Pesqueira. Santuário das aparições de Nossa Senhora das Graças (1936), na Aldeia Guarda, território Xukuru; o reitor é o pároco de Nossa Senhora das Montanhas (Cimbres). Sem território próprio.",
+      "communities": [
+        {
+          "name": "Santuário Nossa Senhora das Graças",
+          "address": "Aldeia Guarda - Cimbres",
+          "neighborhood": "Cimbres (distrito) - Aldeia Guarda",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/santuario-nossa-senhora-das-gracas-cimbres/",
+              "title": "Santuário Nossa Senhora das Graças – Cimbres | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 08/09/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Santuário Nossa Senhora das Graças",
+          "dayOfWeek": 6,
+          "time": "11:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/santuario-nossa-senhora-das-gracas-cimbres/",
+              "title": "Santuário Nossa Senhora das Graças – Cimbres | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 08/09/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Santuário Nossa Senhora das Graças",
+          "dayOfWeek": 0,
+          "time": "11:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/santuario-nossa-senhora-das-gracas-cimbres/",
+              "title": "Santuário Nossa Senhora das Graças – Cimbres | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 08/09/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "sao-miguel-arcoverde",
+      "name": "Reitoria São Miguel",
+      "city": "Arcoverde",
+      "state": "PE",
+      "neighborhood": "São Miguel",
+      "address": "Rua Santa Cecília, nº 100 - São Miguel",
+      "zipCode": "56502-358",
+      "phone": "(87) 98110-4624",
+      "email": "reitoriadesaomiguel@gmail.com",
+      "website": null,
+      "priestName": "Pe. Luíz Benevaldo dos Santos",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedepesqueira.com.br/paroquia/reitoria-sao-miguel/",
+          "title": "Reitoria São Miguel – Arcoverde | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 04/08/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedepesqueira.com.br/clero/",
+          "title": "Clero | Diocese de Pesqueira (57 fichas com paróquia e função de cada padre; alteradas entre julho e setembro de 2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://minhareceita.org/10714251005401",
+          "title": "Receita Federal (CNPJ) via minhareceita.org — filial 10714251005401 da Diocese de Pesqueira: Reitoria de São Miguel, Rua Santa Cecília (Vila Cardeal Arcoverde), 100, Santos Dumont (situação ATIVA)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "status": "nao-paroquial",
+      "notes": "Região Pastoral Arcoverde. Reitoria (igreja com reitor/administrador próprio, CNPJ desde 2017). A ficha NÃO publica horários de missa — pela regra do dataset fica fora da carga até ter grade. A Receita registra o bairro como Santos Dumont. Secretaria: ter. a sex. 8h-12h e 14h-17h.",
+      "communities": [
+        {
+          "name": "Reitoria São Miguel",
+          "address": "Rua Santa Cecília, nº 100 - São Miguel",
+          "neighborhood": "São Miguel",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/reitoria-sao-miguel/",
+              "title": "Reitoria São Miguel – Arcoverde | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 04/08/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "divina-misericordia-arcoverde",
+      "name": "Santuário da Divina Misericórdia",
+      "city": "Arcoverde",
+      "state": "PE",
+      "neighborhood": "Serra das Varas - Sítio Mocó",
+      "address": "Serra das Varas - Sítio Mocó",
+      "zipCode": null,
+      "phone": "(87) 98813-1394",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Adilson Carlos Simões da Silva",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedepesqueira.com.br/paroquia/santuario-da-divina-misericordia/",
+          "title": "Santuário da Divina Misericórdia | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 14/07/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedepesqueira.com.br/clero/",
+          "title": "Clero | Diocese de Pesqueira (57 fichas com paróquia e função de cada padre; alteradas entre julho e setembro de 2026)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "status": "nao-paroquial",
+      "notes": "Região Pastoral Arcoverde. Santuário sem território; o Pe. Adilson é fundador e reitor. A ficha NÃO publica horários de missa — pela regra do dataset fica fora da carga até ter grade.",
+      "communities": [
+        {
+          "name": "Santuário da Divina Misericórdia",
+          "address": "Serra das Varas - Sítio Mocó",
+          "neighborhood": "Serra das Varas - Sítio Mocó",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedepesqueira.com.br/paroquia/santuario-da-divina-misericordia/",
+              "title": "Santuário da Divina Misericórdia | Diocese de Pesqueira (ficha oficial; última alteração no WordPress em 14/07/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    }
+  ],
+  "coverage": {
+    "parishesFound": 27,
+    "parishesExpected": 27,
+    "notes": "O site oficial publica 35 fichas: 27 paróquias, 5 áreas pastorais/missionária, 1 reitoria e 2 santuários, em 4 regiões pastorais (Pesqueira, Belo Jardim, Brejo da Madre de Deus e Arcoverde) e 13 municípios. O esperado foi fixado em 27 porque o cadastro da Receita Federal (CNPJ 10.714.251) tem exatamente 27 paróquias ativas — prova de completude. Wikipédia (25) e catholic-hierarchy (25 em 2021; 22 em 2023) estão defasados: não contam Nossa Senhora Mãe da Santa Esperança (2022) nem São Manoel da Paciência (17/06/2024). As 8 entradas não paroquiais não contam em parishesFound. 38 comunidades (3 além das igrejas-sede) e 151 horários fixos."
+  }
+}
