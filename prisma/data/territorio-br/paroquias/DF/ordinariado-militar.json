@@ -448,20 +448,20 @@
     },
     {
       "slug": "59o-batalhao-de-infantaria-motorizado-maceio",
-      "name": "Capelania Militar 59º Batalhão de Infantaria Motorizado",
+      "name": "Capelania Militar Santo Inácio de Loyola",
       "city": "Maceió",
       "state": "AL",
-      "neighborhood": null,
+      "neighborhood": "Pitanguinha",
       "address": "Av. Fernandes Lima, 1970 - Pitanguinha, Maceió - AL, 57052-050",
       "zipCode": "57052-050",
       "phone": "(082) 32025900",
       "email": null,
       "website": null,
-      "priestName": null,
+      "priestName": "Diácono Joseilton Luz",
       "foundedYear": null,
       "militaryUnit": "59º Batalhão de Infantaria Motorizado",
       "militaryBranch": "Exército Brasileiro",
-      "notes": "Capelania militar junto a 59º Batalhão de Infantaria Motorizado. O Ordinariado publica a ficha com o nome da organização militar, não com o do padroeiro. Força: Exército Brasileiro.",
+      "notes": "Capelania militar junto ao 59º Batalhão de Infantaria Motorizado (Exército Brasileiro). O Ordinariado publica a ficha com o nome da organização militar; o padroeiro (Santo Inácio de Loyola) e os horários vêm do agregador horadamissa.com, que lista a capelania entre as igrejas de Maceió.",
       "sources": [
         {
           "url": "https://arquidiocesemilitar.org.br/local/59o-batalhao-de-infantaria-motorizado",
@@ -472,11 +472,64 @@
           "url": "https://arquidiocesemilitar.org.br/locais/capelanias",
           "title": "Ordinariado Militar do Brasil — Capelanias Militares (índice oficial das 174 capelanias)",
           "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "http://horadamissa.com/por_igreja_bairro.php?cidade_uf=Maceió/AL",
+          "title": "Hora da Missa — igrejas católicas de Maceió/AL (fichas com horários de missa e confissão)",
+          "accessedAt": "2026-09-11"
         }
       ],
       "confidence": "alta",
       "communities": [],
-      "schedules": []
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "08:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "http://horadamissa.com/por_igreja_bairro.php?cidade_uf=Maceió/AL",
+              "title": "Hora da Missa — igrejas católicas de Maceió/AL (fichas com horários de missa e confissão)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 0,
+          "time": "17:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "http://horadamissa.com/por_igreja_bairro.php?cidade_uf=Maceió/AL",
+              "title": "Hora da Missa — igrejas católicas de Maceió/AL (fichas com horários de missa e confissão)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 6,
+          "time": "16:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "http://horadamissa.com/por_igreja_bairro.php?cidade_uf=Maceió/AL",
+              "title": "Hora da Missa — igrejas católicas de Maceió/AL (fichas com horários de missa e confissão)",
+              "accessedAt": "2026-09-11"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "loadAsParish": true,
+      "jurisdictionNote": "Horários recolhidos do agregador de Alagoas, que lista a capelania junto com as igrejas da Arquidiocese de Maceió; a jurisdição é do Ordinariado Militar."
     },
     {
       "slug": "6o-comando-aereo-regional-brasilia",

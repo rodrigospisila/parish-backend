@@ -10015,7 +10015,7 @@
       "website": null,
       "priestName": "Diácono Joseilton Luz",
       "foundedYear": null,
-      "status": "nao-paroquial",
+      "status": "outra-jurisdicao",
       "sources": [
         {
           "url": "http://horadamissa.com/por_igreja_bairro.php?cidade_uf=Maceió/AL",
@@ -10025,54 +10025,8 @@
       ],
       "confidence": "media",
       "communities": [],
-      "schedules": [
-        {
-          "community": "Matriz",
-          "dayOfWeek": 0,
-          "time": "08:30",
-          "type": "MASS",
-          "notes": null,
-          "sources": [
-            {
-              "url": "http://horadamissa.com/por_igreja_bairro.php?cidade_uf=Maceió/AL",
-              "title": "Hora da Missa — igrejas católicas de Maceió/AL (fichas com horários de missa e confissão)",
-              "accessedAt": "2026-09-11"
-            }
-          ],
-          "confidence": "media"
-        },
-        {
-          "community": "Matriz",
-          "dayOfWeek": 0,
-          "time": "17:30",
-          "type": "MASS",
-          "notes": null,
-          "sources": [
-            {
-              "url": "http://horadamissa.com/por_igreja_bairro.php?cidade_uf=Maceió/AL",
-              "title": "Hora da Missa — igrejas católicas de Maceió/AL (fichas com horários de missa e confissão)",
-              "accessedAt": "2026-09-11"
-            }
-          ],
-          "confidence": "media"
-        },
-        {
-          "community": "Matriz",
-          "dayOfWeek": 6,
-          "time": "16:00",
-          "type": "MASS",
-          "notes": null,
-          "sources": [
-            {
-              "url": "http://horadamissa.com/por_igreja_bairro.php?cidade_uf=Maceió/AL",
-              "title": "Hora da Missa — igrejas católicas de Maceió/AL (fichas com horários de missa e confissão)",
-              "accessedAt": "2026-09-11"
-            }
-          ],
-          "confidence": "media"
-        }
-      ],
-      "loadAsParish": true
+      "schedules": [],
+      "notes": "Capelania do 59º Batalhão de Infantaria Motorizado — jurisdição do Ordinariado Militar do Brasil. Horários registrados em paroquias/DF/ordinariado-militar.json."
     },
     {
       "slug": "santa-luiza-de-marillac-maceio",
