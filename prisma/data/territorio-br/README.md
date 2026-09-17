@@ -147,6 +147,28 @@ enxame de validação. Nunca inventar: campo desconhecido = `null`.
   paróquias repetiam a mesma data de 2025, em São Carlos 65 repetiam 18/05/2025. Data recente ou
   repetida em massa → `null`.
 
+- **Corroboração só vale entre fontes independentes e ATUAIS.** Agregador sem data de conferência
+  (o `ultima_atualizacao` do `liriocatolico.com.br` é a data de regeneração da base, igual em todas
+  as fichas do estado) somado a página oficial ou ficha anterior a 2020 **não** sobe para `media`: o
+  agregador pode ter copiado justamente o texto antigo. Em Teresina e Parnaíba 78 grades caíram por
+  isso na revisão. Sobe para `media` com `buscamissa.com.br` "Confirmado" (quando ele não é mero
+  espelho do site da diocese, como em Castanhal), ficha do `horariodemissa` de 2020 em diante ou
+  rede social oficial com post recente. O `liriocatolico` entrega o estado inteiro em
+  `/horario_missa/dados/uf/<UF>.json`.
+- **Buscador de paróquias vazio em WordPress**: leia o JS do plugin para achar a `action` do
+  `wp-admin/admin-ajax.php` — em Belém uma única chamada (`action=bdgetparishes`) devolveu as 113
+  fichas com clero, endereço, coordenadas e grade de missas.
+- **Site SPA (Lovable/Vite/React) sem API**: os dados podem estar como array literal dentro do bundle
+  JS — Castanhal saiu inteira dali (39 fichas, 1.137 comunidades, 152 clérigos).
+- **Site atrás de "Vercel Security Checkpoint" (429)**: uma captura do Arquivo da Internet costuma
+  revelar a origem WordPress; em Parnaíba era `…app.ofertorio.com/?rest_route=/wp/v2/pages`.
+- `dateModified` no JSON-LD (Joomla) dá a data por página, como o `modified` da REST do WordPress.
+- **Placeholder de CMS não é missa**: campo obrigatório vira "domingo 00:00" (10 fichas em Belém).
+  Horário sem dia ou sem local → `baixa`. Página-resumo de horários pode estar quebrada (em Campo
+  Maior repetia as linhas da primeira paróquia): tire a grade da ficha individual.
+- Telefone e pároco tirados de captura antiga não vão para os campos de produção — ficam em campo
+  histórico ou em `notes` (Abaetetuba, portal de 2012).
+
 ## Marcadores que tiram uma entrada da carga
 
 | Campo | Efeito |

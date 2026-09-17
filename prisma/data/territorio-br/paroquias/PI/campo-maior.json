@@ -1,0 +1,4379 @@
+{
+  "diocese": {
+    "name": "Diocese de Campo Maior",
+    "type": "Diocese",
+    "slug": "campo-maior",
+    "city": "Campo Maior",
+    "state": "PI",
+    "address": "Cúria Diocesana – Praça Rui Barbosa, 74 – Centro",
+    "zipCode": "64280-000",
+    "phone": "(86) 3252-1132",
+    "email": null,
+    "website": "https://diocesedecampomaior.org.br",
+    "bishopName": "Dom Benedito Araújo",
+    "sources": [
+      {
+        "url": "https://diocesedecampomaior.org.br/curia-diocesana/",
+        "title": "Cúria Diocesana — Diocese de Campo Maior (atualizada em 27/04/2026)",
+        "accessedAt": "2026-09-17"
+      },
+      {
+        "url": "https://diocesedecampomaior.org.br/bispo/",
+        "title": "Bispo — Diocese de Campo Maior (atualizada em 27/04/2026)",
+        "accessedAt": "2026-09-17"
+      },
+      {
+        "url": "https://www.catholic-hierarchy.org/diocese/dcmma.html",
+        "title": "catholic-hierarchy.org — Campo Maior (Diocese)",
+        "accessedAt": "2026-09-17"
+      }
+    ],
+    "confidence": "alta"
+  },
+  "parishes": [
+    {
+      "slug": "nossa-senhora-dos-remedios-nossa-senhora-dos-remedios",
+      "name": "Paróquia Nossa Senhora dos Remédios",
+      "city": "Nossa Senhora dos Remédios",
+      "state": "PI",
+      "neighborhood": "Centro",
+      "address": "Av. Farol da Virgem, 179 – Centro",
+      "zipCode": "64140-000",
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Francisco das Chagas Eduardo",
+      "foundedYear": 1987,
+      "sources": [
+        {
+          "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-nossa-senhora-dos-remedios/",
+          "title": "Paróquia de Nossa Senhora dos Remédios – Nossa Senhora dos Remédios — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 10/12/2024)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedecampomaior.org.br/paroquias/",
+          "title": "Paróquias — Diocese de Campo Maior (39 fichas em 5 vicariatos)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedecampomaior.org.br/clero/",
+          "title": "Clero — Diocese de Campo Maior (fichas individuais com \"Paróquia\" e \"Função\"; atualizadas entre 12/2024 e 08/2026)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora dos Remédios",
+          "address": "Av. Farol da Virgem, 179 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-nossa-senhora-dos-remedios/",
+              "title": "Paróquia de Nossa Senhora dos Remédios – Nossa Senhora dos Remédios — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 10/12/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora dos Remédios",
+          "dayOfWeek": 0,
+          "time": "07:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-nossa-senhora-dos-remedios/",
+              "title": "Paróquia de Nossa Senhora dos Remédios – Nossa Senhora dos Remédios — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 10/12/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora dos Remédios",
+          "dayOfWeek": 0,
+          "time": "10:00",
+          "type": "MASS",
+          "notes": "Missa com as crianças",
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-nossa-senhora-dos-remedios/",
+              "title": "Paróquia de Nossa Senhora dos Remédios – Nossa Senhora dos Remédios — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 10/12/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "notes": "Vicariato Nossa Senhora da Conceição"
+    },
+    {
+      "slug": "sao-jose-campo-largo-do-piaui",
+      "name": "Paróquia São José",
+      "city": "Campo Largo do Piauí",
+      "state": "PI",
+      "neighborhood": "Centro",
+      "address": "Avenida da Integração, 1523 – Centro",
+      "zipCode": "64148-000",
+      "phone": "(86) 98830-4220",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Adão Ribeiro de Oliveira",
+      "foundedYear": 2013,
+      "sources": [
+        {
+          "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-sao-jose-campo-largo/",
+          "title": "Paróquia de São José – Campo Largo — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 22/11/2025)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedecampomaior.org.br/paroquias/",
+          "title": "Paróquias — Diocese de Campo Maior (39 fichas em 5 vicariatos)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedecampomaior.org.br/clero/",
+          "title": "Clero — Diocese de Campo Maior (fichas individuais com \"Paróquia\" e \"Função\"; atualizadas entre 12/2024 e 08/2026)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São José",
+          "address": "Avenida da Integração, 1523 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-sao-jose-campo-largo/",
+              "title": "Paróquia de São José – Campo Largo — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 22/11/2025)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São José",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": "Missa com crianças",
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-sao-jose-campo-largo/",
+              "title": "Paróquia de São José – Campo Largo — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 22/11/2025)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São José",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-sao-jose-campo-largo/",
+              "title": "Paróquia de São José – Campo Largo — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 22/11/2025)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São José",
+          "dayOfWeek": 4,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": "17h - Adoração",
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-sao-jose-campo-largo/",
+              "title": "Paróquia de São José – Campo Largo — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 22/11/2025)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São José",
+          "dayOfWeek": 4,
+          "time": "17:00",
+          "type": "ADORATION",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-sao-jose-campo-largo/",
+              "title": "Paróquia de São José – Campo Largo — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 22/11/2025)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "notes": "Vicariato Nossa Senhora da Conceição"
+    },
+    {
+      "slug": "nossa-senhora-da-conceicao-porto",
+      "name": "Paróquia Nossa Senhora da Conceição",
+      "city": "Porto",
+      "state": "PI",
+      "neighborhood": "Centro",
+      "address": "Av. Presidente Vargas, s/n – Centro",
+      "zipCode": "64145-000",
+      "phone": "(86) 98143-5740",
+      "email": "pnscportopiaui@gmail.com",
+      "website": null,
+      "priestName": null,
+      "foundedYear": 1948,
+      "sources": [
+        {
+          "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-nossa-senhora-da-conceicao-porto/",
+          "title": "Paróquia Nossa Senhora da Conceição – Porto — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 19/03/2024)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedecampomaior.org.br/paroquias/",
+          "title": "Paróquias — Diocese de Campo Maior (39 fichas em 5 vicariatos)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora da Conceição",
+          "address": "Av. Presidente Vargas, s/n – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-nossa-senhora-da-conceicao-porto/",
+              "title": "Paróquia Nossa Senhora da Conceição – Porto — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 19/03/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 0,
+          "time": "07:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-nossa-senhora-da-conceicao-porto/",
+              "title": "Paróquia Nossa Senhora da Conceição – Porto — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 19/03/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-nossa-senhora-da-conceicao-porto/",
+              "title": "Paróquia Nossa Senhora da Conceição – Porto — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 19/03/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 2,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": "Novena Perpétua",
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-nossa-senhora-da-conceicao-porto/",
+              "title": "Paróquia Nossa Senhora da Conceição – Porto — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 19/03/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 6,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-nossa-senhora-da-conceicao-porto/",
+              "title": "Paróquia Nossa Senhora da Conceição – Porto — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 19/03/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "notes": "Vicariato Nossa Senhora da Conceição"
+    },
+    {
+      "slug": "sao-pedro-boa-hora",
+      "name": "Paróquia São Pedro",
+      "city": "Boa Hora",
+      "state": "PI",
+      "neighborhood": "Centro",
+      "address": "Rua Raimundo Brígida, 20 – Centro",
+      "zipCode": "64108-000",
+      "phone": "(86) 98123-5208",
+      "email": "paroquiasaopedrobh@bol.com.br",
+      "website": null,
+      "priestName": "Pe. Geraldo Santos da Silva",
+      "foundedYear": 1995,
+      "sources": [
+        {
+          "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-sao-pedro-boa-hora/",
+          "title": "Paróquia de São Pedro – Boa Hora — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 10/12/2024)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedecampomaior.org.br/paroquias/",
+          "title": "Paróquias — Diocese de Campo Maior (39 fichas em 5 vicariatos)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedecampomaior.org.br/clero/",
+          "title": "Clero — Diocese de Campo Maior (fichas individuais com \"Paróquia\" e \"Função\"; atualizadas entre 12/2024 e 08/2026)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Pedro",
+          "address": "Rua Raimundo Brígida, 20 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-sao-pedro-boa-hora/",
+              "title": "Paróquia de São Pedro – Boa Hora — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 10/12/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São Pedro",
+          "dayOfWeek": 0,
+          "time": "08:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-sao-pedro-boa-hora/",
+              "title": "Paróquia de São Pedro – Boa Hora — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 10/12/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São Pedro",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-sao-pedro-boa-hora/",
+              "title": "Paróquia de São Pedro – Boa Hora — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 10/12/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "notes": "Vicariato Nossa Senhora da Conceição"
+    },
+    {
+      "slug": "sao-jose-cabeceiras-do-piaui",
+      "name": "Paróquia São José",
+      "city": "Cabeceiras do Piauí",
+      "state": "PI",
+      "neighborhood": "Centro",
+      "address": "Rua São José, 36 – Centro",
+      "zipCode": "64105-000",
+      "phone": "(86) 99515-0625",
+      "email": "paroquias78@gmail.com",
+      "website": null,
+      "priestName": "Pe. José Honorato Alves da Cunha",
+      "foundedYear": 1995,
+      "sources": [
+        {
+          "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-sao-jose-cabeceiras-do-piaui/",
+          "title": "Paróquia de São José – Cabeceiras do Piauí — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 10/12/2024)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedecampomaior.org.br/paroquias/",
+          "title": "Paróquias — Diocese de Campo Maior (39 fichas em 5 vicariatos)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedecampomaior.org.br/clero/",
+          "title": "Clero — Diocese de Campo Maior (fichas individuais com \"Paróquia\" e \"Função\"; atualizadas entre 12/2024 e 08/2026)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São José",
+          "address": "Rua São José, 36 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-sao-jose-cabeceiras-do-piaui/",
+              "title": "Paróquia de São José – Cabeceiras do Piauí — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 10/12/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São José",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-sao-jose-cabeceiras-do-piaui/",
+              "title": "Paróquia de São José – Cabeceiras do Piauí — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 10/12/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São José",
+          "dayOfWeek": 0,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": "Missa das famílias - 2º domingo de cada mês",
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-sao-jose-cabeceiras-do-piaui/",
+              "title": "Paróquia de São José – Cabeceiras do Piauí — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 10/12/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São José",
+          "dayOfWeek": 3,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": "Novena de Santa Teresinha",
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-sao-jose-cabeceiras-do-piaui/",
+              "title": "Paróquia de São José – Cabeceiras do Piauí — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 10/12/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São José",
+          "dayOfWeek": 5,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": "1ª sexta-feira do mês — 1ª sexta de cada mês - missa do Sagrado Coração de Jesus",
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-sao-jose-cabeceiras-do-piaui/",
+              "title": "Paróquia de São José – Cabeceiras do Piauí — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 10/12/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ],
+      "notes": "Vicariato Nossa Senhora da Conceição"
+    },
+    {
+      "slug": "sao-joao-batista-barras",
+      "name": "Paróquia São João Batista",
+      "city": "Barras",
+      "state": "PI",
+      "neighborhood": "Santinho",
+      "address": "Rua Projetada, s/n – Santinho",
+      "zipCode": "64100-000",
+      "phone": "(86) 98167-7821",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Arnaldo de Sousa Lopes",
+      "foundedYear": 2010,
+      "sources": [
+        {
+          "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-sao-joao-batista-barras/",
+          "title": "Paróquia São João Batista – Barras — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 10/12/2024)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedecampomaior.org.br/paroquias/",
+          "title": "Paróquias — Diocese de Campo Maior (39 fichas em 5 vicariatos)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedecampomaior.org.br/clero/",
+          "title": "Clero — Diocese de Campo Maior (fichas individuais com \"Paróquia\" e \"Função\"; atualizadas entre 12/2024 e 08/2026)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São João Batista",
+          "address": "Rua Projetada, s/n – Santinho",
+          "neighborhood": "Santinho",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-sao-joao-batista-barras/",
+              "title": "Paróquia São João Batista – Barras — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 10/12/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São João Batista",
+          "dayOfWeek": 0,
+          "time": "07:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-sao-joao-batista-barras/",
+              "title": "Paróquia São João Batista – Barras — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 10/12/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São João Batista",
+          "dayOfWeek": 0,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-sao-joao-batista-barras/",
+              "title": "Paróquia São João Batista – Barras — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 10/12/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São João Batista",
+          "dayOfWeek": 2,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Novena e Missa de Nossa Senhora do Perpétuo Socorro",
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-sao-joao-batista-barras/",
+              "title": "Paróquia São João Batista – Barras — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 10/12/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São João Batista",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "18h30 - Adoração",
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-sao-joao-batista-barras/",
+              "title": "Paróquia São João Batista – Barras — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 10/12/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São João Batista",
+          "dayOfWeek": 4,
+          "time": "18:30",
+          "type": "ADORATION",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-sao-joao-batista-barras/",
+              "title": "Paróquia São João Batista – Barras — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 10/12/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "notes": "Vicariato Nossa Senhora da Conceição"
+    },
+    {
+      "slug": "santa-luzia-e-sao-jose-operario-barras",
+      "name": "Paróquia Santa Luzia e São José Operário",
+      "city": "Barras",
+      "state": "PI",
+      "neighborhood": null,
+      "address": "Praça Santa Luzia, s/n",
+      "zipCode": "64100-000",
+      "phone": "(86) 98167-7821",
+      "email": "santaluziaesaojosebarras@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Raimundo Pereira dos Santos",
+      "foundedYear": 1991,
+      "sources": [
+        {
+          "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-santa-luzia-e-sao-jose-operario-barras/",
+          "title": "Paróquia de Santa Luzia e São José Operário – Barras — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 10/12/2024)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedecampomaior.org.br/paroquias/",
+          "title": "Paróquias — Diocese de Campo Maior (39 fichas em 5 vicariatos)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedecampomaior.org.br/clero/",
+          "title": "Clero — Diocese de Campo Maior (fichas individuais com \"Paróquia\" e \"Função\"; atualizadas entre 12/2024 e 08/2026)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Santa Luzia e São José Operário",
+          "address": "Praça Santa Luzia, s/n",
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-santa-luzia-e-sao-jose-operario-barras/",
+              "title": "Paróquia de Santa Luzia e São José Operário – Barras — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 10/12/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Santa Luzia e São José Operário",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-santa-luzia-e-sao-jose-operario-barras/",
+              "title": "Paróquia de Santa Luzia e São José Operário – Barras — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 10/12/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Santa Luzia e São José Operário",
+          "dayOfWeek": 0,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-santa-luzia-e-sao-jose-operario-barras/",
+              "title": "Paróquia de Santa Luzia e São José Operário – Barras — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 10/12/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Santa Luzia e São José Operário",
+          "dayOfWeek": 4,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-santa-luzia-e-sao-jose-operario-barras/",
+              "title": "Paróquia de Santa Luzia e São José Operário – Barras — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 10/12/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "notes": "Vicariato Nossa Senhora da Conceição"
+    },
+    {
+      "slug": "nossa-senhora-da-conceicao-barras",
+      "name": "Paróquia Nossa Senhora da Conceição",
+      "city": "Barras",
+      "state": "PI",
+      "neighborhood": "Centro",
+      "address": "Praça Senador Joaquim Pires, 108 – Centro",
+      "zipCode": "64100-000",
+      "phone": "(86) 99976-4735",
+      "email": "paroquiansc_barras@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Allan Kardec Ferreira de Araújo",
+      "foundedYear": 1840,
+      "sources": [
+        {
+          "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-nossa-senhora-da-conceicao-barras/",
+          "title": "Paróquia Nossa Senhora da Conceição – Barras — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 10/12/2024)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedecampomaior.org.br/paroquias/",
+          "title": "Paróquias — Diocese de Campo Maior (39 fichas em 5 vicariatos)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedecampomaior.org.br/clero/",
+          "title": "Clero — Diocese de Campo Maior (fichas individuais com \"Paróquia\" e \"Função\"; atualizadas entre 12/2024 e 08/2026)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora da Conceição",
+          "address": "Praça Senador Joaquim Pires, 108 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-nossa-senhora-da-conceicao-barras/",
+              "title": "Paróquia Nossa Senhora da Conceição – Barras — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 10/12/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-nossa-senhora-da-conceicao-barras/",
+              "title": "Paróquia Nossa Senhora da Conceição – Barras — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 10/12/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-nossa-senhora-da-conceicao-barras/",
+              "title": "Paróquia Nossa Senhora da Conceição – Barras — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 10/12/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 4,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-nossa-senhora-da-conceicao-barras/",
+              "title": "Paróquia Nossa Senhora da Conceição – Barras — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 10/12/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 6,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-nossa-senhora-da-conceicao-barras/",
+              "title": "Paróquia Nossa Senhora da Conceição – Barras — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 10/12/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "notes": "Vicariato Nossa Senhora da Conceição"
+    },
+    {
+      "slug": "nossa-senhora-da-conceicao-sigefredo-pacheco",
+      "name": "Paróquia Nossa Senhora da Conceição",
+      "city": "Sigefredo Pacheco",
+      "state": "PI",
+      "neighborhood": "Centro",
+      "address": "Rua Benedito Portela, 91 – Centro",
+      "zipCode": "64285-000",
+      "phone": "(86) 98116-8701",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Claudinei Silva Pereira",
+      "foundedYear": 1991,
+      "sources": [
+        {
+          "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-nossa-senhora-da-conceicao-sigefredo-pacheco/",
+          "title": "Paróquia Nossa Senhora da Conceição – Sigefredo Pacheco — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 04/04/2024)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedecampomaior.org.br/paroquias/",
+          "title": "Paróquias — Diocese de Campo Maior (39 fichas em 5 vicariatos)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedecampomaior.org.br/clero/",
+          "title": "Clero — Diocese de Campo Maior (fichas individuais com \"Paróquia\" e \"Função\"; atualizadas entre 12/2024 e 08/2026)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora da Conceição",
+          "address": "Rua Benedito Portela, 91 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-nossa-senhora-da-conceicao-sigefredo-pacheco/",
+              "title": "Paróquia Nossa Senhora da Conceição – Sigefredo Pacheco — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 04/04/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-nossa-senhora-da-conceicao-sigefredo-pacheco/",
+              "title": "Paróquia Nossa Senhora da Conceição – Sigefredo Pacheco — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 04/04/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 0,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-nossa-senhora-da-conceicao-sigefredo-pacheco/",
+              "title": "Paróquia Nossa Senhora da Conceição – Sigefredo Pacheco — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 04/04/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 1,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-nossa-senhora-da-conceicao-sigefredo-pacheco/",
+              "title": "Paróquia Nossa Senhora da Conceição – Sigefredo Pacheco — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 04/04/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 4,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-nossa-senhora-da-conceicao-sigefredo-pacheco/",
+              "title": "Paróquia Nossa Senhora da Conceição – Sigefredo Pacheco — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 04/04/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "notes": "Vicariato Nossa Senhora do Desterro"
+    },
+    {
+      "slug": "nossa-senhora-da-assuncao-assuncao-do-piaui",
+      "name": "Paróquia Nossa Senhora da Assunção",
+      "city": "Assunção do Piauí",
+      "state": "PI",
+      "neighborhood": "Centro",
+      "address": "Praça da Matriz, s/n – Centro",
+      "zipCode": "64333-000",
+      "phone": "(86) 98143-9981",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Paulo Sérgio Lima do Nascimento",
+      "foundedYear": 1993,
+      "sources": [
+        {
+          "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-nossa-senhora-da-assuncao-assuncao-do-piaui/",
+          "title": "Paróquia de Nossa Senhora da Assunção – Assunção do Piauí — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 11/03/2025)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedecampomaior.org.br/paroquias/",
+          "title": "Paróquias — Diocese de Campo Maior (39 fichas em 5 vicariatos)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedecampomaior.org.br/clero/",
+          "title": "Clero — Diocese de Campo Maior (fichas individuais com \"Paróquia\" e \"Função\"; atualizadas entre 12/2024 e 08/2026)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora da Assunção",
+          "address": "Praça da Matriz, s/n – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-nossa-senhora-da-assuncao-assuncao-do-piaui/",
+              "title": "Paróquia de Nossa Senhora da Assunção – Assunção do Piauí — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 11/03/2025)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora da Assunção",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-nossa-senhora-da-assuncao-assuncao-do-piaui/",
+              "title": "Paróquia de Nossa Senhora da Assunção – Assunção do Piauí — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 11/03/2025)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "notes": "Vicariato Nossa Senhora do Desterro"
+    },
+    {
+      "slug": "nossa-senhora-do-monteserrat-buriti-dos-montes",
+      "name": "Paróquia Nossa Senhora do Monteserrat",
+      "city": "Buriti dos Montes",
+      "state": "PI",
+      "neighborhood": "Centro",
+      "address": "Rua Francisco de Assis, 32 – Centro",
+      "zipCode": "64345-000",
+      "phone": null,
+      "email": "pnsmonteserrat@gmail.com",
+      "website": null,
+      "priestName": "Pe. Carlos Gonzaga da Silva, C.Ss.R",
+      "foundedYear": 1990,
+      "sources": [
+        {
+          "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-nossa-senhora-do-monteserrat/",
+          "title": "Paróquia Nossa Senhora do Monteserrat – Buriti dos Montes — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 08/08/2024)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedecampomaior.org.br/paroquias/",
+          "title": "Paróquias — Diocese de Campo Maior (39 fichas em 5 vicariatos)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedecampomaior.org.br/clero/",
+          "title": "Clero — Diocese de Campo Maior (fichas individuais com \"Paróquia\" e \"Função\"; atualizadas entre 12/2024 e 08/2026)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora do Monteserrat",
+          "address": "Rua Francisco de Assis, 32 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-nossa-senhora-do-monteserrat/",
+              "title": "Paróquia Nossa Senhora do Monteserrat – Buriti dos Montes — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 08/08/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora do Monteserrat",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-nossa-senhora-do-monteserrat/",
+              "title": "Paróquia Nossa Senhora do Monteserrat – Buriti dos Montes — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 08/08/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "notes": "Vicariato Nossa Senhora do Desterro"
+    },
+    {
+      "slug": "sao-miguel-arcanjo-sao-miguel-do-tapuio",
+      "name": "Paróquia São Miguel Arcanjo",
+      "city": "São Miguel do Tapuio",
+      "state": "PI",
+      "neighborhood": "Centro",
+      "address": "Praça Cel. Manoel Evaristo, s/n – Centro",
+      "zipCode": "64330-000",
+      "phone": "(86) 9831-6880",
+      "email": "paroquiasmt@gmail.com",
+      "website": null,
+      "priestName": "Pe. Paulo Sérgio Lima do Nascimento",
+      "foundedYear": 1960,
+      "sources": [
+        {
+          "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-sao-miguel-arcanjo-sao-miguel-do-tapuio/",
+          "title": "Paróquia de São Miguel Arcanjo – São Miguel do Tapuio — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 19/03/2024)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedecampomaior.org.br/paroquias/",
+          "title": "Paróquias — Diocese de Campo Maior (39 fichas em 5 vicariatos)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedecampomaior.org.br/clero/",
+          "title": "Clero — Diocese de Campo Maior (fichas individuais com \"Paróquia\" e \"Função\"; atualizadas entre 12/2024 e 08/2026)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Miguel Arcanjo",
+          "address": "Praça Cel. Manoel Evaristo, s/n – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-sao-miguel-arcanjo-sao-miguel-do-tapuio/",
+              "title": "Paróquia de São Miguel Arcanjo – São Miguel do Tapuio — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 19/03/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São Miguel Arcanjo",
+          "dayOfWeek": 0,
+          "time": "10:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-sao-miguel-arcanjo-sao-miguel-do-tapuio/",
+              "title": "Paróquia de São Miguel Arcanjo – São Miguel do Tapuio — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 19/03/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São Miguel Arcanjo",
+          "dayOfWeek": 0,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-sao-miguel-arcanjo-sao-miguel-do-tapuio/",
+              "title": "Paróquia de São Miguel Arcanjo – São Miguel do Tapuio — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 19/03/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São Miguel Arcanjo",
+          "dayOfWeek": 4,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": "17h30 - Adoração",
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-sao-miguel-arcanjo-sao-miguel-do-tapuio/",
+              "title": "Paróquia de São Miguel Arcanjo – São Miguel do Tapuio — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 19/03/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São Miguel Arcanjo",
+          "dayOfWeek": 4,
+          "time": "17:30",
+          "type": "ADORATION",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-sao-miguel-arcanjo-sao-miguel-do-tapuio/",
+              "title": "Paróquia de São Miguel Arcanjo – São Miguel do Tapuio — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 19/03/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "notes": "Vicariato Nossa Senhora do Desterro"
+    },
+    {
+      "slug": "sao-francisco-das-chagas-juazeiro-do-piaui",
+      "name": "Paróquia São Francisco das Chagas",
+      "city": "Juazeiro do Piauí",
+      "state": "PI",
+      "neighborhood": "Centro",
+      "address": "Rua Francisco Milanes, 925 – Centro",
+      "zipCode": "64343-000",
+      "phone": "(86) 98184-1438",
+      "email": "paroquiasaofranciscojuazeiropi@outlook.com",
+      "website": null,
+      "priestName": "Pe. Rafael Gomes da Silva",
+      "foundedYear": 1998,
+      "sources": [
+        {
+          "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-sao-francisco-das-chagas-juazeiro-do-piaui/",
+          "title": "Paróquia de São Francisco das Chagas – Juazeiro do Piauí — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 06/04/2024)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedecampomaior.org.br/paroquias/",
+          "title": "Paróquias — Diocese de Campo Maior (39 fichas em 5 vicariatos)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedecampomaior.org.br/clero/",
+          "title": "Clero — Diocese de Campo Maior (fichas individuais com \"Paróquia\" e \"Função\"; atualizadas entre 12/2024 e 08/2026)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Francisco das Chagas",
+          "address": "Rua Francisco Milanes, 925 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-sao-francisco-das-chagas-juazeiro-do-piaui/",
+              "title": "Paróquia de São Francisco das Chagas – Juazeiro do Piauí — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 06/04/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São Francisco das Chagas",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-sao-francisco-das-chagas-juazeiro-do-piaui/",
+              "title": "Paróquia de São Francisco das Chagas – Juazeiro do Piauí — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 06/04/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São Francisco das Chagas",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-sao-francisco-das-chagas-juazeiro-do-piaui/",
+              "title": "Paróquia de São Francisco das Chagas – Juazeiro do Piauí — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 06/04/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São Francisco das Chagas",
+          "dayOfWeek": 2,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": "Missa e Novena de Nossa Senhora do Perpétuo Socorro",
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-sao-francisco-das-chagas-juazeiro-do-piaui/",
+              "title": "Paróquia de São Francisco das Chagas – Juazeiro do Piauí — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 06/04/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São Francisco das Chagas",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-sao-francisco-das-chagas-juazeiro-do-piaui/",
+              "title": "Paróquia de São Francisco das Chagas – Juazeiro do Piauí — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 06/04/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São Francisco das Chagas",
+          "dayOfWeek": 6,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": "Missa com as crianças",
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-sao-francisco-das-chagas-juazeiro-do-piaui/",
+              "title": "Paróquia de São Francisco das Chagas – Juazeiro do Piauí — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 06/04/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "notes": "Vicariato Nossa Senhora do Desterro"
+    },
+    {
+      "slug": "nossa-senhora-das-gracas-castelo-do-piaui",
+      "name": "Paróquia Nossa Senhora das Graças",
+      "city": "Castelo do Piauí",
+      "state": "PI",
+      "neighborhood": "Cohab",
+      "address": "Rua Pedro II, s/n – Cohab",
+      "zipCode": "64340-000",
+      "phone": "(86) 99551-4771",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-nossa-senhora-das-gracas-castelo-do-piaui/",
+          "title": "Paróquia Nossa Senhora das Graças – Castelo do Piauí — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 20/03/2024)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedecampomaior.org.br/paroquias/",
+          "title": "Paróquias — Diocese de Campo Maior (39 fichas em 5 vicariatos)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora das Graças",
+          "address": "Rua Pedro II, s/n – Cohab",
+          "neighborhood": "Cohab",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-nossa-senhora-das-gracas-castelo-do-piaui/",
+              "title": "Paróquia Nossa Senhora das Graças – Castelo do Piauí — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 20/03/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora das Graças",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-nossa-senhora-das-gracas-castelo-do-piaui/",
+              "title": "Paróquia Nossa Senhora das Graças – Castelo do Piauí — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 20/03/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora das Graças",
+          "dayOfWeek": 0,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": "A fonte traz \"17h\" na coluna de observações da missa de domingo às 9h",
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-nossa-senhora-das-gracas-castelo-do-piaui/",
+              "title": "Paróquia Nossa Senhora das Graças – Castelo do Piauí — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 20/03/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ],
+      "notes": "Vicariato Nossa Senhora do Desterro"
+    },
+    {
+      "slug": "nossa-senhora-do-desterro-castelo-do-piaui",
+      "name": "Paróquia Nossa Senhora do Desterro",
+      "city": "Castelo do Piauí",
+      "state": "PI",
+      "neighborhood": "Centro",
+      "address": "Praça Getúlio Vargas, 27 – Centro",
+      "zipCode": "64340-000",
+      "phone": "(86) 99957-0057",
+      "email": "paroquia.castelo@gmail.com",
+      "website": null,
+      "priestName": "Pe. Francisco Océlio Cardoso Alves",
+      "foundedYear": 1742,
+      "sources": [
+        {
+          "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-nossa-senhora-do-desterro-castelo-do-piaui/",
+          "title": "Paróquia Nossa Senhora do Desterro – Castelo do Piauí — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 06/04/2024)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedecampomaior.org.br/paroquias/",
+          "title": "Paróquias — Diocese de Campo Maior (39 fichas em 5 vicariatos)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedecampomaior.org.br/clero/",
+          "title": "Clero — Diocese de Campo Maior (fichas individuais com \"Paróquia\" e \"Função\"; atualizadas entre 12/2024 e 08/2026)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora do Desterro",
+          "address": "Praça Getúlio Vargas, 27 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-nossa-senhora-do-desterro-castelo-do-piaui/",
+              "title": "Paróquia Nossa Senhora do Desterro – Castelo do Piauí — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 06/04/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora do Desterro",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-nossa-senhora-do-desterro-castelo-do-piaui/",
+              "title": "Paróquia Nossa Senhora do Desterro – Castelo do Piauí — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 06/04/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Desterro",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-nossa-senhora-do-desterro-castelo-do-piaui/",
+              "title": "Paróquia Nossa Senhora do Desterro – Castelo do Piauí — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 06/04/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Desterro",
+          "dayOfWeek": 2,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-nossa-senhora-do-desterro-castelo-do-piaui/",
+              "title": "Paróquia Nossa Senhora do Desterro – Castelo do Piauí — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 06/04/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Desterro",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Adoração - 18h",
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-nossa-senhora-do-desterro-castelo-do-piaui/",
+              "title": "Paróquia Nossa Senhora do Desterro – Castelo do Piauí — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 06/04/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Desterro",
+          "dayOfWeek": 4,
+          "time": "18:00",
+          "type": "ADORATION",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-nossa-senhora-do-desterro-castelo-do-piaui/",
+              "title": "Paróquia Nossa Senhora do Desterro – Castelo do Piauí — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 06/04/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "notes": "Vicariato Nossa Senhora do Desterro"
+    },
+    {
+      "slug": "nossa-senhora-das-gracas-jatoba-do-piaui",
+      "name": "Quase-paróquia Nossa Senhora das Graças",
+      "city": "Jatobá do Piauí",
+      "state": "PI",
+      "neighborhood": "Centro",
+      "address": "Av. Francisco Pereira de Oliveira, s/n – Centro",
+      "zipCode": "64275-000",
+      "phone": "(86) 98879-9603",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Francisco Gecivaldo da Silva",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedecampomaior.org.br/paroquia/quase-paroquia-de-nossa-senhora-das-gracas-de-jatoba-do-piaui/",
+          "title": "Quase-Paróquia de Nossa Senhora das Graças – Jatobá do Piauí — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 08/08/2024)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedecampomaior.org.br/paroquias/",
+          "title": "Paróquias — Diocese de Campo Maior (39 fichas em 5 vicariatos)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedecampomaior.org.br/clero/",
+          "title": "Clero — Diocese de Campo Maior (fichas individuais com \"Paróquia\" e \"Função\"; atualizadas entre 12/2024 e 08/2026)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora das Graças",
+          "address": "Av. Francisco Pereira de Oliveira, s/n – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/quase-paroquia-de-nossa-senhora-das-gracas-de-jatoba-do-piaui/",
+              "title": "Quase-Paróquia de Nossa Senhora das Graças – Jatobá do Piauí — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 08/08/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora das Graças",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/quase-paroquia-de-nossa-senhora-das-gracas-de-jatoba-do-piaui/",
+              "title": "Quase-Paróquia de Nossa Senhora das Graças – Jatobá do Piauí — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 08/08/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora das Graças",
+          "dayOfWeek": 0,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/quase-paroquia-de-nossa-senhora-das-gracas-de-jatoba-do-piaui/",
+              "title": "Quase-Paróquia de Nossa Senhora das Graças – Jatobá do Piauí — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 08/08/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora das Graças",
+          "dayOfWeek": 2,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/quase-paroquia-de-nossa-senhora-das-gracas-de-jatoba-do-piaui/",
+              "title": "Quase-Paróquia de Nossa Senhora das Graças – Jatobá do Piauí — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 08/08/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora das Graças",
+          "dayOfWeek": 4,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": "17h - Adoração",
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/quase-paroquia-de-nossa-senhora-das-gracas-de-jatoba-do-piaui/",
+              "title": "Quase-Paróquia de Nossa Senhora das Graças – Jatobá do Piauí — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 08/08/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora das Graças",
+          "dayOfWeek": 4,
+          "time": "17:00",
+          "type": "ADORATION",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/quase-paroquia-de-nossa-senhora-das-gracas-de-jatoba-do-piaui/",
+              "title": "Quase-Paróquia de Nossa Senhora das Graças – Jatobá do Piauí — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 08/08/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "notes": "Vicariato Santo Antônio"
+    },
+    {
+      "slug": "nossa-senhora-de-nazare-nossa-senhora-de-nazare",
+      "name": "Paróquia Nossa Senhora de Nazaré",
+      "city": "Nossa Senhora de Nazaré",
+      "state": "PI",
+      "neighborhood": "Centro",
+      "address": "Praça Antônio Alves, s/n – Centro",
+      "zipCode": "64280-000",
+      "phone": "(86) 98145-2951",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Francisco Miguel Soares Xavier",
+      "foundedYear": 2018,
+      "sources": [
+        {
+          "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-nossa-senhora-de-nazare-de-nossa-senhora-de-nazare/",
+          "title": "Paróquia de Nossa Senhora de Nazaré – Nossa Senhora de Nazaré — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 08/08/2024)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedecampomaior.org.br/paroquias/",
+          "title": "Paróquias — Diocese de Campo Maior (39 fichas em 5 vicariatos)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedecampomaior.org.br/clero/",
+          "title": "Clero — Diocese de Campo Maior (fichas individuais com \"Paróquia\" e \"Função\"; atualizadas entre 12/2024 e 08/2026)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora de Nazaré",
+          "address": "Praça Antônio Alves, s/n – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-nossa-senhora-de-nazare-de-nossa-senhora-de-nazare/",
+              "title": "Paróquia de Nossa Senhora de Nazaré – Nossa Senhora de Nazaré — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 08/08/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora de Nazaré",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-nossa-senhora-de-nazare-de-nossa-senhora-de-nazare/",
+              "title": "Paróquia de Nossa Senhora de Nazaré – Nossa Senhora de Nazaré — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 08/08/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora de Nazaré",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-nossa-senhora-de-nazare-de-nossa-senhora-de-nazare/",
+              "title": "Paróquia de Nossa Senhora de Nazaré – Nossa Senhora de Nazaré — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 08/08/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "notes": "Vicariato Santo Antônio"
+    },
+    {
+      "slug": "sagrado-coracao-de-jesus-capitao-de-campos",
+      "name": "Paróquia Sagrado Coração de Jesus",
+      "city": "Capitão de Campos",
+      "state": "PI",
+      "neighborhood": "Centro",
+      "address": "Rua Inês Costa Araújo, s/n – Centro",
+      "zipCode": "64270-000",
+      "phone": "(86) 99509-2715",
+      "email": "scjcampos@gmail.com",
+      "website": null,
+      "priestName": "Pe. Francisco Alves da Silva",
+      "foundedYear": 1985,
+      "sources": [
+        {
+          "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-do-sagrado-coracao-de-jesus-de-capitao-de-campos/",
+          "title": "Paróquia do Sagrado Coração de Jesus – Capitão de Campos — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 08/08/2024)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedecampomaior.org.br/paroquias/",
+          "title": "Paróquias — Diocese de Campo Maior (39 fichas em 5 vicariatos)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedecampomaior.org.br/clero/",
+          "title": "Clero — Diocese de Campo Maior (fichas individuais com \"Paróquia\" e \"Função\"; atualizadas entre 12/2024 e 08/2026)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Sagrado Coração de Jesus",
+          "address": "Rua Inês Costa Araújo, s/n – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-do-sagrado-coracao-de-jesus-de-capitao-de-campos/",
+              "title": "Paróquia do Sagrado Coração de Jesus – Capitão de Campos — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 08/08/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Sagrado Coração de Jesus",
+          "dayOfWeek": 0,
+          "time": "07:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-do-sagrado-coracao-de-jesus-de-capitao-de-campos/",
+              "title": "Paróquia do Sagrado Coração de Jesus – Capitão de Campos — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 08/08/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Sagrado Coração de Jesus",
+          "dayOfWeek": 0,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-do-sagrado-coracao-de-jesus-de-capitao-de-campos/",
+              "title": "Paróquia do Sagrado Coração de Jesus – Capitão de Campos — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 08/08/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "notes": "Vicariato Santo Antônio"
+    },
+    {
+      "slug": "sao-jose-operario-cocal-de-telha",
+      "name": "Paróquia São José Operário",
+      "city": "Cocal de Telha",
+      "state": "PI",
+      "neighborhood": "Centro",
+      "address": "Av. Getúlio Vargas, 177 – Centro",
+      "zipCode": "64278-000",
+      "phone": "(86) 98130-8744",
+      "email": "paroq.saojoseoperario22@gmail.com",
+      "website": null,
+      "priestName": "Pe. Benedito Inácio de Abreu Neto",
+      "foundedYear": 2022,
+      "sources": [
+        {
+          "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-sao-jose-operario-de-cocal-de-telha/",
+          "title": "Paróquia de São José Operário – Cocal de Telha — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 08/08/2024)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedecampomaior.org.br/paroquias/",
+          "title": "Paróquias — Diocese de Campo Maior (39 fichas em 5 vicariatos)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedecampomaior.org.br/clero/",
+          "title": "Clero — Diocese de Campo Maior (fichas individuais com \"Paróquia\" e \"Função\"; atualizadas entre 12/2024 e 08/2026)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São José Operário",
+          "address": "Av. Getúlio Vargas, 177 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-sao-jose-operario-de-cocal-de-telha/",
+              "title": "Paróquia de São José Operário – Cocal de Telha — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 08/08/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São José Operário",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-sao-jose-operario-de-cocal-de-telha/",
+              "title": "Paróquia de São José Operário – Cocal de Telha — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 08/08/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São José Operário",
+          "dayOfWeek": 0,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-sao-jose-operario-de-cocal-de-telha/",
+              "title": "Paróquia de São José Operário – Cocal de Telha — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 08/08/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São José Operário",
+          "dayOfWeek": 4,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": "17h - Adoração",
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-sao-jose-operario-de-cocal-de-telha/",
+              "title": "Paróquia de São José Operário – Cocal de Telha — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 08/08/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São José Operário",
+          "dayOfWeek": 4,
+          "time": "17:00",
+          "type": "ADORATION",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-sao-jose-operario-de-cocal-de-telha/",
+              "title": "Paróquia de São José Operário – Cocal de Telha — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 08/08/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "notes": "Vicariato Santo Antônio"
+    },
+    {
+      "slug": "nossa-senhora-de-fatima-boqueirao-do-piaui",
+      "name": "Paróquia Nossa Senhora de Fátima",
+      "city": "Boqueirão do Piauí",
+      "state": "PI",
+      "neighborhood": "Centro",
+      "address": "Rua 26 de Janeiro, 350 – Centro",
+      "zipCode": "64283-000",
+      "phone": "(86) 99403-8037",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": 2013,
+      "sources": [
+        {
+          "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-nossa-senhora-de-fatima-de-boqueirao-do-piaui/",
+          "title": "Paróquia de Nossa Senhora de Fátima – Boqueirão do Piauí — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 08/08/2024)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedecampomaior.org.br/paroquias/",
+          "title": "Paróquias — Diocese de Campo Maior (39 fichas em 5 vicariatos)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora de Fátima",
+          "address": "Rua 26 de Janeiro, 350 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-nossa-senhora-de-fatima-de-boqueirao-do-piaui/",
+              "title": "Paróquia de Nossa Senhora de Fátima – Boqueirão do Piauí — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 08/08/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora de Fátima",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-nossa-senhora-de-fatima-de-boqueirao-do-piaui/",
+              "title": "Paróquia de Nossa Senhora de Fátima – Boqueirão do Piauí — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 08/08/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora de Fátima",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-nossa-senhora-de-fatima-de-boqueirao-do-piaui/",
+              "title": "Paróquia de Nossa Senhora de Fátima – Boqueirão do Piauí — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 08/08/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora de Fátima",
+          "dayOfWeek": 2,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-nossa-senhora-de-fatima-de-boqueirao-do-piaui/",
+              "title": "Paróquia de Nossa Senhora de Fátima – Boqueirão do Piauí — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 08/08/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora de Fátima",
+          "dayOfWeek": 3,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-nossa-senhora-de-fatima-de-boqueirao-do-piaui/",
+              "title": "Paróquia de Nossa Senhora de Fátima – Boqueirão do Piauí — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 08/08/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora de Fátima",
+          "dayOfWeek": 4,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-nossa-senhora-de-fatima-de-boqueirao-do-piaui/",
+              "title": "Paróquia de Nossa Senhora de Fátima – Boqueirão do Piauí — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 08/08/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora de Fátima",
+          "dayOfWeek": 5,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-nossa-senhora-de-fatima-de-boqueirao-do-piaui/",
+              "title": "Paróquia de Nossa Senhora de Fátima – Boqueirão do Piauí — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 08/08/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora de Fátima",
+          "dayOfWeek": 6,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-nossa-senhora-de-fatima-de-boqueirao-do-piaui/",
+              "title": "Paróquia de Nossa Senhora de Fátima – Boqueirão do Piauí — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 08/08/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "notes": "Vicariato Santo Antônio"
+    },
+    {
+      "slug": "santa-luzia-campo-maior",
+      "name": "Quase-paróquia Santa Luzia",
+      "city": "Campo Maior",
+      "state": "PI",
+      "neighborhood": "Santa Rita",
+      "address": "Rua José Félix da Paz, s/n – Santa Rita",
+      "zipCode": "64280-000",
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": "Mons. Edvando de Oliveira Lima",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedecampomaior.org.br/paroquia/quase-paroquia-de-santa-luzia-de-campo-maior/",
+          "title": "Quase-Paróquia de Santa Luzia – Campo Maior — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 08/08/2024)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedecampomaior.org.br/paroquias/",
+          "title": "Paróquias — Diocese de Campo Maior (39 fichas em 5 vicariatos)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedecampomaior.org.br/clero/",
+          "title": "Clero — Diocese de Campo Maior (fichas individuais com \"Paróquia\" e \"Função\"; atualizadas entre 12/2024 e 08/2026)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Santa Luzia",
+          "address": "Rua José Félix da Paz, s/n – Santa Rita",
+          "neighborhood": "Santa Rita",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/quase-paroquia-de-santa-luzia-de-campo-maior/",
+              "title": "Quase-Paróquia de Santa Luzia – Campo Maior — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 08/08/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Santa Luzia",
+          "dayOfWeek": 0,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/quase-paroquia-de-santa-luzia-de-campo-maior/",
+              "title": "Quase-Paróquia de Santa Luzia – Campo Maior — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 08/08/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Santa Luzia",
+          "dayOfWeek": 2,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/quase-paroquia-de-santa-luzia-de-campo-maior/",
+              "title": "Quase-Paróquia de Santa Luzia – Campo Maior — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 08/08/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Santa Luzia",
+          "dayOfWeek": 4,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/quase-paroquia-de-santa-luzia-de-campo-maior/",
+              "title": "Quase-Paróquia de Santa Luzia – Campo Maior — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 08/08/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "notes": "Vicariato Santo Antônio"
+    },
+    {
+      "slug": "nossa-senhora-de-fatima-campo-maior",
+      "name": "Paróquia Nossa Senhora de Fátima",
+      "city": "Campo Maior",
+      "state": "PI",
+      "neighborhood": "Fátima",
+      "address": "Rua Com. Jacob Almendra, s/n – Fátima",
+      "zipCode": "64280-000",
+      "phone": "(86) 99984-7526",
+      "email": "pnsfatimacampomaior@hotmail.com",
+      "website": null,
+      "priestName": null,
+      "foundedYear": 1986,
+      "sources": [
+        {
+          "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-nossa-senhora-de-fatima-de-campo-maior/",
+          "title": "Paróquia de Nossa Senhora de Fátima – Campo Maior — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 10/12/2024)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedecampomaior.org.br/paroquias/",
+          "title": "Paróquias — Diocese de Campo Maior (39 fichas em 5 vicariatos)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora de Fátima",
+          "address": "Rua Com. Jacob Almendra, s/n – Fátima",
+          "neighborhood": "Fátima",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-nossa-senhora-de-fatima-de-campo-maior/",
+              "title": "Paróquia de Nossa Senhora de Fátima – Campo Maior — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 10/12/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora de Fátima",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-nossa-senhora-de-fatima-de-campo-maior/",
+              "title": "Paróquia de Nossa Senhora de Fátima – Campo Maior — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 10/12/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora de Fátima",
+          "dayOfWeek": 0,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-nossa-senhora-de-fatima-de-campo-maior/",
+              "title": "Paróquia de Nossa Senhora de Fátima – Campo Maior — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 10/12/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora de Fátima",
+          "dayOfWeek": 2,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-nossa-senhora-de-fatima-de-campo-maior/",
+              "title": "Paróquia de Nossa Senhora de Fátima – Campo Maior — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 10/12/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora de Fátima",
+          "dayOfWeek": 4,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-nossa-senhora-de-fatima-de-campo-maior/",
+              "title": "Paróquia de Nossa Senhora de Fátima – Campo Maior — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 10/12/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "notes": "Vicariato Santo Antônio"
+    },
+    {
+      "slug": "nossa-senhora-das-dores-campo-maior",
+      "name": "Paróquia Nossa Senhora das Dores",
+      "city": "Campo Maior",
+      "state": "PI",
+      "neighborhood": "Fripisa",
+      "address": "Av. Nilo Oliveira, s/n – Fripisa",
+      "zipCode": "64280-000",
+      "phone": "(86) 99406-7414",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Raimundo Vieira dos Santos",
+      "foundedYear": 1998,
+      "sources": [
+        {
+          "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-nossa-senhora-das-dores-de-campo-maior/",
+          "title": "Paróquia Nossa Senhora das Dores – Campo Maior — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 08/08/2024)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedecampomaior.org.br/paroquias/",
+          "title": "Paróquias — Diocese de Campo Maior (39 fichas em 5 vicariatos)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedecampomaior.org.br/clero/",
+          "title": "Clero — Diocese de Campo Maior (fichas individuais com \"Paróquia\" e \"Função\"; atualizadas entre 12/2024 e 08/2026)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora das Dores",
+          "address": "Av. Nilo Oliveira, s/n – Fripisa",
+          "neighborhood": "Fripisa",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-nossa-senhora-das-dores-de-campo-maior/",
+              "title": "Paróquia Nossa Senhora das Dores – Campo Maior — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 08/08/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora das Dores",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-nossa-senhora-das-dores-de-campo-maior/",
+              "title": "Paróquia Nossa Senhora das Dores – Campo Maior — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 08/08/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora das Dores",
+          "dayOfWeek": 0,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-nossa-senhora-das-dores-de-campo-maior/",
+              "title": "Paróquia Nossa Senhora das Dores – Campo Maior — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 08/08/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora das Dores",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "18h - Adoração",
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-nossa-senhora-das-dores-de-campo-maior/",
+              "title": "Paróquia Nossa Senhora das Dores – Campo Maior — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 08/08/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora das Dores",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-nossa-senhora-das-dores-de-campo-maior/",
+              "title": "Paróquia Nossa Senhora das Dores – Campo Maior — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 08/08/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora das Dores",
+          "dayOfWeek": 4,
+          "time": "18:00",
+          "type": "ADORATION",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-nossa-senhora-das-dores-de-campo-maior/",
+              "title": "Paróquia Nossa Senhora das Dores – Campo Maior — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 08/08/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "notes": "Vicariato Santo Antônio"
+    },
+    {
+      "slug": "sao-pedro-nolasco-campo-maior",
+      "name": "Paróquia São Pedro Nolasco",
+      "city": "Campo Maior",
+      "state": "PI",
+      "neighborhood": "Cariri",
+      "address": "Rua Dr. Moura, 19 – Cariri",
+      "zipCode": "64280-000",
+      "phone": "(86) 99925-2664",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Flávio Naylton de Jesus Teixeira",
+      "foundedYear": 1991,
+      "sources": [
+        {
+          "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-sao-pedro-nolasco-de-campo-maior/",
+          "title": "Paróquia de São Pedro Nolasco – Campo Maior — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 08/08/2024)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedecampomaior.org.br/paroquias/",
+          "title": "Paróquias — Diocese de Campo Maior (39 fichas em 5 vicariatos)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedecampomaior.org.br/clero/",
+          "title": "Clero — Diocese de Campo Maior (fichas individuais com \"Paróquia\" e \"Função\"; atualizadas entre 12/2024 e 08/2026)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Pedro Nolasco",
+          "address": "Rua Dr. Moura, 19 – Cariri",
+          "neighborhood": "Cariri",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-sao-pedro-nolasco-de-campo-maior/",
+              "title": "Paróquia de São Pedro Nolasco – Campo Maior — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 08/08/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São Pedro Nolasco",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-sao-pedro-nolasco-de-campo-maior/",
+              "title": "Paróquia de São Pedro Nolasco – Campo Maior — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 08/08/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São Pedro Nolasco",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-sao-pedro-nolasco-de-campo-maior/",
+              "title": "Paróquia de São Pedro Nolasco – Campo Maior — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 08/08/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São Pedro Nolasco",
+          "dayOfWeek": 2,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-sao-pedro-nolasco-de-campo-maior/",
+              "title": "Paróquia de São Pedro Nolasco – Campo Maior — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 08/08/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São Pedro Nolasco",
+          "dayOfWeek": 4,
+          "time": "16:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-sao-pedro-nolasco-de-campo-maior/",
+              "title": "Paróquia de São Pedro Nolasco – Campo Maior — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 08/08/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "notes": "Vicariato Santo Antônio"
+    },
+    {
+      "slug": "eucaristico-nossa-senhora-do-rosario-campo-maior",
+      "name": "Santuário Eucarístico Nossa Senhora do Rosário",
+      "city": "Campo Maior",
+      "state": "PI",
+      "neighborhood": "Centro",
+      "address": "Praça do Rosário, s/n – Centro",
+      "zipCode": "64280-000",
+      "phone": "(86) 98170-0601",
+      "email": "santuarioeucaristico.cm@gmail.com",
+      "website": null,
+      "priestName": "Pe. Luís Francisco Fonseca Moura",
+      "foundedYear": 1992,
+      "sources": [
+        {
+          "url": "https://diocesedecampomaior.org.br/paroquia/santuario-eucaristico-nossa-senhora-do-rosario-de-campo-maior/",
+          "title": "Santuário Eucarístico Nossa Senhora do Rosário – Campo Maior — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 08/08/2024)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedecampomaior.org.br/paroquias/",
+          "title": "Paróquias — Diocese de Campo Maior (39 fichas em 5 vicariatos)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedecampomaior.org.br/clero/",
+          "title": "Clero — Diocese de Campo Maior (fichas individuais com \"Paróquia\" e \"Função\"; atualizadas entre 12/2024 e 08/2026)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Santuário Eucarístico Nossa Senhora do Rosário",
+          "address": "Praça do Rosário, s/n – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/santuario-eucaristico-nossa-senhora-do-rosario-de-campo-maior/",
+              "title": "Santuário Eucarístico Nossa Senhora do Rosário – Campo Maior — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 08/08/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Santuário Eucarístico Nossa Senhora do Rosário",
+          "dayOfWeek": 0,
+          "time": "11:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/santuario-eucaristico-nossa-senhora-do-rosario-de-campo-maior/",
+              "title": "Santuário Eucarístico Nossa Senhora do Rosário – Campo Maior — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 08/08/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Santuário Eucarístico Nossa Senhora do Rosário",
+          "dayOfWeek": 2,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/santuario-eucaristico-nossa-senhora-do-rosario-de-campo-maior/",
+              "title": "Santuário Eucarístico Nossa Senhora do Rosário – Campo Maior — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 08/08/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Santuário Eucarístico Nossa Senhora do Rosário",
+          "dayOfWeek": 3,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/santuario-eucaristico-nossa-senhora-do-rosario-de-campo-maior/",
+              "title": "Santuário Eucarístico Nossa Senhora do Rosário – Campo Maior — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 08/08/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Santuário Eucarístico Nossa Senhora do Rosário",
+          "dayOfWeek": 4,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/santuario-eucaristico-nossa-senhora-do-rosario-de-campo-maior/",
+              "title": "Santuário Eucarístico Nossa Senhora do Rosário – Campo Maior — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 08/08/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Santuário Eucarístico Nossa Senhora do Rosário",
+          "dayOfWeek": 5,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/santuario-eucaristico-nossa-senhora-do-rosario-de-campo-maior/",
+              "title": "Santuário Eucarístico Nossa Senhora do Rosário – Campo Maior — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 08/08/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Santuário Eucarístico Nossa Senhora do Rosário",
+          "dayOfWeek": 6,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/santuario-eucaristico-nossa-senhora-do-rosario-de-campo-maior/",
+              "title": "Santuário Eucarístico Nossa Senhora do Rosário – Campo Maior — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 08/08/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "notes": "Vicariato Santo Antônio"
+    },
+    {
+      "slug": "nossa-senhora-das-merces-campo-maior",
+      "name": "Paróquia Nossa Senhora das Mercês",
+      "city": "Campo Maior",
+      "state": "PI",
+      "neighborhood": "São João",
+      "address": "Rua 22 de Abril, 835 – São João",
+      "zipCode": "64280-000",
+      "phone": "(86) 99458-8280",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": 1988,
+      "sources": [
+        {
+          "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-nossa-senhora-das-merces-de-campo-maior/",
+          "title": "Paróquia de Nossa Senhora das Mercês – Campo Maior — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 08/08/2024)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedecampomaior.org.br/paroquias/",
+          "title": "Paróquias — Diocese de Campo Maior (39 fichas em 5 vicariatos)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora das Mercês",
+          "address": "Rua 22 de Abril, 835 – São João",
+          "neighborhood": "São João",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-nossa-senhora-das-merces-de-campo-maior/",
+              "title": "Paróquia de Nossa Senhora das Mercês – Campo Maior — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 08/08/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora das Mercês",
+          "dayOfWeek": 0,
+          "time": "07:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-nossa-senhora-das-merces-de-campo-maior/",
+              "title": "Paróquia de Nossa Senhora das Mercês – Campo Maior — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 08/08/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora das Mercês",
+          "dayOfWeek": 0,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-nossa-senhora-das-merces-de-campo-maior/",
+              "title": "Paróquia de Nossa Senhora das Mercês – Campo Maior — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 08/08/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora das Mercês",
+          "dayOfWeek": 1,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-nossa-senhora-das-merces-de-campo-maior/",
+              "title": "Paróquia de Nossa Senhora das Mercês – Campo Maior — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 08/08/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora das Mercês",
+          "dayOfWeek": 4,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": "17h - Adoração",
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-nossa-senhora-das-merces-de-campo-maior/",
+              "title": "Paróquia de Nossa Senhora das Mercês – Campo Maior — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 08/08/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora das Mercês",
+          "dayOfWeek": 4,
+          "time": "17:00",
+          "type": "ADORATION",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-nossa-senhora-das-merces-de-campo-maior/",
+              "title": "Paróquia de Nossa Senhora das Mercês – Campo Maior — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 08/08/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "notes": "Vicariato Santo Antônio"
+    },
+    {
+      "slug": "santo-antonio-campo-maior",
+      "name": "Catedral Santo Antônio",
+      "city": "Campo Maior",
+      "state": "PI",
+      "neighborhood": "Centro",
+      "address": "Rua Senador José Euzébio, 564 – Centro",
+      "zipCode": "64280-000",
+      "phone": "(86) 99540-6697",
+      "email": "catedralsantoantonio13@gmail.com",
+      "website": null,
+      "priestName": "Pe. Antônio Pereira dos Santos",
+      "foundedYear": 1712,
+      "sources": [
+        {
+          "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-catedral-de-santo-antonio-campo-maior/",
+          "title": "Paróquia Catedral de Santo Antônio – Campo Maior — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 11/03/2025)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedecampomaior.org.br/paroquias/",
+          "title": "Paróquias — Diocese de Campo Maior (39 fichas em 5 vicariatos)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedecampomaior.org.br/clero/",
+          "title": "Clero — Diocese de Campo Maior (fichas individuais com \"Paróquia\" e \"Função\"; atualizadas entre 12/2024 e 08/2026)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Catedral Santo Antônio",
+          "address": "Rua Senador José Euzébio, 564 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-catedral-de-santo-antonio-campo-maior/",
+              "title": "Paróquia Catedral de Santo Antônio – Campo Maior — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 11/03/2025)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Catedral Santo Antônio",
+          "dayOfWeek": 0,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-catedral-de-santo-antonio-campo-maior/",
+              "title": "Paróquia Catedral de Santo Antônio – Campo Maior — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 11/03/2025)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Catedral Santo Antônio",
+          "dayOfWeek": 0,
+          "time": "08:30",
+          "type": "MASS",
+          "notes": "Missa das 8h30: a fonte anota \"*Dom Francisco de Assis\"",
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-catedral-de-santo-antonio-campo-maior/",
+              "title": "Paróquia Catedral de Santo Antônio – Campo Maior — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 11/03/2025)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Catedral Santo Antônio",
+          "dayOfWeek": 0,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-catedral-de-santo-antonio-campo-maior/",
+              "title": "Paróquia Catedral de Santo Antônio – Campo Maior — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 11/03/2025)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Catedral Santo Antônio",
+          "dayOfWeek": 1,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": "Missa pelas almas",
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-catedral-de-santo-antonio-campo-maior/",
+              "title": "Paróquia Catedral de Santo Antônio – Campo Maior — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 11/03/2025)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Catedral Santo Antônio",
+          "dayOfWeek": 2,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": "Novena Perpétua",
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-catedral-de-santo-antonio-campo-maior/",
+              "title": "Paróquia Catedral de Santo Antônio – Campo Maior — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 11/03/2025)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Catedral Santo Antônio",
+          "dayOfWeek": 3,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": "Novena de Santa Rita de Cássia",
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-catedral-de-santo-antonio-campo-maior/",
+              "title": "Paróquia Catedral de Santo Antônio – Campo Maior — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 11/03/2025)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Catedral Santo Antônio",
+          "dayOfWeek": 4,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": "17h - Adoração ao Santíssimo Sacramento",
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-catedral-de-santo-antonio-campo-maior/",
+              "title": "Paróquia Catedral de Santo Antônio – Campo Maior — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 11/03/2025)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Catedral Santo Antônio",
+          "dayOfWeek": 5,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": "Primeira sexta-feira do mês missa votiva ao Sagrado Coração de Jesus",
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-catedral-de-santo-antonio-campo-maior/",
+              "title": "Paróquia Catedral de Santo Antônio – Campo Maior — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 11/03/2025)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Catedral Santo Antônio",
+          "dayOfWeek": 6,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": "Missa com as crianças",
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-catedral-de-santo-antonio-campo-maior/",
+              "title": "Paróquia Catedral de Santo Antônio – Campo Maior — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 11/03/2025)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Catedral Santo Antônio",
+          "dayOfWeek": 4,
+          "time": "17:00",
+          "type": "ADORATION",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-catedral-de-santo-antonio-campo-maior/",
+              "title": "Paróquia Catedral de Santo Antônio – Campo Maior — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 11/03/2025)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "notes": "Vicariato Santo Antônio"
+    },
+    {
+      "slug": "santo-antonio-novo-santo-antonio",
+      "name": "Quase-paróquia Santo Antônio",
+      "city": "Novo Santo Antônio",
+      "state": "PI",
+      "neighborhood": "Centro",
+      "address": "Praça da Matriz, s/n – Centro",
+      "zipCode": "64365-000",
+      "phone": "(86) 99902-5307",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Jerônimo de Paula Pessoa",
+      "foundedYear": 2007,
+      "sources": [
+        {
+          "url": "https://diocesedecampomaior.org.br/paroquia/quase-paroquia-de-santo-antonio-novo-santo-antonio/",
+          "title": "Quase-Paróquia de Santo Antonio – Novo Santo Antonio — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 11/03/2025)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedecampomaior.org.br/paroquias/",
+          "title": "Paróquias — Diocese de Campo Maior (39 fichas em 5 vicariatos)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedecampomaior.org.br/clero/",
+          "title": "Clero — Diocese de Campo Maior (fichas individuais com \"Paróquia\" e \"Função\"; atualizadas entre 12/2024 e 08/2026)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Santo Antônio",
+          "address": "Praça da Matriz, s/n – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/quase-paroquia-de-santo-antonio-novo-santo-antonio/",
+              "title": "Quase-Paróquia de Santo Antonio – Novo Santo Antonio — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 11/03/2025)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Santo Antônio",
+          "dayOfWeek": 0,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/quase-paroquia-de-santo-antonio-novo-santo-antonio/",
+              "title": "Quase-Paróquia de Santo Antonio – Novo Santo Antonio — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 11/03/2025)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "notes": "Vicariato São José"
+    },
+    {
+      "slug": "nossa-senhora-de-fatima-pau-d-arco-do-piaui",
+      "name": "Quase-paróquia Nossa Senhora de Fátima",
+      "city": "Pau D'Arco do Piauí",
+      "state": "PI",
+      "neighborhood": "Centro",
+      "address": "Rua 1º de janeiro, 100 – Centro",
+      "zipCode": "64295-000",
+      "phone": "(86) 9542-5002",
+      "email": "areapastoralnsf@gmail.com",
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedecampomaior.org.br/paroquia/quase-paroquia-de-nossa-senhora-de-fatima-pau-darco-do-piaui/",
+          "title": "Quase-Paróquia de Nossa Senhora de Fátima – Pau D’Arco do Piauí — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 06/04/2024)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedecampomaior.org.br/paroquias/",
+          "title": "Paróquias — Diocese de Campo Maior (39 fichas em 5 vicariatos)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora de Fátima",
+          "address": "Rua 1º de janeiro, 100 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/quase-paroquia-de-nossa-senhora-de-fatima-pau-darco-do-piaui/",
+              "title": "Quase-Paróquia de Nossa Senhora de Fátima – Pau D’Arco do Piauí — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 06/04/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora de Fátima",
+          "dayOfWeek": 0,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/quase-paroquia-de-nossa-senhora-de-fatima-pau-darco-do-piaui/",
+              "title": "Quase-Paróquia de Nossa Senhora de Fátima – Pau D’Arco do Piauí — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 06/04/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "notes": "Vicariato São José"
+    },
+    {
+      "slug": "sao-benedito-beneditinos",
+      "name": "Paróquia São Benedito",
+      "city": "Beneditinos",
+      "state": "PI",
+      "neighborhood": "Centro",
+      "address": "Praça da Matriz, s/n – Centro",
+      "zipCode": null,
+      "phone": "(86) 99449-3596",
+      "email": "paroquiadesaobenedito2017@gmail.com",
+      "website": null,
+      "priestName": "Pe. Herbert Ferreira de Morais",
+      "foundedYear": 1988,
+      "sources": [
+        {
+          "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-sao-benedito-beneditinos/",
+          "title": "Paróquia de São Benedito – Beneditinos — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 03/02/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedecampomaior.org.br/paroquias/",
+          "title": "Paróquias — Diocese de Campo Maior (39 fichas em 5 vicariatos)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedecampomaior.org.br/clero/",
+          "title": "Clero — Diocese de Campo Maior (fichas individuais com \"Paróquia\" e \"Função\"; atualizadas entre 12/2024 e 08/2026)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Benedito",
+          "address": "Praça da Matriz, s/n – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-sao-benedito-beneditinos/",
+              "title": "Paróquia de São Benedito – Beneditinos — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 03/02/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São Benedito",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": "Missa dominical da comunidade",
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-sao-benedito-beneditinos/",
+              "title": "Paróquia de São Benedito – Beneditinos — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 03/02/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Benedito",
+          "dayOfWeek": 0,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": "Missa dominical da comunidade",
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-sao-benedito-beneditinos/",
+              "title": "Paróquia de São Benedito – Beneditinos — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 03/02/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Benedito",
+          "dayOfWeek": 2,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-sao-benedito-beneditinos/",
+              "title": "Paróquia de São Benedito – Beneditinos — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 03/02/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Benedito",
+          "dayOfWeek": 4,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": "Adoração ao Santíssimo e Confissões a partir das 17h30",
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-sao-benedito-beneditinos/",
+              "title": "Paróquia de São Benedito – Beneditinos — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 03/02/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Benedito",
+          "dayOfWeek": 5,
+          "time": "17:30",
+          "type": "MASS",
+          "notes": "1ª sexta-feira do mês",
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-sao-benedito-beneditinos/",
+              "title": "Paróquia de São Benedito – Beneditinos — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 03/02/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Benedito",
+          "dayOfWeek": null,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": "Cada dia 5 do mês — Missa votiva a São Benedito",
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-sao-benedito-beneditinos/",
+              "title": "Paróquia de São Benedito – Beneditinos — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 03/02/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Benedito",
+          "dayOfWeek": 4,
+          "time": "17:30",
+          "type": "ADORATION",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-sao-benedito-beneditinos/",
+              "title": "Paróquia de São Benedito – Beneditinos — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 03/02/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Benedito",
+          "dayOfWeek": 4,
+          "time": "17:30",
+          "type": "CONFESSION",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-sao-benedito-beneditinos/",
+              "title": "Paróquia de São Benedito – Beneditinos — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 03/02/2026)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "notes": "Vicariato São José"
+    },
+    {
+      "slug": "santa-luzia-coivaras",
+      "name": "Paróquia Santa Luzia",
+      "city": "Coivaras",
+      "state": "PI",
+      "neighborhood": "Centro",
+      "address": "Rua Santa Luzia, 110 – Centro",
+      "zipCode": "64335-000",
+      "phone": "(86) 99431-2446",
+      "email": "psluziacoivaras2018@gmail.com",
+      "website": null,
+      "priestName": "Pe. Francisco Euller Sousa Silva",
+      "foundedYear": 2018,
+      "sources": [
+        {
+          "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-santa-luzia-coivaras/",
+          "title": "Paróquia de Santa Luzia – Coivaras — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 11/03/2025)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedecampomaior.org.br/paroquias/",
+          "title": "Paróquias — Diocese de Campo Maior (39 fichas em 5 vicariatos)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedecampomaior.org.br/clero/",
+          "title": "Clero — Diocese de Campo Maior (fichas individuais com \"Paróquia\" e \"Função\"; atualizadas entre 12/2024 e 08/2026)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Santa Luzia",
+          "address": "Rua Santa Luzia, 110 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-santa-luzia-coivaras/",
+              "title": "Paróquia de Santa Luzia – Coivaras — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 11/03/2025)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Santa Luzia",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-santa-luzia-coivaras/",
+              "title": "Paróquia de Santa Luzia – Coivaras — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 11/03/2025)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Santa Luzia",
+          "dayOfWeek": 2,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-santa-luzia-coivaras/",
+              "title": "Paróquia de Santa Luzia – Coivaras — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 11/03/2025)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Santa Luzia",
+          "dayOfWeek": 4,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-santa-luzia-coivaras/",
+              "title": "Paróquia de Santa Luzia – Coivaras — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 11/03/2025)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Santa Luzia",
+          "dayOfWeek": 6,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-santa-luzia-coivaras/",
+              "title": "Paróquia de Santa Luzia – Coivaras — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 11/03/2025)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "notes": "Vicariato Santo Antônio"
+    },
+    {
+      "slug": "nossa-senhora-dos-humildes-alto-longa",
+      "name": "Paróquia Nossa Senhora dos Humildes",
+      "city": "Alto Longá",
+      "state": "PI",
+      "neighborhood": "Centro",
+      "address": "Rua Benedito Brito, 198 – Centro",
+      "zipCode": "64360-000",
+      "phone": null,
+      "email": "pnsrahumildes@gmail.com",
+      "website": null,
+      "priestName": "Pe. Luís Gomes da Silva Sobrinho",
+      "foundedYear": 1978,
+      "sources": [
+        {
+          "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-nossa-senhora-dos-humildes-alto-longa/",
+          "title": "Paróquia de Nossa Senhora dos Humildes – Alto Longá — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 20/03/2025)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedecampomaior.org.br/paroquias/",
+          "title": "Paróquias — Diocese de Campo Maior (39 fichas em 5 vicariatos)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedecampomaior.org.br/clero/",
+          "title": "Clero — Diocese de Campo Maior (fichas individuais com \"Paróquia\" e \"Função\"; atualizadas entre 12/2024 e 08/2026)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora dos Humildes",
+          "address": "Rua Benedito Brito, 198 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-nossa-senhora-dos-humildes-alto-longa/",
+              "title": "Paróquia de Nossa Senhora dos Humildes – Alto Longá — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 20/03/2025)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora dos Humildes",
+          "dayOfWeek": 0,
+          "time": "07:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-nossa-senhora-dos-humildes-alto-longa/",
+              "title": "Paróquia de Nossa Senhora dos Humildes – Alto Longá — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 20/03/2025)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora dos Humildes",
+          "dayOfWeek": 2,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Missa votiva a Nossa Senhora do Perpétuo Socorro",
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-nossa-senhora-dos-humildes-alto-longa/",
+              "title": "Paróquia de Nossa Senhora dos Humildes – Alto Longá — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 20/03/2025)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora dos Humildes",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Adoração às 18h00",
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-nossa-senhora-dos-humildes-alto-longa/",
+              "title": "Paróquia de Nossa Senhora dos Humildes – Alto Longá — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 20/03/2025)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora dos Humildes",
+          "dayOfWeek": 6,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": "Missa com as crianças",
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-nossa-senhora-dos-humildes-alto-longa/",
+              "title": "Paróquia de Nossa Senhora dos Humildes – Alto Longá — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 20/03/2025)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora dos Humildes",
+          "dayOfWeek": 4,
+          "time": "18:00",
+          "type": "ADORATION",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-nossa-senhora-dos-humildes-alto-longa/",
+              "title": "Paróquia de Nossa Senhora dos Humildes – Alto Longá — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 20/03/2025)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "notes": "Vicariato São José — Atendimento: De terça-feira à sábado, das 8h às 12h."
+    },
+    {
+      "slug": "sao-joao-batista-sao-joao-da-serra",
+      "name": "Paróquia São João Batista",
+      "city": "São João da Serra",
+      "state": "PI",
+      "neighborhood": "Centro",
+      "address": "Avenida Presidente Médice, 141 – Centro",
+      "zipCode": "64350-000",
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Juscelino Pascoal de Castro",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-sao-joao-batista-sao-joao-da-serra/",
+          "title": "Paróquia de São João Batista – São João da Serra — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 04/04/2024)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedecampomaior.org.br/paroquias/",
+          "title": "Paróquias — Diocese de Campo Maior (39 fichas em 5 vicariatos)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedecampomaior.org.br/clero/",
+          "title": "Clero — Diocese de Campo Maior (fichas individuais com \"Paróquia\" e \"Função\"; atualizadas entre 12/2024 e 08/2026)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São João Batista",
+          "address": "Avenida Presidente Médice, 141 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-sao-joao-batista-sao-joao-da-serra/",
+              "title": "Paróquia de São João Batista – São João da Serra — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 04/04/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São João Batista",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-sao-joao-batista-sao-joao-da-serra/",
+              "title": "Paróquia de São João Batista – São João da Serra — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 04/04/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São João Batista",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-sao-joao-batista-sao-joao-da-serra/",
+              "title": "Paróquia de São João Batista – São João da Serra — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 04/04/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São João Batista",
+          "dayOfWeek": 4,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": "Adoração seguida de missa",
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-sao-joao-batista-sao-joao-da-serra/",
+              "title": "Paróquia de São João Batista – São João da Serra — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 04/04/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São João Batista",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Missa com Apostolado da Oração",
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-sao-joao-batista-sao-joao-da-serra/",
+              "title": "Paróquia de São João Batista – São João da Serra — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 04/04/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "notes": "Vicariato São José"
+    },
+    {
+      "slug": "santo-antonio-jose-de-freitas",
+      "name": "Quase-paróquia Santo Antônio",
+      "city": "José de Freitas",
+      "state": "PI",
+      "neighborhood": "Santo Antônio",
+      "address": "Rua Joaquim Sampaio, 1127 – Santo Antônio",
+      "zipCode": "64110-000",
+      "phone": "(86) 98166-2729",
+      "email": "jeronimo2019@gmail.com",
+      "website": null,
+      "priestName": "Pe. Gilberto Felipe da Silva",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedecampomaior.org.br/paroquia/quase-paroquia-de-santo-antonio-jose-de-freitas/",
+          "title": "Quase-Paróquia de Santo Antônio – José de Freitas — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 11/03/2025)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedecampomaior.org.br/paroquias/",
+          "title": "Paróquias — Diocese de Campo Maior (39 fichas em 5 vicariatos)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedecampomaior.org.br/clero/",
+          "title": "Clero — Diocese de Campo Maior (fichas individuais com \"Paróquia\" e \"Função\"; atualizadas entre 12/2024 e 08/2026)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Santo Antônio",
+          "address": "Rua Joaquim Sampaio, 1127 – Santo Antônio",
+          "neighborhood": "Santo Antônio",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/quase-paroquia-de-santo-antonio-jose-de-freitas/",
+              "title": "Quase-Paróquia de Santo Antônio – José de Freitas — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 11/03/2025)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Santo Antônio",
+          "dayOfWeek": 0,
+          "time": "07:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/quase-paroquia-de-santo-antonio-jose-de-freitas/",
+              "title": "Quase-Paróquia de Santo Antônio – José de Freitas — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 11/03/2025)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Santo Antônio",
+          "dayOfWeek": 0,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/quase-paroquia-de-santo-antonio-jose-de-freitas/",
+              "title": "Quase-Paróquia de Santo Antônio – José de Freitas — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 11/03/2025)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Santo Antônio",
+          "dayOfWeek": 4,
+          "time": "17:30",
+          "type": "MASS",
+          "notes": "Adoração",
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/quase-paroquia-de-santo-antonio-jose-de-freitas/",
+              "title": "Quase-Paróquia de Santo Antônio – José de Freitas — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 11/03/2025)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Santo Antônio",
+          "dayOfWeek": 6,
+          "time": "07:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/quase-paroquia-de-santo-antonio-jose-de-freitas/",
+              "title": "Quase-Paróquia de Santo Antônio – José de Freitas — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 11/03/2025)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "notes": "Vicariato Nossa Senhora do Livramento"
+    },
+    {
+      "slug": "nossa-senhora-do-rosario-jose-de-freitas",
+      "name": "Paróquia Nossa Senhora do Rosário",
+      "city": "José de Freitas",
+      "state": "PI",
+      "neighborhood": "Cidade Nova",
+      "address": "Rua 7 de abril, s/n – Cidade Nova",
+      "zipCode": "64110-000",
+      "phone": "(86) 99505-4194",
+      "email": "paroquianossasenhora.rosario95@gmail.com",
+      "website": null,
+      "priestName": "Mons. Paulo Mateus dos Santos",
+      "foundedYear": 1995,
+      "sources": [
+        {
+          "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-nossa-senhora-do-rosario-jose-de-freitas/",
+          "title": "Paróquia Nossa Senhora do Rosário – José de Freitas — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 08/08/2024)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedecampomaior.org.br/paroquias/",
+          "title": "Paróquias — Diocese de Campo Maior (39 fichas em 5 vicariatos)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedecampomaior.org.br/clero/",
+          "title": "Clero — Diocese de Campo Maior (fichas individuais com \"Paróquia\" e \"Função\"; atualizadas entre 12/2024 e 08/2026)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora do Rosário",
+          "address": "Rua 7 de abril, s/n – Cidade Nova",
+          "neighborhood": "Cidade Nova",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-nossa-senhora-do-rosario-jose-de-freitas/",
+              "title": "Paróquia Nossa Senhora do Rosário – José de Freitas — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 08/08/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora do Rosário",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-nossa-senhora-do-rosario-jose-de-freitas/",
+              "title": "Paróquia Nossa Senhora do Rosário – José de Freitas — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 08/08/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Rosário",
+          "dayOfWeek": 2,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Missa e novena de Nossa Senhora do Perpétuo Socorro",
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-nossa-senhora-do-rosario-jose-de-freitas/",
+              "title": "Paróquia Nossa Senhora do Rosário – José de Freitas — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 08/08/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Rosário",
+          "dayOfWeek": 4,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": "Adoração seguida de missa",
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-nossa-senhora-do-rosario-jose-de-freitas/",
+              "title": "Paróquia Nossa Senhora do Rosário – José de Freitas — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 08/08/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "notes": "Vicariato Nossa Senhora do Livramento"
+    },
+    {
+      "slug": "nossa-senhora-do-livramento-jose-de-freitas",
+      "name": "Paróquia Nossa Senhora do Livramento",
+      "city": "José de Freitas",
+      "state": "PI",
+      "neighborhood": "Centro",
+      "address": "Rua Cândida Cunha, 326 – Centro",
+      "zipCode": "64110-000",
+      "phone": "(86) 99898-9676",
+      "email": "paroquiadolivramento@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Francisco José do Nascimento",
+      "foundedYear": 1840,
+      "sources": [
+        {
+          "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-nossa-senhora-do-livramento-jose-de-freitas/",
+          "title": "Paróquia de Nossa Senhora do Livramento – José de Freitas — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 11/03/2025)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedecampomaior.org.br/paroquias/",
+          "title": "Paróquias — Diocese de Campo Maior (39 fichas em 5 vicariatos)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedecampomaior.org.br/clero/",
+          "title": "Clero — Diocese de Campo Maior (fichas individuais com \"Paróquia\" e \"Função\"; atualizadas entre 12/2024 e 08/2026)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora do Livramento",
+          "address": "Rua Cândida Cunha, 326 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-nossa-senhora-do-livramento-jose-de-freitas/",
+              "title": "Paróquia de Nossa Senhora do Livramento – José de Freitas — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 11/03/2025)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Igreja de São Francisco",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-nossa-senhora-do-livramento-jose-de-freitas/",
+              "title": "Paróquia de Nossa Senhora do Livramento – José de Freitas — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 11/03/2025)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "Citada na tabela de horários da ficha oficial (\"Novena Perpétua na Igreja de São Francisco\")."
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora do Livramento",
+          "dayOfWeek": 0,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-nossa-senhora-do-livramento-jose-de-freitas/",
+              "title": "Paróquia de Nossa Senhora do Livramento – José de Freitas — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 11/03/2025)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Livramento",
+          "dayOfWeek": 0,
+          "time": "09:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-nossa-senhora-do-livramento-jose-de-freitas/",
+              "title": "Paróquia de Nossa Senhora do Livramento – José de Freitas — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 11/03/2025)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Livramento",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-nossa-senhora-do-livramento-jose-de-freitas/",
+              "title": "Paróquia de Nossa Senhora do Livramento – José de Freitas — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 11/03/2025)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Livramento",
+          "dayOfWeek": 4,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-nossa-senhora-do-livramento-jose-de-freitas/",
+              "title": "Paróquia de Nossa Senhora do Livramento – José de Freitas — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 11/03/2025)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Igreja de São Francisco",
+          "dayOfWeek": 2,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": "Novena Perpétua na Igreja de São Francisco",
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-nossa-senhora-do-livramento-jose-de-freitas/",
+              "title": "Paróquia de Nossa Senhora do Livramento – José de Freitas — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 11/03/2025)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "notes": "Vicariato Nossa Senhora do Livramento"
+    },
+    {
+      "slug": "sao-raimundo-nonato-altos",
+      "name": "Paróquia São Raimundo Nonato",
+      "city": "Altos",
+      "state": "PI",
+      "neighborhood": "Santa Inês",
+      "address": "Avenida Cesar Leal, s/n – Santa Inês",
+      "zipCode": "64290-000",
+      "phone": "(86) 99490-3863",
+      "email": "paroquiadesaoraimundononato97@gmail.com",
+      "website": null,
+      "priestName": "Pe. Walmes Quixaba Barros",
+      "foundedYear": 1997,
+      "sources": [
+        {
+          "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-sao-raimundo-nonato-altos/",
+          "title": "Paróquia de São Raimundo Nonato – Altos — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 06/04/2024)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedecampomaior.org.br/paroquias/",
+          "title": "Paróquias — Diocese de Campo Maior (39 fichas em 5 vicariatos)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedecampomaior.org.br/clero/",
+          "title": "Clero — Diocese de Campo Maior (fichas individuais com \"Paróquia\" e \"Função\"; atualizadas entre 12/2024 e 08/2026)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Raimundo Nonato",
+          "address": "Avenida Cesar Leal, s/n – Santa Inês",
+          "neighborhood": "Santa Inês",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-sao-raimundo-nonato-altos/",
+              "title": "Paróquia de São Raimundo Nonato – Altos — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 06/04/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São Raimundo Nonato",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-sao-raimundo-nonato-altos/",
+              "title": "Paróquia de São Raimundo Nonato – Altos — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 06/04/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São Raimundo Nonato",
+          "dayOfWeek": 4,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Com Adoração",
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-sao-raimundo-nonato-altos/",
+              "title": "Paróquia de São Raimundo Nonato – Altos — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 06/04/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São Raimundo Nonato",
+          "dayOfWeek": 5,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": "1ª sexta-feira do mês — Apenas na primeira sexta-feira de cada mês",
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-sao-raimundo-nonato-altos/",
+              "title": "Paróquia de São Raimundo Nonato – Altos — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 06/04/2024)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ],
+      "notes": "Vicariato São José"
+    },
+    {
+      "slug": "sao-jose-e-de-santa-teresinha-altos",
+      "name": "Paróquia São José e de Santa Teresinha",
+      "city": "Altos",
+      "state": "PI",
+      "neighborhood": "Centro",
+      "address": "Praça Cônego Honório, 120 – Centro",
+      "zipCode": null,
+      "phone": "(86) 99547-3925",
+      "email": "paroquiasaojoseesantateresinha@gmail.com",
+      "website": null,
+      "priestName": "Pe. Cláudio Lopes de Souza",
+      "foundedYear": 1943,
+      "sources": [
+        {
+          "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-sao-jose-de-santa-teresinha-altos/",
+          "title": "Paróquia de São José e de Santa Teresinha – Altos — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 11/03/2025)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedecampomaior.org.br/paroquias/",
+          "title": "Paróquias — Diocese de Campo Maior (39 fichas em 5 vicariatos)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedecampomaior.org.br/clero/",
+          "title": "Clero — Diocese de Campo Maior (fichas individuais com \"Paróquia\" e \"Função\"; atualizadas entre 12/2024 e 08/2026)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São José e de Santa Teresinha",
+          "address": "Praça Cônego Honório, 120 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-sao-jose-de-santa-teresinha-altos/",
+              "title": "Paróquia de São José e de Santa Teresinha – Altos — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 11/03/2025)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São José e de Santa Teresinha",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-sao-jose-de-santa-teresinha-altos/",
+              "title": "Paróquia de São José e de Santa Teresinha – Altos — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 11/03/2025)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São José e de Santa Teresinha",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-sao-jose-de-santa-teresinha-altos/",
+              "title": "Paróquia de São José e de Santa Teresinha – Altos — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 11/03/2025)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São José e de Santa Teresinha",
+          "dayOfWeek": 1,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": "Novena e missa de Santa Teresinha",
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-sao-jose-de-santa-teresinha-altos/",
+              "title": "Paróquia de São José e de Santa Teresinha – Altos — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 11/03/2025)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São José e de Santa Teresinha",
+          "dayOfWeek": 2,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": "Novena e Missa de Nossa Senhora do Perpétuo Socorro",
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-sao-jose-de-santa-teresinha-altos/",
+              "title": "Paróquia de São José e de Santa Teresinha – Altos — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 11/03/2025)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São José e de Santa Teresinha",
+          "dayOfWeek": 4,
+          "time": "16:00",
+          "type": "MASS",
+          "notes": "Adoração e em seguida missa",
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-sao-jose-de-santa-teresinha-altos/",
+              "title": "Paróquia de São José e de Santa Teresinha – Altos — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 11/03/2025)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São José e de Santa Teresinha",
+          "dayOfWeek": 5,
+          "time": "16:00",
+          "type": "MASS",
+          "notes": "Confissão e em seguida missa",
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-sao-jose-de-santa-teresinha-altos/",
+              "title": "Paróquia de São José e de Santa Teresinha – Altos — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 11/03/2025)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São José e de Santa Teresinha",
+          "dayOfWeek": 6,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": "Missa com as crianças da catequese",
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-de-sao-jose-de-santa-teresinha-altos/",
+              "title": "Paróquia de São José e de Santa Teresinha – Altos — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 11/03/2025)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "notes": "Vicariato São José"
+    },
+    {
+      "slug": "nossa-senhora-das-merces-altos",
+      "name": "Paróquia Nossa Senhora das Mercês",
+      "city": "Altos",
+      "state": "PI",
+      "neighborhood": null,
+      "address": "Avenida Mário Raulino, s/n",
+      "zipCode": "64290-000",
+      "phone": "(86) 99528-2436",
+      "email": "nossasenhoradasmercesparoquial@gmail.com",
+      "website": null,
+      "priestName": null,
+      "foundedYear": 1992,
+      "sources": [
+        {
+          "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-nossa-senhora-das-merces-altos/",
+          "title": "Paróquia Nossa Senhora das Mercês – Altos — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 11/03/2025)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://diocesedecampomaior.org.br/paroquias/",
+          "title": "Paróquias — Diocese de Campo Maior (39 fichas em 5 vicariatos)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora das Mercês",
+          "address": "Avenida Mário Raulino, s/n",
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-nossa-senhora-das-merces-altos/",
+              "title": "Paróquia Nossa Senhora das Mercês – Altos — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 11/03/2025)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora das Mercês",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-nossa-senhora-das-merces-altos/",
+              "title": "Paróquia Nossa Senhora das Mercês – Altos — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 11/03/2025)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora das Mercês",
+          "dayOfWeek": 4,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": "Missa - novena Mãos Ensanguentadas de Jesus",
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-nossa-senhora-das-merces-altos/",
+              "title": "Paróquia Nossa Senhora das Mercês – Altos — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 11/03/2025)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora das Mercês",
+          "dayOfWeek": 5,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": "1ª sexta-feira do mês — 1ª sexta de cada mês - missa votiva ao Sagrado Coração de Jesus",
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-nossa-senhora-das-merces-altos/",
+              "title": "Paróquia Nossa Senhora das Mercês – Altos — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 11/03/2025)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora das Mercês",
+          "dayOfWeek": null,
+          "time": "12:00",
+          "type": "MASS",
+          "notes": "Dia 13 de cada mês — Missa votiva a Nossa Senhora de Fátima",
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-nossa-senhora-das-merces-altos/",
+              "title": "Paróquia Nossa Senhora das Mercês – Altos — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 11/03/2025)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora das Mercês",
+          "dayOfWeek": null,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": "Dia 22 de cada mês — Missa Santa Rita",
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-nossa-senhora-das-merces-altos/",
+              "title": "Paróquia Nossa Senhora das Mercês – Altos — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 11/03/2025)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora das Mercês",
+          "dayOfWeek": null,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Dia 18 de cada mês — Missa Mãe Rainha",
+          "sources": [
+            {
+              "url": "https://diocesedecampomaior.org.br/paroquia/paroquia-nossa-senhora-das-merces-altos/",
+              "title": "Paróquia Nossa Senhora das Mercês – Altos — Diocese de Campo Maior (ficha oficial com tabela de horários; atualizada em 11/03/2025)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ],
+      "notes": "Vicariato São José"
+    }
+  ],
+  "coverage": {
+    "parishesFound": 39,
+    "parishesExpected": 33,
+    "notes": "39 fichas no site oficial (tipo de post \"paroquia\", 5 vicariatos): 33 paróquias (a Catedral incluída) — exatamente o número do Anuário Pontifício 2024 — mais 5 quase-paróquias (Jatobá do Piauí, Santa Luzia/Campo Maior, Novo Santo Antônio, Pau D'Arco do Piauí e Santo Antônio/José de Freitas) e o Santuário Eucarístico Nossa Senhora do Rosário (Campo Maior), que tem reitor e grade de missas próprios. Todas as 39 têm tabela de horários na ficha."
+  }
+}

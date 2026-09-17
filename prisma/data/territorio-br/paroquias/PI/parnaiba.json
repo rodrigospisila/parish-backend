@@ -1,0 +1,4037 @@
+{
+  "diocese": {
+    "name": "Diocese de Parnaíba",
+    "type": "Diocese",
+    "slug": "parnaiba",
+    "city": "Parnaíba",
+    "state": "PI",
+    "address": "Cúria Diocesana – Rua Josias Moraes, 676 – Centro (Caixa Postal 70)",
+    "zipCode": "64218-440",
+    "phone": "(86) 99406-0604",
+    "email": "diocesedeparnaibapi@gmail.com",
+    "website": "https://www.diocesedeparnaiba.org.br",
+    "bishopName": "Dom Edivalter Andrade",
+    "sources": [
+      {
+        "url": "https://www.diocesedeparnaiba.org.br/curia-diocesana/",
+        "title": "Cúria Diocesana — Diocese de Parnaíba",
+        "accessedAt": "2026-09-17"
+      },
+      {
+        "url": "https://www.diocesedeparnaiba.org.br/bispo-diocesano/",
+        "title": "Bispo Diocesano — Diocese de Parnaíba (atualizada em 03/02/2026)",
+        "accessedAt": "2026-09-17"
+      },
+      {
+        "url": "https://www.diocesedeparnaiba.org.br/historico-da-diocese/",
+        "title": "Quem somos — Diocese de Parnaíba (\"29 municípios … 03 Áreas Pastorais, 40 paróquias, 1 santuário e 1 seminário\", texto de 12/2024)",
+        "accessedAt": "2026-09-17"
+      },
+      {
+        "url": "https://www.catholic-hierarchy.org/diocese/dparn.html",
+        "title": "catholic-hierarchy.org — Parnaíba (Diocese)",
+        "accessedAt": "2026-09-17"
+      }
+    ],
+    "confidence": "alta"
+  },
+  "parishes": [
+    {
+      "slug": "nossa-senhora-mae-da-divina-graca-parnaiba",
+      "name": "Catedral Nossa Senhora Mãe da Divina Graça",
+      "city": "Parnaíba",
+      "state": "PI",
+      "neighborhood": "Centro",
+      "address": "Rua do Rosário, 300 – Centro",
+      "zipCode": "64200-320",
+      "phone": "(86) 3322-2525 / (86) 3322-2555",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Hilderlan de Oliveira Sousa",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia-nossa-senhora-mae-da-divina-graca-catedral/",
+          "title": "Paróquia Nossa Senhora Mãe da Divina Graça – Catedral — Diocese de Parnaíba (ficha oficial, atualizada em 11/06/2025; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia/",
+          "title": "Paróquias (por zonal) — Diocese de Parnaíba (página atualizada em 12/02/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://minhareceita.org/06550586000578",
+          "title": "Receita Federal (minhareceita.org) — CNPJ 06550586000578, filial 0005 da Diocese de Parnaíba: PAROQUIA DE N SRA DA GRACA, PARNAIBA",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5335-igreja-catedral-nossa-senhora-mae-da-divina-graca/",
+          "title": "Lírio Católico — Igreja Catedral Nossa Senhora Mãe da Divina Graça (Parnaíba/PI), base regenerada em 2026-09-02",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/igreja.php?k=IqQnl",
+          "title": "Horário de Missa — Catedral de Nossa Senhora da Graça (ficha atualizada em 11/03/2013)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Catedral Nossa Senhora Mãe da Divina Graça",
+          "address": "Rua do Rosário, 300 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedeparnaiba.org.br/paroquia-nossa-senhora-mae-da-divina-graca-catedral/",
+              "title": "Paróquia Nossa Senhora Mãe da Divina Graça – Catedral — Diocese de Parnaíba (ficha oficial, atualizada em 11/06/2025; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Catedral Nossa Senhora Mãe da Divina Graça",
+          "dayOfWeek": 0,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5335-igreja-catedral-nossa-senhora-mae-da-divina-graca/",
+              "title": "Lírio Católico — Igreja Catedral Nossa Senhora Mãe da Divina Graça (Parnaíba/PI), base regenerada em 2026-09-02",
+              "accessedAt": "2026-09-17"
+            },
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=IqQnl",
+              "title": "Horário de Missa — Catedral de Nossa Senhora da Graça (ficha atualizada em 11/03/2013)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa",
+          "confidenceNote": "Rebaixado na revisão de 2026-09-17: a única corroboração do agregador é texto anterior a 2020 (regra pré-pandemia do README)."
+        },
+        {
+          "community": "Catedral Nossa Senhora Mãe da Divina Graça",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5335-igreja-catedral-nossa-senhora-mae-da-divina-graca/",
+              "title": "Lírio Católico — Igreja Catedral Nossa Senhora Mãe da Divina Graça (Parnaíba/PI), base regenerada em 2026-09-02",
+              "accessedAt": "2026-09-17"
+            },
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=IqQnl",
+              "title": "Horário de Missa — Catedral de Nossa Senhora da Graça (ficha atualizada em 11/03/2013)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa",
+          "confidenceNote": "Rebaixado na revisão de 2026-09-17: a única corroboração do agregador é texto anterior a 2020 (regra pré-pandemia do README)."
+        },
+        {
+          "community": "Catedral Nossa Senhora Mãe da Divina Graça",
+          "dayOfWeek": 1,
+          "time": "12:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5335-igreja-catedral-nossa-senhora-mae-da-divina-graca/",
+              "title": "Lírio Católico — Igreja Catedral Nossa Senhora Mãe da Divina Graça (Parnaíba/PI), base regenerada em 2026-09-02",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Catedral Nossa Senhora Mãe da Divina Graça",
+          "dayOfWeek": 2,
+          "time": "12:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5335-igreja-catedral-nossa-senhora-mae-da-divina-graca/",
+              "title": "Lírio Católico — Igreja Catedral Nossa Senhora Mãe da Divina Graça (Parnaíba/PI), base regenerada em 2026-09-02",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Catedral Nossa Senhora Mãe da Divina Graça",
+          "dayOfWeek": 3,
+          "time": "12:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5335-igreja-catedral-nossa-senhora-mae-da-divina-graca/",
+              "title": "Lírio Católico — Igreja Catedral Nossa Senhora Mãe da Divina Graça (Parnaíba/PI), base regenerada em 2026-09-02",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Catedral Nossa Senhora Mãe da Divina Graça",
+          "dayOfWeek": 4,
+          "time": "12:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5335-igreja-catedral-nossa-senhora-mae-da-divina-graca/",
+              "title": "Lírio Católico — Igreja Catedral Nossa Senhora Mãe da Divina Graça (Parnaíba/PI), base regenerada em 2026-09-02",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Catedral Nossa Senhora Mãe da Divina Graça",
+          "dayOfWeek": 5,
+          "time": "12:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5335-igreja-catedral-nossa-senhora-mae-da-divina-graca/",
+              "title": "Lírio Católico — Igreja Catedral Nossa Senhora Mãe da Divina Graça (Parnaíba/PI), base regenerada em 2026-09-02",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Catedral Nossa Senhora Mãe da Divina Graça",
+          "dayOfWeek": 6,
+          "time": "12:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5335-igreja-catedral-nossa-senhora-mae-da-divina-graca/",
+              "title": "Lírio Católico — Igreja Catedral Nossa Senhora Mãe da Divina Graça (Parnaíba/PI), base regenerada em 2026-09-02",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Catedral Nossa Senhora Mãe da Divina Graça",
+          "dayOfWeek": 4,
+          "time": "08:00",
+          "type": "ADORATION",
+          "notes": "até 09:00",
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5335-igreja-catedral-nossa-senhora-mae-da-divina-graca/",
+              "title": "Lírio Católico — Igreja Catedral Nossa Senhora Mãe da Divina Graça (Parnaíba/PI), base regenerada em 2026-09-02",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Catedral Nossa Senhora Mãe da Divina Graça",
+          "dayOfWeek": 4,
+          "time": "10:00",
+          "type": "CONFESSION",
+          "notes": "até 10:30",
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5335-igreja-catedral-nossa-senhora-mae-da-divina-graca/",
+              "title": "Lírio Católico — Igreja Catedral Nossa Senhora Mãe da Divina Graça (Parnaíba/PI), base regenerada em 2026-09-02",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ],
+      "notes": "Zonal Norte I"
+    },
+    {
+      "slug": "nossa-senhora-de-fatima-parnaiba",
+      "name": "Paróquia Nossa Senhora de Fátima",
+      "city": "Parnaíba",
+      "state": "PI",
+      "neighborhood": "Nova Parnaíba",
+      "address": "Av. Cel. Lucas, s/n – Nova Parnaíba",
+      "zipCode": "64218-760",
+      "phone": "(86) 3322-3427 / (86) 99544-1818",
+      "email": "paroquiansradefatima@gmail.com",
+      "website": null,
+      "priestName": "Pe. Roberto Francelino dos Santos Silva",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia-nossa-senhora-de-fatima/",
+          "title": "Paróquia Nossa Senhora de Fátima — Diocese de Parnaíba (ficha oficial, atualizada em 18/12/2025; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia/",
+          "title": "Paróquias (por zonal) — Diocese de Parnaíba (página atualizada em 12/02/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://minhareceita.org/06550586000730",
+          "title": "Receita Federal (minhareceita.org) — CNPJ 06550586000730, filial 0007 da Diocese de Parnaíba: PAROQUIA N SRA DE FATIMA, PARNAIBA",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://buscamissa.com.br/paroquia/pi/parnaiba/paroquia-nossa-senhora-de-fatima",
+          "title": "BuscaMissa — Paróquia Nossa Senhora de Fátima (Parnaíba/PI), selo \"Confirmado\"; pároco, telefone e e-mail iguais aos da ficha oficial",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora de Fátima",
+          "address": "Av. Cel. Lucas, s/n – Nova Parnaíba",
+          "neighborhood": "Nova Parnaíba",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedeparnaiba.org.br/paroquia-nossa-senhora-de-fatima/",
+              "title": "Paróquia Nossa Senhora de Fátima — Diocese de Parnaíba (ficha oficial, atualizada em 18/12/2025; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora de Fátima",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://buscamissa.com.br/paroquia/pi/parnaiba/paroquia-nossa-senhora-de-fatima",
+              "title": "BuscaMissa — Paróquia Nossa Senhora de Fátima (Parnaíba/PI), selo \"Confirmado\"; pároco, telefone e e-mail iguais aos da ficha oficial",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora de Fátima",
+          "dayOfWeek": 0,
+          "time": "10:00",
+          "type": "MASS",
+          "notes": "Missa com as crianças",
+          "sources": [
+            {
+              "url": "https://buscamissa.com.br/paroquia/pi/parnaiba/paroquia-nossa-senhora-de-fatima",
+              "title": "BuscaMissa — Paróquia Nossa Senhora de Fátima (Parnaíba/PI), selo \"Confirmado\"; pároco, telefone e e-mail iguais aos da ficha oficial",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora de Fátima",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://buscamissa.com.br/paroquia/pi/parnaiba/paroquia-nossa-senhora-de-fatima",
+              "title": "BuscaMissa — Paróquia Nossa Senhora de Fátima (Parnaíba/PI), selo \"Confirmado\"; pároco, telefone e e-mail iguais aos da ficha oficial",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora de Fátima",
+          "dayOfWeek": 2,
+          "time": "17:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://buscamissa.com.br/paroquia/pi/parnaiba/paroquia-nossa-senhora-de-fatima",
+              "title": "BuscaMissa — Paróquia Nossa Senhora de Fátima (Parnaíba/PI), selo \"Confirmado\"; pároco, telefone e e-mail iguais aos da ficha oficial",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora de Fátima",
+          "dayOfWeek": 3,
+          "time": "17:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://buscamissa.com.br/paroquia/pi/parnaiba/paroquia-nossa-senhora-de-fatima",
+              "title": "BuscaMissa — Paróquia Nossa Senhora de Fátima (Parnaíba/PI), selo \"Confirmado\"; pároco, telefone e e-mail iguais aos da ficha oficial",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora de Fátima",
+          "dayOfWeek": 4,
+          "time": "17:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://buscamissa.com.br/paroquia/pi/parnaiba/paroquia-nossa-senhora-de-fatima",
+              "title": "BuscaMissa — Paróquia Nossa Senhora de Fátima (Parnaíba/PI), selo \"Confirmado\"; pároco, telefone e e-mail iguais aos da ficha oficial",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora de Fátima",
+          "dayOfWeek": 5,
+          "time": "17:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://buscamissa.com.br/paroquia/pi/parnaiba/paroquia-nossa-senhora-de-fatima",
+              "title": "BuscaMissa — Paróquia Nossa Senhora de Fátima (Parnaíba/PI), selo \"Confirmado\"; pároco, telefone e e-mail iguais aos da ficha oficial",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora de Fátima",
+          "dayOfWeek": 6,
+          "time": "17:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://buscamissa.com.br/paroquia/pi/parnaiba/paroquia-nossa-senhora-de-fatima",
+              "title": "BuscaMissa — Paróquia Nossa Senhora de Fátima (Parnaíba/PI), selo \"Confirmado\"; pároco, telefone e e-mail iguais aos da ficha oficial",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "notes": "Zonal Norte I"
+    },
+    {
+      "slug": "santa-ana-parnaiba",
+      "name": "Paróquia Santa Ana",
+      "city": "Parnaíba",
+      "state": "PI",
+      "neighborhood": "Piauí",
+      "address": "Rua Santana, 1415 – Bairro Piauí",
+      "zipCode": "64208-500",
+      "phone": "(86) 99562-7746",
+      "email": "santaanaparnaiba@gmail.com",
+      "website": null,
+      "priestName": "Pe. Gleison Meneses Tibúrcio",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia-santa-ana/",
+          "title": "Paróquia Santa Ana — Diocese de Parnaíba (ficha oficial, atualizada em 18/07/2026; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia/",
+          "title": "Paróquias (por zonal) — Diocese de Parnaíba (página atualizada em 12/02/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/2026/02/23/paroquia-de-santa-ana-celebra-posse-canonica-de-novos-pastores/",
+          "title": "Paróquia de Santa Ana celebra posse canônica de novos pastores (23/02/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://minhareceita.org/06550586002600",
+          "title": "Receita Federal (minhareceita.org) — CNPJ 06550586002600, filial 0026 da Diocese de Parnaíba: PAROQUIA DE SANTA ANA, PARNAIBA",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5338-paroquia-santa-ana/",
+          "title": "Lírio Católico — Paróquia Santa Ana (Parnaíba/PI), base regenerada em 2026-09-02",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Santa Ana",
+          "address": "Rua Santana, 1415 – Bairro Piauí",
+          "neighborhood": "Piauí",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedeparnaiba.org.br/paroquia-santa-ana/",
+              "title": "Paróquia Santa Ana — Diocese de Parnaíba (ficha oficial, atualizada em 18/07/2026; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nossa Senhora Desatadora dos Nós",
+          "address": "R. São Miguel Arcânjo, 475",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/13903-comunidade-nossa-senhora-desatadora-dos-nos/",
+              "title": "Lírio Católico — Comunidade Nossa Senhora Desatadora dos Nós (Parnaíba/PI), base regenerada em 2026-09-02",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa",
+          "notes": "Vínculo com a paróquia inferido do agregador: a ficha do agregador diz \"Paróquia de Santa Ana\"."
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Santa Ana",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5338-paroquia-santa-ana/",
+              "title": "Lírio Católico — Paróquia Santa Ana (Parnaíba/PI), base regenerada em 2026-09-02",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Santa Ana",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5338-paroquia-santa-ana/",
+              "title": "Lírio Católico — Paróquia Santa Ana (Parnaíba/PI), base regenerada em 2026-09-02",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Santa Ana",
+          "dayOfWeek": 2,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5338-paroquia-santa-ana/",
+              "title": "Lírio Católico — Paróquia Santa Ana (Parnaíba/PI), base regenerada em 2026-09-02",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Santa Ana",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5338-paroquia-santa-ana/",
+              "title": "Lírio Católico — Paróquia Santa Ana (Parnaíba/PI), base regenerada em 2026-09-02",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Santa Ana",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5338-paroquia-santa-ana/",
+              "title": "Lírio Católico — Paróquia Santa Ana (Parnaíba/PI), base regenerada em 2026-09-02",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Santa Ana",
+          "dayOfWeek": 4,
+          "time": "18:00",
+          "type": "ADORATION",
+          "notes": "até 19:00",
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5338-paroquia-santa-ana/",
+              "title": "Lírio Católico — Paróquia Santa Ana (Parnaíba/PI), base regenerada em 2026-09-02",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Santa Ana",
+          "dayOfWeek": 2,
+          "time": "18:00",
+          "type": "CONFESSION",
+          "notes": "até 18:30",
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5338-paroquia-santa-ana/",
+              "title": "Lírio Católico — Paróquia Santa Ana (Parnaíba/PI), base regenerada em 2026-09-02",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Santa Ana",
+          "dayOfWeek": 4,
+          "time": "18:00",
+          "type": "CONFESSION",
+          "notes": "até 18:30",
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5338-paroquia-santa-ana/",
+              "title": "Lírio Católico — Paróquia Santa Ana (Parnaíba/PI), base regenerada em 2026-09-02",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Santa Ana",
+          "dayOfWeek": 5,
+          "time": "18:00",
+          "type": "CONFESSION",
+          "notes": "até 18:30",
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5338-paroquia-santa-ana/",
+              "title": "Lírio Católico — Paróquia Santa Ana (Parnaíba/PI), base regenerada em 2026-09-02",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Nossa Senhora Desatadora dos Nós",
+          "dayOfWeek": 0,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/13903-comunidade-nossa-senhora-desatadora-dos-nos/",
+              "title": "Lírio Católico — Comunidade Nossa Senhora Desatadora dos Nós (Parnaíba/PI), base regenerada em 2026-09-02",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ],
+      "notes": "Zonal Norte I"
+    },
+    {
+      "slug": "sao-sebastiao-parnaiba",
+      "name": "Paróquia São Sebastião",
+      "city": "Parnaíba",
+      "state": "PI",
+      "neighborhood": "Campos",
+      "address": "Av. São Sebastião, 818 – Bairro Campos",
+      "zipCode": "64215-020",
+      "phone": "(86) 3322-1366",
+      "email": "paroquiaparnaiba@gmail.com",
+      "website": null,
+      "priestName": "Pe. Frei João Batista da Silva, OFM Cap",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia-sao-sebastiao/",
+          "title": "Paróquia São Sebastião — Diocese de Parnaíba (ficha oficial, atualizada em 11/06/2025; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia/",
+          "title": "Paróquias (por zonal) — Diocese de Parnaíba (página atualizada em 12/02/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://minhareceita.org/06550586000659",
+          "title": "Receita Federal (minhareceita.org) — CNPJ 06550586000659, filial 0006 da Diocese de Parnaíba: PAROQUIA DE S SEBASTIAO, PARNAIBA",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5334-igreja-de-sao-sebastiao/",
+          "title": "Lírio Católico — Igreja de São Sebastião (Parnaíba/PI), base regenerada em 2026-09-02",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/igreja.php?k=sabxL",
+          "title": "Horário de Missa — Paróquia São Sebastião (ficha atualizada em 23/04/2013)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Sebastião",
+          "address": "Av. São Sebastião, 818 – Bairro Campos",
+          "neighborhood": "Campos",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedeparnaiba.org.br/paroquia-sao-sebastiao/",
+              "title": "Paróquia São Sebastião — Diocese de Parnaíba (ficha oficial, atualizada em 11/06/2025; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5334-igreja-de-sao-sebastiao/",
+              "title": "Lírio Católico — Igreja de São Sebastião (Parnaíba/PI), base regenerada em 2026-09-02",
+              "accessedAt": "2026-09-17"
+            },
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=sabxL",
+              "title": "Horário de Missa — Paróquia São Sebastião (ficha atualizada em 23/04/2013)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa",
+          "confidenceNote": "Rebaixado na revisão de 2026-09-17: a única corroboração do agregador é texto anterior a 2020 (regra pré-pandemia do README)."
+        },
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 0,
+          "time": "15:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5334-igreja-de-sao-sebastiao/",
+              "title": "Lírio Católico — Igreja de São Sebastião (Parnaíba/PI), base regenerada em 2026-09-02",
+              "accessedAt": "2026-09-17"
+            },
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=sabxL",
+              "title": "Horário de Missa — Paróquia São Sebastião (ficha atualizada em 23/04/2013)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa",
+          "confidenceNote": "Rebaixado na revisão de 2026-09-17: a única corroboração do agregador é texto anterior a 2020 (regra pré-pandemia do README)."
+        },
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 0,
+          "time": "17:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5334-igreja-de-sao-sebastiao/",
+              "title": "Lírio Católico — Igreja de São Sebastião (Parnaíba/PI), base regenerada em 2026-09-02",
+              "accessedAt": "2026-09-17"
+            },
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=sabxL",
+              "title": "Horário de Missa — Paróquia São Sebastião (ficha atualizada em 23/04/2013)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa",
+          "confidenceNote": "Rebaixado na revisão de 2026-09-17: a única corroboração do agregador é texto anterior a 2020 (regra pré-pandemia do README)."
+        },
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 1,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5334-igreja-de-sao-sebastiao/",
+              "title": "Lírio Católico — Igreja de São Sebastião (Parnaíba/PI), base regenerada em 2026-09-02",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 1,
+          "time": "17:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5334-igreja-de-sao-sebastiao/",
+              "title": "Lírio Católico — Igreja de São Sebastião (Parnaíba/PI), base regenerada em 2026-09-02",
+              "accessedAt": "2026-09-17"
+            },
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=sabxL",
+              "title": "Horário de Missa — Paróquia São Sebastião (ficha atualizada em 23/04/2013)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa",
+          "confidenceNote": "Rebaixado na revisão de 2026-09-17: a única corroboração do agregador é texto anterior a 2020 (regra pré-pandemia do README)."
+        },
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 2,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5334-igreja-de-sao-sebastiao/",
+              "title": "Lírio Católico — Igreja de São Sebastião (Parnaíba/PI), base regenerada em 2026-09-02",
+              "accessedAt": "2026-09-17"
+            },
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=sabxL",
+              "title": "Horário de Missa — Paróquia São Sebastião (ficha atualizada em 23/04/2013)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa",
+          "confidenceNote": "Rebaixado na revisão de 2026-09-17: a única corroboração do agregador é texto anterior a 2020 (regra pré-pandemia do README)."
+        },
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 2,
+          "time": "17:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5334-igreja-de-sao-sebastiao/",
+              "title": "Lírio Católico — Igreja de São Sebastião (Parnaíba/PI), base regenerada em 2026-09-02",
+              "accessedAt": "2026-09-17"
+            },
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=sabxL",
+              "title": "Horário de Missa — Paróquia São Sebastião (ficha atualizada em 23/04/2013)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa",
+          "confidenceNote": "Rebaixado na revisão de 2026-09-17: a única corroboração do agregador é texto anterior a 2020 (regra pré-pandemia do README)."
+        },
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 3,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5334-igreja-de-sao-sebastiao/",
+              "title": "Lírio Católico — Igreja de São Sebastião (Parnaíba/PI), base regenerada em 2026-09-02",
+              "accessedAt": "2026-09-17"
+            },
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=sabxL",
+              "title": "Horário de Missa — Paróquia São Sebastião (ficha atualizada em 23/04/2013)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa",
+          "confidenceNote": "Rebaixado na revisão de 2026-09-17: a única corroboração do agregador é texto anterior a 2020 (regra pré-pandemia do README)."
+        },
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 3,
+          "time": "17:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5334-igreja-de-sao-sebastiao/",
+              "title": "Lírio Católico — Igreja de São Sebastião (Parnaíba/PI), base regenerada em 2026-09-02",
+              "accessedAt": "2026-09-17"
+            },
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=sabxL",
+              "title": "Horário de Missa — Paróquia São Sebastião (ficha atualizada em 23/04/2013)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa",
+          "confidenceNote": "Rebaixado na revisão de 2026-09-17: a única corroboração do agregador é texto anterior a 2020 (regra pré-pandemia do README)."
+        },
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 4,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5334-igreja-de-sao-sebastiao/",
+              "title": "Lírio Católico — Igreja de São Sebastião (Parnaíba/PI), base regenerada em 2026-09-02",
+              "accessedAt": "2026-09-17"
+            },
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=sabxL",
+              "title": "Horário de Missa — Paróquia São Sebastião (ficha atualizada em 23/04/2013)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa",
+          "confidenceNote": "Rebaixado na revisão de 2026-09-17: a única corroboração do agregador é texto anterior a 2020 (regra pré-pandemia do README)."
+        },
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 4,
+          "time": "17:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5334-igreja-de-sao-sebastiao/",
+              "title": "Lírio Católico — Igreja de São Sebastião (Parnaíba/PI), base regenerada em 2026-09-02",
+              "accessedAt": "2026-09-17"
+            },
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=sabxL",
+              "title": "Horário de Missa — Paróquia São Sebastião (ficha atualizada em 23/04/2013)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa",
+          "confidenceNote": "Rebaixado na revisão de 2026-09-17: a única corroboração do agregador é texto anterior a 2020 (regra pré-pandemia do README)."
+        },
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 5,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5334-igreja-de-sao-sebastiao/",
+              "title": "Lírio Católico — Igreja de São Sebastião (Parnaíba/PI), base regenerada em 2026-09-02",
+              "accessedAt": "2026-09-17"
+            },
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=sabxL",
+              "title": "Horário de Missa — Paróquia São Sebastião (ficha atualizada em 23/04/2013)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa",
+          "confidenceNote": "Rebaixado na revisão de 2026-09-17: a única corroboração do agregador é texto anterior a 2020 (regra pré-pandemia do README)."
+        },
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 5,
+          "time": "17:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5334-igreja-de-sao-sebastiao/",
+              "title": "Lírio Católico — Igreja de São Sebastião (Parnaíba/PI), base regenerada em 2026-09-02",
+              "accessedAt": "2026-09-17"
+            },
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=sabxL",
+              "title": "Horário de Missa — Paróquia São Sebastião (ficha atualizada em 23/04/2013)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa",
+          "confidenceNote": "Rebaixado na revisão de 2026-09-17: a única corroboração do agregador é texto anterior a 2020 (regra pré-pandemia do README)."
+        },
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 6,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5334-igreja-de-sao-sebastiao/",
+              "title": "Lírio Católico — Igreja de São Sebastião (Parnaíba/PI), base regenerada em 2026-09-02",
+              "accessedAt": "2026-09-17"
+            },
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=sabxL",
+              "title": "Horário de Missa — Paróquia São Sebastião (ficha atualizada em 23/04/2013)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa",
+          "confidenceNote": "Rebaixado na revisão de 2026-09-17: a única corroboração do agregador é texto anterior a 2020 (regra pré-pandemia do README)."
+        },
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 6,
+          "time": "17:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5334-igreja-de-sao-sebastiao/",
+              "title": "Lírio Católico — Igreja de São Sebastião (Parnaíba/PI), base regenerada em 2026-09-02",
+              "accessedAt": "2026-09-17"
+            },
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=sabxL",
+              "title": "Horário de Missa — Paróquia São Sebastião (ficha atualizada em 23/04/2013)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa",
+          "confidenceNote": "Rebaixado na revisão de 2026-09-17: a única corroboração do agregador é texto anterior a 2020 (regra pré-pandemia do README)."
+        }
+      ],
+      "notes": "Zonal Norte I"
+    },
+    {
+      "slug": "sagrado-coracao-de-jesus-parnaiba",
+      "name": "Paróquia Sagrado Coração de Jesus",
+      "city": "Parnaíba",
+      "state": "PI",
+      "neighborhood": "Reis Veloso",
+      "address": "Rua Ramiro Santos, 95 – Bairro Reis Veloso",
+      "zipCode": "64202-240",
+      "phone": "(86) 98155-5701",
+      "email": "psagradocoracaodejesusphb@gmail.com",
+      "website": null,
+      "priestName": "Pe. Ezio Rodrigues de Sousa",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia-sagrado-coracao-de-jesus-parnaiba/",
+          "title": "Paróquia Sagrado Coração de Jesus – Parnaíba — Diocese de Parnaíba (ficha oficial, atualizada em 29/05/2025; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia/",
+          "title": "Paróquias (por zonal) — Diocese de Parnaíba (página atualizada em 12/02/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://minhareceita.org/06550586002007",
+          "title": "Receita Federal (minhareceita.org) — CNPJ 06550586002007, filial 0020 da Diocese de Parnaíba: PAROQUIA DO SAGRADO CORACAO DE JESUS, PARNAIBA",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5339-igreja-sagrado-coracao-de-jesus/",
+          "title": "Lírio Católico — Igreja Sagrado Coração de Jesus (Parnaíba/PI), base regenerada em 2026-09-02",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Sagrado Coração de Jesus",
+          "address": "Rua Ramiro Santos, 95 – Bairro Reis Veloso",
+          "neighborhood": "Reis Veloso",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedeparnaiba.org.br/paroquia-sagrado-coracao-de-jesus-parnaiba/",
+              "title": "Paróquia Sagrado Coração de Jesus – Parnaíba — Diocese de Parnaíba (ficha oficial, atualizada em 29/05/2025; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Sagrado Coração de Jesus",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5339-igreja-sagrado-coracao-de-jesus/",
+              "title": "Lírio Católico — Igreja Sagrado Coração de Jesus (Parnaíba/PI), base regenerada em 2026-09-02",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Sagrado Coração de Jesus",
+          "dayOfWeek": 0,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5339-igreja-sagrado-coracao-de-jesus/",
+              "title": "Lírio Católico — Igreja Sagrado Coração de Jesus (Parnaíba/PI), base regenerada em 2026-09-02",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Sagrado Coração de Jesus",
+          "dayOfWeek": 2,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5339-igreja-sagrado-coracao-de-jesus/",
+              "title": "Lírio Católico — Igreja Sagrado Coração de Jesus (Parnaíba/PI), base regenerada em 2026-09-02",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Sagrado Coração de Jesus",
+          "dayOfWeek": 3,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5339-igreja-sagrado-coracao-de-jesus/",
+              "title": "Lírio Católico — Igreja Sagrado Coração de Jesus (Parnaíba/PI), base regenerada em 2026-09-02",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Sagrado Coração de Jesus",
+          "dayOfWeek": 4,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5339-igreja-sagrado-coracao-de-jesus/",
+              "title": "Lírio Católico — Igreja Sagrado Coração de Jesus (Parnaíba/PI), base regenerada em 2026-09-02",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Sagrado Coração de Jesus",
+          "dayOfWeek": 5,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5339-igreja-sagrado-coracao-de-jesus/",
+              "title": "Lírio Católico — Igreja Sagrado Coração de Jesus (Parnaíba/PI), base regenerada em 2026-09-02",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Sagrado Coração de Jesus",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "ADORATION",
+          "notes": "até 20:00",
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5339-igreja-sagrado-coracao-de-jesus/",
+              "title": "Lírio Católico — Igreja Sagrado Coração de Jesus (Parnaíba/PI), base regenerada em 2026-09-02",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ],
+      "notes": "Zonal Norte I"
+    },
+    {
+      "slug": "nossa-senhora-da-conceicao-ilha-grande",
+      "name": "Paróquia Nossa Senhora da Conceição",
+      "city": "Ilha Grande",
+      "state": "PI",
+      "neighborhood": "Centro",
+      "address": "Av. Martins Ribeiro, 314",
+      "zipCode": "64224-000",
+      "phone": "(86) 99437-2571",
+      "email": "paroquiailha85@gmail.com",
+      "website": null,
+      "priestName": "Pe. Eduardo de Oliveira Furtado",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia-nossa-senhora-da-conceicao-ilha-grande/",
+          "title": "Paróquia Nossa Senhora da Conceição – Ilha Grande — Diocese de Parnaíba (ficha oficial, atualizada em 09/06/2025; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia/",
+          "title": "Paróquias (por zonal) — Diocese de Parnaíba (página atualizada em 12/02/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://minhareceita.org/06550586001892",
+          "title": "Receita Federal (minhareceita.org) — CNPJ 06550586001892, filial 0018 da Diocese de Parnaíba: PAROQUIA DE NOSSA SENHORA DA CONCEICAO, ILHA GRANDE",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/igreja.php?k=ORArQ",
+          "title": "Horário de Missa — Paróquia Nossa Senhora da Conceição (Ilha Grande) (ficha atualizada em 11/03/2013)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora da Conceição",
+          "address": "Av. Martins Ribeiro, 314",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedeparnaiba.org.br/paroquia-nossa-senhora-da-conceicao-ilha-grande/",
+              "title": "Paróquia Nossa Senhora da Conceição – Ilha Grande — Diocese de Parnaíba (ficha oficial, atualizada em 09/06/2025; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=ORArQ",
+              "title": "Horário de Missa — Paróquia Nossa Senhora da Conceição (Ilha Grande) (ficha atualizada em 11/03/2013)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=ORArQ",
+              "title": "Horário de Missa — Paróquia Nossa Senhora da Conceição (Ilha Grande) (ficha atualizada em 11/03/2013)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 6,
+          "time": "08:30",
+          "type": "MASS",
+          "notes": "no Santuário Mãe dos Pobres",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=ORArQ",
+              "title": "Horário de Missa — Paróquia Nossa Senhora da Conceição (Ilha Grande) (ficha atualizada em 11/03/2013)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ],
+      "notes": "Zonal Norte I"
+    },
+    {
+      "slug": "mae-dos-pobres-e-senhora-do-piaui-centro-ilha-grande",
+      "name": "Santuário Mãe dos Pobres e Senhora do Piauí",
+      "city": "Ilha Grande",
+      "state": "PI",
+      "neighborhood": "Centro",
+      "address": "Av. Martins Ribeiro, 314",
+      "zipCode": "64224-000",
+      "phone": "(86) 99437-2571",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Eduardo de Oliveira Furtado",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/santuario-do-mae-dos-pobres-e-senhora-do-piaui/",
+          "title": "Santuário do Mãe dos Pobres e Senhora do Piauí — Diocese de Parnaíba (ficha oficial, atualizada em 13/09/2024; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia/",
+          "title": "Paróquias (por zonal) — Diocese de Parnaíba (página atualizada em 12/02/2026)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [],
+      "notes": "Zonal Norte I — santuário diocesano no mesmo endereço, telefone e sacerdote da Paróquia Nossa Senhora da Conceição de Ilha Grande; a diocese o lista à parte (\"1 santuário\"). Sem território próprio nem horário publicado.",
+      "status": "nao-paroquial"
+    },
+    {
+      "slug": "nossa-senhora-da-conceicao-luis-correia",
+      "name": "Paróquia Nossa Senhora da Conceição",
+      "city": "Luís Correia",
+      "state": "PI",
+      "neighborhood": "Centro",
+      "address": "Rua Jonas Correia, s/n",
+      "zipCode": "64220-000",
+      "phone": "(86) 3367-1207",
+      "email": "paroquia.conceicaobjnavegantes@gmail.com",
+      "website": null,
+      "priestName": "Pe. Edimar Silva de Lima",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia-nossa-senhora-da-conceicao-luis-correia/",
+          "title": "Paróquia Nossa Senhora da Conceição – Luís Correia — Diocese de Parnaíba (ficha oficial, atualizada em 18/12/2025; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia/",
+          "title": "Paróquias (por zonal) — Diocese de Parnaíba (página atualizada em 12/02/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://minhareceita.org/06550586000497",
+          "title": "Receita Federal (minhareceita.org) — CNPJ 06550586000497, filial 0004 da Diocese de Parnaíba: PAROQUIA DE N SRA DA CONCEICAO, LUIS CORREIA",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5311-paroquia-nossa-senhora-da-conceicao/",
+          "title": "Lírio Católico — Paróquia Nossa Senhora da Conceição (Luís Correia/PI), base regenerada em 2026-09-02",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora da Conceição",
+          "address": "Rua Jonas Correia, s/n",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedeparnaiba.org.br/paroquia-nossa-senhora-da-conceicao-luis-correia/",
+              "title": "Paróquia Nossa Senhora da Conceição – Luís Correia — Diocese de Parnaíba (ficha oficial, atualizada em 18/12/2025; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5311-paroquia-nossa-senhora-da-conceicao/",
+              "title": "Lírio Católico — Paróquia Nossa Senhora da Conceição (Luís Correia/PI), base regenerada em 2026-09-02",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5311-paroquia-nossa-senhora-da-conceicao/",
+              "title": "Lírio Católico — Paróquia Nossa Senhora da Conceição (Luís Correia/PI), base regenerada em 2026-09-02",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 3,
+          "time": "17:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5311-paroquia-nossa-senhora-da-conceicao/",
+              "title": "Lírio Católico — Paróquia Nossa Senhora da Conceição (Luís Correia/PI), base regenerada em 2026-09-02",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 6,
+          "time": "12:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5311-paroquia-nossa-senhora-da-conceicao/",
+              "title": "Lírio Católico — Paróquia Nossa Senhora da Conceição (Luís Correia/PI), base regenerada em 2026-09-02",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 4,
+          "time": "18:00",
+          "type": "ADORATION",
+          "notes": "até 19:00",
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5311-paroquia-nossa-senhora-da-conceicao/",
+              "title": "Lírio Católico — Paróquia Nossa Senhora da Conceição (Luís Correia/PI), base regenerada em 2026-09-02",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ],
+      "notes": "Zonal Norte I"
+    },
+    {
+      "slug": "nossa-senhora-da-assuncao-luis-correia",
+      "name": "Paróquia Nossa Senhora da Assunção",
+      "city": "Luís Correia",
+      "state": "PI",
+      "neighborhood": "Camurupim",
+      "address": "Praça Nossa Senhora da Assunção, s/n – Camurupim",
+      "zipCode": "64220-000",
+      "phone": "(86) 3367-9017",
+      "email": "paroquia_assuncao@outlook.com",
+      "website": null,
+      "priestName": "Pe. Antônio Brasilino Filho",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia-nossa-senhora-da-assuncao/",
+          "title": "Paróquia Nossa Senhora da Assunção — Diocese de Parnaíba (ficha oficial, atualizada em 11/06/2025; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia/",
+          "title": "Paróquias (por zonal) — Diocese de Parnaíba (página atualizada em 12/02/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://minhareceita.org/06550586002945",
+          "title": "Receita Federal (minhareceita.org) — CNPJ 06550586002945, filial 0029 da Diocese de Parnaíba: PAROQUIA DE NOSSA SENHORA DA ASSUNCAO, LUIS CORREIA",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora da Assunção",
+          "address": "Praça Nossa Senhora da Assunção, s/n – Camurupim",
+          "neighborhood": "Camurupim",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedeparnaiba.org.br/paroquia-nossa-senhora-da-assuncao/",
+              "title": "Paróquia Nossa Senhora da Assunção — Diocese de Parnaíba (ficha oficial, atualizada em 11/06/2025; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [],
+      "notes": "Zonal Norte I — sede no povoado Camurupim, município de Luís Correia. A ficha oficial dá CEP 64.210-000; a Receita Federal dá 64220-000 (CEP de Luís Correia), adotado aqui."
+    },
+    {
+      "slug": "santo-antonio-de-santana-galvao-parnaiba",
+      "name": "Paróquia Santo Antônio de Santana Galvão",
+      "city": "Parnaíba",
+      "state": "PI",
+      "neighborhood": "São Vicente de Paula",
+      "address": "Av. Luis Carlos Mavignier, 347, Conj. Joaz Sousa – São Vicente de Paula",
+      "zipCode": "64216-650",
+      "phone": "(86) 98809-6974",
+      "email": "paroquiafreigalvaophb@gmail.com",
+      "website": null,
+      "priestName": "Pe. Tarcísio Pereira dos Santos Júnior",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia-santo-antonio-de-santana-galvao/",
+          "title": "Paróquia Santo Antonio de Santana Galvão — Diocese de Parnaíba (ficha oficial, atualizada em 06/06/2025; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia/",
+          "title": "Paróquias (por zonal) — Diocese de Parnaíba (página atualizada em 12/02/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://minhareceita.org/06550586002864",
+          "title": "Receita Federal (minhareceita.org) — CNPJ 06550586002864, filial 0028 da Diocese de Parnaíba: SANTO ANTONIO DE SANTANA GALVAO, PARNAIBA",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Santo Antônio de Santana Galvão",
+          "address": "Av. Luis Carlos Mavignier, 347, Conj. Joaz Sousa – São Vicente de Paula",
+          "neighborhood": "São Vicente de Paula",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedeparnaiba.org.br/paroquia-santo-antonio-de-santana-galvao/",
+              "title": "Paróquia Santo Antonio de Santana Galvão — Diocese de Parnaíba (ficha oficial, atualizada em 06/06/2025; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [],
+      "notes": "Zonal Norte I"
+    },
+    {
+      "slug": "santa-luzia-parnaiba",
+      "name": "Paróquia Santa Luzia",
+      "city": "Parnaíba",
+      "state": "PI",
+      "neighborhood": "Nossa Senhora do Montserrat",
+      "address": "Rua Olinda Bernardo Sena, 900 – Bairro Nossa Senhora do Montserrat",
+      "zipCode": "64207-615",
+      "phone": "(86) 3323-5500 / (86) 99425-8667",
+      "email": "paroquiasantaluziaphb@yahoo.com.br",
+      "website": null,
+      "priestName": "Pe. Franciermerson do Nascimento Araújo",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia-santa-luzia/",
+          "title": "Paróquia Santa Luzia — Diocese de Parnaíba (ficha oficial, atualizada em 18/12/2025; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia/",
+          "title": "Paróquias (por zonal) — Diocese de Parnaíba (página atualizada em 12/02/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://minhareceita.org/06550586002783",
+          "title": "Receita Federal (minhareceita.org) — CNPJ 06550586002783, filial 0027 da Diocese de Parnaíba: PAROQUIA DE SANTA LUZIA, PARNAIBA",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Santa Luzia",
+          "address": "Rua Olinda Bernardo Sena, 900 – Bairro Nossa Senhora do Montserrat",
+          "neighborhood": "Nossa Senhora do Montserrat",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedeparnaiba.org.br/paroquia-santa-luzia/",
+              "title": "Paróquia Santa Luzia — Diocese de Parnaíba (ficha oficial, atualizada em 18/12/2025; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [],
+      "notes": "Zonal Norte I"
+    },
+    {
+      "slug": "sao-joao-xxiii-parnaiba",
+      "name": "Paróquia São João XXIII",
+      "city": "Parnaíba",
+      "state": "PI",
+      "neighborhood": "São João XXIII",
+      "address": "Rua Bernardo Cavour Moreira Caldas, 1323 – Bairro São João XXIII",
+      "zipCode": "64205-504",
+      "phone": "(86) 99475-7587",
+      "email": "psaojoaoxxiii@gmail.com",
+      "website": null,
+      "priestName": "Pe. José Jarbas de Mesquita Sousa",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia-sao-joao-xxiii/",
+          "title": "Paróquia São João XXIII — Diocese de Parnaíba (ficha oficial, atualizada em 11/06/2025; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia/",
+          "title": "Paróquias (por zonal) — Diocese de Parnaíba (página atualizada em 12/02/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://minhareceita.org/06550586003089",
+          "title": "Receita Federal (minhareceita.org) — CNPJ 06550586003089, filial 0030 da Diocese de Parnaíba: PAROQUIA SAO JOAO XXIII, PARNAIBA",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São João XXIII",
+          "address": "Rua Bernardo Cavour Moreira Caldas, 1323 – Bairro São João XXIII",
+          "neighborhood": "São João XXIII",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedeparnaiba.org.br/paroquia-sao-joao-xxiii/",
+              "title": "Paróquia São João XXIII — Diocese de Parnaíba (ficha oficial, atualizada em 11/06/2025; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [],
+      "notes": "Zonal Norte I"
+    },
+    {
+      "slug": "sagrado-coracao-de-jesus-cajueiro-da-praia",
+      "name": "Paróquia Sagrado Coração de Jesus",
+      "city": "Cajueiro da Praia",
+      "state": "PI",
+      "neighborhood": null,
+      "address": "Av. Hermínio Caetano, 82",
+      "zipCode": null,
+      "phone": "(86) 99865-1722",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Francisco Café da Silva",
+      "foundedYear": 2026,
+      "sources": [
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/area-pastoral-sagrado-coracao-de-jesus-cajueiro-da-praia-pi/",
+          "title": "Paróquia Sagrado Coração de Jesus – Cajueiro da Praia – PI — Diocese de Parnaíba (ficha oficial, atualizada em 12/02/2026; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia/",
+          "title": "Paróquias (por zonal) — Diocese de Parnaíba (página atualizada em 12/02/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/2026/02/12/diocese-de-parnaiba-eleva-area-pastoral-sagrado-coracao-de-jesus-a-paroquia-em-cajueiro-da-praia/",
+          "title": "Diocese de Parnaíba eleva Área Pastoral Sagrado Coração de Jesus à Paróquia em Cajueiro da Praia (decreto de 11/02/2026)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Sagrado Coração de Jesus",
+          "address": "Av. Hermínio Caetano, 82",
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedeparnaiba.org.br/area-pastoral-sagrado-coracao-de-jesus-cajueiro-da-praia-pi/",
+              "title": "Paróquia Sagrado Coração de Jesus – Cajueiro da Praia – PI — Diocese de Parnaíba (ficha oficial, atualizada em 12/02/2026; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [],
+      "notes": "Zonal Norte I — elevada de Área Pastoral a paróquia em 11/02/2026. A ficha oficial repete o CEP da Paróquia São João XXIII (bloco copiado): CEP anulado. O telefone é o mesmo publicado para a Área Pastoral Santa Isabel."
+    },
+    {
+      "slug": "santa-isabel-parnaiba",
+      "name": "Área Pastoral Santa Isabel",
+      "city": "Parnaíba",
+      "state": "PI",
+      "neighborhood": null,
+      "address": "Rua Santa Isabel, 165",
+      "zipCode": "64201-470",
+      "phone": null,
+      "email": "igrejamatrizsantaisabel@gmail.com",
+      "website": null,
+      "priestName": "Pe. Edcarlos",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/area-pastoral-santa-isabel-parnaiba-pi/",
+          "title": "Área Pastoral Santa Isabel – Parnaíba – PI — Diocese de Parnaíba (ficha oficial, atualizada em 27/05/2025; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia/",
+          "title": "Paróquias (por zonal) — Diocese de Parnaíba (página atualizada em 12/02/2026)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Santa Isabel",
+          "address": "Rua Santa Isabel, 165",
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedeparnaiba.org.br/area-pastoral-santa-isabel-parnaiba-pi/",
+              "title": "Área Pastoral Santa Isabel – Parnaíba – PI — Diocese de Parnaíba (ficha oficial, atualizada em 27/05/2025; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [],
+      "notes": "Zonal Norte I — única Área Pastoral remanescente. A ficha traz o mesmo telefone da Paróquia de Cajueiro da Praia ((86) 99865-1722), de onde o bloco parece ter sido copiado: telefone anulado. Responsável publicado só como \"Pe. Edcarlos\"."
+    },
+    {
+      "slug": "nossa-senhora-do-perpetuo-socorro-cocal",
+      "name": "Paróquia Nossa Senhora do Perpétuo Socorro",
+      "city": "Cocal",
+      "state": "PI",
+      "neighborhood": "Centro",
+      "address": "Praça da Matriz, s/n",
+      "zipCode": "64235-000",
+      "phone": "(86) 99807-7231",
+      "email": "paroquiacocal@gmail.com",
+      "website": null,
+      "priestName": "Pe. José Cícero Silva",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia-nossa-senhora-do-perpetuo-socorro-cocal/",
+          "title": "Paróquia Nossa Senhora do Perpétuo Socorro – Cocal — Diocese de Parnaíba (ficha oficial, atualizada em 18/12/2025; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia/",
+          "title": "Paróquias (por zonal) — Diocese de Parnaíba (página atualizada em 12/02/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://minhareceita.org/06550586001469",
+          "title": "Receita Federal (minhareceita.org) — CNPJ 06550586001469, filial 0014 da Diocese de Parnaíba: PAROQUIA DE NOSSA SENHORA DO PERPETUO SOCORRO, COCAL",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/igreja.php?k=d4fgU",
+          "title": "Horário de Missa — Paróquia Nossa Senhora do Perpétuo Socorro (Cocal) (ficha atualizada em 11/03/2013)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora do Perpétuo Socorro",
+          "address": "Praça da Matriz, s/n",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedeparnaiba.org.br/paroquia-nossa-senhora-do-perpetuo-socorro-cocal/",
+              "title": "Paróquia Nossa Senhora do Perpétuo Socorro – Cocal — Diocese de Parnaíba (ficha oficial, atualizada em 18/12/2025; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 0,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=d4fgU",
+              "title": "Horário de Missa — Paróquia Nossa Senhora do Perpétuo Socorro (Cocal) (ficha atualizada em 11/03/2013)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ],
+      "notes": "Zonal Norte II"
+    },
+    {
+      "slug": "nossa-senhora-dos-remedios-buriti-dos-lopes",
+      "name": "Paróquia Nossa Senhora dos Remédios",
+      "city": "Buriti dos Lopes",
+      "state": "PI",
+      "neighborhood": "Centro",
+      "address": "Rua Euclides de Miranda, 364",
+      "zipCode": "64230-000",
+      "phone": "(86) 99522-2963 / (86) 3363-1356",
+      "email": "remediosburiti@gmail.com",
+      "website": null,
+      "priestName": "Pe. Jurandir da Silva Rodrigues",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia-nossa-senhora-dos-remedios-buriti-dos-lopes/",
+          "title": "Paróquia Nossa Senhora dos Remédios – Buriti dos Lopes — Diocese de Parnaíba (ficha oficial, atualizada em 11/06/2025; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia/",
+          "title": "Paróquias (por zonal) — Diocese de Parnaíba (página atualizada em 12/02/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://minhareceita.org/06550586000810",
+          "title": "Receita Federal (minhareceita.org) — CNPJ 06550586000810, filial 0008 da Diocese de Parnaíba: PAROQUIA DE N SRA DOS REMEDIOS, BURITI DOS LOPES",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora dos Remédios",
+          "address": "Rua Euclides de Miranda, 364",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedeparnaiba.org.br/paroquia-nossa-senhora-dos-remedios-buriti-dos-lopes/",
+              "title": "Paróquia Nossa Senhora dos Remédios – Buriti dos Lopes — Diocese de Parnaíba (ficha oficial, atualizada em 11/06/2025; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade de Santa Luzia",
+          "address": "R. Miguel Seixas, 388",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/13875-comunidade-de-santa-luzia/",
+              "title": "Lírio Católico — Comunidade de Santa Luzia (Buriti dos Lopes/PI), base regenerada em 2026-09-02",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa",
+          "notes": "Vínculo com a paróquia inferido do agregador: única paróquia do município de Buriti dos Lopes."
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Comunidade de Santa Luzia",
+          "dayOfWeek": 6,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/13875-comunidade-de-santa-luzia/",
+              "title": "Lírio Católico — Comunidade de Santa Luzia (Buriti dos Lopes/PI), base regenerada em 2026-09-02",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ],
+      "notes": "Zonal Norte II"
+    },
+    {
+      "slug": "nossa-senhora-do-perpetuo-socorro-bom-principio-do-piaui",
+      "name": "Paróquia Nossa Senhora do Perpétuo Socorro",
+      "city": "Bom Princípio do Piauí",
+      "state": "PI",
+      "neighborhood": "Centro",
+      "address": "Av. Teresinha de Jesus Marques Rabelo, 400",
+      "zipCode": "64225-000",
+      "phone": "(86) 98150-1941",
+      "email": "pnsps7314@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Juvenal Antônio da Silva",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia-nossa-senhora-do-perpetuo-socorro-bom-principio/",
+          "title": "Paróquia Nossa Senhora do Perpétuo Socorro – Bom Princípio do Piauí — Diocese de Parnaíba (ficha oficial, atualizada em 27/05/2025; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia/",
+          "title": "Paróquias (por zonal) — Diocese de Parnaíba (página atualizada em 12/02/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://minhareceita.org/06550586001973",
+          "title": "Receita Federal (minhareceita.org) — CNPJ 06550586001973, filial 0019 da Diocese de Parnaíba: PAROQUIA NOSSA SENHORA DO PERPETUO SOCORRO, BOM PRINCIPIO DO PIAUI",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora do Perpétuo Socorro",
+          "address": "Av. Teresinha de Jesus Marques Rabelo, 400",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedeparnaiba.org.br/paroquia-nossa-senhora-do-perpetuo-socorro-bom-principio/",
+              "title": "Paróquia Nossa Senhora do Perpétuo Socorro – Bom Princípio do Piauí — Diocese de Parnaíba (ficha oficial, atualizada em 27/05/2025; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [],
+      "notes": "Zonal Norte II"
+    },
+    {
+      "slug": "sao-joao-batista-cocal-dos-alves",
+      "name": "Paróquia São João Batista",
+      "city": "Cocal dos Alves",
+      "state": "PI",
+      "neighborhood": "Centro",
+      "address": "Av. Manoel Domingos, s/n",
+      "zipCode": "64238-000",
+      "phone": "(86) 98165-6737",
+      "email": "paroquiasjb.cda@gmail.com",
+      "website": null,
+      "priestName": "Pe. José Carvalho de Siqueira",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia-sao-joao-batista-cocal-dos-alves/",
+          "title": "Paróquia São João Batista – Cocal dos Alves — Diocese de Parnaíba (ficha oficial, atualizada em 11/06/2025; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia/",
+          "title": "Paróquias (por zonal) — Diocese de Parnaíba (página atualizada em 12/02/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://minhareceita.org/06550586004131",
+          "title": "Receita Federal (minhareceita.org) — CNPJ 06550586004131, filial 0041 da Diocese de Parnaíba: PAROQUIA SAO JOAO BATISTA, COCAL DOS ALVES",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São João Batista",
+          "address": "Av. Manoel Domingos, s/n",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedeparnaiba.org.br/paroquia-sao-joao-batista-cocal-dos-alves/",
+              "title": "Paróquia São João Batista – Cocal dos Alves — Diocese de Parnaíba (ficha oficial, atualizada em 11/06/2025; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [],
+      "notes": "Zonal Norte II"
+    },
+    {
+      "slug": "nossa-senhora-da-conceicao-caxingo",
+      "name": "Paróquia Nossa Senhora da Conceição",
+      "city": "Caxingó",
+      "state": "PI",
+      "neighborhood": "Centro",
+      "address": "Rua João Santos, 190 – Centro",
+      "zipCode": "64228-000",
+      "phone": "(86) 3332-0028 / (86) 98101-5008",
+      "email": "areapastoralcaxingo@gmail.com",
+      "website": null,
+      "priestName": "Pe. Francisco José do Nascimento Gomes",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia-nossa-senhora-da-conceicao-caxingo/",
+          "title": "Paróquia Nossa Senhora da Conceição – Caxingó — Diocese de Parnaíba (ficha oficial, atualizada em 11/06/2025; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia/",
+          "title": "Paróquias (por zonal) — Diocese de Parnaíba (página atualizada em 12/02/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://minhareceita.org/06550586003755",
+          "title": "Receita Federal (minhareceita.org) — CNPJ 06550586003755, filial 0037 da Diocese de Parnaíba: PAROQUIA NOSSA SENHORA CONCEICAO, CAXINGO",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora da Conceição",
+          "address": "Rua João Santos, 190 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedeparnaiba.org.br/paroquia-nossa-senhora-da-conceicao-caxingo/",
+              "title": "Paróquia Nossa Senhora da Conceição – Caxingó — Diocese de Parnaíba (ficha oficial, atualizada em 11/06/2025; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [],
+      "notes": "Zonal Norte II"
+    },
+    {
+      "slug": "nossa-senhora-do-rosario-murici-dos-portelas",
+      "name": "Paróquia Nossa Senhora do Rosário",
+      "city": "Murici dos Portelas",
+      "state": "PI",
+      "neighborhood": "Centro",
+      "address": "Av. Lira Portela – Praça da Matriz",
+      "zipCode": "64175-000",
+      "phone": "(86) 98131-2503",
+      "email": "pnsrosario.muricidosportelas@gmail.com",
+      "website": null,
+      "priestName": "Pe. José Iran de Freitas de Araújo",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia-nossa-senhora-do-rosario/",
+          "title": "Paróquia Nossa Senhora do Rosário — Diocese de Parnaíba (ficha oficial, atualizada em 11/06/2025; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia/",
+          "title": "Paróquias (por zonal) — Diocese de Parnaíba (página atualizada em 12/02/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://minhareceita.org/06550586003321",
+          "title": "Receita Federal (minhareceita.org) — CNPJ 06550586003321, filial 0033 da Diocese de Parnaíba: PAROQUIA NOSSA SENHORA DO ROSARIO, MURICI DOS PORTELAS",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora do Rosário",
+          "address": "Av. Lira Portela – Praça da Matriz",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedeparnaiba.org.br/paroquia-nossa-senhora-do-rosario/",
+              "title": "Paróquia Nossa Senhora do Rosário — Diocese de Parnaíba (ficha oficial, atualizada em 11/06/2025; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [],
+      "notes": "Zonal Norte II"
+    },
+    {
+      "slug": "santa-doroteia-joaquim-pires",
+      "name": "Paróquia Santa Dorotéia",
+      "city": "Joaquim Pires",
+      "state": "PI",
+      "neighborhood": "Centro",
+      "address": "Rua Doroteu Sertão, 509",
+      "zipCode": "64170-000",
+      "phone": "(86) 3360-1302",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Osmar Rodrigues de Jesus",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia-santa-doroteia/",
+          "title": "Paróquia Santa Dorotéia — Diocese de Parnaíba (ficha oficial, atualizada em 01/12/2025; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia/",
+          "title": "Paróquias (por zonal) — Diocese de Parnaíba (página atualizada em 12/02/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://minhareceita.org/06550586001540",
+          "title": "Receita Federal (minhareceita.org) — CNPJ 06550586001540, filial 0015 da Diocese de Parnaíba: PAROQUIA DE SANTA DOROTEIA, JOAQUIM PIRES",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/igreja.php?k=KzA9g",
+          "title": "Horário de Missa — Paróquia de Santa Dorotéia (ficha atualizada em 11/03/2013)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Santa Dorotéia",
+          "address": "Rua Doroteu Sertão, 509",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedeparnaiba.org.br/paroquia-santa-doroteia/",
+              "title": "Paróquia Santa Dorotéia — Diocese de Parnaíba (ficha oficial, atualizada em 01/12/2025; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Santa Dorotéia",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=KzA9g",
+              "title": "Horário de Missa — Paróquia de Santa Dorotéia (ficha atualizada em 11/03/2013)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Santa Dorotéia",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=KzA9g",
+              "title": "Horário de Missa — Paróquia de Santa Dorotéia (ficha atualizada em 11/03/2013)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ],
+      "notes": "Zonal Norte II"
+    },
+    {
+      "slug": "nossa-senhora-da-conceicao-pedro-ii",
+      "name": "Paróquia Nossa Senhora da Conceição",
+      "city": "Pedro II",
+      "state": "PI",
+      "neighborhood": "Centro",
+      "address": "Rua Tertuliano Filho, 467 – Centro",
+      "zipCode": "64255-000",
+      "phone": "(86) 3271-1440 / (86) 99429-0630",
+      "email": "pnsc.pnsc@gmail.com",
+      "website": null,
+      "priestName": "Pe. Oscar do Nascimento Almeida",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia-nossa-senhora-da-conceicao-pedro-ii/",
+          "title": "Paróquia Nossa Senhora da Conceição – Pedro II — Diocese de Parnaíba (ficha oficial, atualizada em 11/06/2025; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia/",
+          "title": "Paróquias (por zonal) — Diocese de Parnaíba (página atualizada em 12/02/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://minhareceita.org/06550586000225",
+          "title": "Receita Federal (minhareceita.org) — CNPJ 06550586000225, filial 0002 da Diocese de Parnaíba: PAROQUIA DE PEDRO II, PEDRO II",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5343-igreja-nossa-senhora-da-conceicao/",
+          "title": "Lírio Católico — Igreja Nossa Senhora da Conceição (Pedro II/PI), base regenerada em 2026-09-02",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/igreja.php?k=BwPOH",
+          "title": "Horário de Missa — Paróquia Nossa Senhora da Conceição (ficha atualizada em 11/03/2013)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora da Conceição",
+          "address": "Rua Tertuliano Filho, 467 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedeparnaiba.org.br/paroquia-nossa-senhora-da-conceicao-pedro-ii/",
+              "title": "Paróquia Nossa Senhora da Conceição – Pedro II — Diocese de Parnaíba (ficha oficial, atualizada em 11/06/2025; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5343-igreja-nossa-senhora-da-conceicao/",
+              "title": "Lírio Católico — Igreja Nossa Senhora da Conceição (Pedro II/PI), base regenerada em 2026-09-02",
+              "accessedAt": "2026-09-17"
+            },
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=BwPOH",
+              "title": "Horário de Missa — Paróquia Nossa Senhora da Conceição (ficha atualizada em 11/03/2013)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa",
+          "confidenceNote": "Rebaixado na revisão de 2026-09-17: a única corroboração do agregador é texto anterior a 2020 (regra pré-pandemia do README)."
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 0,
+          "time": "10:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5343-igreja-nossa-senhora-da-conceicao/",
+              "title": "Lírio Católico — Igreja Nossa Senhora da Conceição (Pedro II/PI), base regenerada em 2026-09-02",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5343-igreja-nossa-senhora-da-conceicao/",
+              "title": "Lírio Católico — Igreja Nossa Senhora da Conceição (Pedro II/PI), base regenerada em 2026-09-02",
+              "accessedAt": "2026-09-17"
+            },
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=BwPOH",
+              "title": "Horário de Missa — Paróquia Nossa Senhora da Conceição (ficha atualizada em 11/03/2013)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa",
+          "confidenceNote": "Rebaixado na revisão de 2026-09-17: a única corroboração do agregador é texto anterior a 2020 (regra pré-pandemia do README)."
+        }
+      ],
+      "notes": "Zonal Sul I"
+    },
+    {
+      "slug": "nossa-senhora-do-carmo-piracuruca",
+      "name": "Paróquia Nossa Senhora do Carmo",
+      "city": "Piracuruca",
+      "state": "PI",
+      "neighborhood": "Centro",
+      "address": "Praça Irmãos Dantas, s/n",
+      "zipCode": "64240-000",
+      "phone": "(86) 99913-4693",
+      "email": "paroquiansradocarmo@yahoo.com.br",
+      "website": null,
+      "priestName": "Pe. Antônio Nilson Gomes de Oliveira",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia-nossa-senhora-do-carmo-piracuruca/",
+          "title": "Paróquia Nossa Senhora do Carmo – Piracuruca — Diocese de Parnaíba (ficha oficial, atualizada em 11/06/2025; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia/",
+          "title": "Paróquias (por zonal) — Diocese de Parnaíba (página atualizada em 12/02/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://minhareceita.org/06550586000900",
+          "title": "Receita Federal (minhareceita.org) — CNPJ 06550586000900, filial 0009 da Diocese de Parnaíba: PAROQUIA DE N SRA DO CARMO, PIRACURUCA",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora do Carmo",
+          "address": "Praça Irmãos Dantas, s/n",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedeparnaiba.org.br/paroquia-nossa-senhora-do-carmo-piracuruca/",
+              "title": "Paróquia Nossa Senhora do Carmo – Piracuruca — Diocese de Parnaíba (ficha oficial, atualizada em 11/06/2025; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [],
+      "notes": "Zonal Sul I"
+    },
+    {
+      "slug": "nossa-senhora-do-carmo-domingos-mourao",
+      "name": "Paróquia Nossa Senhora do Carmo",
+      "city": "Domingos Mourão",
+      "state": "PI",
+      "neighborhood": "Centro",
+      "address": "Praça da Matriz, s/n",
+      "zipCode": "64250-000",
+      "phone": "(86) 98104-6859",
+      "email": "paroquianossasenhora2@gmail.com",
+      "website": null,
+      "priestName": "Pe. Jair da Costa Leite",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia-nossa-senhora-do-carmo-domingos-mourao/",
+          "title": "Paróquia Nossa Senhora do Carmo – Domingos Mourão — Diocese de Parnaíba (ficha oficial, atualizada em 27/05/2025; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia/",
+          "title": "Paróquias (por zonal) — Diocese de Parnaíba (página atualizada em 12/02/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://minhareceita.org/06550586001701",
+          "title": "Receita Federal (minhareceita.org) — CNPJ 06550586001701, filial 0017 da Diocese de Parnaíba: CENTRO PARO9QUIAL FREI ESTEVAO, DOMINGOS MOURAO",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora do Carmo",
+          "address": "Praça da Matriz, s/n",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedeparnaiba.org.br/paroquia-nossa-senhora-do-carmo-domingos-mourao/",
+              "title": "Paróquia Nossa Senhora do Carmo – Domingos Mourão — Diocese de Parnaíba (ficha oficial, atualizada em 27/05/2025; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [],
+      "notes": "Zonal Sul I"
+    },
+    {
+      "slug": "nossa-senhora-dos-remedios-piripiri",
+      "name": "Paróquia Nossa Senhora dos Remédios",
+      "city": "Piripiri",
+      "state": "PI",
+      "neighborhood": "Centro",
+      "address": "Av. Tomaz Rebelo, 417 – Centro",
+      "zipCode": "64260-000",
+      "phone": "(86) 99591-7806",
+      "email": "paroquiansdosremedios@hotmail.com",
+      "website": null,
+      "priestName": "Frei Antônio Leandro da Silva",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia-nossa-senhora-dos-remedios-piripiri/",
+          "title": "Paróquia Nossa Senhora dos Remédios – Piripiri — Diocese de Parnaíba (ficha oficial, atualizada em 27/05/2025; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia/",
+          "title": "Paróquias (por zonal) — Diocese de Parnaíba (página atualizada em 12/02/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://minhareceita.org/06550586001388",
+          "title": "Receita Federal (minhareceita.org) — CNPJ 06550586001388, filial 0013 da Diocese de Parnaíba: PAROQUIA DE NOSSA SRA.DOS REMEDIOS, PIRIPIRI",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5351-paroquia-nossa-senhora-dos-remedios/",
+          "title": "Lírio Católico — Paróquia Nossa Senhora dos Remédios (Piripiri/PI), base regenerada em 2026-09-02",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/igreja.php?k=2tecs",
+          "title": "Horário de Missa — Paróquia Nossa Senhora dos Remédios (ficha atualizada em 22/04/2018)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora dos Remédios",
+          "address": "Av. Tomaz Rebelo, 417 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedeparnaiba.org.br/paroquia-nossa-senhora-dos-remedios-piripiri/",
+              "title": "Paróquia Nossa Senhora dos Remédios – Piripiri — Diocese de Parnaíba (ficha oficial, atualizada em 27/05/2025; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora dos Remédios",
+          "dayOfWeek": 0,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5351-paroquia-nossa-senhora-dos-remedios/",
+              "title": "Lírio Católico — Paróquia Nossa Senhora dos Remédios (Piripiri/PI), base regenerada em 2026-09-02",
+              "accessedAt": "2026-09-17"
+            },
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=2tecs",
+              "title": "Horário de Missa — Paróquia Nossa Senhora dos Remédios (ficha atualizada em 22/04/2018)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa",
+          "confidenceNote": "Rebaixado na revisão de 2026-09-17: a única corroboração do agregador é texto anterior a 2020 (regra pré-pandemia do README)."
+        },
+        {
+          "community": "Matriz Nossa Senhora dos Remédios",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5351-paroquia-nossa-senhora-dos-remedios/",
+              "title": "Lírio Católico — Paróquia Nossa Senhora dos Remédios (Piripiri/PI), base regenerada em 2026-09-02",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora dos Remédios",
+          "dayOfWeek": 0,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5351-paroquia-nossa-senhora-dos-remedios/",
+              "title": "Lírio Católico — Paróquia Nossa Senhora dos Remédios (Piripiri/PI), base regenerada em 2026-09-02",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora dos Remédios",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5351-paroquia-nossa-senhora-dos-remedios/",
+              "title": "Lírio Católico — Paróquia Nossa Senhora dos Remédios (Piripiri/PI), base regenerada em 2026-09-02",
+              "accessedAt": "2026-09-17"
+            },
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=2tecs",
+              "title": "Horário de Missa — Paróquia Nossa Senhora dos Remédios (ficha atualizada em 22/04/2018)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa",
+          "confidenceNote": "Rebaixado na revisão de 2026-09-17: a única corroboração do agregador é texto anterior a 2020 (regra pré-pandemia do README)."
+        }
+      ],
+      "notes": "Zonal Sul I"
+    },
+    {
+      "slug": "sao-francisco-de-assis-piracuruca",
+      "name": "Paróquia São Francisco de Assis",
+      "city": "Piracuruca",
+      "state": "PI",
+      "neighborhood": "Esplanada",
+      "address": "Av. Nossa Senhora de Fátima, 432 – Esplanada",
+      "zipCode": "64240-000",
+      "phone": "(86) 99951-8826",
+      "email": "paroquiasaofranciscopca@hotmail.com",
+      "website": null,
+      "priestName": "Pe. João Paulo Leite Rocha",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia-sao-francisco-de-assis-piracuruca/",
+          "title": "Paróquia São Francisco de Assis – Piracuruca — Diocese de Parnaíba (ficha oficial, atualizada em 18/12/2025; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia/",
+          "title": "Paróquias (por zonal) — Diocese de Parnaíba (página atualizada em 12/02/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://minhareceita.org/06550586001620",
+          "title": "Receita Federal (minhareceita.org) — CNPJ 06550586001620, filial 0016 da Diocese de Parnaíba: PAROQUIA SAO FRANCISCO DE ASSIS, PIRACURUCA",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/igreja.php?k=HX9Rw",
+          "title": "Horário de Missa — Paróquia São Francisco de Assis (Piracuruca) (ficha atualizada em 11/03/2013)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Francisco de Assis",
+          "address": "Av. Nossa Senhora de Fátima, 432 – Esplanada",
+          "neighborhood": "Esplanada",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedeparnaiba.org.br/paroquia-sao-francisco-de-assis-piracuruca/",
+              "title": "Paróquia São Francisco de Assis – Piracuruca — Diocese de Parnaíba (ficha oficial, atualizada em 18/12/2025; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São Francisco de Assis",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=HX9Rw",
+              "title": "Horário de Missa — Paróquia São Francisco de Assis (Piracuruca) (ficha atualizada em 11/03/2013)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Francisco de Assis",
+          "dayOfWeek": 0,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=HX9Rw",
+              "title": "Horário de Missa — Paróquia São Francisco de Assis (Piracuruca) (ficha atualizada em 11/03/2013)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Francisco de Assis",
+          "dayOfWeek": 2,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=HX9Rw",
+              "title": "Horário de Missa — Paróquia São Francisco de Assis (Piracuruca) (ficha atualizada em 11/03/2013)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Francisco de Assis",
+          "dayOfWeek": 4,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=HX9Rw",
+              "title": "Horário de Missa — Paróquia São Francisco de Assis (Piracuruca) (ficha atualizada em 11/03/2013)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Francisco de Assis",
+          "dayOfWeek": 5,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=HX9Rw",
+              "title": "Horário de Missa — Paróquia São Francisco de Assis (Piracuruca) (ficha atualizada em 11/03/2013)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Francisco de Assis",
+          "dayOfWeek": 6,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": "2º e 3º sábado do mês",
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=HX9Rw",
+              "title": "Horário de Missa — Paróquia São Francisco de Assis (Piracuruca) (ficha atualizada em 11/03/2013)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ],
+      "notes": "Zonal Sul I"
+    },
+    {
+      "slug": "sagrado-coracao-de-jesus-piripiri",
+      "name": "Paróquia Sagrado Coração de Jesus",
+      "city": "Piripiri",
+      "state": "PI",
+      "neighborhood": "Prado",
+      "address": "Rua Ioiô Melo, 1370 – Bairro Prado",
+      "zipCode": "64260-000",
+      "phone": "(86) 99817-9586",
+      "email": "paroquia-sagrado-c.j@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Marcos Antônio dos Santos",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia-sagrado-coracao-de-jesus-piripiri/",
+          "title": "Paróquia Sagrado Coração de Jesus, Piripiri – PI — Diocese de Parnaíba (ficha oficial, atualizada em 18/12/2025; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia/",
+          "title": "Paróquias (por zonal) — Diocese de Parnaíba (página atualizada em 12/02/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://minhareceita.org/06550586002430",
+          "title": "Receita Federal (minhareceita.org) — CNPJ 06550586002430, filial 0024 da Diocese de Parnaíba: PAROQUIA SAGRADO CORACAO DE JESUS, PIRIPIRI",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Sagrado Coração de Jesus",
+          "address": "Rua Ioiô Melo, 1370 – Bairro Prado",
+          "neighborhood": "Prado",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedeparnaiba.org.br/paroquia-sagrado-coracao-de-jesus-piripiri/",
+              "title": "Paróquia Sagrado Coração de Jesus, Piripiri – PI — Diocese de Parnaíba (ficha oficial, atualizada em 18/12/2025; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [],
+      "notes": "Zonal Sul I"
+    },
+    {
+      "slug": "sao-joao-batista-sao-joao-da-fronteira",
+      "name": "Paróquia São João Batista",
+      "city": "São João da Fronteira",
+      "state": "PI",
+      "neighborhood": "Centro",
+      "address": "Praça da Matriz, s/n",
+      "zipCode": "64243-000",
+      "phone": "(86) 3345-1220",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Antonio Carlos Alves da Silva",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia-sao-joao-batista-sao-joao-da-fronteira/",
+          "title": "Paróquia São João Batista – São João da Fronteira — Diocese de Parnaíba (ficha oficial, atualizada em 11/06/2025; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia/",
+          "title": "Paróquias (por zonal) — Diocese de Parnaíba (página atualizada em 12/02/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://minhareceita.org/06550586002350",
+          "title": "Receita Federal (minhareceita.org) — CNPJ 06550586002350, filial 0023 da Diocese de Parnaíba: PAROQUIA SAO JOAO BATISTA, SAO JOAO DA FRONTEIRA",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São João Batista",
+          "address": "Praça da Matriz, s/n",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedeparnaiba.org.br/paroquia-sao-joao-batista-sao-joao-da-fronteira/",
+              "title": "Paróquia São João Batista – São João da Fronteira — Diocese de Parnaíba (ficha oficial, atualizada em 11/06/2025; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [],
+      "notes": "Zonal Sul I"
+    },
+    {
+      "slug": "sao-jose-sao-jose-do-divino",
+      "name": "Paróquia São José",
+      "city": "São José do Divino",
+      "state": "PI",
+      "neighborhood": "Centro",
+      "address": "Av. Manoel Divino, 210 – Centro",
+      "zipCode": "64245-000",
+      "phone": "(86) 3346-1246",
+      "email": "paroquiasjd@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Hernesto Pereira de Oliveira",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia-sao-jose-sao-jose-do-divino/",
+          "title": "Paróquia São José – São José do Divino — Diocese de Parnaíba (ficha oficial, atualizada em 11/06/2025; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia/",
+          "title": "Paróquias (por zonal) — Diocese de Parnaíba (página atualizada em 12/02/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://minhareceita.org/06550586002511",
+          "title": "Receita Federal (minhareceita.org) — CNPJ 06550586002511, filial 0025 da Diocese de Parnaíba: PAROQUIA DE SAO JOSE, SAO JOSE DO DIVINO",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São José",
+          "address": "Av. Manoel Divino, 210 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedeparnaiba.org.br/paroquia-sao-jose-sao-jose-do-divino/",
+              "title": "Paróquia São José – São José do Divino — Diocese de Parnaíba (ficha oficial, atualizada em 11/06/2025; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [],
+      "notes": "Zonal Sul I"
+    },
+    {
+      "slug": "sao-jose-operario-pedro-ii",
+      "name": "Paróquia São José Operário",
+      "city": "Pedro II",
+      "state": "PI",
+      "neighborhood": "Vila Operária",
+      "address": "Av. José Lourenço Mourão, 627 – Vila Operária",
+      "zipCode": "64255-000",
+      "phone": "(86) 99506-6243",
+      "email": "s.aojoseo@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Bernardo Afonso Vieira Neto",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia-sao-jose-operario-pedro-ii/",
+          "title": "Paróquia São José Operário – Pedro II — Diocese de Parnaíba (ficha oficial, atualizada em 11/06/2025; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia/",
+          "title": "Paróquias (por zonal) — Diocese de Parnaíba (página atualizada em 12/02/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://minhareceita.org/06550586002279",
+          "title": "Receita Federal (minhareceita.org) — CNPJ 06550586002279, filial 0022 da Diocese de Parnaíba: PAROQUIA DE SAO JOSE OPERARIO, PEDRO II",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5345-paroquia-sao-jose-operario/",
+          "title": "Lírio Católico — Paróquia São José Operário (Pedro II/PI), base regenerada em 2026-09-02",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/igreja.php?k=WAeH0",
+          "title": "Horário de Missa — Paróquia São José Operário (ficha atualizada em 11/03/2013)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São José Operário",
+          "address": "Av. José Lourenço Mourão, 627 – Vila Operária",
+          "neighborhood": "Vila Operária",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedeparnaiba.org.br/paroquia-sao-jose-operario-pedro-ii/",
+              "title": "Paróquia São José Operário – Pedro II — Diocese de Parnaíba (ficha oficial, atualizada em 11/06/2025; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São José Operário",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5345-paroquia-sao-jose-operario/",
+              "title": "Lírio Católico — Paróquia São José Operário (Pedro II/PI), base regenerada em 2026-09-02",
+              "accessedAt": "2026-09-17"
+            },
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=WAeH0",
+              "title": "Horário de Missa — Paróquia São José Operário (ficha atualizada em 11/03/2013)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa",
+          "confidenceNote": "Rebaixado na revisão de 2026-09-17: a única corroboração do agregador é texto anterior a 2020 (regra pré-pandemia do README)."
+        },
+        {
+          "community": "Matriz São José Operário",
+          "dayOfWeek": 0,
+          "time": "10:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5345-paroquia-sao-jose-operario/",
+              "title": "Lírio Católico — Paróquia São José Operário (Pedro II/PI), base regenerada em 2026-09-02",
+              "accessedAt": "2026-09-17"
+            },
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=WAeH0",
+              "title": "Horário de Missa — Paróquia São José Operário (ficha atualizada em 11/03/2013)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa",
+          "confidenceNote": "Rebaixado na revisão de 2026-09-17: a única corroboração do agregador é texto anterior a 2020 (regra pré-pandemia do README)."
+        },
+        {
+          "community": "Matriz São José Operário",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5345-paroquia-sao-jose-operario/",
+              "title": "Lírio Católico — Paróquia São José Operário (Pedro II/PI), base regenerada em 2026-09-02",
+              "accessedAt": "2026-09-17"
+            },
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=WAeH0",
+              "title": "Horário de Missa — Paróquia São José Operário (ficha atualizada em 11/03/2013)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa",
+          "confidenceNote": "Rebaixado na revisão de 2026-09-17: a única corroboração do agregador é texto anterior a 2020 (regra pré-pandemia do README)."
+        },
+        {
+          "community": "Matriz São José Operário",
+          "dayOfWeek": 4,
+          "time": "18:00",
+          "type": "ADORATION",
+          "notes": "até 19:00",
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5345-paroquia-sao-jose-operario/",
+              "title": "Lírio Católico — Paróquia São José Operário (Pedro II/PI), base regenerada em 2026-09-02",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ],
+      "notes": "Zonal Sul I"
+    },
+    {
+      "slug": "sagrado-coracao-de-jesus-milton-brandao",
+      "name": "Paróquia Sagrado Coração de Jesus",
+      "city": "Milton Brandão",
+      "state": "PI",
+      "neighborhood": "Centro",
+      "address": "Rua José Martins, 650 – Centro",
+      "zipCode": "64253-000",
+      "phone": "(86) 98167-3072",
+      "email": "pscj.mbpi@gmail.com",
+      "website": null,
+      "priestName": "Pe. Cleiton José Pereira Alves",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia-sagrado-coracao-de-jesus-milton-brandao-pi/",
+          "title": "Paróquia Sagrado Coração de Jesus – Milton Brandão (PI) — Diocese de Parnaíba (ficha oficial, atualizada em 27/05/2025; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia/",
+          "title": "Paróquias (por zonal) — Diocese de Parnaíba (página atualizada em 12/02/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/padres/",
+          "title": "Padres — Diocese de Parnaíba (página atualizada em 18/07/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/2025/10/11/novas-transferencias-do-clero-diocesano-sao-anunciadas-por-dom-edivalter-andrade/",
+          "title": "Novas transferências do Clero Diocesano (Diocese de Parnaíba, 11/10/2025)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://minhareceita.org/06550586003402",
+          "title": "Receita Federal (minhareceita.org) — CNPJ 06550586003402, filial 0034 da Diocese de Parnaíba: PAROQUIA SAGRADO CORACAO DE JESUS, MILTON BRANDAO",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/13894-paroquia-sagrado-coracao-de-jesus/",
+          "title": "Lírio Católico — Paróquia Sagrado Coração de Jesus (Milton Brandão/PI), base regenerada em 2026-09-02",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Sagrado Coração de Jesus",
+          "address": "Rua José Martins, 650 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedeparnaiba.org.br/paroquia-sagrado-coracao-de-jesus-milton-brandao-pi/",
+              "title": "Paróquia Sagrado Coração de Jesus – Milton Brandão (PI) — Diocese de Parnaíba (ficha oficial, atualizada em 27/05/2025; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Sagrado Coração de Jesus",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/13894-paroquia-sagrado-coracao-de-jesus/",
+              "title": "Lírio Católico — Paróquia Sagrado Coração de Jesus (Milton Brandão/PI), base regenerada em 2026-09-02",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Sagrado Coração de Jesus",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/13894-paroquia-sagrado-coracao-de-jesus/",
+              "title": "Lírio Católico — Paróquia Sagrado Coração de Jesus (Milton Brandão/PI), base regenerada em 2026-09-02",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ],
+      "notes": "Zonal Sul I — a ficha (05/2025) ainda traz como pároco o Pe. José de Arimateia Conrado Lopes Filho, transferido para Esperantina em 11/2025; a página do clero (07/2026) põe na paróquia só o Pe. Cleiton José Pereira Alves, adotado como responsável (título canônico não publicado)."
+    },
+    {
+      "slug": "sao-francisco-de-assis-lagoa-de-sao-francisco",
+      "name": "Paróquia São Francisco de Assis",
+      "city": "Lagoa de São Francisco",
+      "state": "PI",
+      "neighborhood": "Centro",
+      "address": "Praça Santuário São Francisco, s/n",
+      "zipCode": "64258-000",
+      "phone": null,
+      "email": "ap.saofrancisco04@gmail.com",
+      "website": null,
+      "priestName": "Pe. Frei Djacir Sampaio da Rocha, OFM Cap",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia-sao-francisco-de-assis-lagoa-de-sao-francisco/",
+          "title": "Paróquia São Francisco de Assis – Lagoa de São Francisco — Diocese de Parnaíba (ficha oficial, atualizada em 11/06/2025; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia/",
+          "title": "Paróquias (por zonal) — Diocese de Parnaíba (página atualizada em 12/02/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://minhareceita.org/06550586002198",
+          "title": "Receita Federal (minhareceita.org) — CNPJ 06550586002198, filial 0021 da Diocese de Parnaíba: PAROQUIA SAO FRANCISCO DE ASSIS, LAGOA DE SAO FRANCISCO",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5317-paroquia-sao-francisco-de-assis/",
+          "title": "Lírio Católico — Paróquia São Francisco de Assis (Lagoa de São Francisco/PI), base regenerada em 2026-09-02",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Francisco de Assis",
+          "address": "Praça Santuário São Francisco, s/n",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedeparnaiba.org.br/paroquia-sao-francisco-de-assis-lagoa-de-sao-francisco/",
+              "title": "Paróquia São Francisco de Assis – Lagoa de São Francisco — Diocese de Parnaíba (ficha oficial, atualizada em 11/06/2025; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São Francisco de Assis",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5317-paroquia-sao-francisco-de-assis/",
+              "title": "Lírio Católico — Paróquia São Francisco de Assis (Lagoa de São Francisco/PI), base regenerada em 2026-09-02",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Francisco de Assis",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5317-paroquia-sao-francisco-de-assis/",
+              "title": "Lírio Católico — Paróquia São Francisco de Assis (Lagoa de São Francisco/PI), base regenerada em 2026-09-02",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Francisco de Assis",
+          "dayOfWeek": 4,
+          "time": "18:00",
+          "type": "ADORATION",
+          "notes": "até 19:00",
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/5317-paroquia-sao-francisco-de-assis/",
+              "title": "Lírio Católico — Paróquia São Francisco de Assis (Lagoa de São Francisco/PI), base regenerada em 2026-09-02",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ],
+      "notes": "Zonal Sul I"
+    },
+    {
+      "slug": "nossa-senhora-da-conceicao-brasileira",
+      "name": "Paróquia Nossa Senhora da Conceição",
+      "city": "Brasileira",
+      "state": "PI",
+      "neighborhood": "Centro",
+      "address": "Rua Almiro Mendes, 72 – Centro",
+      "zipCode": "64265-000",
+      "phone": null,
+      "email": "paroquianscbra@gmail.com",
+      "website": null,
+      "priestName": "Pe. Jeremias de Oliveira Lima",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia-nossa-senhora-da-conceicao-brasileira/",
+          "title": "Paróquia Nossa Senhora da Conceição – Brasileira — Diocese de Parnaíba (ficha oficial, atualizada em 11/06/2025; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia/",
+          "title": "Paróquias (por zonal) — Diocese de Parnaíba (página atualizada em 12/02/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://minhareceita.org/06550586003160",
+          "title": "Receita Federal (minhareceita.org) — CNPJ 06550586003160, filial 0031 da Diocese de Parnaíba: PAROQUIA NOSSA SENHORA DA CONCEICAO, BRASILEIRA",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora da Conceição",
+          "address": "Rua Almiro Mendes, 72 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedeparnaiba.org.br/paroquia-nossa-senhora-da-conceicao-brasileira/",
+              "title": "Paróquia Nossa Senhora da Conceição – Brasileira — Diocese de Parnaíba (ficha oficial, atualizada em 11/06/2025; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [],
+      "notes": "Zonal Sul I"
+    },
+    {
+      "slug": "sao-francisco-de-assis-piripiri",
+      "name": "Paróquia São Francisco de Assis",
+      "city": "Piripiri",
+      "state": "PI",
+      "neighborhood": "São João",
+      "address": "Av. Desembargador Antero Rezende, 1444",
+      "zipCode": "64260-000",
+      "phone": null,
+      "email": "paroquiasfpiripiri@gmail.com",
+      "website": null,
+      "priestName": "Pe. Edmundo Araújo da Silva",
+      "foundedYear": 2026,
+      "sources": [
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/area-missionaria-sao-francisco-de-assis-piripiri-pi/",
+          "title": "Paróquia São Francisco de Assis, Piripiri – PI — Diocese de Parnaíba (ficha oficial, atualizada em 03/02/2026; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia/",
+          "title": "Paróquias (por zonal) — Diocese de Parnaíba (página atualizada em 12/02/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/2026/02/03/diocese-de-parnaiba-celebra-erecao-canonica-da-paroquia-sao-francisco-de-assis-em-piripiri/",
+          "title": "Ereção canônica da Paróquia São Francisco de Assis em Piripiri (01/02/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://minhareceita.org/06550586004050",
+          "title": "Receita Federal (minhareceita.org) — CNPJ 06550586004050, filial 0040 da Diocese de Parnaíba: PAROQUIA SAO FRANCISCO DE ASSIS, PIRIPIRI",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Francisco de Assis",
+          "address": "Av. Desembargador Antero Rezende, 1444",
+          "neighborhood": "São João",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedeparnaiba.org.br/area-missionaria-sao-francisco-de-assis-piripiri-pi/",
+              "title": "Paróquia São Francisco de Assis, Piripiri – PI — Diocese de Parnaíba (ficha oficial, atualizada em 03/02/2026; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [],
+      "notes": "Zonal Sul I"
+    },
+    {
+      "slug": "nossa-senhora-da-boa-esperanca-esperantina",
+      "name": "Paróquia Nossa Senhora da Boa Esperança",
+      "city": "Esperantina",
+      "state": "PI",
+      "neighborhood": "Centro",
+      "address": "Praça Leônidas Melo, 214",
+      "zipCode": "64180-000",
+      "phone": "(86) 99525-9123",
+      "email": "pnsbe@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Paulo Sérgio Duarte dos Santos",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia-nossa-senhora-da-boa-esperanca/",
+          "title": "Paróquia Nossa Senhora da Boa Esperança — Diocese de Parnaíba (ficha oficial, atualizada em 11/06/2025; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia/",
+          "title": "Paróquias (por zonal) — Diocese de Parnaíba (página atualizada em 12/02/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/2025/10/11/novas-transferencias-do-clero-diocesano-sao-anunciadas-por-dom-edivalter-andrade/",
+          "title": "Novas transferências do Clero Diocesano (Diocese de Parnaíba, 11/10/2025)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/padres/",
+          "title": "Padres — Diocese de Parnaíba (página atualizada em 18/07/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://minhareceita.org/06550586001035",
+          "title": "Receita Federal (minhareceita.org) — CNPJ 06550586001035, filial 0010 da Diocese de Parnaíba: PAROQUIA DE N SRA DA BOA ESPERANCA, ESPERANTINA",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora da Boa Esperança",
+          "address": "Praça Leônidas Melo, 214",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedeparnaiba.org.br/paroquia-nossa-senhora-da-boa-esperanca/",
+              "title": "Paróquia Nossa Senhora da Boa Esperança — Diocese de Parnaíba (ficha oficial, atualizada em 11/06/2025; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [],
+      "notes": "Zonal Sul II — a ficha (06/2025) ainda traz o Pe. Edimar Silva de Lima, transferido para Luís Correia; pároco atual conforme as transferências de 10/2025, confirmado pela página do clero (07/2026)."
+    },
+    {
+      "slug": "sao-benedito-esperantina",
+      "name": "Paróquia São Benedito",
+      "city": "Esperantina",
+      "state": "PI",
+      "neighborhood": null,
+      "address": "Rua Lourival Nogueira de Aguiar, 669 – Bairro Rural",
+      "zipCode": "64180-000",
+      "phone": "(86) 98165-2978",
+      "email": "paroquiasaobeneditoesp@gmail.com",
+      "website": null,
+      "priestName": "Pe. Ronaldo Souza dos Santos",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia-sao-benedito-esperantina-pi/",
+          "title": "Paróquia São Benedito – Esperantina (PI) — Diocese de Parnaíba (ficha oficial, atualizada em 11/08/2025; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia/",
+          "title": "Paróquias (por zonal) — Diocese de Parnaíba (página atualizada em 12/02/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://minhareceita.org/06550586003593",
+          "title": "Receita Federal (minhareceita.org) — CNPJ 06550586003593, filial 0035 da Diocese de Parnaíba: PAROQUIA SAO BENEDITO, ESPERANTINA",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Benedito",
+          "address": "Rua Lourival Nogueira de Aguiar, 669 – Bairro Rural",
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedeparnaiba.org.br/paroquia-sao-benedito-esperantina-pi/",
+              "title": "Paróquia São Benedito – Esperantina (PI) — Diocese de Parnaíba (ficha oficial, atualizada em 11/08/2025; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [],
+      "notes": "Zonal Sul II — a ficha diz \"Bairro Rural\"; a Receita Federal registra o bairro como Morro da Onça."
+    },
+    {
+      "slug": "santa-luzia-luzilandia",
+      "name": "Paróquia Santa Luzia",
+      "city": "Luzilândia",
+      "state": "PI",
+      "neighborhood": "Centro",
+      "address": "Praça Santa Luzia, 182",
+      "zipCode": "64160-000",
+      "phone": "(86) 3393-1241",
+      "email": "paroquiasluzialuzilandia@outlook.com",
+      "website": null,
+      "priestName": "Pe. Francisco José Carvalho de Sousa",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia-santa-luzia-luzilandia/",
+          "title": "Paróquia Santa Luzia – Luzilândia — Diocese de Parnaíba (ficha oficial, atualizada em 11/06/2025; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia/",
+          "title": "Paróquias (por zonal) — Diocese de Parnaíba (página atualizada em 12/02/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://minhareceita.org/06550586001116",
+          "title": "Receita Federal (minhareceita.org) — CNPJ 06550586001116, filial 0011 da Diocese de Parnaíba: PAROQUIA DE SANTA LUZIA, LUZILANDIA",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/igreja.php?k=ifPk9",
+          "title": "Horário de Missa — Paróquia de Santa Luzia (Luzilândia) (ficha atualizada em 11/03/2013)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Santa Luzia",
+          "address": "Praça Santa Luzia, 182",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedeparnaiba.org.br/paroquia-santa-luzia-luzilandia/",
+              "title": "Paróquia Santa Luzia – Luzilândia — Diocese de Parnaíba (ficha oficial, atualizada em 11/06/2025; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Santa Luzia",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=ifPk9",
+              "title": "Horário de Missa — Paróquia de Santa Luzia (Luzilândia) (ficha atualizada em 11/03/2013)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Santa Luzia",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=ifPk9",
+              "title": "Horário de Missa — Paróquia de Santa Luzia (Luzilândia) (ficha atualizada em 11/03/2013)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ],
+      "notes": "Zonal Sul II"
+    },
+    {
+      "slug": "sao-miguel-arcanjo-matias-olimpio",
+      "name": "Paróquia São Miguel Arcanjo",
+      "city": "Matias Olímpio",
+      "state": "PI",
+      "neighborhood": "Centro",
+      "address": "Praça São Miguel, 140 – Centro",
+      "zipCode": "64150-000",
+      "phone": "(86) 3340-1113",
+      "email": "psmiguelarcanjo1@gmail.com",
+      "website": null,
+      "priestName": "Pe. Antônio de Araújo Silva",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia-sao-miguel-arcanjo/",
+          "title": "Paróquia São Miguel Arcanjo — Diocese de Parnaíba (ficha oficial, atualizada em 11/06/2025; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia/",
+          "title": "Paróquias (por zonal) — Diocese de Parnaíba (página atualizada em 12/02/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://minhareceita.org/06550586001205",
+          "title": "Receita Federal (minhareceita.org) — CNPJ 06550586001205, filial 0012 da Diocese de Parnaíba: PAROQUIA DE SAO MIGUEL, MATIAS OLIMPIO",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/igreja.php?k=6LfKc",
+          "title": "Horário de Missa — Paróquia São Miguel Arcanjo (ficha atualizada em 11/03/2013)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Miguel Arcanjo",
+          "address": "Praça São Miguel, 140 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedeparnaiba.org.br/paroquia-sao-miguel-arcanjo/",
+              "title": "Paróquia São Miguel Arcanjo — Diocese de Parnaíba (ficha oficial, atualizada em 11/06/2025; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São Miguel Arcanjo",
+          "dayOfWeek": 0,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=6LfKc",
+              "title": "Horário de Missa — Paróquia São Miguel Arcanjo (ficha atualizada em 11/03/2013)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Miguel Arcanjo",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=6LfKc",
+              "title": "Horário de Missa — Paróquia São Miguel Arcanjo (ficha atualizada em 11/03/2013)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ],
+      "notes": "Zonal Sul II"
+    },
+    {
+      "slug": "sao-goncalo-batalha",
+      "name": "Paróquia São Gonçalo",
+      "city": "Batalha",
+      "state": "PI",
+      "neighborhood": "Centro",
+      "address": "Praça da Matriz, 82",
+      "zipCode": "64190-000",
+      "phone": "(86) 3347-1134",
+      "email": "paroquiasgbatalha@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Marcelino Elias de Macedo",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia-sao-goncalo-batalha/",
+          "title": "Paróquia São Gonçalo – Batalha — Diocese de Parnaíba (ficha oficial, atualizada em 05/02/2026; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia/",
+          "title": "Paróquias (por zonal) — Diocese de Parnaíba (página atualizada em 12/02/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://minhareceita.org/06550586000306",
+          "title": "Receita Federal (minhareceita.org) — CNPJ 06550586000306, filial 0003 da Diocese de Parnaíba: PAROQUIA DE SAO GONCALO, BATALHA",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/igreja.php?k=U1uv5",
+          "title": "Horário de Missa — Paróquia São Gonçalo (Batalha) (ficha atualizada em 11/03/2013)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Gonçalo",
+          "address": "Praça da Matriz, 82",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedeparnaiba.org.br/paroquia-sao-goncalo-batalha/",
+              "title": "Paróquia São Gonçalo – Batalha — Diocese de Parnaíba (ficha oficial, atualizada em 05/02/2026; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São Gonçalo",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=U1uv5",
+              "title": "Horário de Missa — Paróquia São Gonçalo (Batalha) (ficha atualizada em 11/03/2013)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Gonçalo",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.horariodemissa.com.br/igreja.php?k=U1uv5",
+              "title": "Horário de Missa — Paróquia São Gonçalo (Batalha) (ficha atualizada em 11/03/2013)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ],
+      "notes": "Zonal Sul II"
+    },
+    {
+      "slug": "sao-francisco-de-assis-batalha",
+      "name": "Paróquia São Francisco de Assis",
+      "city": "Batalha",
+      "state": "PI",
+      "neighborhood": "Esperança II",
+      "address": "Av. Inácio Farias – Bairro Esperança II",
+      "zipCode": "64190-000",
+      "phone": "(86) 99551-5364",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. James de Sousa Amaral",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia-sao-francisco-de-assis-batalha/",
+          "title": "Paróquia São Francisco de Assis – Batalha — Diocese de Parnaíba (ficha oficial, atualizada em 18/12/2025; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia/",
+          "title": "Paróquias (por zonal) — Diocese de Parnaíba (página atualizada em 12/02/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://minhareceita.org/06550586003240",
+          "title": "Receita Federal (minhareceita.org) — CNPJ 06550586003240, filial 0032 da Diocese de Parnaíba: PAROQUIA SAO FRANCISCO DE ASSIS, BATALHA",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Francisco de Assis",
+          "address": "Av. Inácio Farias – Bairro Esperança II",
+          "neighborhood": "Esperança II",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedeparnaiba.org.br/paroquia-sao-francisco-de-assis-batalha/",
+              "title": "Paróquia São Francisco de Assis – Batalha — Diocese de Parnaíba (ficha oficial, atualizada em 18/12/2025; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [],
+      "notes": "Zonal Sul II"
+    },
+    {
+      "slug": "sao-francisco-das-chagas-morro-do-chapeu-do-piaui",
+      "name": "Paróquia São Francisco das Chagas",
+      "city": "Morro do Chapéu do Piauí",
+      "state": "PI",
+      "neighborhood": "Centro",
+      "address": "Praça Luiz Rebêlo, s/n – Centro",
+      "zipCode": "64178-000",
+      "phone": "(86) 98805-7683",
+      "email": "paroquiasfdaschagas@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Ilton Oliveira Portela",
+      "foundedYear": 2025,
+      "sources": [
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/area-pastoral-sao-francisco-das-chagas-morro-do-chapeu/",
+          "title": "Paróquia São Francisco das Chagas- Morro do Chapéu — Diocese de Parnaíba (ficha oficial, atualizada em 18/09/2025; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia/",
+          "title": "Paróquias (por zonal) — Diocese de Parnaíba (página atualizada em 12/02/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/2025/09/18/diocese-de-parnaiba-ganha-nova-paroquia-em-morro-do-chapeu/",
+          "title": "Diocese de Parnaíba ganha nova paróquia em Morro do Chapéu (18/09/2025)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://minhareceita.org/06550586003917",
+          "title": "Receita Federal (minhareceita.org) — CNPJ 06550586003917, filial 0039 da Diocese de Parnaíba: PAROQUIA SAO FRANCISCO DAS CHAGAS, MORRO DO CHAPEU DO PIAUI",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/13895-paroquia-sao-francisco-das-chagas/",
+          "title": "Lírio Católico — Paróquia São Francisco das Chagas (Morro do Chapéu do Piauí/PI), base regenerada em 2026-09-02",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Francisco das Chagas",
+          "address": "Praça Luiz Rebêlo, s/n – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedeparnaiba.org.br/area-pastoral-sao-francisco-das-chagas-morro-do-chapeu/",
+              "title": "Paróquia São Francisco das Chagas- Morro do Chapéu — Diocese de Parnaíba (ficha oficial, atualizada em 18/09/2025; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São Francisco das Chagas",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/13895-paroquia-sao-francisco-das-chagas/",
+              "title": "Lírio Católico — Paróquia São Francisco das Chagas (Morro do Chapéu do Piauí/PI), base regenerada em 2026-09-02",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Francisco das Chagas",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/13895-paroquia-sao-francisco-das-chagas/",
+              "title": "Lírio Católico — Paróquia São Francisco das Chagas (Morro do Chapéu do Piauí/PI), base regenerada em 2026-09-02",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Francisco das Chagas",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "ADORATION",
+          "notes": "até 20:00",
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/13895-paroquia-sao-francisco-das-chagas/",
+              "title": "Lírio Católico — Paróquia São Francisco das Chagas (Morro do Chapéu do Piauí/PI), base regenerada em 2026-09-02",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ],
+      "notes": "Zonal Sul II"
+    },
+    {
+      "slug": "santa-teresinha-do-menino-jesus-madeiro",
+      "name": "Paróquia Santa Teresinha do Menino Jesus",
+      "city": "Madeiro",
+      "state": "PI",
+      "neighborhood": "Centro",
+      "address": "Praça Santa Teresinha, s/n – Centro",
+      "zipCode": "64168-000",
+      "phone": null,
+      "email": "santateresinha011017@gmail.com",
+      "website": null,
+      "priestName": "Pe. Antônio Bruno de Sousa da Silva",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia-santa-teresinha-do-menino-jesus/",
+          "title": "Paróquia Santa Teresinha do Menino Jesus — Diocese de Parnaíba (ficha oficial, atualizada em 04/02/2026; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia/",
+          "title": "Paróquias (por zonal) — Diocese de Parnaíba (página atualizada em 12/02/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://minhareceita.org/06550586003836",
+          "title": "Receita Federal (minhareceita.org) — CNPJ 06550586003836, filial 0038 da Diocese de Parnaíba: PAROQUIA SANTA TERESINHA DO MENINO JESUS, MADEIRO",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Santa Teresinha do Menino Jesus",
+          "address": "Praça Santa Teresinha, s/n – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedeparnaiba.org.br/paroquia-santa-teresinha-do-menino-jesus/",
+              "title": "Paróquia Santa Teresinha do Menino Jesus — Diocese de Parnaíba (ficha oficial, atualizada em 04/02/2026; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [],
+      "notes": "Zonal Sul II"
+    },
+    {
+      "slug": "sao-joao-batista-sao-joao-do-arraial",
+      "name": "Paróquia São João Batista",
+      "city": "São João do Arraial",
+      "state": "PI",
+      "neighborhood": "Centro",
+      "address": "Rua Assembleia de Deus, 240 – Centro",
+      "zipCode": "64155-000",
+      "phone": null,
+      "email": "igrejasaojoaobatista@outlook.com",
+      "website": null,
+      "priestName": "Pe. Osvaldo dos Santos",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia-sao-joao-batista-sao-joao-do-arraial/",
+          "title": "Paróquia São João Batista – São João do Arraial — Diocese de Parnaíba (ficha oficial, atualizada em 11/06/2025; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia/",
+          "title": "Paróquias (por zonal) — Diocese de Parnaíba (página atualizada em 12/02/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://minhareceita.org/06550586003674",
+          "title": "Receita Federal (minhareceita.org) — CNPJ 06550586003674, filial 0036 da Diocese de Parnaíba: PAROQUIA SAO JOAO BATISTA, SAO JOAO DO ARRAIAL",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São João Batista",
+          "address": "Rua Assembleia de Deus, 240 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedeparnaiba.org.br/paroquia-sao-joao-batista-sao-joao-do-arraial/",
+              "title": "Paróquia São João Batista – São João do Arraial — Diocese de Parnaíba (ficha oficial, atualizada em 11/06/2025; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [],
+      "notes": "Zonal Sul II"
+    },
+    {
+      "slug": "capela-de-santo-antonio-centro-parnaiba",
+      "name": "Capela de Santo Antônio (Colégio Nossa Senhora das Graças)",
+      "city": "Parnaíba",
+      "state": "PI",
+      "neighborhood": "Centro",
+      "address": "Praça Santo Antônio, 802 – Centro",
+      "zipCode": "64200-380",
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Antonio de Pádua Cavalcante",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/capela-de-santo-antonio-colegio-nossa-sra-das-gracas/",
+          "title": "Capela de Santo Antônio (Colégio Nossa Sra. das Graças) — Diocese de Parnaíba (ficha oficial, atualizada em 13/09/2024; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia/",
+          "title": "Paróquias (por zonal) — Diocese de Parnaíba (página atualizada em 12/02/2026)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [],
+      "notes": "Capelania listada pela diocese; não é paróquia.",
+      "status": "nao-paroquial"
+    },
+    {
+      "slug": "capela-santa-casa-de-misericordia-parnaiba",
+      "name": "Capela Santa Casa de Misericórdia",
+      "city": "Parnaíba",
+      "state": "PI",
+      "neighborhood": null,
+      "address": "Praça Antônio Monte, 1080",
+      "zipCode": "64218-310",
+      "phone": "(86) 3322-4121",
+      "email": null,
+      "website": null,
+      "priestName": "Mons. Carlos Alberto Seixas de Aquino",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/capela-santa-casa-de-misericordia/",
+          "title": "Capela Santa Casa de Misericórdia — Diocese de Parnaíba (ficha oficial, atualizada em 13/09/2024; lida pela origem diocesedeparnaiba.app.ofertorio.com)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.diocesedeparnaiba.org.br/paroquia/",
+          "title": "Paróquias (por zonal) — Diocese de Parnaíba (página atualizada em 12/02/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/13901-capela-da-santa-casa-de-misericordia/",
+          "title": "Lírio Católico — Capela da Santa Casa de Misericórdia (Parnaíba/PI), base regenerada em 2026-09-02",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [
+        {
+          "community": "Matriz",
+          "dayOfWeek": 2,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/13901-capela-da-santa-casa-de-misericordia/",
+              "title": "Lírio Católico — Capela da Santa Casa de Misericórdia (Parnaíba/PI), base regenerada em 2026-09-02",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 3,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/13901-capela-da-santa-casa-de-misericordia/",
+              "title": "Lírio Católico — Capela da Santa Casa de Misericórdia (Parnaíba/PI), base regenerada em 2026-09-02",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 4,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/13901-capela-da-santa-casa-de-misericordia/",
+              "title": "Lírio Católico — Capela da Santa Casa de Misericórdia (Parnaíba/PI), base regenerada em 2026-09-02",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz",
+          "dayOfWeek": 5,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/paroquia/13901-capela-da-santa-casa-de-misericordia/",
+              "title": "Lírio Católico — Capela da Santa Casa de Misericórdia (Parnaíba/PI), base regenerada em 2026-09-02",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ],
+      "notes": "Capelania listada pela diocese; não é paróquia. Horário só em agregador (baixa).",
+      "status": "nao-paroquial"
+    }
+  ],
+  "coverage": {
+    "parishesFound": 42,
+    "parishesExpected": 41,
+    "notes": "41 paróquias (a Catedral incluída) + 1 Área Pastoral (Santa Isabel) = 42 unidades, exatamente a lista por zonal do site oficial (4 zonais). O Anuário Pontifício 2024 dá 41 (dados de 2023); o texto institucional de 12/2024 falava em 40 paróquias e 3 áreas pastorais — de lá para cá Morro do Chapéu (09/2025), Piripiri/São Francisco (02/2026) e Cajueiro da Praia (02/2026) viraram paróquia. Prova de completude: o CNPJ da diocese (06.550.586) tem 40 filiais ativas na Receita, uma por paróquia — só falta Cajueiro da Praia, criada há 7 meses. Fora da carga: o santuário de Ilha Grande (mesmo endereço da paróquia) e 2 capelanias."
+  }
+}
