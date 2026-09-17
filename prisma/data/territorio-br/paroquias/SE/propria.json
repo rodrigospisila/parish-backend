@@ -1,0 +1,3792 @@
+{
+ "diocese": {
+  "name": "Diocese de Propriá",
+  "type": "Diocese",
+  "slug": "propria",
+  "city": "Propriá",
+  "state": "SE",
+  "address": "Travessa Municipal, 117, Centro",
+  "zipCode": "49900-000",
+  "phone": "(79) 98171-9112",
+  "email": "diocesedepropriase@gmail.com",
+  "website": "https://www.diocesedepropria.com",
+  "bishopName": "Dom George Luís Amaral Muniz",
+  "sources": [
+   {
+    "url": "https://www.diocesedepropria.com/",
+    "title": "Diocese de Propriá — site oficial (rodapé: cúria, telefone, e-mail, bispo; notícias até 15/09/2026)",
+    "accessedAt": "2026-09-17"
+   },
+   {
+    "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+    "title": "Diocese de Propriá — Paróquias › Todas (31 paróquias em 3 vicariatos)",
+    "accessedAt": "2026-09-17"
+   },
+   {
+    "url": "https://minhareceita.org/13374525000139",
+    "title": "Receita Federal — DIOCESE DE PROPRIA, CNPJ 13.374.525/0001-39 e 31 filiais paroquiais ATIVAS",
+    "accessedAt": "2026-09-17"
+   },
+   {
+    "url": "https://pt.wikipedia.org/wiki/Diocese_de_Propri%C3%A1",
+    "title": "Wikipédia — Diocese de Propriá: três vicariatos e 24 municípios",
+    "accessedAt": "2026-09-17"
+   },
+   {
+    "url": "https://www.catholic-hierarchy.org/diocese/dprop.html",
+    "title": "catholic-hierarchy.org — Propriá (Diocese): 30 paróquias em 2023",
+    "accessedAt": "2026-09-17"
+   }
+  ],
+  "confidence": "alta",
+  "notes": "Três vicariatos: Bom Jesus dos Navegantes (9 paróquias), Imaculada Conceição (11) e Santíssima Eucaristia (11). 24 municípios."
+ },
+ "parishes": [
+  {
+   "slug": "nossa-senhora-da-saude-japaratuba",
+   "name": "Paróquia Nossa Senhora da Saúde",
+   "city": "Japaratuba",
+   "state": "SE",
+   "neighborhood": "Centro",
+   "address": "Praça Padre Caio Tavares, 44",
+   "zipCode": "49960-000",
+   "phone": "(79) 98822-0611",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Marcos Vinicius Silva Santos",
+   "foundedYear": 1854,
+   "sources": [
+    {
+     "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+     "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO BOM JESUS DOS NAVEGANTES\"; registro atualizado em 2026-04-30)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://minhareceita.org/13374525002182",
+     "title": "Receita Federal — filial /0021 do CNPJ 13.374.525 da Diocese de Propriá: \"PAROQUIA NOSSA SENHORA DA SAUDE\", situação ATIVA (minhareceita.org)",
+     "accessedAt": "2026-09-17"
+    }
+   ],
+   "confidence": "alta",
+   "vicariato": "Vicariato Bom Jesus dos Navegantes",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora da Saúde",
+     "address": "Praça Padre Caio Tavares, 44",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO BOM JESUS DOS NAVEGANTES\"; registro atualizado em 2026-04-30)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Nossa Senhora da Saúde",
+     "dayOfWeek": 2,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO BOM JESUS DOS NAVEGANTES\"; registro atualizado em 2026-04-30)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Nossa Senhora da Saúde",
+     "dayOfWeek": 5,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO BOM JESUS DOS NAVEGANTES\"; registro atualizado em 2026-04-30)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Nossa Senhora da Saúde",
+     "dayOfWeek": 0,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO BOM JESUS DOS NAVEGANTES\"; registro atualizado em 2026-04-30)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Nossa Senhora da Saúde",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO BOM JESUS DOS NAVEGANTES\"; registro atualizado em 2026-04-30)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "cnpj": "13374525002182",
+   "sourceLastModified": "2026-04-30",
+   "instagram": "pnsenhoradasaude",
+   "foundedDate": "1854-02-08",
+   "notes": "O site indica o padre como administrador paroquial. Co-padroeiro: São Benedito (06/01). O site não publica CEP; usado o da Receita. Padre na função de administrador paroquial. Criação (site): 08/02/1854. Festa: Padroeira: Nossa Senhora da Saúde, festa dia 08 de dezembro; Co-padroeiro: São Benedito, festa dia 06 de janeiro. Secretaria: Segunda a sexta: 08h às 12h."
+  },
+  {
+   "slug": "santo-antonio-ilha-das-flores",
+   "name": "Paróquia Santo Antônio",
+   "city": "Ilha das Flores",
+   "state": "SE",
+   "neighborhood": "Centro",
+   "address": "Praça Santo Antônio, s/n",
+   "zipCode": "49990-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Manoel Messias de Almeida",
+   "foundedYear": 1976,
+   "sources": [
+    {
+     "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+     "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO BOM JESUS DOS NAVEGANTES\"; registro atualizado em 2025-09-11)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://minhareceita.org/13374525002425",
+     "title": "Receita Federal — filial /0024 do CNPJ 13.374.525 da Diocese de Propriá: \"PAROQUIA DE SANTO ANTONIO\", situação ATIVA (minhareceita.org)",
+     "accessedAt": "2026-09-17"
+    }
+   ],
+   "confidence": "alta",
+   "vicariato": "Vicariato Bom Jesus dos Navegantes",
+   "communities": [
+    {
+     "name": "Matriz Santo Antônio",
+     "address": "Praça Santo Antônio, s/n",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO BOM JESUS DOS NAVEGANTES\"; registro atualizado em 2025-09-11)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Santo Antônio",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO BOM JESUS DOS NAVEGANTES\"; registro atualizado em 2025-09-11)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Santo Antônio",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO BOM JESUS DOS NAVEGANTES\"; registro atualizado em 2025-09-11)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "cnpj": "13374525002425",
+   "sourceLastModified": "2025-09-11",
+   "instagram": "paroquiadeilhadasflores",
+   "foundedDate": "1976-04-18",
+   "notes": "Criação (site): 18/04/1976. Festa: Santo Antônio, festa dia 13 de junho. Secretaria: Segunda a sexta: 08h às 12h."
+  },
+  {
+   "slug": "sao-felix-de-cantalicio-pacatuba",
+   "name": "Paróquia São Félix de Cantalício",
+   "city": "Pacatuba",
+   "state": "SE",
+   "neighborhood": null,
+   "address": "Praça 31 de Março, s/n",
+   "zipCode": "49970-000",
+   "phone": "(79) 99891-9764",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Cristiano dos Santos",
+   "foundedYear": 1835,
+   "sources": [
+    {
+     "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+     "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO BOM JESUS DOS NAVEGANTES\"; registro atualizado em 2026-03-26)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://minhareceita.org/13374525002263",
+     "title": "Receita Federal — filial /0022 do CNPJ 13.374.525 da Diocese de Propriá: \"PAROQUIA DE SAO FELIX\", situação ATIVA (minhareceita.org)",
+     "accessedAt": "2026-09-17"
+    }
+   ],
+   "confidence": "alta",
+   "vicariato": "Vicariato Bom Jesus dos Navegantes",
+   "communities": [
+    {
+     "name": "Matriz São Félix de Cantalício",
+     "address": "Praça 31 de Março, s/n",
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO BOM JESUS DOS NAVEGANTES\"; registro atualizado em 2026-03-26)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz São Félix de Cantalício",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO BOM JESUS DOS NAVEGANTES\"; registro atualizado em 2026-03-26)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz São Félix de Cantalício",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO BOM JESUS DOS NAVEGANTES\"; registro atualizado em 2026-03-26)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "cnpj": "13374525002263",
+   "sourceLastModified": "2026-03-26",
+   "vicarName": "Pe. Edinaldo Resende",
+   "foundedDate": "1835-02-06",
+   "notes": "Criação (site): 06/02/1835. Festa: São Félix de Cantalício, festa dia 20 de novembro. Secretaria: Segunda a sexta: 07h às 11h."
+  },
+  {
+   "slug": "sao-jose-japaratuba",
+   "name": "Paróquia São José",
+   "city": "Japaratuba",
+   "state": "SE",
+   "neighborhood": "Povoado São José da Caatinga",
+   "address": "Rua Japaratuba, s/n, Povoado São José",
+   "zipCode": "49960-971",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Marcos Vinícius Silva dos Santos",
+   "foundedYear": 2025,
+   "sources": [
+    {
+     "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+     "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO BOM JESUS DOS NAVEGANTES\"; registro atualizado em 2025-09-11)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://minhareceita.org/13374525004045",
+     "title": "Receita Federal — filial /0040 do CNPJ 13.374.525 da Diocese de Propriá: \"PAROQUIA SAO JOSE\", situação ATIVA (minhareceita.org)",
+     "accessedAt": "2026-09-17"
+    }
+   ],
+   "confidence": "alta",
+   "vicariato": "Vicariato Bom Jesus dos Navegantes",
+   "communities": [
+    {
+     "name": "Matriz São José",
+     "address": "Rua Japaratuba, s/n, Povoado São José",
+     "neighborhood": "Povoado São José da Caatinga",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO BOM JESUS DOS NAVEGANTES\"; registro atualizado em 2025-09-11)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz São José",
+     "dayOfWeek": 3,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO BOM JESUS DOS NAVEGANTES\"; registro atualizado em 2025-09-11)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz São José",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO BOM JESUS DOS NAVEGANTES\"; registro atualizado em 2025-09-11)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz São José",
+     "dayOfWeek": 5,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO BOM JESUS DOS NAVEGANTES\"; registro atualizado em 2025-09-11)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz São José",
+     "dayOfWeek": 0,
+     "time": "08:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO BOM JESUS DOS NAVEGANTES\"; registro atualizado em 2025-09-11)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz São José",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO BOM JESUS DOS NAVEGANTES\"; registro atualizado em 2025-09-11)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "cnpj": "13374525004045",
+   "sourceLastModified": "2025-09-11",
+   "instagram": "_psjose.caatinga",
+   "foundedDate": "2025-02-14",
+   "notes": "Paróquia criada em 14/02/2025 (filial do CNPJ aberta em 28/03/2025), com sede no povoado São José da Caatinga. Mesmo padre da paróquia-mãe de Japaratuba. Co-padroeira: N. Sra. Aparecida. Criação (site): 14/02/2025. Festa: Padroeiro: São José, festa dia 19 de março; Co-padroeira: Nossa Senhora Aparecida, festa dia 12 de outubro. Secretaria: Segunda: 14h às 17h; Quinta: 14 às 17h."
+  },
+  {
+   "slug": "nossa-senhora-da-conceicao-brejo-grande",
+   "name": "Paróquia Nossa Senhora da Conceição",
+   "city": "Brejo Grande",
+   "state": "SE",
+   "neighborhood": null,
+   "address": "Praça da Matriz, s/n",
+   "zipCode": "49995-000",
+   "phone": "(79) 99934-7463",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Fábio Silva Pereira",
+   "foundedYear": 1924,
+   "sources": [
+    {
+     "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+     "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO BOM JESUS DOS NAVEGANTES\"; registro atualizado em 2025-09-11)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://minhareceita.org/13374525001100",
+     "title": "Receita Federal — filial /0011 do CNPJ 13.374.525 da Diocese de Propriá: \"PAROQUIA NOSSA SENHORA DA CONCEICAO\", situação ATIVA (minhareceita.org)",
+     "accessedAt": "2026-09-17"
+    }
+   ],
+   "confidence": "alta",
+   "vicariato": "Vicariato Bom Jesus dos Navegantes",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora da Conceição",
+     "address": "Praça da Matriz, s/n",
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO BOM JESUS DOS NAVEGANTES\"; registro atualizado em 2025-09-11)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Nossa Senhora da Conceição",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO BOM JESUS DOS NAVEGANTES\"; registro atualizado em 2025-09-11)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Nossa Senhora da Conceição",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO BOM JESUS DOS NAVEGANTES\"; registro atualizado em 2025-09-11)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "cnpj": "13374525001100",
+   "sourceLastModified": "2025-09-11",
+   "foundedDate": "1924-12-31",
+   "notes": "Criação (site): 31/12/1924. Festa: Nossa Senhora da Conceição, festa dia 08 de dezembro. Secretaria: Segunda a sexta: 08h às 12."
+  },
+  {
+   "slug": "santo-antonio-neopolis",
+   "name": "Paróquia Santo Antônio",
+   "city": "Neópolis",
+   "state": "SE",
+   "neighborhood": null,
+   "address": "Rua Hildebrando T Souza, s/n",
+   "zipCode": "49980-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Gedeão Lucas Pontes da Silva",
+   "foundedYear": 1679,
+   "sources": [
+    {
+     "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+     "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO BOM JESUS DOS NAVEGANTES\"; registro atualizado em 2026-07-03)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://minhareceita.org/13374525001615",
+     "title": "Receita Federal — filial /0016 do CNPJ 13.374.525 da Diocese de Propriá: \"PAROQUIA SANTO ANTONIO\", situação ATIVA (minhareceita.org)",
+     "accessedAt": "2026-09-17"
+    }
+   ],
+   "confidence": "alta",
+   "vicariato": "Vicariato Bom Jesus dos Navegantes",
+   "communities": [
+    {
+     "name": "Matriz Santo Antônio",
+     "address": "Rua Hildebrando T Souza, s/n",
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO BOM JESUS DOS NAVEGANTES\"; registro atualizado em 2026-07-03)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Santo Antônio",
+     "dayOfWeek": 2,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO BOM JESUS DOS NAVEGANTES\"; registro atualizado em 2026-07-03)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Santo Antônio",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO BOM JESUS DOS NAVEGANTES\"; registro atualizado em 2026-07-03)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Santo Antônio",
+     "dayOfWeek": 5,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "Primeira sexta-feira do mês: 19h",
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO BOM JESUS DOS NAVEGANTES\"; registro atualizado em 2026-07-03)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Santo Antônio",
+     "dayOfWeek": 6,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO BOM JESUS DOS NAVEGANTES\"; registro atualizado em 2026-07-03)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Santo Antônio",
+     "dayOfWeek": 0,
+     "time": "09:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO BOM JESUS DOS NAVEGANTES\"; registro atualizado em 2026-07-03)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Santo Antônio",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO BOM JESUS DOS NAVEGANTES\"; registro atualizado em 2026-07-03)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "cnpj": "13374525001615",
+   "sourceLastModified": "2026-07-03",
+   "instagram": "paroquiadeneopolis",
+   "foundedDate": "1679-10-18",
+   "notes": "CEP: o site publica 49880-000, que é o de Canhoba; a Receita registra 49980-000 para Neópolis — gravado o da Receita. Co-padroeira: N. Sra. do Rosário. Criação (site): 18/10/1679. Festa: Padroeiro: Santo Antônio, festa dia 13 de junho; Co-padroeira: Nossa Senhora do Rosário, festa dia 07 de outubro. Secretaria: Segunda a sexta: 08h às 12h e de 14h às 18h."
+  },
+  {
+   "slug": "nossa-senhora-do-desterro-japoata",
+   "name": "Paróquia Nossa Senhora do Desterro",
+   "city": "Japoatã",
+   "state": "SE",
+   "neighborhood": null,
+   "address": "Praça da Matriz, s/n",
+   "zipCode": "49950-000",
+   "phone": "(79) 99810-8292",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Ricardo Freire Marques",
+   "foundedYear": 1929,
+   "sources": [
+    {
+     "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+     "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO BOM JESUS DOS NAVEGANTES\"; registro atualizado em 2025-09-08)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://minhareceita.org/13374525001704",
+     "title": "Receita Federal — filial /0017 do CNPJ 13.374.525 da Diocese de Propriá: \"PAROQUIA NOSSA SENHORA DO DESTERRO\", situação ATIVA (minhareceita.org)",
+     "accessedAt": "2026-09-17"
+    }
+   ],
+   "confidence": "alta",
+   "vicariato": "Vicariato Bom Jesus dos Navegantes",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora do Desterro",
+     "address": "Praça da Matriz, s/n",
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO BOM JESUS DOS NAVEGANTES\"; registro atualizado em 2025-09-08)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Nossa Senhora do Desterro",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO BOM JESUS DOS NAVEGANTES\"; registro atualizado em 2025-09-08)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Nossa Senhora do Desterro",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO BOM JESUS DOS NAVEGANTES\"; registro atualizado em 2025-09-08)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Nossa Senhora do Desterro",
+     "dayOfWeek": 0,
+     "time": "10:00",
+     "type": "MASS",
+     "notes": "4º Domingo: 10h",
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO BOM JESUS DOS NAVEGANTES\"; registro atualizado em 2025-09-08)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ],
+   "cnpj": "13374525001704",
+   "sourceLastModified": "2025-09-08",
+   "instagram": "paroquiadejapoata",
+   "foundedDate": "1929-10-05",
+   "notes": "Criação (site): 05/10/1929. Festa: Nossa Senhora do Desterro, festa dia 21 de novembro. Secretaria: Segunda a sexta: 08h às 12h e 14h às 18h; Sábado: 08h às 12h."
+  },
+  {
+   "slug": "senhora-santana-santana-do-sao-francisco",
+   "name": "Paróquia Senhora Sant'Ana",
+   "city": "Santana do São Francisco",
+   "state": "SE",
+   "neighborhood": null,
+   "address": "Praça da Matriz, s/n",
+   "zipCode": "49985-000",
+   "phone": "(82) 99666-3773",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Murilo de Morais Silva",
+   "foundedYear": 1995,
+   "sources": [
+    {
+     "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+     "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO BOM JESUS DOS NAVEGANTES\"; registro atualizado em 2025-09-11)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://minhareceita.org/13374525003073",
+     "title": "Receita Federal — filial /0030 do CNPJ 13.374.525 da Diocese de Propriá: \"PAROQUIA SENHORA SANTANA\", situação ATIVA (minhareceita.org)",
+     "accessedAt": "2026-09-17"
+    }
+   ],
+   "confidence": "alta",
+   "vicariato": "Vicariato Bom Jesus dos Navegantes",
+   "communities": [
+    {
+     "name": "Matriz Senhora Sant'Ana",
+     "address": "Praça da Matriz, s/n",
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO BOM JESUS DOS NAVEGANTES\"; registro atualizado em 2025-09-11)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Senhora Sant'Ana",
+     "dayOfWeek": 0,
+     "time": "10:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO BOM JESUS DOS NAVEGANTES\"; registro atualizado em 2025-09-11)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Senhora Sant'Ana",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO BOM JESUS DOS NAVEGANTES\"; registro atualizado em 2025-09-11)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "cnpj": "13374525003073",
+   "sourceLastModified": "2025-09-11",
+   "foundedDate": "1995-12-29",
+   "notes": "Telefone publicado com DDD 82 (Alagoas). Co-padroeiro: Bom Jesus dos Navegantes. Criação (site): 29/12/1995. Festa: Padroeira: Senhora Sant'Ana, festa dia 26 de julho; Co-padroeiro: Bom Jesus dos Navegantes, festa no 3º domingo de janeiro. Secretaria: Terça: 14h às 17h; Quarta a sábado: 08h às 12h."
+  },
+  {
+   "slug": "nossa-senhora-de-lourdes-pirambu",
+   "name": "Paróquia Nossa Senhora de Lourdes",
+   "city": "Pirambu",
+   "state": "SE",
+   "neighborhood": null,
+   "address": "Av. Augustinho Trindade, 241",
+   "zipCode": "49190-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Inaldo César de Menezes",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+     "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"BOM JESUS DOS NAVEGANTES\"; registro atualizado em 2025-10-13)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://minhareceita.org/13374525003316",
+     "title": "Receita Federal — filial /0033 do CNPJ 13.374.525 da Diocese de Propriá: \"PAROQUIA NOSSA SENHORA DE LOURDES\", situação ATIVA (minhareceita.org)",
+     "accessedAt": "2026-09-17"
+    }
+   ],
+   "confidence": "alta",
+   "vicariato": "Vicariato Bom Jesus dos Navegantes",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora de Lourdes",
+     "address": "Av. Augustinho Trindade, 241",
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"BOM JESUS DOS NAVEGANTES\"; registro atualizado em 2025-10-13)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Nossa Senhora de Lourdes",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"BOM JESUS DOS NAVEGANTES\"; registro atualizado em 2025-10-13)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "cnpj": "13374525003316",
+   "sourceLastModified": "2025-10-13",
+   "instagram": "paroquiapirambuoficial",
+   "notes": "O site não publica data de criação (o CNPJ é de 17/10/2001). A Receita registra outro logradouro: Rua Padre Elvécio Campos, 138, Centro. Festa: Nossa Senhora de Lourdes, festa no dia 11 de fevereiro. Secretaria: Segunda a sexta: 08h às 12h."
+  },
+  {
+   "slug": "santa-luzia-porto-da-folha",
+   "name": "Paróquia Santa Luzia",
+   "city": "Porto da Folha",
+   "state": "SE",
+   "neighborhood": "Povoado Lagoa da Volta",
+   "address": "Praça José Francisco de Sá, 27, Povoado Lagoa da Volta",
+   "zipCode": "49800-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Edinaldo de Oliveira Silva",
+   "foundedYear": 2010,
+   "sources": [
+    {
+     "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+     "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO IMACULADA CONCEIÇÃO\"; registro atualizado em 2026-08-29)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://minhareceita.org/13374525003405",
+     "title": "Receita Federal — filial /0034 do CNPJ 13.374.525 da Diocese de Propriá: \"PAROQUIA SANTA LUZIA\", situação ATIVA (minhareceita.org)",
+     "accessedAt": "2026-09-17"
+    }
+   ],
+   "confidence": "alta",
+   "vicariato": "Vicariato Imaculada Conceição",
+   "communities": [
+    {
+     "name": "Matriz Santa Luzia",
+     "address": "Praça José Francisco de Sá, 27, Povoado Lagoa da Volta",
+     "neighborhood": "Povoado Lagoa da Volta",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO IMACULADA CONCEIÇÃO\"; registro atualizado em 2026-08-29)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Santa Luzia",
+     "dayOfWeek": 0,
+     "time": "08:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO IMACULADA CONCEIÇÃO\"; registro atualizado em 2026-08-29)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Santa Luzia",
+     "dayOfWeek": 0,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO IMACULADA CONCEIÇÃO\"; registro atualizado em 2026-08-29)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "cnpj": "13374525003405",
+   "sourceLastModified": "2026-08-29",
+   "instagram": "santaluzialagoadavolta",
+   "foundedDate": "2010-07-09",
+   "notes": "Sede no povoado Lagoa da Volta. O campo \"endereço\" do site diz \"Pov. Lagoa do Rancho, S/N\" — é o povoado da paróquia vizinha (São José), provável erro de cópia; gravado o endereço da Receita. O site avisa: \"nesta paróquia não há Secretária Paroquial\". Criação (site): 09/07/2010. Festa: Santa Luzia, festa dia 13 de dezembro."
+  },
+  {
+   "slug": "nossa-senhora-da-conceicao-porto-da-folha",
+   "name": "Paróquia Nossa Senhora da Conceição",
+   "city": "Porto da Folha",
+   "state": "SE",
+   "neighborhood": null,
+   "address": "Praça Padre Manoel de Oliveira, s/n",
+   "zipCode": "49800-000",
+   "phone": "(79) 99960-1065",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Melchizedech de Oliveira Neto",
+   "foundedYear": 1821,
+   "sources": [
+    {
+     "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+     "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO IMACULADA CONCEIÇÃO\"; registro atualizado em 2025-09-07)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://minhareceita.org/13374525001968",
+     "title": "Receita Federal — filial /0019 do CNPJ 13.374.525 da Diocese de Propriá: \"PAROQUIA NOSSA SENHORA DA CONCEICAO\", situação ATIVA (minhareceita.org)",
+     "accessedAt": "2026-09-17"
+    }
+   ],
+   "confidence": "alta",
+   "vicariato": "Vicariato Imaculada Conceição",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora da Conceição",
+     "address": "Praça Padre Manoel de Oliveira, s/n",
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO IMACULADA CONCEIÇÃO\"; registro atualizado em 2025-09-07)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Capela Santa Terezinha",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO IMACULADA CONCEIÇÃO\"; registro atualizado em 2025-09-07)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta",
+     "notes": "Local de missa citado no quadro oficial de horários da paróquia (não é a lista completa de capelas)."
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Nossa Senhora da Conceição",
+     "dayOfWeek": 4,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO IMACULADA CONCEIÇÃO\"; registro atualizado em 2025-09-07)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Nossa Senhora da Conceição",
+     "dayOfWeek": 0,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO IMACULADA CONCEIÇÃO\"; registro atualizado em 2025-09-07)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Nossa Senhora da Conceição",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO IMACULADA CONCEIÇÃO\"; registro atualizado em 2025-09-07)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Capela Santa Terezinha",
+     "dayOfWeek": 0,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO IMACULADA CONCEIÇÃO\"; registro atualizado em 2025-09-07)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "cnpj": "13374525001968",
+   "sourceLastModified": "2025-09-07",
+   "foundedDate": "1821-02-19",
+   "notes": "Criação (site): 19/02/1821. Festa: Nossa Senhora da Conceição, festa dia 08 de dezembro. Secretaria: Segunda a sábado: 08h às 12h."
+  },
+  {
+   "slug": "nossa-senhora-aparecida-e-sao-jose-esposo-nossa-senhora-da-gloria",
+   "name": "Paróquia Nossa Senhora Aparecida e São José Esposo",
+   "city": "Nossa Senhora da Glória",
+   "state": "SE",
+   "neighborhood": "Brasília",
+   "address": "Rua Boca da Mata, 738",
+   "zipCode": "49680-000",
+   "phone": "(79) 99636-9096",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Paulo Henrique da Silva",
+   "foundedYear": 2019,
+   "sources": [
+    {
+     "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+     "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO IMACULADA CONCEIÇÃO\"; registro atualizado em 2025-09-06)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://minhareceita.org/13374525003740",
+     "title": "Receita Federal — filial /0037 do CNPJ 13.374.525 da Diocese de Propriá: \"PAROQUIA NOSSA SENHORA APARECIDA E SAO JOSE ESPOSO\", situação ATIVA (minhareceita.org)",
+     "accessedAt": "2026-09-17"
+    }
+   ],
+   "confidence": "alta",
+   "vicariato": "Vicariato Imaculada Conceição",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora Aparecida e São José Esposo",
+     "address": "Rua Boca da Mata, 738",
+     "neighborhood": "Brasília",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO IMACULADA CONCEIÇÃO\"; registro atualizado em 2025-09-06)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Nossa Senhora Aparecida e São José Esposo",
+     "dayOfWeek": 2,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO IMACULADA CONCEIÇÃO\"; registro atualizado em 2025-09-06)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Nossa Senhora Aparecida e São José Esposo",
+     "dayOfWeek": 4,
+     "time": "12:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO IMACULADA CONCEIÇÃO\"; registro atualizado em 2025-09-06)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Nossa Senhora Aparecida e São José Esposo",
+     "dayOfWeek": 5,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": "Primeira sexta do mês: 19h30",
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO IMACULADA CONCEIÇÃO\"; registro atualizado em 2025-09-06)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora Aparecida e São José Esposo",
+     "dayOfWeek": null,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": "Dia 12 e dia 19 de cada mês, missa dos afilhados de Nossa Senhora Aparecida e São José: 19h30",
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO IMACULADA CONCEIÇÃO\"; registro atualizado em 2025-09-06)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora Aparecida e São José Esposo",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO IMACULADA CONCEIÇÃO\"; registro atualizado em 2025-09-06)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Nossa Senhora Aparecida e São José Esposo",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO IMACULADA CONCEIÇÃO\"; registro atualizado em 2025-09-06)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "cnpj": "13374525003740",
+   "sourceLastModified": "2025-09-06",
+   "foundedDate": "2019-01-15",
+   "notes": "A Receita registra o número 744. Criação (site): 15/01/2019. Festa: Padroeira: Nossa Senhora Aparecida, festa dia 12 de outubro; Co-padroeiro: São José Esposo, festa dia 19 de março. Secretaria: Segunda a sábado: 08h às 12h."
+  },
+  {
+   "slug": "nossa-senhora-das-dores-nossa-senhora-da-gloria",
+   "name": "Paróquia Nossa Senhora das Dores",
+   "city": "Nossa Senhora da Glória",
+   "state": "SE",
+   "neighborhood": "Povoado Lagoa Bonita",
+   "address": "Povoado Lagoa Bonita, Rod. Mário Jorge Mota Melo, s/n",
+   "zipCode": "49680-000",
+   "phone": "(79) 99916-8780",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Gildo Alves de Menezes",
+   "foundedYear": 2022,
+   "sources": [
+    {
+     "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+     "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO IMACULADA CONCEIÇÃO\"; registro atualizado em 2025-09-06)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://minhareceita.org/13374525003820",
+     "title": "Receita Federal — filial /0038 do CNPJ 13.374.525 da Diocese de Propriá: \"PAROQUIA NOSSA SENHORA DAS DORES\", situação ATIVA (minhareceita.org)",
+     "accessedAt": "2026-09-17"
+    }
+   ],
+   "confidence": "alta",
+   "vicariato": "Vicariato Imaculada Conceição",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora das Dores",
+     "address": "Povoado Lagoa Bonita, Rod. Mário Jorge Mota Melo, s/n",
+     "neighborhood": "Povoado Lagoa Bonita",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO IMACULADA CONCEIÇÃO\"; registro atualizado em 2025-09-06)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Nossa Senhora das Dores",
+     "dayOfWeek": 2,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": "Última terça do mês, Missa dos Homens às 19h30",
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO IMACULADA CONCEIÇÃO\"; registro atualizado em 2025-09-06)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora das Dores",
+     "dayOfWeek": 4,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO IMACULADA CONCEIÇÃO\"; registro atualizado em 2025-09-06)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Nossa Senhora das Dores",
+     "dayOfWeek": 0,
+     "time": "11:00",
+     "type": "MASS",
+     "notes": "O site diz \"Domingo 11h ou 19h — consultar programação da paróquia\": horário alternado, não fixo",
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO IMACULADA CONCEIÇÃO\"; registro atualizado em 2025-09-06)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora das Dores",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "O site diz \"Domingo 11h ou 19h — consultar programação da paróquia\": horário alternado, não fixo",
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO IMACULADA CONCEIÇÃO\"; registro atualizado em 2025-09-06)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ],
+   "cnpj": "13374525003820",
+   "sourceLastModified": "2025-09-06",
+   "foundedDate": "2022-01-11",
+   "notes": "Criação (site): 11/01/2022. Festa: Nossa Senhora das Dores, festa no domingo seguinte ao dia da padroeira dia 15 de setembro. Secretaria: Segunda a sexta: 08h às 11h."
+  },
+  {
+   "slug": "santa-rosa-de-lima-poco-redondo",
+   "name": "Paróquia Santa Rosa de Lima",
+   "city": "Poço Redondo",
+   "state": "SE",
+   "neighborhood": "Povoado Santa Rosa do Ermírio",
+   "address": "Rua Rio Grande do Sul, Povoado Santa Rosa do Ermírio",
+   "zipCode": "49810-000",
+   "phone": "(79) 99647-3660",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. José Claúdio dos Santos",
+   "foundedYear": 2017,
+   "sources": [
+    {
+     "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+     "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO IMACULADA CONCEIÇÃO\"; registro atualizado em 2025-09-06)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://minhareceita.org/13374525003588",
+     "title": "Receita Federal — filial /0035 do CNPJ 13.374.525 da Diocese de Propriá: \"PAROQUIA SANTA ROSA DE LIMA\", situação ATIVA (minhareceita.org)",
+     "accessedAt": "2026-09-17"
+    }
+   ],
+   "confidence": "alta",
+   "vicariato": "Vicariato Imaculada Conceição",
+   "communities": [
+    {
+     "name": "Matriz Santa Rosa de Lima",
+     "address": "Rua Rio Grande do Sul, Povoado Santa Rosa do Ermírio",
+     "neighborhood": "Povoado Santa Rosa do Ermírio",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO IMACULADA CONCEIÇÃO\"; registro atualizado em 2025-09-06)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Santa Rosa de Lima",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO IMACULADA CONCEIÇÃO\"; registro atualizado em 2025-09-06)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Santa Rosa de Lima",
+     "dayOfWeek": 0,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO IMACULADA CONCEIÇÃO\"; registro atualizado em 2025-09-06)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Santa Rosa de Lima",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO IMACULADA CONCEIÇÃO\"; registro atualizado em 2025-09-06)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "cnpj": "13374525003588",
+   "sourceLastModified": "2025-09-06",
+   "foundedDate": "2017-07-03",
+   "notes": "A Receita registra Praça da Matriz, 255, Pov. Santa Rosa do Ermírio. Criação (site): 03/07/2017. Festa: Santa Rosa de Lima, festa dia 23 de agosto. Secretaria: Segunda a sábado: 08h às 14h15."
+  },
+  {
+   "slug": "sao-jose-porto-da-folha",
+   "name": "Paróquia São José",
+   "city": "Porto da Folha",
+   "state": "SE",
+   "neighborhood": "Povoado Lagoa do Rancho",
+   "address": "Rua Porto da Folha, s/n, Povoado Lagoa do Rancho",
+   "zipCode": "49800-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. José Cícero da Cruz",
+   "foundedYear": 2021,
+   "sources": [
+    {
+     "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+     "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO IMACULADA CONCEIÇÃO\"; registro atualizado em 2025-09-11)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://minhareceita.org/13374525003901",
+     "title": "Receita Federal — filial /0039 do CNPJ 13.374.525 da Diocese de Propriá: \"PAROQUIA SAO JOSE\", situação ATIVA (minhareceita.org)",
+     "accessedAt": "2026-09-17"
+    }
+   ],
+   "confidence": "alta",
+   "vicariato": "Vicariato Imaculada Conceição",
+   "communities": [
+    {
+     "name": "Matriz São José",
+     "address": "Rua Porto da Folha, s/n, Povoado Lagoa do Rancho",
+     "neighborhood": "Povoado Lagoa do Rancho",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO IMACULADA CONCEIÇÃO\"; registro atualizado em 2025-09-11)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz São José",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO IMACULADA CONCEIÇÃO\"; registro atualizado em 2025-09-11)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz São José",
+     "dayOfWeek": 0,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO IMACULADA CONCEIÇÃO\"; registro atualizado em 2025-09-11)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz São José",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO IMACULADA CONCEIÇÃO\"; registro atualizado em 2025-09-11)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "cnpj": "13374525003901",
+   "sourceLastModified": "2025-09-11",
+   "instagram": "paroquialagoadorancho",
+   "foundedDate": "2021-12-26",
+   "notes": "Criação (site): 26/12/2021. Festa: São José, festa dia 19 de março. Secretaria: Segunda a sexta: 08h às 12h."
+  },
+  {
+   "slug": "sagrado-coracao-de-jesus-monte-alegre-de-sergipe",
+   "name": "Paróquia Sagrado Coração de Jesus",
+   "city": "Monte Alegre de Sergipe",
+   "state": "SE",
+   "neighborhood": "Centro",
+   "address": "Praça da Matriz, s/n",
+   "zipCode": "49690-000",
+   "phone": "(79) 99608-2894",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Diego de Souza Farias",
+   "foundedYear": 1995,
+   "sources": [
+    {
+     "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+     "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO IMACULADA CONCEIÇÃO\"; registro atualizado em 2026-04-30)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://minhareceita.org/13374525003154",
+     "title": "Receita Federal — filial /0031 do CNPJ 13.374.525 da Diocese de Propriá: \"PAROQUIA DO SAGRADO CORACAO DE JESUS\", situação ATIVA (minhareceita.org)",
+     "accessedAt": "2026-09-17"
+    }
+   ],
+   "confidence": "alta",
+   "vicariato": "Vicariato Imaculada Conceição",
+   "communities": [
+    {
+     "name": "Matriz Sagrado Coração de Jesus",
+     "address": "Praça da Matriz, s/n",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO IMACULADA CONCEIÇÃO\"; registro atualizado em 2026-04-30)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Sagrado Coração de Jesus",
+     "dayOfWeek": 0,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO IMACULADA CONCEIÇÃO\"; registro atualizado em 2026-04-30)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Sagrado Coração de Jesus",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO IMACULADA CONCEIÇÃO\"; registro atualizado em 2026-04-30)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "cnpj": "13374525003154",
+   "sourceLastModified": "2026-04-30",
+   "vicarName": "Pe. Francisco Luís de Barros Filho",
+   "foundedDate": "1995-10-04",
+   "notes": "O site escreve só \"Monte Alegre\"; o município é Monte Alegre de Sergipe. Criação (site): 04/10/1995. Festa: Sagrado Coração de Jesus, festa de acordo com a data litúrgica. Secretaria: Segunda a sábado: 08h às 13h."
+  },
+  {
+   "slug": "nossa-senhora-da-conceicao-poco-redondo",
+   "name": "Paróquia Nossa Senhora da Conceição",
+   "city": "Poço Redondo",
+   "state": "SE",
+   "neighborhood": null,
+   "address": "Praça da Matriz, 236",
+   "zipCode": "49810-000",
+   "phone": "(79) 98120-2149",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Carlos Eduardo de Oliveira SCJ",
+   "foundedYear": 1979,
+   "sources": [
+    {
+     "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+     "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO IMACULADA CONCEIÇÃO\"; registro atualizado em 2025-09-06)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://minhareceita.org/13374525002859",
+     "title": "Receita Federal — filial /0028 do CNPJ 13.374.525 da Diocese de Propriá: \"PAROQUIA NOSSA SENHORA DA CONCEICAO\", situação ATIVA (minhareceita.org)",
+     "accessedAt": "2026-09-17"
+    }
+   ],
+   "confidence": "alta",
+   "vicariato": "Vicariato Imaculada Conceição",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora da Conceição",
+     "address": "Praça da Matriz, 236",
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO IMACULADA CONCEIÇÃO\"; registro atualizado em 2025-09-06)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Capela Nossa Senhora da Saúde",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO IMACULADA CONCEIÇÃO\"; registro atualizado em 2025-09-06)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta",
+     "notes": "Local de missa citado no quadro oficial de horários da paróquia (não é a lista completa de capelas)."
+    },
+    {
+     "name": "Igreja São José",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO IMACULADA CONCEIÇÃO\"; registro atualizado em 2025-09-06)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta",
+     "notes": "Local de missa citado no quadro oficial de horários da paróquia (não é a lista completa de capelas)."
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Capela Nossa Senhora da Saúde",
+     "dayOfWeek": 6,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO IMACULADA CONCEIÇÃO\"; registro atualizado em 2025-09-06)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Igreja São José",
+     "dayOfWeek": 2,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO IMACULADA CONCEIÇÃO\"; registro atualizado em 2025-09-06)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Igreja São José",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO IMACULADA CONCEIÇÃO\"; registro atualizado em 2025-09-06)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Nossa Senhora da Conceição",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO IMACULADA CONCEIÇÃO\"; registro atualizado em 2025-09-06)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Nossa Senhora da Conceição",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO IMACULADA CONCEIÇÃO\"; registro atualizado em 2025-09-06)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Nossa Senhora da Conceição",
+     "dayOfWeek": 5,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "Primeira sexta-feira do mês: 19h (Igreja Matriz)",
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO IMACULADA CONCEIÇÃO\"; registro atualizado em 2025-09-06)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ],
+   "cnpj": "13374525002859",
+   "sourceLastModified": "2025-09-06",
+   "vicarName": "Pe. Ravindra Moparthi SCJ",
+   "foundedDate": "1979-07-15",
+   "notes": "Confiada aos Padres do Sagrado Coração de Jesus (SCJ, dehonianos). O site dá a festa da padroeira em 15 de agosto. Criação (site): 15/07/1979. Festa: Nossa Senhora da Conceição, festa dia 15 de agosto. Secretaria: Segunda a sexta-feira: 08h às 12h."
+  },
+  {
+   "slug": "nossa-senhora-da-gloria-nossa-senhora-da-gloria",
+   "name": "Paróquia Nossa Senhora da Glória",
+   "city": "Nossa Senhora da Glória",
+   "state": "SE",
+   "neighborhood": "Centro",
+   "address": "Praça da Bandeira, 146",
+   "zipCode": "49680-000",
+   "phone": "(79) 99920-0720",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Deivide Marcklai Rocha Cerqueira",
+   "foundedYear": 1959,
+   "sources": [
+    {
+     "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+     "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO IMACULADA CONCEIÇÃO\"; registro atualizado em 2026-08-29)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://minhareceita.org/13374525001887",
+     "title": "Receita Federal — filial /0018 do CNPJ 13.374.525 da Diocese de Propriá: \"PAROQUIA NOSSA SENHORA DA GLORIA\", situação ATIVA (minhareceita.org)",
+     "accessedAt": "2026-09-17"
+    }
+   ],
+   "confidence": "alta",
+   "vicariato": "Vicariato Imaculada Conceição",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora da Glória",
+     "address": "Praça da Bandeira, 146",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO IMACULADA CONCEIÇÃO\"; registro atualizado em 2026-08-29)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Igreja Nova",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO IMACULADA CONCEIÇÃO\"; registro atualizado em 2026-08-29)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta",
+     "notes": "Local de missa citado no quadro oficial de horários da paróquia (não é a lista completa de capelas)."
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Nossa Senhora da Glória",
+     "dayOfWeek": 2,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO IMACULADA CONCEIÇÃO\"; registro atualizado em 2026-08-29)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Nossa Senhora da Glória",
+     "dayOfWeek": 3,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO IMACULADA CONCEIÇÃO\"; registro atualizado em 2026-08-29)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Nossa Senhora da Glória",
+     "dayOfWeek": 4,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO IMACULADA CONCEIÇÃO\"; registro atualizado em 2026-08-29)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Nossa Senhora da Glória",
+     "dayOfWeek": 5,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO IMACULADA CONCEIÇÃO\"; registro atualizado em 2026-08-29)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Nossa Senhora da Glória",
+     "dayOfWeek": 6,
+     "time": "06:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO IMACULADA CONCEIÇÃO\"; registro atualizado em 2026-08-29)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Igreja Nova",
+     "dayOfWeek": 0,
+     "time": "06:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO IMACULADA CONCEIÇÃO\"; registro atualizado em 2026-08-29)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Nossa Senhora da Glória",
+     "dayOfWeek": 0,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO IMACULADA CONCEIÇÃO\"; registro atualizado em 2026-08-29)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Nossa Senhora da Glória",
+     "dayOfWeek": 0,
+     "time": "17:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO IMACULADA CONCEIÇÃO\"; registro atualizado em 2026-08-29)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Igreja Nova",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO IMACULADA CONCEIÇÃO\"; registro atualizado em 2026-08-29)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "cnpj": "13374525001887",
+   "sourceLastModified": "2026-08-29",
+   "vicarName": "Pe. José Clovis Damaceno",
+   "foundedDate": "1959-02-14",
+   "notes": "\"Igreja Nova\" é o nome publicado pelo site para o segundo templo da paróquia (nome próprio não informado). Co-padroeira: Santa Gianna Beretta Molla. Criação (site): 14/02/1959. Festa: Padroeira: Nossa Senhora da Glória, festa dia 15 de agosto; Co-padroeira: Santa Gianna Beretta Molla, festa dia 28 de abril. Secretaria: Segunda a sábado: 08h às 12h."
+  },
+  {
+   "slug": "bom-jesus-dos-aflitos-gararu",
+   "name": "Paróquia Bom Jesus dos Aflitos",
+   "city": "Gararu",
+   "state": "SE",
+   "neighborhood": "Centro",
+   "address": "Praça Rio Branco, s/n",
+   "zipCode": "49830-000",
+   "phone": "(79) 99828-5785",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Pedro do Carmo",
+   "foundedYear": 1875,
+   "sources": [
+    {
+     "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+     "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO IMACULADA CONCEIÇÃO\"; registro atualizado em 2025-09-06)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://minhareceita.org/13374525001453",
+     "title": "Receita Federal — filial /0014 do CNPJ 13.374.525 da Diocese de Propriá: \"PAROQUIA BOM JESUS DOS AFLITOS\", situação ATIVA (minhareceita.org)",
+     "accessedAt": "2026-09-17"
+    }
+   ],
+   "confidence": "alta",
+   "vicariato": "Vicariato Imaculada Conceição",
+   "communities": [
+    {
+     "name": "Matriz Bom Jesus dos Aflitos",
+     "address": "Praça Rio Branco, s/n",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO IMACULADA CONCEIÇÃO\"; registro atualizado em 2025-09-06)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Bom Jesus dos Aflitos",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO IMACULADA CONCEIÇÃO\"; registro atualizado em 2025-09-06)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Bom Jesus dos Aflitos",
+     "dayOfWeek": 0,
+     "time": "09:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO IMACULADA CONCEIÇÃO\"; registro atualizado em 2025-09-06)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Bom Jesus dos Aflitos",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO IMACULADA CONCEIÇÃO\"; registro atualizado em 2025-09-06)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "cnpj": "13374525001453",
+   "sourceLastModified": "2025-09-06",
+   "foundedDate": "1875-04-10",
+   "notes": "Criação (site): 10/04/1875. Festa: Bom Jesus dos Aflitos, festa no penúltimo domingo de janeiro. Secretaria: Segunda a sábado: 07h30 às 13h45."
+  },
+  {
+   "slug": "nossa-senhora-da-conceicao-caninde-de-sao-francisco",
+   "name": "Paróquia Nossa Senhora da Conceição",
+   "city": "Canindé de São Francisco",
+   "state": "SE",
+   "neighborhood": null,
+   "address": "Praça Ananias Fernandes, s/n",
+   "zipCode": "49820-000",
+   "phone": "(79) 99973-7596",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Clenisson da Silva Ferreira",
+   "foundedYear": 1988,
+   "sources": [
+    {
+     "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+     "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO IMACULADA CONCEIÇÃO\"; registro atualizado em 2025-09-06)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://minhareceita.org/13374525000210",
+     "title": "Receita Federal — filial /0002 do CNPJ 13.374.525 da Diocese de Propriá: \"PAROQUIA NOSSA SENHORA DA CONCEICAO\", situação ATIVA (minhareceita.org)",
+     "accessedAt": "2026-09-17"
+    }
+   ],
+   "confidence": "alta",
+   "vicariato": "Vicariato Imaculada Conceição",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora da Conceição",
+     "address": "Praça Ananias Fernandes, s/n",
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO IMACULADA CONCEIÇÃO\"; registro atualizado em 2025-09-06)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Nossa Senhora da Conceição",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO IMACULADA CONCEIÇÃO\"; registro atualizado em 2025-09-06)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "cnpj": "13374525000210",
+   "sourceLastModified": "2025-09-06",
+   "vicarName": "Pe. Roberto Manoel dos Santos",
+   "foundedDate": "1988-05-28",
+   "notes": "A Receita registra Praça Nossa Senhora da Conceição, s/n, Centro. Criação (site): 28/05/1988. Festa: Nossa Senhora da Conceição, festa dia 08 de dezembro. Secretaria: Terça a sexta-feira: 08h às 12h e 14h às 18h; Sábado: 08h às 12h."
+  },
+  {
+   "slug": "santo-antonio-propria",
+   "name": "Catedral Santo Antônio",
+   "city": "Propriá",
+   "state": "SE",
+   "neighborhood": "Centro",
+   "address": "Praça Fausto Cardoso, 165",
+   "zipCode": "49900-000",
+   "phone": "(79) 99604-8291",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Clebson Ferreira Moura",
+   "foundedYear": 1717,
+   "sources": [
+    {
+     "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+     "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2025-11-24)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://minhareceita.org/13374525000724",
+     "title": "Receita Federal — filial /0007 do CNPJ 13.374.525 da Diocese de Propriá: \"PAROQUIA SANTO ANTONIO\", situação ATIVA (minhareceita.org)",
+     "accessedAt": "2026-09-17"
+    }
+   ],
+   "confidence": "alta",
+   "vicariato": "Vicariato Santíssima Eucaristia",
+   "communities": [
+    {
+     "name": "Catedral Santo Antônio",
+     "address": "Praça Fausto Cardoso, 165",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2025-11-24)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Carmelo da Imaculada Conceição",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2025-11-24)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta",
+     "notes": "Local de missa citado no quadro oficial de horários da paróquia (não é a lista completa de capelas)."
+    },
+    {
+     "name": "Santuário Nossa Senhora das Graças",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2025-11-24)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta",
+     "notes": "Local de missa citado no quadro oficial de horários da paróquia (não é a lista completa de capelas)."
+    },
+    {
+     "name": "Igreja do Rosário",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2025-11-24)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta",
+     "notes": "Local de missa citado no quadro oficial de horários da paróquia (não é a lista completa de capelas)."
+    },
+    {
+     "name": "Comunidade Matadouro",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2025-11-24)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta",
+     "notes": "Local de missa citado no quadro oficial de horários da paróquia (não é a lista completa de capelas)."
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Carmelo da Imaculada Conceição",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": "Todos os dias: 07h - Missa no Carmelo da Imaculada Conceição (Carmelitas Descalças)",
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2025-11-24)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Carmelo da Imaculada Conceição",
+     "dayOfWeek": 1,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": "Todos os dias: 07h - Missa no Carmelo da Imaculada Conceição (Carmelitas Descalças)",
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2025-11-24)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Carmelo da Imaculada Conceição",
+     "dayOfWeek": 2,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": "Todos os dias: 07h - Missa no Carmelo da Imaculada Conceição (Carmelitas Descalças)",
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2025-11-24)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Carmelo da Imaculada Conceição",
+     "dayOfWeek": 3,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": "Todos os dias: 07h - Missa no Carmelo da Imaculada Conceição (Carmelitas Descalças)",
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2025-11-24)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Carmelo da Imaculada Conceição",
+     "dayOfWeek": 4,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": "Todos os dias: 07h - Missa no Carmelo da Imaculada Conceição (Carmelitas Descalças)",
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2025-11-24)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Carmelo da Imaculada Conceição",
+     "dayOfWeek": 5,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": "Todos os dias: 07h - Missa no Carmelo da Imaculada Conceição (Carmelitas Descalças)",
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2025-11-24)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Carmelo da Imaculada Conceição",
+     "dayOfWeek": 6,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": "Todos os dias: 07h - Missa no Carmelo da Imaculada Conceição (Carmelitas Descalças)",
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2025-11-24)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Santuário Nossa Senhora das Graças",
+     "dayOfWeek": 2,
+     "time": "06:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2025-11-24)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Santuário Nossa Senhora das Graças",
+     "dayOfWeek": 3,
+     "time": "06:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2025-11-24)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Santuário Nossa Senhora das Graças",
+     "dayOfWeek": 4,
+     "time": "06:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2025-11-24)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Santuário Nossa Senhora das Graças",
+     "dayOfWeek": 5,
+     "time": "06:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2025-11-24)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Catedral Santo Antônio",
+     "dayOfWeek": 2,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": "Missa com os Homens, na Catedral",
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2025-11-24)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Igreja do Rosário",
+     "dayOfWeek": 3,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2025-11-24)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Catedral Santo Antônio",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2025-11-24)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Catedral Santo Antônio",
+     "dayOfWeek": 5,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "O site diz \"Sexta-feira: 19h - Setores da Paróquia\": missa itinerante pelos setores, sem local fixo",
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2025-11-24)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Santuário Nossa Senhora das Graças",
+     "dayOfWeek": 6,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2025-11-24)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Comunidade Matadouro",
+     "dayOfWeek": 6,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2025-11-24)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Santuário Nossa Senhora das Graças",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2025-11-24)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Igreja do Rosário",
+     "dayOfWeek": 0,
+     "time": "08:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2025-11-24)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Catedral Santo Antônio",
+     "dayOfWeek": 0,
+     "time": "10:00",
+     "type": "MASS",
+     "notes": "Missa com as crianças, na Catedral",
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2025-11-24)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Catedral Santo Antônio",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2025-11-24)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "cnpj": "13374525000724",
+   "sourceLastModified": "2025-11-24",
+   "foundedDate": "1717-10-18",
+   "notes": "O site a chama de \"Paróquia Santo Antônio (Catedral Diocesana)\". A Receita registra a paróquia na Praça Dom Antônio Cabral, s/n, Centro. Criação (site): 18/10/1717. Festa: Santo Antônio, festa dia 13 de junho. Secretaria: Segunda a sexta-feira: 08h às 12h."
+  },
+  {
+   "slug": "nossa-senhora-do-perpetuo-socorro-e-sao-miguel-arcanjo-propria",
+   "name": "Paróquia Nossa Senhora do Perpétuo Socorro e São Miguel Arcanjo",
+   "city": "Propriá",
+   "state": "SE",
+   "neighborhood": "Povoado São Miguel",
+   "address": "Povoado São Miguel, s/n",
+   "zipCode": "49900-000",
+   "phone": "(77) 98931-5006",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Márcio Gonzaga de Lima",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+     "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2025-11-24)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://minhareceita.org/13374525002000",
+     "title": "Receita Federal — filial /0020 do CNPJ 13.374.525 da Diocese de Propriá: \"PAROQUIA N. S. DO PERPETUO SOCORRO E SAO MIGUEL ARCANJO\", situação ATIVA (minhareceita.org)",
+     "accessedAt": "2026-09-17"
+    }
+   ],
+   "confidence": "alta",
+   "vicariato": "Vicariato Santíssima Eucaristia",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora do Perpétuo Socorro e São Miguel Arcanjo",
+     "address": "Povoado São Miguel, s/n",
+     "neighborhood": "Povoado São Miguel",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2025-11-24)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Nossa Senhora do Perpétuo Socorro e São Miguel Arcanjo",
+     "dayOfWeek": 3,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2025-11-24)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Nossa Senhora do Perpétuo Socorro e São Miguel Arcanjo",
+     "dayOfWeek": 0,
+     "time": "08:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2025-11-24)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "cnpj": "13374525002000",
+   "sourceLastModified": "2025-11-24",
+   "notes": "O site dá \"criação\" em 01/01/1970 — é a data-zero do sistema (época Unix), não a fundação; foundedYear ficou nulo. Secretaria: \"atendimento personalizado através do telefone\". Telefone publicado com DDD 77 (Bahia). Mesmo padre de N. Sra. Mãe dos Homens. Festa: Padroeira: Nossa Senhora do Perpétuo Socorro, festa dia 15 de agosto."
+  },
+  {
+   "slug": "nossa-senhora-mae-dos-homens-propria",
+   "name": "Paróquia Nossa Senhora Mãe dos Homens",
+   "city": "Propriá",
+   "state": "SE",
+   "neighborhood": "Brasília",
+   "address": "Rua Dom José Brandão de Castro, 396",
+   "zipCode": "49900-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Márcio Gonzaga de Lima",
+   "foundedYear": 2019,
+   "sources": [
+    {
+     "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+     "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2025-11-24)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://minhareceita.org/13374525003669",
+     "title": "Receita Federal — filial /0036 do CNPJ 13.374.525 da Diocese de Propriá: \"PAROQUIA NOSSA SENHORA MAE DOS HOMENS\", situação ATIVA (minhareceita.org)",
+     "accessedAt": "2026-09-17"
+    }
+   ],
+   "confidence": "alta",
+   "vicariato": "Vicariato Santíssima Eucaristia",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora Mãe dos Homens",
+     "address": "Rua Dom José Brandão de Castro, 396",
+     "neighborhood": "Brasília",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2025-11-24)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Conjunto Maria do Carmo",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2025-11-24)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta",
+     "notes": "Local de missa citado no quadro oficial de horários da paróquia (não é a lista completa de capelas)."
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Nossa Senhora Mãe dos Homens",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2025-11-24)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Nossa Senhora Mãe dos Homens",
+     "dayOfWeek": 6,
+     "time": "16:30",
+     "type": "MASS",
+     "notes": "Missa das Crianças",
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2025-11-24)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Conjunto Maria do Carmo",
+     "dayOfWeek": 0,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2025-11-24)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Nossa Senhora Mãe dos Homens",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2025-11-24)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "cnpj": "13374525003669",
+   "sourceLastModified": "2025-11-24",
+   "instagram": "paroquia.n.s.maedoshomens",
+   "foundedDate": "2019-01-23",
+   "notes": "O site abrevia o local da missa de domingo 17h como \"Conj. Maria do Carmo\". Criação (site): 23/01/2019. Festa: Nossa Senhora Mãe dos Homens. Secretaria: Segunda a sexta-feira: 08h às 12h."
+  },
+  {
+   "slug": "nossa-senhora-da-piedade-graccho-cardoso",
+   "name": "Paróquia Nossa Senhora da Piedade",
+   "city": "Graccho Cardoso",
+   "state": "SE",
+   "neighborhood": null,
+   "address": "Praça da Matriz, s/n",
+   "zipCode": "49860-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Maurício Alexandre Alves de Souza",
+   "foundedYear": 1976,
+   "sources": [
+    {
+     "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+     "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2025-11-24)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://minhareceita.org/13374525002344",
+     "title": "Receita Federal — filial /0023 do CNPJ 13.374.525 da Diocese de Propriá: \"PAROQUIA NOSSA SENHORA DA PIEDADE\", situação ATIVA (minhareceita.org)",
+     "accessedAt": "2026-09-17"
+    }
+   ],
+   "confidence": "alta",
+   "vicariato": "Vicariato Santíssima Eucaristia",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora da Piedade",
+     "address": "Praça da Matriz, s/n",
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2025-11-24)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Nossa Senhora da Piedade",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2025-11-24)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Nossa Senhora da Piedade",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2025-11-24)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "cnpj": "13374525002344",
+   "sourceLastModified": "2025-11-24",
+   "instagram": "paroquiadapiedade_graccho",
+   "foundedDate": "1976-04-18",
+   "notes": "O site acrescenta: \"Uma vez por mês nos povoados\" (sem dia nem hora — não gravado). Criação (site): 18/04/1976. Festa: Nossa Senhora da Piedade, festa dia 31 de maio. Secretaria: Terça a sexta: 08h às 12h."
+  },
+  {
+   "slug": "senhor-das-misericordias-muribeca",
+   "name": "Paróquia Senhor das Misericórdias",
+   "city": "Muribeca",
+   "state": "SE",
+   "neighborhood": null,
+   "address": "Rua Jackson Figueredo, s/n",
+   "zipCode": "49780-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Rodomarques Rodrigues dos Santos",
+   "foundedYear": 1921,
+   "sources": [
+    {
+     "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+     "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2025-11-24)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://minhareceita.org/13374525001534",
+     "title": "Receita Federal — filial /0015 do CNPJ 13.374.525 da Diocese de Propriá: \"PAROQUIA SENHOR DAS MISERICORDIAS\", situação ATIVA (minhareceita.org)",
+     "accessedAt": "2026-09-17"
+    }
+   ],
+   "confidence": "alta",
+   "vicariato": "Vicariato Santíssima Eucaristia",
+   "communities": [
+    {
+     "name": "Matriz Senhor das Misericórdias",
+     "address": "Rua Jackson Figueredo, s/n",
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2025-11-24)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Senhor das Misericórdias",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2025-11-24)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Senhor das Misericórdias",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2025-11-24)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "cnpj": "13374525001534",
+   "sourceLastModified": "2025-11-24",
+   "instagram": "paroquiasenhordasmisericordias",
+   "foundedDate": "1921-06-06",
+   "notes": "Criação (site): 06/06/1921. Festa: Bom Jesus Senhor das Misericórdias, festa dia 01 de janeiro. Secretaria: Segunda a sexta: 08h às 13h."
+  },
+  {
+   "slug": "sao-francisco-de-assis-sao-francisco",
+   "name": "Paróquia São Francisco de Assis",
+   "city": "São Francisco",
+   "state": "SE",
+   "neighborhood": null,
+   "address": "Praça José Dias Guimarães, s/n",
+   "zipCode": "49945-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. José Adalto dos Santos",
+   "foundedYear": 2000,
+   "sources": [
+    {
+     "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+     "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2025-11-24)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://minhareceita.org/13374525003235",
+     "title": "Receita Federal — filial /0032 do CNPJ 13.374.525 da Diocese de Propriá: \"PAROQUIA DE SAO FRANCISCO DE ASSIS\", situação ATIVA (minhareceita.org)",
+     "accessedAt": "2026-09-17"
+    }
+   ],
+   "confidence": "alta",
+   "vicariato": "Vicariato Santíssima Eucaristia",
+   "communities": [
+    {
+     "name": "Matriz São Francisco de Assis",
+     "address": "Praça José Dias Guimarães, s/n",
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2025-11-24)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz São Francisco de Assis",
+     "dayOfWeek": 0,
+     "time": "09:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2025-11-24)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz São Francisco de Assis",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2025-11-24)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "cnpj": "13374525003235",
+   "sourceLastModified": "2025-11-24",
+   "instagram": "paroquiasaofranciscodeassis25",
+   "foundedDate": "2000-01-25",
+   "notes": "O título no site é só \"SÃO FRANCISCO\"; o padroeiro (São Francisco de Assis) vem do campo da festa e da Receita. Criação (site): 25/01/2000. Festa: São Francisco de Assis, festa dia 04 de outubro."
+  },
+  {
+   "slug": "nossa-senhora-de-lourdes-nossa-senhora-de-lourdes",
+   "name": "Paróquia Nossa Senhora de Lourdes",
+   "city": "Nossa Senhora de Lourdes",
+   "state": "SE",
+   "neighborhood": null,
+   "address": "Rodovia Eronildes Ferreira de Carvalho, s/n",
+   "zipCode": "49890-000",
+   "phone": "(79) 99884-5871",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. José Anderson Bispo dos Santos",
+   "foundedYear": 1977,
+   "sources": [
+    {
+     "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+     "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2026-08-29)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://minhareceita.org/13374525002778",
+     "title": "Receita Federal — filial /0027 do CNPJ 13.374.525 da Diocese de Propriá: \"PAROQUIA NOSSA SENHORA DE LOURDES\", situação ATIVA (minhareceita.org)",
+     "accessedAt": "2026-09-17"
+    }
+   ],
+   "confidence": "alta",
+   "vicariato": "Vicariato Santíssima Eucaristia",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora de Lourdes",
+     "address": "Rodovia Eronildes Ferreira de Carvalho, s/n",
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2026-08-29)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Santuário Eucarístico",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2026-08-29)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta",
+     "notes": "Local de missa citado no quadro oficial de horários da paróquia (não é a lista completa de capelas)."
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Santuário Eucarístico",
+     "dayOfWeek": 3,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": "Quarta, sexta e sábado: 7h no Santuário Eucarístico",
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2026-08-29)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Santuário Eucarístico",
+     "dayOfWeek": 5,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": "Quarta, sexta e sábado: 7h no Santuário Eucarístico",
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2026-08-29)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Santuário Eucarístico",
+     "dayOfWeek": 6,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": "Quarta, sexta e sábado: 7h no Santuário Eucarístico",
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2026-08-29)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "cnpj": "13374525002778",
+   "sourceLastModified": "2026-08-29",
+   "foundedDate": "1977-04-10",
+   "notes": "O site só publica as missas do Santuário Eucarístico (quarta, sexta e sábado, 7h); não há horário dominical publicado — conferir. Criação (site): 10/04/1977. Festa: Nossa Senhora de Lourdes, festa no dia 11 de fevereiro. Secretaria: Segunda a sexta-feira: 08h às 12h e das 14h às 17h."
+  },
+  {
+   "slug": "nossa-senhora-da-conceicao-itabi",
+   "name": "Paróquia Nossa Senhora da Conceição",
+   "city": "Itabi",
+   "state": "SE",
+   "neighborhood": null,
+   "address": "Praça Teófilo Batista de Melo, s/n",
+   "zipCode": "49870-000",
+   "phone": "(79) 99952-0583",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Gustavo Santos de Souza Martins",
+   "foundedYear": 1977,
+   "sources": [
+    {
+     "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+     "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2025-11-24)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://minhareceita.org/13374525002506",
+     "title": "Receita Federal — filial /0025 do CNPJ 13.374.525 da Diocese de Propriá: \"PAROQUIA NOSSA SENHORA DA CONCEICAO\", situação ATIVA (minhareceita.org)",
+     "accessedAt": "2026-09-17"
+    }
+   ],
+   "confidence": "alta",
+   "vicariato": "Vicariato Santíssima Eucaristia",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora da Conceição",
+     "address": "Praça Teófilo Batista de Melo, s/n",
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2025-11-24)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Capela São Francisco",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2025-11-24)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta",
+     "notes": "Local de missa citado no quadro oficial de horários da paróquia (não é a lista completa de capelas)."
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Nossa Senhora da Conceição",
+     "dayOfWeek": 3,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2025-11-24)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Nossa Senhora da Conceição",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2025-11-24)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Nossa Senhora da Conceição",
+     "dayOfWeek": 5,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2025-11-24)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Capela São Francisco",
+     "dayOfWeek": 0,
+     "time": "07:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2025-11-24)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Nossa Senhora da Conceição",
+     "dayOfWeek": 0,
+     "time": "10:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2025-11-24)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Nossa Senhora da Conceição",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2025-11-24)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Nossa Senhora da Conceição",
+     "dayOfWeek": 0,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": "O site diz \"Domingo 17h - Comunidades\": missa itinerante, sem local fixo",
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2025-11-24)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ],
+   "cnpj": "13374525002506",
+   "sourceLastModified": "2025-11-24",
+   "foundedDate": "1977-04-10",
+   "notes": "O site acrescenta \"Sábado: (comunidades)\", sem hora — não gravado. O site dá a festa em 08 de setembro. Criação (site): 10/04/1977. Festa: Nossa Senhora da Conceição, festa no dia 08 de setembro. Secretaria: Segunda e de quarta a sábado: 08h às 12h."
+  },
+  {
+   "slug": "sao-joao-batista-cedro-de-sao-joao",
+   "name": "Paróquia São João Batista",
+   "city": "Cedro de São João",
+   "state": "SE",
+   "neighborhood": null,
+   "address": "Praça da Matriz, s/n",
+   "zipCode": "49930-000",
+   "phone": "(79) 99821-9189",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Francisco Fabiano Rodrigues Leite",
+   "foundedYear": 1936,
+   "sources": [
+    {
+     "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+     "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2026-07-03)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://minhareceita.org/13374525001372",
+     "title": "Receita Federal — filial /0013 do CNPJ 13.374.525 da Diocese de Propriá: \"PAROQUIA DE SAO JOAO BATISTA\", situação ATIVA (minhareceita.org)",
+     "accessedAt": "2026-09-17"
+    }
+   ],
+   "confidence": "alta",
+   "vicariato": "Vicariato Santíssima Eucaristia",
+   "communities": [
+    {
+     "name": "Matriz São João Batista",
+     "address": "Praça da Matriz, s/n",
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2026-07-03)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "São Sebastião",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2026-07-03)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta",
+     "notes": "Local de missa citado no quadro oficial de horários da paróquia (não é a lista completa de capelas)."
+    },
+    {
+     "name": "Cruirizeiro",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2026-07-03)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta",
+     "notes": "Local de missa citado no quadro oficial de horários da paróquia (não é a lista completa de capelas)."
+    },
+    {
+     "name": "Poço dos Bois",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2026-07-03)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta",
+     "notes": "Local de missa citado no quadro oficial de horários da paróquia (não é a lista completa de capelas)."
+    },
+    {
+     "name": "Telha",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2026-07-03)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta",
+     "notes": "Local de missa citado no quadro oficial de horários da paróquia (não é a lista completa de capelas)."
+    },
+    {
+     "name": "Povoado Bela Vista",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2026-07-03)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta",
+     "notes": "Local de missa citado no quadro oficial de horários da paróquia (não é a lista completa de capelas)."
+    },
+    {
+     "name": "Povoado São Pedro",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2026-07-03)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta",
+     "notes": "Local de missa citado no quadro oficial de horários da paróquia (não é a lista completa de capelas)."
+    }
+   ],
+   "schedules": [
+    {
+     "community": "São Sebastião",
+     "dayOfWeek": 2,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2026-07-03)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Cruirizeiro",
+     "dayOfWeek": 3,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "grafia do site: \"Cruirizeiro\" (provável \"Cruzeiro\")",
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2026-07-03)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz São João Batista",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2026-07-03)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Poço dos Bois",
+     "dayOfWeek": 5,
+     "time": "16:00",
+     "type": "MASS",
+     "notes": "Sexta (primeira do mês)",
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2026-07-03)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Telha",
+     "dayOfWeek": 5,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": "Sexta (primeira do mês)",
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2026-07-03)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São João Batista",
+     "dayOfWeek": 5,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "Sexta (primeira do mês)",
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2026-07-03)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Poço dos Bois",
+     "dayOfWeek": 6,
+     "time": "16:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2026-07-03)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Povoado Bela Vista",
+     "dayOfWeek": 6,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2026-07-03)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz São João Batista",
+     "dayOfWeek": 0,
+     "time": "06:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2026-07-03)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Povoado São Pedro",
+     "dayOfWeek": 0,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2026-07-03)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz São João Batista",
+     "dayOfWeek": 0,
+     "time": "10:00",
+     "type": "MASS",
+     "notes": "Missa com as crianças",
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2026-07-03)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Telha",
+     "dayOfWeek": 0,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2026-07-03)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz São João Batista",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2026-07-03)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "cnpj": "13374525001372",
+   "sourceLastModified": "2026-07-03",
+   "vicarName": "Pe. Antônio Rodrigues de Sousa",
+   "foundedDate": "1936-11-19",
+   "notes": "A paróquia atende também o município vizinho de Telha (missa dominical às 17h). Criação (site): 19/11/1936. Festa: São João Batista, festa dia 24 de junho. Secretaria: Segunda a sexta: 08h às 13h; Quinta-feira: 08h às 12h e de 14h às 18h."
+  },
+  {
+   "slug": "bom-jesus-dos-pobres-canhoba",
+   "name": "Paróquia Bom Jesus dos Pobres",
+   "city": "Canhoba",
+   "state": "SE",
+   "neighborhood": null,
+   "address": "Av. Barão de Rio Branco, s/n",
+   "zipCode": "49880-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Thiago Silva Santana",
+   "foundedYear": 1939,
+   "sources": [
+    {
+     "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+     "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2025-11-24)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://minhareceita.org/13374525001291",
+     "title": "Receita Federal — filial /0012 do CNPJ 13.374.525 da Diocese de Propriá: \"PAROQUIA DO BOM JESUS DOS POBRES\", situação ATIVA (minhareceita.org)",
+     "accessedAt": "2026-09-17"
+    }
+   ],
+   "confidence": "alta",
+   "vicariato": "Vicariato Santíssima Eucaristia",
+   "communities": [
+    {
+     "name": "Matriz Bom Jesus dos Pobres",
+     "address": "Av. Barão de Rio Branco, s/n",
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2025-11-24)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [],
+   "cnpj": "13374525001291",
+   "sourceLastModified": "2025-11-24",
+   "instagram": "bomjesuscanhoba",
+   "foundedDate": "1939-11-28",
+   "notes": "Campo de horários no site: \"Consultar agenda da paróquia\" — nenhum horário publicado. Co-padroeira: N. Sra. do Amparo. A Receita registra Praça Antônio Torres, s/n. Criação (site): 28/11/1939. Festa: Padroeiro: Bom Jesus dos Pobres; Co-padroeiro: Nossa Senhora do Amparo. Secretaria: Segunda a sexta: 10h às 13h."
+  },
+  {
+   "slug": "senhora-santana-aquidaba",
+   "name": "Paróquia Senhora Sant'Ana",
+   "city": "Aquidabã",
+   "state": "SE",
+   "neighborhood": null,
+   "address": "Av. Getúlio Vargas, 676",
+   "zipCode": "49790-000",
+   "phone": "(79) 99983-1812",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Edmilson Menezes Matias",
+   "foundedYear": 1872,
+   "sources": [
+    {
+     "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+     "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2025-11-24)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://minhareceita.org/13374525001020",
+     "title": "Receita Federal — filial /0010 do CNPJ 13.374.525 da Diocese de Propriá: \"PAROQUIA DE SENHORA SANTANA\", situação ATIVA (minhareceita.org)",
+     "accessedAt": "2026-09-17"
+    }
+   ],
+   "confidence": "alta",
+   "vicariato": "Vicariato Santíssima Eucaristia",
+   "communities": [
+    {
+     "name": "Matriz Senhora Sant'Ana",
+     "address": "Av. Getúlio Vargas, 676",
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2025-11-24)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Senhora Sant'Ana",
+     "dayOfWeek": 0,
+     "time": "10:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2025-11-24)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Senhora Sant'Ana",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.diocesedepropria.com/todas-as-paroquias",
+       "title": "Diocese de Propriá — Paróquias › Todas (site oficial, coleção Wix \"VICARIATO SANTÍSSIMA EUCARISTIA\"; registro atualizado em 2025-11-24)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "cnpj": "13374525001020",
+   "sourceLastModified": "2025-11-24",
+   "foundedDate": "1872-04-11",
+   "notes": "Co-padroeiro: São Joaquim. Criação (site): 11/04/1872. Festa: Padroeira: Senhora Sant'Ana; Co-padroeiro: São Joaquim; A festa ocorre no mesmo dia, dia 26 de julho. Secretaria: Segunda a sexta: 08h às 12h e 14h às 18h."
+  }
+ ],
+ "coverage": {
+  "parishesFound": 31,
+  "parishesExpected": 31,
+  "notes": "31 de 31. O site oficial publica 31 paróquias (coleções Wix dos três vicariatos: 9 + 11 + 11), e a varredura das filiais do CNPJ 13.374.525 na Receita Federal devolve exatamente 31 filiais paroquiais ATIVAS (as outras 8 filiais são seminário, Cáritas, ação social, livraria, jornal e imóveis) e nada de /0041 a /0055. catholic-hierarchy dá 30 paróquias em 2023; a 31ª (São José, povoado São José da Caatinga, Japaratuba) foi criada em 14/02/2025."
+ }
+}

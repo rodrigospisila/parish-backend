@@ -1,0 +1,4298 @@
+{
+ "diocese": {
+  "name": "Diocese de Jequié",
+  "type": "Diocese",
+  "slug": "jequie",
+  "city": "Jequié",
+  "state": "BA",
+  "address": "Rua Padre Altino Freire, 240, Centro",
+  "zipCode": "45200-237",
+  "phone": "(73) 3525-6770",
+  "email": null,
+  "website": null,
+  "bishopName": "Dom Paulo Romeu Dantas Bastos",
+  "sources": [
+   {
+    "url": "https://cnbbne3.org.br/diocese-de-jequie-ba/",
+    "title": "CNBB Regional Nordeste 3 — Diocese de Jequié (BA): bispo, cúria, CEP, telefone",
+    "accessedAt": "2026-09-17"
+   },
+   {
+    "url": "https://web.archive.org/web/20220521192659/https://www.diocesedejequie.com.br/paroquias/",
+    "title": "Portal Diocese de Jequié — Paróquias (captura do Arquivo da Internet de 21/05/2022; domínio extinto; cartões sem atualização desde ~2017)",
+    "accessedAt": "2026-09-17"
+   },
+   {
+    "url": "https://gcatholic.org/churches/local/jequ0",
+    "title": "GCatholic — Churches in the Diocese of Jequié (atualizado em 01/01/2026)",
+    "accessedAt": "2026-09-17"
+   },
+   {
+    "url": "https://www.catholic-hierarchy.org/diocese/djequ.html",
+    "title": "catholic-hierarchy.org — Jequié (Diocese): 36 paróquias em 2023",
+    "accessedAt": "2026-09-17"
+   },
+   {
+    "url": "https://pt.wikipedia.org/wiki/Diocese_de_Jequi%C3%A9",
+    "title": "Wikipédia — Diocese de Jequié: \"22 municípios, 39 paróquias e 1 santuário, 15 paróquias na cidade de Jequié\"",
+    "accessedAt": "2026-09-17"
+   },
+   {
+    "url": "https://www.instagram.com/diocesejequie/",
+    "title": "Instagram oficial @diocesejequie — \"Setor de Comunicação | Diocese de Jequié. Bispo: S.E.R. Dom Paulo Romeu Dantas Bastos\" (posts até 14/09/2026)",
+    "accessedAt": "2026-09-17"
+   },
+   {
+    "url": "https://minhareceita.org/14516728000185",
+    "title": "Receita Federal — DIOCESE DE JEQUIE, CNPJ 14.516.728/0001-85 (Rua Dez de Julho, 31, Centro)",
+    "accessedAt": "2026-09-17"
+   }
+  ],
+  "confidence": "alta",
+  "notes": "website nulo de propósito: o domínio diocesedejequie.com.br deixou de existir no registro.br (NXDOMAIN em 17/09/2026; a home já devolvia 404 em 04/2025 e a última notícia é de 12/2021). A diocese comunica pelo Instagram @diocesejequie e pelo Facebook diocesedejequieoficial. As paróquias têm CNPJ próprio (não são filiais do CNPJ da diocese)."
+ },
+ "parishes": [
+  {
+   "slug": "santo-antonio-de-padua-jequie",
+   "name": "Catedral Santo Antônio de Pádua",
+   "city": "Jequié",
+   "state": "BA",
+   "neighborhood": "São Luíz",
+   "address": "R. Pe. Altino Freire, nº 240",
+   "zipCode": "45202-350",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": 1899,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20220521192659/https://www.diocesedejequie.com.br/paroquias/",
+     "title": "Portal Diocese de Jequié — Paróquias (captura do Arquivo da Internet de 21/05/2022; domínio extinto; cartões sem atualização desde ~2017)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/jequ0",
+     "title": "GCatholic — Churches in the Diocese of Jequié (atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://minhareceita.org/13243563000152",
+     "title": "Receita Federal (CNPJ 13243563000152, situação ATIVA) via minhareceita.org; lista por município conferida no Mapa das OSC/IPEA, base 05/2026",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/igreja.php?k=YgSRX",
+     "title": "Horário de Missa — Catedral Diocesana Santo Antônio de Pádua (ficha atualizada pela última vez em 10/03/2014)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://www.liriocatolico.com.br/horario_missa/",
+     "title": "Lírio Católico — Catedral Santo Antônio de Pádua, Jequié (ficha 1617; base estadual com data de carga 02/09/2026)",
+     "accessedAt": "2026-09-17"
+    }
+   ],
+   "confidence": "media",
+   "communities": [
+    {
+     "name": "Catedral Santo Antônio de Pádua",
+     "address": "R. Pe. Altino Freire, nº 240",
+     "neighborhood": "São Luíz",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20220521192659/https://www.diocesedejequie.com.br/paroquias/",
+       "title": "Portal Diocese de Jequié — Paróquias (captura do Arquivo da Internet de 21/05/2022; domínio extinto; cartões sem atualização desde ~2017)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "media"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Catedral Santo Antônio de Pádua",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": "mesmo horário no Lírio Católico (sem data de conferência) e na ficha pré-pandemia do horariodemissa.com.br — a coincidência não conta como corroboração: o Lírio pode ter copiado a ficha antiga",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=YgSRX",
+       "title": "Horário de Missa — Catedral Diocesana Santo Antônio de Pádua (ficha atualizada pela última vez em 10/03/2014)",
+       "accessedAt": "2026-09-17"
+      },
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/",
+       "title": "Lírio Católico — Catedral Santo Antônio de Pádua, Jequié (ficha 1617; base estadual com data de carga 02/09/2026)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Catedral Santo Antônio de Pádua",
+     "dayOfWeek": 0,
+     "time": "09:00",
+     "type": "MASS",
+     "notes": "ficha de 10/03/2014, anterior à pandemia",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=YgSRX",
+       "title": "Horário de Missa — Catedral Diocesana Santo Antônio de Pádua (ficha atualizada pela última vez em 10/03/2014)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Catedral Santo Antônio de Pádua",
+     "dayOfWeek": 0,
+     "time": "10:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/",
+       "title": "Lírio Católico — Catedral Santo Antônio de Pádua, Jequié (ficha 1617; base estadual com data de carga 02/09/2026)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Catedral Santo Antônio de Pádua",
+     "dayOfWeek": 0,
+     "time": "18:30",
+     "type": "MASS",
+     "notes": "mesmo horário no Lírio Católico (sem data de conferência) e na ficha pré-pandemia do horariodemissa.com.br — a coincidência não conta como corroboração: o Lírio pode ter copiado a ficha antiga",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=YgSRX",
+       "title": "Horário de Missa — Catedral Diocesana Santo Antônio de Pádua (ficha atualizada pela última vez em 10/03/2014)",
+       "accessedAt": "2026-09-17"
+      },
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/",
+       "title": "Lírio Católico — Catedral Santo Antônio de Pádua, Jequié (ficha 1617; base estadual com data de carga 02/09/2026)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Catedral Santo Antônio de Pádua",
+     "dayOfWeek": 1,
+     "time": "18:30",
+     "type": "MASS",
+     "notes": "ficha de 10/03/2014, anterior à pandemia",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=YgSRX",
+       "title": "Horário de Missa — Catedral Diocesana Santo Antônio de Pádua (ficha atualizada pela última vez em 10/03/2014)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Catedral Santo Antônio de Pádua",
+     "dayOfWeek": 2,
+     "time": "09:00",
+     "type": "CONFESSION",
+     "notes": "das 09:00 às 12:00",
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/",
+       "title": "Lírio Católico — Catedral Santo Antônio de Pádua, Jequié (ficha 1617; base estadual com data de carga 02/09/2026)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Catedral Santo Antônio de Pádua",
+     "dayOfWeek": 2,
+     "time": "18:30",
+     "type": "MASS",
+     "notes": "mesmo horário no Lírio Católico (sem data de conferência) e na ficha pré-pandemia do horariodemissa.com.br — a coincidência não conta como corroboração: o Lírio pode ter copiado a ficha antiga",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=YgSRX",
+       "title": "Horário de Missa — Catedral Diocesana Santo Antônio de Pádua (ficha atualizada pela última vez em 10/03/2014)",
+       "accessedAt": "2026-09-17"
+      },
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/",
+       "title": "Lírio Católico — Catedral Santo Antônio de Pádua, Jequié (ficha 1617; base estadual com data de carga 02/09/2026)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Catedral Santo Antônio de Pádua",
+     "dayOfWeek": 3,
+     "time": "09:00",
+     "type": "CONFESSION",
+     "notes": "das 09:00 às 12:00",
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/",
+       "title": "Lírio Católico — Catedral Santo Antônio de Pádua, Jequié (ficha 1617; base estadual com data de carga 02/09/2026)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Catedral Santo Antônio de Pádua",
+     "dayOfWeek": 3,
+     "time": "18:30",
+     "type": "MASS",
+     "notes": "mesmo horário no Lírio Católico (sem data de conferência) e na ficha pré-pandemia do horariodemissa.com.br — a coincidência não conta como corroboração: o Lírio pode ter copiado a ficha antiga",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=YgSRX",
+       "title": "Horário de Missa — Catedral Diocesana Santo Antônio de Pádua (ficha atualizada pela última vez em 10/03/2014)",
+       "accessedAt": "2026-09-17"
+      },
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/",
+       "title": "Lírio Católico — Catedral Santo Antônio de Pádua, Jequié (ficha 1617; base estadual com data de carga 02/09/2026)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Catedral Santo Antônio de Pádua",
+     "dayOfWeek": 4,
+     "time": "08:00",
+     "type": "ADORATION",
+     "notes": "das 08:00 às 18:00",
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/",
+       "title": "Lírio Católico — Catedral Santo Antônio de Pádua, Jequié (ficha 1617; base estadual com data de carga 02/09/2026)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Catedral Santo Antônio de Pádua",
+     "dayOfWeek": 4,
+     "time": "09:00",
+     "type": "CONFESSION",
+     "notes": "das 09:00 às 12:00",
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/",
+       "title": "Lírio Católico — Catedral Santo Antônio de Pádua, Jequié (ficha 1617; base estadual com data de carga 02/09/2026)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Catedral Santo Antônio de Pádua",
+     "dayOfWeek": 4,
+     "time": "18:30",
+     "type": "MASS",
+     "notes": "mesmo horário no Lírio Católico (sem data de conferência) e na ficha pré-pandemia do horariodemissa.com.br — a coincidência não conta como corroboração: o Lírio pode ter copiado a ficha antiga",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=YgSRX",
+       "title": "Horário de Missa — Catedral Diocesana Santo Antônio de Pádua (ficha atualizada pela última vez em 10/03/2014)",
+       "accessedAt": "2026-09-17"
+      },
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/",
+       "title": "Lírio Católico — Catedral Santo Antônio de Pádua, Jequié (ficha 1617; base estadual com data de carga 02/09/2026)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Catedral Santo Antônio de Pádua",
+     "dayOfWeek": 5,
+     "time": "09:00",
+     "type": "CONFESSION",
+     "notes": "das 09:00 às 12:00",
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/",
+       "title": "Lírio Católico — Catedral Santo Antônio de Pádua, Jequié (ficha 1617; base estadual com data de carga 02/09/2026)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Catedral Santo Antônio de Pádua",
+     "dayOfWeek": 5,
+     "time": "18:30",
+     "type": "MASS",
+     "notes": "mesmo horário no Lírio Católico (sem data de conferência) e na ficha pré-pandemia do horariodemissa.com.br — a coincidência não conta como corroboração: o Lírio pode ter copiado a ficha antiga",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=YgSRX",
+       "title": "Horário de Missa — Catedral Diocesana Santo Antônio de Pádua (ficha atualizada pela última vez em 10/03/2014)",
+       "accessedAt": "2026-09-17"
+      },
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/",
+       "title": "Lírio Católico — Catedral Santo Antônio de Pádua, Jequié (ficha 1617; base estadual com data de carga 02/09/2026)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Catedral Santo Antônio de Pádua",
+     "dayOfWeek": 6,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/",
+       "title": "Lírio Católico — Catedral Santo Antônio de Pádua, Jequié (ficha 1617; base estadual com data de carga 02/09/2026)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Catedral Santo Antônio de Pádua",
+     "dayOfWeek": 6,
+     "time": "18:30",
+     "type": "MASS",
+     "notes": "ficha de 10/03/2014, anterior à pandemia",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=YgSRX",
+       "title": "Horário de Missa — Catedral Diocesana Santo Antônio de Pádua (ficha atualizada pela última vez em 10/03/2014)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ],
+   "cnpj": "13243563000152",
+   "phoneHistoric": "(73) 3525-2885",
+   "emailHistoric": "sec.catedral.jequie@gmail.com",
+   "notes": "Endereço do cartão diocesano (R. Pe. Altino Freire, 240 — o mesmo da cúria). A Receita Federal e o Lírio Católico dão Rua Nestor Ribeiro, 423, Centro; o horariodemissa (2014) dá Rua Virgílio Tourinho Neto. Conferir qual é o da secretaria. Contato do cartão diocesano antigo (conteúdo de ~2017, não conferido — fora dos campos phone/email): (73) 3525-2885; sec.catedral.jequie@gmail.com."
+  },
+  {
+   "slug": "nossa-senhora-das-dores-planaltino",
+   "name": "Paróquia Nossa Senhora das Dores",
+   "city": "Planaltino",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Largo da Matriz, 249",
+   "zipCode": "45375-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": 1993,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20220521192659/https://www.diocesedejequie.com.br/paroquias/",
+     "title": "Portal Diocese de Jequié — Paróquias (captura do Arquivo da Internet de 21/05/2022; domínio extinto; cartões sem atualização desde ~2017)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/jequ0",
+     "title": "GCatholic — Churches in the Diocese of Jequié (atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://minhareceita.org/10373018000192",
+     "title": "Receita Federal (CNPJ 10373018000192, situação ATIVA) via minhareceita.org; lista por município conferida no Mapa das OSC/IPEA, base 05/2026",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/igreja.php?k=jrwYr",
+     "title": "Horário de Missa — Paróquia Nossa Senhora das Dores (ficha atualizada pela última vez em 24/05/2013)",
+     "accessedAt": "2026-09-17"
+    }
+   ],
+   "confidence": "media",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora das Dores",
+     "address": "Largo da Matriz, 249",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20220521192659/https://www.diocesedejequie.com.br/paroquias/",
+       "title": "Portal Diocese de Jequié — Paróquias (captura do Arquivo da Internet de 21/05/2022; domínio extinto; cartões sem atualização desde ~2017)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "media"
+    }
+   ],
+   "schedules": [],
+   "cnpj": "10373018000192",
+   "phoneHistoric": "(73) 3544-2353",
+   "emailHistoric": null,
+   "notes": "Contato do cartão diocesano antigo (conteúdo de ~2017, não conferido — fora dos campos phone/email): (73) 3544-2353."
+  },
+  {
+   "slug": "nossa-senhora-de-lourdes-nova-itarana",
+   "name": "Paróquia Nossa Senhora de Lourdes",
+   "city": "Nova Itarana",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Av. André Magalhães, s/n",
+   "zipCode": "45390-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": 2004,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20220521192659/https://www.diocesedejequie.com.br/paroquias/",
+     "title": "Portal Diocese de Jequié — Paróquias (captura do Arquivo da Internet de 21/05/2022; domínio extinto; cartões sem atualização desde ~2017)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/jequ0",
+     "title": "GCatholic — Churches in the Diocese of Jequié (atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://minhareceita.org/10260908000198",
+     "title": "Receita Federal (CNPJ 10260908000198, situação ATIVA) via minhareceita.org; lista por município conferida no Mapa das OSC/IPEA, base 05/2026",
+     "accessedAt": "2026-09-17"
+    }
+   ],
+   "confidence": "media",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora de Lourdes",
+     "address": "Av. André Magalhães, s/n",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20220521192659/https://www.diocesedejequie.com.br/paroquias/",
+       "title": "Portal Diocese de Jequié — Paróquias (captura do Arquivo da Internet de 21/05/2022; domínio extinto; cartões sem atualização desde ~2017)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "media"
+    }
+   ],
+   "schedules": [],
+   "cnpj": "10260908000198",
+   "phoneHistoric": "(73) 3546-2281",
+   "emailHistoric": null,
+   "notes": "Contato antigo, não conferido — fora dos campos phone/email (telefone do cadastro da Receita Federal e e-mail do cartão diocesano de ~2017): (73) 3546-2281."
+  },
+  {
+   "slug": "santa-ines-santa-ines",
+   "name": "Paróquia Santa Inês",
+   "city": "Santa Inês",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Rua Ruy Barbosa, 58",
+   "zipCode": "45320-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": 1939,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20220521192659/https://www.diocesedejequie.com.br/paroquias/",
+     "title": "Portal Diocese de Jequié — Paróquias (captura do Arquivo da Internet de 21/05/2022; domínio extinto; cartões sem atualização desde ~2017)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/jequ0",
+     "title": "GCatholic — Churches in the Diocese of Jequié (atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://minhareceita.org/09179343000130",
+     "title": "Receita Federal (CNPJ 09179343000130, situação ATIVA) via minhareceita.org; lista por município conferida no Mapa das OSC/IPEA, base 05/2026",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/igreja.php?k=suhKG",
+     "title": "Horário de Missa — Paróquia Santa Inês (ficha atualizada pela última vez em 24/05/2013)",
+     "accessedAt": "2026-09-17"
+    }
+   ],
+   "confidence": "media",
+   "communities": [
+    {
+     "name": "Matriz Santa Inês",
+     "address": "Rua Ruy Barbosa, 58",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20220521192659/https://www.diocesedejequie.com.br/paroquias/",
+       "title": "Portal Diocese de Jequié — Paróquias (captura do Arquivo da Internet de 21/05/2022; domínio extinto; cartões sem atualização desde ~2017)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "media"
+    }
+   ],
+   "schedules": [],
+   "cnpj": "09179343000130",
+   "phoneHistoric": "(73) 3536-1185",
+   "emailHistoric": null,
+   "notes": "Contato do cartão diocesano antigo (conteúdo de ~2017, não conferido — fora dos campos phone/email): (73) 3536-1185."
+  },
+  {
+   "slug": "nossa-senhora-das-gracas-maracas",
+   "name": "Paróquia Nossa Senhora das Graças",
+   "city": "Maracás",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Rua Castro Alves, 24",
+   "zipCode": "45360-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": 1847,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20220521192659/https://www.diocesedejequie.com.br/paroquias/",
+     "title": "Portal Diocese de Jequié — Paróquias (captura do Arquivo da Internet de 21/05/2022; domínio extinto; cartões sem atualização desde ~2017)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/jequ0",
+     "title": "GCatholic — Churches in the Diocese of Jequié (atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://minhareceita.org/09379004000105",
+     "title": "Receita Federal (CNPJ 09379004000105, situação ATIVA) via minhareceita.org; lista por município conferida no Mapa das OSC/IPEA, base 05/2026",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/igreja.php?k=1xS5f",
+     "title": "Horário de Missa — Paróquia Nossa Senhora das Graças (ficha atualizada pela última vez em 25/01/2015)",
+     "accessedAt": "2026-09-17"
+    }
+   ],
+   "confidence": "media",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora das Graças",
+     "address": "Rua Castro Alves, 24",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20220521192659/https://www.diocesedejequie.com.br/paroquias/",
+       "title": "Portal Diocese de Jequié — Paróquias (captura do Arquivo da Internet de 21/05/2022; domínio extinto; cartões sem atualização desde ~2017)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "name": "Comunidade rural de Covas",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=1xS5f",
+       "title": "Horário de Missa — Paróquia Nossa Senhora das Graças (ficha atualizada pela última vez em 25/01/2015)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa",
+     "notes": "Citada só na ficha de 25/01/2015 do horariodemissa.com.br (texto original: \"Com. rural de Covas\")."
+    },
+    {
+     "name": "Comunidade Irmã Dulce",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=1xS5f",
+       "title": "Horário de Missa — Paróquia Nossa Senhora das Graças (ficha atualizada pela última vez em 25/01/2015)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa",
+     "notes": "Citada só na ficha de 25/01/2015 do horariodemissa.com.br (texto original: \"Com. Ir. Dulce\")."
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Nossa Senhora das Graças",
+     "dayOfWeek": 0,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": "ficha de 25/01/2015, anterior à pandemia",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=1xS5f",
+       "title": "Horário de Missa — Paróquia Nossa Senhora das Graças (ficha atualizada pela última vez em 25/01/2015)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora das Graças",
+     "dayOfWeek": 0,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": "ficha de 25/01/2015, anterior à pandemia",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=1xS5f",
+       "title": "Horário de Missa — Paróquia Nossa Senhora das Graças (ficha atualizada pela última vez em 25/01/2015)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora das Graças",
+     "dayOfWeek": 4,
+     "time": "15:00",
+     "type": "CONFESSION",
+     "notes": "das 15:00 às 17:30; ficha de 25/01/2015, anterior à pandemia",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=1xS5f",
+       "title": "Horário de Missa — Paróquia Nossa Senhora das Graças (ficha atualizada pela última vez em 25/01/2015)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora das Graças",
+     "dayOfWeek": 5,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": "primeira sexta-feira do mês; ficha de 25/01/2015, anterior à pandemia",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=1xS5f",
+       "title": "Horário de Missa — Paróquia Nossa Senhora das Graças (ficha atualizada pela última vez em 25/01/2015)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora das Graças",
+     "dayOfWeek": 5,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": "primeira sexta-feira do mês; ficha de 25/01/2015, anterior à pandemia",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=1xS5f",
+       "title": "Horário de Missa — Paróquia Nossa Senhora das Graças (ficha atualizada pela última vez em 25/01/2015)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Comunidade Irmã Dulce",
+     "dayOfWeek": 6,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": "ficha de 25/01/2015, anterior à pandemia",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=1xS5f",
+       "title": "Horário de Missa — Paróquia Nossa Senhora das Graças (ficha atualizada pela última vez em 25/01/2015)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Comunidade rural de Covas",
+     "dayOfWeek": 2,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": "ficha de 25/01/2015, anterior à pandemia",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=1xS5f",
+       "title": "Horário de Missa — Paróquia Nossa Senhora das Graças (ficha atualizada pela última vez em 25/01/2015)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ],
+   "cnpj": "09379004000105",
+   "phoneHistoric": "(73) 3533-2931",
+   "emailHistoric": "paroquiademaracas@hotmail.com",
+   "notes": "Contato do cartão diocesano antigo (conteúdo de ~2017, não conferido — fora dos campos phone/email): (73) 3533-2931; paroquiademaracas@hotmail.com."
+  },
+  {
+   "slug": "nossa-senhora-da-conceicao-manoel-vitorino",
+   "name": "Paróquia Nossa Senhora da Conceição",
+   "city": "Manoel Vitorino",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Av. Rio Bahia, 192",
+   "zipCode": "45240-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": 1976,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20220521192659/https://www.diocesedejequie.com.br/paroquias/",
+     "title": "Portal Diocese de Jequié — Paróquias (captura do Arquivo da Internet de 21/05/2022; domínio extinto; cartões sem atualização desde ~2017)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/jequ0",
+     "title": "GCatholic — Churches in the Diocese of Jequié (atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://minhareceita.org/10258350000106",
+     "title": "Receita Federal (CNPJ 10258350000106, situação ATIVA) via minhareceita.org; lista por município conferida no Mapa das OSC/IPEA, base 05/2026",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/igreja.php?k=T5iNs",
+     "title": "Horário de Missa — Paróquia Nossa Senhora da Conceição (ficha atualizada pela última vez em 24/05/2013)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://www.liriocatolico.com.br/horario_missa/",
+     "title": "Lírio Católico — Paróquia Nossa Senhora da Conceição, Manoel Vitorino (ficha 1655; base estadual com data de carga 02/09/2026)",
+     "accessedAt": "2026-09-17"
+    }
+   ],
+   "confidence": "media",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora da Conceição",
+     "address": "Av. Rio Bahia, 192",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20220521192659/https://www.diocesedejequie.com.br/paroquias/",
+       "title": "Portal Diocese de Jequié — Paróquias (captura do Arquivo da Internet de 21/05/2022; domínio extinto; cartões sem atualização desde ~2017)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "media"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Nossa Senhora da Conceição",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/",
+       "title": "Lírio Católico — Paróquia Nossa Senhora da Conceição, Manoel Vitorino (ficha 1655; base estadual com data de carga 02/09/2026)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora da Conceição",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/",
+       "title": "Lírio Católico — Paróquia Nossa Senhora da Conceição, Manoel Vitorino (ficha 1655; base estadual com data de carga 02/09/2026)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora da Conceição",
+     "dayOfWeek": 3,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/",
+       "title": "Lírio Católico — Paróquia Nossa Senhora da Conceição, Manoel Vitorino (ficha 1655; base estadual com data de carga 02/09/2026)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora da Conceição",
+     "dayOfWeek": 4,
+     "time": "07:00",
+     "type": "ADORATION",
+     "notes": "das 07:00 às 19:00",
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/",
+       "title": "Lírio Católico — Paróquia Nossa Senhora da Conceição, Manoel Vitorino (ficha 1655; base estadual com data de carga 02/09/2026)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora da Conceição",
+     "dayOfWeek": 4,
+     "time": "07:00",
+     "type": "CONFESSION",
+     "notes": "das 07:00 às 10:00",
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/",
+       "title": "Lírio Católico — Paróquia Nossa Senhora da Conceição, Manoel Vitorino (ficha 1655; base estadual com data de carga 02/09/2026)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora da Conceição",
+     "dayOfWeek": 5,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "1ª sexta-feira do mês (texto da fonte: \"Missas: 1ª sexta-feira do mês, 19:00.\")",
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/",
+       "title": "Lírio Católico — Paróquia Nossa Senhora da Conceição, Manoel Vitorino (ficha 1655; base estadual com data de carga 02/09/2026)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ],
+   "cnpj": "10258350000106",
+   "phoneHistoric": "(73) 3549-2196",
+   "emailHistoric": "paroquiademanoelvitorino@gmail.com",
+   "notes": "Contato antigo, não conferido — fora dos campos phone/email (telefone do cadastro da Receita Federal e e-mail do cartão diocesano de ~2017): (73) 3549-2196; paroquiademanoelvitorino@gmail.com."
+  },
+  {
+   "slug": "sao-roque-lafaiete-coutinho",
+   "name": "Paróquia São Roque",
+   "city": "Lafaiete Coutinho",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça Papa João XXIII, 180",
+   "zipCode": "45215-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. José Raimundo",
+   "foundedYear": 1984,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20220521192659/https://www.diocesedejequie.com.br/paroquias/",
+     "title": "Portal Diocese de Jequié — Paróquias (captura do Arquivo da Internet de 21/05/2022; domínio extinto; cartões sem atualização desde ~2017)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/jequ0",
+     "title": "GCatholic — Churches in the Diocese of Jequié (atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://minhareceita.org/03141707000106",
+     "title": "Receita Federal (CNPJ 03141707000106, situação ATIVA) via minhareceita.org; lista por município conferida no Mapa das OSC/IPEA, base 05/2026",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://jequiereporter.com/diocese-de-jequie-divulga-boletim-comunicando-as-transferencias-de-padres/",
+     "title": "Jequié Repórter — boletim da Diocese de Jequié com transferências de padres, 21/11/2023",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/igreja.php?k=qlxyL",
+     "title": "Horário de Missa — Paróquia São Roque (ficha atualizada pela última vez em 24/05/2013)",
+     "accessedAt": "2026-09-17"
+    }
+   ],
+   "confidence": "media",
+   "communities": [
+    {
+     "name": "Matriz São Roque",
+     "address": "Praça Papa João XXIII, 180",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20220521192659/https://www.diocesedejequie.com.br/paroquias/",
+       "title": "Portal Diocese de Jequié — Paróquias (captura do Arquivo da Internet de 21/05/2022; domínio extinto; cartões sem atualização desde ~2017)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "media"
+    }
+   ],
+   "schedules": [],
+   "cnpj": "03141707000106",
+   "phoneHistoric": "(73) 3541-2180",
+   "emailHistoric": "paroquiasaoroquelf@hotmail.com",
+   "notes": "Contato do cartão diocesano antigo (conteúdo de ~2017, não conferido — fora dos campos phone/email): (73) 3541-2180; paroquiasaoroquelf@hotmail.com."
+  },
+  {
+   "slug": "sao-miguel-arcanjo-lajedo-do-tabocal",
+   "name": "Paróquia São Miguel Arcanjo",
+   "city": "Lajedo do Tabocal",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Rua Marcionílio Souza, s/n",
+   "zipCode": "45365-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": 2001,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20220521192659/https://www.diocesedejequie.com.br/paroquias/",
+     "title": "Portal Diocese de Jequié — Paróquias (captura do Arquivo da Internet de 21/05/2022; domínio extinto; cartões sem atualização desde ~2017)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/jequ0",
+     "title": "GCatholic — Churches in the Diocese of Jequié (atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://minhareceita.org/09431378000114",
+     "title": "Receita Federal (CNPJ 09431378000114, situação ATIVA) via minhareceita.org; lista por município conferida no Mapa das OSC/IPEA, base 05/2026",
+     "accessedAt": "2026-09-17"
+    }
+   ],
+   "confidence": "media",
+   "communities": [
+    {
+     "name": "Matriz São Miguel Arcanjo",
+     "address": "Rua Marcionílio Souza, s/n",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20220521192659/https://www.diocesedejequie.com.br/paroquias/",
+       "title": "Portal Diocese de Jequié — Paróquias (captura do Arquivo da Internet de 21/05/2022; domínio extinto; cartões sem atualização desde ~2017)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "media"
+    }
+   ],
+   "schedules": [],
+   "cnpj": "09431378000114",
+   "phoneHistoric": "(73) 3556-1184",
+   "emailHistoric": null,
+   "notes": "Contato do cartão diocesano antigo (conteúdo de ~2017, não conferido — fora dos campos phone/email): (73) 3556-1184."
+  },
+  {
+   "slug": "sao-joao-batista-jequie",
+   "name": "Paróquia São João Batista",
+   "city": "Jequié",
+   "state": "BA",
+   "neighborhood": "Km 3",
+   "address": "R. São Francisco - Km3, 14",
+   "zipCode": "45208-050",
+   "phone": "(73) 98861-0566",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Mateus Muniz",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20220521192659/https://www.diocesedejequie.com.br/paroquias/",
+     "title": "Portal Diocese de Jequié — Paróquias (captura do Arquivo da Internet de 21/05/2022; domínio extinto; cartões sem atualização desde ~2017)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/jequ0",
+     "title": "GCatholic — Churches in the Diocese of Jequié (atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://minhareceita.org/27546054000103",
+     "title": "Receita Federal (CNPJ 27546054000103, situação ATIVA) via minhareceita.org; lista por município conferida no Mapa das OSC/IPEA, base 05/2026",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://www.instagram.com/paroquia_saojoaobatistakm3/",
+     "title": "Instagram oficial @paroquia_saojoaobatistakm3 — bio: \"Paróquia São João Batista / Pároco: Pe. Mateus Muniz / Contato: (73) 98861-0566 / Rua Valdeci Souza Braga, Km-3\" (posts até 09/2026)",
+     "accessedAt": "2026-09-17"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz São João Batista",
+     "address": "R. São Francisco - Km3, 14",
+     "neighborhood": "Km 3",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20220521192659/https://www.diocesedejequie.com.br/paroquias/",
+       "title": "Portal Diocese de Jequié — Paróquias (captura do Arquivo da Internet de 21/05/2022; domínio extinto; cartões sem atualização desde ~2017)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [],
+   "cnpj": "27546054000103",
+   "instagram": "paroquia_saojoaobatistakm3",
+   "notes": "O site diocesano (cartão sem atualização desde ~2017) ainda a chamava de \"Quase Paróquia São João Batista (Km 03 e 04)\"; o perfil oficial de 2026 e a Receita Federal (razão social \"PAROQUIA SAO JOAO BATISTA\", CNPJ de 04/12/2014) a tratam como paróquia. GCatholic (01/2026) lista a igreja sem o rótulo \"Parish\". Endereço na bio oficial: Rua Valdeci Souza Braga, Km-3 (truncado); na lista antiga: R. São Francisco - Km3, 14. Telefone = contato da bio oficial."
+  },
+  {
+   "slug": "senhor-do-bonfim-jequie",
+   "name": "Paróquia Senhor do Bonfim",
+   "city": "Jequié",
+   "state": "BA",
+   "neighborhood": "Caixa d'Água",
+   "address": "Rua Duque de Caxias, s/n",
+   "zipCode": "45203-696",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Sonildo de Jesus Oliveira",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20220521192659/https://www.diocesedejequie.com.br/paroquias/",
+     "title": "Portal Diocese de Jequié — Paróquias (captura do Arquivo da Internet de 21/05/2022; domínio extinto; cartões sem atualização desde ~2017)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/jequ0",
+     "title": "GCatholic — Churches in the Diocese of Jequié (atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://minhareceita.org/27826332000186",
+     "title": "Receita Federal (CNPJ 27826332000186, situação ATIVA) via minhareceita.org; lista por município conferida no Mapa das OSC/IPEA, base 05/2026",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://www.instagram.com/p/DUlBsOdDHyY/",
+     "title": "Instagram de Pe. Sonildo de Jesus Oliveira, 10/02/2026: \"Paróquia Senhor do Bonfim- Jequié- Ba\"",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://mapaosc.ipea.gov.br/detalhar/1250568",
+     "title": "Mapa das OSC/IPEA — PAROQUIA SENHOR DO BONFIM, Jequié (CNPJ 27.826.332/0001-86)",
+     "accessedAt": "2026-09-17"
+    }
+   ],
+   "confidence": "media",
+   "communities": [
+    {
+     "name": "Matriz Senhor do Bonfim",
+     "address": "Rua Duque de Caxias, s/n",
+     "neighborhood": "Caixa d'Água",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20220521192659/https://www.diocesedejequie.com.br/paroquias/",
+       "title": "Portal Diocese de Jequié — Paróquias (captura do Arquivo da Internet de 21/05/2022; domínio extinto; cartões sem atualização desde ~2017)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "media"
+    }
+   ],
+   "schedules": [],
+   "cnpj": "27826332000186",
+   "notes": "O site diocesano (cartão sem atualização desde ~2017) a chamava de \"Quase Paróquia Senhor do Bonfim\"; a Receita Federal registra \"PAROQUIA SENHOR DO BONFIM\" (CNPJ de 30/08/2014) e o padre responsável a chama de \"Paróquia\" em 02/2026. Existe página no Facebook \"Paróquia Senhor do Bonfim | Jequié BA\" e outra, mais antiga, \"Quase Paróquia Senhor do Bonfim\". GCatholic (01/2026) lista a igreja sem o rótulo \"Parish\". CONFIRMAR a elevação canônica."
+  },
+  {
+   "slug": "espirito-santo-jequie",
+   "name": "Paróquia Espírito Santo",
+   "city": "Jequié",
+   "state": "BA",
+   "neighborhood": "Urbis III",
+   "address": "Praça Leur Lomanto, s/n",
+   "zipCode": "45206-510",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Arlekson Barreto",
+   "foundedYear": 2006,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20220521192659/https://www.diocesedejequie.com.br/paroquias/",
+     "title": "Portal Diocese de Jequié — Paróquias (captura do Arquivo da Internet de 21/05/2022; domínio extinto; cartões sem atualização desde ~2017)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/jequ0",
+     "title": "GCatholic — Churches in the Diocese of Jequié (atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://minhareceita.org/08882605000165",
+     "title": "Receita Federal (CNPJ 08882605000165, situação ATIVA) via minhareceita.org; lista por município conferida no Mapa das OSC/IPEA, base 05/2026",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://jequiereporter.com/diocese-de-jequie-divulga-boletim-comunicando-as-transferencias-de-padres/",
+     "title": "Jequié Repórter — boletim da Diocese de Jequié com transferências de padres, 21/11/2023",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://www.instagram.com/pparoquiaespiritosanto/",
+     "title": "Instagram oficial @pparoquiaespiritosanto — bio: \"Adm Paroquial: Pe. Arlekson Barreto / Missas Dominicais: 7h e 19h\" (posts até 08/2026)",
+     "accessedAt": "2026-09-17"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Espírito Santo",
+     "address": "Praça Leur Lomanto, s/n",
+     "neighborhood": "Urbis III",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20220521192659/https://www.diocesedejequie.com.br/paroquias/",
+       "title": "Portal Diocese de Jequié — Paróquias (captura do Arquivo da Internet de 21/05/2022; domínio extinto; cartões sem atualização desde ~2017)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Espírito Santo",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": "bio oficial: \"Missas Dominicais: 7h e 19h\"",
+     "sources": [
+      {
+       "url": "https://www.instagram.com/pparoquiaespiritosanto/",
+       "title": "Instagram oficial @pparoquiaespiritosanto — bio: \"Missas Dominicais: 7h e 19h\" (lida em 17/09/2026; posts até 08/2026)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Matriz Espírito Santo",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "bio oficial: \"Missas Dominicais: 7h e 19h\"",
+     "sources": [
+      {
+       "url": "https://www.instagram.com/pparoquiaespiritosanto/",
+       "title": "Instagram oficial @pparoquiaespiritosanto — bio: \"Missas Dominicais: 7h e 19h\" (lida em 17/09/2026; posts até 08/2026)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "cnpj": "08882605000165",
+   "instagram": "pparoquiaespiritosanto",
+   "phoneHistoric": "(73) 3526-7502",
+   "emailHistoric": null,
+   "notes": "Na bio oficial (09/2026) Pe. Arlekson Barreto consta como administrador paroquial. Contato do cartão diocesano antigo (conteúdo de ~2017, não conferido — fora dos campos phone/email): (73) 3526-7502."
+  },
+  {
+   "slug": "sao-judas-tadeu-jequie",
+   "name": "Paróquia São Judas Tadeu",
+   "city": "Jequié",
+   "state": "BA",
+   "neighborhood": "São José",
+   "address": "Lot. São Judas Tadeu, Rua 16, casa 12",
+   "zipCode": "45200-190",
+   "phone": "(73) 98862-3148",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": 2007,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20220521192659/https://www.diocesedejequie.com.br/paroquias/",
+     "title": "Portal Diocese de Jequié — Paróquias (captura do Arquivo da Internet de 21/05/2022; domínio extinto; cartões sem atualização desde ~2017)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/jequ0",
+     "title": "GCatholic — Churches in the Diocese of Jequié (atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://minhareceita.org/09241711000122",
+     "title": "Receita Federal (CNPJ 09241711000122, situação ATIVA) via minhareceita.org; lista por município conferida no Mapa das OSC/IPEA, base 05/2026",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://www.instagram.com/paroquiasaojudasjequie/",
+     "title": "Instagram oficial @paroquiasaojudasjequie — perfil \"P. São Judas Tadeu - Jequié\", link wa.me/73988623148 (posts até 08/2026)",
+     "accessedAt": "2026-09-17"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz São Judas Tadeu",
+     "address": "Lot. São Judas Tadeu, Rua 16, casa 12",
+     "neighborhood": "São José",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20220521192659/https://www.diocesedejequie.com.br/paroquias/",
+       "title": "Portal Diocese de Jequié — Paróquias (captura do Arquivo da Internet de 21/05/2022; domínio extinto; cartões sem atualização desde ~2017)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [],
+   "cnpj": "09241711000122",
+   "instagram": "paroquiasaojudasjequie",
+   "phoneHistoric": null,
+   "emailHistoric": "saojudasjequie@hotmail.com",
+   "notes": "Telefone do cartão diocesano confirmado pelo link de WhatsApp do perfil oficial (wa.me/73988623148). O perfil guarda os horários num destaque (\"Missas\") que o leitor automático não abre. Contato do cartão diocesano antigo (conteúdo de ~2017, não conferido — fora dos campos phone/email): saojudasjequie@hotmail.com."
+  },
+  {
+   "slug": "sagrado-coracao-de-jesus-jequie",
+   "name": "Paróquia Sagrado Coração de Jesus",
+   "city": "Jequié",
+   "state": "BA",
+   "neighborhood": "Mandacaru",
+   "address": "Rua Manoel Gomes, 73",
+   "zipCode": "45207-210",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": 1985,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20220521192659/https://www.diocesedejequie.com.br/paroquias/",
+     "title": "Portal Diocese de Jequié — Paróquias (captura do Arquivo da Internet de 21/05/2022; domínio extinto; cartões sem atualização desde ~2017)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/jequ0",
+     "title": "GCatholic — Churches in the Diocese of Jequié (atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://minhareceita.org/02770093000169",
+     "title": "Receita Federal (CNPJ 02770093000169, situação ATIVA) via minhareceita.org; lista por município conferida no Mapa das OSC/IPEA, base 05/2026",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/igreja.php?k=B0Cr4",
+     "title": "Horário de Missa — Paróquia Sagrado Coração de Jesus (ficha atualizada pela última vez em 24/05/2013)",
+     "accessedAt": "2026-09-17"
+    }
+   ],
+   "confidence": "media",
+   "communities": [
+    {
+     "name": "Matriz Sagrado Coração de Jesus",
+     "address": "Rua Manoel Gomes, 73",
+     "neighborhood": "Mandacaru",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20220521192659/https://www.diocesedejequie.com.br/paroquias/",
+       "title": "Portal Diocese de Jequié — Paróquias (captura do Arquivo da Internet de 21/05/2022; domínio extinto; cartões sem atualização desde ~2017)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "media"
+    }
+   ],
+   "schedules": [],
+   "cnpj": "02770093000169",
+   "phoneHistoric": "(73) 3526-0293",
+   "emailHistoric": "sagrado.coracaodejesus@outlook.com",
+   "notes": "Contato do cartão diocesano antigo (conteúdo de ~2017, não conferido — fora dos campos phone/email): (73) 3526-0293; sagrado.coracaodejesus@outlook.com."
+  },
+  {
+   "slug": "sagrado-coracao-de-jesus-jaguaquara",
+   "name": "Paróquia Sagrado Coração de Jesus",
+   "city": "Jaguaquara",
+   "state": "BA",
+   "neighborhood": "Entroncamento de Jaguaquara",
+   "address": "Travessa Frei Franco, s/n",
+   "zipCode": "45345-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20220521192659/https://www.diocesedejequie.com.br/paroquias/",
+     "title": "Portal Diocese de Jequié — Paróquias (captura do Arquivo da Internet de 21/05/2022; domínio extinto; cartões sem atualização desde ~2017)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/jequ0",
+     "title": "GCatholic — Churches in the Diocese of Jequié (atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://minhareceita.org/11814255000104",
+     "title": "Receita Federal (CNPJ 11814255000104, situação ATIVA) via minhareceita.org; lista por município conferida no Mapa das OSC/IPEA, base 05/2026",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://www.liriocatolico.com.br/horario_missa/",
+     "title": "Lírio Católico — Igreja Sagrado coração de jesus, Jaguaquara (ficha 10052; base estadual com data de carga 02/09/2026)",
+     "accessedAt": "2026-09-17"
+    }
+   ],
+   "confidence": "media",
+   "communities": [
+    {
+     "name": "Matriz Sagrado Coração de Jesus",
+     "address": "Travessa Frei Franco, s/n",
+     "neighborhood": "Entroncamento de Jaguaquara",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20220521192659/https://www.diocesedejequie.com.br/paroquias/",
+       "title": "Portal Diocese de Jequié — Paróquias (captura do Arquivo da Internet de 21/05/2022; domínio extinto; cartões sem atualização desde ~2017)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "media"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Sagrado Coração de Jesus",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/",
+       "title": "Lírio Católico — Igreja Sagrado coração de jesus, Jaguaquara (ficha 10052; base estadual com data de carga 02/09/2026)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Sagrado Coração de Jesus",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/",
+       "title": "Lírio Católico — Igreja Sagrado coração de jesus, Jaguaquara (ficha 10052; base estadual com data de carga 02/09/2026)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Sagrado Coração de Jesus",
+     "dayOfWeek": 4,
+     "time": "12:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/",
+       "title": "Lírio Católico — Igreja Sagrado coração de jesus, Jaguaquara (ficha 10052; base estadual com data de carga 02/09/2026)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Sagrado Coração de Jesus",
+     "dayOfWeek": 5,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/",
+       "title": "Lírio Católico — Igreja Sagrado coração de jesus, Jaguaquara (ficha 10052; base estadual com data de carga 02/09/2026)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ],
+   "cnpj": "11814255000104",
+   "phoneHistoric": "(73) 98829-8179",
+   "emailHistoric": null,
+   "notes": "Sede no distrito de Stela Dubois (Entroncamento de Jaguaquara), às margens da BR-116. O Lírio Católico traz a mesma ficha duas vezes (10052 e 10053). Telefone do cartão diocesano igual ao da Receita Federal; acrescentado o nono dígito (publicado como \"(73)8829-8179\"). Contato do cartão diocesano antigo (conteúdo de ~2017, não conferido — fora dos campos phone/email): (73) 98829-8179."
+  },
+  {
+   "slug": "santo-antonio-de-padua-brejoes",
+   "name": "Paróquia Santo Antônio de Pádua",
+   "city": "Brejões",
+   "state": "BA",
+   "neighborhood": "Km 100",
+   "address": "Rua Almerindo Novaes, s/n, Centro",
+   "zipCode": "45325-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": 2007,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20220521192659/https://www.diocesedejequie.com.br/paroquias/",
+     "title": "Portal Diocese de Jequié — Paróquias (captura do Arquivo da Internet de 21/05/2022; domínio extinto; cartões sem atualização desde ~2017)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/jequ0",
+     "title": "GCatholic — Churches in the Diocese of Jequié (atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://minhareceita.org/10297348000146",
+     "title": "Receita Federal (CNPJ 10297348000146, situação ATIVA) via minhareceita.org; lista por município conferida no Mapa das OSC/IPEA, base 05/2026",
+     "accessedAt": "2026-09-17"
+    }
+   ],
+   "confidence": "media",
+   "communities": [
+    {
+     "name": "Matriz Santo Antônio de Pádua",
+     "address": "Rua Almerindo Novaes, s/n, Centro",
+     "neighborhood": "Km 100",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20220521192659/https://www.diocesedejequie.com.br/paroquias/",
+       "title": "Portal Diocese de Jequié — Paróquias (captura do Arquivo da Internet de 21/05/2022; domínio extinto; cartões sem atualização desde ~2017)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "media"
+    }
+   ],
+   "schedules": [],
+   "cnpj": "10297348000146",
+   "phoneHistoric": "(75) 3542-2030",
+   "emailHistoric": null,
+   "notes": "Sede no povoado do Km 100 (BR-116), município de Brejões. Contato do cartão diocesano antigo (conteúdo de ~2017, não conferido — fora dos campos phone/email): (75) 3542-2030."
+  },
+  {
+   "slug": "bom-jesus-do-valentim-boa-nova",
+   "name": "Paróquia Bom Jesus do Valentim",
+   "city": "Boa Nova",
+   "state": "BA",
+   "neighborhood": "Valentim",
+   "address": "Rua. Antonio Carlos Magalhães, 146",
+   "zipCode": "45250-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": 2011,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20220521192659/https://www.diocesedejequie.com.br/paroquias/",
+     "title": "Portal Diocese de Jequié — Paróquias (captura do Arquivo da Internet de 21/05/2022; domínio extinto; cartões sem atualização desde ~2017)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/jequ0",
+     "title": "GCatholic — Churches in the Diocese of Jequié (atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://minhareceita.org/14206897000119",
+     "title": "Receita Federal (CNPJ 14206897000119, situação ATIVA) via minhareceita.org; lista por município conferida no Mapa das OSC/IPEA, base 05/2026",
+     "accessedAt": "2026-09-17"
+    }
+   ],
+   "confidence": "media",
+   "communities": [
+    {
+     "name": "Matriz Bom Jesus do Valentim",
+     "address": "Rua. Antonio Carlos Magalhães, 146",
+     "neighborhood": "Valentim",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20220521192659/https://www.diocesedejequie.com.br/paroquias/",
+       "title": "Portal Diocese de Jequié — Paróquias (captura do Arquivo da Internet de 21/05/2022; domínio extinto; cartões sem atualização desde ~2017)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "media"
+    }
+   ],
+   "schedules": [],
+   "cnpj": "14206897000119",
+   "notes": "Sede no distrito de Valentim, município de Boa Nova."
+  },
+  {
+   "slug": "nossa-senhora-da-boa-nova-boa-nova",
+   "name": "Paróquia Nossa Senhora da Boa Nova",
+   "city": "Boa Nova",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Rua Régis Pacheco, 26",
+   "zipCode": "45250-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Iago Maia",
+   "foundedYear": 1918,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20220521192659/https://www.diocesedejequie.com.br/paroquias/",
+     "title": "Portal Diocese de Jequié — Paróquias (captura do Arquivo da Internet de 21/05/2022; domínio extinto; cartões sem atualização desde ~2017)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/jequ0",
+     "title": "GCatholic — Churches in the Diocese of Jequié (atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://jequiereporter.com/diocese-de-jequie-divulga-boletim-comunicando-as-transferencias-de-padres/",
+     "title": "Jequié Repórter — boletim da Diocese de Jequié com transferências de padres, 21/11/2023",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/igreja.php?k=D8wCz",
+     "title": "Horário de Missa — Paróquia Nossa Senhora da Boa Nova (ficha atualizada pela última vez em 24/05/2013)",
+     "accessedAt": "2026-09-17"
+    }
+   ],
+   "confidence": "media",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora da Boa Nova",
+     "address": "Rua Régis Pacheco, 26",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20220521192659/https://www.diocesedejequie.com.br/paroquias/",
+       "title": "Portal Diocese de Jequié — Paróquias (captura do Arquivo da Internet de 21/05/2022; domínio extinto; cartões sem atualização desde ~2017)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "media"
+    }
+   ],
+   "schedules": [],
+   "phoneHistoric": "(77) 3433-2158",
+   "emailHistoric": null,
+   "notes": "Única paróquia da lista que não apareceu na busca por \"PAROQUIA\" no município (Mapa das OSC/Receita); o telefone (77) 3433-2158 aparece na Receita no CNPJ da paróquia vizinha de Valentim. Contato do cartão diocesano antigo (conteúdo de ~2017, não conferido — fora dos campos phone/email): (77) 3433-2158."
+  },
+  {
+   "slug": "senhor-do-bonfim-apuarema",
+   "name": "Paróquia Senhor do Bonfim",
+   "city": "Apuarema",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Rua Everaldo Souza Santos, s/n",
+   "zipCode": "45355-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": 1992,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20220521192659/https://www.diocesedejequie.com.br/paroquias/",
+     "title": "Portal Diocese de Jequié — Paróquias (captura do Arquivo da Internet de 21/05/2022; domínio extinto; cartões sem atualização desde ~2017)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/jequ0",
+     "title": "GCatholic — Churches in the Diocese of Jequié (atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://minhareceita.org/03791483000188",
+     "title": "Receita Federal (CNPJ 03791483000188, situação ATIVA) via minhareceita.org; lista por município conferida no Mapa das OSC/IPEA, base 05/2026",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/igreja.php?k=K2xcT",
+     "title": "Horário de Missa — Paróquia Senhor do Bonfim (ficha atualizada pela última vez em 19/03/2015)",
+     "accessedAt": "2026-09-17"
+    }
+   ],
+   "confidence": "media",
+   "communities": [
+    {
+     "name": "Matriz Senhor do Bonfim",
+     "address": "Rua Everaldo Souza Santos, s/n",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20220521192659/https://www.diocesedejequie.com.br/paroquias/",
+       "title": "Portal Diocese de Jequié — Paróquias (captura do Arquivo da Internet de 21/05/2022; domínio extinto; cartões sem atualização desde ~2017)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "name": "Igreja de São Francisco",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=K2xcT",
+       "title": "Horário de Missa — Paróquia Senhor do Bonfim (ficha atualizada pela última vez em 19/03/2015)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa",
+     "notes": "Citada só na ficha de 19/03/2015 do horariodemissa.com.br (texto original: \"igreja de São Francisco\")."
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Senhor do Bonfim",
+     "dayOfWeek": 0,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": "ficha de 19/03/2015, anterior à pandemia",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=K2xcT",
+       "title": "Horário de Missa — Paróquia Senhor do Bonfim (ficha atualizada pela última vez em 19/03/2015)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Senhor do Bonfim",
+     "dayOfWeek": 3,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "ficha de 19/03/2015, anterior à pandemia",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=K2xcT",
+       "title": "Horário de Missa — Paróquia Senhor do Bonfim (ficha atualizada pela última vez em 19/03/2015)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Igreja de São Francisco",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": "ficha de 19/03/2015, anterior à pandemia",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=K2xcT",
+       "title": "Horário de Missa — Paróquia Senhor do Bonfim (ficha atualizada pela última vez em 19/03/2015)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ],
+   "cnpj": "03791483000188"
+  },
+  {
+   "slug": "cristo-rei-jequie",
+   "name": "Paróquia Cristo Rei",
+   "city": "Jequié",
+   "state": "BA",
+   "neighborhood": "Jequiezinho",
+   "address": "Rua H, n°19 - Lot. Água Branca",
+   "zipCode": "45205-270",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": 2000,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20220521192659/https://www.diocesedejequie.com.br/paroquias/",
+     "title": "Portal Diocese de Jequié — Paróquias (captura do Arquivo da Internet de 21/05/2022; domínio extinto; cartões sem atualização desde ~2017)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/jequ0",
+     "title": "GCatholic — Churches in the Diocese of Jequié (atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://minhareceita.org/03826754000193",
+     "title": "Receita Federal (CNPJ 03826754000193, situação ATIVA) via minhareceita.org; lista por município conferida no Mapa das OSC/IPEA, base 05/2026",
+     "accessedAt": "2026-09-17"
+    }
+   ],
+   "confidence": "media",
+   "communities": [
+    {
+     "name": "Matriz Cristo Rei",
+     "address": "Rua H, n°19 - Lot. Água Branca",
+     "neighborhood": "Jequiezinho",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20220521192659/https://www.diocesedejequie.com.br/paroquias/",
+       "title": "Portal Diocese de Jequié — Paróquias (captura do Arquivo da Internet de 21/05/2022; domínio extinto; cartões sem atualização desde ~2017)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "media"
+    }
+   ],
+   "schedules": [],
+   "cnpj": "03826754000193",
+   "phoneHistoric": "(73) 3525-3383",
+   "emailHistoric": "paroquiadecristorei2000@hotmail.com",
+   "notes": "Contato do cartão diocesano antigo (conteúdo de ~2017, não conferido — fora dos campos phone/email): (73) 3525-3383; paroquiadecristorei2000@hotmail.com."
+  },
+  {
+   "slug": "nossa-senhora-da-conceicao-jitauna",
+   "name": "Paróquia Nossa Senhora da Conceição",
+   "city": "Jitaúna",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "R. Antônio Muniz do Amaral, 52",
+   "zipCode": "45225-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": 1939,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20220521192659/https://www.diocesedejequie.com.br/paroquias/",
+     "title": "Portal Diocese de Jequié — Paróquias (captura do Arquivo da Internet de 21/05/2022; domínio extinto; cartões sem atualização desde ~2017)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/jequ0",
+     "title": "GCatholic — Churches in the Diocese of Jequié (atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://minhareceita.org/02774337000181",
+     "title": "Receita Federal (CNPJ 02774337000181, situação ATIVA) via minhareceita.org; lista por município conferida no Mapa das OSC/IPEA, base 05/2026",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/igreja.php?k=Gawuj",
+     "title": "Horário de Missa — Paróquia Nossa Senhora da Conceição (ficha atualizada pela última vez em 24/05/2013)",
+     "accessedAt": "2026-09-17"
+    }
+   ],
+   "confidence": "media",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora da Conceição",
+     "address": "R. Antônio Muniz do Amaral, 52",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20220521192659/https://www.diocesedejequie.com.br/paroquias/",
+       "title": "Portal Diocese de Jequié — Paróquias (captura do Arquivo da Internet de 21/05/2022; domínio extinto; cartões sem atualização desde ~2017)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "media"
+    }
+   ],
+   "schedules": [],
+   "cnpj": "02774337000181",
+   "phoneHistoric": "(73) 3535-2088",
+   "emailHistoric": "paroquiaconceicao.jitauna@hotmail.com",
+   "notes": "Contato do cartão diocesano antigo (conteúdo de ~2017, não conferido — fora dos campos phone/email): (73) 3535-2088; paroquiaconceicao.jitauna@hotmail.com."
+  },
+  {
+   "slug": "senhora-santana-marcionilio-souza",
+   "name": "Paróquia Senhora Sant'Ana",
+   "city": "Marcionílio Souza",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça da Matriz, s/n",
+   "zipCode": "46780-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": 1993,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20220521192659/https://www.diocesedejequie.com.br/paroquias/",
+     "title": "Portal Diocese de Jequié — Paróquias (captura do Arquivo da Internet de 21/05/2022; domínio extinto; cartões sem atualização desde ~2017)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/jequ0",
+     "title": "GCatholic — Churches in the Diocese of Jequié (atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://minhareceita.org/02907597000188",
+     "title": "Receita Federal (CNPJ 02907597000188, situação ATIVA) via minhareceita.org; lista por município conferida no Mapa das OSC/IPEA, base 05/2026",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/igreja.php?k=yVRNv",
+     "title": "Horário de Missa — Paróquia Sant'Ana (ficha atualizada pela última vez em 21/10/2016)",
+     "accessedAt": "2026-09-17"
+    }
+   ],
+   "confidence": "media",
+   "communities": [
+    {
+     "name": "Matriz Senhora Sant'Ana",
+     "address": "Praça da Matriz, s/n",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20220521192659/https://www.diocesedejequie.com.br/paroquias/",
+       "title": "Portal Diocese de Jequié — Paróquias (captura do Arquivo da Internet de 21/05/2022; domínio extinto; cartões sem atualização desde ~2017)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "name": "Capela Santo Antônio",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=yVRNv",
+       "title": "Horário de Missa — Paróquia Sant'Ana (ficha atualizada pela última vez em 21/10/2016)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa",
+     "notes": "Citada só na ficha de 21/10/2016 do horariodemissa.com.br (texto original: \"Capela Santo Antonio\")."
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Senhora Sant'Ana",
+     "dayOfWeek": 0,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": "ficha de 21/10/2016, anterior à pandemia",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=yVRNv",
+       "title": "Horário de Missa — Paróquia Sant'Ana (ficha atualizada pela última vez em 21/10/2016)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Senhora Sant'Ana",
+     "dayOfWeek": 4,
+     "time": "14:00",
+     "type": "ADORATION",
+     "notes": "Quintas-feiras das 14h às 19h - Adoração ao Santíssimo Sacramento; ficha de 21/10/2016, anterior à pandemia",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=yVRNv",
+       "title": "Horário de Missa — Paróquia Sant'Ana (ficha atualizada pela última vez em 21/10/2016)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Senhora Sant'Ana",
+     "dayOfWeek": 4,
+     "time": "14:00",
+     "type": "CONFESSION",
+     "notes": "das 14:00 às 19:00; ficha de 21/10/2016, anterior à pandemia",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=yVRNv",
+       "title": "Horário de Missa — Paróquia Sant'Ana (ficha atualizada pela última vez em 21/10/2016)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Senhora Sant'Ana",
+     "dayOfWeek": 5,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": "ficha de 21/10/2016, anterior à pandemia",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=yVRNv",
+       "title": "Horário de Missa — Paróquia Sant'Ana (ficha atualizada pela última vez em 21/10/2016)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Capela Santo Antônio",
+     "dayOfWeek": 3,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": "ficha de 21/10/2016, anterior à pandemia",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=yVRNv",
+       "title": "Horário de Missa — Paróquia Sant'Ana (ficha atualizada pela última vez em 21/10/2016)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ],
+   "cnpj": "02907597000188",
+   "phoneHistoric": null,
+   "emailHistoric": "psantana@hotmail.com",
+   "notes": "Contato do cartão diocesano antigo (conteúdo de ~2017, não conferido — fora dos campos phone/email): psantana@hotmail.com."
+  },
+  {
+   "slug": "maria-auxiliadora-jaguaquara",
+   "name": "Paróquia Maria Auxiliadora",
+   "city": "Jaguaquara",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Avenida Dois de Julho, s/n",
+   "zipCode": "45345-000",
+   "phone": "(73) 99913-2464",
+   "email": null,
+   "website": null,
+   "priestName": "Frei Manoel Santos, OFMCap.",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20220521192659/https://www.diocesedejequie.com.br/paroquias/",
+     "title": "Portal Diocese de Jequié — Paróquias (captura do Arquivo da Internet de 21/05/2022; domínio extinto; cartões sem atualização desde ~2017)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/jequ0",
+     "title": "GCatholic — Churches in the Diocese of Jequié (atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://minhareceita.org/14572796000161",
+     "title": "Receita Federal (CNPJ 14572796000161, situação ATIVA) via minhareceita.org; lista por município conferida no Mapa das OSC/IPEA, base 05/2026",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://www.instagram.com/pascomjaguaquara/",
+     "title": "Instagram oficial @pascomjaguaquara — bio: \"Paroquia Maria Auxiliadora- Jaguaquara / Ordem dos Frades Menores Capuchinhos / Pároco: Frei Manoel Santos, OFMcap. / Zap da secretaria 073 999132464\" (posts até 17/09/2026)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/igreja.php?k=eHCVC",
+     "title": "Horário de Missa — Paróquia Maria Auxiliadora (ficha atualizada pela última vez em 15/04/2014)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://www.liriocatolico.com.br/horario_missa/",
+     "title": "Lírio Católico — Igreja Matriz Nossa Senhora Auxiliadora, Jaguaquara (ficha 10051; base estadual com data de carga 02/09/2026)",
+     "accessedAt": "2026-09-17"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Maria Auxiliadora",
+     "address": "Avenida Dois de Julho, s/n",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20220521192659/https://www.diocesedejequie.com.br/paroquias/",
+       "title": "Portal Diocese de Jequié — Paróquias (captura do Arquivo da Internet de 21/05/2022; domínio extinto; cartões sem atualização desde ~2017)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Santuário Nossa Senhora Auxiliadora",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://gcatholic.org/churches/local/jequ0",
+       "title": "GCatholic — Churches in the Diocese of Jequié (atualizado em 01/01/2026)",
+       "accessedAt": "2026-09-17"
+      },
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=eHCVC",
+       "title": "Horário de Missa — Paróquia Maria Auxiliadora (ficha atualizada pela última vez em 15/04/2014)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "media",
+     "notes": "GCatholic (01/2026) lista \"Nossa Senhora Auxiliadora (Shrine)\" em Jaguaquara além da igreja paroquial; a ficha de 2014 do horariodemissa cita missa dominical \"na Igreja Santuário\"."
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Maria Auxiliadora",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": "ficha de 15/04/2014, anterior à pandemia",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=eHCVC",
+       "title": "Horário de Missa — Paróquia Maria Auxiliadora (ficha atualizada pela última vez em 15/04/2014)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Maria Auxiliadora",
+     "dayOfWeek": 1,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/",
+       "title": "Lírio Católico — Igreja Matriz Nossa Senhora Auxiliadora, Jaguaquara (ficha 10051; base estadual com data de carga 02/09/2026)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Maria Auxiliadora",
+     "dayOfWeek": 2,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/",
+       "title": "Lírio Católico — Igreja Matriz Nossa Senhora Auxiliadora, Jaguaquara (ficha 10051; base estadual com data de carga 02/09/2026)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Maria Auxiliadora",
+     "dayOfWeek": 2,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "ficha de 15/04/2014, anterior à pandemia",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=eHCVC",
+       "title": "Horário de Missa — Paróquia Maria Auxiliadora (ficha atualizada pela última vez em 15/04/2014)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Maria Auxiliadora",
+     "dayOfWeek": 3,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/",
+       "title": "Lírio Católico — Igreja Matriz Nossa Senhora Auxiliadora, Jaguaquara (ficha 10051; base estadual com data de carga 02/09/2026)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Maria Auxiliadora",
+     "dayOfWeek": 3,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "ficha de 15/04/2014, anterior à pandemia",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=eHCVC",
+       "title": "Horário de Missa — Paróquia Maria Auxiliadora (ficha atualizada pela última vez em 15/04/2014)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Maria Auxiliadora",
+     "dayOfWeek": 4,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/",
+       "title": "Lírio Católico — Igreja Matriz Nossa Senhora Auxiliadora, Jaguaquara (ficha 10051; base estadual com data de carga 02/09/2026)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Maria Auxiliadora",
+     "dayOfWeek": 4,
+     "time": "08:00",
+     "type": "ADORATION",
+     "notes": "das 08:00 às 09:00",
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/",
+       "title": "Lírio Católico — Igreja Matriz Nossa Senhora Auxiliadora, Jaguaquara (ficha 10051; base estadual com data de carga 02/09/2026)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Maria Auxiliadora",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "ficha de 15/04/2014, anterior à pandemia",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=eHCVC",
+       "title": "Horário de Missa — Paróquia Maria Auxiliadora (ficha atualizada pela última vez em 15/04/2014)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Maria Auxiliadora",
+     "dayOfWeek": 5,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/",
+       "title": "Lírio Católico — Igreja Matriz Nossa Senhora Auxiliadora, Jaguaquara (ficha 10051; base estadual com data de carga 02/09/2026)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Maria Auxiliadora",
+     "dayOfWeek": 5,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "ficha de 15/04/2014, anterior à pandemia",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=eHCVC",
+       "title": "Horário de Missa — Paróquia Maria Auxiliadora (ficha atualizada pela última vez em 15/04/2014)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Maria Auxiliadora",
+     "dayOfWeek": 6,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/",
+       "title": "Lírio Católico — Igreja Matriz Nossa Senhora Auxiliadora, Jaguaquara (ficha 10051; base estadual com data de carga 02/09/2026)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Maria Auxiliadora",
+     "dayOfWeek": 6,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "ficha de 15/04/2014, anterior à pandemia",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=eHCVC",
+       "title": "Horário de Missa — Paróquia Maria Auxiliadora (ficha atualizada pela última vez em 15/04/2014)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Santuário Nossa Senhora Auxiliadora",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "ficha de 15/04/2014, anterior à pandemia",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=eHCVC",
+       "title": "Horário de Missa — Paróquia Maria Auxiliadora (ficha atualizada pela última vez em 15/04/2014)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ],
+   "cnpj": "14572796000161",
+   "instagram": "pascomjaguaquara",
+   "phoneHistoric": null,
+   "emailHistoric": "p.auxiliadora@bol.com.br",
+   "notes": "Paróquia confiada aos Frades Menores Capuchinhos. Telefone = WhatsApp da secretaria publicado na bio oficial; a lista diocesana antiga trazia (73) 3534-2422. Endereço da Receita Federal e do horariodemissa (o cartão diocesano não traz logradouro). Contato do cartão diocesano antigo (conteúdo de ~2017, não conferido — fora dos campos phone/email): p.auxiliadora@bol.com.br."
+  },
+  {
+   "slug": "santo-antonio-de-padua-itirucu",
+   "name": "Paróquia Santo Antônio de Pádua",
+   "city": "Itiruçu",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Av. Presidente Vargas, 24",
+   "zipCode": "45350-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Eneilson Santos de Jesus",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20220521192659/https://www.diocesedejequie.com.br/paroquias/",
+     "title": "Portal Diocese de Jequié — Paróquias (captura do Arquivo da Internet de 21/05/2022; domínio extinto; cartões sem atualização desde ~2017)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/jequ0",
+     "title": "GCatholic — Churches in the Diocese of Jequié (atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://minhareceita.org/01127545000126",
+     "title": "Receita Federal (CNPJ 01127545000126, situação ATIVA) via minhareceita.org; lista por município conferida no Mapa das OSC/IPEA, base 05/2026",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://jequiereporter.com/diocese-de-jequie-divulga-boletim-comunicando-as-transferencias-de-padres/",
+     "title": "Jequié Repórter — boletim da Diocese de Jequié com transferências de padres, 21/11/2023",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/igreja.php?k=VERjn",
+     "title": "Horário de Missa — Paróquia Santo Antônio de Padua (ficha atualizada pela última vez em 24/05/2013)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://www.liriocatolico.com.br/horario_missa/",
+     "title": "Lírio Católico — Paróquia Santo Antônio de Pádua, Itiruçu (ficha 1597; base estadual com data de carga 02/09/2026)",
+     "accessedAt": "2026-09-17"
+    }
+   ],
+   "confidence": "media",
+   "communities": [
+    {
+     "name": "Matriz Santo Antônio de Pádua",
+     "address": "Av. Presidente Vargas, 24",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20220521192659/https://www.diocesedejequie.com.br/paroquias/",
+       "title": "Portal Diocese de Jequié — Paróquias (captura do Arquivo da Internet de 21/05/2022; domínio extinto; cartões sem atualização desde ~2017)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "media"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Santo Antônio de Pádua",
+     "dayOfWeek": 0,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/",
+       "title": "Lírio Católico — Paróquia Santo Antônio de Pádua, Itiruçu (ficha 1597; base estadual com data de carga 02/09/2026)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Santo Antônio de Pádua",
+     "dayOfWeek": 2,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/",
+       "title": "Lírio Católico — Paróquia Santo Antônio de Pádua, Itiruçu (ficha 1597; base estadual com data de carga 02/09/2026)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Santo Antônio de Pádua",
+     "dayOfWeek": 4,
+     "time": "08:00",
+     "type": "CONFESSION",
+     "notes": "das 08:00 às 08:30",
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/",
+       "title": "Lírio Católico — Paróquia Santo Antônio de Pádua, Itiruçu (ficha 1597; base estadual com data de carga 02/09/2026)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ],
+   "cnpj": "01127545000126",
+   "phoneHistoric": "(73) 3538-1668",
+   "emailHistoric": null,
+   "notes": "O cartão do site diocesano diz só \"Paroquia Santo Antônio\"; o boletim diocesano de 21/11/2023, a Receita Federal e os agregadores dizem \"Santo Antônio de Pádua\". O boletim cita \"Pe. Eneilson\"; o nome completo vem do cartão antigo (quando ele estava em Boa Nova). Contato do cartão diocesano antigo (conteúdo de ~2017, não conferido — fora dos campos phone/email): (73) 3538-1668."
+  },
+  {
+   "slug": "nossa-senhora-da-natividade-itaquara",
+   "name": "Paróquia Nossa Senhora da Natividade",
+   "city": "Itaquara",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça da Matriz, s/n",
+   "zipCode": "45340-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": 1999,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20220521192659/https://www.diocesedejequie.com.br/paroquias/",
+     "title": "Portal Diocese de Jequié — Paróquias (captura do Arquivo da Internet de 21/05/2022; domínio extinto; cartões sem atualização desde ~2017)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/jequ0",
+     "title": "GCatholic — Churches in the Diocese of Jequié (atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://minhareceita.org/35812747000129",
+     "title": "Receita Federal (CNPJ 35812747000129, situação ATIVA) via minhareceita.org; lista por município conferida no Mapa das OSC/IPEA, base 05/2026",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/igreja.php?k=ESDYo",
+     "title": "Horário de Missa — Paróquia Nossa Senhora da Natividade (ficha atualizada pela última vez em 27/05/2013)",
+     "accessedAt": "2026-09-17"
+    }
+   ],
+   "confidence": "media",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora da Natividade",
+     "address": "Praça da Matriz, s/n",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20220521192659/https://www.diocesedejequie.com.br/paroquias/",
+       "title": "Portal Diocese de Jequié — Paróquias (captura do Arquivo da Internet de 21/05/2022; domínio extinto; cartões sem atualização desde ~2017)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "media"
+    }
+   ],
+   "schedules": [],
+   "cnpj": "35812747000129",
+   "phoneHistoric": "(73) 3543-2222",
+   "emailHistoric": null,
+   "notes": "Contato do cartão diocesano antigo (conteúdo de ~2017, não conferido — fora dos campos phone/email): (73) 3543-2222."
+  },
+  {
+   "slug": "santa-maria-goretti-itagiba",
+   "name": "Paróquia Santa Maria Goretti",
+   "city": "Itagibá",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça Pio XII, 03",
+   "zipCode": "45585-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": 1967,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20220521192659/https://www.diocesedejequie.com.br/paroquias/",
+     "title": "Portal Diocese de Jequié — Paróquias (captura do Arquivo da Internet de 21/05/2022; domínio extinto; cartões sem atualização desde ~2017)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/jequ0",
+     "title": "GCatholic — Churches in the Diocese of Jequié (atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://minhareceita.org/03667926000123",
+     "title": "Receita Federal (CNPJ 03667926000123, situação ATIVA) via minhareceita.org; lista por município conferida no Mapa das OSC/IPEA, base 05/2026",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/igreja.php?k=hjDCw",
+     "title": "Horário de Missa — Paróquia Santa Maria Goretti (ficha atualizada pela última vez em 24/05/2013)",
+     "accessedAt": "2026-09-17"
+    }
+   ],
+   "confidence": "media",
+   "communities": [
+    {
+     "name": "Matriz Santa Maria Goretti",
+     "address": "Praça Pio XII, 03",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20220521192659/https://www.diocesedejequie.com.br/paroquias/",
+       "title": "Portal Diocese de Jequié — Paróquias (captura do Arquivo da Internet de 21/05/2022; domínio extinto; cartões sem atualização desde ~2017)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "media"
+    }
+   ],
+   "schedules": [],
+   "cnpj": "03667926000123",
+   "phoneHistoric": "(73) 3244-2160",
+   "emailHistoric": "paroquia.smg.itagiba@gmail.com",
+   "notes": "Contato do cartão diocesano antigo (conteúdo de ~2017, não conferido — fora dos campos phone/email): (73) 3244-2160; paroquia.smg.itagiba@gmail.com."
+  },
+  {
+   "slug": "sao-jose-itagi",
+   "name": "Paróquia São José",
+   "city": "Itagi",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça São José, s/n",
+   "zipCode": "45230-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": 1939,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20220521192659/https://www.diocesedejequie.com.br/paroquias/",
+     "title": "Portal Diocese de Jequié — Paróquias (captura do Arquivo da Internet de 21/05/2022; domínio extinto; cartões sem atualização desde ~2017)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/jequ0",
+     "title": "GCatholic — Churches in the Diocese of Jequié (atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://minhareceita.org/07177911000138",
+     "title": "Receita Federal (CNPJ 07177911000138, situação ATIVA) via minhareceita.org; lista por município conferida no Mapa das OSC/IPEA, base 05/2026",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/igreja.php?k=7YC9K",
+     "title": "Horário de Missa — Paróquia São José (ficha atualizada pela última vez em 24/05/2013)",
+     "accessedAt": "2026-09-17"
+    }
+   ],
+   "confidence": "media",
+   "communities": [
+    {
+     "name": "Matriz São José",
+     "address": "Praça São José, s/n",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20220521192659/https://www.diocesedejequie.com.br/paroquias/",
+       "title": "Portal Diocese de Jequié — Paróquias (captura do Arquivo da Internet de 21/05/2022; domínio extinto; cartões sem atualização desde ~2017)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "media"
+    }
+   ],
+   "schedules": [],
+   "cnpj": "07177911000138",
+   "phoneHistoric": "(73) 3539-2033",
+   "emailHistoric": "paroquiasaojosedeitagi@hotmail.com",
+   "notes": "Contato do cartão diocesano antigo (conteúdo de ~2017, não conferido — fora dos campos phone/email): (73) 3539-2033; paroquiasaojosedeitagi@hotmail.com."
+  },
+  {
+   "slug": "santo-antonio-irajuba",
+   "name": "Paróquia Santo Antônio",
+   "city": "Irajuba",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Av. Tomaz Portela, 09",
+   "zipCode": "45370-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": 1995,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20220521192659/https://www.diocesedejequie.com.br/paroquias/",
+     "title": "Portal Diocese de Jequié — Paróquias (captura do Arquivo da Internet de 21/05/2022; domínio extinto; cartões sem atualização desde ~2017)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/jequ0",
+     "title": "GCatholic — Churches in the Diocese of Jequié (atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://minhareceita.org/09431385000116",
+     "title": "Receita Federal (CNPJ 09431385000116, situação ATIVA) via minhareceita.org; lista por município conferida no Mapa das OSC/IPEA, base 05/2026",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/igreja.php?k=c8T9H",
+     "title": "Horário de Missa — Paróquia Santo Antônio (ficha atualizada pela última vez em 24/05/2013)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://www.liriocatolico.com.br/horario_missa/",
+     "title": "Lírio Católico — Paróquia Santo Antônio de Pádua, Irajuba (ficha 1561; base estadual com data de carga 02/09/2026)",
+     "accessedAt": "2026-09-17"
+    }
+   ],
+   "confidence": "media",
+   "communities": [
+    {
+     "name": "Matriz Santo Antônio",
+     "address": "Av. Tomaz Portela, 09",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20220521192659/https://www.diocesedejequie.com.br/paroquias/",
+       "title": "Portal Diocese de Jequié — Paróquias (captura do Arquivo da Internet de 21/05/2022; domínio extinto; cartões sem atualização desde ~2017)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "media"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Santo Antônio",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/",
+       "title": "Lírio Católico — Paróquia Santo Antônio de Pádua, Irajuba (ficha 1561; base estadual com data de carga 02/09/2026)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ],
+   "cnpj": "09431385000116",
+   "phoneHistoric": "(73) 3548-2274",
+   "emailHistoric": "paroquiairajuba@gmail.com",
+   "notes": "Contato do cartão diocesano antigo (conteúdo de ~2017, não conferido — fora dos campos phone/email): (73) 3548-2274; paroquiairajuba@gmail.com."
+  },
+  {
+   "slug": "nossa-senhora-do-desterro-dario-meira",
+   "name": "Paróquia Nossa Senhora do Desterro",
+   "city": "Dário Meira",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Rua Hélio Bispo, 08",
+   "zipCode": "45590-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Tarcísio Camilo",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20220521192659/https://www.diocesedejequie.com.br/paroquias/",
+     "title": "Portal Diocese de Jequié — Paróquias (captura do Arquivo da Internet de 21/05/2022; domínio extinto; cartões sem atualização desde ~2017)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/jequ0",
+     "title": "GCatholic — Churches in the Diocese of Jequié (atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://minhareceita.org/03140278000152",
+     "title": "Receita Federal (CNPJ 03140278000152, situação ATIVA) via minhareceita.org; lista por município conferida no Mapa das OSC/IPEA, base 05/2026",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://jequiereporter.com/diocese-de-jequie-divulga-boletim-comunicando-as-transferencias-de-padres/",
+     "title": "Jequié Repórter — boletim da Diocese de Jequié com transferências de padres, 21/11/2023",
+     "accessedAt": "2026-09-17"
+    }
+   ],
+   "confidence": "media",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora do Desterro",
+     "address": "Rua Hélio Bispo, 08",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20220521192659/https://www.diocesedejequie.com.br/paroquias/",
+       "title": "Portal Diocese de Jequié — Paróquias (captura do Arquivo da Internet de 21/05/2022; domínio extinto; cartões sem atualização desde ~2017)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "media"
+    }
+   ],
+   "schedules": [],
+   "cnpj": "03140278000152",
+   "phoneHistoric": "(73) 3621-2087",
+   "emailHistoric": null,
+   "notes": "Contato do cartão diocesano antigo (conteúdo de ~2017, não conferido — fora dos campos phone/email): (73) 3621-2087."
+  },
+  {
+   "slug": "bom-jesus-cravolandia",
+   "name": "Paróquia Bom Jesus",
+   "city": "Cravolândia",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça Lomanto Júnior, nº 90",
+   "zipCode": "45330-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": 2001,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20220521192659/https://www.diocesedejequie.com.br/paroquias/",
+     "title": "Portal Diocese de Jequié — Paróquias (captura do Arquivo da Internet de 21/05/2022; domínio extinto; cartões sem atualização desde ~2017)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/jequ0",
+     "title": "GCatholic — Churches in the Diocese of Jequié (atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://minhareceita.org/09431391000173",
+     "title": "Receita Federal (CNPJ 09431391000173, situação ATIVA) via minhareceita.org; lista por município conferida no Mapa das OSC/IPEA, base 05/2026",
+     "accessedAt": "2026-09-17"
+    }
+   ],
+   "confidence": "media",
+   "communities": [
+    {
+     "name": "Matriz Bom Jesus",
+     "address": "Praça Lomanto Júnior, nº 90",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20220521192659/https://www.diocesedejequie.com.br/paroquias/",
+       "title": "Portal Diocese de Jequié — Paróquias (captura do Arquivo da Internet de 21/05/2022; domínio extinto; cartões sem atualização desde ~2017)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "media"
+    }
+   ],
+   "schedules": [],
+   "cnpj": "09431391000173",
+   "phoneHistoric": "(73) 3545-2050",
+   "emailHistoric": null,
+   "notes": "Contato do cartão diocesano antigo (conteúdo de ~2017, não conferido — fora dos campos phone/email): (73) 3545-2050."
+  },
+  {
+   "slug": "nossa-senhora-da-conceicao-brejoes",
+   "name": "Paróquia Nossa Senhora da Conceição",
+   "city": "Brejões",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Travessa Altino Pinto, s/n",
+   "zipCode": "45325-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": 1921,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20220521192659/https://www.diocesedejequie.com.br/paroquias/",
+     "title": "Portal Diocese de Jequié — Paróquias (captura do Arquivo da Internet de 21/05/2022; domínio extinto; cartões sem atualização desde ~2017)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/jequ0",
+     "title": "GCatholic — Churches in the Diocese of Jequié (atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://minhareceita.org/12279426000105",
+     "title": "Receita Federal (CNPJ 12279426000105, situação ATIVA) via minhareceita.org; lista por município conferida no Mapa das OSC/IPEA, base 05/2026",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/igreja.php?k=apBnS",
+     "title": "Horário de Missa — Paróquia Nossa Senhora da Conceição (ficha atualizada pela última vez em 24/05/2013)",
+     "accessedAt": "2026-09-17"
+    }
+   ],
+   "confidence": "media",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora da Conceição",
+     "address": "Travessa Altino Pinto, s/n",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20220521192659/https://www.diocesedejequie.com.br/paroquias/",
+       "title": "Portal Diocese de Jequié — Paróquias (captura do Arquivo da Internet de 21/05/2022; domínio extinto; cartões sem atualização desde ~2017)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "media"
+    }
+   ],
+   "schedules": [],
+   "cnpj": "12279426000105",
+   "phoneHistoric": "(75) 3654-2109",
+   "emailHistoric": "paroquiaconceicao04@outlook.com",
+   "notes": "Contato do cartão diocesano antigo (conteúdo de ~2017, não conferido — fora dos campos phone/email): (75) 3654-2109; paroquiaconceicao04@outlook.com."
+  },
+  {
+   "slug": "nossa-senhora-das-gracas-jequie",
+   "name": "Paróquia Nossa Senhora das Graças",
+   "city": "Jequié",
+   "state": "BA",
+   "neighborhood": "Joaquim Romão",
+   "address": "Praça João XXIII, s/n",
+   "zipCode": "45200-610",
+   "phone": "(73) 3047-6119",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Paulo Marcos",
+   "foundedYear": 1973,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20220521192659/https://www.diocesedejequie.com.br/paroquias/",
+     "title": "Portal Diocese de Jequié — Paróquias (captura do Arquivo da Internet de 21/05/2022; domínio extinto; cartões sem atualização desde ~2017)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/jequ0",
+     "title": "GCatholic — Churches in the Diocese of Jequié (atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://minhareceita.org/13893227000155",
+     "title": "Receita Federal (CNPJ 13893227000155, situação ATIVA) via minhareceita.org; lista por município conferida no Mapa das OSC/IPEA, base 05/2026",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://jequiereporter.com/diocese-de-jequie-divulga-boletim-comunicando-as-transferencias-de-padres/",
+     "title": "Jequié Repórter — boletim da Diocese de Jequié com transferências de padres, 21/11/2023",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://www.instagram.com/nossasenhoradasgracas_jequie/",
+     "title": "Instagram oficial @nossasenhoradasgracas_jequie — bio: \"Paróquia Nossa Senhora das Graças / Diocese de Jequié/BA / Em frente ao Terminal Rodoviário - Jequié / Pároco: @padrepaulomarcos Vigário: Pe. Givaldo\" (09/2026)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://linktr.ee/nsdg2",
+     "title": "Linktree oficial da Paróquia Nossa Senhora das Graças (WhatsApp wa.me/7330476119)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/igreja.php?k=wMi20",
+     "title": "Horário de Missa — Paróquia Nossa Senhora das Graças (ficha atualizada pela última vez em 16/07/2014)",
+     "accessedAt": "2026-09-17"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora das Graças",
+     "address": "Praça João XXIII, s/n",
+     "neighborhood": "Joaquim Romão",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20220521192659/https://www.diocesedejequie.com.br/paroquias/",
+       "title": "Portal Diocese de Jequié — Paróquias (captura do Arquivo da Internet de 21/05/2022; domínio extinto; cartões sem atualização desde ~2017)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Comunidade São João Batista",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=wMi20",
+       "title": "Horário de Missa — Paróquia Nossa Senhora das Graças (ficha atualizada pela última vez em 16/07/2014)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa",
+     "notes": "Citada só na ficha de 16/07/2014 do horariodemissa.com.br (texto original: \"Com. S. João Batista\")."
+    },
+    {
+     "name": "Comunidade Nossa Senhora de Fátima",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=wMi20",
+       "title": "Horário de Missa — Paróquia Nossa Senhora das Graças (ficha atualizada pela última vez em 16/07/2014)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa",
+     "notes": "Citada só na ficha de 16/07/2014 do horariodemissa.com.br (texto original: \"Com. N. S. de Fátima\")."
+    },
+    {
+     "name": "Comunidade Santa Clélia Barbieri",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=wMi20",
+       "title": "Horário de Missa — Paróquia Nossa Senhora das Graças (ficha atualizada pela última vez em 16/07/2014)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa",
+     "notes": "Citada só na ficha de 16/07/2014 do horariodemissa.com.br (texto original: \"Com. Santa Clélia Barbieri\")."
+    },
+    {
+     "name": "Comunidade São Francisco",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=wMi20",
+       "title": "Horário de Missa — Paróquia Nossa Senhora das Graças (ficha atualizada pela última vez em 16/07/2014)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa",
+     "notes": "Citada só na ficha de 16/07/2014 do horariodemissa.com.br (texto original: \"Com. S. Francisco\"). Em 2024 surgiu no mesmo bairro (Joaquim Romão) a Paróquia São Francisco de Assis — esta comunidade provavelmente deixou de pertencer a N. Sra. das Graças."
+    },
+    {
+     "name": "Comunidade Nossa Senhora das Dores",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=wMi20",
+       "title": "Horário de Missa — Paróquia Nossa Senhora das Graças (ficha atualizada pela última vez em 16/07/2014)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa",
+     "notes": "Citada só na ficha de 16/07/2014 do horariodemissa.com.br (texto original: \"Com. N. S. das Dores\")."
+    },
+    {
+     "name": "Comunidade Santa Tereza",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=wMi20",
+       "title": "Horário de Missa — Paróquia Nossa Senhora das Graças (ficha atualizada pela última vez em 16/07/2014)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa",
+     "notes": "Citada só na ficha de 16/07/2014 do horariodemissa.com.br (texto original: \"Com. Sta. Tereza\")."
+    },
+    {
+     "name": "Comunidade Nossa Senhora da Conceição",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=wMi20",
+       "title": "Horário de Missa — Paróquia Nossa Senhora das Graças (ficha atualizada pela última vez em 16/07/2014)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa",
+     "notes": "Citada só na ficha de 16/07/2014 do horariodemissa.com.br (texto original: \"Com. N. S. da Conceição\")."
+    },
+    {
+     "name": "Comunidade São Roque",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=wMi20",
+       "title": "Horário de Missa — Paróquia Nossa Senhora das Graças (ficha atualizada pela última vez em 16/07/2014)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa",
+     "notes": "Citada só na ficha de 16/07/2014 do horariodemissa.com.br (texto original: \"Com. S. Roque\")."
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Nossa Senhora das Graças",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": "ficha de 16/07/2014, anterior à pandemia",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=wMi20",
+       "title": "Horário de Missa — Paróquia Nossa Senhora das Graças (ficha atualizada pela última vez em 16/07/2014)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora das Graças",
+     "dayOfWeek": 2,
+     "time": "18:30",
+     "type": "MASS",
+     "notes": "ficha de 16/07/2014, anterior à pandemia",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=wMi20",
+       "title": "Horário de Missa — Paróquia Nossa Senhora das Graças (ficha atualizada pela última vez em 16/07/2014)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora das Graças",
+     "dayOfWeek": 4,
+     "time": "15:00",
+     "type": "CONFESSION",
+     "notes": "ficha de 16/07/2014, anterior à pandemia",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=wMi20",
+       "title": "Horário de Missa — Paróquia Nossa Senhora das Graças (ficha atualizada pela última vez em 16/07/2014)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora das Graças",
+     "dayOfWeek": 5,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "ficha de 16/07/2014, anterior à pandemia",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=wMi20",
+       "title": "Horário de Missa — Paróquia Nossa Senhora das Graças (ficha atualizada pela última vez em 16/07/2014)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Comunidade Nossa Senhora da Conceição",
+     "dayOfWeek": 6,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "ficha de 16/07/2014, anterior à pandemia",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=wMi20",
+       "title": "Horário de Missa — Paróquia Nossa Senhora das Graças (ficha atualizada pela última vez em 16/07/2014)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Comunidade Nossa Senhora das Dores",
+     "dayOfWeek": 3,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "ficha de 16/07/2014, anterior à pandemia",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=wMi20",
+       "title": "Horário de Missa — Paróquia Nossa Senhora das Graças (ficha atualizada pela última vez em 16/07/2014)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Comunidade Nossa Senhora de Fátima",
+     "dayOfWeek": 0,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": "ficha de 16/07/2014, anterior à pandemia",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=wMi20",
+       "title": "Horário de Missa — Paróquia Nossa Senhora das Graças (ficha atualizada pela última vez em 16/07/2014)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Comunidade Santa Clélia Barbieri",
+     "dayOfWeek": 0,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": "ficha de 16/07/2014, anterior à pandemia",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=wMi20",
+       "title": "Horário de Missa — Paróquia Nossa Senhora das Graças (ficha atualizada pela última vez em 16/07/2014)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Comunidade Santa Tereza",
+     "dayOfWeek": 3,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "ficha de 16/07/2014, anterior à pandemia",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=wMi20",
+       "title": "Horário de Missa — Paróquia Nossa Senhora das Graças (ficha atualizada pela última vez em 16/07/2014)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Comunidade São Francisco",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "ficha de 16/07/2014, anterior à pandemia",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=wMi20",
+       "title": "Horário de Missa — Paróquia Nossa Senhora das Graças (ficha atualizada pela última vez em 16/07/2014)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Comunidade São Francisco",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "ficha de 16/07/2014, anterior à pandemia",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=wMi20",
+       "title": "Horário de Missa — Paróquia Nossa Senhora das Graças (ficha atualizada pela última vez em 16/07/2014)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Comunidade São João Batista",
+     "dayOfWeek": 0,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": "ficha de 16/07/2014, anterior à pandemia",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=wMi20",
+       "title": "Horário de Missa — Paróquia Nossa Senhora das Graças (ficha atualizada pela última vez em 16/07/2014)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Comunidade São Roque",
+     "dayOfWeek": 6,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "ficha de 16/07/2014, anterior à pandemia",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=wMi20",
+       "title": "Horário de Missa — Paróquia Nossa Senhora das Graças (ficha atualizada pela última vez em 16/07/2014)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ],
+   "cnpj": "13893227000155",
+   "instagram": "nossasenhoradasgracas_jequie",
+   "phoneHistoric": null,
+   "emailHistoric": "dasgracas_jequie@hotmail.com",
+   "notes": "Telefone = WhatsApp do Linktree oficial; a lista diocesana antiga trazia (73) 3525-1089. A bio oficial do Instagram publica horários de missa, mas o trecho fica truncado para o leitor automático e NÃO foi gravado (um buscador mostra \"terça a sexta 18h30; domingo 7h e 18h\" — conferir). Contato do cartão diocesano antigo (conteúdo de ~2017, não conferido — fora dos campos phone/email): dasgracas_jequie@hotmail.com."
+  },
+  {
+   "slug": "jesus-crucificado-jequie",
+   "name": "Santuário Jesus Crucificado",
+   "city": "Jequié",
+   "state": "BA",
+   "neighborhood": "Jequiezinho",
+   "address": "Av. Artur Morais, 576",
+   "zipCode": "45208-209",
+   "phone": "(73) 3525-3289",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20220521192659/https://www.diocesedejequie.com.br/paroquias/",
+     "title": "Portal Diocese de Jequié — Paróquias (captura do Arquivo da Internet de 21/05/2022; domínio extinto; cartões sem atualização desde ~2017)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/jequ0",
+     "title": "GCatholic — Churches in the Diocese of Jequié (atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://minhareceita.org/36544730000109",
+     "title": "Receita Federal (CNPJ 36544730000109, situação ATIVA) via minhareceita.org; lista por município conferida no Mapa das OSC/IPEA, base 05/2026",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://www.instagram.com/santuariojesuscrucificado/",
+     "title": "Instagram oficial @santuariojesuscrucificado — bio: \"Santuario Jesus Crucificado Jequié / Contato WhatsApp: 73 3525-3289 / Horários das Missas / Domingo- 06h30, 10h e 18h / Segunda a sexta- 06h30 e 18h30 / Quinta-...\" (posts até 13/09/2026)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://www.liriocatolico.com.br/horario_missa/",
+     "title": "Lírio Católico — Santuário Jesus Crucificado, Jequié (ficha 10054; base estadual com data de carga 02/09/2026)",
+     "accessedAt": "2026-09-17"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Santuário Jesus Crucificado",
+     "address": "Av. Artur Morais, 576",
+     "neighborhood": "Jequiezinho",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20220521192659/https://www.diocesedejequie.com.br/paroquias/",
+       "title": "Portal Diocese de Jequié — Paróquias (captura do Arquivo da Internet de 21/05/2022; domínio extinto; cartões sem atualização desde ~2017)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Santuário Jesus Crucificado",
+     "dayOfWeek": 0,
+     "time": "06:30",
+     "type": "MASS",
+     "notes": "bio oficial do santuário; confere com o Lírio Católico",
+     "sources": [
+      {
+       "url": "https://www.instagram.com/santuariojesuscrucificado/",
+       "title": "Instagram oficial @santuariojesuscrucificado — bio: \"Horários das Missas / Domingo- 06h30, 10h e 18h / Segunda a sexta- 06h30 e 18h30 / Quinta-...\" (lida em 17/09/2026)",
+       "accessedAt": "2026-09-17"
+      },
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/",
+       "title": "Lírio Católico — Santuário Jesus Crucificado, Jequié (ficha 10054; base estadual com data de carga 02/09/2026)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Santuário Jesus Crucificado",
+     "dayOfWeek": 0,
+     "time": "10:00",
+     "type": "MASS",
+     "notes": "bio oficial do santuário; confere com o Lírio Católico",
+     "sources": [
+      {
+       "url": "https://www.instagram.com/santuariojesuscrucificado/",
+       "title": "Instagram oficial @santuariojesuscrucificado — bio: \"Horários das Missas / Domingo- 06h30, 10h e 18h / Segunda a sexta- 06h30 e 18h30 / Quinta-...\" (lida em 17/09/2026)",
+       "accessedAt": "2026-09-17"
+      },
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/",
+       "title": "Lírio Católico — Santuário Jesus Crucificado, Jequié (ficha 10054; base estadual com data de carga 02/09/2026)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Santuário Jesus Crucificado",
+     "dayOfWeek": 0,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": "bio oficial do santuário; confere com o Lírio Católico",
+     "sources": [
+      {
+       "url": "https://www.instagram.com/santuariojesuscrucificado/",
+       "title": "Instagram oficial @santuariojesuscrucificado — bio: \"Horários das Missas / Domingo- 06h30, 10h e 18h / Segunda a sexta- 06h30 e 18h30 / Quinta-...\" (lida em 17/09/2026)",
+       "accessedAt": "2026-09-17"
+      },
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/",
+       "title": "Lírio Católico — Santuário Jesus Crucificado, Jequié (ficha 10054; base estadual com data de carga 02/09/2026)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Santuário Jesus Crucificado",
+     "dayOfWeek": 1,
+     "time": "06:30",
+     "type": "MASS",
+     "notes": "bio oficial do santuário; confere com o Lírio Católico",
+     "sources": [
+      {
+       "url": "https://www.instagram.com/santuariojesuscrucificado/",
+       "title": "Instagram oficial @santuariojesuscrucificado — bio: \"Horários das Missas / Domingo- 06h30, 10h e 18h / Segunda a sexta- 06h30 e 18h30 / Quinta-...\" (lida em 17/09/2026)",
+       "accessedAt": "2026-09-17"
+      },
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/",
+       "title": "Lírio Católico — Santuário Jesus Crucificado, Jequié (ficha 10054; base estadual com data de carga 02/09/2026)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Santuário Jesus Crucificado",
+     "dayOfWeek": 1,
+     "time": "18:30",
+     "type": "MASS",
+     "notes": "bio oficial do santuário; confere com o Lírio Católico",
+     "sources": [
+      {
+       "url": "https://www.instagram.com/santuariojesuscrucificado/",
+       "title": "Instagram oficial @santuariojesuscrucificado — bio: \"Horários das Missas / Domingo- 06h30, 10h e 18h / Segunda a sexta- 06h30 e 18h30 / Quinta-...\" (lida em 17/09/2026)",
+       "accessedAt": "2026-09-17"
+      },
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/",
+       "title": "Lírio Católico — Santuário Jesus Crucificado, Jequié (ficha 10054; base estadual com data de carga 02/09/2026)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Santuário Jesus Crucificado",
+     "dayOfWeek": 2,
+     "time": "06:30",
+     "type": "MASS",
+     "notes": "bio oficial do santuário; confere com o Lírio Católico",
+     "sources": [
+      {
+       "url": "https://www.instagram.com/santuariojesuscrucificado/",
+       "title": "Instagram oficial @santuariojesuscrucificado — bio: \"Horários das Missas / Domingo- 06h30, 10h e 18h / Segunda a sexta- 06h30 e 18h30 / Quinta-...\" (lida em 17/09/2026)",
+       "accessedAt": "2026-09-17"
+      },
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/",
+       "title": "Lírio Católico — Santuário Jesus Crucificado, Jequié (ficha 10054; base estadual com data de carga 02/09/2026)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Santuário Jesus Crucificado",
+     "dayOfWeek": 2,
+     "time": "18:30",
+     "type": "MASS",
+     "notes": "bio oficial do santuário; confere com o Lírio Católico",
+     "sources": [
+      {
+       "url": "https://www.instagram.com/santuariojesuscrucificado/",
+       "title": "Instagram oficial @santuariojesuscrucificado — bio: \"Horários das Missas / Domingo- 06h30, 10h e 18h / Segunda a sexta- 06h30 e 18h30 / Quinta-...\" (lida em 17/09/2026)",
+       "accessedAt": "2026-09-17"
+      },
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/",
+       "title": "Lírio Católico — Santuário Jesus Crucificado, Jequié (ficha 10054; base estadual com data de carga 02/09/2026)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Santuário Jesus Crucificado",
+     "dayOfWeek": 3,
+     "time": "06:30",
+     "type": "MASS",
+     "notes": "bio oficial do santuário; confere com o Lírio Católico",
+     "sources": [
+      {
+       "url": "https://www.instagram.com/santuariojesuscrucificado/",
+       "title": "Instagram oficial @santuariojesuscrucificado — bio: \"Horários das Missas / Domingo- 06h30, 10h e 18h / Segunda a sexta- 06h30 e 18h30 / Quinta-...\" (lida em 17/09/2026)",
+       "accessedAt": "2026-09-17"
+      },
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/",
+       "title": "Lírio Católico — Santuário Jesus Crucificado, Jequié (ficha 10054; base estadual com data de carga 02/09/2026)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Santuário Jesus Crucificado",
+     "dayOfWeek": 3,
+     "time": "18:30",
+     "type": "MASS",
+     "notes": "bio oficial do santuário; confere com o Lírio Católico",
+     "sources": [
+      {
+       "url": "https://www.instagram.com/santuariojesuscrucificado/",
+       "title": "Instagram oficial @santuariojesuscrucificado — bio: \"Horários das Missas / Domingo- 06h30, 10h e 18h / Segunda a sexta- 06h30 e 18h30 / Quinta-...\" (lida em 17/09/2026)",
+       "accessedAt": "2026-09-17"
+      },
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/",
+       "title": "Lírio Católico — Santuário Jesus Crucificado, Jequié (ficha 10054; base estadual com data de carga 02/09/2026)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Santuário Jesus Crucificado",
+     "dayOfWeek": 4,
+     "time": "06:30",
+     "type": "ADORATION",
+     "notes": "das 06:30 às 18:30; só no Lírio Católico; os outros 13 horários da mesma ficha conferem com a bio oficial, mas este trecho (quinta/sábado) vem truncado na bio — provável, não confirmado",
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/",
+       "title": "Lírio Católico — Santuário Jesus Crucificado, Jequié (ficha 10054; base estadual com data de carga 02/09/2026)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Santuário Jesus Crucificado",
+     "dayOfWeek": 4,
+     "time": "06:30",
+     "type": "MASS",
+     "notes": "bio oficial do santuário; confere com o Lírio Católico",
+     "sources": [
+      {
+       "url": "https://www.instagram.com/santuariojesuscrucificado/",
+       "title": "Instagram oficial @santuariojesuscrucificado — bio: \"Horários das Missas / Domingo- 06h30, 10h e 18h / Segunda a sexta- 06h30 e 18h30 / Quinta-...\" (lida em 17/09/2026)",
+       "accessedAt": "2026-09-17"
+      },
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/",
+       "title": "Lírio Católico — Santuário Jesus Crucificado, Jequié (ficha 10054; base estadual com data de carga 02/09/2026)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Santuário Jesus Crucificado",
+     "dayOfWeek": 4,
+     "time": "18:30",
+     "type": "MASS",
+     "notes": "bio oficial do santuário; confere com o Lírio Católico",
+     "sources": [
+      {
+       "url": "https://www.instagram.com/santuariojesuscrucificado/",
+       "title": "Instagram oficial @santuariojesuscrucificado — bio: \"Horários das Missas / Domingo- 06h30, 10h e 18h / Segunda a sexta- 06h30 e 18h30 / Quinta-...\" (lida em 17/09/2026)",
+       "accessedAt": "2026-09-17"
+      },
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/",
+       "title": "Lírio Católico — Santuário Jesus Crucificado, Jequié (ficha 10054; base estadual com data de carga 02/09/2026)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Santuário Jesus Crucificado",
+     "dayOfWeek": 5,
+     "time": "06:30",
+     "type": "MASS",
+     "notes": "bio oficial do santuário; confere com o Lírio Católico",
+     "sources": [
+      {
+       "url": "https://www.instagram.com/santuariojesuscrucificado/",
+       "title": "Instagram oficial @santuariojesuscrucificado — bio: \"Horários das Missas / Domingo- 06h30, 10h e 18h / Segunda a sexta- 06h30 e 18h30 / Quinta-...\" (lida em 17/09/2026)",
+       "accessedAt": "2026-09-17"
+      },
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/",
+       "title": "Lírio Católico — Santuário Jesus Crucificado, Jequié (ficha 10054; base estadual com data de carga 02/09/2026)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Santuário Jesus Crucificado",
+     "dayOfWeek": 5,
+     "time": "18:30",
+     "type": "MASS",
+     "notes": "bio oficial do santuário; confere com o Lírio Católico",
+     "sources": [
+      {
+       "url": "https://www.instagram.com/santuariojesuscrucificado/",
+       "title": "Instagram oficial @santuariojesuscrucificado — bio: \"Horários das Missas / Domingo- 06h30, 10h e 18h / Segunda a sexta- 06h30 e 18h30 / Quinta-...\" (lida em 17/09/2026)",
+       "accessedAt": "2026-09-17"
+      },
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/",
+       "title": "Lírio Católico — Santuário Jesus Crucificado, Jequié (ficha 10054; base estadual com data de carga 02/09/2026)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Santuário Jesus Crucificado",
+     "dayOfWeek": 6,
+     "time": "06:30",
+     "type": "MASS",
+     "notes": "só no Lírio Católico; os outros 13 horários da mesma ficha conferem com a bio oficial, mas este trecho (quinta/sábado) vem truncado na bio — provável, não confirmado",
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/",
+       "title": "Lírio Católico — Santuário Jesus Crucificado, Jequié (ficha 10054; base estadual com data de carga 02/09/2026)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Santuário Jesus Crucificado",
+     "dayOfWeek": 6,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": "só no Lírio Católico; os outros 13 horários da mesma ficha conferem com a bio oficial, mas este trecho (quinta/sábado) vem truncado na bio — provável, não confirmado",
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/",
+       "title": "Lírio Católico — Santuário Jesus Crucificado, Jequié (ficha 10054; base estadual com data de carga 02/09/2026)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ],
+   "cnpj": "36544730000109",
+   "instagram": "santuariojesuscrucificado",
+   "status": "nao-paroquial",
+   "loadAsParish": true,
+   "phoneHistoric": null,
+   "emailHistoric": "passionistajequie@hotmail.com",
+   "notes": "Santuário do convento dos Passionistas; a diocese o lista como \"Santuário Jesus Crucificado (Convento)\" e a Wikipédia conta \"39 paróquias e 1 santuário\". Não é paróquia, mas publica missa fixa — entra com loadAsParish. Endereço do Lírio Católico (o cartão diocesano não traz logradouro); a Receita registra Rua Professora Virgínia Ribeiro, s/n, Jequiezinho. Telefone = contato da bio oficial (o cartão antigo trazia (73) 3525-2445). Contato do cartão diocesano antigo (conteúdo de ~2017, não conferido — fora dos campos phone/email): passionistajequie@hotmail.com."
+  },
+  {
+   "slug": "nossa-senhora-aparecida-jequie",
+   "name": "Paróquia Nossa Senhora Aparecida",
+   "city": "Jequié",
+   "state": "BA",
+   "neighborhood": "Cidade Nova",
+   "address": "Pça Nossa Senhora Aparecida, s/n",
+   "zipCode": "45200-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": 1996,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20220521192659/https://www.diocesedejequie.com.br/paroquias/",
+     "title": "Portal Diocese de Jequié — Paróquias (captura do Arquivo da Internet de 21/05/2022; domínio extinto; cartões sem atualização desde ~2017)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/jequ0",
+     "title": "GCatholic — Churches in the Diocese of Jequié (atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://minhareceita.org/03327795000135",
+     "title": "Receita Federal (CNPJ 03327795000135, situação ATIVA) via minhareceita.org; lista por município conferida no Mapa das OSC/IPEA, base 05/2026",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/igreja.php?k=Pdhg8",
+     "title": "Horário de Missa — Paróquia Nossa Senhora Aparecida (ficha atualizada pela última vez em 24/05/2013)",
+     "accessedAt": "2026-09-17"
+    }
+   ],
+   "confidence": "media",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora Aparecida",
+     "address": "Pça Nossa Senhora Aparecida, s/n",
+     "neighborhood": "Cidade Nova",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20220521192659/https://www.diocesedejequie.com.br/paroquias/",
+       "title": "Portal Diocese de Jequié — Paróquias (captura do Arquivo da Internet de 21/05/2022; domínio extinto; cartões sem atualização desde ~2017)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "media"
+    }
+   ],
+   "schedules": [],
+   "cnpj": "03327795000135",
+   "phoneHistoric": "(73) 3525-9277",
+   "emailHistoric": "padroeiradobrasil@hotmail.com",
+   "notes": "O cartão diocesano trazia um celular não corroborado; gravado o fixo (73) 3525-9277, igual na Receita Federal e no horariodemissa (2013). Contato antigo, não conferido — fora dos campos phone/email (telefone igual na Receita Federal e no horariodemissa de 2013, e e-mail do cartão diocesano de ~2017): (73) 3525-9277; padroeiradobrasil@hotmail.com."
+  },
+  {
+   "slug": "imaculada-conceicao-jequie",
+   "name": "Santuário da Imaculada Conceição",
+   "city": "Jequié",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Av. Rio Branco, s/n",
+   "zipCode": "45203-010",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": 1950,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20220521192659/https://www.diocesedejequie.com.br/paroquias/",
+     "title": "Portal Diocese de Jequié — Paróquias (captura do Arquivo da Internet de 21/05/2022; domínio extinto; cartões sem atualização desde ~2017)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/jequ0",
+     "title": "GCatholic — Churches in the Diocese of Jequié (atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://minhareceita.org/10951312000134",
+     "title": "Receita Federal (CNPJ 10951312000134, situação ATIVA) via minhareceita.org; lista por município conferida no Mapa das OSC/IPEA, base 05/2026",
+     "accessedAt": "2026-09-17"
+    }
+   ],
+   "confidence": "media",
+   "communities": [
+    {
+     "name": "Santuário da Imaculada Conceição",
+     "address": "Av. Rio Branco, s/n",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20220521192659/https://www.diocesedejequie.com.br/paroquias/",
+       "title": "Portal Diocese de Jequié — Paróquias (captura do Arquivo da Internet de 21/05/2022; domínio extinto; cartões sem atualização desde ~2017)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "media"
+    }
+   ],
+   "schedules": [],
+   "cnpj": "10951312000134",
+   "phoneHistoric": "(73) 3525-7977",
+   "emailHistoric": null,
+   "notes": "Paróquia-santuário: razão social na Receita Federal \"PAROQUIA SANTUARIO DA IMACULADA CONCEICAO\". O boletim de 21/11/2023 nomeou Pe. Givaldo vigário do santuário (em 09/2026 ele aparece como vigário de N. Sra. das Graças). Contato do cartão diocesano antigo (conteúdo de ~2017, não conferido — fora dos campos phone/email): (73) 3525-7977."
+  },
+  {
+   "slug": "santissimo-sacramento-jequie",
+   "name": "Paróquia Santíssimo Sacramento",
+   "city": "Jequié",
+   "state": "BA",
+   "neighborhood": "Curral Novo",
+   "address": "Rua da Igreja, 13",
+   "zipCode": "45202-014",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": 2009,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20220521192659/https://www.diocesedejequie.com.br/paroquias/",
+     "title": "Portal Diocese de Jequié — Paróquias (captura do Arquivo da Internet de 21/05/2022; domínio extinto; cartões sem atualização desde ~2017)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/jequ0",
+     "title": "GCatholic — Churches in the Diocese of Jequié (atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://minhareceita.org/31186498000152",
+     "title": "Receita Federal (CNPJ 31186498000152, situação ATIVA) via minhareceita.org; lista por município conferida no Mapa das OSC/IPEA, base 05/2026",
+     "accessedAt": "2026-09-17"
+    }
+   ],
+   "confidence": "media",
+   "communities": [
+    {
+     "name": "Matriz Santíssimo Sacramento",
+     "address": "Rua da Igreja, 13",
+     "neighborhood": "Curral Novo",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20220521192659/https://www.diocesedejequie.com.br/paroquias/",
+       "title": "Portal Diocese de Jequié — Paróquias (captura do Arquivo da Internet de 21/05/2022; domínio extinto; cartões sem atualização desde ~2017)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "media"
+    }
+   ],
+   "schedules": [],
+   "cnpj": "31186498000152"
+  },
+  {
+   "slug": "nossa-senhora-do-perpetuo-socorro-jequie",
+   "name": "Paróquia Nossa Senhora do Perpétuo Socorro",
+   "city": "Jequié",
+   "state": "BA",
+   "neighborhood": "Jequiezinho",
+   "address": "Rua Mongoiós, 394",
+   "zipCode": "45202-130",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": 1962,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20220521192659/https://www.diocesedejequie.com.br/paroquias/",
+     "title": "Portal Diocese de Jequié — Paróquias (captura do Arquivo da Internet de 21/05/2022; domínio extinto; cartões sem atualização desde ~2017)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/jequ0",
+     "title": "GCatholic — Churches in the Diocese of Jequié (atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://minhareceita.org/13243753000170",
+     "title": "Receita Federal (CNPJ 13243753000170, situação ATIVA) via minhareceita.org; lista por município conferida no Mapa das OSC/IPEA, base 05/2026",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/igreja.php?k=nJxGb",
+     "title": "Horário de Missa — Paróquia Nossa Senhora do Perpétuo Socorro (ficha atualizada pela última vez em 10/03/2014)",
+     "accessedAt": "2026-09-17"
+    }
+   ],
+   "confidence": "media",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora do Perpétuo Socorro",
+     "address": "Rua Mongoiós, 394",
+     "neighborhood": "Jequiezinho",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20220521192659/https://www.diocesedejequie.com.br/paroquias/",
+       "title": "Portal Diocese de Jequié — Paróquias (captura do Arquivo da Internet de 21/05/2022; domínio extinto; cartões sem atualização desde ~2017)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "media"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+     "dayOfWeek": 0,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": "ficha de 10/03/2014, anterior à pandemia",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=nJxGb",
+       "title": "Horário de Missa — Paróquia Nossa Senhora do Perpétuo Socorro (ficha atualizada pela última vez em 10/03/2014)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+     "dayOfWeek": 0,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": "ficha de 10/03/2014, anterior à pandemia",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=nJxGb",
+       "title": "Horário de Missa — Paróquia Nossa Senhora do Perpétuo Socorro (ficha atualizada pela última vez em 10/03/2014)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+     "dayOfWeek": 1,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "ficha de 10/03/2014, anterior à pandemia",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=nJxGb",
+       "title": "Horário de Missa — Paróquia Nossa Senhora do Perpétuo Socorro (ficha atualizada pela última vez em 10/03/2014)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+     "dayOfWeek": 2,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "ficha de 10/03/2014, anterior à pandemia",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=nJxGb",
+       "title": "Horário de Missa — Paróquia Nossa Senhora do Perpétuo Socorro (ficha atualizada pela última vez em 10/03/2014)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+     "dayOfWeek": 3,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "ficha de 10/03/2014, anterior à pandemia",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=nJxGb",
+       "title": "Horário de Missa — Paróquia Nossa Senhora do Perpétuo Socorro (ficha atualizada pela última vez em 10/03/2014)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+     "dayOfWeek": 4,
+     "time": "06:30",
+     "type": "ADORATION",
+     "notes": "Adoração ao Santíssimo na quinta-feira de 6:30 às 19:00; ficha de 10/03/2014, anterior à pandemia",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=nJxGb",
+       "title": "Horário de Missa — Paróquia Nossa Senhora do Perpétuo Socorro (ficha atualizada pela última vez em 10/03/2014)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+     "dayOfWeek": 4,
+     "time": "06:30",
+     "type": "MASS",
+     "notes": "ficha de 10/03/2014, anterior à pandemia",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=nJxGb",
+       "title": "Horário de Missa — Paróquia Nossa Senhora do Perpétuo Socorro (ficha atualizada pela última vez em 10/03/2014)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "ficha de 10/03/2014, anterior à pandemia",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=nJxGb",
+       "title": "Horário de Missa — Paróquia Nossa Senhora do Perpétuo Socorro (ficha atualizada pela última vez em 10/03/2014)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+     "dayOfWeek": 5,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "ficha de 10/03/2014, anterior à pandemia",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=nJxGb",
+       "title": "Horário de Missa — Paróquia Nossa Senhora do Perpétuo Socorro (ficha atualizada pela última vez em 10/03/2014)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+     "dayOfWeek": 6,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "ficha de 10/03/2014, anterior à pandemia",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=nJxGb",
+       "title": "Horário de Missa — Paróquia Nossa Senhora do Perpétuo Socorro (ficha atualizada pela última vez em 10/03/2014)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ],
+   "cnpj": "13243753000170",
+   "phoneHistoric": "(73) 3525-4971",
+   "emailHistoric": "perpetuosocorro.ba@gmail.com",
+   "notes": "O cartão do site diocesano diz \"Paróquia Perpétuo Socorro\"; Receita Federal e agregadores dizem \"Nossa Senhora do Perpétuo Socorro\". Confiada aos Passionistas (CP). Contato do cartão diocesano antigo (conteúdo de ~2017, não conferido — fora dos campos phone/email): (73) 3525-4971; perpetuosocorro.ba@gmail.com."
+  },
+  {
+   "slug": "sao-jose-operario-jequie",
+   "name": "Paróquia São José Operário",
+   "city": "Jequié",
+   "state": "BA",
+   "neighborhood": "São José",
+   "address": "R. Cel. Erotildes Soares 190",
+   "zipCode": "45204-050",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": 1989,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20220521192659/https://www.diocesedejequie.com.br/paroquias/",
+     "title": "Portal Diocese de Jequié — Paróquias (captura do Arquivo da Internet de 21/05/2022; domínio extinto; cartões sem atualização desde ~2017)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/jequ0",
+     "title": "GCatholic — Churches in the Diocese of Jequié (atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://minhareceita.org/63180053000151",
+     "title": "Receita Federal (CNPJ 63180053000151, situação ATIVA) via minhareceita.org; lista por município conferida no Mapa das OSC/IPEA, base 05/2026",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://www.horariodemissa.com.br/igreja.php?k=5PSnP",
+     "title": "Horário de Missa — Paróquia São José Operário (ficha atualizada pela última vez em 30/08/2015)",
+     "accessedAt": "2026-09-17"
+    }
+   ],
+   "confidence": "media",
+   "communities": [
+    {
+     "name": "Matriz São José Operário",
+     "address": "R. Cel. Erotildes Soares 190",
+     "neighborhood": "São José",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20220521192659/https://www.diocesedejequie.com.br/paroquias/",
+       "title": "Portal Diocese de Jequié — Paróquias (captura do Arquivo da Internet de 21/05/2022; domínio extinto; cartões sem atualização desde ~2017)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "media"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz São José Operário",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "ficha de 30/08/2015, anterior à pandemia",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=5PSnP",
+       "title": "Horário de Missa — Paróquia São José Operário (ficha atualizada pela última vez em 30/08/2015)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São José Operário",
+     "dayOfWeek": 2,
+     "time": "12:00",
+     "type": "MASS",
+     "notes": "ficha de 30/08/2015, anterior à pandemia",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=5PSnP",
+       "title": "Horário de Missa — Paróquia São José Operário (ficha atualizada pela última vez em 30/08/2015)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São José Operário",
+     "dayOfWeek": 3,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": "ficha de 30/08/2015, anterior à pandemia",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=5PSnP",
+       "title": "Horário de Missa — Paróquia São José Operário (ficha atualizada pela última vez em 30/08/2015)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São José Operário",
+     "dayOfWeek": 4,
+     "time": "06:16",
+     "type": "MASS",
+     "notes": "06:16 conforme publicado (sic); ficha de 30/08/2015, anterior à pandemia",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=5PSnP",
+       "title": "Horário de Missa — Paróquia São José Operário (ficha atualizada pela última vez em 30/08/2015)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São José Operário",
+     "dayOfWeek": 4,
+     "time": "08:00",
+     "type": "CONFESSION",
+     "notes": "das 08:00 às 17:00; ficha de 30/08/2015, anterior à pandemia",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=5PSnP",
+       "title": "Horário de Missa — Paróquia São José Operário (ficha atualizada pela última vez em 30/08/2015)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São José Operário",
+     "dayOfWeek": 6,
+     "time": "16:30",
+     "type": "MASS",
+     "notes": "ficha de 30/08/2015, anterior à pandemia",
+     "sources": [
+      {
+       "url": "https://www.horariodemissa.com.br/igreja.php?k=5PSnP",
+       "title": "Horário de Missa — Paróquia São José Operário (ficha atualizada pela última vez em 30/08/2015)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ],
+   "cnpj": "63180053000151",
+   "phoneHistoric": "(73) 3046-2250",
+   "emailHistoric": "saojoseoperariojequie@hotmail.com",
+   "notes": "Contato do cartão diocesano antigo (conteúdo de ~2017, não conferido — fora dos campos phone/email): (73) 3046-2250; saojoseoperariojequie@hotmail.com."
+  },
+  {
+   "slug": "nossa-senhora-da-conceicao-aiquara",
+   "name": "Paróquia Nossa Senhora da Conceição",
+   "city": "Aiquara",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça Papa João XXIII, 102",
+   "zipCode": "45220-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Jânio Cunha",
+   "foundedYear": 1997,
+   "sources": [
+    {
+     "url": "https://web.archive.org/web/20220521192659/https://www.diocesedejequie.com.br/paroquias/",
+     "title": "Portal Diocese de Jequié — Paróquias (captura do Arquivo da Internet de 21/05/2022; domínio extinto; cartões sem atualização desde ~2017)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/jequ0",
+     "title": "GCatholic — Churches in the Diocese of Jequié (atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://minhareceita.org/13445656000160",
+     "title": "Receita Federal (CNPJ 13445656000160, situação ATIVA) via minhareceita.org; lista por município conferida no Mapa das OSC/IPEA, base 05/2026",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://jequiereporter.com/diocese-de-jequie-divulga-boletim-comunicando-as-transferencias-de-padres/",
+     "title": "Jequié Repórter — boletim da Diocese de Jequié com transferências de padres, 21/11/2023",
+     "accessedAt": "2026-09-17"
+    }
+   ],
+   "confidence": "media",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora da Conceição",
+     "address": "Praça Papa João XXIII, 102",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://web.archive.org/web/20220521192659/https://www.diocesedejequie.com.br/paroquias/",
+       "title": "Portal Diocese de Jequié — Paróquias (captura do Arquivo da Internet de 21/05/2022; domínio extinto; cartões sem atualização desde ~2017)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "media"
+    }
+   ],
+   "schedules": [],
+   "cnpj": "13445656000160",
+   "phoneHistoric": "(73) 3547-2390",
+   "emailHistoric": null,
+   "notes": "Contato do cartão diocesano antigo (conteúdo de ~2017, não conferido — fora dos campos phone/email): (73) 3547-2390."
+  },
+  {
+   "slug": "sao-jose-da-sagrada-familia-jequie",
+   "name": "Paróquia São José da Sagrada Família",
+   "city": "Jequié",
+   "state": "BA",
+   "neighborhood": "Jequiezinho",
+   "address": "Rua da Igreja São José, s/n, Parque da Colina",
+   "zipCode": "45208-161",
+   "phone": "(73) 98888-6740",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Manoel Brito",
+   "foundedYear": 2022,
+   "sources": [
+    {
+     "url": "https://www.instagram.com/saojosedejequie/",
+     "title": "Instagram oficial @saojosedejequie — bio: \"Paróquia São José da S. F. / Fundação: 22/04/1976 / Criação Canônica da Paróquia: 30/01/2022 / 1° Pároco: Pe. Manoel Brito / Bispo Atual: Dom Paulo Romeu\"; link wa.me/5573988886740",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://www.95fmoficial.com.br/noticia/paroquia-sao-jose-da-sagrada-familia-inicia-festejos-em-honra-ao-padroeiro",
+     "title": "95 FM Jequié, 10/03/2025 — \"Paróquia São José da Sagrada Família inicia festejos em honra ao padroeiro\" (pároco Pe. Manoel Brito; bairro Jequiezinho)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://minhareceita.org/39430142000124",
+     "title": "Receita Federal (CNPJ 39430142000124, situação ATIVA) via minhareceita.org; lista por município conferida no Mapa das OSC/IPEA, base 05/2026",
+     "accessedAt": "2026-09-17"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz São José da Sagrada Família",
+     "address": "Rua da Igreja São José, s/n, Parque da Colina",
+     "neighborhood": "Jequiezinho",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/39430142000124",
+       "title": "Receita Federal (CNPJ 39430142000124, situação ATIVA) via minhareceita.org; lista por município conferida no Mapa das OSC/IPEA, base 05/2026",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [],
+   "cnpj": "39430142000124",
+   "instagram": "saojosedejequie",
+   "notes": "Não constava da lista do site diocesano (cartões sem atualização desde ~2017). Bio oficial: comunidade fundada em 22/04/1976, criação canônica da paróquia em 30/01/2022, 1º pároco Pe. Manoel Brito. Endereço e CEP da Receita Federal (CNPJ aberto em 01/09/2020; o e-mail cadastrado lá fala em \"santuário\"). Telefone = WhatsApp do perfil oficial, igual ao da Receita. Último post do perfil: 03/2025."
+  },
+  {
+   "slug": "sao-francisco-de-assis-jequie",
+   "name": "Paróquia São Francisco de Assis",
+   "city": "Jequié",
+   "state": "BA",
+   "neighborhood": "Joaquim Romão",
+   "address": "Rua Antônio Jacobina de Brito, 52 (Largo da Feirinha do Joaquim Romão)",
+   "zipCode": "45201-029",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Sidney Marques",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://www.instagram.com/saofranciscojequie/",
+     "title": "Instagram oficial @saofranciscojequie — bio: \"Paróquia São Francisco de Assis Jequié / Largo da Feirinha do Joaquim Romão / Rua Antônio Jacobina de Brito, 52 / Diocese de Jequié - BA\" (posts até 16/09/2026)",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://www.facebook.com/diocesedejequieoficial/posts/868716231968898/",
+     "title": "Facebook oficial da Diocese de Jequié — post \"A Paróquia São Francisco de Assis, em Jequié, junto ao seminarista Lucielio promove...\"",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://jequiereporter.com/diocese-de-jequie-divulga-boletim-comunicando-as-transferencias-de-padres/",
+     "title": "Jequié Repórter — boletim da Diocese de Jequié com transferências de padres, 21/11/2023",
+     "accessedAt": "2026-09-17"
+    },
+    {
+     "url": "https://minhareceita.org/57252969000177",
+     "title": "Receita Federal (CNPJ 57252969000177, situação ATIVA) via minhareceita.org; lista por município conferida no Mapa das OSC/IPEA, base 05/2026",
+     "accessedAt": "2026-09-17"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz São Francisco de Assis",
+     "address": "Rua Antônio Jacobina de Brito, 52",
+     "neighborhood": "Joaquim Romão",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://www.instagram.com/saofranciscojequie/",
+       "title": "Instagram oficial @saofranciscojequie — bio: \"Paróquia São Francisco de Assis Jequié / Largo da Feirinha do Joaquim Romão / Rua Antônio Jacobina de Brito, 52 / Diocese de Jequié - BA\" (posts até 16/09/2026)",
+       "accessedAt": "2026-09-17"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [],
+   "cnpj": "57252969000177",
+   "instagram": "saofranciscojequie",
+   "notes": "Paróquia nova, fora da lista do site diocesano antigo. O boletim diocesano de 21/11/2023 a chama de \"Futura Paróquia São Francisco de Assis / Jequié\" e nomeia para ela Pe. Sidney Marques e Pe. Alberto Cardoso; o CNPJ foi aberto em 23/07/2024 — a criação canônica ficou entre essas datas (ano exato não encontrado, por isso foundedYear nulo). Desmembrada, ao que tudo indica, de N. Sra. das Graças (a ficha de 2014 dessa paróquia citava uma \"Com. S. Francisco\" no mesmo bairro). Pároco conforme o boletim de 2023 — conferir."
+  }
+ ],
+ "coverage": {
+  "parishesFound": 39,
+  "parishesExpected": 39,
+  "notes": "39 paróquias + 1 santuário não paroquial (Jesus Crucificado) = 40 entradas, exatamente o total declarado na Wikipédia (\"39 paróquias e 1 santuário\", 15 delas na sede) e o que a Receita Federal (Mapa das OSC/IPEA, base 05/2026) registra como \"PAROQUIA\" ativa nos 22 municípios. catholic-hierarchy dá 36 paróquias em 2023 e GCatholic lista 39 igrejas em 01/2026. Lista-base: captura de 21/05/2022 do site diocesano (38 cartões) + 2 paróquias criadas depois (São José da Sagrada Família, 2022; São Francisco de Assis, 2023-2024)."
+ }
+}

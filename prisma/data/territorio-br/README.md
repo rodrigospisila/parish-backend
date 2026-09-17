@@ -169,6 +169,20 @@ enxame de validação. Nunca inventar: campo desconhecido = `null`.
 - Telefone e pároco tirados de captura antiga não vão para os campos de produção — ficam em campo
   histórico ou em `notes` (Abaetetuba, portal de 2012).
 
+- **Paróquia com CNPJ próprio** (a varredura de filiais da mitra não se aplica — caso de Jequié): use a
+  busca avançada do Mapa das OSC/IPEA por razão social + município, que espelha a base da Receita:
+  `https://mapaosc.ipea.gov.br/api/api/osc/busca_avancada/lista/200/0?avancado={"dadosGerais":{"tx_razao_social_osc":"PAROQUIA","cd_municipio":"<IBGE>"}}`.
+- **Instagram oficial da paróquia**: o leitor automático alcança a bio (~150 caracteres) e as datas dos
+  últimos posts, que servem de sinal de atualidade; horário na bio de perfil ativo sustenta `alta`.
+  Depois de ~40 leituras o Instagram passa a devolver tela de login — priorize sede e paróquias maiores.
+- **Captura recente pode ter conteúdo velho**: compare duas capturas da mesma página (a de 2022 de
+  Jequié repetia os párocos de 2017). Contato de captura antiga vai para `phoneHistoric` /
+  `emailHistoric`, campos que o importador ignora.
+- **Resumo de buscador mistura paróquias homônimas** (atribuiu a Jequié um perfil de João Pessoa e a
+  catedral de Chapecó): só entra o que está no documento aberto, conferindo cidade e UF.
+- **Dioceses do interior perdem o site**: Jequié sumiu do registro.br, Amargosa virou página de
+  estacionamento em 2026, o blog de Estância parou em 2009. Site morto → `website: null` com nota.
+
 ## Marcadores que tiram uma entrada da carga
 
 | Campo | Efeito |
