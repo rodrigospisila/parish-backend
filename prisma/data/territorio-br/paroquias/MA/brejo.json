@@ -1,0 +1,1126 @@
+{
+ "diocese": {
+  "name": "Diocese de Brejo",
+  "type": "Diocese",
+  "slug": "brejo",
+  "city": "Brejo",
+  "state": "MA",
+  "address": "Residência Episcopal, Praça Benedito Leite, 166, Centro",
+  "zipCode": "65520-000",
+  "phone": "(98) 3472-1151",
+  "email": null,
+  "website": null,
+  "bishopName": "Dom José Valdeci Santos Mendes",
+  "sources": [
+   {
+    "url": "https://mapaosc.ipea.gov.br/",
+    "title": "Mapa das OSC / IPEA - busca avancada por razao social \"MITRA DIOCESANA DE BREJO\" (espelho da base da Receita): 21 inscricoes ATIVAS do CNPJ 05.626.932 = curia + 20 paroquias",
+    "accessedAt": "2026-09-18"
+   },
+   {
+    "url": "https://minhareceita.org/05626932000168",
+    "title": "Receita Federal - MITRA DIOCESANA DE BREJO, CNPJ 05.626.932/0001-68 (matriz/curia), ATIVA desde 13/02/1978, Praca Benedito Leite 166, Centro, Brejo, CEP 65520-000",
+    "accessedAt": "2026-09-18"
+   },
+   {
+    "url": "https://gcatholic.org/churches/local/brej0",
+    "title": "gcatholic.org - Igrejas da Diocese de Brejo (18 igrejas listadas por cidade, 16 marcadas \"Parish\" + catedral + santuario de Sao Bernardo; atualizado em 01/01/2026)",
+    "accessedAt": "2026-09-18"
+   },
+   {
+    "url": "https://www.catholic-hierarchy.org/diocese/dbrej.html",
+    "title": "catholic-hierarchy.org - Brejo (Diocese): 21 paroquias, 493.850 catolicos e 29 presbiteros em 2022",
+    "accessedAt": "2026-09-18"
+   },
+   {
+    "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+    "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+    "accessedAt": "2026-09-18"
+   }
+  ],
+  "confidence": "alta"
+ },
+ "parishes": [
+  {
+   "slug": "santa-luzia-afonso-cunha",
+   "name": "Paróquia Santa Luzia",
+   "city": "Afonso Cunha",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Praça Central, s/n, Centro",
+   "zipCode": "65505-000",
+   "phone": null,
+   "cnpj": "05626932001725",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/05626932001725",
+     "title": "Receita Federal (via minhareceita.org) - Paróquia Santa Luzia de Afonso Cunha: filial ATIVA do CNPJ da Mitra Diocesana de Brejo 05.626.932, com endereco, bairro e CEP",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/brej0",
+     "title": "gcatholic.org - Igrejas da Diocese de Brejo (18 igrejas listadas por cidade, 16 marcadas \"Parish\" + catedral + santuario de Sao Bernardo; atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": "A Receita registra o telefone (98) 3472-1151 - o da propria Curia Diocesana - em quase todas as filiais; nao foi gravado como telefone da paroquia.",
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-do-carmo-agua-doce-do-maranhao",
+   "name": "Paróquia Nossa Senhora do Carmo",
+   "city": "Água Doce do Maranhão",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Praça Nossa Senhora do Carmo, s/n, Centro",
+   "zipCode": "65578-000",
+   "phone": null,
+   "cnpj": "05626932001997",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/05626932001997",
+     "title": "Receita Federal (via minhareceita.org) - Paróquia Nossa Senhora do Carmo de Água Doce do Maranhão: filial ATIVA do CNPJ da Mitra Diocesana de Brejo 05.626.932, com endereco, bairro e CEP",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/brej0",
+     "title": "gcatholic.org - Igrejas da Diocese de Brejo (18 igrejas listadas por cidade, 16 marcadas \"Parish\" + catedral + santuario de Sao Bernardo; atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": "A Receita registra o telefone (98) 3472-1151 - o da propria Curia Diocesana - em quase todas as filiais; nao foi gravado como telefone da paroquia.",
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "sao-bernardo-anapurus",
+   "name": "Paróquia São Bernardo",
+   "city": "Anapurus",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Avenida João Francisco Monteles, 482, Centro",
+   "zipCode": "65525-000",
+   "phone": null,
+   "cnpj": "05626932001130",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/05626932001130",
+     "title": "Receita Federal (via minhareceita.org) - Paróquia São Bernardo de Anapurus: filial ATIVA do CNPJ da Mitra Diocesana de Brejo 05.626.932, com endereco, bairro e CEP",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/brej0",
+     "title": "gcatholic.org - Igrejas da Diocese de Brejo (18 igrejas listadas por cidade, 16 marcadas \"Parish\" + catedral + santuario de Sao Bernardo; atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": "A Receita registra o telefone (98) 3472-1151 - o da propria Curia Diocesana - em quase todas as filiais; nao foi gravado como telefone da paroquia.",
+   "communities": [],
+   "schedules": [
+    {
+     "community": "Matriz",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao tem site e nao publica horarios.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao tem site e nao publica horarios.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "ADORATION",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao tem site e nao publica horarios.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-da-conceicao-araioses",
+   "name": "Paróquia Nossa Senhora da Conceição",
+   "city": "Araioses",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Rua 7 de Setembro, s/n, Centro",
+   "zipCode": "65570-000",
+   "phone": null,
+   "cnpj": "05626932001059",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/05626932001059",
+     "title": "Receita Federal (via minhareceita.org) - Paróquia Nossa Senhora da Conceição de Araioses: filial ATIVA do CNPJ da Mitra Diocesana de Brejo 05.626.932, com endereco, bairro e CEP",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/brej0",
+     "title": "gcatholic.org - Igrejas da Diocese de Brejo (18 igrejas listadas por cidade, 16 marcadas \"Parish\" + catedral + santuario de Sao Bernardo; atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": "A Receita registra o telefone (98) 3472-1151 - o da propria Curia Diocesana - em quase todas as filiais; nao foi gravado como telefone da paroquia.",
+   "communities": [],
+   "schedules": [
+    {
+     "community": "Matriz",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao tem site e nao publica horarios.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 3,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao tem site e nao publica horarios.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 3,
+     "time": "19:00",
+     "type": "ADORATION",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao tem site e nao publica horarios.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-da-conceicao-barreirinhas",
+   "name": "Paróquia Nossa Senhora da Conceição",
+   "city": "Barreirinhas",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Praça da Matriz, 30, Centro",
+   "zipCode": "65590-000",
+   "phone": "(98) 99196-2597",
+   "cnpj": "05626932000915",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/05626932000915",
+     "title": "Receita Federal (via minhareceita.org) - Paróquia Nossa Senhora da Conceição de Barreirinhas: filial ATIVA do CNPJ da Mitra Diocesana de Brejo 05.626.932, com endereco, bairro e CEP",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/brej0",
+     "title": "gcatholic.org - Igrejas da Diocese de Brejo (18 igrejas listadas por cidade, 16 marcadas \"Parish\" + catedral + santuario de Sao Bernardo; atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": "Telefone do Lirio Catolico, com o Instagram oficial paroquiadebarreirinhas. A Receita registra o telefone (98) 3472-1151 - o da propria Curia Diocesana - em quase todas as filiais; nao foi gravado como telefone da paroquia.",
+   "communities": [],
+   "schedules": [
+    {
+     "community": "Matriz",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao tem site e nao publica horarios.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 0,
+     "time": "10:00",
+     "type": "MASS",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao tem site e nao publica horarios.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao tem site e nao publica horarios.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 2,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao tem site e nao publica horarios.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 3,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao tem site e nao publica horarios.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 4,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao tem site e nao publica horarios.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 5,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao tem site e nao publica horarios.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 6,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao tem site e nao publica horarios.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-da-conceicao-belagua",
+   "name": "Paróquia Nossa Senhora da Conceição",
+   "city": "Belágua",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Avenida dos Basílios, s/n, Centro",
+   "zipCode": "65535-000",
+   "phone": null,
+   "cnpj": "05626932002101",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/05626932002101",
+     "title": "Receita Federal (via minhareceita.org) - Paróquia Nossa Senhora da Conceição de Belágua: filial ATIVA do CNPJ da Mitra Diocesana de Brejo 05.626.932, com endereco, bairro e CEP",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/brej0",
+     "title": "gcatholic.org - Igrejas da Diocese de Brejo (18 igrejas listadas por cidade, 16 marcadas \"Parish\" + catedral + santuario de Sao Bernardo; atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": "Paroquia nova: filial ATIVA aberta na Receita em 26/11/2025; nao esta no gcatholic nem no catholic-hierarchy. A Receita registra o telefone (98) 3472-1151 - o da propria Curia Diocesana - em quase todas as filiais; nao foi gravado como telefone da paroquia.",
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-da-conceicao-brejo",
+   "name": "Catedral Nossa Senhora da Conceição",
+   "city": "Brejo",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Praça Benedito Leite, s/n, Centro",
+   "zipCode": "65520-000",
+   "phone": "(98) 3472-0175",
+   "cnpj": "05626932000834",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/05626932000834",
+     "title": "Receita Federal (via minhareceita.org) - Catedral Nossa Senhora da Conceição de Brejo: filial ATIVA do CNPJ da Mitra Diocesana de Brejo 05.626.932, com endereco, bairro e CEP",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/brej0",
+     "title": "gcatholic.org - Igrejas da Diocese de Brejo (18 igrejas listadas por cidade, 16 marcadas \"Parish\" + catedral + santuario de Sao Bernardo; atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": "Telefone da ficha do Lirio Catolico (Instagram oficial paroquiadebrejo); a Receita registra o telefone da Curia.",
+   "communities": [],
+   "schedules": [
+    {
+     "community": "Matriz",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao tem site e nao publica horarios.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 6,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao tem site e nao publica horarios.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "senhora-santana-buriti",
+   "name": "Paróquia Senhora Santana",
+   "city": "Buriti",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Praça Felinto Faria, s/n, Centro",
+   "zipCode": "65515-000",
+   "phone": null,
+   "cnpj": "05626932001210",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/05626932001210",
+     "title": "Receita Federal (via minhareceita.org) - Paróquia Senhora Santana de Buriti: filial ATIVA do CNPJ da Mitra Diocesana de Brejo 05.626.932, com endereco, bairro e CEP",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/brej0",
+     "title": "gcatholic.org - Igrejas da Diocese de Brejo (18 igrejas listadas por cidade, 16 marcadas \"Parish\" + catedral + santuario de Sao Bernardo; atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": "A Receita registra o telefone (98) 3472-1151 - o da propria Curia Diocesana - em quase todas as filiais; nao foi gravado como telefone da paroquia.",
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "cristo-rei-chapadinha",
+   "name": "Paróquia Cristo Rei",
+   "city": "Chapadinha",
+   "state": "MA",
+   "neighborhood": "Areal",
+   "address": "Avenida Agostinho Ribeiro, s/n, Areal",
+   "zipCode": "65500-000",
+   "phone": "(98) 99124-3122",
+   "cnpj": "05626932001806",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/05626932001806",
+     "title": "Receita Federal (via minhareceita.org) - Paróquia Cristo Rei de Chapadinha: filial ATIVA do CNPJ da Mitra Diocesana de Brejo 05.626.932, com endereco, bairro e CEP",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/brej0",
+     "title": "gcatholic.org - Igrejas da Diocese de Brejo (18 igrejas listadas por cidade, 16 marcadas \"Parish\" + catedral + santuario de Sao Bernardo; atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": "A Receita registra (98) 98100-0288; o telefone gravado e o da ficha do Lirio Catolico, coerente com o Instagram oficial cristoreichp.",
+   "communities": [],
+   "schedules": [
+    {
+     "community": "Matriz",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao tem site e nao publica horarios.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao tem site e nao publica horarios.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 3,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao tem site e nao publica horarios.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 4,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao tem site e nao publica horarios.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 5,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao tem site e nao publica horarios.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 6,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao tem site e nao publica horarios.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 5,
+     "time": "09:00",
+     "type": "CONFESSION",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao tem site e nao publica horarios.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "ADORATION",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao tem site e nao publica horarios.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-das-dores-chapadinha",
+   "name": "Paróquia Nossa Senhora das Dores",
+   "city": "Chapadinha",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Rua Gustavo Barbosa, 101, Centro",
+   "zipCode": "65500-000",
+   "phone": null,
+   "cnpj": "05626932000753",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/05626932000753",
+     "title": "Receita Federal (via minhareceita.org) - Paróquia Nossa Senhora das Dores de Chapadinha: filial ATIVA do CNPJ da Mitra Diocesana de Brejo 05.626.932, com endereco, bairro e CEP",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/brej0",
+     "title": "gcatholic.org - Igrejas da Diocese de Brejo (18 igrejas listadas por cidade, 16 marcadas \"Parish\" + catedral + santuario de Sao Bernardo; atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": "A Receita registra o telefone (98) 3472-1151 - o da propria Curia Diocesana - em quase todas as filiais; nao foi gravado como telefone da paroquia.",
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "senhora-santana-coelho-neto",
+   "name": "Paróquia Senhora Santana",
+   "city": "Coelho Neto",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Praça Duque Bacelar, 30, Centro",
+   "zipCode": "65620-000",
+   "phone": null,
+   "cnpj": "05626932001563",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/05626932001563",
+     "title": "Receita Federal (via minhareceita.org) - Paróquia Senhora Santana de Coelho Neto: filial ATIVA do CNPJ da Mitra Diocesana de Brejo 05.626.932, com endereco, bairro e CEP",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/brej0",
+     "title": "gcatholic.org - Igrejas da Diocese de Brejo (18 igrejas listadas por cidade, 16 marcadas \"Parish\" + catedral + santuario de Sao Bernardo; atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": "A Receita registra o telefone (98) 3472-1151 - o da propria Curia Diocesana - em quase todas as filiais; nao foi gravado como telefone da paroquia.",
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "sao-jose-duque-bacelar",
+   "name": "Paróquia São José",
+   "city": "Duque Bacelar",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Praça da Matriz, s/n, Centro",
+   "zipCode": "65625-000",
+   "phone": null,
+   "cnpj": "05626932001644",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/05626932001644",
+     "title": "Receita Federal (via minhareceita.org) - Paróquia São José de Duque Bacelar: filial ATIVA do CNPJ da Mitra Diocesana de Brejo 05.626.932, com endereco, bairro e CEP",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/brej0",
+     "title": "gcatholic.org - Igrejas da Diocese de Brejo (18 igrejas listadas por cidade, 16 marcadas \"Parish\" + catedral + santuario de Sao Bernardo; atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": "A Receita registra o telefone (98) 3472-1151 - o da propria Curia Diocesana - em quase todas as filiais; nao foi gravado como telefone da paroquia.",
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "santo-antonio-magalhaes-de-almeida",
+   "name": "Paróquia Santo Antônio",
+   "city": "Magalhães de Almeida",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Avenida Getúlio Vargas, 343, Centro",
+   "zipCode": "65560-000",
+   "phone": null,
+   "cnpj": "05626932000672",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/05626932000672",
+     "title": "Receita Federal (via minhareceita.org) - Paróquia Santo Antônio de Magalhães de Almeida: filial ATIVA do CNPJ da Mitra Diocesana de Brejo 05.626.932, com endereco, bairro e CEP",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/brej0",
+     "title": "gcatholic.org - Igrejas da Diocese de Brejo (18 igrejas listadas por cidade, 16 marcadas \"Parish\" + catedral + santuario de Sao Bernardo; atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": "A Receita registra o telefone (98) 3472-1151 - o da propria Curia Diocesana - em quase todas as filiais; nao foi gravado como telefone da paroquia.",
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "sao-francisco-mata-roma",
+   "name": "Paróquia São Francisco",
+   "city": "Mata Roma",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Praça da Matriz, s/n, Centro",
+   "zipCode": "65510-000",
+   "phone": null,
+   "cnpj": "05626932000591",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/05626932000591",
+     "title": "Receita Federal (via minhareceita.org) - Paróquia São Francisco de Mata Roma: filial ATIVA do CNPJ da Mitra Diocesana de Brejo 05.626.932, com endereco, bairro e CEP",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/brej0",
+     "title": "gcatholic.org - Igrejas da Diocese de Brejo (18 igrejas listadas por cidade, 16 marcadas \"Parish\" + catedral + santuario de Sao Bernardo; atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": "A Receita registra o telefone (98) 3472-1151 - o da propria Curia Diocesana - em quase todas as filiais; nao foi gravado como telefone da paroquia.",
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "sao-joao-batista-paulino-neves",
+   "name": "Paróquia São João Batista",
+   "city": "Paulino Neves",
+   "state": "MA",
+   "neighborhood": "São João Batista",
+   "address": "Rua Dr. Paulo Ramos, s/n, São João Batista",
+   "zipCode": "65585-000",
+   "phone": "(98) 3487-1245",
+   "cnpj": "05626932002020",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/05626932002020",
+     "title": "Receita Federal (via minhareceita.org) - Paróquia São João Batista de Paulino Neves: filial ATIVA do CNPJ da Mitra Diocesana de Brejo 05.626.932, com endereco, bairro e CEP",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/brej0",
+     "title": "gcatholic.org - Igrejas da Diocese de Brejo (18 igrejas listadas por cidade, 16 marcadas \"Parish\" + catedral + santuario de Sao Bernardo; atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": "Paroquia nova: filial ATIVA aberta na Receita em 15/12/2025; nao esta no gcatholic nem no catholic-hierarchy. Telefone da ficha do Lirio Catolico.",
+   "communities": [],
+   "schedules": [
+    {
+     "community": "Matriz",
+     "dayOfWeek": 0,
+     "time": "07:30",
+     "type": "MASS",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao tem site e nao publica horarios.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao tem site e nao publica horarios.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 6,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao tem site e nao publica horarios.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "CONFESSION",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao tem site e nao publica horarios.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 0,
+     "time": "18:30",
+     "type": "CONFESSION",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao tem site e nao publica horarios.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 5,
+     "time": "18:00",
+     "type": "ADORATION",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao tem site e nao publica horarios.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-dos-aflitos-santa-quiteria-do-maranhao",
+   "name": "Paróquia Nossa Senhora dos Aflitos",
+   "city": "Santa Quitéria do Maranhão",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Praça da Matriz, s/n, Centro",
+   "zipCode": "65540-000",
+   "phone": null,
+   "cnpj": "05626932000400",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/05626932000400",
+     "title": "Receita Federal (via minhareceita.org) - Paróquia Nossa Senhora dos Aflitos de Santa Quitéria do Maranhão: filial ATIVA do CNPJ da Mitra Diocesana de Brejo 05.626.932, com endereco, bairro e CEP",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/brej0",
+     "title": "gcatholic.org - Igrejas da Diocese de Brejo (18 igrejas listadas por cidade, 16 marcadas \"Parish\" + catedral + santuario de Sao Bernardo; atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": "A Receita registra o telefone (98) 3472-1151 - o da propria Curia Diocesana - em quase todas as filiais; nao foi gravado como telefone da paroquia.",
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "sao-benedito-sao-benedito-do-rio-preto",
+   "name": "Paróquia São Benedito",
+   "city": "São Benedito do Rio Preto",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Praça da Matriz, s/n, Centro",
+   "zipCode": "65440-000",
+   "phone": null,
+   "cnpj": "05626932000320",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/05626932000320",
+     "title": "Receita Federal (via minhareceita.org) - Paróquia São Benedito de São Benedito do Rio Preto: filial ATIVA do CNPJ da Mitra Diocesana de Brejo 05.626.932, com endereco, bairro e CEP",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/brej0",
+     "title": "gcatholic.org - Igrejas da Diocese de Brejo (18 igrejas listadas por cidade, 16 marcadas \"Parish\" + catedral + santuario de Sao Bernardo; atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": "A Receita registra o telefone (98) 3472-1151 - o da propria Curia Diocesana - em quase todas as filiais; nao foi gravado como telefone da paroquia.",
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "sao-bernardo-sao-bernardo",
+   "name": "Santuário São Bernardo",
+   "city": "São Bernardo",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Rua Barão do Rio Branco, 494, Centro",
+   "zipCode": "65550-000",
+   "phone": null,
+   "cnpj": "05626932000249",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/05626932000249",
+     "title": "Receita Federal (via minhareceita.org) - Santuário São Bernardo de São Bernardo: filial ATIVA do CNPJ da Mitra Diocesana de Brejo 05.626.932, com endereco, bairro e CEP",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/brej0",
+     "title": "gcatholic.org - Igrejas da Diocese de Brejo (18 igrejas listadas por cidade, 16 marcadas \"Parish\" + catedral + santuario de Sao Bernardo; atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": "O gcatholic marca \"Parish, Shrine\" (Santuario de Sao Bernardo). Ha tambem, na Receita, o CNPJ proprio 07.072.408/0001-18 (PAROQUIA DE SAO BERNARDO, Rua Barao do Rio Branco 486) - mesma paroquia, inscricao duplicada. A Receita registra o telefone (98) 3472-1151 - o da propria Curia Diocesana - em quase todas as filiais; nao foi gravado como telefone da paroquia.",
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-da-conceicao-tutoia",
+   "name": "Paróquia Nossa Senhora da Conceição",
+   "city": "Tutóia",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Praça Presidente Vargas, s/n, Centro",
+   "zipCode": "65580-000",
+   "phone": null,
+   "cnpj": "05626932001482",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/05626932001482",
+     "title": "Receita Federal (via minhareceita.org) - Paróquia Nossa Senhora da Conceição de Tutóia: filial ATIVA do CNPJ da Mitra Diocesana de Brejo 05.626.932, com endereco, bairro e CEP",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/brej0",
+     "title": "gcatholic.org - Igrejas da Diocese de Brejo (18 igrejas listadas por cidade, 16 marcadas \"Parish\" + catedral + santuario de Sao Bernardo; atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": "Conflito de orago: a Receita registra \"PAROQUIA DE NOSSA SENHORA DA CONCEICAO\" e o gcatholic lista \"Tutoia | Nossa Senhora de Nazare (Parish)\". Gravado o nome da Receita; precisa de validacao. A Receita registra o telefone (98) 3472-1151 - o da propria Curia Diocesana - em quase todas as filiais; nao foi gravado como telefone da paroquia.",
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-da-natividade-urbano-santos",
+   "name": "Paróquia Nossa Senhora da Natividade",
+   "city": "Urbano Santos",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Avenida Manoel Inácio, 156, Centro",
+   "zipCode": "65530-000",
+   "phone": null,
+   "cnpj": "05626932001300",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/05626932001300",
+     "title": "Receita Federal (via minhareceita.org) - Paróquia Nossa Senhora da Natividade de Urbano Santos: filial ATIVA do CNPJ da Mitra Diocesana de Brejo 05.626.932, com endereco, bairro e CEP",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/brej0",
+     "title": "gcatholic.org - Igrejas da Diocese de Brejo (18 igrejas listadas por cidade, 16 marcadas \"Parish\" + catedral + santuario de Sao Bernardo; atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": "A Receita registra o telefone (98) 3472-1151 - o da propria Curia Diocesana - em quase todas as filiais; nao foi gravado como telefone da paroquia.",
+   "communities": [],
+   "schedules": []
+  }
+ ],
+ "coverage": {
+  "parishesFound": 20,
+  "parishesExpected": 21,
+  "notes": "A diocese NAO tem site (diocesedebrejo.org.br nao resolve no DNS e nenhum dominio alternativo foi encontrado). A lista saiu da varredura das filiais do CNPJ da Mitra (05.626.932): 21 inscricoes ATIVAS = 1 curia + 20 paroquias. O catholic-hierarchy conta 21 paroquias em 2022 e o gcatholic lista 18 igrejas - falta 1 paroquia para fechar com o catholic-hierarchy, que nao aparece nem na Receita nem no gcatholic. Foram checados, sem resultado, os municipios de Santo Amaro do Maranhao, Santana do Maranhao e Milagres do Maranhao no Mapa das OSC por cd_municipio. Em compensacao, a Receita revelou duas paroquias que nenhuma outra fonte tem: Belagua (26/11/2025) e Paulino Neves (15/12/2025). Sem parocos, sem comunidades e sem ano de ereccao: nenhuma fonte publica esses dados."
+ }
+}

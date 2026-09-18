@@ -1,0 +1,1088 @@
+{
+ "diocese": {
+  "name": "Diocese de Zé Doca",
+  "type": "Diocese",
+  "slug": "ze-doca",
+  "city": "Zé Doca",
+  "state": "MA",
+  "address": "Avenida do Comércio, 165, Centro (Caixa Postal 5)",
+  "zipCode": "65365-000",
+  "phone": "(98) 98116-4624",
+  "email": null,
+  "website": "https://diocesezedoca-ma.blogspot.com",
+  "bishopName": "Dom Jan Kot, O.M.I.",
+  "sources": [
+   {
+    "url": "https://diocesezedoca-ma.blogspot.com/",
+    "title": "Diocese de Ze Doca - blog oficial, ATIVO (posts de 08, 10 e 14 de setembro de 2026); nao publica lista de paroquias nem horarios, mas confirma a diocese, o bispo (grafado \"Dom Joao Kot\") e a curia",
+    "accessedAt": "2026-09-18"
+   },
+   {
+    "url": "https://gcatholic.org/churches/local/zedo0",
+    "title": "gcatholic.org - Igrejas da Diocese de Ze Doca (22 igrejas listadas por cidade, 19 marcadas \"Parish\"; atualizado em 01/01/2026)",
+    "accessedAt": "2026-09-18"
+   },
+   {
+    "url": "https://www.catholic-hierarchy.org/diocese/dzedo.html",
+    "title": "catholic-hierarchy.org - Ze-Doca (Diocese): 21 paroquias, 317.100 catolicos e 29 presbiteros em 2023",
+    "accessedAt": "2026-09-18"
+   },
+   {
+    "url": "https://mapaosc.ipea.gov.br/",
+    "title": "Mapa das OSC / IPEA - busca por razao social \"DIOCESE DE ZE DOCA\" (15 inscricoes do CNPJ 06.932.990) e busca por municipio (cd_municipio) nos 9 municipios sem filial da mitra, que revelou 8 paroquias com CNPJ proprio",
+    "accessedAt": "2026-09-18"
+   },
+   {
+    "url": "https://minhareceita.org/06932990000182",
+    "title": "Receita Federal - DIOCESE DE ZE DOCA, CNPJ 06.932.990/0001-82 (matriz/curia), ATIVA desde 29/01/1982, Avenida do Comercio 165, Centro, Ze Doca, CEP 65365-000",
+    "accessedAt": "2026-09-18"
+   },
+   {
+    "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+    "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+    "accessedAt": "2026-09-18"
+   }
+  ],
+  "confidence": "alta"
+ },
+ "parishes": [
+  {
+   "slug": "sao-francisco-de-assis-bom-jardim",
+   "name": "Paróquia São Francisco de Assis",
+   "city": "Bom Jardim",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Praça da Matriz, 120, Centro",
+   "zipCode": "65380-000",
+   "phone": null,
+   "cnpj": "06932990001316",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/06932990001316",
+     "title": "Receita Federal (via minhareceita.org) - Paróquia São Francisco de Assis de Bom Jardim: MITRA/DIOCESE DE ZE DOCA, CNPJ 06.932.990 - filial ATIVA, endereco, CEP e telefone",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/zedo0",
+     "title": "gcatholic.org - Igrejas da Diocese de Ze Doca (22 igrejas listadas por cidade, 19 marcadas \"Parish\"; atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-da-conceicao-candido-mendes",
+   "name": "Paróquia Nossa Senhora da Conceição",
+   "city": "Cândido Mendes",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Praça da Igreja, s/n, Centro",
+   "zipCode": "65280-000",
+   "phone": null,
+   "cnpj": "06932990000506",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/06932990000506",
+     "title": "Receita Federal (via minhareceita.org) - Paróquia Nossa Senhora da Conceição de Cândido Mendes: MITRA/DIOCESE DE ZE DOCA, CNPJ 06.932.990 - filial ATIVA, endereco, CEP e telefone",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/zedo0",
+     "title": "gcatholic.org - Igrejas da Diocese de Ze Doca (22 igrejas listadas por cidade, 19 marcadas \"Parish\"; atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [],
+   "schedules": [
+    {
+     "community": "Matriz",
+     "dayOfWeek": 0,
+     "time": "09:00",
+     "type": "MASS",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao publica horarios.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "ADORATION",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao publica horarios.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "santa-rita-carutapera",
+   "name": "Paróquia Santa Rita",
+   "city": "Carutapera",
+   "state": "MA",
+   "neighborhood": "Santa Rita",
+   "address": "Travessa Professor José Xavier Pereira, 259, Santa Rita",
+   "zipCode": "65295-000",
+   "phone": "(98) 98500-9870",
+   "cnpj": "06932990001073",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/06932990001073",
+     "title": "Receita Federal (via minhareceita.org) - Paróquia Santa Rita de Carutapera: MITRA/DIOCESE DE ZE DOCA, CNPJ 06.932.990 - filial ATIVA, endereco, CEP e telefone",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/zedo0",
+     "title": "gcatholic.org - Igrejas da Diocese de Ze Doca (22 igrejas listadas por cidade, 19 marcadas \"Parish\"; atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "sao-sebastiao-carutapera",
+   "name": "Basílica Menor de São Sebastião",
+   "city": "Carutapera",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Praça Augusto Mozzetti, s/n, Centro",
+   "zipCode": "65295-000",
+   "phone": null,
+   "cnpj": "06932990000344",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/06932990000344",
+     "title": "Receita Federal (via minhareceita.org) - Basílica Menor de São Sebastião de Carutapera: MITRA/DIOCESE DE ZE DOCA, CNPJ 06.932.990 - filial ATIVA, endereco, CEP e telefone",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/zedo0",
+     "title": "gcatholic.org - Igrejas da Diocese de Ze Doca (22 igrejas listadas por cidade, 19 marcadas \"Parish\"; atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [],
+   "schedules": [
+    {
+     "community": "Matriz",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao publica horarios.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao publica horarios.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "ADORATION",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao publica horarios.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "sao-pedro-apostolo-centro-novo-do-maranhao",
+   "name": "Paróquia São Pedro Apóstolo",
+   "city": "Centro Novo do Maranhão",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Avenida Juscelino Kubitschek, s/n, Centro",
+   "zipCode": "65299-000",
+   "phone": "(98) 99116-3135",
+   "cnpj": "06932990000778",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/06932990000778",
+     "title": "Receita Federal (via minhareceita.org) - Paróquia São Pedro Apóstolo de Centro Novo do Maranhão: MITRA/DIOCESE DE ZE DOCA, CNPJ 06.932.990 - filial ATIVA, endereco, CEP e telefone",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/zedo0",
+     "title": "gcatholic.org - Igrejas da Diocese de Ze Doca (22 igrejas listadas por cidade, 19 marcadas \"Parish\"; atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-mae-da-igreja-godofredo-viana",
+   "name": "Paróquia Nossa Senhora Mãe da Igreja",
+   "city": "Godofredo Viana",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Praça Dom Guido Casullo, s/n, Centro",
+   "zipCode": "65285-000",
+   "phone": null,
+   "cnpj": "06932990000425",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/06932990000425",
+     "title": "Receita Federal (via minhareceita.org) - Paróquia Nossa Senhora Mãe da Igreja de Godofredo Viana: MITRA/DIOCESE DE ZE DOCA, CNPJ 06.932.990 - filial ATIVA, endereco, CEP e telefone",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/zedo0",
+     "title": "gcatholic.org - Igrejas da Diocese de Ze Doca (22 igrejas listadas por cidade, 19 marcadas \"Parish\"; atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora Mãe da Igreja",
+     "address": null,
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "name": "Capela Nossa Senhora das Dores",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "name": "Capela Nossa Senhora de Nazaré",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "name": "Capela Santa Luzia",
+     "address": null,
+     "neighborhood": "Nova Iterere",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "name": "Capela Santo Antônio",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "name": "Capela São José",
+     "address": null,
+     "neighborhood": "Bairro de Fátima",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "name": "Capela São Sebastião",
+     "address": null,
+     "neighborhood": "Alegre",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Nossa Senhora Mãe da Igreja",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao publica horarios.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora Mãe da Igreja",
+     "dayOfWeek": 0,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao publica horarios.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora Mãe da Igreja",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "ADORATION",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao publica horarios.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Capela Santo Antônio",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "ADORATION",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao publica horarios.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Capela São José",
+     "dayOfWeek": 5,
+     "time": "19:00",
+     "type": "ADORATION",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao publica horarios.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Capela São Sebastião",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "ADORATION",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao publica horarios.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-da-conceicao-governador-newton-bello",
+   "name": "Paróquia Nossa Senhora da Conceição",
+   "city": "Governador Newton Bello",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Rua 7 de Setembro, 01, Centro",
+   "zipCode": "65363-000",
+   "phone": "(98) 98470-8468",
+   "cnpj": "06932990001405",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/06932990001405",
+     "title": "Receita Federal (via minhareceita.org) - Paróquia Nossa Senhora da Conceição de Governador Newton Bello: MITRA/DIOCESE DE ZE DOCA, CNPJ 06.932.990 - filial ATIVA, endereco, CEP e telefone",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/zedo0",
+     "title": "gcatholic.org - Igrejas da Diocese de Ze Doca (22 igrejas listadas por cidade, 19 marcadas \"Parish\"; atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-do-perpetuo-socorro-governador-nunes-freire",
+   "name": "Paróquia Nossa Senhora do Perpétuo Socorro",
+   "city": "Governador Nunes Freire",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Rua da Paz, s/n, Centro",
+   "zipCode": "65284-000",
+   "phone": "(98) 98116-4624",
+   "cnpj": "06932990000697",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/06932990000697",
+     "title": "Receita Federal (via minhareceita.org) - Paróquia Nossa Senhora do Perpétuo Socorro de Governador Nunes Freire: MITRA/DIOCESE DE ZE DOCA, CNPJ 06.932.990 - filial ATIVA, endereco, CEP e telefone",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/zedo0",
+     "title": "gcatholic.org - Igrejas da Diocese de Ze Doca (22 igrejas listadas por cidade, 19 marcadas \"Parish\"; atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "sao-joao-batista-e-nossa-senhora-de-nazare-luis-domingues",
+   "name": "Paróquia São João Batista e Nossa Senhora de Nazaré",
+   "city": "Luís Domingues",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Rua Magalhães de Almeida, 278, Centro",
+   "zipCode": "65290-000",
+   "phone": null,
+   "cnpj": "06932990000263",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/06932990000263",
+     "title": "Receita Federal (via minhareceita.org) - Paróquia São João Batista e Nossa Senhora de Nazaré de Luís Domingues: MITRA/DIOCESE DE ZE DOCA, CNPJ 06.932.990 - filial ATIVA, endereco, CEP e telefone",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/zedo0",
+     "title": "gcatholic.org - Igrejas da Diocese de Ze Doca (22 igrejas listadas por cidade, 19 marcadas \"Parish\"; atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "sao-pedro-maranhaozinho",
+   "name": "Paróquia São Pedro",
+   "city": "Maranhãozinho",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Rua das Flores, 1188, Centro",
+   "zipCode": "65283-000",
+   "phone": null,
+   "cnpj": "06932990001669",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/06932990001669",
+     "title": "Receita Federal (via minhareceita.org) - Paróquia São Pedro de Maranhãozinho: MITRA/DIOCESE DE ZE DOCA, CNPJ 06.932.990 - filial ATIVA, endereco, CEP e telefone",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/zedo0",
+     "title": "gcatholic.org - Igrejas da Diocese de Ze Doca (22 igrejas listadas por cidade, 19 marcadas \"Parish\"; atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "santa-luzia-santa-luzia-do-parua",
+   "name": "Paróquia Santa Luzia",
+   "city": "Santa Luzia do Paruá",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Rua Nena de Abreu, s/n, Centro",
+   "zipCode": "65272-000",
+   "phone": null,
+   "cnpj": "06932990000930",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/06932990000930",
+     "title": "Receita Federal (via minhareceita.org) - Paróquia Santa Luzia de Santa Luzia do Paruá: MITRA/DIOCESE DE ZE DOCA, CNPJ 06.932.990 - filial ATIVA, endereco, CEP e telefone",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/zedo0",
+     "title": "gcatholic.org - Igrejas da Diocese de Ze Doca (22 igrejas listadas por cidade, 19 marcadas \"Parish\"; atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "sao-jose-santa-luzia-do-parua",
+   "name": "Paróquia São José",
+   "city": "Santa Luzia do Paruá",
+   "state": "MA",
+   "neighborhood": "Distrito Paruá",
+   "address": "Rua do Cajueiro, 323, Distrito Paruá",
+   "zipCode": "65272-000",
+   "phone": "(98) 98470-8468",
+   "cnpj": "06932990001588",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/06932990001588",
+     "title": "Receita Federal (via minhareceita.org) - Paróquia São José de Santa Luzia do Paruá: MITRA/DIOCESE DE ZE DOCA, CNPJ 06.932.990 - filial ATIVA, endereco, CEP e telefone",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/zedo0",
+     "title": "gcatholic.org - Igrejas da Diocese de Ze Doca (22 igrejas listadas por cidade, 19 marcadas \"Parish\"; atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "santo-antonio-ze-doca",
+   "name": "Catedral Santo Antônio",
+   "city": "Zé Doca",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Avenida do Comércio, 86, Centro",
+   "zipCode": "65365-000",
+   "phone": "(98) 3655-3245",
+   "cnpj": "06932990001154",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/06932990001154",
+     "title": "Receita Federal (via minhareceita.org) - Catedral Santo Antônio de Zé Doca: MITRA/DIOCESE DE ZE DOCA, CNPJ 06.932.990 - filial ATIVA, endereco, CEP e telefone",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/zedo0",
+     "title": "gcatholic.org - Igrejas da Diocese de Ze Doca (22 igrejas listadas por cidade, 19 marcadas \"Parish\"; atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [],
+   "schedules": [
+    {
+     "community": "Matriz",
+     "dayOfWeek": 6,
+     "time": "07:15",
+     "type": "MASS",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao publica horarios.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 0,
+     "time": "07:30",
+     "type": "MASS",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao publica horarios.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 0,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao publica horarios.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 2,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao publica horarios.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 3,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao publica horarios.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 4,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao publica horarios.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 5,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao publica horarios.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "sao-joao-batista-de-la-salle-e-nossa-senhora-aparecida-ze-doca",
+   "name": "Paróquia São João Batista de La Salle e Nossa Senhora Aparecida",
+   "city": "Zé Doca",
+   "state": "MA",
+   "neighborhood": "São Francisco",
+   "address": "Rua Viana, 530, São Francisco",
+   "zipCode": "65365-000",
+   "phone": "(98) 98158-8728",
+   "cnpj": "06932990001235",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/06932990001235",
+     "title": "Receita Federal (via minhareceita.org) - Paróquia São João Batista de La Salle e Nossa Senhora Aparecida de Zé Doca: MITRA/DIOCESE DE ZE DOCA, CNPJ 06.932.990 - filial ATIVA, endereco, CEP e telefone",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/zedo0",
+     "title": "gcatholic.org - Igrejas da Diocese de Ze Doca (22 igrejas listadas por cidade, 19 marcadas \"Parish\"; atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-consolata-amapa-do-maranhao",
+   "name": "Paróquia Nossa Senhora Consolata",
+   "city": "Amapá do Maranhão",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Rua Getúlio Vargas, s/n, Centro",
+   "zipCode": "65293-000",
+   "phone": "(98) 3655-3863",
+   "cnpj": "12501321000159",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/12501321000159",
+     "title": "Receita Federal (via minhareceita.org) - Paróquia Nossa Senhora Consolata de Amapá do Maranhão: CNPJ proprio 12.501.321/0001-59, ATIVA desde 27/07/2010, endereco, CEP e telefone",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/zedo0",
+     "title": "gcatholic.org - Igrejas da Diocese de Ze Doca (22 igrejas listadas por cidade, 19 marcadas \"Parish\"; atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-do-perpetuo-socorro-boa-vista-do-gurupi",
+   "name": "Paróquia Nossa Senhora do Perpétuo Socorro",
+   "city": "Boa Vista do Gurupi",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Rua Matriz, s/n, Centro",
+   "zipCode": "65292-000",
+   "phone": "(98) 98187-0368",
+   "cnpj": "18812697000160",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/18812697000160",
+     "title": "Receita Federal (via minhareceita.org) - Paróquia Nossa Senhora do Perpétuo Socorro de Boa Vista do Gurupi: CNPJ proprio 18.812.697/0001-60, ATIVA desde 31/07/2013, endereco, CEP e telefone",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/zedo0",
+     "title": "gcatholic.org - Igrejas da Diocese de Ze Doca (22 igrejas listadas por cidade, 19 marcadas \"Parish\"; atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "sao-joao-batista-centro-do-guilherme",
+   "name": "Paróquia São João Batista",
+   "city": "Centro do Guilherme",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Rua São Paulo, s/n, Centro",
+   "zipCode": "65288-000",
+   "phone": "(98) 3374-1807",
+   "cnpj": "30321893000138",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/30321893000138",
+     "title": "Receita Federal (via minhareceita.org) - Paróquia São João Batista de Centro do Guilherme: CNPJ proprio 30.321.893/0001-38, ATIVA desde 15/03/2018, endereco, CEP e telefone",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/zedo0",
+     "title": "gcatholic.org - Igrejas da Diocese de Ze Doca (22 igrejas listadas por cidade, 19 marcadas \"Parish\"; atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "sao-joao-batista-junco-do-maranhao",
+   "name": "Paróquia São João Batista",
+   "city": "Junco do Maranhão",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Travessa da Igreja, s/n, Centro",
+   "zipCode": "65294-000",
+   "phone": "(98) 98517-9740",
+   "cnpj": "31607544000140",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/31607544000140",
+     "title": "Receita Federal (via minhareceita.org) - Paróquia São João Batista de Junco do Maranhão: CNPJ proprio 31.607.544/0001-40, ATIVA desde 26/09/2018, endereco, CEP e telefone",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/zedo0",
+     "title": "gcatholic.org - Igrejas da Diocese de Ze Doca (22 igrejas listadas por cidade, 19 marcadas \"Parish\"; atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-da-imaculada-conceicao-maracacume",
+   "name": "Paróquia Nossa Senhora da Imaculada Conceição",
+   "city": "Maracaçumé",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Rua Dom João VI, 190, Centro",
+   "zipCode": "65289-000",
+   "phone": "(98) 98465-2480",
+   "cnpj": "24302601000117",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/24302601000117",
+     "title": "Receita Federal (via minhareceita.org) - Paróquia Nossa Senhora da Imaculada Conceição de Maracaçumé: CNPJ proprio 24.302.601/0001-17, ATIVA desde 02/03/2016, endereco, CEP e telefone",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/zedo0",
+     "title": "gcatholic.org - Igrejas da Diocese de Ze Doca (22 igrejas listadas por cidade, 19 marcadas \"Parish\"; atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "sao-francisco-de-assis-nova-olinda-do-maranhao",
+   "name": "Paróquia São Francisco de Assis",
+   "city": "Nova Olinda do Maranhão",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Praça da Matriz, s/n, Centro",
+   "zipCode": "65274-000",
+   "phone": "(98) 3377-1353",
+   "cnpj": "13099079000100",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/13099079000100",
+     "title": "Receita Federal (via minhareceita.org) - Paróquia São Francisco de Assis de Nova Olinda do Maranhão: CNPJ proprio 13.099.079/0001-00, ATIVA desde 04/01/2011, endereco, CEP e telefone",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/zedo0",
+     "title": "gcatholic.org - Igrejas da Diocese de Ze Doca (22 igrejas listadas por cidade, 19 marcadas \"Parish\"; atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "santa-terezinha-do-menino-jesus-presidente-medici",
+   "name": "Paróquia Santa Terezinha do Menino Jesus",
+   "city": "Presidente Médici",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Travessa do Congresso, 155, Centro",
+   "zipCode": "65279-000",
+   "phone": "(98) 98444-4700",
+   "cnpj": "30792077000102",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/30792077000102",
+     "title": "Receita Federal (via minhareceita.org) - Paróquia Santa Terezinha do Menino Jesus de Presidente Médici: CNPJ proprio 30.792.077/0001-02, ATIVA desde 25/01/2018, endereco, CEP e telefone",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/zedo0",
+     "title": "gcatholic.org - Igrejas da Diocese de Ze Doca (22 igrejas listadas por cidade, 19 marcadas \"Parish\"; atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "sao-joao-batista-sao-joao-do-caru",
+   "name": "Paróquia São João Batista",
+   "city": "São João do Carú",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Rua Artur Costa Silva, 1412, Centro",
+   "zipCode": "65385-000",
+   "phone": "(98) 98443-3632",
+   "cnpj": "32171685000125",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/32171685000125",
+     "title": "Receita Federal (via minhareceita.org) - Paróquia São João Batista de São João do Carú: CNPJ proprio 32.171.685/0001-25, ATIVA desde 04/12/2018, endereco, CEP e telefone",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/zedo0",
+     "title": "gcatholic.org - Igrejas da Diocese de Ze Doca (22 igrejas listadas por cidade, 19 marcadas \"Parish\"; atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [],
+   "schedules": []
+  }
+ ],
+ "coverage": {
+  "parishesFound": 22,
+  "parishesExpected": 21,
+  "notes": "22 paróquias fechadas pelo cruzamento de três fontes: 14 filiais ATIVAS do CNPJ da Mitra (06.932.990), 8 paróquias com CNPJ próprio encontradas varrendo o Mapa das OSC por município (Amapá do Maranhão, Boa Vista do Gurupi, Centro do Guilherme, Junco do Maranhão, Maracaçumé, Nova Olinda do Maranhão, Presidente Médici e São João do Carú) e as 19 igrejas marcadas \"Parish\" no gcatholic. Bate com as 21 paróquias do catholic-hierarchy em 2023, mais as criadas depois: Gov. Newton Bello (27/02/2025), São José do Distrito Paruá (27/10/2025) e São Pedro de Maranhãozinho (25/05/2026), que nenhuma outra fonte tem. Fora do JSON: o Santuário Nossa Senhora Aparecida de Araguanã (\"Comunidade Católica de São Sebastião\", CNPJ 13.809.111/0001-95; o gcatholic o marca Shrine, não Parish, e não há horário publicado) e a Proto-Catedral Nossa Senhora Imaculada Conceição e o Santuário Nossa Senhora de Nazaré, ambos em Cândido Mendes, igrejas não paroquiais. A diocese (um blog Blogspot ativo) não publica lista de paróquias, pároco, comunidades nem horário."
+ }
+}

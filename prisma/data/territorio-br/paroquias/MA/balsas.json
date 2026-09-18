@@ -1,0 +1,826 @@
+{
+ "diocese": {
+  "name": "Diocese de Balsas",
+  "type": "Diocese",
+  "slug": "balsas",
+  "city": "Balsas",
+  "state": "MA",
+  "address": "Cúria Diocesana, Praça Getúlio Vargas, 149, Centro (Caixa Postal 18)",
+  "zipCode": "65800-000",
+  "phone": "(99) 3541-2483",
+  "email": null,
+  "website": null,
+  "bishopName": "Dom Valentim Fagundes de Meneses, M.S.C.",
+  "sources": [
+   {
+    "url": "https://mapaosc.ipea.gov.br/",
+    "title": "Mapa das OSC / IPEA - busca avancada por razao social \"DIOCESE DE BALSAS\" (espelho da base da Receita): 21 inscricoes do CNPJ 06.080.154 = curia + 19 paroquias + a TV Boa Noticia",
+    "accessedAt": "2026-09-18"
+   },
+   {
+    "url": "https://minhareceita.org/06080154000117",
+    "title": "Receita Federal - DIOCESE DE BALSAS, CNPJ 06.080.154/0001-17 (matriz/curia), ATIVA desde 10/03/1975, Praca Getulio Vargas 149, Centro, Balsas, CEP 65800-000",
+    "accessedAt": "2026-09-18"
+   },
+   {
+    "url": "https://gcatholic.org/churches/local/bals0",
+    "title": "gcatholic.org - Igrejas da Diocese de Balsas (18 igrejas listadas por cidade, 16 marcadas \"Parish\" + a catedral e a antiga catedral; atualizado em 01/01/2026)",
+    "accessedAt": "2026-09-18"
+   },
+   {
+    "url": "https://www.catholic-hierarchy.org/diocese/dbals.html",
+    "title": "catholic-hierarchy.org - Balsas (Diocese): 18 paroquias, 207.600 catolicos e 23 presbiteros em 2022",
+    "accessedAt": "2026-09-18"
+   },
+   {
+    "url": "https://www.facebook.com/diocesedebalsas/",
+    "title": "Facebook oficial da Diocese de Balsas - unica presenca digital institucional encontrada; nao publica lista de paroquias nem horarios",
+    "accessedAt": "2026-09-18"
+   },
+   {
+    "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+    "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+    "accessedAt": "2026-09-18"
+   }
+  ],
+  "confidence": "alta"
+ },
+ "parishes": [
+  {
+   "slug": "nossa-senhora-das-vitorias-alto-parnaiba",
+   "name": "Paróquia Nossa Senhora das Vitórias",
+   "city": "Alto Parnaíba",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Praça Coronel Adolfo, s/n",
+   "zipCode": "65810-000",
+   "phone": null,
+   "cnpj": "06080154000389",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/06080154000389",
+     "title": "Receita Federal (via minhareceita.org) - Paróquia Nossa Senhora das Vitórias de Alto Parnaíba: filial ATIVA do CNPJ da Diocese de Balsas 06.080.154, com endereco, bairro e CEP",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/bals0",
+     "title": "gcatholic.org - Igrejas da Diocese de Balsas (18 igrejas listadas por cidade, 16 marcadas \"Parish\" + a catedral e a antiga catedral; atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": null,
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "sagrado-coracao-de-jesus-balsas",
+   "name": "Catedral Sagrado Coração de Jesus",
+   "city": "Balsas",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Praça Getúlio Vargas, s/n",
+   "zipCode": "65800-000",
+   "phone": null,
+   "cnpj": "06080154000206",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/06080154000206",
+     "title": "Receita Federal (via minhareceita.org) - Catedral Sagrado Coração de Jesus de Balsas: filial ATIVA do CNPJ da Diocese de Balsas 06.080.154, com endereco, bairro e CEP",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/bals0",
+     "title": "gcatholic.org - Igrejas da Diocese de Balsas (18 igrejas listadas por cidade, 16 marcadas \"Parish\" + a catedral e a antiga catedral; atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": null,
+   "communities": [],
+   "schedules": [
+    {
+     "community": "Matriz",
+     "dayOfWeek": 0,
+     "time": "06:30",
+     "type": "MASS",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao tem site e nao publica horarios.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 0,
+     "time": "09:00",
+     "type": "MASS",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao tem site e nao publica horarios.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 0,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao tem site e nao publica horarios.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 0,
+     "time": "18:30",
+     "type": "MASS",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao tem site e nao publica horarios.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 1,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao tem site e nao publica horarios.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 3,
+     "time": "06:00",
+     "type": "MASS",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao tem site e nao publica horarios.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 5,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao tem site e nao publica horarios.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 6,
+     "time": "06:00",
+     "type": "MASS",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao tem site e nao publica horarios.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-do-perpetuo-socorro-balsas",
+   "name": "Paróquia Nossa Senhora do Perpétuo Socorro",
+   "city": "Balsas",
+   "state": "MA",
+   "neighborhood": "Potosí",
+   "address": "Praça da Liberdade, s/n, Potosí",
+   "zipCode": "65800-000",
+   "phone": "(99) 3541-7911",
+   "cnpj": "06080154001601",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/06080154001601",
+     "title": "Receita Federal (via minhareceita.org) - Paróquia Nossa Senhora do Perpétuo Socorro de Balsas: filial ATIVA do CNPJ da Diocese de Balsas 06.080.154, com endereco, bairro e CEP",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/bals0",
+     "title": "gcatholic.org - Igrejas da Diocese de Balsas (18 igrejas listadas por cidade, 16 marcadas \"Parish\" + a catedral e a antiga catedral; atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": null,
+   "communities": [],
+   "schedules": [
+    {
+     "community": "Matriz",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao tem site e nao publica horarios.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao tem site e nao publica horarios.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 2,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao tem site e nao publica horarios.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 5,
+     "time": "15:00",
+     "type": "CONFESSION",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao tem site e nao publica horarios.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "santa-luzia-benedito-leite",
+   "name": "Paróquia Santa Luzia",
+   "city": "Benedito Leite",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Rua 15 de Julho, 197, Centro",
+   "zipCode": "65885-000",
+   "phone": null,
+   "cnpj": "06080154001784",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/06080154001784",
+     "title": "Receita Federal (via minhareceita.org) - Paróquia Santa Luzia de Benedito Leite: filial ATIVA do CNPJ da Diocese de Balsas 06.080.154, com endereco, bairro e CEP",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/bals0",
+     "title": "gcatholic.org - Igrejas da Diocese de Balsas (18 igrejas listadas por cidade, 16 marcadas \"Parish\" + a catedral e a antiga catedral; atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": null,
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "sao-domingos-gusmao-sao-domingos-do-azeitao",
+   "name": "Paróquia São Domingos Gusmão",
+   "city": "São Domingos do Azeitão",
+   "state": "MA",
+   "neighborhood": null,
+   "address": "Avenida Amaro Bezerra, s/n",
+   "zipCode": null,
+   "phone": null,
+   "cnpj": "06080154001270",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/06080154001270",
+     "title": "Receita Federal (via minhareceita.org) - Paróquia São Domingos Gusmão de São Domingos do Azeitão: filial ATIVA do CNPJ da Diocese de Balsas 06.080.154, com endereco, bairro e CEP",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/bals0",
+     "title": "gcatholic.org - Igrejas da Diocese de Balsas (18 igrejas listadas por cidade, 16 marcadas \"Parish\" + a catedral e a antiga catedral; atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": "A Receita registra esta filial (aberta em 05/07/1977) no municipio de Benedito Leite, que na epoca ainda englobava o distrito de Sao Domingos do Azeitao, emancipado em 1994; o gcatholic lista a paroquia em Sao Domingos do Azeitao.",
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "sao-francisco-de-assis-feira-nova-do-maranhao",
+   "name": "Paróquia São Francisco de Assis",
+   "city": "Feira Nova do Maranhão",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Rua Maranhão, 74, Centro",
+   "zipCode": "65995-000",
+   "phone": "(99) 3541-8408",
+   "cnpj": "06080154002080",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/06080154002080",
+     "title": "Receita Federal (via minhareceita.org) - Paróquia São Francisco de Assis de Feira Nova do Maranhão: filial ATIVA do CNPJ da Diocese de Balsas 06.080.154, com endereco, bairro e CEP",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/bals0",
+     "title": "gcatholic.org - Igrejas da Diocese de Balsas (18 igrejas listadas por cidade, 16 marcadas \"Parish\" + a catedral e a antiga catedral; atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": null,
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "menino-jesus-fortaleza-dos-nogueiras",
+   "name": "Paróquia Menino Jesus",
+   "city": "Fortaleza dos Nogueiras",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Praça Israel Nogueira, s/n, Centro",
+   "zipCode": "65805-000",
+   "phone": null,
+   "cnpj": "06080154001199",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/06080154001199",
+     "title": "Receita Federal (via minhareceita.org) - Paróquia Menino Jesus de Fortaleza dos Nogueiras: filial ATIVA do CNPJ da Diocese de Balsas 06.080.154, com endereco, bairro e CEP",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/bals0",
+     "title": "gcatholic.org - Igrejas da Diocese de Balsas (18 igrejas listadas por cidade, 16 marcadas \"Parish\" + a catedral e a antiga catedral; atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": null,
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-de-loreto-loreto",
+   "name": "Paróquia Nossa Senhora de Loreto",
+   "city": "Loreto",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Praça José do Egito Coelho, s/n, Centro",
+   "zipCode": "65895-000",
+   "phone": null,
+   "cnpj": "06080154001350",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/06080154001350",
+     "title": "Receita Federal (via minhareceita.org) - Paróquia Nossa Senhora de Loreto de Loreto: filial ATIVA do CNPJ da Diocese de Balsas 06.080.154, com endereco, bairro e CEP",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/bals0",
+     "title": "gcatholic.org - Igrejas da Diocese de Balsas (18 igrejas listadas por cidade, 16 marcadas \"Parish\" + a catedral e a antiga catedral; atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": null,
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "sao-bento-mirador",
+   "name": "Paróquia São Bento",
+   "city": "Mirador",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Praça da Bandeira, s/n, Centro",
+   "zipCode": "65850-000",
+   "phone": null,
+   "cnpj": "06080154001008",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/06080154001008",
+     "title": "Receita Federal (via minhareceita.org) - Paróquia São Bento de Mirador: filial ATIVA do CNPJ da Diocese de Balsas 06.080.154, com endereco, bairro e CEP",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/bals0",
+     "title": "gcatholic.org - Igrejas da Diocese de Balsas (18 igrejas listadas por cidade, 16 marcadas \"Parish\" + a catedral e a antiga catedral; atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": null,
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "senhora-santana-nova-colinas",
+   "name": "Paróquia Senhora Santana",
+   "city": "Nova Colinas",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Praça Senhora Santa Ana, s/n, Centro",
+   "zipCode": "65808-000",
+   "phone": "(99) 3541-8408",
+   "cnpj": "06080154002160",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/06080154002160",
+     "title": "Receita Federal (via minhareceita.org) - Paróquia Senhora Santana de Nova Colinas: filial ATIVA do CNPJ da Diocese de Balsas 06.080.154, com endereco, bairro e CEP",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/bals0",
+     "title": "gcatholic.org - Igrejas da Diocese de Balsas (18 igrejas listadas por cidade, 16 marcadas \"Parish\" + a catedral e a antiga catedral; atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": null,
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "santo-antonio-nova-iorque",
+   "name": "Paróquia Santo Antônio",
+   "city": "Nova Iorque",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Praça da Matriz, 02, Centro",
+   "zipCode": "65880-000",
+   "phone": null,
+   "cnpj": "06080154000702",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/06080154000702",
+     "title": "Receita Federal (via minhareceita.org) - Paróquia Santo Antônio de Nova Iorque: filial ATIVA do CNPJ da Diocese de Balsas 06.080.154, com endereco, bairro e CEP",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/bals0",
+     "title": "gcatholic.org - Igrejas da Diocese de Balsas (18 igrejas listadas por cidade, 16 marcadas \"Parish\" + a catedral e a antiga catedral; atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": null,
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-do-perpetuo-socorro-paraibano",
+   "name": "Paróquia Nossa Senhora do Perpétuo Socorro",
+   "city": "Paraibano",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Praça Guilhermino Brito, s/n, Centro",
+   "zipCode": "65670-000",
+   "phone": null,
+   "cnpj": "06080154000893",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/06080154000893",
+     "title": "Receita Federal (via minhareceita.org) - Paróquia Nossa Senhora do Perpétuo Socorro de Paraibano: filial ATIVA do CNPJ da Diocese de Balsas 06.080.154, com endereco, bairro e CEP",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/bals0",
+     "title": "gcatholic.org - Igrejas da Diocese de Balsas (18 igrejas listadas por cidade, 16 marcadas \"Parish\" + a catedral e a antiga catedral; atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": null,
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "sao-bento-pastos-bons",
+   "name": "Paróquia São Bento",
+   "city": "Pastos Bons",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Avenida dos Amanajós, s/n, Centro",
+   "zipCode": "65870-000",
+   "phone": null,
+   "cnpj": "06080154000621",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/06080154000621",
+     "title": "Receita Federal (via minhareceita.org) - Paróquia São Bento de Pastos Bons: filial ATIVA do CNPJ da Diocese de Balsas 06.080.154, com endereco, bairro e CEP",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/bals0",
+     "title": "gcatholic.org - Igrejas da Diocese de Balsas (18 igrejas listadas por cidade, 16 marcadas \"Parish\" + a catedral e a antiga catedral; atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": null,
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-de-nazare-riachao",
+   "name": "Paróquia Nossa Senhora de Nazaré",
+   "city": "Riachão",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Praça Nossa Senhora de Nazaré, s/n",
+   "zipCode": "65990-000",
+   "phone": null,
+   "cnpj": "06080154000460",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/06080154000460",
+     "title": "Receita Federal (via minhareceita.org) - Paróquia Nossa Senhora de Nazaré de Riachão: filial ATIVA do CNPJ da Diocese de Balsas 06.080.154, com endereco, bairro e CEP",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/bals0",
+     "title": "gcatholic.org - Igrejas da Diocese de Balsas (18 igrejas listadas por cidade, 16 marcadas \"Parish\" + a catedral e a antiga catedral; atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": null,
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "bom-jesus-da-lapa-sambaiba",
+   "name": "Paróquia Bom Jesus da Lapa",
+   "city": "Sambaíba",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Praça José do Egito Coelho, s/n, Centro",
+   "zipCode": "65830-000",
+   "phone": null,
+   "cnpj": "06080154001431",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/06080154001431",
+     "title": "Receita Federal (via minhareceita.org) - Paróquia Bom Jesus da Lapa de Sambaíba: filial ATIVA do CNPJ da Diocese de Balsas 06.080.154, com endereco, bairro e CEP",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/bals0",
+     "title": "gcatholic.org - Igrejas da Diocese de Balsas (18 igrejas listadas por cidade, 16 marcadas \"Parish\" + a catedral e a antiga catedral; atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": null,
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "sao-felix-sao-felix-de-balsas",
+   "name": "Paróquia São Félix",
+   "city": "São Félix de Balsas",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Rua Grande, 02, Centro",
+   "zipCode": "65890-000",
+   "phone": null,
+   "cnpj": "06080154001512",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/06080154001512",
+     "title": "Receita Federal (via minhareceita.org) - Paróquia São Félix de São Félix de Balsas: filial ATIVA do CNPJ da Diocese de Balsas 06.080.154, com endereco, bairro e CEP",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/bals0",
+     "title": "gcatholic.org - Igrejas da Diocese de Balsas (18 igrejas listadas por cidade, 16 marcadas \"Parish\" + a catedral e a antiga catedral; atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": null,
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "sao-raimundo-nonato-sao-raimundo-das-mangabeiras",
+   "name": "Paróquia São Raimundo Nonato",
+   "city": "São Raimundo das Mangabeiras",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Praça da Matriz, s/n",
+   "zipCode": "65840-000",
+   "phone": null,
+   "cnpj": "06080154000540",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/06080154000540",
+     "title": "Receita Federal (via minhareceita.org) - Paróquia São Raimundo Nonato de São Raimundo das Mangabeiras: filial ATIVA do CNPJ da Diocese de Balsas 06.080.154, com endereco, bairro e CEP",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/bals0",
+     "title": "gcatholic.org - Igrejas da Diocese de Balsas (18 igrejas listadas por cidade, 16 marcadas \"Parish\" + a catedral e a antiga catedral; atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": null,
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "santa-terezinha-sucupira-do-norte",
+   "name": "Paróquia Santa Terezinha",
+   "city": "Sucupira do Norte",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Praça Santa Teresinha, s/n, Centro",
+   "zipCode": "65860-000",
+   "phone": null,
+   "cnpj": "06080154000974",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/06080154000974",
+     "title": "Receita Federal (via minhareceita.org) - Paróquia Santa Terezinha de Sucupira do Norte: filial ATIVA do CNPJ da Diocese de Balsas 06.080.154, com endereco, bairro e CEP",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/bals0",
+     "title": "gcatholic.org - Igrejas da Diocese de Balsas (18 igrejas listadas por cidade, 16 marcadas \"Parish\" + a catedral e a antiga catedral; atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": null,
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-do-carmo-e-conceicao-tasso-fragoso",
+   "name": "Paróquia Nossa Senhora do Carmo e Conceição",
+   "city": "Tasso Fragoso",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Avenida Santos Dumont, s/n, Centro",
+   "zipCode": "65820-000",
+   "phone": null,
+   "cnpj": "06080154001865",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/06080154001865",
+     "title": "Receita Federal (via minhareceita.org) - Paróquia Nossa Senhora do Carmo e Conceição de Tasso Fragoso: filial ATIVA do CNPJ da Diocese de Balsas 06.080.154, com endereco, bairro e CEP",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/bals0",
+     "title": "gcatholic.org - Igrejas da Diocese de Balsas (18 igrejas listadas por cidade, 16 marcadas \"Parish\" + a catedral e a antiga catedral; atualizado em 01/01/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": null,
+   "communities": [],
+   "schedules": []
+  }
+ ],
+ "coverage": {
+  "parishesFound": 19,
+  "parishesExpected": 18,
+  "notes": "A diocese NAO tem site (diocesedebalsas.org.br e diocesedebalsas.com.br nao resolvem no DNS; so existe a pagina no Facebook). A lista saiu inteira da varredura das filiais do CNPJ da Mitra (06.080.154): 21 inscricoes ATIVAS = 1 curia + 19 paroquias + a TV Boa Noticia. Bate com as 18 paroquias do catholic-hierarchy (2022) mais as duas criadas depois: Feira Nova do Maranhao (17/12/2021) e Nova Colinas (13/08/2025), esta ultima ausente tambem do gcatholic. A Igreja de Santo Antonio de Padua de Balsas (antiga catedral, no gcatholic) nao e paroquia e nao tem horario publicado, por isso ficou fora. Sem parocos, sem comunidades e sem ano de ereccao: nenhuma fonte publica esses dados para esta diocese."
+ }
+}
