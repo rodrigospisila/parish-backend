@@ -196,6 +196,16 @@ enxame de validação. Nunca inventar: campo desconhecido = `null`.
 - **Confira cidade e UF antes de aceitar um perfil de rede social**: um buscador ofereceu um perfil com
   sufixo "bnu" como se fosse de Benjamin Constant/AM, e não era.
 
+- **`foundedYear` da circunscrição é o ano de ERECÇÃO, não o da elevação.** Bom Jesus do Gurguéia está
+  com 1920 (prelazia erigida em 18/06/1920, diocese só em 03/10/1981) e São Raimundo Nonato com 1960
+  pelo mesmo motivo — está certo, não "corrija". Anos repetidos em bloco (1910, 1960, 1962, 1971) são
+  reais: muitas dioceses brasileiras nasceram na mesma bula.
+- **CEP publicado pode não existir**: confira no ViaCEP (`https://viacep.com.br/ws/<cep>/json/`). O de
+  Floresta (56400-000) não existe; o de Floriano, que parecia errado, confere com a rua da cúria — o da
+  Receita apontava outra avenida. Confira a rua junto com o CEP antes de trocar.
+- **Antes de trocar o nome do bispo**, confirme em duas fontes: a home da diocese pode estar citando um
+  bispo de outra diocese em notícia. A busca do próprio site (`/?s=bispo+diocesano`) resolve.
+
 ## Marcadores que tiram uma entrada da carga
 
 | Campo | Efeito |

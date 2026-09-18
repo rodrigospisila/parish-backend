@@ -1,0 +1,1962 @@
+{
+ "diocese": {
+  "name": "Diocese de Serrinha",
+  "type": "Diocese",
+  "slug": "serrinha",
+  "city": "Serrinha",
+  "state": "BA",
+  "address": "Praça Miguel Carneiro, 185 A, Centro",
+  "zipCode": "48700-000",
+  "phone": "(75) 3261-3687",
+  "email": null,
+  "website": null,
+  "bishopName": "Dom Hélio Pereira dos Santos",
+  "sources": [
+   {
+    "url": "https://minhareceita.org/07756252000194",
+    "title": "Receita Federal — DIOCESE DE SERRINHA, CNPJ 07.756.252/0001-94 (aberta em 18/12/2005) e 27 filiais (25 paróquias ATIVAS, o Seminário Maior Sagrada Família e a Cáritas Diocesana, esta BAIXADA)",
+    "accessedAt": "2026-09-18"
+   },
+   {
+    "url": "https://www.instagram.com/dioceseserrinha/",
+    "title": "Instagram oficial @dioceseserrinha — “PERFIL OFICIAL / Pç. Miguel Carneiro, 185 A - Serrinha-BA - CEP: 48700-000 | 75 9875-2623 | 20 anos de vida e missão” (posts até 11/09/2026)",
+    "accessedAt": "2026-09-18"
+   },
+   {
+    "url": "https://www.facebook.com/dioceseserrinha/",
+    "title": "Facebook oficial — Diocese de Serrinha-BA",
+    "accessedAt": "2026-09-18"
+   },
+   {
+    "url": "https://www.catholic-hierarchy.org/diocese/dserr.html",
+    "title": "catholic-hierarchy.org — Serrinha (Diocese): 25 paróquias em 2022; Dom Hélio Pereira dos Santos desde 03/02/2021",
+    "accessedAt": "2026-09-18"
+   },
+   {
+    "url": "https://gcatholic.org/dioceses/diocese/serr0.htm",
+    "title": "gcatholic.org — Serrinha (Diocese)",
+    "accessedAt": "2026-09-18"
+   },
+   {
+    "url": "https://pt.wikipedia.org/wiki/Diocese_de_Serrinha",
+    "title": "Wikipédia — Diocese de Serrinha: criada em 21/09/2005 por Bento XVI (constituição Christi mandato), 17.169 km², 16 paróquias na criação e 18 em 2010",
+    "accessedAt": "2026-09-18"
+   }
+  ],
+  "confidence": "alta",
+  "notes": "A diocese NÃO TEM SITE: os domínios diocesedeserrinha.org.br, .com.br e .com não resolvem no DNS, e a bio do Instagram oficial (@dioceseserrinha, “PERFIL OFICIAL”, posts até 11/09/2026) só aponta para o YouTube. `website` fica null. A bio confirma o endereço da cúria (Pç. Miguel Carneiro, 185 A, CEP 48700-000) e dá um celular, 75 9875-2623, ao lado do fixo (75) 3261-3687. Toda a lista de paróquias veio da varredura das filiais do CNPJ da mitra. Criada em 21/09/2005 por Bento XVI, desmembrada da Arquidiocese de Feira de Santana e da Diocese de Paulo Afonso; 17.169 km²; padroeira Nossa Senhora Sant'Ana. Território de 19 municípios: Araci, Barrocas, Biritinga, Capela do Alto Alegre, Conceição do Coité, Euclides da Cunha, Gavião, Ichu, Lamarão, Pé de Serra, Quijingue, Retirolândia, Riachão do Jacuípe, Santaluz, São Domingos, Serrinha, Teofilândia, Tucano e Valente."
+ },
+ "parishes": [
+  {
+   "slug": "senhora-sant-ana-serrinha",
+   "name": "Catedral Senhora Sant'Ana",
+   "city": "Serrinha",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça Miguel Carneiro, s/n",
+   "zipCode": "48700-000",
+   "phone": "(75) 3261-3443",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/07756252000941",
+     "title": "Receita Federal — filial do CNPJ 07.756.252 da Diocese de Serrinha: “PAROQUIA DA CATEDRAL SENHORA SANTANA - SERRINHA-BA”, situação ATIVA (endereço, CEP e telefone)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://www.instagram.com/catedraldeserrinha/",
+     "title": "Instagram oficial @catedraldeserrinha — “Fé e Missão no chão do sertão / Igreja Mãe da Diocese de Serrinha / Horários, contatos e informações” (posts até 16/09/2026)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+     "title": "Lírio Católico — ficha 1813 “Catedral Senhora Santana” (base estadual da Bahia; data 09/09/2026, com hora — edição individual, não carga em massa)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "07756252000941",
+   "communities": [
+    {
+     "name": "Catedral Senhora Sant'Ana",
+     "address": "Praça Miguel Carneiro, s/n",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/07756252000941",
+       "title": "Receita Federal — filial do CNPJ 07.756.252 da Diocese de Serrinha: “PAROQUIA DA CATEDRAL SENHORA SANTANA - SERRINHA-BA”, situação ATIVA (endereço, CEP e telefone)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Igreja Matriz Velha",
+     "address": "Rua Mahana de Souza, Praça Luís Nogueira",
+     "neighborhood": "Centro",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 10149 “Igreja Matriz Velha - Praça Luís Nogueira” (base estadual da Bahia; data 02/09/2026 (carga da base))",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Catedral Senhora Sant'Ana",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": "A ficha do Lírio Católico traz data-hora individual (09/09/2026), sinal de edição real e não da carga em massa da base — ainda assim é fonte única não oficial.",
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 1813 “Catedral Senhora Santana” (base estadual da Bahia; data 09/09/2026, com hora)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Catedral Senhora Sant'Ana",
+     "dayOfWeek": 0,
+     "time": "09:00",
+     "type": "MASS",
+     "notes": "A ficha do Lírio Católico traz data-hora individual (09/09/2026), sinal de edição real e não da carga em massa da base — ainda assim é fonte única não oficial.",
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 1813 “Catedral Senhora Santana” (base estadual da Bahia; data 09/09/2026, com hora)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Catedral Senhora Sant'Ana",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "A ficha do Lírio Católico traz data-hora individual (09/09/2026), sinal de edição real e não da carga em massa da base — ainda assim é fonte única não oficial.",
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 1813 “Catedral Senhora Santana” (base estadual da Bahia; data 09/09/2026, com hora)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Catedral Senhora Sant'Ana",
+     "dayOfWeek": 1,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": "A ficha do Lírio Católico traz data-hora individual (09/09/2026), sinal de edição real e não da carga em massa da base — ainda assim é fonte única não oficial.",
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 1813 “Catedral Senhora Santana” (base estadual da Bahia; data 09/09/2026, com hora)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Catedral Senhora Sant'Ana",
+     "dayOfWeek": 5,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": "A ficha do Lírio Católico traz data-hora individual (09/09/2026), sinal de edição real e não da carga em massa da base — ainda assim é fonte única não oficial.",
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 1813 “Catedral Senhora Santana” (base estadual da Bahia; data 09/09/2026, com hora)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Catedral Senhora Sant'Ana",
+     "dayOfWeek": 6,
+     "time": "20:00",
+     "type": "MASS",
+     "notes": "A ficha do Lírio Católico traz data-hora individual (09/09/2026), sinal de edição real e não da carga em massa da base — ainda assim é fonte única não oficial.",
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 1813 “Catedral Senhora Santana” (base estadual da Bahia; data 09/09/2026, com hora)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Catedral Senhora Sant'Ana",
+     "dayOfWeek": 1,
+     "time": "18:30",
+     "type": "CONFESSION",
+     "notes": "A ficha do Lírio Católico traz data-hora individual (09/09/2026), sinal de edição real e não da carga em massa da base — ainda assim é fonte única não oficial. Segunda 18:30–19:00; terça, quarta e quinta às 09:00.",
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 1813 “Catedral Senhora Santana” (base estadual da Bahia; data 09/09/2026, com hora)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Catedral Senhora Sant'Ana",
+     "dayOfWeek": 2,
+     "time": "09:00",
+     "type": "CONFESSION",
+     "notes": "A ficha do Lírio Católico traz data-hora individual (09/09/2026), sinal de edição real e não da carga em massa da base — ainda assim é fonte única não oficial. Segunda 18:30–19:00; terça, quarta e quinta às 09:00.",
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 1813 “Catedral Senhora Santana” (base estadual da Bahia; data 09/09/2026, com hora)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Catedral Senhora Sant'Ana",
+     "dayOfWeek": 3,
+     "time": "09:00",
+     "type": "CONFESSION",
+     "notes": "A ficha do Lírio Católico traz data-hora individual (09/09/2026), sinal de edição real e não da carga em massa da base — ainda assim é fonte única não oficial. Segunda 18:30–19:00; terça, quarta e quinta às 09:00.",
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 1813 “Catedral Senhora Santana” (base estadual da Bahia; data 09/09/2026, com hora)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Catedral Senhora Sant'Ana",
+     "dayOfWeek": 4,
+     "time": "09:00",
+     "type": "CONFESSION",
+     "notes": "A ficha do Lírio Católico traz data-hora individual (09/09/2026), sinal de edição real e não da carga em massa da base — ainda assim é fonte única não oficial. Segunda 18:30–19:00; terça, quarta e quinta às 09:00.",
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 1813 “Catedral Senhora Santana” (base estadual da Bahia; data 09/09/2026, com hora)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Igreja Matriz Velha",
+     "dayOfWeek": 2,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": "Vínculo com a Catedral inferido: é a antiga igreja matriz de Serrinha, no centro, a poucas quadras da Catedral — precisa de validação humana.",
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 10149 “Igreja Matriz Velha - Praça Luís Nogueira” (base estadual da Bahia; data 02/09/2026 (carga da base))",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Igreja Matriz Velha",
+     "dayOfWeek": 3,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": "Vínculo com a Catedral inferido: é a antiga igreja matriz de Serrinha, no centro, a poucas quadras da Catedral — precisa de validação humana.",
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 10149 “Igreja Matriz Velha - Praça Luís Nogueira” (base estadual da Bahia; data 02/09/2026 (carga da base))",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Igreja Matriz Velha",
+     "dayOfWeek": 4,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": "Vínculo com a Catedral inferido: é a antiga igreja matriz de Serrinha, no centro, a poucas quadras da Catedral — precisa de validação humana.",
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 10149 “Igreja Matriz Velha - Praça Luís Nogueira” (base estadual da Bahia; data 02/09/2026 (carga da base))",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Igreja Matriz Velha",
+     "dayOfWeek": 2,
+     "time": "09:00",
+     "type": "CONFESSION",
+     "notes": "Vínculo com a Catedral inferido: é a antiga igreja matriz de Serrinha, no centro, a poucas quadras da Catedral — precisa de validação humana. Lírio Católico: confissões 09:00–09:30.",
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 10149 “Igreja Matriz Velha - Praça Luís Nogueira” (base estadual da Bahia; data 02/09/2026 (carga da base))",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Igreja Matriz Velha",
+     "dayOfWeek": 3,
+     "time": "09:00",
+     "type": "CONFESSION",
+     "notes": "Vínculo com a Catedral inferido: é a antiga igreja matriz de Serrinha, no centro, a poucas quadras da Catedral — precisa de validação humana. Lírio Católico: confissões 09:00–09:30.",
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 10149 “Igreja Matriz Velha - Praça Luís Nogueira” (base estadual da Bahia; data 02/09/2026 (carga da base))",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Igreja Matriz Velha",
+     "dayOfWeek": 4,
+     "time": "09:00",
+     "type": "CONFESSION",
+     "notes": "Vínculo com a Catedral inferido: é a antiga igreja matriz de Serrinha, no centro, a poucas quadras da Catedral — precisa de validação humana. Lírio Católico: confissões 09:00–09:30.",
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 10149 “Igreja Matriz Velha - Praça Luís Nogueira” (base estadual da Bahia; data 02/09/2026 (carga da base))",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ],
+   "notes": "Catedral da diocese, padroeira da diocese (Nossa Senhora Sant'Ana). A bio do Instagram oficial promete “Horários, contatos e informações” num destaque de stories que o leitor automático não abre. A ficha do Lírio dá o endereço como R. Emiliano Santiago, 1-15.",
+   "instagram": "catedraldeserrinha"
+  },
+  {
+   "slug": "bom-pastor-serrinha",
+   "name": "Paróquia Bom Pastor",
+   "city": "Serrinha",
+   "state": "BA",
+   "neighborhood": "Cidade Nova",
+   "address": "Praça Aluízio Carneiro da Silva, 248",
+   "zipCode": "48700-000",
+   "phone": "(75) 3261-3443",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/07756252000860",
+     "title": "Receita Federal — filial do CNPJ 07.756.252 da Diocese de Serrinha: “PAROQUIA BOM PASTOR - SERRINHA-BA”, situação ATIVA (endereço, CEP e telefone)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+     "title": "Lírio Católico — ficha 10150 “Paróquia Bom Pastor - Cidade Nova” (base estadual da Bahia; data 02/09/2026 (carga da base))",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "07756252000860",
+   "communities": [
+    {
+     "name": "Paróquia Bom Pastor",
+     "address": "Praça Aluízio Carneiro da Silva, 248",
+     "neighborhood": "Cidade Nova",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/07756252000860",
+       "title": "Receita Federal — filial do CNPJ 07.756.252 da Diocese de Serrinha: “PAROQUIA BOM PASTOR - SERRINHA-BA”, situação ATIVA (endereço, CEP e telefone)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Paróquia Bom Pastor",
+     "dayOfWeek": 0,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 10150 “Paróquia Bom Pastor - Cidade Nova” (base estadual da Bahia; data 02/09/2026 (carga da base))",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Paróquia Bom Pastor",
+     "dayOfWeek": 0,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 10150 “Paróquia Bom Pastor - Cidade Nova” (base estadual da Bahia; data 02/09/2026 (carga da base))",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ],
+   "notes": "A ficha do Lírio dá outro telefone: (75) 99298-0287."
+  },
+  {
+   "slug": "nossa-senhora-aparecida-serrinha",
+   "name": "Santuário Nossa Senhora Aparecida",
+   "city": "Serrinha",
+   "state": "BA",
+   "neighborhood": "Vaquejada",
+   "address": "Rua E, s/n",
+   "zipCode": "48700-000",
+   "phone": "(75) 3261-3968",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/07756252002308",
+     "title": "Receita Federal — filial do CNPJ 07.756.252 da Diocese de Serrinha: “PAROQUIA SANTUARIO NOSSA SENHORA APARECIDA”, situação ATIVA (endereço, CEP e telefone)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+     "title": "Lírio Católico — ficha 10151 “Paróquia Nossa Senhora Aparecida” (base estadual da Bahia; data 09/09/2026, com hora — edição individual, não carga em massa)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "07756252002308",
+   "communities": [
+    {
+     "name": "Santuário Nossa Senhora Aparecida",
+     "address": "Rua E, s/n",
+     "neighborhood": "Vaquejada",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/07756252002308",
+       "title": "Receita Federal — filial do CNPJ 07.756.252 da Diocese de Serrinha: “PAROQUIA SANTUARIO NOSSA SENHORA APARECIDA”, situação ATIVA (endereço, CEP e telefone)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Santuário Nossa Senhora Aparecida",
+     "dayOfWeek": 0,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": "A ficha do Lírio Católico traz data-hora individual (09/09/2026), sinal de edição real e não da carga em massa da base — ainda assim é fonte única não oficial.",
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 10151 “Paróquia Nossa Senhora Aparecida” (base estadual da Bahia; data 09/09/2026, com hora)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Santuário Nossa Senhora Aparecida",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "A ficha do Lírio Católico traz data-hora individual (09/09/2026), sinal de edição real e não da carga em massa da base — ainda assim é fonte única não oficial.",
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 10151 “Paróquia Nossa Senhora Aparecida” (base estadual da Bahia; data 09/09/2026, com hora)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Santuário Nossa Senhora Aparecida",
+     "dayOfWeek": 4,
+     "time": "07:30",
+     "type": "MASS",
+     "notes": "A ficha do Lírio Católico traz data-hora individual (09/09/2026), sinal de edição real e não da carga em massa da base — ainda assim é fonte única não oficial.",
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 10151 “Paróquia Nossa Senhora Aparecida” (base estadual da Bahia; data 09/09/2026, com hora)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Santuário Nossa Senhora Aparecida",
+     "dayOfWeek": 5,
+     "time": "07:30",
+     "type": "MASS",
+     "notes": "A ficha do Lírio Católico traz data-hora individual (09/09/2026), sinal de edição real e não da carga em massa da base — ainda assim é fonte única não oficial.",
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 10151 “Paróquia Nossa Senhora Aparecida” (base estadual da Bahia; data 09/09/2026, com hora)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Santuário Nossa Senhora Aparecida",
+     "dayOfWeek": 2,
+     "time": "08:30",
+     "type": "CONFESSION",
+     "notes": "A ficha do Lírio Católico traz data-hora individual (09/09/2026), sinal de edição real e não da carga em massa da base — ainda assim é fonte única não oficial. Terça, quinta e sexta 08:30–11:40; quinta também 18:00–18:30.",
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 10151 “Paróquia Nossa Senhora Aparecida” (base estadual da Bahia; data 09/09/2026, com hora)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Santuário Nossa Senhora Aparecida",
+     "dayOfWeek": 4,
+     "time": "08:30",
+     "type": "CONFESSION",
+     "notes": "A ficha do Lírio Católico traz data-hora individual (09/09/2026), sinal de edição real e não da carga em massa da base — ainda assim é fonte única não oficial. Terça, quinta e sexta 08:30–11:40; quinta também 18:00–18:30.",
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 10151 “Paróquia Nossa Senhora Aparecida” (base estadual da Bahia; data 09/09/2026, com hora)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Santuário Nossa Senhora Aparecida",
+     "dayOfWeek": 4,
+     "time": "18:00",
+     "type": "CONFESSION",
+     "notes": "A ficha do Lírio Católico traz data-hora individual (09/09/2026), sinal de edição real e não da carga em massa da base — ainda assim é fonte única não oficial. Terça, quinta e sexta 08:30–11:40; quinta também 18:00–18:30.",
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 10151 “Paróquia Nossa Senhora Aparecida” (base estadual da Bahia; data 09/09/2026, com hora)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Santuário Nossa Senhora Aparecida",
+     "dayOfWeek": 5,
+     "time": "08:30",
+     "type": "CONFESSION",
+     "notes": "A ficha do Lírio Católico traz data-hora individual (09/09/2026), sinal de edição real e não da carga em massa da base — ainda assim é fonte única não oficial. Terça, quinta e sexta 08:30–11:40; quinta também 18:00–18:30.",
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 10151 “Paróquia Nossa Senhora Aparecida” (base estadual da Bahia; data 09/09/2026, com hora)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Santuário Nossa Senhora Aparecida",
+     "dayOfWeek": 4,
+     "time": "18:00",
+     "type": "ADORATION",
+     "notes": "A ficha do Lírio Católico traz data-hora individual (09/09/2026), sinal de edição real e não da carga em massa da base — ainda assim é fonte única não oficial. Adoração quinta 18:00–19:00.",
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 10151 “Paróquia Nossa Senhora Aparecida” (base estadual da Bahia; data 09/09/2026, com hora)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ],
+   "notes": "O nome fantasia na Receita é “PAROQUIA SANTUARIO NOSSA SENHORA APARECIDA” — é paróquia e santuário ao mesmo tempo. Filial aberta em 09/01/2017. Telefone e endereço “R. Vaquejada, 31” vêm da ficha do Lírio; o telefone da Receita para esta filial é o da cúria."
+  },
+  {
+   "slug": "nossa-senhora-da-conceicao-do-raso-araci",
+   "name": "Paróquia Nossa Senhora da Conceição do Raso",
+   "city": "Araci",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça da Conceição, 330",
+   "zipCode": "48760-000",
+   "phone": "(75) 3266-2012",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/07756252000275",
+     "title": "Receita Federal — filial do CNPJ 07.756.252 da Diocese de Serrinha: “PAROQUIA NOSSA SENHORADA CONCEICAO DO RASO - ARACI -BA”, situação ATIVA (endereço, CEP e telefone)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+     "title": "Lírio Católico — ficha 1353 “Paróquia Nossa Senhora da Conceição do Raso” (base estadual da Bahia; data 02/09/2026 (carga da base))",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "07756252000275",
+   "communities": [
+    {
+     "name": "Paróquia Nossa Senhora da Conceição do Raso",
+     "address": "Praça da Conceição, 330",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/07756252000275",
+       "title": "Receita Federal — filial do CNPJ 07.756.252 da Diocese de Serrinha: “PAROQUIA NOSSA SENHORADA CONCEICAO DO RASO - ARACI -BA”, situação ATIVA (endereço, CEP e telefone)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Paróquia Nossa Senhora da Conceição do Raso",
+     "dayOfWeek": 0,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 1353 “Paróquia Nossa Senhora da Conceição do Raso” (base estadual da Bahia; data 02/09/2026 (carga da base))",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Paróquia Nossa Senhora da Conceição do Raso",
+     "dayOfWeek": 0,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 1353 “Paróquia Nossa Senhora da Conceição do Raso” (base estadual da Bahia; data 02/09/2026 (carga da base))",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Paróquia Nossa Senhora da Conceição do Raso",
+     "dayOfWeek": 1,
+     "time": "10:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 1353 “Paróquia Nossa Senhora da Conceição do Raso” (base estadual da Bahia; data 02/09/2026 (carga da base))",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Paróquia Nossa Senhora da Conceição do Raso",
+     "dayOfWeek": 4,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 1353 “Paróquia Nossa Senhora da Conceição do Raso” (base estadual da Bahia; data 02/09/2026 (carga da base))",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Paróquia Nossa Senhora da Conceição do Raso",
+     "dayOfWeek": 6,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 1353 “Paróquia Nossa Senhora da Conceição do Raso” (base estadual da Bahia; data 02/09/2026 (carga da base))",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Paróquia Nossa Senhora da Conceição do Raso",
+     "dayOfWeek": 1,
+     "time": "08:00",
+     "type": "CONFESSION",
+     "notes": "Lírio Católico: confissões segunda, quarta e sexta, 08:00–12:00.",
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 1353 “Paróquia Nossa Senhora da Conceição do Raso” (base estadual da Bahia; data 02/09/2026 (carga da base))",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Paróquia Nossa Senhora da Conceição do Raso",
+     "dayOfWeek": 3,
+     "time": "08:00",
+     "type": "CONFESSION",
+     "notes": "Lírio Católico: confissões segunda, quarta e sexta, 08:00–12:00.",
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 1353 “Paróquia Nossa Senhora da Conceição do Raso” (base estadual da Bahia; data 02/09/2026 (carga da base))",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Paróquia Nossa Senhora da Conceição do Raso",
+     "dayOfWeek": 5,
+     "time": "08:00",
+     "type": "CONFESSION",
+     "notes": "Lírio Católico: confissões segunda, quarta e sexta, 08:00–12:00.",
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 1353 “Paróquia Nossa Senhora da Conceição do Raso” (base estadual da Bahia; data 02/09/2026 (carga da base))",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Paróquia Nossa Senhora da Conceição do Raso",
+     "dayOfWeek": 2,
+     "time": "05:00",
+     "type": "ADORATION",
+     "notes": "Lírio Católico: adoração terça 05:00–06:00 e quinta 18:30–19:30.",
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 1353 “Paróquia Nossa Senhora da Conceição do Raso” (base estadual da Bahia; data 02/09/2026 (carga da base))",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Paróquia Nossa Senhora da Conceição do Raso",
+     "dayOfWeek": 4,
+     "time": "18:30",
+     "type": "ADORATION",
+     "notes": "Lírio Católico: adoração terça 05:00–06:00 e quinta 18:30–19:30.",
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 1353 “Paróquia Nossa Senhora da Conceição do Raso” (base estadual da Bahia; data 02/09/2026 (carga da base))",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ],
+   "notes": null
+  },
+  {
+   "slug": "sao-joao-batista-barrocas",
+   "name": "Paróquia São João Batista",
+   "city": "Barrocas",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça São João, s/n",
+   "zipCode": "48705-000",
+   "phone": "(75) 3608-2161",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/07756252000356",
+     "title": "Receita Federal — filial do CNPJ 07.756.252 da Diocese de Serrinha: “PAROQUIA SAO JOAO BATISTA - BARROCAS -BA”, situação ATIVA (endereço, CEP e telefone)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "07756252000356",
+   "communities": [
+    {
+     "name": "Paróquia São João Batista",
+     "address": "Praça São João, s/n",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/07756252000356",
+       "title": "Receita Federal — filial do CNPJ 07.756.252 da Diocese de Serrinha: “PAROQUIA SAO JOAO BATISTA - BARROCAS -BA”, situação ATIVA (endereço, CEP e telefone)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [],
+   "notes": null
+  },
+  {
+   "slug": "nossa-senhora-de-belem-biritinga",
+   "name": "Paróquia Nossa Senhora de Belém",
+   "city": "Biritinga",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça da Matriz, 290",
+   "zipCode": "48780-000",
+   "phone": "(75) 3267-2151",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/07756252000437",
+     "title": "Receita Federal — filial do CNPJ 07.756.252 da Diocese de Serrinha: “PAROQUIA NOSSA SENHORA DE BELEM - BIRITINGA-BA”, situação ATIVA (endereço, CEP e telefone)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "07756252000437",
+   "communities": [
+    {
+     "name": "Paróquia Nossa Senhora de Belém",
+     "address": "Praça da Matriz, 290",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/07756252000437",
+       "title": "Receita Federal — filial do CNPJ 07.756.252 da Diocese de Serrinha: “PAROQUIA NOSSA SENHORA DE BELEM - BIRITINGA-BA”, situação ATIVA (endereço, CEP e telefone)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [],
+   "notes": null
+  },
+  {
+   "slug": "nossa-senhora-da-conceicao-conceicao-do-coite",
+   "name": "Paróquia Nossa Senhora da Conceição",
+   "city": "Conceição do Coité",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Rua Padre Madureira, 790",
+   "zipCode": "48730-000",
+   "phone": "(75) 3262-1123",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/07756252000518",
+     "title": "Receita Federal — filial do CNPJ 07.756.252 da Diocese de Serrinha: “PAROQUIA NOSSA SENHORA DA CONCEICAO - C DO COITE - BA”, situação ATIVA (endereço, CEP e telefone)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://www.instagram.com/paroquiadecoite/",
+     "title": "Instagram oficial @paroquiadecoite — “Paróquia de Conceição do Coité / Diocese de Serrinha - BA / Pároco: @jotajanjota / Perfil administrado pela: @pascomcoite” (posts até 19/09/2026)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+     "title": "Lírio Católico — ficha 1446 “Igreja de Nossa Senhora da Conceição do Coité” (base estadual da Bahia; data 02/09/2026 (carga da base))",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "07756252000518",
+   "communities": [
+    {
+     "name": "Paróquia Nossa Senhora da Conceição",
+     "address": "Rua Padre Madureira, 790",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/07756252000518",
+       "title": "Receita Federal — filial do CNPJ 07.756.252 da Diocese de Serrinha: “PAROQUIA NOSSA SENHORA DA CONCEICAO - C DO COITE - BA”, situação ATIVA (endereço, CEP e telefone)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Paróquia Nossa Senhora da Conceição",
+     "dayOfWeek": 0,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 1446 “Igreja de Nossa Senhora da Conceição do Coité” (base estadual da Bahia; data 02/09/2026 (carga da base))",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Paróquia Nossa Senhora da Conceição",
+     "dayOfWeek": 0,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 1446 “Igreja de Nossa Senhora da Conceição do Coité” (base estadual da Bahia; data 02/09/2026 (carga da base))",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Paróquia Nossa Senhora da Conceição",
+     "dayOfWeek": 1,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 1446 “Igreja de Nossa Senhora da Conceição do Coité” (base estadual da Bahia; data 02/09/2026 (carga da base))",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Paróquia Nossa Senhora da Conceição",
+     "dayOfWeek": 4,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 1446 “Igreja de Nossa Senhora da Conceição do Coité” (base estadual da Bahia; data 02/09/2026 (carga da base))",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Paróquia Nossa Senhora da Conceição",
+     "dayOfWeek": 5,
+     "time": "10:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 1446 “Igreja de Nossa Senhora da Conceição do Coité” (base estadual da Bahia; data 02/09/2026 (carga da base))",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ],
+   "notes": "A ficha do Lírio dá o endereço como Praça Oito de Dezembro. O Instagram oficial identifica o pároco só pelo @ (@jotajanjota), sem nome civil — por isso priestName ficou nulo.",
+   "instagram": "paroquiadecoite"
+  },
+  {
+   "slug": "sagrado-coracao-de-jesus-ichu",
+   "name": "Paróquia Sagrado Coração de Jesus",
+   "city": "Ichu",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Avenida Adalberto Ferreira Santiago, 150",
+   "zipCode": "48725-000",
+   "phone": "(75) 3684-2170",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/07756252000607",
+     "title": "Receita Federal — filial do CNPJ 07.756.252 da Diocese de Serrinha: “PAROQUIA DO SAGRADO CORACAO DE JESUS - ICHU - BA”, situação ATIVA (endereço, CEP e telefone)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+     "title": "Lírio Católico — ficha 1533 “Paróquia Sagrado Coração de Jesus” (base estadual da Bahia; data 02/09/2026 (carga da base))",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "07756252000607",
+   "communities": [
+    {
+     "name": "Paróquia Sagrado Coração de Jesus",
+     "address": "Avenida Adalberto Ferreira Santiago, 150",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/07756252000607",
+       "title": "Receita Federal — filial do CNPJ 07.756.252 da Diocese de Serrinha: “PAROQUIA DO SAGRADO CORACAO DE JESUS - ICHU - BA”, situação ATIVA (endereço, CEP e telefone)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Paróquia Sagrado Coração de Jesus",
+     "dayOfWeek": 0,
+     "time": "09:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 1533 “Paróquia Sagrado Coração de Jesus” (base estadual da Bahia; data 02/09/2026 (carga da base))",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Paróquia Sagrado Coração de Jesus",
+     "dayOfWeek": 6,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 1533 “Paróquia Sagrado Coração de Jesus” (base estadual da Bahia; data 02/09/2026 (carga da base))",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ],
+   "notes": "A ficha do Lírio dá o nº 1019 da mesma avenida e o celular (75) 98130-8843."
+  },
+  {
+   "slug": "santa-luzia-santaluz",
+   "name": "Paróquia Santa Luzia",
+   "city": "Santaluz",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Avenida Santa Luzia, 291",
+   "zipCode": "48880-000",
+   "phone": "(75) 3265-2069",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/07756252000780",
+     "title": "Receita Federal — filial do CNPJ 07.756.252 da Diocese de Serrinha: “PAROQUIA SANTA LUZIA - SANTA LUZ - BA”, situação ATIVA (endereço, CEP e telefone)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "07756252000780",
+   "communities": [
+    {
+     "name": "Paróquia Santa Luzia",
+     "address": "Avenida Santa Luzia, 291",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/07756252000780",
+       "title": "Receita Federal — filial do CNPJ 07.756.252 da Diocese de Serrinha: “PAROQUIA SANTA LUZIA - SANTA LUZ - BA”, situação ATIVA (endereço, CEP e telefone)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [],
+   "notes": null
+  },
+  {
+   "slug": "santo-antonio-teofilandia",
+   "name": "Paróquia Santo Antônio",
+   "city": "Teofilândia",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça José Luiz Ramos, 360",
+   "zipCode": "48770-000",
+   "phone": "(75) 3268-2206",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/07756252001085",
+     "title": "Receita Federal — filial do CNPJ 07.756.252 da Diocese de Serrinha: “PAROQUIA SANTO ANTONIO - TEOFILANDIA - BA”, situação ATIVA (endereço, CEP e telefone)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "07756252001085",
+   "communities": [
+    {
+     "name": "Paróquia Santo Antônio",
+     "address": "Praça José Luiz Ramos, 360",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/07756252001085",
+       "title": "Receita Federal — filial do CNPJ 07.756.252 da Diocese de Serrinha: “PAROQUIA SANTO ANTONIO - TEOFILANDIA - BA”, situação ATIVA (endereço, CEP e telefone)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [],
+   "notes": null
+  },
+  {
+   "slug": "sagrada-familia-valente",
+   "name": "Paróquia Sagrada Família",
+   "city": "Valente",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Rua Possidônio Ramos, 164",
+   "zipCode": "48890-000",
+   "phone": "(75) 3263-2230",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/07756252001166",
+     "title": "Receita Federal — filial do CNPJ 07.756.252 da Diocese de Serrinha: “PAROQUIA SAGRADA FAMILIA - VALENTE - BA”, situação ATIVA (endereço, CEP e telefone)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "07756252001166",
+   "communities": [
+    {
+     "name": "Paróquia Sagrada Família",
+     "address": "Rua Possidônio Ramos, 164",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/07756252001166",
+       "title": "Receita Federal — filial do CNPJ 07.756.252 da Diocese de Serrinha: “PAROQUIA SAGRADA FAMILIA - VALENTE - BA”, situação ATIVA (endereço, CEP e telefone)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [],
+   "notes": null
+  },
+  {
+   "slug": "santo-antonio-tucano",
+   "name": "Paróquia Santo Antônio",
+   "city": "Tucano",
+   "state": "BA",
+   "neighborhood": "Creguenhém",
+   "address": "Praça da Igreja, s/n",
+   "zipCode": "48790-000",
+   "phone": "(75) 3297-3058",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/07756252001247",
+     "title": "Receita Federal — filial do CNPJ 07.756.252 da Diocese de Serrinha: “PAROQUIA SANTO ANTONIO / CREGUENHEM - TUCANO -BA”, situação ATIVA (endereço, CEP e telefone)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "07756252001247",
+   "communities": [
+    {
+     "name": "Paróquia Santo Antônio",
+     "address": "Praça da Igreja, s/n",
+     "neighborhood": "Creguenhém",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/07756252001247",
+       "title": "Receita Federal — filial do CNPJ 07.756.252 da Diocese de Serrinha: “PAROQUIA SANTO ANTONIO / CREGUENHEM - TUCANO -BA”, situação ATIVA (endereço, CEP e telefone)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [],
+   "notes": "Sede no distrito de Creguenhém, em Tucano."
+  },
+  {
+   "slug": "senhora-sant-ana-tucano",
+   "name": "Paróquia Senhora Sant'Ana",
+   "city": "Tucano",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça Vigário Martins, s/n",
+   "zipCode": "48790-000",
+   "phone": "(75) 3272-2161",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/07756252001328",
+     "title": "Receita Federal — filial do CNPJ 07.756.252 da Diocese de Serrinha: “PAROQUIA SENHORA SANT'ANA - TUCANO - BA”, situação ATIVA (endereço, CEP e telefone)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "07756252001328",
+   "communities": [
+    {
+     "name": "Paróquia Senhora Sant'Ana",
+     "address": "Praça Vigário Martins, s/n",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/07756252001328",
+       "title": "Receita Federal — filial do CNPJ 07.756.252 da Diocese de Serrinha: “PAROQUIA SENHORA SANT'ANA - TUCANO - BA”, situação ATIVA (endereço, CEP e telefone)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [],
+   "notes": null
+  },
+  {
+   "slug": "nossa-senhora-da-conceicao-riachao-do-jacuipe",
+   "name": "Paróquia Nossa Senhora da Conceição",
+   "city": "Riachão do Jacuípe",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça do Cel. Macolino, s/n",
+   "zipCode": "44640-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/07756252001409",
+     "title": "Receita Federal — filial do CNPJ 07.756.252 da Diocese de Serrinha: “PAROQUIA NOSSA SENHORA DA CONCEICAO - R DO JACUIPE - BA”, situação ATIVA (endereço, CEP e telefone)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "07756252001409",
+   "communities": [
+    {
+     "name": "Paróquia Nossa Senhora da Conceição",
+     "address": "Praça do Cel. Macolino, s/n",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/07756252001409",
+       "title": "Receita Federal — filial do CNPJ 07.756.252 da Diocese de Serrinha: “PAROQUIA NOSSA SENHORA DA CONCEICAO - R DO JACUIPE - BA”, situação ATIVA (endereço, CEP e telefone)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [],
+   "notes": "O telefone que a Receita registra para esta filial, (75) 3265-2069, é o mesmo da paróquia de Santaluz — não foi gravado."
+  },
+  {
+   "slug": "nossa-senhora-da-conceicao-gaviao",
+   "name": "Paróquia Nossa Senhora da Conceição",
+   "city": "Gavião",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Rua Humberto Campos, 8",
+   "zipCode": "44650-000",
+   "phone": "(75) 3234-1359",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/07756252001590",
+     "title": "Receita Federal — filial do CNPJ 07.756.252 da Diocese de Serrinha: “PAROQUIA NOSSA SENHORA DA CONCEICAO - GAVIAO -BA”, situação ATIVA (endereço, CEP e telefone)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "07756252001590",
+   "communities": [
+    {
+     "name": "Paróquia Nossa Senhora da Conceição",
+     "address": "Rua Humberto Campos, 8",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/07756252001590",
+       "title": "Receita Federal — filial do CNPJ 07.756.252 da Diocese de Serrinha: “PAROQUIA NOSSA SENHORA DA CONCEICAO - GAVIAO -BA”, situação ATIVA (endereço, CEP e telefone)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [],
+   "notes": null
+  },
+  {
+   "slug": "sao-joao-batista-quijingue",
+   "name": "Paróquia São João Batista",
+   "city": "Quijingue",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Rua da Casa Paroquial, s/n",
+   "zipCode": "48830-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/07756252001670",
+     "title": "Receita Federal — filial do CNPJ 07.756.252 da Diocese de Serrinha: “PAROQUIA SAO JOAO BATISTA - QUIJINGUE-BA”, situação ATIVA (endereço, CEP e telefone)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "07756252001670",
+   "communities": [
+    {
+     "name": "Paróquia São João Batista",
+     "address": "Rua da Casa Paroquial, s/n",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/07756252001670",
+       "title": "Receita Federal — filial do CNPJ 07.756.252 da Diocese de Serrinha: “PAROQUIA SAO JOAO BATISTA - QUIJINGUE-BA”, situação ATIVA (endereço, CEP e telefone)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [],
+   "notes": "O telefone que a Receita registra, (75) 3272-2161, é o mesmo da paróquia Senhora Sant'Ana de Tucano — não foi gravado."
+  },
+  {
+   "slug": "nossa-senhora-da-conceicao-euclides-da-cunha",
+   "name": "Paróquia Nossa Senhora da Conceição",
+   "city": "Euclides da Cunha",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça da Bandeira, s/n",
+   "zipCode": "48500-000",
+   "phone": "(75) 3271-1250",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/07756252001751",
+     "title": "Receita Federal — filial do CNPJ 07.756.252 da Diocese de Serrinha: “PAROQUIA NOSSA SENHORA DA CONCEICAO - E DA CUNHA - BA”, situação ATIVA (endereço, CEP e telefone)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+     "title": "Lírio Católico — ficha 1472 “Igreja Matriz Nossa Senhora da Conceição” (base estadual da Bahia; data 02/09/2026 (carga da base))",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "07756252001751",
+   "communities": [
+    {
+     "name": "Paróquia Nossa Senhora da Conceição",
+     "address": "Praça da Bandeira, s/n",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/07756252001751",
+       "title": "Receita Federal — filial do CNPJ 07.756.252 da Diocese de Serrinha: “PAROQUIA NOSSA SENHORA DA CONCEICAO - E DA CUNHA - BA”, situação ATIVA (endereço, CEP e telefone)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Paróquia Nossa Senhora da Conceição",
+     "dayOfWeek": 0,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 1472 “Igreja Matriz Nossa Senhora da Conceição” (base estadual da Bahia; data 02/09/2026 (carga da base))",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Paróquia Nossa Senhora da Conceição",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 1472 “Igreja Matriz Nossa Senhora da Conceição” (base estadual da Bahia; data 02/09/2026 (carga da base))",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Paróquia Nossa Senhora da Conceição",
+     "dayOfWeek": 6,
+     "time": "09:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 1472 “Igreja Matriz Nossa Senhora da Conceição” (base estadual da Bahia; data 02/09/2026 (carga da base))",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Paróquia Nossa Senhora da Conceição",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 1472 “Igreja Matriz Nossa Senhora da Conceição” (base estadual da Bahia; data 02/09/2026 (carga da base))",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ],
+   "notes": "A ficha do Lírio dá o nº 28 da Praça da Bandeira e outro telefone: (75) 3271-1552."
+  },
+  {
+   "slug": "santo-antonio-lamarao",
+   "name": "Paróquia Santo Antônio",
+   "city": "Lamarão",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça Rui Barbosa, 24",
+   "zipCode": "48720-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/07756252002057",
+     "title": "Receita Federal — filial do CNPJ 07.756.252 da Diocese de Serrinha: “PAROQUIA DE SANTO ANTONIO DE LAMARAO”, situação ATIVA (endereço, CEP e telefone)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "07756252002057",
+   "communities": [
+    {
+     "name": "Paróquia Santo Antônio",
+     "address": "Praça Rui Barbosa, 24",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/07756252002057",
+       "title": "Receita Federal — filial do CNPJ 07.756.252 da Diocese de Serrinha: “PAROQUIA DE SANTO ANTONIO DE LAMARAO”, situação ATIVA (endereço, CEP e telefone)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [],
+   "notes": "Filial aberta em 19/03/2009. O telefone da Receita é o da cúria — não foi gravado."
+  },
+  {
+   "slug": "santo-antonio-de-padua-retirolandia",
+   "name": "Paróquia Santo Antônio de Pádua",
+   "city": "Retirolândia",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça 27 de Julho, s/n",
+   "zipCode": "48750-000",
+   "phone": "(75) 3202-1261",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/07756252002138",
+     "title": "Receita Federal — filial do CNPJ 07.756.252 da Diocese de Serrinha: “PAROQUIA SANTO ANTONIO DE PADUA DE RETIROLANDIA”, situação ATIVA (endereço, CEP e telefone)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "07756252002138",
+   "communities": [
+    {
+     "name": "Paróquia Santo Antônio de Pádua",
+     "address": "Praça 27 de Julho, s/n",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/07756252002138",
+       "title": "Receita Federal — filial do CNPJ 07.756.252 da Diocese de Serrinha: “PAROQUIA SANTO ANTONIO DE PADUA DE RETIROLANDIA”, situação ATIVA (endereço, CEP e telefone)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [],
+   "notes": "Filial aberta em 31/03/2009."
+  },
+  {
+   "slug": "santo-antonio-capela-do-alto-alegre",
+   "name": "Paróquia Santo Antônio",
+   "city": "Capela do Alto Alegre",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Rua Joaquim Machado, 28",
+   "zipCode": "44645-000",
+   "phone": "(75) 3690-2483",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/07756252002219",
+     "title": "Receita Federal — filial do CNPJ 07.756.252 da Diocese de Serrinha: “PAROQUIA DE SANTO ANTONIO”, situação ATIVA (endereço, CEP e telefone)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "07756252002219",
+   "communities": [
+    {
+     "name": "Paróquia Santo Antônio",
+     "address": "Rua Joaquim Machado, 28",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/07756252002219",
+       "title": "Receita Federal — filial do CNPJ 07.756.252 da Diocese de Serrinha: “PAROQUIA DE SANTO ANTONIO”, situação ATIVA (endereço, CEP e telefone)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [],
+   "notes": "Filial aberta em 03/07/2016."
+  },
+  {
+   "slug": "sao-jose-operario-conceicao-do-coite",
+   "name": "Paróquia São José Operário",
+   "city": "Conceição do Coité",
+   "state": "BA",
+   "neighborhood": "Salgadália",
+   "address": "Rua da Conceição, 271",
+   "zipCode": "48730-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/07756252002480",
+     "title": "Receita Federal — filial do CNPJ 07.756.252 da Diocese de Serrinha: “PAROQUIA DE SAO JOSE OPERARIO”, situação ATIVA (endereço, CEP e telefone)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "07756252002480",
+   "communities": [
+    {
+     "name": "Paróquia São José Operário",
+     "address": "Rua da Conceição, 271",
+     "neighborhood": "Salgadália",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/07756252002480",
+       "title": "Receita Federal — filial do CNPJ 07.756.252 da Diocese de Serrinha: “PAROQUIA DE SAO JOSE OPERARIO”, situação ATIVA (endereço, CEP e telefone)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [],
+   "notes": "Sede no distrito de Salgadália, em Conceição do Coité. Filial aberta em 04/04/2017."
+  },
+  {
+   "slug": "bom-jesus-pe-de-serra",
+   "name": "Paróquia Bom Jesus",
+   "city": "Pé de Serra",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça da Matriz, 1",
+   "zipCode": "44655-000",
+   "phone": "(75) 98325-6477",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/07756252002561",
+     "title": "Receita Federal — filial do CNPJ 07.756.252 da Diocese de Serrinha: “PAROQUIA DO BOM JESUS - PE DE SERRA - BA”, situação ATIVA (endereço, CEP e telefone)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+     "title": "Lírio Católico — ficha 10104 “Igreja Bom Jesus de Pé de Serra” (base estadual da Bahia; data 02/09/2026 (carga da base))",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "07756252002561",
+   "communities": [
+    {
+     "name": "Paróquia Bom Jesus",
+     "address": "Praça da Matriz, 1",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/07756252002561",
+       "title": "Receita Federal — filial do CNPJ 07.756.252 da Diocese de Serrinha: “PAROQUIA DO BOM JESUS - PE DE SERRA - BA”, situação ATIVA (endereço, CEP e telefone)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Paróquia Bom Jesus",
+     "dayOfWeek": 0,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 10104 “Igreja Bom Jesus de Pé de Serra” (base estadual da Bahia; data 02/09/2026 (carga da base))",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ],
+   "notes": "Filial aberta em 22/08/2017. Telefone da ficha do Lírio."
+  },
+  {
+   "slug": "sao-roque-conceicao-do-coite",
+   "name": "Paróquia São Roque",
+   "city": "Conceição do Coité",
+   "state": "BA",
+   "neighborhood": "Jaqueira",
+   "address": "Rua Alice Lopes Carneiro, 430",
+   "zipCode": "48730-000",
+   "phone": "(75) 99219-7568",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/07756252002642",
+     "title": "Receita Federal — filial do CNPJ 07.756.252 da Diocese de Serrinha: “PAROQUIA DE SAO ROQUE”, situação ATIVA (endereço, CEP e telefone)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://www.instagram.com/paroquiasaoroque_/",
+     "title": "Instagram oficial @paroquiasaoroque_ — “Paróquia São Roque | Jaqueira - Conceição do Coité-BA / Diocese de Serrinha. Comunicação monitorada pela PASCOM” (posts até 13/09/2026)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+     "title": "Lírio Católico — ficha 9995 “Paróquia São Roque” (base estadual da Bahia; data 02/09/2026 (carga da base))",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "07756252002642",
+   "communities": [
+    {
+     "name": "Paróquia São Roque",
+     "address": "Rua Alice Lopes Carneiro, 430",
+     "neighborhood": "Jaqueira",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/07756252002642",
+       "title": "Receita Federal — filial do CNPJ 07.756.252 da Diocese de Serrinha: “PAROQUIA DE SAO ROQUE”, situação ATIVA (endereço, CEP e telefone)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Paróquia São Roque",
+     "dayOfWeek": 0,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 9995 “Paróquia São Roque” (base estadual da Bahia; data 02/09/2026 (carga da base))",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Paróquia São Roque",
+     "dayOfWeek": 0,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 9995 “Paróquia São Roque” (base estadual da Bahia; data 02/09/2026 (carga da base))",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Paróquia São Roque",
+     "dayOfWeek": 4,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 9995 “Paróquia São Roque” (base estadual da Bahia; data 02/09/2026 (carga da base))",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Paróquia São Roque",
+     "dayOfWeek": 4,
+     "time": "19:30",
+     "type": "ADORATION",
+     "notes": "Lírio Católico: adoração quinta 19:30–20:30.",
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 9995 “Paróquia São Roque” (base estadual da Bahia; data 02/09/2026 (carga da base))",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ],
+   "notes": "Filial aberta em 14/03/2019. A Receita registra o bairro como Pindorama; o Instagram oficial e a ficha do Lírio dizem JAQUEIRA (gravado). Telefone da ficha do Lírio.",
+   "instagram": "paroquiasaoroque_"
+  },
+  {
+   "slug": "nossa-senhora-das-gracas-tucano",
+   "name": "Paróquia Nossa Senhora das Graças",
+   "city": "Tucano",
+   "state": "BA",
+   "neighborhood": "Caldas do Jorro",
+   "address": "Rua Padre Sílvio Ribeiro, 240",
+   "zipCode": "48793-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/07756252002723",
+     "title": "Receita Federal — filial do CNPJ 07.756.252 da Diocese de Serrinha: “PAROQUIA DE NOSSA SENHORA DAS GRACAS”, situação ATIVA (endereço, CEP e telefone)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "07756252002723",
+   "communities": [
+    {
+     "name": "Paróquia Nossa Senhora das Graças",
+     "address": "Rua Padre Sílvio Ribeiro, 240",
+     "neighborhood": "Caldas do Jorro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/07756252002723",
+       "title": "Receita Federal — filial do CNPJ 07.756.252 da Diocese de Serrinha: “PAROQUIA DE NOSSA SENHORA DAS GRACAS”, situação ATIVA (endereço, CEP e telefone)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [],
+   "notes": "Sede no distrito de Caldas do Jorro, em Tucano. Filial aberta em 06/02/2020. O telefone da Receita é o da cúria — não foi gravado."
+  },
+  {
+   "slug": "sao-domingos-de-gusmao-sao-domingos",
+   "name": "Paróquia São Domingos de Gusmão",
+   "city": "São Domingos",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Rua Presidente Médici, 218",
+   "zipCode": "48895-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/07756252002804",
+     "title": "Receita Federal — filial do CNPJ 07.756.252 da Diocese de Serrinha: “PAROQUIA SAO DOMINGOS DE GUSMAO”, situação ATIVA (endereço, CEP e telefone)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "07756252002804",
+   "communities": [
+    {
+     "name": "Paróquia São Domingos de Gusmão",
+     "address": "Rua Presidente Médici, 218",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/07756252002804",
+       "title": "Receita Federal — filial do CNPJ 07.756.252 da Diocese de Serrinha: “PAROQUIA SAO DOMINGOS DE GUSMAO”, situação ATIVA (endereço, CEP e telefone)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [],
+   "notes": "A paróquia mais nova da diocese na Receita: filial aberta em 17/02/2023 — depois da contagem de 25 paróquias do catholic-hierarchy (2022)."
+  }
+ ],
+ "coverage": {
+  "parishesFound": 25,
+  "parishesExpected": 25,
+  "notes": "25 de 25. Sem site diocesano, a lista inteira saiu da varredura das filiais do CNPJ 07.756.252 em minhareceita.org (/0001 a /0040): 28 filiais existem, sendo a sede, 25 paróquias ATIVAS, o Seminário Maior Sagrada Família (/0018, em Feira de Santana) e a Cáritas Diocesana (/0019, BAIXADA) — nada de /0029 em diante. O total bate exatamente com as 25 paróquias que o catholic-hierarchy registra em 2022. A Wikipédia lembra que eram 16 na criação (2005) e 18 em 2010. A mais nova, São Domingos de Gusmão, teve a filial aberta em 17/02/2023, depois da contagem do catholic-hierarchy — se ela for posterior a 2022, o total de 2026 pode ser 26 e faltaria uma; nenhuma outra fonte permitiu checar."
+ }
+}

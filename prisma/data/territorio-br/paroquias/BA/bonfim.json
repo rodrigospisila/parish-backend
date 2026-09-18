@@ -1,0 +1,1897 @@
+{
+ "diocese": {
+  "name": "Diocese de Bonfim",
+  "type": "Diocese",
+  "slug": "bonfim",
+  "city": "Senhor do Bonfim",
+  "state": "BA",
+  "address": "Rua Cônego Hugo, 96, Centro",
+  "zipCode": "48970-000",
+  "phone": "(74) 98846-3215",
+  "email": "curia@diocesedebonfim.org.br",
+  "website": "https://diocesedebonfim.org.br",
+  "bishopName": "Dom Hernaldo Pinto Farias, S.S.S.",
+  "sources": [
+   {
+    "url": "https://diocesedebonfim.org.br/",
+    "title": "Diocese de Bonfim — site oficial (WordPress sobre a plataforma Cúria Online do Brasil); rodapé com endereço, telefone e e-mail da cúria",
+    "accessedAt": "2026-09-18"
+   },
+   {
+    "url": "https://diocesedebonfim.org.br/paroquias/",
+    "title": "Diocese de Bonfim — Paróquias (site oficial; 27 paróquias em 7 foranias)",
+    "accessedAt": "2026-09-18"
+   },
+   {
+    "url": "https://minhareceita.org/13833801000180",
+    "title": "Receita Federal — DIOCESE DE BONFIM, CNPJ 13.833.801/0001-80, e 29 filiais ATIVAS (/0002 a /0030)",
+    "accessedAt": "2026-09-18"
+   },
+   {
+    "url": "https://www.catholic-hierarchy.org/diocese/dbonf.html",
+    "title": "catholic-hierarchy.org — Bonfim (Diocese): 27 paróquias em 2022 e 2023",
+    "accessedAt": "2026-09-18"
+   },
+   {
+    "url": "https://gcatholic.org/dioceses/diocese/bonf0.htm",
+    "title": "gcatholic.org — Bonfim (Diocese): “27 parishes, 1 mission”; Catedral Senhor do Bonfim",
+    "accessedAt": "2026-09-18"
+   },
+   {
+    "url": "https://diocesedebonfim.org.br/clero/",
+    "title": "Diocese de Bonfim — Clero (31 presbíteros incardinados residentes, 2 não incardinados, religiosos e diáconos)",
+    "accessedAt": "2026-09-18"
+   }
+  ],
+  "confidence": "alta",
+  "notes": "Site oficial VIVO e atualizado (notícias de 2026). O telefone do rodapé, (74) 9 8846-3215, é celular/WhatsApp e difere do (74) 3541-3562 gravado em dioceses.json. 27 paróquias em 7 foranias. A Receita traz 30 filiais ativas: a sede, 27 unidades paroquiais, o Instituto Superior de Teologia e Pastoral de Bonfim (/0023) e o Seminário Diocesano Bom Pastor (/0028) — estes dois não são paróquias e ficaram fora do arquivo. A diocese NÃO publica horário de missa em nenhuma página, e as fichas de paróquia do CMS estão quase todas vazias (só 3 das 27 têm contato/pároco preenchidos)."
+ },
+ "parishes": [
+  {
+   "slug": "senhor-do-bonfim-senhor-do-bonfim",
+   "name": "Catedral Senhor do Bonfim",
+   "city": "Senhor do Bonfim",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça Austricliano de Carvalho, 130",
+   "zipCode": "48970-000",
+   "phone": "(74) 99987-0901",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Eduardo César Silva Oliveira",
+   "foundedYear": 1812,
+   "sources": [
+    {
+     "url": "https://diocesedebonfim.org.br/paroquias/",
+     "title": "Diocese de Bonfim — Paróquias (site oficial; 27 paróquias em 7 foranias)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedebonfim.org.br/paroquia?paroquiaid=1",
+     "title": "Diocese de Bonfim — ficha da Catedral Senhor do Bonfim (site oficial)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13833801000775",
+     "title": "Receita Federal — filial do CNPJ 13.833.801 da Diocese de Bonfim: “PAROQUIA DE SENHOR DO BONFIM”, situação ATIVA (minhareceita.org)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "forania": "Forania do Senhor do Bonfim (I)",
+   "cnpj": "13833801000775",
+   "communities": [
+    {
+     "name": "Catedral Senhor do Bonfim",
+     "address": "Praça Austricliano de Carvalho, 130",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedebonfim.org.br/paroquias/",
+       "title": "Diocese de Bonfim — Paróquias (site oficial; 27 paróquias em 7 foranias)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Catedral Senhor do Bonfim",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 1775 “Catedral Senhor do Bonfim” (base estadual da Bahia; a data 02/09/2026 é de carga da base, não de conferência)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Catedral Senhor do Bonfim",
+     "dayOfWeek": 0,
+     "time": "09:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 1775 “Catedral Senhor do Bonfim” (base estadual da Bahia; a data 02/09/2026 é de carga da base, não de conferência)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Catedral Senhor do Bonfim",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 1775 “Catedral Senhor do Bonfim” (base estadual da Bahia; a data 02/09/2026 é de carga da base, não de conferência)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ],
+   "notes": "Catedral da diocese (gcatholic: “Catedral Senhor do Bonfim”). O site diocesano a lista como “Paróquia do Senhor do Bonfim” e dá a fundação em 12/12/1812. A ficha oficial traz três padres e não identifica qual deles é o pároco; o primeiro foi gravado em priestName e os três em priestNames. Instagram oficial da PASCOM: @pascom_de_bonfim_ba.",
+   "priestNames": [
+    "Pe. Eduardo César Silva Oliveira",
+    "Pe. Leandro Batista Mendes",
+    "Pe. Luis Ângelo Plaza Lázaro"
+   ]
+  },
+  {
+   "slug": "santo-antonio-de-igara-senhor-do-bonfim",
+   "name": "Paróquia Santo Antônio de Igara",
+   "city": "Senhor do Bonfim",
+   "state": "BA",
+   "neighborhood": "Igara",
+   "address": "Rua Duque de Caxias, 76",
+   "zipCode": "48970-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedebonfim.org.br/paroquias/",
+     "title": "Diocese de Bonfim — Paróquias (site oficial; 27 paróquias em 7 foranias)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedebonfim.org.br/paroquia?paroquiaid=2",
+     "title": "Diocese de Bonfim — ficha da Paróquia Santo Antônio de Igara (site oficial)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13833801001585",
+     "title": "Receita Federal — filial do CNPJ 13.833.801 da Diocese de Bonfim: “PAROQUIA SANTO ANTONIO DE IGARA”, situação ATIVA (minhareceita.org)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "forania": "Forania do Senhor do Bonfim (I)",
+   "cnpj": "13833801001585",
+   "communities": [
+    {
+     "name": "Paróquia Santo Antônio de Igara",
+     "address": "Rua Duque de Caxias, 76",
+     "neighborhood": "Igara",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedebonfim.org.br/paroquias/",
+       "title": "Diocese de Bonfim — Paróquias (site oficial; 27 paróquias em 7 foranias)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [],
+   "notes": null
+  },
+  {
+   "slug": "sao-jose-esposo-senhor-do-bonfim",
+   "name": "Paróquia São José Esposo",
+   "city": "Senhor do Bonfim",
+   "state": "BA",
+   "neighborhood": "Casas Populares",
+   "address": "Quadra A, Caminho F, s/n",
+   "zipCode": "48970-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedebonfim.org.br/paroquias/",
+     "title": "Diocese de Bonfim — Paróquias (site oficial; 27 paróquias em 7 foranias)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedebonfim.org.br/paroquia?paroquiaid=3",
+     "title": "Diocese de Bonfim — ficha da Paróquia São José Esposo (site oficial)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13833801001747",
+     "title": "Receita Federal — filial do CNPJ 13.833.801 da Diocese de Bonfim: “PAROQUIA SAO JOSE ESPOSO”, situação ATIVA (minhareceita.org)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "forania": "Forania do Senhor do Bonfim (I)",
+   "cnpj": "13833801001747",
+   "communities": [
+    {
+     "name": "Paróquia São José Esposo",
+     "address": "Quadra A, Caminho F, s/n",
+     "neighborhood": "Casas Populares",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedebonfim.org.br/paroquias/",
+       "title": "Diocese de Bonfim — Paróquias (site oficial; 27 paróquias em 7 foranias)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [],
+   "notes": null
+  },
+  {
+   "slug": "nossa-senhora-do-perpetuo-socorro-andorinha",
+   "name": "Paróquia Nossa Senhora do Perpétuo Socorro",
+   "city": "Andorinha",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça João Alves, s/n",
+   "zipCode": "48990-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedebonfim.org.br/paroquias/",
+     "title": "Diocese de Bonfim — Paróquias (site oficial; 27 paróquias em 7 foranias)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedebonfim.org.br/paroquia?paroquiaid=4",
+     "title": "Diocese de Bonfim — ficha da Paróquia Nossa Senhora do Perpétuo Socorro (site oficial)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13833801002719",
+     "title": "Receita Federal — filial do CNPJ 13.833.801 da Diocese de Bonfim: “PAROQUIA DE NOSSA SENHORA DO PERPETUO SOCORRO”, situação ATIVA (minhareceita.org)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "forania": "Forania do Senhor do Bonfim (I)",
+   "cnpj": "13833801002719",
+   "communities": [
+    {
+     "name": "Paróquia Nossa Senhora do Perpétuo Socorro",
+     "address": "Praça João Alves, s/n",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedebonfim.org.br/paroquias/",
+       "title": "Diocese de Bonfim — Paróquias (site oficial; 27 paróquias em 7 foranias)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [],
+   "notes": null
+  },
+  {
+   "slug": "sao-joao-batista-jaguarari",
+   "name": "Paróquia São João Batista",
+   "city": "Jaguarari",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Rua Dr. José Gonçalves, 250",
+   "zipCode": "48960-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedebonfim.org.br/paroquias/",
+     "title": "Diocese de Bonfim — Paróquias (site oficial; 27 paróquias em 7 foranias)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedebonfim.org.br/paroquia?paroquiaid=5",
+     "title": "Diocese de Bonfim — ficha da Paróquia São João Batista (site oficial)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13833801000503",
+     "title": "Receita Federal — filial do CNPJ 13.833.801 da Diocese de Bonfim: “PAROQUIA SAO JOAO BATISTA”, situação ATIVA (minhareceita.org)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "forania": "Forania do Senhor do Bonfim (I)",
+   "cnpj": "13833801000503",
+   "communities": [
+    {
+     "name": "Paróquia São João Batista",
+     "address": "Rua Dr. José Gonçalves, 250",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedebonfim.org.br/paroquias/",
+       "title": "Diocese de Bonfim — Paróquias (site oficial; 27 paróquias em 7 foranias)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [],
+   "notes": null
+  },
+  {
+   "slug": "nossa-senhora-do-pilar-jaguarari",
+   "name": "Paróquia Nossa Senhora do Pilar",
+   "city": "Jaguarari",
+   "state": "BA",
+   "neighborhood": "Pilar",
+   "address": "Rua da Baraúna, 45",
+   "zipCode": "48960-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedebonfim.org.br/paroquias/",
+     "title": "Diocese de Bonfim — Paróquias (site oficial; 27 paróquias em 7 foranias)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedebonfim.org.br/paroquia?paroquiaid=6",
+     "title": "Diocese de Bonfim — ficha da Paróquia Nossa Senhora do Pilar (site oficial)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13833801002980",
+     "title": "Receita Federal — filial do CNPJ 13.833.801 da Diocese de Bonfim: “QUASE PAROQUIA DE NOSSA SENHORA DO PILAR”, situação ATIVA (minhareceita.org)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "forania": "Forania do Senhor do Bonfim (I)",
+   "cnpj": "13833801002980",
+   "communities": [
+    {
+     "name": "Paróquia Nossa Senhora do Pilar",
+     "address": "Rua da Baraúna, 45",
+     "neighborhood": "Pilar",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedebonfim.org.br/paroquias/",
+       "title": "Diocese de Bonfim — Paróquias (site oficial; 27 paróquias em 7 foranias)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [],
+   "notes": "O site diocesano de 2026 a lista como “Paróquia de Nossa Senhor do Pilar (Jaguarari)”, mas o nome fantasia na Receita (filial aberta em 11/04/2016) é “QUASE PAROQUIA DE NOSSA SENHORA DO PILAR” e o gcatholic conta “27 parishes, 1 mission” — a missão é provavelmente esta. Status canônico precisa de validação humana."
+  },
+  {
+   "slug": "senhora-santana-cansancao",
+   "name": "Paróquia Senhora Santana",
+   "city": "Cansanção",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça Senhora Santana, 108",
+   "zipCode": "48840-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedebonfim.org.br/paroquias/",
+     "title": "Diocese de Bonfim — Paróquias (site oficial; 27 paróquias em 7 foranias)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedebonfim.org.br/paroquia?paroquiaid=7",
+     "title": "Diocese de Bonfim — ficha da Paróquia Senhora Santana (site oficial)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13833801000856",
+     "title": "Receita Federal — filial do CNPJ 13.833.801 da Diocese de Bonfim: “PAROQUIA SENHORA SANTANA”, situação ATIVA (minhareceita.org)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "forania": "Forania de Senhora Santana (II)",
+   "cnpj": "13833801000856",
+   "communities": [
+    {
+     "name": "Paróquia Senhora Santana",
+     "address": "Praça Senhora Santana, 108",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedebonfim.org.br/paroquias/",
+       "title": "Diocese de Bonfim — Paróquias (site oficial; 27 paróquias em 7 foranias)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [],
+   "notes": null
+  },
+  {
+   "slug": "santo-antonio-queimadas",
+   "name": "Paróquia Santo Antônio",
+   "city": "Queimadas",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça da Matriz, s/n",
+   "zipCode": "48860-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedebonfim.org.br/paroquias/",
+     "title": "Diocese de Bonfim — Paróquias (site oficial; 27 paróquias em 7 foranias)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedebonfim.org.br/paroquia?paroquiaid=8",
+     "title": "Diocese de Bonfim — ficha da Paróquia Santo Antônio (site oficial)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13833801001232",
+     "title": "Receita Federal — filial do CNPJ 13.833.801 da Diocese de Bonfim: “PAROQUIA DE QUEIMADAS”, situação ATIVA (minhareceita.org)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "forania": "Forania de Senhora Santana (II)",
+   "cnpj": "13833801001232",
+   "communities": [
+    {
+     "name": "Paróquia Santo Antônio",
+     "address": "Praça da Matriz, s/n",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedebonfim.org.br/paroquias/",
+       "title": "Diocese de Bonfim — Paróquias (site oficial; 27 paróquias em 7 foranias)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [],
+   "notes": "O site diocesano escreve “Paróquia de Santo Antônio das Queimadas”; “Queimadas” é o município e foi para o campo city."
+  },
+  {
+   "slug": "sagrado-coracao-de-jesus-monte-santo",
+   "name": "Paróquia Sagrado Coração de Jesus",
+   "city": "Monte Santo",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça Monsenhor Berenguer, 195",
+   "zipCode": "48800-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedebonfim.org.br/paroquias/",
+     "title": "Diocese de Bonfim — Paróquias (site oficial; 27 paróquias em 7 foranias)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedebonfim.org.br/paroquia?paroquiaid=9",
+     "title": "Diocese de Bonfim — ficha da Paróquia Sagrado Coração de Jesus (site oficial)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13833801001313",
+     "title": "Receita Federal — filial do CNPJ 13.833.801 da Diocese de Bonfim: “PAROQUIA SAGRADO CORACAO DE JESUS - MONTE SANTO”, situação ATIVA (minhareceita.org)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "forania": "Forania de Senhora Santana (II)",
+   "cnpj": "13833801001313",
+   "communities": [
+    {
+     "name": "Paróquia Sagrado Coração de Jesus",
+     "address": "Praça Monsenhor Berenguer, 195",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedebonfim.org.br/paroquias/",
+       "title": "Diocese de Bonfim — Paróquias (site oficial; 27 paróquias em 7 foranias)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Paróquia Sagrado Coração de Jesus",
+     "dayOfWeek": 2,
+     "time": "06:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 10084 “Igreja do Sagrada Coração de Jesus” (base estadual da Bahia; a data 02/09/2026 é de carga da base, não de conferência)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Paróquia Sagrado Coração de Jesus",
+     "dayOfWeek": 3,
+     "time": "06:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 10084 “Igreja do Sagrada Coração de Jesus” (base estadual da Bahia; a data 02/09/2026 é de carga da base, não de conferência)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Paróquia Sagrado Coração de Jesus",
+     "dayOfWeek": 0,
+     "time": "08:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 10084 “Igreja do Sagrada Coração de Jesus” (base estadual da Bahia; a data 02/09/2026 é de carga da base, não de conferência)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Paróquia Sagrado Coração de Jesus",
+     "dayOfWeek": 0,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 10084 “Igreja do Sagrada Coração de Jesus” (base estadual da Bahia; a data 02/09/2026 é de carga da base, não de conferência)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Paróquia Sagrado Coração de Jesus",
+     "dayOfWeek": 4,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 10084 “Igreja do Sagrada Coração de Jesus” (base estadual da Bahia; a data 02/09/2026 é de carga da base, não de conferência)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Paróquia Sagrado Coração de Jesus",
+     "dayOfWeek": 4,
+     "time": "18:30",
+     "type": "CONFESSION",
+     "notes": "Lírio Católico: confissões na quinta, 18:30–19:00.",
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 10084 “Igreja do Sagrada Coração de Jesus” (base estadual da Bahia; a data 02/09/2026 é de carga da base, não de conferência)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Paróquia Sagrado Coração de Jesus",
+     "dayOfWeek": 4,
+     "time": "18:30",
+     "type": "ADORATION",
+     "notes": "Lírio Católico: adoração na quinta, 18:30–19:30.",
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 10084 “Igreja do Sagrada Coração de Jesus” (base estadual da Bahia; a data 02/09/2026 é de carga da base, não de conferência)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ],
+   "notes": null
+  },
+  {
+   "slug": "sao-joao-batista-nordestina",
+   "name": "Paróquia São João Batista",
+   "city": "Nordestina",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Rua do Cajueiro, 151",
+   "zipCode": "48870-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedebonfim.org.br/paroquias/",
+     "title": "Diocese de Bonfim — Paróquias (site oficial; 27 paróquias em 7 foranias)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedebonfim.org.br/paroquia?paroquiaid=10",
+     "title": "Diocese de Bonfim — ficha da Paróquia São João Batista (site oficial)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13833801002204",
+     "title": "Receita Federal — filial do CNPJ 13.833.801 da Diocese de Bonfim: “PAROQUIA DE SAO JOAO BATISTA DE NORDESTINA”, situação ATIVA (minhareceita.org)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "forania": "Forania de Senhora Santana (II)",
+   "cnpj": "13833801002204",
+   "communities": [
+    {
+     "name": "Paróquia São João Batista",
+     "address": "Rua do Cajueiro, 151",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedebonfim.org.br/paroquias/",
+       "title": "Diocese de Bonfim — Paróquias (site oficial; 27 paróquias em 7 foranias)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [],
+   "notes": null
+  },
+  {
+   "slug": "sao-sebastiao-filadelfia",
+   "name": "Paróquia São Sebastião",
+   "city": "Filadélfia",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Rua ACM, 621",
+   "zipCode": "44775-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedebonfim.org.br/paroquias/",
+     "title": "Diocese de Bonfim — Paróquias (site oficial; 27 paróquias em 7 foranias)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13833801002123",
+     "title": "Receita Federal — filial do CNPJ 13.833.801 da Diocese de Bonfim: “PAROQUIA DE SAO SEBASTIAO DE FILADELFIA”, situação ATIVA (minhareceita.org)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "forania": "Forania de São Sebastião (III)",
+   "cnpj": "13833801002123",
+   "communities": [
+    {
+     "name": "Paróquia São Sebastião",
+     "address": "Rua ACM, 621",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedebonfim.org.br/paroquias/",
+       "title": "Diocese de Bonfim — Paróquias (site oficial; 27 paróquias em 7 foranias)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [],
+   "notes": "A ficha /paroquia?paroquiaid=11 do site volta vazia (falha do CMS); o nome veio do índice de paróquias e o endereço, da filial da Receita."
+  },
+  {
+   "slug": "nossa-senhora-da-conceicao-itiuba",
+   "name": "Paróquia Nossa Senhora da Conceição",
+   "city": "Itiúba",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Rua Cel. Manso Sampaio, s/n",
+   "zipCode": "48850-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedebonfim.org.br/paroquias/",
+     "title": "Diocese de Bonfim — Paróquias (site oficial; 27 paróquias em 7 foranias)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedebonfim.org.br/paroquia?paroquiaid=12",
+     "title": "Diocese de Bonfim — ficha da Paróquia Nossa Senhora da Conceição (site oficial)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13833801001151",
+     "title": "Receita Federal — filial do CNPJ 13.833.801 da Diocese de Bonfim: “PAROQUIA DE ITIUBA”, situação ATIVA (minhareceita.org)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "forania": "Forania de São Sebastião (III)",
+   "cnpj": "13833801001151",
+   "communities": [
+    {
+     "name": "Paróquia Nossa Senhora da Conceição",
+     "address": "Rua Cel. Manso Sampaio, s/n",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedebonfim.org.br/paroquias/",
+       "title": "Diocese de Bonfim — Paróquias (site oficial; 27 paróquias em 7 foranias)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [],
+   "notes": null
+  },
+  {
+   "slug": "nossa-senhora-de-fatima-ponto-novo",
+   "name": "Paróquia Nossa Senhora de Fátima",
+   "city": "Ponto Novo",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça do Comércio, s/n",
+   "zipCode": "44755-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedebonfim.org.br/paroquias/",
+     "title": "Diocese de Bonfim — Paróquias (site oficial; 27 paróquias em 7 foranias)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedebonfim.org.br/paroquia?paroquiaid=13",
+     "title": "Diocese de Bonfim — ficha da Paróquia Nossa Senhora de Fátima (site oficial)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13833801002476",
+     "title": "Receita Federal — filial do CNPJ 13.833.801 da Diocese de Bonfim: “PAROQUIA NOSSA SENHORA DE FATIMA DE PONTO NOVO”, situação ATIVA (minhareceita.org)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "forania": "Forania de São Sebastião (III)",
+   "cnpj": "13833801002476",
+   "communities": [
+    {
+     "name": "Paróquia Nossa Senhora de Fátima",
+     "address": "Praça do Comércio, s/n",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedebonfim.org.br/paroquias/",
+       "title": "Diocese de Bonfim — Paróquias (site oficial; 27 paróquias em 7 foranias)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [],
+   "notes": null
+  },
+  {
+   "slug": "nossa-senhora-do-perpetuo-socorro-quixabeira",
+   "name": "Paróquia Nossa Senhora do Perpétuo Socorro",
+   "city": "Quixabeira",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça Sebastião Rodrigues, s/n",
+   "zipCode": "44713-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedebonfim.org.br/paroquias/",
+     "title": "Diocese de Bonfim — Paróquias (site oficial; 27 paróquias em 7 foranias)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedebonfim.org.br/paroquia?paroquiaid=14",
+     "title": "Diocese de Bonfim — ficha da Paróquia Nossa Senhora do Perpétuo Socorro (site oficial)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13833801003014",
+     "title": "Receita Federal — filial do CNPJ 13.833.801 da Diocese de Bonfim: “PAROQUIA DE N. S. DO PERPETUO SOCORRO - QUIXABEIRA”, situação ATIVA (minhareceita.org)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "forania": "Forania de Nossa Senhora do Perpétuo Socorro (IV)",
+   "cnpj": "13833801003014",
+   "communities": [
+    {
+     "name": "Paróquia Nossa Senhora do Perpétuo Socorro",
+     "address": "Praça Sebastião Rodrigues, s/n",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedebonfim.org.br/paroquias/",
+       "title": "Diocese de Bonfim — Paróquias (site oficial; 27 paróquias em 7 foranias)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [],
+   "notes": null
+  },
+  {
+   "slug": "sao-roque-serrolandia",
+   "name": "Paróquia São Roque",
+   "city": "Serrolândia",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Rua Pe. Alfredo Haasler, 30",
+   "zipCode": "44710-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedebonfim.org.br/paroquias/",
+     "title": "Diocese de Bonfim — Paróquias (site oficial; 27 paróquias em 7 foranias)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedebonfim.org.br/paroquia?paroquiaid=15",
+     "title": "Diocese de Bonfim — ficha da Paróquia São Roque (site oficial)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13833801001402",
+     "title": "Receita Federal — filial do CNPJ 13.833.801 da Diocese de Bonfim: “PAROQUIA DE SERROLANDIA”, situação ATIVA (minhareceita.org)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "forania": "Forania de Nossa Senhora do Perpétuo Socorro (IV)",
+   "cnpj": "13833801001402",
+   "communities": [
+    {
+     "name": "Paróquia São Roque",
+     "address": "Rua Pe. Alfredo Haasler, 30",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedebonfim.org.br/paroquias/",
+       "title": "Diocese de Bonfim — Paróquias (site oficial; 27 paróquias em 7 foranias)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [],
+   "notes": null
+  },
+  {
+   "slug": "sao-cristovao-capim-grosso",
+   "name": "Paróquia São Cristóvão",
+   "city": "Capim Grosso",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça Oliveira, 48",
+   "zipCode": null,
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedebonfim.org.br/paroquias/",
+     "title": "Diocese de Bonfim — Paróquias (site oficial; 27 paróquias em 7 foranias)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedebonfim.org.br/paroquia?paroquiaid=16",
+     "title": "Diocese de Bonfim — ficha da Paróquia São Cristóvão (site oficial)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13833801000260",
+     "title": "Receita Federal — filial do CNPJ 13.833.801 da Diocese de Bonfim: “PAROQUIA DE CAPIM GROSSO”, situação ATIVA (minhareceita.org)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "forania": "Forania de Nossa Senhora do Perpétuo Socorro (IV)",
+   "cnpj": "13833801000260",
+   "communities": [
+    {
+     "name": "Paróquia São Cristóvão",
+     "address": "Praça Oliveira, 48",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedebonfim.org.br/paroquias/",
+       "title": "Diocese de Bonfim — Paróquias (site oficial; 27 paróquias em 7 foranias)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Comunidade Nossa Senhora das Graças",
+     "address": "Rua Jacobina, 230",
+     "neighborhood": "Jardim Araújo",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 9993 “Comunidade Nossa Senhora das Graças” (base estadual da Bahia; a data 02/09/2026 é de carga da base, não de conferência)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ],
+   "schedules": [],
+   "notes": "Sede em Capim Grosso; o site diocesano dá o território como “Capim Grosso e São José do Jacuípe”. A Receita ainda registra a filial no município de JACOBINA com bairro CAPIM GROSSO porque a inscrição é de 1976, anterior à emancipação de Capim Grosso (1985); pelo mesmo motivo o CEP 44700-000 (de Jacobina) não foi gravado."
+  },
+  {
+   "slug": "sao-jose-operario-jacobina",
+   "name": "Paróquia São José Operário",
+   "city": "Jacobina",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Avenida Orlando Oliveira Pires, 108",
+   "zipCode": "44700-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedebonfim.org.br/paroquias/",
+     "title": "Diocese de Bonfim — Paróquias (site oficial; 27 paróquias em 7 foranias)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedebonfim.org.br/paroquia?paroquiaid=17",
+     "title": "Diocese de Bonfim — ficha da Paróquia São José Operário (site oficial)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13833801001666",
+     "title": "Receita Federal — filial do CNPJ 13.833.801 da Diocese de Bonfim: “PAROQUIA SAO JOSE OPERARIO”, situação ATIVA (minhareceita.org)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "forania": "Forania de São José Operário (V)",
+   "cnpj": "13833801001666",
+   "communities": [
+    {
+     "name": "Paróquia São José Operário",
+     "address": "Avenida Orlando Oliveira Pires, 108",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedebonfim.org.br/paroquias/",
+       "title": "Diocese de Bonfim — Paróquias (site oficial; 27 paróquias em 7 foranias)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Paróquia São José Operário",
+     "dayOfWeek": 0,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 1606 “Paróquia São José Operário” (base estadual da Bahia; a data 02/09/2026 é de carga da base, não de conferência)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Paróquia São José Operário",
+     "dayOfWeek": 0,
+     "time": "10:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 1606 “Paróquia São José Operário” (base estadual da Bahia; a data 02/09/2026 é de carga da base, não de conferência)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Paróquia São José Operário",
+     "dayOfWeek": 0,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 1606 “Paróquia São José Operário” (base estadual da Bahia; a data 02/09/2026 é de carga da base, não de conferência)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Paróquia São José Operário",
+     "dayOfWeek": 6,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 1606 “Paróquia São José Operário” (base estadual da Bahia; a data 02/09/2026 é de carga da base, não de conferência)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Paróquia São José Operário",
+     "dayOfWeek": 2,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 1606 “Paróquia São José Operário” (base estadual da Bahia; a data 02/09/2026 é de carga da base, não de conferência)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Paróquia São José Operário",
+     "dayOfWeek": 3,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 1606 “Paróquia São José Operário” (base estadual da Bahia; a data 02/09/2026 é de carga da base, não de conferência)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Paróquia São José Operário",
+     "dayOfWeek": 4,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 1606 “Paróquia São José Operário” (base estadual da Bahia; a data 02/09/2026 é de carga da base, não de conferência)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Paróquia São José Operário",
+     "dayOfWeek": 5,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 1606 “Paróquia São José Operário” (base estadual da Bahia; a data 02/09/2026 é de carga da base, não de conferência)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ],
+   "notes": null
+  },
+  {
+   "slug": "santo-antonio-jacobina",
+   "name": "Paróquia Santo Antônio",
+   "city": "Jacobina",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça Castro Alves, s/n",
+   "zipCode": "44700-000",
+   "phone": "(74) 99195-2867",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedebonfim.org.br/paroquias/",
+     "title": "Diocese de Bonfim — Paróquias (site oficial; 27 paróquias em 7 foranias)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedebonfim.org.br/paroquia?paroquiaid=18",
+     "title": "Diocese de Bonfim — ficha da Paróquia Santo Antônio (site oficial)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13833801000937",
+     "title": "Receita Federal — filial do CNPJ 13.833.801 da Diocese de Bonfim: “PAROQUIA DE JACOBINA”, situação ATIVA (minhareceita.org)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "forania": "Forania de São José Operário (V)",
+   "cnpj": "13833801000937",
+   "communities": [
+    {
+     "name": "Paróquia Santo Antônio",
+     "address": "Praça Castro Alves, s/n",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedebonfim.org.br/paroquias/",
+       "title": "Diocese de Bonfim — Paróquias (site oficial; 27 paróquias em 7 foranias)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Igreja Nossa Senhora da Conceição",
+     "address": "Praça Senador Filinto Müller, Centro",
+     "neighborhood": "Centro",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 10049 “Igreja Nossa Senhora da Conceição” (base estadual da Bahia; a data 02/09/2026 é de carga da base, não de conferência)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "name": "Igreja da Missão",
+     "address": "Praça da Missão, s/n",
+     "neighborhood": "Centro",
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 10048 “Igreja da Missão” (base estadual da Bahia; a data 02/09/2026 é de carga da base, não de conferência)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Paróquia Santo Antônio",
+     "dayOfWeek": 0,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 10050 “Igreja Matriz Santo Antônio de Jacobina” (base estadual da Bahia; a data 02/09/2026 é de carga da base, não de conferência)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Paróquia Santo Antônio",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 10050 “Igreja Matriz Santo Antônio de Jacobina” (base estadual da Bahia; a data 02/09/2026 é de carga da base, não de conferência)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Paróquia Santo Antônio",
+     "dayOfWeek": 6,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 10050 “Igreja Matriz Santo Antônio de Jacobina” (base estadual da Bahia; a data 02/09/2026 é de carga da base, não de conferência)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Paróquia Santo Antônio",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 10050 “Igreja Matriz Santo Antônio de Jacobina” (base estadual da Bahia; a data 02/09/2026 é de carga da base, não de conferência)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Igreja Nossa Senhora da Conceição",
+     "dayOfWeek": 6,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": "Vínculo paroquial inferido pela localização no centro de Jacobina — precisa de validação humana.",
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 10049 “Igreja Nossa Senhora da Conceição” (base estadual da Bahia; a data 02/09/2026 é de carga da base, não de conferência)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Igreja da Missão",
+     "dayOfWeek": 3,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "Vínculo paroquial inferido pela localização no centro de Jacobina — precisa de validação humana.",
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 10048 “Igreja da Missão” (base estadual da Bahia; a data 02/09/2026 é de carga da base, não de conferência)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ],
+   "notes": null
+  },
+  {
+   "slug": "sao-goncalo-do-amarante-caem",
+   "name": "Paróquia São Gonçalo do Amarante",
+   "city": "Caém",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Rua Castro Alves, 138",
+   "zipCode": "44730-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedebonfim.org.br/paroquias/",
+     "title": "Diocese de Bonfim — Paróquias (site oficial; 27 paróquias em 7 foranias)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedebonfim.org.br/paroquia?paroquiaid=19",
+     "title": "Diocese de Bonfim — ficha da Paróquia São Gonçalo do Amarante (site oficial)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13833801002042",
+     "title": "Receita Federal — filial do CNPJ 13.833.801 da Diocese de Bonfim: “PAROQUIA DE SAO GONCALO DE AMARANTE”, situação ATIVA (minhareceita.org)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "forania": "Forania de São José Operário (V)",
+   "cnpj": "13833801002042",
+   "communities": [
+    {
+     "name": "Paróquia São Gonçalo do Amarante",
+     "address": "Rua Castro Alves, 138",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedebonfim.org.br/paroquias/",
+       "title": "Diocese de Bonfim — Paróquias (site oficial; 27 paróquias em 7 foranias)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [],
+   "notes": null
+  },
+  {
+   "slug": "sao-joao-batista-mirangaba",
+   "name": "Paróquia São João Batista",
+   "city": "Mirangaba",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Avenida São João Batista, s/n",
+   "zipCode": "44745-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedebonfim.org.br/paroquias/",
+     "title": "Diocese de Bonfim — Paróquias (site oficial; 27 paróquias em 7 foranias)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedebonfim.org.br/paroquia?paroquiaid=20",
+     "title": "Diocese de Bonfim — ficha da Paróquia São João Batista (site oficial)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13833801001828",
+     "title": "Receita Federal — filial do CNPJ 13.833.801 da Diocese de Bonfim: “PARQUIA SAO JOAO BATISTA”, situação ATIVA (minhareceita.org)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "forania": "Forania de São José Operário (V)",
+   "cnpj": "13833801001828",
+   "communities": [
+    {
+     "name": "Paróquia São João Batista",
+     "address": "Avenida São João Batista, s/n",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedebonfim.org.br/paroquias/",
+       "title": "Diocese de Bonfim — Paróquias (site oficial; 27 paróquias em 7 foranias)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [],
+   "notes": null
+  },
+  {
+   "slug": "nossa-senhora-da-saude-saude",
+   "name": "Paróquia Nossa Senhora da Saúde",
+   "city": "Saúde",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça Rui Barbosa, 51",
+   "zipCode": "44740-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedebonfim.org.br/paroquias/",
+     "title": "Diocese de Bonfim — Paróquias (site oficial; 27 paróquias em 7 foranias)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedebonfim.org.br/paroquia?paroquiaid=21",
+     "title": "Diocese de Bonfim — ficha da Paróquia Nossa Senhora da Saúde (site oficial)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13833801000341",
+     "title": "Receita Federal — filial do CNPJ 13.833.801 da Diocese de Bonfim: “PAROQUIA NOSSA SENHORA DA SAUDE”, situação ATIVA (minhareceita.org)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "forania": "Forania de São José Operário (V)",
+   "cnpj": "13833801000341",
+   "communities": [
+    {
+     "name": "Paróquia Nossa Senhora da Saúde",
+     "address": "Praça Rui Barbosa, 51",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedebonfim.org.br/paroquias/",
+       "title": "Diocese de Bonfim — Paróquias (site oficial; 27 paróquias em 7 foranias)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [],
+   "notes": "O site diocesano dá o território como “Saúde e Caldeirão Grande”; a sede, pelo endereço e pela Receita, é em Saúde."
+  },
+  {
+   "slug": "santa-cruz-varzea-nova",
+   "name": "Paróquia Santa Cruz",
+   "city": "Várzea Nova",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça Otacílio Alcântara, s/n",
+   "zipCode": "44690-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedebonfim.org.br/paroquias/",
+     "title": "Diocese de Bonfim — Paróquias (site oficial; 27 paróquias em 7 foranias)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedebonfim.org.br/paroquia?paroquiaid=22",
+     "title": "Diocese de Bonfim — ficha da Paróquia Santa Cruz (site oficial)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13833801001909",
+     "title": "Receita Federal — filial do CNPJ 13.833.801 da Diocese de Bonfim: “PAROQUIA DA SANTA CRUZ”, situação ATIVA (minhareceita.org)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "forania": "Forania da Santa Cruz (VI)",
+   "cnpj": "13833801001909",
+   "communities": [
+    {
+     "name": "Paróquia Santa Cruz",
+     "address": "Praça Otacílio Alcântara, s/n",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedebonfim.org.br/paroquias/",
+       "title": "Diocese de Bonfim — Paróquias (site oficial; 27 paróquias em 7 foranias)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [],
+   "notes": null
+  },
+  {
+   "slug": "nossa-senhora-do-carmo-ourolandia",
+   "name": "Paróquia Nossa Senhora do Carmo",
+   "city": "Ourolândia",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça Nossa Senhora do Carmo, 11",
+   "zipCode": "44718-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedebonfim.org.br/paroquias/",
+     "title": "Diocese de Bonfim — Paróquias (site oficial; 27 paróquias em 7 foranias)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedebonfim.org.br/paroquia?paroquiaid=23",
+     "title": "Diocese de Bonfim — ficha da Paróquia Nossa Senhora do Carmo (site oficial)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13833801002557",
+     "title": "Receita Federal — filial do CNPJ 13.833.801 da Diocese de Bonfim: “PAROQUIA DE NOSSA DO CARMO”, situação ATIVA (minhareceita.org)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "forania": "Forania da Santa Cruz (VI)",
+   "cnpj": "13833801002557",
+   "communities": [
+    {
+     "name": "Paróquia Nossa Senhora do Carmo",
+     "address": "Praça Nossa Senhora do Carmo, 11",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedebonfim.org.br/paroquias/",
+       "title": "Diocese de Bonfim — Paróquias (site oficial; 27 paróquias em 7 foranias)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [],
+   "notes": null
+  },
+  {
+   "slug": "nossa-senhora-do-perpetuo-socorro-umburanas",
+   "name": "Paróquia Nossa Senhora do Perpétuo Socorro",
+   "city": "Umburanas",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça Geovando Lopes, 246",
+   "zipCode": "44798-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedebonfim.org.br/paroquias/",
+     "title": "Diocese de Bonfim — Paróquias (site oficial; 27 paróquias em 7 foranias)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedebonfim.org.br/paroquia?paroquiaid=24",
+     "title": "Diocese de Bonfim — ficha da Paróquia Nossa Senhora do Perpétuo Socorro (site oficial)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13833801002638",
+     "title": "Receita Federal — filial do CNPJ 13.833.801 da Diocese de Bonfim: “PAROQUIA DE NOSSA SENHORA DO PERPETUO SOCORRO”, situação ATIVA (minhareceita.org)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "forania": "Forania da Santa Cruz (VI)",
+   "cnpj": "13833801002638",
+   "communities": [
+    {
+     "name": "Paróquia Nossa Senhora do Perpétuo Socorro",
+     "address": "Praça Geovando Lopes, 246",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedebonfim.org.br/paroquias/",
+       "title": "Diocese de Bonfim — Paróquias (site oficial; 27 paróquias em 7 foranias)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Paróquia Nossa Senhora do Perpétuo Socorro",
+     "dayOfWeek": 0,
+     "time": "09:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 1843 “Nossa Senhora do Perpétuo Socorro” (base estadual da Bahia; a data 02/09/2026 é de carga da base, não de conferência)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Paróquia Nossa Senhora do Perpétuo Socorro",
+     "dayOfWeek": 0,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — ficha 1843 “Nossa Senhora do Perpétuo Socorro” (base estadual da Bahia; a data 02/09/2026 é de carga da base, não de conferência)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ],
+   "notes": null
+  },
+  {
+   "slug": "sagrado-coracao-de-jesus-antonio-goncalves",
+   "name": "Paróquia Sagrado Coração de Jesus",
+   "city": "Antônio Gonçalves",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça Ana Oliveira, s/n",
+   "zipCode": "44780-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedebonfim.org.br/paroquias/",
+     "title": "Diocese de Bonfim — Paróquias (site oficial; 27 paróquias em 7 foranias)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedebonfim.org.br/paroquia?paroquiaid=25",
+     "title": "Diocese de Bonfim — ficha da Paróquia Sagrado Coração de Jesus (site oficial)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13833801000422",
+     "title": "Receita Federal — filial do CNPJ 13.833.801 da Diocese de Bonfim: “PAROQUIA DE ANTONIO GONCALVES”, situação ATIVA (minhareceita.org)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "forania": "Forania do Sagrado Coração de Jesus (VII)",
+   "cnpj": "13833801000422",
+   "communities": [
+    {
+     "name": "Paróquia Sagrado Coração de Jesus",
+     "address": "Praça Ana Oliveira, s/n",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedebonfim.org.br/paroquias/",
+       "title": "Diocese de Bonfim — Paróquias (site oficial; 27 paróquias em 7 foranias)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [],
+   "notes": null
+  },
+  {
+   "slug": "santo-antonio-campo-formoso",
+   "name": "Paróquia Santo Antônio",
+   "city": "Campo Formoso",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça Frei Lino, 01",
+   "zipCode": "44790-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedebonfim.org.br/paroquias/",
+     "title": "Diocese de Bonfim — Paróquias (site oficial; 27 paróquias em 7 foranias)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedebonfim.org.br/paroquia?paroquiaid=26",
+     "title": "Diocese de Bonfim — ficha da Paróquia Santo Antônio (site oficial)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13833801000694",
+     "title": "Receita Federal — filial do CNPJ 13.833.801 da Diocese de Bonfim: “PAROQUIA DE CAMPO FORMOSO”, situação ATIVA (minhareceita.org)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "forania": "Forania do Sagrado Coração de Jesus (VII)",
+   "cnpj": "13833801000694",
+   "communities": [
+    {
+     "name": "Paróquia Santo Antônio",
+     "address": "Praça Frei Lino, 01",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedebonfim.org.br/paroquias/",
+       "title": "Diocese de Bonfim — Paróquias (site oficial; 27 paróquias em 7 foranias)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [],
+   "notes": null
+  },
+  {
+   "slug": "senhor-bom-jesus-pindobacu",
+   "name": "Paróquia Senhor Bom Jesus",
+   "city": "Pindobaçu",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça Pedro Luiz, s/n",
+   "zipCode": "44770-000",
+   "phone": "(74) 99918-0400",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Antônio Albeci Vieira Nascimento",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedebonfim.org.br/paroquias/",
+     "title": "Diocese de Bonfim — Paróquias (site oficial; 27 paróquias em 7 foranias)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedebonfim.org.br/paroquia?paroquiaid=27",
+     "title": "Diocese de Bonfim — ficha da Paróquia Senhor Bom Jesus (site oficial)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13833801001070",
+     "title": "Receita Federal — filial do CNPJ 13.833.801 da Diocese de Bonfim: “PAROQUIA DE PINDOBACU”, situação ATIVA (minhareceita.org)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "forania": "Forania do Sagrado Coração de Jesus (VII)",
+   "cnpj": "13833801001070",
+   "communities": [
+    {
+     "name": "Paróquia Senhor Bom Jesus",
+     "address": "Praça Pedro Luiz, s/n",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedebonfim.org.br/paroquias/",
+       "title": "Diocese de Bonfim — Paróquias (site oficial; 27 paróquias em 7 foranias)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [],
+   "notes": "Instagram oficial: @paroquiabomjesuspindobacu (link na ficha do site diocesano)."
+  }
+ ],
+ "coverage": {
+  "parishesFound": 27,
+  "parishesExpected": 27,
+  "notes": "27 de 27, fechado por três contagens independentes que casam uma a uma: o índice /paroquias do site oficial (27 links /paroquia?paroquiaid=1..27, agrupados em 7 foranias), a varredura das filiais do CNPJ 13.833.801 na Receita Federal (30 filiais ATIVAS = sede + 27 unidades paroquiais + instituto de teologia + seminário; nada existe de /0031 a /0040) e o catholic-hierarchy (27 paróquias em 2022 e em 2023). O gcatholic registra “27 parishes, 1 mission” — a missão é provavelmente Nossa Senhora do Pilar, em Jaguarari, que a Receita chama de quase-paróquia."
+ }
+}

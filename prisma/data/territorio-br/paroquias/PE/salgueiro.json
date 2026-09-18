@@ -1,0 +1,4701 @@
+{
+  "diocese": {
+    "name": "Diocese de Salgueiro",
+    "type": "Diocese",
+    "slug": "salgueiro",
+    "city": "Salgueiro",
+    "state": "PE",
+    "address": "Avenida Aurora de Carvalho Rosa, 2253 - Centro",
+    "zipCode": "56000-000",
+    "phone": "(87) 3871-2871",
+    "email": "curia@diocesedesalgueiro.org.br",
+    "website": "https://diocesedesalgueiro.org.br",
+    "bishopName": "Dom José Vicente Pinto de Alencar da Silva",
+    "sources": [
+      {
+        "url": "https://diocesedesalgueiro.org.br/paroquias/",
+        "title": "Nossas Paróquias | Diocese de Salgueiro (33 fichas)",
+        "accessedAt": "2026-09-18"
+      },
+      {
+        "url": "https://diocesedesalgueiro.org.br/wp-json/wp/v2/paroquia?per_page=100",
+        "title": "WP REST API — tipo “paroquia” (X-WP-Total: 33; campo “modified” por ficha; taxonomia “local_paroquia” com as 3 foranias)",
+        "accessedAt": "2026-09-18"
+      },
+      {
+        "url": "https://diocesedesalgueiro.org.br/horarios-de-missas/",
+        "title": "Horários de Missas | Diocese de Salgueiro (grade agregada das 31 unidades que publicam missa)",
+        "accessedAt": "2026-09-18"
+      },
+      {
+        "url": "https://diocesedesalgueiro.org.br/bispo-diocesano/",
+        "title": "Bispo Diocesano | Diocese de Salgueiro — Dom José Vicente Pinto de Alencar da Silva (ordenação episcopal em 03/06/2023, posse canônica em 01/07/2023)",
+        "accessedAt": "2026-09-18"
+      },
+      {
+        "url": "https://mapaosc.ipea.gov.br/",
+        "title": "Mapa das OSC/IPEA — busca avançada por razão social nos 15 municípios da diocese (espelha a base da Receita Federal): 26 paróquias católicas com CNPJ próprio",
+        "accessedAt": "2026-09-18"
+      },
+      {
+        "url": "https://pt.wikipedia.org/wiki/Diocese_de_Salgueiro",
+        "title": "Wikipédia — Diocese de Salgueiro (21 paróquias; defasado)",
+        "accessedAt": "2026-09-18"
+      },
+      {
+        "url": "https://www.catholic-hierarchy.org/diocese/dsalg.html",
+        "title": "catholic-hierarchy.org — Salgueiro (Diocese): 20 paróquias na estatística de 2014, a última publicada; lista os 15 municípios",
+        "accessedAt": "2026-09-18"
+      }
+    ],
+    "confidence": "alta"
+  },
+  "parishes": [
+    {
+      "slug": "santo-antonio-salgueiro",
+      "name": "Catedral Santo Antônio",
+      "city": "Salgueiro",
+      "state": "PE",
+      "neighborhood": "Santo Antônio",
+      "address": "Praça Prof. Urbano Gomes de Sá, Santo Antônio",
+      "zipCode": null,
+      "phone": "(87) 2163-1097",
+      "email": "salgueiro.catedral@diocesedesalgueiro.org.br",
+      "website": null,
+      "priestName": "Pe. Edilson José Rodrigues",
+      "foundedYear": 1843,
+      "sources": [
+        {
+          "url": "https://diocesedesalgueiro.org.br/paroquia/se-catedral-santo-antonio/",
+          "title": "Catedral Santo Antônio – Santo Antônio | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/06/2026)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://diocesedesalgueiro.org.br/horarios-de-missas/",
+          "title": "Horários de Missas | Diocese de Salgueiro (página diocesana que agrega as 31 grades publicadas)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Nome na fonte oficial: “Sé Catedral Santo Antônio”. Igreja-matriz desde 1843, elevada a catedral com a criação da diocese em 2010. Segundo contato (WhatsApp): (87) 3871-0774. Secretaria: seg. 14h-17h30; ter. a sex. 8h-11h30 e 14h-17h30; sáb. 8h-11h30. Festa do padroeiro: 01 a 13 de junho. Forania São Marcos.",
+      "communities": [
+        {
+          "name": "Catedral Santo Antônio",
+          "address": "Praça Prof. Urbano Gomes de Sá, Santo Antônio",
+          "neighborhood": "Santo Antônio",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/se-catedral-santo-antonio/",
+              "title": "Catedral Santo Antônio – Santo Antônio | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/06/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Catedral Santo Antônio",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/se-catedral-santo-antonio/",
+              "title": "Catedral Santo Antônio – Santo Antônio | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/06/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral Santo Antônio",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/se-catedral-santo-antonio/",
+              "title": "Catedral Santo Antônio – Santo Antônio | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/06/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral Santo Antônio",
+          "dayOfWeek": 1,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/se-catedral-santo-antonio/",
+              "title": "Catedral Santo Antônio – Santo Antônio | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/06/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral Santo Antônio",
+          "dayOfWeek": 2,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/se-catedral-santo-antonio/",
+              "title": "Catedral Santo Antônio – Santo Antônio | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/06/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral Santo Antônio",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/se-catedral-santo-antonio/",
+              "title": "Catedral Santo Antônio – Santo Antônio | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/06/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral Santo Antônio",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/se-catedral-santo-antonio/",
+              "title": "Catedral Santo Antônio – Santo Antônio | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/06/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral Santo Antônio",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/se-catedral-santo-antonio/",
+              "title": "Catedral Santo Antônio – Santo Antônio | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/06/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral Santo Antônio",
+          "dayOfWeek": 6,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/se-catedral-santo-antonio/",
+              "title": "Catedral Santo Antônio – Santo Antônio | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/06/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral Santo Antônio",
+          "dayOfWeek": 5,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": "Regra literal na fonte: “1ª Sexta-feira do mês — 7h”. Votiva ao Sagrado Coração de Jesus",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/se-catedral-santo-antonio/",
+              "title": "Catedral Santo Antônio – Santo Antônio | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/06/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Catedral Santo Antônio",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Regra literal na fonte: “1ª Sexta-feira do mês — 19h”. Missa da Graça",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/se-catedral-santo-antonio/",
+              "title": "Catedral Santo Antônio – Santo Antônio | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/06/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Catedral Santo Antônio",
+          "dayOfWeek": 3,
+          "time": "17:00",
+          "type": "CONFESSION",
+          "notes": "Quarta-feira, das 17h às 19h",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/se-catedral-santo-antonio/",
+              "title": "Catedral Santo Antônio – Santo Antônio | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/06/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral Santo Antônio",
+          "dayOfWeek": 6,
+          "time": "09:00",
+          "type": "CONFESSION",
+          "notes": "Sábado, das 9h às 11h30",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/se-catedral-santo-antonio/",
+              "title": "Catedral Santo Antônio – Santo Antônio | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/06/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral Santo Antônio",
+          "dayOfWeek": 4,
+          "time": "18:30",
+          "type": "ADORATION",
+          "notes": "Quinta-feira, 18h30",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/se-catedral-santo-antonio/",
+              "title": "Catedral Santo Antônio – Santo Antônio | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/06/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-do-perpetuo-socorro-salgueiro",
+      "name": "Paróquia Nossa Senhora do Perpétuo Socorro",
+      "city": "Salgueiro",
+      "state": "PE",
+      "neighborhood": "Nossa Senhora Aparecida",
+      "address": "Rua Sebastião da Silva Barros, 1090, N. Sra. Aparecida",
+      "zipCode": "56000-000",
+      "phone": "(87) 3871-3192",
+      "email": "salgueiro.psocorro@diocesedesalgueiro.org.br",
+      "website": null,
+      "priestName": "Pe. Hélio da Costa Ferreira, SdC",
+      "foundedYear": 2012,
+      "sources": [
+        {
+          "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-do-perpetuo-socorro-salgueiro/",
+          "title": "Paróquia Nossa Senhora do Perpétuo Socorro – Nossa Senhora Aparecida | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 20/05/2025)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://diocesedesalgueiro.org.br/horarios-de-missas/",
+          "title": "Horários de Missas | Diocese de Salgueiro (página diocesana que agrega as 31 grades publicadas)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Confiada aos Servos da Caridade (SdC); vigário: Pe. Remígio de Vettor, SdC. Ofício da Imaculada Conceição todos os sábados às 6h30 (não modelado como missa/adoração). Festa da padroeira: 2ª semana de agosto. Forania São Marcos.",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora do Perpétuo Socorro",
+          "address": "Rua Sebastião da Silva Barros, 1090, N. Sra. Aparecida",
+          "neighborhood": "Nossa Senhora Aparecida",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-do-perpetuo-socorro-salgueiro/",
+              "title": "Paróquia Nossa Senhora do Perpétuo Socorro – Nossa Senhora Aparecida | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 20/05/2025)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-do-perpetuo-socorro-salgueiro/",
+              "title": "Paróquia Nossa Senhora do Perpétuo Socorro – Nossa Senhora Aparecida | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 20/05/2025)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-do-perpetuo-socorro-salgueiro/",
+              "title": "Paróquia Nossa Senhora do Perpétuo Socorro – Nossa Senhora Aparecida | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 20/05/2025)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 2,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-do-perpetuo-socorro-salgueiro/",
+              "title": "Paróquia Nossa Senhora do Perpétuo Socorro – Nossa Senhora Aparecida | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 20/05/2025)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-do-perpetuo-socorro-salgueiro/",
+              "title": "Paróquia Nossa Senhora do Perpétuo Socorro – Nossa Senhora Aparecida | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 20/05/2025)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-do-perpetuo-socorro-salgueiro/",
+              "title": "Paróquia Nossa Senhora do Perpétuo Socorro – Nossa Senhora Aparecida | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 20/05/2025)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-do-perpetuo-socorro-salgueiro/",
+              "title": "Paróquia Nossa Senhora do Perpétuo Socorro – Nossa Senhora Aparecida | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 20/05/2025)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 5,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": "Regra literal na fonte: “Primeira Sexta — 7h”",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-do-perpetuo-socorro-salgueiro/",
+              "title": "Paróquia Nossa Senhora do Perpétuo Socorro – Nossa Senhora Aparecida | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 20/05/2025)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 2,
+          "time": "14:30",
+          "type": "CONFESSION",
+          "notes": "Terça a sexta-feira, das 14h30 às 16h30",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-do-perpetuo-socorro-salgueiro/",
+              "title": "Paróquia Nossa Senhora do Perpétuo Socorro – Nossa Senhora Aparecida | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 20/05/2025)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 3,
+          "time": "14:30",
+          "type": "CONFESSION",
+          "notes": "Terça a sexta-feira, das 14h30 às 16h30",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-do-perpetuo-socorro-salgueiro/",
+              "title": "Paróquia Nossa Senhora do Perpétuo Socorro – Nossa Senhora Aparecida | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 20/05/2025)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 4,
+          "time": "14:30",
+          "type": "CONFESSION",
+          "notes": "Terça a sexta-feira, das 14h30 às 16h30",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-do-perpetuo-socorro-salgueiro/",
+              "title": "Paróquia Nossa Senhora do Perpétuo Socorro – Nossa Senhora Aparecida | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 20/05/2025)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 5,
+          "time": "14:30",
+          "type": "CONFESSION",
+          "notes": "Terça a sexta-feira, das 14h30 às 16h30",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-do-perpetuo-socorro-salgueiro/",
+              "title": "Paróquia Nossa Senhora do Perpétuo Socorro – Nossa Senhora Aparecida | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 20/05/2025)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 4,
+          "time": "18:00",
+          "type": "ADORATION",
+          "notes": "Todas as quintas-feiras, às 18h",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-do-perpetuo-socorro-salgueiro/",
+              "title": "Paróquia Nossa Senhora do Perpétuo Socorro – Nossa Senhora Aparecida | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 20/05/2025)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 5,
+          "time": "18:00",
+          "type": "ADORATION",
+          "notes": "Também na 1ª sexta-feira do mês, às 18h (recorrência mensal)",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-do-perpetuo-socorro-salgueiro/",
+              "title": "Paróquia Nossa Senhora do Perpétuo Socorro – Nossa Senhora Aparecida | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 20/05/2025)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "santa-cruz-salgueiro",
+      "name": "Paróquia Santa Cruz",
+      "city": "Salgueiro",
+      "state": "PE",
+      "neighborhood": "Primavera",
+      "address": "Av. Santa Cruz, 7, Primavera",
+      "zipCode": "56000-000",
+      "phone": "(87) 99111-9415",
+      "email": "salgueiro.santacruz@diocesedesalgueiro.org.br",
+      "website": null,
+      "priestName": "Pe. Izidorio Batista de Alencar",
+      "foundedYear": 2005,
+      "sources": [
+        {
+          "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-santa-cruz-salgueiro/",
+          "title": "Paróquia Santa Cruz – Primavera | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/10/2024)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://diocesedesalgueiro.org.br/horarios-de-missas/",
+          "title": "Horários de Missas | Diocese de Salgueiro (página diocesana que agrega as 31 grades publicadas)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "A ficha não publica horário de confissão nem de adoração. Catequese batismal para pais e padrinhos no 3º sábado, 19h; batismos no 4º domingo do mês, 10h. Atendimento com o padre: qua. 14h-17h e sex. 8h-11h. Festa da padroeira: 04 a 14 de setembro. Forania São Marcos.",
+      "communities": [
+        {
+          "name": "Matriz Santa Cruz",
+          "address": "Av. Santa Cruz, 7, Primavera",
+          "neighborhood": "Primavera",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-santa-cruz-salgueiro/",
+              "title": "Paróquia Santa Cruz – Primavera | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/10/2024)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Santa Cruz",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-santa-cruz-salgueiro/",
+              "title": "Paróquia Santa Cruz – Primavera | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/10/2024)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Santa Cruz",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-santa-cruz-salgueiro/",
+              "title": "Paróquia Santa Cruz – Primavera | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/10/2024)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Santa Cruz",
+          "dayOfWeek": null,
+          "time": "12:00",
+          "type": "MASS",
+          "notes": "Regra literal na fonte: “Dia 14 — 12h”",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-santa-cruz-salgueiro/",
+              "title": "Paróquia Santa Cruz – Primavera | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/10/2024)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Santa Cruz",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Regra literal na fonte: “1ª Sexta-feira — 19h”",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-santa-cruz-salgueiro/",
+              "title": "Paróquia Santa Cruz – Primavera | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/10/2024)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "sao-francisco-de-assis-salgueiro",
+      "name": "Paróquia São Francisco de Assis",
+      "city": "Salgueiro",
+      "state": "PE",
+      "neighborhood": "Nossa Senhora das Graças",
+      "address": "Rua Expedita de Sá Araújo, s/n, N. Sra. das Graças",
+      "zipCode": "56000-000",
+      "phone": "(87) 98835-2390",
+      "email": "salgueiro.sfrancisco@diocesedesalgueiro.org.br",
+      "website": null,
+      "priestName": "Pe. Alexandre Leô Gonçalves",
+      "foundedYear": 2021,
+      "sources": [
+        {
+          "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-sao-francisco-de-assis-salgueiro/",
+          "title": "Paróquia São Francisco de Assis – Nossa Senhora das Graças | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/10/2024)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://diocesedesalgueiro.org.br/horarios-de-missas/",
+          "title": "Horários de Missas | Diocese de Salgueiro (página diocesana que agrega as 31 grades publicadas)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "DIVERGÊNCIA para validação humana: o campo “Ano de Criação” da ficha traz 2021, mas a história na mesma ficha diz que a paróquia “foi erigida em 2017”, desmembrada da Sé Catedral; mantido 2021 (campo estruturado). A história cita o bairro do Planalto, enquanto o endereço estruturado diz N. Sra. das Graças. Forania São Marcos.",
+      "communities": [
+        {
+          "name": "Matriz São Francisco de Assis",
+          "address": "Rua Expedita de Sá Araújo, s/n, N. Sra. das Graças",
+          "neighborhood": "Nossa Senhora das Graças",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-sao-francisco-de-assis-salgueiro/",
+              "title": "Paróquia São Francisco de Assis – Nossa Senhora das Graças | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/10/2024)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São Francisco de Assis",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-sao-francisco-de-assis-salgueiro/",
+              "title": "Paróquia São Francisco de Assis – Nossa Senhora das Graças | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/10/2024)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São Francisco de Assis",
+          "dayOfWeek": 0,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-sao-francisco-de-assis-salgueiro/",
+              "title": "Paróquia São Francisco de Assis – Nossa Senhora das Graças | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/10/2024)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São Francisco de Assis",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Adoração ao Santíssimo",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-sao-francisco-de-assis-salgueiro/",
+              "title": "Paróquia São Francisco de Assis – Nossa Senhora das Graças | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/10/2024)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São Francisco de Assis",
+          "dayOfWeek": null,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Regra literal na fonte: “Dia 04 de cada mês — 19h30min”. Votiva ao Padroeiro",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-sao-francisco-de-assis-salgueiro/",
+              "title": "Paróquia São Francisco de Assis – Nossa Senhora das Graças | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/10/2024)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Francisco de Assis",
+          "dayOfWeek": 5,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Regra literal na fonte: “Primeira Sexta do mês — 19h30min”",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-sao-francisco-de-assis-salgueiro/",
+              "title": "Paróquia São Francisco de Assis – Nossa Senhora das Graças | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/10/2024)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Francisco de Assis",
+          "dayOfWeek": 4,
+          "time": "09:00",
+          "type": "CONFESSION",
+          "notes": "Quinta e sexta-feira, das 9h às 12h",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-sao-francisco-de-assis-salgueiro/",
+              "title": "Paróquia São Francisco de Assis – Nossa Senhora das Graças | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/10/2024)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São Francisco de Assis",
+          "dayOfWeek": 5,
+          "time": "09:00",
+          "type": "CONFESSION",
+          "notes": "Quinta e sexta-feira, das 9h às 12h",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-sao-francisco-de-assis-salgueiro/",
+              "title": "Paróquia São Francisco de Assis – Nossa Senhora das Graças | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/10/2024)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São Francisco de Assis",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "ADORATION",
+          "notes": "Quinta-feira, 19h",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-sao-francisco-de-assis-salgueiro/",
+              "title": "Paróquia São Francisco de Assis – Nossa Senhora das Graças | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/10/2024)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "sao-sebastiao-umas",
+      "name": "Paróquia São Sebastião",
+      "city": "Salgueiro",
+      "state": "PE",
+      "neighborhood": "Distrito de Umãs",
+      "address": "Rua Catarina Parente de Sá Dum, s/n, Distrito de Umãs",
+      "zipCode": "56000-000",
+      "phone": "(87) 98134-7120",
+      "email": "umas.ssebastiao@diocesedesalgueiro.org.br",
+      "website": null,
+      "priestName": "Pe. Fabrício Silveira Ferraz",
+      "foundedYear": 2021,
+      "sources": [
+        {
+          "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-sao-sebastiao-umas/",
+          "title": "Paróquia São Sebastião – Distrito de Umãs | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 01/04/2026)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://diocesedesalgueiro.org.br/horarios-de-missas/",
+          "title": "Horários de Missas | Diocese de Salgueiro (página diocesana que agrega as 31 grades publicadas)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Distrito de Umãs, município de Salgueiro. A ficha informa que a paróquia tem a sede e 18 comunidades, sem listá-las. Co-padroeiro: Senhor Bom Jesus (09 a 18 de agosto). Forania São Marcos.",
+      "communities": [
+        {
+          "name": "Matriz São Sebastião",
+          "address": "Rua Catarina Parente de Sá Dum, s/n, Distrito de Umãs",
+          "neighborhood": "Distrito de Umãs",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-sao-sebastiao-umas/",
+              "title": "Paróquia São Sebastião – Distrito de Umãs | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 01/04/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-sao-sebastiao-umas/",
+              "title": "Paróquia São Sebastião – Distrito de Umãs | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 01/04/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-sao-sebastiao-umas/",
+              "title": "Paróquia São Sebastião – Distrito de Umãs | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 01/04/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 2,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-sao-sebastiao-umas/",
+              "title": "Paróquia São Sebastião – Distrito de Umãs | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 01/04/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-sao-sebastiao-umas/",
+              "title": "Paróquia São Sebastião – Distrito de Umãs | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 01/04/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 3,
+          "time": "15:00",
+          "type": "CONFESSION",
+          "notes": "Quarta-feira, das 15h às 17h",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-sao-sebastiao-umas/",
+              "title": "Paróquia São Sebastião – Distrito de Umãs | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 01/04/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 4,
+          "time": "20:00",
+          "type": "ADORATION",
+          "notes": "Quinta-feira, às 20h",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-sao-sebastiao-umas/",
+              "title": "Paróquia São Sebastião – Distrito de Umãs | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 01/04/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "imaculada-conceicao-araripina",
+      "name": "Paróquia Imaculada Conceição",
+      "city": "Araripina",
+      "state": "PE",
+      "neighborhood": "Centro",
+      "address": "Av. Antônio de Barros Muniz, 44, Centro",
+      "zipCode": null,
+      "phone": "(87) 3873-3652",
+      "email": "araripina.conceicao@diocesedesalgueiro.org.br",
+      "website": null,
+      "priestName": "Pe. Tassicio Leal de Oliveira",
+      "foundedYear": 1942,
+      "sources": [
+        {
+          "url": "https://diocesedesalgueiro.org.br/paroquia/imaculada-conceicao-araripina/",
+          "title": "Paróquia Imaculada Conceição – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 22/06/2026)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://diocesedesalgueiro.org.br/horarios-de-missas/",
+          "title": "Horários de Missas | Diocese de Salgueiro (página diocesana que agrega as 31 grades publicadas)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Vigário: Pe. José Ulisses Saraiva Júnior. Segundo contato: (87) 98142-5441. O CEP publicado na ficha (56280-000) não existe no ViaCEP — Araripina usa CEP por logradouro; gravado null, para validação humana. Forania São Mateus.",
+      "communities": [
+        {
+          "name": "Matriz Imaculada Conceição",
+          "address": "Av. Antônio de Barros Muniz, 44, Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/imaculada-conceicao-araripina/",
+              "title": "Paróquia Imaculada Conceição – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 22/06/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Imaculada Conceição",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/imaculada-conceicao-araripina/",
+              "title": "Paróquia Imaculada Conceição – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 22/06/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Imaculada Conceição",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/imaculada-conceicao-araripina/",
+              "title": "Paróquia Imaculada Conceição – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 22/06/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Imaculada Conceição",
+          "dayOfWeek": 2,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/imaculada-conceicao-araripina/",
+              "title": "Paróquia Imaculada Conceição – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 22/06/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Imaculada Conceição",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/imaculada-conceicao-araripina/",
+              "title": "Paróquia Imaculada Conceição – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 22/06/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Imaculada Conceição",
+          "dayOfWeek": null,
+          "time": "12:00",
+          "type": "MASS",
+          "notes": "Regra literal na fonte: “Dia 8 — 12h”",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/imaculada-conceicao-araripina/",
+              "title": "Paróquia Imaculada Conceição – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 22/06/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Imaculada Conceição",
+          "dayOfWeek": 3,
+          "time": "08:30",
+          "type": "CONFESSION",
+          "notes": "Quarta e quinta-feira, das 8h30 às 11h30",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/imaculada-conceicao-araripina/",
+              "title": "Paróquia Imaculada Conceição – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 22/06/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Imaculada Conceição",
+          "dayOfWeek": 4,
+          "time": "08:30",
+          "type": "CONFESSION",
+          "notes": "Quarta e quinta-feira, das 8h30 às 11h30",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/imaculada-conceicao-araripina/",
+              "title": "Paróquia Imaculada Conceição – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 22/06/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Imaculada Conceição",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "ADORATION",
+          "notes": "Quinta-feira, 19h",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/imaculada-conceicao-araripina/",
+              "title": "Paróquia Imaculada Conceição – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 22/06/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-das-dores-araripina",
+      "name": "Paróquia Nossa Senhora das Dores",
+      "city": "Araripina",
+      "state": "PE",
+      "neighborhood": "Alto da Boa Vista",
+      "address": "Rua Santana, 744, Alto da Boa Vista",
+      "zipCode": null,
+      "phone": "(87) 99901-0529",
+      "email": "araripina.dores@diocesedesalgueiro.org.br",
+      "website": null,
+      "priestName": "Pe. Fernando Leite de Araújo",
+      "foundedYear": 2014,
+      "sources": [
+        {
+          "url": "https://diocesedesalgueiro.org.br/paroquia/nossa-senhora-das-dores-araripina/",
+          "title": "Paróquia Nossa Senhora das Dores – Alto da Boa Vista | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/10/2024)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://diocesedesalgueiro.org.br/horarios-de-missas/",
+          "title": "Horários de Missas | Diocese de Salgueiro (página diocesana que agrega as 31 grades publicadas)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "O CEP publicado na ficha (56280-000) não existe no ViaCEP — gravado null, para validação humana. Forania São Mateus.",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora das Dores",
+          "address": "Rua Santana, 744, Alto da Boa Vista",
+          "neighborhood": "Alto da Boa Vista",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/nossa-senhora-das-dores-araripina/",
+              "title": "Paróquia Nossa Senhora das Dores – Alto da Boa Vista | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/10/2024)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora das Dores",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/nossa-senhora-das-dores-araripina/",
+              "title": "Paróquia Nossa Senhora das Dores – Alto da Boa Vista | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/10/2024)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora das Dores",
+          "dayOfWeek": 0,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/nossa-senhora-das-dores-araripina/",
+              "title": "Paróquia Nossa Senhora das Dores – Alto da Boa Vista | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/10/2024)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora das Dores",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/nossa-senhora-das-dores-araripina/",
+              "title": "Paróquia Nossa Senhora das Dores – Alto da Boa Vista | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/10/2024)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora das Dores",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/nossa-senhora-das-dores-araripina/",
+              "title": "Paróquia Nossa Senhora das Dores – Alto da Boa Vista | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/10/2024)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora das Dores",
+          "dayOfWeek": 4,
+          "time": "08:00",
+          "type": "CONFESSION",
+          "notes": "Quinta-feira, das 8h às 11h",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/nossa-senhora-das-dores-araripina/",
+              "title": "Paróquia Nossa Senhora das Dores – Alto da Boa Vista | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/10/2024)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora das Dores",
+          "dayOfWeek": 4,
+          "time": "18:00",
+          "type": "ADORATION",
+          "notes": "Quinta-feira, das 18h às 19h",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/nossa-senhora-das-dores-araripina/",
+              "title": "Paróquia Nossa Senhora das Dores – Alto da Boa Vista | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/10/2024)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "bom-jesus-nascente",
+      "name": "Paróquia Bom Jesus",
+      "city": "Araripina",
+      "state": "PE",
+      "neighborhood": "Distrito de Nascente",
+      "address": "Praça da Matriz, 10, Distrito de Nascente",
+      "zipCode": null,
+      "phone": "(87) 98105-1125",
+      "email": "araripina.bomjesus@diocesedesalgueiro.org.br",
+      "website": null,
+      "priestName": "Pe. Evandro Alves de Souza",
+      "foundedYear": 2009,
+      "sources": [
+        {
+          "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-bom-jesus-nascente/",
+          "title": "Paróquia Bom Jesus – Distrito de Nascente | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 20/01/2025)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://diocesedesalgueiro.org.br/horarios-de-missas/",
+          "title": "Horários de Missas | Diocese de Salgueiro (página diocesana que agrega as 31 grades publicadas)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Distrito de Nascente, município de Araripina. O CEP publicado (56280-000) não existe no ViaCEP — gravado null. Forania São Mateus.",
+      "communities": [
+        {
+          "name": "Matriz Bom Jesus",
+          "address": "Praça da Matriz, 10, Distrito de Nascente",
+          "neighborhood": "Distrito de Nascente",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-bom-jesus-nascente/",
+              "title": "Paróquia Bom Jesus – Distrito de Nascente | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 20/01/2025)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Bom Jesus",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-bom-jesus-nascente/",
+              "title": "Paróquia Bom Jesus – Distrito de Nascente | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 20/01/2025)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Bom Jesus",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-bom-jesus-nascente/",
+              "title": "Paróquia Bom Jesus – Distrito de Nascente | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 20/01/2025)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Bom Jesus",
+          "dayOfWeek": 4,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Regra literal na fonte: “4ª Quinta-feira do mês — 19h30min”",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-bom-jesus-nascente/",
+              "title": "Paróquia Bom Jesus – Distrito de Nascente | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 20/01/2025)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Bom Jesus",
+          "dayOfWeek": 5,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": "Regra literal na fonte: “1ª Sexta-feira — 7h”",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-bom-jesus-nascente/",
+              "title": "Paróquia Bom Jesus – Distrito de Nascente | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 20/01/2025)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Bom Jesus",
+          "dayOfWeek": 5,
+          "time": "08:00",
+          "type": "CONFESSION",
+          "notes": "Sexta-feira, a partir das 8h",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-bom-jesus-nascente/",
+              "title": "Paróquia Bom Jesus – Distrito de Nascente | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 20/01/2025)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Bom Jesus",
+          "dayOfWeek": 4,
+          "time": "19:30",
+          "type": "ADORATION",
+          "notes": "Quinta-feira, às 19h30",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-bom-jesus-nascente/",
+              "title": "Paróquia Bom Jesus – Distrito de Nascente | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 20/01/2025)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-das-gracas-rancharia",
+      "name": "Paróquia Nossa Senhora das Graças",
+      "city": "Araripina",
+      "state": "PE",
+      "neighborhood": "Distrito de Rancharia, Centro",
+      "address": "Rua Silvestre Lima, 28, Centro, Distrito de Rancharia",
+      "zipCode": null,
+      "phone": "(87) 98139-8157",
+      "email": "rancharia.gracas@diocesedesalgueiro.org.br",
+      "website": null,
+      "priestName": "Pe. Fábio Júnior da Silva",
+      "foundedYear": 2022,
+      "sources": [
+        {
+          "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-das-gracas-rancharia/",
+          "title": "Paróquia Nossa Senhora das Graças – Distrito de Rancharia, Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 06/02/2026)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://diocesedesalgueiro.org.br/horarios-de-missas/",
+          "title": "Horários de Missas | Diocese de Salgueiro (página diocesana que agrega as 31 grades publicadas)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Distrito de Rancharia, município de Araripina. Erigida paróquia em 11/02/2022 por Dom Magnus Henrique Lopes. O CEP publicado (56280-000) não existe no ViaCEP — gravado null. Forania São Mateus.",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora das Graças",
+          "address": "Rua Silvestre Lima, 28, Centro, Distrito de Rancharia",
+          "neighborhood": "Distrito de Rancharia, Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-das-gracas-rancharia/",
+              "title": "Paróquia Nossa Senhora das Graças – Distrito de Rancharia, Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 06/02/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora das Graças",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": "Regra literal na fonte: “1º e 2º Domingo — 8h”",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-das-gracas-rancharia/",
+              "title": "Paróquia Nossa Senhora das Graças – Distrito de Rancharia, Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 06/02/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora das Graças",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-das-gracas-rancharia/",
+              "title": "Paróquia Nossa Senhora das Graças – Distrito de Rancharia, Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 06/02/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora das Graças",
+          "dayOfWeek": 5,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Regra literal na fonte: “1ª Sexta-feira — 19h30min”",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-das-gracas-rancharia/",
+              "title": "Paróquia Nossa Senhora das Graças – Distrito de Rancharia, Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 06/02/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora das Graças",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-das-gracas-rancharia/",
+              "title": "Paróquia Nossa Senhora das Graças – Distrito de Rancharia, Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 06/02/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora das Graças",
+          "dayOfWeek": 4,
+          "time": "18:00",
+          "type": "CONFESSION",
+          "notes": "Quintas-feiras, das 18h às 19h",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-das-gracas-rancharia/",
+              "title": "Paróquia Nossa Senhora das Graças – Distrito de Rancharia, Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 06/02/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora das Graças",
+          "dayOfWeek": 4,
+          "time": "18:00",
+          "type": "ADORATION",
+          "notes": "Quintas-feiras, das 18h às 19h",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-das-gracas-rancharia/",
+              "title": "Paróquia Nossa Senhora das Graças – Distrito de Rancharia, Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 06/02/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-de-fatima-morais",
+      "name": "Paróquia Nossa Senhora de Fátima",
+      "city": "Araripina",
+      "state": "PE",
+      "neighborhood": "Nossa Senhora de Fátima, Distrito de Morais",
+      "address": "Rua Nossa Senhora de Fátima, 231, Distrito de Morais",
+      "zipCode": null,
+      "phone": "(87) 98143-5209",
+      "email": "morais.fatima@diocesedesalgueiro.org.br",
+      "website": null,
+      "priestName": "Pe. José Ferreira de Oliveira",
+      "foundedYear": 2024,
+      "sources": [
+        {
+          "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-de-fatima-morais-araripina-pe/",
+          "title": "Paróquia Nossa Senhora de Fátima – Nossa Senhora de Fátima, Distrito de Morais | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/10/2024)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://diocesedesalgueiro.org.br/horarios-de-missas/",
+          "title": "Horários de Missas | Diocese de Salgueiro (página diocesana que agrega as 31 grades publicadas)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Distrito de Morais, município de Araripina. Tornou-se paróquia em 01/05/2024. Co-padroeiro: Bom Jesus. O CEP publicado (56.280-000) não existe no ViaCEP — gravado null. Forania São Mateus.",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora de Fátima",
+          "address": "Rua Nossa Senhora de Fátima, 231, Distrito de Morais",
+          "neighborhood": "Nossa Senhora de Fátima, Distrito de Morais",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-de-fatima-morais-araripina-pe/",
+              "title": "Paróquia Nossa Senhora de Fátima – Nossa Senhora de Fátima, Distrito de Morais | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/10/2024)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora de Fátima",
+          "dayOfWeek": 0,
+          "time": "10:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-de-fatima-morais-araripina-pe/",
+              "title": "Paróquia Nossa Senhora de Fátima – Nossa Senhora de Fátima, Distrito de Morais | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/10/2024)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora de Fátima",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-de-fatima-morais-araripina-pe/",
+              "title": "Paróquia Nossa Senhora de Fátima – Nossa Senhora de Fátima, Distrito de Morais | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/10/2024)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora de Fátima",
+          "dayOfWeek": 4,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-de-fatima-morais-araripina-pe/",
+              "title": "Paróquia Nossa Senhora de Fátima – Nossa Senhora de Fátima, Distrito de Morais | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/10/2024)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora de Fátima",
+          "dayOfWeek": 5,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Regra literal na fonte: “1º Sexta-feira do mês — 19h30min”",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-de-fatima-morais-araripina-pe/",
+              "title": "Paróquia Nossa Senhora de Fátima – Nossa Senhora de Fátima, Distrito de Morais | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/10/2024)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora de Fátima",
+          "dayOfWeek": 4,
+          "time": "18:00",
+          "type": "CONFESSION",
+          "notes": "Quinta-feira, das 18h às 19h30",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-de-fatima-morais-araripina-pe/",
+              "title": "Paróquia Nossa Senhora de Fátima – Nossa Senhora de Fátima, Distrito de Morais | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/10/2024)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora de Fátima",
+          "dayOfWeek": 4,
+          "time": "19:30",
+          "type": "ADORATION",
+          "notes": "Quinta-feira, 19h30",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-de-fatima-morais-araripina-pe/",
+              "title": "Paróquia Nossa Senhora de Fátima – Nossa Senhora de Fátima, Distrito de Morais | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/10/2024)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "sao-jose-bodoco",
+      "name": "Paróquia São José",
+      "city": "Bodocó",
+      "state": "PE",
+      "neighborhood": "Centro",
+      "address": "Praça Pe. Pedro Modesto, 51, Centro",
+      "zipCode": "56220-000",
+      "phone": "(87) 99995-5606",
+      "email": "bodoco.saojose@diocesedesalgueiro.org.br",
+      "website": null,
+      "priestName": "Pe. Pedro Sérgio de Oliveira",
+      "foundedYear": 1925,
+      "sources": [
+        {
+          "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-sao-jose-bodoco/",
+          "title": "Paróquia São José – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 08/04/2025)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://diocesedesalgueiro.org.br/horarios-de-missas/",
+          "title": "Horários de Missas | Diocese de Salgueiro (página diocesana que agrega as 31 grades publicadas)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Forania São Lucas.",
+      "communities": [
+        {
+          "name": "Matriz São José",
+          "address": "Praça Pe. Pedro Modesto, 51, Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-sao-jose-bodoco/",
+              "title": "Paróquia São José – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 08/04/2025)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São José",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-sao-jose-bodoco/",
+              "title": "Paróquia São José – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 08/04/2025)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São José",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-sao-jose-bodoco/",
+              "title": "Paróquia São José – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 08/04/2025)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São José",
+          "dayOfWeek": 1,
+          "time": "07:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-sao-jose-bodoco/",
+              "title": "Paróquia São José – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 08/04/2025)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São José",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-sao-jose-bodoco/",
+              "title": "Paróquia São José – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 08/04/2025)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São José",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-sao-jose-bodoco/",
+              "title": "Paróquia São José – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 08/04/2025)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São José",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Regra literal na fonte: “1ª Sexta-feira — 19h”",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-sao-jose-bodoco/",
+              "title": "Paróquia São José – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 08/04/2025)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São José",
+          "dayOfWeek": 1,
+          "time": "08:00",
+          "type": "CONFESSION",
+          "notes": "Segunda-feira, das 8h às 12h",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-sao-jose-bodoco/",
+              "title": "Paróquia São José – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 08/04/2025)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São José",
+          "dayOfWeek": 4,
+          "time": "18:00",
+          "type": "ADORATION",
+          "notes": "Quinta-feira, 18h",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-sao-jose-bodoco/",
+              "title": "Paróquia São José – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 08/04/2025)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "imaculado-coracao-de-maria-bodoco",
+      "name": "Paróquia Imaculado Coração de Maria",
+      "city": "Bodocó",
+      "state": "PE",
+      "neighborhood": "Várzea do Meio",
+      "address": "Praça Júlio Horas, 510, Várzea do Meio",
+      "zipCode": "56220-000",
+      "phone": "(87) 99640-9813",
+      "email": "bodoco.icmaria@diocesedesalgueiro.org.br",
+      "website": null,
+      "priestName": "Pe. Antônio Carlos da Silva",
+      "foundedYear": 2024,
+      "sources": [
+        {
+          "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-imaculado-coracao-de-maria-bodoco/",
+          "title": "Paróquia Imaculado Coração de Maria – Várzea do Meio | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 17/07/2026)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://diocesedesalgueiro.org.br/horarios-de-missas/",
+          "title": "Horários de Missas | Diocese de Salgueiro (página diocesana que agrega as 31 grades publicadas)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Área pastoral desde 2019; elevada a paróquia em 11/02/2024. A ficha informa 20 comunidades ativas, sem listá-las. Forania São Lucas.",
+      "communities": [
+        {
+          "name": "Matriz Imaculado Coração de Maria",
+          "address": "Praça Júlio Horas, 510, Várzea do Meio",
+          "neighborhood": "Várzea do Meio",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-imaculado-coracao-de-maria-bodoco/",
+              "title": "Paróquia Imaculado Coração de Maria – Várzea do Meio | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 17/07/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Imaculado Coração de Maria",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-imaculado-coracao-de-maria-bodoco/",
+              "title": "Paróquia Imaculado Coração de Maria – Várzea do Meio | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 17/07/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Imaculado Coração de Maria",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Regra literal na fonte: “1ª Sexta-feira do mês — 19h”",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-imaculado-coracao-de-maria-bodoco/",
+              "title": "Paróquia Imaculado Coração de Maria – Várzea do Meio | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 17/07/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Imaculado Coração de Maria",
+          "dayOfWeek": 0,
+          "time": "18:00",
+          "type": "CONFESSION",
+          "notes": "Domingo, 18h",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-imaculado-coracao-de-maria-bodoco/",
+              "title": "Paróquia Imaculado Coração de Maria – Várzea do Meio | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 17/07/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Imaculado Coração de Maria",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "ADORATION",
+          "notes": "Quinta-feira, 19h",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-imaculado-coracao-de-maria-bodoco/",
+              "title": "Paróquia Imaculado Coração de Maria – Várzea do Meio | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 17/07/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-da-conceicao-cabrobo",
+      "name": "Paróquia Nossa Senhora da Conceição",
+      "city": "Cabrobó",
+      "state": "PE",
+      "neighborhood": "Centro",
+      "address": "Rua Treze de Maio, 325, Centro",
+      "zipCode": null,
+      "phone": "(87) 99920-8542",
+      "email": "cabrobo.conceicao@diocesedesalgueiro.org.br",
+      "website": null,
+      "priestName": "Pe. Domingos Pedro da Silva",
+      "foundedYear": 1727,
+      "sources": [
+        {
+          "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-da-conceicao-cabrobo/",
+          "title": "Paróquia Nossa Senhora da Conceição – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 14/08/2025)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://diocesedesalgueiro.org.br/horarios-de-missas/",
+          "title": "Horários de Missas | Diocese de Salgueiro (página diocesana que agrega as 31 grades publicadas)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "O CEP publicado na ficha (56140-000) é o de Serrita; o de Cabrobó é 56180-000 — gravado null, para validação humana. Co-padroeira: Sagrada Família, cuja igreja (inaugurada em 1974) concentra a maior parte das missas dominicais. Forania São Marcos.",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora da Conceição",
+          "address": "Rua Treze de Maio, 325, Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-da-conceicao-cabrobo/",
+              "title": "Paróquia Nossa Senhora da Conceição – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 14/08/2025)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Igreja Sagrada Família",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-da-conceicao-cabrobo/",
+              "title": "Paróquia Nossa Senhora da Conceição – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 14/08/2025)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-da-conceicao-cabrobo/",
+              "title": "Paróquia Nossa Senhora da Conceição – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 14/08/2025)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Igreja Sagrada Família",
+          "dayOfWeek": 0,
+          "time": "10:00",
+          "type": "MASS",
+          "notes": "Igreja Sagrada Família",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-da-conceicao-cabrobo/",
+              "title": "Paróquia Nossa Senhora da Conceição – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 14/08/2025)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Igreja Sagrada Família",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Igreja Sagrada Família",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-da-conceicao-cabrobo/",
+              "title": "Paróquia Nossa Senhora da Conceição – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 14/08/2025)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Igreja Sagrada Família",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Igreja Sagrada Família",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-da-conceicao-cabrobo/",
+              "title": "Paróquia Nossa Senhora da Conceição – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 14/08/2025)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Igreja Sagrada Família",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Regra literal na fonte: “1° Sexta-feira — 19h”. Igreja Sagrada Família",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-da-conceicao-cabrobo/",
+              "title": "Paróquia Nossa Senhora da Conceição – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 14/08/2025)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 5,
+          "time": "09:00",
+          "type": "CONFESSION",
+          "notes": "Sexta-feira, às 9h",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-da-conceicao-cabrobo/",
+              "title": "Paróquia Nossa Senhora da Conceição – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 14/08/2025)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "ADORATION",
+          "notes": "Primeira quinta-feira do mês, às 19h (recorrência mensal)",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-da-conceicao-cabrobo/",
+              "title": "Paróquia Nossa Senhora da Conceição – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 14/08/2025)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "ADORATION",
+          "notes": "Adoração jovem no terceiro sábado do mês, às 19h (recorrência mensal)",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-da-conceicao-cabrobo/",
+              "title": "Paróquia Nossa Senhora da Conceição – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 14/08/2025)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-do-perpetuo-socorro-cedro",
+      "name": "Paróquia Nossa Senhora do Perpétuo Socorro",
+      "city": "Cedro",
+      "state": "PE",
+      "neighborhood": "Centro",
+      "address": "Rua Joaquim Nabuco, 84, Centro",
+      "zipCode": "56130-000",
+      "phone": "(87) 99243-7065",
+      "email": "cedro.psocorro@diocesedesalgueiro.org.br",
+      "website": null,
+      "priestName": "Pe. Cícero Martins Vieira",
+      "foundedYear": 1998,
+      "sources": [
+        {
+          "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-do-perpetuo-socorro-cedro/",
+          "title": "Paróquia Nossa Senhora do Perpétuo Socorro – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 12/03/2026)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://diocesedesalgueiro.org.br/horarios-de-missas/",
+          "title": "Horários de Missas | Diocese de Salgueiro (página diocesana que agrega as 31 grades publicadas)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Vigário: Pe. Fernando Ferreira da Silva. Forania São Marcos.",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora do Perpétuo Socorro",
+          "address": "Rua Joaquim Nabuco, 84, Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-do-perpetuo-socorro-cedro/",
+              "title": "Paróquia Nossa Senhora do Perpétuo Socorro – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 12/03/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-do-perpetuo-socorro-cedro/",
+              "title": "Paróquia Nossa Senhora do Perpétuo Socorro – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 12/03/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-do-perpetuo-socorro-cedro/",
+              "title": "Paróquia Nossa Senhora do Perpétuo Socorro – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 12/03/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-do-perpetuo-socorro-cedro/",
+              "title": "Paróquia Nossa Senhora do Perpétuo Socorro – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 12/03/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 5,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": "Regra literal na fonte: “1º Sexta-feira — 9h”",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-do-perpetuo-socorro-cedro/",
+              "title": "Paróquia Nossa Senhora do Perpétuo Socorro – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 12/03/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 4,
+          "time": "08:00",
+          "type": "CONFESSION",
+          "notes": "Quinta-feira, a partir das 8h",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-do-perpetuo-socorro-cedro/",
+              "title": "Paróquia Nossa Senhora do Perpétuo Socorro – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 12/03/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "ADORATION",
+          "notes": "Quinta-feira, 19h",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-do-perpetuo-socorro-cedro/",
+              "title": "Paróquia Nossa Senhora do Perpétuo Socorro – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 12/03/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "bom-jesus-dos-aflitos-exu",
+      "name": "Paróquia Bom Jesus dos Aflitos",
+      "city": "Exu",
+      "state": "PE",
+      "neighborhood": "Centro",
+      "address": "Rua Pe. Medereiro, 18, Centro",
+      "zipCode": "56230-000",
+      "phone": "(87) 99679-6380",
+      "email": "exu.bjaflitos@diocesedesalgueiro.org.br",
+      "website": null,
+      "priestName": "Pe. José Gilson da Costa",
+      "foundedYear": 1872,
+      "sources": [
+        {
+          "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-bom-jesus-dos-aflitos-exu/",
+          "title": "Paróquia Bom Jesus dos Aflitos – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 19/02/2026)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://diocesedesalgueiro.org.br/horarios-de-missas/",
+          "title": "Horários de Missas | Diocese de Salgueiro (página diocesana que agrega as 31 grades publicadas)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Confissões “todo dia 14, no dia da graça” — recorrência mensal de data fixa. Forania São Lucas.",
+      "communities": [
+        {
+          "name": "Matriz Bom Jesus dos Aflitos",
+          "address": "Rua Pe. Medereiro, 18, Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-bom-jesus-dos-aflitos-exu/",
+              "title": "Paróquia Bom Jesus dos Aflitos – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 19/02/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Bom Jesus dos Aflitos",
+          "dayOfWeek": 0,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-bom-jesus-dos-aflitos-exu/",
+              "title": "Paróquia Bom Jesus dos Aflitos – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 19/02/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Bom Jesus dos Aflitos",
+          "dayOfWeek": null,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": "Regra literal na fonte: “14 de cada mês — 18h”. Dia da Graça",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-bom-jesus-dos-aflitos-exu/",
+              "title": "Paróquia Bom Jesus dos Aflitos – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 19/02/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Bom Jesus dos Aflitos",
+          "dayOfWeek": 4,
+          "time": "18:00",
+          "type": "ADORATION",
+          "notes": "Quinta-feira, às 18h",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-bom-jesus-dos-aflitos-exu/",
+              "title": "Paróquia Bom Jesus dos Aflitos – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 19/02/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "bom-jesus-da-lapa-timorante",
+      "name": "Paróquia Bom Jesus da Lapa",
+      "city": "Exu",
+      "state": "PE",
+      "neighborhood": "Distrito de Timorante",
+      "address": "Praça da Matriz, 29, Distrito de Timorante",
+      "zipCode": "56230-000",
+      "phone": "(87) 98173-6561",
+      "email": "timorante.bjlapa@diocesedesalgueiro.org.br",
+      "website": null,
+      "priestName": "Pe. Clebe Pereira de Meneses",
+      "foundedYear": 2023,
+      "sources": [
+        {
+          "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-bom-jesus-da-lapa-timorante/",
+          "title": "Paróquia Bom Jesus da Lapa – Distrito de Timorante | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/10/2024)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://diocesedesalgueiro.org.br/horarios-de-missas/",
+          "title": "Horários de Missas | Diocese de Salgueiro (página diocesana que agrega as 31 grades publicadas)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Distrito de Timorante, município de Exu. Erigida paróquia em 25/11/2023 por Dom José Vicente. Forania São Lucas.",
+      "communities": [
+        {
+          "name": "Matriz Bom Jesus da Lapa",
+          "address": "Praça da Matriz, 29, Distrito de Timorante",
+          "neighborhood": "Distrito de Timorante",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-bom-jesus-da-lapa-timorante/",
+              "title": "Paróquia Bom Jesus da Lapa – Distrito de Timorante | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/10/2024)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Bom Jesus da Lapa",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-bom-jesus-da-lapa-timorante/",
+              "title": "Paróquia Bom Jesus da Lapa – Distrito de Timorante | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/10/2024)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Bom Jesus da Lapa",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-bom-jesus-da-lapa-timorante/",
+              "title": "Paróquia Bom Jesus da Lapa – Distrito de Timorante | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/10/2024)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Bom Jesus da Lapa",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Regra literal na fonte: “1ª Sexta — 19h”",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-bom-jesus-da-lapa-timorante/",
+              "title": "Paróquia Bom Jesus da Lapa – Distrito de Timorante | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/10/2024)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Bom Jesus da Lapa",
+          "dayOfWeek": 2,
+          "time": "08:00",
+          "type": "CONFESSION",
+          "notes": "Terça-feira, das 8h às 12h",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-bom-jesus-da-lapa-timorante/",
+              "title": "Paróquia Bom Jesus da Lapa – Distrito de Timorante | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/10/2024)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "sao-francisco-de-assis-exu",
+      "name": "Paróquia São Francisco de Assis",
+      "city": "Exu",
+      "state": "PE",
+      "neighborhood": "Wilson Moreira Saraiva",
+      "address": "Rua Lídio de Mirandiba Parente, s/n, Wilson Moreira Saraiva",
+      "zipCode": "56230-000",
+      "phone": "(87) 99631-1927",
+      "email": "exu.sfassis@diocesedesalgueiro.org.br",
+      "website": null,
+      "priestName": "Pe. Severino Coelho Sampaio",
+      "foundedYear": 2024,
+      "sources": [
+        {
+          "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-sao-francisco-de-assis-exu/",
+          "title": "Paróquia São Francisco de Assis – Wilson Moreira Saraiva | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/10/2024)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://diocesedesalgueiro.org.br/horarios-de-missas/",
+          "title": "Horários de Missas | Diocese de Salgueiro (página diocesana que agrega as 31 grades publicadas)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Erigida paróquia em 06/04/2024. A ficha registra “a definir” para confissões e adoração. Forania São Lucas.",
+      "communities": [
+        {
+          "name": "Matriz São Francisco de Assis",
+          "address": "Rua Lídio de Mirandiba Parente, s/n, Wilson Moreira Saraiva",
+          "neighborhood": "Wilson Moreira Saraiva",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-sao-francisco-de-assis-exu/",
+              "title": "Paróquia São Francisco de Assis – Wilson Moreira Saraiva | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/10/2024)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São Francisco de Assis",
+          "dayOfWeek": 0,
+          "time": "07:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-sao-francisco-de-assis-exu/",
+              "title": "Paróquia São Francisco de Assis – Wilson Moreira Saraiva | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/10/2024)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São Francisco de Assis",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-sao-francisco-de-assis-exu/",
+              "title": "Paróquia São Francisco de Assis – Wilson Moreira Saraiva | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/10/2024)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São Francisco de Assis",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Regra literal na fonte: “1ª Sexta-feira do mês — 19h”",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-sao-francisco-de-assis-exu/",
+              "title": "Paróquia São Francisco de Assis – Wilson Moreira Saraiva | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/10/2024)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-do-perpetuo-socorro-ipubi",
+      "name": "Paróquia Nossa Senhora do Perpétuo Socorro",
+      "city": "Ipubi",
+      "state": "PE",
+      "neighborhood": "Centro",
+      "address": "Praça Prof. Agamenon Magalhães, s/n, Centro",
+      "zipCode": "56260-000",
+      "phone": "(87) 99807-2609",
+      "email": "ipubi.psocorro@diocesedesalgueiro.org.br",
+      "website": null,
+      "priestName": "Pe. Orlando Natel Leite",
+      "foundedYear": 1980,
+      "sources": [
+        {
+          "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-do-perpetuo-socorro-ipubi-pe/",
+          "title": "Paróquia Nossa Senhora do Perpétuo Socorro – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 06/02/2026)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://diocesedesalgueiro.org.br/horarios-de-missas/",
+          "title": "Horários de Missas | Diocese de Salgueiro (página diocesana que agrega as 31 grades publicadas)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "A ficha informa 25 comunidades, sem listá-las. O texto histórico ainda cita “Pe. José Rogério e Pe. Fabrício” como pároco e vigário, mas o campo Clero (atualizado) traz Pe. Orlando Natel Leite — foi usado o campo Clero. Forania São Mateus.",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora do Perpétuo Socorro",
+          "address": "Praça Prof. Agamenon Magalhães, s/n, Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-do-perpetuo-socorro-ipubi-pe/",
+              "title": "Paróquia Nossa Senhora do Perpétuo Socorro – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 06/02/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-do-perpetuo-socorro-ipubi-pe/",
+              "title": "Paróquia Nossa Senhora do Perpétuo Socorro – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 06/02/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-do-perpetuo-socorro-ipubi-pe/",
+              "title": "Paróquia Nossa Senhora do Perpétuo Socorro – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 06/02/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 2,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-do-perpetuo-socorro-ipubi-pe/",
+              "title": "Paróquia Nossa Senhora do Perpétuo Socorro – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 06/02/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-do-perpetuo-socorro-ipubi-pe/",
+              "title": "Paróquia Nossa Senhora do Perpétuo Socorro – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 06/02/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Regra literal na fonte: “1º Sexta — 19h”",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-do-perpetuo-socorro-ipubi-pe/",
+              "title": "Paróquia Nossa Senhora do Perpétuo Socorro – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 06/02/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 1,
+          "time": "08:30",
+          "type": "CONFESSION",
+          "notes": "Segunda-feira, das 8h30 às 11h30",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-do-perpetuo-socorro-ipubi-pe/",
+              "title": "Paróquia Nossa Senhora do Perpétuo Socorro – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 06/02/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 5,
+          "time": "14:30",
+          "type": "CONFESSION",
+          "notes": "Sexta-feira, das 14h30 às 17h",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-do-perpetuo-socorro-ipubi-pe/",
+              "title": "Paróquia Nossa Senhora do Perpétuo Socorro – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 06/02/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 4,
+          "time": "18:00",
+          "type": "ADORATION",
+          "notes": "Quinta-feira, 18h",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-do-perpetuo-socorro-ipubi-pe/",
+              "title": "Paróquia Nossa Senhora do Perpétuo Socorro – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 06/02/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-do-perpetuo-socorro-serrolandia",
+      "name": "Paróquia Nossa Senhora do Perpétuo Socorro",
+      "city": "Ipubi",
+      "state": "PE",
+      "neighborhood": "Distrito de Serrolândia",
+      "address": "Av. Central, s/n, Distrito de Serrolândia",
+      "zipCode": "56260-000",
+      "phone": "(87) 98142-6797",
+      "email": "serrolandia.psocorro@diocesedesalgueiro.org.br",
+      "website": null,
+      "priestName": "Pe. Francisco das Chagas Barros",
+      "foundedYear": 2021,
+      "sources": [
+        {
+          "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-do-perpetuo-socorro-ipubi/",
+          "title": "Paróquia Nossa Senhora do Perpétuo Socorro – Distrito de Serrolândia | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/10/2024)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://diocesedesalgueiro.org.br/horarios-de-missas/",
+          "title": "Horários de Missas | Diocese de Salgueiro (página diocesana que agrega as 31 grades publicadas)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Distrito de Serrolândia, município de Ipubi (a ficha no site tem o slug “paroquia-nossa-senhora-do-perpetuo-socorro-ipubi”, o que não deve ser confundido com a paróquia da sede). Área pastoral em 2015, paróquia em 21/11/2021. A ficha informa 16 comunidades rurais, sem listá-las. Co-padroeiro: São Francisco de Assis. O CEP publicado (“56.2600-000”) está malformado; usado 56260-000, o CEP geral de Ipubi. Forania São Mateus.",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora do Perpétuo Socorro",
+          "address": "Av. Central, s/n, Distrito de Serrolândia",
+          "neighborhood": "Distrito de Serrolândia",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-do-perpetuo-socorro-ipubi/",
+              "title": "Paróquia Nossa Senhora do Perpétuo Socorro – Distrito de Serrolândia | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/10/2024)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-do-perpetuo-socorro-ipubi/",
+              "title": "Paróquia Nossa Senhora do Perpétuo Socorro – Distrito de Serrolândia | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/10/2024)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 2,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-do-perpetuo-socorro-ipubi/",
+              "title": "Paróquia Nossa Senhora do Perpétuo Socorro – Distrito de Serrolândia | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/10/2024)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-do-perpetuo-socorro-ipubi/",
+              "title": "Paróquia Nossa Senhora do Perpétuo Socorro – Distrito de Serrolândia | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/10/2024)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 4,
+          "time": "18:00",
+          "type": "CONFESSION",
+          "notes": "Quinta-feira, das 18h às 19h",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-do-perpetuo-socorro-ipubi/",
+              "title": "Paróquia Nossa Senhora do Perpétuo Socorro – Distrito de Serrolândia | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/10/2024)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "ADORATION",
+          "notes": "Quinta-feira, às 19h",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-do-perpetuo-socorro-ipubi/",
+              "title": "Paróquia Nossa Senhora do Perpétuo Socorro – Distrito de Serrolândia | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/10/2024)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "santa-teresinha-do-menino-jesus-moreilandia",
+      "name": "Paróquia Santa Teresinha do Menino Jesus",
+      "city": "Moreilândia",
+      "state": "PE",
+      "neighborhood": "Centro",
+      "address": "Rua Santa Terezinha, 205, Centro",
+      "zipCode": "56150-000",
+      "phone": "(87) 98873-0380",
+      "email": "moreilandia.steresinha@diocesedesalgueiro.org.br",
+      "website": null,
+      "priestName": "Pe. José Adriano Apolinário",
+      "foundedYear": 1997,
+      "sources": [
+        {
+          "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-santa-teresinha-do-menino-jesus-moreilandia/",
+          "title": "Paróquia Santa Teresinha do Menino Jesus – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 12/02/2026)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://diocesedesalgueiro.org.br/horarios-de-missas/",
+          "title": "Horários de Missas | Diocese de Salgueiro (página diocesana que agrega as 31 grades publicadas)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Desmembrada da Paróquia Nossa Senhora do Bom Conselho (Granito) em 1997; abrange todo o município de Moreilândia. A ficha informa 12 comunidades, sem listá-las. Forania São Lucas.",
+      "communities": [
+        {
+          "name": "Matriz Santa Teresinha do Menino Jesus",
+          "address": "Rua Santa Terezinha, 205, Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-santa-teresinha-do-menino-jesus-moreilandia/",
+              "title": "Paróquia Santa Teresinha do Menino Jesus – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 12/02/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Santa Teresinha do Menino Jesus",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-santa-teresinha-do-menino-jesus-moreilandia/",
+              "title": "Paróquia Santa Teresinha do Menino Jesus – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 12/02/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Santa Teresinha do Menino Jesus",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-santa-teresinha-do-menino-jesus-moreilandia/",
+              "title": "Paróquia Santa Teresinha do Menino Jesus – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 12/02/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Santa Teresinha do Menino Jesus",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-santa-teresinha-do-menino-jesus-moreilandia/",
+              "title": "Paróquia Santa Teresinha do Menino Jesus – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 12/02/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Santa Teresinha do Menino Jesus",
+          "dayOfWeek": 5,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": "Regra literal na fonte: “1º Sexta-feira — 18h”",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-santa-teresinha-do-menino-jesus-moreilandia/",
+              "title": "Paróquia Santa Teresinha do Menino Jesus – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 12/02/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Santa Teresinha do Menino Jesus",
+          "dayOfWeek": 3,
+          "time": "08:00",
+          "type": "CONFESSION",
+          "notes": "Quarta-feira, das 8h às 12h",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-santa-teresinha-do-menino-jesus-moreilandia/",
+              "title": "Paróquia Santa Teresinha do Menino Jesus – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 12/02/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Santa Teresinha do Menino Jesus",
+          "dayOfWeek": 5,
+          "time": "09:00",
+          "type": "CONFESSION",
+          "notes": "Sexta-feira, das 9h às 12h",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-santa-teresinha-do-menino-jesus-moreilandia/",
+              "title": "Paróquia Santa Teresinha do Menino Jesus – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 12/02/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Santa Teresinha do Menino Jesus",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "ADORATION",
+          "notes": "Quinta-feira, às 19h",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-santa-teresinha-do-menino-jesus-moreilandia/",
+              "title": "Paróquia Santa Teresinha do Menino Jesus – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 12/02/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "sao-sebastiao-ouricuri",
+      "name": "Paróquia São Sebastião",
+      "city": "Ouricuri",
+      "state": "PE",
+      "neighborhood": "Centro",
+      "address": "Praça Pe. Francisco Pedro da Silva, 97, Centro",
+      "zipCode": "56200-000",
+      "phone": "(87) 99921-3739",
+      "email": "ouricuri.ssebastiao@diocesedesalgueiro.org.br",
+      "website": null,
+      "priestName": "Frei Maurício Soares de Souza, OFMCap",
+      "foundedYear": 1844,
+      "sources": [
+        {
+          "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-sao-sebastiao-ouricuri/",
+          "title": "Paróquia São Sebastião – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 12/03/2026)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://diocesedesalgueiro.org.br/horarios-de-missas/",
+          "title": "Horários de Missas | Diocese de Salgueiro (página diocesana que agrega as 31 grades publicadas)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Confiada aos Frades Menores Capuchinhos. Além do pároco, a ficha lista Frei Willian Oliveira Almeida, OFMCap e Frei Ailsom Medeiros Batista, OFMCap. Forania São Lucas.",
+      "communities": [
+        {
+          "name": "Matriz São Sebastião",
+          "address": "Praça Pe. Francisco Pedro da Silva, 97, Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-sao-sebastiao-ouricuri/",
+              "title": "Paróquia São Sebastião – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 12/03/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-sao-sebastiao-ouricuri/",
+              "title": "Paróquia São Sebastião – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 12/03/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-sao-sebastiao-ouricuri/",
+              "title": "Paróquia São Sebastião – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 12/03/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 4,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-sao-sebastiao-ouricuri/",
+              "title": "Paróquia São Sebastião – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 12/03/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 4,
+          "time": "09:00",
+          "type": "CONFESSION",
+          "notes": "Quinta, sexta e sábado, das 9h às 12h",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-sao-sebastiao-ouricuri/",
+              "title": "Paróquia São Sebastião – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 12/03/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 5,
+          "time": "09:00",
+          "type": "CONFESSION",
+          "notes": "Quinta, sexta e sábado, das 9h às 12h",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-sao-sebastiao-ouricuri/",
+              "title": "Paróquia São Sebastião – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 12/03/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 6,
+          "time": "09:00",
+          "type": "CONFESSION",
+          "notes": "Quinta, sexta e sábado, das 9h às 12h",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-sao-sebastiao-ouricuri/",
+              "title": "Paróquia São Sebastião – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 12/03/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 4,
+          "time": "19:30",
+          "type": "ADORATION",
+          "notes": "Quinta-feira, às 19h30",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-sao-sebastiao-ouricuri/",
+              "title": "Paróquia São Sebastião – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 12/03/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-do-carmo-ouricuri",
+      "name": "Paróquia Nossa Senhora do Carmo",
+      "city": "Ouricuri",
+      "state": "PE",
+      "neighborhood": "Nossa Senhora do Carmo",
+      "address": "Rua Pref. Elias Gomes, s/n, N. Sra. do Carmo",
+      "zipCode": "56200-000",
+      "phone": "(87) 99119-3757",
+      "email": "ouricuri.nscarmo@diocesedesalgueiro.org.br",
+      "website": null,
+      "priestName": "Pe. Thomas Éric da Cunha Carvalho",
+      "foundedYear": 2013,
+      "sources": [
+        {
+          "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-do-carmo-ouricuri/",
+          "title": "Paróquia Nossa Senhora do Carmo – Nossa Senhora do Carmo | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 31/01/2025)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://diocesedesalgueiro.org.br/horarios-de-missas/",
+          "title": "Horários de Missas | Diocese de Salgueiro (página diocesana que agrega as 31 grades publicadas)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Quase-paróquia em 2010; elevada a paróquia em 22/01/2013. Forania São Lucas.",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora do Carmo",
+          "address": "Rua Pref. Elias Gomes, s/n, N. Sra. do Carmo",
+          "neighborhood": "Nossa Senhora do Carmo",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-do-carmo-ouricuri/",
+              "title": "Paróquia Nossa Senhora do Carmo – Nossa Senhora do Carmo | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 31/01/2025)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora do Carmo",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-do-carmo-ouricuri/",
+              "title": "Paróquia Nossa Senhora do Carmo – Nossa Senhora do Carmo | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 31/01/2025)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Carmo",
+          "dayOfWeek": 4,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-do-carmo-ouricuri/",
+              "title": "Paróquia Nossa Senhora do Carmo – Nossa Senhora do Carmo | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 31/01/2025)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Carmo",
+          "dayOfWeek": 5,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-do-carmo-ouricuri/",
+              "title": "Paróquia Nossa Senhora do Carmo – Nossa Senhora do Carmo | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 31/01/2025)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Carmo",
+          "dayOfWeek": 5,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Regra literal na fonte: “1º Sexta do Mês — 19h30min”",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-do-carmo-ouricuri/",
+              "title": "Paróquia Nossa Senhora do Carmo – Nossa Senhora do Carmo | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 31/01/2025)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Carmo",
+          "dayOfWeek": 4,
+          "time": "18:00",
+          "type": "CONFESSION",
+          "notes": "Quinta-feira, das 18h às 19h30",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-do-carmo-ouricuri/",
+              "title": "Paróquia Nossa Senhora do Carmo – Nossa Senhora do Carmo | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 31/01/2025)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Carmo",
+          "dayOfWeek": 5,
+          "time": "09:00",
+          "type": "CONFESSION",
+          "notes": "Sexta-feira, das 9h às 11h",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-do-carmo-ouricuri/",
+              "title": "Paróquia Nossa Senhora do Carmo – Nossa Senhora do Carmo | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 31/01/2025)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Carmo",
+          "dayOfWeek": 4,
+          "time": "18:00",
+          "type": "ADORATION",
+          "notes": "Quinta-feira, 18h, na Igreja Matriz",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-do-carmo-ouricuri/",
+              "title": "Paróquia Nossa Senhora do Carmo – Nossa Senhora do Carmo | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 31/01/2025)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-de-fatima-ouricuri",
+      "name": "Paróquia Nossa Senhora de Fátima",
+      "city": "Ouricuri",
+      "state": "PE",
+      "neighborhood": "Nossa Senhora de Fátima",
+      "address": "Rua Nossa Senhora de Fátima, 231, N. Sra. de Fátima",
+      "zipCode": null,
+      "phone": "(87) 99243-6241",
+      "email": "ouricuri.nsfatima@diocesedesalgueiro.org.br",
+      "website": null,
+      "priestName": "Pe. Domingos Malan Viana Torres",
+      "foundedYear": 2024,
+      "sources": [
+        {
+          "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-de-fatima-ouricuri/",
+          "title": "Paróquia Nossa Senhora de Fátima – Nossa Senhora de Fátima | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 30/06/2026)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://diocesedesalgueiro.org.br/horarios-de-missas/",
+          "title": "Horários de Missas | Diocese de Salgueiro (página diocesana que agrega as 31 grades publicadas)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "A ficha não publica CEP. Atenção: o endereço publicado repete rua e número da Paróquia N. Sra. de Fátima de Morais (Araripina) — ponto para validação humana. Forania São Lucas.",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora de Fátima",
+          "address": "Rua Nossa Senhora de Fátima, 231, N. Sra. de Fátima",
+          "neighborhood": "Nossa Senhora de Fátima",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-de-fatima-ouricuri/",
+              "title": "Paróquia Nossa Senhora de Fátima – Nossa Senhora de Fátima | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 30/06/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora de Fátima",
+          "dayOfWeek": 0,
+          "time": "10:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-de-fatima-ouricuri/",
+              "title": "Paróquia Nossa Senhora de Fátima – Nossa Senhora de Fátima | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 30/06/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora de Fátima",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-de-fatima-ouricuri/",
+              "title": "Paróquia Nossa Senhora de Fátima – Nossa Senhora de Fátima | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 30/06/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora de Fátima",
+          "dayOfWeek": null,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Regra literal na fonte: “Dia 13 — 19h”",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-de-fatima-ouricuri/",
+              "title": "Paróquia Nossa Senhora de Fátima – Nossa Senhora de Fátima | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 30/06/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora de Fátima",
+          "dayOfWeek": null,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Regra literal na fonte: “Dia 20 — 19h”",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-de-fatima-ouricuri/",
+              "title": "Paróquia Nossa Senhora de Fátima – Nossa Senhora de Fátima | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 30/06/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora de Fátima",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Regra literal na fonte: “1ª Sexta-feira — 19h”",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-de-fatima-ouricuri/",
+              "title": "Paróquia Nossa Senhora de Fátima – Nossa Senhora de Fátima | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 30/06/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora de Fátima",
+          "dayOfWeek": 5,
+          "time": "08:00",
+          "type": "CONFESSION",
+          "notes": "Sexta-feira, das 8h às 12h",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-de-fatima-ouricuri/",
+              "title": "Paróquia Nossa Senhora de Fátima – Nossa Senhora de Fátima | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 30/06/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora de Fátima",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "ADORATION",
+          "notes": "Quinta-feira, 19h",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-de-fatima-ouricuri/",
+              "title": "Paróquia Nossa Senhora de Fátima – Nossa Senhora de Fátima | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 30/06/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "sao-pedro-apostolo-barra-de-sao-pedro",
+      "name": "Paróquia São Pedro Apóstolo",
+      "city": "Ouricuri",
+      "state": "PE",
+      "neighborhood": "Barra de São Pedro",
+      "address": "Rua da Matriz, s/n, Barra de São Pedro",
+      "zipCode": "56205-000",
+      "phone": "(87) 98100-7997",
+      "email": "barra.saopedro@diocesedesalgueiro.org.br",
+      "website": null,
+      "priestName": "Pe. Edson Rodrigues Alberto",
+      "foundedYear": 1925,
+      "sources": [
+        {
+          "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-sao-pedro-apostolo-barra-ouricuri-pe/",
+          "title": "Paróquia São Pedro Apóstolo – Barra de São Pedro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 21/01/2026)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://diocesedesalgueiro.org.br/horarios-de-missas/",
+          "title": "Horários de Missas | Diocese de Salgueiro (página diocesana que agrega as 31 grades publicadas)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Distrito de Barra de São Pedro, município de Ouricuri. Confissões “todos os dias, exceto a segunda-feira, no mesmo horário de atendimento da secretaria” (seg. a sex. 14h-18h; sáb. 9h-12h) — as grades de confissão derivadas dessa combinação ficaram em confiança baixa. Forania São Mateus.",
+      "communities": [
+        {
+          "name": "Matriz São Pedro Apóstolo",
+          "address": "Rua da Matriz, s/n, Barra de São Pedro",
+          "neighborhood": "Barra de São Pedro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-sao-pedro-apostolo-barra-ouricuri-pe/",
+              "title": "Paróquia São Pedro Apóstolo – Barra de São Pedro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 21/01/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São Pedro Apóstolo",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Regra literal na fonte: “1,3 e 4º Domingo — 19h”",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-sao-pedro-apostolo-barra-ouricuri-pe/",
+              "title": "Paróquia São Pedro Apóstolo – Barra de São Pedro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 21/01/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Pedro Apóstolo",
+          "dayOfWeek": 0,
+          "time": "10:00",
+          "type": "MASS",
+          "notes": "Regra literal na fonte: “2º Domingo — 10h”",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-sao-pedro-apostolo-barra-ouricuri-pe/",
+              "title": "Paróquia São Pedro Apóstolo – Barra de São Pedro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 21/01/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Pedro Apóstolo",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Regra literal na fonte: “1º Sexta-feira — 19h”",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-sao-pedro-apostolo-barra-ouricuri-pe/",
+              "title": "Paróquia São Pedro Apóstolo – Barra de São Pedro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 21/01/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Pedro Apóstolo",
+          "dayOfWeek": 2,
+          "time": "14:00",
+          "type": "CONFESSION",
+          "notes": "Derivado: “confissões todos os dias, exceto a segunda-feira, no mesmo horário de atendimento da secretaria” (seg. a sex. 14h-18h; sáb. 9h-12h)",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-sao-pedro-apostolo-barra-ouricuri-pe/",
+              "title": "Paróquia São Pedro Apóstolo – Barra de São Pedro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 21/01/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Pedro Apóstolo",
+          "dayOfWeek": 3,
+          "time": "14:00",
+          "type": "CONFESSION",
+          "notes": "Derivado: confissões no horário da secretaria (14h-18h)",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-sao-pedro-apostolo-barra-ouricuri-pe/",
+              "title": "Paróquia São Pedro Apóstolo – Barra de São Pedro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 21/01/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Pedro Apóstolo",
+          "dayOfWeek": 4,
+          "time": "14:00",
+          "type": "CONFESSION",
+          "notes": "Derivado: confissões no horário da secretaria (14h-18h)",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-sao-pedro-apostolo-barra-ouricuri-pe/",
+              "title": "Paróquia São Pedro Apóstolo – Barra de São Pedro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 21/01/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Pedro Apóstolo",
+          "dayOfWeek": 5,
+          "time": "14:00",
+          "type": "CONFESSION",
+          "notes": "Derivado: confissões no horário da secretaria (14h-18h)",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-sao-pedro-apostolo-barra-ouricuri-pe/",
+              "title": "Paróquia São Pedro Apóstolo – Barra de São Pedro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 21/01/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Pedro Apóstolo",
+          "dayOfWeek": 6,
+          "time": "09:00",
+          "type": "CONFESSION",
+          "notes": "Derivado: confissões no horário da secretaria aos sábados (9h-12h)",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-sao-pedro-apostolo-barra-ouricuri-pe/",
+              "title": "Paróquia São Pedro Apóstolo – Barra de São Pedro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 21/01/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "senhora-santana-parnamirim",
+      "name": "Paróquia Senhora Sant'Ana",
+      "city": "Parnamirim",
+      "state": "PE",
+      "neighborhood": "Centro",
+      "address": "Praça da Matriz, 9, Centro",
+      "zipCode": "56163-000",
+      "phone": "(87) 99939-4859",
+      "email": "parnamirim.ssantana@diocesedesalgueiro.org.br",
+      "website": null,
+      "priestName": "Pe. José da Silva Barros",
+      "foundedYear": 1867,
+      "sources": [
+        {
+          "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-senhora-santana-parnamirim/",
+          "title": "Paróquia Senhora Sant'Ana – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 03/11/2025)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://diocesedesalgueiro.org.br/horarios-de-missas/",
+          "title": "Horários de Missas | Diocese de Salgueiro (página diocesana que agrega as 31 grades publicadas)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "A Wikipédia chama esta paróquia de “Sant'Ana de Leopoldina” (Leopoldina é o nome antigo de Parnamirim). Forania São Marcos.",
+      "communities": [
+        {
+          "name": "Matriz Senhora Sant'Ana",
+          "address": "Praça da Matriz, 9, Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-senhora-santana-parnamirim/",
+              "title": "Paróquia Senhora Sant'Ana – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 03/11/2025)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Senhora Sant'Ana",
+          "dayOfWeek": 0,
+          "time": "11:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-senhora-santana-parnamirim/",
+              "title": "Paróquia Senhora Sant'Ana – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 03/11/2025)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Senhora Sant'Ana",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-senhora-santana-parnamirim/",
+              "title": "Paróquia Senhora Sant'Ana – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 03/11/2025)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Senhora Sant'Ana",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-senhora-santana-parnamirim/",
+              "title": "Paróquia Senhora Sant'Ana – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 03/11/2025)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Senhora Sant'Ana",
+          "dayOfWeek": 5,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": "Regra literal na fonte: “1ª Sexta-feira — 9h”",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-senhora-santana-parnamirim/",
+              "title": "Paróquia Senhora Sant'Ana – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 03/11/2025)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Senhora Sant'Ana",
+          "dayOfWeek": 5,
+          "time": "09:00",
+          "type": "CONFESSION",
+          "notes": "Sexta-feira, das 9h às 11h",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-senhora-santana-parnamirim/",
+              "title": "Paróquia Senhora Sant'Ana – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 03/11/2025)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Senhora Sant'Ana",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "ADORATION",
+          "notes": "Quinta-feira, às 19h",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-senhora-santana-parnamirim/",
+              "title": "Paróquia Senhora Sant'Ana – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 03/11/2025)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-do-bom-conselho-granito",
+      "name": "Paróquia Nossa Senhora do Bom Conselho",
+      "city": "Granito",
+      "state": "PE",
+      "neighborhood": "Centro",
+      "address": "Rua da Matriz, s/n, Centro",
+      "zipCode": "56160-000",
+      "phone": "(87) 98116-8195",
+      "email": "granito.bconselho@diocesedesalgueiro.org.br",
+      "website": null,
+      "priestName": "Pe. Luilson Lino Pereira",
+      "foundedYear": 1846,
+      "sources": [
+        {
+          "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-do-bom-conselho-granito/",
+          "title": "Paróquia Nossa Senhora do Bom Conselho – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 05/02/2026)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://diocesedesalgueiro.org.br/horarios-de-missas/",
+          "title": "Horários de Missas | Diocese de Salgueiro (página diocesana que agrega as 31 grades publicadas)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Forania São Lucas.",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora do Bom Conselho",
+          "address": "Rua da Matriz, s/n, Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-do-bom-conselho-granito/",
+              "title": "Paróquia Nossa Senhora do Bom Conselho – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 05/02/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora do Bom Conselho",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-do-bom-conselho-granito/",
+              "title": "Paróquia Nossa Senhora do Bom Conselho – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 05/02/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Bom Conselho",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-do-bom-conselho-granito/",
+              "title": "Paróquia Nossa Senhora do Bom Conselho – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 05/02/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Bom Conselho",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-do-bom-conselho-granito/",
+              "title": "Paróquia Nossa Senhora do Bom Conselho – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 05/02/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Bom Conselho",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Regra literal na fonte: “1ª Sexta-feira — 19h”",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-do-bom-conselho-granito/",
+              "title": "Paróquia Nossa Senhora do Bom Conselho – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 05/02/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Bom Conselho",
+          "dayOfWeek": 4,
+          "time": "09:00",
+          "type": "CONFESSION",
+          "notes": "Quinta e sexta-feira, das 9h às 12h",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-do-bom-conselho-granito/",
+              "title": "Paróquia Nossa Senhora do Bom Conselho – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 05/02/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Bom Conselho",
+          "dayOfWeek": 5,
+          "time": "09:00",
+          "type": "CONFESSION",
+          "notes": "Quinta e sexta-feira, das 9h às 12h",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-do-bom-conselho-granito/",
+              "title": "Paróquia Nossa Senhora do Bom Conselho – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 05/02/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Bom Conselho",
+          "dayOfWeek": 4,
+          "time": "18:00",
+          "type": "ADORATION",
+          "notes": "Quinta-feira, 18h",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-do-bom-conselho-granito/",
+              "title": "Paróquia Nossa Senhora do Bom Conselho – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 05/02/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-da-conceicao-serrita",
+      "name": "Paróquia Nossa Senhora da Conceição",
+      "city": "Serrita",
+      "state": "PE",
+      "neighborhood": "Centro",
+      "address": "Rua Pres. Costa e Silva, 138, Centro",
+      "zipCode": "56140-000",
+      "phone": "(87) 3882-1154",
+      "email": "serrita.conceicao@diocesedesalgueiro.org.br",
+      "website": null,
+      "priestName": "Pe. Antônio Júlio da Silva",
+      "foundedYear": 1920,
+      "sources": [
+        {
+          "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-da-conceicao-serrita/",
+          "title": "Paróquia Nossa Senhora da Conceição – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/10/2024)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://diocesedesalgueiro.org.br/horarios-de-missas/",
+          "title": "Horários de Missas | Diocese de Salgueiro (página diocesana que agrega as 31 grades publicadas)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Vigário: Pe. Francisco Leandro dos Santos Soares. Segundo contato: (87) 98107-6279. A missa do dia 20 é celebrada na Estátua do Pe. Cícero. Forania São Marcos.",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora da Conceição",
+          "address": "Rua Pres. Costa e Silva, 138, Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-da-conceicao-serrita/",
+              "title": "Paróquia Nossa Senhora da Conceição – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/10/2024)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-da-conceicao-serrita/",
+              "title": "Paróquia Nossa Senhora da Conceição – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/10/2024)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 1,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-da-conceicao-serrita/",
+              "title": "Paróquia Nossa Senhora da Conceição – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/10/2024)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 5,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": "Regra literal na fonte: “1ªSexta — 8h”",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-da-conceicao-serrita/",
+              "title": "Paróquia Nossa Senhora da Conceição – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/10/2024)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": null,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": "Regra literal na fonte: “Dia 20 — 6h”. Estátua do Pe. Cícero",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-da-conceicao-serrita/",
+              "title": "Paróquia Nossa Senhora da Conceição – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/10/2024)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 4,
+          "time": "09:00",
+          "type": "CONFESSION",
+          "notes": "Quinta-feira, das 9h às 12h",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-da-conceicao-serrita/",
+              "title": "Paróquia Nossa Senhora da Conceição – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/10/2024)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 4,
+          "time": "15:00",
+          "type": "CONFESSION",
+          "notes": "Quinta-feira, das 15h às 17h",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-da-conceicao-serrita/",
+              "title": "Paróquia Nossa Senhora da Conceição – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/10/2024)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "ADORATION",
+          "notes": "Quinta-feira, 19h",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-da-conceicao-serrita/",
+              "title": "Paróquia Nossa Senhora da Conceição – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/10/2024)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "sao-sebastiao-terra-nova",
+      "name": "Paróquia São Sebastião",
+      "city": "Terra Nova",
+      "state": "PE",
+      "neighborhood": "Centro",
+      "address": "Rua João Mendes de Sá, 23, Centro",
+      "zipCode": "56190-000",
+      "phone": "(87) 99100-1297",
+      "email": "terranova.ssebastiao@diocesedesalgueiro.org.br",
+      "website": null,
+      "priestName": "Pe. João Marcos de Queiroz",
+      "foundedYear": 2010,
+      "sources": [
+        {
+          "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-sao-sebastiao-terra-nova/",
+          "title": "Paróquia São Sebastião – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 02/12/2025)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://diocesedesalgueiro.org.br/horarios-de-missas/",
+          "title": "Horários de Missas | Diocese de Salgueiro (página diocesana que agrega as 31 grades publicadas)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "A ficha não publica horário de adoração. Forania São Marcos.",
+      "communities": [
+        {
+          "name": "Matriz São Sebastião",
+          "address": "Rua João Mendes de Sá, 23, Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-sao-sebastiao-terra-nova/",
+              "title": "Paróquia São Sebastião – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 02/12/2025)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-sao-sebastiao-terra-nova/",
+              "title": "Paróquia São Sebastião – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 02/12/2025)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-sao-sebastiao-terra-nova/",
+              "title": "Paróquia São Sebastião – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 02/12/2025)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-sao-sebastiao-terra-nova/",
+              "title": "Paróquia São Sebastião – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 02/12/2025)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Regra literal na fonte: “1ª Sexta — 19h”",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-sao-sebastiao-terra-nova/",
+              "title": "Paróquia São Sebastião – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 02/12/2025)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 5,
+          "time": "14:00",
+          "type": "CONFESSION",
+          "notes": "Sexta-feira, das 14h às 17h",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-sao-sebastiao-terra-nova/",
+              "title": "Paróquia São Sebastião – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 02/12/2025)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "sagrada-familia-trindade",
+      "name": "Paróquia Sagrada Família",
+      "city": "Trindade",
+      "state": "PE",
+      "neighborhood": "Centro",
+      "address": "Rua Guadalajara, 31, Centro",
+      "zipCode": "56250-000",
+      "phone": "(87) 99968-8414",
+      "email": "trindade.sfamilia@diocesedesalgueiro.org.br",
+      "website": null,
+      "priestName": "Pe. Vicente de Paulo Gomes Ferreira",
+      "foundedYear": 1997,
+      "sources": [
+        {
+          "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-sagrada-familia-trindade/",
+          "title": "Paróquia Sagrada Família – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 13/08/2025)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://diocesedesalgueiro.org.br/horarios-de-missas/",
+          "title": "Horários de Missas | Diocese de Salgueiro (página diocesana que agrega as 31 grades publicadas)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Forania São Mateus.",
+      "communities": [
+        {
+          "name": "Matriz Sagrada Família",
+          "address": "Rua Guadalajara, 31, Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-sagrada-familia-trindade/",
+              "title": "Paróquia Sagrada Família – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 13/08/2025)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Sagrada Família",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-sagrada-familia-trindade/",
+              "title": "Paróquia Sagrada Família – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 13/08/2025)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Sagrada Família",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-sagrada-familia-trindade/",
+              "title": "Paróquia Sagrada Família – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 13/08/2025)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Sagrada Família",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-sagrada-familia-trindade/",
+              "title": "Paróquia Sagrada Família – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 13/08/2025)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Sagrada Família",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Regra literal na fonte: “1º Sexta-feira — 19h”",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-sagrada-familia-trindade/",
+              "title": "Paróquia Sagrada Família – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 13/08/2025)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Sagrada Família",
+          "dayOfWeek": null,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Regra literal na fonte: “Dia 29 de cada mês — 19h30min”. Dia da Graça",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-sagrada-familia-trindade/",
+              "title": "Paróquia Sagrada Família – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 13/08/2025)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Sagrada Família",
+          "dayOfWeek": 2,
+          "time": "08:00",
+          "type": "CONFESSION",
+          "notes": "Terça a sexta-feira, das 8h às 11h30",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-sagrada-familia-trindade/",
+              "title": "Paróquia Sagrada Família – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 13/08/2025)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Sagrada Família",
+          "dayOfWeek": 3,
+          "time": "08:00",
+          "type": "CONFESSION",
+          "notes": "Terça a sexta-feira, das 8h às 11h30",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-sagrada-familia-trindade/",
+              "title": "Paróquia Sagrada Família – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 13/08/2025)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Sagrada Família",
+          "dayOfWeek": 4,
+          "time": "08:00",
+          "type": "CONFESSION",
+          "notes": "Terça a sexta-feira, das 8h às 11h30",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-sagrada-familia-trindade/",
+              "title": "Paróquia Sagrada Família – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 13/08/2025)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Sagrada Família",
+          "dayOfWeek": 5,
+          "time": "08:00",
+          "type": "CONFESSION",
+          "notes": "Terça a sexta-feira, das 8h às 11h30",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-sagrada-familia-trindade/",
+              "title": "Paróquia Sagrada Família – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 13/08/2025)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz Sagrada Família",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "ADORATION",
+          "notes": "Quinta-feira, 19h",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-sagrada-familia-trindade/",
+              "title": "Paróquia Sagrada Família – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 13/08/2025)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-do-perpetuo-socorro-verdejante",
+      "name": "Paróquia Nossa Senhora do Perpétuo Socorro",
+      "city": "Verdejante",
+      "state": "PE",
+      "neighborhood": "Centro",
+      "address": "Av. David Jacinto, 167, Centro",
+      "zipCode": "56120-000",
+      "phone": "(87) 98171-1694",
+      "email": "verdejante.psocorro@diocesedesalgueiro.org.br",
+      "website": null,
+      "priestName": "Pe. Lindovaldo Gomes Bezerra",
+      "foundedYear": 2011,
+      "sources": [
+        {
+          "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-do-perpetuo-socorro-verdejante/",
+          "title": "Paróquia Nossa Senhora do Perpétuo Socorro – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 06/08/2026)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://diocesedesalgueiro.org.br/horarios-de-missas/",
+          "title": "Horários de Missas | Diocese de Salgueiro (página diocesana que agrega as 31 grades publicadas)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Forania São Marcos.",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora do Perpétuo Socorro",
+          "address": "Av. David Jacinto, 167, Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-do-perpetuo-socorro-verdejante/",
+              "title": "Paróquia Nossa Senhora do Perpétuo Socorro – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 06/08/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-do-perpetuo-socorro-verdejante/",
+              "title": "Paróquia Nossa Senhora do Perpétuo Socorro – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 06/08/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-do-perpetuo-socorro-verdejante/",
+              "title": "Paróquia Nossa Senhora do Perpétuo Socorro – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 06/08/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 5,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": "Regra literal na fonte: “1ª Sexta-feira — 6h”",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-do-perpetuo-socorro-verdejante/",
+              "title": "Paróquia Nossa Senhora do Perpétuo Socorro – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 06/08/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 4,
+          "time": "09:00",
+          "type": "CONFESSION",
+          "notes": "Quinta-feira, das 9h às 12h",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-do-perpetuo-socorro-verdejante/",
+              "title": "Paróquia Nossa Senhora do Perpétuo Socorro – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 06/08/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "ADORATION",
+          "notes": "Quinta-feira, 19h",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/paroquia-nossa-senhora-do-perpetuo-socorro-verdejante/",
+              "title": "Paróquia Nossa Senhora do Perpétuo Socorro – Centro | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 06/08/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "sao-sebastiao-mangueira",
+      "name": "Área Pastoral São Sebastião",
+      "city": "Trindade",
+      "state": "PE",
+      "neighborhood": "Distrito de Mangueira",
+      "address": "Rua E, s/n, Distrito de Mangueira",
+      "zipCode": "56250-000",
+      "phone": "(87) 99105-1020",
+      "email": "magueira.ssebastiao@diocesedesalgueiro.org.br",
+      "website": null,
+      "priestName": "Pe. José Manoel Fernandes da Costa",
+      "foundedYear": 2024,
+      "sources": [
+        {
+          "url": "https://diocesedesalgueiro.org.br/paroquia/area-pastoral-sao-sebastiao-mangueira-trindade-pe/",
+          "title": "Área Pastoral São Sebastião – Distrito de Mangueira | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/10/2024)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://diocesedesalgueiro.org.br/horarios-de-missas/",
+          "title": "Horários de Missas | Diocese de Salgueiro (página diocesana que agrega as 31 grades publicadas)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Área pastoral (unidade própria, ainda não erigida paróquia), distrito de Mangueira, município de Trindade. Criada em 2024. Forania São Mateus.",
+      "communities": [
+        {
+          "name": "Matriz São Sebastião",
+          "address": "Rua E, s/n, Distrito de Mangueira",
+          "neighborhood": "Distrito de Mangueira",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/area-pastoral-sao-sebastiao-mangueira-trindade-pe/",
+              "title": "Área Pastoral São Sebastião – Distrito de Mangueira | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/10/2024)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 0,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/area-pastoral-sao-sebastiao-mangueira-trindade-pe/",
+              "title": "Área Pastoral São Sebastião – Distrito de Mangueira | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/10/2024)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 5,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": "Regra literal na fonte: “1ª Sexta-feira — 17h”",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/area-pastoral-sao-sebastiao-mangueira-trindade-pe/",
+              "title": "Área Pastoral São Sebastião – Distrito de Mangueira | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/10/2024)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": null,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Regra literal na fonte: “Dia 18 — 19h”",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/area-pastoral-sao-sebastiao-mangueira-trindade-pe/",
+              "title": "Área Pastoral São Sebastião – Distrito de Mangueira | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/10/2024)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": null,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Regra literal na fonte: “Dia 30 — 19h”",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/area-pastoral-sao-sebastiao-mangueira-trindade-pe/",
+              "title": "Área Pastoral São Sebastião – Distrito de Mangueira | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/10/2024)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 4,
+          "time": "18:00",
+          "type": "CONFESSION",
+          "notes": "Quinta, das 18h às 19h",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/area-pastoral-sao-sebastiao-mangueira-trindade-pe/",
+              "title": "Área Pastoral São Sebastião – Distrito de Mangueira | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/10/2024)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 5,
+          "time": "08:00",
+          "type": "CONFESSION",
+          "notes": "Sexta, das 8h às 11h",
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/area-pastoral-sao-sebastiao-mangueira-trindade-pe/",
+              "title": "Área Pastoral São Sebastião – Distrito de Mangueira | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 25/10/2024)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "status": "nao-paroquial",
+      "loadAsParish": true
+    },
+    {
+      "slug": "nossa-senhora-de-fatima-parnamirim",
+      "name": "Área Pastoral Nossa Senhora de Fátima",
+      "city": "Parnamirim",
+      "state": "PE",
+      "neighborhood": null,
+      "address": "Rua Luiza Gonzaga do Nascimento, 59",
+      "zipCode": "56163-000",
+      "phone": "(87) 99955-9814",
+      "email": "parnamirim.apfatima@diocesedesalgueiro.org.br",
+      "website": null,
+      "priestName": "Pe. Ivan Cândido da Silva",
+      "foundedYear": 2024,
+      "sources": [
+        {
+          "url": "https://diocesedesalgueiro.org.br/paroquia/area-pastoral-nossa-senhora-de-fatima-parnamirim/",
+          "title": "Área Pastoral Nossa Senhora de Fátima – Parnamirim | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 21/02/2025)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://diocesedesalgueiro.org.br/horarios-de-missas/",
+          "title": "Horários de Missas | Diocese de Salgueiro (página diocesana que agrega as 31 grades publicadas)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Área pastoral (unidade própria, ainda não erigida paróquia), criada em 2024. A ficha não publica horários de missa. Forania São Marcos.",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora de Fátima",
+          "address": "Rua Luiza Gonzaga do Nascimento, 59",
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/area-pastoral-nossa-senhora-de-fatima-parnamirim/",
+              "title": "Área Pastoral Nossa Senhora de Fátima – Parnamirim | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 21/02/2025)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [],
+      "status": "nao-paroquial",
+      "loadAsParish": true
+    },
+    {
+      "slug": "sao-pedro-apostolo-sipauba",
+      "name": "Área Pastoral São Pedro Apóstolo",
+      "city": "Bodocó",
+      "state": "PE",
+      "neighborhood": "Distrito de Sipaúba",
+      "address": null,
+      "zipCode": null,
+      "phone": null,
+      "email": "sipauba.apspedro@diocesedesalgueiro.org.br",
+      "website": null,
+      "priestName": "Pe. José Nilton Pereira Matias",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://diocesedesalgueiro.org.br/paroquia/area-pastoral-sao-pedro-apostolo-sipauba-bodoco-pe/",
+          "title": "Área Pastoral São Pedro Apóstolo – Distrito de Sipaúba | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 30/04/2025)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://diocesedesalgueiro.org.br/horarios-de-missas/",
+          "title": "Horários de Missas | Diocese de Salgueiro (página diocesana que agrega as 31 grades publicadas)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "notes": "Área pastoral (unidade própria, ainda não erigida paróquia), distrito de Sipaúba, município de Bodocó. A ficha só publica o clero — sem endereço, telefone ou horários. Forania São Lucas.",
+      "communities": [
+        {
+          "name": "Matriz São Pedro Apóstolo",
+          "address": null,
+          "neighborhood": "Distrito de Sipaúba",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://diocesedesalgueiro.org.br/paroquia/area-pastoral-sao-pedro-apostolo-sipauba-bodoco-pe/",
+              "title": "Área Pastoral São Pedro Apóstolo – Distrito de Sipaúba | Diocese de Salgueiro (ficha oficial; ultima alteracao no WordPress em 30/04/2025)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [],
+      "status": "nao-paroquial",
+      "loadAsParish": true
+    }
+  ],
+  "coverage": {
+    "parishesFound": 30,
+    "parishesExpected": 30,
+    "notes": "O site oficial publica 33 fichas, em 3 foranias (São Marcos, São Mateus e São Lucas) e 15 municípios: 30 paróquias (incluindo a Sé Catedral) e 3 áreas pastorais. As áreas entram como unidade própria (status “nao-paroquial” + loadAsParish) e não contam em parishesFound. Wikipédia (21 paróquias) e catholic-hierarchy (20, estatística de 2014, a última publicada) estão muito defasados: não contam as 9 paróquias criadas de 2021 a 2024 (São Francisco de Assis/Salgueiro, São Sebastião/Umãs, N. Sra. do Perpétuo Socorro/Serrolândia, N. Sra. das Graças/Rancharia, Bom Jesus da Lapa/Timorante, Imaculado Coração de Maria/Bodocó, São Francisco de Assis/Exu, N. Sra. de Fátima/Morais e N. Sra. de Fátima/Ouricuri). Em Salgueiro cada paróquia tem CNPJ próprio — não há varredura de filiais da mitra —, então a prova de completude foi feita pelo Mapa das OSC/IPEA, por razão social nos 15 municípios: 26 paróquias católicas, todas correspondentes a fichas do site e nenhuma fora dele; as 4 que faltam na base do IPEA (Santa Cruz/Salgueiro, Santa Teresinha/Moreilândia, N. Sra. do Carmo e N. Sra. de Fátima/Ouricuri) existem no site. parishesExpected fixado em 30. A diocese não publica capelas: 31 comunidades listadas (30 igrejas-sede + a Igreja Sagrada Família de Cabrobó, co-padroeira, que concentra as missas dominicais). Cinco fichas informam apenas a contagem de comunidades, sem nomes: Ipubi 25, Imaculado Coração de Maria/Bodocó 20, Umãs 18, Serrolândia 16 e Moreilândia 12."
+  }
+}
