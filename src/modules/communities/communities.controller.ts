@@ -6,9 +6,11 @@ import {
   Patch,
   Param,
   Delete,
+  Query,
   UseGuards,
 } from '@nestjs/common';
 import { CommunitiesService } from './communities.service';
+import { CommunitiesMapService, PinKind } from './communities-map.service';
 import { CreateCommunityDto } from './dto/create-community.dto';
 import { UpdateCommunityDto } from './dto/update-community.dto';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
@@ -20,7 +22,47 @@ import { UserRole } from '@prisma/client';
 @Controller('communities')
 @UseGuards(JwtAuthGuard, RolesGuard)
 export class CommunitiesController {
-  constructor(private readonly communitiesService: CommunitiesService) {}
+  constructor(
+    private readonly communitiesService: CommunitiesService,
+    private readonly mapService: CommunitiesMapService,
+  ) {}
+
+  // --- Mapa do território (painel do SYSTEM_ADMIN) -------------------------
+  // Estas rotas vêm ANTES de @Get(':id'): "map" seria capturado como um id.
+
+  @Get('map/stats')
+  @Roles(UserRole.SYSTEM_ADMIN)
+  mapStats(@Query('uf') uf?: string) {
+    return this.mapService.stats(uf);
+  }
+
+  @Get('map/dioceses')
+  @Roles(UserRole.SYSTEM_ADMIN)
+  mapDioceses(@Query('uf') uf?: string) {
+    return this.mapService.dioceses(uf);
+  }
+
+  @Get('map')
+  @Roles(UserRole.SYSTEM_ADMIN)
+  map(
+    @Query('uf') uf?: string,
+    @Query('dioceseId') dioceseId?: string,
+    @Query('parishId') parishId?: string,
+    @Query('pin') pin?: PinKind | 'todos',
+    @Query('q') q?: string,
+    @Query('bbox') bbox?: string,
+    @Query('limit') limit?: string,
+  ) {
+    return this.mapService.list({
+      uf,
+      dioceseId,
+      parishId,
+      pin,
+      q,
+      bbox,
+      limit: Number(limit) || undefined,
+    });
+  }
 
   @Post()
   @Roles(
