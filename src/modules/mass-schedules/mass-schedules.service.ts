@@ -12,7 +12,7 @@ import {
 } from './dto/create-mass-schedule.dto';
 import { UpdateMassScheduleDto } from './dto/update-mass-schedule.dto';
 import { GenerateScheduleFromMassDto } from './dto/generate-schedule.dto';
-import { MassScheduleType, ScheduleStatus, UserRole } from '@prisma/client';
+import { MassScheduleType, ScheduleStatus, UserRole, MassRecurrence } from '@prisma/client';
 import { CurrentUser, HierarchyService } from '../../common/hierarchy.service';
 
 /** Include padrão das pastorais vinculadas (com o nome global para o painel). */
@@ -157,8 +157,49 @@ export class MassSchedulesService {
     return `${String(hh).padStart(2, '0')}:${String(mm).padStart(2, '0')}`;
   }
 
+  /**
+   * Coerência entre a recorrência e os campos que ela usa, com mensagem em
+   * português — sem isto o erro só apareceria como violação de CHECK do banco.
+   * Também limpa o que não pertence ao tipo escolhido, para não sobrar lixo de
+   * uma edição que trocou WEEKLY por MONTHLY_DAY.
+   */
+  private normalizeRecurrence<T extends {
+    recurrence?: MassRecurrence;
+    dayOfWeek?: number | null;
+    weeksOfMonth?: number[];
+    dayOfMonth?: number | null;
+  }>(dados: T, atual?: { recurrence: MassRecurrence; dayOfWeek: number | null; dayOfMonth: number | null }): T {
+    const recorrencia = dados.recurrence ?? atual?.recurrence ?? MassRecurrence.WEEKLY;
+    const diaDaSemana = dados.dayOfWeek !== undefined ? dados.dayOfWeek : atual?.dayOfWeek ?? null;
+    const diaDoMes = dados.dayOfMonth !== undefined ? dados.dayOfMonth : atual?.dayOfMonth ?? null;
+
+    if (recorrencia === MassRecurrence.MONTHLY_DAY) {
+      if (diaDoMes == null) {
+        throw new BadRequestException('Informe o dia do mês (1 a 31) para um horário de data fixa.');
+      }
+      return { ...dados, recurrence: recorrencia, dayOfWeek: null, dayOfMonth: diaDoMes, weeksOfMonth: [] };
+    }
+
+    if (diaDaSemana == null) {
+      throw new BadRequestException('Informe o dia da semana.');
+    }
+
+    if (recorrencia === MassRecurrence.MONTHLY_NTH) {
+      const semanas = [...new Set(dados.weeksOfMonth ?? [])].filter((n) => n === -1 || (n >= 1 && n <= 5));
+      if (semanas.length === 0) {
+        throw new BadRequestException(
+          'Escolha quais ocorrências do mês (1ª a 5ª, ou a última) para um horário mensal.',
+        );
+      }
+      return { ...dados, recurrence: recorrencia, dayOfWeek: diaDaSemana, dayOfMonth: null, weeksOfMonth: semanas };
+    }
+
+    return { ...dados, recurrence: MassRecurrence.WEEKLY, dayOfWeek: diaDaSemana, dayOfMonth: null, weeksOfMonth: [] };
+  }
+
   async create(createMassScheduleDto: CreateMassScheduleDto, currentUser?: CurrentUser) {
-    const { communityId, pastoralSettings, ...rest } = createMassScheduleDto;
+    const { communityId, pastoralSettings, ...bruto } = createMassScheduleDto;
+    const rest = this.normalizeRecurrence(bruto);
 
     // Verificar se a comunidade existe
     const community = await this.prisma.community.findUnique({
@@ -283,6 +324,54 @@ export class MassSchedulesService {
         const dayUTC = new Date(Date.UTC(sd.getUTCFullYear(), sd.getUTCMonth(), sd.getUTCDate()));
         if (dayUTC >= startDay && dayUTC <= endDay) {
           occurrences.push(this.toOccurrence(schedule, dayUTC, hh, mm));
+        }
+        continue;
+      }
+
+      // Data fixa do mês ("todo dia 13"): uma ocorrência por mês, se o mês tiver
+      // o dia. Fevereiro simplesmente não tem "dia 30" — o mês é pulado, e não
+      // empurrado para o dia 1º de março.
+      if (schedule.recurrence === 'MONTHLY_DAY') {
+        const dia = schedule.dayOfMonth;
+        if (!dia) continue;
+        const mes = new Date(Date.UTC(startDay.getUTCFullYear(), startDay.getUTCMonth(), 1));
+        while (mes <= endDay) {
+          const diasNoMes = new Date(Date.UTC(mes.getUTCFullYear(), mes.getUTCMonth() + 1, 0)).getUTCDate();
+          if (dia <= diasNoMes) {
+            const data = new Date(Date.UTC(mes.getUTCFullYear(), mes.getUTCMonth(), dia));
+            if (data >= startDay && data <= endDay) {
+              occurrences.push(this.toOccurrence(schedule, data, hh, mm));
+            }
+          }
+          mes.setUTCMonth(mes.getUTCMonth() + 1);
+        }
+        continue;
+      }
+
+      if (schedule.dayOfWeek === null || schedule.dayOfWeek === undefined) continue;
+
+      // Enésimo dia da semana do mês ("1º e 3º sábado", "último domingo"):
+      // percorre mês a mês e escolhe as ocorrências pedidas. Lista vazia
+      // significa todas — aí o comportamento é o mesmo do semanal.
+      if (schedule.recurrence === 'MONTHLY_NTH' && schedule.weeksOfMonth.length > 0) {
+        const semanas = schedule.weeksOfMonth;
+        const mes = new Date(Date.UTC(startDay.getUTCFullYear(), startDay.getUTCMonth(), 1));
+        while (mes <= endDay) {
+          // Todos os dias do mês que caem no dia da semana pedido
+          const doDiaDaSemana: Date[] = [];
+          const diasNoMes = new Date(Date.UTC(mes.getUTCFullYear(), mes.getUTCMonth() + 1, 0)).getUTCDate();
+          for (let d = 1; d <= diasNoMes; d += 1) {
+            const data = new Date(Date.UTC(mes.getUTCFullYear(), mes.getUTCMonth(), d));
+            if (data.getUTCDay() === schedule.dayOfWeek) doDiaDaSemana.push(data);
+          }
+          for (const semana of semanas) {
+            // -1 é a última do mês, que pode ser a 4ª ou a 5ª conforme o mês
+            const data = semana === -1 ? doDiaDaSemana[doDiaDaSemana.length - 1] : doDiaDaSemana[semana - 1];
+            if (data && data >= startDay && data <= endDay) {
+              occurrences.push(this.toOccurrence(schedule, data, hh, mm));
+            }
+          }
+          mes.setUTCMonth(mes.getUTCMonth() + 1);
         }
         continue;
       }
@@ -575,7 +664,21 @@ export class MassSchedulesService {
     const schedule = await this.findOne(id); // Verifica se existe
     await this.assertCommunityInScope(schedule.communityId, currentUser);
 
-    const { pastoralSettings, communityId, ...rest } = updateMassScheduleDto;
+    const { pastoralSettings, communityId, ...bruto } = updateMassScheduleDto;
+    // A edição pode trocar o tipo de recorrência; a normalização parte do que
+    // já está gravado para não exigir o reenvio de campos que não mudaram.
+    const mudouRecorrencia =
+      bruto.recurrence !== undefined ||
+      bruto.dayOfWeek !== undefined ||
+      bruto.dayOfMonth !== undefined ||
+      bruto.weeksOfMonth !== undefined;
+    const rest = mudouRecorrencia
+      ? this.normalizeRecurrence(bruto, {
+          recurrence: schedule.recurrence,
+          dayOfWeek: schedule.dayOfWeek,
+          dayOfMonth: schedule.dayOfMonth,
+        })
+      : bruto;
     const targetCommunityId = communityId ?? schedule.communityId;
     if (communityId && communityId !== schedule.communityId) {
       await this.assertCommunityInScope(communityId, currentUser);

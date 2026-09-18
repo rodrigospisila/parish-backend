@@ -1,6 +1,10 @@
-import { PrismaClient, EntityStatus, MassScheduleType } from '@prisma/client';
+import { PrismaClient, EntityStatus, MassScheduleType, MassRecurrence } from '@prisma/client';
 import { existsSync, readdirSync, readFileSync } from 'fs';
 import { join } from 'path';
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const { lerRecorrencia } = require('./data/territorio-br/recorrencia.cjs') as {
+  lerRecorrencia: (notes?: string | null) => { recurrence: 'WEEKLY' | 'MONTHLY_NTH' | 'MONTHLY_DAY'; dayOfWeek: number | null; weeksOfMonth: number[]; dayOfMonth: number | null } | null;
+};
 
 /**
  * Carga do território eclesiástico (dataset em prisma/data/territorio-br):
@@ -64,7 +68,7 @@ const isMatrizName = (n: string) => /matriz|catedral|santu[áa]rio/i.test(n || '
 const normalize = (s: string) =>
   (s ?? '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
 
-const stats = { dioceses: 0, parishes: 0, communities: 0, schedules: 0, skippedLow: 0, skippedInactive: 0, skippedInvalid: 0, misses: [] as string[], nonParish: [] as string[] };
+const stats = { dioceses: 0, parishes: 0, communities: 0, schedules: 0, monthly: 0, recovered: 0, skippedLow: 0, skippedInactive: 0, skippedInvalid: 0, misses: [] as string[], nonParish: [] as string[] };
 
 async function ensureDiocese(row: DioceseRow) {
   const existing = await prisma.diocese.findFirst({ where: { name: row.name } })
@@ -229,7 +233,17 @@ async function importDioceseFile(file: string) {
     // `created[0]` é a matriz garantida acima; o fallback cobre turmas antigas
     const matriz = comms.find((c) => isMatrizName(c.name)) ?? created[0] ?? comms[0];
     for (const s of p.schedules ?? []) {
-      if (!alive(s.status) || !ok(s.confidence ?? p.confidence)) { stats.skippedLow += 1; continue; }
+      if (!alive(s.status)) { stats.skippedLow += 1; continue; }
+      // A regra do README mandava marcar missa de recorrência mensal como
+      // `baixa` — não por desconfiança da fonte, mas porque o modelo só sabia
+      // repetir toda semana. Agora que MassSchedule entende "1º e 3º sábado",
+      // esse rebaixamento deixou de fazer sentido: o horário entra se a
+      // PARÓQUIA tem confiança de carga, já que veio da mesma fonte que os
+      // outros horários dela. Quem for `baixa` por fonte fraca continua fora.
+      const recorrencia = lerRecorrencia(s.notes);
+      const seguraPeloModelo = Boolean(recorrencia) && ok(p.confidence);
+      if (!ok(s.confidence ?? p.confidence) && !seguraPeloModelo) { stats.skippedLow += 1; continue; }
+      if (!ok(s.confidence ?? p.confidence)) stats.recovered += 1;
       if (typeof s.dayOfWeek !== 'number' || s.dayOfWeek < 0 || s.dayOfWeek > 6 || !/^\d{2}:\d{2}$/.test(s.time)) continue;
       const type = (['MASS', 'CONFESSION', 'ADORATION', 'ROSARY'].includes((s.type ?? '').toUpperCase()) ? (s.type as string).toUpperCase() : 'MASS') as MassScheduleType;
       const wanted = normalize(s.community ?? 'Matriz');
@@ -246,10 +260,47 @@ async function importDioceseFile(file: string) {
         else if (!isMatrizName(s.community ?? '')) { stats.misses.push(`${p.name}: "${s.community}" (dia ${s.dayOfWeek} ${s.time})`); continue; }
       }
       if (!target) continue;
+
+      // Recorrência: o dataset guarda a regra em português na nota ("1º e 3º
+      // sábado do mês"). O leitor devolve null quando a frase é ambígua ou
+      // quando descreve uma EXCEÇÃO a uma missa semanal — nesses casos o
+      // registro entra como semanal, que é o que a fonte diz.
+      const rec = recorrencia ?? {
+        recurrence: 'WEEKLY' as const,
+        dayOfWeek: s.dayOfWeek,
+        weeksOfMonth: [] as number[],
+        dayOfMonth: null as number | null,
+      };
+      if (rec.recurrence !== 'MONTHLY_DAY' && typeof rec.dayOfWeek !== 'number') continue;
+      if (rec.recurrence !== 'WEEKLY') stats.monthly += 1;
+
       if (DRY || target.id.startsWith('dry-')) { stats.schedules += 1; continue; }
-      const exists = await prisma.massSchedule.findFirst({ where: { communityId: target.id, dayOfWeek: s.dayOfWeek, time: s.time, type } });
+      // Idempotência: a mesma comunidade pode ter a missa semanal das 19h E a
+      // mensal das 19h (padroeiro), então a recorrência entra na chave.
+      const exists = await prisma.massSchedule.findFirst({
+        where: {
+          communityId: target.id,
+          time: s.time,
+          type,
+          recurrence: rec.recurrence as MassRecurrence,
+          dayOfWeek: rec.dayOfWeek ?? null,
+          dayOfMonth: rec.dayOfMonth ?? null,
+        },
+      });
       if (exists) continue;
-      await prisma.massSchedule.create({ data: { communityId: target.id, dayOfWeek: s.dayOfWeek, time: s.time, type, isSpecial: false, notes: s.notes || null } });
+      await prisma.massSchedule.create({
+        data: {
+          communityId: target.id,
+          time: s.time,
+          type,
+          isSpecial: false,
+          notes: s.notes || null,
+          recurrence: rec.recurrence as MassRecurrence,
+          dayOfWeek: rec.dayOfWeek ?? null,
+          weeksOfMonth: rec.weeksOfMonth ?? [],
+          dayOfMonth: rec.dayOfMonth ?? null,
+        },
+      });
       stats.schedules += 1;
     }
   }
@@ -270,7 +321,7 @@ async function main() {
       for (const f of files) await importDioceseFile(join(dir, f));
     }
   }
-  console.log(`\nResumo${DRY ? ' (dry run)' : ''}: dioceses +${stats.dioceses}, paróquias +${stats.parishes}, comunidades +${stats.communities}, horários +${stats.schedules}; ignorados por confiança baixa: ${stats.skippedLow}; fora da carga por status (extinta, outra jurisdição, não paroquial): ${stats.skippedInactive}; entradas inválidas: ${stats.skippedInvalid}`);
+  console.log(`\nResumo${DRY ? ' (dry run)' : ''}: dioceses +${stats.dioceses}, paróquias +${stats.parishes}, comunidades +${stats.communities}, horários +${stats.schedules} (mensais: ${stats.monthly}, dos quais ${stats.recovered} estavam retidos pelo modelo antigo); ignorados por confiança baixa: ${stats.skippedLow}; fora da carga por status (extinta, outra jurisdição, não paroquial): ${stats.skippedInactive}; entradas inválidas: ${stats.skippedInvalid}`);
   if (stats.misses.length) {
     console.log(`\n${stats.misses.length} horário(s) de capela não localizada (ignorados):`);
     stats.misses.slice(0, 30).forEach((m) => console.log('  -', m));

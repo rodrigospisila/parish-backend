@@ -106,4 +106,87 @@ describe('MassSchedulesService — agenda fixa', () => {
       expect.objectContaining({ where: expect.objectContaining({ community: { parishId: 'p1' } }) }),
     );
   });
+
+  // --- Recorrência mensal ---------------------------------------------------
+  // "1º e 3º sábado", "último domingo", "todo dia 13": no interior do Norte e do
+  // Nordeste é assim que a comunidade recebe o padre.
+
+  const horarioMensal = (extra: any) => ({
+    id: 'm1',
+    time: '19:00',
+    type: MassScheduleType.MASS,
+    notes: null,
+    isSpecial: false,
+    specialDate: null,
+    dayOfWeek: null,
+    recurrence: 'WEEKLY',
+    weeksOfMonth: [],
+    dayOfMonth: null,
+    community: { id: 'c1', name: 'Capela São Pedro' },
+    ...extra,
+  });
+
+  const dias = (occ: any[]) => occ.map((o) => o.start.slice(0, 10));
+
+  it('expande "1º e 3º sábado do mês"', async () => {
+    prisma.massSchedule.findMany.mockResolvedValue([
+      horarioMensal({ recurrence: 'MONTHLY_NTH', dayOfWeek: 6, weeksOfMonth: [1, 3] }),
+    ]);
+    // Sábados de julho/2026: 04, 11, 18, 25 → 1º = 04, 3º = 18
+    const occ = await service.expandOccurrences('2026-07-01T00:00:00.000Z', '2026-07-31T23:59:59.000Z');
+    expect(dias(occ)).toEqual(['2026-07-04', '2026-07-18']);
+  });
+
+  it('trata -1 como a ÚLTIMA ocorrência do mês, seja a 4ª ou a 5ª', async () => {
+    prisma.massSchedule.findMany.mockResolvedValue([
+      horarioMensal({ recurrence: 'MONTHLY_NTH', dayOfWeek: 0, weeksOfMonth: [-1] }),
+    ]);
+    // Domingos: julho/2026 → 05, 12, 19, 26 (último = 26, a 4ª)
+    //           agosto/2026 → 02, 09, 16, 23, 30 (último = 30, a 5ª)
+    const occ = await service.expandOccurrences('2026-07-01T00:00:00.000Z', '2026-08-31T23:59:59.000Z');
+    expect(dias(occ)).toEqual(['2026-07-26', '2026-08-30']);
+  });
+
+  it('não inventa ocorrência quando o mês não tem a 5ª semana pedida', async () => {
+    prisma.massSchedule.findMany.mockResolvedValue([
+      horarioMensal({ recurrence: 'MONTHLY_NTH', dayOfWeek: 6, weeksOfMonth: [5] }),
+    ]);
+    // Julho/2026 tem 4 sábados; agosto/2026 tem 5 (01, 08, 15, 22, 29)
+    const occ = await service.expandOccurrences('2026-07-01T00:00:00.000Z', '2026-08-31T23:59:59.000Z');
+    expect(dias(occ)).toEqual(['2026-08-29']);
+  });
+
+  it('expande "todo dia 13" uma vez por mês', async () => {
+    prisma.massSchedule.findMany.mockResolvedValue([
+      horarioMensal({ recurrence: 'MONTHLY_DAY', dayOfMonth: 13, dayOfWeek: null }),
+    ]);
+    const occ = await service.expandOccurrences('2026-07-01T00:00:00.000Z', '2026-09-30T23:59:59.000Z');
+    expect(dias(occ)).toEqual(['2026-07-13', '2026-08-13', '2026-09-13']);
+  });
+
+  it('pula o mês que não tem o dia, em vez de empurrar para o mês seguinte', async () => {
+    prisma.massSchedule.findMany.mockResolvedValue([
+      horarioMensal({ recurrence: 'MONTHLY_DAY', dayOfMonth: 30, dayOfWeek: null }),
+    ]);
+    // Fevereiro/2027 não tem dia 30: a missa simplesmente não acontece nesse mês
+    const occ = await service.expandOccurrences('2027-01-01T00:00:00.000Z', '2027-03-31T23:59:59.000Z');
+    expect(dias(occ)).toEqual(['2027-01-30', '2027-03-30']);
+  });
+
+  it('respeita o recorte do período, não o mês inteiro', async () => {
+    prisma.massSchedule.findMany.mockResolvedValue([
+      horarioMensal({ recurrence: 'MONTHLY_NTH', dayOfWeek: 0, weeksOfMonth: [1, 2, 3, 4] }),
+    ]);
+    // Domingos de julho/2026: 05, 12, 19, 26 — a janela começa dia 10
+    const occ = await service.expandOccurrences('2026-07-10T00:00:00.000Z', '2026-07-20T23:59:59.000Z');
+    expect(dias(occ)).toEqual(['2026-07-12', '2026-07-19']);
+  });
+
+  it('horário mensal sem dia da semana não vira ocorrência semanal infinita', async () => {
+    prisma.massSchedule.findMany.mockResolvedValue([
+      horarioMensal({ recurrence: 'MONTHLY_NTH', dayOfWeek: null, weeksOfMonth: [1] }),
+    ]);
+    const occ = await service.expandOccurrences('2026-07-01T00:00:00.000Z', '2026-07-31T23:59:59.000Z');
+    expect(occ).toEqual([]);
+  });
 });

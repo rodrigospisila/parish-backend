@@ -124,6 +124,18 @@ enum MassScheduleType {
   ROSARY
 }
 
+/// Como o horário se repete. WEEKLY é o padrão histórico (toda semana no mesmo
+/// dia). Os dois mensais existem porque no interior do Norte e do Nordeste a
+/// missa mensal é a regra, não a exceção: a comunidade recebe o padre no
+/// "1º e 3º sábado" ou "todo dia 13".
+enum MassRecurrence {
+  WEEKLY
+  /// Enésimo dia da semana do mês: usa dayOfWeek + weeksOfMonth ([1,3] = 1º e 3º; -1 = último).
+  MONTHLY_NTH
+  /// Data fixa do mês: usa dayOfMonth (1 a 31), sem dia da semana.
+  MONTHLY_DAY
+}
+
 enum IntentionType {
   THANKSGIVING
   SUFFRAGE
@@ -207,14 +219,14 @@ model User {
   community   Community? @relation("UserCommunity", fields: [communityId], references: [id])
 
   // 2FA
-  twoFactorEnabled Boolean @default(false)
-  twoFactorSecret  String? // cifrado (PAYMENTS_ENCRYPTION_KEY) — TOTP RFC 6238
+  twoFactorEnabled     Boolean      @default(false)
+  twoFactorSecret      String? // cifrado (PAYMENTS_ENCRYPTION_KEY) — TOTP RFC 6238
   twoFactorEnabledAt   DateTime?
   twoFactorLastStep    Int? // último intervalo TOTP aceito (anti-replay)
-  twoFactorBackupCodes String[] @default([]) // HMAC-SHA256 (chave do servidor) dos códigos de recuperação
+  twoFactorBackupCodes String[]     @default([]) // HMAC-SHA256 (chave do servidor) dos códigos de recuperação
   twoFactorSetupAt     DateTime? // quando o segredo pendente foi gerado (expira em 15 min)
   sessionsRevokedAt    DateTime? // access tokens emitidos antes disto são recusados
-  devices UserDevice[]
+  devices              UserDevice[]
 
   // Push notifications (Expo push token)
   pushToken          String?
@@ -248,15 +260,14 @@ model User {
   clergyMessagesSent ClergyMessage[] @relation("ClergyMessagesSent")
 
   // Audit
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
-  lastLogin DateTime?
-
-  @@index([email])
-  @@index([role])
+  createdAt          DateTime            @default(now())
+  updatedAt          DateTime            @updatedAt
+  lastLogin          DateTime?
   catechesisMessages CatechesisMessage[]
   avatar             UserAvatar?
 
+  @@index([email])
+  @@index([role])
   @@map("users")
 }
 
@@ -294,14 +305,14 @@ model UserAvatar {
 
 // Dispositivos conhecidos por usuário (D4.7): login em aparelho novo avisa o dono da conta
 model UserDevice {
-  id          String   @id @default(cuid())
+  id          String    @id @default(cuid())
   userId      String
-  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
   fingerprint String
   label       String?
   lastIp      String?
-  firstSeenAt DateTime @default(now())
-  lastSeenAt  DateTime @default(now())
+  firstSeenAt DateTime  @default(now())
+  lastSeenAt  DateTime  @default(now())
   revokedAt   DateTime?
 
   @@unique([userId, fingerprint])
@@ -434,33 +445,33 @@ model Parish {
   clergyMessages  ClergyMessage[]
 
   // Dízimo online (Fase 1 — Pix da própria paróquia, sem gateway)
-  titheEnabled    Boolean @default(false)
-  pixKey          String?
-  pixKeyType      String? // CPF | CNPJ | EMAIL | PHONE | RANDOM
-  pixMerchantName String? // nome do recebedor no BR Code (ASCII, até 25)
-  pixMerchantCity String? // cidade do recebedor (ASCII, até 15)
-  titheMessage    String? // convite/explicação exibido ao fiel
+  titheEnabled          Boolean               @default(false)
+  pixKey                String?
+  pixKeyType            String? // CPF | CNPJ | EMAIL | PHONE | RANDOM
+  pixMerchantName       String? // nome do recebedor no BR Code (ASCII, até 25)
+  pixMerchantCity       String? // cidade do recebedor (ASCII, até 15)
+  titheMessage          String? // convite/explicação exibido ao fiel
   // Rastro da última troca da chave (exibido à administração; aviso aos demais admins)
   pixKeyChangedAt       DateTime?
   pixKeyChangedByUserId String?
   // Provedor de pagamento (D3): Pix dinâmico com confirmação automática e recorrência
-  paymentProvider      String? // ASAAS | MERCADOPAGO
-  providerEnv          String? // sandbox | production
-  providerApiKeyEnc    String? // AES-256-GCM (PAYMENTS_ENCRYPTION_KEY)
-  providerWebhookToken String? // token que o provedor envia no webhook
-  providerConfiguredAt DateTime?
+  paymentProvider       String? // ASAAS | MERCADOPAGO
+  providerEnv           String? // sandbox | production
+  providerApiKeyEnc     String? // AES-256-GCM (PAYMENTS_ENCRYPTION_KEY)
+  providerWebhookToken  String? // token que o provedor envia no webhook
+  providerConfiguredAt  DateTime?
   // Política de taxa: a paróquia absorve ou repassa ao fiel (cobrir a taxa)
   // WhatsApp como canal (D4.5): Pix do mês e "PAGUEI" pelo WhatsApp (Twilio)
-  whatsappEnabled Boolean @default(false)
-  feePolicy  String @default("ABSORB") // ABSORB | PASS_THROUGH
-  feeFixed   Float  @default(0)
-  feePercent Float  @default(0)
-  titheIntents    TitheIntent[]
-  titheSchedules  TitheSchedule[]
-  titheCampaigns  TitheCampaign[]
-  financialStatements FinancialStatement[]
-  guestGifts      TitheGuestGift[]
-  webhookEvents   PaymentWebhookEvent[]
+  whatsappEnabled       Boolean               @default(false)
+  feePolicy             String                @default("ABSORB") // ABSORB | PASS_THROUGH
+  feeFixed              Float                 @default(0)
+  feePercent            Float                 @default(0)
+  titheIntents          TitheIntent[]
+  titheSchedules        TitheSchedule[]
+  titheCampaigns        TitheCampaign[]
+  financialStatements   FinancialStatement[]
+  guestGifts            TitheGuestGift[]
+  webhookEvents         PaymentWebhookEvent[]
 
   // Audit
   createdAt DateTime @default(now())
@@ -471,18 +482,18 @@ model Parish {
 }
 
 model Community {
-  id      String  @id @default(cuid())
-  name    String
-  address String
-  titheCampaigns TitheCampaign[]
+  id                  String               @id @default(cuid())
+  name                String
+  address             String
+  titheCampaigns      TitheCampaign[]
   financialStatements FinancialStatement[]
-  city    String
-  state   String
-  zipCode String
-  phone   String?
-  email   String?
-  website String?
-  logoUrl String?
+  city                String
+  state               String
+  zipCode             String
+  phone               String?
+  email               String?
+  website             String?
+  logoUrl             String?
 
   // Responsible
   coordinatorName String?
@@ -513,10 +524,10 @@ model Community {
   news               News[]
 
   // Fase 3
-  catechesisClasses          CatechesisClass[]
+  catechesisClasses           CatechesisClass[]
   catechesisEnrollmentPresets CatechesisEnrollmentPreset[]
-  pastoralPlans              PastoralPlan[]
-  documents                  PastoralDocument[]
+  pastoralPlans               PastoralPlan[]
+  documents                   PastoralDocument[]
 
   // Fase 4
   schedules          Schedule[]
@@ -672,15 +683,14 @@ model CommunityPastoral {
   clergyMessages ClergyMessage[]
 
   // Audit
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
-  deletedAt DateTime? // Soft delete
+  createdAt    DateTime              @default(now())
+  updatedAt    DateTime              @updatedAt
+  deletedAt    DateTime? // Soft delete
+  joinRequests PastoralJoinRequest[]
 
   @@unique([globalPastoralId, communityId])
   @@index([communityId])
   @@index([deletedAt])
-  joinRequests PastoralJoinRequest[]
-
   @@map("community_pastorals")
 }
 
@@ -886,12 +896,7 @@ model Member {
   deletedAt DateTime? // Soft delete
 
   // Vínculos multi-comunidade (principal + secundárias)
-  communityLinks MemberCommunity[]
-
-  @@index([communityId])
-  @@index([email])
-  @@index([cpf])
-  @@index([deletedAt])
+  communityLinks       MemberCommunity[]
   pastoralJoinRequests PastoralJoinRequest[]
   titheIntents         TitheIntent[]
 
@@ -899,13 +904,17 @@ model Member {
   titheReminderDay       Int?
   titheReminderSentMonth String?
   // Opt-in para receber o Pix do mês pelo WhatsApp (D4.5)
-  whatsappOptIn   Boolean   @default(false)
-  whatsappOptInAt DateTime?
-  providerCustomers MemberProviderCustomer[]
-  titheSchedules    TitheSchedule[]
-  titheCampaignPledges TitheCampaignPledge[]
-  titheRetentionActions TitheRetentionAction[]
+  whatsappOptIn          Boolean                  @default(false)
+  whatsappOptInAt        DateTime?
+  providerCustomers      MemberProviderCustomer[]
+  titheSchedules         TitheSchedule[]
+  titheCampaignPledges   TitheCampaignPledge[]
+  titheRetentionActions  TitheRetentionAction[]
 
+  @@index([communityId])
+  @@index([email])
+  @@index([cpf])
+  @@index([deletedAt])
   @@map("members")
 }
 
@@ -1283,12 +1292,20 @@ model MemberAvailabilityException {
 
 model MassSchedule {
   id          String           @id @default(cuid())
-  dayOfWeek   Int // 0 = Sunday, 6 = Saturday
+  /// 0 = domingo, 6 = sábado. Nulo só em MONTHLY_DAY ("todo dia 13").
+  dayOfWeek   Int?
   time        String // HH:MM format
   type        MassScheduleType
   notes       String?
   isSpecial   Boolean          @default(false)
   specialDate DateTime?
+
+  // --- Recorrência -------------------------------------------------------
+  recurrence   MassRecurrence @default(WEEKLY)
+  /// MONTHLY_NTH: quais ocorrências do mês (1 a 5; -1 = última). Vazio = todas.
+  weeksOfMonth Int[]          @default([])
+  /// MONTHLY_DAY: dia do mês (1 a 31).
+  dayOfMonth   Int?
 
   // Relations
   communityId String
@@ -1462,8 +1479,8 @@ model FinancialTransaction {
   dioceseId   String?
 
   // Campanha/fundo (D4.1): lançamento com finalidade
-  campaignId String?
-  campaign   TitheCampaign? @relation(fields: [campaignId], references: [id], onDelete: SetNull)
+  campaignId    String?
+  campaign      TitheCampaign? @relation(fields: [campaignId], references: [id], onDelete: SetNull)
   // Origem: Pix/cobrança do app que gerou o lançamento (null = manual); estorno aponta o lançamento estornado
   titheIntentId String?
   reversalOfId  String?
@@ -1489,28 +1506,28 @@ enum FinancialStatementStatus {
 }
 
 model FinancialStatement {
-  id          String   @id @default(cuid())
-  parishId    String
-  parish      Parish   @relation(fields: [parishId], references: [id], onDelete: Cascade)
+  id                String                   @id @default(cuid())
+  parishId          String
+  parish            Parish                   @relation(fields: [parishId], references: [id], onDelete: Cascade)
   // null = paróquia inteira; senão o balancete da comunidade
-  communityId String?
-  community   Community? @relation(fields: [communityId], references: [id], onDelete: Cascade)
+  communityId       String?
+  community         Community?               @relation(fields: [communityId], references: [id], onDelete: Cascade)
   // Chave de unicidade sem NULL: 'PARISH' ou o id da comunidade
-  scopeKey       String
-  referenceMonth String // AAAA-MM
-  status         FinancialStatementStatus @default(DRAFT)
+  scopeKey          String
+  referenceMonth    String // AAAA-MM
+  status            FinancialStatementStatus @default(DRAFT)
   // Fotografia dos totais (sem dado individual): receitas/despesas por categoria e centro de custo, campanhas, saldo
-  snapshot       Json
-  notes          String?
-  generatedAt       DateTime  @default(now())
+  snapshot          Json
+  notes             String?
+  generatedAt       DateTime                 @default(now())
   generatedByUserId String?
   approvedAt        DateTime?
   approvedByUserId  String?
   approvedByName    String?
   publishedAt       DateTime?
   publishedByUserId String?
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt         DateTime                 @default(now())
+  updatedAt         DateTime                 @updatedAt
 
   @@unique([parishId, scopeKey, referenceMonth])
   @@index([parishId, status])
@@ -1664,7 +1681,7 @@ model CatechesisStage {
   // Sacramento gerado automaticamente na conclusão da etapa (opcional)
   sacramentType SacramentType?
 
-  classes CatechesisClass[]
+  classes           CatechesisClass[]
   enrollmentPresets CatechesisEnrollmentPreset[]
 
   createdAt DateTime  @default(now())
@@ -1695,7 +1712,7 @@ model CatechesisEnrollmentPreset {
   enrollmentClosesAt DateTime?
   fullBehavior       CatechesisFullBehavior?
   // Herdado só quando a turma é criada sem limite informado
-  capacity Int?
+  capacity           Int?
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -1706,22 +1723,22 @@ model CatechesisEnrollmentPreset {
 }
 
 model CatechesisClass {
-  id      String  @id @default(cuid())
-  name    String
-  year    Int
-  weekday Int?
-  time    String?
-  room    String?
+  id       String  @id @default(cuid())
+  name     String
+  year     Int
+  weekday  Int?
+  time     String?
+  room     String?
   // Vagas da turma (null = sem limite); inscrição online respeita o limite
   capacity Int?
 
   // Inscrições online: chave geral + janela opcional (null = sem restrição).
   // Fim de ano: fecha as turmas do ano corrente e abre as do ano novo.
-  enrollmentOpen     Boolean   @default(true)
+  enrollmentOpen     Boolean                @default(true)
   enrollmentOpensAt  DateTime?
   enrollmentClosesAt DateTime?
   // Turma cheia: fila de espera (padrão) ou bloqueio da inscrição
-  fullBehavior CatechesisFullBehavior @default(WAITLIST)
+  fullBehavior       CatechesisFullBehavior @default(WAITLIST)
 
   stageId     String
   stage       CatechesisStage @relation(fields: [stageId], references: [id], onDelete: Cascade)
@@ -1793,15 +1810,14 @@ model CatechesisEnrollment {
   feePayments CatechesisFeePayment[]
   documents   CatechesisDocument[]
 
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt DateTime            @default(now())
+  updatedAt DateTime            @updatedAt
+  messages  CatechesisMessage[]
 
   @@unique([classId, memberId])
   @@index([classId])
   @@index([memberId])
   @@index([status])
-  messages    CatechesisMessage[]
-
   @@map("catechesis_enrollments")
 }
 
@@ -1851,8 +1867,8 @@ model CatechesisDocument {
   // Conferência automática (IA): o documento é do tipo pedido e o nome/data
   // de nascimento batem com o cadastro do catequizando? Auxiliar — a decisão
   // final continua sendo da equipe
-  autoCheckStatus CatechesisDocAutoCheck?
-  autoCheckNotes  String?
+  autoCheckStatus    CatechesisDocAutoCheck?
+  autoCheckNotes     String?
   // Valores LIDOS do documento (estruturados): permitem oferecer ao
   // responsável "corrigir o cadastro conforme o documento"; morrem na recusa
   extractedName      String?
@@ -1973,18 +1989,18 @@ model CatechesisFeePayment {
 }
 
 model CatechesisAttendance {
-  id           String               @id @default(cuid())
-  sessionId    String
-  session      CatechesisSession    @relation(fields: [sessionId], references: [id], onDelete: Cascade)
-  enrollmentId String
-  enrollment   CatechesisEnrollment @relation(fields: [enrollmentId], references: [id], onDelete: Cascade)
-  present      Boolean              @default(false)
+  id              String               @id @default(cuid())
+  sessionId       String
+  session         CatechesisSession    @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  enrollmentId    String
+  enrollment      CatechesisEnrollment @relation(fields: [enrollmentId], references: [id], onDelete: Cascade)
+  present         Boolean              @default(false)
   // Presente com atraso (conta como presença; marcação para o acompanhamento)
-  late         Boolean              @default(false)
+  late            Boolean              @default(false)
   // Falta justificada (só faz sentido com present=false); atestado opcional
   // anexado à falta — apagados juntos quando a marcação deixa de ser justificada
-  justified     Boolean @default(false)
-  justification String?
+  justified       Boolean              @default(false)
+  justification   String?
   certificateName String?
   certificateMime String?
   certificateSize Int?
@@ -2361,47 +2377,47 @@ enum TitheIntentMethod {
 }
 
 model TitheIntent {
-  id          String            @id @default(cuid())
-  memberId    String
-  member      Member            @relation(fields: [memberId], references: [id], onDelete: Cascade)
-  parishId    String
-  parish      Parish            @relation(fields: [parishId], references: [id], onDelete: Cascade)
-  communityId String?
-  amount      Float
+  id             String            @id @default(cuid())
+  memberId       String
+  member         Member            @relation(fields: [memberId], references: [id], onDelete: Cascade)
+  parishId       String
+  parish         Parish            @relation(fields: [parishId], references: [id], onDelete: Cascade)
+  communityId    String?
+  amount         Float
   // Mês de referência "2026-08" (dízimo) — ofertas usam o mês do pagamento
   referenceMonth String
   kind           TitheIntentKind   @default(TITHE)
   method         TitheIntentMethod @default(PIX_STATIC)
   status         TitheIntentStatus @default(CREATED)
   // Identificador do Pix (campo txid do BR Code, até 25 alfanuméricos)
-  txid   String  @unique
-  brCode String?
+  txid           String            @unique
+  brCode         String?
   // Meio escolhido pelo fiel no provedor (D3.4): PIX | CARD | BOLETO
-  paymentMethod  String    @default("PIX")
+  paymentMethod  String            @default("PIX")
   // Página de pagamento do provedor (cartão/boleto), PDF do boleto e linha digitável
   paymentUrl     String?
   boletoUrl      String?
   boletoLine     String?
   // Provedor (D3): referência da cobrança, status bruto, validade do QR, taxa/valor cobrado
-  providerRef    String?   @unique
+  providerRef    String?           @unique
   providerStatus String?
   qrExpiresAt    DateTime?
-  feeAmount      Float     @default(0)
+  feeAmount      Float             @default(0)
   chargedAmount  Float?
   scheduleId     String?
-  schedule       TitheSchedule? @relation(fields: [scheduleId], references: [id], onDelete: SetNull)
+  schedule       TitheSchedule?    @relation(fields: [scheduleId], references: [id], onDelete: SetNull)
   // Campanha/fundo (D4.1): oferta com finalidade
   campaignId     String?
-  campaign       TitheCampaign? @relation(fields: [campaignId], references: [id], onDelete: SetNull)
+  campaign       TitheCampaign?    @relation(fields: [campaignId], references: [id], onDelete: SetNull)
   // Observação da tesouraria (ex.: motivo de "não localizado")
-  note String?
+  note           String?
   // Valor que de fato caiu no extrato (pode diferir do gerado)
-  amountPaid Float?
+  amountPaid     Float?
   // Oferta anônima: nome não aparece à tesouraria nem no lançamento
-  anonymous Boolean @default(false)
+  anonymous      Boolean           @default(false)
   // Contestação do fiel após "não localizado"
-  contestNote String?
-  contestedAt DateTime?
+  contestNote    String?
+  contestedAt    DateTime?
 
   declaredAt        DateTime?
   confirmedAt       DateTime?
@@ -2687,12 +2703,12 @@ model PastoralJoinRequest {
   member              Member            @relation(fields: [memberId], references: [id], onDelete: Cascade)
   status              JoinRequestStatus @default(PENDING)
   // Recado do fiel ao pedir (opcional) e motivo da recusa (opcional)
-  message         String?
-  rejectionReason String?
-  reviewedByUserId String?
-  reviewedAt       DateTime?
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  message             String?
+  rejectionReason     String?
+  reviewedByUserId    String?
+  reviewedAt          DateTime?
+  createdAt           DateTime          @default(now())
+  updatedAt           DateTime          @updatedAt
 
   // Um pedido por (pastoral, membro): reenviar reabre o mesmo registro
   @@unique([communityPastoralId, memberId])
@@ -2710,14 +2726,14 @@ model CatechesisMessage {
   authorUserId String
   author       User                 @relation(fields: [authorUserId], references: [id], onDelete: Cascade)
   // true = escrita pela equipe (catequista/coordenação); false = pela família
-  fromTeam Boolean
-  body     String
+  fromTeam     Boolean
+  body         String
   // Lida pelo OUTRO lado (equipe lê a da família e vice-versa)
-  readAt    DateTime?
+  readAt       DateTime?
   // Entregue = notificação criada para o outro lado (null: ninguém para receber
   // ou o push falhou — a mensagem segue visível na conversa)
-  deliveredAt DateTime?
-  createdAt   DateTime  @default(now())
+  deliveredAt  DateTime?
+  createdAt    DateTime             @default(now())
 
   @@index([enrollmentId, createdAt])
   @@index([enrollmentId, fromTeam, readAt])
@@ -2730,13 +2746,13 @@ model CatechesisMessage {
 
 // Cliente do membro no provedor (Asaas cus_…) — um por provedor
 model MemberProviderCustomer {
-  id                 String @id @default(cuid())
+  id                 String   @id @default(cuid())
   memberId           String
-  member             Member @relation(fields: [memberId], references: [id], onDelete: Cascade)
+  member             Member   @relation(fields: [memberId], references: [id], onDelete: Cascade)
   provider           String // ASAAS | MERCADOPAGO
   // Cliente é por conta do provedor: paróquia + ambiente (sandbox/produção)
-  providerEnv        String @default("sandbox")
-  parishId           String @default("")
+  providerEnv        String   @default("sandbox")
+  parishId           String   @default("")
   providerCustomerId String
   createdAt          DateTime @default(now())
 
@@ -2759,28 +2775,28 @@ enum TitheScheduleStatus {
 
 // Dízimo recorrente do fiel
 model TitheSchedule {
-  id       String   @id @default(cuid())
-  memberId String
-  member   Member   @relation(fields: [memberId], references: [id], onDelete: Cascade)
-  parishId String
-  parish   Parish   @relation(fields: [parishId], references: [id], onDelete: Cascade)
-  amount     Float
-  dayOfMonth Int
-  mode       TitheScheduleMode
-  status     TitheScheduleStatus @default(PENDING_AUTHORIZATION)
-  provider   String // ASAAS | MERCADOPAGO
+  id                       String              @id @default(cuid())
+  memberId                 String
+  member                   Member              @relation(fields: [memberId], references: [id], onDelete: Cascade)
+  parishId                 String
+  parish                   Parish              @relation(fields: [parishId], references: [id], onDelete: Cascade)
+  amount                   Float
+  dayOfMonth               Int
+  mode                     TitheScheduleMode
+  status                   TitheScheduleStatus @default(PENDING_AUTHORIZATION)
+  provider                 String // ASAAS | MERCADOPAGO
   // Referências no provedor: assinatura e/ou autorização de Pix Automático
   providerSubscriptionRef  String?
   providerAuthorizationRef String?
   // QR de autorização (primeiro pagamento) enquanto pendente
-  authorizationPayload  String?
-  authorizationExpires  DateTime?
-  nextDueDate DateTime?
-  lastError   String?
-  cancelledAt DateTime?
-  intents     TitheIntent[]
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  authorizationPayload     String?
+  authorizationExpires     DateTime?
+  nextDueDate              DateTime?
+  lastError                String?
+  cancelledAt              DateTime?
+  intents                  TitheIntent[]
+  createdAt                DateTime            @default(now())
+  updatedAt                DateTime            @updatedAt
 
   @@index([memberId, status])
   @@index([parishId, status])
@@ -2793,14 +2809,14 @@ model TitheSchedule {
 
 // Eventos de webhook recebidos (idempotência + rastreabilidade)
 model PaymentWebhookEvent {
-  id          String   @id @default(cuid())
+  id          String    @id @default(cuid())
   provider    String
   eventId     String
   parishId    String
-  parish      Parish   @relation(fields: [parishId], references: [id], onDelete: Cascade)
+  parish      Parish    @relation(fields: [parishId], references: [id], onDelete: Cascade)
   eventName   String
   payload     Json
-  receivedAt  DateTime @default(now())
+  receivedAt  DateTime  @default(now())
   processedAt DateTime?
   error       String?
   attempts    Int       @default(0)
@@ -2828,31 +2844,31 @@ enum TitheCampaignPledgeStatus {
 }
 
 model TitheCampaign {
-  id          String              @id @default(cuid())
-  parishId    String
-  parish      Parish              @relation(fields: [parishId], references: [id], onDelete: Cascade)
+  id               String                 @id @default(cuid())
+  parishId         String
+  parish           Parish                 @relation(fields: [parishId], references: [id], onDelete: Cascade)
   // null = paróquia inteira; senão só a comunidade vê e contribui
-  communityId String?
-  community   Community?          @relation(fields: [communityId], references: [id], onDelete: SetNull)
-  kind        TitheCampaignKind   @default(CAMPAIGN)
-  status      TitheCampaignStatus @default(DRAFT)
+  communityId      String?
+  community        Community?             @relation(fields: [communityId], references: [id], onDelete: SetNull)
+  kind             TitheCampaignKind      @default(CAMPAIGN)
+  status           TitheCampaignStatus    @default(DRAFT)
   // Código curto (txid do QR próprio: CP + código)
-  code        String              @unique
-  name        String
-  description String?
-  goalAmount  Float?
-  startsAt    DateTime?
-  endsAt      DateTime?
-  allowAnonymous   Boolean @default(true)
+  code             String                 @unique
+  name             String
+  description      String?
+  goalAmount       Float?
+  startsAt         DateTime?
+  endsAt           DateTime?
+  allowAnonymous   Boolean                @default(true)
   suggestedAmounts Json?
   createdByUserId  String?
   closedAt         DateTime?
-  intents      TitheIntent[]
-  transactions FinancialTransaction[]
-  pledges      TitheCampaignPledge[]
-  guestGifts   TitheGuestGift[]
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  intents          TitheIntent[]
+  transactions     FinancialTransaction[]
+  pledges          TitheCampaignPledge[]
+  guestGifts       TitheGuestGift[]
+  createdAt        DateTime               @default(now())
+  updatedAt        DateTime               @updatedAt
 
   @@index([parishId, status])
   @@index([communityId, status])
@@ -2891,39 +2907,39 @@ enum TitheGuestGiftStatus {
 }
 
 model TitheGuestGift {
-  id          String   @id @default(cuid())
-  parishId    String
-  parish      Parish   @relation(fields: [parishId], references: [id], onDelete: Cascade)
-  campaignId  String?
-  campaign    TitheCampaign? @relation(fields: [campaignId], references: [id], onDelete: SetNull)
-  name        String
-  email       String
-  cpf         String?
-  amount      Float
-  message     String?
-  status      TitheGuestGiftStatus @default(CREATED)
-  method      TitheIntentMethod    @default(PIX_STATIC)
-  paymentMethod String @default("PIX")
-  txid        String   @unique
-  brCode      String?
-  paymentUrl  String?
-  boletoUrl   String?
-  boletoLine  String?
-  providerRef    String?   @unique
-  providerStatus String?
-  qrExpiresAt    DateTime?
-  amountPaid     Float?
+  id                     String               @id @default(cuid())
+  parishId               String
+  parish                 Parish               @relation(fields: [parishId], references: [id], onDelete: Cascade)
+  campaignId             String?
+  campaign               TitheCampaign?       @relation(fields: [campaignId], references: [id], onDelete: SetNull)
+  name                   String
+  email                  String
+  cpf                    String?
+  amount                 Float
+  message                String?
+  status                 TitheGuestGiftStatus @default(CREATED)
+  method                 TitheIntentMethod    @default(PIX_STATIC)
+  paymentMethod          String               @default("PIX")
+  txid                   String               @unique
+  brCode                 String?
+  paymentUrl             String?
+  boletoUrl              String?
+  boletoLine             String?
+  providerRef            String?              @unique
+  providerStatus         String?
+  qrExpiresAt            DateTime?
+  amountPaid             Float?
   // Token público para acompanhar/receber o comprovante sem login
-  receiptToken   String    @unique
-  receiptSentAt  DateTime?
-  declaredAt     DateTime?
-  confirmedAt    DateTime?
-  confirmedByUserId String?
+  receiptToken           String               @unique
+  receiptSentAt          DateTime?
+  declaredAt             DateTime?
+  confirmedAt            DateTime?
+  confirmedByUserId      String?
   financialTransactionId String?
-  note           String?
-  createdByIp    String?
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  note                   String?
+  createdByIp            String?
+  createdAt              DateTime             @default(now())
+  updatedAt              DateTime             @updatedAt
 
   @@index([parishId, status])
   @@index([email, createdAt])
@@ -2940,8 +2956,8 @@ model TitheCampaignPledge {
   amount     Float
   note       String?
   status     TitheCampaignPledgeStatus @default(OPEN)
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
+  createdAt  DateTime                  @default(now())
+  updatedAt  DateTime                  @updatedAt
 
   @@unique([campaignId, memberId])
   @@map("tithe_campaign_pledges")

@@ -76,7 +76,7 @@ enxame de validação. Nunca inventar: campo desconhecido = `null`.
   - Paraná completo: 17 circunscrições pesquisadas (Ponta Grossa veio do seed antigo) — 853
     entradas de paróquia (inclui 6 capelas/igrejas não paroquiais e 2 de outra jurisdição, que não
     entram), 2.841 comunidades e 5.471 horários fixos no dataset. Carga em produção com
-    `alta`/`media` (horários `baixa` = recorrência mensal, agregadores antigos ou divergências —
+    `alta`/`media` (horários `baixa` = agregadores antigos ou divergências —
     aguardam validação).
   - Sem RELATORIO: Jacarezinho (agente interrompido após gravar o JSON completo).
   - Pontos para o enxame de validação estão no fim de cada `RELATORIO-*.md` (telefones malformados,
@@ -263,12 +263,20 @@ fora (não acrescenta nada ao app e polui a lista de paróquias).
   matriz; o importador agora descarta esses nomes.
 - (2ª rodada) Sem comunidade marcada como matriz, as missas da matriz caíam na primeira capela.
 
-- **Decisão de produto pendente**: missas de recorrência mensal ("1º e 3º sábado", "todo dia 13")
-  não cabem em `MassSchedule` (só dia da semana) e por isso ficam `baixa` — é o maior bloco fora do
-  banco. No Jequitinhonha e no oeste paulista é a norma, não a exceção: 260 dos 707 horários da
-  rodada de Diamantina/Araçuaí/Guanhães, e Guanhães tem 29 padres para 27 paróquias e 520
-  comunidades, com missa "1 vez ao mês, seguindo a agenda do pároco". Se o Parish for exibi-las,
-  precisa de modelagem.
+- **Recorrência mensal: modelada em 18/09/2026** (era a decisão de produto pendente).
+  `MassSchedule` ganhou `recurrence` (`WEEKLY`, `MONTHLY_NTH`, `MONTHLY_DAY`), `weeksOfMonth`
+  (`[1,3]` = 1º e 3º; `-1` = último) e `dayOfMonth`; `dayOfWeek` virou nulo só em `MONTHLY_DAY`.
+  **A regra antiga de marcar missa mensal como `baixa` não vale mais** — ela existia porque o
+  modelo não sabia representá-la, não por desconfiança da fonte. Escreva a recorrência em `notes`
+  na forma que a fonte publicou ("1º e 3º sábado do mês", "todo dia 13 de cada mês") e dê ao
+  horário a confiança que a FONTE merece; `recorrencia.cjs` traduz a frase na carga.
+  - O leitor devolve `null` — e o horário entra como semanal — quando a frase é uma **exceção**
+    ("toda quinta, exceto na 1ª"), quando descreve **outra celebração** acoplada ("bênção das
+    medalhas no 1º domingo") ou quando é **ambígua** (três regras na mesma nota). Na dúvida,
+    semanal: anunciar missa que não existe é pior do que perder uma recorrência.
+  - Rode `node prisma/data/territorio-br/recorrencia.test.cjs` depois de mexer no leitor.
+  - No interior do Norte e do Nordeste a mensal é a norma: são 6.4 mil horários do dataset, e em
+    Guanhães 29 padres atendem 27 paróquias e 520 comunidades "1 vez ao mês".
 - **Horário anterior à pandemia não entra**: fonte oficial sem sinal de atualidade é `media` e
   carrega, mas texto anterior a 2020 é rebaixado para `baixa` — toda paróquia reorganizou missa
   depois da pandemia, e mostrar horário errado é pior do que não mostrar. Foi o caso de São João da
