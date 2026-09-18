@@ -206,6 +206,15 @@ enxame de validação. Nunca inventar: campo desconhecido = `null`.
 - **Antes de trocar o nome do bispo**, confirme em duas fontes: a home da diocese pode estar citando um
   bispo de outra diocese em notícia. A busca do próprio site (`/?s=bispo+diocesano`) resolve.
 
+- **Paróquia que já existe de outra fonte duplica as comunidades na carga.** A idempotência do
+  importador é por (nome + endereço), de propósito, para não fundir capelas homônimas de localidades
+  diferentes — comum na zona rural (Ortigueira tem 13 "Nossa Senhora Aparecida", cada uma num
+  assentamento). O efeito colateral aparece quando a paróquia veio de um seed antigo e o endereço das
+  comunidades difere: em Canutama nasceram 11 comunidades no lugar de 6. Antes de importar sobre
+  paróquia preexistente, alinhe nome e endereço; depois, `dedup-comunidades.cjs` limpa.
+- **Celebração da Palavra não é missa, e uma paróquia pode ficar legitimamente sem nenhuma**: em
+  Canumã (Borba) as duas celebrações de domingo são da Palavra, com diácono e ministros.
+
 ## Marcadores que tiram uma entrada da carga
 
 | Campo | Efeito |

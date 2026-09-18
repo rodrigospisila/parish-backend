@@ -318,9 +318,9 @@
     "regional": "Norte 1",
     "province": "Manaus",
     "rite": "latino",
-    "address": "Av. Getulio Vargas 198, C.P. 11",
+    "address": "Rua Floriano Peixoto, s/n - Centro",
     "zipCode": "69200-000",
-    "phone": "(92) 98439-8462",
+    "phone": "(92) 99604-4636",
     "email": "contato@diocesedeborba.org.br",
     "website": "https://diocesedeborba.org.br",
     "bishopName": "Dom Zenildo Luiz Pereira da Silva, C.SS.R.",
@@ -352,7 +352,8 @@
         "accessedAt": "2026-09-09"
       }
     ],
-    "confidence": "alta"
+    "confidence": "alta",
+    "correctionNote": "2026-09-18: endereco e telefone conferidos no site oficial (o anterior, Av. Getulio Vargas 198, nao consta mais). Ano 1963 e a erecao da prelazia, mantido pela convencao do dataset."
   },
   {
     "name": "Diocese de Coari",
@@ -411,10 +412,10 @@
     "rite": "latino",
     "address": "Curia Diocesana, Praca da Matriz s/n",
     "zipCode": "69800-000",
-    "phone": "(97) 3373-1356",
-    "email": null,
+    "phone": "(97) 98108-1694",
+    "email": "secretaria@diocesedehumaita.com.br",
     "website": "https://diocesedehumaita.com.br",
-    "bishopName": "Dom Antônio Fontinele de Melo",
+    "bishopName": null,
     "foundedYear": 1961,
     "sources": [
       {
@@ -448,7 +449,8 @@
         "accessedAt": "2026-09-09"
       }
     ],
-    "confidence": "alta"
+    "confidence": "alta",
+    "correctionNote": "2026-09-18: SE VACANTE — Dom Antonio Fontinele de Melo deixou a diocese (catholic-hierarchy marca Vacant); nao registrar bispo ate a nomeacao. E-mail decodificado do data-cfemail do site; telefone da Secretaria Episcopal conferido no site (o fixo anterior nao aparece mais)."
   },
   {
     "name": "Diocese de Parintins",
