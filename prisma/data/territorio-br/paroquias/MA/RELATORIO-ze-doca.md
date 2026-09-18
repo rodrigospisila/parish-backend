@@ -57,8 +57,8 @@ mesmo endereço — são a mesma paróquia, não duplicadas no JSON: Catedral de
 ## Horários — por que todos são `baixa`
 
 Só o Lírio Católico publica grade nesta diocese, e por regra do README agregador sozinho, com
-data de regeneração de base, é `baixa`. Entraram 18 horários (Catedral de Santo Antônio, Basílica
-de São Sebastião de Carutapera, N. Sra. da Conceição de Cândido Mendes e N. Sra. Mãe da Igreja de
+data de regeneração de base, é `baixa`. Entraram 18 horários (Catedral de Santo Antônio, Paróquia São Sebastião (Basílica Menor) de Carutapera,
+N. Sra. da Conceição de Cândido Mendes e N. Sra. Mãe da Igreja de
 Godofredo Viana, esta última com as adorações das capelas).
 
 **Descartes por dado implausível ou de outra cidade** (regra "confira cidade e UF de tudo"):

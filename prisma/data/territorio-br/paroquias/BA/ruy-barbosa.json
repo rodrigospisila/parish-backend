@@ -1,0 +1,1541 @@
+{
+ "diocese": {
+  "name": "Diocese de Ruy Barbosa",
+  "type": "Diocese",
+  "slug": "ruy-barbosa",
+  "city": "Ruy Barbosa",
+  "state": "BA",
+  "address": "Praça Amintas Brito, 95, Centro",
+  "zipCode": "46800-000",
+  "phone": "(75) 3252-2106",
+  "email": null,
+  "website": "https://diocesederuybarbosa.com.br",
+  "bishopName": "Dom Estevam dos Santos Silva Filho",
+  "sources": [
+   {
+    "url": "https://diocesederuybarbosa.com.br/wp-json/wp/v2/paroquia?per_page=100",
+    "title": "Diocese de Ruy Barbosa — REST do WordPress, tipo de conteúdo “paroquia”: X-WP-Total = 25 fichas publicadas",
+    "accessedAt": "2026-09-18"
+   },
+   {
+    "url": "https://diocesederuybarbosa.com.br/",
+    "title": "Diocese de Ruy Barbosa — home e rodapé do site oficial (endereço, CEP e telefone da Cúria)",
+    "accessedAt": "2026-09-18"
+   },
+   {
+    "url": "https://minhareceita.org/13230735000153",
+    "title": "Receita Federal — DIOCESE DE RUY BARBOSA, CNPJ 13.230.735/0001-53 (matriz) e filiais; varredura de /0001 a /0060 (existem exatamente 30 inscrições, das quais 26 paróquias ATIVAS e 1 santuário)",
+    "accessedAt": "2026-09-18"
+   },
+   {
+    "url": "https://mapaosc.ipea.gov.br/",
+    "title": "Mapa das OSC / IPEA — busca avançada por cd_municipio 2927200 (Ruy Barbosa): revelou o CNPJ raiz 13.230.735",
+    "accessedAt": "2026-09-18"
+   },
+   {
+    "url": "https://www.catholic-hierarchy.org/diocese/druba.html",
+    "title": "catholic-hierarchy.org — Ruy Barbosa (Diocese): 24 paróquias e 22 presbíteros em 2022 (ap2023)",
+    "accessedAt": "2026-09-18"
+   },
+   {
+    "url": "https://liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+    "title": "Lírio Católico — base de horários da Bahia (4 fichas no território da Diocese de Ruy Barbosa). Agregador: o campo ultima_atualizacao (02/09/2026) é a data de regeneração da base, não de conferência da ficha",
+    "accessedAt": "2026-09-18"
+   },
+   {
+    "url": "https://www.cnbb.org.br/dioceses/",
+    "title": "CNBB — Dioceses (Diocese de Ruy Barbosa, Regional Nordeste 3)",
+    "accessedAt": "2026-09-18"
+   }
+  ],
+  "confidence": "alta",
+  "notes": "Site oficial VIVO: WordPress com tipo de conteúdo próprio `paroquia` (25 fichas), além de `clero`, `congregacao` e `pastorais_e_moviment`. Cada ficha traz endereço com CEP, telefone, e-mail (ofuscado pelo Cloudflare em `data-cfemail`), forania, expediente da secretaria, clero e os institutos de vida consagrada presentes na paróquia. **O site NÃO publica horário de missa em lugar nenhum.** A REST responde devagar (per_page=100 devolve 504; usei per_page=20 em duas páginas). Os dois rodapés do site divergem: um dá “R. Antônio Novaes - Ruy Barbosa, CEP 46800-000, (74) 9 9995-5942”; o outro, “Praça Amintas Brito, 95, Centro” — este último é o endereço da matriz do CNPJ na Receita. **Foranias (4)**: Senhora Sant’Ana, São Francisco, Santa Luzia e Santa Dulce dos Pobres."
+ },
+ "parishes": [
+  {
+   "slug": "divino-espirito-santo-e-nossa-senhora-da-gloria-andarai",
+   "name": "Paróquia Divino Espírito Santo e Nossa Senhora da Glória",
+   "city": "Andaraí",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Tv. do Conselho, 1-51 - Andaraí",
+   "zipCode": "46830-000",
+   "phone": "(75) 9 9829-9553",
+   "email": "paroquiagloria15@gmail.com",
+   "website": null,
+   "priestName": "Pe. Valmir Santos",
+   "foundedYear": 1878,
+   "sources": [
+    {
+     "url": "https://diocesederuybarbosa.com.br/paroquia/andarai-paroquia-nossa-senhora-da-gloria-1878/",
+     "title": "Diocese de Ruy Barbosa — ficha oficial “Andaraí – Paróquia Divino Espírito Santo e Nossa Senhora da Glória (1878)” (endereço, CEP, telefone, e-mail, forania, clero e institutos de vida consagrada; página modificada em 20/01/2026)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13230735000404",
+     "title": "Receita Federal — inscrição do CNPJ 13.230.735 da Diocese de Ruy Barbosa: “PAROQUIA DIVINO ESPIRITO SANTO E NOSSA SRA. DA GLORIA”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesederuybarbosa.com.br/wp-json/wp/v2/paroquia?per_page=100",
+     "title": "Diocese de Ruy Barbosa — REST do WordPress, tipo de conteúdo “paroquia”: X-WP-Total = 25 fichas publicadas",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13230735000404",
+   "notes": "É a ficha mais recente do site (modificada em 20/01/2026). Forania São Francisco.",
+   "communities": [
+    {
+     "name": "Igreja Matriz Divino Espírito Santo e Nossa Senhora da Glória",
+     "address": "Tv. do Conselho, 1-51 - Andaraí",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesederuybarbosa.com.br/paroquia/andarai-paroquia-nossa-senhora-da-gloria-1878/",
+       "title": "Diocese de Ruy Barbosa — ficha oficial “Andaraí – Paróquia Divino Espírito Santo e Nossa Senhora da Glória (1878)” (endereço, CEP, telefone, e-mail, forania, clero e institutos de vida consagrada; página modificada em 20/01/2026)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-da-conceicao-baixa-grande",
+   "name": "Paróquia Nossa Senhora da Conceição",
+   "city": "Baixa Grande",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça Manoel Ribeiro, 248, Centro",
+   "zipCode": "44620-000",
+   "phone": "(74) 9 9958-2811",
+   "email": "conceicaobxgr@gmail.com",
+   "website": null,
+   "priestName": "Pe. Fred Figueredo Santana Suzart",
+   "foundedYear": 1872,
+   "sources": [
+    {
+     "url": "https://diocesederuybarbosa.com.br/paroquia/baixa-grande-paroquia-nossa-senhora-da-conceicao-1872/",
+     "title": "Diocese de Ruy Barbosa — ficha oficial “Baixa Grande – Paróquia Nossa Senhora da Conceição (1872)” (endereço, CEP, telefone, e-mail, forania, clero e institutos de vida consagrada; página modificada em 22/09/2023)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13230735002440",
+     "title": "Receita Federal — inscrição do CNPJ 13.230.735 da Diocese de Ruy Barbosa: “NOSSA SENHORA DA CONCEICAO”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesederuybarbosa.com.br/wp-json/wp/v2/paroquia?per_page=100",
+     "title": "Diocese de Ruy Barbosa — REST do WordPress, tipo de conteúdo “paroquia”: X-WP-Total = 25 fichas publicadas",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13230735002440",
+   "notes": "Forania Senhora Sant'Ana.",
+   "communities": [
+    {
+     "name": "Igreja Matriz Nossa Senhora da Conceição",
+     "address": "Praça Manoel Ribeiro, 248, Centro",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesederuybarbosa.com.br/paroquia/baixa-grande-paroquia-nossa-senhora-da-conceicao-1872/",
+       "title": "Diocese de Ruy Barbosa — ficha oficial “Baixa Grande – Paróquia Nossa Senhora da Conceição (1872)” (endereço, CEP, telefone, e-mail, forania, clero e institutos de vida consagrada; página modificada em 22/09/2023)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "imaculado-coracao-de-maria-boa-vista-do-tupim",
+   "name": "Paróquia Imaculado Coração de Maria",
+   "city": "Boa Vista do Tupim",
+   "state": "BA",
+   "neighborhood": "Populares",
+   "address": "Avenida Central, nº 630 – Bairro Populares",
+   "zipCode": "46850-000",
+   "phone": null,
+   "email": "redebvt@bol.com.br",
+   "website": null,
+   "priestName": "Pe. Roquelino dos Santos Lomes",
+   "foundedYear": 2008,
+   "sources": [
+    {
+     "url": "https://diocesederuybarbosa.com.br/paroquia/boa-vista-do-tupim-paroquia-imaculado-coracao-de-maria-2008/",
+     "title": "Diocese de Ruy Barbosa — ficha oficial “Boa Vista do Tupim – Paróquia Imaculado Coração de Maria (2008)” (endereço, CEP, telefone, e-mail, forania, clero e institutos de vida consagrada; página modificada em 27/09/2023)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13230735000315",
+     "title": "Receita Federal — inscrição do CNPJ 13.230.735 da Diocese de Ruy Barbosa: “IMACULADO CORACAO DE MARIA”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesederuybarbosa.com.br/wp-json/wp/v2/paroquia?per_page=100",
+     "title": "Diocese de Ruy Barbosa — REST do WordPress, tipo de conteúdo “paroquia”: X-WP-Total = 25 fichas publicadas",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13230735000315",
+   "notes": "A Receita registra Praça Ruy Barbosa, s/n, Centro; o site publica Avenida Central, 630, bairro Populares. Forania São Francisco.",
+   "communities": [
+    {
+     "name": "Igreja Matriz Imaculado Coração de Maria",
+     "address": "Avenida Central, nº 630 – Bairro Populares",
+     "neighborhood": "Populares",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesederuybarbosa.com.br/paroquia/boa-vista-do-tupim-paroquia-imaculado-coracao-de-maria-2008/",
+       "title": "Diocese de Ruy Barbosa — ficha oficial “Boa Vista do Tupim – Paróquia Imaculado Coração de Maria (2008)” (endereço, CEP, telefone, e-mail, forania, clero e institutos de vida consagrada; página modificada em 27/09/2023)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-do-perpetuo-socorro-bonito",
+   "name": "Paróquia Nossa Senhora do Perpétuo Socorro",
+   "city": "Bonito",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "217, R. Tancredo Neves, 141, Bonito",
+   "zipCode": "46820-000",
+   "phone": null,
+   "email": "nsperpetuosocorrobonito@hotmail.com",
+   "website": null,
+   "priestName": "Cônego Gregório Wellington Soares dos Santos (O.Praem)",
+   "foundedYear": 2008,
+   "sources": [
+    {
+     "url": "https://diocesederuybarbosa.com.br/paroquia/bonito-paroquia-n-s-do-perpetuo-socorro-2008/",
+     "title": "Diocese de Ruy Barbosa — ficha oficial “Bonito – Paróquia N. S. do Perpétuo Socorro (2008)” (endereço, CEP, telefone, e-mail, forania, clero e institutos de vida consagrada; página modificada em 27/09/2023)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13230735001397",
+     "title": "Receita Federal — inscrição do CNPJ 13.230.735 da Diocese de Ruy Barbosa: “NOSSA SENHORA DO PERPETUO SOCORRO”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesederuybarbosa.com.br/wp-json/wp/v2/paroquia?per_page=100",
+     "title": "Diocese de Ruy Barbosa — REST do WordPress, tipo de conteúdo “paroquia”: X-WP-Total = 25 fichas publicadas",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13230735001397",
+   "notes": "Confiada aos Cônegos Regulares Premonstratenses (O.Praem). O endereço publicado pelo site começa com um “217,” solto antes do logradouro. Forania Santa Luzia.",
+   "communities": [
+    {
+     "name": "Igreja Matriz Nossa Senhora do Perpétuo Socorro",
+     "address": "217, R. Tancredo Neves, 141, Bonito",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesederuybarbosa.com.br/paroquia/bonito-paroquia-n-s-do-perpetuo-socorro-2008/",
+       "title": "Diocese de Ruy Barbosa — ficha oficial “Bonito – Paróquia N. S. do Perpétuo Socorro (2008)” (endereço, CEP, telefone, e-mail, forania, clero e institutos de vida consagrada; página modificada em 27/09/2023)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "sao-jose-ibiquera",
+   "name": "Paróquia São José",
+   "city": "Ibiquera",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça São José, s/nº",
+   "zipCode": "46840-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Edson Gonçalves da Silva",
+   "foundedYear": 2008,
+   "sources": [
+    {
+     "url": "https://diocesederuybarbosa.com.br/paroquia/ibiquera-paroquia-sao-jose-2008/",
+     "title": "Diocese de Ruy Barbosa — ficha oficial “Ibiquera – Paróquia São José (2008)” (endereço, CEP, telefone, e-mail, forania, clero e institutos de vida consagrada; página modificada em 15/09/2023)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13230735001125",
+     "title": "Receita Federal — inscrição do CNPJ 13.230.735 da Diocese de Ruy Barbosa: “SAO JOSE”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesederuybarbosa.com.br/wp-json/wp/v2/paroquia?per_page=100",
+     "title": "Diocese de Ruy Barbosa — REST do WordPress, tipo de conteúdo “paroquia”: X-WP-Total = 25 fichas publicadas",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13230735001125",
+   "notes": "A ficha não publica telefone nem e-mail. Forania São Francisco.",
+   "communities": [
+    {
+     "name": "Igreja Matriz São José",
+     "address": "Praça São José, s/nº",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesederuybarbosa.com.br/paroquia/ibiquera-paroquia-sao-jose-2008/",
+       "title": "Diocese de Ruy Barbosa — ficha oficial “Ibiquera – Paróquia São José (2008)” (endereço, CEP, telefone, e-mail, forania, clero e institutos de vida consagrada; página modificada em 15/09/2023)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "bom-pastor-ipira",
+   "name": "Paróquia Bom Pastor",
+   "city": "Ipirá",
+   "state": "BA",
+   "neighborhood": "Pau Ferro",
+   "address": "Povoado de Pau Ferro",
+   "zipCode": "44600-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Carlos Marçal Lima",
+   "foundedYear": 2021,
+   "sources": [
+    {
+     "url": "https://diocesederuybarbosa.com.br/paroquia/ipira-quase-paroquia-bom-pastor-25-04-2021/",
+     "title": "Diocese de Ruy Barbosa — ficha oficial “Ipirá –  Paróquia Bom Pastor (25/04/2021)” (endereço, CEP, telefone, e-mail, forania, clero e institutos de vida consagrada; página modificada em 05/05/2025)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13230735002954",
+     "title": "Receita Federal — inscrição do CNPJ 13.230.735 da Diocese de Ruy Barbosa: “PAROQUIA BOM PASTOR”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesederuybarbosa.com.br/wp-json/wp/v2/paroquia?per_page=100",
+     "title": "Diocese de Ruy Barbosa — REST do WordPress, tipo de conteúdo “paroquia”: X-WP-Total = 25 fichas publicadas",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13230735002954",
+   "notes": "No povoado de Pau Ferro, município de Ipirá. Criada em **25/04/2021**; a inscrição da Receita é de 02/04/2024. A ficha não publica telefone nem e-mail. Forania Senhora Sant'Ana.",
+   "communities": [
+    {
+     "name": "Igreja Matriz Bom Pastor",
+     "address": "Povoado de Pau Ferro",
+     "neighborhood": "Pau Ferro",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesederuybarbosa.com.br/paroquia/ipira-quase-paroquia-bom-pastor-25-04-2021/",
+       "title": "Diocese de Ruy Barbosa — ficha oficial “Ipirá –  Paróquia Bom Pastor (25/04/2021)” (endereço, CEP, telefone, e-mail, forania, clero e institutos de vida consagrada; página modificada em 05/05/2025)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "senhora-santana-ipira",
+   "name": "Paróquia Senhora Sant’Ana",
+   "city": "Ipirá",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça Roberto Cintra, N° 206 CEP: 446000",
+   "zipCode": "44600-000",
+   "phone": "(75) 9 9144-7337",
+   "email": "paroquiaipira@gmail.com",
+   "website": null,
+   "priestName": "Pe. Giorlando Laranjeira Barbosa",
+   "foundedYear": 1775,
+   "sources": [
+    {
+     "url": "https://diocesederuybarbosa.com.br/paroquia/ipira-paroquia-senhora-santana-1775/",
+     "title": "Diocese de Ruy Barbosa — ficha oficial “Ipirá – Paróquia Senhora Sant’Ana (1775)” (endereço, CEP, telefone, e-mail, forania, clero e institutos de vida consagrada; página modificada em 17/02/2025)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13230735002369",
+     "title": "Receita Federal — inscrição do CNPJ 13.230.735 da Diocese de Ruy Barbosa: “SENHORA DE SANTANA”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesederuybarbosa.com.br/wp-json/wp/v2/paroquia?per_page=100",
+     "title": "Diocese de Ruy Barbosa — REST do WordPress, tipo de conteúdo “paroquia”: X-WP-Total = 25 fichas publicadas",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13230735002369",
+   "notes": "A paróquia mais antiga da diocese. O CEP publicado pelo site sai truncado (“446000”); o correto, pela Receita, é 44600-000. Telefone fixo da secretaria: (75) 3254-1087. Forania Senhora Sant'Ana.",
+   "communities": [
+    {
+     "name": "Igreja Matriz Senhora Sant’Ana",
+     "address": "Praça Roberto Cintra, N° 206 CEP: 446000",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesederuybarbosa.com.br/paroquia/ipira-paroquia-senhora-santana-1775/",
+       "title": "Diocese de Ruy Barbosa — ficha oficial “Ipirá – Paróquia Senhora Sant’Ana (1775)” (endereço, CEP, telefone, e-mail, forania, clero e institutos de vida consagrada; página modificada em 17/02/2025)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Igreja Matriz Senhora Sant’Ana",
+     "dayOfWeek": 3,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — base de horários da Bahia (4 fichas no território da Diocese de Ruy Barbosa). Agregador: o campo ultima_atualizacao (02/09/2026) é a data de regeneração da base, não de conferência da ficha",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Igreja Matriz Senhora Sant’Ana",
+     "dayOfWeek": 0,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — base de horários da Bahia (4 fichas no território da Diocese de Ruy Barbosa). Agregador: o campo ultima_atualizacao (02/09/2026) é a data de regeneração da base, não de conferência da ficha",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Igreja Matriz Senhora Sant’Ana",
+     "dayOfWeek": 0,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — base de horários da Bahia (4 fichas no território da Diocese de Ruy Barbosa). Agregador: o campo ultima_atualizacao (02/09/2026) é a data de regeneração da base, não de conferência da ficha",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-do-rosario-itaberaba",
+   "name": "Paróquia Nossa Senhora do Rosário",
+   "city": "Itaberaba",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Av. Luís Viana Filho, 941",
+   "zipCode": "46880-000",
+   "phone": "(75) 9 9292-9406",
+   "email": "rededecomunidades17nsr@yahoo.com.br",
+   "website": null,
+   "priestName": "Pe. Oscar Santos",
+   "foundedYear": 1843,
+   "sources": [
+    {
+     "url": "https://diocesederuybarbosa.com.br/paroquia/itaberaba-paroquia-nossa-senhora-do-rosario-1843/",
+     "title": "Diocese de Ruy Barbosa — ficha oficial “Itaberaba – Paróquia Nossa Senhora do Rosário (1843)” (endereço, CEP, telefone, e-mail, forania, clero e institutos de vida consagrada; página modificada em 27/09/2023)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13230735000820",
+     "title": "Receita Federal — inscrição do CNPJ 13.230.735 da Diocese de Ruy Barbosa: “NOSSA SENHORA DO ROSARIO”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesederuybarbosa.com.br/wp-json/wp/v2/paroquia?per_page=100",
+     "title": "Diocese de Ruy Barbosa — REST do WordPress, tipo de conteúdo “paroquia”: X-WP-Total = 25 fichas publicadas",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13230735000820",
+   "notes": "A Receita registra Praça do Rosário, 460; o site publica Av. Luís Viana Filho, 941. Telefone fixo da secretaria: (75) 3251-1005. **Ao lado dela funciona o Santuário Diocesano Nossa Senhora das Graças** (Praça N. Sra. do Rosário, 450), que tem CNPJ próprio e não é paróquia. Clero da ficha oficial: Padre Oscar Santos; Pe. Ronival Batista Santana. Forania São Francisco.",
+   "communities": [
+    {
+     "name": "Igreja Matriz Nossa Senhora do Rosário",
+     "address": "Av. Luís Viana Filho, 941",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesederuybarbosa.com.br/paroquia/itaberaba-paroquia-nossa-senhora-do-rosario-1843/",
+       "title": "Diocese de Ruy Barbosa — ficha oficial “Itaberaba – Paróquia Nossa Senhora do Rosário (1843)” (endereço, CEP, telefone, e-mail, forania, clero e institutos de vida consagrada; página modificada em 27/09/2023)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Igreja Matriz Nossa Senhora do Rosário",
+     "dayOfWeek": 5,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — base de horários da Bahia (4 fichas no território da Diocese de Ruy Barbosa). Agregador: o campo ultima_atualizacao (02/09/2026) é a data de regeneração da base, não de conferência da ficha",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Igreja Matriz Nossa Senhora do Rosário",
+     "dayOfWeek": 0,
+     "time": "07:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — base de horários da Bahia (4 fichas no território da Diocese de Ruy Barbosa). Agregador: o campo ultima_atualizacao (02/09/2026) é a data de regeneração da base, não de conferência da ficha",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Igreja Matriz Nossa Senhora do Rosário",
+     "dayOfWeek": 0,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — base de horários da Bahia (4 fichas no território da Diocese de Ruy Barbosa). Agregador: o campo ultima_atualizacao (02/09/2026) é a data de regeneração da base, não de conferência da ficha",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Igreja Matriz Nossa Senhora do Rosário",
+     "dayOfWeek": 3,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — base de horários da Bahia (4 fichas no território da Diocese de Ruy Barbosa). Agregador: o campo ultima_atualizacao (02/09/2026) é a data de regeneração da base, não de conferência da ficha",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Igreja Matriz Nossa Senhora do Rosário",
+     "dayOfWeek": 4,
+     "time": "19:30",
+     "type": "ADORATION",
+     "notes": "Das 19:30 às 20:30.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — base de horários da Bahia (4 fichas no território da Diocese de Ruy Barbosa). Agregador: o campo ultima_atualizacao (02/09/2026) é a data de regeneração da base, não de conferência da ficha",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "santa-dulce-dos-pobres-itaberaba",
+   "name": "Paróquia Santa Dulce dos Pobres",
+   "city": "Itaberaba",
+   "state": "BA",
+   "neighborhood": "Loteamento 02 de Abril",
+   "address": "Rua Lago de Aral, nº 23",
+   "zipCode": "46880-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": 2021,
+   "sources": [
+    {
+     "url": "https://diocesederuybarbosa.com.br/paroquia/itaberaba-area-pastoral-santa-dulce-dos-pobres-17-04-2021/",
+     "title": "Diocese de Ruy Barbosa — ficha oficial “Itaberaba – Paróquia Santa Dulce dos Pobres (17/04/2021)” (endereço, CEP, telefone, e-mail, forania, clero e institutos de vida consagrada; página modificada em 05/05/2025)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13230735003098",
+     "title": "Receita Federal — inscrição do CNPJ 13.230.735 da Diocese de Ruy Barbosa: “PAROQUIA N. SENHORA DAS GRACAS E SANTA DULCE DOS POBRES”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesederuybarbosa.com.br/wp-json/wp/v2/paroquia?per_page=100",
+     "title": "Diocese de Ruy Barbosa — REST do WordPress, tipo de conteúdo “paroquia”: X-WP-Total = 25 fichas publicadas",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13230735003098",
+   "notes": "Criada em **17/04/2021** (o slug do CMS ainda diz “area-pastoral-santa-dulce-dos-pobres”). A Receita a inscreve com o nome completo **“Paróquia Nossa Senhora das Graças e Santa Dulce dos Pobres”**, em 15/07/2022. **A ficha lista como clero só o Diác. Joaquim Gonçalves** — não há padre publicado. Clero da ficha oficial: Diác. Joaquim Gonçalves. Forania São Francisco.",
+   "communities": [
+    {
+     "name": "Igreja Matriz Santa Dulce dos Pobres",
+     "address": "Rua Lago de Aral, nº 23",
+     "neighborhood": "Loteamento 02 de Abril",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesederuybarbosa.com.br/paroquia/itaberaba-area-pastoral-santa-dulce-dos-pobres-17-04-2021/",
+       "title": "Diocese de Ruy Barbosa — ficha oficial “Itaberaba – Paróquia Santa Dulce dos Pobres (17/04/2021)” (endereço, CEP, telefone, e-mail, forania, clero e institutos de vida consagrada; página modificada em 05/05/2025)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-das-gracas-itaete",
+   "name": "Paróquia Nossa Senhora das Graças",
+   "city": "Itaetê",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Av. Magalhães Neto, 47",
+   "zipCode": "46790-000",
+   "phone": "(75) 3320-2223",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Edson Gonçalves da Silva",
+   "foundedYear": 1979,
+   "sources": [
+    {
+     "url": "https://diocesederuybarbosa.com.br/paroquia/itaete-paroquia-nossa-senhora-das-gracas-1979/",
+     "title": "Diocese de Ruy Barbosa — ficha oficial “Itaetê – Paróquia Nossa Senhora das Graças (1979)” (endereço, CEP, telefone, e-mail, forania, clero e institutos de vida consagrada; página modificada em 27/09/2023)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13230735001044",
+     "title": "Receita Federal — inscrição do CNPJ 13.230.735 da Diocese de Ruy Barbosa: “NOSSA SENHORA DAS GRACAS”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesederuybarbosa.com.br/wp-json/wp/v2/paroquia?per_page=100",
+     "title": "Diocese de Ruy Barbosa — REST do WordPress, tipo de conteúdo “paroquia”: X-WP-Total = 25 fichas publicadas",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13230735001044",
+   "notes": "A ficha não publica e-mail. Forania São Francisco.",
+   "communities": [
+    {
+     "name": "Igreja Matriz Nossa Senhora das Graças",
+     "address": "Av. Magalhães Neto, 47",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesederuybarbosa.com.br/paroquia/itaete-paroquia-nossa-senhora-das-gracas-1979/",
+       "title": "Diocese de Ruy Barbosa — ficha oficial “Itaetê – Paróquia Nossa Senhora das Graças (1979)” (endereço, CEP, telefone, e-mail, forania, clero e institutos de vida consagrada; página modificada em 27/09/2023)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-do-carmo-lajedinho",
+   "name": "Paróquia Nossa Senhora do Carmo",
+   "city": "Lajedinho",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça Cícero Alencar s/nº",
+   "zipCode": "46825-000",
+   "phone": null,
+   "email": "senhoradocarmo123@gmail.com",
+   "website": null,
+   "priestName": "Pe. Jeoval Oliveira Rios",
+   "foundedYear": 2008,
+   "sources": [
+    {
+     "url": "https://diocesederuybarbosa.com.br/paroquia/lajedinho-paroquia-nossa-senhora-do-carmo-2008/",
+     "title": "Diocese de Ruy Barbosa — ficha oficial “Lajedinho – Paróquia Nossa Senhora do Carmo (2008)” (endereço, CEP, telefone, e-mail, forania, clero e institutos de vida consagrada; página modificada em 17/02/2025)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13230735000234",
+     "title": "Receita Federal — inscrição do CNPJ 13.230.735 da Diocese de Ruy Barbosa: “NOSSA SENHORA DO CARMO”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesederuybarbosa.com.br/wp-json/wp/v2/paroquia?per_page=100",
+     "title": "Diocese de Ruy Barbosa — REST do WordPress, tipo de conteúdo “paroquia”: X-WP-Total = 25 fichas publicadas",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13230735000234",
+   "notes": "A ficha não publica telefone. Forania Santa Luzia.",
+   "communities": [
+    {
+     "name": "Igreja Matriz Nossa Senhora do Carmo",
+     "address": "Praça Cícero Alencar s/nº",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesederuybarbosa.com.br/paroquia/lajedinho-paroquia-nossa-senhora-do-carmo-2008/",
+       "title": "Diocese de Ruy Barbosa — ficha oficial “Lajedinho – Paróquia Nossa Senhora do Carmo (2008)” (endereço, CEP, telefone, e-mail, forania, clero e institutos de vida consagrada; página modificada em 17/02/2025)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "santa-luzia-macajuba",
+   "name": "Paróquia Santa Luzia",
+   "city": "Macajuba",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Rua Frederico Costa, s/n",
+   "zipCode": "46805-000",
+   "phone": "(74) 9997-7454",
+   "email": "secretariastaluzia010153@gmail.com",
+   "website": null,
+   "priestName": null,
+   "foundedYear": 1971,
+   "sources": [
+    {
+     "url": "https://diocesederuybarbosa.com.br/paroquia/macajuba-paroquia-santa-luzia-1971/",
+     "title": "Diocese de Ruy Barbosa — ficha oficial “Macajuba- Paróquia Santa Luzia, 1971” (endereço, CEP, telefone, e-mail, forania, clero e institutos de vida consagrada; página modificada em 27/09/2023)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13230735001206",
+     "title": "Receita Federal — inscrição do CNPJ 13.230.735 da Diocese de Ruy Barbosa: “SANTA LUZIA”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesederuybarbosa.com.br/wp-json/wp/v2/paroquia?per_page=100",
+     "title": "Diocese de Ruy Barbosa — REST do WordPress, tipo de conteúdo “paroquia”: X-WP-Total = 25 fichas publicadas",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13230735001206",
+   "notes": "**A ficha lista como clero só o Diácono Genival de Jesus Araújo** — não há padre publicado. A coordenação pastoral é das Irmãs Franciscanas de Allegany. A Receita registra Avenida Frederico Costa, 247. Clero da ficha oficial: Diácono Genival de Jesus Araújo. Forania Santa Luzia.",
+   "communities": [
+    {
+     "name": "Igreja Matriz Santa Luzia",
+     "address": "Rua Frederico Costa, s/n",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesederuybarbosa.com.br/paroquia/macajuba-paroquia-santa-luzia-1971/",
+       "title": "Diocese de Ruy Barbosa — ficha oficial “Macajuba- Paróquia Santa Luzia, 1971” (endereço, CEP, telefone, e-mail, forania, clero e institutos de vida consagrada; página modificada em 27/09/2023)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-das-dores-mairi",
+   "name": "Paróquia Nossa Senhora das Dores",
+   "city": "Mairi",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Rua Nilo Rios, 96",
+   "zipCode": "44630-000",
+   "phone": "(74) 3632-3037",
+   "email": "pnsdmairi@yahoo.com.br",
+   "website": null,
+   "priestName": "Pe. Alfredo da Silva Rios",
+   "foundedYear": 1838,
+   "sources": [
+    {
+     "url": "https://diocesederuybarbosa.com.br/paroquia/mairi-paroquia-nossa-senhora-das-dores-1838/",
+     "title": "Diocese de Ruy Barbosa — ficha oficial “Mairi – Paróquia Nossa Senhora das Dores (1838)” (endereço, CEP, telefone, e-mail, forania, clero e institutos de vida consagrada; página modificada em 27/09/2023)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13230735001982",
+     "title": "Receita Federal — inscrição do CNPJ 13.230.735 da Diocese de Ruy Barbosa: “NOSSA SENHORA DAS DORES”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesederuybarbosa.com.br/wp-json/wp/v2/paroquia?per_page=100",
+     "title": "Diocese de Ruy Barbosa — REST do WordPress, tipo de conteúdo “paroquia”: X-WP-Total = 25 fichas publicadas",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13230735001982",
+   "notes": "O campo de endereço da ficha começa com a palavra “Endereço:” duplicada. Clero da ficha oficial: Pe. Alfredo da Silva Rios; Pe. Antônio Carlos Fontenele de Jesus. Forania Senhora Sant'Ana.",
+   "communities": [
+    {
+     "name": "Igreja Matriz Nossa Senhora das Dores",
+     "address": "Rua Nilo Rios, 96",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesederuybarbosa.com.br/paroquia/mairi-paroquia-nossa-senhora-das-dores-1838/",
+       "title": "Diocese de Ruy Barbosa — ficha oficial “Mairi – Paróquia Nossa Senhora das Dores (1838)” (endereço, CEP, telefone, e-mail, forania, clero e institutos de vida consagrada; página modificada em 27/09/2023)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-da-imaculada-conceicao-miguel-calmon",
+   "name": "Paróquia Nossa Senhora da Imaculada Conceição",
+   "city": "Miguel Calmon",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça Rui Barbosa, nº 44, Centro - Miguel Calmon",
+   "zipCode": "44720-000",
+   "phone": "(74) 9 9944-7469",
+   "email": "paroquiamiguelcalmon@hotmail.com",
+   "website": null,
+   "priestName": "Pe. Antoniel de Almeida Peçanha",
+   "foundedYear": 1937,
+   "sources": [
+    {
+     "url": "https://diocesederuybarbosa.com.br/paroquia/miguel-calmon-paroquia-nossa-senhora-da-imaculada-conceicao-1937/",
+     "title": "Diocese de Ruy Barbosa — ficha oficial “Miguel Calmon – Paróquia Nossa Senhora da Imaculada Conceição (1937)” (endereço, CEP, telefone, e-mail, forania, clero e institutos de vida consagrada; página modificada em 24/04/2025)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13230735001630",
+     "title": "Receita Federal — inscrição do CNPJ 13.230.735 da Diocese de Ruy Barbosa: “N. S. DA IMACULADA CONCEICAO”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesederuybarbosa.com.br/wp-json/wp/v2/paroquia?per_page=100",
+     "title": "Diocese de Ruy Barbosa — REST do WordPress, tipo de conteúdo “paroquia”: X-WP-Total = 25 fichas publicadas",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13230735001630",
+   "notes": "A Receita registra Rua Serafim Barreto, 40; o site publica Praça Rui Barbosa, 44. Secretaria: Gleide Vital (pastoral) e Miriam Almeida (financeiro), seg. a sex. 08h–12h e 14h–17h, sáb. 08h–12h. Forania Santa Dulce dos Pobres.",
+   "communities": [
+    {
+     "name": "Igreja Matriz Nossa Senhora da Imaculada Conceição",
+     "address": "Praça Rui Barbosa, nº 44, Centro - Miguel Calmon",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesederuybarbosa.com.br/paroquia/miguel-calmon-paroquia-nossa-senhora-da-imaculada-conceicao-1937/",
+       "title": "Diocese de Ruy Barbosa — ficha oficial “Miguel Calmon – Paróquia Nossa Senhora da Imaculada Conceição (1937)” (endereço, CEP, telefone, e-mail, forania, clero e institutos de vida consagrada; página modificada em 24/04/2025)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-mae-do-divino-pastor-mundo-novo",
+   "name": "Paróquia Nossa Senhora Mãe do Divino Pastor",
+   "city": "Mundo Novo",
+   "state": "BA",
+   "neighborhood": "Jequitibá",
+   "address": "Fazenda Jequitiba, SN",
+   "zipCode": "44800-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": 1981,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/13230735001478",
+     "title": "Receita Federal — inscrição do CNPJ 13.230.735 da Diocese de Ruy Barbosa: “N.S MAE DO DIVINO PASTOR”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesederuybarbosa.com.br/wp-json/wp/v2/paroquia?per_page=100",
+     "title": "Diocese de Ruy Barbosa — REST do WordPress, tipo de conteúdo “paroquia”: X-WP-Total = 25 fichas publicadas",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13230735001478",
+   "notes": "**No povoado/fazenda de Jequitibá, município de Mundo Novo** — é assim que a Receita cadastra o CNPJ (município MUNDO NOVO, logradouro “Fazenda Jequitibá”, CEP 44800-000), embora o título da ficha diga só “Jequitibá”. É a **segunda paróquia de Mundo Novo**. A ficha do site não abriu em três tentativas (o servidor devolveu timeout); o registro foi montado com o título da REST e o cadastro da Receita. A ficha do site não abriu; o endereço vem do cadastro da Receita.",
+   "communities": [
+    {
+     "name": "Igreja Matriz Nossa Senhora Mãe do Divino Pastor",
+     "address": "Fazenda Jequitiba, SN",
+     "neighborhood": "Jequitibá",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/13230735001478",
+       "title": "Receita Federal — inscrição do CNPJ 13.230.735 da Diocese de Ruy Barbosa: “N.S MAE DO DIVINO PASTOR”",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-da-conceicao-mundo-novo",
+   "name": "Paróquia Nossa Senhora da Conceição",
+   "city": "Mundo Novo",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Rua Av. Osvaldo Ribeiro, 112 – Centro – Mundo Novo – BA / Escritório Paroquial Praça Senador Cohim, 29",
+   "zipCode": "44800-000",
+   "phone": "(74) 9 9915-5374",
+   "email": "pmn1857@gmail.com",
+   "website": null,
+   "priestName": "Pe. Ailton Bispo",
+   "foundedYear": 1857,
+   "sources": [
+    {
+     "url": "https://diocesederuybarbosa.com.br/paroquia/mundo-novo-paroquia-nossa-senhora-da-conceicao-1857/",
+     "title": "Diocese de Ruy Barbosa — ficha oficial “Mundo Novo – Paróquia Nossa Senhora da Conceição (1857)” (endereço, CEP, telefone, e-mail, forania, clero e institutos de vida consagrada; página modificada em 27/09/2023)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13230735001710",
+     "title": "Receita Federal — inscrição do CNPJ 13.230.735 da Diocese de Ruy Barbosa: “NOSSA SENHORA DA CONCEICAO”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesederuybarbosa.com.br/wp-json/wp/v2/paroquia?per_page=100",
+     "title": "Diocese de Ruy Barbosa — REST do WordPress, tipo de conteúdo “paroquia”: X-WP-Total = 25 fichas publicadas",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13230735001710",
+   "notes": "Escritório paroquial em endereço distinto do da igreja: Praça Senador Cohim, 29 (que é o que a Receita registra). Clero da ficha oficial: Pe. Ailton Bispo; Pe. Manuel Pereira dos Santos. Forania Santa Dulce dos Pobres.",
+   "communities": [
+    {
+     "name": "Igreja Matriz Nossa Senhora da Conceição",
+     "address": "Rua Av. Osvaldo Ribeiro, 112 – Centro – Mundo Novo – BA / Escritório Paroquial Praça Senador Cohim, 29",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesederuybarbosa.com.br/paroquia/mundo-novo-paroquia-nossa-senhora-da-conceicao-1857/",
+       "title": "Diocese de Ruy Barbosa — ficha oficial “Mundo Novo – Paróquia Nossa Senhora da Conceição (1857)” (endereço, CEP, telefone, e-mail, forania, clero e institutos de vida consagrada; página modificada em 27/09/2023)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Igreja Matriz Nossa Senhora da Conceição",
+     "dayOfWeek": 0,
+     "time": "07:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — base de horários da Bahia (4 fichas no território da Diocese de Ruy Barbosa). Agregador: o campo ultima_atualizacao (02/09/2026) é a data de regeneração da base, não de conferência da ficha",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "sao-sebastiao-nova-redencao",
+   "name": "Paróquia São Sebastião",
+   "city": "Nova Redenção",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça São Sebastião, s/nº",
+   "zipCode": "46835-000",
+   "phone": null,
+   "email": "paroquiasebatiaonr@gmail.com",
+   "website": null,
+   "priestName": "Pe. Roquelino dos Santos Lomes",
+   "foundedYear": 2008,
+   "sources": [
+    {
+     "url": "https://diocesederuybarbosa.com.br/paroquia/nova-redencao-paroquia-sao-sebastiao-2008/",
+     "title": "Diocese de Ruy Barbosa — ficha oficial “Nova Redenção – Paróquia São Sebastião (2008)” (endereço, CEP, telefone, e-mail, forania, clero e institutos de vida consagrada; página modificada em 11/09/2023)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13230735000749",
+     "title": "Receita Federal — inscrição do CNPJ 13.230.735 da Diocese de Ruy Barbosa: “SAO SEBASTIAO”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesederuybarbosa.com.br/wp-json/wp/v2/paroquia?per_page=100",
+     "title": "Diocese de Ruy Barbosa — REST do WordPress, tipo de conteúdo “paroquia”: X-WP-Total = 25 fichas publicadas",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13230735000749",
+   "notes": "Missionária leiga: Vanessa Leccese. A ficha não publica telefone. Forania São Francisco.",
+   "communities": [
+    {
+     "name": "Igreja Matriz São Sebastião",
+     "address": "Praça São Sebastião, s/nº",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesederuybarbosa.com.br/paroquia/nova-redencao-paroquia-sao-sebastiao-2008/",
+       "title": "Diocese de Ruy Barbosa — ficha oficial “Nova Redenção – Paróquia São Sebastião (2008)” (endereço, CEP, telefone, e-mail, forania, clero e institutos de vida consagrada; página modificada em 11/09/2023)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-imaculada-conceicao-pintadas",
+   "name": "Paróquia Nossa Senhora Imaculada Conceição",
+   "city": "Pintadas",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Manoel Vicente, 45- centro",
+   "zipCode": "44610-000",
+   "phone": "(75) 9 8317-6682",
+   "email": "picpintadas@gmail.com",
+   "website": null,
+   "priestName": "Pe. Augusto Mércio Machado",
+   "foundedYear": 1987,
+   "sources": [
+    {
+     "url": "https://diocesederuybarbosa.com.br/paroquia/pintadas-paroquia-nossa-senhora-imaculada-conceicao-1987/",
+     "title": "Diocese de Ruy Barbosa — ficha oficial “Pintadas – Paróquia Nossa Senhora Imaculada Conceição (1987)” (endereço, CEP, telefone, e-mail, forania, clero e institutos de vida consagrada; página modificada em 17/02/2025)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13230735002520",
+     "title": "Receita Federal — inscrição do CNPJ 13.230.735 da Diocese de Ruy Barbosa: “N. S. IMACULADA CONCEICAO”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesederuybarbosa.com.br/wp-json/wp/v2/paroquia?per_page=100",
+     "title": "Diocese de Ruy Barbosa — REST do WordPress, tipo de conteúdo “paroquia”: X-WP-Total = 25 fichas publicadas",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13230735002520",
+   "notes": "Forania Senhora Sant'Ana.",
+   "communities": [
+    {
+     "name": "Igreja Matriz Nossa Senhora Imaculada Conceição",
+     "address": "Manoel Vicente, 45- centro",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesederuybarbosa.com.br/paroquia/pintadas-paroquia-nossa-senhora-imaculada-conceicao-1987/",
+       "title": "Diocese de Ruy Barbosa — ficha oficial “Pintadas – Paróquia Nossa Senhora Imaculada Conceição (1987)” (endereço, CEP, telefone, e-mail, forania, clero e institutos de vida consagrada; página modificada em 17/02/2025)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "senhor-bom-jesus-piritiba",
+   "name": "Paróquia Senhor Bom Jesus",
+   "city": "Piritiba",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça da Matriz, n° 31 – centro",
+   "zipCode": "44830-000",
+   "phone": null,
+   "email": "paroquia.senhordobonfim1972@gmail.com",
+   "website": null,
+   "priestName": "Pe. Cláudio Gonçalves da Silva",
+   "foundedYear": 1972,
+   "sources": [
+    {
+     "url": "https://diocesederuybarbosa.com.br/paroquia/piritiba-paroquia-senhor-bom-jesus-1972/",
+     "title": "Diocese de Ruy Barbosa — ficha oficial “Piritiba – Paróquia Senhor Bom Jesus (1972)” (endereço, CEP, telefone, e-mail, forania, clero e institutos de vida consagrada; página modificada em 03/04/2024)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13230735001800",
+     "title": "Receita Federal — inscrição do CNPJ 13.230.735 da Diocese de Ruy Barbosa: “SENHOR BOM JESUS”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesederuybarbosa.com.br/wp-json/wp/v2/paroquia?per_page=100",
+     "title": "Diocese de Ruy Barbosa — REST do WordPress, tipo de conteúdo “paroquia”: X-WP-Total = 25 fichas publicadas",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13230735001800",
+   "notes": "O e-mail publicado (paroquia.senhordobonfim1972@gmail.com) fala em “Senhor do Bonfim”, mas o título oficial e a Receita dizem “Senhor Bom Jesus”. A ficha não publica telefone. Forania Santa Dulce dos Pobres.",
+   "communities": [
+    {
+     "name": "Igreja Matriz Senhor Bom Jesus",
+     "address": "Praça da Matriz, n° 31 – centro",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesederuybarbosa.com.br/paroquia/piritiba-paroquia-senhor-bom-jesus-1972/",
+       "title": "Diocese de Ruy Barbosa — ficha oficial “Piritiba – Paróquia Senhor Bom Jesus (1972)” (endereço, CEP, telefone, e-mail, forania, clero e institutos de vida consagrada; página modificada em 03/04/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "santo-antonio-ruy-barbosa",
+   "name": "Paróquia Catedral Santo Antônio",
+   "city": "Ruy Barbosa",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça Santa Teresa, n° 186",
+   "zipCode": "46800-000",
+   "phone": "(75) 3252-1883",
+   "email": "aboanoticiajc@yahoo.com.br",
+   "website": null,
+   "priestName": "Pe. Erivaldo Gomes",
+   "foundedYear": 1884,
+   "sources": [
+    {
+     "url": "https://diocesederuybarbosa.com.br/paroquia/ruy-barbosa-paroquia-catedral-santo-antonio-1884/",
+     "title": "Diocese de Ruy Barbosa — ficha oficial “Ruy Barbosa – Paróquia Catedral Santo Antônio (1884)” (endereço, CEP, telefone, e-mail, forania, clero e institutos de vida consagrada; página modificada em 17/06/2025)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13230735000900",
+     "title": "Receita Federal — inscrição do CNPJ 13.230.735 da Diocese de Ruy Barbosa: “CATEDRAL SANTO ANTONIO”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesederuybarbosa.com.br/wp-json/wp/v2/paroquia?per_page=100",
+     "title": "Diocese de Ruy Barbosa — REST do WordPress, tipo de conteúdo “paroquia”: X-WP-Total = 25 fichas publicadas",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13230735000900",
+   "notes": "Igreja-catedral da diocese. A Receita registra o endereço como Largo Mons. Sizínio Galvão de Souza, s/n; o site publica Praça Santa Teresa, 186. Forania Santa Luzia.",
+   "communities": [
+    {
+     "name": "Catedral Santo Antônio",
+     "address": "Praça Santa Teresa, n° 186",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesederuybarbosa.com.br/paroquia/ruy-barbosa-paroquia-catedral-santo-antonio-1884/",
+       "title": "Diocese de Ruy Barbosa — ficha oficial “Ruy Barbosa – Paróquia Catedral Santo Antônio (1884)” (endereço, CEP, telefone, e-mail, forania, clero e institutos de vida consagrada; página modificada em 17/06/2025)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-aparecida-e-sao-jose-operario-ruy-barbosa",
+   "name": "Paróquia Nossa Senhora Aparecida e São José Operário",
+   "city": "Ruy Barbosa",
+   "state": "BA",
+   "neighborhood": "Vila Operária",
+   "address": "Rua João Fortunato Caldas, s/n",
+   "zipCode": "46800-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": 2024,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/13230735002792",
+     "title": "Receita Federal — inscrição do CNPJ 13.230.735 da Diocese de Ruy Barbosa: “PAROQUIA NOSSA SENHORA APARECIDA E SAO JOSE OPERARIO”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13230735000153",
+     "title": "Receita Federal — DIOCESE DE RUY BARBOSA, CNPJ 13.230.735/0001-53 (matriz) e filiais; varredura de /0001 a /0060 (existem exatamente 30 inscrições, das quais 26 paróquias ATIVAS e 1 santuário)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "media",
+   "cnpj": "13230735002792",
+   "notes": "**NÃO publicada pelo site da diocese** (o tipo `paroquia` da REST tem 25 fichas e esta não está entre elas). Existe no cadastro da Receita, com inscrição aberta em **18/03/2024**, no bairro Vila Operária de Ruy Barbosa — é a **segunda paróquia da cidade-sede**, ao lado da Catedral. Sem horário publicado. Precisa de validação humana.",
+   "communities": [
+    {
+     "name": "Igreja Matriz Nossa Senhora Aparecida e São José Operário",
+     "address": "Rua João Fortunato Caldas, s/n",
+     "neighborhood": "Vila Operária",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/13230735002792",
+       "title": "Receita Federal — inscrição do CNPJ 13.230.735 da Diocese de Ruy Barbosa: “PAROQUIA NOSSA SENHORA APARECIDA E SAO JOSE OPERARIO”",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-da-conceicao-tapiramuta",
+   "name": "Paróquia Nossa Senhora da Conceição",
+   "city": "Tapiramutá",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça Heliodoro Nery, 152 – Centro",
+   "zipCode": "44840-000",
+   "phone": null,
+   "email": "prtapira621@gmail.com",
+   "website": null,
+   "priestName": "Pe. Ailton Bispo",
+   "foundedYear": 1979,
+   "sources": [
+    {
+     "url": "https://diocesederuybarbosa.com.br/paroquia/tapiramuta-paroquia-nossa-senhora-da-conceicao-1979/",
+     "title": "Diocese de Ruy Barbosa — ficha oficial “Tapiramutá – Paróquia Nossa Senhora da Conceição (1979)” (endereço, CEP, telefone, e-mail, forania, clero e institutos de vida consagrada; página modificada em 12/09/2023)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13230735002105",
+     "title": "Receita Federal — inscrição do CNPJ 13.230.735 da Diocese de Ruy Barbosa: “NOSSA SENHORA DA CONCEICAO”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesederuybarbosa.com.br/wp-json/wp/v2/paroquia?per_page=100",
+     "title": "Diocese de Ruy Barbosa — REST do WordPress, tipo de conteúdo “paroquia”: X-WP-Total = 25 fichas publicadas",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13230735002105",
+   "notes": "A ficha não publica telefone. Clero da ficha oficial: Pe. Ailton Bispo; Pe. Manuel Pereira dos Santos. Forania Santa Dulce dos Pobres.",
+   "communities": [
+    {
+     "name": "Igreja Matriz Nossa Senhora da Conceição",
+     "address": "Praça Heliodoro Nery, 152 – Centro",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesederuybarbosa.com.br/paroquia/tapiramuta-paroquia-nossa-senhora-da-conceicao-1979/",
+       "title": "Diocese de Ruy Barbosa — ficha oficial “Tapiramutá – Paróquia Nossa Senhora da Conceição (1979)” (endereço, CEP, telefone, e-mail, forania, clero e institutos de vida consagrada; página modificada em 12/09/2023)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "senhor-bom-jesus-utinga",
+   "name": "Paróquia Senhor Bom Jesus",
+   "city": "Utinga",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça Pé João Ramos Marinho, 2-12 - Utinga",
+   "zipCode": "46810-000",
+   "phone": "(75) 3337-1871",
+   "email": "paroquiadeutinga@gmail.com",
+   "website": null,
+   "priestName": "Pe. Noby Antony",
+   "foundedYear": 1889,
+   "sources": [
+    {
+     "url": "https://diocesederuybarbosa.com.br/paroquia/utinga-paroquia-senhor-bom-jesus-1889/",
+     "title": "Diocese de Ruy Barbosa — ficha oficial “Utinga – Paróquia Senhor Bom Jesus (1889)” (endereço, CEP, telefone, e-mail, forania, clero e institutos de vida consagrada; página modificada em 28/11/2024)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13230735000668",
+     "title": "Receita Federal — inscrição do CNPJ 13.230.735 da Diocese de Ruy Barbosa: “SENHOR BOM JESUS”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesederuybarbosa.com.br/wp-json/wp/v2/paroquia?per_page=100",
+     "title": "Diocese de Ruy Barbosa — REST do WordPress, tipo de conteúdo “paroquia”: X-WP-Total = 25 fichas publicadas",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13230735000668",
+   "notes": "Diácono: Valterley Alves. A Receita registra Praça Reinaldo Moreira, 17. Clero da ficha oficial: Pe. Noby Antony; Diácono Valterley Alves. Forania Santa Luzia.",
+   "communities": [
+    {
+     "name": "Igreja Matriz Senhor Bom Jesus",
+     "address": "Praça Pé João Ramos Marinho, 2-12 - Utinga",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesederuybarbosa.com.br/paroquia/utinga-paroquia-senhor-bom-jesus-1889/",
+       "title": "Diocese de Ruy Barbosa — ficha oficial “Utinga – Paróquia Senhor Bom Jesus (1889)” (endereço, CEP, telefone, e-mail, forania, clero e institutos de vida consagrada; página modificada em 28/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "sao-jose-varzea-da-roca",
+   "name": "Paróquia São José",
+   "city": "Várzea da Roça",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça José Coelho, s/n°",
+   "zipCode": "44635-000",
+   "phone": "(74) 9 8127-0721",
+   "email": "psaojosevr2016@gmail.com",
+   "website": null,
+   "priestName": "Pe. Alfredo da Silva Rios",
+   "foundedYear": 2008,
+   "sources": [
+    {
+     "url": "https://diocesederuybarbosa.com.br/paroquia/varzea-da-roca-paroquia-sao-jose-2008/",
+     "title": "Diocese de Ruy Barbosa — ficha oficial “Várzea da Roça – Paróquia São José (2008)” (endereço, CEP, telefone, e-mail, forania, clero e institutos de vida consagrada; página modificada em 27/09/2023)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13230735002016",
+     "title": "Receita Federal — inscrição do CNPJ 13.230.735 da Diocese de Ruy Barbosa: “SAO JOSE”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesederuybarbosa.com.br/wp-json/wp/v2/paroquia?per_page=100",
+     "title": "Diocese de Ruy Barbosa — REST do WordPress, tipo de conteúdo “paroquia”: X-WP-Total = 25 fichas publicadas",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13230735002016",
+   "notes": "Clero da ficha oficial: Pe. Alfredo da Silva Rios; Pe. Antônio Carlos Fontenele de Jesus. Forania Senhora Sant'Ana.",
+   "communities": [
+    {
+     "name": "Igreja Matriz São José",
+     "address": "Praça José Coelho, s/n°",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesederuybarbosa.com.br/paroquia/varzea-da-roca-paroquia-sao-jose-2008/",
+       "title": "Diocese de Ruy Barbosa — ficha oficial “Várzea da Roça – Paróquia São José (2008)” (endereço, CEP, telefone, e-mail, forania, clero e institutos de vida consagrada; página modificada em 27/09/2023)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "sao-francisco-de-assis-varzea-do-poco",
+   "name": "Paróquia São Francisco de Assis",
+   "city": "Várzea do Poço",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça José Gonçalves, SN- Centro",
+   "zipCode": "44715-000",
+   "phone": "(74) 9 9962-0952",
+   "email": "paroquiasfrancisco@yahoo.com.br",
+   "website": null,
+   "priestName": "Pe. Mário de Carli",
+   "foundedYear": 1981,
+   "sources": [
+    {
+     "url": "https://diocesederuybarbosa.com.br/paroquia/varzea-do-poco-paroquia-sao-francisco-de-assis-1981/",
+     "title": "Diocese de Ruy Barbosa — ficha oficial “Várzea do Poço – Paróquia São Francisco de Assis (1981)” (endereço, CEP, telefone, e-mail, forania, clero e institutos de vida consagrada; página modificada em 17/02/2025)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13230735001559",
+     "title": "Receita Federal — inscrição do CNPJ 13.230.735 da Diocese de Ruy Barbosa: “SAO FRANCISCO”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesederuybarbosa.com.br/wp-json/wp/v2/paroquia?per_page=100",
+     "title": "Diocese de Ruy Barbosa — REST do WordPress, tipo de conteúdo “paroquia”: X-WP-Total = 25 fichas publicadas",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13230735001559",
+   "notes": "Atendida pela Sociedade Missionária Obra de Deus. Clero da ficha oficial: Pe. Mário de Carli; Pe. Cláudio Gonçalves da Silva. Forania Senhora Sant'Ana.",
+   "communities": [
+    {
+     "name": "Igreja Matriz São Francisco de Assis",
+     "address": "Praça José Gonçalves, SN- Centro",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesederuybarbosa.com.br/paroquia/varzea-do-poco-paroquia-sao-francisco-de-assis-1981/",
+       "title": "Diocese de Ruy Barbosa — ficha oficial “Várzea do Poço – Paróquia São Francisco de Assis (1981)” (endereço, CEP, telefone, e-mail, forania, clero e institutos de vida consagrada; página modificada em 17/02/2025)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-do-carmo-wagner",
+   "name": "Paróquia Nossa Senhora do Carmo",
+   "city": "Wagner",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Rua 26 de Janeiro, s/nº",
+   "zipCode": "46970-000",
+   "phone": "(75) 9 9932-7983",
+   "email": "paroquiadewagnerbahia@gmail.com",
+   "website": null,
+   "priestName": "Pe. Jeoval Oliveira Rios",
+   "foundedYear": 2008,
+   "sources": [
+    {
+     "url": "https://diocesederuybarbosa.com.br/paroquia/wagner-paroquia-nossa-senhora-do-carmo-2008/",
+     "title": "Diocese de Ruy Barbosa — ficha oficial “Wagner – Paróquia Nossa Senhora do Carmo (2008)” (endereço, CEP, telefone, e-mail, forania, clero e institutos de vida consagrada; página modificada em 17/02/2025)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13230735000587",
+     "title": "Receita Federal — inscrição do CNPJ 13.230.735 da Diocese de Ruy Barbosa",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesederuybarbosa.com.br/wp-json/wp/v2/paroquia?per_page=100",
+     "title": "Diocese de Ruy Barbosa — REST do WordPress, tipo de conteúdo “paroquia”: X-WP-Total = 25 fichas publicadas",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13230735000587",
+   "notes": "A inscrição 13230735000587 da Receita está sem nome fantasia, mas o endereço (Rua Dois de Julho, s/n, Centro, Wagner, 46970-000) casa com a ficha oficial, que publica Rua 26 de Janeiro, s/n. Secretaria: quinta e sexta, 13h30 às 17h. Forania Santa Luzia.",
+   "communities": [
+    {
+     "name": "Igreja Matriz Nossa Senhora do Carmo",
+     "address": "Rua 26 de Janeiro, s/nº",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesederuybarbosa.com.br/paroquia/wagner-paroquia-nossa-senhora-do-carmo-2008/",
+       "title": "Diocese de Ruy Barbosa — ficha oficial “Wagner – Paróquia Nossa Senhora do Carmo (2008)” (endereço, CEP, telefone, e-mail, forania, clero e institutos de vida consagrada; página modificada em 17/02/2025)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  }
+ ],
+ "coverage": {
+  "parishesFound": 26,
+  "parishesExpected": 26,
+  "notes": "26 paróquias. O site oficial publica 25 fichas (X-WP-Total = 25 no tipo `paroquia`); a varredura do CNPJ 13.230.735 na Receita Federal (de /0001 a /0060 — existem exatamente 30 inscrições, nada além) casa uma a uma com essas 25 e acrescenta **uma paróquia que o site não publica**: a PAROQUIA NOSSA SENHORA APARECIDA E SAO JOSE OPERARIO, do bairro Vila Operária de Ruy Barbosa (inscrição de 18/03/2024) — a segunda paróquia da cidade-sede. As outras 4 inscrições ativas não são paróquia: a sede (/0001), o **Seminário Bom Pastor** em Feira de Santana (/0026), a **Pastoral do Cuidado – PODES** em Mundo Novo (/0033) e o **SANTUÁRIO DIOCESANO NOSSA SENHORA DAS GRAÇAS**, em Itaberaba (/0030, Praça N. Sra. do Rosário, 450, inscrição de 15/07/2022), igreja não paroquial que **não entrou neste arquivo** por não ter missa publicada em fonte que sustente `media` ou `alta`. O catholic-hierarchy declara 24 paróquias em 2022 (ap2023); desde então a Receita registra duas inscrições novas de paróquia (Bom Pastor de Pau Ferro/Ipirá em 02/04/2024 e N. Sra. Aparecida e São José Operário em 18/03/2024), o que fecha 24 + 2 = 26. **A diocese não publica lista de comunidades nem horário de missa**: `communities` traz só a igreja-matriz de cada paróquia, e as 13 celebrações do arquivo vêm todas do Lírio Católico, todas `baixa`."
+ }
+}

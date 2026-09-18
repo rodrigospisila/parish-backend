@@ -109,6 +109,32 @@ enxame de validação. Nunca inventar: campo desconhecido = `null`.
     (3) Leopoldina — fichas paradas desde 2018, página de horários ainda com *Lorem Ipsum*;
     (4) Presidente Prudente — o próprio site avisa "última atualização de horários em julho de 2025".
 
+- 2026-09-17/18 — 4ª rodada: **o Brasil inteiro**. As 281 circunscrições têm arquivo e estão
+  carregadas. Produção fechou com **12.843 paróquias, 53.029 comunidades e 53.706 horários fixos**.
+  - Fecharam nesta rodada: PB, RN, AL, SE, PE, PI, AP, AM, PA, CE, MA, RO, AC, BA, MS/MT/TO (do
+    Centro-Oeste) e as duas eparquias ucranianas, que encerram o país.
+  - **Melhores fontes**: Anuário/Catálogo Diocesano — Cametá (PDF de 81 páginas: grade, confissão e
+    749 comunidades), Marabá (HTML, 537 comunidades), Bragança, Macapá, Teixeira de Freitas.
+    Depois deles, as fichas que publicam a lista nominal de capelas: Barra (638), Barreiras (540),
+    Iguatu (823), São Luís (842), Manaus (1.003), Tianguá (407), Humaitá (206), Tefé (200).
+  - **A varredura de filiais do CNPJ da mitra na Receita virou o método principal**: fechou a lista
+    em mais de 20 dioceses e foi a ÚNICA fonte em Serrinha, Irecê, Floriano, São Raimundo Nonato,
+    Alto Solimöes, São Gabriel da Cachoeira e Coroatá, todas sem site. Revelou dezenas de paróquias
+    criadas de 2021 em diante que nenhum site publica.
+  - **Erros de jurisdição corrigidos em produção**: 5 paróquias de rito bizantino ucraniano estavam
+    sob dioceses latinas (4 do seed de Ponta Grossa, 1 de Apucarana) e outras 3 entrariam erradas;
+    as 21 paróquias que passaram de Fortaleza para a nova Diocese de Baturité (01/01/2026) foram
+    movidas antes da carga, para não duplicar; a paróquia de Canutama saiu de Ponta Grossa para a
+    Prelazia de Lábrea; capelanias militares de Maceió e Marabá foram para o Ordinariado.
+  - **Sés vacantes achadas e registradas**: Humaitá (o bispo foi para Rio Branco em 18/09/2026),
+    Guajará-Mirim (desde 11/2025), Oeiras e Ponta de Pedras.
+  - **Sites diocesanos mortos ou invadidos**: 12 domínios caíram (Jequié, Amargosa, Serrinha, Irecê,
+    Paulo Afonso, Itapipoca, Crateús, Floriano, São Raimundo Nonato, Óbidos, Estância, Livramento) e
+    2 estão com WordPress invadido servindo links de aposta (Macapá e Bom Jesus da Lapa) — **vale
+    avisar as dioceses**. A CNBB ainda publica vários desses domínios mortos.
+  - **O buraco que fica é horário**: mais de 40 dioceses do interior entram sem nenhum. Elas não
+    publicam grade, e os agregadores só têm fichas de 2013–2016, que a regra pré-pandemia barra.
+
 ## Truques de coleta (valem para qualquer UF)
 
 - **403 no leitor automático quase nunca é site fora do ar** — é bloqueio por User-Agent. Repita com
