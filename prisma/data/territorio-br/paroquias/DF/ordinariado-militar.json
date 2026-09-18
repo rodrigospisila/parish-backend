@@ -2421,11 +2421,11 @@
     },
     {
       "slug": "comando-da-23a-brigada-de-infantaria-de-selva-maraba",
-      "name": "Capelania Militar Comando da 23ª Brigada de Infantaria de Selva",
+      "name": "Capelania Militar Santo Inácio de Loyola",
       "city": "Marabá",
       "state": "PA",
-      "neighborhood": null,
-      "address": "Folha 23 - Quadra Especial - Nova Marabá - CEP: 68509-630 - Marabá - PANÃO ENCONTRADO NO MAPA",
+      "neighborhood": "Vila Militar Presidente Médici",
+      "address": "Rua dos Açaís, nº 01",
       "zipCode": "68509-630",
       "phone": "(94) 3312-1106 RITEx: 849-1106 FAX: (94) 3312-1080",
       "email": null,
@@ -2434,7 +2434,7 @@
       "foundedYear": null,
       "militaryUnit": "Comando da 23ª Brigada de Infantaria de Selva",
       "militaryBranch": "Exército Brasileiro",
-      "notes": "Capelania militar junto a Comando da 23ª Brigada de Infantaria de Selva. O Ordinariado publica a ficha com o nome da organização militar, não com o do padroeiro. Força: Exército Brasileiro.",
+      "notes": "Capelania militar junto ao Comando da 23ª Brigada de Infantaria de Selva (Exército Brasileiro). O Ordinariado publica a ficha com o nome da organização militar; o padroeiro e os horários vêm do agregador, que a lista entre as igrejas de Marabá.",
       "sources": [
         {
           "url": "https://arquidiocesemilitar.org.br/local/comando-da-23a-brigada-de-infantaria-de-selva",
@@ -2445,11 +2445,73 @@
           "url": "https://arquidiocesemilitar.org.br/locais/capelanias",
           "title": "Ordinariado Militar do Brasil — Capelanias Militares (índice oficial das 174 capelanias)",
           "accessedAt": "2026-09-11"
+        },
+        {
+          "url": "https://diocesedemaraba.com.br/paroquias/",
+          "title": "Diocese de Marabá — Paróquias (site oficial, WordPress; 30 fichas agrupadas em 6 áreas pastorais)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://diocesedemaraba.com.br/paroquia/capelania-militar-s-inacio-de-loyola/",
+          "title": "Diocese de Marabá — ficha da Capelania Militar S. Inácio de Loyola",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://liriocatolico.com.br/horario_missa/dados/uf/PA.json",
+          "title": "Lírio Católico — base de horários de missa do Pará (agregador; base regenerada em 02/09/2026, sem data de conferência por igreja)",
+          "accessedAt": "2026-09-18"
         }
       ],
       "confidence": "alta",
       "communities": [],
-      "schedules": []
+      "schedules": [
+        {
+          "community": "Capela Santo Inácio de Loyola",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": "Única fonte: agregador Lírio Católico (base regenerada em 02/09/2026, sem data de conferência por igreja). A diocese não publica horário de missa em nenhuma página.",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/PA.json",
+              "title": "Lírio Católico — base de horários de missa do Pará (agregador; base regenerada em 02/09/2026, sem data de conferência por igreja)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Capela Santo Inácio de Loyola",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Única fonte: agregador Lírio Católico (base regenerada em 02/09/2026, sem data de conferência por igreja). A diocese não publica horário de missa em nenhuma página.",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/PA.json",
+              "title": "Lírio Católico — base de horários de missa do Pará (agregador; base regenerada em 02/09/2026, sem data de conferência por igreja)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Nossa Senhora Aparecida",
+          "dayOfWeek": 0,
+          "time": "17:30",
+          "type": "MASS",
+          "notes": "Única fonte: agregador Lírio Católico (base regenerada em 02/09/2026, sem data de conferência por igreja). A diocese não publica horário de missa em nenhuma página. A paróquia responsável por esta comunidade não está confirmada.",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/PA.json",
+              "title": "Lírio Católico — base de horários de missa do Pará (agregador; base regenerada em 02/09/2026, sem data de conferência por igreja)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ],
+      "jurisdictionNote": "Horários recolhidos do agregador que lista a capelania junto com as igrejas da Diocese de Marabá; a jurisdição é do Ordinariado Militar. Todos baixa — não entram na carga."
     },
     {
       "slug": "comando-da-3a-divisao-de-exercito-santa-maria",
