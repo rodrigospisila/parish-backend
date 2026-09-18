@@ -1,0 +1,938 @@
+{
+  "diocese": {
+    "name": "Diocese de Ponta de Pedras",
+    "type": "Diocese",
+    "slug": "ponta-de-pedras",
+    "city": "Ponta de Pedras",
+    "state": "PA",
+    "address": "Bispado, Rua Dr. Assis, 834, Cidade Velha, Belém",
+    "zipCode": "66020-290",
+    "phone": "(91) 3225-1625",
+    "email": null,
+    "website": "http://diocesepontadepedras.blogspot.com",
+    "bishopName": null,
+    "sources": [
+      {
+        "url": "http://diocesepontadepedras.blogspot.com/p/paroquias.html",
+        "title": "Diocese de Ponta de Pedras — Paróquias (site oficial, blog ativo; página atualizada em 18/08/2025 segundo o feed do Blogger): 10 fichas com endereço, CEP, data de criação, data de dedicação da matriz, número de comunidades, congregações religiosas e párocos/vigários, mais o Santuário Diocesano",
+        "accessedAt": "2026-09-18"
+      },
+      {
+        "url": "http://diocesepontadepedras.blogspot.com/feeds/pages/default?alt=json",
+        "title": "Diocese de Ponta de Pedras — feed de páginas do Blogger: \"Paróquias\" atualizada em 18/08/2025, \"Clero\" em 17/08/2026, \"Artigos\" em 16/08/2026 (sinal de que o blog está ativo)",
+        "accessedAt": "2026-09-18"
+      },
+      {
+        "url": "http://diocesepontadepedras.blogspot.com/",
+        "title": "Diocese de Ponta de Pedras — home do blog: notícia \"Administrador diocesano de Ponta de Pedras reúne-se com o clero\" (Pe. Antonio Cardoso, Administrador Diocesano na sede vacante, reunião de 09 e 10 de junho de 2026 no Seminário Diocesano Nossa Senhora Assunção)",
+        "accessedAt": "2026-09-18"
+      },
+      {
+        "url": "https://www.catholic-hierarchy.org/diocese/dponp.html",
+        "title": "catholic-hierarchy.org — Ponta de Pedras (Diocese): 8 paróquias e 112.600 católicos em 2022",
+        "accessedAt": "2026-09-18"
+      },
+      {
+        "url": "https://gcatholic.org/churches/local/pont1",
+        "title": "gcatholic.org — Igrejas da Diocese de Ponta de Pedras (10 igrejas por cidade; sede vacante desde 16/02/2026; atualizado em 17/02/2026)",
+        "accessedAt": "2026-09-18"
+      },
+      {
+        "url": "https://minhareceita.org/04696357000107",
+        "title": "Receita Federal (via minhareceita.org) — CNPJ 04.696.357/0001-07, DIOCESE DE PONTA DE PEDRAS (ATIVA; início 27/12/1982), Rua Dr. Assis 834, Cidade Velha, Belém. A varredura das ordens 0001-0026 achou só dois estabelecimentos (0001 ativo e 0002 BAIXADA em 22/11/1994), ambos no mesmo endereço de Belém: as paróquias desta diocese NÃO são filiais do CNPJ da mitra",
+        "accessedAt": "2026-09-18"
+      },
+      {
+        "url": "https://mapaosc.ipea.gov.br/api/api/osc/busca_avancada/lista/60/0",
+        "title": "Mapa das OSC / IPEA — busca avançada por razão social \"PAROQUIA\" nos seis municípios da diocese (Ponta de Pedras, Cachoeira do Arari, Curralinho, Muaná, Santa Cruz do Arari e São Sebastião da Boa Vista): nenhum resultado — as paróquias também não têm CNPJ próprio na base da Receita espelhada pelo IPEA",
+        "accessedAt": "2026-09-18"
+      }
+    ],
+    "confidence": "alta"
+  },
+  "parishes": [
+    {
+      "slug": "nossa-senhora-da-conceicao-ponta-de-pedras",
+      "name": "Catedral Nossa Senhora da Conceição",
+      "city": "Ponta de Pedras",
+      "state": "PA",
+      "neighborhood": null,
+      "address": "Praça Paulo VI, s/n",
+      "zipCode": "68830-000",
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": 1757,
+      "sources": [
+        {
+          "url": "http://diocesepontadepedras.blogspot.com/p/paroquias.html",
+          "title": "Diocese de Ponta de Pedras — Paróquias (site oficial, blog ativo; página atualizada em 18/08/2025 segundo o feed do Blogger): 10 fichas com endereço, CEP, data de criação, data de dedicação da matriz, número de comunidades, congregações religiosas e párocos/vigários, mais o Santuário Diocesano",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "http://diocesepontadepedras.blogspot.com/feeds/pages/default?alt=json",
+          "title": "Diocese de Ponta de Pedras — feed de páginas do Blogger: \"Paróquias\" atualizada em 18/08/2025, \"Clero\" em 17/08/2026, \"Artigos\" em 16/08/2026 (sinal de que o blog está ativo)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://gcatholic.org/churches/local/pont1",
+          "title": "gcatholic.org — Igrejas da Diocese de Ponta de Pedras (10 igrejas por cidade; sede vacante desde 16/02/2026; atualizado em 17/02/2026)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.catholic-hierarchy.org/diocese/dponp.html",
+          "title": "catholic-hierarchy.org — Ponta de Pedras (Diocese): 8 paróquias e 112.600 católicos em 2022",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/PA.json",
+          "title": "Lírio Católico — ficha \"Catedral NS da Conceição (Ponta de Pedras)\" (id varias) no conjunto de dados do Pará; base regenerada em 02/09/2026, sem data de conferência por igreja",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "unitType": "catedral",
+      "cnpj": null,
+      "notes": "Catedral da diocese, dedicada em 28/11/1987; a paróquia é de 1757. A ficha oficial declara 37 comunidades, mas a diocese NÃO publica a lista. Congregação religiosa na paróquia: Irmãs do Preciosíssimo Sangue. PÁROCO DESATUALIZADO NA FONTE: a página (atualizada em 18/08/2025) registra como pároco o próprio bispo, Dom Teodoro Mendes Tavares, C.S.Sp., que foi transferido para Santiago de Cabo Verde em 16/02/2026 — por isso o campo ficou nulo. A mesma ficha traz o Cura da Sé, Pe. Edileno Félix, e os vigários Pe. Zacarias Lima Machado e Pe. Luciano Araújo.",
+      "communities": [
+        {
+          "name": "Catedral Nossa Senhora da Conceição",
+          "address": "Praça Paulo VI, s/n",
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "http://diocesepontadepedras.blogspot.com/p/paroquias.html",
+              "title": "Diocese de Ponta de Pedras — Paróquias (site oficial, blog ativo; página atualizada em 18/08/2025 segundo o feed do Blogger): 10 fichas com endereço, CEP, data de criação, data de dedicação da matriz, número de comunidades, congregações religiosas e párocos/vigários, mais o Santuário Diocesano",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Igreja Nossa Senhora Rainha da Paz",
+          "address": "Praia Grande",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/PA.json",
+              "title": "Lírio Católico — ficha \"Igreja Nossa Senhora Rainha da Paz (Praia Grande, Ponta de Pedras)\" (id varias) no conjunto de dados do Pará; base regenerada em 02/09/2026, sem data de conferência por igreja",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa",
+          "notes": "Ficha do agregador Lírio Católico em Ponta de Pedras, com secretaria comunitária própria e telefone (91) 98605-2430; vínculo inferido por ser a Catedral a única paróquia do município."
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Igreja Nossa Senhora Rainha da Paz",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": "Agregador Lírio Católico; a diocese não publica horário de missa. A ficha da Catedral no mesmo agregador não traz nenhum horário.",
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/PA.json",
+              "title": "Lírio Católico — ficha \"Igreja Nossa Senhora Rainha da Paz (Praia Grande, Ponta de Pedras)\" (id varias) no conjunto de dados do Pará; base regenerada em 02/09/2026, sem data de conferência por igreja",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Igreja Nossa Senhora Rainha da Paz",
+          "dayOfWeek": 2,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Agregador Lírio Católico; a diocese não publica horário de missa. A ficha da Catedral no mesmo agregador não traz nenhum horário.",
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/PA.json",
+              "title": "Lírio Católico — ficha \"Igreja Nossa Senhora Rainha da Paz (Praia Grande, Ponta de Pedras)\" (id varias) no conjunto de dados do Pará; base regenerada em 02/09/2026, sem data de conferência por igreja",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Igreja Nossa Senhora Rainha da Paz",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Agregador Lírio Católico; a diocese não publica horário de missa. A ficha da Catedral no mesmo agregador não traz nenhum horário.",
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/PA.json",
+              "title": "Lírio Católico — ficha \"Igreja Nossa Senhora Rainha da Paz (Praia Grande, Ponta de Pedras)\" (id varias) no conjunto de dados do Pará; base regenerada em 02/09/2026, sem data de conferência por igreja",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-da-conceicao-cachoeira-do-arari",
+      "name": "Paróquia Nossa Senhora da Conceição",
+      "city": "Cachoeira do Arari",
+      "state": "PA",
+      "neighborhood": null,
+      "address": "Praça da Matriz",
+      "zipCode": "68840-000",
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Nicanor Alves dos Santos",
+      "foundedYear": 1747,
+      "sources": [
+        {
+          "url": "http://diocesepontadepedras.blogspot.com/p/paroquias.html",
+          "title": "Diocese de Ponta de Pedras — Paróquias (site oficial, blog ativo; página atualizada em 18/08/2025 segundo o feed do Blogger): 10 fichas com endereço, CEP, data de criação, data de dedicação da matriz, número de comunidades, congregações religiosas e párocos/vigários, mais o Santuário Diocesano",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "http://diocesepontadepedras.blogspot.com/feeds/pages/default?alt=json",
+          "title": "Diocese de Ponta de Pedras — feed de páginas do Blogger: \"Paróquias\" atualizada em 18/08/2025, \"Clero\" em 17/08/2026, \"Artigos\" em 16/08/2026 (sinal de que o blog está ativo)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://gcatholic.org/churches/local/pont1",
+          "title": "gcatholic.org — Igrejas da Diocese de Ponta de Pedras (10 igrejas por cidade; sede vacante desde 16/02/2026; atualizado em 17/02/2026)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.catholic-hierarchy.org/diocese/dponp.html",
+          "title": "catholic-hierarchy.org — Ponta de Pedras (Diocese): 8 paróquias e 112.600 católicos em 2022",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "unitType": "paroquia",
+      "cnpj": null,
+      "notes": "Criada em 1747 — a paróquia mais antiga da diocese; a matriz foi dedicada em 2000. A ficha oficial declara 17 comunidades, sem lista. Segundo pároco publicado na mesma ficha: Pe. Jean Carlos Silva. Congregação: Religiosas de Maria Imaculada. O blog noticiou os 270 anos da paróquia, celebrados em 1 e 2 de setembro.",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora da Conceição",
+          "address": "Praça da Matriz",
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "http://diocesepontadepedras.blogspot.com/p/paroquias.html",
+              "title": "Diocese de Ponta de Pedras — Paróquias (site oficial, blog ativo; página atualizada em 18/08/2025 segundo o feed do Blogger): 10 fichas com endereço, CEP, data de criação, data de dedicação da matriz, número de comunidades, congregações religiosas e párocos/vigários, mais o Santuário Diocesano",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "sao-joao-batista-curralinho",
+      "name": "Paróquia São João Batista",
+      "city": "Curralinho",
+      "state": "PA",
+      "neighborhood": "Beira Rio",
+      "address": "Rua Floriano Peixoto",
+      "zipCode": "68815-000",
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Marcel Tadeu Pimentel Martins",
+      "foundedYear": 1850,
+      "sources": [
+        {
+          "url": "http://diocesepontadepedras.blogspot.com/p/paroquias.html",
+          "title": "Diocese de Ponta de Pedras — Paróquias (site oficial, blog ativo; página atualizada em 18/08/2025 segundo o feed do Blogger): 10 fichas com endereço, CEP, data de criação, data de dedicação da matriz, número de comunidades, congregações religiosas e párocos/vigários, mais o Santuário Diocesano",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "http://diocesepontadepedras.blogspot.com/feeds/pages/default?alt=json",
+          "title": "Diocese de Ponta de Pedras — feed de páginas do Blogger: \"Paróquias\" atualizada em 18/08/2025, \"Clero\" em 17/08/2026, \"Artigos\" em 16/08/2026 (sinal de que o blog está ativo)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://gcatholic.org/churches/local/pont1",
+          "title": "gcatholic.org — Igrejas da Diocese de Ponta de Pedras (10 igrejas por cidade; sede vacante desde 16/02/2026; atualizado em 17/02/2026)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.catholic-hierarchy.org/diocese/dponp.html",
+          "title": "catholic-hierarchy.org — Ponta de Pedras (Diocese): 8 paróquias e 112.600 católicos em 2022",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "unitType": "paroquia",
+      "cnpj": null,
+      "notes": "Criada em 1850; matriz dedicada em 2000. A ficha oficial declara 33 comunidades, sem lista. Vigário paroquial: Pe. Romário Evangelista Reis. Congregação: Pequenas Irmãs Missionárias da Caridade (Orionitas).",
+      "communities": [
+        {
+          "name": "Matriz São João Batista",
+          "address": "Rua Floriano Peixoto",
+          "neighborhood": "Beira Rio",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "http://diocesepontadepedras.blogspot.com/p/paroquias.html",
+              "title": "Diocese de Ponta de Pedras — Paróquias (site oficial, blog ativo; página atualizada em 18/08/2025 segundo o feed do Blogger): 10 fichas com endereço, CEP, data de criação, data de dedicação da matriz, número de comunidades, congregações religiosas e párocos/vigários, mais o Santuário Diocesano",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-do-rosario-do-perpetuo-socorro-curralinho",
+      "name": "Paróquia Nossa Senhora do Rosário do Perpétuo Socorro",
+      "city": "Curralinho",
+      "state": "PA",
+      "neighborhood": null,
+      "address": "Rua Miraci Gama",
+      "zipCode": "68815-000",
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Antonio Cardoso",
+      "foundedYear": 2023,
+      "sources": [
+        {
+          "url": "http://diocesepontadepedras.blogspot.com/p/paroquias.html",
+          "title": "Diocese de Ponta de Pedras — Paróquias (site oficial, blog ativo; página atualizada em 18/08/2025 segundo o feed do Blogger): 10 fichas com endereço, CEP, data de criação, data de dedicação da matriz, número de comunidades, congregações religiosas e párocos/vigários, mais o Santuário Diocesano",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "http://diocesepontadepedras.blogspot.com/feeds/pages/default?alt=json",
+          "title": "Diocese de Ponta de Pedras — feed de páginas do Blogger: \"Paróquias\" atualizada em 18/08/2025, \"Clero\" em 17/08/2026, \"Artigos\" em 16/08/2026 (sinal de que o blog está ativo)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://gcatholic.org/churches/local/pont1",
+          "title": "gcatholic.org — Igrejas da Diocese de Ponta de Pedras (10 igrejas por cidade; sede vacante desde 16/02/2026; atualizado em 17/02/2026)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.catholic-hierarchy.org/diocese/dponp.html",
+          "title": "catholic-hierarchy.org — Ponta de Pedras (Diocese): 8 paróquias e 112.600 católicos em 2022",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "http://diocesepontadepedras.blogspot.com/",
+          "title": "Diocese de Ponta de Pedras — home do blog: notícia \"Administrador diocesano de Ponta de Pedras reúne-se com o clero\" (Pe. Antonio Cardoso, Administrador Diocesano na sede vacante, reunião de 09 e 10 de junho de 2026 no Seminário Diocesano Nossa Senhora Assunção)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "unitType": "paroquia",
+      "cnpj": null,
+      "notes": "Criada em 19/08/2023 — segunda paróquia de Curralinho. A ficha oficial declara 32 comunidades, sem lista. Segundo pároco publicado: Pe. Lelson Moraes. O pároco Pe. Antonio Cardoso é o ADMINISTRADOR DIOCESANO da diocese desde a transferência de Dom Teodoro Mendes Tavares (16/02/2026). O gcatholic lista a igreja como \"Perpétuo Socorro\" em Curralinho.",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora do Rosário do Perpétuo Socorro",
+          "address": "Rua Miraci Gama",
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "http://diocesepontadepedras.blogspot.com/p/paroquias.html",
+              "title": "Diocese de Ponta de Pedras — Paróquias (site oficial, blog ativo; página atualizada em 18/08/2025 segundo o feed do Blogger): 10 fichas com endereço, CEP, data de criação, data de dedicação da matriz, número de comunidades, congregações religiosas e párocos/vigários, mais o Santuário Diocesano",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "sao-francisco-de-paula-muana",
+      "name": "Paróquia São Francisco de Paula",
+      "city": "Muaná",
+      "state": "PA",
+      "neighborhood": null,
+      "address": "Praça Cipriano Santos",
+      "zipCode": "68825-000",
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Silvio Santos",
+      "foundedYear": 1757,
+      "sources": [
+        {
+          "url": "http://diocesepontadepedras.blogspot.com/p/paroquias.html",
+          "title": "Diocese de Ponta de Pedras — Paróquias (site oficial, blog ativo; página atualizada em 18/08/2025 segundo o feed do Blogger): 10 fichas com endereço, CEP, data de criação, data de dedicação da matriz, número de comunidades, congregações religiosas e párocos/vigários, mais o Santuário Diocesano",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "http://diocesepontadepedras.blogspot.com/feeds/pages/default?alt=json",
+          "title": "Diocese de Ponta de Pedras — feed de páginas do Blogger: \"Paróquias\" atualizada em 18/08/2025, \"Clero\" em 17/08/2026, \"Artigos\" em 16/08/2026 (sinal de que o blog está ativo)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://gcatholic.org/churches/local/pont1",
+          "title": "gcatholic.org — Igrejas da Diocese de Ponta de Pedras (10 igrejas por cidade; sede vacante desde 16/02/2026; atualizado em 17/02/2026)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.catholic-hierarchy.org/diocese/dponp.html",
+          "title": "catholic-hierarchy.org — Ponta de Pedras (Diocese): 8 paróquias e 112.600 católicos em 2022",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://viacep.com.br/ws/PA/Muana/Praca/json/",
+          "title": "ViaCEP — os CEPs de Muaná são da faixa 68825-xxx; o CEP 66825-000 publicado pelo blog é de Belém (Rodovia Artur Bernardes, Tapanã)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "unitType": "paroquia",
+      "cnpj": null,
+      "notes": "Criada em 14/04/1757; matriz dedicada em 10/11/2000. A ficha oficial declara 40 comunidades — a maior da diocese —, sem lista. Demais padres publicados: Pe. Raimundo Aguiar (que é também Reitor do Santuário Diocesano de Nossa Senhora de Nazaré) e Pe. Odmilson Rodrigues. Congregação: Irmãs da Sagrada Face. O blog publica o CEP \"66825-000\", que é de Belém (Rodovia Artur Bernardes, Tapanã); o correto para Muaná é a faixa 68825-xxx, e gravei o CEP geral 68825-000.",
+      "communities": [
+        {
+          "name": "Matriz São Francisco de Paula",
+          "address": "Praça Cipriano Santos",
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "http://diocesepontadepedras.blogspot.com/p/paroquias.html",
+              "title": "Diocese de Ponta de Pedras — Paróquias (site oficial, blog ativo; página atualizada em 18/08/2025 segundo o feed do Blogger): 10 fichas com endereço, CEP, data de criação, data de dedicação da matriz, número de comunidades, congregações religiosas e párocos/vigários, mais o Santuário Diocesano",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santuário Diocesano de Nossa Senhora de Nazaré",
+          "address": "Rua Capitão Antônio da Costa Azevedo",
+          "neighborhood": "Estrada",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://diocesepontadepedras.blogspot.com/p/paroquias.html",
+              "title": "Diocese de Ponta de Pedras — Paróquias (site oficial, blog ativo; página atualizada em 18/08/2025 segundo o feed do Blogger): 10 fichas com endereço, CEP, data de criação, data de dedicação da matriz, número de comunidades, congregações religiosas e párocos/vigários, mais o Santuário Diocesano",
+              "accessedAt": "2026-09-18"
+            },
+            {
+              "url": "https://gcatholic.org/churches/local/pont1",
+              "title": "gcatholic.org — Igrejas da Diocese de Ponta de Pedras (10 igrejas por cidade; sede vacante desde 16/02/2026; atualizado em 17/02/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media",
+          "notes": "Santuário Diocesano, dedicado em 08/09/2007, com Reitor próprio (Pe. Raimundo Aguiar). O blog o publica na mesma página das paróquias, como entrada separada, sem dizer a que paróquia pertence; o gcatholic o lista em Muaná como Shrine. Vínculo inferido: o Reitor é um dos padres publicados nesta paróquia, a única da sede do município. Não tem horário de missa publicado."
+        },
+        {
+          "name": "Igreja São Benedito",
+          "address": "Travessa Simão da Silva Monteiro",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/PA.json",
+              "title": "Lírio Católico — ficha \"Igreja São Benedito (Muaná)\" (id varias) no conjunto de dados do Pará; base regenerada em 02/09/2026, sem data de conferência por igreja",
+              "accessedAt": "2026-09-18"
+            },
+            {
+              "url": "https://gcatholic.org/churches/local/pont1",
+              "title": "gcatholic.org — Igrejas da Diocese de Ponta de Pedras (10 igrejas por cidade; sede vacante desde 16/02/2026; atualizado em 17/02/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media",
+          "notes": "O gcatholic lista uma igreja São Benedito em Muaná e o agregador Lírio Católico publica a mesma igreja com endereço e missas; vínculo inferido por ser São Francisco de Paula a paróquia da sede do município."
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Igreja São Benedito",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Agregador Lírio Católico; a diocese não publica horário de missa.",
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/PA.json",
+              "title": "Lírio Católico — ficha \"Igreja São Benedito (Muaná)\" (id varias) no conjunto de dados do Pará; base regenerada em 02/09/2026, sem data de conferência por igreja",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Igreja São Benedito",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Agregador Lírio Católico; a diocese não publica horário de missa.",
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/PA.json",
+              "title": "Lírio Católico — ficha \"Igreja São Benedito (Muaná)\" (id varias) no conjunto de dados do Pará; base regenerada em 02/09/2026, sem data de conferência por igreja",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-de-nazare-santa-cruz-do-arari",
+      "name": "Paróquia Nossa Senhora de Nazaré",
+      "city": "Santa Cruz do Arari",
+      "state": "PA",
+      "neighborhood": null,
+      "address": "Rua Vicente Cruz",
+      "zipCode": "68850-000",
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Carlindo Pinho",
+      "foundedYear": 1966,
+      "sources": [
+        {
+          "url": "http://diocesepontadepedras.blogspot.com/p/paroquias.html",
+          "title": "Diocese de Ponta de Pedras — Paróquias (site oficial, blog ativo; página atualizada em 18/08/2025 segundo o feed do Blogger): 10 fichas com endereço, CEP, data de criação, data de dedicação da matriz, número de comunidades, congregações religiosas e párocos/vigários, mais o Santuário Diocesano",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "http://diocesepontadepedras.blogspot.com/feeds/pages/default?alt=json",
+          "title": "Diocese de Ponta de Pedras — feed de páginas do Blogger: \"Paróquias\" atualizada em 18/08/2025, \"Clero\" em 17/08/2026, \"Artigos\" em 16/08/2026 (sinal de que o blog está ativo)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://gcatholic.org/churches/local/pont1",
+          "title": "gcatholic.org — Igrejas da Diocese de Ponta de Pedras (10 igrejas por cidade; sede vacante desde 16/02/2026; atualizado em 17/02/2026)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.catholic-hierarchy.org/diocese/dponp.html",
+          "title": "catholic-hierarchy.org — Ponta de Pedras (Diocese): 8 paróquias e 112.600 católicos em 2022",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "unitType": "paroquia",
+      "cnpj": null,
+      "notes": "Criada em 1966; matriz dedicada em 2012. A ficha oficial declara apenas 5 comunidades — a menor da diocese —, sem lista. Segundo padre publicado: Pe. Rubens Reis. Congregação: Irmãs Franciscanas do Sagrado Coração.",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora de Nazaré",
+          "address": "Rua Vicente Cruz",
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "http://diocesepontadepedras.blogspot.com/p/paroquias.html",
+              "title": "Diocese de Ponta de Pedras — Paróquias (site oficial, blog ativo; página atualizada em 18/08/2025 segundo o feed do Blogger): 10 fichas com endereço, CEP, data de criação, data de dedicação da matriz, número de comunidades, congregações religiosas e párocos/vigários, mais o Santuário Diocesano",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-de-nazare-retiro-grande-cachoeira-do-arari",
+      "name": "Paróquia Nossa Senhora de Nazaré",
+      "city": "Cachoeira do Arari",
+      "state": "PA",
+      "neighborhood": "Vila de Retiro Grande",
+      "address": "Rodovia PA-154",
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Carlos Roberto Gonçalves",
+      "foundedYear": 2023,
+      "sources": [
+        {
+          "url": "http://diocesepontadepedras.blogspot.com/p/paroquias.html",
+          "title": "Diocese de Ponta de Pedras — Paróquias (site oficial, blog ativo; página atualizada em 18/08/2025 segundo o feed do Blogger): 10 fichas com endereço, CEP, data de criação, data de dedicação da matriz, número de comunidades, congregações religiosas e párocos/vigários, mais o Santuário Diocesano",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "http://diocesepontadepedras.blogspot.com/feeds/pages/default?alt=json",
+          "title": "Diocese de Ponta de Pedras — feed de páginas do Blogger: \"Paróquias\" atualizada em 18/08/2025, \"Clero\" em 17/08/2026, \"Artigos\" em 16/08/2026 (sinal de que o blog está ativo)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://gcatholic.org/churches/local/pont1",
+          "title": "gcatholic.org — Igrejas da Diocese de Ponta de Pedras (10 igrejas por cidade; sede vacante desde 16/02/2026; atualizado em 17/02/2026)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.catholic-hierarchy.org/diocese/dponp.html",
+          "title": "catholic-hierarchy.org — Ponta de Pedras (Diocese): 8 paróquias e 112.600 católicos em 2022",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "unitType": "paroquia",
+      "cnpj": null,
+      "notes": "Criada em 08/09/2023 — segunda paróquia de Cachoeira do Arari, na Vila de Retiro Grande, às margens da PA-154. A ficha oficial declara 17 comunidades e NÃO publica CEP. Segundo padre publicado: Pe. Rogério Feijoli Santiago. Congregação: Missionárias do Espírito Santo (Espiritanas). Homônima da paróquia de Santa Cruz do Arari.",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora de Nazaré",
+          "address": "Rodovia PA-154",
+          "neighborhood": "Vila de Retiro Grande",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "http://diocesepontadepedras.blogspot.com/p/paroquias.html",
+              "title": "Diocese de Ponta de Pedras — Paróquias (site oficial, blog ativo; página atualizada em 18/08/2025 segundo o feed do Blogger): 10 fichas com endereço, CEP, data de criação, data de dedicação da matriz, número de comunidades, congregações religiosas e párocos/vigários, mais o Santuário Diocesano",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "sao-miguel-arcanjo-sao-miguel-do-pracuuba-muana",
+      "name": "Paróquia São Miguel Arcanjo",
+      "city": "Muaná",
+      "state": "PA",
+      "neighborhood": "Distrito de São Miguel do Pracuúba",
+      "address": "Praça da Matriz",
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Ricardo Teixeira Dias",
+      "foundedYear": 2016,
+      "sources": [
+        {
+          "url": "http://diocesepontadepedras.blogspot.com/p/paroquias.html",
+          "title": "Diocese de Ponta de Pedras — Paróquias (site oficial, blog ativo; página atualizada em 18/08/2025 segundo o feed do Blogger): 10 fichas com endereço, CEP, data de criação, data de dedicação da matriz, número de comunidades, congregações religiosas e párocos/vigários, mais o Santuário Diocesano",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "http://diocesepontadepedras.blogspot.com/feeds/pages/default?alt=json",
+          "title": "Diocese de Ponta de Pedras — feed de páginas do Blogger: \"Paróquias\" atualizada em 18/08/2025, \"Clero\" em 17/08/2026, \"Artigos\" em 16/08/2026 (sinal de que o blog está ativo)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://gcatholic.org/churches/local/pont1",
+          "title": "gcatholic.org — Igrejas da Diocese de Ponta de Pedras (10 igrejas por cidade; sede vacante desde 16/02/2026; atualizado em 17/02/2026)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.catholic-hierarchy.org/diocese/dponp.html",
+          "title": "catholic-hierarchy.org — Ponta de Pedras (Diocese): 8 paróquias e 112.600 católicos em 2022",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "unitType": "paroquia",
+      "cnpj": null,
+      "notes": "Criada em 21/02/2016, no Distrito de São Miguel do Pracuúba, em Muaná (o gcatholic trata o distrito como cidade). A ficha oficial declara 28 comunidades e não publica CEP nem data de dedicação da matriz. O pároco é da Comunidade Católica Obra de Maria; vigário paroquial: Pe. Marieldon Mendes. Congregação: Irmãs Carmelitas Evangelizadoras de Santa Teresinha do Menino Jesus (Irmãs Teresitas).",
+      "communities": [
+        {
+          "name": "Matriz São Miguel Arcanjo",
+          "address": "Praça da Matriz",
+          "neighborhood": "Distrito de São Miguel do Pracuúba",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "http://diocesepontadepedras.blogspot.com/p/paroquias.html",
+              "title": "Diocese de Ponta de Pedras — Paróquias (site oficial, blog ativo; página atualizada em 18/08/2025 segundo o feed do Blogger): 10 fichas com endereço, CEP, data de criação, data de dedicação da matriz, número de comunidades, congregações religiosas e párocos/vigários, mais o Santuário Diocesano",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "sao-sebastiao-sao-sebastiao-da-boa-vista",
+      "name": "Paróquia São Sebastião",
+      "city": "São Sebastião da Boa Vista",
+      "state": "PA",
+      "neighborhood": "Centro",
+      "address": "Rua Coronel Monfredo",
+      "zipCode": "68820-000",
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Silas Ferreira do Nascimento",
+      "foundedYear": 1867,
+      "sources": [
+        {
+          "url": "http://diocesepontadepedras.blogspot.com/p/paroquias.html",
+          "title": "Diocese de Ponta de Pedras — Paróquias (site oficial, blog ativo; página atualizada em 18/08/2025 segundo o feed do Blogger): 10 fichas com endereço, CEP, data de criação, data de dedicação da matriz, número de comunidades, congregações religiosas e párocos/vigários, mais o Santuário Diocesano",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "http://diocesepontadepedras.blogspot.com/feeds/pages/default?alt=json",
+          "title": "Diocese de Ponta de Pedras — feed de páginas do Blogger: \"Paróquias\" atualizada em 18/08/2025, \"Clero\" em 17/08/2026, \"Artigos\" em 16/08/2026 (sinal de que o blog está ativo)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://gcatholic.org/churches/local/pont1",
+          "title": "gcatholic.org — Igrejas da Diocese de Ponta de Pedras (10 igrejas por cidade; sede vacante desde 16/02/2026; atualizado em 17/02/2026)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.catholic-hierarchy.org/diocese/dponp.html",
+          "title": "catholic-hierarchy.org — Ponta de Pedras (Diocese): 8 paróquias e 112.600 católicos em 2022",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/PA.json",
+          "title": "Lírio Católico — ficha \"Santuário Glorioso São Sebastião (São Sebastião da Boa Vista)\" (id varias) no conjunto de dados do Pará; base regenerada em 02/09/2026, sem data de conferência por igreja",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "unitType": "paroquia",
+      "cnpj": null,
+      "notes": "Criada em 23/10/1867; matriz dedicada em 09/06/1991. A ficha oficial declara 37 comunidades, sem lista. Segundo padre publicado: Pe. Jorge Alves Felipe. Congregação: Irmãs da Divina Vontade. O agregador Lírio Católico registra a matriz como \"Santuário Glorioso São Sebastião\", no mesmo endereço — a diocese não usa esse título.",
+      "communities": [
+        {
+          "name": "Matriz São Sebastião",
+          "address": "Rua Coronel Monfredo",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "http://diocesepontadepedras.blogspot.com/p/paroquias.html",
+              "title": "Diocese de Ponta de Pedras — Paróquias (site oficial, blog ativo; página atualizada em 18/08/2025 segundo o feed do Blogger): 10 fichas com endereço, CEP, data de criação, data de dedicação da matriz, número de comunidades, congregações religiosas e párocos/vigários, mais o Santuário Diocesano",
+              "accessedAt": "2026-09-18"
+            },
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/PA.json",
+              "title": "Lírio Católico — ficha \"Santuário Glorioso São Sebastião (São Sebastião da Boa Vista)\" (id varias) no conjunto de dados do Pará; base regenerada em 02/09/2026, sem data de conferência por igreja",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": "Agregador Lírio Católico, ficha \"Santuário Glorioso São Sebastião\"; a diocese não publica horário de missa. O agregador registra ainda Terço da Misericórdia (quarta 15h), Terço dos Homens (quarta 18h15) e Terço das Mulheres (sexta 18h).",
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/PA.json",
+              "title": "Lírio Católico — ficha \"Santuário Glorioso São Sebastião (São Sebastião da Boa Vista)\" (id varias) no conjunto de dados do Pará; base regenerada em 02/09/2026, sem data de conferência por igreja",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": "Agregador Lírio Católico, ficha \"Santuário Glorioso São Sebastião\"; a diocese não publica horário de missa. O agregador registra ainda Terço da Misericórdia (quarta 15h), Terço dos Homens (quarta 18h15) e Terço das Mulheres (sexta 18h).",
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/PA.json",
+              "title": "Lírio Católico — ficha \"Santuário Glorioso São Sebastião (São Sebastião da Boa Vista)\" (id varias) no conjunto de dados do Pará; base regenerada em 02/09/2026, sem data de conferência por igreja",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Agregador Lírio Católico, ficha \"Santuário Glorioso São Sebastião\"; a diocese não publica horário de missa. O agregador registra ainda Terço da Misericórdia (quarta 15h), Terço dos Homens (quarta 18h15) e Terço das Mulheres (sexta 18h).",
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/PA.json",
+              "title": "Lírio Católico — ficha \"Santuário Glorioso São Sebastião (São Sebastião da Boa Vista)\" (id varias) no conjunto de dados do Pará; base regenerada em 02/09/2026, sem data de conferência por igreja",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 2,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Agregador Lírio Católico, ficha \"Santuário Glorioso São Sebastião\"; a diocese não publica horário de missa. O agregador registra ainda Terço da Misericórdia (quarta 15h), Terço dos Homens (quarta 18h15) e Terço das Mulheres (sexta 18h).",
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/PA.json",
+              "title": "Lírio Católico — ficha \"Santuário Glorioso São Sebastião (São Sebastião da Boa Vista)\" (id varias) no conjunto de dados do Pará; base regenerada em 02/09/2026, sem data de conferência por igreja",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Agregador Lírio Católico, ficha \"Santuário Glorioso São Sebastião\"; a diocese não publica horário de missa. O agregador registra ainda Terço da Misericórdia (quarta 15h), Terço dos Homens (quarta 18h15) e Terço das Mulheres (sexta 18h).",
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/PA.json",
+              "title": "Lírio Católico — ficha \"Santuário Glorioso São Sebastião (São Sebastião da Boa Vista)\" (id varias) no conjunto de dados do Pará; base regenerada em 02/09/2026, sem data de conferência por igreja",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 5,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": "Agregador Lírio Católico, ficha \"Santuário Glorioso São Sebastião\"; a diocese não publica horário de missa. O agregador registra ainda Terço da Misericórdia (quarta 15h), Terço dos Homens (quarta 18h15) e Terço das Mulheres (sexta 18h).",
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/PA.json",
+              "title": "Lírio Católico — ficha \"Santuário Glorioso São Sebastião (São Sebastião da Boa Vista)\" (id varias) no conjunto de dados do Pará; base regenerada em 02/09/2026, sem data de conferência por igreja",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Agregador Lírio Católico, ficha \"Santuário Glorioso São Sebastião\"; a diocese não publica horário de missa. O agregador registra ainda Terço da Misericórdia (quarta 15h), Terço dos Homens (quarta 18h15) e Terço das Mulheres (sexta 18h).",
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/PA.json",
+              "title": "Lírio Católico — ficha \"Santuário Glorioso São Sebastião (São Sebastião da Boa Vista)\" (id varias) no conjunto de dados do Pará; base regenerada em 02/09/2026, sem data de conferência por igreja",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 3,
+          "time": "15:00",
+          "type": "ROSARY",
+          "notes": "Agregador Lírio Católico: \"Terço da Misericórdia: quarta às 15:00\", \"Terço dos Homens: quarta às 18:15\", \"Terço das Mulheres: sexta às 18:00\".",
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/PA.json",
+              "title": "Lírio Católico — ficha \"Santuário Glorioso São Sebastião (São Sebastião da Boa Vista)\" (id varias) no conjunto de dados do Pará; base regenerada em 02/09/2026, sem data de conferência por igreja",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 3,
+          "time": "18:15",
+          "type": "ROSARY",
+          "notes": "Agregador Lírio Católico: \"Terço da Misericórdia: quarta às 15:00\", \"Terço dos Homens: quarta às 18:15\", \"Terço das Mulheres: sexta às 18:00\".",
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/PA.json",
+              "title": "Lírio Católico — ficha \"Santuário Glorioso São Sebastião (São Sebastião da Boa Vista)\" (id varias) no conjunto de dados do Pará; base regenerada em 02/09/2026, sem data de conferência por igreja",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 5,
+          "time": "18:00",
+          "type": "ROSARY",
+          "notes": "Agregador Lírio Católico: \"Terço da Misericórdia: quarta às 15:00\", \"Terço dos Homens: quarta às 18:15\", \"Terço das Mulheres: sexta às 18:00\".",
+          "sources": [
+            {
+              "url": "https://www.liriocatolico.com.br/horario_missa/dados/uf/PA.json",
+              "title": "Lírio Católico — ficha \"Santuário Glorioso São Sebastião (São Sebastião da Boa Vista)\" (id varias) no conjunto de dados do Pará; base regenerada em 02/09/2026, sem data de conferência por igreja",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-dos-navegantes-ponta-negra-muana",
+      "name": "Paróquia Nossa Senhora dos Navegantes",
+      "city": "Muaná",
+      "state": "PA",
+      "neighborhood": "Vila de Ponta Negra",
+      "address": null,
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Mateus Tavares dos Santos",
+      "foundedYear": 2022,
+      "sources": [
+        {
+          "url": "http://diocesepontadepedras.blogspot.com/p/paroquias.html",
+          "title": "Diocese de Ponta de Pedras — Paróquias (site oficial, blog ativo; página atualizada em 18/08/2025 segundo o feed do Blogger): 10 fichas com endereço, CEP, data de criação, data de dedicação da matriz, número de comunidades, congregações religiosas e párocos/vigários, mais o Santuário Diocesano",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "http://diocesepontadepedras.blogspot.com/feeds/pages/default?alt=json",
+          "title": "Diocese de Ponta de Pedras — feed de páginas do Blogger: \"Paróquias\" atualizada em 18/08/2025, \"Clero\" em 17/08/2026, \"Artigos\" em 16/08/2026 (sinal de que o blog está ativo)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://gcatholic.org/churches/local/pont1",
+          "title": "gcatholic.org — Igrejas da Diocese de Ponta de Pedras (10 igrejas por cidade; sede vacante desde 16/02/2026; atualizado em 17/02/2026)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.catholic-hierarchy.org/diocese/dponp.html",
+          "title": "catholic-hierarchy.org — Ponta de Pedras (Diocese): 8 paróquias e 112.600 católicos em 2022",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "unitType": "paroquia",
+      "cnpj": null,
+      "notes": "Criada em 06/02/2022, na Vila de Ponta Negra, em Muaná — é a terceira paróquia do município. A ficha oficial declara 13 comunidades e NÃO publica endereço nem CEP. Vigário paroquial: Pe. Randel Nunes Nogueira. Não aparece no gcatholic.",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora dos Navegantes",
+          "address": null,
+          "neighborhood": "Vila de Ponta Negra",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "http://diocesepontadepedras.blogspot.com/p/paroquias.html",
+              "title": "Diocese de Ponta de Pedras — Paróquias (site oficial, blog ativo; página atualizada em 18/08/2025 segundo o feed do Blogger): 10 fichas com endereço, CEP, data de criação, data de dedicação da matriz, número de comunidades, congregações religiosas e párocos/vigários, mais o Santuário Diocesano",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    }
+  ],
+  "coverage": {
+    "parishesFound": 10,
+    "parishesExpected": 10,
+    "notes": "10 paróquias — as 10 fichas da página oficial de paróquias do blog da diocese (atualizada em 18/08/2025 segundo o feed do Blogger, num blog ativo: as páginas Clero e Artigos foram atualizadas em agosto de 2026). O catholic-hierarchy registra 8 paróquias em 2022 e o gcatholic marca 8 igrejas como paróquia: a diferença são as DUAS paróquias criadas em 2023 — Nossa Senhora do Rosário do Perpétuo Socorro (Curralinho, 19/08/2023) e Nossa Senhora de Nazaré (Vila de Retiro Grande, Cachoeira do Arari, 08/09/2023) —, mais Nossa Senhora dos Navegantes (Vila de Ponta Negra, Muaná, 06/02/2022), que o gcatholic ainda não registra. A VARREDURA DA RECEITA NÃO SE APLICA AQUI: o CNPJ da mitra (04.696.357) tem só dois estabelecimentos, ambos na Rua Dr. Assis 834, em Belém — o 0001 ativo e o 0002 BAIXADO em 22/11/1994 —, e a busca avançada do Mapa das OSC/IPEA por razão social \"PAROQUIA\" nos seis municípios da diocese não devolveu nenhum resultado: as paróquias não têm CNPJ na base. A diocese DECLARA 259 comunidades (37 na Catedral, 40 em Muaná/São Francisco de Paula, 37 em São Sebastião da Boa Vista, 33 e 32 nas duas de Curralinho, 28 em São Miguel do Pracuúba, 17 em Cachoeira do Arari e 17 em Retiro Grande, 13 em Ponta Negra e 5 em Santa Cruz do Arari) mas NÃO PUBLICA NENHUMA LISTA: o arquivo traz 13 comunidades — as 10 matrizes mais o Santuário Diocesano de Nossa Senhora de Nazaré e duas igrejas de agregador em municípios de paróquia única. A diocese também não publica horário de missa: os 15 horários (12 missas e 3 terços) são todos baixa e vêm do agregador Lírio Católico, cobrindo 3 igrejas; 8 das 10 paróquias entram sem nenhum horário."
+  }
+}

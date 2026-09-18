@@ -1,0 +1,1807 @@
+{
+ "diocese": {
+  "name": "Diocese de Bom Jesus da Lapa",
+  "type": "Diocese",
+  "slug": "bom-jesus-da-lapa",
+  "city": "Bom Jesus da Lapa",
+  "state": "BA",
+  "address": "Avenida São Vicente de Paulo, 304, Centro (Caixa Postal 20)",
+  "zipCode": "47600-000",
+  "phone": "(77) 3481-2086",
+  "email": "diocesebjlapa@gmail.com",
+  "website": "https://diocesedebomjesusdalapa.com.br",
+  "bishopName": "Dom Rubival Cabral Britto, O.F.M. Cap.",
+  "sources": [
+   {
+    "url": "https://diocesedebomjesusdalapa.com.br/curia/",
+    "title": "Diocese de Bom Jesus da Lapa — Cúria (endereço, telefones, e-mail, chanceler e Colégio dos Consultores)",
+    "accessedAt": "2026-09-18"
+   },
+   {
+    "url": "https://diocesedebomjesusdalapa.com.br/padres/",
+    "title": "Diocese de Bom Jesus da Lapa — Padres (listagem JetEngine com 35 fichas: situação canônica, paróquia, incardinação e e-mail de cada presbítero; fichas publicadas/atualizadas em 30/09/2025)",
+    "accessedAt": "2026-09-18"
+   },
+   {
+    "url": "https://minhareceita.org/01190562000108",
+    "title": "Receita Federal — MITRA DIOCESANA DE BOM JESUS DA LAPA, CNPJ 01.190.562/0001-08, e 22 filiais ATIVAS (18 paróquias + o Santuário)",
+    "accessedAt": "2026-09-18"
+   },
+   {
+    "url": "https://mapaosc.ipea.gov.br/",
+    "title": "Mapa das OSC / IPEA — varredura das organizações religiosas dos 15 municípios da diocese (espelho da base da Receita); foi assim que a raiz 01.190.562 da Mitra foi localizada",
+    "accessedAt": "2026-09-18"
+   },
+   {
+    "url": "https://gcatholic.org/churches/local/bomj0",
+    "title": "gcatholic.org — Churches in the Diocese of Bom Jesus da Lapa (23 igrejas, 17 marcadas “Parish”; página atualizada em 28/03/2026)",
+    "accessedAt": "2026-09-18"
+   },
+   {
+    "url": "https://gcatholic.org/dioceses/diocese/bomj0.htm",
+    "title": "gcatholic.org — Diocese of Bom Jesus da Lapa: “20 parishes, 2 missions” (estatística de 31/12/2022; página atualizada em 17/09/2026); Pro-Catedral = Santuário do Bom Jesus da Lapa, Catedral = Nossa Senhora do Carmo",
+    "accessedAt": "2026-09-18"
+   },
+   {
+    "url": "https://www.catholic-hierarchy.org/diocese/dbjdl.html",
+    "title": "catholic-hierarchy.org — Bom Jesus da Lapa (Diocese): 24 paróquias e 30 presbíteros em 2022",
+    "accessedAt": "2026-09-18"
+   },
+   {
+    "url": "https://santuariodobomjesusdalapa.com/",
+    "title": "Santuário do Bom Jesus da Lapa — site oficial: grade semanal de celebrações e resumo da “Programação Diária” no rodapé (notícia mais recente: 27/08/2026)",
+    "accessedAt": "2026-09-18"
+   },
+   {
+    "url": "https://santuariodobomjesusdalapa.com/santuario-bom-jesus-da-lapa/",
+    "title": "Santuário do Bom Jesus da Lapa — “Informações Pastorais” (confissões, batizados, matrimônio)",
+    "accessedAt": "2026-09-18"
+   }
+  ],
+  "confidence": "alta",
+  "notes": "Site oficial VIVO, mas com DOIS problemas graves. (1) O item “Paróquias” do menu é um placeholder com href=“#” — a diocese NÃO publica lista de paróquias, endereço de paróquia nem horário de missa. A lista desta pesquisa saiu do cruzamento entre a página /padres (35 fichas com o campo “Paróquia”), a varredura das filiais da Mitra na Receita e o gcatholic. (2) O rodapé de TODAS as páginas do site está injetado com centenas de links de sites de aposta (“dc777”, “bet5989”, “999tg”…) sob um bloco “Recolher/Expandir Links Úteis” — sinal claro de invasão de SEO no WordPress. O conteúdo editorial parece íntegro, mas a diocese precisa ser avisada. Os permalinks das fichas de padre (/_padres_seminaristas/<slug>/) devolvem 404: as fichas só aparecem pela listagem JetEngine, que li pelo admin-ajax (listing_load_more). WhatsApp da cúria: (77) 9 9826-0922. Chanceler: Diác. João Pascoal da Silva Neto (chanceler.diocesebomjesusdalapa@gmail.com). Território de 15 municípios: Bom Jesus da Lapa, Canápolis, Carinhanha, Cocos, Coribe, Correntina, Feira da Mata, Jaborandi, Paratinga, Santa Maria da Vitória, Santana, São Félix do Coribe, Serra do Ramalho, Serra Dourada e Sítio do Mato."
+ },
+ "parishes": [
+  {
+   "slug": "bom-jesus-da-lapa-bom-jesus-da-lapa",
+   "name": "Santuário do Bom Jesus da Lapa",
+   "city": "Bom Jesus da Lapa",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça da Bandeira, 106",
+   "zipCode": "47600-000",
+   "phone": "(77) 3481-2883",
+   "email": null,
+   "website": "https://santuariodobomjesusdalapa.com",
+   "priestName": "Pe. Roque Silva Alves, C.SS.R. (reitor)",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://santuariodobomjesusdalapa.com/",
+     "title": "Santuário do Bom Jesus da Lapa — site oficial: grade semanal de celebrações e resumo da “Programação Diária” no rodapé (notícia mais recente: 27/08/2026)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://santuariodobomjesusdalapa.com/santuario-bom-jesus-da-lapa/",
+     "title": "Santuário do Bom Jesus da Lapa — “Informações Pastorais” (confissões, batizados, matrimônio)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/dioceses/diocese/bomj0.htm",
+     "title": "gcatholic.org — Diocese of Bom Jesus da Lapa: “20 parishes, 2 missions” (estatística de 31/12/2022; página atualizada em 17/09/2026); Pro-Catedral = Santuário do Bom Jesus da Lapa, Catedral = Nossa Senhora do Carmo",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedebomjesusdalapa.com.br/padres/",
+     "title": "Diocese de Bom Jesus da Lapa — Padres (listagem JetEngine com 35 fichas: situação canônica, paróquia, incardinação e e-mail de cada presbítero; fichas publicadas/atualizadas em 30/09/2025)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/01190562001694",
+     "title": "Receita Federal — filial ATIVA do CNPJ 01.190.562 da Mitra Diocesana de Bom Jesus da Lapa: “SANTUARIO DO BOM JESUS DA LAPA”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/bomj0",
+     "title": "gcatholic.org — Churches in the Diocese of Bom Jesus da Lapa (23 igrejas, 17 marcadas “Parish”; página atualizada em 28/03/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "01190562001694",
+   "notes": "PRÓ-CATEDRAL da diocese e um dos maiores santuários de romaria do Brasil (Gruta do Bom Jesus, descoberta em 1691). O gcatholic o marca como “Pro-Cathedral, Shrine” e NÃO como “Parish” — por isso entra como status=nao-paroquial + loadAsParish, já que publica missa fixa todos os dias. Confiado aos Redentoristas (Missão Redentorista da Bahia, CNPJ 14.103.410). Administrador: Pe. Cristovão (Krzystof) Przychocki, C.SS.R.; prefeito de igreja: Pe. Willian Sena de Oliveira, C.SS.R.; mais 5 redentoristas na pastoral do santuário. Aberto à visitação das 5h às 21h. Batizados todos os dias às 11h. Outros telefones: (77) 3481-2120 e (77) 3481-5860. Romarias: Terra e Águas (05–07/07), Bom Jesus (28/07 a 06/08), Nossa Senhora da Soledade (08–15/09) e Nossa Senhora Aparecida (12/10) — não são horários fixos e não foram gravadas.",
+   "communities": [
+    {
+     "name": "Santuário do Bom Jesus da Lapa",
+     "address": "Praça da Bandeira, 106",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santuariodobomjesusdalapa.com/",
+       "title": "Santuário do Bom Jesus da Lapa — site oficial: grade semanal de celebrações e resumo da “Programação Diária” no rodapé (notícia mais recente: 27/08/2026)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Santuário do Bom Jesus da Lapa",
+     "dayOfWeek": 0,
+     "time": "06:30",
+     "type": "ROSARY",
+     "notes": "Terço Devocional ao Bom Jesus, todos os dias",
+     "sources": [
+      {
+       "url": "https://santuariodobomjesusdalapa.com/",
+       "title": "Santuário do Bom Jesus da Lapa — site oficial: grade semanal de celebrações e resumo da “Programação Diária” no rodapé (notícia mais recente: 27/08/2026)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Santuário do Bom Jesus da Lapa",
+     "dayOfWeek": 0,
+     "time": "06:45",
+     "type": "MASS",
+     "notes": "O rodapé do site dá a missa às 06h45, logo após o terço das 06h30; a grade semanal da mesma página escreve “06:30h – Terço do Bom Jesus e Santa Missa”",
+     "sources": [
+      {
+       "url": "https://santuariodobomjesusdalapa.com/",
+       "title": "Santuário do Bom Jesus da Lapa — site oficial: grade semanal de celebrações e resumo da “Programação Diária” no rodapé (notícia mais recente: 27/08/2026)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Santuário do Bom Jesus da Lapa",
+     "dayOfWeek": 0,
+     "time": "09:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santuariodobomjesusdalapa.com/",
+       "title": "Santuário do Bom Jesus da Lapa — site oficial: grade semanal de celebrações e resumo da “Programação Diária” no rodapé (notícia mais recente: 27/08/2026)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Santuário do Bom Jesus da Lapa",
+     "dayOfWeek": 0,
+     "time": "15:00",
+     "type": "ROSARY",
+     "notes": "Terço da Divina Misericórdia e bênçãos",
+     "sources": [
+      {
+       "url": "https://santuariodobomjesusdalapa.com/",
+       "title": "Santuário do Bom Jesus da Lapa — site oficial: grade semanal de celebrações e resumo da “Programação Diária” no rodapé (notícia mais recente: 27/08/2026)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Santuário do Bom Jesus da Lapa",
+     "dayOfWeek": 1,
+     "time": "06:30",
+     "type": "ROSARY",
+     "notes": "Terço Devocional ao Bom Jesus, todos os dias",
+     "sources": [
+      {
+       "url": "https://santuariodobomjesusdalapa.com/",
+       "title": "Santuário do Bom Jesus da Lapa — site oficial: grade semanal de celebrações e resumo da “Programação Diária” no rodapé (notícia mais recente: 27/08/2026)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Santuário do Bom Jesus da Lapa",
+     "dayOfWeek": 1,
+     "time": "06:45",
+     "type": "MASS",
+     "notes": "O rodapé do site dá a missa às 06h45, logo após o terço das 06h30; a grade semanal da mesma página escreve “06:30h – Terço do Bom Jesus e Santa Missa”",
+     "sources": [
+      {
+       "url": "https://santuariodobomjesusdalapa.com/",
+       "title": "Santuário do Bom Jesus da Lapa — site oficial: grade semanal de celebrações e resumo da “Programação Diária” no rodapé (notícia mais recente: 27/08/2026)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Santuário do Bom Jesus da Lapa",
+     "dayOfWeek": 1,
+     "time": "09:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santuariodobomjesusdalapa.com/",
+       "title": "Santuário do Bom Jesus da Lapa — site oficial: grade semanal de celebrações e resumo da “Programação Diária” no rodapé (notícia mais recente: 27/08/2026)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Santuário do Bom Jesus da Lapa",
+     "dayOfWeek": 1,
+     "time": "15:00",
+     "type": "ROSARY",
+     "notes": "Terço da Divina Misericórdia e bênçãos",
+     "sources": [
+      {
+       "url": "https://santuariodobomjesusdalapa.com/",
+       "title": "Santuário do Bom Jesus da Lapa — site oficial: grade semanal de celebrações e resumo da “Programação Diária” no rodapé (notícia mais recente: 27/08/2026)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Santuário do Bom Jesus da Lapa",
+     "dayOfWeek": 2,
+     "time": "06:30",
+     "type": "ROSARY",
+     "notes": "Terço Devocional ao Bom Jesus, todos os dias",
+     "sources": [
+      {
+       "url": "https://santuariodobomjesusdalapa.com/",
+       "title": "Santuário do Bom Jesus da Lapa — site oficial: grade semanal de celebrações e resumo da “Programação Diária” no rodapé (notícia mais recente: 27/08/2026)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Santuário do Bom Jesus da Lapa",
+     "dayOfWeek": 2,
+     "time": "06:45",
+     "type": "MASS",
+     "notes": "O rodapé do site dá a missa às 06h45, logo após o terço das 06h30; a grade semanal da mesma página escreve “06:30h – Terço do Bom Jesus e Santa Missa”",
+     "sources": [
+      {
+       "url": "https://santuariodobomjesusdalapa.com/",
+       "title": "Santuário do Bom Jesus da Lapa — site oficial: grade semanal de celebrações e resumo da “Programação Diária” no rodapé (notícia mais recente: 27/08/2026)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Santuário do Bom Jesus da Lapa",
+     "dayOfWeek": 2,
+     "time": "09:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santuariodobomjesusdalapa.com/",
+       "title": "Santuário do Bom Jesus da Lapa — site oficial: grade semanal de celebrações e resumo da “Programação Diária” no rodapé (notícia mais recente: 27/08/2026)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Santuário do Bom Jesus da Lapa",
+     "dayOfWeek": 2,
+     "time": "15:00",
+     "type": "ROSARY",
+     "notes": "Terço da Divina Misericórdia e bênçãos",
+     "sources": [
+      {
+       "url": "https://santuariodobomjesusdalapa.com/",
+       "title": "Santuário do Bom Jesus da Lapa — site oficial: grade semanal de celebrações e resumo da “Programação Diária” no rodapé (notícia mais recente: 27/08/2026)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Santuário do Bom Jesus da Lapa",
+     "dayOfWeek": 3,
+     "time": "06:30",
+     "type": "ROSARY",
+     "notes": "Terço Devocional ao Bom Jesus, todos os dias",
+     "sources": [
+      {
+       "url": "https://santuariodobomjesusdalapa.com/",
+       "title": "Santuário do Bom Jesus da Lapa — site oficial: grade semanal de celebrações e resumo da “Programação Diária” no rodapé (notícia mais recente: 27/08/2026)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Santuário do Bom Jesus da Lapa",
+     "dayOfWeek": 3,
+     "time": "06:45",
+     "type": "MASS",
+     "notes": "O rodapé do site dá a missa às 06h45, logo após o terço das 06h30; a grade semanal da mesma página escreve “06:30h – Terço do Bom Jesus e Santa Missa”",
+     "sources": [
+      {
+       "url": "https://santuariodobomjesusdalapa.com/",
+       "title": "Santuário do Bom Jesus da Lapa — site oficial: grade semanal de celebrações e resumo da “Programação Diária” no rodapé (notícia mais recente: 27/08/2026)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Santuário do Bom Jesus da Lapa",
+     "dayOfWeek": 3,
+     "time": "09:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santuariodobomjesusdalapa.com/",
+       "title": "Santuário do Bom Jesus da Lapa — site oficial: grade semanal de celebrações e resumo da “Programação Diária” no rodapé (notícia mais recente: 27/08/2026)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Santuário do Bom Jesus da Lapa",
+     "dayOfWeek": 3,
+     "time": "15:00",
+     "type": "ROSARY",
+     "notes": "Terço da Divina Misericórdia e bênçãos",
+     "sources": [
+      {
+       "url": "https://santuariodobomjesusdalapa.com/",
+       "title": "Santuário do Bom Jesus da Lapa — site oficial: grade semanal de celebrações e resumo da “Programação Diária” no rodapé (notícia mais recente: 27/08/2026)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Santuário do Bom Jesus da Lapa",
+     "dayOfWeek": 4,
+     "time": "06:30",
+     "type": "ROSARY",
+     "notes": "Terço Devocional ao Bom Jesus, todos os dias",
+     "sources": [
+      {
+       "url": "https://santuariodobomjesusdalapa.com/",
+       "title": "Santuário do Bom Jesus da Lapa — site oficial: grade semanal de celebrações e resumo da “Programação Diária” no rodapé (notícia mais recente: 27/08/2026)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Santuário do Bom Jesus da Lapa",
+     "dayOfWeek": 4,
+     "time": "06:45",
+     "type": "MASS",
+     "notes": "O rodapé do site dá a missa às 06h45, logo após o terço das 06h30; a grade semanal da mesma página escreve “06:30h – Terço do Bom Jesus e Santa Missa”",
+     "sources": [
+      {
+       "url": "https://santuariodobomjesusdalapa.com/",
+       "title": "Santuário do Bom Jesus da Lapa — site oficial: grade semanal de celebrações e resumo da “Programação Diária” no rodapé (notícia mais recente: 27/08/2026)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Santuário do Bom Jesus da Lapa",
+     "dayOfWeek": 4,
+     "time": "09:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santuariodobomjesusdalapa.com/",
+       "title": "Santuário do Bom Jesus da Lapa — site oficial: grade semanal de celebrações e resumo da “Programação Diária” no rodapé (notícia mais recente: 27/08/2026)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Santuário do Bom Jesus da Lapa",
+     "dayOfWeek": 4,
+     "time": "15:00",
+     "type": "ROSARY",
+     "notes": "Terço da Divina Misericórdia e bênçãos",
+     "sources": [
+      {
+       "url": "https://santuariodobomjesusdalapa.com/",
+       "title": "Santuário do Bom Jesus da Lapa — site oficial: grade semanal de celebrações e resumo da “Programação Diária” no rodapé (notícia mais recente: 27/08/2026)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Santuário do Bom Jesus da Lapa",
+     "dayOfWeek": 5,
+     "time": "06:30",
+     "type": "ROSARY",
+     "notes": "Terço Devocional ao Bom Jesus, todos os dias",
+     "sources": [
+      {
+       "url": "https://santuariodobomjesusdalapa.com/",
+       "title": "Santuário do Bom Jesus da Lapa — site oficial: grade semanal de celebrações e resumo da “Programação Diária” no rodapé (notícia mais recente: 27/08/2026)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Santuário do Bom Jesus da Lapa",
+     "dayOfWeek": 5,
+     "time": "06:45",
+     "type": "MASS",
+     "notes": "O rodapé do site dá a missa às 06h45, logo após o terço das 06h30; a grade semanal da mesma página escreve “06:30h – Terço do Bom Jesus e Santa Missa”",
+     "sources": [
+      {
+       "url": "https://santuariodobomjesusdalapa.com/",
+       "title": "Santuário do Bom Jesus da Lapa — site oficial: grade semanal de celebrações e resumo da “Programação Diária” no rodapé (notícia mais recente: 27/08/2026)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Santuário do Bom Jesus da Lapa",
+     "dayOfWeek": 5,
+     "time": "09:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santuariodobomjesusdalapa.com/",
+       "title": "Santuário do Bom Jesus da Lapa — site oficial: grade semanal de celebrações e resumo da “Programação Diária” no rodapé (notícia mais recente: 27/08/2026)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Santuário do Bom Jesus da Lapa",
+     "dayOfWeek": 5,
+     "time": "15:00",
+     "type": "ROSARY",
+     "notes": "Terço da Divina Misericórdia e bênçãos",
+     "sources": [
+      {
+       "url": "https://santuariodobomjesusdalapa.com/",
+       "title": "Santuário do Bom Jesus da Lapa — site oficial: grade semanal de celebrações e resumo da “Programação Diária” no rodapé (notícia mais recente: 27/08/2026)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Santuário do Bom Jesus da Lapa",
+     "dayOfWeek": 6,
+     "time": "06:30",
+     "type": "ROSARY",
+     "notes": "Terço Devocional ao Bom Jesus, todos os dias",
+     "sources": [
+      {
+       "url": "https://santuariodobomjesusdalapa.com/",
+       "title": "Santuário do Bom Jesus da Lapa — site oficial: grade semanal de celebrações e resumo da “Programação Diária” no rodapé (notícia mais recente: 27/08/2026)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Santuário do Bom Jesus da Lapa",
+     "dayOfWeek": 6,
+     "time": "06:45",
+     "type": "MASS",
+     "notes": "O rodapé do site dá a missa às 06h45, logo após o terço das 06h30; a grade semanal da mesma página escreve “06:30h – Terço do Bom Jesus e Santa Missa”",
+     "sources": [
+      {
+       "url": "https://santuariodobomjesusdalapa.com/",
+       "title": "Santuário do Bom Jesus da Lapa — site oficial: grade semanal de celebrações e resumo da “Programação Diária” no rodapé (notícia mais recente: 27/08/2026)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Santuário do Bom Jesus da Lapa",
+     "dayOfWeek": 6,
+     "time": "09:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santuariodobomjesusdalapa.com/",
+       "title": "Santuário do Bom Jesus da Lapa — site oficial: grade semanal de celebrações e resumo da “Programação Diária” no rodapé (notícia mais recente: 27/08/2026)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Santuário do Bom Jesus da Lapa",
+     "dayOfWeek": 6,
+     "time": "15:00",
+     "type": "ROSARY",
+     "notes": "Terço da Divina Misericórdia e bênçãos",
+     "sources": [
+      {
+       "url": "https://santuariodobomjesusdalapa.com/",
+       "title": "Santuário do Bom Jesus da Lapa — site oficial: grade semanal de celebrações e resumo da “Programação Diária” no rodapé (notícia mais recente: 27/08/2026)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Santuário do Bom Jesus da Lapa",
+     "dayOfWeek": 0,
+     "time": "11:00",
+     "type": "MASS",
+     "notes": "Missa das 11h só aos sábados e domingos; de segunda a sexta o horário das 11h é a Novena ao Bom Jesus, que não é missa",
+     "sources": [
+      {
+       "url": "https://santuariodobomjesusdalapa.com/",
+       "title": "Santuário do Bom Jesus da Lapa — site oficial: grade semanal de celebrações e resumo da “Programação Diária” no rodapé (notícia mais recente: 27/08/2026)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Santuário do Bom Jesus da Lapa",
+     "dayOfWeek": 6,
+     "time": "11:00",
+     "type": "MASS",
+     "notes": "Missa das 11h só aos sábados e domingos; de segunda a sexta o horário das 11h é a Novena ao Bom Jesus, que não é missa",
+     "sources": [
+      {
+       "url": "https://santuariodobomjesusdalapa.com/",
+       "title": "Santuário do Bom Jesus da Lapa — site oficial: grade semanal de celebrações e resumo da “Programação Diária” no rodapé (notícia mais recente: 27/08/2026)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Santuário do Bom Jesus da Lapa",
+     "dayOfWeek": 0,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santuariodobomjesusdalapa.com/",
+       "title": "Santuário do Bom Jesus da Lapa — site oficial: grade semanal de celebrações e resumo da “Programação Diária” no rodapé (notícia mais recente: 27/08/2026)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Santuário do Bom Jesus da Lapa",
+     "dayOfWeek": 1,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santuariodobomjesusdalapa.com/",
+       "title": "Santuário do Bom Jesus da Lapa — site oficial: grade semanal de celebrações e resumo da “Programação Diária” no rodapé (notícia mais recente: 27/08/2026)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Santuário do Bom Jesus da Lapa",
+     "dayOfWeek": 2,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santuariodobomjesusdalapa.com/",
+       "title": "Santuário do Bom Jesus da Lapa — site oficial: grade semanal de celebrações e resumo da “Programação Diária” no rodapé (notícia mais recente: 27/08/2026)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Santuário do Bom Jesus da Lapa",
+     "dayOfWeek": 3,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santuariodobomjesusdalapa.com/",
+       "title": "Santuário do Bom Jesus da Lapa — site oficial: grade semanal de celebrações e resumo da “Programação Diária” no rodapé (notícia mais recente: 27/08/2026)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Santuário do Bom Jesus da Lapa",
+     "dayOfWeek": 5,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santuariodobomjesusdalapa.com/",
+       "title": "Santuário do Bom Jesus da Lapa — site oficial: grade semanal de celebrações e resumo da “Programação Diária” no rodapé (notícia mais recente: 27/08/2026)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Santuário do Bom Jesus da Lapa",
+     "dayOfWeek": 6,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santuariodobomjesusdalapa.com/",
+       "title": "Santuário do Bom Jesus da Lapa — site oficial: grade semanal de celebrações e resumo da “Programação Diária” no rodapé (notícia mais recente: 27/08/2026)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Santuário do Bom Jesus da Lapa",
+     "dayOfWeek": 4,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": "DIVERGÊNCIA no próprio site: a grade semanal lista, na quinta-feira, “15:00h Santa Missa” e não traz 17h, enquanto o resumo da Programação Diária no rodapé lista missa às 17h todos os dias. Gravei 17h.",
+     "sources": [
+      {
+       "url": "https://santuariodobomjesusdalapa.com/",
+       "title": "Santuário do Bom Jesus da Lapa — site oficial: grade semanal de celebrações e resumo da “Programação Diária” no rodapé (notícia mais recente: 27/08/2026)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Santuário do Bom Jesus da Lapa",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santuariodobomjesusdalapa.com/",
+       "title": "Santuário do Bom Jesus da Lapa — site oficial: grade semanal de celebrações e resumo da “Programação Diária” no rodapé (notícia mais recente: 27/08/2026)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Santuário do Bom Jesus da Lapa",
+     "dayOfWeek": 3,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santuariodobomjesusdalapa.com/",
+       "title": "Santuário do Bom Jesus da Lapa — site oficial: grade semanal de celebrações e resumo da “Programação Diária” no rodapé (notícia mais recente: 27/08/2026)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Santuário do Bom Jesus da Lapa",
+     "dayOfWeek": 5,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santuariodobomjesusdalapa.com/",
+       "title": "Santuário do Bom Jesus da Lapa — site oficial: grade semanal de celebrações e resumo da “Programação Diária” no rodapé (notícia mais recente: 27/08/2026)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Santuário do Bom Jesus da Lapa",
+     "dayOfWeek": 6,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santuariodobomjesusdalapa.com/",
+       "title": "Santuário do Bom Jesus da Lapa — site oficial: grade semanal de celebrações e resumo da “Programação Diária” no rodapé (notícia mais recente: 27/08/2026)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Santuário do Bom Jesus da Lapa",
+     "dayOfWeek": 1,
+     "time": "19:00",
+     "type": "ROSARY",
+     "notes": "Terço dos Homens",
+     "sources": [
+      {
+       "url": "https://santuariodobomjesusdalapa.com/",
+       "title": "Santuário do Bom Jesus da Lapa — site oficial: grade semanal de celebrações e resumo da “Programação Diária” no rodapé (notícia mais recente: 27/08/2026)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Santuário do Bom Jesus da Lapa",
+     "dayOfWeek": 2,
+     "time": "19:00",
+     "type": "ROSARY",
+     "notes": "Terço das Mulheres",
+     "sources": [
+      {
+       "url": "https://santuariodobomjesusdalapa.com/",
+       "title": "Santuário do Bom Jesus da Lapa — site oficial: grade semanal de celebrações e resumo da “Programação Diária” no rodapé (notícia mais recente: 27/08/2026)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Santuário do Bom Jesus da Lapa",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "ADORATION",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://santuariodobomjesusdalapa.com/",
+       "title": "Santuário do Bom Jesus da Lapa — site oficial: grade semanal de celebrações e resumo da “Programação Diária” no rodapé (notícia mais recente: 27/08/2026)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Santuário do Bom Jesus da Lapa",
+     "dayOfWeek": 0,
+     "time": "08:30",
+     "type": "CONFESSION",
+     "notes": "“Todos os finais de semana das 8h30 às 11h e das 15h30 às 17h”",
+     "sources": [
+      {
+       "url": "https://santuariodobomjesusdalapa.com/santuario-bom-jesus-da-lapa/",
+       "title": "Santuário do Bom Jesus da Lapa — “Informações Pastorais” (confissões, batizados, matrimônio)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Santuário do Bom Jesus da Lapa",
+     "dayOfWeek": 0,
+     "time": "15:30",
+     "type": "CONFESSION",
+     "notes": "“Todos os finais de semana das 8h30 às 11h e das 15h30 às 17h”",
+     "sources": [
+      {
+       "url": "https://santuariodobomjesusdalapa.com/santuario-bom-jesus-da-lapa/",
+       "title": "Santuário do Bom Jesus da Lapa — “Informações Pastorais” (confissões, batizados, matrimônio)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Santuário do Bom Jesus da Lapa",
+     "dayOfWeek": 6,
+     "time": "08:30",
+     "type": "CONFESSION",
+     "notes": "“Todos os finais de semana das 8h30 às 11h e das 15h30 às 17h”",
+     "sources": [
+      {
+       "url": "https://santuariodobomjesusdalapa.com/santuario-bom-jesus-da-lapa/",
+       "title": "Santuário do Bom Jesus da Lapa — “Informações Pastorais” (confissões, batizados, matrimônio)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "community": "Santuário do Bom Jesus da Lapa",
+     "dayOfWeek": 6,
+     "time": "15:30",
+     "type": "CONFESSION",
+     "notes": "“Todos os finais de semana das 8h30 às 11h e das 15h30 às 17h”",
+     "sources": [
+      {
+       "url": "https://santuariodobomjesusdalapa.com/santuario-bom-jesus-da-lapa/",
+       "title": "Santuário do Bom Jesus da Lapa — “Informações Pastorais” (confissões, batizados, matrimônio)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "status": "nao-paroquial",
+   "loadAsParish": true
+  },
+  {
+   "slug": "nossa-senhora-do-carmo-bom-jesus-da-lapa",
+   "name": "Catedral Nossa Senhora do Carmo",
+   "city": "Bom Jesus da Lapa",
+   "state": "BA",
+   "neighborhood": "Amaralina",
+   "address": "Rua Araújo Bulcão, s/n",
+   "zipCode": "47600-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Wieslaw Gron, C.SS.R.",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://gcatholic.org/dioceses/diocese/bomj0.htm",
+     "title": "gcatholic.org — Diocese of Bom Jesus da Lapa: “20 parishes, 2 missions” (estatística de 31/12/2022; página atualizada em 17/09/2026); Pro-Catedral = Santuário do Bom Jesus da Lapa, Catedral = Nossa Senhora do Carmo",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+     "title": "Lírio Católico — fichas 9967 (Santuário do Bom Jesus da Lapa) e 9968 (Catedral de N. S. do Carmo); agregador, ultima_atualizacao 2026-09-02 = data de recarga da base",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedebomjesusdalapa.com.br/padres/",
+     "title": "Diocese de Bom Jesus da Lapa — Padres (listagem JetEngine com 35 fichas: situação canônica, paróquia, incardinação e e-mail de cada presbítero; fichas publicadas/atualizadas em 30/09/2025)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/01190562000370",
+     "title": "Receita Federal — filial ATIVA do CNPJ 01.190.562 da Mitra Diocesana de Bom Jesus da Lapa: “CATEDRAL NOSSA SENHORA DO CARMO”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/bomj0",
+     "title": "gcatholic.org — Churches in the Diocese of Bom Jesus da Lapa (23 igrejas, 17 marcadas “Parish”; página atualizada em 28/03/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "01190562000370",
+   "notes": "A ficha do próprio padre no site da diocese escreve a paróquia como “Paróquia Bom Jesus” e a função como “Pároco da Catedral”; a Receita e o gcatholic dão o nome da catedral como NOSSA SENHORA DO CARMO — adotei este. O gcatholic registra a catedral como “Future Cathedral”, com a função de catedral ainda exercida pelo Santuário (pró-catedral). O Lírio Católico dá outro endereço (R. Paulino César, 1-79) e o telefone (77) 9 9966-1472, não gravados por serem de agregador. A Receita traz o telefone malformado “774810848” (9 dígitos), também não gravado.",
+   "communities": [
+    {
+     "name": "Catedral Nossa Senhora do Carmo",
+     "address": "Rua Araújo Bulcão, s/n",
+     "neighborhood": "Amaralina",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/01190562000108",
+       "title": "Receita Federal — MITRA DIOCESANA DE BOM JESUS DA LAPA, CNPJ 01.190.562/0001-08, e 22 filiais ATIVAS (18 paróquias + o Santuário)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "sao-joao-batista-bom-jesus-da-lapa",
+   "name": "Paróquia São João Batista",
+   "city": "Bom Jesus da Lapa",
+   "state": "BA",
+   "neighborhood": "São João",
+   "address": "Rua Miguel Arcanjo de Oliveira (Rua Transbrasil), s/n",
+   "zipCode": "47600-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Mateus (Miroslaw) Jurus, C.SS.R.",
+   "foundedYear": 2016,
+   "sources": [
+    {
+     "url": "https://diocesedebomjesusdalapa.com.br/padres/",
+     "title": "Diocese de Bom Jesus da Lapa — Padres (listagem JetEngine com 35 fichas: situação canônica, paróquia, incardinação e e-mail de cada presbítero; fichas publicadas/atualizadas em 30/09/2025)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/01190562002070",
+     "title": "Receita Federal — filial ATIVA do CNPJ 01.190.562 da Mitra Diocesana de Bom Jesus da Lapa: “PAROQUIA SAO JOAO BATISTA”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/bomj0",
+     "title": "gcatholic.org — Churches in the Diocese of Bom Jesus da Lapa (23 igrejas, 17 marcadas “Parish”; página atualizada em 28/03/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "01190562002070",
+   "notes": "Confiada aos Redentoristas. Vigários paroquiais: Pe. Ednei dos Santos Galvão, C.SS.R. e Pe. Valdeneir Alves de Brito, C.SS.R. Inscrita na Receita em 18/05/2016.",
+   "communities": [
+    {
+     "name": "Matriz São João Batista",
+     "address": "Rua Miguel Arcanjo de Oliveira, s/n",
+     "neighborhood": "São João",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/01190562000108",
+       "title": "Receita Federal — MITRA DIOCESANA DE BOM JESUS DA LAPA, CNPJ 01.190.562/0001-08, e 22 filiais ATIVAS (18 paróquias + o Santuário)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-das-gracas-bom-jesus-da-lapa",
+   "name": "Paróquia Nossa Senhora das Graças",
+   "city": "Bom Jesus da Lapa",
+   "state": "BA",
+   "neighborhood": "João Paulo II",
+   "address": "Rua São Manoel, s/n",
+   "zipCode": "47600-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Valber Almeida de Souza",
+   "foundedYear": 2016,
+   "sources": [
+    {
+     "url": "https://diocesedebomjesusdalapa.com.br/padres/",
+     "title": "Diocese de Bom Jesus da Lapa — Padres (listagem JetEngine com 35 fichas: situação canônica, paróquia, incardinação e e-mail de cada presbítero; fichas publicadas/atualizadas em 30/09/2025)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/01190562001937",
+     "title": "Receita Federal — filial ATIVA do CNPJ 01.190.562 da Mitra Diocesana de Bom Jesus da Lapa: “PAROQUIA NOSSA SENHORA DAS GRACAS”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/bomj0",
+     "title": "gcatholic.org — Churches in the Diocese of Bom Jesus da Lapa (23 igrejas, 17 marcadas “Parish”; página atualizada em 28/03/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "01190562001937",
+   "notes": "Inscrita na Receita em 18/05/2016.",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora das Graças",
+     "address": "Rua São Manoel, s/n",
+     "neighborhood": "João Paulo II",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/01190562000108",
+       "title": "Receita Federal — MITRA DIOCESANA DE BOM JESUS DA LAPA, CNPJ 01.190.562/0001-08, e 22 filiais ATIVAS (18 paróquias + o Santuário)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "sao-miguel-canapolis",
+   "name": "Paróquia São Miguel Arcanjo",
+   "city": "Canápolis",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Rua Odílio Domingues, s/n",
+   "zipCode": "47730-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Francisco Helvídio de Carvalho Neto",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedebomjesusdalapa.com.br/padres/",
+     "title": "Diocese de Bom Jesus da Lapa — Padres (listagem JetEngine com 35 fichas: situação canônica, paróquia, incardinação e e-mail de cada presbítero; fichas publicadas/atualizadas em 30/09/2025)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/01190562001180",
+     "title": "Receita Federal — filial ATIVA do CNPJ 01.190.562 da Mitra Diocesana de Bom Jesus da Lapa: “PAROQUIA DE SAO MIGUEL”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/bomj0",
+     "title": "gcatholic.org — Churches in the Diocese of Bom Jesus da Lapa (23 igrejas, 17 marcadas “Parish”; página atualizada em 28/03/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "01190562001180",
+   "notes": "A Receita e o gcatholic registram o título como “São Miguel”; a ficha do pároco no site da diocese usa “São Miguel Arcanjo”.",
+   "communities": [
+    {
+     "name": "Matriz São Miguel Arcanjo",
+     "address": "Rua Odílio Domingues, s/n",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/01190562000108",
+       "title": "Receita Federal — MITRA DIOCESANA DE BOM JESUS DA LAPA, CNPJ 01.190.562/0001-08, e 22 filiais ATIVAS (18 paróquias + o Santuário)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "sao-jose-carinhanha",
+   "name": "Paróquia São José",
+   "city": "Carinhanha",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça J. J. Seabra, s/n",
+   "zipCode": "46445-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Heber Pedroso Rocha",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedebomjesusdalapa.com.br/padres/",
+     "title": "Diocese de Bom Jesus da Lapa — Padres (listagem JetEngine com 35 fichas: situação canônica, paróquia, incardinação e e-mail de cada presbítero; fichas publicadas/atualizadas em 30/09/2025)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/01190562000531",
+     "title": "Receita Federal — filial ATIVA do CNPJ 01.190.562 da Mitra Diocesana de Bom Jesus da Lapa: “PAROQUIA DE SAO JOSE”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/bomj0",
+     "title": "gcatholic.org — Churches in the Diocese of Bom Jesus da Lapa (23 igrejas, 17 marcadas “Parish”; página atualizada em 28/03/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "01190562000531",
+   "notes": "Vigários: Pe. Edvaldo Tomaz de Aquino, responsável pela “Área Missionária” da paróquia, e Pe. Gilvan Macêdo Gomes. O gcatholic lista também uma Igreja Nossa Senhora Aparecida em Carinhanha, sem marca de paróquia.",
+   "communities": [
+    {
+     "name": "Matriz São José",
+     "address": "Praça J. J. Seabra, s/n",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/01190562000108",
+       "title": "Receita Federal — MITRA DIOCESANA DE BOM JESUS DA LAPA, CNPJ 01.190.562/0001-08, e 22 filiais ATIVAS (18 paróquias + o Santuário)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "sao-sebastiao-cocos",
+   "name": "Paróquia São Sebastião",
+   "city": "Cocos",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Rua Presidente Juscelino, 11",
+   "zipCode": "47680-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Leandro Tiburtino Gomes",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedebomjesusdalapa.com.br/padres/",
+     "title": "Diocese de Bom Jesus da Lapa — Padres (listagem JetEngine com 35 fichas: situação canônica, paróquia, incardinação e e-mail de cada presbítero; fichas publicadas/atualizadas em 30/09/2025)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/01190562001007",
+     "title": "Receita Federal — filial ATIVA do CNPJ 01.190.562 da Mitra Diocesana de Bom Jesus da Lapa: “PAROQUIA DE SAO SEBASTIAO”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/bomj0",
+     "title": "gcatholic.org — Churches in the Diocese of Bom Jesus da Lapa (23 igrejas, 17 marcadas “Parish”; página atualizada em 28/03/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "01190562001007",
+   "notes": "Membro do Colégio dos Consultores. A filial da OBRAS SOCIAIS DA DIOCESE (CNPJ 13.713.615/0006) registra o endereço como “Praça da Matriz, s/n”.",
+   "communities": [
+    {
+     "name": "Matriz São Sebastião",
+     "address": "Rua Presidente Juscelino, 11",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/01190562000108",
+       "title": "Receita Federal — MITRA DIOCESANA DE BOM JESUS DA LAPA, CNPJ 01.190.562/0001-08, e 22 filiais ATIVAS (18 paróquias + o Santuário)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "sao-joao-batista-coribe",
+   "name": "Paróquia São João Batista",
+   "city": "Coribe",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Rua Getúlio Vargas, 108",
+   "zipCode": "47690-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Nilson Claudino dos Santos",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedebomjesusdalapa.com.br/padres/",
+     "title": "Diocese de Bom Jesus da Lapa — Padres (listagem JetEngine com 35 fichas: situação canônica, paróquia, incardinação e e-mail de cada presbítero; fichas publicadas/atualizadas em 30/09/2025)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/01190562001341",
+     "title": "Receita Federal — filial ATIVA do CNPJ 01.190.562 da Mitra Diocesana de Bom Jesus da Lapa: “PAROQUIA DE SAO JOAO BATISTA”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/bomj0",
+     "title": "gcatholic.org — Churches in the Diocese of Bom Jesus da Lapa (23 igrejas, 17 marcadas “Parish”; página atualizada em 28/03/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "01190562001341",
+   "notes": "Atenção: a filial homônima do CNPJ das OBRAS SOCIAIS (13.713.615/0012) registra o MESMO endereço (Rua Getúlio Vargas, 108) no município de São Félix do Coribe — a Mitra grava Coribe, e é esta a cidade correta segundo o site da diocese e o gcatholic.",
+   "communities": [
+    {
+     "name": "Matriz São João Batista",
+     "address": "Rua Getúlio Vargas, 108",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/01190562000108",
+       "title": "Receita Federal — MITRA DIOCESANA DE BOM JESUS DA LAPA, CNPJ 01.190.562/0001-08, e 22 filiais ATIVAS (18 paróquias + o Santuário)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-da-gloria-correntina",
+   "name": "Paróquia Nossa Senhora da Glória",
+   "city": "Correntina",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Rua da Extrema, s/n",
+   "zipCode": "47650-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Vanúcio Hebert Lacerda de Moura",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedebomjesusdalapa.com.br/padres/",
+     "title": "Diocese de Bom Jesus da Lapa — Padres (listagem JetEngine com 35 fichas: situação canônica, paróquia, incardinação e e-mail de cada presbítero; fichas publicadas/atualizadas em 30/09/2025)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/01190562000612",
+     "title": "Receita Federal — filial ATIVA do CNPJ 01.190.562 da Mitra Diocesana de Bom Jesus da Lapa: “PAROQUIA DE NOSSA SENHORA DA GLORIA”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/bomj0",
+     "title": "gcatholic.org — Churches in the Diocese of Bom Jesus da Lapa (23 igrejas, 17 marcadas “Parish”; página atualizada em 28/03/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "01190562000612",
+   "notes": "Vigário: Pe. Manoel Ferreira da Silva. O pároco é também Vice-Chanceler da diocese e membro do Colégio dos Consultores. O gcatholic lista em Correntina mais três igrejas sem marca de paróquia: Imaculada Conceição, Sagrada Família e São Lázaro.",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora da Glória",
+     "address": "Rua da Extrema, s/n",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/01190562000108",
+       "title": "Receita Federal — MITRA DIOCESANA DE BOM JESUS DA LAPA, CNPJ 01.190.562/0001-08, e 22 filiais ATIVAS (18 paróquias + o Santuário)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-do-rosario-correntina",
+   "name": "Paróquia Nossa Senhora do Rosário",
+   "city": "Correntina",
+   "state": "BA",
+   "neighborhood": "Distrito do Rosário",
+   "address": "Loteamento Distrito do Rosário, Quadra 39, Lotes 1 a 12",
+   "zipCode": "47650-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Leonardo de Souza Paulo Oliveira",
+   "foundedYear": 2016,
+   "sources": [
+    {
+     "url": "https://diocesedebomjesusdalapa.com.br/padres/",
+     "title": "Diocese de Bom Jesus da Lapa — Padres (listagem JetEngine com 35 fichas: situação canônica, paróquia, incardinação e e-mail de cada presbítero; fichas publicadas/atualizadas em 30/09/2025)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/01190562002151",
+     "title": "Receita Federal — filial ATIVA do CNPJ 01.190.562 da Mitra Diocesana de Bom Jesus da Lapa: “PAROQUIA NOSSA SENHORA DO ROSARIO”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/bomj0",
+     "title": "gcatholic.org — Churches in the Diocese of Bom Jesus da Lapa (23 igrejas, 17 marcadas “Parish”; página atualizada em 28/03/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "01190562002151",
+   "notes": "Sede no Distrito do Rosário, município de Correntina. Inscrita na Receita em 18/05/2016. NÃO aparece na lista de igrejas do gcatholic — foi localizada pelo cruzamento entre a ficha do pároco no site da diocese (“Pároco da N. Sra. do Rosário de Distrito de Rosário – Correntina”) e a varredura das filiais da Mitra.",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora do Rosário",
+     "address": "Distrito do Rosário",
+     "neighborhood": "Distrito do Rosário",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/01190562000108",
+       "title": "Receita Federal — MITRA DIOCESANA DE BOM JESUS DA LAPA, CNPJ 01.190.562/0001-08, e 22 filiais ATIVAS (18 paróquias + o Santuário)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "sagrado-coracao-de-jesus-feira-da-mata",
+   "name": "Paróquia Sagrado Coração de Jesus",
+   "city": "Feira da Mata",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Rua José Martins de Macedo, 01",
+   "zipCode": "46446-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Erberson Dias Sena",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedebomjesusdalapa.com.br/padres/",
+     "title": "Diocese de Bom Jesus da Lapa — Padres (listagem JetEngine com 35 fichas: situação canônica, paróquia, incardinação e e-mail de cada presbítero; fichas publicadas/atualizadas em 30/09/2025)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/01190562001775",
+     "title": "Receita Federal — filial ATIVA do CNPJ 01.190.562 da Mitra Diocesana de Bom Jesus da Lapa: “PAROQUIA SAGRADO CORACAO DE JESUS”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/bomj0",
+     "title": "gcatholic.org — Churches in the Diocese of Bom Jesus da Lapa (23 igrejas, 17 marcadas “Parish”; página atualizada em 28/03/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "01190562001775",
+   "notes": null,
+   "communities": [
+    {
+     "name": "Matriz Sagrado Coração de Jesus",
+     "address": "Rua José Martins de Macedo, 01",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/01190562000108",
+       "title": "Receita Federal — MITRA DIOCESANA DE BOM JESUS DA LAPA, CNPJ 01.190.562/0001-08, e 22 filiais ATIVAS (18 paróquias + o Santuário)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "santo-antonio-jaborandi",
+   "name": "Paróquia Santo Antônio",
+   "city": "Jaborandi",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça da Matriz, s/n",
+   "zipCode": "47655-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Marcos Tavares Oliveira",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedebomjesusdalapa.com.br/padres/",
+     "title": "Diocese de Bom Jesus da Lapa — Padres (listagem JetEngine com 35 fichas: situação canônica, paróquia, incardinação e e-mail de cada presbítero; fichas publicadas/atualizadas em 30/09/2025)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/01190562000965",
+     "title": "Receita Federal — filial ATIVA do CNPJ 01.190.562 da Mitra Diocesana de Bom Jesus da Lapa: “PAROQUIA DE SANTO ANTONIO”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/bomj0",
+     "title": "gcatholic.org — Churches in the Diocese of Bom Jesus da Lapa (23 igrejas, 17 marcadas “Parish”; página atualizada em 28/03/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "01190562000965",
+   "notes": null,
+   "communities": [
+    {
+     "name": "Matriz Santo Antônio",
+     "address": "Praça da Matriz, s/n",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/01190562000108",
+       "title": "Receita Federal — MITRA DIOCESANA DE BOM JESUS DA LAPA, CNPJ 01.190.562/0001-08, e 22 filiais ATIVAS (18 paróquias + o Santuário)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "santo-antonio-paratinga",
+   "name": "Paróquia Santo Antônio",
+   "city": "Paratinga",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça 15 de Novembro, s/n",
+   "zipCode": "47500-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. José Carlos Carvalho (de Souza)",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedebomjesusdalapa.com.br/padres/",
+     "title": "Diocese de Bom Jesus da Lapa — Padres (listagem JetEngine com 35 fichas: situação canônica, paróquia, incardinação e e-mail de cada presbítero; fichas publicadas/atualizadas em 30/09/2025)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/01190562000299",
+     "title": "Receita Federal — filial ATIVA do CNPJ 01.190.562 da Mitra Diocesana de Bom Jesus da Lapa: “PAROQUIA DE SANTO ANTONIO”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/bomj0",
+     "title": "gcatholic.org — Churches in the Diocese of Bom Jesus da Lapa (23 igrejas, 17 marcadas “Parish”; página atualizada em 28/03/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "01190562000299",
+   "notes": "Membro do Colégio dos Consultores (a página da Cúria o grafa “Pe. José Carlos Carvalho de Souza” e a ficha do clero, “Pe. José Carlos Carvalho”).",
+   "communities": [
+    {
+     "name": "Matriz Santo Antônio",
+     "address": "Praça 15 de Novembro, s/n",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/01190562000108",
+       "title": "Receita Federal — MITRA DIOCESANA DE BOM JESUS DA LAPA, CNPJ 01.190.562/0001-08, e 22 filiais ATIVAS (18 paróquias + o Santuário)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-das-vitorias-santa-maria-da-vitoria",
+   "name": "Paróquia Nossa Senhora das Vitórias",
+   "city": "Santa Maria da Vitória",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Rua Manoel Coelho, 21",
+   "zipCode": "47640-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Jocélio de Sousa Martins",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedebomjesusdalapa.com.br/padres/",
+     "title": "Diocese de Bom Jesus da Lapa — Padres (listagem JetEngine com 35 fichas: situação canônica, paróquia, incardinação e e-mail de cada presbítero; fichas publicadas/atualizadas em 30/09/2025)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/01190562001422",
+     "title": "Receita Federal — filial ATIVA do CNPJ 01.190.562 da Mitra Diocesana de Bom Jesus da Lapa: “PAROQUIA NOSSA SENHORA DAS VITORIAS”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/bomj0",
+     "title": "gcatholic.org — Churches in the Diocese of Bom Jesus da Lapa (23 igrejas, 17 marcadas “Parish”; página atualizada em 28/03/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "01190562001422",
+   "notes": "A filial das OBRAS SOCIAIS (13.713.615/0004) registra a igreja matriz na Praça Luiz Viana Filho, s/n.",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora das Vitórias",
+     "address": "Rua Manoel Coelho, 21",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/01190562000108",
+       "title": "Receita Federal — MITRA DIOCESANA DE BOM JESUS DA LAPA, CNPJ 01.190.562/0001-08, e 22 filiais ATIVAS (18 paróquias + o Santuário)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "senhora-santana-santana",
+   "name": "Paróquia Senhora Sant’Ana",
+   "city": "Santana",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Rua 2 de Novembro, s/n",
+   "zipCode": "47700-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. João Batista dos Santos Melo",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedebomjesusdalapa.com.br/padres/",
+     "title": "Diocese de Bom Jesus da Lapa — Padres (listagem JetEngine com 35 fichas: situação canônica, paróquia, incardinação e e-mail de cada presbítero; fichas publicadas/atualizadas em 30/09/2025)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/01190562000450",
+     "title": "Receita Federal — filial ATIVA do CNPJ 01.190.562 da Mitra Diocesana de Bom Jesus da Lapa: “PAROQUIA SENHORA SANTANA”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/bomj0",
+     "title": "gcatholic.org — Churches in the Diocese of Bom Jesus da Lapa (23 igrejas, 17 marcadas “Parish”; página atualizada em 28/03/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "01190562000450",
+   "notes": "Membro do Colégio dos Consultores. A filial das OBRAS SOCIAIS (13.713.615/0008) registra o endereço como Praça da Matriz, s/n.",
+   "communities": [
+    {
+     "name": "Matriz Senhora Sant’Ana",
+     "address": "Rua 2 de Novembro, s/n",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/01190562000108",
+       "title": "Receita Federal — MITRA DIOCESANA DE BOM JESUS DA LAPA, CNPJ 01.190.562/0001-08, e 22 filiais ATIVAS (18 paróquias + o Santuário)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "sao-francisco-de-assis-sao-felix-do-coribe",
+   "name": "Paróquia São Francisco de Assis",
+   "city": "São Félix do Coribe",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Rua Correntina, 231",
+   "zipCode": "47665-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. José Elealdo de Oliveira Mota",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedebomjesusdalapa.com.br/padres/",
+     "title": "Diocese de Bom Jesus da Lapa — Padres (listagem JetEngine com 35 fichas: situação canônica, paróquia, incardinação e e-mail de cada presbítero; fichas publicadas/atualizadas em 30/09/2025)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/01190562001260",
+     "title": "Receita Federal — filial ATIVA do CNPJ 01.190.562 da Mitra Diocesana de Bom Jesus da Lapa: “PAROQUIA DE SAO FRANCISCO DE ASSIS”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/bomj0",
+     "title": "gcatholic.org — Churches in the Diocese of Bom Jesus da Lapa (23 igrejas, 17 marcadas “Parish”; página atualizada em 28/03/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "01190562001260",
+   "notes": "Membro do Colégio dos Consultores. Em 2026 a paróquia abriu o Ano Jubilar dos 800 anos do Trânsito de São Francisco (notícia no site da diocese). A filial das OBRAS SOCIAIS (13.713.615/0010) registra o endereço como Praça Matriz, s/n.",
+   "communities": [
+    {
+     "name": "Matriz São Francisco de Assis",
+     "address": "Rua Correntina, 231",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/01190562000108",
+       "title": "Receita Federal — MITRA DIOCESANA DE BOM JESUS DA LAPA, CNPJ 01.190.562/0001-08, e 22 filiais ATIVAS (18 paróquias + o Santuário)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "sao-jose-operario-serra-do-ramalho",
+   "name": "Paróquia São José Operário",
+   "city": "Serra do Ramalho",
+   "state": "BA",
+   "neighborhood": "Agrovila 09",
+   "address": "Rua da Administração, s/n",
+   "zipCode": "47630-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Raimundo João da Silva, C.M.",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedebomjesusdalapa.com.br/padres/",
+     "title": "Diocese de Bom Jesus da Lapa — Padres (listagem JetEngine com 35 fichas: situação canônica, paróquia, incardinação e e-mail de cada presbítero; fichas publicadas/atualizadas em 30/09/2025)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/01190562000884",
+     "title": "Receita Federal — filial ATIVA do CNPJ 01.190.562 da Mitra Diocesana de Bom Jesus da Lapa: “PAROQUIA DE SAO JOSE OPERARIO”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/bomj0",
+     "title": "gcatholic.org — Churches in the Diocese of Bom Jesus da Lapa (23 igrejas, 17 marcadas “Parish”; página atualizada em 28/03/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "01190562000884",
+   "notes": "Confiada aos Vicentinos (Congregação da Missão). Vigários: Pe. Gustavo Alivino Silva, C.M. e Pe. Francisco Ermelindo Gomes, C.M. — a ficha deste último escreve “Vig. Paroquial de São José de Serra do Ramalho”, sem o “Operário”; não há segunda paróquia de São José no município nem na Receita nem no gcatholic.",
+   "communities": [
+    {
+     "name": "Matriz São José Operário",
+     "address": "Rua da Administração, s/n",
+     "neighborhood": "Agrovila 09",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/01190562000108",
+       "title": "Receita Federal — MITRA DIOCESANA DE BOM JESUS DA LAPA, CNPJ 01.190.562/0001-08, e 22 filiais ATIVAS (18 paróquias + o Santuário)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "sao-goncalo-do-amarante-serra-dourada",
+   "name": "Paróquia São Gonçalo do Amarante",
+   "city": "Serra Dourada",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça da Matriz, s/n",
+   "zipCode": "47740-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Marino dos Reis Gonçalves",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedebomjesusdalapa.com.br/padres/",
+     "title": "Diocese de Bom Jesus da Lapa — Padres (listagem JetEngine com 35 fichas: situação canônica, paróquia, incardinação e e-mail de cada presbítero; fichas publicadas/atualizadas em 30/09/2025)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/01190562000701",
+     "title": "Receita Federal — filial ATIVA do CNPJ 01.190.562 da Mitra Diocesana de Bom Jesus da Lapa: “PAROQUIA DE SAO GONCALO DO AMARANTE”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/bomj0",
+     "title": "gcatholic.org — Churches in the Diocese of Bom Jesus da Lapa (23 igrejas, 17 marcadas “Parish”; página atualizada em 28/03/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "01190562000701",
+   "notes": "Membro do Colégio dos Consultores.",
+   "communities": [
+    {
+     "name": "Matriz São Gonçalo do Amarante",
+     "address": "Praça da Matriz, s/n",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/01190562000108",
+       "title": "Receita Federal — MITRA DIOCESANA DE BOM JESUS DA LAPA, CNPJ 01.190.562/0001-08, e 22 filiais ATIVAS (18 paróquias + o Santuário)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-do-rosario-sitio-do-mato",
+   "name": "Paróquia Nossa Senhora do Rosário",
+   "city": "Sítio do Mato",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça 15 de Novembro, s/n",
+   "zipCode": "47610-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Fernandes da Rocha Batista",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedebomjesusdalapa.com.br/padres/",
+     "title": "Diocese de Bom Jesus da Lapa — Padres (listagem JetEngine com 35 fichas: situação canônica, paróquia, incardinação e e-mail de cada presbítero; fichas publicadas/atualizadas em 30/09/2025)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/01190562001503",
+     "title": "Receita Federal — filial ATIVA do CNPJ 01.190.562 da Mitra Diocesana de Bom Jesus da Lapa: “PAROQUIA NOSSA SENHORA DO ROSARIO”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/bomj0",
+     "title": "gcatholic.org — Churches in the Diocese of Bom Jesus da Lapa (23 igrejas, 17 marcadas “Parish”; página atualizada em 28/03/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "01190562001503",
+   "notes": null,
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora do Rosário",
+     "address": "Praça 15 de Novembro, s/n",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/01190562000108",
+       "title": "Receita Federal — MITRA DIOCESANA DE BOM JESUS DA LAPA, CNPJ 01.190.562/0001-08, e 22 filiais ATIVAS (18 paróquias + o Santuário)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  }
+ ],
+ "coverage": {
+  "parishesFound": 18,
+  "parishesExpected": 20,
+  "notes": "18 paróquias + o Santuário do Bom Jesus da Lapa (pró-catedral, gravado como nao-paroquial + loadAsParish) = 19 registros. Duas contagens independentes casam em 18: a varredura das filiais do CNPJ 01.190.562 (MITRA DIOCESANA), que tem 23 inscrições de /0001 a /0023 e nada além — a sede, 18 paróquias, o Santuário, a Loja do Santuário e 2 Centros de Treinamento de Líderes — e o campo “Paróquia” das 35 fichas de padre do site oficial. O gcatholic lista 23 igrejas, das quais 17 marcadas “Parish” mais a catedral (= 18), mas NÃO tem a N. Sra. do Rosário do Distrito do Rosário (Correntina), que a Receita e o site têm. As estatísticas divergem: o gcatholic declara “20 paróquias e 2 missões” e o catholic-hierarchy declara 24 paróquias, ambos com dados de 31/12/2022. As 2 paróquias que faltam para 20 não foram localizadas em nenhuma fonte pública; candidatas são as igrejas que o gcatholic lista sem marca de paróquia (N. Sra. do Perpétuo Socorro em Bom Jesus da Lapa, N. Sra. Aparecida em Carinhanha, e Imaculada Conceição / Sagrada Família / São Lázaro em Correntina). Há ainda uma “Área Missionária” dentro da Paróquia São José de Carinhanha, com vigário próprio, que pode ser uma das “2 missions” do gcatholic. NENHUMA comunidade/capela foi encontrada: nem a diocese nem as paróquias publicam lista."
+ }
+}

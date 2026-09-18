@@ -1,0 +1,1411 @@
+{
+  "diocese": {
+    "name": "Diocese de Guajará-Mirim",
+    "type": "Diocese",
+    "slug": "guajara-mirim",
+    "city": "Guajará-Mirim",
+    "state": "RO",
+    "address": "Cúria Diocesana, Av. Costa Marques, 561 – Centro",
+    "zipCode": "76850-000",
+    "phone": "(69) 99381-1154",
+    "email": "diocese@dioceseguajaramirim.org.br",
+    "website": "https://dioceseguajaramirim.org.br",
+    "bishopName": null,
+    "sources": [
+      {
+        "url": "https://dioceseguajaramirim.org.br/",
+        "title": "Diocese de Guajará-Mirim — site oficial (WordPress/Elementor ATIVO: notícias de 11/09/2026 e página \"Agenda do Administrador Diocesano\" modificada em 17/06/2026)",
+        "accessedAt": "2026-09-18"
+      },
+      {
+        "url": "https://dioceseguajaramirim.org.br/paroquias/",
+        "title": "Diocese de Guajará-Mirim — Paróquias (página oficial; traz 12 dos 13 cards — o de Colorado d'Oeste ficou de fora porque tem slug fora do padrão)",
+        "accessedAt": "2026-09-18"
+      },
+      {
+        "url": "https://dioceseguajaramirim.org.br/wp-json/wp/v2/posts?categories=7&per_page=100",
+        "title": "Diocese de Guajará-Mirim — REST do WordPress, categoria \"paroquias\" (id 7): as 13 fichas de paróquia, agrupadas pelas categorias Região Pastoral Sede (39), Centro (40) e Sul (41)",
+        "accessedAt": "2026-09-18"
+      },
+      {
+        "url": "https://dioceseguajaramirim.org.br/curia-diocesana/",
+        "title": "Diocese de Guajará-Mirim — Cúria Diocesana: \"ADMINISTRADOR DIOCESANO: Pe. Wilian Lino Orcesi\"; Av. Costa Marques, 561 – Centro, 76.850-000 Guajará-Mirim/RO; (69) 99381-1154; diocese@dioceseguajaramirim.org.br",
+        "accessedAt": "2026-09-18"
+      },
+      {
+        "url": "https://dioceseguajaramirim.org.br/bispo/",
+        "title": "Diocese de Guajará-Mirim — Bispo (a página lista os cinco bispos da história: Dom Benedito Araújo, Dom Geraldo Verdier, Dom José Maria Pinheiro, Dom Frei Luiz Roberto Gomes de Arruda e Dom Francisco Xavier Rey; não anuncia bispo atual)",
+        "accessedAt": "2026-09-18"
+      },
+      {
+        "url": "https://gcatholic.org/dioceses/diocese/guaj0.htm",
+        "title": "gcatholic.org — Diocese of Guajará-Mirim: 13 paróquias, 91.282 km², sé VACANTE (Dom Benedito Araújo transferido para Campo Maior em 07/11/2025); catedral Nossa Senhora do Seringueiro",
+        "accessedAt": "2026-09-18"
+      },
+      {
+        "url": "https://mapaosc.ipea.gov.br/api/api/osc/busca_avancada/lista/300/0?avancado={\"dadosGerais\":{\"tx_razao_social_osc\":\"MITRA DIOCESANA DE GUAJARA MIRIM\"}}",
+        "title": "Mapa das OSC / IPEA (espelho do cadastro da Receita Federal) — 15 estabelecimentos do CNPJ raiz 04.290.318 (MITRA DIOCESANA SEDE GUAJARA MIRIM), com endereço e CEP",
+        "accessedAt": "2026-09-18"
+      }
+    ],
+    "confidence": "alta"
+  },
+  "parishes": [
+    {
+      "slug": "nossa-senhora-do-seringueiro-guajara-mirim",
+      "name": "Catedral Nossa Senhora do Seringueiro",
+      "city": "Guajará-Mirim",
+      "state": "RO",
+      "neighborhood": "Centro",
+      "address": "Av. Dr. Mendonça Lima, 555 – Centro",
+      "zipCode": "76850-000",
+      "phone": "(69) 99243-5366",
+      "email": "paroquiansseringueiro@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Wilian Lino Orcesi",
+      "foundedYear": 1971,
+      "sources": [
+        {
+          "url": "https://dioceseguajaramirim.org.br/paroquias/",
+          "title": "Diocese de Guajará-Mirim — Paróquias (página oficial; traz 12 dos 13 cards — o de Colorado d'Oeste ficou de fora porque tem slug fora do padrão)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://dioceseguajaramirim.org.br/wp-json/wp/v2/posts?categories=7&per_page=100",
+          "title": "Diocese de Guajará-Mirim — REST do WordPress, categoria \"paroquias\" (id 7): as 13 fichas de paróquia, agrupadas pelas categorias Região Pastoral Sede (39), Centro (40) e Sul (41)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://dioceseguajaramirim.org.br/paroquia-n-sra-do-seringueiro-guajara-mirim-ro/",
+          "title": "Diocese de Guajará-Mirim — ficha oficial de Catedral Nossa Senhora do Seringueiro – Guajará-Mirim: região pastoral, data de fundação, endereço, CEP, CNPJ, telefone, e-mail, festa do padroeiro, QUANTIDADE DE COMUNIDADES, clero e bloco \"Missas na Matriz\"",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://mapaosc.ipea.gov.br/api/api/osc/busca_avancada/lista/300/0?avancado={\"dadosGerais\":{\"tx_razao_social_osc\":\"MITRA DIOCESANA DE GUAJARA MIRIM\"}}",
+          "title": "Mapa das OSC / IPEA (espelho do cadastro da Receita Federal) — 15 estabelecimentos do CNPJ raiz 04.290.318 (MITRA DIOCESANA SEDE GUAJARA MIRIM), com endereço e CEP",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://gcatholic.org/dioceses/diocese/guaj0.htm",
+          "title": "gcatholic.org — Diocese of Guajará-Mirim: 13 paróquias, 91.282 km², sé VACANTE (Dom Benedito Araújo transferido para Campo Maior em 07/11/2025); catedral Nossa Senhora do Seringueiro",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://dioceseguajaramirim.org.br/curia-diocesana/",
+          "title": "Diocese de Guajará-Mirim — Cúria Diocesana: \"ADMINISTRADOR DIOCESANO: Pe. Wilian Lino Orcesi\"; Av. Costa Marques, 561 – Centro, 76.850-000 Guajará-Mirim/RO; (69) 99381-1154; diocese@dioceseguajaramirim.org.br",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "unitType": "catedral",
+      "cnpj": "04.290.318/0010-04",
+      "status": null,
+      "notes": "SÉ DA DIOCESE. Região Pastoral SEDE. A diocese publica o título \"Catedral Paróquia Nossa Senhora do Seringueiro\". Fundada em 08/12/1971; a construção começou em 1956 (pedra fundamental) e levou quinze anos, projeto do arquiteto Benedito Calixto a pedido de Dom Francisco Xavier Rey. O pároco, Pe. Wilian Lino Orcesi, é também o ADMINISTRADOR DIOCESANO da sé vacante. Vigário paroquial: Padre Gustavo Orlandin Ferreira. Festa da padroeira: 08/12. A ficha DECLARA 12 comunidades, inclusa a matriz, e nomeia apenas uma: a \"Igrejinha N. Sra. do Perpétuo Socorro\", que era a antiga igreja paroquial da cidade e tem grade de missa própria. O agregador liriocatolico tem ficha desta catedral, mas com o campo de missas VAZIO.",
+      "communities": [
+        {
+          "name": "Catedral Nossa Senhora do Seringueiro",
+          "address": "Av. Dr. Mendonça Lima, 555 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://dioceseguajaramirim.org.br/paroquia-n-sra-do-seringueiro-guajara-mirim-ro/",
+              "title": "Diocese de Guajará-Mirim — ficha oficial de Catedral Nossa Senhora do Seringueiro – Guajará-Mirim: região pastoral, data de fundação, endereço, CEP, CNPJ, telefone, e-mail, festa do padroeiro, QUANTIDADE DE COMUNIDADES, clero e bloco \"Missas na Matriz\"",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Igrejinha Nossa Senhora do Perpétuo Socorro",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://dioceseguajaramirim.org.br/paroquia-n-sra-do-seringueiro-guajara-mirim-ro/",
+              "title": "Diocese de Guajará-Mirim — ficha oficial de Catedral Nossa Senhora do Seringueiro – Guajará-Mirim: região pastoral, data de fundação, endereço, CEP, CNPJ, telefone, e-mail, festa do padroeiro, QUANTIDADE DE COMUNIDADES, clero e bloco \"Missas na Matriz\"",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "Antiga igreja paroquial de Guajará-Mirim, anterior à construção da Catedral; a ficha publica grade de missa própria para ela."
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Catedral Nossa Senhora do Seringueiro",
+          "dayOfWeek": 3,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseguajaramirim.org.br/paroquia-n-sra-do-seringueiro-guajara-mirim-ro/",
+              "title": "Diocese de Guajará-Mirim — ficha oficial de Catedral Nossa Senhora do Seringueiro – Guajará-Mirim: região pastoral, data de fundação, endereço, CEP, CNPJ, telefone, e-mail, festa do padroeiro, QUANTIDADE DE COMUNIDADES, clero e bloco \"Missas na Matriz\"",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral Nossa Senhora do Seringueiro",
+          "dayOfWeek": 5,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseguajaramirim.org.br/paroquia-n-sra-do-seringueiro-guajara-mirim-ro/",
+              "title": "Diocese de Guajará-Mirim — ficha oficial de Catedral Nossa Senhora do Seringueiro – Guajará-Mirim: região pastoral, data de fundação, endereço, CEP, CNPJ, telefone, e-mail, festa do padroeiro, QUANTIDADE DE COMUNIDADES, clero e bloco \"Missas na Matriz\"",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral Nossa Senhora do Seringueiro",
+          "dayOfWeek": 6,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseguajaramirim.org.br/paroquia-n-sra-do-seringueiro-guajara-mirim-ro/",
+              "title": "Diocese de Guajará-Mirim — ficha oficial de Catedral Nossa Senhora do Seringueiro – Guajará-Mirim: região pastoral, data de fundação, endereço, CEP, CNPJ, telefone, e-mail, festa do padroeiro, QUANTIDADE DE COMUNIDADES, clero e bloco \"Missas na Matriz\"",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral Nossa Senhora do Seringueiro",
+          "dayOfWeek": 0,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseguajaramirim.org.br/paroquia-n-sra-do-seringueiro-guajara-mirim-ro/",
+              "title": "Diocese de Guajará-Mirim — ficha oficial de Catedral Nossa Senhora do Seringueiro – Guajará-Mirim: região pastoral, data de fundação, endereço, CEP, CNPJ, telefone, e-mail, festa do padroeiro, QUANTIDADE DE COMUNIDADES, clero e bloco \"Missas na Matriz\"",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Igrejinha Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 1,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseguajaramirim.org.br/paroquia-n-sra-do-seringueiro-guajara-mirim-ro/",
+              "title": "Diocese de Guajará-Mirim — ficha oficial de Catedral Nossa Senhora do Seringueiro – Guajará-Mirim: região pastoral, data de fundação, endereço, CEP, CNPJ, telefone, e-mail, festa do padroeiro, QUANTIDADE DE COMUNIDADES, clero e bloco \"Missas na Matriz\"",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Igrejinha Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 2,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseguajaramirim.org.br/paroquia-n-sra-do-seringueiro-guajara-mirim-ro/",
+              "title": "Diocese de Guajará-Mirim — ficha oficial de Catedral Nossa Senhora do Seringueiro – Guajará-Mirim: região pastoral, data de fundação, endereço, CEP, CNPJ, telefone, e-mail, festa do padroeiro, QUANTIDADE DE COMUNIDADES, clero e bloco \"Missas na Matriz\"",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Igrejinha Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 4,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseguajaramirim.org.br/paroquia-n-sra-do-seringueiro-guajara-mirim-ro/",
+              "title": "Diocese de Guajará-Mirim — ficha oficial de Catedral Nossa Senhora do Seringueiro – Guajará-Mirim: região pastoral, data de fundação, endereço, CEP, CNPJ, telefone, e-mail, festa do padroeiro, QUANTIDADE DE COMUNIDADES, clero e bloco \"Missas na Matriz\"",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Igrejinha Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 6,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseguajaramirim.org.br/paroquia-n-sra-do-seringueiro-guajara-mirim-ro/",
+              "title": "Diocese de Guajará-Mirim — ficha oficial de Catedral Nossa Senhora do Seringueiro – Guajará-Mirim: região pastoral, data de fundação, endereço, CEP, CNPJ, telefone, e-mail, festa do padroeiro, QUANTIDADE DE COMUNIDADES, clero e bloco \"Missas na Matriz\"",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Igrejinha Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseguajaramirim.org.br/paroquia-n-sra-do-seringueiro-guajara-mirim-ro/",
+              "title": "Diocese de Guajará-Mirim — ficha oficial de Catedral Nossa Senhora do Seringueiro – Guajará-Mirim: região pastoral, data de fundação, endereço, CEP, CNPJ, telefone, e-mail, festa do padroeiro, QUANTIDADE DE COMUNIDADES, clero e bloco \"Missas na Matriz\"",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-aparecida-guajara-mirim",
+      "name": "Paróquia Nossa Senhora Aparecida",
+      "city": "Guajará-Mirim",
+      "state": "RO",
+      "neighborhood": "10 de Abril",
+      "address": "Av. Primeiro de Maio, 3378 – Bairro 10 de Abril",
+      "zipCode": "76850-000",
+      "phone": "(69) 98478-8820",
+      "email": "paroquiaguajara@yahoo.com.br",
+      "website": null,
+      "priestName": "Pe. Hérold Saint Louis",
+      "foundedYear": 1986,
+      "sources": [
+        {
+          "url": "https://dioceseguajaramirim.org.br/paroquias/",
+          "title": "Diocese de Guajará-Mirim — Paróquias (página oficial; traz 12 dos 13 cards — o de Colorado d'Oeste ficou de fora porque tem slug fora do padrão)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://dioceseguajaramirim.org.br/wp-json/wp/v2/posts?categories=7&per_page=100",
+          "title": "Diocese de Guajará-Mirim — REST do WordPress, categoria \"paroquias\" (id 7): as 13 fichas de paróquia, agrupadas pelas categorias Região Pastoral Sede (39), Centro (40) e Sul (41)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://dioceseguajaramirim.org.br/paroquia-n-sra-aparecida-guajara-mirim-ro/",
+          "title": "Diocese de Guajará-Mirim — ficha oficial de Paróquia Nossa Senhora Aparecida – Guajará-Mirim: região pastoral, data de fundação, endereço, CEP, CNPJ, telefone, e-mail, festa do padroeiro, QUANTIDADE DE COMUNIDADES, clero e bloco \"Missas na Matriz\"",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://mapaosc.ipea.gov.br/api/api/osc/busca_avancada/lista/300/0?avancado={\"dadosGerais\":{\"tx_razao_social_osc\":\"MITRA DIOCESANA DE GUAJARA MIRIM\"}}",
+          "title": "Mapa das OSC / IPEA (espelho do cadastro da Receita Federal) — 15 estabelecimentos do CNPJ raiz 04.290.318 (MITRA DIOCESANA SEDE GUAJARA MIRIM), com endereço e CEP",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "unitType": "paroquia",
+      "cnpj": "04.290.318/0015-00",
+      "status": null,
+      "notes": "Região Pastoral SEDE. Fundada em 27/03/1986. Festa da padroeira: 12 de outubro. A ficha DECLARA 9 comunidades, inclusa a matriz, sem nomeá-las. A ficha publica o CNPJ como \"04290318001500\". A quinta-feira às 19h é ADORAÇÃO AO SANTÍSSIMO, não missa — gravada com tipo ADORATION. O agregador liriocatolico publica uma \"Comunidade Cristo Redentor\" em Guajará-Mirim (sábado 20h) que não consegui atribuir a uma das duas paróquias da cidade; ficou fora.",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora Aparecida",
+          "address": "Av. Primeiro de Maio, 3378 – Bairro 10 de Abril",
+          "neighborhood": "10 de Abril",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://dioceseguajaramirim.org.br/paroquia-n-sra-aparecida-guajara-mirim-ro/",
+              "title": "Diocese de Guajará-Mirim — ficha oficial de Paróquia Nossa Senhora Aparecida – Guajará-Mirim: região pastoral, data de fundação, endereço, CEP, CNPJ, telefone, e-mail, festa do padroeiro, QUANTIDADE DE COMUNIDADES, clero e bloco \"Missas na Matriz\"",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora Aparecida",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseguajaramirim.org.br/paroquia-n-sra-aparecida-guajara-mirim-ro/",
+              "title": "Diocese de Guajará-Mirim — ficha oficial de Paróquia Nossa Senhora Aparecida – Guajará-Mirim: região pastoral, data de fundação, endereço, CEP, CNPJ, telefone, e-mail, festa do padroeiro, QUANTIDADE DE COMUNIDADES, clero e bloco \"Missas na Matriz\"",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora Aparecida",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseguajaramirim.org.br/paroquia-n-sra-aparecida-guajara-mirim-ro/",
+              "title": "Diocese de Guajará-Mirim — ficha oficial de Paróquia Nossa Senhora Aparecida – Guajará-Mirim: região pastoral, data de fundação, endereço, CEP, CNPJ, telefone, e-mail, festa do padroeiro, QUANTIDADE DE COMUNIDADES, clero e bloco \"Missas na Matriz\"",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora Aparecida",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "ADORATION",
+          "notes": "A ficha publica \"Quinta-feira - 19h - Adoração ao Santíssimo\"; não é missa.",
+          "sources": [
+            {
+              "url": "https://dioceseguajaramirim.org.br/paroquia-n-sra-aparecida-guajara-mirim-ro/",
+              "title": "Diocese de Guajará-Mirim — ficha oficial de Paróquia Nossa Senhora Aparecida – Guajará-Mirim: região pastoral, data de fundação, endereço, CEP, CNPJ, telefone, e-mail, festa do padroeiro, QUANTIDADE DE COMUNIDADES, clero e bloco \"Missas na Matriz\"",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "sao-francisco-de-assis-nova-mamore",
+      "name": "Paróquia São Francisco de Assis",
+      "city": "Nova Mamoré",
+      "state": "RO",
+      "neighborhood": "Centro",
+      "address": "Av. Antônio Lucas de Araújo, 3800 – Centro",
+      "zipCode": "76857-000",
+      "phone": "(69) 99926-3707",
+      "email": "psf.novamamore@yahoo.com.br",
+      "website": null,
+      "priestName": "Pe. Sebastian Vadakumpadan",
+      "foundedYear": 1982,
+      "sources": [
+        {
+          "url": "https://dioceseguajaramirim.org.br/paroquias/",
+          "title": "Diocese de Guajará-Mirim — Paróquias (página oficial; traz 12 dos 13 cards — o de Colorado d'Oeste ficou de fora porque tem slug fora do padrão)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://dioceseguajaramirim.org.br/wp-json/wp/v2/posts?categories=7&per_page=100",
+          "title": "Diocese de Guajará-Mirim — REST do WordPress, categoria \"paroquias\" (id 7): as 13 fichas de paróquia, agrupadas pelas categorias Região Pastoral Sede (39), Centro (40) e Sul (41)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://dioceseguajaramirim.org.br/paroquia-sao-francisco-de-assis-nova-mamore-ro/",
+          "title": "Diocese de Guajará-Mirim — ficha oficial de Paróquia São Francisco de Assis – Nova Mamoré: região pastoral, data de fundação, endereço, CEP, CNPJ, telefone, e-mail, festa do padroeiro, QUANTIDADE DE COMUNIDADES, clero e bloco \"Missas na Matriz\"",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://mapaosc.ipea.gov.br/api/api/osc/busca_avancada/lista/300/0?avancado={\"dadosGerais\":{\"tx_razao_social_osc\":\"MITRA DIOCESANA DE GUAJARA MIRIM\"}}",
+          "title": "Mapa das OSC / IPEA (espelho do cadastro da Receita Federal) — 15 estabelecimentos do CNPJ raiz 04.290.318 (MITRA DIOCESANA SEDE GUAJARA MIRIM), com endereço e CEP",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "unitType": "paroquia",
+      "cnpj": "04.290.318/0011-87",
+      "status": null,
+      "notes": "Região Pastoral SEDE. Fundada em 25/11/1982. Festa do padroeiro: 04/10. A ficha DECLARA 14 comunidades, inclusa a matriz, sem nomeá-las. Telefone é WhatsApp. A Receita registra o estabelecimento em \"AVENIDA SEBASTIAO JOAO CLIMACO, 7226, CENTRO\" — endereço diferente do da ficha; conferir.",
+      "communities": [
+        {
+          "name": "Matriz São Francisco de Assis",
+          "address": "Av. Antônio Lucas de Araújo, 3800 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://dioceseguajaramirim.org.br/paroquia-sao-francisco-de-assis-nova-mamore-ro/",
+              "title": "Diocese de Guajará-Mirim — ficha oficial de Paróquia São Francisco de Assis – Nova Mamoré: região pastoral, data de fundação, endereço, CEP, CNPJ, telefone, e-mail, festa do padroeiro, QUANTIDADE DE COMUNIDADES, clero e bloco \"Missas na Matriz\"",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São Francisco de Assis",
+          "dayOfWeek": 5,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseguajaramirim.org.br/paroquia-sao-francisco-de-assis-nova-mamore-ro/",
+              "title": "Diocese de Guajará-Mirim — ficha oficial de Paróquia São Francisco de Assis – Nova Mamoré: região pastoral, data de fundação, endereço, CEP, CNPJ, telefone, e-mail, festa do padroeiro, QUANTIDADE DE COMUNIDADES, clero e bloco \"Missas na Matriz\"",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Francisco de Assis",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseguajaramirim.org.br/paroquia-sao-francisco-de-assis-nova-mamore-ro/",
+              "title": "Diocese de Guajará-Mirim — ficha oficial de Paróquia São Francisco de Assis – Nova Mamoré: região pastoral, data de fundação, endereço, CEP, CNPJ, telefone, e-mail, festa do padroeiro, QUANTIDADE DE COMUNIDADES, clero e bloco \"Missas na Matriz\"",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Francisco de Assis",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseguajaramirim.org.br/paroquia-sao-francisco-de-assis-nova-mamore-ro/",
+              "title": "Diocese de Guajará-Mirim — ficha oficial de Paróquia São Francisco de Assis – Nova Mamoré: região pastoral, data de fundação, endereço, CEP, CNPJ, telefone, e-mail, festa do padroeiro, QUANTIDADE DE COMUNIDADES, clero e bloco \"Missas na Matriz\"",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-de-fatima-nova-dimensao-nova-mamore",
+      "name": "Paróquia Nossa Senhora de Fátima",
+      "city": "Nova Mamoré",
+      "state": "RO",
+      "neighborhood": "Nova Dimensão",
+      "address": "Rua Belo Horizonte, 418 – Centro, Distrito de Nova Dimensão (Caixa Postal 77)",
+      "zipCode": "76857-000",
+      "phone": null,
+      "email": "senhoradefatimanovadimensao@gmail.com",
+      "website": null,
+      "priestName": "Pe. Gustavo Orlandin Ferreira",
+      "foundedYear": 2019,
+      "sources": [
+        {
+          "url": "https://dioceseguajaramirim.org.br/paroquias/",
+          "title": "Diocese de Guajará-Mirim — Paróquias (página oficial; traz 12 dos 13 cards — o de Colorado d'Oeste ficou de fora porque tem slug fora do padrão)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://dioceseguajaramirim.org.br/wp-json/wp/v2/posts?categories=7&per_page=100",
+          "title": "Diocese de Guajará-Mirim — REST do WordPress, categoria \"paroquias\" (id 7): as 13 fichas de paróquia, agrupadas pelas categorias Região Pastoral Sede (39), Centro (40) e Sul (41)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://dioceseguajaramirim.org.br/paroquia-nossa-senhora-de-fatima-nova-dimensao-ro/",
+          "title": "Diocese de Guajará-Mirim — ficha oficial de Paróquia Nossa Senhora de Fátima – Nova Mamoré: região pastoral, data de fundação, endereço, CEP, CNPJ, telefone, e-mail, festa do padroeiro, QUANTIDADE DE COMUNIDADES, clero e bloco \"Missas na Matriz\"",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://mapaosc.ipea.gov.br/api/api/osc/busca_avancada/lista/300/0?avancado={\"dadosGerais\":{\"tx_razao_social_osc\":\"MITRA DIOCESANA DE GUAJARA MIRIM\"}}",
+          "title": "Mapa das OSC / IPEA (espelho do cadastro da Receita Federal) — 15 estabelecimentos do CNPJ raiz 04.290.318 (MITRA DIOCESANA SEDE GUAJARA MIRIM), com endereço e CEP",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "unitType": "paroquia",
+      "cnpj": "04.290.318/0003-77",
+      "status": null,
+      "notes": "Região Pastoral SEDE. Fica no DISTRITO DE NOVA DIMENSÃO, município de Nova Mamoré. Fundada em 17/02/2019 — é a paróquia mais nova da diocese. Festa da padroeira: 13/05. A ficha DECLARA 24 comunidades, inclusa a matriz, sem nomeá-las. O clérigo consta como ADMINISTRADOR PAROQUIAL (é também vigário paroquial da Catedral). TELEFONE NÃO GRAVADO: a ficha publica \"(69) 9994-6810\", 8 dígitos depois do DDD — malformado. A ficha não publica horário de missa e nenhuma outra fonte consultada o faz.",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora de Fátima",
+          "address": "Rua Belo Horizonte, 418 – Nova Dimensão",
+          "neighborhood": "Nova Dimensão",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://dioceseguajaramirim.org.br/paroquia-nossa-senhora-de-fatima-nova-dimensao-ro/",
+              "title": "Diocese de Guajará-Mirim — ficha oficial de Paróquia Nossa Senhora de Fátima – Nova Mamoré: região pastoral, data de fundação, endereço, CEP, CNPJ, telefone, e-mail, festa do padroeiro, QUANTIDADE DE COMUNIDADES, clero e bloco \"Missas na Matriz\"",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "sao-miguel-arcanjo-sao-miguel-do-guapore",
+      "name": "Paróquia São Miguel Arcanjo",
+      "city": "São Miguel do Guaporé",
+      "state": "RO",
+      "neighborhood": "Centro",
+      "address": "Avenida Capitão Silvio, 600 – Centro",
+      "zipCode": "76932-000",
+      "phone": "(69) 3642-2053",
+      "email": "claretsfrancisco@gmail.com",
+      "website": null,
+      "priestName": "Pe. Francisco Trilla Folch, C.M.F.",
+      "foundedYear": 1988,
+      "sources": [
+        {
+          "url": "https://dioceseguajaramirim.org.br/paroquias/",
+          "title": "Diocese de Guajará-Mirim — Paróquias (página oficial; traz 12 dos 13 cards — o de Colorado d'Oeste ficou de fora porque tem slug fora do padrão)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://dioceseguajaramirim.org.br/wp-json/wp/v2/posts?categories=7&per_page=100",
+          "title": "Diocese de Guajará-Mirim — REST do WordPress, categoria \"paroquias\" (id 7): as 13 fichas de paróquia, agrupadas pelas categorias Região Pastoral Sede (39), Centro (40) e Sul (41)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://dioceseguajaramirim.org.br/paroquia-sao-miguel-arcanjo-sao-miguel-do-guapore-ro/",
+          "title": "Diocese de Guajará-Mirim — ficha oficial de Paróquia São Miguel Arcanjo – São Miguel do Guaporé: região pastoral, data de fundação, endereço, CEP, CNPJ, telefone, e-mail, festa do padroeiro, QUANTIDADE DE COMUNIDADES, clero e bloco \"Missas na Matriz\"",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://mapaosc.ipea.gov.br/api/api/osc/busca_avancada/lista/300/0?avancado={\"dadosGerais\":{\"tx_razao_social_osc\":\"MITRA DIOCESANA DE GUAJARA MIRIM\"}}",
+          "title": "Mapa das OSC / IPEA (espelho do cadastro da Receita Federal) — 15 estabelecimentos do CNPJ raiz 04.290.318 (MITRA DIOCESANA SEDE GUAJARA MIRIM), com endereço e CEP",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "unitType": "paroquia",
+      "cnpj": "04.290.318/0014-20",
+      "status": null,
+      "notes": "Região Pastoral CENTRO. Fundada em 04/12/1988. Festa do padroeiro: 29/09. Paróquia dos CLARETIANOS (C.M.F.) — o e-mail publicado é o pessoal do pároco. Vigário paroquial: Padre Luiz Garcia. A ficha DECLARA 51 comunidades, inclusa a matriz, sem nomeá-las — é a segunda maior da diocese. Em 10/07/2026 a diocese publicou notícia pelos 53 anos de sacerdócio do Pe. Francisco F. Trilla. A ficha não publica horário de missa e nenhuma outra fonte consultada o faz.",
+      "communities": [
+        {
+          "name": "Matriz São Miguel Arcanjo",
+          "address": "Avenida Capitão Silvio, 600 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://dioceseguajaramirim.org.br/paroquia-sao-miguel-arcanjo-sao-miguel-do-guapore-ro/",
+              "title": "Diocese de Guajará-Mirim — ficha oficial de Paróquia São Miguel Arcanjo – São Miguel do Guaporé: região pastoral, data de fundação, endereço, CEP, CNPJ, telefone, e-mail, festa do padroeiro, QUANTIDADE DE COMUNIDADES, clero e bloco \"Missas na Matriz\"",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "cristo-rei-seringueiras",
+      "name": "Paróquia Cristo Rei",
+      "city": "Seringueiras",
+      "state": "RO",
+      "neighborhood": "Cristo Rei",
+      "address": "Praça Cristo Rei, s/n – Bairro Cristo Rei",
+      "zipCode": "76934-000",
+      "phone": "(69) 99213-0250",
+      "email": "secretariasrg@outlook.com",
+      "website": null,
+      "priestName": "Pe. Maurício da Silva Ribeiro",
+      "foundedYear": 1994,
+      "sources": [
+        {
+          "url": "https://dioceseguajaramirim.org.br/paroquias/",
+          "title": "Diocese de Guajará-Mirim — Paróquias (página oficial; traz 12 dos 13 cards — o de Colorado d'Oeste ficou de fora porque tem slug fora do padrão)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://dioceseguajaramirim.org.br/wp-json/wp/v2/posts?categories=7&per_page=100",
+          "title": "Diocese de Guajará-Mirim — REST do WordPress, categoria \"paroquias\" (id 7): as 13 fichas de paróquia, agrupadas pelas categorias Região Pastoral Sede (39), Centro (40) e Sul (41)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://dioceseguajaramirim.org.br/paroquia-cristo-rei-seringueiras-ro/",
+          "title": "Diocese de Guajará-Mirim — ficha oficial de Paróquia Cristo Rei – Seringueiras: região pastoral, data de fundação, endereço, CEP, CNPJ, telefone, e-mail, festa do padroeiro, QUANTIDADE DE COMUNIDADES, clero e bloco \"Missas na Matriz\"",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://mapaosc.ipea.gov.br/api/api/osc/busca_avancada/lista/300/0?avancado={\"dadosGerais\":{\"tx_razao_social_osc\":\"MITRA DIOCESANA DE GUAJARA MIRIM\"}}",
+          "title": "Mapa das OSC / IPEA (espelho do cadastro da Receita Federal) — 15 estabelecimentos do CNPJ raiz 04.290.318 (MITRA DIOCESANA SEDE GUAJARA MIRIM), com endereço e CEP",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "unitType": "paroquia",
+      "cnpj": "04.290.318/0013-49",
+      "status": null,
+      "notes": "Região Pastoral CENTRO. Fundada em 20/11/1994. Festa do padroeiro: 22/11. Vigário paroquial: Francisco de Barros Nunes. A ficha DECLARA 39 comunidades, inclusa a matriz, sem nomeá-las. A ficha publica o CNPJ como \"04290318/0013-49\". Há outra Paróquia Cristo Rei na diocese, em Cabixi (Região Sul).",
+      "communities": [
+        {
+          "name": "Matriz Cristo Rei",
+          "address": "Praça Cristo Rei, s/n – Bairro Cristo Rei",
+          "neighborhood": "Cristo Rei",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://dioceseguajaramirim.org.br/paroquia-cristo-rei-seringueiras-ro/",
+              "title": "Diocese de Guajará-Mirim — ficha oficial de Paróquia Cristo Rei – Seringueiras: região pastoral, data de fundação, endereço, CEP, CNPJ, telefone, e-mail, festa do padroeiro, QUANTIDADE DE COMUNIDADES, clero e bloco \"Missas na Matriz\"",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Cristo Rei",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseguajaramirim.org.br/paroquia-cristo-rei-seringueiras-ro/",
+              "title": "Diocese de Guajará-Mirim — ficha oficial de Paróquia Cristo Rei – Seringueiras: região pastoral, data de fundação, endereço, CEP, CNPJ, telefone, e-mail, festa do padroeiro, QUANTIDADE DE COMUNIDADES, clero e bloco \"Missas na Matriz\"",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Cristo Rei",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseguajaramirim.org.br/paroquia-cristo-rei-seringueiras-ro/",
+              "title": "Diocese de Guajará-Mirim — ficha oficial de Paróquia Cristo Rei – Seringueiras: região pastoral, data de fundação, endereço, CEP, CNPJ, telefone, e-mail, festa do padroeiro, QUANTIDADE DE COMUNIDADES, clero e bloco \"Missas na Matriz\"",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Cristo Rei",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseguajaramirim.org.br/paroquia-cristo-rei-seringueiras-ro/",
+              "title": "Diocese de Guajará-Mirim — ficha oficial de Paróquia Cristo Rei – Seringueiras: região pastoral, data de fundação, endereço, CEP, CNPJ, telefone, e-mail, festa do padroeiro, QUANTIDADE DE COMUNIDADES, clero e bloco \"Missas na Matriz\"",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Cristo Rei",
+          "dayOfWeek": 2,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseguajaramirim.org.br/paroquia-cristo-rei-seringueiras-ro/",
+              "title": "Diocese de Guajará-Mirim — ficha oficial de Paróquia Cristo Rei – Seringueiras: região pastoral, data de fundação, endereço, CEP, CNPJ, telefone, e-mail, festa do padroeiro, QUANTIDADE DE COMUNIDADES, clero e bloco \"Missas na Matriz\"",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "sao-francisco-de-assis-sao-francisco-do-guapore",
+      "name": "Paróquia São Francisco de Assis",
+      "city": "São Francisco do Guaporé",
+      "state": "RO",
+      "neighborhood": "Cidade Baixa",
+      "address": "Rua Chico Mendes, 3612 – Cidade Baixa (Caixa Postal 49)",
+      "zipCode": "76935-000",
+      "phone": "(69) 99393-9499",
+      "email": "psfcoguapore@yahoo.com",
+      "website": null,
+      "priestName": "Pe. Manoel de Souza Costa",
+      "foundedYear": 1997,
+      "sources": [
+        {
+          "url": "https://dioceseguajaramirim.org.br/paroquias/",
+          "title": "Diocese de Guajará-Mirim — Paróquias (página oficial; traz 12 dos 13 cards — o de Colorado d'Oeste ficou de fora porque tem slug fora do padrão)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://dioceseguajaramirim.org.br/wp-json/wp/v2/posts?categories=7&per_page=100",
+          "title": "Diocese de Guajará-Mirim — REST do WordPress, categoria \"paroquias\" (id 7): as 13 fichas de paróquia, agrupadas pelas categorias Região Pastoral Sede (39), Centro (40) e Sul (41)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://dioceseguajaramirim.org.br/paroquia-sao-francisco-de-assis-sao-francisco-do-guapore-ro/",
+          "title": "Diocese de Guajará-Mirim — ficha oficial de Paróquia São Francisco de Assis – São Francisco do Guaporé: região pastoral, data de fundação, endereço, CEP, CNPJ, telefone, e-mail, festa do padroeiro, QUANTIDADE DE COMUNIDADES, clero e bloco \"Missas na Matriz\"",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://mapaosc.ipea.gov.br/api/api/osc/busca_avancada/lista/300/0?avancado={\"dadosGerais\":{\"tx_razao_social_osc\":\"MITRA DIOCESANA DE GUAJARA MIRIM\"}}",
+          "title": "Mapa das OSC / IPEA (espelho do cadastro da Receita Federal) — 15 estabelecimentos do CNPJ raiz 04.290.318 (MITRA DIOCESANA SEDE GUAJARA MIRIM), com endereço e CEP",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "unitType": "paroquia",
+      "cnpj": "04.290.318/0017-72",
+      "status": null,
+      "notes": "Região Pastoral CENTRO. Fundada em 16/11/1997. A ficha DECLARA 37 comunidades, inclusa a matriz, sem nomeá-las. Segundo sacerdote: Pe. Josiel Santos da Cunha (ordenado em Colorado do Oeste em 12/04/2021). A ficha publica \"Festa na Paróquia São Francisco de Assis no dia 04/06/2020\" — data de um ano específico, não a festa litúrgica (que é 04/10); não gravada. ZIPCODE recuperado do ViaCEP (76935-000, CEP único de São Francisco do Guaporé): a ficha não publica CEP e a Receita ainda registra o CEP antigo 78973-000, com o endereço \"NA CASA PAROQUIAL, BR 429, S/N, KM 110\".",
+      "communities": [
+        {
+          "name": "Matriz São Francisco de Assis",
+          "address": "Rua Chico Mendes, 3612 – Cidade Baixa",
+          "neighborhood": "Cidade Baixa",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://dioceseguajaramirim.org.br/paroquia-sao-francisco-de-assis-sao-francisco-do-guapore-ro/",
+              "title": "Diocese de Guajará-Mirim — ficha oficial de Paróquia São Francisco de Assis – São Francisco do Guaporé: região pastoral, data de fundação, endereço, CEP, CNPJ, telefone, e-mail, festa do padroeiro, QUANTIDADE DE COMUNIDADES, clero e bloco \"Missas na Matriz\"",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São Francisco de Assis",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseguajaramirim.org.br/paroquia-sao-francisco-de-assis-sao-francisco-do-guapore-ro/",
+              "title": "Diocese de Guajará-Mirim — ficha oficial de Paróquia São Francisco de Assis – São Francisco do Guaporé: região pastoral, data de fundação, endereço, CEP, CNPJ, telefone, e-mail, festa do padroeiro, QUANTIDADE DE COMUNIDADES, clero e bloco \"Missas na Matriz\"",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Francisco de Assis",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseguajaramirim.org.br/paroquia-sao-francisco-de-assis-sao-francisco-do-guapore-ro/",
+              "title": "Diocese de Guajará-Mirim — ficha oficial de Paróquia São Francisco de Assis – São Francisco do Guaporé: região pastoral, data de fundação, endereço, CEP, CNPJ, telefone, e-mail, festa do padroeiro, QUANTIDADE DE COMUNIDADES, clero e bloco \"Missas na Matriz\"",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Francisco de Assis",
+          "dayOfWeek": 2,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseguajaramirim.org.br/paroquia-sao-francisco-de-assis-sao-francisco-do-guapore-ro/",
+              "title": "Diocese de Guajará-Mirim — ficha oficial de Paróquia São Francisco de Assis – São Francisco do Guaporé: região pastoral, data de fundação, endereço, CEP, CNPJ, telefone, e-mail, festa do padroeiro, QUANTIDADE DE COMUNIDADES, clero e bloco \"Missas na Matriz\"",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Francisco de Assis",
+          "dayOfWeek": 5,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": "Só na 1ª SEXTA-FEIRA DO MÊS (\"1° Sexta-feira do mês – 18h30\"). Recorrência mensal, fora do modelo semanal.",
+          "sources": [
+            {
+              "url": "https://dioceseguajaramirim.org.br/paroquia-sao-francisco-de-assis-sao-francisco-do-guapore-ro/",
+              "title": "Diocese de Guajará-Mirim — ficha oficial de Paróquia São Francisco de Assis – São Francisco do Guaporé: região pastoral, data de fundação, endereço, CEP, CNPJ, telefone, e-mail, festa do padroeiro, QUANTIDADE DE COMUNIDADES, clero e bloco \"Missas na Matriz\"",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "sao-domingos-de-gusmao-sao-domingos-do-guapore-costa-marques",
+      "name": "Paróquia São Domingos de Gusmão",
+      "city": "Costa Marques",
+      "state": "RO",
+      "neighborhood": "São Domingos do Guaporé",
+      "address": "Rua Tiradentes, s/n – Centro, Distrito de São Domingos do Guaporé (BR-429, km 58; Caixa Postal 37)",
+      "zipCode": "76937-000",
+      "phone": "(69) 99246-5451",
+      "email": "paroquiadesaodomingos@hotmail.com",
+      "website": null,
+      "priestName": "Diácono Braz Almeida",
+      "foundedYear": 2013,
+      "sources": [
+        {
+          "url": "https://dioceseguajaramirim.org.br/paroquias/",
+          "title": "Diocese de Guajará-Mirim — Paróquias (página oficial; traz 12 dos 13 cards — o de Colorado d'Oeste ficou de fora porque tem slug fora do padrão)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://dioceseguajaramirim.org.br/wp-json/wp/v2/posts?categories=7&per_page=100",
+          "title": "Diocese de Guajará-Mirim — REST do WordPress, categoria \"paroquias\" (id 7): as 13 fichas de paróquia, agrupadas pelas categorias Região Pastoral Sede (39), Centro (40) e Sul (41)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://dioceseguajaramirim.org.br/paroquia-sao-domingos-de-gusmao-sao-domingos-do-guapore-ro/",
+          "title": "Diocese de Guajará-Mirim — ficha oficial de Paróquia São Domingos de Gusmão – Costa Marques: região pastoral, data de fundação, endereço, CEP, CNPJ, telefone, e-mail, festa do padroeiro, QUANTIDADE DE COMUNIDADES, clero e bloco \"Missas na Matriz\"",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://mapaosc.ipea.gov.br/api/api/osc/busca_avancada/lista/300/0?avancado={\"dadosGerais\":{\"tx_razao_social_osc\":\"MITRA DIOCESANA DE GUAJARA MIRIM\"}}",
+          "title": "Mapa das OSC / IPEA (espelho do cadastro da Receita Federal) — 15 estabelecimentos do CNPJ raiz 04.290.318 (MITRA DIOCESANA SEDE GUAJARA MIRIM), com endereço e CEP",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "unitType": "paroquia",
+      "cnpj": "04.290.318/0004-58",
+      "status": null,
+      "notes": "Região Pastoral CENTRO. Fica no DISTRITO DE SÃO DOMINGOS DO GUAPORÉ, município de COSTA MARQUES (por isso city = Costa Marques). Fundada em 17/02/2013. Festa do padroeiro: 08/08. A ficha DECLARA 10 comunidades, inclusa a matriz, sem nomeá-las. ATENÇÃO: o responsável é um DIÁCONO — a ficha o registra como \"Administrador Paroquial: Diácono Braz Almeida\" (paróquia confiada a diácono, sem padre residente). Coerentemente, a ficha NÃO publica nenhuma missa, e nenhuma outra fonte consultada o faz.",
+      "communities": [
+        {
+          "name": "Matriz São Domingos de Gusmão",
+          "address": "Rua Tiradentes, s/n – Distrito de São Domingos do Guaporé",
+          "neighborhood": "São Domingos do Guaporé",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://dioceseguajaramirim.org.br/paroquia-sao-domingos-de-gusmao-sao-domingos-do-guapore-ro/",
+              "title": "Diocese de Guajará-Mirim — ficha oficial de Paróquia São Domingos de Gusmão – Costa Marques: região pastoral, data de fundação, endereço, CEP, CNPJ, telefone, e-mail, festa do padroeiro, QUANTIDADE DE COMUNIDADES, clero e bloco \"Missas na Matriz\"",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "divino-espirito-santo-costa-marques",
+      "name": "Paróquia Basílica Divino Espírito Santo",
+      "city": "Costa Marques",
+      "state": "RO",
+      "neighborhood": "Centro",
+      "address": "Avenida Mamoré, 1462 – Centro (Caixa Postal 37)",
+      "zipCode": "76937-000",
+      "phone": "(69) 99271-5032",
+      "email": "paroquiacostamarques@hotmail.com",
+      "website": null,
+      "priestName": "Pe. José Elio Dukievicz",
+      "foundedYear": 2009,
+      "sources": [
+        {
+          "url": "https://dioceseguajaramirim.org.br/paroquias/",
+          "title": "Diocese de Guajará-Mirim — Paróquias (página oficial; traz 12 dos 13 cards — o de Colorado d'Oeste ficou de fora porque tem slug fora do padrão)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://dioceseguajaramirim.org.br/wp-json/wp/v2/posts?categories=7&per_page=100",
+          "title": "Diocese de Guajará-Mirim — REST do WordPress, categoria \"paroquias\" (id 7): as 13 fichas de paróquia, agrupadas pelas categorias Região Pastoral Sede (39), Centro (40) e Sul (41)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://dioceseguajaramirim.org.br/paroquia-divino-espirito-santo-costa-marques-ro/",
+          "title": "Diocese de Guajará-Mirim — ficha oficial de Paróquia Basílica Divino Espírito Santo – Costa Marques: região pastoral, data de fundação, endereço, CEP, CNPJ, telefone, e-mail, festa do padroeiro, QUANTIDADE DE COMUNIDADES, clero e bloco \"Missas na Matriz\"",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://mapaosc.ipea.gov.br/api/api/osc/busca_avancada/lista/300/0?avancado={\"dadosGerais\":{\"tx_razao_social_osc\":\"MITRA DIOCESANA DE GUAJARA MIRIM\"}}",
+          "title": "Mapa das OSC / IPEA (espelho do cadastro da Receita Federal) — 15 estabelecimentos do CNPJ raiz 04.290.318 (MITRA DIOCESANA SEDE GUAJARA MIRIM), com endereço e CEP",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://liriocatolico.com.br/horario_missa/dados/uf/RO.json",
+          "title": "liriocatolico.com.br — base de horários de missa de Rondônia. AGREGADOR: \"ultima_atualizacao\" = 2026-09-02 em todas as 49 fichas do estado (data de regeneração da base)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "unitType": "paroquia",
+      "cnpj": "04.290.318/0016-91",
+      "status": null,
+      "notes": "Região Pastoral CENTRO. NOME COMO A DIOCESE PUBLICA: \"Paróquia Basílica Divino Espírito Santo\" — a fonte não explica o título de basílica; conferir antes de usar. Fundada em 17/05/2009. Festa do padroeiro: Pentecostes. A ficha DECLARA 16 comunidades, inclusa a matriz, sem nomeá-las. A Receita registra o estabelecimento em \"AVENIDA FORTE PRINCIPE DA BEIRA, S/N, CENTRO\" — endereço diferente do da ficha; conferir. O liriocatolico tem uma ficha \"Senhor Divino Espírito Santo\" em Costa Marques, mas com o campo de missas VAZIO. A ficha não publica horário e nenhuma outra fonte consultada o faz.",
+      "communities": [
+        {
+          "name": "Matriz Divino Espírito Santo",
+          "address": "Avenida Mamoré, 1462 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://dioceseguajaramirim.org.br/paroquia-divino-espirito-santo-costa-marques-ro/",
+              "title": "Diocese de Guajará-Mirim — ficha oficial de Paróquia Basílica Divino Espírito Santo – Costa Marques: região pastoral, data de fundação, endereço, CEP, CNPJ, telefone, e-mail, festa do padroeiro, QUANTIDADE DE COMUNIDADES, clero e bloco \"Missas na Matriz\"",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-do-perpetuo-socorro-corumbiara",
+      "name": "Paróquia Nossa Senhora do Perpétuo Socorro",
+      "city": "Corumbiara",
+      "state": "RO",
+      "neighborhood": "Centro",
+      "address": "Avenida Itália Cautiero Franco, 2039 – Centro",
+      "zipCode": "76995-000",
+      "phone": "(69) 99340-3515",
+      "email": "paroquiacorumbiara@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Anilson Domingues Ferreira",
+      "foundedYear": 1990,
+      "sources": [
+        {
+          "url": "https://dioceseguajaramirim.org.br/paroquias/",
+          "title": "Diocese de Guajará-Mirim — Paróquias (página oficial; traz 12 dos 13 cards — o de Colorado d'Oeste ficou de fora porque tem slug fora do padrão)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://dioceseguajaramirim.org.br/wp-json/wp/v2/posts?categories=7&per_page=100",
+          "title": "Diocese de Guajará-Mirim — REST do WordPress, categoria \"paroquias\" (id 7): as 13 fichas de paróquia, agrupadas pelas categorias Região Pastoral Sede (39), Centro (40) e Sul (41)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://dioceseguajaramirim.org.br/paroquia-n-sra-do-perpetuo-socorro-corumbiara-ro/",
+          "title": "Diocese de Guajará-Mirim — ficha oficial de Paróquia Nossa Senhora do Perpétuo Socorro – Corumbiara: região pastoral, data de fundação, endereço, CEP, CNPJ, telefone, e-mail, festa do padroeiro, QUANTIDADE DE COMUNIDADES, clero e bloco \"Missas na Matriz\"",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://mapaosc.ipea.gov.br/api/api/osc/busca_avancada/lista/300/0?avancado={\"dadosGerais\":{\"tx_razao_social_osc\":\"MITRA DIOCESANA DE GUAJARA MIRIM\"}}",
+          "title": "Mapa das OSC / IPEA (espelho do cadastro da Receita Federal) — 15 estabelecimentos do CNPJ raiz 04.290.318 (MITRA DIOCESANA SEDE GUAJARA MIRIM), com endereço e CEP",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "unitType": "paroquia",
+      "cnpj": "04.290.318/0012-68",
+      "status": null,
+      "notes": "Região Pastoral SUL. Fundada em 18/03/1990. Festa da padroeira: 27 de junho. A ficha DECLARA 33 comunidades, inclusa a matriz, sem nomeá-las. A ficha publica o CNPJ como \"04290318001268\". É a ficha mais antiga do conjunto (modificada em 21/02/2025; as demais são de 2026). A ficha guarda memória do Pe. Raimundo Batista dos Santos, in memoriam.",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora do Perpétuo Socorro",
+          "address": "Avenida Itália Cautiero Franco, 2039 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://dioceseguajaramirim.org.br/paroquia-n-sra-do-perpetuo-socorro-corumbiara-ro/",
+              "title": "Diocese de Guajará-Mirim — ficha oficial de Paróquia Nossa Senhora do Perpétuo Socorro – Corumbiara: região pastoral, data de fundação, endereço, CEP, CNPJ, telefone, e-mail, festa do padroeiro, QUANTIDADE DE COMUNIDADES, clero e bloco \"Missas na Matriz\"",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseguajaramirim.org.br/paroquia-n-sra-do-perpetuo-socorro-corumbiara-ro/",
+              "title": "Diocese de Guajará-Mirim — ficha oficial de Paróquia Nossa Senhora do Perpétuo Socorro – Corumbiara: região pastoral, data de fundação, endereço, CEP, CNPJ, telefone, e-mail, festa do padroeiro, QUANTIDADE DE COMUNIDADES, clero e bloco \"Missas na Matriz\"",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseguajaramirim.org.br/paroquia-n-sra-do-perpetuo-socorro-corumbiara-ro/",
+              "title": "Diocese de Guajará-Mirim — ficha oficial de Paróquia Nossa Senhora do Perpétuo Socorro – Corumbiara: região pastoral, data de fundação, endereço, CEP, CNPJ, telefone, e-mail, festa do padroeiro, QUANTIDADE DE COMUNIDADES, clero e bloco \"Missas na Matriz\"",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseguajaramirim.org.br/paroquia-n-sra-do-perpetuo-socorro-corumbiara-ro/",
+              "title": "Diocese de Guajará-Mirim — ficha oficial de Paróquia Nossa Senhora do Perpétuo Socorro – Corumbiara: região pastoral, data de fundação, endereço, CEP, CNPJ, telefone, e-mail, festa do padroeiro, QUANTIDADE DE COMUNIDADES, clero e bloco \"Missas na Matriz\"",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-aparecida-colorado-do-oeste",
+      "name": "Paróquia Nossa Senhora Aparecida",
+      "city": "Colorado do Oeste",
+      "state": "RO",
+      "neighborhood": "Centro",
+      "address": "Rua Rio de Janeiro, 4358 – Centro (Caixa Postal 81)",
+      "zipCode": "76993-000",
+      "phone": "(69) 3341-2496",
+      "email": "pnacolorado@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Reginaldo Alves",
+      "foundedYear": 1979,
+      "sources": [
+        {
+          "url": "https://dioceseguajaramirim.org.br/paroquias/",
+          "title": "Diocese de Guajará-Mirim — Paróquias (página oficial; traz 12 dos 13 cards — o de Colorado d'Oeste ficou de fora porque tem slug fora do padrão)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://dioceseguajaramirim.org.br/wp-json/wp/v2/posts?categories=7&per_page=100",
+          "title": "Diocese de Guajará-Mirim — REST do WordPress, categoria \"paroquias\" (id 7): as 13 fichas de paróquia, agrupadas pelas categorias Região Pastoral Sede (39), Centro (40) e Sul (41)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://dioceseguajaramirim.org.br/nossa-sra-aparecida-colorado-doeste-ro/",
+          "title": "Diocese de Guajará-Mirim — ficha oficial de Paróquia Nossa Senhora Aparecida – Colorado do Oeste: região pastoral, data de fundação, endereço, CEP, CNPJ, telefone, e-mail, festa do padroeiro, QUANTIDADE DE COMUNIDADES, clero e bloco \"Missas na Matriz\"",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://mapaosc.ipea.gov.br/api/api/osc/busca_avancada/lista/300/0?avancado={\"dadosGerais\":{\"tx_razao_social_osc\":\"MITRA DIOCESANA DE GUAJARA MIRIM\"}}",
+          "title": "Mapa das OSC / IPEA (espelho do cadastro da Receita Federal) — 15 estabelecimentos do CNPJ raiz 04.290.318 (MITRA DIOCESANA SEDE GUAJARA MIRIM), com endereço e CEP",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://liriocatolico.com.br/horario_missa/dados/uf/RO.json",
+          "title": "liriocatolico.com.br — base de horários de missa de Rondônia. AGREGADOR: \"ultima_atualizacao\" = 2026-09-02 em todas as 49 fichas do estado (data de regeneração da base)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "unitType": "paroquia",
+      "cnpj": "04.290.318/0005-39",
+      "status": null,
+      "notes": "Região Pastoral SUL. É A PARÓQUIA QUE FALTA NA PÁGINA /paroquias/ do site: o slug dela é \"nossa-sra-aparecida-colorado-doeste-ro\" (fora do padrão \"paroquia-…\"), e só apareceu pela REST do WordPress e pela busca interna. Fundada em 13/05/1979. Festa da padroeira: 12/10. Segundo sacerdote: Pe. Enivaldo de Oliveira Fracasso. A ficha DECLARA 53 comunidades, inclusa a matriz, sem nomeá-las — é a MAIOR da diocese. A ficha publica o CNPJ com uma barra no lugar do hífen (\"04.290.318/0005/39\"). A Receita registra o nº 4311 na Rua Rio de Janeiro (a ficha, 4358). O agregador liriocatolico repete exatamente a mesma grade (domingo 8h e 19h30, quarta 19h30), o que corrobora a ficha.",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora Aparecida",
+          "address": "Rua Rio de Janeiro, 4358 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://dioceseguajaramirim.org.br/nossa-sra-aparecida-colorado-doeste-ro/",
+              "title": "Diocese de Guajará-Mirim — ficha oficial de Paróquia Nossa Senhora Aparecida – Colorado do Oeste: região pastoral, data de fundação, endereço, CEP, CNPJ, telefone, e-mail, festa do padroeiro, QUANTIDADE DE COMUNIDADES, clero e bloco \"Missas na Matriz\"",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora Aparecida",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseguajaramirim.org.br/nossa-sra-aparecida-colorado-doeste-ro/",
+              "title": "Diocese de Guajará-Mirim — ficha oficial de Paróquia Nossa Senhora Aparecida – Colorado do Oeste: região pastoral, data de fundação, endereço, CEP, CNPJ, telefone, e-mail, festa do padroeiro, QUANTIDADE DE COMUNIDADES, clero e bloco \"Missas na Matriz\"",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora Aparecida",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseguajaramirim.org.br/nossa-sra-aparecida-colorado-doeste-ro/",
+              "title": "Diocese de Guajará-Mirim — ficha oficial de Paróquia Nossa Senhora Aparecida – Colorado do Oeste: região pastoral, data de fundação, endereço, CEP, CNPJ, telefone, e-mail, festa do padroeiro, QUANTIDADE DE COMUNIDADES, clero e bloco \"Missas na Matriz\"",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora Aparecida",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseguajaramirim.org.br/nossa-sra-aparecida-colorado-doeste-ro/",
+              "title": "Diocese de Guajará-Mirim — ficha oficial de Paróquia Nossa Senhora Aparecida – Colorado do Oeste: região pastoral, data de fundação, endereço, CEP, CNPJ, telefone, e-mail, festa do padroeiro, QUANTIDADE DE COMUNIDADES, clero e bloco \"Missas na Matriz\"",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "cristo-salvador-cerejeiras",
+      "name": "Paróquia Cristo Salvador",
+      "city": "Cerejeiras",
+      "state": "RO",
+      "neighborhood": "Liberdade",
+      "address": "Avenida das Nações, 2440 – Bairro Liberdade (Caixa Postal 41)",
+      "zipCode": "76997-000",
+      "phone": "(69) 99209-5807",
+      "email": "pcscerejeiras@gmail.com",
+      "website": null,
+      "priestName": "Pe. Edmilson Pereira de Oliveira",
+      "foundedYear": 1982,
+      "sources": [
+        {
+          "url": "https://dioceseguajaramirim.org.br/paroquias/",
+          "title": "Diocese de Guajará-Mirim — Paróquias (página oficial; traz 12 dos 13 cards — o de Colorado d'Oeste ficou de fora porque tem slug fora do padrão)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://dioceseguajaramirim.org.br/wp-json/wp/v2/posts?categories=7&per_page=100",
+          "title": "Diocese de Guajará-Mirim — REST do WordPress, categoria \"paroquias\" (id 7): as 13 fichas de paróquia, agrupadas pelas categorias Região Pastoral Sede (39), Centro (40) e Sul (41)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://dioceseguajaramirim.org.br/paroquia-cristo-salvador-cerejeiras-ro/",
+          "title": "Diocese de Guajará-Mirim — ficha oficial de Paróquia Cristo Salvador – Cerejeiras: região pastoral, data de fundação, endereço, CEP, CNPJ, telefone, e-mail, festa do padroeiro, QUANTIDADE DE COMUNIDADES, clero e bloco \"Missas na Matriz\"",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://mapaosc.ipea.gov.br/api/api/osc/busca_avancada/lista/300/0?avancado={\"dadosGerais\":{\"tx_razao_social_osc\":\"MITRA DIOCESANA DE GUAJARA MIRIM\"}}",
+          "title": "Mapa das OSC / IPEA (espelho do cadastro da Receita Federal) — 15 estabelecimentos do CNPJ raiz 04.290.318 (MITRA DIOCESANA SEDE GUAJARA MIRIM), com endereço e CEP",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "unitType": "paroquia",
+      "cnpj": "04.290.318/0007-09",
+      "status": null,
+      "notes": "Região Pastoral SUL. Fundada em 01/05/1982 — a ficha registra o dia 01/05 como aniversário de fundação da paróquia, e não publica outra data de padroeiro. A ficha DECLARA 40 comunidades, inclusa a matriz, sem nomeá-las. A Receita registra a Avenida das Nações sem número.",
+      "communities": [
+        {
+          "name": "Matriz Cristo Salvador",
+          "address": "Avenida das Nações, 2440 – Bairro Liberdade",
+          "neighborhood": "Liberdade",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://dioceseguajaramirim.org.br/paroquia-cristo-salvador-cerejeiras-ro/",
+              "title": "Diocese de Guajará-Mirim — ficha oficial de Paróquia Cristo Salvador – Cerejeiras: região pastoral, data de fundação, endereço, CEP, CNPJ, telefone, e-mail, festa do padroeiro, QUANTIDADE DE COMUNIDADES, clero e bloco \"Missas na Matriz\"",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Cristo Salvador",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseguajaramirim.org.br/paroquia-cristo-salvador-cerejeiras-ro/",
+              "title": "Diocese de Guajará-Mirim — ficha oficial de Paróquia Cristo Salvador – Cerejeiras: região pastoral, data de fundação, endereço, CEP, CNPJ, telefone, e-mail, festa do padroeiro, QUANTIDADE DE COMUNIDADES, clero e bloco \"Missas na Matriz\"",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Cristo Salvador",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseguajaramirim.org.br/paroquia-cristo-salvador-cerejeiras-ro/",
+              "title": "Diocese de Guajará-Mirim — ficha oficial de Paróquia Cristo Salvador – Cerejeiras: região pastoral, data de fundação, endereço, CEP, CNPJ, telefone, e-mail, festa do padroeiro, QUANTIDADE DE COMUNIDADES, clero e bloco \"Missas na Matriz\"",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Cristo Salvador",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseguajaramirim.org.br/paroquia-cristo-salvador-cerejeiras-ro/",
+              "title": "Diocese de Guajará-Mirim — ficha oficial de Paróquia Cristo Salvador – Cerejeiras: região pastoral, data de fundação, endereço, CEP, CNPJ, telefone, e-mail, festa do padroeiro, QUANTIDADE DE COMUNIDADES, clero e bloco \"Missas na Matriz\"",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "cristo-rei-cabixi",
+      "name": "Paróquia Cristo Rei",
+      "city": "Cabixi",
+      "state": "RO",
+      "neighborhood": "Centro",
+      "address": "Rua Aimorés, 3094 – Centro",
+      "zipCode": "76994-000",
+      "phone": "(69) 99211-0733",
+      "email": "paroquiacabixi@yahoo.com.br",
+      "website": null,
+      "priestName": "Pe. Edvaldo Costa da Conceição",
+      "foundedYear": 1982,
+      "sources": [
+        {
+          "url": "https://dioceseguajaramirim.org.br/paroquias/",
+          "title": "Diocese de Guajará-Mirim — Paróquias (página oficial; traz 12 dos 13 cards — o de Colorado d'Oeste ficou de fora porque tem slug fora do padrão)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://dioceseguajaramirim.org.br/wp-json/wp/v2/posts?categories=7&per_page=100",
+          "title": "Diocese de Guajará-Mirim — REST do WordPress, categoria \"paroquias\" (id 7): as 13 fichas de paróquia, agrupadas pelas categorias Região Pastoral Sede (39), Centro (40) e Sul (41)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://dioceseguajaramirim.org.br/paroquia-cristo-rei-cabixi-ro/",
+          "title": "Diocese de Guajará-Mirim — ficha oficial de Paróquia Cristo Rei – Cabixi: região pastoral, data de fundação, endereço, CEP, CNPJ, telefone, e-mail, festa do padroeiro, QUANTIDADE DE COMUNIDADES, clero e bloco \"Missas na Matriz\"",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://mapaosc.ipea.gov.br/api/api/osc/busca_avancada/lista/300/0?avancado={\"dadosGerais\":{\"tx_razao_social_osc\":\"MITRA DIOCESANA DE GUAJARA MIRIM\"}}",
+          "title": "Mapa das OSC / IPEA (espelho do cadastro da Receita Federal) — 15 estabelecimentos do CNPJ raiz 04.290.318 (MITRA DIOCESANA SEDE GUAJARA MIRIM), com endereço e CEP",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "unitType": "paroquia",
+      "cnpj": "04.290.318/0009-62",
+      "status": null,
+      "notes": "Região Pastoral SUL. Fundada em 25/11/1982; a ficha transcreve a \"Ata da Criação e instalação canônica de Cristo Rei, Município de Cabixi – RO\". Festa do padroeiro: 20/11. A ficha DECLARA 24 comunidades, inclusa a matriz, sem nomeá-las. Há outra Paróquia Cristo Rei na diocese, em Seringueiras (Região Centro).",
+      "communities": [
+        {
+          "name": "Matriz Cristo Rei",
+          "address": "Rua Aimorés, 3094 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://dioceseguajaramirim.org.br/paroquia-cristo-rei-cabixi-ro/",
+              "title": "Diocese de Guajará-Mirim — ficha oficial de Paróquia Cristo Rei – Cabixi: região pastoral, data de fundação, endereço, CEP, CNPJ, telefone, e-mail, festa do padroeiro, QUANTIDADE DE COMUNIDADES, clero e bloco \"Missas na Matriz\"",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Cristo Rei",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseguajaramirim.org.br/paroquia-cristo-rei-cabixi-ro/",
+              "title": "Diocese de Guajará-Mirim — ficha oficial de Paróquia Cristo Rei – Cabixi: região pastoral, data de fundação, endereço, CEP, CNPJ, telefone, e-mail, festa do padroeiro, QUANTIDADE DE COMUNIDADES, clero e bloco \"Missas na Matriz\"",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Cristo Rei",
+          "dayOfWeek": 3,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseguajaramirim.org.br/paroquia-cristo-rei-cabixi-ro/",
+              "title": "Diocese de Guajará-Mirim — ficha oficial de Paróquia Cristo Rei – Cabixi: região pastoral, data de fundação, endereço, CEP, CNPJ, telefone, e-mail, festa do padroeiro, QUANTIDADE DE COMUNIDADES, clero e bloco \"Missas na Matriz\"",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Cristo Rei",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://dioceseguajaramirim.org.br/paroquia-cristo-rei-cabixi-ro/",
+              "title": "Diocese de Guajará-Mirim — ficha oficial de Paróquia Cristo Rei – Cabixi: região pastoral, data de fundação, endereço, CEP, CNPJ, telefone, e-mail, festa do padroeiro, QUANTIDADE DE COMUNIDADES, clero e bloco \"Missas na Matriz\"",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Cristo Rei",
+          "dayOfWeek": 5,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": "Só na 1ª SEXTA-FEIRA DE CADA MÊS (\"1ª Sexta-feira de cada mês - 15h\"). Recorrência mensal, fora do modelo semanal.",
+          "sources": [
+            {
+              "url": "https://dioceseguajaramirim.org.br/paroquia-cristo-rei-cabixi-ro/",
+              "title": "Diocese de Guajará-Mirim — ficha oficial de Paróquia Cristo Rei – Cabixi: região pastoral, data de fundação, endereço, CEP, CNPJ, telefone, e-mail, festa do padroeiro, QUANTIDADE DE COMUNIDADES, clero e bloco \"Missas na Matriz\"",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    }
+  ],
+  "coverage": {
+    "parishesFound": 13,
+    "parishesExpected": 13,
+    "notes": "COBERTURA FECHADA EM 13/13, com três provas. (1) O site oficial (WordPress/Elementor ativo — notícias de 11/09/2026) publica as fichas de paróquia como POSTS na categoria \"paroquias\" (id 7), subdivididas nas categorias Região Pastoral SEDE (id 39, 4 paróquias), CENTRO (id 40, 5) e SUL (id 41, 4). ATENÇÃO: a página /paroquias/ só mostra 12 cards — a Paróquia Nossa Senhora Aparecida de COLORADO D'OESTE tem slug fora do padrão (\"nossa-sra-aparecida-colorado-doeste-ro\", sem o prefixo \"paroquia-\") e não aparece lá; só a encontrei pela REST (`/wp-json/wp/v2/posts?categories=7`) e pela busca interna do site. (2) O gcatholic registra exatamente 13 paróquias. (3) A Receita fecha a conta: o CNPJ raiz é 04.290.318 (\"MITRA DIOCESANA SEDE GUAJARA MIRIM\"), publicado por cada ficha de paróquia, e o Mapa das OSC/IPEA devolve 15 estabelecimentos — 13 casam um a um com as 13 fichas, 1 é a sede (Av. Costa Marques, 561) e 1 é uma obra em Guajará-Mirim (Av. Porto Carreiro, 755, Bairro São José) que a diocese não lista como paróquia. FICHAS EXCELENTES: cada uma traz região pastoral, data de fundação, endereço, CEP, CNPJ PRÓPRIO, telefone, e-mail, festa do padroeiro, QUANTIDADE DE COMUNIDADES e o clero — e 9 das 13 publicam \"Missas na Matriz\". SEM MISSA PUBLICADA (4): Nossa Senhora de Fátima de Nova Dimensão, São Miguel Arcanjo, São Domingos de Gusmão (esta é administrada por um DIÁCONO, sem padre residente) e Divino Espírito Santo de Costa Marques. A página /horarios-de-missas/ do site é um PLACEHOLDER com \"Lorem ipsum\" e abas vazias — descartada. COMUNIDADES: as fichas DECLARAM os totais (12+9+14+24+51+39+37+10+16+33+53+40+24 = 362 comunidades, \"inclusa a Matriz\") mas NÃO AS NOMEIAM. A única nomeada além das matrizes é a \"Igrejinha N. Sra. do Perpétuo Socorro\", antiga igreja paroquial de Guajará-Mirim, que tem grade de missa própria na ficha da Catedral. Portanto: 362 comunidades declaradas, 15 gravadas. SÉ VACANTE: Dom Benedito Araújo foi transferido para a Diocese de Campo Maior em 07/11/2025; a diocese é governada pelo ADMINISTRADOR DIOCESANO Pe. Wilian Lino Orcesi, que é também pároco da Catedral. Nenhuma fonte consultada registra nomeação de novo bispo até 18/09/2026. DIOCESE DE FRONTEIRA: faz divisa com a Bolívia e tem terras indígenas; nenhuma fonte pública nomeia as comunidades indígenas ou ribeirinhas atendidas."
+  }
+}

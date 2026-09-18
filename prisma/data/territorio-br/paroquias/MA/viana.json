@@ -1,0 +1,1778 @@
+{
+ "diocese": {
+  "name": "Diocese de Viana",
+  "type": "Diocese",
+  "slug": "viana",
+  "city": "Viana",
+  "state": "MA",
+  "address": "Cúria Diocesana, Praça Monsenhor Arouche, 132, Centro (Caixa Postal 07)",
+  "zipCode": "65215-000",
+  "phone": "(98) 3351-1174",
+  "email": null,
+  "website": "https://diocesedeviana.org.br",
+  "bishopName": "Dom Evaldo Carvalho dos Santos, C.M.",
+  "sources": [
+   {
+    "url": "https://diocesedeviana.org.br/paroquias",
+    "title": "Diocese de Viana - pagina Paroquias (site oficial ativo; as 29 unidades organizadas em 7 foranias)",
+    "accessedAt": "2026-09-18"
+   },
+   {
+    "url": "https://diocesedeviana.org.br/wp-json/wp/v2/pages?per_page=100",
+    "title": "Diocese de Viana - REST do WordPress (o tipo de conteudo 'local' das paroquias NAO esta exposto na REST; a listagem sai da pagina /paroquias, modificada em 20/04/2023)",
+    "accessedAt": "2026-09-18"
+   },
+   {
+    "url": "https://www.catholic-hierarchy.org/diocese/dvian.html",
+    "title": "catholic-hierarchy.org - Viana (Diocese): 27 paroquias, 525.000 catolicos e 46 presbiteros em 2023",
+    "accessedAt": "2026-09-18"
+   },
+   {
+    "url": "https://gcatholic.org/churches/local/vian0",
+    "title": "gcatholic.org - Igrejas da Diocese de Viana (28 igrejas, 26 marcadas \"Parish\"; atualizado em 01/01/2026)",
+    "accessedAt": "2026-09-18"
+   },
+   {
+    "url": "https://mapaosc.ipea.gov.br/",
+    "title": "Mapa das OSC / IPEA - busca por razao social \"DIOCESE DE VIANA\": so 2 inscricoes do CNPJ 06.221.683 (sede + Povoado Coque); as paroquias de Viana tem CNPJ proprio (ex.: PAROQUIA SAO VICENTE FERRER 05.284.746, PAROQUIA SAO JOSE OPERARIO TUFILANDIA 29.071.429, PAROQUIA DE SAO BENEDITO DE CAJARI 31.043.005), entao a varredura de filiais da mitra nao fecha a lista",
+    "accessedAt": "2026-09-18"
+   }
+  ],
+  "confidence": "alta"
+ },
+ "parishes": [
+  {
+   "slug": "sao-francisco-de-assis-e-nossa-senhora-da-conceicao-buriticupu",
+   "name": "Área Missionária São Francisco de Assis e Nossa Senhora da Conceição",
+   "city": "Buriticupu",
+   "state": "MA",
+   "neighborhood": "Segundo Núcleo",
+   "address": "Segundo Núcleo",
+   "zipCode": "65393-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Antônio Rodrigues",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedeviana.org.br/local/vida-diocesana",
+     "title": "Diocese de Viana - ficha oficial de Área Missionária São Francisco de Assis e Nossa Senhora da Conceição (Forania I Santa Rita de Cássia): endereco, paroco, telefone e e-mail",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedeviana.org.br/paroquias",
+     "title": "Diocese de Viana - pagina Paroquias (site oficial ativo; as 29 unidades organizadas em 7 foranias)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "sao-jose-operario-faisa-santa-luzia",
+   "name": "Paróquia São José Operário",
+   "city": "Santa Luzia",
+   "state": "MA",
+   "neighborhood": "Faísa",
+   "address": "Rua São Sebastião, s/n, Estrada MA-006, Entroncamento de Arame, Faísa",
+   "zipCode": null,
+   "phone": "(98) 98881-4728",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Luís Fernando Caires Rodrigues",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedeviana.org.br/local/sao-jose-operario",
+     "title": "Diocese de Viana - ficha oficial de Paróquia São José Operário (Forania I Santa Rita de Cássia): endereco, paroco, telefone e e-mail",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedeviana.org.br/paroquias",
+     "title": "Diocese de Viana - pagina Paroquias (site oficial ativo; as 29 unidades organizadas em 7 foranias)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "santa-luzia-terra-bela-buriticupu",
+   "name": "Paróquia Santa Luzia",
+   "city": "Buriticupu",
+   "state": "MA",
+   "neighborhood": "Terra Bela",
+   "address": "Rua Principal, s/n, Terra Bela",
+   "zipCode": "65393-000",
+   "phone": "(98) 3664-7063",
+   "email": "santaluzia@diocesedeviana.org.br",
+   "website": null,
+   "priestName": "Pe. Francisco Alves Monteles Valadares",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedeviana.org.br/local/paroquia-santa-luzia",
+     "title": "Diocese de Viana - ficha oficial de Paróquia Santa Luzia (Forania I Santa Rita de Cássia): endereco, paroco, telefone e e-mail",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedeviana.org.br/paroquias",
+     "title": "Diocese de Viana - pagina Paroquias (site oficial ativo; as 29 unidades organizadas em 7 foranias)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "santa-rita-de-cassia-e-sao-francisco-de-assis-buriticupu",
+   "name": "Paróquia Santa Rita de Cássia e São Francisco de Assis",
+   "city": "Buriticupu",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Rua da Liberdade, s/n, Centro",
+   "zipCode": "65393-000",
+   "phone": "(98) 97027-0053",
+   "email": "santaritasaofrancisco@diocesedeviana.org.br",
+   "website": null,
+   "priestName": "Pe. Nelcino Leocádio Silva Rodrigues",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedeviana.org.br/local/paroquia-santa-rita-de-cassia-e-sao-francisco-de-assis",
+     "title": "Diocese de Viana - ficha oficial de Paróquia Santa Rita de Cássia e São Francisco de Assis (Forania I Santa Rita de Cássia): endereco, paroco, telefone e e-mail",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedeviana.org.br/paroquias",
+     "title": "Diocese de Viana - pagina Paroquias (site oficial ativo; as 29 unidades organizadas em 7 foranias)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "transfiguracao-bom-jesus-das-selvas",
+   "name": "Paróquia da Transfiguração",
+   "city": "Bom Jesus das Selvas",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Rua 15 de Novembro, 350, Centro",
+   "zipCode": "65395-000",
+   "phone": "(98) 98707-4946",
+   "email": "transfiguracao@diocesedeviana.org.br",
+   "website": null,
+   "priestName": "Pe. José Ribamar Silva Santos",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedeviana.org.br/local/paroquia-da-transfiguracao",
+     "title": "Diocese de Viana - ficha oficial de Paróquia da Transfiguração (Forania I Santa Rita de Cássia): endereco, paroco, telefone e e-mail",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedeviana.org.br/paroquias",
+     "title": "Diocese de Viana - pagina Paroquias (site oficial ativo; as 29 unidades organizadas em 7 foranias)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "sao-jose-operario-tufilandia",
+   "name": "Paróquia São José Operário",
+   "city": "Tufilândia",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Rua do Comércio, 146",
+   "zipCode": "65378-000",
+   "phone": "(98) 98445-9406",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Weberson Costa",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedeviana.org.br/local/sao-jose-operario-2",
+     "title": "Diocese de Viana - ficha oficial de Paróquia São José Operário (Forania II São Francisco Xavier): endereco, paroco, telefone e e-mail",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedeviana.org.br/paroquias",
+     "title": "Diocese de Viana - pagina Paroquias (site oficial ativo; as 29 unidades organizadas em 7 foranias)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "santuario-santa-luzia-santa-luzia",
+   "name": "Santuário Santa Luzia",
+   "city": "Santa Luzia",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Praça da Matriz, 393 (Caixa Postal 02)",
+   "zipCode": "65390-000",
+   "phone": "(98) 98211-4248",
+   "email": "santuarioluz@hotmail.com",
+   "website": "http://santuarioluz.com.br",
+   "priestName": "Pe. José Marinho Sobrinho, S.C.J.",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedeviana.org.br/local/paroquia-santuario-santa-luzia",
+     "title": "Diocese de Viana - ficha oficial de Santuário Santa Luzia (Forania II São Francisco Xavier): endereco, paroco, telefone e e-mail",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedeviana.org.br/paroquias",
+     "title": "Diocese de Viana - pagina Paroquias (site oficial ativo; as 29 unidades organizadas em 7 foranias)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [],
+   "schedules": [
+    {
+     "community": "Matriz",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao publica horarios verificaveis.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 0,
+     "time": "09:30",
+     "type": "MASS",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao publica horarios verificaveis.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 0,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao publica horarios verificaveis.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 0,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao publica horarios verificaveis.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 1,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao publica horarios verificaveis.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 2,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao publica horarios verificaveis.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 3,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao publica horarios verificaveis.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 4,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao publica horarios verificaveis.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 5,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao publica horarios verificaveis.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 6,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao publica horarios verificaveis.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 1,
+     "time": "07:00",
+     "type": "CONFESSION",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao publica horarios verificaveis.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 6,
+     "time": "07:00",
+     "type": "CONFESSION",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao publica horarios verificaveis.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "sao-francisco-de-assis-alto-alegre-do-pindare",
+   "name": "Paróquia São Francisco de Assis",
+   "city": "Alto Alegre do Pindaré",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Praça Pe. André, 325, Centro",
+   "zipCode": "65398-000",
+   "phone": "(98) 3664-1352",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Isaac Góis da Silva",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedeviana.org.br/local/paroquia-sao-francisco-de-assis",
+     "title": "Diocese de Viana - ficha oficial de Paróquia São Francisco de Assis (Forania II São Francisco Xavier): endereco, paroco, telefone e e-mail",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedeviana.org.br/paroquias",
+     "title": "Diocese de Viana - pagina Paroquias (site oficial ativo; as 29 unidades organizadas em 7 foranias)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "sao-pedro-apostolo-pindare-mirim",
+   "name": "Paróquia São Pedro Apóstolo",
+   "city": "Pindaré-Mirim",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Praça Guajajaras, 19, Centro",
+   "zipCode": "65370-000",
+   "phone": "(98) 3654-2074",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Denner Gregório Silva Vicente, S.C.J.",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedeviana.org.br/local/sao-pedro-apostolo",
+     "title": "Diocese de Viana - ficha oficial de Paróquia São Pedro Apóstolo (Forania III Santa Inês): endereco, paroco, telefone e e-mail",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedeviana.org.br/paroquias",
+     "title": "Diocese de Viana - pagina Paroquias (site oficial ativo; as 29 unidades organizadas em 7 foranias)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "sao-cristovao-santa-ines",
+   "name": "Paróquia São Cristóvão",
+   "city": "Santa Inês",
+   "state": "MA",
+   "neighborhood": "Palmeira",
+   "address": "Rua Nova Brasília, 472, Palmeira",
+   "zipCode": null,
+   "phone": "(98) 98142-4392",
+   "email": "pe.juares@diocesedeviana.org.br",
+   "website": null,
+   "priestName": "Pe. Juarês Gomes Amorim",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedeviana.org.br/local/paroquia-sao-cristovao",
+     "title": "Diocese de Viana - ficha oficial de Paróquia São Cristóvão (Forania III Santa Inês): endereco, paroco, telefone e e-mail",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedeviana.org.br/paroquias",
+     "title": "Diocese de Viana - pagina Paroquias (site oficial ativo; as 29 unidades organizadas em 7 foranias)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "santo-antonio-santa-ines",
+   "name": "Paróquia Santo Antônio",
+   "city": "Santa Inês",
+   "state": "MA",
+   "neighborhood": "Vila Militar",
+   "address": "Rua Pe. Cícero, s/n, Vila Militar",
+   "zipCode": "65300-000",
+   "phone": "(98) 98895-9442",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Joaquim Alves da Conceição Filho",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedeviana.org.br/local/paroquia-santo-antonio",
+     "title": "Diocese de Viana - ficha oficial de Paróquia Santo Antônio (Forania III Santa Inês): endereco, paroco, telefone e e-mail",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedeviana.org.br/paroquias",
+     "title": "Diocese de Viana - pagina Paroquias (site oficial ativo; as 29 unidades organizadas em 7 foranias)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "santa-ines-santa-ines",
+   "name": "Paróquia Santa Inês",
+   "city": "Santa Inês",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Praça da Matriz, s/n, Centro (Caixa Postal 15)",
+   "zipCode": "65300-000",
+   "phone": "(98) 3653-1270",
+   "email": "psantaines@hotmail.com",
+   "website": null,
+   "priestName": "Pe. Arlyson Ernesto Ferreira Gomes, S.C.J.",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedeviana.org.br/local/paroquia-santa-ines",
+     "title": "Diocese de Viana - ficha oficial de Paróquia Santa Inês (Forania III Santa Inês): endereco, paroco, telefone e e-mail",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedeviana.org.br/paroquias",
+     "title": "Diocese de Viana - pagina Paroquias (site oficial ativo; as 29 unidades organizadas em 7 foranias)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [],
+   "schedules": [
+    {
+     "community": "Matriz",
+     "dayOfWeek": 0,
+     "time": "07:30",
+     "type": "MASS",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao publica horarios verificaveis.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 0,
+     "time": "09:30",
+     "type": "MASS",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao publica horarios verificaveis.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 0,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao publica horarios verificaveis.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 0,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao publica horarios verificaveis.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 1,
+     "time": "18:30",
+     "type": "MASS",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao publica horarios verificaveis.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 2,
+     "time": "18:30",
+     "type": "MASS",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao publica horarios verificaveis.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 3,
+     "time": "18:30",
+     "type": "MASS",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao publica horarios verificaveis.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 4,
+     "time": "18:30",
+     "type": "MASS",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao publica horarios verificaveis.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 5,
+     "time": "18:30",
+     "type": "MASS",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao publica horarios verificaveis.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 6,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao publica horarios verificaveis.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 2,
+     "time": "08:00",
+     "type": "CONFESSION",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao publica horarios verificaveis.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 3,
+     "time": "08:00",
+     "type": "CONFESSION",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao publica horarios verificaveis.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 4,
+     "time": "08:00",
+     "type": "CONFESSION",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao publica horarios verificaveis.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 5,
+     "time": "08:00",
+     "type": "CONFESSION",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao publica horarios verificaveis.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 2,
+     "time": "08:00",
+     "type": "ADORATION",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao publica horarios verificaveis.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 3,
+     "time": "08:00",
+     "type": "ADORATION",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao publica horarios verificaveis.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 4,
+     "time": "08:00",
+     "type": "ADORATION",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao publica horarios verificaveis.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 5,
+     "time": "08:00",
+     "type": "ADORATION",
+     "notes": "Grade publicada so pelo agregador Lirio Catolico; a diocese nao publica horarios verificaveis.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-da-conceicao-bela-vista-do-maranhao",
+   "name": "Paróquia Nossa Senhora da Conceição",
+   "city": "Bela Vista do Maranhão",
+   "state": "MA",
+   "neighborhood": null,
+   "address": "Casa Paroquial",
+   "zipCode": "65335-000",
+   "phone": "(98) 3372-1095",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. João Batista Silva Artimam",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedeviana.org.br/local/nossa-senhora-da-conceicao",
+     "title": "Diocese de Viana - ficha oficial de Paróquia Nossa Senhora da Conceição (Forania IV Imaculada Conceição): endereco, paroco, telefone e e-mail",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedeviana.org.br/paroquias",
+     "title": "Diocese de Viana - pagina Paroquias (site oficial ativo; as 29 unidades organizadas em 7 foranias)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "sao-francisco-xavier-moncao",
+   "name": "Paróquia São Francisco Xavier",
+   "city": "Monção",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Rua Hermes de Araújo, 180, Centro",
+   "zipCode": "65360-000",
+   "phone": null,
+   "email": "saofranciscoxavier@diocesedeviana.org.br",
+   "website": null,
+   "priestName": "Pe. Delcimar de França Silva",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedeviana.org.br/local/paroquia-sao-francisco-xavier",
+     "title": "Diocese de Viana - ficha oficial de Paróquia São Francisco Xavier (Forania IV Imaculada Conceição): endereco, paroco, telefone e e-mail",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedeviana.org.br/paroquias",
+     "title": "Diocese de Viana - pagina Paroquias (site oficial ativo; as 29 unidades organizadas em 7 foranias)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "sao-joao-batista-igarape-do-meio-igarape-do-meio",
+   "name": "Paróquia São João Batista",
+   "city": "Igarapé do Meio",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Rua das Flores, 258, Centro",
+   "zipCode": "65345-000",
+   "phone": "(98) 99984-1028",
+   "email": "saojoaobatista@diocesedeviana.org.br",
+   "website": null,
+   "priestName": "Pe. Raimundo Nonato Moraes de Oliveira",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedeviana.org.br/local/paroquia-sao-joao-batista-3",
+     "title": "Diocese de Viana - ficha oficial de Paróquia São João Batista (Forania IV Imaculada Conceição): endereco, paroco, telefone e e-mail",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedeviana.org.br/paroquias",
+     "title": "Diocese de Viana - pagina Paroquias (site oficial ativo; as 29 unidades organizadas em 7 foranias)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "imaculada-conceicao-conceicao-do-lago-acu",
+   "name": "Paróquia Imaculada Conceição",
+   "city": "Conceição do Lago-Açu",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Praça da Matriz, s/n, Centro",
+   "zipCode": "65340-000",
+   "phone": null,
+   "email": "conceicao@diocesedeviana.org.br",
+   "website": null,
+   "priestName": "Pe. Francinaldo Silva dos Santos",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedeviana.org.br/local/paroquia-imaculada-conceicao",
+     "title": "Diocese de Viana - ficha oficial de Paróquia Imaculada Conceição (Forania IV Imaculada Conceição): endereco, paroco, telefone e e-mail",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedeviana.org.br/paroquias",
+     "title": "Diocese de Viana - pagina Paroquias (site oficial ativo; as 29 unidades organizadas em 7 foranias)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "sao-sebastiao-e-nossa-senhora-aparecida-vitoria-do-mearim",
+   "name": "Quase-paróquia São Sebastião e Nossa Senhora Aparecida",
+   "city": "Vitória do Mearim",
+   "state": "MA",
+   "neighborhood": "Povoado Coque",
+   "address": "Rua do Comércio, s/n, Povoado Coque",
+   "zipCode": "65350-000",
+   "phone": "(98) 98184-0659",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Danrlley Ferreira Araújo",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedeviana.org.br/local/quase-paroquia-sao-sebastiao-e-nossa-senhora-aparecida",
+     "title": "Diocese de Viana - ficha oficial de Quase-paróquia São Sebastião e Nossa Senhora Aparecida (Forania V Santa Teresinha): endereco, paroco, telefone e e-mail",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedeviana.org.br/paroquias",
+     "title": "Diocese de Viana - pagina Paroquias (site oficial ativo; as 29 unidades organizadas em 7 foranias)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-de-nazare-vitoria-do-mearim-vitoria-do-mearim",
+   "name": "Paróquia Nossa Senhora de Nazaré",
+   "city": "Vitória do Mearim",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Praça Rio Branco, s/n, Centro",
+   "zipCode": "65350-000",
+   "phone": "(98) 98757-4316",
+   "email": "nazare@diocesedeviana.org.br",
+   "website": null,
+   "priestName": "Pe. Rozivaldo Freitas Moraes",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedeviana.org.br/local/paroquia-nossa-senhora-de-nazare-2",
+     "title": "Diocese de Viana - ficha oficial de Paróquia Nossa Senhora de Nazaré (Forania V Santa Teresinha): endereco, paroco, telefone e e-mail",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedeviana.org.br/paroquias",
+     "title": "Diocese de Viana - pagina Paroquias (site oficial ativo; as 29 unidades organizadas em 7 foranias)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-da-conceicao-viana",
+   "name": "Catedral Nossa Senhora da Conceição",
+   "city": "Viana",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Praça Mons. Arouche, 70 (Caixa Postal 12)",
+   "zipCode": "65215-000",
+   "phone": null,
+   "email": "catedral@diocesedeviana.org.br",
+   "website": null,
+   "priestName": "Pe. José Jerônimo de Medeiros",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedeviana.org.br/local/paroquia-catedral-n-sra-da-conceicao",
+     "title": "Diocese de Viana - ficha oficial de Catedral Nossa Senhora da Conceição (Forania V Santa Teresinha): endereco, paroco, telefone e e-mail",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedeviana.org.br/paroquias",
+     "title": "Diocese de Viana - pagina Paroquias (site oficial ativo; as 29 unidades organizadas em 7 foranias)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-de-nazare-viana",
+   "name": "Paróquia Nossa Senhora de Nazaré",
+   "city": "Viana",
+   "state": "MA",
+   "neighborhood": "Nazaré",
+   "address": "Rua São Benedito, s/n, Nazaré",
+   "zipCode": "65215-000",
+   "phone": null,
+   "email": "cirionazare@diocesedeviana.org.br",
+   "website": null,
+   "priestName": "Pe. Diomar Pereira da Silva Júnior",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedeviana.org.br/local/paroquia-nossa-senhora-de-nazare",
+     "title": "Diocese de Viana - ficha oficial de Paróquia Nossa Senhora de Nazaré (Forania V Santa Teresinha): endereco, paroco, telefone e e-mail",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedeviana.org.br/paroquias",
+     "title": "Diocese de Viana - pagina Paroquias (site oficial ativo; as 29 unidades organizadas em 7 foranias)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "sao-benedito-cajari-cajari",
+   "name": "Paróquia São Benedito",
+   "city": "Cajari",
+   "state": "MA",
+   "neighborhood": null,
+   "address": "Rua Alexandre José Ferreira, 417",
+   "zipCode": "65210-000",
+   "phone": null,
+   "email": "beneditosanto@diocesedeviana.org.br",
+   "website": null,
+   "priestName": "Pe. José Maria Rodrigues Moreno",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedeviana.org.br/local/paroquia-sao-benedito-2",
+     "title": "Diocese de Viana - ficha oficial de Paróquia São Benedito (Forania V Santa Teresinha): endereco, paroco, telefone e e-mail",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedeviana.org.br/paroquias",
+     "title": "Diocese de Viana - pagina Paroquias (site oficial ativo; as 29 unidades organizadas em 7 foranias)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "sao-benedito-olinda-nova-do-maranhao",
+   "name": "Paróquia São Benedito",
+   "city": "Olinda Nova do Maranhão",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Travessa da Rua Grande, s/n, Centro",
+   "zipCode": "65223-000",
+   "phone": "(98) 98431-6963",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. José Ribamar Costa",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedeviana.org.br/local/sao-benedito",
+     "title": "Diocese de Viana - ficha oficial de Paróquia São Benedito (Forania VI Todos os Santos): endereco, paroco, telefone e e-mail",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedeviana.org.br/paroquias",
+     "title": "Diocese de Viana - pagina Paroquias (site oficial ativo; as 29 unidades organizadas em 7 foranias)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "sao-sebastiao-matinha",
+   "name": "Paróquia São Sebastião",
+   "city": "Matinha",
+   "state": "MA",
+   "neighborhood": null,
+   "address": "Praça Raimundo Penha, 1238",
+   "zipCode": "65218-000",
+   "phone": "(98) 98516-7931",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Aldeanes de Souza Gomes",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedeviana.org.br/local/sao-sebastiao",
+     "title": "Diocese de Viana - ficha oficial de Paróquia São Sebastião (Forania VI Todos os Santos): endereco, paroco, telefone e e-mail",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedeviana.org.br/paroquias",
+     "title": "Diocese de Viana - pagina Paroquias (site oficial ativo; as 29 unidades organizadas em 7 foranias)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "sao-pedro-apostolo-e-nossa-senhora-do-rosario-pedro-do-rosario",
+   "name": "Paróquia São Pedro Apóstolo e Nossa Senhora do Rosário",
+   "city": "Pedro do Rosário",
+   "state": "MA",
+   "neighborhood": null,
+   "address": "Praça Pe. Ângelo, Avenida Pedro Cunha Mendes, 3479",
+   "zipCode": "65206-000",
+   "phone": "(98) 97013-4797",
+   "email": "pspansr@gmail.com",
+   "website": null,
+   "priestName": "Pe. Nilton Sousa Lima",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedeviana.org.br/local/sao-pedro-apostolo-e-nossa-senhora-do-rosario",
+     "title": "Diocese de Viana - ficha oficial de Paróquia São Pedro Apóstolo e Nossa Senhora do Rosário (Forania VI Todos os Santos): endereco, paroco, telefone e e-mail",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedeviana.org.br/paroquias",
+     "title": "Diocese de Viana - pagina Paroquias (site oficial ativo; as 29 unidades organizadas em 7 foranias)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [
+    {
+     "name": "Matriz São Pedro Apóstolo e Nossa Senhora do Rosário",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedeviana.org.br/local/sao-pedro-apostolo-e-nossa-senhora-do-rosario",
+       "title": "Diocese de Viana - aba Missas de Paróquia São Pedro Apóstolo e Nossa Senhora do Rosário, com a lista das comunidades e pontos de missa",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "name": "Comunidade Fala Só",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://diocesedeviana.org.br/local/sao-pedro-apostolo-e-nossa-senhora-do-rosario",
+       "title": "Diocese de Viana - aba Missas de Paróquia São Pedro Apóstolo e Nossa Senhora do Rosário, com a lista das comunidades e pontos de missa",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "name": "Comunidade Novo Horizonte",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://diocesedeviana.org.br/local/sao-pedro-apostolo-e-nossa-senhora-do-rosario",
+       "title": "Diocese de Viana - aba Missas de Paróquia São Pedro Apóstolo e Nossa Senhora do Rosário, com a lista das comunidades e pontos de missa",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "name": "Comunidade Anta",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://diocesedeviana.org.br/local/sao-pedro-apostolo-e-nossa-senhora-do-rosario",
+       "title": "Diocese de Viana - aba Missas de Paróquia São Pedro Apóstolo e Nossa Senhora do Rosário, com a lista das comunidades e pontos de missa",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "name": "Comunidade Rua Nova",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://diocesedeviana.org.br/local/sao-pedro-apostolo-e-nossa-senhora-do-rosario",
+       "title": "Diocese de Viana - aba Missas de Paróquia São Pedro Apóstolo e Nossa Senhora do Rosário, com a lista das comunidades e pontos de missa",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "name": "Comunidade Núcleo 08",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://diocesedeviana.org.br/local/sao-pedro-apostolo-e-nossa-senhora-do-rosario",
+       "title": "Diocese de Viana - aba Missas de Paróquia São Pedro Apóstolo e Nossa Senhora do Rosário, com a lista das comunidades e pontos de missa",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "name": "Comunidade Bela Vista",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://diocesedeviana.org.br/local/sao-pedro-apostolo-e-nossa-senhora-do-rosario",
+       "title": "Diocese de Viana - aba Missas de Paróquia São Pedro Apóstolo e Nossa Senhora do Rosário, com a lista das comunidades e pontos de missa",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "name": "Comunidade São Vicente de Paulo",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://diocesedeviana.org.br/local/sao-pedro-apostolo-e-nossa-senhora-do-rosario",
+       "title": "Diocese de Viana - aba Missas de Paróquia São Pedro Apóstolo e Nossa Senhora do Rosário, com a lista das comunidades e pontos de missa",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "name": "Comunidade Nova República",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://diocesedeviana.org.br/local/sao-pedro-apostolo-e-nossa-senhora-do-rosario",
+       "title": "Diocese de Viana - aba Missas de Paróquia São Pedro Apóstolo e Nossa Senhora do Rosário, com a lista das comunidades e pontos de missa",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "name": "Comunidade Tocos",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://diocesedeviana.org.br/local/sao-pedro-apostolo-e-nossa-senhora-do-rosario",
+       "title": "Diocese de Viana - aba Missas de Paróquia São Pedro Apóstolo e Nossa Senhora do Rosário, com a lista das comunidades e pontos de missa",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "name": "Comunidade Lagoa",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://diocesedeviana.org.br/local/sao-pedro-apostolo-e-nossa-senhora-do-rosario",
+       "title": "Diocese de Viana - aba Missas de Paróquia São Pedro Apóstolo e Nossa Senhora do Rosário, com a lista das comunidades e pontos de missa",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "name": "Comunidade Pedreiras",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://diocesedeviana.org.br/local/sao-pedro-apostolo-e-nossa-senhora-do-rosario",
+       "title": "Diocese de Viana - aba Missas de Paróquia São Pedro Apóstolo e Nossa Senhora do Rosário, com a lista das comunidades e pontos de missa",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "name": "Comunidade Três de Maio",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "sources": [
+      {
+       "url": "https://diocesedeviana.org.br/local/sao-pedro-apostolo-e-nossa-senhora-do-rosario",
+       "title": "Diocese de Viana - aba Missas de Paróquia São Pedro Apóstolo e Nossa Senhora do Rosário, com a lista das comunidades e pontos de missa",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz São Pedro Apóstolo e Nossa Senhora do Rosário",
+     "dayOfWeek": 0,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedeviana.org.br/local/sao-pedro-apostolo-e-nossa-senhora-do-rosario",
+       "title": "Diocese de Viana - aba Missas de Paróquia São Pedro Apóstolo e Nossa Senhora do Rosário",
+       "accessedAt": "2026-09-18"
+      },
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz São Pedro Apóstolo e Nossa Senhora do Rosário",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedeviana.org.br/local/sao-pedro-apostolo-e-nossa-senhora-do-rosario",
+       "title": "Diocese de Viana - aba Missas de Paróquia São Pedro Apóstolo e Nossa Senhora do Rosário",
+       "accessedAt": "2026-09-18"
+      },
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Matriz São Pedro Apóstolo e Nossa Senhora do Rosário",
+     "dayOfWeek": 4,
+     "time": "18:30",
+     "type": "ADORATION",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedeviana.org.br/local/sao-pedro-apostolo-e-nossa-senhora-do-rosario",
+       "title": "Diocese de Viana - aba Missas de Paróquia São Pedro Apóstolo e Nossa Senhora do Rosário",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Comunidade Fala Só",
+     "dayOfWeek": 0,
+     "time": "10:00",
+     "type": "MASS",
+     "notes": "Recorrencia mensal publicada pela diocese; o modelo so guarda dia da semana, por isso fica baixa. Regra literal da fonte: \"1o domingo do mes as 10h\".",
+     "sources": [
+      {
+       "url": "https://diocesedeviana.org.br/local/sao-pedro-apostolo-e-nossa-senhora-do-rosario",
+       "title": "Diocese de Viana - aba Missas de Paróquia São Pedro Apóstolo e Nossa Senhora do Rosário",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Comunidade Novo Horizonte",
+     "dayOfWeek": 0,
+     "time": "16:00",
+     "type": "MASS",
+     "notes": "Recorrencia mensal publicada pela diocese; o modelo so guarda dia da semana, por isso fica baixa. Regra literal da fonte: \"1o domingo do mes as 16h\".",
+     "sources": [
+      {
+       "url": "https://diocesedeviana.org.br/local/sao-pedro-apostolo-e-nossa-senhora-do-rosario",
+       "title": "Diocese de Viana - aba Missas de Paróquia São Pedro Apóstolo e Nossa Senhora do Rosário",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Comunidade Anta",
+     "dayOfWeek": 0,
+     "time": "16:00",
+     "type": "MASS",
+     "notes": "Recorrencia mensal publicada pela diocese; o modelo so guarda dia da semana, por isso fica baixa. Regra literal da fonte: \"2o domingo do mes as 16h\".",
+     "sources": [
+      {
+       "url": "https://diocesedeviana.org.br/local/sao-pedro-apostolo-e-nossa-senhora-do-rosario",
+       "title": "Diocese de Viana - aba Missas de Paróquia São Pedro Apóstolo e Nossa Senhora do Rosário",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Comunidade Rua Nova",
+     "dayOfWeek": 0,
+     "time": "10:00",
+     "type": "MASS",
+     "notes": "Recorrencia mensal publicada pela diocese; o modelo so guarda dia da semana, por isso fica baixa. Regra literal da fonte: \"4o domingo do mes as 10h\".",
+     "sources": [
+      {
+       "url": "https://diocesedeviana.org.br/local/sao-pedro-apostolo-e-nossa-senhora-do-rosario",
+       "title": "Diocese de Viana - aba Missas de Paróquia São Pedro Apóstolo e Nossa Senhora do Rosário",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Comunidade Núcleo 08",
+     "dayOfWeek": 3,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "Recorrencia mensal publicada pela diocese; o modelo so guarda dia da semana, por isso fica baixa. Regra literal da fonte: \"3a quarta-feira do mes as 19h\".",
+     "sources": [
+      {
+       "url": "https://diocesedeviana.org.br/local/sao-pedro-apostolo-e-nossa-senhora-do-rosario",
+       "title": "Diocese de Viana - aba Missas de Paróquia São Pedro Apóstolo e Nossa Senhora do Rosário",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Comunidade Bela Vista",
+     "dayOfWeek": 5,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": "Recorrencia mensal publicada pela diocese; o modelo so guarda dia da semana, por isso fica baixa. Regra literal da fonte: \"1a sexta-feira do mes as 19h30\".",
+     "sources": [
+      {
+       "url": "https://diocesedeviana.org.br/local/sao-pedro-apostolo-e-nossa-senhora-do-rosario",
+       "title": "Diocese de Viana - aba Missas de Paróquia São Pedro Apóstolo e Nossa Senhora do Rosário",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Comunidade São Vicente de Paulo",
+     "dayOfWeek": 5,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": "Recorrencia mensal publicada pela diocese; o modelo so guarda dia da semana, por isso fica baixa. Regra literal da fonte: \"2a sexta-feira do mes as 19h30, nas familias\".",
+     "sources": [
+      {
+       "url": "https://diocesedeviana.org.br/local/sao-pedro-apostolo-e-nossa-senhora-do-rosario",
+       "title": "Diocese de Viana - aba Missas de Paróquia São Pedro Apóstolo e Nossa Senhora do Rosário",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Comunidade Nova República",
+     "dayOfWeek": 5,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": "Recorrencia mensal publicada pela diocese; o modelo so guarda dia da semana, por isso fica baixa. Regra literal da fonte: \"3a sexta-feira do mes as 19h30\".",
+     "sources": [
+      {
+       "url": "https://diocesedeviana.org.br/local/sao-pedro-apostolo-e-nossa-senhora-do-rosario",
+       "title": "Diocese de Viana - aba Missas de Paróquia São Pedro Apóstolo e Nossa Senhora do Rosário",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Comunidade Tocos",
+     "dayOfWeek": 5,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": "Recorrencia mensal publicada pela diocese; o modelo so guarda dia da semana, por isso fica baixa. Regra literal da fonte: \"4a sexta-feira do mes as 19h30\".",
+     "sources": [
+      {
+       "url": "https://diocesedeviana.org.br/local/sao-pedro-apostolo-e-nossa-senhora-do-rosario",
+       "title": "Diocese de Viana - aba Missas de Paróquia São Pedro Apóstolo e Nossa Senhora do Rosário",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Comunidade Lagoa",
+     "dayOfWeek": 6,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "Recorrencia mensal publicada pela diocese; o modelo so guarda dia da semana, por isso fica baixa. Regra literal da fonte: \"1o sabado do mes as 19h\".",
+     "sources": [
+      {
+       "url": "https://diocesedeviana.org.br/local/sao-pedro-apostolo-e-nossa-senhora-do-rosario",
+       "title": "Diocese de Viana - aba Missas de Paróquia São Pedro Apóstolo e Nossa Senhora do Rosário",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Comunidade Pedreiras",
+     "dayOfWeek": 6,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": "Recorrencia mensal publicada pela diocese; o modelo so guarda dia da semana, por isso fica baixa. Regra literal da fonte: \"3o sabado do mes as 17h\".",
+     "sources": [
+      {
+       "url": "https://diocesedeviana.org.br/local/sao-pedro-apostolo-e-nossa-senhora-do-rosario",
+       "title": "Diocese de Viana - aba Missas de Paróquia São Pedro Apóstolo e Nossa Senhora do Rosário",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Comunidade Três de Maio",
+     "dayOfWeek": 6,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "Recorrencia mensal publicada pela diocese; o modelo so guarda dia da semana, por isso fica baixa. Regra literal da fonte: \"3o sabado do mes as 19h\".",
+     "sources": [
+      {
+       "url": "https://diocesedeviana.org.br/local/sao-pedro-apostolo-e-nossa-senhora-do-rosario",
+       "title": "Diocese de Viana - aba Missas de Paróquia São Pedro Apóstolo e Nossa Senhora do Rosário",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "sao-jose-penalva",
+   "name": "Paróquia São José",
+   "city": "Penalva",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Praça J.J. Marques, s/n, Centro",
+   "zipCode": "65213-000",
+   "phone": "(98) 97003-6626",
+   "email": "saojose@diocesedeviana.org.br",
+   "website": null,
+   "priestName": "Mons. Benedito de Assis Amaral Meireles",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedeviana.org.br/local/paroquia-sao-jose",
+     "title": "Diocese de Viana - ficha oficial de Paróquia São José (Forania VI Todos os Santos): endereco, paroco, telefone e e-mail",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedeviana.org.br/paroquias",
+     "title": "Diocese de Viana - pagina Paroquias (site oficial ativo; as 29 unidades organizadas em 7 foranias)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "sao-vicente-ferrer-sao-vicente-ferrer",
+   "name": "Paróquia São Vicente Ferrer",
+   "city": "São Vicente Ferrer",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Largo do Arouche, s/n, Centro",
+   "zipCode": "65220-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Anderson da Silva Galvão",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedeviana.org.br/local/sao-vicente-ferrer",
+     "title": "Diocese de Viana - ficha oficial de Paróquia São Vicente Ferrer (Forania VII São Pedro e São Paulo): endereco, paroco, telefone e e-mail",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedeviana.org.br/paroquias",
+     "title": "Diocese de Viana - pagina Paroquias (site oficial ativo; as 29 unidades organizadas em 7 foranias)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "sao-joao-batista-sao-joao-batista",
+   "name": "Paróquia São João Batista",
+   "city": "São João Batista",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Casa Paroquial, s/n, Centro",
+   "zipCode": "65225-000",
+   "phone": "(98) 99129-4468",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Joelson Gomes Castro, S.C.J.",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedeviana.org.br/local/sao-joao-batista-2",
+     "title": "Diocese de Viana - ficha oficial de Paróquia São João Batista (Forania VII São Pedro e São Paulo): endereco, paroco, telefone e e-mail",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedeviana.org.br/paroquias",
+     "title": "Diocese de Viana - pagina Paroquias (site oficial ativo; as 29 unidades organizadas em 7 foranias)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "sao-bento-bacurituba",
+   "name": "Paróquia São Bento",
+   "city": "Bacurituba",
+   "state": "MA",
+   "neighborhood": null,
+   "address": "Praça da Matriz, s/n",
+   "zipCode": "65233-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Benedito Ferreira da Silva",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedeviana.org.br/local/paroquia-sao-bento-de-bacurituba",
+     "title": "Diocese de Viana - ficha oficial de Paróquia São Bento (Forania VII São Pedro e São Paulo): endereco, paroco, telefone e e-mail",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedeviana.org.br/paroquias",
+     "title": "Diocese de Viana - pagina Paroquias (site oficial ativo; as 29 unidades organizadas em 7 foranias)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [],
+   "schedules": [
+    {
+     "community": "Matriz",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedeviana.org.br/local/paroquia-sao-bento-de-bacurituba",
+       "title": "Diocese de Viana - aba Missas de Paróquia São Bento",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-das-merces-cajapio",
+   "name": "Paróquia Nossa Senhora das Mercês",
+   "city": "Cajapió",
+   "state": "MA",
+   "neighborhood": null,
+   "address": "Rua Dr. Paulo Ramos, s/n",
+   "zipCode": "65230-000",
+   "phone": "(98) 3355-1211",
+   "email": "merces@diocesedeviana.org.br",
+   "website": null,
+   "priestName": "Pe. Weliton Silva Barros",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedeviana.org.br/local/paroquia-nossa-senhora-das-merces",
+     "title": "Diocese de Viana - ficha oficial de Paróquia Nossa Senhora das Mercês (Forania VII São Pedro e São Paulo): endereco, paroco, telefone e e-mail",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedeviana.org.br/paroquias",
+     "title": "Diocese de Viana - pagina Paroquias (site oficial ativo; as 29 unidades organizadas em 7 foranias)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [],
+   "schedules": []
+  }
+ ],
+ "coverage": {
+  "parishesFound": 29,
+  "parishesExpected": 27,
+  "notes": "29 = 26 paróquias + 1 santuário-paróquia + 1 quase-paróquia + 1 área missionária, exatamente a lista oficial do site da diocese, distribuída em 7 foranias. O catholic-hierarchy conta 27 paróquias (2023) e o gcatholic 28 igrejas. Diferença a checar: o gcatholic lista \"Vitória do Mearim | Santo Antônio (Parish)\", que não consta da lista da diocese (a Paróquia Santo Antônio da diocese fica em Santa Inês, na Vila Militar). A diocese não publica comunidades nem horários de forma confiável: as abas \"Missas\" das fichas repetem o conteúdo de demonstração do tema \"minhaparoquia\" (ver relatório), e só duas fichas trazem grade própria."
+ }
+}

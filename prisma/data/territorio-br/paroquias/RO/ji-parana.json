@@ -1,0 +1,3641 @@
+{
+  "diocese": {
+    "name": "Diocese de Ji-Paraná",
+    "type": "Diocese",
+    "slug": "ji-parana",
+    "city": "Ji-Paraná",
+    "state": "RO",
+    "address": "Cúria Diocesana, Av. Marechal Rondon, 400 – Centro",
+    "zipCode": "76900-036",
+    "phone": "(69) 3416-4203",
+    "email": "informatica@diocesedejiparana.org.br",
+    "website": "http://www.diocesedejiparana.org.br",
+    "bishopName": "Dom Norbert Hans Christoph Foerster, S.V.D.",
+    "sources": [
+      {
+        "url": "http://www.diocesedejiparana.org.br/",
+        "title": "Diocese de Ji-Paraná — site oficial (portal antigo em PHP/ISO-8859-1, mas ATIVO: notícias de 03, 05, 10 e 13/09/2026). Rodapé: Av. Marechal Rondon, 400 – Centro – Ji-Paraná/RO – CEP 76900-036, fone (69) 3416-4203 / 3416-4204",
+        "accessedAt": "2026-09-18"
+      },
+      {
+        "url": "http://www.diocesedejiparana.org.br/paroquias.php",
+        "title": "Diocese de Ji-Paraná — Paróquias (listagem oficial paginada; 16 fichas na página 1 e 8 na página 2 = 24 paróquias)",
+        "accessedAt": "2026-09-18"
+      },
+      {
+        "url": "http://www.diocesedejiparana.org.br/paroquias.php?pg=2",
+        "title": "Diocese de Ji-Paraná — Paróquias, página 2 (8 fichas)",
+        "accessedAt": "2026-09-18"
+      },
+      {
+        "url": "http://www.diocesedejiparana.org.br/bispo.html",
+        "title": "Diocese de Ji-Paraná — página do Bispo (a página está praticamente vazia: só a legenda \"Padre Norbert\")",
+        "accessedAt": "2026-09-18"
+      },
+      {
+        "url": "https://gcatholic.org/dioceses/diocese/jipa0.htm",
+        "title": "gcatholic.org — Diocese of Ji-Paraná: 24 paróquias, 75.788 km²; bispo Dom Norbert Hans Christoph Foerster, S.V.D. (nomeado 02/12/2020); prelazia de Vila Rondônia erigida em 03/01/1978 e diocese em 19/02/1983",
+        "accessedAt": "2026-09-18"
+      },
+      {
+        "url": "https://mapaosc.ipea.gov.br/api/api/osc/busca_avancada/lista/300/0?avancado={\"dadosGerais\":{\"tx_razao_social_osc\":\"DIOCESE DE JI PARANA\"}}",
+        "title": "Mapa das OSC / IPEA (espelho do cadastro da Receita Federal) — 31 estabelecimentos do CNPJ raiz 04.128.765 (DIOCESE DE JI-PARANÁ), com endereço e CEP",
+        "accessedAt": "2026-09-18"
+      }
+    ],
+    "confidence": "alta"
+  },
+  "parishes": [
+    {
+      "slug": "sao-joao-bosco-ji-parana",
+      "name": "Catedral São João Bosco",
+      "city": "Ji-Paraná",
+      "state": "RO",
+      "neighborhood": "Centro",
+      "address": "Av. Marechal Rondon, 400 – sala 01 – Centro",
+      "zipCode": "76900-027",
+      "phone": "(69) 3416-4221",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": 1964,
+      "sources": [
+        {
+          "url": "http://www.diocesedejiparana.org.br/paroquias.php",
+          "title": "Diocese de Ji-Paraná — Paróquias (listagem oficial paginada; 16 fichas na página 1 e 8 na página 2 = 24 paróquias)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=493",
+          "title": "Diocese de Ji-Paraná — ficha oficial de Catedral São João Bosco (Ji-Paraná) (paróquia, município, data de criação, endereço, telefone e histórico)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://mapaosc.ipea.gov.br/api/api/osc/busca_avancada/lista/300/0?avancado={\"dadosGerais\":{\"tx_razao_social_osc\":\"DIOCESE DE JI PARANA\"}}",
+          "title": "Mapa das OSC / IPEA (espelho do cadastro da Receita Federal) — 31 estabelecimentos do CNPJ raiz 04.128.765 (DIOCESE DE JI-PARANÁ), com endereço e CEP",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://gcatholic.org/dioceses/diocese/jipa0.htm",
+          "title": "gcatholic.org — Diocese of Ji-Paraná: 24 paróquias, 75.788 km²; bispo Dom Norbert Hans Christoph Foerster, S.V.D. (nomeado 02/12/2020); prelazia de Vila Rondônia erigida em 03/01/1978 e diocese em 19/02/1983",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "unitType": "catedral",
+      "cnpj": "04.128.765/0003-24",
+      "status": null,
+      "notes": "SÉ DA DIOCESE. A ficha diocesana a chama de \"Paróquia São João Bosco\"; que é a catedral está confirmado no gcatholic (\"Catedral São João Bosco, Ji-Paraná\") e pela ficha do liriocatolico (\"Catedral São João Bosco\"). Funciona no mesmo endereço da Cúria Diocesana (Av. Marechal Rondon, 400). Celular também publicado: (69) 99335-7006. A ficha publica uma grade completa sob o título \"Horário de Missa na comunidade matriz São João Bosco\". DIVERGÊNCIA: o agregador liriocatolico traz segunda-feira às 06h, enquanto a diocese publica 18h10 — prevaleceu a diocese.",
+      "communities": [
+        {
+          "name": "Comunidade Matriz São João Bosco",
+          "address": "Av. Marechal Rondon, 400 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=493",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Catedral São João Bosco (Ji-Paraná) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Comunidade Matriz São João Bosco",
+          "dayOfWeek": 1,
+          "time": "18:10",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=493",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Catedral São João Bosco (Ji-Paraná) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Comunidade Matriz São João Bosco",
+          "dayOfWeek": 2,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=493",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Catedral São João Bosco (Ji-Paraná) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Comunidade Matriz São João Bosco",
+          "dayOfWeek": 3,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=493",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Catedral São João Bosco (Ji-Paraná) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Comunidade Matriz São João Bosco",
+          "dayOfWeek": 5,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=493",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Catedral São João Bosco (Ji-Paraná) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Comunidade Matriz São João Bosco",
+          "dayOfWeek": 4,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=493",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Catedral São João Bosco (Ji-Paraná) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Comunidade Matriz São João Bosco",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=493",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Catedral São João Bosco (Ji-Paraná) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Comunidade Matriz São João Bosco",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=493",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Catedral São João Bosco (Ji-Paraná) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Comunidade Matriz São João Bosco",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=493",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Catedral São João Bosco (Ji-Paraná) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ]
+    },
+    {
+      "slug": "sao-sebastiao-ji-parana",
+      "name": "Paróquia São Sebastião",
+      "city": "Ji-Paraná",
+      "state": "RO",
+      "neighborhood": "Jardim dos Migrantes",
+      "address": "Rua das Pedras, 265 – Jardim dos Migrantes (Caixa Postal 131)",
+      "zipCode": "76900-722",
+      "phone": "(69) 99233-6956",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": 1984,
+      "sources": [
+        {
+          "url": "http://www.diocesedejiparana.org.br/paroquias.php",
+          "title": "Diocese de Ji-Paraná — Paróquias (listagem oficial paginada; 16 fichas na página 1 e 8 na página 2 = 24 paróquias)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3300",
+          "title": "Diocese de Ji-Paraná — ficha oficial de Paróquia São Sebastião (Ji-Paraná) (paróquia, município, data de criação, endereço, telefone e histórico)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://mapaosc.ipea.gov.br/api/api/osc/busca_avancada/lista/300/0?avancado={\"dadosGerais\":{\"tx_razao_social_osc\":\"DIOCESE DE JI PARANA\"}}",
+          "title": "Mapa das OSC / IPEA (espelho do cadastro da Receita Federal) — 31 estabelecimentos do CNPJ raiz 04.128.765 (DIOCESE DE JI-PARANÁ), com endereço e CEP",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://liriocatolico.com.br/horario_missa/dados/uf/RO.json",
+          "title": "liriocatolico.com.br — base de horários de missa de Rondônia (49 fichas do estado). AGREGADOR: o campo \"ultima_atualizacao\" é 2026-09-02 em TODAS as fichas, ou seja, é a data de regeneração da base, não de conferência da paróquia",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "unitType": "paroquia",
+      "cnpj": "04.128.765/0019-91",
+      "status": null,
+      "notes": "Criada em 28/11/1984 por Dom Antônio Possamai. Histórico assinado por Mozair Hermógenes e Ademar Carlos Cunha em 19/05/2021. A diocese não publica horário de missa desta paróquia; os horários gravados vêm SÓ do agregador liriocatolico.com.br e ficam com confiança baixa.",
+      "communities": [
+        {
+          "name": "Comunidade Matriz São Sebastião",
+          "address": "Rua das Pedras, 265 – Jardim dos Migrantes",
+          "neighborhood": "Jardim dos Migrantes",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3300",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Paróquia São Sebastião (Ji-Paraná) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Comunidade Matriz São Sebastião",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": "Horário publicado APENAS pelo agregador liriocatolico.com.br (ficha \"Paróquia São Sebastião\"). A diocese não publica horário desta paróquia. O campo \"ultima_atualizacao\" do agregador (2026-09-02) é a data de regeneração da base, igual em todas as 49 fichas de Rondônia — por isso, fonte única não oficial = confiança baixa.",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/RO.json",
+              "title": "liriocatolico.com.br — base de horários de missa de Rondônia (49 fichas do estado). AGREGADOR: o campo \"ultima_atualizacao\" é 2026-09-02 em TODAS as fichas, ou seja, é a data de regeneração da base, não de conferência da paróquia",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Matriz São Sebastião",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Horário publicado APENAS pelo agregador liriocatolico.com.br (ficha \"Paróquia São Sebastião\"). A diocese não publica horário desta paróquia. O campo \"ultima_atualizacao\" do agregador (2026-09-02) é a data de regeneração da base, igual em todas as 49 fichas de Rondônia — por isso, fonte única não oficial = confiança baixa.",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/RO.json",
+              "title": "liriocatolico.com.br — base de horários de missa de Rondônia (49 fichas do estado). AGREGADOR: o campo \"ultima_atualizacao\" é 2026-09-02 em TODAS as fichas, ou seja, é a data de regeneração da base, não de conferência da paróquia",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Matriz São Sebastião",
+          "dayOfWeek": 4,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Horário publicado APENAS pelo agregador liriocatolico.com.br (ficha \"Paróquia São Sebastião\"). A diocese não publica horário desta paróquia. O campo \"ultima_atualizacao\" do agregador (2026-09-02) é a data de regeneração da base, igual em todas as 49 fichas de Rondônia — por isso, fonte única não oficial = confiança baixa.",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/RO.json",
+              "title": "liriocatolico.com.br — base de horários de missa de Rondônia (49 fichas do estado). AGREGADOR: o campo \"ultima_atualizacao\" é 2026-09-02 em TODAS as fichas, ou seja, é a data de regeneração da base, não de conferência da paróquia",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Matriz São Sebastião",
+          "dayOfWeek": 5,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Horário publicado APENAS pelo agregador liriocatolico.com.br (ficha \"Paróquia São Sebastião\"). A diocese não publica horário desta paróquia. O campo \"ultima_atualizacao\" do agregador (2026-09-02) é a data de regeneração da base, igual em todas as 49 fichas de Rondônia — por isso, fonte única não oficial = confiança baixa.",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/RO.json",
+              "title": "liriocatolico.com.br — base de horários de missa de Rondônia (49 fichas do estado). AGREGADOR: o campo \"ultima_atualizacao\" é 2026-09-02 em TODAS as fichas, ou seja, é a data de regeneração da base, não de conferência da paróquia",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Matriz São Sebastião",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Horário publicado APENAS pelo agregador liriocatolico.com.br (ficha \"Paróquia São Sebastião\"). A diocese não publica horário desta paróquia. O campo \"ultima_atualizacao\" do agregador (2026-09-02) é a data de regeneração da base, igual em todas as 49 fichas de Rondônia — por isso, fonte única não oficial = confiança baixa.",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/RO.json",
+              "title": "liriocatolico.com.br — base de horários de missa de Rondônia (49 fichas do estado). AGREGADOR: o campo \"ultima_atualizacao\" é 2026-09-02 em TODAS as fichas, ou seja, é a data de regeneração da base, não de conferência da paróquia",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "sao-jose-ji-parana",
+      "name": "Paróquia São José",
+      "city": "Ji-Paraná",
+      "state": "RO",
+      "neighborhood": "Nova Brasília",
+      "address": "Av. Maringá, 49 – Nova Brasília (Caixa Postal 275)",
+      "zipCode": null,
+      "phone": "(69) 3416-4213",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": 1976,
+      "sources": [
+        {
+          "url": "http://www.diocesedejiparana.org.br/paroquias.php",
+          "title": "Diocese de Ji-Paraná — Paróquias (listagem oficial paginada; 16 fichas na página 1 e 8 na página 2 = 24 paróquias)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=497",
+          "title": "Diocese de Ji-Paraná — ficha oficial de Paróquia São José (Ji-Paraná) (paróquia, município, data de criação, endereço, telefone e histórico)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://mapaosc.ipea.gov.br/api/api/osc/busca_avancada/lista/300/0?avancado={\"dadosGerais\":{\"tx_razao_social_osc\":\"DIOCESE DE JI PARANA\"}}",
+          "title": "Mapa das OSC / IPEA (espelho do cadastro da Receita Federal) — 31 estabelecimentos do CNPJ raiz 04.128.765 (DIOCESE DE JI-PARANÁ), com endereço e CEP",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://liriocatolico.com.br/horario_missa/dados/uf/RO.json",
+          "title": "liriocatolico.com.br — base de horários de missa de Rondônia (49 fichas do estado). AGREGADOR: o campo \"ultima_atualizacao\" é 2026-09-02 em TODAS as fichas, ou seja, é a data de regeneração da base, não de conferência da paróquia",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "unitType": "paroquia",
+      "cnpj": "04.128.765/0011-34",
+      "status": null,
+      "notes": "Criada em 08/12/1976. PARÓQUIA SALESIANA (\"Somos uma Paróquia Salesiana\"). Mantém o projeto social CEDB. ZIPCODE NÃO GRAVADO: a ficha publica \"76 900-000\", CEP genérico do município. A Receita registra o estabelecimento em \"RUA MARINGA, 749, N 3, NOVA BRASILIA\" — numeração diferente da ficha (49); conferir. A diocese não publica horário; os gravados vêm SÓ do liriocatolico e ficam baixa.",
+      "communities": [
+        {
+          "name": "Comunidade Matriz São José",
+          "address": "Av. Maringá, 49 – Nova Brasília",
+          "neighborhood": "Nova Brasília",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=497",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Paróquia São José (Ji-Paraná) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Comunidade Matriz São José",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": "Horário publicado APENAS pelo agregador liriocatolico.com.br (ficha \"Paróquia São José\"). A diocese não publica horário desta paróquia. O campo \"ultima_atualizacao\" do agregador (2026-09-02) é a data de regeneração da base, igual em todas as 49 fichas de Rondônia — por isso, fonte única não oficial = confiança baixa.",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/RO.json",
+              "title": "liriocatolico.com.br — base de horários de missa de Rondônia (49 fichas do estado). AGREGADOR: o campo \"ultima_atualizacao\" é 2026-09-02 em TODAS as fichas, ou seja, é a data de regeneração da base, não de conferência da paróquia",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Matriz São José",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Horário publicado APENAS pelo agregador liriocatolico.com.br (ficha \"Paróquia São José\"). A diocese não publica horário desta paróquia. O campo \"ultima_atualizacao\" do agregador (2026-09-02) é a data de regeneração da base, igual em todas as 49 fichas de Rondônia — por isso, fonte única não oficial = confiança baixa.",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/RO.json",
+              "title": "liriocatolico.com.br — base de horários de missa de Rondônia (49 fichas do estado). AGREGADOR: o campo \"ultima_atualizacao\" é 2026-09-02 em TODAS as fichas, ou seja, é a data de regeneração da base, não de conferência da paróquia",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Matriz São José",
+          "dayOfWeek": 1,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Horário publicado APENAS pelo agregador liriocatolico.com.br (ficha \"Paróquia São José\"). A diocese não publica horário desta paróquia. O campo \"ultima_atualizacao\" do agregador (2026-09-02) é a data de regeneração da base, igual em todas as 49 fichas de Rondônia — por isso, fonte única não oficial = confiança baixa.",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/RO.json",
+              "title": "liriocatolico.com.br — base de horários de missa de Rondônia (49 fichas do estado). AGREGADOR: o campo \"ultima_atualizacao\" é 2026-09-02 em TODAS as fichas, ou seja, é a data de regeneração da base, não de conferência da paróquia",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Matriz São José",
+          "dayOfWeek": 2,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Horário publicado APENAS pelo agregador liriocatolico.com.br (ficha \"Paróquia São José\"). A diocese não publica horário desta paróquia. O campo \"ultima_atualizacao\" do agregador (2026-09-02) é a data de regeneração da base, igual em todas as 49 fichas de Rondônia — por isso, fonte única não oficial = confiança baixa.",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/RO.json",
+              "title": "liriocatolico.com.br — base de horários de missa de Rondônia (49 fichas do estado). AGREGADOR: o campo \"ultima_atualizacao\" é 2026-09-02 em TODAS as fichas, ou seja, é a data de regeneração da base, não de conferência da paróquia",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Matriz São José",
+          "dayOfWeek": 4,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Horário publicado APENAS pelo agregador liriocatolico.com.br (ficha \"Paróquia São José\"). A diocese não publica horário desta paróquia. O campo \"ultima_atualizacao\" do agregador (2026-09-02) é a data de regeneração da base, igual em todas as 49 fichas de Rondônia — por isso, fonte única não oficial = confiança baixa.",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/RO.json",
+              "title": "liriocatolico.com.br — base de horários de missa de Rondônia (49 fichas do estado). AGREGADOR: o campo \"ultima_atualizacao\" é 2026-09-02 em TODAS as fichas, ou seja, é a data de regeneração da base, não de conferência da paróquia",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Matriz São José",
+          "dayOfWeek": 5,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Horário publicado APENAS pelo agregador liriocatolico.com.br (ficha \"Paróquia São José\"). A diocese não publica horário desta paróquia. O campo \"ultima_atualizacao\" do agregador (2026-09-02) é a data de regeneração da base, igual em todas as 49 fichas de Rondônia — por isso, fonte única não oficial = confiança baixa.",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/RO.json",
+              "title": "liriocatolico.com.br — base de horários de missa de Rondônia (49 fichas do estado). AGREGADOR: o campo \"ultima_atualizacao\" é 2026-09-02 em TODAS as fichas, ou seja, é a data de regeneração da base, não de conferência da paróquia",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Matriz São José",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Horário publicado APENAS pelo agregador liriocatolico.com.br (ficha \"Paróquia São José\"). A diocese não publica horário desta paróquia. O campo \"ultima_atualizacao\" do agregador (2026-09-02) é a data de regeneração da base, igual em todas as 49 fichas de Rondônia — por isso, fonte única não oficial = confiança baixa.",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/RO.json",
+              "title": "liriocatolico.com.br — base de horários de missa de Rondônia (49 fichas do estado). AGREGADOR: o campo \"ultima_atualizacao\" é 2026-09-02 em TODAS as fichas, ou seja, é a data de regeneração da base, não de conferência da paróquia",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-de-fatima-ji-parana",
+      "name": "Paróquia Nossa Senhora de Fátima",
+      "city": "Ji-Paraná",
+      "state": "RO",
+      "neighborhood": "Nossa Senhora de Fátima",
+      "address": "Rua Governador Jorge Teixeira, 2783 – Bairro Nossa Senhora de Fátima (Caixa Postal 1051)",
+      "zipCode": "76909-790",
+      "phone": "(69) 3422-2123",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": 2008,
+      "sources": [
+        {
+          "url": "http://www.diocesedejiparana.org.br/paroquias.php",
+          "title": "Diocese de Ji-Paraná — Paróquias (listagem oficial paginada; 16 fichas na página 1 e 8 na página 2 = 24 paróquias)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3299",
+          "title": "Diocese de Ji-Paraná — ficha oficial de Paróquia Nossa Senhora de Fátima (Ji-Paraná) (paróquia, município, data de criação, endereço, telefone e histórico)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://mapaosc.ipea.gov.br/api/api/osc/busca_avancada/lista/300/0?avancado={\"dadosGerais\":{\"tx_razao_social_osc\":\"DIOCESE DE JI PARANA\"}}",
+          "title": "Mapa das OSC / IPEA (espelho do cadastro da Receita Federal) — 31 estabelecimentos do CNPJ raiz 04.128.765 (DIOCESE DE JI-PARANÁ), com endereço e CEP",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://liriocatolico.com.br/horario_missa/dados/uf/RO.json",
+          "title": "liriocatolico.com.br — base de horários de missa de Rondônia (49 fichas do estado). AGREGADOR: o campo \"ultima_atualizacao\" é 2026-09-02 em TODAS as fichas, ou seja, é a data de regeneração da base, não de conferência da paróquia",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "unitType": "paroquia",
+      "cnpj": "04.128.765/0023-78",
+      "status": null,
+      "notes": "Criada em 11/10/2008 por Dom Bruno Pedron, tendo como primeiro pároco o Pe. José Ferreira Barros e vigário o Pe. Afonso Maria das Chagas. A ficha DECLARA \"33 comunidades, sendo 13 urbanas e 20 rurais, subdivididas em 7 setores\" — mas não as nomeia. Celular também publicado: (69) 98401-6395. A diocese não publica horário; os gravados vêm SÓ do liriocatolico e ficam baixa.",
+      "communities": [
+        {
+          "name": "Comunidade Matriz Nossa Senhora de Fátima",
+          "address": "Rua Governador Jorge Teixeira, 2783",
+          "neighborhood": "Nossa Senhora de Fátima",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3299",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Paróquia Nossa Senhora de Fátima (Ji-Paraná) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Comunidade Matriz Nossa Senhora de Fátima",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": "Horário publicado APENAS pelo agregador liriocatolico.com.br (ficha \"Paróquia Nossa Senhora de Fátima\"). A diocese não publica horário desta paróquia. O campo \"ultima_atualizacao\" do agregador (2026-09-02) é a data de regeneração da base, igual em todas as 49 fichas de Rondônia — por isso, fonte única não oficial = confiança baixa.",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/RO.json",
+              "title": "liriocatolico.com.br — base de horários de missa de Rondônia (49 fichas do estado). AGREGADOR: o campo \"ultima_atualizacao\" é 2026-09-02 em TODAS as fichas, ou seja, é a data de regeneração da base, não de conferência da paróquia",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Matriz Nossa Senhora de Fátima",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Horário publicado APENAS pelo agregador liriocatolico.com.br (ficha \"Paróquia Nossa Senhora de Fátima\"). A diocese não publica horário desta paróquia. O campo \"ultima_atualizacao\" do agregador (2026-09-02) é a data de regeneração da base, igual em todas as 49 fichas de Rondônia — por isso, fonte única não oficial = confiança baixa.",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/RO.json",
+              "title": "liriocatolico.com.br — base de horários de missa de Rondônia (49 fichas do estado). AGREGADOR: o campo \"ultima_atualizacao\" é 2026-09-02 em TODAS as fichas, ou seja, é a data de regeneração da base, não de conferência da paróquia",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Matriz Nossa Senhora de Fátima",
+          "dayOfWeek": 4,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Horário publicado APENAS pelo agregador liriocatolico.com.br (ficha \"Paróquia Nossa Senhora de Fátima\"). A diocese não publica horário desta paróquia. O campo \"ultima_atualizacao\" do agregador (2026-09-02) é a data de regeneração da base, igual em todas as 49 fichas de Rondônia — por isso, fonte única não oficial = confiança baixa.",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/RO.json",
+              "title": "liriocatolico.com.br — base de horários de missa de Rondônia (49 fichas do estado). AGREGADOR: o campo \"ultima_atualizacao\" é 2026-09-02 em TODAS as fichas, ou seja, é a data de regeneração da base, não de conferência da paróquia",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Matriz Nossa Senhora de Fátima",
+          "dayOfWeek": 6,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": "Horário publicado APENAS pelo agregador liriocatolico.com.br (ficha \"Paróquia Nossa Senhora de Fátima\"). A diocese não publica horário desta paróquia. O campo \"ultima_atualizacao\" do agregador (2026-09-02) é a data de regeneração da base, igual em todas as 49 fichas de Rondônia — por isso, fonte única não oficial = confiança baixa.",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/RO.json",
+              "title": "liriocatolico.com.br — base de horários de missa de Rondônia (49 fichas do estado). AGREGADOR: o campo \"ultima_atualizacao\" é 2026-09-02 em TODAS as fichas, ou seja, é a data de regeneração da base, não de conferência da paróquia",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "sagrada-familia-cacoal",
+      "name": "Paróquia Sagrada Família",
+      "city": "Cacoal",
+      "state": "RO",
+      "neighborhood": "Centro",
+      "address": "Avenida Dois de Junho, 2337 – Centro",
+      "zipCode": "76963-787",
+      "phone": "(69) 3441-5316",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Johnnis Marthis Parteli",
+      "foundedYear": 1976,
+      "sources": [
+        {
+          "url": "http://www.diocesedejiparana.org.br/paroquias.php",
+          "title": "Diocese de Ji-Paraná — Paróquias (listagem oficial paginada; 16 fichas na página 1 e 8 na página 2 = 24 paróquias)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3218",
+          "title": "Diocese de Ji-Paraná — ficha oficial de Paróquia Sagrada Família (Cacoal) (paróquia, município, data de criação, endereço, telefone e histórico)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://mapaosc.ipea.gov.br/api/api/osc/busca_avancada/lista/300/0?avancado={\"dadosGerais\":{\"tx_razao_social_osc\":\"DIOCESE DE JI PARANA\"}}",
+          "title": "Mapa das OSC / IPEA (espelho do cadastro da Receita Federal) — 31 estabelecimentos do CNPJ raiz 04.128.765 (DIOCESE DE JI-PARANÁ), com endereço e CEP",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://liriocatolico.com.br/horario_missa/dados/uf/RO.json",
+          "title": "liriocatolico.com.br — base de horários de missa de Rondônia (49 fichas do estado). AGREGADOR: o campo \"ultima_atualizacao\" é 2026-09-02 em TODAS as fichas, ou seja, é a data de regeneração da base, não de conferência da paróquia",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "unitType": "paroquia",
+      "cnpj": "04.128.765/0006-77",
+      "status": null,
+      "notes": "Criada em 08/12/1976 por Dom João Batista Costa. Padres também citados: Martson Adriano de Oliveira Melo e Pe. Sílvio Pedreira Ferreira. Celular também publicado: (69) 99975-2999. CEP recuperado do cadastro da Receita e confirmado no ViaCEP (Avenida Dois de Junho, de 2253 a 2563, Centro). É a paróquia do Pe. Ezequiel Ramin, mártir assassinado em 24/07/1985. A diocese não publica horário; os gravados vêm SÓ do liriocatolico (ficha \"Igreja Matriz Paróquia Sagrada Família\") e ficam baixa.",
+      "communities": [
+        {
+          "name": "Comunidade Matriz Sagrada Família",
+          "address": "Avenida Dois de Junho, 2337 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3218",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Paróquia Sagrada Família (Cacoal) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Comunidade Matriz Sagrada Família",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": "Horário publicado APENAS pelo agregador liriocatolico.com.br (ficha \"Igreja Matriz Paróquia Sagrada Família\"). A diocese não publica horário desta paróquia. O campo \"ultima_atualizacao\" do agregador (2026-09-02) é a data de regeneração da base, igual em todas as 49 fichas de Rondônia — por isso, fonte única não oficial = confiança baixa.",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/RO.json",
+              "title": "liriocatolico.com.br — base de horários de missa de Rondônia (49 fichas do estado). AGREGADOR: o campo \"ultima_atualizacao\" é 2026-09-02 em TODAS as fichas, ou seja, é a data de regeneração da base, não de conferência da paróquia",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Matriz Sagrada Família",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Horário publicado APENAS pelo agregador liriocatolico.com.br (ficha \"Igreja Matriz Paróquia Sagrada Família\"). A diocese não publica horário desta paróquia. O campo \"ultima_atualizacao\" do agregador (2026-09-02) é a data de regeneração da base, igual em todas as 49 fichas de Rondônia — por isso, fonte única não oficial = confiança baixa.",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/RO.json",
+              "title": "liriocatolico.com.br — base de horários de missa de Rondônia (49 fichas do estado). AGREGADOR: o campo \"ultima_atualizacao\" é 2026-09-02 em TODAS as fichas, ou seja, é a data de regeneração da base, não de conferência da paróquia",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Matriz Sagrada Família",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Horário publicado APENAS pelo agregador liriocatolico.com.br (ficha \"Igreja Matriz Paróquia Sagrada Família\"). A diocese não publica horário desta paróquia. O campo \"ultima_atualizacao\" do agregador (2026-09-02) é a data de regeneração da base, igual em todas as 49 fichas de Rondônia — por isso, fonte única não oficial = confiança baixa.",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/RO.json",
+              "title": "liriocatolico.com.br — base de horários de missa de Rondônia (49 fichas do estado). AGREGADOR: o campo \"ultima_atualizacao\" é 2026-09-02 em TODAS as fichas, ou seja, é a data de regeneração da base, não de conferência da paróquia",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Matriz Sagrada Família",
+          "dayOfWeek": 6,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Horário publicado APENAS pelo agregador liriocatolico.com.br (ficha \"Igreja Matriz Paróquia Sagrada Família\"). A diocese não publica horário desta paróquia. O campo \"ultima_atualizacao\" do agregador (2026-09-02) é a data de regeneração da base, igual em todas as 49 fichas de Rondônia — por isso, fonte única não oficial = confiança baixa.",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/RO.json",
+              "title": "liriocatolico.com.br — base de horários de missa de Rondônia (49 fichas do estado). AGREGADOR: o campo \"ultima_atualizacao\" é 2026-09-02 em TODAS as fichas, ou seja, é a data de regeneração da base, não de conferência da paróquia",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "sao-judas-tadeu-cacoal",
+      "name": "Paróquia São Judas Tadeu",
+      "city": "Cacoal",
+      "state": "RO",
+      "neighborhood": "Jardim Clodoaldo",
+      "address": "Rua Marechal Floriano Peixoto, 2404 – Jardim Clodoaldo",
+      "zipCode": "76963-700",
+      "phone": "(69) 3441-0573",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": 2017,
+      "sources": [
+        {
+          "url": "http://www.diocesedejiparana.org.br/paroquias.php",
+          "title": "Diocese de Ji-Paraná — Paróquias (listagem oficial paginada; 16 fichas na página 1 e 8 na página 2 = 24 paróquias)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=4692",
+          "title": "Diocese de Ji-Paraná — ficha oficial de Paróquia São Judas Tadeu (Cacoal) (paróquia, município, data de criação, endereço, telefone e histórico)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://mapaosc.ipea.gov.br/api/api/osc/busca_avancada/lista/300/0?avancado={\"dadosGerais\":{\"tx_razao_social_osc\":\"DIOCESE DE JI PARANA\"}}",
+          "title": "Mapa das OSC / IPEA (espelho do cadastro da Receita Federal) — 31 estabelecimentos do CNPJ raiz 04.128.765 (DIOCESE DE JI-PARANÁ), com endereço e CEP",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://liriocatolico.com.br/horario_missa/dados/uf/RO.json",
+          "title": "liriocatolico.com.br — base de horários de missa de Rondônia (49 fichas do estado). AGREGADOR: o campo \"ultima_atualizacao\" é 2026-09-02 em TODAS as fichas, ou seja, é a data de regeneração da base, não de conferência da paróquia",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "unitType": "paroquia",
+      "cnpj": "04.128.765/0035-01",
+      "status": null,
+      "notes": "Criada em 05/12/2017 — a paróquia mais nova da diocese. A ficha oficial só traz os dados cadastrais (o campo \"História da Paróquia\" está vazio). CEP recuperado do cadastro da Receita e confirmado no ViaCEP. A diocese não publica horário; os gravados vêm SÓ do liriocatolico e ficam baixa.",
+      "communities": [
+        {
+          "name": "Comunidade Matriz São Judas Tadeu",
+          "address": "Rua Marechal Floriano Peixoto, 2404 – Jardim Clodoaldo",
+          "neighborhood": "Jardim Clodoaldo",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=4692",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Paróquia São Judas Tadeu (Cacoal) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Comunidade Matriz São Judas Tadeu",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": "Horário publicado APENAS pelo agregador liriocatolico.com.br (ficha \"Paróquia São Judas Tadeu\"). A diocese não publica horário desta paróquia. O campo \"ultima_atualizacao\" do agregador (2026-09-02) é a data de regeneração da base, igual em todas as 49 fichas de Rondônia — por isso, fonte única não oficial = confiança baixa.",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/RO.json",
+              "title": "liriocatolico.com.br — base de horários de missa de Rondônia (49 fichas do estado). AGREGADOR: o campo \"ultima_atualizacao\" é 2026-09-02 em TODAS as fichas, ou seja, é a data de regeneração da base, não de conferência da paróquia",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Matriz São Judas Tadeu",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Horário publicado APENAS pelo agregador liriocatolico.com.br (ficha \"Paróquia São Judas Tadeu\"). A diocese não publica horário desta paróquia. O campo \"ultima_atualizacao\" do agregador (2026-09-02) é a data de regeneração da base, igual em todas as 49 fichas de Rondônia — por isso, fonte única não oficial = confiança baixa.",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/RO.json",
+              "title": "liriocatolico.com.br — base de horários de missa de Rondônia (49 fichas do estado). AGREGADOR: o campo \"ultima_atualizacao\" é 2026-09-02 em TODAS as fichas, ou seja, é a data de regeneração da base, não de conferência da paróquia",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Matriz São Judas Tadeu",
+          "dayOfWeek": 4,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Horário publicado APENAS pelo agregador liriocatolico.com.br (ficha \"Paróquia São Judas Tadeu\"). A diocese não publica horário desta paróquia. O campo \"ultima_atualizacao\" do agregador (2026-09-02) é a data de regeneração da base, igual em todas as 49 fichas de Rondônia — por isso, fonte única não oficial = confiança baixa.",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/RO.json",
+              "title": "liriocatolico.com.br — base de horários de missa de Rondônia (49 fichas do estado). AGREGADOR: o campo \"ultima_atualizacao\" é 2026-09-02 em TODAS as fichas, ou seja, é a data de regeneração da base, não de conferência da paróquia",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-aparecida-espigao-doeste",
+      "name": "Paróquia Nossa Senhora Aparecida",
+      "city": "Espigão d'Oeste",
+      "state": "RO",
+      "neighborhood": "Centro",
+      "address": "Rua da Matriz, 2431 – Centro (Caixa Postal 39)",
+      "zipCode": "76974-000",
+      "phone": "(69) 3481-2309",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": 1976,
+      "sources": [
+        {
+          "url": "http://www.diocesedejiparana.org.br/paroquias.php",
+          "title": "Diocese de Ji-Paraná — Paróquias (listagem oficial paginada; 16 fichas na página 1 e 8 na página 2 = 24 paróquias)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=503",
+          "title": "Diocese de Ji-Paraná — ficha oficial de Paróquia Nossa Senhora Aparecida (Espigão d'Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://mapaosc.ipea.gov.br/api/api/osc/busca_avancada/lista/300/0?avancado={\"dadosGerais\":{\"tx_razao_social_osc\":\"DIOCESE DE JI PARANA\"}}",
+          "title": "Mapa das OSC / IPEA (espelho do cadastro da Receita Federal) — 31 estabelecimentos do CNPJ raiz 04.128.765 (DIOCESE DE JI-PARANÁ), com endereço e CEP",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "unitType": "paroquia",
+      "cnpj": "04.128.765/0005-96",
+      "status": null,
+      "notes": "Criada em 08/12/1976 por decreto de Dom João Batista Costa, confiada à comunidade comboniana de Pimenta Bueno; primeiro vigário Pe. José Furlanetto. A ficha registra a presença histórica do povo indígena Suruí no território. Sem horário publicado por nenhuma fonte consultada.",
+      "communities": [
+        {
+          "name": "Comunidade Matriz Nossa Senhora Aparecida",
+          "address": "Rua da Matriz, 2431 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=503",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Paróquia Nossa Senhora Aparecida (Espigão d'Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "santa-rita-de-cassia-governador-jorge-teixeira",
+      "name": "Paróquia Santa Rita de Cássia",
+      "city": "Governador Jorge Teixeira",
+      "state": "RO",
+      "neighborhood": "Centro",
+      "address": "Rua Sumaúma, 2319 – Centro",
+      "zipCode": "76898-000",
+      "phone": "(69) 3524-1048",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": 2009,
+      "sources": [
+        {
+          "url": "http://www.diocesedejiparana.org.br/paroquias.php",
+          "title": "Diocese de Ji-Paraná — Paróquias (listagem oficial paginada; 16 fichas na página 1 e 8 na página 2 = 24 paróquias)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3302",
+          "title": "Diocese de Ji-Paraná — ficha oficial de Paróquia Santa Rita de Cássia (Governador Jorge Teixeira) (paróquia, município, data de criação, endereço, telefone e histórico)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://mapaosc.ipea.gov.br/api/api/osc/busca_avancada/lista/300/0?avancado={\"dadosGerais\":{\"tx_razao_social_osc\":\"DIOCESE DE JI PARANA\"}}",
+          "title": "Mapa das OSC / IPEA (espelho do cadastro da Receita Federal) — 31 estabelecimentos do CNPJ raiz 04.128.765 (DIOCESE DE JI-PARANÁ), com endereço e CEP",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "unitType": "paroquia",
+      "cnpj": "04.128.765/0032-69",
+      "status": null,
+      "notes": "Criada em 17/01/2009, desmembrada da Paróquia São João Batista de Jaru, com quatro setores e quarenta comunidades (segundo a ficha de Jaru). Celular também publicado: (69) 99908-7689. A Receita registra o estabelecimento em \"AVENIDA PEDRAS BRANCAS, 1620\" — endereço diferente do da ficha (Rua Sumaúma, 2319); conferir. A ficha oficial não traz histórico nem horário, e nenhuma outra fonte consultada publica missa desta paróquia.",
+      "communities": [
+        {
+          "name": "Comunidade Matriz Santa Rita de Cássia",
+          "address": "Rua Sumaúma, 2319 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3302",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Paróquia Santa Rita de Cássia (Governador Jorge Teixeira) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "sao-joao-batista-jaru",
+      "name": "Paróquia São João Batista",
+      "city": "Jaru",
+      "state": "RO",
+      "neighborhood": "Centro",
+      "address": "Avenida Padre Adolfo Rohl, 1725 – Centro",
+      "zipCode": "76890-000",
+      "phone": "(69) 3521-2248",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": 1976,
+      "sources": [
+        {
+          "url": "http://www.diocesedejiparana.org.br/paroquias.php",
+          "title": "Diocese de Ji-Paraná — Paróquias (listagem oficial paginada; 16 fichas na página 1 e 8 na página 2 = 24 paróquias)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=495",
+          "title": "Diocese de Ji-Paraná — ficha oficial de Paróquia São João Batista (Jaru) (paróquia, município, data de criação, endereço, telefone e histórico)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://mapaosc.ipea.gov.br/api/api/osc/busca_avancada/lista/300/0?avancado={\"dadosGerais\":{\"tx_razao_social_osc\":\"DIOCESE DE JI PARANA\"}}",
+          "title": "Mapa das OSC / IPEA (espelho do cadastro da Receita Federal) — 31 estabelecimentos do CNPJ raiz 04.128.765 (DIOCESE DE JI-PARANÁ), com endereço e CEP",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://liriocatolico.com.br/horario_missa/dados/uf/RO.json",
+          "title": "liriocatolico.com.br — base de horários de missa de Rondônia (49 fichas do estado). AGREGADOR: o campo \"ultima_atualizacao\" é 2026-09-02 em TODAS as fichas, ou seja, é a data de regeneração da base, não de conferência da paróquia",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "unitType": "paroquia",
+      "cnpj": "04.128.765/0017-20",
+      "status": null,
+      "notes": "Criada em 08/12/1976. A ficha DECLARA que \"atualmente a paróquia São João Batista possui nove setores e 115 comunidades\" — mas não as nomeia. Nossa Senhora Aparecida é a segunda padroeira desde 1990. Celular também publicado: (69) 99227-1140. A ficha grafa a avenida como \"Padre Adolfo Rhol\"; a Receita e o ViaCEP usam \"Pe. Adolfo Rohl\". A diocese não publica horário; os gravados vêm SÓ do liriocatolico e ficam baixa.",
+      "communities": [
+        {
+          "name": "Comunidade Matriz São João Batista",
+          "address": "Avenida Padre Adolfo Rohl, 1725 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=495",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Paróquia São João Batista (Jaru) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Comunidade Matriz São João Batista",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": "Horário publicado APENAS pelo agregador liriocatolico.com.br (ficha \"Paróquia São Joao Batista\"). A diocese não publica horário desta paróquia. O campo \"ultima_atualizacao\" do agregador (2026-09-02) é a data de regeneração da base, igual em todas as 49 fichas de Rondônia — por isso, fonte única não oficial = confiança baixa.",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/RO.json",
+              "title": "liriocatolico.com.br — base de horários de missa de Rondônia (49 fichas do estado). AGREGADOR: o campo \"ultima_atualizacao\" é 2026-09-02 em TODAS as fichas, ou seja, é a data de regeneração da base, não de conferência da paróquia",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Matriz São João Batista",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Horário publicado APENAS pelo agregador liriocatolico.com.br (ficha \"Paróquia São Joao Batista\"). A diocese não publica horário desta paróquia. O campo \"ultima_atualizacao\" do agregador (2026-09-02) é a data de regeneração da base, igual em todas as 49 fichas de Rondônia — por isso, fonte única não oficial = confiança baixa.",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/RO.json",
+              "title": "liriocatolico.com.br — base de horários de missa de Rondônia (49 fichas do estado). AGREGADOR: o campo \"ultima_atualizacao\" é 2026-09-02 em TODAS as fichas, ou seja, é a data de regeneração da base, não de conferência da paróquia",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Matriz São João Batista",
+          "dayOfWeek": 5,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Horário publicado APENAS pelo agregador liriocatolico.com.br (ficha \"Paróquia São Joao Batista\"). A diocese não publica horário desta paróquia. O campo \"ultima_atualizacao\" do agregador (2026-09-02) é a data de regeneração da base, igual em todas as 49 fichas de Rondônia — por isso, fonte única não oficial = confiança baixa.",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/RO.json",
+              "title": "liriocatolico.com.br — base de horários de missa de Rondônia (49 fichas do estado). AGREGADOR: o campo \"ultima_atualizacao\" é 2026-09-02 em TODAS as fichas, ou seja, é a data de regeneração da base, não de conferência da paróquia",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "sagrado-coracao-de-jesus-ministro-andreazza",
+      "name": "Paróquia Sagrado Coração de Jesus",
+      "city": "Ministro Andreazza",
+      "state": "RO",
+      "neighborhood": "Centro",
+      "address": "Rua Rondônia, 6063 – Centro",
+      "zipCode": "76919-000",
+      "phone": "(69) 99940-6011",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": 1994,
+      "sources": [
+        {
+          "url": "http://www.diocesedejiparana.org.br/paroquias.php",
+          "title": "Diocese de Ji-Paraná — Paróquias (listagem oficial paginada; 16 fichas na página 1 e 8 na página 2 = 24 paróquias)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3219",
+          "title": "Diocese de Ji-Paraná — ficha oficial de Paróquia Sagrado Coração de Jesus (Ministro Andreazza) (paróquia, município, data de criação, endereço, telefone e histórico)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://mapaosc.ipea.gov.br/api/api/osc/busca_avancada/lista/300/0?avancado={\"dadosGerais\":{\"tx_razao_social_osc\":\"DIOCESE DE JI PARANA\"}}",
+          "title": "Mapa das OSC / IPEA (espelho do cadastro da Receita Federal) — 31 estabelecimentos do CNPJ raiz 04.128.765 (DIOCESE DE JI-PARANÁ), com endereço e CEP",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "unitType": "paroquia",
+      "cnpj": "04.128.765/0029-63",
+      "status": null,
+      "notes": "Criada em 21/12/1994. A ficha DECLARA \"Número atual de comunidades: 25 comunidades\" — mas não as nomeia. ZIPCODE: a ficha não publica CEP e a Receita registra o CEP antigo de 8 dígitos (78981000); 76919-000 é o CEP único de Ministro Andreazza. Sem horário publicado por nenhuma fonte consultada.",
+      "communities": [
+        {
+          "name": "Comunidade Matriz Sagrado Coração de Jesus",
+          "address": "Rua Rondônia, 6063 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3219",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Paróquia Sagrado Coração de Jesus (Ministro Andreazza) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-dos-migrantes-mirante-da-serra",
+      "name": "Paróquia Nossa Senhora dos Migrantes",
+      "city": "Mirante da Serra",
+      "state": "RO",
+      "neighborhood": "Centro",
+      "address": "Rua 28 de Novembro, 2293 – Centro (Caixa Postal 11)",
+      "zipCode": "76926-000",
+      "phone": "(69) 3463-2161",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Paulinho Velozo",
+      "foundedYear": 1990,
+      "sources": [
+        {
+          "url": "http://www.diocesedejiparana.org.br/paroquias.php",
+          "title": "Diocese de Ji-Paraná — Paróquias (listagem oficial paginada; 16 fichas na página 1 e 8 na página 2 = 24 paróquias)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3303",
+          "title": "Diocese de Ji-Paraná — ficha oficial de Paróquia Nossa Senhora dos Migrantes (Mirante da Serra) (paróquia, município, data de criação, endereço, telefone e histórico)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://mapaosc.ipea.gov.br/api/api/osc/busca_avancada/lista/300/0?avancado={\"dadosGerais\":{\"tx_razao_social_osc\":\"DIOCESE DE JI PARANA\"}}",
+          "title": "Mapa das OSC / IPEA (espelho do cadastro da Receita Federal) — 31 estabelecimentos do CNPJ raiz 04.128.765 (DIOCESE DE JI-PARANÁ), com endereço e CEP",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "unitType": "paroquia",
+      "cnpj": "04.128.765/0026-10",
+      "status": null,
+      "notes": "Criada em 04/03/1990. \"Extensão territorial: compreende os Municípios de Mirante da Serra, Nova União e Distrito de Tarilândia (município de Jaru).\" Fundadores: Dom Antônio Possamai, Padre Bogo, Padre Barros, Ir. Maria Helena e Ir. Sérgia. Celular também publicado: (69) 99232-5046. A Receita registra o estabelecimento em \"RUA DOS SERINGUEIROS, S/N, CENTRO\" — endereço diferente do da ficha; conferir. O liriocatolico publica uma \"Comunidade São Roque\" em Nova União (domingo 19h) que pertence ao território desta paróquia, mas a ficha não a nomeia — registrada só no relatório. Sem horário da matriz em nenhuma fonte consultada.",
+      "communities": [
+        {
+          "name": "Comunidade Matriz Nossa Senhora dos Migrantes",
+          "address": "Rua 28 de Novembro, 2293 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3303",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Paróquia Nossa Senhora dos Migrantes (Mirante da Serra) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "divino-espirito-santo-nova-brasilandia-doeste",
+      "name": "Paróquia Divino Espírito Santo",
+      "city": "Nova Brasilândia d'Oeste",
+      "state": "RO",
+      "neighborhood": "Centro",
+      "address": "Rua José Carlos Bueno, 3411 – Centro",
+      "zipCode": "76958-000",
+      "phone": "(69) 3418-2434",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": 1987,
+      "sources": [
+        {
+          "url": "http://www.diocesedejiparana.org.br/paroquias.php",
+          "title": "Diocese de Ji-Paraná — Paróquias (listagem oficial paginada; 16 fichas na página 1 e 8 na página 2 = 24 paróquias)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=4405",
+          "title": "Diocese de Ji-Paraná — ficha oficial de Paróquia Divino Espírito Santo (Nova Brasilândia d'Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://mapaosc.ipea.gov.br/api/api/osc/busca_avancada/lista/300/0?avancado={\"dadosGerais\":{\"tx_razao_social_osc\":\"DIOCESE DE JI PARANA\"}}",
+          "title": "Mapa das OSC / IPEA (espelho do cadastro da Receita Federal) — 31 estabelecimentos do CNPJ raiz 04.128.765 (DIOCESE DE JI-PARANÁ), com endereço e CEP",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "unitType": "paroquia",
+      "cnpj": "04.128.765/0021-06",
+      "status": null,
+      "notes": "Criada em 07/06/1987, desmembrada da Paróquia Nossa Senhora Aparecida de Rolim de Moura. \"Em 28 de fevereiro de 2015, Dom Bruno Pedron decreta a capela Nossa Senhora Aparecida como Igreja Matriz da Paróquia\" — por isso a matriz tem orago diferente do da paróquia (a legenda da foto na ficha diz \"Comunidade Matriz Nossa Senhora da Conceição Aparecida\"). Abrange o município de Nova Brasilândia d'Oeste e o distrito de Migrantinópolis (Novo Horizonte do Oeste); a ficha DECLARA 57 comunidades, sem nomeá-las. Celular também publicado: (69) 99213-7835. A Receita registra o nº 3405 (a ficha, 3411). Sem horário publicado por nenhuma fonte consultada.",
+      "communities": [
+        {
+          "name": "Comunidade Matriz Nossa Senhora da Conceição Aparecida",
+          "address": "Rua José Carlos Bueno, 3411 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=4405",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Paróquia Divino Espírito Santo (Nova Brasilândia d'Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-aparecida-ouro-preto-do-oeste",
+      "name": "Santuário Nossa Senhora Aparecida",
+      "city": "Ouro Preto do Oeste",
+      "state": "RO",
+      "neighborhood": "Centro",
+      "address": "Avenida Daniel Comboni, 826 – Centro",
+      "zipCode": "76920-000",
+      "phone": "(69) 3461-3173",
+      "email": null,
+      "website": "https://santuarioopo.com",
+      "priestName": null,
+      "foundedYear": 1974,
+      "sources": [
+        {
+          "url": "http://www.diocesedejiparana.org.br/paroquias.php",
+          "title": "Diocese de Ji-Paraná — Paróquias (listagem oficial paginada; 16 fichas na página 1 e 8 na página 2 = 24 paróquias)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3435",
+          "title": "Diocese de Ji-Paraná — ficha oficial de Santuário Nossa Senhora Aparecida (Ouro Preto do Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://mapaosc.ipea.gov.br/api/api/osc/busca_avancada/lista/300/0?avancado={\"dadosGerais\":{\"tx_razao_social_osc\":\"DIOCESE DE JI PARANA\"}}",
+          "title": "Mapa das OSC / IPEA (espelho do cadastro da Receita Federal) — 31 estabelecimentos do CNPJ raiz 04.128.765 (DIOCESE DE JI-PARANÁ), com endereço e CEP",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.santuarioopo.com/comunidades/",
+          "title": "Santuário Diocesano Nossa Senhora Aparecida (Ouro Preto do Oeste) — Comunidades: 70 comunidades em 13 setores, com os nomes de 68 delas",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.santuarioopo.com/agendas-de-missa/",
+          "title": "Santuário Diocesano Nossa Senhora Aparecida — Agendas de Missa (cronograma mensal em PDF; a página avisa que \"a escala dos padres e os horários estão sujeitos a alterações eventuais\")",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.santuarioopo.com/wp-content/uploads/2026/09/cronograma-de-setembro.pdf",
+          "title": "Santuário Diocesano Nossa Senhora Aparecida — \"Missas nas comunidades Cidade em Setembro DE 2026\" (PDF oficial, agenda data a data com comunidade, hora e celebrante)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "unitType": "santuario",
+      "cnpj": "04.128.765/0010-53",
+      "status": null,
+      "notes": "Criada em 06/04/1974, desmembrada da Paróquia São João Bosco de Vila de Rondônia (hoje Ji-Paraná) — é a segunda paróquia mais antiga da diocese. Elevada a SANTUÁRIO DIOCESANO. Celular também publicado: (69) 99227-5164; o site do santuário publica ainda (69) 99221-8230. A ficha diocesana a intitula \"Santuário Paróquia Nossa Senhora Aparecida\"; o próprio site usa \"Santuário Diocesano Nossa Senhora Aparecida\". Site ATIVO (última notícia em 14/09/2026). A página /comunidades/ declara 70 comunidades em 13 setores e NOMEIA 68 — todas gravadas. HORÁRIOS: o santuário NÃO publica grade semanal fixa; publica um CRONOGRAMA MENSAL em PDF, data a data, com a comunidade e o celebrante (a agenda de setembro/2026 tem 46 missas). Do cronograma só extraí o que se repete nas quatro semanas na sede (domingo 7h30 e 19h30) e a quinta-feira, com confiança media/baixa e a ressalva do próprio site de que os horários podem mudar. As missas das comunidades rurais e urbanas são rodiziadas pelo mês e NÃO cabem no modelo semanal.",
+      "communities": [
+        {
+          "name": "Santuário Diocesano Nossa Senhora Aparecida",
+          "address": "Avenida Daniel Comboni, 826 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3435",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Santuário Nossa Senhora Aparecida (Ouro Preto do Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "Setor Rainha da Paz."
+        },
+        {
+          "name": "Comunidade Nossa Senhora de Guadalupe",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3435",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Santuário Nossa Senhora Aparecida (Ouro Preto do Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "Setor Rainha da Paz."
+        },
+        {
+          "name": "Comunidade Nossa Senhora das Graças",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3435",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Santuário Nossa Senhora Aparecida (Ouro Preto do Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "Setor Rainha da Paz."
+        },
+        {
+          "name": "Comunidade Santíssima Trindade",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3435",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Santuário Nossa Senhora Aparecida (Ouro Preto do Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "Setor Rainha da Paz."
+        },
+        {
+          "name": "Comunidade São Francisco de Assis",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3435",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Santuário Nossa Senhora Aparecida (Ouro Preto do Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "Setor Padre Camaione."
+        },
+        {
+          "name": "Comunidade São Mateus",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3435",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Santuário Nossa Senhora Aparecida (Ouro Preto do Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "Setor Padre Camaione."
+        },
+        {
+          "name": "Comunidade São Sebastião",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3435",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Santuário Nossa Senhora Aparecida (Ouro Preto do Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "Setor Padre Camaione."
+        },
+        {
+          "name": "Comunidade São José",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3435",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Santuário Nossa Senhora Aparecida (Ouro Preto do Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "Setor Padre Camaione."
+        },
+        {
+          "name": "Comunidade Nossa Senhora de Fátima (Setor Padre Camaione)",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3435",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Santuário Nossa Senhora Aparecida (Ouro Preto do Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "Setor Padre Camaione. Há outra comunidade com o mesmo orago no Setor Sagrada Família."
+        },
+        {
+          "name": "Comunidade Santo Agostinho",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3435",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Santuário Nossa Senhora Aparecida (Ouro Preto do Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "Setor São Daniel Comboni."
+        },
+        {
+          "name": "Comunidade Nossa Senhora Mãe do Perpétuo Socorro",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3435",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Santuário Nossa Senhora Aparecida (Ouro Preto do Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "Setor São Daniel Comboni."
+        },
+        {
+          "name": "Comunidade Nossa Senhora da Piedade",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3435",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Santuário Nossa Senhora Aparecida (Ouro Preto do Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "Setor São Daniel Comboni."
+        },
+        {
+          "name": "Comunidade Nossa Senhora de Nazaré",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3435",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Santuário Nossa Senhora Aparecida (Ouro Preto do Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "Setor São Daniel Comboni."
+        },
+        {
+          "name": "Comunidade Nossa Senhora do Carmo",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3435",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Santuário Nossa Senhora Aparecida (Ouro Preto do Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "Setor São Daniel Comboni."
+        },
+        {
+          "name": "Comunidade São José Operário",
+          "address": null,
+          "neighborhood": "Teixeirópolis",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3435",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Santuário Nossa Senhora Aparecida (Ouro Preto do Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "Setor Teixeirópolis — fica no município de Teixeirópolis."
+        },
+        {
+          "name": "Comunidade São João Bosco",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3435",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Santuário Nossa Senhora Aparecida (Ouro Preto do Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "Setor Teixeirópolis."
+        },
+        {
+          "name": "Comunidade Nossa Senhora Auxiliadora",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3435",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Santuário Nossa Senhora Aparecida (Ouro Preto do Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "Setor Teixeirópolis."
+        },
+        {
+          "name": "Comunidade Santa Ceia",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3435",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Santuário Nossa Senhora Aparecida (Ouro Preto do Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "Setor Teixeirópolis."
+        },
+        {
+          "name": "Comunidade Santa Inês",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3435",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Santuário Nossa Senhora Aparecida (Ouro Preto do Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "Setor Teixeirópolis."
+        },
+        {
+          "name": "Comunidade Todos os Santos",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3435",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Santuário Nossa Senhora Aparecida (Ouro Preto do Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "Setor Teixeirópolis."
+        },
+        {
+          "name": "Comunidade São Lino",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3435",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Santuário Nossa Senhora Aparecida (Ouro Preto do Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "Setor Teixeirópolis."
+        },
+        {
+          "name": "Comunidade Nossa Senhora das Vitórias",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3435",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Santuário Nossa Senhora Aparecida (Ouro Preto do Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "Setor Teixeirópolis."
+        },
+        {
+          "name": "Comunidade Maria Imaculada",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3435",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Santuário Nossa Senhora Aparecida (Ouro Preto do Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "Setor Teixeirópolis."
+        },
+        {
+          "name": "Comunidade Nossa Senhora da Guia",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3435",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Santuário Nossa Senhora Aparecida (Ouro Preto do Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "Setor Nossa Senhora da Guia."
+        },
+        {
+          "name": "Comunidade São Marcos",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3435",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Santuário Nossa Senhora Aparecida (Ouro Preto do Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "Setor Nossa Senhora da Guia."
+        },
+        {
+          "name": "Comunidade Santo Isidoro",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3435",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Santuário Nossa Senhora Aparecida (Ouro Preto do Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "Setor Nossa Senhora da Guia."
+        },
+        {
+          "name": "Comunidade Nossa Senhora Mãe",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3435",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Santuário Nossa Senhora Aparecida (Ouro Preto do Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "Setor Nossa Senhora da Guia."
+        },
+        {
+          "name": "Comunidade São Domingos Sávio",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3435",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Santuário Nossa Senhora Aparecida (Ouro Preto do Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "Setor Nossa Senhora da Guia."
+        },
+        {
+          "name": "Comunidade Cristo Rei",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3435",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Santuário Nossa Senhora Aparecida (Ouro Preto do Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "Setor Santo Antônio."
+        },
+        {
+          "name": "Comunidade Santa Luzia",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3435",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Santuário Nossa Senhora Aparecida (Ouro Preto do Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "Setor Santo Antônio."
+        },
+        {
+          "name": "Comunidade Santo Antônio",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3435",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Santuário Nossa Senhora Aparecida (Ouro Preto do Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "Setor Santo Antônio."
+        },
+        {
+          "name": "Comunidade Santa Terezinha",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3435",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Santuário Nossa Senhora Aparecida (Ouro Preto do Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "Setor Santo Antônio."
+        },
+        {
+          "name": "Comunidade João Paulo II",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3435",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Santuário Nossa Senhora Aparecida (Ouro Preto do Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "Setor Santo Antônio."
+        },
+        {
+          "name": "Comunidade Sagrada Família",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3435",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Santuário Nossa Senhora Aparecida (Ouro Preto do Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "Setor Sagrada Família."
+        },
+        {
+          "name": "Comunidade Nossa Senhora de Fátima (Setor Sagrada Família)",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3435",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Santuário Nossa Senhora Aparecida (Ouro Preto do Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "Setor Sagrada Família. A página grafa \"Comunidade Nossa Senhora Fátima\". Há outra comunidade com o mesmo orago no Setor Padre Camaione."
+        },
+        {
+          "name": "Comunidade Santo André",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3435",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Santuário Nossa Senhora Aparecida (Ouro Preto do Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "Setor Sagrada Família."
+        },
+        {
+          "name": "Comunidade São Geraldo",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3435",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Santuário Nossa Senhora Aparecida (Ouro Preto do Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "Setor Imaculado Coração de Maria."
+        },
+        {
+          "name": "Comunidade São Vicente",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3435",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Santuário Nossa Senhora Aparecida (Ouro Preto do Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "Setor Imaculado Coração de Maria. O cronograma de setembro/2026 a chama de \"São Vicente de Paula\"."
+        },
+        {
+          "name": "Comunidade Imaculado Coração de Maria",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3435",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Santuário Nossa Senhora Aparecida (Ouro Preto do Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "Setor Imaculado Coração de Maria."
+        },
+        {
+          "name": "Comunidade Bom Jesus",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3435",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Santuário Nossa Senhora Aparecida (Ouro Preto do Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "Setor Imaculado Coração de Maria."
+        },
+        {
+          "name": "Comunidade Nossa Senhora Assunta",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3435",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Santuário Nossa Senhora Aparecida (Ouro Preto do Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "Setor Nossa Senhora Assunta."
+        },
+        {
+          "name": "Comunidade Santos Reis",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3435",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Santuário Nossa Senhora Aparecida (Ouro Preto do Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "Setor Nossa Senhora Assunta."
+        },
+        {
+          "name": "Comunidade Nossa Senhora das Dores",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3435",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Santuário Nossa Senhora Aparecida (Ouro Preto do Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "Setor Nossa Senhora Assunta."
+        },
+        {
+          "name": "Comunidade São Benedito",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3435",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Santuário Nossa Senhora Aparecida (Ouro Preto do Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "Setor Nossa Senhora Assunta."
+        },
+        {
+          "name": "Comunidade Esperança em Cristo",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3435",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Santuário Nossa Senhora Aparecida (Ouro Preto do Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "Setor Nossa Senhora Assunta."
+        },
+        {
+          "name": "Comunidade Nossa Senhora do Perpétuo Socorro",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3435",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Santuário Nossa Senhora Aparecida (Ouro Preto do Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "Setor Nossa Senhora Assunta."
+        },
+        {
+          "name": "Comunidade Nova Aliança",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3435",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Santuário Nossa Senhora Aparecida (Ouro Preto do Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "Setor Nova Aliança."
+        },
+        {
+          "name": "Comunidade Dom Oscar Romero",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3435",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Santuário Nossa Senhora Aparecida (Ouro Preto do Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "Setor Nova Aliança."
+        },
+        {
+          "name": "Comunidade São Felipe",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3435",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Santuário Nossa Senhora Aparecida (Ouro Preto do Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "Setor Nova Aliança."
+        },
+        {
+          "name": "Comunidade Nossa Senhora dos Milagres",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3435",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Santuário Nossa Senhora Aparecida (Ouro Preto do Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "Setor Nova Aliança."
+        },
+        {
+          "name": "Comunidade Sagrado Coração de Jesus",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3435",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Santuário Nossa Senhora Aparecida (Ouro Preto do Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "Setor Sagrado Coração de Jesus."
+        },
+        {
+          "name": "Comunidade Nossa Senhora de Lourdes",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3435",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Santuário Nossa Senhora Aparecida (Ouro Preto do Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "Setor Sagrado Coração de Jesus."
+        },
+        {
+          "name": "Comunidade São Jorge",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3435",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Santuário Nossa Senhora Aparecida (Ouro Preto do Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "Setor Sagrado Coração de Jesus."
+        },
+        {
+          "name": "Comunidade Santa Cecília",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3435",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Santuário Nossa Senhora Aparecida (Ouro Preto do Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "Setor Sagrado Coração de Jesus."
+        },
+        {
+          "name": "Comunidade São Boa Ventura",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3435",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Santuário Nossa Senhora Aparecida (Ouro Preto do Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "Setor Sagrado Coração de Jesus."
+        },
+        {
+          "name": "Comunidade Cristo Redentor",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3435",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Santuário Nossa Senhora Aparecida (Ouro Preto do Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "Setor Sagrado Coração de Jesus."
+        },
+        {
+          "name": "Comunidade São Miguel Arcanjo",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3435",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Santuário Nossa Senhora Aparecida (Ouro Preto do Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "Setor Sagrado Coração de Jesus."
+        },
+        {
+          "name": "Comunidade Divino Espírito Santo",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3435",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Santuário Nossa Senhora Aparecida (Ouro Preto do Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "Setor Sagrado Coração de Jesus."
+        },
+        {
+          "name": "Comunidade São Silvestre",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3435",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Santuário Nossa Senhora Aparecida (Ouro Preto do Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "Setor São Silvestre."
+        },
+        {
+          "name": "Comunidade São Judas Tadeu",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3435",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Santuário Nossa Senhora Aparecida (Ouro Preto do Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "Setor São Silvestre."
+        },
+        {
+          "name": "Comunidade São Brás",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3435",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Santuário Nossa Senhora Aparecida (Ouro Preto do Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "Setor São Silvestre."
+        },
+        {
+          "name": "Comunidade São Bartolomeu",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3435",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Santuário Nossa Senhora Aparecida (Ouro Preto do Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "Setor São Silvestre."
+        },
+        {
+          "name": "Comunidade Rosa Mística",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3435",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Santuário Nossa Senhora Aparecida (Ouro Preto do Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "Setor São Silvestre."
+        },
+        {
+          "name": "Comunidade Nossa Senhora da Penha",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3435",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Santuário Nossa Senhora Aparecida (Ouro Preto do Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "Setor Nossa Senhora da Penha."
+        },
+        {
+          "name": "Comunidade São Domingos",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3435",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Santuário Nossa Senhora Aparecida (Ouro Preto do Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "Setor Nossa Senhora da Penha."
+        },
+        {
+          "name": "Comunidade Padre Camaione",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3435",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Santuário Nossa Senhora Aparecida (Ouro Preto do Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "Setor Nossa Senhora da Penha."
+        },
+        {
+          "name": "Comunidade Nossa Senhora da Esperança",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3435",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Santuário Nossa Senhora Aparecida (Ouro Preto do Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "Setor Nossa Senhora da Penha."
+        },
+        {
+          "name": "Comunidade São Lourenço",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3435",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Santuário Nossa Senhora Aparecida (Ouro Preto do Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": "Setor Nossa Senhora da Penha."
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Santuário Diocesano Nossa Senhora Aparecida",
+          "dayOfWeek": 0,
+          "time": "07:30",
+          "type": "MASS",
+          "notes": "Extraído do cronograma oficial de setembro/2026 (PDF), onde a missa das 7h30 no Santuário se repete nos quatro domingos do mês (06, 13, 20 e 27). O santuário não publica grade semanal fixa e avisa que \"a escala dos padres e os horários estão sujeitos a alterações eventuais\".",
+          "sources": [
+            {
+              "url": "https://www.santuarioopo.com/wp-content/uploads/2026/09/cronograma-de-setembro.pdf",
+              "title": "Santuário Diocesano Nossa Senhora Aparecida — \"Missas nas comunidades Cidade em Setembro DE 2026\" (PDF oficial)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Santuário Diocesano Nossa Senhora Aparecida",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Extraído do cronograma oficial de setembro/2026 (PDF), onde a missa das 19h30 no Santuário se repete nos quatro domingos do mês (06, 13, 20 e 27).",
+          "sources": [
+            {
+              "url": "https://www.santuarioopo.com/wp-content/uploads/2026/09/cronograma-de-setembro.pdf",
+              "title": "Santuário Diocesano Nossa Senhora Aparecida — \"Missas nas comunidades Cidade em Setembro DE 2026\" (PDF oficial)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Santuário Diocesano Nossa Senhora Aparecida",
+          "dayOfWeek": 4,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Extraído do cronograma oficial de setembro/2026: quinta-feira no Santuário em 03, 17 e 24/09 às 19h30, mas em 10/09 às 19h00 — horário instável, por isso baixa.",
+          "sources": [
+            {
+              "url": "https://www.santuarioopo.com/wp-content/uploads/2026/09/cronograma-de-setembro.pdf",
+              "title": "Santuário Diocesano Nossa Senhora Aparecida — \"Missas nas comunidades Cidade em Setembro DE 2026\" (PDF oficial)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-de-fatima-pimenta-bueno",
+      "name": "Paróquia Nossa Senhora de Fátima",
+      "city": "Pimenta Bueno",
+      "state": "RO",
+      "neighborhood": "Centro",
+      "address": "Av. Cunha Bueno, 170 – Centro (Caixa Postal 01)",
+      "zipCode": "76970-000",
+      "phone": "(69) 3451-2365",
+      "email": null,
+      "website": null,
+      "priestName": "Frei José Ângelo Mascarello (Capuchinho)",
+      "foundedYear": 1974,
+      "sources": [
+        {
+          "url": "http://www.diocesedejiparana.org.br/paroquias.php",
+          "title": "Diocese de Ji-Paraná — Paróquias (listagem oficial paginada; 16 fichas na página 1 e 8 na página 2 = 24 paróquias)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3221",
+          "title": "Diocese de Ji-Paraná — ficha oficial de Paróquia Nossa Senhora de Fátima (Pimenta Bueno) (paróquia, município, data de criação, endereço, telefone e histórico)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://mapaosc.ipea.gov.br/api/api/osc/busca_avancada/lista/300/0?avancado={\"dadosGerais\":{\"tx_razao_social_osc\":\"DIOCESE DE JI PARANA\"}}",
+          "title": "Mapa das OSC / IPEA (espelho do cadastro da Receita Federal) — 31 estabelecimentos do CNPJ raiz 04.128.765 (DIOCESE DE JI-PARANÁ), com endereço e CEP",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://liriocatolico.com.br/horario_missa/dados/uf/RO.json",
+          "title": "liriocatolico.com.br — base de horários de missa de Rondônia (49 fichas do estado). AGREGADOR: o campo \"ultima_atualizacao\" é 2026-09-02 em TODAS as fichas, ou seja, é a data de regeneração da base, não de conferência da paróquia",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "unitType": "paroquia",
+      "cnpj": "04.128.765/0004-05",
+      "status": null,
+      "notes": "FICHA MAIS ATUAL DA DIOCESE (publicada em 19/02/2026, contra 26/03/2025 das demais). Criada em 09/06/1974 por Dom João Batista Costa, desmembrada da Paróquia São João Bosco de Vila Rondônia; primeiro vigário Pe. Lodovico Bononi. Paróquia dos Capuchinhos desde 01/02/1985. Compreende os municípios de Pimenta Bueno, Primavera de Rondônia e São Felipe d'Oeste. A ficha DECLARA \"50 Comunidades, sendo 15 nas áreas urbanas e 35 na Zona Rural\" — mas não as nomeia. Demais clérigos: Frei Sergio Sartori, Frei Airton dos Santos e o diácono Erivelton André Rodrigues. A própria ficha publica o CNPJ da paróquia: 04.128.765/0004-05. E-MAIL NÃO GRAVADO: o campo \"E-mail\" da ficha traz telefones (\"3451-2365| 98120-9141\"), não um endereço eletrônico. A diocese não publica horário; os gravados vêm SÓ do liriocatolico e ficam baixa.",
+      "communities": [
+        {
+          "name": "Comunidade Matriz Nossa Senhora de Fátima",
+          "address": "Av. Cunha Bueno, 170 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3221",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Paróquia Nossa Senhora de Fátima (Pimenta Bueno) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Comunidade Matriz Nossa Senhora de Fátima",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": "Horário publicado APENAS pelo agregador liriocatolico.com.br (ficha \"Paróquia Nossa Senhora de Fátima\"). A diocese não publica horário desta paróquia. O campo \"ultima_atualizacao\" do agregador (2026-09-02) é a data de regeneração da base, igual em todas as 49 fichas de Rondônia — por isso, fonte única não oficial = confiança baixa.",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/RO.json",
+              "title": "liriocatolico.com.br — base de horários de missa de Rondônia (49 fichas do estado). AGREGADOR: o campo \"ultima_atualizacao\" é 2026-09-02 em TODAS as fichas, ou seja, é a data de regeneração da base, não de conferência da paróquia",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Matriz Nossa Senhora de Fátima",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Horário publicado APENAS pelo agregador liriocatolico.com.br (ficha \"Paróquia Nossa Senhora de Fátima\"). A diocese não publica horário desta paróquia. O campo \"ultima_atualizacao\" do agregador (2026-09-02) é a data de regeneração da base, igual em todas as 49 fichas de Rondônia — por isso, fonte única não oficial = confiança baixa.",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/RO.json",
+              "title": "liriocatolico.com.br — base de horários de missa de Rondônia (49 fichas do estado). AGREGADOR: o campo \"ultima_atualizacao\" é 2026-09-02 em TODAS as fichas, ou seja, é a data de regeneração da base, não de conferência da paróquia",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Matriz Nossa Senhora de Fátima",
+          "dayOfWeek": 1,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Horário publicado APENAS pelo agregador liriocatolico.com.br (ficha \"Paróquia Nossa Senhora de Fátima\"). A diocese não publica horário desta paróquia. O campo \"ultima_atualizacao\" do agregador (2026-09-02) é a data de regeneração da base, igual em todas as 49 fichas de Rondônia — por isso, fonte única não oficial = confiança baixa.",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/RO.json",
+              "title": "liriocatolico.com.br — base de horários de missa de Rondônia (49 fichas do estado). AGREGADOR: o campo \"ultima_atualizacao\" é 2026-09-02 em TODAS as fichas, ou seja, é a data de regeneração da base, não de conferência da paróquia",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "sao-joao-batista-presidente-medici",
+      "name": "Paróquia São João Batista",
+      "city": "Presidente Médici",
+      "state": "RO",
+      "neighborhood": "Centro",
+      "address": "Av. 7 de Setembro, esquina com a Rua Otávio Rodrigues de Matos, 2044 – Centro",
+      "zipCode": "76916-000",
+      "phone": "(69) 99300-5360",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": 1976,
+      "sources": [
+        {
+          "url": "http://www.diocesedejiparana.org.br/paroquias.php?pg=2",
+          "title": "Diocese de Ji-Paraná — Paróquias, página 2 (8 fichas)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=496",
+          "title": "Diocese de Ji-Paraná — ficha oficial de Paróquia São João Batista (Presidente Médici) (paróquia, município, data de criação, endereço, telefone e histórico)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://mapaosc.ipea.gov.br/api/api/osc/busca_avancada/lista/300/0?avancado={\"dadosGerais\":{\"tx_razao_social_osc\":\"DIOCESE DE JI PARANA\"}}",
+          "title": "Mapa das OSC / IPEA (espelho do cadastro da Receita Federal) — 31 estabelecimentos do CNPJ raiz 04.128.765 (DIOCESE DE JI-PARANÁ), com endereço e CEP",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://liriocatolico.com.br/horario_missa/dados/uf/RO.json",
+          "title": "liriocatolico.com.br — base de horários de missa de Rondônia (49 fichas do estado). AGREGADOR: o campo \"ultima_atualizacao\" é 2026-09-02 em TODAS as fichas, ou seja, é a data de regeneração da base, não de conferência da paróquia",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "unitType": "paroquia",
+      "cnpj": "04.128.765/0009-10",
+      "status": null,
+      "notes": "Criada em 08/12/1976. \"Os primeiros registros mostram que o nome da paróquia no início, por volta do ano de 1976, se chamava Paróquia São João do Muqui! Porém essa foi extinta porque não havia essa localidade.\" A primeira missa em Presidente Médici foi em 13/04/1972, pelo Pe. Adolpho Rohl. Redes sociais oficiais publicadas na ficha: Facebook e Instagram @paroquiasjbatistaro. A diocese não publica horário; os gravados vêm SÓ do liriocatolico e ficam baixa.",
+      "communities": [
+        {
+          "name": "Comunidade Matriz São João Batista",
+          "address": "Av. 7 de Setembro, esquina com a Rua Otávio Rodrigues de Matos, 2044 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=496",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Paróquia São João Batista (Presidente Médici) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Comunidade Matriz São João Batista",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": "Horário publicado APENAS pelo agregador liriocatolico.com.br (ficha \"Paróquia São João Batista\"). A diocese não publica horário desta paróquia. O campo \"ultima_atualizacao\" do agregador (2026-09-02) é a data de regeneração da base, igual em todas as 49 fichas de Rondônia — por isso, fonte única não oficial = confiança baixa.",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/RO.json",
+              "title": "liriocatolico.com.br — base de horários de missa de Rondônia (49 fichas do estado). AGREGADOR: o campo \"ultima_atualizacao\" é 2026-09-02 em TODAS as fichas, ou seja, é a data de regeneração da base, não de conferência da paróquia",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Matriz São João Batista",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Horário publicado APENAS pelo agregador liriocatolico.com.br (ficha \"Paróquia São João Batista\"). A diocese não publica horário desta paróquia. O campo \"ultima_atualizacao\" do agregador (2026-09-02) é a data de regeneração da base, igual em todas as 49 fichas de Rondônia — por isso, fonte única não oficial = confiança baixa.",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/RO.json",
+              "title": "liriocatolico.com.br — base de horários de missa de Rondônia (49 fichas do estado). AGREGADOR: o campo \"ultima_atualizacao\" é 2026-09-02 em TODAS as fichas, ou seja, é a data de regeneração da base, não de conferência da paróquia",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Matriz São João Batista",
+          "dayOfWeek": 1,
+          "time": "06:15",
+          "type": "MASS",
+          "notes": "Horário publicado APENAS pelo agregador liriocatolico.com.br (ficha \"Paróquia São João Batista\"). A diocese não publica horário desta paróquia. O campo \"ultima_atualizacao\" do agregador (2026-09-02) é a data de regeneração da base, igual em todas as 49 fichas de Rondônia — por isso, fonte única não oficial = confiança baixa.",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/RO.json",
+              "title": "liriocatolico.com.br — base de horários de missa de Rondônia (49 fichas do estado). AGREGADOR: o campo \"ultima_atualizacao\" é 2026-09-02 em TODAS as fichas, ou seja, é a data de regeneração da base, não de conferência da paróquia",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Matriz São João Batista",
+          "dayOfWeek": 2,
+          "time": "06:15",
+          "type": "MASS",
+          "notes": "Horário publicado APENAS pelo agregador liriocatolico.com.br (ficha \"Paróquia São João Batista\"). A diocese não publica horário desta paróquia. O campo \"ultima_atualizacao\" do agregador (2026-09-02) é a data de regeneração da base, igual em todas as 49 fichas de Rondônia — por isso, fonte única não oficial = confiança baixa.",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/RO.json",
+              "title": "liriocatolico.com.br — base de horários de missa de Rondônia (49 fichas do estado). AGREGADOR: o campo \"ultima_atualizacao\" é 2026-09-02 em TODAS as fichas, ou seja, é a data de regeneração da base, não de conferência da paróquia",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Matriz São João Batista",
+          "dayOfWeek": 3,
+          "time": "06:15",
+          "type": "MASS",
+          "notes": "Horário publicado APENAS pelo agregador liriocatolico.com.br (ficha \"Paróquia São João Batista\"). A diocese não publica horário desta paróquia. O campo \"ultima_atualizacao\" do agregador (2026-09-02) é a data de regeneração da base, igual em todas as 49 fichas de Rondônia — por isso, fonte única não oficial = confiança baixa.",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/RO.json",
+              "title": "liriocatolico.com.br — base de horários de missa de Rondônia (49 fichas do estado). AGREGADOR: o campo \"ultima_atualizacao\" é 2026-09-02 em TODAS as fichas, ou seja, é a data de regeneração da base, não de conferência da paróquia",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Matriz São João Batista",
+          "dayOfWeek": 4,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Horário publicado APENAS pelo agregador liriocatolico.com.br (ficha \"Paróquia São João Batista\"). A diocese não publica horário desta paróquia. O campo \"ultima_atualizacao\" do agregador (2026-09-02) é a data de regeneração da base, igual em todas as 49 fichas de Rondônia — por isso, fonte única não oficial = confiança baixa.",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/RO.json",
+              "title": "liriocatolico.com.br — base de horários de missa de Rondônia (49 fichas do estado). AGREGADOR: o campo \"ultima_atualizacao\" é 2026-09-02 em TODAS as fichas, ou seja, é a data de regeneração da base, não de conferência da paróquia",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Matriz São João Batista",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Horário publicado APENAS pelo agregador liriocatolico.com.br (ficha \"Paróquia São João Batista\"). A diocese não publica horário desta paróquia. O campo \"ultima_atualizacao\" do agregador (2026-09-02) é a data de regeneração da base, igual em todas as 49 fichas de Rondônia — por isso, fonte única não oficial = confiança baixa.",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/RO.json",
+              "title": "liriocatolico.com.br — base de horários de missa de Rondônia (49 fichas do estado). AGREGADOR: o campo \"ultima_atualizacao\" é 2026-09-02 em TODAS as fichas, ou seja, é a data de regeneração da base, não de conferência da paróquia",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Matriz São João Batista",
+          "dayOfWeek": 6,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": "Horário publicado APENAS pelo agregador liriocatolico.com.br (ficha \"Paróquia São João Batista\"). A diocese não publica horário desta paróquia. O campo \"ultima_atualizacao\" do agregador (2026-09-02) é a data de regeneração da base, igual em todas as 49 fichas de Rondônia — por isso, fonte única não oficial = confiança baixa.",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/RO.json",
+              "title": "liriocatolico.com.br — base de horários de missa de Rondônia (49 fichas do estado). AGREGADOR: o campo \"ultima_atualizacao\" é 2026-09-02 em TODAS as fichas, ou seja, é a data de regeneração da base, não de conferência da paróquia",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-aparecida-rolim-de-moura",
+      "name": "Paróquia Nossa Senhora Aparecida",
+      "city": "Rolim de Moura",
+      "state": "RO",
+      "neighborhood": "Centro",
+      "address": "Av. Fortaleza, 5126 – Centro (Caixa Postal 31)",
+      "zipCode": "76940-000",
+      "phone": "(69) 3198-0700",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": 1977,
+      "sources": [
+        {
+          "url": "http://www.diocesedejiparana.org.br/paroquias.php?pg=2",
+          "title": "Diocese de Ji-Paraná — Paróquias, página 2 (8 fichas)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3222",
+          "title": "Diocese de Ji-Paraná — ficha oficial de Paróquia Nossa Senhora Aparecida (Rolim de Moura) (paróquia, município, data de criação, endereço, telefone e histórico)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://mapaosc.ipea.gov.br/api/api/osc/busca_avancada/lista/300/0?avancado={\"dadosGerais\":{\"tx_razao_social_osc\":\"DIOCESE DE JI PARANA\"}}",
+          "title": "Mapa das OSC / IPEA (espelho do cadastro da Receita Federal) — 31 estabelecimentos do CNPJ raiz 04.128.765 (DIOCESE DE JI-PARANÁ), com endereço e CEP",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://liriocatolico.com.br/horario_missa/dados/uf/RO.json",
+          "title": "liriocatolico.com.br — base de horários de missa de Rondônia (49 fichas do estado). AGREGADOR: o campo \"ultima_atualizacao\" é 2026-09-02 em TODAS as fichas, ou seja, é a data de regeneração da base, não de conferência da paróquia",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "unitType": "paroquia",
+      "cnpj": "04.128.765/0016-49",
+      "status": null,
+      "notes": "Criada em 25/12/1977. Atende também parte do município de Novo Horizonte do Oeste e o município de Castanheiras. A ficha diz \"hoje são 15 comunidades\" urbanas, sem nomeá-las. Telefones também publicados: (69) 3198-0800 e (69) 99900-5245. PÁROCO NÃO GRAVADO: a ficha traz uma lista histórica de padres e freis (franciscanos), e os últimos marcados \"– Pároco\" são Frei Silvio Didier Mourão e Frei Cleidimar Vilela Roquim da Silva, seguidos de Frei Marcos Antonio da Silva Alencar sem título — não dá para saber qual é o atual. A diocese não publica horário; os gravados vêm SÓ do liriocatolico (ficha \"Igreja Matriz Paróquia Nossa Senhora Aparecida\") e ficam baixa.",
+      "communities": [
+        {
+          "name": "Comunidade Matriz Nossa Senhora Aparecida",
+          "address": "Av. Fortaleza, 5126 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3222",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Paróquia Nossa Senhora Aparecida (Rolim de Moura) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Comunidade Matriz Nossa Senhora Aparecida",
+          "dayOfWeek": 0,
+          "time": "07:30",
+          "type": "MASS",
+          "notes": "Horário publicado APENAS pelo agregador liriocatolico.com.br (ficha \"Igreja Matriz Paróquia Nossa Senhora Aparecida\"). A diocese não publica horário desta paróquia. O campo \"ultima_atualizacao\" do agregador (2026-09-02) é a data de regeneração da base, igual em todas as 49 fichas de Rondônia — por isso, fonte única não oficial = confiança baixa.",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/RO.json",
+              "title": "liriocatolico.com.br — base de horários de missa de Rondônia (49 fichas do estado). AGREGADOR: o campo \"ultima_atualizacao\" é 2026-09-02 em TODAS as fichas, ou seja, é a data de regeneração da base, não de conferência da paróquia",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Matriz Nossa Senhora Aparecida",
+          "dayOfWeek": 0,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": "Horário publicado APENAS pelo agregador liriocatolico.com.br (ficha \"Igreja Matriz Paróquia Nossa Senhora Aparecida\"). A diocese não publica horário desta paróquia. O campo \"ultima_atualizacao\" do agregador (2026-09-02) é a data de regeneração da base, igual em todas as 49 fichas de Rondônia — por isso, fonte única não oficial = confiança baixa.",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/RO.json",
+              "title": "liriocatolico.com.br — base de horários de missa de Rondônia (49 fichas do estado). AGREGADOR: o campo \"ultima_atualizacao\" é 2026-09-02 em TODAS as fichas, ou seja, é a data de regeneração da base, não de conferência da paróquia",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Matriz Nossa Senhora Aparecida",
+          "dayOfWeek": 0,
+          "time": "20:00",
+          "type": "MASS",
+          "notes": "Horário publicado APENAS pelo agregador liriocatolico.com.br (ficha \"Igreja Matriz Paróquia Nossa Senhora Aparecida\"). A diocese não publica horário desta paróquia. O campo \"ultima_atualizacao\" do agregador (2026-09-02) é a data de regeneração da base, igual em todas as 49 fichas de Rondônia — por isso, fonte única não oficial = confiança baixa.",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/RO.json",
+              "title": "liriocatolico.com.br — base de horários de missa de Rondônia (49 fichas do estado). AGREGADOR: o campo \"ultima_atualizacao\" é 2026-09-02 em TODAS as fichas, ou seja, é a data de regeneração da base, não de conferência da paróquia",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Matriz Nossa Senhora Aparecida",
+          "dayOfWeek": 2,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": "Horário publicado APENAS pelo agregador liriocatolico.com.br (ficha \"Igreja Matriz Paróquia Nossa Senhora Aparecida\"). A diocese não publica horário desta paróquia. O campo \"ultima_atualizacao\" do agregador (2026-09-02) é a data de regeneração da base, igual em todas as 49 fichas de Rondônia — por isso, fonte única não oficial = confiança baixa.",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/RO.json",
+              "title": "liriocatolico.com.br — base de horários de missa de Rondônia (49 fichas do estado). AGREGADOR: o campo \"ultima_atualizacao\" é 2026-09-02 em TODAS as fichas, ou seja, é a data de regeneração da base, não de conferência da paróquia",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Matriz Nossa Senhora Aparecida",
+          "dayOfWeek": 4,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Horário publicado APENAS pelo agregador liriocatolico.com.br (ficha \"Igreja Matriz Paróquia Nossa Senhora Aparecida\"). A diocese não publica horário desta paróquia. O campo \"ultima_atualizacao\" do agregador (2026-09-02) é a data de regeneração da base, igual em todas as 49 fichas de Rondônia — por isso, fonte única não oficial = confiança baixa.",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/RO.json",
+              "title": "liriocatolico.com.br — base de horários de missa de Rondônia (49 fichas do estado). AGREGADOR: o campo \"ultima_atualizacao\" é 2026-09-02 em TODAS as fichas, ou seja, é a data de regeneração da base, não de conferência da paróquia",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Matriz Nossa Senhora Aparecida",
+          "dayOfWeek": 6,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": "Horário publicado APENAS pelo agregador liriocatolico.com.br (ficha \"Igreja Matriz Paróquia Nossa Senhora Aparecida\"). A diocese não publica horário desta paróquia. O campo \"ultima_atualizacao\" do agregador (2026-09-02) é a data de regeneração da base, igual em todas as 49 fichas de Rondônia — por isso, fonte única não oficial = confiança baixa.",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/RO.json",
+              "title": "liriocatolico.com.br — base de horários de missa de Rondônia (49 fichas do estado). AGREGADOR: o campo \"ultima_atualizacao\" é 2026-09-02 em TODAS as fichas, ou seja, é a data de regeneração da base, não de conferência da paróquia",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-auxiliadora-rondolandia",
+      "name": "Paróquia Nossa Senhora Auxiliadora",
+      "city": "Rondolândia",
+      "state": "MT",
+      "neighborhood": "Centro",
+      "address": "Rua Dom Bosco, s/n – Centro",
+      "zipCode": "78338-000",
+      "phone": "(66) 3542-1047",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": 1999,
+      "sources": [
+        {
+          "url": "http://www.diocesedejiparana.org.br/paroquias.php?pg=2",
+          "title": "Diocese de Ji-Paraná — Paróquias, página 2 (8 fichas)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=4413",
+          "title": "Diocese de Ji-Paraná — ficha oficial de Paróquia Nossa Senhora Auxiliadora (Rondolândia) (paróquia, município, data de criação, endereço, telefone e histórico)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://mapaosc.ipea.gov.br/api/api/osc/busca_avancada/lista/300/0?avancado={\"dadosGerais\":{\"tx_razao_social_osc\":\"DIOCESE DE JI PARANA\"}}",
+          "title": "Mapa das OSC / IPEA (espelho do cadastro da Receita Federal) — 31 estabelecimentos do CNPJ raiz 04.128.765 (DIOCESE DE JI-PARANÁ), com endereço e CEP",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "unitType": "paroquia",
+      "cnpj": "04.128.765/0034-20",
+      "status": null,
+      "notes": "ÚNICA PARÓQUIA DA DIOCESE FORA DE RONDÔNIA: fica em Rondolândia, MATO GROSSO (state = MT). A ficha registra \"Data de criação: 24 de maio de 1999, Diocese de Juína — Dom Franco Dalla Valle (Bispo Diocesano)\": a paróquia nasceu na Diocese de Juína/MT e depois passou para Ji-Paraná, porque \"os municípios vizinhos são do estado de Rondônia\" e o deslocamento para Juína era inviável. A Receita confirma o estabelecimento 0034-20 do CNPJ da Diocese de Ji-Paraná em Rondolândia. Pe. Luis Izidor Molento é citado como o fundador (1999), não necessariamente o pároco atual — por isso priestName ficou null. Sem horário publicado por nenhuma fonte consultada.",
+      "communities": [
+        {
+          "name": "Comunidade Matriz Nossa Senhora Auxiliadora",
+          "address": "Rua Dom Bosco, s/n – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=4413",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Paróquia Nossa Senhora Auxiliadora (Rondolândia) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "santa-luzia-santa-luzia-doeste",
+      "name": "Paróquia Santa Luzia",
+      "city": "Santa Luzia d'Oeste",
+      "state": "RO",
+      "neighborhood": "Centro",
+      "address": "Av. Novo Estado, 2921 – Centro",
+      "zipCode": "76950-000",
+      "phone": "(69) 3434-2533",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": 1994,
+      "sources": [
+        {
+          "url": "http://www.diocesedejiparana.org.br/paroquias.php?pg=2",
+          "title": "Diocese de Ji-Paraná — Paróquias, página 2 (8 fichas)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3445",
+          "title": "Diocese de Ji-Paraná — ficha oficial de Paróquia Santa Luzia (Santa Luzia d'Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://mapaosc.ipea.gov.br/api/api/osc/busca_avancada/lista/300/0?avancado={\"dadosGerais\":{\"tx_razao_social_osc\":\"DIOCESE DE JI PARANA\"}}",
+          "title": "Mapa das OSC / IPEA (espelho do cadastro da Receita Federal) — 31 estabelecimentos do CNPJ raiz 04.128.765 (DIOCESE DE JI-PARANÁ), com endereço e CEP",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "unitType": "paroquia",
+      "cnpj": "04.128.765/0028-82",
+      "status": null,
+      "notes": "Criada em 21/12/1994. A ficha oficial não traz histórico nem horário. Celular também publicado: (69) 98452-2598. Sem horário publicado por nenhuma fonte consultada.",
+      "communities": [
+        {
+          "name": "Comunidade Matriz Santa Luzia",
+          "address": "Av. Novo Estado, 2921 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3445",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Paróquia Santa Luzia (Santa Luzia d'Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "santissima-trindade-urupa",
+      "name": "Paróquia Santíssima Trindade",
+      "city": "Urupá",
+      "state": "RO",
+      "neighborhood": "Centro",
+      "address": "Rua Cerejeiras, 3836 – Centro (Caixa Postal 03)",
+      "zipCode": "76929-000",
+      "phone": "(69) 99302-8852",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": 1992,
+      "sources": [
+        {
+          "url": "http://www.diocesedejiparana.org.br/paroquias.php?pg=2",
+          "title": "Diocese de Ji-Paraná — Paróquias, página 2 (8 fichas)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3456",
+          "title": "Diocese de Ji-Paraná — ficha oficial de Paróquia Santíssima Trindade (Urupá) (paróquia, município, data de criação, endereço, telefone e histórico)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://mapaosc.ipea.gov.br/api/api/osc/busca_avancada/lista/300/0?avancado={\"dadosGerais\":{\"tx_razao_social_osc\":\"DIOCESE DE JI PARANA\"}}",
+          "title": "Mapa das OSC / IPEA (espelho do cadastro da Receita Federal) — 31 estabelecimentos do CNPJ raiz 04.128.765 (DIOCESE DE JI-PARANÁ), com endereço e CEP",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "unitType": "paroquia",
+      "cnpj": "04.128.765/0027-00",
+      "status": null,
+      "notes": "Criada em 01/11/1992. A ficha oficial não traz histórico nem horário. A Receita registra o nº 3 na Rua Cerejeiras (a ficha, 3836); conferir. Sem horário publicado por nenhuma fonte consultada.",
+      "communities": [
+        {
+          "name": "Comunidade Matriz Santíssima Trindade",
+          "address": "Rua Cerejeiras, 3836 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3456",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Paróquia Santíssima Trindade (Urupá) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-da-guia-vale-do-paraiso",
+      "name": "Paróquia Nossa Senhora da Guia",
+      "city": "Vale do Paraíso",
+      "state": "RO",
+      "neighborhood": "Centro",
+      "address": "Rua Alecrim, 4561 – Centro (Caixa Postal 25)",
+      "zipCode": "76923-000",
+      "phone": "(69) 3464-1143",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": 2001,
+      "sources": [
+        {
+          "url": "http://www.diocesedejiparana.org.br/paroquias.php?pg=2",
+          "title": "Diocese de Ji-Paraná — Paróquias, página 2 (8 fichas)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3534",
+          "title": "Diocese de Ji-Paraná — ficha oficial de Paróquia Nossa Senhora da Guia (Vale do Paraíso) (paróquia, município, data de criação, endereço, telefone e histórico)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://mapaosc.ipea.gov.br/api/api/osc/busca_avancada/lista/300/0?avancado={\"dadosGerais\":{\"tx_razao_social_osc\":\"DIOCESE DE JI PARANA\"}}",
+          "title": "Mapa das OSC / IPEA (espelho do cadastro da Receita Federal) — 31 estabelecimentos do CNPJ raiz 04.128.765 (DIOCESE DE JI-PARANÁ), com endereço e CEP",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://liriocatolico.com.br/horario_missa/dados/uf/RO.json",
+          "title": "liriocatolico.com.br — base de horários de missa de Rondônia (49 fichas do estado). AGREGADOR: o campo \"ultima_atualizacao\" é 2026-09-02 em TODAS as fichas, ou seja, é a data de regeneração da base, não de conferência da paróquia",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "unitType": "paroquia",
+      "cnpj": "04.128.765/0015-68",
+      "status": null,
+      "notes": "Criada em 07/04/2001 por Dom Antônio Possamai, desmembrada da Paróquia Nossa Senhora Aparecida de Ouro Preto do Oeste; primeiro pároco Pe. Bruno (comboniano). \"A paróquia era composta de trinta e sete comunidades\" — não nomeadas. A celebração de criação aconteceu na Comunidade Nossa Senhora do Carmo. O segundo telefone publicado, \"9939-4079\", tem 8 dígitos e não foi gravado. A Receita registra o nº 2434 na Rua Alecrim (a ficha, 4561); conferir. A diocese não publica horário; o gravado vem SÓ do liriocatolico e fica baixa.",
+      "communities": [
+        {
+          "name": "Comunidade Matriz Nossa Senhora da Guia",
+          "address": "Rua Alecrim, 4561 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3534",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Paróquia Nossa Senhora da Guia (Vale do Paraíso) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Comunidade Matriz Nossa Senhora da Guia",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Horário publicado APENAS pelo agregador liriocatolico.com.br (ficha \"Paróquia Nossa Senhora da Guia\"). A diocese não publica horário desta paróquia. O campo \"ultima_atualizacao\" do agregador (2026-09-02) é a data de regeneração da base, igual em todas as 49 fichas de Rondônia — por isso, fonte única não oficial = confiança baixa.",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/RO.json",
+              "title": "liriocatolico.com.br — base de horários de missa de Rondônia (49 fichas do estado). AGREGADOR: o campo \"ultima_atualizacao\" é 2026-09-02 em TODAS as fichas, ou seja, é a data de regeneração da base, não de conferência da paróquia",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-auxiliadora-vilhena",
+      "name": "Paróquia Nossa Senhora Auxiliadora",
+      "city": "Vilhena",
+      "state": "RO",
+      "neighborhood": "Centro",
+      "address": "Avenida Liberdade, 2924 – Centro (Caixa Postal 32)",
+      "zipCode": "76980-172",
+      "phone": "(69) 3321-2258",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": 1976,
+      "sources": [
+        {
+          "url": "http://www.diocesedejiparana.org.br/paroquias.php?pg=2",
+          "title": "Diocese de Ji-Paraná — Paróquias, página 2 (8 fichas)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3535",
+          "title": "Diocese de Ji-Paraná — ficha oficial de Paróquia Nossa Senhora Auxiliadora (Vilhena) (paróquia, município, data de criação, endereço, telefone e histórico)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://mapaosc.ipea.gov.br/api/api/osc/busca_avancada/lista/300/0?avancado={\"dadosGerais\":{\"tx_razao_social_osc\":\"DIOCESE DE JI PARANA\"}}",
+          "title": "Mapa das OSC / IPEA (espelho do cadastro da Receita Federal) — 31 estabelecimentos do CNPJ raiz 04.128.765 (DIOCESE DE JI-PARANÁ), com endereço e CEP",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://liriocatolico.com.br/horario_missa/dados/uf/RO.json",
+          "title": "liriocatolico.com.br — base de horários de missa de Rondônia (49 fichas do estado). AGREGADOR: o campo \"ultima_atualizacao\" é 2026-09-02 em TODAS as fichas, ou seja, é a data de regeneração da base, não de conferência da paróquia",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "unitType": "paroquia",
+      "cnpj": "04.128.765/0008-39",
+      "status": null,
+      "notes": "Criada como paróquia em 11/02/1976; a igreja foi fundada e inaugurada em 24/05/1970 com missa do Pe. Ângelo Spadari, e a primeira matriz é patrimônio histórico e cultural de Vilhena. Celular também publicado: (69) 98479-8130. Mantém o Centro de Formação Paroquial São Maximiliano Kolbe. A diocese não publica horário; os gravados vêm SÓ do liriocatolico e ficam baixa.",
+      "communities": [
+        {
+          "name": "Comunidade Matriz Nossa Senhora Auxiliadora",
+          "address": "Avenida Liberdade, 2924 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3535",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Paróquia Nossa Senhora Auxiliadora (Vilhena) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Comunidade Matriz Nossa Senhora Auxiliadora",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": "Horário publicado APENAS pelo agregador liriocatolico.com.br (ficha \"Paróquia Nossa Senhora Auxiliadora\"). A diocese não publica horário desta paróquia. O campo \"ultima_atualizacao\" do agregador (2026-09-02) é a data de regeneração da base, igual em todas as 49 fichas de Rondônia — por isso, fonte única não oficial = confiança baixa.",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/RO.json",
+              "title": "liriocatolico.com.br — base de horários de missa de Rondônia (49 fichas do estado). AGREGADOR: o campo \"ultima_atualizacao\" é 2026-09-02 em TODAS as fichas, ou seja, é a data de regeneração da base, não de conferência da paróquia",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Matriz Nossa Senhora Auxiliadora",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Horário publicado APENAS pelo agregador liriocatolico.com.br (ficha \"Paróquia Nossa Senhora Auxiliadora\"). A diocese não publica horário desta paróquia. O campo \"ultima_atualizacao\" do agregador (2026-09-02) é a data de regeneração da base, igual em todas as 49 fichas de Rondônia — por isso, fonte única não oficial = confiança baixa.",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/RO.json",
+              "title": "liriocatolico.com.br — base de horários de missa de Rondônia (49 fichas do estado). AGREGADOR: o campo \"ultima_atualizacao\" é 2026-09-02 em TODAS as fichas, ou seja, é a data de regeneração da base, não de conferência da paróquia",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Matriz Nossa Senhora Auxiliadora",
+          "dayOfWeek": 3,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": "Horário publicado APENAS pelo agregador liriocatolico.com.br (ficha \"Paróquia Nossa Senhora Auxiliadora\"). A diocese não publica horário desta paróquia. O campo \"ultima_atualizacao\" do agregador (2026-09-02) é a data de regeneração da base, igual em todas as 49 fichas de Rondônia — por isso, fonte única não oficial = confiança baixa.",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/RO.json",
+              "title": "liriocatolico.com.br — base de horários de missa de Rondônia (49 fichas do estado). AGREGADOR: o campo \"ultima_atualizacao\" é 2026-09-02 em TODAS as fichas, ou seja, é a data de regeneração da base, não de conferência da paróquia",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Matriz Nossa Senhora Auxiliadora",
+          "dayOfWeek": 5,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Horário publicado APENAS pelo agregador liriocatolico.com.br (ficha \"Paróquia Nossa Senhora Auxiliadora\"). A diocese não publica horário desta paróquia. O campo \"ultima_atualizacao\" do agregador (2026-09-02) é a data de regeneração da base, igual em todas as 49 fichas de Rondônia — por isso, fonte única não oficial = confiança baixa.",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/RO.json",
+              "title": "liriocatolico.com.br — base de horários de missa de Rondônia (49 fichas do estado). AGREGADOR: o campo \"ultima_atualizacao\" é 2026-09-02 em TODAS as fichas, ou seja, é a data de regeneração da base, não de conferência da paróquia",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-das-gracas-vilhena",
+      "name": "Paróquia Nossa Senhora das Graças",
+      "city": "Vilhena",
+      "state": "RO",
+      "neighborhood": "Parque São Paulo",
+      "address": "Rua 626, 6865 – Parque São Paulo",
+      "zipCode": null,
+      "phone": "(69) 3322-8435",
+      "email": null,
+      "website": null,
+      "priestName": "Frei Carlos A. R. da Silva (Capuchinho)",
+      "foundedYear": 2010,
+      "sources": [
+        {
+          "url": "http://www.diocesedejiparana.org.br/paroquias.php?pg=2",
+          "title": "Diocese de Ji-Paraná — Paróquias, página 2 (8 fichas)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=4693",
+          "title": "Diocese de Ji-Paraná — ficha oficial de Paróquia Nossa Senhora das Graças (Vilhena) (paróquia, município, data de criação, endereço, telefone e histórico)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://mapaosc.ipea.gov.br/api/api/osc/busca_avancada/lista/300/0?avancado={\"dadosGerais\":{\"tx_razao_social_osc\":\"DIOCESE DE JI PARANA\"}}",
+          "title": "Mapa das OSC / IPEA (espelho do cadastro da Receita Federal) — 31 estabelecimentos do CNPJ raiz 04.128.765 (DIOCESE DE JI-PARANÁ), com endereço e CEP",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://liriocatolico.com.br/horario_missa/dados/uf/RO.json",
+          "title": "liriocatolico.com.br — base de horários de missa de Rondônia (49 fichas do estado). AGREGADOR: o campo \"ultima_atualizacao\" é 2026-09-02 em TODAS as fichas, ou seja, é a data de regeneração da base, não de conferência da paróquia",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "unitType": "paroquia",
+      "cnpj": "04.128.765/0033-40",
+      "status": null,
+      "notes": "Criada em 21/03/2010, desmembrada da Paróquia Nossa Senhora Auxiliadora com a BR-174 como divisória; \"passaram a pertencer a esta paróquia 14 comunidades urbanas e 12 rurais\" (não nomeadas). Paróquia dos Capuchinhos: Frei Romeu Lucion (2008-2011), Frei Gilberto A. Bedin (2011-2013), Frei José Mascarello (2014 a 24/12/2020) e, desde 01/02/2021, Frei Carlos A. R. da Silva. Telefones também publicados: (69) 3321-1821 e (69) 3321-1317. A ficha não publica CEP; a Receita registra \"RUA 626 C/ RUA 611, S/N, SETOR 6, 76980-002\" — número e CEP divergentes, por isso zipCode ficou null. A diocese não publica horário; os gravados vêm SÓ do liriocatolico e ficam baixa.",
+      "communities": [
+        {
+          "name": "Comunidade Matriz Nossa Senhora das Graças",
+          "address": "Rua 626, 6865 – Parque São Paulo",
+          "neighborhood": "Parque São Paulo",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=4693",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Paróquia Nossa Senhora das Graças (Vilhena) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Comunidade Matriz Nossa Senhora das Graças",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": "Horário publicado APENAS pelo agregador liriocatolico.com.br (ficha \"Paróquia Nossa Senhora das Graças\"). A diocese não publica horário desta paróquia. O campo \"ultima_atualizacao\" do agregador (2026-09-02) é a data de regeneração da base, igual em todas as 49 fichas de Rondônia — por isso, fonte única não oficial = confiança baixa.",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/RO.json",
+              "title": "liriocatolico.com.br — base de horários de missa de Rondônia (49 fichas do estado). AGREGADOR: o campo \"ultima_atualizacao\" é 2026-09-02 em TODAS as fichas, ou seja, é a data de regeneração da base, não de conferência da paróquia",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Matriz Nossa Senhora das Graças",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Horário publicado APENAS pelo agregador liriocatolico.com.br (ficha \"Paróquia Nossa Senhora das Graças\"). A diocese não publica horário desta paróquia. O campo \"ultima_atualizacao\" do agregador (2026-09-02) é a data de regeneração da base, igual em todas as 49 fichas de Rondônia — por isso, fonte única não oficial = confiança baixa.",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/RO.json",
+              "title": "liriocatolico.com.br — base de horários de missa de Rondônia (49 fichas do estado). AGREGADOR: o campo \"ultima_atualizacao\" é 2026-09-02 em TODAS as fichas, ou seja, é a data de regeneração da base, não de conferência da paróquia",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Matriz Nossa Senhora das Graças",
+          "dayOfWeek": 3,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Horário publicado APENAS pelo agregador liriocatolico.com.br (ficha \"Paróquia Nossa Senhora das Graças\"). A diocese não publica horário desta paróquia. O campo \"ultima_atualizacao\" do agregador (2026-09-02) é a data de regeneração da base, igual em todas as 49 fichas de Rondônia — por isso, fonte única não oficial = confiança baixa.",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/RO.json",
+              "title": "liriocatolico.com.br — base de horários de missa de Rondônia (49 fichas do estado). AGREGADOR: o campo \"ultima_atualizacao\" é 2026-09-02 em TODAS as fichas, ou seja, é a data de regeneração da base, não de conferência da paróquia",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "cristo-ressuscitado-alvorada-doeste",
+      "name": "Paróquia Cristo Ressuscitado",
+      "city": "Alvorada d'Oeste",
+      "state": "RO",
+      "neighborhood": "Centro",
+      "address": "Av. Marechal Rondon, 5311 – Centro",
+      "zipCode": "76930-000",
+      "phone": "(69) 3412-3486",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": 1987,
+      "sources": [
+        {
+          "url": "http://www.diocesedejiparana.org.br/paroquias.php",
+          "title": "Diocese de Ji-Paraná — Paróquias (listagem oficial paginada; 16 fichas na página 1 e 8 na página 2 = 24 paróquias)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=414",
+          "title": "Diocese de Ji-Paraná — ficha oficial de Paróquia Cristo Ressuscitado (Alvorada d'Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://mapaosc.ipea.gov.br/api/api/osc/busca_avancada/lista/300/0?avancado={\"dadosGerais\":{\"tx_razao_social_osc\":\"DIOCESE DE JI PARANA\"}}",
+          "title": "Mapa das OSC / IPEA (espelho do cadastro da Receita Federal) — 31 estabelecimentos do CNPJ raiz 04.128.765 (DIOCESE DE JI-PARANÁ), com endereço e CEP",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://liriocatolico.com.br/horario_missa/dados/uf/RO.json",
+          "title": "liriocatolico.com.br — base de horários de missa de Rondônia (49 fichas do estado). AGREGADOR: o campo \"ultima_atualizacao\" é 2026-09-02 em TODAS as fichas, ou seja, é a data de regeneração da base, não de conferência da paróquia",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "unitType": "paroquia",
+      "cnpj": "04.128.765/0022-97",
+      "status": null,
+      "notes": "Criada em 18/09/1987; primeiro pároco Pe. José Eugênio, empossado em 20/09/1987. Celular também publicado: (69) 99287-4443. É UMA DAS DUAS ÚNICAS PARÓQUIAS COM HORÁRIO PUBLICADO PELA DIOCESE (\"Horários de Santas Missas na Igreja Matriz Cristo Ressuscitado\"), e o liriocatolico confirma domingo 7h30 e 19h30 — por isso confiança alta. NÃO ENTRARAM COMO MISSA: as duas orações do Santo Terço (domingo 7h e 19h, gravadas como ROSARY) e \"Toda Primeira Sexta-feira do mês Celebração em Honra ao Sagrado Coração de Jesus - 07h00\" (a fonte diz CELEBRAÇÃO, não missa, e é mensal). Confissões e adoração vêm do liriocatolico e ficam baixa.",
+      "communities": [
+        {
+          "name": "Comunidade Matriz Cristo Ressuscitado",
+          "address": "Av. Marechal Rondon, 5311 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=414",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Paróquia Cristo Ressuscitado (Alvorada d'Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Comunidade Matriz Cristo Ressuscitado",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "ROSARY",
+          "notes": "Oração do Santo Terço antes da missa das 7h30.",
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=414",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Paróquia Cristo Ressuscitado (Alvorada d'Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Comunidade Matriz Cristo Ressuscitado",
+          "dayOfWeek": 0,
+          "time": "07:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=414",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Paróquia Cristo Ressuscitado (Alvorada d'Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Comunidade Matriz Cristo Ressuscitado",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "ROSARY",
+          "notes": "Oração do Santo Terço antes da missa das 19h30.",
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=414",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Paróquia Cristo Ressuscitado (Alvorada d'Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Comunidade Matriz Cristo Ressuscitado",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=414",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Paróquia Cristo Ressuscitado (Alvorada d'Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Comunidade Matriz Cristo Ressuscitado",
+          "dayOfWeek": 3,
+          "time": "08:00",
+          "type": "CONFESSION",
+          "notes": "Quarta-feira das 8h às 11h30, segundo o agregador liriocatolico.com.br; a diocese não publica confissões.",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/RO.json",
+              "title": "liriocatolico.com.br — base de horários de missa de Rondônia (49 fichas do estado). AGREGADOR: o campo \"ultima_atualizacao\" é 2026-09-02 em TODAS as fichas, ou seja, é a data de regeneração da base, não de conferência da paróquia",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Matriz Cristo Ressuscitado",
+          "dayOfWeek": 5,
+          "time": "08:00",
+          "type": "CONFESSION",
+          "notes": "Sexta-feira das 8h às 11h30, segundo o agregador liriocatolico.com.br; a diocese não publica confissões.",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/RO.json",
+              "title": "liriocatolico.com.br — base de horários de missa de Rondônia (49 fichas do estado). AGREGADOR: o campo \"ultima_atualizacao\" é 2026-09-02 em TODAS as fichas, ou seja, é a data de regeneração da base, não de conferência da paróquia",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Matriz Cristo Ressuscitado",
+          "dayOfWeek": 1,
+          "time": "07:30",
+          "type": "ADORATION",
+          "notes": "Adoração de segunda a sexta das 7h30 às 16h e sábado das 7h30 às 11h30, segundo o agregador liriocatolico.com.br.",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/RO.json",
+              "title": "liriocatolico.com.br — base de horários de missa de Rondônia (49 fichas do estado). AGREGADOR: o campo \"ultima_atualizacao\" é 2026-09-02 em TODAS as fichas, ou seja, é a data de regeneração da base, não de conferência da paróquia",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Matriz Cristo Ressuscitado",
+          "dayOfWeek": 2,
+          "time": "07:30",
+          "type": "ADORATION",
+          "notes": "Adoração de segunda a sexta das 7h30 às 16h, segundo o agregador liriocatolico.com.br.",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/RO.json",
+              "title": "liriocatolico.com.br — base de horários de missa de Rondônia (49 fichas do estado). AGREGADOR: o campo \"ultima_atualizacao\" é 2026-09-02 em TODAS as fichas, ou seja, é a data de regeneração da base, não de conferência da paróquia",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Matriz Cristo Ressuscitado",
+          "dayOfWeek": 3,
+          "time": "07:30",
+          "type": "ADORATION",
+          "notes": "Adoração de segunda a sexta das 7h30 às 16h, segundo o agregador liriocatolico.com.br.",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/RO.json",
+              "title": "liriocatolico.com.br — base de horários de missa de Rondônia (49 fichas do estado). AGREGADOR: o campo \"ultima_atualizacao\" é 2026-09-02 em TODAS as fichas, ou seja, é a data de regeneração da base, não de conferência da paróquia",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Matriz Cristo Ressuscitado",
+          "dayOfWeek": 4,
+          "time": "07:30",
+          "type": "ADORATION",
+          "notes": "Adoração de segunda a sexta das 7h30 às 16h, segundo o agregador liriocatolico.com.br.",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/RO.json",
+              "title": "liriocatolico.com.br — base de horários de missa de Rondônia (49 fichas do estado). AGREGADOR: o campo \"ultima_atualizacao\" é 2026-09-02 em TODAS as fichas, ou seja, é a data de regeneração da base, não de conferência da paróquia",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Matriz Cristo Ressuscitado",
+          "dayOfWeek": 5,
+          "time": "07:30",
+          "type": "ADORATION",
+          "notes": "Adoração de segunda a sexta das 7h30 às 16h, segundo o agregador liriocatolico.com.br.",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/RO.json",
+              "title": "liriocatolico.com.br — base de horários de missa de Rondônia (49 fichas do estado). AGREGADOR: o campo \"ultima_atualizacao\" é 2026-09-02 em TODAS as fichas, ou seja, é a data de regeneração da base, não de conferência da paróquia",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Matriz Cristo Ressuscitado",
+          "dayOfWeek": 6,
+          "time": "07:30",
+          "type": "ADORATION",
+          "notes": "Adoração no sábado das 7h30 às 11h30, segundo o agregador liriocatolico.com.br.",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/RO.json",
+              "title": "liriocatolico.com.br — base de horários de missa de Rondônia (49 fichas do estado). AGREGADOR: o campo \"ultima_atualizacao\" é 2026-09-02 em TODAS as fichas, ou seja, é a data de regeneração da base, não de conferência da paróquia",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-da-penha-alta-floresta-doeste",
+      "name": "Paróquia Nossa Senhora da Penha",
+      "city": "Alta Floresta d'Oeste",
+      "state": "RO",
+      "neighborhood": "Centro",
+      "address": "Av. Rio Grande do Sul, 4506 – Centro (Caixa Postal 79)",
+      "zipCode": "76954-000",
+      "phone": "(69) 3641-2203",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": 1986,
+      "sources": [
+        {
+          "url": "http://www.diocesedejiparana.org.br/paroquias.php",
+          "title": "Diocese de Ji-Paraná — Paróquias (listagem oficial paginada; 16 fichas na página 1 e 8 na página 2 = 24 paróquias)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3427",
+          "title": "Diocese de Ji-Paraná — ficha oficial de Paróquia Nossa Senhora da Penha (Alta Floresta d'Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://mapaosc.ipea.gov.br/api/api/osc/busca_avancada/lista/300/0?avancado={\"dadosGerais\":{\"tx_razao_social_osc\":\"DIOCESE DE JI PARANA\"}}",
+          "title": "Mapa das OSC / IPEA (espelho do cadastro da Receita Federal) — 31 estabelecimentos do CNPJ raiz 04.128.765 (DIOCESE DE JI-PARANÁ), com endereço e CEP",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "unitType": "paroquia",
+      "cnpj": "04.128.765/0020-25",
+      "status": null,
+      "notes": "Criada em 26/07/1986, desmembrada da Paróquia Nossa Senhora Aparecida de Rolim de Moura; abrangia Alta Floresta e Alto Alegre dos Parecis. Primeiro pároco: Pe. Giacarlo Rizzinelli (Carlista). Desde 22/06/2000 é dos MISSIONÁRIOS DO VERBO DIVINO (Verbitas), empossados os padres Slawomir Rzepka (pároco) e Vicente Castro. Celular também publicado: (69) 99384-4116. As seis comunidades gravadas vêm das legendas do bloco \"Fotos das comunidades na zona urbana\" — a ficha não publica as rurais. CEP recuperado do ViaCEP (a Receita ainda registra o CEP antigo 78994-000). Sem horário publicado por nenhuma fonte consultada.",
+      "communities": [
+        {
+          "name": "Comunidade Nossa Senhora da Penha",
+          "address": "Av. Rio Grande do Sul, 4506 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3427",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Paróquia Nossa Senhora da Penha (Alta Floresta d'Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Comunidade Nossa Senhora Aparecida",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3427",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Paróquia Nossa Senhora da Penha (Alta Floresta d'Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Comunidade São Cristóvão",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3427",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Paróquia Nossa Senhora da Penha (Alta Floresta d'Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Comunidade Santo Antônio",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3427",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Paróquia Nossa Senhora da Penha (Alta Floresta d'Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Comunidade São Jorge Guerreiro",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3427",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Paróquia Nossa Senhora da Penha (Alta Floresta d'Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        },
+        {
+          "name": "Comunidade Santos Reis",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "http://www.diocesedejiparana.org.br/noticias-det.php?cod=3427",
+              "title": "Diocese de Ji-Paraná — ficha oficial de Paróquia Nossa Senhora da Penha (Alta Floresta d'Oeste) (paróquia, município, data de criação, endereço, telefone e histórico)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta",
+          "notes": null
+        }
+      ],
+      "schedules": []
+    }
+  ],
+  "coverage": {
+    "parishesFound": 24,
+    "parishesExpected": 24,
+    "notes": "COBERTURA FECHADA EM 24/24, com duas provas independentes. (1) O site oficial (portal PHP antigo, mas ativo — notícias de 13/09/2026) publica a lista em /paroquias.php, paginada: 16 fichas na página 1 e 8 na página ?pg=2, total 24. Cada item leva a uma ficha /noticias-det.php?cod=N com paróquia, município, data de criação, endereço, telefone e histórico. Li as 24. (2) O gcatholic registra exatamente 24 paróquias. (3) A Receita fecha a conta: o CNPJ raiz da diocese é 04.128.765 (publicado pela própria ficha de Pimenta Bueno) e o Mapa das OSC/IPEA devolve 31 estabelecimentos — 24 casam uma a uma com as 24 fichas do site, 1 é a sede (Av. Marechal Rondon 400), 1 é outra obra em Vilhena (Av. Liberdade 4175) e 5 são ESTABELECIMENTOS HISTÓRICOS EM MATO GROSSO (Juína, Aripuanã, Comodoro, Cotriguaçu e Juruena), território que deixou Ji-Paraná quando a Diocese de Juína foi criada em 1997. Nenhum endereço de paróquia da Receita falta no site. FORA DE RONDÔNIA: a Paróquia Nossa Senhora Auxiliadora de RONDOLÂNDIA fica em MATO GROSSO (state = MT) — nasceu na Diocese de Juína em 1999 e passou para Ji-Paraná; a Receita confirma o estabelecimento 0034-20 lá. HORÁRIOS — PONTO FRACO DESTA DIOCESE: das 24 fichas, apenas DUAS publicam horário de missa (Catedral São João Bosco e Cristo Ressuscitado de Alvorada d'Oeste). Uma terceira, o Santuário de Ouro Preto do Oeste, tem site próprio ativo mas publica CRONOGRAMA MENSAL em PDF (data a data, com rodízio de padres), de onde só extraí o padrão que se repete nas quatro semanas. Para as outras 21 a única fonte de horário encontrada foi o agregador liriocatolico.com.br, cujo campo \"ultima_atualizacao\" é 2026-09-02 em TODAS as 49 fichas de Rondônia — data de regeneração da base, não de conferência: por isso esses 49 horários entraram com confiança BAIXA e não carregam. COMUNIDADES: a diocese não publica lista nominal. As 68 comunidades nomeadas vêm quase todas do site próprio do Santuário de Ouro Preto do Oeste (/comunidades/, 70 declaradas em 13 setores, 68 nomeadas) mais 5 urbanas de Alta Floresta d'Oeste. Sete fichas DECLARAM totais sem nomear ninguém: Jaru (115 comunidades em 9 setores), Nova Brasilândia d'Oeste (57), Pimenta Bueno (50), Vale do Paraíso (37), Ji-Paraná/N. Sra. de Fátima (33 em 7 setores), Ministro Andreazza (25), Vilhena/N. Sra. das Graças (14 urbanas + 12 rurais) e Rolim de Moura (15 urbanas) — somando mais de 350 comunidades sem nome público."
+  }
+}

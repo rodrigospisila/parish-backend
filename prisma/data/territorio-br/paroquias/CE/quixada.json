@@ -1,0 +1,3204 @@
+{
+ "diocese": {
+  "name": "Diocese de Quixadá",
+  "type": "Diocese",
+  "slug": "quixada",
+  "city": "Quixadá",
+  "state": "CE",
+  "address": "Rua Basílio Pinto, 1149 - Combate",
+  "zipCode": "63903-415",
+  "phone": "(88) 3412-0548",
+  "email": "curia@diocesedequixada.org.br",
+  "website": "https://diocesedequixada.org.br",
+  "bishopName": "Dom Aurélio Pinto de Sousa",
+  "sources": [
+   {
+    "url": "https://diocesedequixada.org.br/paroquias/",
+    "title": "Paróquias | Diocese de Quixadá (ficha oficial de cada unidade: data de fundação, 1º pároco, festa do padroeiro, pároco, vigários, endereço, CEP, telefone e e-mail; a página já traz as duas unidades criadas em janeiro de 2026)",
+    "accessedAt": "2026-09-18"
+   },
+   {
+    "url": "https://diocesedequixada.org.br/wp-sitemap-posts-paroquias-1.xml",
+    "title": "Sitemap do tipo de conteúdo “paroquias” | Diocese de Quixadá (24 fichas — listagem canônica)",
+    "accessedAt": "2026-09-18"
+   },
+   {
+    "url": "https://diocesedequixada.org.br/a-diocese/foranias/",
+    "title": "Foranias | Diocese de Quixadá (decreto que constitui as 4 foranias; lista 23 das 24 unidades — não traz a Paróquia Imaculada Conceição de Quixeramobim, criada em 21/01/2026)",
+    "accessedAt": "2026-09-18"
+   },
+   {
+    "url": "https://diocesedequixada.org.br/clero/padres-diocesanos/",
+    "title": "Padres Diocesanos | Diocese de Quixadá (página alterada em 18/08/2026; ofício e lotação de 45 presbíteros)",
+    "accessedAt": "2026-09-18"
+   },
+   {
+    "url": "https://www.catholic-hierarchy.org/diocese/dquix.html",
+    "title": "catholic-hierarchy.org — Quixadá (Diocese): erigida em 13/03/1971, desmembrada da Arquidiocese de Fortaleza; 21 paróquias na estatística de 2022",
+    "accessedAt": "2026-09-18"
+   },
+   {
+    "url": "https://liriocatolico.com.br/horario_missa/dados/uf/CE.json",
+    "title": "Lírio Católico — base do Ceará (19 fichas nos 10 municípios da diocese)",
+    "accessedAt": "2026-09-18"
+   }
+  ],
+  "confidence": "alta"
+ },
+ "parishes": [
+  {
+   "slug": "nossa-senhora-de-fatima-banabuiu",
+   "name": "Paróquia Nossa Senhora de Fátima",
+   "city": "Banabuiú",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Rua Demócrito Pinto, 259 - Centro",
+   "zipCode": "63960-000",
+   "phone": "(88) 3426-1658",
+   "email": "p.defatimabnb@hotmail.com",
+   "website": null,
+   "priestName": "Pe. Bruno Paz Farias",
+   "foundedYear": 1989,
+   "sources": [
+    {
+     "url": "https://diocesedequixada.org.br/paroquias/",
+     "title": "Paróquias | Diocese de Quixadá (ficha oficial de cada unidade: data de fundação, 1º pároco, festa do padroeiro, pároco, vigários, endereço, CEP, telefone e e-mail; a página já traz as duas unidades criadas em janeiro de 2026)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedequixada.org.br/wp-sitemap-posts-paroquias-1.xml",
+     "title": "Sitemap do tipo de conteúdo “paroquias” | Diocese de Quixadá (24 fichas — listagem canônica)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedequixada.org.br/a-diocese/foranias/",
+     "title": "Foranias | Diocese de Quixadá (decreto que constitui as 4 foranias; lista 23 das 24 unidades — não traz a Paróquia Imaculada Conceição de Quixeramobim, criada em 21/01/2026)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedequixada.org.br/clero/padres-diocesanos/",
+     "title": "Padres Diocesanos | Diocese de Quixadá (página alterada em 18/08/2026; ofício e lotação de 45 presbíteros)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": "Fundada em 01/10/1989; 1º pároco Pe. Giovane. Festa da padroeira em 13 de outubro. Vigário paroquial, pela página do clero: Pe. Antônio Marcos Chagas.",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora de Fátima",
+     "address": "Rua Demócrito Pinto, 259 - Centro",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedequixada.org.br/paroquias/",
+       "title": "Paróquias | Diocese de Quixadá (ficha oficial de cada unidade: data de fundação, 1º pároco, festa do padroeiro, pároco, vigários, endereço, CEP, telefone e e-mail; a página já traz as duas unidades criadas em janeiro de 2026)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Nossa Senhora de Fátima",
+     "dayOfWeek": 0,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/1878-igreja-matriz-de-nossa-senhora-de-fatima/",
+       "title": "Lírio Católico — Igreja Matriz de Nossa Senhora de Fátima, Banabuiú/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora de Fátima",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/1878-igreja-matriz-de-nossa-senhora-de-fatima/",
+       "title": "Lírio Católico — Igreja Matriz de Nossa Senhora de Fátima, Banabuiú/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora de Fátima",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "ADORATION",
+     "notes": "Fonte publica o intervalo 19:00–20:30.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/1878-igreja-matriz-de-nossa-senhora-de-fatima/",
+       "title": "Lírio Católico — Igreja Matriz de Nossa Senhora de Fátima, Banabuiú/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-da-boa-viagem-boa-viagem",
+   "name": "Paróquia Nossa Senhora da Boa Viagem",
+   "city": "Boa Viagem",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Praça Mons. José Cândido, 27",
+   "zipCode": "63870-000",
+   "phone": "(88) 3427-2248",
+   "email": "vvirgomaria@yahoo.com.br",
+   "website": null,
+   "priestName": "Pe. Antônio Eronildo de Oliveira",
+   "foundedYear": 1862,
+   "sources": [
+    {
+     "url": "https://diocesedequixada.org.br/paroquias/",
+     "title": "Paróquias | Diocese de Quixadá (ficha oficial de cada unidade: data de fundação, 1º pároco, festa do padroeiro, pároco, vigários, endereço, CEP, telefone e e-mail; a página já traz as duas unidades criadas em janeiro de 2026)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedequixada.org.br/wp-sitemap-posts-paroquias-1.xml",
+     "title": "Sitemap do tipo de conteúdo “paroquias” | Diocese de Quixadá (24 fichas — listagem canônica)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedequixada.org.br/a-diocese/foranias/",
+     "title": "Foranias | Diocese de Quixadá (decreto que constitui as 4 foranias; lista 23 das 24 unidades — não traz a Paróquia Imaculada Conceição de Quixeramobim, criada em 21/01/2026)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedequixada.org.br/clero/padres-diocesanos/",
+     "title": "Padres Diocesanos | Diocese de Quixadá (página alterada em 18/08/2026; ofício e lotação de 45 presbíteros)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": "Fundada em 18/11/1862; 1º pároco Pe. Antônio Correia de Sá. Festa da padroeira em 23 de dezembro. Segundo telefone: (88) 3427-2141; celular do pároco: (88) 99625-7983. Vigários paroquiais: Pe. Daniel Barreto de Oliveira, Pe. Abraão Correia Viana e Pe. Guilherme Afonso de Andrade. O pároco é também Vigário Geral da diocese.",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora da Boa Viagem",
+     "address": "Praça Mons. José Cândido, 27",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedequixada.org.br/paroquias/",
+       "title": "Paróquias | Diocese de Quixadá (ficha oficial de cada unidade: data de fundação, 1º pároco, festa do padroeiro, pároco, vigários, endereço, CEP, telefone e e-mail; a página já traz as duas unidades criadas em janeiro de 2026)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Nossa Senhora da Boa Viagem",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/1874-paroquia-de-nossa-senhora-da-boa-viagem/",
+       "title": "Lírio Católico — Paróquia de Nossa Senhora da Boa Viagem, Boa Viagem/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora da Boa Viagem",
+     "dayOfWeek": 0,
+     "time": "10:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/1874-paroquia-de-nossa-senhora-da-boa-viagem/",
+       "title": "Lírio Católico — Paróquia de Nossa Senhora da Boa Viagem, Boa Viagem/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora da Boa Viagem",
+     "dayOfWeek": 0,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/1874-paroquia-de-nossa-senhora-da-boa-viagem/",
+       "title": "Lírio Católico — Paróquia de Nossa Senhora da Boa Viagem, Boa Viagem/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora da Boa Viagem",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/1874-paroquia-de-nossa-senhora-da-boa-viagem/",
+       "title": "Lírio Católico — Paróquia de Nossa Senhora da Boa Viagem, Boa Viagem/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora da Boa Viagem",
+     "dayOfWeek": 3,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/1874-paroquia-de-nossa-senhora-da-boa-viagem/",
+       "title": "Lírio Católico — Paróquia de Nossa Senhora da Boa Viagem, Boa Viagem/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora da Boa Viagem",
+     "dayOfWeek": 1,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/1874-paroquia-de-nossa-senhora-da-boa-viagem/",
+       "title": "Lírio Católico — Paróquia de Nossa Senhora da Boa Viagem, Boa Viagem/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora da Boa Viagem",
+     "dayOfWeek": 6,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/1874-paroquia-de-nossa-senhora-da-boa-viagem/",
+       "title": "Lírio Católico — Paróquia de Nossa Senhora da Boa Viagem, Boa Viagem/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora da Boa Viagem",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "ADORATION",
+     "notes": "Fonte publica o intervalo 19:00–20:00.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/1874-paroquia-de-nossa-senhora-da-boa-viagem/",
+       "title": "Lírio Católico — Paróquia de Nossa Senhora da Boa Viagem, Boa Viagem/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-da-guia-boa-viagem",
+   "name": "Paróquia Nossa Senhora da Guia",
+   "city": "Boa Viagem",
+   "state": "CE",
+   "neighborhood": "Distrito de Guia",
+   "address": "Casa Paroquial - Guia",
+   "zipCode": null,
+   "phone": "(88) 3427-4060",
+   "email": "guiaparoquia@hotmail.com",
+   "website": null,
+   "priestName": "Pe. João Andrade Marques",
+   "foundedYear": 1980,
+   "sources": [
+    {
+     "url": "https://diocesedequixada.org.br/paroquias/",
+     "title": "Paróquias | Diocese de Quixadá (ficha oficial de cada unidade: data de fundação, 1º pároco, festa do padroeiro, pároco, vigários, endereço, CEP, telefone e e-mail; a página já traz as duas unidades criadas em janeiro de 2026)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedequixada.org.br/wp-sitemap-posts-paroquias-1.xml",
+     "title": "Sitemap do tipo de conteúdo “paroquias” | Diocese de Quixadá (24 fichas — listagem canônica)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedequixada.org.br/a-diocese/foranias/",
+     "title": "Foranias | Diocese de Quixadá (decreto que constitui as 4 foranias; lista 23 das 24 unidades — não traz a Paróquia Imaculada Conceição de Quixeramobim, criada em 21/01/2026)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedequixada.org.br/clero/padres-diocesanos/",
+     "title": "Padres Diocesanos | Diocese de Quixadá (página alterada em 18/08/2026; ofício e lotação de 45 presbíteros)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": "Fundada em 16/01/1980; 1º pároco Pe. José Patrício de Almeida. Festa da padroeira em 24 de setembro. Outros telefones: (88) 98817-0744 e (88) 3427-4050. Vigário paroquial: Pe. Francisco Lucas Brito Silva. O CEP publicado (62.885-000) é de Horizonte/CE pelo ViaCEP, não do distrito de Guia — gravado null.",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora da Guia",
+     "address": "Casa Paroquial - Guia",
+     "neighborhood": "Distrito de Guia",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedequixada.org.br/paroquias/",
+       "title": "Paróquias | Diocese de Quixadá (ficha oficial de cada unidade: data de fundação, 1º pároco, festa do padroeiro, pároco, vigários, endereço, CEP, telefone e e-mail; a página já traz as duas unidades criadas em janeiro de 2026)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-de-fatima-boa-viagem",
+   "name": "Paróquia Nossa Senhora de Fátima",
+   "city": "Boa Viagem",
+   "state": "CE",
+   "neighborhood": "Fátima",
+   "address": "Rua Ana Gonçalves, 79",
+   "zipCode": "63870-000",
+   "phone": "(88) 3427-2676",
+   "email": "nsradefatima13@gmail.com",
+   "website": null,
+   "priestName": "Pe. Natal Nunes Carvalho",
+   "foundedYear": 2009,
+   "sources": [
+    {
+     "url": "https://diocesedequixada.org.br/paroquias/",
+     "title": "Paróquias | Diocese de Quixadá (ficha oficial de cada unidade: data de fundação, 1º pároco, festa do padroeiro, pároco, vigários, endereço, CEP, telefone e e-mail; a página já traz as duas unidades criadas em janeiro de 2026)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedequixada.org.br/wp-sitemap-posts-paroquias-1.xml",
+     "title": "Sitemap do tipo de conteúdo “paroquias” | Diocese de Quixadá (24 fichas — listagem canônica)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedequixada.org.br/a-diocese/foranias/",
+     "title": "Foranias | Diocese de Quixadá (decreto que constitui as 4 foranias; lista 23 das 24 unidades — não traz a Paróquia Imaculada Conceição de Quixeramobim, criada em 21/01/2026)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedequixada.org.br/clero/padres-diocesanos/",
+     "title": "Padres Diocesanos | Diocese de Quixadá (página alterada em 18/08/2026; ofício e lotação de 45 presbíteros)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": "Fundada em 10/05/2009. Festa da padroeira em 13 de maio. Vigário paroquial: Pe. Marcelo Reis de Almeida.",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora de Fátima",
+     "address": "Rua Ana Gonçalves, 79",
+     "neighborhood": "Fátima",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedequixada.org.br/paroquias/",
+       "title": "Paróquias | Diocese de Quixadá (ficha oficial de cada unidade: data de fundação, 1º pároco, festa do padroeiro, pároco, vigários, endereço, CEP, telefone e e-mail; a página já traz as duas unidades criadas em janeiro de 2026)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Nossa Senhora de Fátima",
+     "dayOfWeek": 0,
+     "time": "09:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/1876-paroquia-nossa-senhora-de-fatima/",
+       "title": "Lírio Católico — Paróquia Nossa Senhora de Fátima, Boa Viagem/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora de Fátima",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/1876-paroquia-nossa-senhora-de-fatima/",
+       "title": "Lírio Católico — Paróquia Nossa Senhora de Fátima, Boa Viagem/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora de Fátima",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/1876-paroquia-nossa-senhora-de-fatima/",
+       "title": "Lírio Católico — Paróquia Nossa Senhora de Fátima, Boa Viagem/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora de Fátima",
+     "dayOfWeek": 4,
+     "time": "17:00",
+     "type": "CONFESSION",
+     "notes": "Fonte publica o intervalo 17:00–17:30.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/1876-paroquia-nossa-senhora-de-fatima/",
+       "title": "Lírio Católico — Paróquia Nossa Senhora de Fátima, Boa Viagem/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora de Fátima",
+     "dayOfWeek": 4,
+     "time": "18:00",
+     "type": "ADORATION",
+     "notes": "Fonte publica o intervalo 18:00–18:30.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/1876-paroquia-nossa-senhora-de-fatima/",
+       "title": "Lírio Católico — Paróquia Nossa Senhora de Fátima, Boa Viagem/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-de-nazare-capistrano",
+   "name": "Paróquia Nossa Senhora de Nazaré",
+   "city": "Capistrano",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Praça da Matriz, s/n",
+   "zipCode": "62748-000",
+   "phone": "(85) 3326-1359",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Thomas James",
+   "foundedYear": 1943,
+   "sources": [
+    {
+     "url": "https://diocesedequixada.org.br/paroquias/",
+     "title": "Paróquias | Diocese de Quixadá (ficha oficial de cada unidade: data de fundação, 1º pároco, festa do padroeiro, pároco, vigários, endereço, CEP, telefone e e-mail; a página já traz as duas unidades criadas em janeiro de 2026)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedequixada.org.br/wp-sitemap-posts-paroquias-1.xml",
+     "title": "Sitemap do tipo de conteúdo “paroquias” | Diocese de Quixadá (24 fichas — listagem canônica)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedequixada.org.br/a-diocese/foranias/",
+     "title": "Foranias | Diocese de Quixadá (decreto que constitui as 4 foranias; lista 23 das 24 unidades — não traz a Paróquia Imaculada Conceição de Quixeramobim, criada em 21/01/2026)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedequixada.org.br/clero/padres-diocesanos/",
+     "title": "Padres Diocesanos | Diocese de Quixadá (página alterada em 18/08/2026; ofício e lotação de 45 presbíteros)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": "Fundada em 25/12/1943; 1º pároco Pe. Vicente de Paulo Araújo Matos. Festa da padroeira em 8 de setembro. Vigário paroquial: Pe. Francisco Nilson Lima. O agregador Lírio Católico publica outro endereço para a matriz (Rua Cel. Francisco Nunes Cavalcante, 3 – Centro).",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora de Nazaré",
+     "address": "Praça da Matriz, s/n",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedequixada.org.br/paroquias/",
+       "title": "Paróquias | Diocese de Quixadá (ficha oficial de cada unidade: data de fundação, 1º pároco, festa do padroeiro, pároco, vigários, endereço, CEP, telefone e e-mail; a página já traz as duas unidades criadas em janeiro de 2026)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Nossa Senhora de Nazaré",
+     "dayOfWeek": 0,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/1902-igreja-matriz-de-nossa-senhora-de-nazare/",
+       "title": "Lírio Católico — Igreja Matriz de Nossa Senhora de Nazaré, Capistrano/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora de Nazaré",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/1902-igreja-matriz-de-nossa-senhora-de-nazare/",
+       "title": "Lírio Católico — Igreja Matriz de Nossa Senhora de Nazaré, Capistrano/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora de Nazaré",
+     "dayOfWeek": 6,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/1902-igreja-matriz-de-nossa-senhora-de-nazare/",
+       "title": "Lírio Católico — Igreja Matriz de Nossa Senhora de Nazaré, Capistrano/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "sao-sebastiao-choro",
+   "name": "Paróquia São Sebastião",
+   "city": "Choró",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Rua Joaquim Moreira de Oliveira, 31",
+   "zipCode": "63950-000",
+   "phone": "(88) 3438-1047",
+   "email": "chorosaosebastiao@hotmail.com",
+   "website": null,
+   "priestName": "Pe. José Erineudo Ferreira de Souza",
+   "foundedYear": 1952,
+   "sources": [
+    {
+     "url": "https://diocesedequixada.org.br/paroquias/",
+     "title": "Paróquias | Diocese de Quixadá (ficha oficial de cada unidade: data de fundação, 1º pároco, festa do padroeiro, pároco, vigários, endereço, CEP, telefone e e-mail; a página já traz as duas unidades criadas em janeiro de 2026)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedequixada.org.br/wp-sitemap-posts-paroquias-1.xml",
+     "title": "Sitemap do tipo de conteúdo “paroquias” | Diocese de Quixadá (24 fichas — listagem canônica)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedequixada.org.br/a-diocese/foranias/",
+     "title": "Foranias | Diocese de Quixadá (decreto que constitui as 4 foranias; lista 23 das 24 unidades — não traz a Paróquia Imaculada Conceição de Quixeramobim, criada em 21/01/2026)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedequixada.org.br/clero/padres-diocesanos/",
+     "title": "Padres Diocesanos | Diocese de Quixadá (página alterada em 18/08/2026; ofício e lotação de 45 presbíteros)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": "Fundada em 20/01/1952; 1º pároco Pe. José Bezerra Filho. Festa do padroeiro em 20 de janeiro.",
+   "communities": [
+    {
+     "name": "Matriz São Sebastião",
+     "address": "Rua Joaquim Moreira de Oliveira, 31",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedequixada.org.br/paroquias/",
+       "title": "Paróquias | Diocese de Quixadá (ficha oficial de cada unidade: data de fundação, 1º pároco, festa do padroeiro, pároco, vigários, endereço, CEP, telefone e e-mail; a página já traz as duas unidades criadas em janeiro de 2026)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz São Sebastião",
+     "dayOfWeek": 3,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/1924-igreja-sao-sebastiao/",
+       "title": "Lírio Católico — Igreja São Sebastião, Choró/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Sebastião",
+     "dayOfWeek": 3,
+     "time": "20:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/1924-igreja-sao-sebastiao/",
+       "title": "Lírio Católico — Igreja São Sebastião, Choró/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Sebastião",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/1924-igreja-sao-sebastiao/",
+       "title": "Lírio Católico — Igreja São Sebastião, Choró/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Sebastião",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/1924-igreja-sao-sebastiao/",
+       "title": "Lírio Católico — Igreja São Sebastião, Choró/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-auxiliadora-ibaretama",
+   "name": "Paróquia Nossa Senhora Auxiliadora",
+   "city": "Ibaretama",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Rua Pe. João Scopel, 73",
+   "zipCode": "63970-000",
+   "phone": "(88) 3439-1149",
+   "email": "paroquia.auxiliadora88@gmail.com",
+   "website": null,
+   "priestName": "Pe. Ricardo Nascimento de Araújo",
+   "foundedYear": 1988,
+   "sources": [
+    {
+     "url": "https://diocesedequixada.org.br/paroquias/",
+     "title": "Paróquias | Diocese de Quixadá (ficha oficial de cada unidade: data de fundação, 1º pároco, festa do padroeiro, pároco, vigários, endereço, CEP, telefone e e-mail; a página já traz as duas unidades criadas em janeiro de 2026)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedequixada.org.br/wp-sitemap-posts-paroquias-1.xml",
+     "title": "Sitemap do tipo de conteúdo “paroquias” | Diocese de Quixadá (24 fichas — listagem canônica)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedequixada.org.br/a-diocese/foranias/",
+     "title": "Foranias | Diocese de Quixadá (decreto que constitui as 4 foranias; lista 23 das 24 unidades — não traz a Paróquia Imaculada Conceição de Quixeramobim, criada em 21/01/2026)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedequixada.org.br/clero/padres-diocesanos/",
+     "title": "Padres Diocesanos | Diocese de Quixadá (página alterada em 18/08/2026; ofício e lotação de 45 presbíteros)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": "Fundada em 25/12/1988; 1º pároco Pe. João Scopel. Festa da padroeira em 24 de maio. A ficha da paróquia dá como vigário “Pe. José Idalício de Oliveira Neto”; a página do clero escreve “Pe. Jonas Idalicio de Oliveira Neto”, lotado em Quixadá.",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora Auxiliadora",
+     "address": "Rua Pe. João Scopel, 73",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedequixada.org.br/paroquias/",
+       "title": "Paróquias | Diocese de Quixadá (ficha oficial de cada unidade: data de fundação, 1º pároco, festa do padroeiro, pároco, vigários, endereço, CEP, telefone e e-mail; a página já traz as duas unidades criadas em janeiro de 2026)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "sao-felix-itapiuna",
+   "name": "Área Pastoral São Félix",
+   "city": "Itapiúna",
+   "state": "CE",
+   "neighborhood": "Distrito de Palmatória",
+   "address": "Rua São Félix, 200 - Distrito de Palmatória",
+   "zipCode": "62740-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Francisco Jean Batista do Nascimento",
+   "foundedYear": 2014,
+   "sources": [
+    {
+     "url": "https://diocesedequixada.org.br/paroquias/",
+     "title": "Paróquias | Diocese de Quixadá (ficha oficial de cada unidade: data de fundação, 1º pároco, festa do padroeiro, pároco, vigários, endereço, CEP, telefone e e-mail; a página já traz as duas unidades criadas em janeiro de 2026)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedequixada.org.br/wp-sitemap-posts-paroquias-1.xml",
+     "title": "Sitemap do tipo de conteúdo “paroquias” | Diocese de Quixadá (24 fichas — listagem canônica)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedequixada.org.br/a-diocese/foranias/",
+     "title": "Foranias | Diocese de Quixadá (decreto que constitui as 4 foranias; lista 23 das 24 unidades — não traz a Paróquia Imaculada Conceição de Quixeramobim, criada em 21/01/2026)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedequixada.org.br/clero/padres-diocesanos/",
+     "title": "Padres Diocesanos | Diocese de Quixadá (página alterada em 18/08/2026; ofício e lotação de 45 presbíteros)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": "Criada em 22/02/2014; 1º responsável Pe. José Joseph. Área pastoral: unidade territorial da diocese ainda não erigida como paróquia.",
+   "communities": [
+    {
+     "name": "Matriz São Félix",
+     "address": "Rua São Félix, 200 - Distrito de Palmatória",
+     "neighborhood": "Distrito de Palmatória",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedequixada.org.br/paroquias/",
+       "title": "Paróquias | Diocese de Quixadá (ficha oficial de cada unidade: data de fundação, 1º pároco, festa do padroeiro, pároco, vigários, endereço, CEP, telefone e e-mail; a página já traz as duas unidades criadas em janeiro de 2026)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [],
+   "status": "nao-paroquial",
+   "loadAsParish": true
+  },
+  {
+   "slug": "nossa-senhora-da-conceicao-itapiuna",
+   "name": "Paróquia Nossa Senhora da Conceição",
+   "city": "Itapiúna",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Rua Firmino Antunes, 93",
+   "zipCode": "62740-000",
+   "phone": "(88) 3431-1192",
+   "email": "nsraitapiuna@gmail.com",
+   "website": null,
+   "priestName": "Pe. Breno Oliveira Rabelo",
+   "foundedYear": 1968,
+   "sources": [
+    {
+     "url": "https://diocesedequixada.org.br/paroquias/",
+     "title": "Paróquias | Diocese de Quixadá (ficha oficial de cada unidade: data de fundação, 1º pároco, festa do padroeiro, pároco, vigários, endereço, CEP, telefone e e-mail; a página já traz as duas unidades criadas em janeiro de 2026)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedequixada.org.br/wp-sitemap-posts-paroquias-1.xml",
+     "title": "Sitemap do tipo de conteúdo “paroquias” | Diocese de Quixadá (24 fichas — listagem canônica)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedequixada.org.br/a-diocese/foranias/",
+     "title": "Foranias | Diocese de Quixadá (decreto que constitui as 4 foranias; lista 23 das 24 unidades — não traz a Paróquia Imaculada Conceição de Quixeramobim, criada em 21/01/2026)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedequixada.org.br/clero/padres-diocesanos/",
+     "title": "Padres Diocesanos | Diocese de Quixadá (página alterada em 18/08/2026; ofício e lotação de 45 presbíteros)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": "Fundada em 08/06/1968. Festa da padroeira em 8 de dezembro.",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora da Conceição",
+     "address": "Rua Firmino Antunes, 93",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedequixada.org.br/paroquias/",
+       "title": "Paróquias | Diocese de Quixadá (ficha oficial de cada unidade: data de fundação, 1º pároco, festa do padroeiro, pároco, vigários, endereço, CEP, telefone e e-mail; a página já traz as duas unidades criadas em janeiro de 2026)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "sao-jose-itapiuna",
+   "name": "Paróquia São José",
+   "city": "Itapiúna",
+   "state": "CE",
+   "neighborhood": "Distrito de Caio Prado",
+   "address": "Rua Manoel Viana, 13 - Distrito de Caio Prado",
+   "zipCode": "62740-000",
+   "phone": "(88) 3431-2048",
+   "email": "paroquia_saojose@outlook.com",
+   "website": null,
+   "priestName": "Pe. Francisco Eudásio Nobre da Silveira",
+   "foundedYear": 2007,
+   "sources": [
+    {
+     "url": "https://diocesedequixada.org.br/paroquias/",
+     "title": "Paróquias | Diocese de Quixadá (ficha oficial de cada unidade: data de fundação, 1º pároco, festa do padroeiro, pároco, vigários, endereço, CEP, telefone e e-mail; a página já traz as duas unidades criadas em janeiro de 2026)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedequixada.org.br/wp-sitemap-posts-paroquias-1.xml",
+     "title": "Sitemap do tipo de conteúdo “paroquias” | Diocese de Quixadá (24 fichas — listagem canônica)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedequixada.org.br/a-diocese/foranias/",
+     "title": "Foranias | Diocese de Quixadá (decreto que constitui as 4 foranias; lista 23 das 24 unidades — não traz a Paróquia Imaculada Conceição de Quixeramobim, criada em 21/01/2026)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedequixada.org.br/clero/padres-diocesanos/",
+     "title": "Padres Diocesanos | Diocese de Quixadá (página alterada em 18/08/2026; ofício e lotação de 45 presbíteros)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": "Fundada em 09/09/2007; 1º pároco Pe. Luciano Limaverde. Festa do padroeiro em 19 de março.",
+   "communities": [
+    {
+     "name": "Matriz São José",
+     "address": "Rua Manoel Viana, 13 - Distrito de Caio Prado",
+     "neighborhood": "Distrito de Caio Prado",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedequixada.org.br/paroquias/",
+       "title": "Paróquias | Diocese de Quixadá (ficha oficial de cada unidade: data de fundação, 1º pároco, festa do padroeiro, pároco, vigários, endereço, CEP, telefone e e-mail; a página já traz as duas unidades criadas em janeiro de 2026)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "menino-deus-itatira",
+   "name": "Paróquia Menino Deus",
+   "city": "Itatira",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Rua 25 de Março, s/n",
+   "zipCode": "62720-000",
+   "phone": "(88) 3436-1127",
+   "email": "p_meninodeus@hotmail.com",
+   "website": null,
+   "priestName": "Pe. Bruno Oliveira Rabelo",
+   "foundedYear": 1988,
+   "sources": [
+    {
+     "url": "https://diocesedequixada.org.br/paroquias/",
+     "title": "Paróquias | Diocese de Quixadá (ficha oficial de cada unidade: data de fundação, 1º pároco, festa do padroeiro, pároco, vigários, endereço, CEP, telefone e e-mail; a página já traz as duas unidades criadas em janeiro de 2026)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedequixada.org.br/wp-sitemap-posts-paroquias-1.xml",
+     "title": "Sitemap do tipo de conteúdo “paroquias” | Diocese de Quixadá (24 fichas — listagem canônica)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedequixada.org.br/a-diocese/foranias/",
+     "title": "Foranias | Diocese de Quixadá (decreto que constitui as 4 foranias; lista 23 das 24 unidades — não traz a Paróquia Imaculada Conceição de Quixeramobim, criada em 21/01/2026)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedequixada.org.br/clero/padres-diocesanos/",
+     "title": "Padres Diocesanos | Diocese de Quixadá (página alterada em 18/08/2026; ofício e lotação de 45 presbíteros)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": "Fundada em 18/12/1988. Festa do padroeiro em 25 de dezembro. Segundo telefone: (88) 3436-1040. Vigário paroquial: Pe. Lucas Soares Menezes.",
+   "communities": [
+    {
+     "name": "Matriz Menino Deus",
+     "address": "Rua 25 de Março, s/n",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedequixada.org.br/paroquias/",
+       "title": "Paróquias | Diocese de Quixadá (ficha oficial de cada unidade: data de fundação, 1º pároco, festa do padroeiro, pároco, vigários, endereço, CEP, telefone e e-mail; a página já traz as duas unidades criadas em janeiro de 2026)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Menino Deus",
+     "dayOfWeek": 0,
+     "time": "09:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2010-igreja-matriz-de-menino-deus/",
+       "title": "Lírio Católico — Igreja Matriz de Menino Deus, Itatira/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Menino Deus",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2010-igreja-matriz-de-menino-deus/",
+       "title": "Lírio Católico — Igreja Matriz de Menino Deus, Itatira/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Menino Deus",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "ADORATION",
+     "notes": "Fonte publica o intervalo 19:00–20:00.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2010-igreja-matriz-de-menino-deus/",
+       "title": "Lírio Católico — Igreja Matriz de Menino Deus, Itatira/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Menino Deus",
+     "dayOfWeek": 2,
+     "time": "19:00",
+     "type": "ROSARY",
+     "notes": "Terço dos Homens.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2010-igreja-matriz-de-menino-deus/",
+       "title": "Lírio Católico — Igreja Matriz de Menino Deus, Itatira/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Menino Deus",
+     "dayOfWeek": 3,
+     "time": "19:00",
+     "type": "ROSARY",
+     "notes": "Terço das Mulheres.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2010-igreja-matriz-de-menino-deus/",
+       "title": "Lírio Católico — Igreja Matriz de Menino Deus, Itatira/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-do-carmo-itatira",
+   "name": "Paróquia Nossa Senhora do Carmo",
+   "city": "Itatira",
+   "state": "CE",
+   "neighborhood": "Distrito de Lagoa do Mato",
+   "address": "Av. Nossa Senhora do Carmo",
+   "zipCode": "62725-000",
+   "phone": "(88) 3436-3293",
+   "email": "senhora_docarmo@hotmail.com",
+   "website": null,
+   "priestName": "Pe. José Nogueira Silvestre (Adailson)",
+   "foundedYear": 2004,
+   "sources": [
+    {
+     "url": "https://diocesedequixada.org.br/paroquias/",
+     "title": "Paróquias | Diocese de Quixadá (ficha oficial de cada unidade: data de fundação, 1º pároco, festa do padroeiro, pároco, vigários, endereço, CEP, telefone e e-mail; a página já traz as duas unidades criadas em janeiro de 2026)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedequixada.org.br/wp-sitemap-posts-paroquias-1.xml",
+     "title": "Sitemap do tipo de conteúdo “paroquias” | Diocese de Quixadá (24 fichas — listagem canônica)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedequixada.org.br/a-diocese/foranias/",
+     "title": "Foranias | Diocese de Quixadá (decreto que constitui as 4 foranias; lista 23 das 24 unidades — não traz a Paróquia Imaculada Conceição de Quixeramobim, criada em 21/01/2026)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedequixada.org.br/clero/padres-diocesanos/",
+     "title": "Padres Diocesanos | Diocese de Quixadá (página alterada em 18/08/2026; ofício e lotação de 45 presbíteros)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": "Fundada em 21/11/2004; 1º pároco Pe. Joaquim Dalmir Pinheiro de Almeida. Festa da padroeira em 16 de julho. A página do clero dá outros contatos do pároco: (88) 3442-1055 e (88) 99609-9025. O Lírio Católico publica o endereço como Av. Trajano Honorato, Lagoa do Mato.",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora do Carmo",
+     "address": "Av. Nossa Senhora do Carmo",
+     "neighborhood": "Distrito de Lagoa do Mato",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedequixada.org.br/paroquias/",
+       "title": "Paróquias | Diocese de Quixadá (ficha oficial de cada unidade: data de fundação, 1º pároco, festa do padroeiro, pároco, vigários, endereço, CEP, telefone e e-mail; a página já traz as duas unidades criadas em janeiro de 2026)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Nossa Senhora do Carmo",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2011-igreja-nossa-senhora-do-carmo/",
+       "title": "Lírio Católico — Igreja Nossa Senhora do Carmo, Itatira/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora do Carmo",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2011-igreja-nossa-senhora-do-carmo/",
+       "title": "Lírio Católico — Igreja Nossa Senhora do Carmo, Itatira/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora do Carmo",
+     "dayOfWeek": 4,
+     "time": "08:00",
+     "type": "CONFESSION",
+     "notes": "Fonte publica o intervalo 08:00–08:30.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2011-igreja-nossa-senhora-do-carmo/",
+       "title": "Lírio Católico — Igreja Nossa Senhora do Carmo, Itatira/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora do Carmo",
+     "dayOfWeek": 4,
+     "time": "18:00",
+     "type": "ADORATION",
+     "notes": "Fonte publica o intervalo 18:00–19:00.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2011-igreja-nossa-senhora-do-carmo/",
+       "title": "Lírio Católico — Igreja Nossa Senhora do Carmo, Itatira/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-da-imaculada-conceicao-madalena",
+   "name": "Paróquia Nossa Senhora da Imaculada Conceição",
+   "city": "Madalena",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Rua Primeiro de Janeiro, 52",
+   "zipCode": "63860-000",
+   "phone": "(88) 99454-2244",
+   "email": "paroquiansicmdl@gmail.com",
+   "website": null,
+   "priestName": "Pe. Valdenor Cesário do Nascimento",
+   "foundedYear": 1947,
+   "sources": [
+    {
+     "url": "https://diocesedequixada.org.br/paroquias/",
+     "title": "Paróquias | Diocese de Quixadá (ficha oficial de cada unidade: data de fundação, 1º pároco, festa do padroeiro, pároco, vigários, endereço, CEP, telefone e e-mail; a página já traz as duas unidades criadas em janeiro de 2026)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedequixada.org.br/wp-sitemap-posts-paroquias-1.xml",
+     "title": "Sitemap do tipo de conteúdo “paroquias” | Diocese de Quixadá (24 fichas — listagem canônica)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedequixada.org.br/a-diocese/foranias/",
+     "title": "Foranias | Diocese de Quixadá (decreto que constitui as 4 foranias; lista 23 das 24 unidades — não traz a Paróquia Imaculada Conceição de Quixeramobim, criada em 21/01/2026)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedequixada.org.br/clero/padres-diocesanos/",
+     "title": "Padres Diocesanos | Diocese de Quixadá (página alterada em 18/08/2026; ofício e lotação de 45 presbíteros)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": "Fundada em 01/01/1947. Festa da padroeira em 8 de dezembro. Vigário paroquial: Pe. Francisco Cleilson R. de Medeiros.",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora da Imaculada Conceição",
+     "address": "Rua Primeiro de Janeiro, 52",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedequixada.org.br/paroquias/",
+       "title": "Paróquias | Diocese de Quixadá (ficha oficial de cada unidade: data de fundação, 1º pároco, festa do padroeiro, pároco, vigários, endereço, CEP, telefone e e-mail; a página já traz as duas unidades criadas em janeiro de 2026)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Nossa Senhora da Imaculada Conceição",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2029-igreja-matriz-nossa-senhora-da-imaculada-conceicao/",
+       "title": "Lírio Católico — Igreja Matriz Nossa Senhora da Imaculada Conceição, Madalena/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora da Imaculada Conceição",
+     "dayOfWeek": 0,
+     "time": "16:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2029-igreja-matriz-nossa-senhora-da-imaculada-conceicao/",
+       "title": "Lírio Católico — Igreja Matriz Nossa Senhora da Imaculada Conceição, Madalena/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora da Imaculada Conceição",
+     "dayOfWeek": 0,
+     "time": "18:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2029-igreja-matriz-nossa-senhora-da-imaculada-conceicao/",
+       "title": "Lírio Católico — Igreja Matriz Nossa Senhora da Imaculada Conceição, Madalena/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora da Imaculada Conceição",
+     "dayOfWeek": 6,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2029-igreja-matriz-nossa-senhora-da-imaculada-conceicao/",
+       "title": "Lírio Católico — Igreja Matriz Nossa Senhora da Imaculada Conceição, Madalena/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora da Imaculada Conceição",
+     "dayOfWeek": 2,
+     "time": "18:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2029-igreja-matriz-nossa-senhora-da-imaculada-conceicao/",
+       "title": "Lírio Católico — Igreja Matriz Nossa Senhora da Imaculada Conceição, Madalena/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora da Imaculada Conceição",
+     "dayOfWeek": 3,
+     "time": "18:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2029-igreja-matriz-nossa-senhora-da-imaculada-conceicao/",
+       "title": "Lírio Católico — Igreja Matriz Nossa Senhora da Imaculada Conceição, Madalena/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora da Imaculada Conceição",
+     "dayOfWeek": 4,
+     "time": "18:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2029-igreja-matriz-nossa-senhora-da-imaculada-conceicao/",
+       "title": "Lírio Católico — Igreja Matriz Nossa Senhora da Imaculada Conceição, Madalena/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora da Imaculada Conceição",
+     "dayOfWeek": 5,
+     "time": "18:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2029-igreja-matriz-nossa-senhora-da-imaculada-conceicao/",
+       "title": "Lírio Católico — Igreja Matriz Nossa Senhora da Imaculada Conceição, Madalena/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "senhora-santana-quixada",
+   "name": "Área Pastoral Senhora Sant’Ana",
+   "city": "Quixadá",
+   "state": "CE",
+   "neighborhood": "Distrito de Dom Maurício",
+   "address": "Rua Martins Almeida, s/n - Distrito de Dom Maurício",
+   "zipCode": "63945-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. José Adriano Silva do Nascimento",
+   "foundedYear": 2026,
+   "sources": [
+    {
+     "url": "https://diocesedequixada.org.br/paroquias/",
+     "title": "Paróquias | Diocese de Quixadá (ficha oficial de cada unidade: data de fundação, 1º pároco, festa do padroeiro, pároco, vigários, endereço, CEP, telefone e e-mail; a página já traz as duas unidades criadas em janeiro de 2026)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedequixada.org.br/wp-sitemap-posts-paroquias-1.xml",
+     "title": "Sitemap do tipo de conteúdo “paroquias” | Diocese de Quixadá (24 fichas — listagem canônica)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedequixada.org.br/clero/padres-diocesanos/",
+     "title": "Padres Diocesanos | Diocese de Quixadá (página alterada em 18/08/2026; ofício e lotação de 45 presbíteros)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": "Criada em 03/01/2026 — é a unidade mais nova da diocese. O administrador é também Vigário Judicial Adjunto e Juiz Eclesiástico; contatos na página do clero: (88) 3412-0548, (88) 99906-0410, pe.adriano@live.com. Área pastoral: unidade territorial da diocese ainda não erigida como paróquia.",
+   "communities": [
+    {
+     "name": "Matriz Senhora Sant’Ana",
+     "address": "Rua Martins Almeida, s/n - Distrito de Dom Maurício",
+     "neighborhood": "Distrito de Dom Maurício",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedequixada.org.br/paroquias/",
+       "title": "Paróquias | Diocese de Quixadá (ficha oficial de cada unidade: data de fundação, 1º pároco, festa do padroeiro, pároco, vigários, endereço, CEP, telefone e e-mail; a página já traz as duas unidades criadas em janeiro de 2026)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [],
+   "status": "nao-paroquial",
+   "loadAsParish": true
+  },
+  {
+   "slug": "sao-jose-quixada",
+   "name": "Área Pastoral São José",
+   "city": "Quixadá",
+   "state": "CE",
+   "neighborhood": "Distrito de Custódio",
+   "address": "Rua da Matriz - Distrito de Custódio",
+   "zipCode": "63900-000",
+   "phone": "(88) 3451-0099",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Jocélio Alves da Silva",
+   "foundedYear": 2011,
+   "sources": [
+    {
+     "url": "https://diocesedequixada.org.br/paroquias/",
+     "title": "Paróquias | Diocese de Quixadá (ficha oficial de cada unidade: data de fundação, 1º pároco, festa do padroeiro, pároco, vigários, endereço, CEP, telefone e e-mail; a página já traz as duas unidades criadas em janeiro de 2026)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedequixada.org.br/wp-sitemap-posts-paroquias-1.xml",
+     "title": "Sitemap do tipo de conteúdo “paroquias” | Diocese de Quixadá (24 fichas — listagem canônica)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedequixada.org.br/a-diocese/foranias/",
+     "title": "Foranias | Diocese de Quixadá (decreto que constitui as 4 foranias; lista 23 das 24 unidades — não traz a Paróquia Imaculada Conceição de Quixeramobim, criada em 21/01/2026)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedequixada.org.br/clero/padres-diocesanos/",
+     "title": "Padres Diocesanos | Diocese de Quixadá (página alterada em 18/08/2026; ofício e lotação de 45 presbíteros)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": "Criada em 18/02/2011; 1º responsável Pe. Ricardo Lee Cornwall (falecido em 21/07/2022). O administrador acumula a vigararia paroquial de São Francisco de Assis, Quixadá. Área pastoral: unidade territorial da diocese ainda não erigida como paróquia.",
+   "communities": [
+    {
+     "name": "Matriz São José",
+     "address": "Rua da Matriz - Distrito de Custódio",
+     "neighborhood": "Distrito de Custódio",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedequixada.org.br/paroquias/",
+       "title": "Paróquias | Diocese de Quixadá (ficha oficial de cada unidade: data de fundação, 1º pároco, festa do padroeiro, pároco, vigários, endereço, CEP, telefone e e-mail; a página já traz as duas unidades criadas em janeiro de 2026)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [],
+   "status": "nao-paroquial",
+   "loadAsParish": true
+  },
+  {
+   "slug": "jesus-maria-e-jose-quixada",
+   "name": "Catedral Jesus, Maria e José",
+   "city": "Quixadá",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Rua Francisco Enéas de Lima, 2117",
+   "zipCode": "63900-231",
+   "phone": "(88) 3412-0433",
+   "email": "paroquia_jmj@hotmail.com",
+   "website": null,
+   "priestName": "Pe. Felipe Costa Silva",
+   "foundedYear": 1870,
+   "sources": [
+    {
+     "url": "https://diocesedequixada.org.br/paroquias/",
+     "title": "Paróquias | Diocese de Quixadá (ficha oficial de cada unidade: data de fundação, 1º pároco, festa do padroeiro, pároco, vigários, endereço, CEP, telefone e e-mail; a página já traz as duas unidades criadas em janeiro de 2026)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedequixada.org.br/wp-sitemap-posts-paroquias-1.xml",
+     "title": "Sitemap do tipo de conteúdo “paroquias” | Diocese de Quixadá (24 fichas — listagem canônica)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedequixada.org.br/a-diocese/foranias/",
+     "title": "Foranias | Diocese de Quixadá (decreto que constitui as 4 foranias; lista 23 das 24 unidades — não traz a Paróquia Imaculada Conceição de Quixeramobim, criada em 21/01/2026)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedequixada.org.br/clero/padres-diocesanos/",
+     "title": "Padres Diocesanos | Diocese de Quixadá (página alterada em 18/08/2026; ofício e lotação de 45 presbíteros)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": "Sé Catedral da diocese. Paróquia fundada em 19/01/1870; a matriz foi elevada a catedral com a criação da diocese, em 1971. Festa dos padroeiros: Sagrada Família. Segundo telefone: (88) 99317-6230. O pároco é também professor da UniCatólica. O Lírio Católico publica DUAS fichas para o mesmo endereço (“Catedral Jesus, Maria, José” e “Paróquia de Jesus, Maria e José”), com grades diferentes; as duas foram unidas aqui, sem repetir horário.",
+   "communities": [
+    {
+     "name": "Catedral Jesus, Maria e José",
+     "address": "Rua Francisco Enéas de Lima, 2117",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedequixada.org.br/paroquias/",
+       "title": "Paróquias | Diocese de Quixadá (ficha oficial de cada unidade: data de fundação, 1º pároco, festa do padroeiro, pároco, vigários, endereço, CEP, telefone e e-mail; a página já traz as duas unidades criadas em janeiro de 2026)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Catedral Jesus, Maria e José",
+     "dayOfWeek": 0,
+     "time": "10:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2109-catedral-jesus-maria-jose/",
+       "title": "Lírio Católico — Catedral Jesus, Maria, José, Quixadá/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Catedral Jesus, Maria e José",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2109-catedral-jesus-maria-jose/",
+       "title": "Lírio Católico — Catedral Jesus, Maria, José, Quixadá/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Catedral Jesus, Maria e José",
+     "dayOfWeek": 6,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2109-catedral-jesus-maria-jose/",
+       "title": "Lírio Católico — Catedral Jesus, Maria, José, Quixadá/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Catedral Jesus, Maria e José",
+     "dayOfWeek": 2,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2109-catedral-jesus-maria-jose/",
+       "title": "Lírio Católico — Catedral Jesus, Maria, José, Quixadá/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Catedral Jesus, Maria e José",
+     "dayOfWeek": 3,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2109-catedral-jesus-maria-jose/",
+       "title": "Lírio Católico — Catedral Jesus, Maria, José, Quixadá/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Catedral Jesus, Maria e José",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2109-catedral-jesus-maria-jose/",
+       "title": "Lírio Católico — Catedral Jesus, Maria, José, Quixadá/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Catedral Jesus, Maria e José",
+     "dayOfWeek": 5,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2109-catedral-jesus-maria-jose/",
+       "title": "Lírio Católico — Catedral Jesus, Maria, José, Quixadá/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Catedral Jesus, Maria e José",
+     "dayOfWeek": 6,
+     "time": "09:00",
+     "type": "CONFESSION",
+     "notes": "Fonte publica o intervalo 09:00–09:30.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2109-catedral-jesus-maria-jose/",
+       "title": "Lírio Católico — Catedral Jesus, Maria, José, Quixadá/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Catedral Jesus, Maria e José",
+     "dayOfWeek": 5,
+     "time": "09:00",
+     "type": "CONFESSION",
+     "notes": "Fonte publica o intervalo 09:00–11:00.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2109-catedral-jesus-maria-jose/",
+       "title": "Lírio Católico — Catedral Jesus, Maria, José, Quixadá/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Catedral Jesus, Maria e José",
+     "dayOfWeek": 5,
+     "time": "09:00",
+     "type": "ADORATION",
+     "notes": "Fonte publica o intervalo 09:00–11:00.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2109-catedral-jesus-maria-jose/",
+       "title": "Lírio Católico — Catedral Jesus, Maria, José, Quixadá/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Catedral Jesus, Maria e José",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "ADORATION",
+     "notes": "Fonte publica o intervalo 19:00–20:00.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2109-catedral-jesus-maria-jose/",
+       "title": "Lírio Católico — Catedral Jesus, Maria, José, Quixadá/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Catedral Jesus, Maria e José",
+     "dayOfWeek": 1,
+     "time": "06:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2108-paroquia-de-jesus-maria-e-jose/",
+       "title": "Lírio Católico — Paróquia de Jesus, Maria e José, Quixadá/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Catedral Jesus, Maria e José",
+     "dayOfWeek": 2,
+     "time": "06:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2108-paroquia-de-jesus-maria-e-jose/",
+       "title": "Lírio Católico — Paróquia de Jesus, Maria e José, Quixadá/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Catedral Jesus, Maria e José",
+     "dayOfWeek": 3,
+     "time": "06:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2108-paroquia-de-jesus-maria-e-jose/",
+       "title": "Lírio Católico — Paróquia de Jesus, Maria e José, Quixadá/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Catedral Jesus, Maria e José",
+     "dayOfWeek": 4,
+     "time": "06:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2108-paroquia-de-jesus-maria-e-jose/",
+       "title": "Lírio Católico — Paróquia de Jesus, Maria e José, Quixadá/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Catedral Jesus, Maria e José",
+     "dayOfWeek": 5,
+     "time": "06:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2108-paroquia-de-jesus-maria-e-jose/",
+       "title": "Lírio Católico — Paróquia de Jesus, Maria e José, Quixadá/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Catedral Jesus, Maria e José",
+     "dayOfWeek": 6,
+     "time": "06:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2108-paroquia-de-jesus-maria-e-jose/",
+       "title": "Lírio Católico — Paróquia de Jesus, Maria e José, Quixadá/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "santa-teresinha-quixada",
+   "name": "Paróquia Santa Teresinha",
+   "city": "Quixadá",
+   "state": "CE",
+   "neighborhood": "Campo Novo",
+   "address": "Rua da Paz, 400",
+   "zipCode": "63905-440",
+   "phone": "(88) 3412-4482",
+   "email": "paroquiasantaterezinhamj@yahoo.com.br",
+   "website": null,
+   "priestName": "Pe. João Paulo Barbosa Manso",
+   "foundedYear": 2001,
+   "sources": [
+    {
+     "url": "https://diocesedequixada.org.br/paroquias/",
+     "title": "Paróquias | Diocese de Quixadá (ficha oficial de cada unidade: data de fundação, 1º pároco, festa do padroeiro, pároco, vigários, endereço, CEP, telefone e e-mail; a página já traz as duas unidades criadas em janeiro de 2026)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedequixada.org.br/wp-sitemap-posts-paroquias-1.xml",
+     "title": "Sitemap do tipo de conteúdo “paroquias” | Diocese de Quixadá (24 fichas — listagem canônica)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedequixada.org.br/a-diocese/foranias/",
+     "title": "Foranias | Diocese de Quixadá (decreto que constitui as 4 foranias; lista 23 das 24 unidades — não traz a Paróquia Imaculada Conceição de Quixeramobim, criada em 21/01/2026)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedequixada.org.br/clero/padres-diocesanos/",
+     "title": "Padres Diocesanos | Diocese de Quixadá (página alterada em 18/08/2026; ofício e lotação de 45 presbíteros)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": "Fundada em 04/03/2001; 1º pároco Pe. José Maria Loiola. Festa da padroeira em 1º de outubro. Vigário paroquial: Pe. Antônio Firmino Araújo Bezerra. O pároco é Coordenador Diocesano de Pastoral.",
+   "communities": [
+    {
+     "name": "Matriz Santa Teresinha",
+     "address": "Rua da Paz, 400",
+     "neighborhood": "Campo Novo",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedequixada.org.br/paroquias/",
+       "title": "Paróquias | Diocese de Quixadá (ficha oficial de cada unidade: data de fundação, 1º pároco, festa do padroeiro, pároco, vigários, endereço, CEP, telefone e e-mail; a página já traz as duas unidades criadas em janeiro de 2026)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "sao-francisco-de-assis-quixada",
+   "name": "Paróquia São Francisco de Assis",
+   "city": "Quixadá",
+   "state": "CE",
+   "neighborhood": "Alto São Francisco",
+   "address": "Rua Juscelino Kubitschek, 194 - Alto São Francisco",
+   "zipCode": "63908-230",
+   "phone": "(88) 99753-0022",
+   "email": "sfqxparoquia@gmail.com",
+   "website": null,
+   "priestName": "Pe. Francisco Moreira Otaviano",
+   "foundedYear": 1979,
+   "sources": [
+    {
+     "url": "https://diocesedequixada.org.br/paroquias/",
+     "title": "Paróquias | Diocese de Quixadá (ficha oficial de cada unidade: data de fundação, 1º pároco, festa do padroeiro, pároco, vigários, endereço, CEP, telefone e e-mail; a página já traz as duas unidades criadas em janeiro de 2026)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedequixada.org.br/wp-sitemap-posts-paroquias-1.xml",
+     "title": "Sitemap do tipo de conteúdo “paroquias” | Diocese de Quixadá (24 fichas — listagem canônica)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedequixada.org.br/a-diocese/foranias/",
+     "title": "Foranias | Diocese de Quixadá (decreto que constitui as 4 foranias; lista 23 das 24 unidades — não traz a Paróquia Imaculada Conceição de Quixeramobim, criada em 21/01/2026)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedequixada.org.br/clero/padres-diocesanos/",
+     "title": "Padres Diocesanos | Diocese de Quixadá (página alterada em 18/08/2026; ofício e lotação de 45 presbíteros)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": "Fundada em 05/08/1979; 1º pároco Frei Antenor. Festa do padroeiro em 4 de outubro. Vigários paroquiais: Pe. Jocélio Alves da Silva e Pe. Cleiton Soares de Araújo. O Lírio Católico publica outro endereço (Rua Benjamin Constant, 972).",
+   "communities": [
+    {
+     "name": "Matriz São Francisco de Assis",
+     "address": "Rua Juscelino Kubitschek, 194 - Alto São Francisco",
+     "neighborhood": "Alto São Francisco",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedequixada.org.br/paroquias/",
+       "title": "Paróquias | Diocese de Quixadá (ficha oficial de cada unidade: data de fundação, 1º pároco, festa do padroeiro, pároco, vigários, endereço, CEP, telefone e e-mail; a página já traz as duas unidades criadas em janeiro de 2026)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz São Francisco de Assis",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2112-paroquia-de-sao-francisco/",
+       "title": "Lírio Católico — Paróquia de São Francisco, Quixadá/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Francisco de Assis",
+     "dayOfWeek": 0,
+     "time": "09:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2112-paroquia-de-sao-francisco/",
+       "title": "Lírio Católico — Paróquia de São Francisco, Quixadá/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Francisco de Assis",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2112-paroquia-de-sao-francisco/",
+       "title": "Lírio Católico — Paróquia de São Francisco, Quixadá/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Francisco de Assis",
+     "dayOfWeek": 1,
+     "time": "12:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2112-paroquia-de-sao-francisco/",
+       "title": "Lírio Católico — Paróquia de São Francisco, Quixadá/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Francisco de Assis",
+     "dayOfWeek": 2,
+     "time": "18:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2112-paroquia-de-sao-francisco/",
+       "title": "Lírio Católico — Paróquia de São Francisco, Quixadá/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Francisco de Assis",
+     "dayOfWeek": 3,
+     "time": "18:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2112-paroquia-de-sao-francisco/",
+       "title": "Lírio Católico — Paróquia de São Francisco, Quixadá/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Francisco de Assis",
+     "dayOfWeek": 4,
+     "time": "18:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2112-paroquia-de-sao-francisco/",
+       "title": "Lírio Católico — Paróquia de São Francisco, Quixadá/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Francisco de Assis",
+     "dayOfWeek": 5,
+     "time": "18:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2112-paroquia-de-sao-francisco/",
+       "title": "Lírio Católico — Paróquia de São Francisco, Quixadá/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Francisco de Assis",
+     "dayOfWeek": 6,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2112-paroquia-de-sao-francisco/",
+       "title": "Lírio Católico — Paróquia de São Francisco, Quixadá/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Francisco de Assis",
+     "dayOfWeek": 6,
+     "time": "09:00",
+     "type": "CONFESSION",
+     "notes": "Fonte publica o intervalo 09:00–09:30.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2112-paroquia-de-sao-francisco/",
+       "title": "Lírio Católico — Paróquia de São Francisco, Quixadá/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Francisco de Assis",
+     "dayOfWeek": 0,
+     "time": "18:30",
+     "type": "CONFESSION",
+     "notes": "Fonte publica o intervalo 18:30–19:00.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2112-paroquia-de-sao-francisco/",
+       "title": "Lírio Católico — Paróquia de São Francisco, Quixadá/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "sao-joao-batista-e-santa-edwiges-quixada",
+   "name": "Paróquia São João Batista e Santa Edwiges",
+   "city": "Quixadá",
+   "state": "CE",
+   "neighborhood": "Planalto Universitário",
+   "address": "Av. Estados Unidos, 2453",
+   "zipCode": "63902-055",
+   "phone": "(88) 2147-2213",
+   "email": "sparoquiasjbatista@yahoo.com.br",
+   "website": null,
+   "priestName": "Pe. Luciano Vieira Limaverde Costa",
+   "foundedYear": 2003,
+   "sources": [
+    {
+     "url": "https://diocesedequixada.org.br/paroquias/",
+     "title": "Paróquias | Diocese de Quixadá (ficha oficial de cada unidade: data de fundação, 1º pároco, festa do padroeiro, pároco, vigários, endereço, CEP, telefone e e-mail; a página já traz as duas unidades criadas em janeiro de 2026)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedequixada.org.br/wp-sitemap-posts-paroquias-1.xml",
+     "title": "Sitemap do tipo de conteúdo “paroquias” | Diocese de Quixadá (24 fichas — listagem canônica)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedequixada.org.br/a-diocese/foranias/",
+     "title": "Foranias | Diocese de Quixadá (decreto que constitui as 4 foranias; lista 23 das 24 unidades — não traz a Paróquia Imaculada Conceição de Quixeramobim, criada em 21/01/2026)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedequixada.org.br/clero/padres-diocesanos/",
+     "title": "Padres Diocesanos | Diocese de Quixadá (página alterada em 18/08/2026; ofício e lotação de 45 presbíteros)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": "Fundada em 26/01/2003. Festa do padroeiro em 24 de junho. A ficha dá o bairro como “São João”; o ViaCEP devolve “Planalto Universitário” para o CEP publicado. Vigário paroquial: Pe. Pablo Nogueira Anselmo, também reitor do Seminário Maior Diocesano Rainha do Sertão.",
+   "communities": [
+    {
+     "name": "Matriz São João Batista e Santa Edwiges",
+     "address": "Av. Estados Unidos, 2453",
+     "neighborhood": "Planalto Universitário",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedequixada.org.br/paroquias/",
+       "title": "Paróquias | Diocese de Quixadá (ficha oficial de cada unidade: data de fundação, 1º pároco, festa do padroeiro, pároco, vigários, endereço, CEP, telefone e e-mail; a página já traz as duas unidades criadas em janeiro de 2026)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "imaculada-conceicao-quixeramobim",
+   "name": "Paróquia Imaculada Conceição",
+   "city": "Quixeramobim",
+   "state": "CE",
+   "neighborhood": "José Airton Machado (Rodoviária)",
+   "address": "Rua Monteiro Filho, 608",
+   "zipCode": "63800-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Paulo Valber Pinho Coelho",
+   "foundedYear": 2026,
+   "sources": [
+    {
+     "url": "https://diocesedequixada.org.br/paroquias/",
+     "title": "Paróquias | Diocese de Quixadá (ficha oficial de cada unidade: data de fundação, 1º pároco, festa do padroeiro, pároco, vigários, endereço, CEP, telefone e e-mail; a página já traz as duas unidades criadas em janeiro de 2026)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedequixada.org.br/wp-sitemap-posts-paroquias-1.xml",
+     "title": "Sitemap do tipo de conteúdo “paroquias” | Diocese de Quixadá (24 fichas — listagem canônica)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedequixada.org.br/clero/padres-diocesanos/",
+     "title": "Padres Diocesanos | Diocese de Quixadá (página alterada em 18/08/2026; ofício e lotação de 45 presbíteros)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": "Criada em 21/01/2026 — a paróquia mais nova da diocese; não consta do decreto das foranias. Vigário paroquial, pela página do clero: Pe. Carlos Alberto Bezerra Lopes Filho, chanceler do bispado.",
+   "communities": [
+    {
+     "name": "Matriz Imaculada Conceição",
+     "address": "Rua Monteiro Filho, 608",
+     "neighborhood": "José Airton Machado (Rodoviária)",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedequixada.org.br/paroquias/",
+       "title": "Paróquias | Diocese de Quixadá (ficha oficial de cada unidade: data de fundação, 1º pároco, festa do padroeiro, pároco, vigários, endereço, CEP, telefone e e-mail; a página já traz as duas unidades criadas em janeiro de 2026)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-do-perpetuo-socorro-quixeramobim",
+   "name": "Paróquia Nossa Senhora do Perpétuo Socorro",
+   "city": "Quixeramobim",
+   "state": "CE",
+   "neighborhood": "Nenelândia",
+   "address": "Rua Vicença Maria de Brito, 10 - Nenelândia",
+   "zipCode": null,
+   "phone": "(88) 3406-0073",
+   "email": "paroquiadenenelandia@gmail.com",
+   "website": null,
+   "priestName": "Pe. Bruno Dias de Lima",
+   "foundedYear": 2004,
+   "sources": [
+    {
+     "url": "https://diocesedequixada.org.br/paroquias/",
+     "title": "Paróquias | Diocese de Quixadá (ficha oficial de cada unidade: data de fundação, 1º pároco, festa do padroeiro, pároco, vigários, endereço, CEP, telefone e e-mail; a página já traz as duas unidades criadas em janeiro de 2026)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedequixada.org.br/wp-sitemap-posts-paroquias-1.xml",
+     "title": "Sitemap do tipo de conteúdo “paroquias” | Diocese de Quixadá (24 fichas — listagem canônica)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedequixada.org.br/a-diocese/foranias/",
+     "title": "Foranias | Diocese de Quixadá (decreto que constitui as 4 foranias; lista 23 das 24 unidades — não traz a Paróquia Imaculada Conceição de Quixeramobim, criada em 21/01/2026)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedequixada.org.br/clero/padres-diocesanos/",
+     "title": "Padres Diocesanos | Diocese de Quixadá (página alterada em 18/08/2026; ofício e lotação de 45 presbíteros)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": "Fundada em 20/11/2004; 1º pároco Pe. Vitoriano Campos Ambrósio. Festa da padroeira em 28 de julho. O CEP publicado (63 414-000) não existe no ViaCEP e não pertence a Quixeramobim — gravado null.",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora do Perpétuo Socorro",
+     "address": "Rua Vicença Maria de Brito, 10 - Nenelândia",
+     "neighborhood": "Nenelândia",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedequixada.org.br/paroquias/",
+       "title": "Paróquias | Diocese de Quixadá (ficha oficial de cada unidade: data de fundação, 1º pároco, festa do padroeiro, pároco, vigários, endereço, CEP, telefone e e-mail; a página já traz as duas unidades criadas em janeiro de 2026)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "santo-antonio-quixeramobim",
+   "name": "Paróquia Santo Antônio",
+   "city": "Quixeramobim",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Rua Cônego Aureliano Mota, 412",
+   "zipCode": "63800-000",
+   "phone": "(88) 3441-0289",
+   "email": "matrizdesantoantonio@hotmail.com",
+   "website": null,
+   "priestName": "Pe. Severino Bezerra de Melo, C.M.",
+   "foundedYear": 1755,
+   "sources": [
+    {
+     "url": "https://diocesedequixada.org.br/paroquias/",
+     "title": "Paróquias | Diocese de Quixadá (ficha oficial de cada unidade: data de fundação, 1º pároco, festa do padroeiro, pároco, vigários, endereço, CEP, telefone e e-mail; a página já traz as duas unidades criadas em janeiro de 2026)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedequixada.org.br/wp-sitemap-posts-paroquias-1.xml",
+     "title": "Sitemap do tipo de conteúdo “paroquias” | Diocese de Quixadá (24 fichas — listagem canônica)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedequixada.org.br/a-diocese/foranias/",
+     "title": "Foranias | Diocese de Quixadá (decreto que constitui as 4 foranias; lista 23 das 24 unidades — não traz a Paróquia Imaculada Conceição de Quixeramobim, criada em 21/01/2026)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedequixada.org.br/clero/padres-diocesanos/",
+     "title": "Padres Diocesanos | Diocese de Quixadá (página alterada em 18/08/2026; ofício e lotação de 45 presbíteros)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": "Fundada em 15/11/1755 — a mais antiga da diocese. Festa do padroeiro em 13 de junho. Confiada aos padres vicentinos (C.M.); vigários paroquiais: Pe. Samuel Victor Soares Menezes, C.M. e Pe. Felipe de Sousa Passos, C.M.",
+   "communities": [
+    {
+     "name": "Matriz Santo Antônio",
+     "address": "Rua Cônego Aureliano Mota, 412",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedequixada.org.br/paroquias/",
+       "title": "Paróquias | Diocese de Quixadá (ficha oficial de cada unidade: data de fundação, 1º pároco, festa do padroeiro, pároco, vigários, endereço, CEP, telefone e e-mail; a página já traz as duas unidades criadas em janeiro de 2026)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Santo Antônio",
+     "dayOfWeek": 0,
+     "time": "08:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2099-igreja-matriz-de-santo-antonio-de-padua/",
+       "title": "Lírio Católico — Igreja Matriz de Santo Antônio de Pádua, Quixeramobim/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Santo Antônio",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2099-igreja-matriz-de-santo-antonio-de-padua/",
+       "title": "Lírio Católico — Igreja Matriz de Santo Antônio de Pádua, Quixeramobim/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Santo Antônio",
+     "dayOfWeek": 2,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2099-igreja-matriz-de-santo-antonio-de-padua/",
+       "title": "Lírio Católico — Igreja Matriz de Santo Antônio de Pádua, Quixeramobim/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Santo Antônio",
+     "dayOfWeek": 3,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2099-igreja-matriz-de-santo-antonio-de-padua/",
+       "title": "Lírio Católico — Igreja Matriz de Santo Antônio de Pádua, Quixeramobim/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Santo Antônio",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2099-igreja-matriz-de-santo-antonio-de-padua/",
+       "title": "Lírio Católico — Igreja Matriz de Santo Antônio de Pádua, Quixeramobim/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "sao-francisco-de-assis-quixeramobim",
+   "name": "Paróquia São Francisco de Assis",
+   "city": "Quixeramobim",
+   "state": "CE",
+   "neighborhood": "Maravilha",
+   "address": "Rua Luiz Gomes Coutinho, 272 - Maravilha",
+   "zipCode": "63800-000",
+   "phone": "(88) 3441-4409",
+   "email": "paroquiasfa19@hotmail.com",
+   "website": null,
+   "priestName": "Pe. Antônio Durval de Almeida Viana Filho",
+   "foundedYear": 2004,
+   "sources": [
+    {
+     "url": "https://diocesedequixada.org.br/paroquias/",
+     "title": "Paróquias | Diocese de Quixadá (ficha oficial de cada unidade: data de fundação, 1º pároco, festa do padroeiro, pároco, vigários, endereço, CEP, telefone e e-mail; a página já traz as duas unidades criadas em janeiro de 2026)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedequixada.org.br/wp-sitemap-posts-paroquias-1.xml",
+     "title": "Sitemap do tipo de conteúdo “paroquias” | Diocese de Quixadá (24 fichas — listagem canônica)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedequixada.org.br/a-diocese/foranias/",
+     "title": "Foranias | Diocese de Quixadá (decreto que constitui as 4 foranias; lista 23 das 24 unidades — não traz a Paróquia Imaculada Conceição de Quixeramobim, criada em 21/01/2026)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedequixada.org.br/clero/padres-diocesanos/",
+     "title": "Padres Diocesanos | Diocese de Quixadá (página alterada em 18/08/2026; ofício e lotação de 45 presbíteros)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": "Fundada em 19/09/2004; 1º pároco Pe. Antônio Firmino Araújo Bezerra. Segundo telefone: (88) 98105-6099. Vigário paroquial: Pe. Francisco Dhonas Silva Cruz. A ficha diz “Festa do Padroeiro: São Francisco – 12 de Outubro”, mas a festa de São Francisco de Assis é em 4 de outubro. O Lírio Católico publica outro endereço (R. Ramiro Barbosa, 257 – Maravilha).",
+   "communities": [
+    {
+     "name": "Matriz São Francisco de Assis",
+     "address": "Rua Luiz Gomes Coutinho, 272 - Maravilha",
+     "neighborhood": "Maravilha",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedequixada.org.br/paroquias/",
+       "title": "Paróquias | Diocese de Quixadá (ficha oficial de cada unidade: data de fundação, 1º pároco, festa do padroeiro, pároco, vigários, endereço, CEP, telefone e e-mail; a página já traz as duas unidades criadas em janeiro de 2026)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz São Francisco de Assis",
+     "dayOfWeek": 1,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2101-igreja-sao-francisco-de-assis/",
+       "title": "Lírio Católico — Igreja São Francisco de Assis, Quixeramobim/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Francisco de Assis",
+     "dayOfWeek": 1,
+     "time": "12:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2101-igreja-sao-francisco-de-assis/",
+       "title": "Lírio Católico — Igreja São Francisco de Assis, Quixeramobim/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Francisco de Assis",
+     "dayOfWeek": 1,
+     "time": "18:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2101-igreja-sao-francisco-de-assis/",
+       "title": "Lírio Católico — Igreja São Francisco de Assis, Quixeramobim/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Francisco de Assis",
+     "dayOfWeek": 2,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2101-igreja-sao-francisco-de-assis/",
+       "title": "Lírio Católico — Igreja São Francisco de Assis, Quixeramobim/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Francisco de Assis",
+     "dayOfWeek": 2,
+     "time": "12:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2101-igreja-sao-francisco-de-assis/",
+       "title": "Lírio Católico — Igreja São Francisco de Assis, Quixeramobim/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Francisco de Assis",
+     "dayOfWeek": 2,
+     "time": "18:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2101-igreja-sao-francisco-de-assis/",
+       "title": "Lírio Católico — Igreja São Francisco de Assis, Quixeramobim/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Francisco de Assis",
+     "dayOfWeek": 3,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2101-igreja-sao-francisco-de-assis/",
+       "title": "Lírio Católico — Igreja São Francisco de Assis, Quixeramobim/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Francisco de Assis",
+     "dayOfWeek": 3,
+     "time": "12:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2101-igreja-sao-francisco-de-assis/",
+       "title": "Lírio Católico — Igreja São Francisco de Assis, Quixeramobim/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Francisco de Assis",
+     "dayOfWeek": 3,
+     "time": "18:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2101-igreja-sao-francisco-de-assis/",
+       "title": "Lírio Católico — Igreja São Francisco de Assis, Quixeramobim/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Francisco de Assis",
+     "dayOfWeek": 4,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2101-igreja-sao-francisco-de-assis/",
+       "title": "Lírio Católico — Igreja São Francisco de Assis, Quixeramobim/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Francisco de Assis",
+     "dayOfWeek": 4,
+     "time": "12:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2101-igreja-sao-francisco-de-assis/",
+       "title": "Lírio Católico — Igreja São Francisco de Assis, Quixeramobim/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Francisco de Assis",
+     "dayOfWeek": 4,
+     "time": "18:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2101-igreja-sao-francisco-de-assis/",
+       "title": "Lírio Católico — Igreja São Francisco de Assis, Quixeramobim/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Francisco de Assis",
+     "dayOfWeek": 5,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2101-igreja-sao-francisco-de-assis/",
+       "title": "Lírio Católico — Igreja São Francisco de Assis, Quixeramobim/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Francisco de Assis",
+     "dayOfWeek": 5,
+     "time": "12:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2101-igreja-sao-francisco-de-assis/",
+       "title": "Lírio Católico — Igreja São Francisco de Assis, Quixeramobim/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Francisco de Assis",
+     "dayOfWeek": 5,
+     "time": "18:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2101-igreja-sao-francisco-de-assis/",
+       "title": "Lírio Católico — Igreja São Francisco de Assis, Quixeramobim/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Francisco de Assis",
+     "dayOfWeek": 0,
+     "time": "07:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2101-igreja-sao-francisco-de-assis/",
+       "title": "Lírio Católico — Igreja São Francisco de Assis, Quixeramobim/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Francisco de Assis",
+     "dayOfWeek": 0,
+     "time": "09:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2101-igreja-sao-francisco-de-assis/",
+       "title": "Lírio Católico — Igreja São Francisco de Assis, Quixeramobim/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Francisco de Assis",
+     "dayOfWeek": 0,
+     "time": "11:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2101-igreja-sao-francisco-de-assis/",
+       "title": "Lírio Católico — Igreja São Francisco de Assis, Quixeramobim/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Francisco de Assis",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2101-igreja-sao-francisco-de-assis/",
+       "title": "Lírio Católico — Igreja São Francisco de Assis, Quixeramobim/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Francisco de Assis",
+     "dayOfWeek": 6,
+     "time": "15:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2101-igreja-sao-francisco-de-assis/",
+       "title": "Lírio Católico — Igreja São Francisco de Assis, Quixeramobim/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "sao-miguel-arcanjo-quixeramobim",
+   "name": "Paróquia São Miguel Arcanjo",
+   "city": "Quixeramobim",
+   "state": "CE",
+   "neighborhood": "São Miguel",
+   "address": "Rua Joaquim Cavalcante Melo, 76 - São Miguel",
+   "zipCode": "63825-000",
+   "phone": "(88) 3441-7050",
+   "email": "paroq.smarcanjo@gmail.com",
+   "website": null,
+   "priestName": "Pe. José Ribamar Pinho Filho",
+   "foundedYear": 2003,
+   "sources": [
+    {
+     "url": "https://diocesedequixada.org.br/paroquias/",
+     "title": "Paróquias | Diocese de Quixadá (ficha oficial de cada unidade: data de fundação, 1º pároco, festa do padroeiro, pároco, vigários, endereço, CEP, telefone e e-mail; a página já traz as duas unidades criadas em janeiro de 2026)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedequixada.org.br/wp-sitemap-posts-paroquias-1.xml",
+     "title": "Sitemap do tipo de conteúdo “paroquias” | Diocese de Quixadá (24 fichas — listagem canônica)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedequixada.org.br/a-diocese/foranias/",
+     "title": "Foranias | Diocese de Quixadá (decreto que constitui as 4 foranias; lista 23 das 24 unidades — não traz a Paróquia Imaculada Conceição de Quixeramobim, criada em 21/01/2026)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedequixada.org.br/clero/padres-diocesanos/",
+     "title": "Padres Diocesanos | Diocese de Quixadá (página alterada em 18/08/2026; ofício e lotação de 45 presbíteros)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": "Fundada em 23/09/2003; 1º pároco Pe. Francisco Eudásio Nobre da Silveira. Festa do padroeiro em 29 de setembro.",
+   "communities": [
+    {
+     "name": "Matriz São Miguel Arcanjo",
+     "address": "Rua Joaquim Cavalcante Melo, 76 - São Miguel",
+     "neighborhood": "São Miguel",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedequixada.org.br/paroquias/",
+       "title": "Paróquias | Diocese de Quixadá (ficha oficial de cada unidade: data de fundação, 1º pároco, festa do padroeiro, pároco, vigários, endereço, CEP, telefone e e-mail; a página já traz as duas unidades criadas em janeiro de 2026)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "santuario-nossa-senhora-rainha-do-sertao-quixada",
+   "name": "Santuário Nossa Senhora Rainha do Sertão",
+   "city": "Quixadá",
+   "state": "CE",
+   "neighborhood": "Serra do Estêvão (Monte Alegre)",
+   "address": "Monte Alegre, Serra do Estêvão",
+   "zipCode": null,
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedequixada.org.br/",
+     "title": "Diocese de Quixadá — rodapé “Instituições”, que lista o Santuário Rainha do Sertão entre as instituições diocesanas",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://liriocatolico.com.br/horario_missa/paroquia/2104-santuario-nossa-senhora-rainha-do-sertao/",
+     "title": "Lírio Católico — Santuário Nossa Senhora Rainha do Sertão, Quixadá/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "media",
+   "status": "nao-paroquial",
+   "loadAsParish": true,
+   "notes": "Santuário diocesano, listado pela diocese entre as instituições; não é paróquia. Entra por publicar missa fixa, todos os dias da semana. Instagram: @santuario_rainhadosertao.",
+   "communities": [
+    {
+     "name": "Santuário Nossa Senhora Rainha do Sertão",
+     "address": "Monte Alegre, Serra do Estêvão",
+     "neighborhood": "Serra do Estêvão",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedequixada.org.br/",
+       "title": "Diocese de Quixadá — rodapé “Instituições”, que lista o Santuário Rainha do Sertão entre as instituições diocesanas",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Santuário Nossa Senhora Rainha do Sertão",
+     "dayOfWeek": 0,
+     "time": "11:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2104-santuario-nossa-senhora-rainha-do-sertao/",
+       "title": "Lírio Católico — Santuário Nossa Senhora Rainha do Sertão, Quixadá/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Santuário Nossa Senhora Rainha do Sertão",
+     "dayOfWeek": 0,
+     "time": "16:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2104-santuario-nossa-senhora-rainha-do-sertao/",
+       "title": "Lírio Católico — Santuário Nossa Senhora Rainha do Sertão, Quixadá/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Santuário Nossa Senhora Rainha do Sertão",
+     "dayOfWeek": 6,
+     "time": "12:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2104-santuario-nossa-senhora-rainha-do-sertao/",
+       "title": "Lírio Católico — Santuário Nossa Senhora Rainha do Sertão, Quixadá/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Santuário Nossa Senhora Rainha do Sertão",
+     "dayOfWeek": 1,
+     "time": "17:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2104-santuario-nossa-senhora-rainha-do-sertao/",
+       "title": "Lírio Católico — Santuário Nossa Senhora Rainha do Sertão, Quixadá/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Santuário Nossa Senhora Rainha do Sertão",
+     "dayOfWeek": 2,
+     "time": "17:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2104-santuario-nossa-senhora-rainha-do-sertao/",
+       "title": "Lírio Católico — Santuário Nossa Senhora Rainha do Sertão, Quixadá/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Santuário Nossa Senhora Rainha do Sertão",
+     "dayOfWeek": 3,
+     "time": "17:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2104-santuario-nossa-senhora-rainha-do-sertao/",
+       "title": "Lírio Católico — Santuário Nossa Senhora Rainha do Sertão, Quixadá/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Santuário Nossa Senhora Rainha do Sertão",
+     "dayOfWeek": 4,
+     "time": "17:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2104-santuario-nossa-senhora-rainha-do-sertao/",
+       "title": "Lírio Católico — Santuário Nossa Senhora Rainha do Sertão, Quixadá/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Santuário Nossa Senhora Rainha do Sertão",
+     "dayOfWeek": 5,
+     "time": "17:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2104-santuario-nossa-senhora-rainha-do-sertao/",
+       "title": "Lírio Católico — Santuário Nossa Senhora Rainha do Sertão, Quixadá/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Santuário Nossa Senhora Rainha do Sertão",
+     "dayOfWeek": 0,
+     "time": "10:30",
+     "type": "CONFESSION",
+     "notes": "Fonte publica o intervalo 10:30–11:00.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2104-santuario-nossa-senhora-rainha-do-sertao/",
+       "title": "Lírio Católico — Santuário Nossa Senhora Rainha do Sertão, Quixadá/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Santuário Nossa Senhora Rainha do Sertão",
+     "dayOfWeek": 0,
+     "time": "15:30",
+     "type": "CONFESSION",
+     "notes": "Fonte publica o intervalo 15:30–16:00.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2104-santuario-nossa-senhora-rainha-do-sertao/",
+       "title": "Lírio Católico — Santuário Nossa Senhora Rainha do Sertão, Quixadá/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Santuário Nossa Senhora Rainha do Sertão",
+     "dayOfWeek": 6,
+     "time": "11:30",
+     "type": "CONFESSION",
+     "notes": "Fonte publica o intervalo 11:30–12:00.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2104-santuario-nossa-senhora-rainha-do-sertao/",
+       "title": "Lírio Católico — Santuário Nossa Senhora Rainha do Sertão, Quixadá/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Santuário Nossa Senhora Rainha do Sertão",
+     "dayOfWeek": 1,
+     "time": "17:00",
+     "type": "CONFESSION",
+     "notes": "Fonte publica o intervalo 17:00–17:30.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2104-santuario-nossa-senhora-rainha-do-sertao/",
+       "title": "Lírio Católico — Santuário Nossa Senhora Rainha do Sertão, Quixadá/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Santuário Nossa Senhora Rainha do Sertão",
+     "dayOfWeek": 2,
+     "time": "17:00",
+     "type": "CONFESSION",
+     "notes": "Fonte publica o intervalo 17:00–17:30.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2104-santuario-nossa-senhora-rainha-do-sertao/",
+       "title": "Lírio Católico — Santuário Nossa Senhora Rainha do Sertão, Quixadá/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Santuário Nossa Senhora Rainha do Sertão",
+     "dayOfWeek": 3,
+     "time": "17:00",
+     "type": "CONFESSION",
+     "notes": "Fonte publica o intervalo 17:00–17:30.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2104-santuario-nossa-senhora-rainha-do-sertao/",
+       "title": "Lírio Católico — Santuário Nossa Senhora Rainha do Sertão, Quixadá/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Santuário Nossa Senhora Rainha do Sertão",
+     "dayOfWeek": 4,
+     "time": "17:00",
+     "type": "CONFESSION",
+     "notes": "Fonte publica o intervalo 17:00–17:30.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2104-santuario-nossa-senhora-rainha-do-sertao/",
+       "title": "Lírio Católico — Santuário Nossa Senhora Rainha do Sertão, Quixadá/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Santuário Nossa Senhora Rainha do Sertão",
+     "dayOfWeek": 5,
+     "time": "17:00",
+     "type": "CONFESSION",
+     "notes": "Fonte publica o intervalo 17:00–17:30.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2104-santuario-nossa-senhora-rainha-do-sertao/",
+       "title": "Lírio Católico — Santuário Nossa Senhora Rainha do Sertão, Quixadá/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Santuário Nossa Senhora Rainha do Sertão",
+     "dayOfWeek": 0,
+     "time": "17:30",
+     "type": "ADORATION",
+     "notes": "Fonte publica o intervalo 17:30–18:30.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2104-santuario-nossa-senhora-rainha-do-sertao/",
+       "title": "Lírio Católico — Santuário Nossa Senhora Rainha do Sertão, Quixadá/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "capelania-sao-joao-calabria-quixada",
+   "name": "Capelania São João Calábria",
+   "city": "Quixadá",
+   "state": "CE",
+   "neighborhood": "Remanso da Paz",
+   "address": "Rua A, 95 - Remanso da Paz",
+   "zipCode": null,
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. José Maria Loiola",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedequixada.org.br/clero/padres-diocesanos/",
+     "title": "Padres Diocesanos | Diocese de Quixadá (página alterada em 18/08/2026; ofício e lotação de 45 presbíteros)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://liriocatolico.com.br/horario_missa/paroquia/10680-capela-sao-joao-calabria/",
+     "title": "Lírio Católico — Capela São João Calábria, Quixadá/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "media",
+   "status": "nao-paroquial",
+   "loadAsParish": true,
+   "notes": "Capelania, não paróquia: a página do clero da diocese lota o Pe. José Maria Loiola como “Capelão — Capelania São João Calábria – Remanso da Paz / Quixadá”. Entra por publicar missa fixa.",
+   "communities": [
+    {
+     "name": "Capela São João Calábria",
+     "address": "Rua A, 95 - Remanso da Paz",
+     "neighborhood": "Remanso da Paz",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://diocesedequixada.org.br/clero/padres-diocesanos/",
+       "title": "Padres Diocesanos | Diocese de Quixadá (página alterada em 18/08/2026; ofício e lotação de 45 presbíteros)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Capela São João Calábria",
+     "dayOfWeek": 2,
+     "time": "09:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/10680-capela-sao-joao-calabria/",
+       "title": "Lírio Católico — Capela São João Calábria, Quixadá/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Capela São João Calábria",
+     "dayOfWeek": 0,
+     "time": "09:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/10680-capela-sao-joao-calabria/",
+       "title": "Lírio Católico — Capela São João Calábria, Quixadá/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Capela São João Calábria",
+     "dayOfWeek": 3,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/10680-capela-sao-joao-calabria/",
+       "title": "Lírio Católico — Capela São João Calábria, Quixadá/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Capela São João Calábria",
+     "dayOfWeek": 4,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/10680-capela-sao-joao-calabria/",
+       "title": "Lírio Católico — Capela São João Calábria, Quixadá/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Capela São João Calábria",
+     "dayOfWeek": 5,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/10680-capela-sao-joao-calabria/",
+       "title": "Lírio Católico — Capela São João Calábria, Quixadá/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  }
+ ],
+ "coverage": {
+  "parishesFound": 21,
+  "parishesExpected": 21,
+  "notes": "O site oficial publica 24 unidades — 21 paróquias (incluindo a Sé Catedral) e 3 áreas pastorais — em 10 municípios: Banabuiú, Boa Viagem, Capistrano, Choró, Ibaretama, Itapiúna, Itatira, Madalena, Quixadá e Quixeramobim. O número bate exatamente com o sitemap do tipo de conteúdo “paroquias” (24 fichas) e com a estatística de 2022 do catholic-hierarchy (21 paróquias). As 3 áreas pastorais entram como unidade própria (status “nao-paroquial” + loadAsParish) e não contam em parishesFound. O decreto das foranias lista 23 das 24 — falta só a Paróquia Imaculada Conceição de Quixeramobim, criada em 21/01/2026; a Área Pastoral Senhora Sant’Ana (Dom Maurício) é de 03/01/2026. O texto de abertura da própria página ainda diz “vinte paróquias e duas áreas pastorais”, número desatualizado pelas duas criações de 2026. A diocese NÃO publica comunidades/capelas nem horário de missa: só a matriz de cada unidade entra como comunidade, e todos os horários vêm do agregador Lírio Católico, em “baixa”. Entram ainda 2 unidades não paroquiais com missa publicada e reconhecidas pela própria diocese: o Santuário Nossa Senhora Rainha do Sertão e a Capelania São João Calábria."
+ }
+}

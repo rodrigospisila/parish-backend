@@ -1,0 +1,3405 @@
+{
+ "diocese": {
+  "name": "Diocese de Itapipoca",
+  "type": "Diocese",
+  "slug": "itapipoca",
+  "city": "Itapipoca",
+  "state": "CE",
+  "address": "Rua Duque de Caxias, 1125 - Centro",
+  "zipCode": "62500-001",
+  "phone": "(88) 3631-2022",
+  "email": null,
+  "website": null,
+  "bishopName": "Dom Rosalvo Cordeiro de Lima",
+  "sources": [
+   {
+    "url": "https://minhareceita.org/07440969000122",
+    "title": "Receita Federal via minhareceita.org — CNPJ 07.440.969/0001-22, DIOCESE DE ITAPIPOCA (sede/cúria, ATIVA, aberta em 16/03/1972); a varredura das filiais 0001 a 0055 devolveu 32 estabelecimentos e nada além",
+    "accessedAt": "2026-09-18"
+   },
+   {
+    "url": "https://mapaosc.ipea.gov.br/detalhar/430101",
+    "title": "Mapa das OSC / IPEA — DIOCESE DE ITAPIPOCA (espelha o cadastro da Receita; foi onde o CNPJ raiz 07.440.969 apareceu, já que a diocese não tem site)",
+    "accessedAt": "2026-09-18"
+   },
+   {
+    "url": "https://www.catholic-hierarchy.org/diocese/ditap.html",
+    "title": "catholic-hierarchy.org — Itapipoca (Diocese): erigida em 13/03/1971, desmembrada da Arquidiocese de Fortaleza",
+    "accessedAt": "2026-09-18"
+   },
+   {
+    "url": "https://liriocatolico.com.br/horario_missa/dados/uf/CE.json",
+    "title": "Lírio Católico — base do Ceará (38 fichas nos municípios da diocese)",
+    "accessedAt": "2026-09-18"
+   }
+  ],
+  "confidence": "alta"
+ },
+ "parishes": [
+  {
+   "slug": "nossa-senhora-das-merces-itapipoca",
+   "name": "Catedral Nossa Senhora das Mercês",
+   "city": "Itapipoca",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Avenida Duque de Caxias, 337",
+   "zipCode": "62500-001",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": 1995,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/07440969000394",
+     "title": "Receita Federal via minhareceita.org — CNPJ 07.440.969/0003-94 (CATEDRAL NOSSA SENHORA DAS MERCÊS), filial ATIVA da DIOCESE DE ITAPIPOCA; consulta de 18/09/2026",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://mapaosc.ipea.gov.br/detalhar/430101",
+     "title": "Mapa das OSC / IPEA — DIOCESE DE ITAPIPOCA (espelha o cadastro da Receita; foi onde o CNPJ raiz 07.440.969 apareceu, já que a diocese não tem site)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://liriocatolico.com.br/horario_missa/paroquia/2006-catedral-ns-das-merces/",
+     "title": "Lírio Católico — Catedral NS das Mercês, Itapipoca/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": "Sé Catedral da diocese. O ano gravado é o de abertura da filial na Receita (17/01/1995), não o da ereção canônica — a paróquia é muito anterior à diocese (1971). O Lírio Católico publica o número 1181 na mesma avenida.",
+   "communities": [
+    {
+     "name": "Catedral Nossa Senhora das Mercês",
+     "address": "Avenida Duque de Caxias, 337",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/07440969000394",
+       "title": "Receita Federal via minhareceita.org — CNPJ 07.440.969/0003-94 (CATEDRAL NOSSA SENHORA DAS MERCÊS), filial ATIVA da DIOCESE DE ITAPIPOCA; consulta de 18/09/2026",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Catedral Nossa Senhora das Mercês",
+     "dayOfWeek": 0,
+     "time": "09:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2006-catedral-ns-das-merces/",
+       "title": "Lírio Católico — Catedral NS das Mercês, Itapipoca/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Catedral Nossa Senhora das Mercês",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2006-catedral-ns-das-merces/",
+       "title": "Lírio Católico — Catedral NS das Mercês, Itapipoca/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Catedral Nossa Senhora das Mercês",
+     "dayOfWeek": 2,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2006-catedral-ns-das-merces/",
+       "title": "Lírio Católico — Catedral NS das Mercês, Itapipoca/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Catedral Nossa Senhora das Mercês",
+     "dayOfWeek": 3,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2006-catedral-ns-das-merces/",
+       "title": "Lírio Católico — Catedral NS das Mercês, Itapipoca/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Catedral Nossa Senhora das Mercês",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2006-catedral-ns-das-merces/",
+       "title": "Lírio Católico — Catedral NS das Mercês, Itapipoca/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Catedral Nossa Senhora das Mercês",
+     "dayOfWeek": 5,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2006-catedral-ns-das-merces/",
+       "title": "Lírio Católico — Catedral NS das Mercês, Itapipoca/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Catedral Nossa Senhora das Mercês",
+     "dayOfWeek": 6,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2006-catedral-ns-das-merces/",
+       "title": "Lírio Católico — Catedral NS das Mercês, Itapipoca/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Catedral Nossa Senhora das Mercês",
+     "dayOfWeek": 5,
+     "time": "08:00",
+     "type": "CONFESSION",
+     "notes": "Fonte publica o intervalo 08:00–12:00.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2006-catedral-ns-das-merces/",
+       "title": "Lírio Católico — Catedral NS das Mercês, Itapipoca/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Catedral Nossa Senhora das Mercês",
+     "dayOfWeek": 4,
+     "time": "18:00",
+     "type": "ADORATION",
+     "notes": "Fonte publica o intervalo 18:00–19:00.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2006-catedral-ns-das-merces/",
+       "title": "Lírio Católico — Catedral NS das Mercês, Itapipoca/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "cristo-redentor-itapipoca-violete",
+   "name": "Paróquia Cristo Redentor",
+   "city": "Itapipoca",
+   "state": "CE",
+   "neighborhood": "Violete",
+   "address": "Rua Cristo Redentor, s/n",
+   "zipCode": "62500-001",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": 1995,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/07440969000718",
+     "title": "Receita Federal via minhareceita.org — CNPJ 07.440.969/0007-18 (PAROQUIA CRISTO REDENTOR), filial ATIVA da DIOCESE DE ITAPIPOCA; consulta de 18/09/2026",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://mapaosc.ipea.gov.br/detalhar/430101",
+     "title": "Mapa das OSC / IPEA — DIOCESE DE ITAPIPOCA (espelha o cadastro da Receita; foi onde o CNPJ raiz 07.440.969 apareceu, já que a diocese não tem site)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://liriocatolico.com.br/horario_missa/paroquia/2012-paroquia-jesus-cristo-redentor/",
+     "title": "Lírio Católico — Paróquia Jesus Cristo Redentor, Itapipoca/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": "O Lírio Católico a chama de “Paróquia Jesus Cristo Redentor”; o cadastro da Receita diz “PAROQUIA CRISTO REDENTOR”.",
+   "communities": [
+    {
+     "name": "Matriz Cristo Redentor",
+     "address": "Rua Cristo Redentor, s/n",
+     "neighborhood": "Violete",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/07440969000718",
+       "title": "Receita Federal via minhareceita.org — CNPJ 07.440.969/0007-18 (PAROQUIA CRISTO REDENTOR), filial ATIVA da DIOCESE DE ITAPIPOCA; consulta de 18/09/2026",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Cristo Redentor",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2012-paroquia-jesus-cristo-redentor/",
+       "title": "Lírio Católico — Paróquia Jesus Cristo Redentor, Itapipoca/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Cristo Redentor",
+     "dayOfWeek": 0,
+     "time": "16:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2012-paroquia-jesus-cristo-redentor/",
+       "title": "Lírio Católico — Paróquia Jesus Cristo Redentor, Itapipoca/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Cristo Redentor",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2012-paroquia-jesus-cristo-redentor/",
+       "title": "Lírio Católico — Paróquia Jesus Cristo Redentor, Itapipoca/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Cristo Redentor",
+     "dayOfWeek": 2,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2012-paroquia-jesus-cristo-redentor/",
+       "title": "Lírio Católico — Paróquia Jesus Cristo Redentor, Itapipoca/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Cristo Redentor",
+     "dayOfWeek": 3,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2012-paroquia-jesus-cristo-redentor/",
+       "title": "Lírio Católico — Paróquia Jesus Cristo Redentor, Itapipoca/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Cristo Redentor",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2012-paroquia-jesus-cristo-redentor/",
+       "title": "Lírio Católico — Paróquia Jesus Cristo Redentor, Itapipoca/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Cristo Redentor",
+     "dayOfWeek": 5,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2012-paroquia-jesus-cristo-redentor/",
+       "title": "Lírio Católico — Paróquia Jesus Cristo Redentor, Itapipoca/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Cristo Redentor",
+     "dayOfWeek": 6,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2012-paroquia-jesus-cristo-redentor/",
+       "title": "Lírio Católico — Paróquia Jesus Cristo Redentor, Itapipoca/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Cristo Redentor",
+     "dayOfWeek": 4,
+     "time": "18:00",
+     "type": "ADORATION",
+     "notes": "Fonte publica o intervalo 18:00–19:00.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2012-paroquia-jesus-cristo-redentor/",
+       "title": "Lírio Católico — Paróquia Jesus Cristo Redentor, Itapipoca/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "sao-francisco-de-assis-itapipoca-fazendinha",
+   "name": "Paróquia São Francisco de Assis",
+   "city": "Itapipoca",
+   "state": "CE",
+   "neighborhood": "Fazendinha",
+   "address": "Rua Justiniano de Serpa, s/n",
+   "zipCode": "62500-001",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": 1995,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/07440969001609",
+     "title": "Receita Federal via minhareceita.org — CNPJ 07.440.969/0016-09 (PAROQUIA SÃO FRANCISCO DE ASSIS), filial ATIVA da DIOCESE DE ITAPIPOCA; consulta de 18/09/2026",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://mapaosc.ipea.gov.br/detalhar/430101",
+     "title": "Mapa das OSC / IPEA — DIOCESE DE ITAPIPOCA (espelha o cadastro da Receita; foi onde o CNPJ raiz 07.440.969 apareceu, já que a diocese não tem site)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://liriocatolico.com.br/horario_missa/paroquia/2013-igreja-sao-francisco/",
+     "title": "Lírio Católico — Igreja São Francisco, Itapipoca/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": "O Lírio Católico publica o número 560 e o bairro “São Francisco”; a Receita diz bairro Fazendinha. Instagram publicado pelo agregador: @paroquiasaofranciscoitapipoca.",
+   "communities": [
+    {
+     "name": "Matriz São Francisco de Assis",
+     "address": "Rua Justiniano de Serpa, s/n",
+     "neighborhood": "Fazendinha",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/07440969001609",
+       "title": "Receita Federal via minhareceita.org — CNPJ 07.440.969/0016-09 (PAROQUIA SÃO FRANCISCO DE ASSIS), filial ATIVA da DIOCESE DE ITAPIPOCA; consulta de 18/09/2026",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz São Francisco de Assis",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2013-igreja-sao-francisco/",
+       "title": "Lírio Católico — Igreja São Francisco, Itapipoca/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Francisco de Assis",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2013-igreja-sao-francisco/",
+       "title": "Lírio Católico — Igreja São Francisco, Itapipoca/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Francisco de Assis",
+     "dayOfWeek": 1,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2013-igreja-sao-francisco/",
+       "title": "Lírio Católico — Igreja São Francisco, Itapipoca/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Francisco de Assis",
+     "dayOfWeek": 2,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2013-igreja-sao-francisco/",
+       "title": "Lírio Católico — Igreja São Francisco, Itapipoca/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Francisco de Assis",
+     "dayOfWeek": 3,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2013-igreja-sao-francisco/",
+       "title": "Lírio Católico — Igreja São Francisco, Itapipoca/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Francisco de Assis",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2013-igreja-sao-francisco/",
+       "title": "Lírio Católico — Igreja São Francisco, Itapipoca/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Francisco de Assis",
+     "dayOfWeek": 5,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2013-igreja-sao-francisco/",
+       "title": "Lírio Católico — Igreja São Francisco, Itapipoca/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Francisco de Assis",
+     "dayOfWeek": 6,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2013-igreja-sao-francisco/",
+       "title": "Lírio Católico — Igreja São Francisco, Itapipoca/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Francisco de Assis",
+     "dayOfWeek": 4,
+     "time": "09:00",
+     "type": "CONFESSION",
+     "notes": "Fonte publica o intervalo 09:00–11:00.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2013-igreja-sao-francisco/",
+       "title": "Lírio Católico — Igreja São Francisco, Itapipoca/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Francisco de Assis",
+     "dayOfWeek": 4,
+     "time": "18:00",
+     "type": "ADORATION",
+     "notes": "Fonte publica o intervalo 18:00–19:00.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2013-igreja-sao-francisco/",
+       "title": "Lírio Católico — Igreja São Francisco, Itapipoca/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "sao-jose-itapipoca-cruzeiro",
+   "name": "Paróquia São José",
+   "city": "Itapipoca",
+   "state": "CE",
+   "neighborhood": "Cruzeiro",
+   "address": "Rua Pedro Teixeira Barroso, 1124",
+   "zipCode": "62500-001",
+   "phone": "(88) 3631-2022",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": 2005,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/07440969002419",
+     "title": "Receita Federal via minhareceita.org — CNPJ 07.440.969/0024-19 (PAROQUIA SÃO JOSÉ), filial ATIVA da DIOCESE DE ITAPIPOCA; consulta de 18/09/2026",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://mapaosc.ipea.gov.br/detalhar/430101",
+     "title": "Mapa das OSC / IPEA — DIOCESE DE ITAPIPOCA (espelha o cadastro da Receita; foi onde o CNPJ raiz 07.440.969 apareceu, já que a diocese não tem site)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://liriocatolico.com.br/horario_missa/paroquia/2008-paroquia-sao-jose/",
+     "title": "Lírio Católico — Paróquia São José, Itapipoca/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": "O Lírio Católico publica o endereço como R. Monsenhor José Sólon, Cruzeiro.",
+   "communities": [
+    {
+     "name": "Matriz São José",
+     "address": "Rua Pedro Teixeira Barroso, 1124",
+     "neighborhood": "Cruzeiro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/07440969002419",
+       "title": "Receita Federal via minhareceita.org — CNPJ 07.440.969/0024-19 (PAROQUIA SÃO JOSÉ), filial ATIVA da DIOCESE DE ITAPIPOCA; consulta de 18/09/2026",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz São José",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2008-paroquia-sao-jose/",
+       "title": "Lírio Católico — Paróquia São José, Itapipoca/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São José",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2008-paroquia-sao-jose/",
+       "title": "Lírio Católico — Paróquia São José, Itapipoca/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-da-assuncao-itapipoca-distrito-de-assuncao",
+   "name": "Paróquia Nossa Senhora da Assunção",
+   "city": "Itapipoca",
+   "state": "CE",
+   "neighborhood": "Distrito de Assunção",
+   "address": "Praça da Matriz, s/n",
+   "zipCode": "62500-001",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": 1995,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/07440969001447",
+     "title": "Receita Federal via minhareceita.org — CNPJ 07.440.969/0014-47 (PAROQUIA NOSSA SENHORA DA ASSUNÇÃO), filial ATIVA da DIOCESE DE ITAPIPOCA; consulta de 18/09/2026",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://mapaosc.ipea.gov.br/detalhar/430101",
+     "title": "Mapa das OSC / IPEA — DIOCESE DE ITAPIPOCA (espelha o cadastro da Receita; foi onde o CNPJ raiz 07.440.969 apareceu, já que a diocese não tem site)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": "Distrito de Assunção, em Itapipoca. Não publica horário em nenhuma fonte.",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora da Assunção",
+     "address": "Praça da Matriz, s/n",
+     "neighborhood": "Distrito de Assunção",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/07440969001447",
+       "title": "Receita Federal via minhareceita.org — CNPJ 07.440.969/0014-47 (PAROQUIA NOSSA SENHORA DA ASSUNÇÃO), filial ATIVA da DIOCESE DE ITAPIPOCA; consulta de 18/09/2026",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-da-conceicao-pentecoste",
+   "name": "Paróquia Nossa Senhora da Conceição",
+   "city": "Pentecoste",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Rua Dr. Moreira de Azevedo, 174",
+   "zipCode": "62640-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": 1995,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/07440969000203",
+     "title": "Receita Federal via minhareceita.org — CNPJ 07.440.969/0002-03 (PAROQUIA NOSSA SENHORA DA CONCEIÇÃO), filial ATIVA da DIOCESE DE ITAPIPOCA; consulta de 18/09/2026",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://mapaosc.ipea.gov.br/detalhar/430101",
+     "title": "Mapa das OSC / IPEA — DIOCESE DE ITAPIPOCA (espelha o cadastro da Receita; foi onde o CNPJ raiz 07.440.969 apareceu, já que a diocese não tem site)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": "Matriz de Pentecoste. Não publica horário em nenhuma fonte; o agregador só tem ficha da outra paróquia do município.",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora da Conceição",
+     "address": "Rua Dr. Moreira de Azevedo, 174",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/07440969000203",
+       "title": "Receita Federal via minhareceita.org — CNPJ 07.440.969/0002-03 (PAROQUIA NOSSA SENHORA DA CONCEIÇÃO), filial ATIVA da DIOCESE DE ITAPIPOCA; consulta de 18/09/2026",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "sao-francisco-de-assis-pentecoste-vila-nova",
+   "name": "Paróquia São Francisco de Assis",
+   "city": "Pentecoste",
+   "state": "CE",
+   "neighborhood": "Vila Nova",
+   "address": "Rua Crescêncio Pereira, 59",
+   "zipCode": "62640-000",
+   "phone": "(88) 3631-2022",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": 2002,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/07440969002095",
+     "title": "Receita Federal via minhareceita.org — CNPJ 07.440.969/0020-95 (PAROQUIA SÃO FRANCISCO DE ASSIS), filial ATIVA da DIOCESE DE ITAPIPOCA; consulta de 18/09/2026",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://mapaosc.ipea.gov.br/detalhar/430101",
+     "title": "Mapa das OSC / IPEA — DIOCESE DE ITAPIPOCA (espelha o cadastro da Receita; foi onde o CNPJ raiz 07.440.969 apareceu, já que a diocese não tem site)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://liriocatolico.com.br/horario_missa/paroquia/2094-igreja-matriz-de-sao-francisco-de-assis/",
+     "title": "Lírio Católico — Igreja Matriz de São Francisco de Assis, Pentecoste/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": "Instagram publicado pelo agregador: @paroquiasaofranciscopentecoste.",
+   "communities": [
+    {
+     "name": "Matriz São Francisco de Assis",
+     "address": "Rua Crescêncio Pereira, 59",
+     "neighborhood": "Vila Nova",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/07440969002095",
+       "title": "Receita Federal via minhareceita.org — CNPJ 07.440.969/0020-95 (PAROQUIA SÃO FRANCISCO DE ASSIS), filial ATIVA da DIOCESE DE ITAPIPOCA; consulta de 18/09/2026",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz São Francisco de Assis",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2094-igreja-matriz-de-sao-francisco-de-assis/",
+       "title": "Lírio Católico — Igreja Matriz de São Francisco de Assis, Pentecoste/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Francisco de Assis",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2094-igreja-matriz-de-sao-francisco-de-assis/",
+       "title": "Lírio Católico — Igreja Matriz de São Francisco de Assis, Pentecoste/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Francisco de Assis",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2094-igreja-matriz-de-sao-francisco-de-assis/",
+       "title": "Lírio Católico — Igreja Matriz de São Francisco de Assis, Pentecoste/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Francisco de Assis",
+     "dayOfWeek": 5,
+     "time": "08:00",
+     "type": "CONFESSION",
+     "notes": "Fonte publica o intervalo 08:00–11:00.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2094-igreja-matriz-de-sao-francisco-de-assis/",
+       "title": "Lírio Católico — Igreja Matriz de São Francisco de Assis, Pentecoste/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Francisco de Assis",
+     "dayOfWeek": 4,
+     "time": "18:00",
+     "type": "ADORATION",
+     "notes": "Fonte publica o intervalo 18:00–19:00.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2094-igreja-matriz-de-sao-francisco-de-assis/",
+       "title": "Lírio Católico — Igreja Matriz de São Francisco de Assis, Pentecoste/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-dos-remedios-paracuru",
+   "name": "Paróquia Nossa Senhora dos Remédios",
+   "city": "Paracuru",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Rua Raimundo Moreira Lima, 28",
+   "zipCode": "62680-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": 1995,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/07440969000475",
+     "title": "Receita Federal via minhareceita.org — CNPJ 07.440.969/0004-75 (PAROQUIA NOSSA SENHORA DOS REMÉDIOS), filial ATIVA da DIOCESE DE ITAPIPOCA; consulta de 18/09/2026",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://mapaosc.ipea.gov.br/detalhar/430101",
+     "title": "Mapa das OSC / IPEA — DIOCESE DE ITAPIPOCA (espelha o cadastro da Receita; foi onde o CNPJ raiz 07.440.969 apareceu, já que a diocese não tem site)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://liriocatolico.com.br/horario_missa/paroquia/2076-paroquia-nossa-senhora-dos-remedios/",
+     "title": "Lírio Católico — Paróquia Nossa Senhora dos Remédios, Paracuru/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": "O Lírio Católico publica o número 428 na mesma rua. Instagram publicado pelo agregador: @pascomparacuru.",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora dos Remédios",
+     "address": "Rua Raimundo Moreira Lima, 28",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/07440969000475",
+       "title": "Receita Federal via minhareceita.org — CNPJ 07.440.969/0004-75 (PAROQUIA NOSSA SENHORA DOS REMÉDIOS), filial ATIVA da DIOCESE DE ITAPIPOCA; consulta de 18/09/2026",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Nossa Senhora dos Remédios",
+     "dayOfWeek": 0,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2076-paroquia-nossa-senhora-dos-remedios/",
+       "title": "Lírio Católico — Paróquia Nossa Senhora dos Remédios, Paracuru/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora dos Remédios",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2076-paroquia-nossa-senhora-dos-remedios/",
+       "title": "Lírio Católico — Paróquia Nossa Senhora dos Remédios, Paracuru/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora dos Remédios",
+     "dayOfWeek": 3,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2076-paroquia-nossa-senhora-dos-remedios/",
+       "title": "Lírio Católico — Paróquia Nossa Senhora dos Remédios, Paracuru/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora dos Remédios",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2076-paroquia-nossa-senhora-dos-remedios/",
+       "title": "Lírio Católico — Paróquia Nossa Senhora dos Remédios, Paracuru/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora dos Remédios",
+     "dayOfWeek": 6,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2076-paroquia-nossa-senhora-dos-remedios/",
+       "title": "Lírio Católico — Paróquia Nossa Senhora dos Remédios, Paracuru/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora dos Remédios",
+     "dayOfWeek": 5,
+     "time": "08:00",
+     "type": "CONFESSION",
+     "notes": "Fonte publica o intervalo 08:00–11:00.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2076-paroquia-nossa-senhora-dos-remedios/",
+       "title": "Lírio Católico — Paróquia Nossa Senhora dos Remédios, Paracuru/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora dos Remédios",
+     "dayOfWeek": 4,
+     "time": "18:00",
+     "type": "ADORATION",
+     "notes": "Fonte publica o intervalo 18:00–19:00.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2076-paroquia-nossa-senhora-dos-remedios/",
+       "title": "Lírio Católico — Paróquia Nossa Senhora dos Remédios, Paracuru/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "santa-rita-de-cassia-paraipaba",
+   "name": "Paróquia Santa Rita de Cássia",
+   "city": "Paraipaba",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Praça da Matriz, s/n",
+   "zipCode": "62685-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": 1995,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/07440969000556",
+     "title": "Receita Federal via minhareceita.org — CNPJ 07.440.969/0005-56 (PAROQUIA SANTA RITA DE CÁSSIA), filial ATIVA da DIOCESE DE ITAPIPOCA; consulta de 18/09/2026",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://mapaosc.ipea.gov.br/detalhar/430101",
+     "title": "Mapa das OSC / IPEA — DIOCESE DE ITAPIPOCA (espelha o cadastro da Receita; foi onde o CNPJ raiz 07.440.969 apareceu, já que a diocese não tem site)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://liriocatolico.com.br/horario_missa/paroquia/2079-igreja-santa-rita-de-cassia/",
+     "title": "Lírio Católico — Igreja Santa Rita de Cássia, Paraipaba/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": "O Lírio Católico publica o endereço como R. Luís Braga, 99.",
+   "communities": [
+    {
+     "name": "Matriz Santa Rita de Cássia",
+     "address": "Praça da Matriz, s/n",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/07440969000556",
+       "title": "Receita Federal via minhareceita.org — CNPJ 07.440.969/0005-56 (PAROQUIA SANTA RITA DE CÁSSIA), filial ATIVA da DIOCESE DE ITAPIPOCA; consulta de 18/09/2026",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Santa Rita de Cássia",
+     "dayOfWeek": 5,
+     "time": "05:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2079-igreja-santa-rita-de-cassia/",
+       "title": "Lírio Católico — Igreja Santa Rita de Cássia, Paraipaba/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Santa Rita de Cássia",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2079-igreja-santa-rita-de-cassia/",
+       "title": "Lírio Católico — Igreja Santa Rita de Cássia, Paraipaba/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Santa Rita de Cássia",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2079-igreja-santa-rita-de-cassia/",
+       "title": "Lírio Católico — Igreja Santa Rita de Cássia, Paraipaba/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Santa Rita de Cássia",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2079-igreja-santa-rita-de-cassia/",
+       "title": "Lírio Católico — Igreja Santa Rita de Cássia, Paraipaba/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Santa Rita de Cássia",
+     "dayOfWeek": 5,
+     "time": "08:00",
+     "type": "CONFESSION",
+     "notes": "Fonte publica o intervalo 08:00–10:00.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2079-igreja-santa-rita-de-cassia/",
+       "title": "Lírio Católico — Igreja Santa Rita de Cássia, Paraipaba/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Santa Rita de Cássia",
+     "dayOfWeek": 4,
+     "time": "18:30",
+     "type": "ADORATION",
+     "notes": "Fonte publica o intervalo 18:30–19:00.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2079-igreja-santa-rita-de-cassia/",
+       "title": "Lírio Católico — Igreja Santa Rita de Cássia, Paraipaba/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-do-livramento-trairi",
+   "name": "Paróquia Nossa Senhora do Livramento",
+   "city": "Trairi",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Rua Francisco Raimundo da Cunha, 155",
+   "zipCode": "62690-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": 1995,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/07440969000637",
+     "title": "Receita Federal via minhareceita.org — CNPJ 07.440.969/0006-37 (PAROQUIA NOSSA SENHORA DO LIVRAMENTO), filial ATIVA da DIOCESE DE ITAPIPOCA; consulta de 18/09/2026",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://mapaosc.ipea.gov.br/detalhar/430101",
+     "title": "Mapa das OSC / IPEA — DIOCESE DE ITAPIPOCA (espelha o cadastro da Receita; foi onde o CNPJ raiz 07.440.969 apareceu, já que a diocese não tem site)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://liriocatolico.com.br/horario_missa/paroquia/2148-paroquia-ns-do-livramento/",
+     "title": "Lírio Católico — Paróquia NS do Livramento, Trairi/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": "A ficha do agregador publica só confissão e adoração, sem missa. O Lírio publica o endereço como R. Padre Irineu Lima Verde, 155.",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora do Livramento",
+     "address": "Rua Francisco Raimundo da Cunha, 155",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/07440969000637",
+       "title": "Receita Federal via minhareceita.org — CNPJ 07.440.969/0006-37 (PAROQUIA NOSSA SENHORA DO LIVRAMENTO), filial ATIVA da DIOCESE DE ITAPIPOCA; consulta de 18/09/2026",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Nossa Senhora do Livramento",
+     "dayOfWeek": 4,
+     "time": "09:00",
+     "type": "CONFESSION",
+     "notes": "Fonte publica o intervalo 09:00–12:00.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2148-paroquia-ns-do-livramento/",
+       "title": "Lírio Católico — Paróquia NS do Livramento, Trairi/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora do Livramento",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "ADORATION",
+     "notes": "Fonte publica o intervalo 19:00–20:00.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2148-paroquia-ns-do-livramento/",
+       "title": "Lírio Católico — Paróquia NS do Livramento, Trairi/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "sao-jose-trairi-canaa",
+   "name": "Paróquia São José",
+   "city": "Trairi",
+   "state": "CE",
+   "neighborhood": "Canaã",
+   "address": "Praça da Matriz, s/n",
+   "zipCode": "62690-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": 1995,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/07440969001528",
+     "title": "Receita Federal via minhareceita.org — CNPJ 07.440.969/0015-28 (PAROQUIA SÃO JOSÉ), filial ATIVA da DIOCESE DE ITAPIPOCA; consulta de 18/09/2026",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://mapaosc.ipea.gov.br/detalhar/430101",
+     "title": "Mapa das OSC / IPEA — DIOCESE DE ITAPIPOCA (espelha o cadastro da Receita; foi onde o CNPJ raiz 07.440.969 apareceu, já que a diocese não tem site)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://liriocatolico.com.br/horario_missa/paroquia/10698-paroquia-sao-jose/",
+     "title": "Lírio Católico — Paróquia São José, Trairi/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": "Distrito de Canaã, em Trairi. O Lírio publica o endereço como R. Nicodemos da Cunha, 170. Instagram publicado pelo agregador: @paroquiasaojosecanaanpascom.",
+   "communities": [
+    {
+     "name": "Matriz São José",
+     "address": "Praça da Matriz, s/n",
+     "neighborhood": "Canaã",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/07440969001528",
+       "title": "Receita Federal via minhareceita.org — CNPJ 07.440.969/0015-28 (PAROQUIA SÃO JOSÉ), filial ATIVA da DIOCESE DE ITAPIPOCA; consulta de 18/09/2026",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz São José",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/10698-paroquia-sao-jose/",
+       "title": "Lírio Católico — Paróquia São José, Trairi/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São José",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/10698-paroquia-sao-jose/",
+       "title": "Lírio Católico — Paróquia São José, Trairi/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "sao-miguel-arcanjo-trairi-mundau",
+   "name": "Paróquia São Miguel Arcanjo",
+   "city": "Trairi",
+   "state": "CE",
+   "neighborhood": "Mundaú",
+   "address": "Praça São Miguel Arcanjo, s/n",
+   "zipCode": "62695-000",
+   "phone": "(88) 3631-2022",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": 2005,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/07440969002338",
+     "title": "Receita Federal via minhareceita.org — CNPJ 07.440.969/0023-38 (PAROQUIA SÃO MIGUEL ARCANJO), filial ATIVA da DIOCESE DE ITAPIPOCA; consulta de 18/09/2026",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://mapaosc.ipea.gov.br/detalhar/430101",
+     "title": "Mapa das OSC / IPEA — DIOCESE DE ITAPIPOCA (espelha o cadastro da Receita; foi onde o CNPJ raiz 07.440.969 apareceu, já que a diocese não tem site)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://liriocatolico.com.br/horario_missa/paroquia/2150-igreja-matriz-sao-miguel/",
+     "title": "Lírio Católico — Igreja Matriz São Miguel, Trairi/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": "Distrito de Mundaú, em Trairi. Instagram publicado pelo agregador: @paroquiasaomiguelarcanjo1.",
+   "communities": [
+    {
+     "name": "Matriz São Miguel Arcanjo",
+     "address": "Praça São Miguel Arcanjo, s/n",
+     "neighborhood": "Mundaú",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/07440969002338",
+       "title": "Receita Federal via minhareceita.org — CNPJ 07.440.969/0023-38 (PAROQUIA SÃO MIGUEL ARCANJO), filial ATIVA da DIOCESE DE ITAPIPOCA; consulta de 18/09/2026",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz São Miguel Arcanjo",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2150-igreja-matriz-sao-miguel/",
+       "title": "Lírio Católico — Igreja Matriz São Miguel, Trairi/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Miguel Arcanjo",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2150-igreja-matriz-sao-miguel/",
+       "title": "Lírio Católico — Igreja Matriz São Miguel, Trairi/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Miguel Arcanjo",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2150-igreja-matriz-sao-miguel/",
+       "title": "Lírio Católico — Igreja Matriz São Miguel, Trairi/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Miguel Arcanjo",
+     "dayOfWeek": 4,
+     "time": "08:00",
+     "type": "ADORATION",
+     "notes": "Fonte publica o intervalo 08:00–12:00.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2150-igreja-matriz-sao-miguel/",
+       "title": "Lírio Católico — Igreja Matriz São Miguel, Trairi/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "sao-francisco-e-santa-paulina-trairi-alto-sao-francisco",
+   "name": "Paróquia São Francisco e Santa Paulina",
+   "city": "Trairi",
+   "state": "CE",
+   "neighborhood": "Alto São Francisco",
+   "address": "Rua José Dias de Sena, 49",
+   "zipCode": "62690-000",
+   "phone": "(85) 3484-5173",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": 2012,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/07440969002842",
+     "title": "Receita Federal via minhareceita.org — CNPJ 07.440.969/0028-42 (PAROQUIA SÃO FRANCISCO E SANTA PAULINA), filial ATIVA da DIOCESE DE ITAPIPOCA; consulta de 18/09/2026",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://mapaosc.ipea.gov.br/detalhar/430101",
+     "title": "Mapa das OSC / IPEA — DIOCESE DE ITAPIPOCA (espelha o cadastro da Receita; foi onde o CNPJ raiz 07.440.969 apareceu, já que a diocese não tem site)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": "Não publica horário em nenhuma fonte.",
+   "communities": [
+    {
+     "name": "Matriz São Francisco e Santa Paulina",
+     "address": "Rua José Dias de Sena, 49",
+     "neighborhood": "Alto São Francisco",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/07440969002842",
+       "title": "Receita Federal via minhareceita.org — CNPJ 07.440.969/0028-42 (PAROQUIA SÃO FRANCISCO E SANTA PAULINA), filial ATIVA da DIOCESE DE ITAPIPOCA; consulta de 18/09/2026",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "sao-joao-batista-uruburetama",
+   "name": "Paróquia São João Batista",
+   "city": "Uruburetama",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Rua Farmacêutico José Rodrigues, s/n",
+   "zipCode": "62650-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": 1995,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/07440969000807",
+     "title": "Receita Federal via minhareceita.org — CNPJ 07.440.969/0008-07 (PAROQUIA SÃO JOÃO BATISTA), filial ATIVA da DIOCESE DE ITAPIPOCA; consulta de 18/09/2026",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://mapaosc.ipea.gov.br/detalhar/430101",
+     "title": "Mapa das OSC / IPEA — DIOCESE DE ITAPIPOCA (espelha o cadastro da Receita; foi onde o CNPJ raiz 07.440.969 apareceu, já que a diocese não tem site)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://liriocatolico.com.br/horario_missa/paroquia/2155-paroquia-de-sao-joao-batista/",
+     "title": "Lírio Católico — Paróquia de São João Batista, Uruburetama/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": "Instagram publicado pelo agregador: @pascom_ubr.",
+   "communities": [
+    {
+     "name": "Matriz São João Batista",
+     "address": "Rua Farmacêutico José Rodrigues, s/n",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/07440969000807",
+       "title": "Receita Federal via minhareceita.org — CNPJ 07.440.969/0008-07 (PAROQUIA SÃO JOÃO BATISTA), filial ATIVA da DIOCESE DE ITAPIPOCA; consulta de 18/09/2026",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz São João Batista",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2155-paroquia-de-sao-joao-batista/",
+       "title": "Lírio Católico — Paróquia de São João Batista, Uruburetama/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São João Batista",
+     "dayOfWeek": 3,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2155-paroquia-de-sao-joao-batista/",
+       "title": "Lírio Católico — Paróquia de São João Batista, Uruburetama/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São João Batista",
+     "dayOfWeek": 6,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2155-paroquia-de-sao-joao-batista/",
+       "title": "Lírio Católico — Paróquia de São João Batista, Uruburetama/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São João Batista",
+     "dayOfWeek": 0,
+     "time": "06:45",
+     "type": "CONFESSION",
+     "notes": "Fonte publica o intervalo 06:45–07:15.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2155-paroquia-de-sao-joao-batista/",
+       "title": "Lírio Católico — Paróquia de São João Batista, Uruburetama/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São João Batista",
+     "dayOfWeek": 6,
+     "time": "18:45",
+     "type": "CONFESSION",
+     "notes": "Fonte publica o intervalo 18:45–19:15.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2155-paroquia-de-sao-joao-batista/",
+       "title": "Lírio Católico — Paróquia de São João Batista, Uruburetama/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São João Batista",
+     "dayOfWeek": 3,
+     "time": "18:45",
+     "type": "CONFESSION",
+     "notes": "Fonte publica o intervalo 18:45–19:15.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2155-paroquia-de-sao-joao-batista/",
+       "title": "Lírio Católico — Paróquia de São João Batista, Uruburetama/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "sao-pedro-tejucuoca",
+   "name": "Paróquia São Pedro",
+   "city": "Tejuçuoca",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Rua Alfredo P. de Mesquita, s/n",
+   "zipCode": "62614-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": 1993,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/07440969000980",
+     "title": "Receita Federal via minhareceita.org — CNPJ 07.440.969/0009-80 (PAROQUIA SÃO PEDRO), filial ATIVA da DIOCESE DE ITAPIPOCA; consulta de 18/09/2026",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://mapaosc.ipea.gov.br/detalhar/430101",
+     "title": "Mapa das OSC / IPEA — DIOCESE DE ITAPIPOCA (espelha o cadastro da Receita; foi onde o CNPJ raiz 07.440.969 apareceu, já que a diocese não tem site)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://liriocatolico.com.br/horario_missa/paroquia/2152-igreja-matriz-sao-pedro/",
+     "title": "Lírio Católico — Igreja Matriz São Pedro, Tejuçuoca/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": "É a única filial cuja data de início de atividade na Receita é anterior a 1995 (17/01/1993). O Lírio publica o endereço como R. Joaquim Coelho da Cruz, 50-108. Instagram publicado pelo agregador: @pascom.tejucuoca.",
+   "communities": [
+    {
+     "name": "Matriz São Pedro",
+     "address": "Rua Alfredo P. de Mesquita, s/n",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/07440969000980",
+       "title": "Receita Federal via minhareceita.org — CNPJ 07.440.969/0009-80 (PAROQUIA SÃO PEDRO), filial ATIVA da DIOCESE DE ITAPIPOCA; consulta de 18/09/2026",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz São Pedro",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2152-igreja-matriz-sao-pedro/",
+       "title": "Lírio Católico — Igreja Matriz São Pedro, Tejuçuoca/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Pedro",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2152-igreja-matriz-sao-pedro/",
+       "title": "Lírio Católico — Igreja Matriz São Pedro, Tejuçuoca/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "sao-luis-gonzaga-sao-luis-do-curu",
+   "name": "Paróquia São Luís Gonzaga",
+   "city": "São Luís do Curu",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Rua Dom Antônio Lustosa, s/n",
+   "zipCode": "62665-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": 1995,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/07440969001013",
+     "title": "Receita Federal via minhareceita.org — CNPJ 07.440.969/0010-13 (PAROQUIA SÃO LUÍS GONZAGA), filial ATIVA da DIOCESE DE ITAPIPOCA; consulta de 18/09/2026",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://mapaosc.ipea.gov.br/detalhar/430101",
+     "title": "Mapa das OSC / IPEA — DIOCESE DE ITAPIPOCA (espelha o cadastro da Receita; foi onde o CNPJ raiz 07.440.969 apareceu, já que a diocese não tem site)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://liriocatolico.com.br/horario_missa/paroquia/10683-igreja-matriz-de-sao-luis-gonzaga/",
+     "title": "Lírio Católico — Igreja Matriz de São Luís Gonzaga, São Luís do Curu/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": "Nome fantasia na Receita: “PAROQUIA SAO LUIZ DO CURU”; o padroeiro é São Luís Gonzaga, como publica o agregador e o próprio nome do município. O Lírio publica o número 214 na mesma rua. Instagram publicado pelo agregador: @paroquiasaoluizgonzagacuru.",
+   "communities": [
+    {
+     "name": "Matriz São Luís Gonzaga",
+     "address": "Rua Dom Antônio Lustosa, s/n",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/07440969001013",
+       "title": "Receita Federal via minhareceita.org — CNPJ 07.440.969/0010-13 (PAROQUIA SÃO LUÍS GONZAGA), filial ATIVA da DIOCESE DE ITAPIPOCA; consulta de 18/09/2026",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz São Luís Gonzaga",
+     "dayOfWeek": 0,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/10683-igreja-matriz-de-sao-luis-gonzaga/",
+       "title": "Lírio Católico — Igreja Matriz de São Luís Gonzaga, São Luís do Curu/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Luís Gonzaga",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/10683-igreja-matriz-de-sao-luis-gonzaga/",
+       "title": "Lírio Católico — Igreja Matriz de São Luís Gonzaga, São Luís do Curu/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Luís Gonzaga",
+     "dayOfWeek": 4,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/10683-igreja-matriz-de-sao-luis-gonzaga/",
+       "title": "Lírio Católico — Igreja Matriz de São Luís Gonzaga, São Luís do Curu/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "sao-francisco-itapaje",
+   "name": "Paróquia São Francisco",
+   "city": "Itapajé",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Rua Luís da Rocha, 462",
+   "zipCode": "62600-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": 1995,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/07440969001102",
+     "title": "Receita Federal via minhareceita.org — CNPJ 07.440.969/0011-02 (PAROQUIA SÃO FRANCISCO), filial ATIVA da DIOCESE DE ITAPIPOCA; consulta de 18/09/2026",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://mapaosc.ipea.gov.br/detalhar/430101",
+     "title": "Mapa das OSC / IPEA — DIOCESE DE ITAPIPOCA (espelha o cadastro da Receita; foi onde o CNPJ raiz 07.440.969 apareceu, já que a diocese não tem site)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": "Matriz de Itapajé. Não publica horário em nenhuma fonte.",
+   "communities": [
+    {
+     "name": "Matriz São Francisco",
+     "address": "Rua Luís da Rocha, 462",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/07440969001102",
+       "title": "Receita Federal via minhareceita.org — CNPJ 07.440.969/0011-02 (PAROQUIA SÃO FRANCISCO), filial ATIVA da DIOCESE DE ITAPIPOCA; consulta de 18/09/2026",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "santa-rita-de-cassia-itapaje-santa-rita",
+   "name": "Paróquia Santa Rita de Cássia",
+   "city": "Itapajé",
+   "state": "CE",
+   "neighborhood": "Santa Rita",
+   "address": "Rua Damião Martins Sales, 71",
+   "zipCode": "62600-000",
+   "phone": "(88) 99953-5637",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": 2023,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/07440969003067",
+     "title": "Receita Federal via minhareceita.org — CNPJ 07.440.969/0030-67 (PAROQUIA SANTA RITA DE CÁSSIA), filial ATIVA da DIOCESE DE ITAPIPOCA; consulta de 18/09/2026",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://mapaosc.ipea.gov.br/detalhar/430101",
+     "title": "Mapa das OSC / IPEA — DIOCESE DE ITAPIPOCA (espelha o cadastro da Receita; foi onde o CNPJ raiz 07.440.969 apareceu, já que a diocese não tem site)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://liriocatolico.com.br/horario_missa/paroquia/10511-paroquia-santa-rita-de-cassia/",
+     "title": "Lírio Católico — Paróquia Santa Rita de Cássia, Itapajé/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": "Filial aberta em 30/10/2023 — paróquia nova.",
+   "communities": [
+    {
+     "name": "Matriz Santa Rita de Cássia",
+     "address": "Rua Damião Martins Sales, 71",
+     "neighborhood": "Santa Rita",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/07440969003067",
+       "title": "Receita Federal via minhareceita.org — CNPJ 07.440.969/0030-67 (PAROQUIA SANTA RITA DE CÁSSIA), filial ATIVA da DIOCESE DE ITAPIPOCA; consulta de 18/09/2026",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Santa Rita de Cássia",
+     "dayOfWeek": 0,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/10511-paroquia-santa-rita-de-cassia/",
+       "title": "Lírio Católico — Paróquia Santa Rita de Cássia, Itapajé/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Santa Rita de Cássia",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/10511-paroquia-santa-rita-de-cassia/",
+       "title": "Lírio Católico — Paróquia Santa Rita de Cássia, Itapajé/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Santa Rita de Cássia",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/10511-paroquia-santa-rita-de-cassia/",
+       "title": "Lírio Católico — Paróquia Santa Rita de Cássia, Itapajé/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Santa Rita de Cássia",
+     "dayOfWeek": 0,
+     "time": "07:30",
+     "type": "CONFESSION",
+     "notes": "Fonte publica o intervalo 07:30–08:00.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/10511-paroquia-santa-rita-de-cassia/",
+       "title": "Lírio Católico — Paróquia Santa Rita de Cássia, Itapajé/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Santa Rita de Cássia",
+     "dayOfWeek": 0,
+     "time": "18:30",
+     "type": "CONFESSION",
+     "notes": "Fonte publica o intervalo 18:30–19:00.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/10511-paroquia-santa-rita-de-cassia/",
+       "title": "Lírio Católico — Paróquia Santa Rita de Cássia, Itapajé/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Santa Rita de Cássia",
+     "dayOfWeek": 4,
+     "time": "18:30",
+     "type": "CONFESSION",
+     "notes": "Fonte publica o intervalo 18:30–19:00.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/10511-paroquia-santa-rita-de-cassia/",
+       "title": "Lírio Católico — Paróquia Santa Rita de Cássia, Itapajé/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Santa Rita de Cássia",
+     "dayOfWeek": 4,
+     "time": "08:00",
+     "type": "ADORATION",
+     "notes": "Fonte publica o intervalo 08:00–18:00.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/10511-paroquia-santa-rita-de-cassia/",
+       "title": "Lírio Católico — Paróquia Santa Rita de Cássia, Itapajé/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "santuario-nossa-senhora-da-penha-de-franca-itapaje-santa-cruz",
+   "name": "Paróquia Santuário Nossa Senhora da Penha de França",
+   "city": "Itapajé",
+   "state": "CE",
+   "neighborhood": "Santa Cruz",
+   "address": "Avenida Prefeito Júlio Pinheiro Bastos, 85",
+   "zipCode": "62600-000",
+   "phone": "(88) 99941-3342",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": 2026,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/07440969003229",
+     "title": "Receita Federal via minhareceita.org — CNPJ 07.440.969/0032-29 (PAROQUIA SANTUÁRIO NOSSA SENHORA DA PENHA DE FRANÇA), filial ATIVA da DIOCESE DE ITAPIPOCA; consulta de 18/09/2026",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://mapaosc.ipea.gov.br/detalhar/430101",
+     "title": "Mapa das OSC / IPEA — DIOCESE DE ITAPIPOCA (espelha o cadastro da Receita; foi onde o CNPJ raiz 07.440.969 apareceu, já que a diocese não tem site)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": "É a unidade MAIS NOVA da diocese: filial aberta na Receita em 23/07/2026, dois meses antes desta pesquisa. Nenhuma outra fonte a menciona ainda. O nome cadastrado a identifica como paróquia-santuário.",
+   "communities": [
+    {
+     "name": "Matriz Santuário Nossa Senhora da Penha de França",
+     "address": "Avenida Prefeito Júlio Pinheiro Bastos, 85",
+     "neighborhood": "Santa Cruz",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/07440969003229",
+       "title": "Receita Federal via minhareceita.org — CNPJ 07.440.969/0032-29 (PAROQUIA SANTUÁRIO NOSSA SENHORA DA PENHA DE FRANÇA), filial ATIVA da DIOCESE DE ITAPIPOCA; consulta de 18/09/2026",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "sao-pedro-miraima",
+   "name": "Paróquia São Pedro",
+   "city": "Miraíma",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Rua 24 de Maio, s/n",
+   "zipCode": "62530-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": 1995,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/07440969001285",
+     "title": "Receita Federal via minhareceita.org — CNPJ 07.440.969/0012-85 (PAROQUIA SÃO PEDRO), filial ATIVA da DIOCESE DE ITAPIPOCA; consulta de 18/09/2026",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://mapaosc.ipea.gov.br/detalhar/430101",
+     "title": "Mapa das OSC / IPEA — DIOCESE DE ITAPIPOCA (espelha o cadastro da Receita; foi onde o CNPJ raiz 07.440.969 apareceu, já que a diocese não tem site)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://liriocatolico.com.br/horario_missa/paroquia/2067-igreja-matriz-sao-pedro/",
+     "title": "Lírio Católico — Igreja Matriz São Pedro, Miraíma/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": "O Lírio publica o endereço como Rua Pedro Veras, 373. Instagram publicado pelo agregador: @pascom.miraima.",
+   "communities": [
+    {
+     "name": "Matriz São Pedro",
+     "address": "Rua 24 de Maio, s/n",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/07440969001285",
+       "title": "Receita Federal via minhareceita.org — CNPJ 07.440.969/0012-85 (PAROQUIA SÃO PEDRO), filial ATIVA da DIOCESE DE ITAPIPOCA; consulta de 18/09/2026",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz São Pedro",
+     "dayOfWeek": 1,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2067-igreja-matriz-sao-pedro/",
+       "title": "Lírio Católico — Igreja Matriz São Pedro, Miraíma/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Pedro",
+     "dayOfWeek": 1,
+     "time": "18:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2067-igreja-matriz-sao-pedro/",
+       "title": "Lírio Católico — Igreja Matriz São Pedro, Miraíma/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Pedro",
+     "dayOfWeek": 1,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2067-igreja-matriz-sao-pedro/",
+       "title": "Lírio Católico — Igreja Matriz São Pedro, Miraíma/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Pedro",
+     "dayOfWeek": 2,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2067-igreja-matriz-sao-pedro/",
+       "title": "Lírio Católico — Igreja Matriz São Pedro, Miraíma/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Pedro",
+     "dayOfWeek": 2,
+     "time": "18:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2067-igreja-matriz-sao-pedro/",
+       "title": "Lírio Católico — Igreja Matriz São Pedro, Miraíma/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Pedro",
+     "dayOfWeek": 2,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2067-igreja-matriz-sao-pedro/",
+       "title": "Lírio Católico — Igreja Matriz São Pedro, Miraíma/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Pedro",
+     "dayOfWeek": 3,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2067-igreja-matriz-sao-pedro/",
+       "title": "Lírio Católico — Igreja Matriz São Pedro, Miraíma/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Pedro",
+     "dayOfWeek": 3,
+     "time": "18:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2067-igreja-matriz-sao-pedro/",
+       "title": "Lírio Católico — Igreja Matriz São Pedro, Miraíma/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Pedro",
+     "dayOfWeek": 3,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2067-igreja-matriz-sao-pedro/",
+       "title": "Lírio Católico — Igreja Matriz São Pedro, Miraíma/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Pedro",
+     "dayOfWeek": 4,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2067-igreja-matriz-sao-pedro/",
+       "title": "Lírio Católico — Igreja Matriz São Pedro, Miraíma/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Pedro",
+     "dayOfWeek": 4,
+     "time": "18:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2067-igreja-matriz-sao-pedro/",
+       "title": "Lírio Católico — Igreja Matriz São Pedro, Miraíma/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Pedro",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2067-igreja-matriz-sao-pedro/",
+       "title": "Lírio Católico — Igreja Matriz São Pedro, Miraíma/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Pedro",
+     "dayOfWeek": 5,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2067-igreja-matriz-sao-pedro/",
+       "title": "Lírio Católico — Igreja Matriz São Pedro, Miraíma/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Pedro",
+     "dayOfWeek": 5,
+     "time": "18:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2067-igreja-matriz-sao-pedro/",
+       "title": "Lírio Católico — Igreja Matriz São Pedro, Miraíma/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Pedro",
+     "dayOfWeek": 5,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2067-igreja-matriz-sao-pedro/",
+       "title": "Lírio Católico — Igreja Matriz São Pedro, Miraíma/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Pedro",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2067-igreja-matriz-sao-pedro/",
+       "title": "Lírio Católico — Igreja Matriz São Pedro, Miraíma/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "sao-joao-batista-miraima-brotas",
+   "name": "Paróquia São João Batista",
+   "city": "Miraíma",
+   "state": "CE",
+   "neighborhood": "Brotas",
+   "address": "Praça da Matriz, s/n",
+   "zipCode": "62530-000",
+   "phone": "(88) 99953-5637",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": 2024,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/07440969003148",
+     "title": "Receita Federal via minhareceita.org — CNPJ 07.440.969/0031-48 (PAROQUIA SÃO JOÃO BATISTA), filial ATIVA da DIOCESE DE ITAPIPOCA; consulta de 18/09/2026",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://mapaosc.ipea.gov.br/detalhar/430101",
+     "title": "Mapa das OSC / IPEA — DIOCESE DE ITAPIPOCA (espelha o cadastro da Receita; foi onde o CNPJ raiz 07.440.969 apareceu, já que a diocese não tem site)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://liriocatolico.com.br/horario_missa/paroquia/10231-paroquia-de-sao-joao-batista/",
+     "title": "Lírio Católico — Paróquia de São João Batista, Miraíma/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": "Distrito de Brotas, em Miraíma. Filial aberta em 04/12/2024 — paróquia nova. O Lírio publica o endereço como CE-240, 1250.",
+   "communities": [
+    {
+     "name": "Matriz São João Batista",
+     "address": "Praça da Matriz, s/n",
+     "neighborhood": "Brotas",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/07440969003148",
+       "title": "Receita Federal via minhareceita.org — CNPJ 07.440.969/0031-48 (PAROQUIA SÃO JOÃO BATISTA), filial ATIVA da DIOCESE DE ITAPIPOCA; consulta de 18/09/2026",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz São João Batista",
+     "dayOfWeek": 0,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/10231-paroquia-de-sao-joao-batista/",
+       "title": "Lírio Católico — Paróquia de São João Batista, Miraíma/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São João Batista",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/10231-paroquia-de-sao-joao-batista/",
+       "title": "Lírio Católico — Paróquia de São João Batista, Miraíma/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São João Batista",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/10231-paroquia-de-sao-joao-batista/",
+       "title": "Lírio Católico — Paróquia de São João Batista, Miraíma/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São João Batista",
+     "dayOfWeek": 4,
+     "time": "18:00",
+     "type": "ADORATION",
+     "notes": "Fonte publica o intervalo 18:00–19:00.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/10231-paroquia-de-sao-joao-batista/",
+       "title": "Lírio Católico — Paróquia de São João Batista, Miraíma/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "sao-sebastiao-apuiares",
+   "name": "Paróquia São Sebastião",
+   "city": "Apuiarés",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Rua 25 de Janeiro, 2",
+   "zipCode": "62630-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": 1995,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/07440969001366",
+     "title": "Receita Federal via minhareceita.org — CNPJ 07.440.969/0013-66 (PAROQUIA SÃO SEBASTIÃO), filial ATIVA da DIOCESE DE ITAPIPOCA; consulta de 18/09/2026",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://mapaosc.ipea.gov.br/detalhar/430101",
+     "title": "Mapa das OSC / IPEA — DIOCESE DE ITAPIPOCA (espelha o cadastro da Receita; foi onde o CNPJ raiz 07.440.969 apareceu, já que a diocese não tem site)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://liriocatolico.com.br/horario_missa/paroquia/1905-igreja-matriz-sao-sebastiao/",
+     "title": "Lírio Católico — Igreja Matriz São Sebastião, Apuiarés/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": "O Lírio publica o número 136 na mesma rua. Instagram publicado pelo agregador: @pascom_apuiares.",
+   "communities": [
+    {
+     "name": "Matriz São Sebastião",
+     "address": "Rua 25 de Janeiro, 2",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/07440969001366",
+       "title": "Receita Federal via minhareceita.org — CNPJ 07.440.969/0013-66 (PAROQUIA SÃO SEBASTIÃO), filial ATIVA da DIOCESE DE ITAPIPOCA; consulta de 18/09/2026",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz São Sebastião",
+     "dayOfWeek": 0,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/1905-igreja-matriz-sao-sebastiao/",
+       "title": "Lírio Católico — Igreja Matriz São Sebastião, Apuiarés/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Sebastião",
+     "dayOfWeek": 0,
+     "time": "10:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/1905-igreja-matriz-sao-sebastiao/",
+       "title": "Lírio Católico — Igreja Matriz São Sebastião, Apuiarés/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Sebastião",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/1905-igreja-matriz-sao-sebastiao/",
+       "title": "Lírio Católico — Igreja Matriz São Sebastião, Apuiarés/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Sebastião",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/1905-igreja-matriz-sao-sebastiao/",
+       "title": "Lírio Católico — Igreja Matriz São Sebastião, Apuiarés/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "sao-luis-gonzaga-iraucuba",
+   "name": "Paróquia São Luís Gonzaga",
+   "city": "Irauçuba",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Praça da Matriz, s/n",
+   "zipCode": "62620-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": 1995,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/07440969001790",
+     "title": "Receita Federal via minhareceita.org — CNPJ 07.440.969/0017-90 (PAROQUIA SÃO LUÍS GONZAGA), filial ATIVA da DIOCESE DE ITAPIPOCA; consulta de 18/09/2026",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://mapaosc.ipea.gov.br/detalhar/430101",
+     "title": "Mapa das OSC / IPEA — DIOCESE DE ITAPIPOCA (espelha o cadastro da Receita; foi onde o CNPJ raiz 07.440.969 apareceu, já que a diocese não tem site)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://liriocatolico.com.br/horario_missa/paroquia/10507-paroquia-sao-luiz-gonzaga/",
+     "title": "Lírio Católico — Paróquia São Luiz Gonzaga, Irauçuba/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": "O Lírio publica o endereço como Av. Paulo Bastos, 810. Instagram publicado pelo agregador: @paroquiadeiraucuba.ce.",
+   "communities": [
+    {
+     "name": "Matriz São Luís Gonzaga",
+     "address": "Praça da Matriz, s/n",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/07440969001790",
+       "title": "Receita Federal via minhareceita.org — CNPJ 07.440.969/0017-90 (PAROQUIA SÃO LUÍS GONZAGA), filial ATIVA da DIOCESE DE ITAPIPOCA; consulta de 18/09/2026",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz São Luís Gonzaga",
+     "dayOfWeek": 0,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/10507-paroquia-sao-luiz-gonzaga/",
+       "title": "Lírio Católico — Paróquia São Luiz Gonzaga, Irauçuba/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz São Luís Gonzaga",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/10507-paroquia-sao-luiz-gonzaga/",
+       "title": "Lírio Católico — Paróquia São Luiz Gonzaga, Irauçuba/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-da-conceicao-amontada",
+   "name": "Paróquia Nossa Senhora da Conceição",
+   "city": "Amontada",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Casa Paroquial, s/n",
+   "zipCode": "62540-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": 1995,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/07440969001870",
+     "title": "Receita Federal via minhareceita.org — CNPJ 07.440.969/0018-70 (PAROQUIA NOSSA SENHORA DA CONCEIÇÃO), filial ATIVA da DIOCESE DE ITAPIPOCA; consulta de 18/09/2026",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://mapaosc.ipea.gov.br/detalhar/430101",
+     "title": "Mapa das OSC / IPEA — DIOCESE DE ITAPIPOCA (espelha o cadastro da Receita; foi onde o CNPJ raiz 07.440.969 apareceu, já que a diocese não tem site)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://liriocatolico.com.br/horario_missa/paroquia/1913-igreja-matriz-de-nossa-senhora-da-conceicao/",
+     "title": "Lírio Católico — Igreja Matriz de Nossa Senhora da Conceição, Amontada/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": "O Lírio publica o endereço como Praça Antônio Belo. Instagram publicado pelo agregador: @paroquiadeamontada.",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora da Conceição",
+     "address": "Casa Paroquial, s/n",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/07440969001870",
+       "title": "Receita Federal via minhareceita.org — CNPJ 07.440.969/0018-70 (PAROQUIA NOSSA SENHORA DA CONCEIÇÃO), filial ATIVA da DIOCESE DE ITAPIPOCA; consulta de 18/09/2026",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Nossa Senhora da Conceição",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/1913-igreja-matriz-de-nossa-senhora-da-conceicao/",
+       "title": "Lírio Católico — Igreja Matriz de Nossa Senhora da Conceição, Amontada/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora da Conceição",
+     "dayOfWeek": 0,
+     "time": "11:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/1913-igreja-matriz-de-nossa-senhora-da-conceicao/",
+       "title": "Lírio Católico — Igreja Matriz de Nossa Senhora da Conceição, Amontada/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora da Conceição",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/1913-igreja-matriz-de-nossa-senhora-da-conceicao/",
+       "title": "Lírio Católico — Igreja Matriz de Nossa Senhora da Conceição, Amontada/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora da Conceição",
+     "dayOfWeek": 6,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/1913-igreja-matriz-de-nossa-senhora-da-conceicao/",
+       "title": "Lírio Católico — Igreja Matriz de Nossa Senhora da Conceição, Amontada/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora da Conceição",
+     "dayOfWeek": 3,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/1913-igreja-matriz-de-nossa-senhora-da-conceicao/",
+       "title": "Lírio Católico — Igreja Matriz de Nossa Senhora da Conceição, Amontada/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-dos-navegantes-amontada-icarai-de-amontada",
+   "name": "Paróquia Nossa Senhora dos Navegantes",
+   "city": "Amontada",
+   "state": "CE",
+   "neighborhood": "Icaraí de Amontada",
+   "address": "Praça Noé Praciano, s/n",
+   "zipCode": "62540-000",
+   "phone": "(88) 3631-2022",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": 2017,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/07440969002923",
+     "title": "Receita Federal via minhareceita.org — CNPJ 07.440.969/0029-23 (PAROQUIA NOSSA SENHORA DOS NAVEGANTES), filial ATIVA da DIOCESE DE ITAPIPOCA; consulta de 18/09/2026",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://mapaosc.ipea.gov.br/detalhar/430101",
+     "title": "Mapa das OSC / IPEA — DIOCESE DE ITAPIPOCA (espelha o cadastro da Receita; foi onde o CNPJ raiz 07.440.969 apareceu, já que a diocese não tem site)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://liriocatolico.com.br/horario_missa/paroquia/10500-igreja-nossa-senhora-dos-navegantes/",
+     "title": "Lírio Católico — Igreja Nossa Senhora dos Navegantes, Amontada/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": "Distrito de Icaraí de Amontada.",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora dos Navegantes",
+     "address": "Praça Noé Praciano, s/n",
+     "neighborhood": "Icaraí de Amontada",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/07440969002923",
+       "title": "Receita Federal via minhareceita.org — CNPJ 07.440.969/0029-23 (PAROQUIA NOSSA SENHORA DOS NAVEGANTES), filial ATIVA da DIOCESE DE ITAPIPOCA; consulta de 18/09/2026",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Nossa Senhora dos Navegantes",
+     "dayOfWeek": 0,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/10500-igreja-nossa-senhora-dos-navegantes/",
+       "title": "Lírio Católico — Igreja Nossa Senhora dos Navegantes, Amontada/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora dos Navegantes",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/10500-igreja-nossa-senhora-dos-navegantes/",
+       "title": "Lírio Católico — Igreja Nossa Senhora dos Navegantes, Amontada/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora dos Navegantes",
+     "dayOfWeek": 6,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/10500-igreja-nossa-senhora-dos-navegantes/",
+       "title": "Lírio Católico — Igreja Nossa Senhora dos Navegantes, Amontada/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-de-fatima-itarema",
+   "name": "Paróquia Nossa Senhora de Fátima",
+   "city": "Itarema",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Avenida José Fernandes de Sousa, s/n",
+   "zipCode": "62590-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": 1999,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/07440969001951",
+     "title": "Receita Federal via minhareceita.org — CNPJ 07.440.969/0019-51 (PAROQUIA NOSSA SENHORA DE FÁTIMA), filial ATIVA da DIOCESE DE ITAPIPOCA; consulta de 18/09/2026",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://mapaosc.ipea.gov.br/detalhar/430101",
+     "title": "Mapa das OSC / IPEA — DIOCESE DE ITAPIPOCA (espelha o cadastro da Receita; foi onde o CNPJ raiz 07.440.969 apareceu, já que a diocese não tem site)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://liriocatolico.com.br/horario_missa/paroquia/10514-igreja-matriz-de-nossa-senhora-de-fatima/",
+     "title": "Lírio Católico — Igreja Matriz de Nossa Senhora de Fátima, Itarema/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": "O Lírio publica o número 654 na mesma avenida.",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora de Fátima",
+     "address": "Avenida José Fernandes de Sousa, s/n",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/07440969001951",
+       "title": "Receita Federal via minhareceita.org — CNPJ 07.440.969/0019-51 (PAROQUIA NOSSA SENHORA DE FÁTIMA), filial ATIVA da DIOCESE DE ITAPIPOCA; consulta de 18/09/2026",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Nossa Senhora de Fátima",
+     "dayOfWeek": 6,
+     "time": "06:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/10514-igreja-matriz-de-nossa-senhora-de-fatima/",
+       "title": "Lírio Católico — Igreja Matriz de Nossa Senhora de Fátima, Itarema/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora de Fátima",
+     "dayOfWeek": 6,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/10514-igreja-matriz-de-nossa-senhora-de-fatima/",
+       "title": "Lírio Católico — Igreja Matriz de Nossa Senhora de Fátima, Itarema/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora de Fátima",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/10514-igreja-matriz-de-nossa-senhora-de-fatima/",
+       "title": "Lírio Católico — Igreja Matriz de Nossa Senhora de Fátima, Itarema/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora de Fátima",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/10514-igreja-matriz-de-nossa-senhora-de-fatima/",
+       "title": "Lírio Católico — Igreja Matriz de Nossa Senhora de Fátima, Itarema/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora de Fátima",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/10514-igreja-matriz-de-nossa-senhora-de-fatima/",
+       "title": "Lírio Católico — Igreja Matriz de Nossa Senhora de Fátima, Itarema/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-da-conceicao-itarema-almofala",
+   "name": "Paróquia Nossa Senhora da Conceição",
+   "city": "Itarema",
+   "state": "CE",
+   "neighborhood": "Almofala",
+   "address": "Rua Francisca Catarina, 52",
+   "zipCode": "62592-000",
+   "phone": "(88) 3631-2022",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": 2005,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/07440969002508",
+     "title": "Receita Federal via minhareceita.org — CNPJ 07.440.969/0025-08 (PAROQUIA NOSSA SENHORA DA CONCEIÇÃO), filial ATIVA da DIOCESE DE ITAPIPOCA; consulta de 18/09/2026",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://mapaosc.ipea.gov.br/detalhar/430101",
+     "title": "Mapa das OSC / IPEA — DIOCESE DE ITAPIPOCA (espelha o cadastro da Receita; foi onde o CNPJ raiz 07.440.969 apareceu, já que a diocese não tem site)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://liriocatolico.com.br/horario_missa/paroquia/2014-igreja-de-nossa-senhora-da-conceicao-de-almofala/",
+     "title": "Lírio Católico — Igreja de Nossa Senhora da Conceição de Almofala, Itarema/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": "Distrito de Almofala, em Itarema. O Lírio publica o endereço como Av. Tomaz Sabino de Sousa. Instagram publicado pelo agregador: @paroquianscalmofala.",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora da Conceição",
+     "address": "Rua Francisca Catarina, 52",
+     "neighborhood": "Almofala",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/07440969002508",
+       "title": "Receita Federal via minhareceita.org — CNPJ 07.440.969/0025-08 (PAROQUIA NOSSA SENHORA DA CONCEIÇÃO), filial ATIVA da DIOCESE DE ITAPIPOCA; consulta de 18/09/2026",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Nossa Senhora da Conceição",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2014-igreja-de-nossa-senhora-da-conceicao-de-almofala/",
+       "title": "Lírio Católico — Igreja de Nossa Senhora da Conceição de Almofala, Itarema/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora da Conceição",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2014-igreja-de-nossa-senhora-da-conceicao-de-almofala/",
+       "title": "Lírio Católico — Igreja de Nossa Senhora da Conceição de Almofala, Itarema/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-da-conceicao-tururu",
+   "name": "Paróquia Nossa Senhora da Conceição",
+   "city": "Tururu",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Rua Monsenhor Sólon, 103",
+   "zipCode": "62655-000",
+   "phone": "(88) 3631-2022",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": 2004,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/07440969002176",
+     "title": "Receita Federal via minhareceita.org — CNPJ 07.440.969/0021-76 (PAROQUIA NOSSA SENHORA DA CONCEIÇÃO), filial ATIVA da DIOCESE DE ITAPIPOCA; consulta de 18/09/2026",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://mapaosc.ipea.gov.br/detalhar/430101",
+     "title": "Mapa das OSC / IPEA — DIOCESE DE ITAPIPOCA (espelha o cadastro da Receita; foi onde o CNPJ raiz 07.440.969 apareceu, já que a diocese não tem site)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://liriocatolico.com.br/horario_missa/paroquia/2151-igreja-matriz-nossa-senhora-da-conceicao/",
+     "title": "Lírio Católico — Igreja Matriz Nossa Senhora da Conceição, Tururu/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": "Instagram publicado pelo agregador: @pascom.tururu.",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora da Conceição",
+     "address": "Rua Monsenhor Sólon, 103",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/07440969002176",
+       "title": "Receita Federal via minhareceita.org — CNPJ 07.440.969/0021-76 (PAROQUIA NOSSA SENHORA DA CONCEIÇÃO), filial ATIVA da DIOCESE DE ITAPIPOCA; consulta de 18/09/2026",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Nossa Senhora da Conceição",
+     "dayOfWeek": 0,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2151-igreja-matriz-nossa-senhora-da-conceicao/",
+       "title": "Lírio Católico — Igreja Matriz Nossa Senhora da Conceição, Tururu/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora da Conceição",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2151-igreja-matriz-nossa-senhora-da-conceicao/",
+       "title": "Lírio Católico — Igreja Matriz Nossa Senhora da Conceição, Tururu/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora da Conceição",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2151-igreja-matriz-nossa-senhora-da-conceicao/",
+       "title": "Lírio Católico — Igreja Matriz Nossa Senhora da Conceição, Tururu/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-da-natividade-umirim",
+   "name": "Paróquia Nossa Senhora da Natividade",
+   "city": "Umirim",
+   "state": "CE",
+   "neighborhood": "Centro",
+   "address": "Rua Carlos Sales, s/n",
+   "zipCode": "62660-000",
+   "phone": "(88) 3631-2022",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": 2005,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/07440969002257",
+     "title": "Receita Federal via minhareceita.org — CNPJ 07.440.969/0022-57 (PAROQUIA NOSSA SENHORA DA NATIVIDADE), filial ATIVA da DIOCESE DE ITAPIPOCA; consulta de 18/09/2026",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://mapaosc.ipea.gov.br/detalhar/430101",
+     "title": "Mapa das OSC / IPEA — DIOCESE DE ITAPIPOCA (espelha o cadastro da Receita; foi onde o CNPJ raiz 07.440.969 apareceu, já que a diocese não tem site)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://liriocatolico.com.br/horario_missa/paroquia/2158-igreja-matriz-nossa-senhora-da-natividade/",
+     "title": "Lírio Católico — Igreja Matriz Nossa Senhora da Natividade, Umirim/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": "Instagram publicado pelo agregador: @paroquiadeumirim.",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora da Natividade",
+     "address": "Rua Carlos Sales, s/n",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/07440969002257",
+       "title": "Receita Federal via minhareceita.org — CNPJ 07.440.969/0022-57 (PAROQUIA NOSSA SENHORA DA NATIVIDADE), filial ATIVA da DIOCESE DE ITAPIPOCA; consulta de 18/09/2026",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Nossa Senhora da Natividade",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/2158-igreja-matriz-nossa-senhora-da-natividade/",
+       "title": "Lírio Católico — Igreja Matriz Nossa Senhora da Natividade, Umirim/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "santa-rita-de-cassia-acarau",
+   "name": "Paróquia Santa Rita de Cássia",
+   "city": "Acaraú",
+   "state": "CE",
+   "neighborhood": "Juritianha",
+   "address": "Praça da Matriz, s/n",
+   "zipCode": "62580-000",
+   "phone": "(88) 3631-2022",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": 2005,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/07440969002680",
+     "title": "Receita Federal via minhareceita.org — CNPJ 07.440.969/0026-80 (PAROQUIA SANTA RITA DE CÁSSIA), filial ATIVA da DIOCESE DE ITAPIPOCA; consulta de 18/09/2026",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://mapaosc.ipea.gov.br/detalhar/430101",
+     "title": "Mapa das OSC / IPEA — DIOCESE DE ITAPIPOCA (espelha o cadastro da Receita; foi onde o CNPJ raiz 07.440.969 apareceu, já que a diocese não tem site)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": "Distrito de Juritianha, no município de Acaraú — o único município da diocese que não aparece nas listas usuais, porque a sede de Acaraú pertence à Diocese de Sobral. Não publica horário.",
+   "communities": [
+    {
+     "name": "Matriz Santa Rita de Cássia",
+     "address": "Praça da Matriz, s/n",
+     "neighborhood": "Juritianha",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/07440969002680",
+       "title": "Receita Federal via minhareceita.org — CNPJ 07.440.969/0026-80 (PAROQUIA SANTA RITA DE CÁSSIA), filial ATIVA da DIOCESE DE ITAPIPOCA; consulta de 18/09/2026",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-do-rosario-general-sampaio",
+   "name": "Paróquia Nossa Senhora do Rosário",
+   "city": "General Sampaio",
+   "state": "CE",
+   "neighborhood": "Nossa Senhora do Rosário",
+   "address": "Rua José Severino Filho, 710",
+   "zipCode": "62738-000",
+   "phone": "(88) 3631-2022",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": 2012,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/07440969002761",
+     "title": "Receita Federal via minhareceita.org — CNPJ 07.440.969/0027-61 (PAROQUIA NOSSA SENHORA DO ROSÁRIO), filial ATIVA da DIOCESE DE ITAPIPOCA; consulta de 18/09/2026",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://mapaosc.ipea.gov.br/detalhar/430101",
+     "title": "Mapa das OSC / IPEA — DIOCESE DE ITAPIPOCA (espelha o cadastro da Receita; foi onde o CNPJ raiz 07.440.969 apareceu, já que a diocese não tem site)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://liriocatolico.com.br/horario_missa/paroquia/1943-igreja-matriz-de-nossa-senhora-do-rosario/",
+     "title": "Lírio Católico — Igreja Matriz de Nossa Senhora do Rosário, General Sampaio/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "notes": "O Lírio publica o número 610 na mesma rua. Instagram publicado pelo agregador: @paroquiarosariogs.",
+   "communities": [
+    {
+     "name": "Matriz Nossa Senhora do Rosário",
+     "address": "Rua José Severino Filho, 710",
+     "neighborhood": "Nossa Senhora do Rosário",
+     "isMatriz": true,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/07440969002761",
+       "title": "Receita Federal via minhareceita.org — CNPJ 07.440.969/0027-61 (PAROQUIA NOSSA SENHORA DO ROSÁRIO), filial ATIVA da DIOCESE DE ITAPIPOCA; consulta de 18/09/2026",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Matriz Nossa Senhora do Rosário",
+     "dayOfWeek": 0,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/1943-igreja-matriz-de-nossa-senhora-do-rosario/",
+       "title": "Lírio Católico — Igreja Matriz de Nossa Senhora do Rosário, General Sampaio/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz Nossa Senhora do Rosário",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/paroquia/1943-igreja-matriz-de-nossa-senhora-do-rosario/",
+       "title": "Lírio Católico — Igreja Matriz de Nossa Senhora do Rosário, General Sampaio/CE (agregador; a data “2026-09-02” é a de regeneração da base, igual nas 757 fichas do Ceará)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  }
+ ],
+ "coverage": {
+  "parishesFound": 31,
+  "parishesExpected": 31,
+  "notes": "A diocese PERDEU o site: diocesedeitapipoca.org.br, .com.br e .org não resolvem no DNS, e as capturas do Arquivo da Internet param em 2014 (o portal WordPress) e 2009 (o site estático anterior) — velhas demais para qualquer horário. A lista foi fechada pela VARREDURA DAS FILIAIS DO CNPJ DA MITRA: o CNPJ raiz 07.440.969 veio do Mapa das OSC/IPEA (que indexa todas as paróquias sob a razão social “DIOCESE DE ITAPIPOCA”), e a varredura de 0001 a 0055 em minhareceita.org devolveu EXATAMENTE 32 estabelecimentos e nada além: 1 sede (cúria) e 31 paróquias, TODAS ATIVAS. A busca por razão social “PAROQUIA” no Mapa das OSC nos municípios de Itapipoca, Itapajé e Trairi devolveu ZERO — nenhuma paróquia da diocese tem CNPJ próprio, então a varredura das filiais é prova de completude. 18 municípios: Itapipoca (5), Trairi (4), Itapajé (3), Pentecoste (2), Amontada (2), Itarema (2), Miraíma (2), Paracuru, Paraipaba, Uruburetama, Tejuçuoca, São Luís do Curu, Apuiarés, Irauçuba, Tururu, Umirim, General Sampaio e o distrito de Juritianha, em Acaraú. A unidade mais nova é a Paróquia Santuário Nossa Senhora da Penha de França (Itapajé), registrada em 23/07/2026 — dois meses antes desta pesquisa e ausente de qualquer outra fonte. A diocese não publica comunidades nem horário: só a matriz entra como comunidade, e todos os horários vêm do Lírio Católico, em “baixa”."
+ }
+}

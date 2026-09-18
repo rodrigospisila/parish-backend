@@ -1,0 +1,4044 @@
+{
+ "diocese": {
+  "name": "Diocese de Alagoinhas",
+  "type": "Diocese",
+  "slug": "alagoinhas",
+  "city": "Alagoinhas",
+  "state": "BA",
+  "address": "Rua Manoel Vitorino, 368, Centro",
+  "zipCode": "48005-500",
+  "phone": "(75) 3422-3209",
+  "email": "curia@diocesedealagoinhas.com",
+  "website": "https://diocesedealagoinhas.com",
+  "bishopName": "Dom Francisco de Oliveira Vidal",
+  "sources": [
+   {
+    "url": "https://diocesedealagoinhas.com/wp-json/wp/v2/paroquias?per_page=100",
+    "title": "Diocese de Alagoinhas — REST do WordPress, tipo de conteúdo “paroquias”: X-WP-Total = 33 fichas publicadas",
+    "accessedAt": "2026-09-18"
+   },
+   {
+    "url": "https://diocesedealagoinhas.com/wp-json/wp/v2/clero?per_page=100",
+    "title": "Diocese de Alagoinhas — REST do WordPress, tipo de conteúdo “clero”: 29 fichas (bispo + presbíteros)",
+    "accessedAt": "2026-09-18"
+   },
+   {
+    "url": "https://diocesedealagoinhas.com/",
+    "title": "Diocese de Alagoinhas — home e rodapé (endereço, e-mail e telefone da Cúria Diocesana; site WordPress ativo)",
+    "accessedAt": "2026-09-18"
+   },
+   {
+    "url": "https://minhareceita.org/13646252000134",
+    "title": "Receita Federal — DIOCESE DE ALAGOINHAS, CNPJ 13.646.252/0001-34 (matriz) e 47 filiais; varredura de /0001 a /0060 (existem exatamente 48 inscrições)",
+    "accessedAt": "2026-09-18"
+   },
+   {
+    "url": "https://mapaosc.ipea.gov.br/",
+    "title": "Mapa das OSC / IPEA — busca avançada por cd_municipio 2900702 (Alagoinhas): revelou o CNPJ raiz 13.646.252 da Diocese de Alagoinhas",
+    "accessedAt": "2026-09-18"
+   },
+   {
+    "url": "https://gcatholic.org/churches/local/alag0",
+    "title": "gcatholic.org — Churches in the Diocese of Alagoinhas (38 igrejas, 35 marcadas “Parish”; página atualizada em 01/01/2026)",
+    "accessedAt": "2026-09-18"
+   },
+   {
+    "url": "https://www.catholic-hierarchy.org/diocese/dalag.html",
+    "title": "catholic-hierarchy.org — Alagoinhas (Diocese): 34 paróquias e 53 presbíteros em 2022 (ap2023)",
+    "accessedAt": "2026-09-18"
+   },
+   {
+    "url": "https://liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+    "title": "Lírio Católico — base de horários da Bahia (9 fichas no território da Diocese de Alagoinhas). Agregador: o campo ultima_atualizacao (02/09/2026) é a data de regeneração da base, não de conferência da ficha",
+    "accessedAt": "2026-09-18"
+   },
+   {
+    "url": "https://www.cnbb.org.br/dioceses/",
+    "title": "CNBB — Dioceses (Diocese de Alagoinhas, Regional Nordeste 3)",
+    "accessedAt": "2026-09-18"
+   }
+  ],
+  "confidence": "alta",
+  "notes": "Site oficial VIVO e bem estruturado: WordPress com tipo de conteúdo próprio `paroquias` (33 fichas, X-WP-Total = 33) e `clero` (29 fichas). Cada ficha traz endereço, e-mail/telefone, clero e uma tabela “Horários de Missa” montada com o repetidor ACF do Elementor (Tipo / Dia da Semana / Horário / Observações). O RODAPÉ do site dá o telefone da cúria como (75) 3422-3209 e o e-mail curia@diocesedealagoinhas.com; o `dioceses.json` registra (75) 3421-1842 e o cadastro da Receita do Centro Diocesano (Rua Manoel Vitorino, 368) traz 754211842, número de 8 dígitos anterior ao nono dígito. A sede jurídica do CNPJ (/0001) fica na Rua Manoel Vitorino, 584, bairro Terezópolis."
+ },
+ "parishes": [
+  {
+   "slug": "de-santo-antonio-alagoinhas",
+   "name": "Paróquia Catedral de Santo Antônio",
+   "city": "Alagoinhas",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Rua Padre Alfredo, s/n",
+   "zipCode": "48005-105",
+   "phone": null,
+   "email": "antoniocatedralsanto@gmail.com",
+   "website": null,
+   "priestName": "Pe. Pedro Miquel Costa dos Reis",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedealagoinhas.com/paroquias/paroquia-catedral-de-santo-antonio/",
+     "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Catedral de Santo Antônio (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 16/11/2024)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13646252000215",
+     "title": "Receita Federal — inscrição do CNPJ 13.646.252 da Diocese de Alagoinhas: “PAROQUIA SANTO ANTONIO”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedealagoinhas.com/wp-json/wp/v2/clero?per_page=100",
+     "title": "Diocese de Alagoinhas — REST do WordPress, tipo de conteúdo “clero”: 29 fichas (bispo + presbíteros)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13646252000215",
+   "notes": "Igreja-catedral da diocese. A ficha oficial lista três presbíteros — Pe. Pedro Miquel Costa dos Reis, Pe. Pedro Carlos Carvalho dos Santos e Pe. Danilo Leal de Souza — sem dizer qual é o pároco; gravei o primeiro da lista, o que precisa de validação humana. O endereço da Receita para esta inscrição (Rua Silva Jardim, 281, Centro) é antigo; o site publica Rua Padre Alfredo, s/n. O Lírio Católico traz ainda missas de domingo às 12h e às 18h (a página oficial dá 18h30) — não gravadas.",
+   "communities": [
+    {
+     "name": "Catedral de Santo Antônio",
+     "address": "Rua Padre Alfredo, s/n",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-catedral-de-santo-antonio/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Catedral de Santo Antônio (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 16/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Catedral de Santo Antônio",
+     "dayOfWeek": 0,
+     "time": "07:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-catedral-de-santo-antonio/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Catedral de Santo Antônio (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 16/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Catedral de Santo Antônio",
+     "dayOfWeek": 0,
+     "time": "18:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-catedral-de-santo-antonio/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Catedral de Santo Antônio (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 16/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Catedral de Santo Antônio",
+     "dayOfWeek": 1,
+     "time": "12:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-catedral-de-santo-antonio/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Catedral de Santo Antônio (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 16/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Catedral de Santo Antônio",
+     "dayOfWeek": 2,
+     "time": "12:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-catedral-de-santo-antonio/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Catedral de Santo Antônio (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 16/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Catedral de Santo Antônio",
+     "dayOfWeek": 3,
+     "time": "12:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-catedral-de-santo-antonio/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Catedral de Santo Antônio (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 16/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Catedral de Santo Antônio",
+     "dayOfWeek": 4,
+     "time": "12:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-catedral-de-santo-antonio/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Catedral de Santo Antônio (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 16/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Catedral de Santo Antônio",
+     "dayOfWeek": 5,
+     "time": "12:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-catedral-de-santo-antonio/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Catedral de Santo Antônio (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 16/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-aparecida-alagoinhas",
+   "name": "Paróquia Nossa Senhora Aparecida",
+   "city": "Alagoinhas",
+   "state": "BA",
+   "neighborhood": "Barreiro",
+   "address": "Rua 21 de Setembro, 805",
+   "zipCode": "48022-035",
+   "phone": null,
+   "email": "aparecidapascom40@gmail.com",
+   "website": null,
+   "priestName": "Pe. João Primo de Carvalho",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedealagoinhas.com/paroquias/paroquia-nossa-senhora-aparecida/",
+     "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Nossa Senhora Aparecida (Alagoinhas) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 16/11/2024)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13646252003907",
+     "title": "Receita Federal — inscrição do CNPJ 13.646.252 da Diocese de Alagoinhas: “PAROQUIA DE NOSSA SENHORA APARECIDA”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedealagoinhas.com/wp-json/wp/v2/clero?per_page=100",
+     "title": "Diocese de Alagoinhas — REST do WordPress, tipo de conteúdo “clero”: 29 fichas (bispo + presbíteros)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13646252003907",
+   "notes": "O CEP publicado pelo site (48080-120) não existe no ViaCEP; gravei o da Receita (48022-035), que o ViaCEP confirma como Rua 21 de Setembro, bairro Barreiro, Alagoinhas/BA.",
+   "communities": [
+    {
+     "name": "Igreja Matriz Nossa Senhora Aparecida",
+     "address": "Rua 21 de Setembro, 805",
+     "neighborhood": "Barreiro",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-nossa-senhora-aparecida/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Nossa Senhora Aparecida (Alagoinhas) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 16/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Igreja Matriz Nossa Senhora Aparecida",
+     "dayOfWeek": 2,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-nossa-senhora-aparecida/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Nossa Senhora Aparecida (Alagoinhas) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 16/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Nossa Senhora Aparecida",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "Exposição do Santíssimo das 09h às 19h",
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-nossa-senhora-aparecida/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Nossa Senhora Aparecida (Alagoinhas) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 16/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Nossa Senhora Aparecida",
+     "dayOfWeek": 0,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-nossa-senhora-aparecida/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Nossa Senhora Aparecida (Alagoinhas) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 16/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Nossa Senhora Aparecida",
+     "dayOfWeek": 0,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-nossa-senhora-aparecida/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Nossa Senhora Aparecida (Alagoinhas) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 16/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-de-fatima-alagoinhas",
+   "name": "Paróquia Nossa Senhora de Fátima",
+   "city": "Alagoinhas",
+   "state": "BA",
+   "neighborhood": "Santa Isabel",
+   "address": "Praça Santa Isabel, 157",
+   "zipCode": "48050-130",
+   "phone": null,
+   "email": "paroquiansf@hotmail.com",
+   "website": null,
+   "priestName": "Pe. Carlos Alberto da Conceição Silva",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedealagoinhas.com/paroquias/paroquia-nossa-senhora-de-fatima/",
+     "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Nossa Senhora de Fátima (Alagoinhas) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 29/10/2024)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13646252002854",
+     "title": "Receita Federal — inscrição do CNPJ 13.646.252 da Diocese de Alagoinhas: “PAROQUIA NOSSA SENHORA DE FATIMA”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedealagoinhas.com/wp-json/wp/v2/clero?per_page=100",
+     "title": "Diocese de Alagoinhas — REST do WordPress, tipo de conteúdo “clero”: 29 fichas (bispo + presbíteros)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13646252002854",
+   "notes": null,
+   "communities": [
+    {
+     "name": "Igreja Matriz Nossa Senhora de Fátima",
+     "address": "Praça Santa Isabel, 157",
+     "neighborhood": "Santa Isabel",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-nossa-senhora-de-fatima/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Nossa Senhora de Fátima (Alagoinhas) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 29/10/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Igreja Matriz Nossa Senhora de Fátima",
+     "dayOfWeek": 0,
+     "time": "05:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-nossa-senhora-de-fatima/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Nossa Senhora de Fátima (Alagoinhas) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 29/10/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Nossa Senhora de Fátima",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-nossa-senhora-de-fatima/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Nossa Senhora de Fátima (Alagoinhas) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 29/10/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "santa-terezinha-alagoinhas",
+   "name": "Paróquia Santa Terezinha",
+   "city": "Alagoinhas",
+   "state": "BA",
+   "neighborhood": "Santa Terezinha",
+   "address": "Rua Padre Godinho, 56",
+   "zipCode": "48011-320",
+   "phone": "(75) 3422-0005",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedealagoinhas.com/paroquias/paroquia-santa-terezinha/",
+     "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Santa Terezinha (Alagoinhas) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 29/10/2024)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13646252002935",
+     "title": "Receita Federal — inscrição do CNPJ 13.646.252 da Diocese de Alagoinhas: “PAROQUIA SANTA TEREZINHA”",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13646252002935",
+   "notes": "A ficha oficial publica endereço, mas não horário de missa nem pároco. Telefone vindo do cadastro da Receita.",
+   "communities": [
+    {
+     "name": "Igreja Matriz Santa Terezinha",
+     "address": "Rua Padre Godinho, 56",
+     "neighborhood": "Santa Terezinha",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-santa-terezinha/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Santa Terezinha (Alagoinhas) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 29/10/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "sao-francisco-de-assis-alagoinhas",
+   "name": "Santuário São Francisco de Assis",
+   "city": "Alagoinhas",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Av. Lauro de Freitas, 262",
+   "zipCode": "48005-015",
+   "phone": null,
+   "email": "paroquiasaofranciscoalagoinhas@gmail.com",
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedealagoinhas.com/paroquias/paroquia-sao-francisco-de-assis/",
+     "title": "Diocese de Alagoinhas — ficha oficial da Santuário São Francisco de Assis (Alagoinhas) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 05/10/2025)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13646252000304",
+     "title": "Receita Federal — inscrição do CNPJ 13.646.252 da Diocese de Alagoinhas: “PAROQUIA SAO FRANCISCO DE ASSIS”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/alag0",
+     "title": "gcatholic.org — Churches in the Diocese of Alagoinhas (38 igrejas, 35 marcadas “Parish”; página atualizada em 01/01/2026)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+     "title": "Lírio Católico — base de horários da Bahia (9 fichas no território da Diocese de Alagoinhas). Agregador: o campo ultima_atualizacao (02/09/2026) é a data de regeneração da base, não de conferência da ficha",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13646252000304",
+   "notes": "É paróquia e santuário (a Receita registra “PAROQUIA SAO FRANCISCO DE ASSIS” e o gcatholic marca “Parish”). A ficha oficial não publica tabela de horários; os horários gravados vêm só do Lírio Católico, agregador sem data de conferência — todos `baixa`.",
+   "communities": [
+    {
+     "name": "Santuário São Francisco de Assis",
+     "address": "Av. Lauro de Freitas, 262",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-sao-francisco-de-assis/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Santuário São Francisco de Assis (Alagoinhas) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 05/10/2025)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Santuário São Francisco de Assis",
+     "dayOfWeek": 0,
+     "time": "06:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — base de horários da Bahia (9 fichas no território da Diocese de Alagoinhas). Agregador: o campo ultima_atualizacao (02/09/2026) é a data de regeneração da base, não de conferência da ficha",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Santuário São Francisco de Assis",
+     "dayOfWeek": 0,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — base de horários da Bahia (9 fichas no território da Diocese de Alagoinhas). Agregador: o campo ultima_atualizacao (02/09/2026) é a data de regeneração da base, não de conferência da ficha",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Santuário São Francisco de Assis",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — base de horários da Bahia (9 fichas no território da Diocese de Alagoinhas). Agregador: o campo ultima_atualizacao (02/09/2026) é a data de regeneração da base, não de conferência da ficha",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Santuário São Francisco de Assis",
+     "dayOfWeek": 2,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — base de horários da Bahia (9 fichas no território da Diocese de Alagoinhas). Agregador: o campo ultima_atualizacao (02/09/2026) é a data de regeneração da base, não de conferência da ficha",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Santuário São Francisco de Assis",
+     "dayOfWeek": 3,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — base de horários da Bahia (9 fichas no território da Diocese de Alagoinhas). Agregador: o campo ultima_atualizacao (02/09/2026) é a data de regeneração da base, não de conferência da ficha",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Santuário São Francisco de Assis",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — base de horários da Bahia (9 fichas no território da Diocese de Alagoinhas). Agregador: o campo ultima_atualizacao (02/09/2026) é a data de regeneração da base, não de conferência da ficha",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Santuário São Francisco de Assis",
+     "dayOfWeek": 5,
+     "time": "12:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — base de horários da Bahia (9 fichas no território da Diocese de Alagoinhas). Agregador: o campo ultima_atualizacao (02/09/2026) é a data de regeneração da base, não de conferência da ficha",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Santuário São Francisco de Assis",
+     "dayOfWeek": 2,
+     "time": "09:00",
+     "type": "CONFESSION",
+     "notes": "Das 09:00 às 09:30.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — base de horários da Bahia (9 fichas no território da Diocese de Alagoinhas). Agregador: o campo ultima_atualizacao (02/09/2026) é a data de regeneração da base, não de conferência da ficha",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Santuário São Francisco de Assis",
+     "dayOfWeek": 4,
+     "time": "09:00",
+     "type": "CONFESSION",
+     "notes": "Das 09:00 às 09:30.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — base de horários da Bahia (9 fichas no território da Diocese de Alagoinhas). Agregador: o campo ultima_atualizacao (02/09/2026) é a data de regeneração da base, não de conferência da ficha",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "santa-dulce-dos-pobres-alagoinhas",
+   "name": "Paróquia Santa Dulce dos Pobres",
+   "city": "Alagoinhas",
+   "state": "BA",
+   "neighborhood": "Alagoinhas Velha",
+   "address": "Rua Henrique Dias, s/n",
+   "zipCode": "48030-260",
+   "phone": null,
+   "email": "paroquianajobom.alagoinhas@gmail.com",
+   "website": null,
+   "priestName": "Pe. Diêgo Alberto Lima dos Santos",
+   "foundedYear": 2023,
+   "sources": [
+    {
+     "url": "https://diocesedealagoinhas.com/paroquias/paroquia-santa-dulce-dos-pobres-alagoinhas/",
+     "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Santa Dulce dos Pobres (Alagoinhas) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 16/11/2024)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13646252004393",
+     "title": "Receita Federal — inscrição do CNPJ 13.646.252 da Diocese de Alagoinhas: “PAROQUIA SANTA DULCE DOS POBRES”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedealagoinhas.com/wp-json/wp/v2/clero?per_page=100",
+     "title": "Diocese de Alagoinhas — REST do WordPress, tipo de conteúdo “clero”: 29 fichas (bispo + presbíteros)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+     "title": "Lírio Católico — base de horários da Bahia (9 fichas no território da Diocese de Alagoinhas). Agregador: o campo ultima_atualizacao (02/09/2026) é a data de regeneração da base, não de conferência da ficha",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13646252004393",
+   "notes": "Paróquia nova: CNPJ aberto em 28/11/2023 e a ficha oficial dá “Ano de Criação: 2023”. A grade oficial é confirmada item a item pela ficha do Lírio Católico, que nesta paróquia tem carimbo próprio de 04/09/2026 (e não a data de regeneração da base).",
+   "communities": [
+    {
+     "name": "Igreja Matriz Santa Dulce dos Pobres",
+     "address": "Rua Henrique Dias, s/n",
+     "neighborhood": "Alagoinhas Velha",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-santa-dulce-dos-pobres-alagoinhas/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Santa Dulce dos Pobres (Alagoinhas) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 16/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Igreja Matriz Santa Dulce dos Pobres",
+     "dayOfWeek": 2,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-santa-dulce-dos-pobres-alagoinhas/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Santa Dulce dos Pobres (Alagoinhas) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 16/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Santa Dulce dos Pobres",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-santa-dulce-dos-pobres-alagoinhas/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Santa Dulce dos Pobres (Alagoinhas) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 16/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Santa Dulce dos Pobres",
+     "dayOfWeek": 0,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-santa-dulce-dos-pobres-alagoinhas/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Santa Dulce dos Pobres (Alagoinhas) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 16/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Santa Dulce dos Pobres",
+     "dayOfWeek": 0,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-santa-dulce-dos-pobres-alagoinhas/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Santa Dulce dos Pobres (Alagoinhas) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 16/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Santa Dulce dos Pobres",
+     "dayOfWeek": 4,
+     "time": "09:00",
+     "type": "CONFESSION",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — base de horários da Bahia (9 fichas no território da Diocese de Alagoinhas). Agregador: o campo ultima_atualizacao (02/09/2026) é a data de regeneração da base, não de conferência da ficha",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Igreja Matriz Santa Dulce dos Pobres",
+     "dayOfWeek": 4,
+     "time": "14:00",
+     "type": "CONFESSION",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — base de horários da Bahia (9 fichas no território da Diocese de Alagoinhas). Agregador: o campo ultima_atualizacao (02/09/2026) é a data de regeneração da base, não de conferência da ficha",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Igreja Matriz Santa Dulce dos Pobres",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "ADORATION",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — base de horários da Bahia (9 fichas no território da Diocese de Alagoinhas). Agregador: o campo ultima_atualizacao (02/09/2026) é a data de regeneração da base, não de conferência da ficha",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "sao-jose-alagoinhas",
+   "name": "Paróquia São José",
+   "city": "Alagoinhas",
+   "state": "BA",
+   "neighborhood": "Jardim Petrolar",
+   "address": "Rua Fernando Dantas, Qd. 25, Lts. 03 e 04",
+   "zipCode": "48005-496",
+   "phone": null,
+   "email": "psjpetrolar@hotmail.com",
+   "website": null,
+   "priestName": "Pe. José Ilson do Espírito Santo Matos",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedealagoinhas.com/paroquias/essa-e-uma-paroquia-de-teste/",
+     "title": "Diocese de Alagoinhas — ficha oficial da Paróquia São José (Alagoinhas) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 16/11/2024)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13646252003583",
+     "title": "Receita Federal — inscrição do CNPJ 13.646.252 da Diocese de Alagoinhas: “PAROQUIA SAO JOSE DO PETROLAR”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedealagoinhas.com/wp-json/wp/v2/clero?per_page=100",
+     "title": "Diocese de Alagoinhas — REST do WordPress, tipo de conteúdo “clero”: 29 fichas (bispo + presbíteros)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13646252003583",
+   "notes": "O slug da ficha no CMS da diocese ainda é “essa-e-uma-paroquia-de-teste”, mas o conteúdo é real e confere com o cadastro da Receita (Paróquia São José do Petrolar).",
+   "communities": [
+    {
+     "name": "Igreja Matriz São José",
+     "address": "Rua Fernando Dantas, Qd. 25, Lts. 03 e 04",
+     "neighborhood": "Jardim Petrolar",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/essa-e-uma-paroquia-de-teste/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia São José (Alagoinhas) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 16/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Igreja Matriz São José",
+     "dayOfWeek": 0,
+     "time": "07:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/essa-e-uma-paroquia-de-teste/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia São José (Alagoinhas) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 16/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz São José",
+     "dayOfWeek": 0,
+     "time": "18:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/essa-e-uma-paroquia-de-teste/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia São José (Alagoinhas) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 16/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz São José",
+     "dayOfWeek": 6,
+     "time": "10:00",
+     "type": "MASS",
+     "notes": "Recorrência mensal: Último Sábado do Mês.",
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/essa-e-uma-paroquia-de-teste/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia São José (Alagoinhas) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 16/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Igreja Matriz São José",
+     "dayOfWeek": 5,
+     "time": "12:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/essa-e-uma-paroquia-de-teste/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia São José (Alagoinhas) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 16/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-da-guia-alagoinhas",
+   "name": "Paróquia Nossa Senhora da Guia",
+   "city": "Alagoinhas",
+   "state": "BA",
+   "neighborhood": "Riacho da Guia",
+   "address": "Distrito de Riacho da Guia, s/n",
+   "zipCode": "48031-000",
+   "phone": null,
+   "email": "pnossasenhoradaguia572@gmail.com",
+   "website": null,
+   "priestName": "Pe. Adriano Oliveira Barreto",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedealagoinhas.com/paroquias/area-pastoral-nossa-senhora-da-guia-riacho-da-guia/",
+     "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Nossa Senhora da Guia – Riacho da Guia (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 30/07/2025)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13646252004636",
+     "title": "Receita Federal — inscrição do CNPJ 13.646.252 da Diocese de Alagoinhas: “PAROQUIA NOSSA SENHORA DA GUIA”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedealagoinhas.com/wp-json/wp/v2/clero?per_page=100",
+     "title": "Diocese de Alagoinhas — REST do WordPress, tipo de conteúdo “clero”: 29 fichas (bispo + presbíteros)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13646252004636",
+   "notes": "Nasceu como área pastoral (o slug do CMS ainda é “area-pastoral-nossa-senhora-da-guia-riacho-da-guia”); o título da ficha já diz “Paróquia” e a Receita abriu a inscrição como PARÓQUIA em 07/05/2025. O ViaCEP confirma 48031-000 = Riacho da Guia, Alagoinhas/BA.",
+   "communities": [
+    {
+     "name": "Igreja Matriz Nossa Senhora da Guia",
+     "address": "Distrito de Riacho da Guia, s/n",
+     "neighborhood": "Riacho da Guia",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/area-pastoral-nossa-senhora-da-guia-riacho-da-guia/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Nossa Senhora da Guia – Riacho da Guia (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 30/07/2025)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Igreja Matriz Nossa Senhora da Guia",
+     "dayOfWeek": 3,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/area-pastoral-nossa-senhora-da-guia-riacho-da-guia/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Nossa Senhora da Guia – Riacho da Guia (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 30/07/2025)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Nossa Senhora da Guia",
+     "dayOfWeek": 0,
+     "time": "07:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/area-pastoral-nossa-senhora-da-guia-riacho-da-guia/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Nossa Senhora da Guia – Riacho da Guia (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 30/07/2025)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Nossa Senhora da Guia",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "Adoração a partir das 15:00hs",
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/area-pastoral-nossa-senhora-da-guia-riacho-da-guia/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Nossa Senhora da Guia – Riacho da Guia (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 30/07/2025)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-das-candeias-acajutiba",
+   "name": "Paróquia Nossa Senhora das Candeias",
+   "city": "Acajutiba",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Rua Pinto Dantas, 23",
+   "zipCode": "48360-000",
+   "phone": null,
+   "email": "paroquiadeacajutiba@hotmail.com",
+   "website": null,
+   "priestName": "Pe. Flávio Maurício de Oliveira",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedealagoinhas.com/paroquias/paroquia-nossa-senhora-das-candeias/",
+     "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Nossa Senhora das Candeias – Acajutiba (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 16/11/2024)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13646252002005",
+     "title": "Receita Federal — inscrição do CNPJ 13.646.252 da Diocese de Alagoinhas: “PAROQUIA NOSSA SENHORA DAS CANDEIAS”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedealagoinhas.com/wp-json/wp/v2/clero?per_page=100",
+     "title": "Diocese de Alagoinhas — REST do WordPress, tipo de conteúdo “clero”: 29 fichas (bispo + presbíteros)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13646252002005",
+   "notes": "A ficha oficial não publica tabela de horários.",
+   "communities": [
+    {
+     "name": "Igreja Matriz Nossa Senhora das Candeias",
+     "address": "Rua Pinto Dantas, 23",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-nossa-senhora-das-candeias/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Nossa Senhora das Candeias – Acajutiba (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 16/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-da-conceicao-apora",
+   "name": "Paróquia Nossa Senhora da Conceição",
+   "city": "Aporá",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Rua Ladislau Cavalcante, s/n",
+   "zipCode": "48350-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Charles Carvalho de Assis",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedealagoinhas.com/paroquias/nossa-senhora-da-conceicao-apora/",
+     "title": "Diocese de Alagoinhas — ficha oficial da Nossa Senhora da Conceição (Aporá) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 16/11/2024)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13646252001963",
+     "title": "Receita Federal — inscrição do CNPJ 13.646.252 da Diocese de Alagoinhas: “PAROQUIA NOSSA SENHORA DA CONCEICAO”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedealagoinhas.com/wp-json/wp/v2/clero?per_page=100",
+     "title": "Diocese de Alagoinhas — REST do WordPress, tipo de conteúdo “clero”: 29 fichas (bispo + presbíteros)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13646252001963",
+   "notes": "A Receita registra o endereço antigo (Rua Coronel Feliciano, s/n).",
+   "communities": [
+    {
+     "name": "Igreja Matriz Nossa Senhora da Conceição",
+     "address": "Rua Ladislau Cavalcante, s/n",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/nossa-senhora-da-conceicao-apora/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Nossa Senhora da Conceição (Aporá) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 16/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Igreja Matriz Nossa Senhora da Conceição",
+     "dayOfWeek": 0,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/nossa-senhora-da-conceicao-apora/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Nossa Senhora da Conceição (Aporá) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 16/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Nossa Senhora da Conceição",
+     "dayOfWeek": 0,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/nossa-senhora-da-conceicao-apora/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Nossa Senhora da Conceição (Aporá) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 16/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "sao-jose-apora",
+   "name": "Paróquia São José",
+   "city": "Aporá",
+   "state": "BA",
+   "neighborhood": "Itamira",
+   "address": "Praça São José, s/n",
+   "zipCode": "48355-000",
+   "phone": null,
+   "email": "paroquiajose@gmail.com.br",
+   "website": null,
+   "priestName": "Pe. Heleno da Cruz Nascimento",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedealagoinhas.com/paroquias/paroquia-sao-jose-itamira/",
+     "title": "Diocese de Alagoinhas — ficha oficial da Paróquia São José (Itamira) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 17/11/2024)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13646252003150",
+     "title": "Receita Federal — inscrição do CNPJ 13.646.252 da Diocese de Alagoinhas: “PAROQUIA SAO JOSE”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedealagoinhas.com/wp-json/wp/v2/clero?per_page=100",
+     "title": "Diocese de Alagoinhas — REST do WordPress, tipo de conteúdo “clero”: 29 fichas (bispo + presbíteros)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/alag0",
+     "title": "gcatholic.org — Churches in the Diocese of Alagoinhas (38 igrejas, 35 marcadas “Parish”; página atualizada em 01/01/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13646252003150",
+   "notes": "Fica no distrito de Itamira — o ViaCEP confirma 48355-000 = Itamira, Aporá/BA, e o gcatholic a lista sob “Itamira”. O e-mail publicado pelo site termina em “@gmail.com.br”, provável erro de digitação: precisa de validação humana.",
+   "communities": [
+    {
+     "name": "Igreja Matriz São José",
+     "address": "Praça São José, s/n",
+     "neighborhood": "Itamira",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-sao-jose-itamira/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia São José (Itamira) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 17/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Igreja Matriz São José",
+     "dayOfWeek": 0,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-sao-jose-itamira/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia São José (Itamira) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 17/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "deus-menino-aracas",
+   "name": "Paróquia Deus Menino",
+   "city": "Araçás",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça da Matriz, 62",
+   "zipCode": "48108-000",
+   "phone": "(75) 3451-2464",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedealagoinhas.com/paroquias/paroquia-deus-menino-aracas/",
+     "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Deus Menino (Araçás) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 29/10/2024)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13646252003230",
+     "title": "Receita Federal — inscrição do CNPJ 13.646.252 da Diocese de Alagoinhas: “PAROQUIA DEUS MENINO”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/alag0",
+     "title": "gcatholic.org — Churches in the Diocese of Alagoinhas (38 igrejas, 35 marcadas “Parish”; página atualizada em 01/01/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13646252003230",
+   "notes": "A ficha oficial está vazia (sem endereço, contato, clero ou horário); endereço e telefone vêm do cadastro da Receita.",
+   "communities": [
+    {
+     "name": "Igreja Matriz Deus Menino",
+     "address": "Praça da Matriz, 62",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-deus-menino-aracas/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Deus Menino (Araçás) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 29/10/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "deus-menino-aramari",
+   "name": "Paróquia Deus Menino",
+   "city": "Aramari",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Rua Castro Alves, s/n",
+   "zipCode": "48130-000",
+   "phone": null,
+   "email": "paroquiadeusmenino123@gmail.com",
+   "website": null,
+   "priestName": "Pe. João Andrade de Lima",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedealagoinhas.com/paroquias/paroquia-deus-menino-aramari/",
+     "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Deus Menino (Aramari) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 16/11/2024)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13646252002188",
+     "title": "Receita Federal — inscrição do CNPJ 13.646.252 da Diocese de Alagoinhas: “PAROQUIA DEUS MENINO”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedealagoinhas.com/wp-json/wp/v2/clero?per_page=100",
+     "title": "Diocese de Alagoinhas — REST do WordPress, tipo de conteúdo “clero”: 29 fichas (bispo + presbíteros)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13646252002188",
+   "notes": null,
+   "communities": [
+    {
+     "name": "Igreja Matriz Deus Menino",
+     "address": "Rua Castro Alves, s/n",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-deus-menino-aramari/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Deus Menino (Aramari) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 16/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Igreja Matriz Deus Menino",
+     "dayOfWeek": 4,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": "Adoração começando às 17:00Hs",
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-deus-menino-aramari/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Deus Menino (Aramari) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 16/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Deus Menino",
+     "dayOfWeek": 0,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-deus-menino-aramari/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Deus Menino (Aramari) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 16/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Deus Menino",
+     "dayOfWeek": 0,
+     "time": "07:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-deus-menino-aramari/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Deus Menino (Aramari) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 16/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Deus Menino",
+     "dayOfWeek": 5,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": "Recorrência mensal: 1º Sexta-feira do Mês.",
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-deus-menino-aramari/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Deus Menino (Aramari) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 16/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Igreja Matriz Deus Menino",
+     "dayOfWeek": 3,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-deus-menino-aramari/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Deus Menino (Aramari) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 16/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "cristo-operario-catu",
+   "name": "Paróquia Cristo Operário",
+   "city": "Catu",
+   "state": "BA",
+   "neighborhood": "Pioneiro",
+   "address": "Rua Florisvaldo Góes, 26",
+   "zipCode": "48110-000",
+   "phone": "(71) 9 9736-2141",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. José Eraldo Passos",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedealagoinhas.com/paroquias/paroquia-cristo-operario-catu/",
+     "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Cristo Operário (Catu) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 17/11/2024)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13646252004121",
+     "title": "Receita Federal — inscrição do CNPJ 13.646.252 da Diocese de Alagoinhas: “PAROQUIA CRISTO OPERARIO”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedealagoinhas.com/wp-json/wp/v2/clero?per_page=100",
+     "title": "Diocese de Alagoinhas — REST do WordPress, tipo de conteúdo “clero”: 29 fichas (bispo + presbíteros)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13646252004121",
+   "notes": "Paróquia nova: CNPJ aberto em 26/09/2023.",
+   "communities": [
+    {
+     "name": "Igreja Matriz Cristo Operário",
+     "address": "Rua Florisvaldo Góes, 26",
+     "neighborhood": "Pioneiro",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-cristo-operario-catu/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Cristo Operário (Catu) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 17/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Igreja Matriz Cristo Operário",
+     "dayOfWeek": 2,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "Votiva a Santo Antônio",
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-cristo-operario-catu/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Cristo Operário (Catu) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 17/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Cristo Operário",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "Adoração às 18h",
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-cristo-operario-catu/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Cristo Operário (Catu) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 17/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "senhora-santana-catu",
+   "name": "Paróquia Senhora Santana",
+   "city": "Catu",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Rua Barão do Rio Branco, 43",
+   "zipCode": "48110-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Irivan Santana de Anchieta",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedealagoinhas.com/paroquias/paroquia-senhora-santana-catu/",
+     "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Senhora Santana (Catu) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 18/11/2024)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13646252000649",
+     "title": "Receita Federal — inscrição do CNPJ 13.646.252 da Diocese de Alagoinhas: “PAROQUIA SENHORA SANTANA”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedealagoinhas.com/wp-json/wp/v2/clero?per_page=100",
+     "title": "Diocese de Alagoinhas — REST do WordPress, tipo de conteúdo “clero”: 29 fichas (bispo + presbíteros)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13646252000649",
+   "notes": null,
+   "communities": [
+    {
+     "name": "Igreja Matriz Senhora Santana",
+     "address": "Rua Barão do Rio Branco, 43",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-senhora-santana-catu/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Senhora Santana (Catu) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 18/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Igreja Matriz Senhora Santana",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-senhora-santana-catu/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Senhora Santana (Catu) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 18/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Senhora Santana",
+     "dayOfWeek": 0,
+     "time": "18:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-senhora-santana-catu/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Senhora Santana (Catu) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 18/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Senhora Santana",
+     "dayOfWeek": 2,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-senhora-santana-catu/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Senhora Santana (Catu) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 18/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Senhora Santana",
+     "dayOfWeek": 3,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-senhora-santana-catu/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Senhora Santana (Catu) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 18/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Senhora Santana",
+     "dayOfWeek": 5,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-senhora-santana-catu/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Senhora Santana (Catu) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 18/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Senhora Santana",
+     "dayOfWeek": 4,
+     "time": "12:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-senhora-santana-catu/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Senhora Santana (Catu) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 18/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-da-saude-cipo",
+   "name": "Paróquia Nossa Senhora da Saúde",
+   "city": "Cipó",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Rua Sinhá Dantinha, s/n",
+   "zipCode": "48450-000",
+   "phone": null,
+   "email": "pascompnss10@gmail.com",
+   "website": null,
+   "priestName": "Cônego Antônio Reinaldo Santos Alves, O.Praem.",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedealagoinhas.com/paroquias/nossa-senhora-da-saude-cipo/",
+     "title": "Diocese de Alagoinhas — ficha oficial da Nossa Senhora da Saúde (Cipó) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 19/11/2024)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13646252002692",
+     "title": "Receita Federal — inscrição do CNPJ 13.646.252 da Diocese de Alagoinhas: “PAROQUIA NOSSA SENHORA DA SAUDE”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedealagoinhas.com/wp-json/wp/v2/clero?per_page=100",
+     "title": "Diocese de Alagoinhas — REST do WordPress, tipo de conteúdo “clero”: 29 fichas (bispo + presbíteros)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13646252002692",
+   "notes": null,
+   "communities": [
+    {
+     "name": "Igreja Matriz Nossa Senhora da Saúde",
+     "address": "Rua Sinhá Dantinha, s/n",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/nossa-senhora-da-saude-cipo/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Nossa Senhora da Saúde (Cipó) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 19/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Igreja Matriz Nossa Senhora da Saúde",
+     "dayOfWeek": 0,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/nossa-senhora-da-saude-cipo/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Nossa Senhora da Saúde (Cipó) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 19/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Nossa Senhora da Saúde",
+     "dayOfWeek": 0,
+     "time": "07:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/nossa-senhora-da-saude-cipo/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Nossa Senhora da Saúde (Cipó) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 19/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Nossa Senhora da Saúde",
+     "dayOfWeek": 5,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "Recorrência mensal: 1º Sexta-feira do Mês.",
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/nossa-senhora-da-saude-cipo/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Nossa Senhora da Saúde (Cipó) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 19/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Igreja Matriz Nossa Senhora da Saúde",
+     "dayOfWeek": 4,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/nossa-senhora-da-saude-cipo/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Nossa Senhora da Saúde (Cipó) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 19/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Nossa Senhora da Saúde",
+     "dayOfWeek": 3,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/nossa-senhora-da-saude-cipo/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Nossa Senhora da Saúde (Cipó) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 19/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Nossa Senhora da Saúde",
+     "dayOfWeek": 6,
+     "time": "06:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/nossa-senhora-da-saude-cipo/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Nossa Senhora da Saúde (Cipó) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 19/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "nosso-senhor-do-bomfim-conde",
+   "name": "Paróquia Nosso Senhor do Bomfim",
+   "city": "Conde",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça Severino Vieira, 309",
+   "zipCode": "48300-000",
+   "phone": "(75) 3423-1477",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Arnaldo Silvestre da Silva",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedealagoinhas.com/paroquias/nosso-senhor-do-bonfim-conde/",
+     "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Nosso Senhor do Bomfim (Conde) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 03/12/2024)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13646252003400",
+     "title": "Receita Federal — inscrição do CNPJ 13.646.252 da Diocese de Alagoinhas: “PAROQUIA NOSSO SENHOR DO BOMFIM”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedealagoinhas.com/wp-json/wp/v2/clero?per_page=100",
+     "title": "Diocese de Alagoinhas — REST do WordPress, tipo de conteúdo “clero”: 29 fichas (bispo + presbíteros)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/alag0",
+     "title": "gcatholic.org — Churches in the Diocese of Alagoinhas (38 igrejas, 35 marcadas “Parish”; página atualizada em 01/01/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13646252003400",
+   "notes": "O site da diocese e a Receita grafam “Bomfim”; o gcatholic grafa “Bonfim”. Mantido o nome da fonte oficial. A ficha oficial não publica endereço nem contato — o gravado vem da Receita.",
+   "communities": [
+    {
+     "name": "Igreja Matriz Nosso Senhor do Bomfim",
+     "address": "Praça Severino Vieira, 309",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/nosso-senhor-do-bonfim-conde/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Nosso Senhor do Bomfim (Conde) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 03/12/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Igreja Matriz Nosso Senhor do Bomfim",
+     "dayOfWeek": 0,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/nosso-senhor-do-bonfim-conde/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Nosso Senhor do Bomfim (Conde) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 03/12/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Nosso Senhor do Bomfim",
+     "dayOfWeek": 5,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/nosso-senhor-do-bonfim-conde/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Nosso Senhor do Bomfim (Conde) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 03/12/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Nosso Senhor do Bomfim",
+     "dayOfWeek": 4,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": "Com Adoração",
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/nosso-senhor-do-bonfim-conde/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Nosso Senhor do Bomfim (Conde) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 03/12/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-do-monte-conde",
+   "name": "Santuário Nossa Senhora do Monte",
+   "city": "Conde",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça Severino Vieira, 309",
+   "zipCode": "48300-000",
+   "phone": null,
+   "email": "santuariodiocesnsm@gmail.com",
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedealagoinhas.com/paroquias/santuario-nossa-senhora-do-monte-conde/",
+     "title": "Diocese de Alagoinhas — ficha oficial da Santuário Nossa Senhora do Monte (Conde) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 29/10/2024)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13646252001459",
+     "title": "Receita Federal — inscrição do CNPJ 13.646.252 da Diocese de Alagoinhas: “PAROQUIA SANTUARIO NOSSA SENHORA DO MONTE”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/alag0",
+     "title": "gcatholic.org — Churches in the Diocese of Alagoinhas (38 igrejas, 35 marcadas “Parish”; página atualizada em 01/01/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13646252001459",
+   "notes": "É paróquia E santuário diocesano (gcatholic: “Parish, Shrine”; Receita: “PAROQUIA SANTUARIO NOSSA SENHORA DO MONTE”). A ficha oficial só dá “Vila do Conde - BA” como endereço. O endereço da Receita coincide com o da Paróquia Nosso Senhor do Bomfim, também em Conde — precisa de validação humana.",
+   "communities": [
+    {
+     "name": "Santuário Nossa Senhora do Monte",
+     "address": "Praça Severino Vieira, 309",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/santuario-nossa-senhora-do-monte-conde/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Santuário Nossa Senhora do Monte (Conde) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 29/10/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Santuário Nossa Senhora do Monte",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "Adoração",
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/santuario-nossa-senhora-do-monte-conde/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Santuário Nossa Senhora do Monte (Conde) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 29/10/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Santuário Nossa Senhora do Monte",
+     "dayOfWeek": 0,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/santuario-nossa-senhora-do-monte-conde/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Santuário Nossa Senhora do Monte (Conde) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 29/10/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "sagrado-coracao-de-jesus-heliopolis",
+   "name": "Paróquia Sagrado Coração de Jesus",
+   "city": "Heliópolis",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça Padre Mendonça, 141",
+   "zipCode": "48445-000",
+   "phone": "(75) 9 9808-9928",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Jailton Fonseca Rocha",
+   "foundedYear": 1991,
+   "sources": [
+    {
+     "url": "https://diocesedealagoinhas.com/paroquias/paroquia-sagrado-coracao-de-jesus-heliopolis/",
+     "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Sagrado Coração de Jesus (Heliópolis) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 18/11/2024)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13646252004555",
+     "title": "Receita Federal — inscrição do CNPJ 13.646.252 da Diocese de Alagoinhas: “PAROQUIA SAGRADO CORACAO DE JESUS”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedealagoinhas.com/wp-json/wp/v2/clero?per_page=100",
+     "title": "Diocese de Alagoinhas — REST do WordPress, tipo de conteúdo “clero”: 29 fichas (bispo + presbíteros)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13646252004555",
+   "notes": "A ficha oficial põe o endereço dentro do campo “E-mail” (erro de preenchimento do CMS): “Praça Padre Mendonça, Heliópolis, Brasil 48445-000” — por isso a paróquia fica sem e-mail. CNPJ aberto em 12/04/2024, embora a ficha dê “Ano de Criação: 1991”.",
+   "communities": [
+    {
+     "name": "Igreja Matriz Sagrado Coração de Jesus",
+     "address": "Praça Padre Mendonça, 141",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-sagrado-coracao-de-jesus-heliopolis/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Sagrado Coração de Jesus (Heliópolis) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 18/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Igreja Matriz Sagrado Coração de Jesus",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-sagrado-coracao-de-jesus-heliopolis/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Sagrado Coração de Jesus (Heliópolis) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 18/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Sagrado Coração de Jesus",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": "Exposição do Santíssimo das 08 às 12h",
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-sagrado-coracao-de-jesus-heliopolis/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Sagrado Coração de Jesus (Heliópolis) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 18/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Sagrado Coração de Jesus",
+     "dayOfWeek": 5,
+     "time": "10:00",
+     "type": "MASS",
+     "notes": "Recorrência mensal: 1º Sexta-feira do Mês.",
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-sagrado-coracao-de-jesus-heliopolis/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Sagrado Coração de Jesus (Heliópolis) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 18/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Igreja Matriz Sagrado Coração de Jesus",
+     "dayOfWeek": 6,
+     "time": "08:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-sagrado-coracao-de-jesus-heliopolis/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Sagrado Coração de Jesus (Heliópolis) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 18/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "divino-espirito-santo-inhambupe",
+   "name": "Paróquia Divino Espírito Santo",
+   "city": "Inhambupe",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Rua Dr. Luís Coelho, 5",
+   "zipCode": "48490-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Jaldenir Oliveira Sousa",
+   "foundedYear": 1718,
+   "sources": [
+    {
+     "url": "https://diocesedealagoinhas.com/paroquias/divino-espirito-santo-inhambupe/",
+     "title": "Diocese de Alagoinhas — ficha oficial da Divino Espírito Santo (Inhambupe) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 17/11/2024)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13646252000720",
+     "title": "Receita Federal — inscrição do CNPJ 13.646.252 da Diocese de Alagoinhas: “PAROQUIA DE INHAMBUPE DIVINO ESPIRITO SANTO”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedealagoinhas.com/wp-json/wp/v2/clero?per_page=100",
+     "title": "Diocese de Alagoinhas — REST do WordPress, tipo de conteúdo “clero”: 29 fichas (bispo + presbíteros)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+     "title": "Lírio Católico — base de horários da Bahia (9 fichas no território da Diocese de Alagoinhas). Agregador: o campo ultima_atualizacao (02/09/2026) é a data de regeneração da base, não de conferência da ficha",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13646252000720",
+   "notes": "A ficha oficial dá só “Centro, Inhambupe, BA”; o logradouro vem da Receita e o Lírio Católico dá “Praça Cônego Maximiano, Centro” — divergência que precisa de validação humana. O Lírio confirma a grade de domingo (08:00/19:00) e de quinta (19:00). A tabela oficial repete duas vezes a linha “2º Sábado do Mês 08:00 (Com Batizados)”; gravada uma vez só.",
+   "communities": [
+    {
+     "name": "Igreja Matriz Divino Espírito Santo",
+     "address": "Rua Dr. Luís Coelho, 5",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/divino-espirito-santo-inhambupe/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Divino Espírito Santo (Inhambupe) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 17/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Igreja Matriz Divino Espírito Santo",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/divino-espirito-santo-inhambupe/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Divino Espírito Santo (Inhambupe) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 17/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Divino Espírito Santo",
+     "dayOfWeek": 0,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/divino-espirito-santo-inhambupe/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Divino Espírito Santo (Inhambupe) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 17/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Divino Espírito Santo",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/divino-espirito-santo-inhambupe/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Divino Espírito Santo (Inhambupe) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 17/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Divino Espírito Santo",
+     "dayOfWeek": 6,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": "Recorrência mensal: 2º Sábado do Mês. Com Batizados",
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/divino-espirito-santo-inhambupe/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Divino Espírito Santo (Inhambupe) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 17/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Igreja Matriz Divino Espírito Santo",
+     "dayOfWeek": 4,
+     "time": "08:00",
+     "type": "CONFESSION",
+     "notes": "Das 08:00 às 11:00.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — base de horários da Bahia (9 fichas no território da Diocese de Alagoinhas). Agregador: o campo ultima_atualizacao (02/09/2026) é a data de regeneração da base, não de conferência da ficha",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Igreja Matriz Divino Espírito Santo",
+     "dayOfWeek": 4,
+     "time": "08:00",
+     "type": "ADORATION",
+     "notes": "Das 08:00 às 17:00.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — base de horários da Bahia (9 fichas no território da Diocese de Alagoinhas). Agregador: o campo ultima_atualizacao (02/09/2026) é a data de regeneração da base, não de conferência da ficha",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "sao-francisco-de-assis-itanagra",
+   "name": "Paróquia São Francisco de Assis",
+   "city": "Itanagra",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Rua Padre Luiz Palmeiras, s/n",
+   "zipCode": "48290-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedealagoinhas.com/paroquias/paroquia-sao-francisco-itanagra/",
+     "title": "Diocese de Alagoinhas — ficha oficial da Paróquia São Francisco – Itanagra (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 29/10/2024)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13646252003826",
+     "title": "Receita Federal — inscrição do CNPJ 13.646.252 da Diocese de Alagoinhas: “PAROQUIA SAO FRANCISCO DE ITANAGRA”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/alag0",
+     "title": "gcatholic.org — Churches in the Diocese of Alagoinhas (38 igrejas, 35 marcadas “Parish”; página atualizada em 01/01/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13646252003826",
+   "notes": "A ficha oficial está vazia (sem endereço, contato, clero ou horário); endereço vem da Receita, cuja inscrição foi aberta em 17/11/2021.",
+   "communities": [
+    {
+     "name": "Igreja Matriz São Francisco de Assis",
+     "address": "Rua Padre Luiz Palmeiras, s/n",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-sao-francisco-itanagra/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia São Francisco – Itanagra (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 29/10/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-de-nazare-itapicuru",
+   "name": "Paróquia Nossa Senhora de Nazaré",
+   "city": "Itapicuru",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Travessa Quintino Bocaiúva, 2",
+   "zipCode": "48475-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedealagoinhas.com/paroquias/paroquia-nossa-senhora-de-nazare-itapicuru/",
+     "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Nossa Senhora de Nazaré (Itapicuru) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 18/11/2024)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13646252000991",
+     "title": "Receita Federal — inscrição do CNPJ 13.646.252 da Diocese de Alagoinhas: “PAROQUIA NOSSA SENHORA DE NAZARE”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+     "title": "Lírio Católico — base de horários da Bahia (9 fichas no território da Diocese de Alagoinhas). Agregador: o campo ultima_atualizacao (02/09/2026) é a data de regeneração da base, não de conferência da ficha",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13646252000991",
+   "notes": "A ficha oficial não nomeia o pároco. O Lírio Católico registra só a missa de domingo às 19h; a página oficial publica 07:30 e 19:00.",
+   "communities": [
+    {
+     "name": "Igreja Matriz Nossa Senhora de Nazaré",
+     "address": "Travessa Quintino Bocaiúva, 2",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-nossa-senhora-de-nazare-itapicuru/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Nossa Senhora de Nazaré (Itapicuru) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 18/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Igreja Matriz Nossa Senhora de Nazaré",
+     "dayOfWeek": 0,
+     "time": "07:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-nossa-senhora-de-nazare-itapicuru/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Nossa Senhora de Nazaré (Itapicuru) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 18/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Nossa Senhora de Nazaré",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-nossa-senhora-de-nazare-itapicuru/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Nossa Senhora de Nazaré (Itapicuru) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 18/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "sao-pedro-e-sao-paulo-itapicuru",
+   "name": "Paróquia São Pedro e São Paulo",
+   "city": "Itapicuru",
+   "state": "BA",
+   "neighborhood": "Lagoa Redonda",
+   "address": "Largo Arthur da Costa Pinto, 212, Distrito de Lagoa Redonda",
+   "zipCode": "48475-000",
+   "phone": "(79) 9608-9101",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Gilberto Ferreira dos Santos",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedealagoinhas.com/paroquias/paroquia-sao-pedro-e-sao-paulo-lagoa-redonda-itapicuru/",
+     "title": "Diocese de Alagoinhas — ficha oficial da Paróquia São Pedro e São Paulo (Lagoa Redonda -Itapicuru) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 18/11/2024)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13646252004474",
+     "title": "Receita Federal — inscrição do CNPJ 13.646.252 da Diocese de Alagoinhas: “PAROQUIA SAO PEDRO E SAO PAULO”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedealagoinhas.com/wp-json/wp/v2/clero?per_page=100",
+     "title": "Diocese de Alagoinhas — REST do WordPress, tipo de conteúdo “clero”: 29 fichas (bispo + presbíteros)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/alag0",
+     "title": "gcatholic.org — Churches in the Diocese of Alagoinhas (38 igrejas, 35 marcadas “Parish”; página atualizada em 01/01/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13646252004474",
+   "notes": "No distrito de Lagoa Redonda, município de Itapicuru. CNPJ aberto em 05/12/2023. O telefone do cadastro da Receita tem DDD 79 (Sergipe) e apenas 8 dígitos — precisa de validação humana.",
+   "communities": [
+    {
+     "name": "Igreja Matriz São Pedro e São Paulo",
+     "address": "Largo Arthur da Costa Pinto, 212, Distrito de Lagoa Redonda",
+     "neighborhood": "Lagoa Redonda",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-sao-pedro-e-sao-paulo-lagoa-redonda-itapicuru/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia São Pedro e São Paulo (Lagoa Redonda -Itapicuru) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 18/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Igreja Matriz São Pedro e São Paulo",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-sao-pedro-e-sao-paulo-lagoa-redonda-itapicuru/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia São Pedro e São Paulo (Lagoa Redonda -Itapicuru) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 18/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "sao-joao-batista-mata-de-sao-joao",
+   "name": "Paróquia São João Batista",
+   "city": "Mata de São João",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça Amado Bahia, s/n",
+   "zipCode": "48280-000",
+   "phone": null,
+   "email": "falepascom@gmail.com",
+   "website": null,
+   "priestName": "Pe. Anderson Araújo",
+   "foundedYear": 1929,
+   "sources": [
+    {
+     "url": "https://diocesedealagoinhas.com/paroquias/paroquia-sao-joao-batista-mata-de-sao-joao/",
+     "title": "Diocese de Alagoinhas — ficha oficial da Paróquia São João Batista (Mata de São João) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 18/11/2024)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13646252000487",
+     "title": "Receita Federal — inscrição do CNPJ 13.646.252 da Diocese de Alagoinhas: “PAROQUIA SAO JOAO BATISTA”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedealagoinhas.com/wp-json/wp/v2/clero?per_page=100",
+     "title": "Diocese de Alagoinhas — REST do WordPress, tipo de conteúdo “clero”: 29 fichas (bispo + presbíteros)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13646252000487",
+   "notes": "A ficha oficial não publica endereço; o gravado vem da Receita.",
+   "communities": [
+    {
+     "name": "Igreja Matriz São João Batista",
+     "address": "Praça Amado Bahia, s/n",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-sao-joao-batista-mata-de-sao-joao/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia São João Batista (Mata de São João) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 18/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Igreja Matriz São João Batista",
+     "dayOfWeek": 2,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-sao-joao-batista-mata-de-sao-joao/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia São João Batista (Mata de São João) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 18/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz São João Batista",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-sao-joao-batista-mata-de-sao-joao/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia São João Batista (Mata de São João) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 18/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz São João Batista",
+     "dayOfWeek": 0,
+     "time": "07:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-sao-joao-batista-mata-de-sao-joao/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia São João Batista (Mata de São João) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 18/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz São João Batista",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-sao-joao-batista-mata-de-sao-joao/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia São João Batista (Mata de São João) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 18/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-da-conceicao-nova-soure",
+   "name": "Paróquia Nossa Senhora da Conceição",
+   "city": "Nova Soure",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça Nossa Senhora da Conceição, 109",
+   "zipCode": "48460-000",
+   "phone": "(75) 9 9709-4061",
+   "email": "pansdc@gmail.com",
+   "website": null,
+   "priestName": "Pe. Genivaldo Santos de Almeida",
+   "foundedYear": 1758,
+   "sources": [
+    {
+     "url": "https://diocesedealagoinhas.com/paroquias/nossa-senhora-da-conceicao-nova-soure/",
+     "title": "Diocese de Alagoinhas — ficha oficial da Nossa Senhora da Conceição (Nova Soure) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 16/11/2024)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13646252001025",
+     "title": "Receita Federal — inscrição do CNPJ 13.646.252 da Diocese de Alagoinhas: “PAROQUIA NOSSA SENHORA DA CONCEICAO”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedealagoinhas.com/wp-json/wp/v2/clero?per_page=100",
+     "title": "Diocese de Alagoinhas — REST do WordPress, tipo de conteúdo “clero”: 29 fichas (bispo + presbíteros)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13646252001025",
+   "notes": "A ficha oficial declara “25 comunidades”, sem lista nominal — por isso `communities` traz só a matriz.",
+   "communities": [
+    {
+     "name": "Igreja Matriz Nossa Senhora da Conceição",
+     "address": "Praça Nossa Senhora da Conceição, 109",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/nossa-senhora-da-conceicao-nova-soure/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Nossa Senhora da Conceição (Nova Soure) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 16/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Igreja Matriz Nossa Senhora da Conceição",
+     "dayOfWeek": 4,
+     "time": "09:00",
+     "type": "MASS",
+     "notes": "Exposição do Santíssimo",
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/nossa-senhora-da-conceicao-nova-soure/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Nossa Senhora da Conceição (Nova Soure) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 16/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Nossa Senhora da Conceição",
+     "dayOfWeek": 4,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/nossa-senhora-da-conceicao-nova-soure/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Nossa Senhora da Conceição (Nova Soure) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 16/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Nossa Senhora da Conceição",
+     "dayOfWeek": 5,
+     "time": "09:00",
+     "type": "MASS",
+     "notes": "Recorrência mensal: 1º Sexta-feira do Mês.",
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/nossa-senhora-da-conceicao-nova-soure/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Nossa Senhora da Conceição (Nova Soure) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 16/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Igreja Matriz Nossa Senhora da Conceição",
+     "dayOfWeek": 6,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": "Recorrência mensal: 1º Sábado do Mês.",
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/nossa-senhora-da-conceicao-nova-soure/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Nossa Senhora da Conceição (Nova Soure) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 16/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-das-gracas-nova-soure",
+   "name": "Paróquia Nossa Senhora das Graças",
+   "city": "Nova Soure",
+   "state": "BA",
+   "neighborhood": "Raso",
+   "address": "Praça Nossa Senhora das Graças, s/n, Povoado do Raso",
+   "zipCode": "48460-000",
+   "phone": null,
+   "email": "pascomraso@gmail.com",
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedealagoinhas.com/paroquias/paroquia-nossa-senhora-das-gracas-raso/",
+     "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Nossa Senhora das Graças – Raso (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 29/10/2024)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13646252004202",
+     "title": "Receita Federal — inscrição do CNPJ 13.646.252 da Diocese de Alagoinhas: “PAROQUIA NOSSA SENHORA DAS GRACAS”",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13646252004202",
+   "notes": "No povoado do Raso, município de Nova Soure. A inscrição anterior (13646252004040, de 13/08/2021) está NULA; a válida é a de 11/10/2023. A ficha oficial publica só o e-mail — sem endereço, horário ou pároco.",
+   "communities": [
+    {
+     "name": "Igreja Matriz Nossa Senhora das Graças",
+     "address": "Praça Nossa Senhora das Graças, s/n, Povoado do Raso",
+     "neighborhood": "Raso",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-nossa-senhora-das-gracas-raso/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Nossa Senhora das Graças – Raso (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 29/10/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-da-conceicao-olindina",
+   "name": "Paróquia Nossa Senhora da Conceição",
+   "city": "Olindina",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça Dr. Pedro Ribeiro, 36",
+   "zipCode": "48470-000",
+   "phone": null,
+   "email": "pascomimaculadaconceicao713@gmail.com",
+   "website": null,
+   "priestName": "Pe. Edilson Batista Soares",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedealagoinhas.com/paroquias/paroquia-nossa-senhora-da-conceicao-olindina/",
+     "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Nossa Senhora da Conceição (Olindina) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 28/10/2024)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13646252000800",
+     "title": "Receita Federal — inscrição do CNPJ 13.646.252 da Diocese de Alagoinhas: “PAROQUIA NOSSA SENHORA DA CONCEICAO”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedealagoinhas.com/wp-json/wp/v2/clero?per_page=100",
+     "title": "Diocese de Alagoinhas — REST do WordPress, tipo de conteúdo “clero”: 29 fichas (bispo + presbíteros)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13646252000800",
+   "notes": null,
+   "communities": [
+    {
+     "name": "Igreja Matriz Nossa Senhora da Conceição",
+     "address": "Praça Dr. Pedro Ribeiro, 36",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-nossa-senhora-da-conceicao-olindina/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Nossa Senhora da Conceição (Olindina) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 28/10/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Igreja Matriz Nossa Senhora da Conceição",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-nossa-senhora-da-conceicao-olindina/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Nossa Senhora da Conceição (Olindina) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 28/10/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Nossa Senhora da Conceição",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-nossa-senhora-da-conceicao-olindina/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Nossa Senhora da Conceição (Olindina) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 28/10/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "bom-jesus-da-passagem-pojuca",
+   "name": "Paróquia Bom Jesus da Passagem",
+   "city": "Pojuca",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Rua J. J. Seabra, s/n",
+   "zipCode": "48120-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Cláudio Antônio dos Santos",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedealagoinhas.com/paroquias/paroquia-bom-jesus-da-paisagem-pojuca/",
+     "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Bom Jesus da  Passagem (Pojuca) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 18/11/2024)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13646252000568",
+     "title": "Receita Federal — inscrição do CNPJ 13.646.252 da Diocese de Alagoinhas: “PAROQUIA SENHOR BOM JESUS DA PASSAGEM”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/alag0",
+     "title": "gcatholic.org — Churches in the Diocese of Alagoinhas (38 igrejas, 35 marcadas “Parish”; página atualizada em 01/01/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13646252000568",
+   "notes": "O gcatholic cataloga a igreja como “São Cassiano” e acrescenta “Paróquia do Bom Jesus da Passagem”. A tabela oficial distingue duas igrejas — “Igreja Matriz” e “Igreja São Cassiano” — mas a ficha não publica lista de comunidades, então os dois horários de domingo ficaram na matriz com o local na observação.",
+   "communities": [
+    {
+     "name": "Igreja Matriz Bom Jesus da Passagem",
+     "address": "Rua J. J. Seabra, s/n",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-bom-jesus-da-paisagem-pojuca/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Bom Jesus da  Passagem (Pojuca) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 18/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Igreja Matriz Bom Jesus da Passagem",
+     "dayOfWeek": 4,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-bom-jesus-da-paisagem-pojuca/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Bom Jesus da  Passagem (Pojuca) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 18/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Bom Jesus da Passagem",
+     "dayOfWeek": 6,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-bom-jesus-da-paisagem-pojuca/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Bom Jesus da  Passagem (Pojuca) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 18/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Bom Jesus da Passagem",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": "Igreja São Cassiano",
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-bom-jesus-da-paisagem-pojuca/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Bom Jesus da  Passagem (Pojuca) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 18/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Bom Jesus da Passagem",
+     "dayOfWeek": 0,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": "Igreja Matriz",
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-bom-jesus-da-paisagem-pojuca/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Bom Jesus da  Passagem (Pojuca) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 18/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-do-amparo-ribeira-do-amparo",
+   "name": "Paróquia Nossa Senhora do Amparo",
+   "city": "Ribeira do Amparo",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça Padre Mendonça, s/n",
+   "zipCode": "48440-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Cônego Gabriel Cássio",
+   "foundedYear": 1848,
+   "sources": [
+    {
+     "url": "https://diocesedealagoinhas.com/paroquias/paroquia-nossa-senhora-do-amparo-ribeira-do-amparo/",
+     "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Nossa Senhora do Amparo (Ribeira do Amparo) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 18/11/2024)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13646252001106",
+     "title": "Receita Federal — inscrição do CNPJ 13.646.252 da Diocese de Alagoinhas",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedealagoinhas.com/wp-json/wp/v2/clero?per_page=100",
+     "title": "Diocese de Alagoinhas — REST do WordPress, tipo de conteúdo “clero”: 29 fichas (bispo + presbíteros)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13646252001106",
+   "notes": "A inscrição 13646252001106 da Receita está sem nome fantasia, mas o endereço (Praça Padre Mendonça, Centro, Ribeira do Amparo) casa com a ficha oficial, que grafa o logradouro como “Rua Padre Mendonça da Silva”.",
+   "communities": [
+    {
+     "name": "Igreja Matriz Nossa Senhora do Amparo",
+     "address": "Praça Padre Mendonça, s/n",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-nossa-senhora-do-amparo-ribeira-do-amparo/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Nossa Senhora do Amparo (Ribeira do Amparo) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 18/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Igreja Matriz Nossa Senhora do Amparo",
+     "dayOfWeek": 1,
+     "time": "06:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-nossa-senhora-do-amparo-ribeira-do-amparo/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Nossa Senhora do Amparo (Ribeira do Amparo) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 18/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Nossa Senhora do Amparo",
+     "dayOfWeek": 2,
+     "time": "06:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-nossa-senhora-do-amparo-ribeira-do-amparo/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Nossa Senhora do Amparo (Ribeira do Amparo) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 18/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Nossa Senhora do Amparo",
+     "dayOfWeek": 3,
+     "time": "06:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-nossa-senhora-do-amparo-ribeira-do-amparo/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Nossa Senhora do Amparo (Ribeira do Amparo) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 18/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Nossa Senhora do Amparo",
+     "dayOfWeek": 4,
+     "time": "06:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-nossa-senhora-do-amparo-ribeira-do-amparo/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Nossa Senhora do Amparo (Ribeira do Amparo) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 18/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Nossa Senhora do Amparo",
+     "dayOfWeek": 5,
+     "time": "06:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-nossa-senhora-do-amparo-ribeira-do-amparo/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Nossa Senhora do Amparo (Ribeira do Amparo) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 18/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Nossa Senhora do Amparo",
+     "dayOfWeek": 0,
+     "time": "09:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-nossa-senhora-do-amparo-ribeira-do-amparo/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Nossa Senhora do Amparo (Ribeira do Amparo) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 18/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-do-livramento-rio-real",
+   "name": "Paróquia Nossa Senhora do Livramento",
+   "city": "Rio Real",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Rua Cel. Otávio São Leite, 284",
+   "zipCode": "48330-000",
+   "phone": null,
+   "email": "paroquiansl1855@gmail.com",
+   "website": null,
+   "priestName": "Pe. Alex Pedreira da Paixão",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedealagoinhas.com/paroquias/nossa-senhora-do-livramento-rio-real/",
+     "title": "Diocese de Alagoinhas — ficha oficial da Nossa Senhora do Livramento (Rio Real) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 16/11/2024)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13646252001530",
+     "title": "Receita Federal — inscrição do CNPJ 13.646.252 da Diocese de Alagoinhas: “PAROQUIA NOSSA SENHORA DO LIVRAMENTO”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedealagoinhas.com/wp-json/wp/v2/clero?per_page=100",
+     "title": "Diocese de Alagoinhas — REST do WordPress, tipo de conteúdo “clero”: 29 fichas (bispo + presbíteros)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+     "title": "Lírio Católico — base de horários da Bahia (9 fichas no território da Diocese de Alagoinhas). Agregador: o campo ultima_atualizacao (02/09/2026) é a data de regeneração da base, não de conferência da ficha",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13646252001530",
+   "notes": "A grade oficial é a mais rica da diocese e traz cinco celebrações de recorrência mensal, todas gravadas como `baixa` com a regra literal em notes. O Lírio Católico confirma domingo 07:30/19:30 e quinta 19:30. O endereço da Receita (Praça da Bandeira, s/n) é antigo.",
+   "communities": [
+    {
+     "name": "Igreja Matriz Nossa Senhora do Livramento",
+     "address": "Rua Cel. Otávio São Leite, 284",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/nossa-senhora-do-livramento-rio-real/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Nossa Senhora do Livramento (Rio Real) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 16/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Igreja Matriz Nossa Senhora do Livramento",
+     "dayOfWeek": null,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": "Data fixa do mês: Dia 18 de cada mês. Renovação da Aliança",
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/nossa-senhora-do-livramento-rio-real/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Nossa Senhora do Livramento (Rio Real) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 16/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Igreja Matriz Nossa Senhora do Livramento",
+     "dayOfWeek": 0,
+     "time": "05:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/nossa-senhora-do-livramento-rio-real/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Nossa Senhora do Livramento (Rio Real) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 16/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Nossa Senhora do Livramento",
+     "dayOfWeek": 5,
+     "time": "09:00",
+     "type": "MASS",
+     "notes": "Recorrência mensal: 1º Sexta-feira do Mês. Votiva ao Sagrado Coração de Jesus",
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/nossa-senhora-do-livramento-rio-real/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Nossa Senhora do Livramento (Rio Real) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 16/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Igreja Matriz Nossa Senhora do Livramento",
+     "dayOfWeek": 6,
+     "time": "15:00",
+     "type": "MASS",
+     "notes": "Recorrência mensal: 2º Sábado do Mês. Missa com as crianças",
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/nossa-senhora-do-livramento-rio-real/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Nossa Senhora do Livramento (Rio Real) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 16/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Igreja Matriz Nossa Senhora do Livramento",
+     "dayOfWeek": 0,
+     "time": "05:30",
+     "type": "MASS",
+     "notes": "Recorrência mensal: 2º Domingo do Mês. Missa com os homens",
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/nossa-senhora-do-livramento-rio-real/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Nossa Senhora do Livramento (Rio Real) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 16/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Igreja Matriz Nossa Senhora do Livramento",
+     "dayOfWeek": 4,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": "Das 08 às 19h Adoração ao Santíssimo Sacramento",
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/nossa-senhora-do-livramento-rio-real/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Nossa Senhora do Livramento (Rio Real) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 16/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Nossa Senhora do Livramento",
+     "dayOfWeek": 0,
+     "time": "07:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/nossa-senhora-do-livramento-rio-real/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Nossa Senhora do Livramento (Rio Real) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 16/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Nossa Senhora do Livramento",
+     "dayOfWeek": 0,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/nossa-senhora-do-livramento-rio-real/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Nossa Senhora do Livramento (Rio Real) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 16/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-do-amparo-satiro-dias",
+   "name": "Paróquia Nossa Senhora do Amparo",
+   "city": "Sátiro Dias",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça Juracy Magalhães Júnior, 348",
+   "zipCode": "48485-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Daniel Alexandre de Jesus Sousa",
+   "foundedYear": 2002,
+   "sources": [
+    {
+     "url": "https://diocesedealagoinhas.com/paroquias/paroquia-nossa-senhora-do-amparo-satiro-dias/",
+     "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Nossa Senhora do Amparo (Sátiro Dias) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 18/11/2024)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13646252002773",
+     "title": "Receita Federal — inscrição do CNPJ 13.646.252 da Diocese de Alagoinhas: “PAROQUIA NOSSA SENHORA DO AMPARO”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedealagoinhas.com/wp-json/wp/v2/clero?per_page=100",
+     "title": "Diocese de Alagoinhas — REST do WordPress, tipo de conteúdo “clero”: 29 fichas (bispo + presbíteros)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13646252002773",
+   "notes": null,
+   "communities": [
+    {
+     "name": "Igreja Matriz Nossa Senhora do Amparo",
+     "address": "Praça Juracy Magalhães Júnior, 348",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-nossa-senhora-do-amparo-satiro-dias/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Nossa Senhora do Amparo (Sátiro Dias) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 18/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Igreja Matriz Nossa Senhora do Amparo",
+     "dayOfWeek": 0,
+     "time": "07:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-nossa-senhora-do-amparo-satiro-dias/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Nossa Senhora do Amparo (Sátiro Dias) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 18/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Nossa Senhora do Amparo",
+     "dayOfWeek": 0,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-nossa-senhora-do-amparo-satiro-dias/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Nossa Senhora do Amparo (Sátiro Dias) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 18/11/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "senhor-do-bonfim-satiro-dias",
+   "name": "Paróquia Senhor do Bonfim",
+   "city": "Sátiro Dias",
+   "state": "BA",
+   "neighborhood": "Mimoso",
+   "address": "Praça Aristides da Cruz, s/n, Povoado do Mimoso",
+   "zipCode": "48485-000",
+   "phone": null,
+   "email": "srdobonfimmimoso@gmail.com",
+   "website": null,
+   "priestName": "Pe. Elias de Jesus Ferreira",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedealagoinhas.com/paroquias/area-pastoral-senhor-do-bonfim-mimoso/",
+     "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Senhor do Bonfim – Mimoso (Sátiro Dias) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 30/07/2025)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13646252004717",
+     "title": "Receita Federal — inscrição do CNPJ 13.646.252 da Diocese de Alagoinhas: “PAROQUIA SENHOR DO BOMFIM”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://diocesedealagoinhas.com/wp-json/wp/v2/clero?per_page=100",
+     "title": "Diocese de Alagoinhas — REST do WordPress, tipo de conteúdo “clero”: 29 fichas (bispo + presbíteros)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13646252004717",
+   "notes": "No povoado do Mimoso, município de Sátiro Dias. Nasceu como área pastoral (slug do CMS ainda “area-pastoral-senhor-do-bonfim-mimoso”); a Receita abriu a inscrição como PARÓQUIA em 26/03/2025.",
+   "communities": [
+    {
+     "name": "Igreja Matriz Senhor do Bonfim",
+     "address": "Praça Aristides da Cruz, s/n, Povoado do Mimoso",
+     "neighborhood": "Mimoso",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/area-pastoral-senhor-do-bonfim-mimoso/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Senhor do Bonfim – Mimoso (Sátiro Dias) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 30/07/2025)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Igreja Matriz Senhor do Bonfim",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/area-pastoral-senhor-do-bonfim-mimoso/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Senhor do Bonfim – Mimoso (Sátiro Dias) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 30/07/2025)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Senhor do Bonfim",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/area-pastoral-senhor-do-bonfim-mimoso/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Senhor do Bonfim – Mimoso (Sátiro Dias) (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 30/07/2025)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-da-ajuda-e-santana-teodoro-sampaio",
+   "name": "Paróquia Nossa Senhora da Ajuda e Santana",
+   "city": "Teodoro Sampaio",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Avenida Otávio Araújo, 220",
+   "zipCode": "44280-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedealagoinhas.com/paroquias/paroquia-nossa-senhora-da-ajuda-e-santana-teodoro-sampaio/",
+     "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Nossa Senhora da Ajuda e Santana – Teodoro Sampaio (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 29/10/2024)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13646252001882",
+     "title": "Receita Federal — inscrição do CNPJ 13.646.252 da Diocese de Alagoinhas: “PAROQUIA NOSSA SENHORA DA AJUDA E SANTANA”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/alag0",
+     "title": "gcatholic.org — Churches in the Diocese of Alagoinhas (38 igrejas, 35 marcadas “Parish”; página atualizada em 01/01/2026)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13646252001882",
+   "notes": "A ficha oficial está vazia (sem endereço, contato, clero ou horário); endereço vem da Receita. O gcatholic grafa “Nossa Senhora da Ajuda e Sant’Ana”. Há uma segunda inscrição do CNPJ diocesano em Teodoro Sampaio, sem nome fantasia (13646252001700, Praça da Matriz, 11, bairro Lustosa) — pode ser capela ou endereço antigo; não virou paróquia neste arquivo.",
+   "communities": [
+    {
+     "name": "Igreja Matriz Nossa Senhora da Ajuda e Santana",
+     "address": "Avenida Otávio Araújo, 220",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedealagoinhas.com/paroquias/paroquia-nossa-senhora-da-ajuda-e-santana-teodoro-sampaio/",
+       "title": "Diocese de Alagoinhas — ficha oficial da Paróquia Nossa Senhora da Ajuda e Santana – Teodoro Sampaio (endereço, e-mail/telefone, clero e tabela “Horários de Missa”; página modificada em 29/10/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-da-divina-pastora-cardeal-da-silva",
+   "name": "Paróquia Nossa Senhora da Divina Pastora",
+   "city": "Cardeal da Silva",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça Divina Pastora, s/n",
+   "zipCode": "48390-000",
+   "phone": "(75) 3420-3996",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/13646252003079",
+     "title": "Receita Federal — inscrição do CNPJ 13.646.252 da Diocese de Alagoinhas: “PAROQUIA DIVINA PASTORA”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/alag0",
+     "title": "gcatholic.org — Churches in the Diocese of Alagoinhas (38 igrejas, 35 marcadas “Parish”; página atualizada em 01/01/2026)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13646252000134",
+     "title": "Receita Federal — DIOCESE DE ALAGOINHAS, CNPJ 13.646.252/0001-34 (matriz) e 47 filiais; varredura de /0001 a /0060 (existem exatamente 48 inscrições)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "media",
+   "cnpj": "13646252003079",
+   "notes": "NÃO publicada pelo site da diocese. Existe no cadastro da Receita (inscrição de 28/10/2009) e no gcatholic, que a nomeia “Nossa Senhora da Divina Pastora” — a Receita grafa só “PAROQUIA DIVINA PASTORA”. Sem horário publicado.",
+   "communities": [
+    {
+     "name": "Igreja Matriz Nossa Senhora da Divina Pastora",
+     "address": "Praça Divina Pastora, s/n",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/13646252003079",
+       "title": "Receita Federal — inscrição do CNPJ 13.646.252 da Diocese de Alagoinhas: “PAROQUIA DIVINA PASTORA”",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "bom-jesus-crisopolis",
+   "name": "Paróquia Bom Jesus",
+   "city": "Crisópolis",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça da Matriz, s/n",
+   "zipCode": "48480-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/13646252002340",
+     "title": "Receita Federal — inscrição do CNPJ 13.646.252 da Diocese de Alagoinhas: “PAROQUIA BOM JESUS”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/alag0",
+     "title": "gcatholic.org — Churches in the Diocese of Alagoinhas (38 igrejas, 35 marcadas “Parish”; página atualizada em 01/01/2026)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13646252000134",
+     "title": "Receita Federal — DIOCESE DE ALAGOINHAS, CNPJ 13.646.252/0001-34 (matriz) e 47 filiais; varredura de /0001 a /0060 (existem exatamente 48 inscrições)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "media",
+   "cnpj": "13646252002340",
+   "notes": "NÃO publicada pelo site da diocese. Existe no cadastro da Receita (inscrição de 26/01/1994) e no gcatholic. Sem horário publicado.",
+   "communities": [
+    {
+     "name": "Igreja Matriz Bom Jesus",
+     "address": "Praça da Matriz, s/n",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/13646252002340",
+       "title": "Receita Federal — inscrição do CNPJ 13.646.252 da Diocese de Alagoinhas: “PAROQUIA BOM JESUS”",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "sao-jose-crisopolis",
+   "name": "Paróquia São José",
+   "city": "Crisópolis",
+   "state": "BA",
+   "neighborhood": "Buril",
+   "address": "Praça da Comunidade do Buril, s/n",
+   "zipCode": "48480-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/13646252004806",
+     "title": "Receita Federal — inscrição do CNPJ 13.646.252 da Diocese de Alagoinhas: “PAROQUIA SAO JOSE”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13646252000134",
+     "title": "Receita Federal — DIOCESE DE ALAGOINHAS, CNPJ 13.646.252/0001-34 (matriz) e 47 filiais; varredura de /0001 a /0060 (existem exatamente 48 inscrições)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "media",
+   "cnpj": "13646252004806",
+   "notes": "NÃO publicada pelo site da diocese nem pelo gcatholic. É a paróquia mais nova da diocese: inscrição da Receita aberta em 12/03/2026, no povoado do Buril, município de Crisópolis. Sem horário publicado. Precisa de validação humana.",
+   "communities": [
+    {
+     "name": "Igreja Matriz São José",
+     "address": "Praça da Comunidade do Buril, s/n",
+     "neighborhood": "Buril",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/13646252004806",
+       "title": "Receita Federal — inscrição do CNPJ 13.646.252 da Diocese de Alagoinhas: “PAROQUIA SAO JOSE”",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-dos-prazeres-entre-rios",
+   "name": "Paróquia Nossa Senhora dos Prazeres",
+   "city": "Entre Rios",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça Cônego Félix, s/n",
+   "zipCode": "48180-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/13646252001297",
+     "title": "Receita Federal — inscrição do CNPJ 13.646.252 da Diocese de Alagoinhas: “PAROQUIA NOSSA SENHORA DOS PRAZERES”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/alag0",
+     "title": "gcatholic.org — Churches in the Diocese of Alagoinhas (38 igrejas, 35 marcadas “Parish”; página atualizada em 01/01/2026)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13646252000134",
+     "title": "Receita Federal — DIOCESE DE ALAGOINHAS, CNPJ 13.646.252/0001-34 (matriz) e 47 filiais; varredura de /0001 a /0060 (existem exatamente 48 inscrições)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+     "title": "Lírio Católico — base de horários da Bahia (9 fichas no território da Diocese de Alagoinhas). Agregador: o campo ultima_atualizacao (02/09/2026) é a data de regeneração da base, não de conferência da ficha",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "media",
+   "cnpj": "13646252001297",
+   "notes": "NÃO publicada pelo site da diocese. Existe no cadastro da Receita (inscrição de 04/11/1975) e no gcatholic. Os horários vêm só do Lírio Católico, que dá o endereço Rua Honório Borges, 197 — agregador sem data de conferência, tudo `baixa`.",
+   "communities": [
+    {
+     "name": "Igreja Matriz Nossa Senhora dos Prazeres",
+     "address": "Praça Cônego Félix, s/n",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/13646252001297",
+       "title": "Receita Federal — inscrição do CNPJ 13.646.252 da Diocese de Alagoinhas: “PAROQUIA NOSSA SENHORA DOS PRAZERES”",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Igreja Matriz Nossa Senhora dos Prazeres",
+     "dayOfWeek": 0,
+     "time": "07:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — base de horários da Bahia (9 fichas no território da Diocese de Alagoinhas). Agregador: o campo ultima_atualizacao (02/09/2026) é a data de regeneração da base, não de conferência da ficha",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Igreja Matriz Nossa Senhora dos Prazeres",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — base de horários da Bahia (9 fichas no território da Diocese de Alagoinhas). Agregador: o campo ultima_atualizacao (02/09/2026) é a data de regeneração da base, não de conferência da ficha",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Igreja Matriz Nossa Senhora dos Prazeres",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — base de horários da Bahia (9 fichas no território da Diocese de Alagoinhas). Agregador: o campo ultima_atualizacao (02/09/2026) é a data de regeneração da base, não de conferência da ficha",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Igreja Matriz Nossa Senhora dos Prazeres",
+     "dayOfWeek": 4,
+     "time": "18:00",
+     "type": "ADORATION",
+     "notes": "Das 18:00 às 19:00.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — base de horários da Bahia (9 fichas no território da Diocese de Alagoinhas). Agregador: o campo ultima_atualizacao (02/09/2026) é a data de regeneração da base, não de conferência da ficha",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "sao-sebastiao-entre-rios",
+   "name": "Paróquia São Sebastião",
+   "city": "Entre Rios",
+   "state": "BA",
+   "neighborhood": "Porto Sauípe",
+   "address": "Praça da Matriz, s/n, Porto de Sauípe",
+   "zipCode": "48190-800",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/13646252003745",
+     "title": "Receita Federal — inscrição do CNPJ 13.646.252 da Diocese de Alagoinhas: “PAROQUIA SAO SEBASTIAO DO PORTO DE SAUIPE”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13646252000134",
+     "title": "Receita Federal — DIOCESE DE ALAGOINHAS, CNPJ 13.646.252/0001-34 (matriz) e 47 filiais; varredura de /0001 a /0060 (existem exatamente 48 inscrições)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "media",
+   "cnpj": "13646252003745",
+   "notes": "NÃO publicada pelo site da diocese nem pelo gcatholic. Inscrição da Receita aberta em 04/02/2021, no Porto de Sauípe, município de Entre Rios. Sem horário publicado. Precisa de validação humana.",
+   "communities": [
+    {
+     "name": "Igreja Matriz São Sebastião",
+     "address": "Praça da Matriz, s/n, Porto de Sauípe",
+     "neighborhood": "Porto Sauípe",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/13646252003745",
+       "title": "Receita Federal — inscrição do CNPJ 13.646.252 da Diocese de Alagoinhas: “PAROQUIA SAO SEBASTIAO DO PORTO DE SAUIPE”",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-da-piedade-esplanada",
+   "name": "Paróquia Nossa Senhora da Piedade",
+   "city": "Esplanada",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Rua Dr. Armando da Costa, s/n",
+   "zipCode": "48370-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/13646252001378",
+     "title": "Receita Federal — inscrição do CNPJ 13.646.252 da Diocese de Alagoinhas: “PAROQUIA NOSSA SENHORA DA PIEDADE”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/alag0",
+     "title": "gcatholic.org — Churches in the Diocese of Alagoinhas (38 igrejas, 35 marcadas “Parish”; página atualizada em 01/01/2026)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13646252000134",
+     "title": "Receita Federal — DIOCESE DE ALAGOINHAS, CNPJ 13.646.252/0001-34 (matriz) e 47 filiais; varredura de /0001 a /0060 (existem exatamente 48 inscrições)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "media",
+   "cnpj": "13646252001378",
+   "notes": "NÃO publicada pelo site da diocese. Existe no cadastro da Receita (inscrição de 04/11/1975) e no gcatholic. Sem horário publicado — a única grade de Esplanada no Lírio Católico é a do Convento Nossa Senhora do Rosário (de Pompeia), igreja não paroquial que não entrou neste arquivo.",
+   "communities": [
+    {
+     "name": "Igreja Matriz Nossa Senhora da Piedade",
+     "address": "Rua Dr. Armando da Costa, s/n",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/13646252001378",
+       "title": "Receita Federal — inscrição do CNPJ 13.646.252 da Diocese de Alagoinhas: “PAROQUIA NOSSA SENHORA DA PIEDADE”",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-rainha-da-paz-inhambupe",
+   "name": "Paróquia Nossa Senhora Rainha da Paz",
+   "city": "Inhambupe",
+   "state": "BA",
+   "neighborhood": "Baixa Grande",
+   "address": "Rua Manoel Ramos Machado, s/n, Distrito de Baixa Grande",
+   "zipCode": "48490-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/13646252003664",
+     "title": "Receita Federal — inscrição do CNPJ 13.646.252 da Diocese de Alagoinhas: “PAROQUIA NOSSA SENHORA RAINHA DA PAZ”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13646252000134",
+     "title": "Receita Federal — DIOCESE DE ALAGOINHAS, CNPJ 13.646.252/0001-34 (matriz) e 47 filiais; varredura de /0001 a /0060 (existem exatamente 48 inscrições)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "media",
+   "cnpj": "13646252003664",
+   "notes": "NÃO publicada pelo site da diocese nem pelo gcatholic. Inscrição da Receita aberta em 29/03/2019, na zona rural de Inhambupe (distrito de Baixa Grande). Sem horário publicado. Precisa de validação humana.",
+   "communities": [
+    {
+     "name": "Igreja Matriz Nossa Senhora Rainha da Paz",
+     "address": "Rua Manoel Ramos Machado, s/n, Distrito de Baixa Grande",
+     "neighborhood": "Baixa Grande",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/13646252003664",
+       "title": "Receita Federal — inscrição do CNPJ 13.646.252 da Diocese de Alagoinhas: “PAROQUIA NOSSA SENHORA RAINHA DA PAZ”",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-da-abadia-e-santo-antonio-jandaira",
+   "name": "Paróquia Nossa Senhora da Abadia e Santo Antônio",
+   "city": "Jandaíra",
+   "state": "BA",
+   "neighborhood": "Centro",
+   "address": "Praça Horácio Faria, s/n",
+   "zipCode": "48310-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/13646252001610",
+     "title": "Receita Federal — inscrição do CNPJ 13.646.252 da Diocese de Alagoinhas: “PAROQUIA NOSSA SENHORA DA ABADIA E SANTO ANTONIO”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/alag0",
+     "title": "gcatholic.org — Churches in the Diocese of Alagoinhas (38 igrejas, 35 marcadas “Parish”; página atualizada em 01/01/2026)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13646252000134",
+     "title": "Receita Federal — DIOCESE DE ALAGOINHAS, CNPJ 13.646.252/0001-34 (matriz) e 47 filiais; varredura de /0001 a /0060 (existem exatamente 48 inscrições)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "media",
+   "cnpj": "13646252001610",
+   "notes": "NÃO publicada pelo site da diocese. Existe no cadastro da Receita (inscrição de 04/11/1975) e no gcatholic. Sem horário publicado.",
+   "communities": [
+    {
+     "name": "Igreja Matriz Nossa Senhora da Abadia e Santo Antônio",
+     "address": "Praça Horácio Faria, s/n",
+     "neighborhood": "Centro",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/13646252001610",
+       "title": "Receita Federal — inscrição do CNPJ 13.646.252 da Diocese de Alagoinhas: “PAROQUIA NOSSA SENHORA DA ABADIA E SANTO ANTONIO”",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "sao-francisco-de-assis-do-litoral-mata-de-sao-joao",
+   "name": "Paróquia São Francisco de Assis do Litoral",
+   "city": "Mata de São João",
+   "state": "BA",
+   "neighborhood": "Praia do Forte",
+   "address": "Praça São Francisco, s/n, Praia do Forte",
+   "zipCode": "48280-000",
+   "phone": "(71) 3677-1147",
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://minhareceita.org/13646252003311",
+     "title": "Receita Federal — inscrição do CNPJ 13.646.252 da Diocese de Alagoinhas: “PAROQUIA SAO FRANCISCO DO LITORAL”",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://gcatholic.org/churches/local/alag0",
+     "title": "gcatholic.org — Churches in the Diocese of Alagoinhas (38 igrejas, 35 marcadas “Parish”; página atualizada em 01/01/2026)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13646252000134",
+     "title": "Receita Federal — DIOCESE DE ALAGOINHAS, CNPJ 13.646.252/0001-34 (matriz) e 47 filiais; varredura de /0001 a /0060 (existem exatamente 48 inscrições)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+     "title": "Lírio Católico — base de horários da Bahia (9 fichas no território da Diocese de Alagoinhas). Agregador: o campo ultima_atualizacao (02/09/2026) é a data de regeneração da base, não de conferência da ficha",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "media",
+   "cnpj": "13646252003311",
+   "notes": "NÃO publicada pelo site da diocese. Existe no cadastro da Receita (inscrição de 11/03/2010) e no gcatholic, que a localiza na Praia do Forte. Horários só do Lírio Católico (ficha “Igreja São Francisco de Assis”, Praça São Francisco, s/n) — `baixa`.",
+   "communities": [
+    {
+     "name": "Igreja Matriz São Francisco de Assis do Litoral",
+     "address": "Praça São Francisco, s/n, Praia do Forte",
+     "neighborhood": "Praia do Forte",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://minhareceita.org/13646252003311",
+       "title": "Receita Federal — inscrição do CNPJ 13.646.252 da Diocese de Alagoinhas: “PAROQUIA SAO FRANCISCO DO LITORAL”",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Igreja Matriz São Francisco de Assis do Litoral",
+     "dayOfWeek": 0,
+     "time": "10:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — base de horários da Bahia (9 fichas no território da Diocese de Alagoinhas). Agregador: o campo ultima_atualizacao (02/09/2026) é a data de regeneração da base, não de conferência da ficha",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Igreja Matriz São Francisco de Assis do Litoral",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — base de horários da Bahia (9 fichas no território da Diocese de Alagoinhas). Agregador: o campo ultima_atualizacao (02/09/2026) é a data de regeneração da base, não de conferência da ficha",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Igreja Matriz São Francisco de Assis do Litoral",
+     "dayOfWeek": 6,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — base de horários da Bahia (9 fichas no território da Diocese de Alagoinhas). Agregador: o campo ultima_atualizacao (02/09/2026) é a data de regeneração da base, não de conferência da ficha",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Igreja Matriz São Francisco de Assis do Litoral",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "ADORATION",
+     "notes": "Das 19:00 às 20:00.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/BA.json",
+       "title": "Lírio Católico — base de horários da Bahia (9 fichas no território da Diocese de Alagoinhas). Agregador: o campo ultima_atualizacao (02/09/2026) é a data de regeneração da base, não de conferência da ficha",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  }
+ ],
+ "coverage": {
+  "parishesFound": 42,
+  "parishesExpected": 42,
+  "notes": "42 paróquias. O site oficial publica 33 fichas; a varredura do CNPJ 13.646.252 na Receita Federal (de /0001 a /0060 — existem exatamente 48 inscrições, nada além) acrescenta 9 paróquias ATIVAS que o site não publica: Divina Pastora (Cardeal da Silva), Bom Jesus e São José do Buril (Crisópolis), N. Sra. dos Prazeres e São Sebastião do Porto de Sauípe (Entre Rios), N. Sra. da Piedade (Esplanada), N. Sra. Rainha da Paz (Baixa Grande/Inhambupe), N. Sra. da Abadia e Santo Antônio (Jandaíra) e São Francisco do Litoral (Praia do Forte/Mata de São João). Seis dessas nove também estão no gcatholic. O catholic-hierarchy declara 34 paróquias em 2022 (ap2023) e desde então a Receita registra 8 inscrições novas de paróquia (N. Sra. das Graças/Raso, Cristo Operário, Santa Dulce dos Pobres e São Pedro e São Paulo em 2023; Sagrado Coração em 2024; N. Sra. da Guia e Senhor do Bonfim/Mimoso em 2025; São José do Buril em 2026), o que fecha 34 + 8 = 42. As demais inscrições ativas do CNPJ não são paróquias: a sede (/0001), o Centro Diocesano (/0022), o Seminário Dom Jaime Mota de Farias em Salvador (/0024) e uma inscrição sem nome em Teodoro Sampaio (/0017, possível capela); há ainda a Rede Fale Fácil (/0025, SUSPENSA) e uma inscrição NULA da Paróquia N. Sra. das Graças (/0040, substituída pela /0042). Ficaram de fora, por não serem paróquias e não terem missa em fonte que sustente `media` ou `alta`: o Convento Nossa Senhora do Rosário de Pompeia (Esplanada), o Santuário da Divina Misericórdia (Crisópolis) e a Igreja Santo Antônio de Alagoinhas, todos listados pelo gcatholic. NENHUMA paróquia da diocese publica lista nominal de comunidades — a de Nova Soure declara “25 comunidades” sem nomeá-las —, por isso `communities` traz apenas a igreja-matriz de cada paróquia."
+ }
+}

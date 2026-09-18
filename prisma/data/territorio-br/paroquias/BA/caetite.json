@@ -1,0 +1,3433 @@
+{
+ "diocese": {
+  "name": "Diocese de Caetité",
+  "type": "Diocese",
+  "slug": "caetite",
+  "city": "Caetité",
+  "state": "BA",
+  "address": "Rua Barão de Caetité, 22, Centro",
+  "zipCode": "46400-000",
+  "phone": "(77) 3454-4405",
+  "email": "curiacte@gmail.com",
+  "website": "https://diocesedecaetite.org.br",
+  "bishopName": "Dom José Roberto Silva Carvalho",
+  "sources": [
+   {
+    "url": "https://diocesedecaetite.org.br/wp-json/wp/v2/paroquias?per_page=100",
+    "title": "Diocese de Caetité — REST do WordPress, tipo de conteúdo “paroquias”: X-WP-Total = 41 fichas publicadas",
+    "accessedAt": "2026-09-18"
+   },
+   {
+    "url": "https://diocesedecaetite.org.br/wp-json/wp/v2/padres?per_page=100",
+    "title": "Diocese de Caetité — REST do WordPress, tipo de conteúdo “padres”: 48 fichas de clero",
+    "accessedAt": "2026-09-18"
+   },
+   {
+    "url": "https://diocesedecaetite.org.br/wp-json/wp/v2/vicariatos?per_page=100",
+    "title": "Diocese de Caetité — REST do WordPress, tipo de conteúdo “vicariatos”: os 6 vicariatos (Rainha dos Apóstolos, do Sertão, dos Patriarcas, dos Profetas, dos Mártires e da Paz)",
+    "accessedAt": "2026-09-18"
+   },
+   {
+    "url": "https://diocesedecaetite.org.br/",
+    "title": "Diocese de Caetité — rodapé do site (endereço, telefone, WhatsApp e e-mail da Cúria)",
+    "accessedAt": "2026-09-18"
+   },
+   {
+    "url": "https://minhareceita.org/13778733000101",
+    "title": "Receita Federal — DIOCESE DE CAETITE, CNPJ 13.778.733/0001-01 (matriz) e 47 filiais; varredura de /0001 a /0070 (existem exatamente 48 inscrições, das quais 41 paróquias ATIVAS)",
+    "accessedAt": "2026-09-18"
+   },
+   {
+    "url": "https://mapaosc.ipea.gov.br/",
+    "title": "Mapa das OSC / IPEA — busca avançada por cd_municipio 2905206 (Caetité): revelou o CNPJ raiz 13.778.733 da Diocese de Caetité",
+    "accessedAt": "2026-09-18"
+   },
+   {
+    "url": "https://gcatholic.org/churches/local/caet0",
+    "title": "gcatholic.org — Churches in the Diocese of Caetité (35 igrejas, todas marcadas “Parish”)",
+    "accessedAt": "2026-09-18"
+   },
+   {
+    "url": "https://www.catholic-hierarchy.org/diocese/dcaet.html",
+    "title": "catholic-hierarchy.org — Caetité (Diocese): 38 paróquias e 48 presbíteros em 2023 (ap2024)",
+    "accessedAt": "2026-09-18"
+   },
+   {
+    "url": "https://www.cnbb.org.br/dioceses/",
+    "title": "CNBB — Dioceses (Diocese de Caetité, Regional Nordeste 3)",
+    "accessedAt": "2026-09-18"
+   }
+  ],
+  "confidence": "alta",
+  "notes": "**A melhor fonte das seis dioceses desta rodada.** Site oficial vivo e atualizado (notícias de setembro de 2026), WordPress com tipos de conteúdo próprios `paroquias` (41), `padres` (48), `vicariatos` (6), `bispos`, `congregacoes` e `pastorais`. Cada ficha de paróquia traz data de fundação, vicariato, endereço da igreja, clero com função, **tabela “Horário Celebrações”** (dia, hora e igreja/comunidade) e um bloco de secretaria com endereço, até dois telefones, e-mail e horário de expediente. O rodapé dá Rua Barão de Caetité, 22, CEP 46400-000, (77) 3454-4405, WhatsApp (77) 9837-5238 e curiacte@gmail.com. A diocese está dividida em 6 vicariatos: Rainha dos Apóstolos, Rainha do Sertão, Rainha dos Patriarcas, Rainha dos Profetas, Rainha dos Mártires e Rainha da Paz."
+ },
+ "parishes": [
+  {
+   "slug": "sao-pedro-apostolo-aracatu",
+   "name": "Paróquia São Pedro Apóstolo",
+   "city": "Aracatu",
+   "state": "BA",
+   "neighborhood": null,
+   "address": "Praça Cel. Cândido Silveira Santos, Centro",
+   "zipCode": "46130-000",
+   "phone": "(77) 9 8155-2082",
+   "email": "psaopedroap@yahoo.com.br",
+   "website": null,
+   "priestName": null,
+   "foundedYear": 1962,
+   "sources": [
+    {
+     "url": "https://diocesedecaetite.org.br/paroquias/aracatu/",
+     "title": "Diocese de Caetité — ficha oficial “Aracatu – São Pedro Apóstolo” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 11/09/2024)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13778733000799",
+     "title": "Receita Federal — inscrição do CNPJ 13.778.733 da Diocese de Caetité",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13778733000799",
+   "notes": "Vicariato: Vicariato Rainha da Paz. Endereço da secretaria paroquial (difere do da igreja): Rua Libério Alves Maia, s/n, centro - CEP 46130-000.",
+   "communities": [
+    {
+     "name": "Igreja Matriz São Pedro Apóstolo",
+     "address": "Praça Cel. Cândido Silveira Santos, Centro",
+     "neighborhood": null,
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/aracatu/",
+       "title": "Diocese de Caetité — ficha oficial “Aracatu – São Pedro Apóstolo” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 11/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Igreja Matriz São Pedro Apóstolo",
+     "dayOfWeek": 0,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/aracatu/",
+       "title": "Diocese de Caetité — ficha oficial “Aracatu – São Pedro Apóstolo” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 11/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-da-abadia-boquira",
+   "name": "Paróquia Nossa Senhora da Abadia",
+   "city": "Boquira",
+   "state": "BA",
+   "neighborhood": null,
+   "address": "Praça Nossa Senhorado Abadia, Centro",
+   "zipCode": "46530-000",
+   "phone": "(77) 9 9873-9713",
+   "email": "abadia_boquira@hotmail.com",
+   "website": null,
+   "priestName": "Pe. Mário Peira",
+   "foundedYear": 1962,
+   "sources": [
+    {
+     "url": "https://diocesedecaetite.org.br/paroquias/boquira/",
+     "title": "Diocese de Caetité — ficha oficial “Boquira – Nossa Senhora da Abadia” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 17/03/2025)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13778733002651",
+     "title": "Receita Federal — inscrição do CNPJ 13.778.733 da Diocese de Caetité: “PAROQUIA NOSSA SENHORA DA ABADIA”",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13778733002651",
+   "notes": "Vicariato: Vicariato Rainha dos Profetas.",
+   "communities": [
+    {
+     "name": "Igreja Matriz Nossa Senhora da Abadia",
+     "address": "Praça Nossa Senhorado Abadia, Centro",
+     "neighborhood": null,
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/boquira/",
+       "title": "Diocese de Caetité — ficha oficial “Boquira – Nossa Senhora da Abadia” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 17/03/2025)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Igreja Matriz Nossa Senhora da Abadia",
+     "dayOfWeek": 0,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/boquira/",
+       "title": "Diocese de Caetité — ficha oficial “Boquira – Nossa Senhora da Abadia” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 17/03/2025)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Nossa Senhora da Abadia",
+     "dayOfWeek": 4,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/boquira/",
+       "title": "Diocese de Caetité — ficha oficial “Boquira – Nossa Senhora da Abadia” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 17/03/2025)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "sagrado-coracao-de-jesus-botupora",
+   "name": "Paróquia Sagrado Coração de Jesus",
+   "city": "Botuporã",
+   "state": "BA",
+   "neighborhood": null,
+   "address": "Rua Maurina J Castro, Botuporã",
+   "zipCode": "46570-000",
+   "phone": "(77) 3678-2124",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Eduardo Santos de Sousa",
+   "foundedYear": 1963,
+   "sources": [
+    {
+     "url": "https://diocesedecaetite.org.br/paroquias/botupora/",
+     "title": "Diocese de Caetité — ficha oficial “Botuporã – Sagrado Coração de Jesus” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13778733001418",
+     "title": "Receita Federal — inscrição do CNPJ 13.778.733 da Diocese de Caetité: “PAROQUIA SAGRADO CORACAO DE JESUS DE BOTUPORA”",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13778733001418",
+   "notes": "Vicariato: Vicariato Rainha dos Profetas.",
+   "communities": [
+    {
+     "name": "Igreja Matriz Sagrado Coração de Jesus",
+     "address": "Rua Maurina J Castro, Botuporã",
+     "neighborhood": null,
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/botupora/",
+       "title": "Diocese de Caetité — ficha oficial “Botuporã – Sagrado Coração de Jesus” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Igreja Matriz Sagrado Coração de Jesus",
+     "dayOfWeek": 0,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/botupora/",
+       "title": "Diocese de Caetité — ficha oficial “Botuporã – Sagrado Coração de Jesus” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Sagrado Coração de Jesus",
+     "dayOfWeek": 4,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/botupora/",
+       "title": "Diocese de Caetité — ficha oficial “Botuporã – Sagrado Coração de Jesus” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-aparecida-e-sao-cristovao-brumado",
+   "name": "Paróquia Nossa Senhora Aparecida e São Cristóvão",
+   "city": "Brumado",
+   "state": "BA",
+   "neighborhood": null,
+   "address": "Praça Marcílio Dias, Novo Brumado",
+   "zipCode": "46100-000",
+   "phone": "(77) 3441-5192",
+   "email": "pnsaparecidaesaocristovao@gmail.com",
+   "website": null,
+   "priestName": "Pe. Alessandro dos Santos Alves",
+   "foundedYear": 2018,
+   "sources": [
+    {
+     "url": "https://diocesedecaetite.org.br/paroquias/bdoaparecida/",
+     "title": "Diocese de Caetité — ficha oficial “Brumado – Nossa Senhora Aparecida e São Cristóvão” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13778733004352",
+     "title": "Receita Federal — inscrição do CNPJ 13.778.733 da Diocese de Caetité: “PAROQUIA N SENH DA CONCEICAO APARECIDA E SAO CRISTOVAO”",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13778733004352",
+   "notes": "Vicariato: Vicariato Rainha da Paz.",
+   "communities": [
+    {
+     "name": "Igreja Matriz Nossa Senhora Aparecida e São Cristóvão",
+     "address": "Praça Marcílio Dias, Novo Brumado",
+     "neighborhood": null,
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/bdoaparecida/",
+       "title": "Diocese de Caetité — ficha oficial “Brumado – Nossa Senhora Aparecida e São Cristóvão” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Igreja Matriz Nossa Senhora Aparecida e São Cristóvão",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/bdoaparecida/",
+       "title": "Diocese de Caetité — ficha oficial “Brumado – Nossa Senhora Aparecida e São Cristóvão” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Nossa Senhora Aparecida e São Cristóvão",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/bdoaparecida/",
+       "title": "Diocese de Caetité — ficha oficial “Brumado – Nossa Senhora Aparecida e São Cristóvão” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Nossa Senhora Aparecida e São Cristóvão",
+     "dayOfWeek": 4,
+     "time": "12:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/bdoaparecida/",
+       "title": "Diocese de Caetité — ficha oficial “Brumado – Nossa Senhora Aparecida e São Cristóvão” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "senhor-bom-jesus-brumado",
+   "name": "Paróquia Senhor Bom Jesus",
+   "city": "Brumado",
+   "state": "BA",
+   "neighborhood": null,
+   "address": "Praça Capitão Francisco de Souza Meira, Centro",
+   "zipCode": "46100-000",
+   "phone": "(77) 3441-7022",
+   "email": "pbjesusba@gmail.com",
+   "website": null,
+   "priestName": "Pe. Marcus Vinícius Silva Carvalho",
+   "foundedYear": 1869,
+   "sources": [
+    {
+     "url": "https://diocesedecaetite.org.br/paroquias/brumado/",
+     "title": "Diocese de Caetité — ficha oficial “Brumado – Senhor Bom Jesus” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13778733001094",
+     "title": "Receita Federal — inscrição do CNPJ 13.778.733 da Diocese de Caetité: “PAROQUIA BOM JESUS”",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13778733001094",
+   "notes": "Vicariato: Vicariato Rainha da Paz. Segundo telefone da secretaria: (77) 9 9830-6412.",
+   "communities": [
+    {
+     "name": "Igreja Matriz Senhor Bom Jesus",
+     "address": "Praça Capitão Francisco de Souza Meira, Centro",
+     "neighborhood": null,
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/brumado/",
+       "title": "Diocese de Caetité — ficha oficial “Brumado – Senhor Bom Jesus” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Igreja Matriz Senhor Bom Jesus",
+     "dayOfWeek": 0,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/brumado/",
+       "title": "Diocese de Caetité — ficha oficial “Brumado – Senhor Bom Jesus” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Senhor Bom Jesus",
+     "dayOfWeek": 0,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/brumado/",
+       "title": "Diocese de Caetité — ficha oficial “Brumado – Senhor Bom Jesus” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "sagrado-coracao-de-jesus-cacule",
+   "name": "Paróquia Sagrado Coração de Jesus",
+   "city": "Caculé",
+   "state": "BA",
+   "neighborhood": null,
+   "address": "Praça Coração de Jesus, Caculé - BA",
+   "zipCode": "46300-000",
+   "phone": "(77) 3455-2109",
+   "email": "paroquiacacule@hotmail.com",
+   "website": null,
+   "priestName": "Pe. Paulo Henrique Neves de Souza",
+   "foundedYear": 1884,
+   "sources": [
+    {
+     "url": "https://diocesedecaetite.org.br/paroquias/cacule/",
+     "title": "Diocese de Caetité — ficha oficial “Caculé – Sagrado Coração de Jesus” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13778733000950",
+     "title": "Receita Federal — inscrição do CNPJ 13.778.733 da Diocese de Caetité: “PAROQUIA CORACAO DE JESUS”",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13778733000950",
+   "notes": "Vicariato: Vicariato Rainha dos Patriarcas. Segundo telefone da secretaria: (77) 9 8162-2073.",
+   "communities": [
+    {
+     "name": "Igreja Matriz Sagrado Coração de Jesus",
+     "address": "Praça Coração de Jesus, Caculé - BA",
+     "neighborhood": null,
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/cacule/",
+       "title": "Diocese de Caetité — ficha oficial “Caculé – Sagrado Coração de Jesus” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Igreja Matriz Sagrado Coração de Jesus",
+     "dayOfWeek": 0,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/cacule/",
+       "title": "Diocese de Caetité — ficha oficial “Caculé – Sagrado Coração de Jesus” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Sagrado Coração de Jesus",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/cacule/",
+       "title": "Diocese de Caetité — ficha oficial “Caculé – Sagrado Coração de Jesus” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Sagrado Coração de Jesus",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/cacule/",
+       "title": "Diocese de Caetité — ficha oficial “Caculé – Sagrado Coração de Jesus” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "senhora-santana-caetite",
+   "name": "Paróquia Catedral Senhora Sant’Ana",
+   "city": "Caetité",
+   "state": "BA",
+   "neighborhood": null,
+   "address": "Praça da Catedral, s/n Centro",
+   "zipCode": "46400-000",
+   "phone": "(77) 3454-1358",
+   "email": "psantanacaetite@yahoo.com.br",
+   "website": null,
+   "priestName": "Mons. Alex Adriano Rocha Barbosa",
+   "foundedYear": 1754,
+   "sources": [
+    {
+     "url": "https://diocesedecaetite.org.br/paroquias/caetite/",
+     "title": "Diocese de Caetité — ficha oficial “Caetité – Senhora Sant’Anna” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13778733002228",
+     "title": "Receita Federal — inscrição do CNPJ 13.778.733 da Diocese de Caetité: “PAROQUIA SENHORA SANTANA DE CAETITE”",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13778733002228",
+   "notes": "Vicariato: Vicariato Rainha dos Apóstolos. Clero da ficha oficial: Pároco: Mons. Alex Adriano Rocha Barbosa; Vigário Cooperador: Mons. Adhemar Cardoso Neves; Vigário Cooperador: Pe. Lázaro Teixeira Trindade. Segundo telefone da secretaria: (77) 3454-2698.",
+   "communities": [
+    {
+     "name": "Catedral Senhora Sant’Ana",
+     "address": "Praça da Catedral, s/n Centro",
+     "neighborhood": null,
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/caetite/",
+       "title": "Diocese de Caetité — ficha oficial “Caetité – Senhora Sant’Anna” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Catedral Senhora Sant’Ana",
+     "dayOfWeek": 0,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/caetite/",
+       "title": "Diocese de Caetité — ficha oficial “Caetité – Senhora Sant’Anna” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Catedral Senhora Sant’Ana",
+     "dayOfWeek": 0,
+     "time": "09:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/caetite/",
+       "title": "Diocese de Caetité — ficha oficial “Caetité – Senhora Sant’Anna” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Catedral Senhora Sant’Ana",
+     "dayOfWeek": 0,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/caetite/",
+       "title": "Diocese de Caetité — ficha oficial “Caetité – Senhora Sant’Anna” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Catedral Senhora Sant’Ana",
+     "dayOfWeek": 2,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/caetite/",
+       "title": "Diocese de Caetité — ficha oficial “Caetité – Senhora Sant’Anna” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Catedral Senhora Sant’Ana",
+     "dayOfWeek": 3,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/caetite/",
+       "title": "Diocese de Caetité — ficha oficial “Caetité – Senhora Sant’Anna” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Catedral Senhora Sant’Ana",
+     "dayOfWeek": 4,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/caetite/",
+       "title": "Diocese de Caetité — ficha oficial “Caetité – Senhora Sant’Anna” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Catedral Senhora Sant’Ana",
+     "dayOfWeek": 6,
+     "time": "07:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/caetite/",
+       "title": "Diocese de Caetité — ficha oficial “Caetité – Senhora Sant’Anna” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-da-conceicao-aparecida-caetite",
+   "name": "Paróquia Nossa Senhora da Conceição Aparecida",
+   "city": "Caetité",
+   "state": "BA",
+   "neighborhood": null,
+   "address": "Rua Padre José de Anchieta",
+   "zipCode": "46400-000",
+   "phone": "(77) 9 8873-3480",
+   "email": "paroquiaaparecida2018@gmail.com",
+   "website": null,
+   "priestName": null,
+   "foundedYear": 2017,
+   "sources": [
+    {
+     "url": "https://diocesedecaetite.org.br/paroquias/nsaparecida/",
+     "title": "Diocese de Caetité — ficha oficial “Caetité – Nossa Senhora da Conceição Aparecida” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13778733003623",
+     "title": "Receita Federal — inscrição do CNPJ 13.778.733 da Diocese de Caetité: “PAROQUIA NOSSA SENHORA DA CONCEICAO APARECIDA”",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13778733003623",
+   "notes": "Vicariato: Vicariato Rainha dos Apóstolos.",
+   "communities": [
+    {
+     "name": "Igreja Matriz Nossa Senhora da Conceição Aparecida",
+     "address": "Rua Padre José de Anchieta",
+     "neighborhood": null,
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/nsaparecida/",
+       "title": "Diocese de Caetité — ficha oficial “Caetité – Nossa Senhora da Conceição Aparecida” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Igreja Matriz Nossa Senhora da Conceição Aparecida",
+     "dayOfWeek": 0,
+     "time": "09:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/nsaparecida/",
+       "title": "Diocese de Caetité — ficha oficial “Caetité – Nossa Senhora da Conceição Aparecida” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Nossa Senhora da Conceição Aparecida",
+     "dayOfWeek": 0,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/nsaparecida/",
+       "title": "Diocese de Caetité — ficha oficial “Caetité – Nossa Senhora da Conceição Aparecida” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-das-dores-candiba",
+   "name": "Paróquia Nossa Senhora das Dores",
+   "city": "Candiba",
+   "state": "BA",
+   "neighborhood": null,
+   "address": "Rua Castro Alves, 56, Centro",
+   "zipCode": "46380-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Cleonídio Alves da Silva",
+   "foundedYear": 1962,
+   "sources": [
+    {
+     "url": "https://diocesedecaetite.org.br/paroquias/candiba/",
+     "title": "Diocese de Caetité — ficha oficial “Candiba – Nossa Senhora das Dores” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13778733000446",
+     "title": "Receita Federal — inscrição do CNPJ 13.778.733 da Diocese de Caetité: “PAROQUIA NOSSA SENHORA DAS DORES”",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13778733000446",
+   "notes": "Vicariato: Vicariato Rainha do Sertão.",
+   "communities": [
+    {
+     "name": "Igreja Matriz Nossa Senhora das Dores",
+     "address": "Rua Castro Alves, 56, Centro",
+     "neighborhood": null,
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/candiba/",
+       "title": "Diocese de Caetité — ficha oficial “Candiba – Nossa Senhora das Dores” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Igreja Matriz Nossa Senhora das Dores",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/candiba/",
+       "title": "Diocese de Caetité — ficha oficial “Candiba – Nossa Senhora das Dores” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "santo-antonio-caraibas",
+   "name": "Paróquia Santo Antônio",
+   "city": "Caraíbas",
+   "state": "BA",
+   "neighborhood": null,
+   "address": "Praça Florindo Lima – Centro",
+   "zipCode": "45177-000",
+   "phone": "(77) 8862-7924",
+   "email": "paroquia.caraibas@gmail.com",
+   "website": null,
+   "priestName": "Pe. Bruno Araújo Porto",
+   "foundedYear": 2000,
+   "sources": [
+    {
+     "url": "https://diocesedecaetite.org.br/paroquias/caraibas/",
+     "title": "Diocese de Caetité — ficha oficial “Caraíbas – Santo Antônio” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 17/03/2025)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13778733004190",
+     "title": "Receita Federal — inscrição do CNPJ 13.778.733 da Diocese de Caetité: “PAROQUIA SANTO ANTONIO”",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13778733004190",
+   "notes": "Vicariato: Vicariato Rainha da Paz.",
+   "communities": [
+    {
+     "name": "Igreja Matriz Santo Antônio",
+     "address": "Praça Florindo Lima – Centro",
+     "neighborhood": null,
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/caraibas/",
+       "title": "Diocese de Caetité — ficha oficial “Caraíbas – Santo Antônio” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 17/03/2025)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Igreja Matriz Santo Antônio",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/caraibas/",
+       "title": "Diocese de Caetité — ficha oficial “Caraíbas – Santo Antônio” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 17/03/2025)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "sao-sebastiao-caturama",
+   "name": "Paróquia São Sebastião",
+   "city": "Caturama",
+   "state": "BA",
+   "neighborhood": null,
+   "address": "Praça da Matriz, Centro",
+   "zipCode": "46575-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Eduardo Santos de Sousa",
+   "foundedYear": 2024,
+   "sources": [
+    {
+     "url": "https://diocesedecaetite.org.br/paroquias/caturama-sao-sebastiao/",
+     "title": "Diocese de Caetité — ficha oficial “Caturama – São Sebastião” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 06/04/2025)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13778733004867",
+     "title": "Receita Federal — inscrição do CNPJ 13.778.733 da Diocese de Caetité: “PAROQUIA SAO SEBASTIAO”",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13778733004867",
+   "notes": "Ereção canônica em 25/12/2024, desmembrada da Paróquia Sagrado Coração de Jesus de Botuporã; é a 41ª e mais nova paróquia da diocese. A ficha declara **21 comunidades ativas divididas em quatro zonais**, sem lista nominal. A tabela de celebrações tem uma linha quebrada (“Segunda-feira | Tem Missa na”, sem horário e sem local) — descartada. Vicariato: Vicariato Rainha dos Profetas.",
+   "communities": [
+    {
+     "name": "Igreja Matriz São Sebastião",
+     "address": "Praça da Matriz, Centro",
+     "neighborhood": null,
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/caturama-sao-sebastiao/",
+       "title": "Diocese de Caetité — ficha oficial “Caturama – São Sebastião” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 06/04/2025)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": []
+  },
+  {
+   "slug": "santo-antonio-condeuba",
+   "name": "Paróquia Santo Antônio",
+   "city": "Condeúba",
+   "state": "BA",
+   "neighborhood": null,
+   "address": "Rua Padre Waldemar, Centro",
+   "zipCode": "46200-000",
+   "phone": "(77) 9 9126-7452",
+   "email": "paroquiadecondeuba@outlook.com",
+   "website": null,
+   "priestName": "Pe. Lázaro Matheus de Jesus Souza",
+   "foundedYear": 1851,
+   "sources": [
+    {
+     "url": "https://diocesedecaetite.org.br/paroquias/condeuba/",
+     "title": "Diocese de Caetité — ficha oficial “Condeúba – Santo Antônio” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13778733001680",
+     "title": "Receita Federal — inscrição do CNPJ 13.778.733 da Diocese de Caetité: “PAROQUIA SANTO ANTONIO”",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13778733001680",
+   "notes": "A tabela oficial nomeia a Com. Divino Espírito Santo além da matriz. Vicariato: Vicariato Rainha dos Mártires.",
+   "communities": [
+    {
+     "name": "Igreja Matriz Santo Antônio",
+     "address": "Rua Padre Waldemar, Centro",
+     "neighborhood": null,
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/condeuba/",
+       "title": "Diocese de Caetité — ficha oficial “Condeúba – Santo Antônio” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Comunidade Divino Espírito Santo",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "notes": "Nomeada na tabela “Horário Celebrações” da ficha oficial da paróquia.",
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/condeuba/",
+       "title": "Diocese de Caetité — ficha oficial “Condeúba – Santo Antônio” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Igreja Matriz Santo Antônio",
+     "dayOfWeek": 0,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/condeuba/",
+       "title": "Diocese de Caetité — ficha oficial “Condeúba – Santo Antônio” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Comunidade Divino Espírito Santo",
+     "dayOfWeek": 0,
+     "time": "07:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/condeuba/",
+       "title": "Diocese de Caetité — ficha oficial “Condeúba – Santo Antônio” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Santo Antônio",
+     "dayOfWeek": 4,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/condeuba/",
+       "title": "Diocese de Caetité — ficha oficial “Condeúba – Santo Antônio” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "senhor-bom-jesus-da-boa-vida-cordeiros",
+   "name": "Paróquia Senhor Bom Jesus da Boa Vida",
+   "city": "Cordeiros",
+   "state": "BA",
+   "neighborhood": null,
+   "address": "Praça da Matriz, 145, centro",
+   "zipCode": "46280-000",
+   "phone": "(77) 3447-2072",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Hélio Guimarães Cândido",
+   "foundedYear": 1962,
+   "sources": [
+    {
+     "url": "https://diocesedecaetite.org.br/paroquias/cordeiros/",
+     "title": "Diocese de Caetité — ficha oficial “Cordeiros – Senhor da Boa Vida” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13778733002732",
+     "title": "Receita Federal — inscrição do CNPJ 13.778.733 da Diocese de Caetité: “PAROQUIA SENHOR BOM JESUS DA BOA VIDA”",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13778733002732",
+   "notes": "Vicariato: Vicariato Rainha dos Mártires.",
+   "communities": [
+    {
+     "name": "Igreja Matriz Senhor da Boa Vida",
+     "address": "Praça da Matriz, 145, centro",
+     "neighborhood": null,
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/cordeiros/",
+       "title": "Diocese de Caetité — ficha oficial “Cordeiros – Senhor da Boa Vida” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Igreja Matriz Senhor da Boa Vida",
+     "dayOfWeek": 0,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/cordeiros/",
+       "title": "Diocese de Caetité — ficha oficial “Cordeiros – Senhor da Boa Vida” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Senhor da Boa Vida",
+     "dayOfWeek": 4,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/cordeiros/",
+       "title": "Diocese de Caetité — ficha oficial “Cordeiros – Senhor da Boa Vida” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "santa-rosa-de-viterbo-guajeru",
+   "name": "Paróquia Santa Rosa de Viterbo",
+   "city": "Guajeru",
+   "state": "BA",
+   "neighborhood": null,
+   "address": "Praça Jesuíno Pereira de Souza, Centro",
+   "zipCode": "46205-000",
+   "phone": "(77) 3417-2287",
+   "email": "paroquiasantarosa@yahoo.com.br",
+   "website": null,
+   "priestName": "Pe. Ademilson Jesuíno da Silva",
+   "foundedYear": 2000,
+   "sources": [
+    {
+     "url": "https://diocesedecaetite.org.br/paroquias/guajeru/",
+     "title": "Diocese de Caetité — ficha oficial “Guajeru – Santa Rosa de Viterbo” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 06/04/2025)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13778733003976",
+     "title": "Receita Federal — inscrição do CNPJ 13.778.733 da Diocese de Caetité: “PAROQUIA SANTA ROSA DE VITERBO”",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13778733003976",
+   "notes": "A tabela oficial nomeia a Capela São Sebastião além da matriz. A ficha registra apenas um Vigário Cooperador (Pe. Ademilson Jesuíno da Silva), sem pároco — gravei-o em `priestName` e anotei aqui a ressalva. Vicariato: Vicariato Rainha da Paz.",
+   "communities": [
+    {
+     "name": "Igreja Matriz Santa Rosa de Viterbo",
+     "address": "Praça Jesuíno Pereira de Souza, Centro",
+     "neighborhood": null,
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/guajeru/",
+       "title": "Diocese de Caetité — ficha oficial “Guajeru – Santa Rosa de Viterbo” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 06/04/2025)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Capela São Sebastião",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "notes": "Nomeada na tabela “Horário Celebrações” da ficha oficial da paróquia.",
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/guajeru/",
+       "title": "Diocese de Caetité — ficha oficial “Guajeru – Santa Rosa de Viterbo” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 06/04/2025)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Igreja Matriz Santa Rosa de Viterbo",
+     "dayOfWeek": 0,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/guajeru/",
+       "title": "Diocese de Caetité — ficha oficial “Guajeru – Santa Rosa de Viterbo” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 06/04/2025)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Capela São Sebastião",
+     "dayOfWeek": 4,
+     "time": "06:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/guajeru/",
+       "title": "Diocese de Caetité — ficha oficial “Guajeru – Santa Rosa de Viterbo” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 06/04/2025)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Santa Rosa de Viterbo",
+     "dayOfWeek": 3,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/guajeru/",
+       "title": "Diocese de Caetité — ficha oficial “Guajeru – Santa Rosa de Viterbo” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 06/04/2025)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "santa-rita-de-cassia-guanambi",
+   "name": "Paróquia Santa Rita de Cássia",
+   "city": "Guanambi",
+   "state": "BA",
+   "neighborhood": null,
+   "address": "R. Vicente de Paula, Guanambi, BA",
+   "zipCode": "46430-000",
+   "phone": "(77) 9 9996-4849",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Edson Rocha Passos",
+   "foundedYear": 2023,
+   "sources": [
+    {
+     "url": "https://diocesedecaetite.org.br/paroquias/gbisantaritadecassia/",
+     "title": "Diocese de Caetité — ficha oficial “Guanambi – Santa Rita de Cássia” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13778733004603",
+     "title": "Receita Federal — inscrição do CNPJ 13.778.733 da Diocese de Caetité: “PAROQUIA SANTA RITA DE CASSIA”",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13778733004603",
+   "notes": "Instalada canonicamente em 13/05/2023 como a 3ª paróquia de Guanambi e a **39ª da diocese** — foi a própria ficha que permitiu fechar a contagem. A ficha declara 15 comunidades (3 urbanas e 12 rurais, incluindo o distrito de Morrinhos), sem lista nominal completa. Vicariato: Vicariato Rainha do Sertão.",
+   "communities": [
+    {
+     "name": "Igreja Matriz Santa Rita de Cássia",
+     "address": "R. Vicente de Paula, Guanambi, BA",
+     "neighborhood": null,
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/gbisantaritadecassia/",
+       "title": "Diocese de Caetité — ficha oficial “Guanambi – Santa Rita de Cássia” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Igreja Matriz Santa Rita de Cássia",
+     "dayOfWeek": 0,
+     "time": "07:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/gbisantaritadecassia/",
+       "title": "Diocese de Caetité — ficha oficial “Guanambi – Santa Rita de Cássia” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Santa Rita de Cássia",
+     "dayOfWeek": 0,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/gbisantaritadecassia/",
+       "title": "Diocese de Caetité — ficha oficial “Guanambi – Santa Rita de Cássia” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Santa Rita de Cássia",
+     "dayOfWeek": 4,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/gbisantaritadecassia/",
+       "title": "Diocese de Caetité — ficha oficial “Guanambi – Santa Rita de Cássia” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "santo-antonio-guanambi",
+   "name": "Paróquia Santo Antônio",
+   "city": "Guanambi",
+   "state": "BA",
+   "neighborhood": null,
+   "address": "Praça Getúlio Vargas, Centro",
+   "zipCode": "46430-000",
+   "phone": "(77) 3451-1187",
+   "email": "paroquiastoantonio@outlook.com",
+   "website": null,
+   "priestName": "Pe. João Silva de Sá Teles",
+   "foundedYear": 1870,
+   "sources": [
+    {
+     "url": "https://diocesedecaetite.org.br/paroquias/guanambi/",
+     "title": "Diocese de Caetité — ficha oficial “Guanambi – Santo Antônio” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13778733000365",
+     "title": "Receita Federal — inscrição do CNPJ 13.778.733 da Diocese de Caetité: “PAROQUIA SANTO ANTONIO”",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13778733000365",
+   "notes": "A tabela oficial nomeia duas comunidades além da matriz: Com. Nossa Senhora de Guadalupe (Bairro Alvorada) e Com. Nossa Senhora do Rosário (Mutans). Vicariato: Vicariato Rainha do Sertão. Clero da ficha oficial: Pároco: Pe. João Silva de Sá Teles; Vigário Cooperador: Pe. Leandro dos Santos Reis. Segundo telefone da secretaria: (77) 9 8157-5831.",
+   "communities": [
+    {
+     "name": "Igreja Matriz Santo Antônio",
+     "address": "Praça Getúlio Vargas, Centro",
+     "neighborhood": null,
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/guanambi/",
+       "title": "Diocese de Caetité — ficha oficial “Guanambi – Santo Antônio” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Comunidade Nossa Senhora de Guadalupe (Bairro Alvorada)",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "notes": "Nomeada na tabela “Horário Celebrações” da ficha oficial da paróquia.",
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/guanambi/",
+       "title": "Diocese de Caetité — ficha oficial “Guanambi – Santo Antônio” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Comunidade Nossa Senhora do Rosário (Mutans)",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "notes": "Nomeada na tabela “Horário Celebrações” da ficha oficial da paróquia.",
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/guanambi/",
+       "title": "Diocese de Caetité — ficha oficial “Guanambi – Santo Antônio” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Igreja Matriz Santo Antônio",
+     "dayOfWeek": 0,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/guanambi/",
+       "title": "Diocese de Caetité — ficha oficial “Guanambi – Santo Antônio” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Santo Antônio",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/guanambi/",
+       "title": "Diocese de Caetité — ficha oficial “Guanambi – Santo Antônio” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Santo Antônio",
+     "dayOfWeek": 3,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/guanambi/",
+       "title": "Diocese de Caetité — ficha oficial “Guanambi – Santo Antônio” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Comunidade Nossa Senhora de Guadalupe (Bairro Alvorada)",
+     "dayOfWeek": 0,
+     "time": "17:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/guanambi/",
+       "title": "Diocese de Caetité — ficha oficial “Guanambi – Santo Antônio” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Comunidade Nossa Senhora do Rosário (Mutans)",
+     "dayOfWeek": 0,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/guanambi/",
+       "title": "Diocese de Caetité — ficha oficial “Guanambi – Santo Antônio” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "sao-francisco-de-assis-guanambi",
+   "name": "Paróquia São Francisco de Assis",
+   "city": "Guanambi",
+   "state": "BA",
+   "neighborhood": null,
+   "address": "Praça Padre Barone Francesco, Bairro São Francisco, CEP 46430-00",
+   "zipCode": "46430-000",
+   "phone": "(77) 9 9865-8430",
+   "email": "paroquiasfgnb@gmail.com",
+   "website": null,
+   "priestName": "Pe. Leandro Martins da Silva SM",
+   "foundedYear": 2023,
+   "sources": [
+    {
+     "url": "https://diocesedecaetite.org.br/paroquias/gbisaofrancisco/",
+     "title": "Diocese de Caetité — ficha oficial “Guanambi – São Francisco de Assis” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 10/09/2024)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13778733004786",
+     "title": "Receita Federal — inscrição do CNPJ 13.778.733 da Diocese de Caetité: “PAROQUIA SAO FRANCISCO DE ASSIS”",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13778733004786",
+   "notes": "Vicariato: Vicariato Rainha do Sertão. Clero da ficha oficial: Pároco: Pe. Leandro Martins da Silva SM; Vigário Cooperador: Pe. Patrick Francis O’Neil, SM. Endereço da secretaria paroquial (difere do da igreja): Rua Luís Teixeira de Freire 502.",
+   "communities": [
+    {
+     "name": "Igreja Matriz São Francisco de Assis",
+     "address": "Praça Padre Barone Francesco, Bairro São Francisco, CEP 46430-00",
+     "neighborhood": null,
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/gbisaofrancisco/",
+       "title": "Diocese de Caetité — ficha oficial “Guanambi – São Francisco de Assis” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 10/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Igreja Matriz São Francisco de Assis",
+     "dayOfWeek": 0,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/gbisaofrancisco/",
+       "title": "Diocese de Caetité — ficha oficial “Guanambi – São Francisco de Assis” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 10/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz São Francisco de Assis",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/gbisaofrancisco/",
+       "title": "Diocese de Caetité — ficha oficial “Guanambi – São Francisco de Assis” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 10/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "sao-geraldo-majella-guanambi",
+   "name": "Paróquia São Geraldo Majella",
+   "city": "Guanambi",
+   "state": "BA",
+   "neighborhood": null,
+   "address": "Praça Domingos Jesulino Pereira, Bairro Brasília",
+   "zipCode": "46430-000",
+   "phone": "(77) 3451-5134",
+   "email": "paroquiasaogeraldomajella@hotmail.com",
+   "website": null,
+   "priestName": "Pe. Renivaldo Rodrigues de Souza SM",
+   "foundedYear": 2017,
+   "sources": [
+    {
+     "url": "https://diocesedecaetite.org.br/paroquias/sgmajella/",
+     "title": "Diocese de Caetité — ficha oficial “Guanambi – São Geraldo Majella” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13778733003542",
+     "title": "Receita Federal — inscrição do CNPJ 13.778.733 da Diocese de Caetité: “PAROQUIA SAO GERALDO MAJELLA”",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13778733003542",
+   "notes": "Vicariato: Vicariato Rainha do Sertão. Clero da ficha oficial: Pároco: Pe. Renivaldo Rodrigues de Souza SM; Vigário Cooperador: Pe. Leandro Martins da Silva SM. Endereço da secretaria paroquial (difere do da igreja): Travessa Piauí, SN, Bairro Brasília.",
+   "communities": [
+    {
+     "name": "Igreja Matriz São Geraldo Majella",
+     "address": "Praça Domingos Jesulino Pereira, Bairro Brasília",
+     "neighborhood": null,
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/sgmajella/",
+       "title": "Diocese de Caetité — ficha oficial “Guanambi – São Geraldo Majella” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Igreja Matriz São Geraldo Majella",
+     "dayOfWeek": 0,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/sgmajella/",
+       "title": "Diocese de Caetité — ficha oficial “Guanambi – São Geraldo Majella” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "sao-sebastiao-ibiassuce",
+   "name": "Paróquia São Sebastião",
+   "city": "Ibiassucê",
+   "state": "BA",
+   "neighborhood": null,
+   "address": "Praca Da Matriz, S/N, Centro",
+   "zipCode": "46390-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Izaías Afonso Silva",
+   "foundedYear": 1962,
+   "sources": [
+    {
+     "url": "https://diocesedecaetite.org.br/paroquias/ibiassuce/",
+     "title": "Diocese de Caetité — ficha oficial “Ibiassucê – São Sebastião” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13778733001922",
+     "title": "Receita Federal — inscrição do CNPJ 13.778.733 da Diocese de Caetité: “PAROQUIA SAO SEBASTIAO”",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13778733001922",
+   "notes": "A ficha oficial não publica endereço; o gravado vem do cadastro da Receita. Vicariato: Vicariato Rainha dos Patriarcas.",
+   "communities": [
+    {
+     "name": "Igreja Matriz São Sebastião",
+     "address": "Praca Da Matriz, S/N, Centro",
+     "neighborhood": null,
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/ibiassuce/",
+       "title": "Diocese de Caetité — ficha oficial “Ibiassucê – São Sebastião” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Igreja Matriz São Sebastião",
+     "dayOfWeek": 0,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/ibiassuce/",
+       "title": "Diocese de Caetité — ficha oficial “Ibiassucê – São Sebastião” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz São Sebastião",
+     "dayOfWeek": 0,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/ibiassuce/",
+       "title": "Diocese de Caetité — ficha oficial “Ibiassucê – São Sebastião” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz São Sebastião",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/ibiassuce/",
+       "title": "Diocese de Caetité — ficha oficial “Ibiassucê – São Sebastião” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-do-livramento-igapora",
+   "name": "Paróquia Nossa Senhora do Livramento",
+   "city": "Igaporã",
+   "state": "BA",
+   "neighborhood": null,
+   "address": "Praça Bernardo de Brito, Centro",
+   "zipCode": "46490-000",
+   "phone": "(77) 3460-1321",
+   "email": "paroquianslivramentodeigapora@gmail.com",
+   "website": null,
+   "priestName": "Pe. Lely Almeida de Oliveira",
+   "foundedYear": 1962,
+   "sources": [
+    {
+     "url": "https://diocesedecaetite.org.br/paroquias/igapora/",
+     "title": "Diocese de Caetité — ficha oficial “Igaporã – Nossa Senhora do Livramento” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13778733001760",
+     "title": "Receita Federal — inscrição do CNPJ 13.778.733 da Diocese de Caetité: “PAROQUIA NOSSA SENHORA DO LIVRAMENTO”",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13778733001760",
+   "notes": "Vicariato: Vicariato Rainha dos Apóstolos. Endereço da secretaria paroquial (difere do da igreja): Rua Antônio Pereira Neves, S/N – Centro, CEP: 46.490-000.",
+   "communities": [
+    {
+     "name": "Igreja Matriz Nossa Senhora do Livramento",
+     "address": "Praça Bernardo de Brito, Centro",
+     "neighborhood": null,
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/igapora/",
+       "title": "Diocese de Caetité — ficha oficial “Igaporã – Nossa Senhora do Livramento” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Igreja Matriz Nossa Senhora do Livramento",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/igapora/",
+       "title": "Diocese de Caetité — ficha oficial “Igaporã – Nossa Senhora do Livramento” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "santa-luzia-iuiu",
+   "name": "Paróquia Santa Luzia",
+   "city": "Iuiú",
+   "state": "BA",
+   "neighborhood": null,
+   "address": "Praça Santa Luzia, Centro",
+   "zipCode": "46438-000",
+   "phone": "(77) 3682-2119",
+   "email": "paroquiasantaluzia.iuiu@gmail.com",
+   "website": null,
+   "priestName": null,
+   "foundedYear": 1994,
+   "sources": [
+    {
+     "url": "https://diocesedecaetite.org.br/paroquias/iuiu/",
+     "title": "Diocese de Caetité — ficha oficial “Iuiú – Santa Luzia” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13778733002147",
+     "title": "Receita Federal — inscrição do CNPJ 13.778.733 da Diocese de Caetité: “PAROQUIA SANTA LUZIA”",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13778733002147",
+   "notes": "Vicariato: Vicariato Rainha do Sertão. Endereço da secretaria paroquial (difere do da igreja): Praça Santa Luzia, s/n, Centro, CEP:46438-000.",
+   "communities": [
+    {
+     "name": "Igreja Matriz Santa Luzia",
+     "address": "Praça Santa Luzia, Centro",
+     "neighborhood": null,
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/iuiu/",
+       "title": "Diocese de Caetité — ficha oficial “Iuiú – Santa Luzia” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Igreja Matriz Santa Luzia",
+     "dayOfWeek": 0,
+     "time": "16:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/iuiu/",
+       "title": "Diocese de Caetité — ficha oficial “Iuiú – Santa Luzia” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-da-boa-viagem-e-almas-jacaraci",
+   "name": "Paróquia Nossa Senhora da Boa Viagem e Almas",
+   "city": "Jacaraci",
+   "state": "BA",
+   "neighborhood": null,
+   "address": "Praça Nossa Senhora da Boa Viagem, S/N, Centro",
+   "zipCode": "46310-000",
+   "phone": "(77) 3466-2007",
+   "email": "paroquiansraboaviagemjacaraci@yahoo.com.br",
+   "website": null,
+   "priestName": null,
+   "foundedYear": 1857,
+   "sources": [
+    {
+     "url": "https://diocesedecaetite.org.br/paroquias/jacaraci/",
+     "title": "Diocese de Caetité — ficha oficial “Jacaraci – Nossa Senhora da Boa Viagem e Almas” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13778733001256",
+     "title": "Receita Federal — inscrição do CNPJ 13.778.733 da Diocese de Caetité: “PAROQUIA NOSSA SENHORA DA BOA VIAGEM”",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13778733001256",
+   "notes": "Vicariato: Vicariato Rainha dos Patriarcas. Segundo telefone da secretaria: (77) 9 9205-3262. Endereço da secretaria paroquial (difere do da igreja): Rua Deocleciano Teixeira, 25, Centro - CEP 46310-000.",
+   "communities": [
+    {
+     "name": "Igreja Matriz Nossa Senhora da Boa Viagem e Almas",
+     "address": "Praça Nossa Senhora da Boa Viagem, S/N, Centro",
+     "neighborhood": null,
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/jacaraci/",
+       "title": "Diocese de Caetité — ficha oficial “Jacaraci – Nossa Senhora da Boa Viagem e Almas” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Igreja Matriz Nossa Senhora da Boa Viagem e Almas",
+     "dayOfWeek": 0,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/jacaraci/",
+       "title": "Diocese de Caetité — ficha oficial “Jacaraci – Nossa Senhora da Boa Viagem e Almas” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Nossa Senhora da Boa Viagem e Almas",
+     "dayOfWeek": 0,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/jacaraci/",
+       "title": "Diocese de Caetité — ficha oficial “Jacaraci – Nossa Senhora da Boa Viagem e Almas” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Nossa Senhora da Boa Viagem e Almas",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/jacaraci/",
+       "title": "Diocese de Caetité — ficha oficial “Jacaraci – Nossa Senhora da Boa Viagem e Almas” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "santa-virgem-das-vitorias-lagoa-real",
+   "name": "Paróquia Santa Virgem das Vitórias",
+   "city": "Lagoa Real",
+   "state": "BA",
+   "neighborhood": null,
+   "address": "Praça da Matriz",
+   "zipCode": "46425-000",
+   "phone": "(77) 9 9188-3602",
+   "email": "paroquiavirgemdasvitorias@hotmail.com",
+   "website": null,
+   "priestName": "Pe. Manoel Silva Queiroz",
+   "foundedYear": 2017,
+   "sources": [
+    {
+     "url": "https://diocesedecaetite.org.br/paroquias/lagoareal/",
+     "title": "Diocese de Caetité — ficha oficial “Lagoa Real – Santa Virgem das Vitórias” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 11/05/2025)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13778733003461",
+     "title": "Receita Federal — inscrição do CNPJ 13.778.733 da Diocese de Caetité: “PAROQUIA SANTA VIRGEM DAS VITORIAS”",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13778733003461",
+   "notes": "Vicariato: Vicariato Rainha dos Apóstolos.",
+   "communities": [
+    {
+     "name": "Igreja Matriz Santa Virgem das Vitórias",
+     "address": "Praça da Matriz",
+     "neighborhood": null,
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/lagoareal/",
+       "title": "Diocese de Caetité — ficha oficial “Lagoa Real – Santa Virgem das Vitórias” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 11/05/2025)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Igreja Matriz Santa Virgem das Vitórias",
+     "dayOfWeek": 0,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/lagoareal/",
+       "title": "Diocese de Caetité — ficha oficial “Lagoa Real – Santa Virgem das Vitórias” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 11/05/2025)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-da-conceicao-licinio-de-almeida",
+   "name": "Paróquia Nossa Senhora da Conceição",
+   "city": "Licínio de Almeida",
+   "state": "BA",
+   "neighborhood": null,
+   "address": "Praça da Matriz",
+   "zipCode": "46330-000",
+   "phone": "(77) 3463-2112",
+   "email": "paroquialicinio@gmail.com",
+   "website": null,
+   "priestName": "Pe. Noé Moreira de Aguiar Neto",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedecaetite.org.br/paroquias/liciniodealmeida/",
+     "title": "Diocese de Caetité — ficha oficial “Licínio de Almeida – Nossa Senhora da Conceição” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13778733002309",
+     "title": "Receita Federal — inscrição do CNPJ 13.778.733 da Diocese de Caetité: “PAROQUIA NOSSA SENHORA DA CONCEICAO”",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13778733002309",
+   "notes": "Vicariato: Vicariato Rainha dos Patriarcas.",
+   "communities": [
+    {
+     "name": "Igreja Matriz Nossa Senhora da Conceição",
+     "address": "Praça da Matriz",
+     "neighborhood": null,
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/liciniodealmeida/",
+       "title": "Diocese de Caetité — ficha oficial “Licínio de Almeida – Nossa Senhora da Conceição” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Igreja Matriz Nossa Senhora da Conceição",
+     "dayOfWeek": 0,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/liciniodealmeida/",
+       "title": "Diocese de Caetité — ficha oficial “Licínio de Almeida – Nossa Senhora da Conceição” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Nossa Senhora da Conceição",
+     "dayOfWeek": 0,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/liciniodealmeida/",
+       "title": "Diocese de Caetité — ficha oficial “Licínio de Almeida – Nossa Senhora da Conceição” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-da-conceicao-macaubas",
+   "name": "Paróquia Nossa Senhora da Conceição",
+   "city": "Macaúbas",
+   "state": "BA",
+   "neighborhood": null,
+   "address": "Praça Imaculada Conceição, Centro",
+   "zipCode": "46500-000",
+   "phone": "(77) 3473-1107",
+   "email": "pnsconceicao8@gmail.com",
+   "website": null,
+   "priestName": "Pe. Osvaldino Alves Barbosa",
+   "foundedYear": 1840,
+   "sources": [
+    {
+     "url": "https://diocesedecaetite.org.br/paroquias/macaubas/",
+     "title": "Diocese de Caetité — ficha oficial “Macaúbas – Nossa Senhora da Conceição” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 12/09/2024)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13778733004433",
+     "title": "Receita Federal — inscrição do CNPJ 13.778.733 da Diocese de Caetité: “PAROQUIA NOSSA SENHORA DA CONCEICAO”",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13778733004433",
+   "notes": "Vicariato: Vicariato Rainha dos Profetas. Clero da ficha oficial: Pároco: Pe. Osvaldino Alves Barbosa; Vigário Cooperador: Mons. Osvaldo Ribeiro dos Santos. Segundo telefone da secretaria: (77) 9 9943-9520.",
+   "communities": [
+    {
+     "name": "Igreja Matriz Nossa Senhora da Conceição",
+     "address": "Praça Imaculada Conceição, Centro",
+     "neighborhood": null,
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/macaubas/",
+       "title": "Diocese de Caetité — ficha oficial “Macaúbas – Nossa Senhora da Conceição” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 12/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Igreja Matriz Nossa Senhora da Conceição",
+     "dayOfWeek": 0,
+     "time": "07:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/macaubas/",
+       "title": "Diocese de Caetité — ficha oficial “Macaúbas – Nossa Senhora da Conceição” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 12/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Nossa Senhora da Conceição",
+     "dayOfWeek": 0,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/macaubas/",
+       "title": "Diocese de Caetité — ficha oficial “Macaúbas – Nossa Senhora da Conceição” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 12/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Nossa Senhora da Conceição",
+     "dayOfWeek": 4,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/macaubas/",
+       "title": "Diocese de Caetité — ficha oficial “Macaúbas – Nossa Senhora da Conceição” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 12/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Nossa Senhora da Conceição",
+     "dayOfWeek": 6,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/macaubas/",
+       "title": "Diocese de Caetité — ficha oficial “Macaúbas – Nossa Senhora da Conceição” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 12/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "santo-antonio-maetinga",
+   "name": "Paróquia Santo Antônio",
+   "city": "Maetinga",
+   "state": "BA",
+   "neighborhood": null,
+   "address": "Rua Neomar Alcântara, s/n",
+   "zipCode": "46255-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Vincenzo Lumetta, RCJ",
+   "foundedYear": 1997,
+   "sources": [
+    {
+     "url": "https://diocesedecaetite.org.br/paroquias/maetinga/",
+     "title": "Diocese de Caetité — ficha oficial “Maetinga – Santo Antônio” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 17/03/2025)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13778733004000",
+     "title": "Receita Federal — inscrição do CNPJ 13.778.733 da Diocese de Caetité: “PAROQUIA SANTO ANTONIO”",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13778733004000",
+   "notes": "Vicariato: Vicariato Rainha dos Mártires.",
+   "communities": [
+    {
+     "name": "Igreja Matriz Santo Antônio",
+     "address": "Rua Neomar Alcântara, s/n",
+     "neighborhood": null,
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/maetinga/",
+       "title": "Diocese de Caetité — ficha oficial “Maetinga – Santo Antônio” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 17/03/2025)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Igreja Matriz Santo Antônio",
+     "dayOfWeek": 0,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/maetinga/",
+       "title": "Diocese de Caetité — ficha oficial “Maetinga – Santo Antônio” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 17/03/2025)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "santa-cruz-da-paixao-malhada",
+   "name": "Paróquia Santa Cruz da Paixão",
+   "city": "Malhada",
+   "state": "BA",
+   "neighborhood": null,
+   "address": "Praca Do Rosario, 01, Centro",
+   "zipCode": "46440-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Allan Delon Brandão Cruz",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedecaetite.org.br/paroquias/malhada/",
+     "title": "Diocese de Caetité — ficha oficial “Malhada – Santa Cruz da Paixão” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/04/2025)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13778733004271",
+     "title": "Receita Federal — inscrição do CNPJ 13.778.733 da Diocese de Caetité: “PAROQUIA SANTA CRUZ”",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13778733004271",
+   "notes": "A ficha oficial não publica endereço; o gravado vem do cadastro da Receita. Vicariato: Vicariato Rainha do Sertão.",
+   "communities": [
+    {
+     "name": "Igreja Matriz Santa Cruz da Paixão",
+     "address": "Praca Do Rosario, 01, Centro",
+     "neighborhood": null,
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/malhada/",
+       "title": "Diocese de Caetité — ficha oficial “Malhada – Santa Cruz da Paixão” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/04/2025)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Igreja Matriz Santa Cruz da Paixão",
+     "dayOfWeek": 0,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/malhada/",
+       "title": "Diocese de Caetité — ficha oficial “Malhada – Santa Cruz da Paixão” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/04/2025)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Santa Cruz da Paixão",
+     "dayOfWeek": 4,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/malhada/",
+       "title": "Diocese de Caetité — ficha oficial “Malhada – Santa Cruz da Paixão” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/04/2025)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "senhor-bom-jesus-malhada-de-pedras",
+   "name": "Paróquia Senhor Bom Jesus",
+   "city": "Malhada de Pedras",
+   "state": "BA",
+   "neighborhood": null,
+   "address": "Praça Monsenhor Antônio Fagundes",
+   "zipCode": "46110-000",
+   "phone": "(77) 9 8134-6347",
+   "email": "secretariapbomjesus@yahoo.com.br",
+   "website": null,
+   "priestName": "Pe. José Afonso de Lima IM",
+   "foundedYear": 1962,
+   "sources": [
+    {
+     "url": "https://diocesedecaetite.org.br/paroquias/malhadadepedras/",
+     "title": "Diocese de Caetité — ficha oficial “Malhada de Pedras – Senhor Bom Jesus” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 22/01/2025)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13778733002813",
+     "title": "Receita Federal — inscrição do CNPJ 13.778.733 da Diocese de Caetité: “PAROQUIA BOM JESUS-MALHADA DE PEDRAS”",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13778733002813",
+   "notes": "Vicariato: Vicariato Rainha da Paz. Endereço da secretaria paroquial (difere do da igreja): Rua Pe. Ladislau Klener, 50, Centro - CEP: 46110-000.",
+   "communities": [
+    {
+     "name": "Igreja Matriz Senhor Bom Jesus",
+     "address": "Praça Monsenhor Antônio Fagundes",
+     "neighborhood": null,
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/malhadadepedras/",
+       "title": "Diocese de Caetité — ficha oficial “Malhada de Pedras – Senhor Bom Jesus” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 22/01/2025)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Igreja Matriz Senhor Bom Jesus",
+     "dayOfWeek": 0,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/malhadadepedras/",
+       "title": "Diocese de Caetité — ficha oficial “Malhada de Pedras – Senhor Bom Jesus” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 22/01/2025)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Senhor Bom Jesus",
+     "dayOfWeek": 0,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/malhadadepedras/",
+       "title": "Diocese de Caetité — ficha oficial “Malhada de Pedras – Senhor Bom Jesus” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 22/01/2025)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Senhor Bom Jesus",
+     "dayOfWeek": 4,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/malhadadepedras/",
+       "title": "Diocese de Caetité — ficha oficial “Malhada de Pedras – Senhor Bom Jesus” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 22/01/2025)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-do-perpetuo-socorro-matina",
+   "name": "Paróquia Nossa Senhora do Perpétuo Socorro",
+   "city": "Matina",
+   "state": "BA",
+   "neighborhood": null,
+   "address": "Praca Elgino Campos De Lima, 470, Centro",
+   "zipCode": "46480-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. José Nilton Silva Pessoa",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedecaetite.org.br/paroquias/matina/",
+     "title": "Diocese de Caetité — ficha oficial “Matina – Nossa Senhora do Perpétuo Socorro” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 01/09/2024)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13778733003119",
+     "title": "Receita Federal — inscrição do CNPJ 13.778.733 da Diocese de Caetité: “NOSSA SENHORA DO PERPETUO SOCORRO”",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13778733003119",
+   "notes": "A ficha oficial não publica endereço; o gravado vem do cadastro da Receita. Vicariato: Vicariato Rainha do Sertão.",
+   "communities": [
+    {
+     "name": "Igreja Matriz Nossa Senhora do Perpétuo Socorro",
+     "address": "Praca Elgino Campos De Lima, 470, Centro",
+     "neighborhood": null,
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/matina/",
+       "title": "Diocese de Caetité — ficha oficial “Matina – Nossa Senhora do Perpétuo Socorro” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 01/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Igreja Matriz Nossa Senhora do Perpétuo Socorro",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/matina/",
+       "title": "Diocese de Caetité — ficha oficial “Matina – Nossa Senhora do Perpétuo Socorro” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 01/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "sao-jose-mortugaba",
+   "name": "Paróquia São José",
+   "city": "Mortugaba",
+   "state": "BA",
+   "neighborhood": null,
+   "address": "Praça Padre Durval Soares, Centro",
+   "zipCode": "46290-000",
+   "phone": "(77) 3464-2316",
+   "email": "paroquia.mortugaba@gmail.com",
+   "website": null,
+   "priestName": "Pe. José Carlos Rodrigues Pereira",
+   "foundedYear": 1962,
+   "sources": [
+    {
+     "url": "https://diocesedecaetite.org.br/paroquias/mortugaba/",
+     "title": "Diocese de Caetité — ficha oficial “Mortugaba – São José” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13778733002570",
+     "title": "Receita Federal — inscrição do CNPJ 13.778.733 da Diocese de Caetité: “PAROQUIA SAO JOSE”",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13778733002570",
+   "notes": "Vicariato: Vicariato Rainha dos Patriarcas. Endereço da secretaria paroquial (difere do da igreja): Rua Malaquias Brito, 333 - Centro.",
+   "communities": [
+    {
+     "name": "Igreja Matriz São José",
+     "address": "Praça Padre Durval Soares, Centro",
+     "neighborhood": null,
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/mortugaba/",
+       "title": "Diocese de Caetité — ficha oficial “Mortugaba – São José” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Igreja Matriz São José",
+     "dayOfWeek": 0,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/mortugaba/",
+       "title": "Diocese de Caetité — ficha oficial “Mortugaba – São José” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz São José",
+     "dayOfWeek": 0,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/mortugaba/",
+       "title": "Diocese de Caetité — ficha oficial “Mortugaba – São José” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-mae-de-deus-e-dos-homens-palmas-de-monte-alto",
+   "name": "Paróquia Nossa Senhora Mãe de Deus e dos Homens",
+   "city": "Palmas de Monte Alto",
+   "state": "BA",
+   "neighborhood": null,
+   "address": "Praça Wilson Lins S/N, centro",
+   "zipCode": "46460-000",
+   "phone": "(77) 3662-2793",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Sandro Alves Teixeira Lima",
+   "foundedYear": 1840,
+   "sources": [
+    {
+     "url": "https://diocesedecaetite.org.br/paroquias/palmasdemontealto/",
+     "title": "Diocese de Caetité — ficha oficial “Palmas de Monte Alto – Nossa  Srª Mãe dos Homens” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 21/09/2025)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13778733000527",
+     "title": "Receita Federal — inscrição do CNPJ 13.778.733 da Diocese de Caetité: “PAROQUIA NOSSA SENHORA MAE DE DEUS E DOS HOMENS”",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13778733000527",
+   "notes": "A ficha oficial dá o título abreviado “Nossa Srª Mãe dos Homens”; o texto histórico e a Receita registram **Nossa Senhora Mãe de Deus e dos Homens**, nome adotado. A tabela nomeia a Igreja do Divino Espírito Santo além da matriz. Vicariato: Vicariato Rainha do Sertão.",
+   "communities": [
+    {
+     "name": "Igreja Matriz Nossa Srª Mãe dos Homens",
+     "address": "Praça Wilson Lins S/N, centro",
+     "neighborhood": null,
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/palmasdemontealto/",
+       "title": "Diocese de Caetité — ficha oficial “Palmas de Monte Alto – Nossa  Srª Mãe dos Homens” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 21/09/2025)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    },
+    {
+     "name": "Igreja do Divino Espírito Santo",
+     "address": null,
+     "neighborhood": null,
+     "isMatriz": false,
+     "notes": "Nomeada na tabela “Horário Celebrações” da ficha oficial da paróquia.",
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/palmasdemontealto/",
+       "title": "Diocese de Caetité — ficha oficial “Palmas de Monte Alto – Nossa  Srª Mãe dos Homens” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 21/09/2025)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Igreja Matriz Nossa Srª Mãe dos Homens",
+     "dayOfWeek": 0,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/palmasdemontealto/",
+       "title": "Diocese de Caetité — ficha oficial “Palmas de Monte Alto – Nossa  Srª Mãe dos Homens” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 21/09/2025)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja do Divino Espírito Santo",
+     "dayOfWeek": 0,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/palmasdemontealto/",
+       "title": "Diocese de Caetité — ficha oficial “Palmas de Monte Alto – Nossa  Srª Mãe dos Homens” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 21/09/2025)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Nossa Srª Mãe dos Homens",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/palmasdemontealto/",
+       "title": "Diocese de Caetité — ficha oficial “Palmas de Monte Alto – Nossa  Srª Mãe dos Homens” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 21/09/2025)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "sao-joao-batista-pindai",
+   "name": "Paróquia São João Batista",
+   "city": "Pindaí",
+   "state": "BA",
+   "neighborhood": null,
+   "address": "R. Tibério Fausto, 914",
+   "zipCode": "46360-000",
+   "phone": "(77) 3667-2136",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Paulo Ferreira da Silva",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedecaetite.org.br/paroquias/pindai/",
+     "title": "Diocese de Caetité — ficha oficial “Pindaí – São João Batista” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 09/09/2024)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13778733002066",
+     "title": "Receita Federal — inscrição do CNPJ 13.778.733 da Diocese de Caetité: “PAROQUIA SAO JOAO BATISTA DE PINDAI”",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13778733002066",
+   "notes": "A tabela oficial traz uma linha de **“Culto” às quintas às 19h** (não é missa) — registrada aqui e não gravada como horário. Vicariato: Vicariato Rainha do Sertão.",
+   "communities": [
+    {
+     "name": "Igreja Matriz São João Batista",
+     "address": "R. Tibério Fausto, 914",
+     "neighborhood": null,
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/pindai/",
+       "title": "Diocese de Caetité — ficha oficial “Pindaí – São João Batista” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 09/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Igreja Matriz São João Batista",
+     "dayOfWeek": 0,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/pindai/",
+       "title": "Diocese de Caetité — ficha oficial “Pindaí – São João Batista” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 09/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "senhora-santana-piripa",
+   "name": "Paróquia Senhora Sant’Ana",
+   "city": "Piripá",
+   "state": "BA",
+   "neighborhood": null,
+   "address": "Praça da Bandeira 19, Piripá",
+   "zipCode": "46270-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedecaetite.org.br/paroquias/piripa/",
+     "title": "Diocese de Caetité — ficha oficial “Piripá – Senhora Sant’Ana” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 09/09/2024)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13778733002902",
+     "title": "Receita Federal — inscrição do CNPJ 13.778.733 da Diocese de Caetité: “PAROQUIA SENHORA SANTANA”",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13778733002902",
+   "notes": "Vicariato: Vicariato Rainha dos Mártires.",
+   "communities": [
+    {
+     "name": "Igreja Matriz Senhora Sant’Ana",
+     "address": "Praça da Bandeira 19, Piripá",
+     "neighborhood": null,
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/piripa/",
+       "title": "Diocese de Caetité — ficha oficial “Piripá – Senhora Sant’Ana” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 09/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Igreja Matriz Senhora Sant’Ana",
+     "dayOfWeek": 0,
+     "time": "09:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/piripa/",
+       "title": "Diocese de Caetité — ficha oficial “Piripá – Senhora Sant’Ana” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 09/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Senhora Sant’Ana",
+     "dayOfWeek": 0,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/piripa/",
+       "title": "Diocese de Caetité — ficha oficial “Piripá – Senhora Sant’Ana” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 09/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "sao-joao-batista-presidente-janio-quadros",
+   "name": "Paróquia São João Batista",
+   "city": "Presidente Jânio Quadros",
+   "state": "BA",
+   "neighborhood": null,
+   "address": "Praca Alipio Ferreira, 266, Centro",
+   "zipCode": "46250-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": null,
+   "foundedYear": 1962,
+   "sources": [
+    {
+     "url": "https://diocesedecaetite.org.br/paroquias/janioquadros/",
+     "title": "Diocese de Caetité — ficha oficial “Presidente Jânio Quadros – São João Batista” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 09/09/2024)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13778733003208",
+     "title": "Receita Federal — inscrição do CNPJ 13.778.733 da Diocese de Caetité: “PAROQUIA SAO JOAO BATISTA”",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13778733003208",
+   "notes": "A ficha não publica endereço, contato nem clero; o endereço gravado vem da Receita. A última notícia da paróquia no site é de 23/09/2019. A ficha oficial não publica endereço; o gravado vem do cadastro da Receita. Vicariato: Vicariato Rainha dos Mártires.",
+   "communities": [
+    {
+     "name": "Igreja Matriz São João Batista",
+     "address": "Praca Alipio Ferreira, 266, Centro",
+     "neighborhood": null,
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/janioquadros/",
+       "title": "Diocese de Caetité — ficha oficial “Presidente Jânio Quadros – São João Batista” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 09/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Igreja Matriz São João Batista",
+     "dayOfWeek": 0,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/janioquadros/",
+       "title": "Diocese de Caetité — ficha oficial “Presidente Jânio Quadros – São João Batista” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 09/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-da-gloria-riacho-de-santana",
+   "name": "Paróquia Nossa Senhora da Glória",
+   "city": "Riacho de Santana",
+   "state": "BA",
+   "neighborhood": null,
+   "address": "Praça Monsenhor Tobias, 330, Centro",
+   "zipCode": "46470-000",
+   "phone": "(77) 3457-2147",
+   "email": "paroquianossasenhoragloria@yahoo.com.br",
+   "website": null,
+   "priestName": "Pe. Sátiro Bezerra do Prado Fernandes",
+   "foundedYear": 1864,
+   "sources": [
+    {
+     "url": "https://diocesedecaetite.org.br/paroquias/riachodesantana/",
+     "title": "Diocese de Caetité — ficha oficial “Riacho de Santana – Nossa Senhora da Glória” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13778733003038",
+     "title": "Receita Federal — inscrição do CNPJ 13.778.733 da Diocese de Caetité: “PAROQUIA NOSSA SENHORA DA GLORIA”",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13778733003038",
+   "notes": "Vicariato: Vicariato Rainha dos Apóstolos. Endereço da secretaria paroquial (difere do da igreja): Travessa Mons. Tobias, 330 – Centro, CEP: 46470-000.",
+   "communities": [
+    {
+     "name": "Igreja Matriz Nossa Senhora da Glória",
+     "address": "Praça Monsenhor Tobias, 330, Centro",
+     "neighborhood": null,
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/riachodesantana/",
+       "title": "Diocese de Caetité — ficha oficial “Riacho de Santana – Nossa Senhora da Glória” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Igreja Matriz Nossa Senhora da Glória",
+     "dayOfWeek": 0,
+     "time": "07:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/riachodesantana/",
+       "title": "Diocese de Caetité — ficha oficial “Riacho de Santana – Nossa Senhora da Glória” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Nossa Senhora da Glória",
+     "dayOfWeek": 0,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/riachodesantana/",
+       "title": "Diocese de Caetité — ficha oficial “Riacho de Santana – Nossa Senhora da Glória” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Nossa Senhora da Glória",
+     "dayOfWeek": 4,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/riachodesantana/",
+       "title": "Diocese de Caetité — ficha oficial “Riacho de Santana – Nossa Senhora da Glória” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-do-carmo-rio-do-antonio",
+   "name": "Paróquia Nossa Senhora do Carmo",
+   "city": "Rio do Antônio",
+   "state": "BA",
+   "neighborhood": "Ibitira",
+   "address": "Praça Francisco Boezzo",
+   "zipCode": "46225-000",
+   "phone": "(77) 9 8822-7457",
+   "email": "paroquia.nscarmo.ibitira@hotmail.com",
+   "website": null,
+   "priestName": "Pe. Osvaldino Batista Caitano",
+   "foundedYear": 2017,
+   "sources": [
+    {
+     "url": "https://diocesedecaetite.org.br/paroquias/ibitira/",
+     "title": "Diocese de Caetité — ficha oficial “Ibitira – Nossa Senhora do Carmo” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13778733003704",
+     "title": "Receita Federal — inscrição do CNPJ 13.778.733 da Diocese de Caetité: “PAROQUIA NOSSA SENHORA DO CARMO”",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13778733003704",
+   "notes": "Fica no distrito de **Ibitira**, município de **Rio do Antônio** — é assim que a Receita cadastra o CNPJ (município RIO DO ANTONIO, bairro IBITIRA, CEP 46225-000), embora o título da ficha oficial diga só “Ibitira”. Vicariato: Vicariato Rainha dos Apóstolos. Endereço da secretaria paroquial (difere do da igreja): Avenida Norberto Fernandes.",
+   "communities": [
+    {
+     "name": "Igreja Matriz Nossa Senhora do Carmo",
+     "address": "Praça Francisco Boezzo",
+     "neighborhood": "Ibitira",
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/ibitira/",
+       "title": "Diocese de Caetité — ficha oficial “Ibitira – Nossa Senhora do Carmo” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Igreja Matriz Nossa Senhora do Carmo",
+     "dayOfWeek": 0,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/ibitira/",
+       "title": "Diocese de Caetité — ficha oficial “Ibitira – Nossa Senhora do Carmo” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Nossa Senhora do Carmo",
+     "dayOfWeek": 4,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/ibitira/",
+       "title": "Diocese de Caetité — ficha oficial “Ibitira – Nossa Senhora do Carmo” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-do-livramento-rio-do-antonio",
+   "name": "Paróquia Nossa Senhora do Livramento",
+   "city": "Rio do Antônio",
+   "state": "BA",
+   "neighborhood": null,
+   "address": "Praça Bernardo José Dias S/N",
+   "zipCode": "46220-000",
+   "phone": null,
+   "email": "paraquianossasenhoradolivramento@hotmail.com",
+   "website": null,
+   "priestName": "Pe. Ícaro Vinícius Gonçalves Silva",
+   "foundedYear": 1987,
+   "sources": [
+    {
+     "url": "https://diocesedecaetite.org.br/paroquias/riodoantonio/",
+     "title": "Diocese de Caetité — ficha oficial “Rio do Antônio – Nossa Senhora do Livramento” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 09/09/2024)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13778733001841",
+     "title": "Receita Federal — inscrição do CNPJ 13.778.733 da Diocese de Caetité: “PAROQUIA NOSSA SENHORA DO LIVRAMENTO”",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13778733001841",
+   "notes": "Vicariato: Vicariato Rainha dos Patriarcas.",
+   "communities": [
+    {
+     "name": "Igreja Matriz Nossa Senhora do Livramento",
+     "address": "Praça Bernardo José Dias S/N",
+     "neighborhood": null,
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/riodoantonio/",
+       "title": "Diocese de Caetité — ficha oficial “Rio do Antônio – Nossa Senhora do Livramento” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 09/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Igreja Matriz Nossa Senhora do Livramento",
+     "dayOfWeek": 0,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/riodoantonio/",
+       "title": "Diocese de Caetité — ficha oficial “Rio do Antônio – Nossa Senhora do Livramento” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 09/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Nossa Senhora do Livramento",
+     "dayOfWeek": 0,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/riodoantonio/",
+       "title": "Diocese de Caetité — ficha oficial “Rio do Antônio – Nossa Senhora do Livramento” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 09/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "santo-antonio-sebastiao-laranjeiras",
+   "name": "Paróquia Santo Antônio",
+   "city": "Sebastião Laranjeiras",
+   "state": "BA",
+   "neighborhood": null,
+   "address": "Praça da Matriz - s/n - Centro",
+   "zipCode": "46450-000",
+   "phone": "(77) 3668-2188",
+   "email": "slaranjeirasparoquia@gmail.com",
+   "website": null,
+   "priestName": null,
+   "foundedYear": 1962,
+   "sources": [
+    {
+     "url": "https://diocesedecaetite.org.br/paroquias/sebastiaolaranjeiras/",
+     "title": "Diocese de Caetité — ficha oficial “Sebastião Laranjeiras – Santo Antônio” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 02/09/2024)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13778733000608",
+     "title": "Receita Federal — inscrição do CNPJ 13.778.733 da Diocese de Caetité: “PAROQUIA SANTO ANTONIO”",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13778733000608",
+   "notes": "Vicariato: Vicariato Rainha do Sertão.",
+   "communities": [
+    {
+     "name": "Igreja Matriz Santo Antônio",
+     "address": "Praça da Matriz - s/n - Centro",
+     "neighborhood": null,
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/sebastiaolaranjeiras/",
+       "title": "Diocese de Caetité — ficha oficial “Sebastião Laranjeiras – Santo Antônio” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 02/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Igreja Matriz Santo Antônio",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/sebastiaolaranjeiras/",
+       "title": "Diocese de Caetité — ficha oficial “Sebastião Laranjeiras – Santo Antônio” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 02/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "imaculado-coracao-de-maria-tanque-novo",
+   "name": "Paróquia Imaculado Coração de Maria",
+   "city": "Tanque Novo",
+   "state": "BA",
+   "neighborhood": null,
+   "address": "Praca Da Matriz, SN, Centro",
+   "zipCode": "46580-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Antônio dos Santos Meira",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedecaetite.org.br/paroquias/tanquenovo/",
+     "title": "Diocese de Caetité — ficha oficial “Tanque Novo – Imaculado Coração de Maria” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13778733001337",
+     "title": "Receita Federal — inscrição do CNPJ 13.778.733 da Diocese de Caetité: “PAROQUIA IMACULADO CORACAO DE MARIA”",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13778733001337",
+   "notes": "A ficha oficial não publica endereço; o gravado vem do cadastro da Receita. Vicariato: Vicariato Rainha dos Profetas.",
+   "communities": [
+    {
+     "name": "Igreja Matriz Imaculado Coração de Maria",
+     "address": "Praca Da Matriz, SN, Centro",
+     "neighborhood": null,
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/tanquenovo/",
+       "title": "Diocese de Caetité — ficha oficial “Tanque Novo – Imaculado Coração de Maria” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Igreja Matriz Imaculado Coração de Maria",
+     "dayOfWeek": 0,
+     "time": "07:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/tanquenovo/",
+       "title": "Diocese de Caetité — ficha oficial “Tanque Novo – Imaculado Coração de Maria” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Imaculado Coração de Maria",
+     "dayOfWeek": 0,
+     "time": "19:30",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/tanquenovo/",
+       "title": "Diocese de Caetité — ficha oficial “Tanque Novo – Imaculado Coração de Maria” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "senhor-do-bonfim-tremedal",
+   "name": "Paróquia Senhor do Bonfim",
+   "city": "Tremedal",
+   "state": "BA",
+   "neighborhood": null,
+   "address": "Praca Da Matriz, S/N, Centro",
+   "zipCode": "45170-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Waldech Brito Gondim",
+   "foundedYear": null,
+   "sources": [
+    {
+     "url": "https://diocesedecaetite.org.br/paroquias/tremedal/",
+     "title": "Diocese de Caetité — ficha oficial “Tremedal – Senhor do Bonfim” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 13/08/2025)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13778733001175",
+     "title": "Receita Federal — inscrição do CNPJ 13.778.733 da Diocese de Caetité: “PAROQUIA SENHOR DO BONFIM”",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13778733001175",
+   "notes": "A ficha oficial não publica endereço; o gravado vem do cadastro da Receita. Vicariato: Vicariato Rainha dos Mártires.",
+   "communities": [
+    {
+     "name": "Igreja Matriz Senhor do Bonfim",
+     "address": "Praca Da Matriz, S/N, Centro",
+     "neighborhood": null,
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/tremedal/",
+       "title": "Diocese de Caetité — ficha oficial “Tremedal – Senhor do Bonfim” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 13/08/2025)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Igreja Matriz Senhor do Bonfim",
+     "dayOfWeek": 6,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/tremedal/",
+       "title": "Diocese de Caetité — ficha oficial “Tremedal – Senhor do Bonfim” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 13/08/2025)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Senhor do Bonfim",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/tremedal/",
+       "title": "Diocese de Caetité — ficha oficial “Tremedal – Senhor do Bonfim” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 13/08/2025)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  },
+  {
+   "slug": "santo-antonio-urandi",
+   "name": "Paróquia Santo Antônio",
+   "city": "Urandi",
+   "state": "BA",
+   "neighborhood": null,
+   "address": "Praça Luiz Gomes, 282 - Centro",
+   "zipCode": "46350-000",
+   "phone": "(77) 3456-2615",
+   "email": "igrejamatrizdeurandi@hotmail.com",
+   "website": null,
+   "priestName": "Pe. Rafael Santos Almeida",
+   "foundedYear": 1812,
+   "sources": [
+    {
+     "url": "https://diocesedecaetite.org.br/paroquias/urandi/",
+     "title": "Diocese de Caetité — ficha oficial “Urandi – Santo Antônio” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+     "accessedAt": "2026-09-18"
+    },
+    {
+     "url": "https://minhareceita.org/13778733002490",
+     "title": "Receita Federal — inscrição do CNPJ 13.778.733 da Diocese de Caetité: “PAROQUIA SANTO ANTONIO DE URANDI”",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "cnpj": "13778733002490",
+   "notes": "A tabela oficial traz, além das duas missas, uma linha de **“Celebração” aos sábados às 19h** (não é missa) — registrada aqui e não gravada como horário. Vicariato: Vicariato Rainha do Sertão. Endereço da secretaria paroquial (difere do da igreja): Praça Luiz Gomes, Centro, Nº 282.",
+   "communities": [
+    {
+     "name": "Igreja Matriz Santo Antônio",
+     "address": "Praça Luiz Gomes, 282 - Centro",
+     "neighborhood": null,
+     "isMatriz": true,
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/urandi/",
+       "title": "Diocese de Caetité — ficha oficial “Urandi – Santo Antônio” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "alta"
+    }
+   ],
+   "schedules": [
+    {
+     "community": "Igreja Matriz Santo Antônio",
+     "dayOfWeek": 0,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/urandi/",
+       "title": "Diocese de Caetité — ficha oficial “Urandi – Santo Antônio” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    },
+    {
+     "community": "Igreja Matriz Santo Antônio",
+     "dayOfWeek": 4,
+     "time": "19:00",
+     "type": "MASS",
+     "notes": null,
+     "sources": [
+      {
+       "url": "https://diocesedecaetite.org.br/paroquias/urandi/",
+       "title": "Diocese de Caetité — ficha oficial “Urandi – Santo Antônio” (data de fundação, vicariato, endereço, clero, tabela “Horário Celebrações” e dados da secretaria; página modificada em 08/09/2024)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "media"
+    }
+   ]
+  }
+ ],
+ "coverage": {
+  "parishesFound": 41,
+  "parishesExpected": 41,
+  "notes": "41 de 41, fechado por TRÊS contagens independentes que casam uma a uma: (1) o tipo de conteúdo `paroquias` da REST do site oficial devolve X-WP-Total = 41; (2) a varredura do CNPJ 13.778.733 na Receita Federal (de /0001 a /0070 — existem exatamente 48 inscrições, nada além) traz 41 paróquias ATIVAS, e as 7 restantes não são paróquias: a sede (/0001), o Seminário São José de Caetité (/0033), a Comunidade de Formação N. Sra. de Guadalupe em Belo Horizonte (/0038), a Comunidade de Formação São Pio X em Vitória da Conquista (/0045), o Hospital Nossa Senhora Aparecida de Caculé (/0002, BAIXADA), a Congregação Pequenas Filhas de São José (/0008, BAIXADA) e uma inscrição antiga da Paróquia N. Sra. da Boa Viagem de Jacaraci (/0015, BAIXADA, substituída pela /0012); (3) a **própria narrativa do site**: a ficha da Paróquia Santa Rita de Cássia declara que ela é “a terceira da cidade [Guanambi] e a 39ª da Diocese de Caetité” ao ser instalada em 13/05/2023 — vieram depois São Francisco de Assis de Guanambi (24/09/2023, a 40ª) e São Sebastião de Caturama (25/12/2024, a 41ª). O catholic-hierarchy declara 38 paróquias em 2023 (ap2024) e o gcatholic lista 35 igrejas, ambos anteriores às mais novas. Comunidades: o site publica só as capelas que aparecem como LOCAL na tabela de horários (5 além das matrizes); as fichas de Caturama e de Santa Rita de Cássia declaram 21 e 15 comunidades sem nomeá-las, e nenhuma paróquia publica lista nominal."
+ }
+}

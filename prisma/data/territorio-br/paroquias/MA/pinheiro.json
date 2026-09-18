@@ -1,0 +1,1126 @@
+{
+ "diocese": {
+  "name": "Diocese de Pinheiro",
+  "type": "Diocese",
+  "slug": "pinheiro",
+  "city": "Pinheiro",
+  "state": "MA",
+  "address": "Cúria Diocesana, Avenida Presidente Dutra, 386 A, Centro",
+  "zipCode": "65200-000",
+  "phone": "(98) 3381-1278",
+  "email": "diocesepinheiro@bol.com.br",
+  "website": "https://diocesedepinheiro.com.br",
+  "bishopName": "Dom Elio Rama, I.M.C.",
+  "sources": [
+   {
+    "url": "https://diocesedepinheiro.com.br/paroquias/",
+    "title": "Diocese de Pinheiro - pagina Paroquias (site oficial, ativo)",
+    "accessedAt": "2026-09-18"
+   },
+   {
+    "url": "https://diocesedepinheiro.com.br/wp-json/wp/v2/locais?per_page=100",
+    "title": "Diocese de Pinheiro - REST do WordPress, tipo de conteudo proprio \"locais\": as 25 fichas de paroquia/quase-paroquia (X-WP-Total: 25; fichas modificadas entre 02/2025 e 08/2026)",
+    "accessedAt": "2026-09-18"
+   },
+   {
+    "url": "https://diocesedepinheiro.com.br/curiadiocesana/",
+    "title": "Diocese de Pinheiro - Curia Diocesana (endereco, telefone e e-mail oficiais)",
+    "accessedAt": "2026-09-18"
+   },
+   {
+    "url": "https://www.catholic-hierarchy.org/diocese/dpinh.html",
+    "title": "catholic-hierarchy.org - Pinheiro (Diocese): 25 paroquias, 329.000 catolicos e 38 presbiteros em 2023",
+    "accessedAt": "2026-09-18"
+   },
+   {
+    "url": "https://gcatholic.org/churches/local/pinh0",
+    "title": "gcatholic.org - Igrejas da Diocese de Pinheiro (28 igrejas listadas por cidade, 22 marcadas \"Parish\"; atualizado em 01/01/2026)",
+    "accessedAt": "2026-09-18"
+   },
+   {
+    "url": "https://mapaosc.ipea.gov.br/",
+    "title": "Mapa das OSC / IPEA - busca avancada por razao social \"DIOCESE DE PINHEIRO\": so a sede (CNPJ 06.201.917/0001-30) e a Acao Social da Diocese; as paroquias tem CNPJ proprio, entao a varredura de filiais da mitra nao se aplica a esta diocese",
+    "accessedAt": "2026-09-18"
+   }
+  ],
+  "confidence": "alta"
+ },
+ "parishes": [
+  {
+   "slug": "santo-inacio-de-loyola-pinheiro",
+   "name": "Paróquia Catedral de Santo Inácio de Loyola",
+   "city": "Pinheiro",
+   "state": "MA",
+   "neighborhood": "Matriz",
+   "address": "Praça Pe. Newton Pereira, 481",
+   "zipCode": "65200-000",
+   "phone": "(98) 98412-1780",
+   "email": "paroquiainaciodeloyola2018@gmail.com",
+   "website": null,
+   "priestName": "Pe. Domingos Higino Cruz Martins",
+   "foundedYear": 1855,
+   "sources": [
+    {
+     "url": "https://diocesedepinheiro.com.br/locais/paroquia-catedral-de-santo-inacio-de-loyola/",
+     "title": "Diocese de Pinheiro - ficha oficial de Paróquia Catedral de Santo Inácio de Loyola (data de ereccao, festa paroquial, endereco, casa paroquial, e-mail, telefone e clero)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [],
+   "schedules": [
+    {
+     "community": "Matriz",
+     "dayOfWeek": 0,
+     "time": "07:30",
+     "type": "MASS",
+     "notes": "Grade publicada pelo agregador Lirio Catolico; a diocese nao publica horarios e nao ha confirmacao em fonte oficial da paroquia.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; o campo ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas do estado)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 0,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": "Grade publicada pelo agregador Lirio Catolico; a diocese nao publica horarios e nao ha confirmacao em fonte oficial da paroquia.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; o campo ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas do estado)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 2,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": "Grade publicada pelo agregador Lirio Catolico; a diocese nao publica horarios e nao ha confirmacao em fonte oficial da paroquia.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; o campo ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas do estado)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 3,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": "Grade publicada pelo agregador Lirio Catolico; a diocese nao publica horarios e nao ha confirmacao em fonte oficial da paroquia.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; o campo ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas do estado)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 4,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": "Grade publicada pelo agregador Lirio Catolico; a diocese nao publica horarios e nao ha confirmacao em fonte oficial da paroquia.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; o campo ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas do estado)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 5,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": "Grade publicada pelo agregador Lirio Catolico; a diocese nao publica horarios e nao ha confirmacao em fonte oficial da paroquia.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; o campo ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas do estado)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 5,
+     "time": "18:00",
+     "type": "ADORATION",
+     "notes": "Grade publicada pelo agregador Lirio Catolico; a diocese nao publica horarios e nao ha confirmacao em fonte oficial da paroquia.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; o campo ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas do estado)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "nossa-senhora-da-conceicao-pacas-pinheiro",
+   "name": "Paróquia Nossa Senhora da Conceição",
+   "city": "Pinheiro",
+   "state": "MA",
+   "neighborhood": "Pacas",
+   "address": "Praça Nossa Senhora da Conceição, s/n",
+   "zipCode": "65200-000",
+   "phone": null,
+   "email": "paroquiapacas@outlook.com",
+   "website": null,
+   "priestName": "Pe. Márcio Hélio Cardoso Silva",
+   "foundedYear": 2010,
+   "sources": [
+    {
+     "url": "https://diocesedepinheiro.com.br/locais/paroquia-nossa-senhora-da-conceicao-pacas/",
+     "title": "Diocese de Pinheiro - ficha oficial de Paróquia Nossa Senhora da Conceição (data de ereccao, festa paroquial, endereco, casa paroquial, e-mail, telefone e clero)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [],
+   "schedules": [
+    {
+     "community": "Matriz",
+     "dayOfWeek": 0,
+     "time": "07:30",
+     "type": "MASS",
+     "notes": "Grade publicada pelo agregador Lirio Catolico; a diocese nao publica horarios e nao ha confirmacao em fonte oficial da paroquia.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; o campo ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas do estado)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "sao-benedito-pinheiro",
+   "name": "Paróquia São Benedito",
+   "city": "Pinheiro",
+   "state": "MA",
+   "neighborhood": "São Benedito",
+   "address": "Praça da Independência, s/n",
+   "zipCode": "65200-000",
+   "phone": "(98) 98410-8598",
+   "email": "paroquiasaobenedito692@gmail.com",
+   "website": null,
+   "priestName": "Pe. Clemir Batista da Silva",
+   "foundedYear": 2013,
+   "sources": [
+    {
+     "url": "https://diocesedepinheiro.com.br/locais/paroquia-sao-benedito/",
+     "title": "Diocese de Pinheiro - ficha oficial de Paróquia São Benedito (data de ereccao, festa paroquial, endereco, casa paroquial, e-mail, telefone e clero)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [],
+   "schedules": [
+    {
+     "community": "Matriz",
+     "dayOfWeek": 0,
+     "time": "07:30",
+     "type": "MASS",
+     "notes": "Grade publicada pelo agregador Lirio Catolico; a diocese nao publica horarios e nao ha confirmacao em fonte oficial da paroquia.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; o campo ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas do estado)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 1,
+     "time": "18:15",
+     "type": "MASS",
+     "notes": "Grade publicada pelo agregador Lirio Catolico; a diocese nao publica horarios e nao ha confirmacao em fonte oficial da paroquia.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; o campo ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas do estado)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 2,
+     "time": "18:15",
+     "type": "MASS",
+     "notes": "Grade publicada pelo agregador Lirio Catolico; a diocese nao publica horarios e nao ha confirmacao em fonte oficial da paroquia.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; o campo ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas do estado)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 3,
+     "time": "18:15",
+     "type": "MASS",
+     "notes": "Grade publicada pelo agregador Lirio Catolico; a diocese nao publica horarios e nao ha confirmacao em fonte oficial da paroquia.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; o campo ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas do estado)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 4,
+     "time": "18:15",
+     "type": "MASS",
+     "notes": "Grade publicada pelo agregador Lirio Catolico; a diocese nao publica horarios e nao ha confirmacao em fonte oficial da paroquia.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; o campo ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas do estado)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 5,
+     "time": "18:15",
+     "type": "MASS",
+     "notes": "Grade publicada pelo agregador Lirio Catolico; a diocese nao publica horarios e nao ha confirmacao em fonte oficial da paroquia.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; o campo ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas do estado)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "sao-jose-fomento-pinheiro",
+   "name": "Paróquia São José",
+   "city": "Pinheiro",
+   "state": "MA",
+   "neighborhood": "Fomento",
+   "address": "Praça Pio XII, s/n",
+   "zipCode": "65200-000",
+   "phone": "(98) 98409-6494",
+   "email": "paroquiasjosepho@hotmail.com",
+   "website": null,
+   "priestName": "Pe. Maribelton Barbosa Silva",
+   "foundedYear": 2013,
+   "sources": [
+    {
+     "url": "https://diocesedepinheiro.com.br/locais/paroquia-sao-jose-fomento/",
+     "title": "Diocese de Pinheiro - ficha oficial de Paróquia São José (data de ereccao, festa paroquial, endereco, casa paroquial, e-mail, telefone e clero)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [],
+   "schedules": [
+    {
+     "community": "Matriz",
+     "dayOfWeek": 0,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": "Grade publicada pelo agregador Lirio Catolico; a diocese nao publica horarios e nao ha confirmacao em fonte oficial da paroquia.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; o campo ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas do estado)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 2,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": "Grade publicada pelo agregador Lirio Catolico; a diocese nao publica horarios e nao ha confirmacao em fonte oficial da paroquia.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; o campo ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas do estado)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 5,
+     "time": "18:00",
+     "type": "MASS",
+     "notes": "Grade publicada pelo agregador Lirio Catolico; a diocese nao publica horarios e nao ha confirmacao em fonte oficial da paroquia.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; o campo ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas do estado)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "sao-matias-e-nossa-senhora-do-carmo-alcantara",
+   "name": "Paróquia São Matias e de Nossa Senhora do Carmo",
+   "city": "Alcântara",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Praça Fr. Custódio Serrão, s/n",
+   "zipCode": "65250-000",
+   "phone": "(98) 98411-3676",
+   "email": "paroquiasaomatias400@gmail.com",
+   "website": null,
+   "priestName": "Pe. Anderson Costa Pereira",
+   "foundedYear": 1622,
+   "sources": [
+    {
+     "url": "https://diocesedepinheiro.com.br/locais/paroquia-sao-matias-alcantara/",
+     "title": "Diocese de Pinheiro - ficha oficial de Paróquia São Matias e de Nossa Senhora do Carmo (data de ereccao, festa paroquial, endereco, casa paroquial, e-mail, telefone e clero)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "conceicao-aparecida-de-oitiua-alcantara",
+   "name": "Quase-paróquia da Bem-Aventurada Virgem Maria da Conceição Aparecida de Oitiua",
+   "city": "Alcântara",
+   "state": "MA",
+   "neighborhood": "Oitiua",
+   "address": "Rua dos Guimarães, s/n, Oitiua",
+   "zipCode": null,
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Paulo Celso Nogueira Oliveira",
+   "foundedYear": 2026,
+   "sources": [
+    {
+     "url": "https://diocesedepinheiro.com.br/locais/area-pastoral-nossa-senhora-aparecida-oitiua/",
+     "title": "Diocese de Pinheiro - ficha oficial de Quase-paróquia da Bem-Aventurada Virgem Maria da Conceição Aparecida de Oitiua (data de ereccao, festa paroquial, endereco, casa paroquial, e-mail, telefone e clero)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "santissimo-salvador-apicum-acu",
+   "name": "Paróquia Santíssimo Salvador",
+   "city": "Apicum-Açu",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Rua Salvador, s/n",
+   "zipCode": "65275-000",
+   "phone": "(98) 98411-8666",
+   "email": "paroquiadosantissimo@outlook.com",
+   "website": null,
+   "priestName": "Pe. Tássio Mariano Marques Santos",
+   "foundedYear": 2009,
+   "sources": [
+    {
+     "url": "https://diocesedepinheiro.com.br/locais/paroquia-santissimo-salvador-apicum-acu/",
+     "title": "Diocese de Pinheiro - ficha oficial de Paróquia Santíssimo Salvador (data de ereccao, festa paroquial, endereco, casa paroquial, e-mail, telefone e clero)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "sao-sebastiao-bacuri",
+   "name": "Paróquia São Sebastião",
+   "city": "Bacuri",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Praça São Sebastião, s/n",
+   "zipCode": "65270-000",
+   "phone": "(98) 98411-2118",
+   "email": "paroquiasaosebastiaodebacurima@gmail.com",
+   "website": null,
+   "priestName": "Pe. José Ribamar Frazão Serrão",
+   "foundedYear": 1966,
+   "sources": [
+    {
+     "url": "https://diocesedepinheiro.com.br/locais/paroquia-sao-sebastiao-bacuri/",
+     "title": "Diocese de Pinheiro - ficha oficial de Paróquia São Sebastião (data de ereccao, festa paroquial, endereco, casa paroquial, e-mail, telefone e clero)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "santo-antonio-e-almas-bequimao",
+   "name": "Paróquia Santo Antônio e Almas",
+   "city": "Bequimão",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Praça Santo Antônio, s/n",
+   "zipCode": "65248-000",
+   "phone": "(98) 98409-7791",
+   "email": "paroquiasantoantonioealmas.beq@gmail.com",
+   "website": null,
+   "priestName": "Pe. Israel dos Santos Oliveira",
+   "foundedYear": 1805,
+   "sources": [
+    {
+     "url": "https://diocesedepinheiro.com.br/locais/paroquia-santo-antonio-e-almas-bequimao/",
+     "title": "Diocese de Pinheiro - ficha oficial de Paróquia Santo Antônio e Almas (data de ereccao, festa paroquial, endereco, casa paroquial, e-mail, telefone e clero)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-da-conceicao-cedral",
+   "name": "Paróquia Nossa Senhora da Conceição",
+   "city": "Cedral",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Avenida Gregório Tito Gonçalves, s/n",
+   "zipCode": "65260-000",
+   "phone": "(98) 98412-3513",
+   "email": "paroquiaconceicaocedral@gmail.com",
+   "website": null,
+   "priestName": "Pe. Marinaldo Lopes Neto",
+   "foundedYear": 1996,
+   "sources": [
+    {
+     "url": "https://diocesedepinheiro.com.br/locais/paroquia-nossa-senhora-da-conceicao-cedral/",
+     "title": "Diocese de Pinheiro - ficha oficial de Paróquia Nossa Senhora da Conceição (data de ereccao, festa paroquial, endereco, casa paroquial, e-mail, telefone e clero)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-da-imaculada-conceicao-central-do-maranhao",
+   "name": "Paróquia Nossa Senhora da Imaculada Conceição",
+   "city": "Central do Maranhão",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Rua Domingos Felisberto, 46",
+   "zipCode": "65267-000",
+   "phone": "(98) 98186-0124",
+   "email": "daimaculadaconceicao27@gmail.com",
+   "website": null,
+   "priestName": "Pe. Walber Barbosa Silva",
+   "foundedYear": 1996,
+   "sources": [
+    {
+     "url": "https://diocesedepinheiro.com.br/locais/paroquia-nossa-senhora-da-conceicao-central-do-maranhao/",
+     "title": "Diocese de Pinheiro - ficha oficial de Paróquia Nossa Senhora da Imaculada Conceição (data de ereccao, festa paroquial, endereco, casa paroquial, e-mail, telefone e clero)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "sao-joao-batista-cururupu",
+   "name": "Paróquia São João Batista",
+   "city": "Cururupu",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Praça João Vieira, 65",
+   "zipCode": "65268-000",
+   "phone": "(98) 98453-9709",
+   "email": "paroquiacpu@hotmail.com",
+   "website": null,
+   "priestName": "Pe. Irvisson Ribeiro Serejo",
+   "foundedYear": 1835,
+   "sources": [
+    {
+     "url": "https://diocesedepinheiro.com.br/locais/paroquia-sao-joao-batista-cururupu/",
+     "title": "Diocese de Pinheiro - ficha oficial de Paróquia São João Batista (data de ereccao, festa paroquial, endereco, casa paroquial, e-mail, telefone e clero)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "sao-jorge-areia-branca-cururupu",
+   "name": "Paróquia São Jorge",
+   "city": "Cururupu",
+   "state": "MA",
+   "neighborhood": "Areia Branca",
+   "address": "Avenida Gov. Antônio Dino, 89, Areia Branca",
+   "zipCode": "65268-000",
+   "phone": "(98) 98412-5203",
+   "email": "paroquiadeareiabranca@bom.com.br",
+   "website": null,
+   "priestName": "Pe. Ronald Tavares Ferreira",
+   "foundedYear": 2013,
+   "sources": [
+    {
+     "url": "https://diocesedepinheiro.com.br/locais/paroquia-sao-jorge-areia-branca/",
+     "title": "Diocese de Pinheiro - ficha oficial de Paróquia São Jorge (data de ereccao, festa paroquial, endereco, casa paroquial, e-mail, telefone e clero)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "sao-jose-guimaraes",
+   "name": "Paróquia São José",
+   "city": "Guimarães",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Rua Dr. Urbano Santos, 75",
+   "zipCode": "65255-000",
+   "phone": "(98) 98412-2082",
+   "email": "paroquiasaojosedeguimaraess@gmail.com",
+   "website": null,
+   "priestName": "Pe. José Ribamar Ribeiro Rodrigues",
+   "foundedYear": 1758,
+   "sources": [
+    {
+     "url": "https://diocesedepinheiro.com.br/locais/paroquia-sao-jose-guimaraes/",
+     "title": "Diocese de Pinheiro - ficha oficial de Paróquia São José (data de ereccao, festa paroquial, endereco, casa paroquial, e-mail, telefone e clero)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [],
+   "schedules": [
+    {
+     "community": "Matriz",
+     "dayOfWeek": 0,
+     "time": "08:00",
+     "type": "MASS",
+     "notes": "Grade publicada pelo agregador Lirio Catolico; a diocese nao publica horarios e nao ha confirmacao em fonte oficial da paroquia.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; o campo ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas do estado)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "divino-espirito-santo-mirinzal",
+   "name": "Paróquia Divino Espírito Santo",
+   "city": "Mirinzal",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Praça das Luzes, 128",
+   "zipCode": "65265-000",
+   "phone": "(98) 98411-7672",
+   "email": "paroquiadodivinoesmirinzal@gmail.com",
+   "website": null,
+   "priestName": "Pe. Ruivar Pereira Filho",
+   "foundedYear": 1975,
+   "sources": [
+    {
+     "url": "https://diocesedepinheiro.com.br/locais/paroquia-divino-espirito-santo-mirinzal/",
+     "title": "Diocese de Pinheiro - ficha oficial de Paróquia Divino Espírito Santo (data de ereccao, festa paroquial, endereco, casa paroquial, e-mail, telefone e clero)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "santo-antonio-de-lisboa-palmeirandia",
+   "name": "Paróquia Santo Antônio de Lisboa",
+   "city": "Palmeirândia",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Praça da Matriz, s/n",
+   "zipCode": "65238-000",
+   "phone": "(98) 98412-6193",
+   "email": "paroquiapalmeirandia@hotmail.com",
+   "website": null,
+   "priestName": "Pe. Sandoval Ferreira dos Santos",
+   "foundedYear": 1980,
+   "sources": [
+    {
+     "url": "https://diocesedepinheiro.com.br/locais/paroquia-santo-antonio-de-lisboa-palmeirandia/",
+     "title": "Diocese de Pinheiro - ficha oficial de Paróquia Santo Antônio de Lisboa (data de ereccao, festa paroquial, endereco, casa paroquial, e-mail, telefone e clero)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "sao-sebastiao-peri-mirim",
+   "name": "Paróquia São Sebastião",
+   "city": "Peri-Mirim",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Praça São Sebastião, s/n",
+   "zipCode": "65245-000",
+   "phone": "(98) 98443-0488",
+   "email": "paroquiadesaosebastiao.oficial@gmail.com",
+   "website": null,
+   "priestName": "Pe. Valdeir Irineu do Nascimento",
+   "foundedYear": 1957,
+   "sources": [
+    {
+     "url": "https://diocesedepinheiro.com.br/locais/paroquia-sao-sebastiao-peri-mirim/",
+     "title": "Diocese de Pinheiro - ficha oficial de Paróquia São Sebastião (data de ereccao, festa paroquial, endereco, casa paroquial, e-mail, telefone e clero)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-da-conceicao-porto-rico-do-maranhao",
+   "name": "Paróquia Nossa Senhora da Conceição",
+   "city": "Porto Rico do Maranhão",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Rua Edson Lobão, s/n",
+   "zipCode": "65263-000",
+   "phone": "(98) 98454-3112",
+   "email": "paroquiadeportorico2021@gmail.com",
+   "website": null,
+   "priestName": "Pe. Henrique Jorge Silva Mendes",
+   "foundedYear": 2013,
+   "sources": [
+    {
+     "url": "https://diocesedepinheiro.com.br/locais/paroquia-nossa-senhora-da-conceicao-porto-rico/",
+     "title": "Diocese de Pinheiro - ficha oficial de Paróquia Nossa Senhora da Conceição (data de ereccao, festa paroquial, endereco, casa paroquial, e-mail, telefone e clero)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "nossa-senhora-da-conceicao-presidente-sarney",
+   "name": "Paróquia Nossa Senhora da Conceição",
+   "city": "Presidente Sarney",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Avenida Pe. Luís Risso, s/n",
+   "zipCode": "65204-000",
+   "phone": "(98) 98409-6243",
+   "email": "paroquia.p.sarney@gmail.com",
+   "website": null,
+   "priestName": "Pe. Benedito Pereira Estrella",
+   "foundedYear": 1999,
+   "sources": [
+    {
+     "url": "https://diocesedepinheiro.com.br/locais/paroquia-nossa-senhora-da-conceicao-presidente-sarney/",
+     "title": "Diocese de Pinheiro - ficha oficial de Paróquia Nossa Senhora da Conceição (data de ereccao, festa paroquial, endereco, casa paroquial, e-mail, telefone e clero)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "santa-helena-santa-helena",
+   "name": "Paróquia Santa Helena",
+   "city": "Santa Helena",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Praça José Sarney, 153",
+   "zipCode": "65208-000",
+   "phone": "(98) 98411-6134",
+   "email": "paroquiashma@gmail.com",
+   "website": null,
+   "priestName": "Pe. José Augusto de Aguiar Júnior, M.S.C.",
+   "foundedYear": 1835,
+   "sources": [
+    {
+     "url": "https://diocesedepinheiro.com.br/locais/paroquia-santa-helena-santa-helena/",
+     "title": "Diocese de Pinheiro - ficha oficial de Paróquia Santa Helena (data de ereccao, festa paroquial, endereco, casa paroquial, e-mail, telefone e clero)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "sao-bento-dos-peris-sao-bento",
+   "name": "Paróquia São Bento dos Peris",
+   "city": "São Bento",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Praça Côn. Barros, s/n",
+   "zipCode": "65235-000",
+   "phone": "(98) 98454-0818",
+   "email": "paroquiadesaobentoma15@outlook.com",
+   "website": null,
+   "priestName": "Pe. Vicente Edelto Tavares Leite, F.N.",
+   "foundedYear": 1805,
+   "sources": [
+    {
+     "url": "https://diocesedepinheiro.com.br/locais/paroquia-sao-bento-sao-bento/",
+     "title": "Diocese de Pinheiro - ficha oficial de Paróquia São Bento dos Peris (data de ereccao, festa paroquial, endereco, casa paroquial, e-mail, telefone e clero)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [],
+   "schedules": [
+    {
+     "community": "Matriz",
+     "dayOfWeek": 0,
+     "time": "07:30",
+     "type": "MASS",
+     "notes": "Grade publicada pelo agregador Lirio Catolico; a diocese nao publica horarios e nao ha confirmacao em fonte oficial da paroquia.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; o campo ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas do estado)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 1,
+     "time": "06:30",
+     "type": "MASS",
+     "notes": "Grade publicada pelo agregador Lirio Catolico; a diocese nao publica horarios e nao ha confirmacao em fonte oficial da paroquia.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; o campo ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas do estado)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 2,
+     "time": "06:30",
+     "type": "MASS",
+     "notes": "Grade publicada pelo agregador Lirio Catolico; a diocese nao publica horarios e nao ha confirmacao em fonte oficial da paroquia.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; o campo ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas do estado)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 3,
+     "time": "06:30",
+     "type": "MASS",
+     "notes": "Grade publicada pelo agregador Lirio Catolico; a diocese nao publica horarios e nao ha confirmacao em fonte oficial da paroquia.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; o campo ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas do estado)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 4,
+     "time": "06:30",
+     "type": "MASS",
+     "notes": "Grade publicada pelo agregador Lirio Catolico; a diocese nao publica horarios e nao ha confirmacao em fonte oficial da paroquia.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; o campo ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas do estado)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 5,
+     "time": "06:30",
+     "type": "MASS",
+     "notes": "Grade publicada pelo agregador Lirio Catolico; a diocese nao publica horarios e nao ha confirmacao em fonte oficial da paroquia.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; o campo ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas do estado)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 6,
+     "time": "06:30",
+     "type": "MASS",
+     "notes": "Grade publicada pelo agregador Lirio Catolico; a diocese nao publica horarios e nao ha confirmacao em fonte oficial da paroquia.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; o campo ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas do estado)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 1,
+     "time": "06:10",
+     "type": "CONFESSION",
+     "notes": "Grade publicada pelo agregador Lirio Catolico; a diocese nao publica horarios e nao ha confirmacao em fonte oficial da paroquia.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; o campo ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas do estado)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 2,
+     "time": "06:10",
+     "type": "CONFESSION",
+     "notes": "Grade publicada pelo agregador Lirio Catolico; a diocese nao publica horarios e nao ha confirmacao em fonte oficial da paroquia.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; o campo ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas do estado)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 3,
+     "time": "06:10",
+     "type": "CONFESSION",
+     "notes": "Grade publicada pelo agregador Lirio Catolico; a diocese nao publica horarios e nao ha confirmacao em fonte oficial da paroquia.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; o campo ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas do estado)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 4,
+     "time": "06:10",
+     "type": "CONFESSION",
+     "notes": "Grade publicada pelo agregador Lirio Catolico; a diocese nao publica horarios e nao ha confirmacao em fonte oficial da paroquia.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; o campo ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas do estado)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 5,
+     "time": "06:10",
+     "type": "CONFESSION",
+     "notes": "Grade publicada pelo agregador Lirio Catolico; a diocese nao publica horarios e nao ha confirmacao em fonte oficial da paroquia.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; o campo ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas do estado)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    },
+    {
+     "community": "Matriz",
+     "dayOfWeek": 6,
+     "time": "06:10",
+     "type": "CONFESSION",
+     "notes": "Grade publicada pelo agregador Lirio Catolico; a diocese nao publica horarios e nao ha confirmacao em fonte oficial da paroquia.",
+     "sources": [
+      {
+       "url": "https://liriocatolico.com.br/horario_missa/dados/uf/MA.json",
+       "title": "Lirio Catolico - base de horarios de missa do Maranhao (JSON do estado; o campo ultima_atualizacao = 2026-09-02 e a data de regeneracao da base, igual em todas as fichas do estado)",
+       "accessedAt": "2026-09-18"
+      }
+     ],
+     "confidence": "baixa"
+    }
+   ]
+  },
+  {
+   "slug": "sao-paulo-apostolo-serrano-do-maranhao",
+   "name": "Paróquia São Paulo Apóstolo",
+   "city": "Serrano do Maranhão",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Avenida das Palmeiras, s/n",
+   "zipCode": "65269-000",
+   "phone": null,
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Gerson Bispo Marques de Oliveira",
+   "foundedYear": 2020,
+   "sources": [
+    {
+     "url": "https://diocesedepinheiro.com.br/locais/paroquia-de-sao-paulo-apostolo-serrano-do-maranhao/",
+     "title": "Diocese de Pinheiro - ficha oficial de Paróquia São Paulo Apóstolo (data de ereccao, festa paroquial, endereco, casa paroquial, e-mail, telefone e clero)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "sao-francisco-xavier-turiacu",
+   "name": "Paróquia São Francisco Xavier",
+   "city": "Turiaçu",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Rua Cândido Mendes, 125",
+   "zipCode": "65278-000",
+   "phone": "(98) 98409-9176",
+   "email": "franciscoxavier.tury@gmail.com",
+   "website": null,
+   "priestName": "Pe. José Domingos Alves",
+   "foundedYear": 1799,
+   "sources": [
+    {
+     "url": "https://diocesedepinheiro.com.br/locais/paroquia-sao-francisco-xavier-turiacu/",
+     "title": "Diocese de Pinheiro - ficha oficial de Paróquia São Francisco Xavier (data de ereccao, festa paroquial, endereco, casa paroquial, e-mail, telefone e clero)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "fatima-de-porto-santo-turiacu",
+   "name": "Quase-paróquia da Bem-Aventurada Virgem Maria de Fátima de Porto Santo",
+   "city": "Turiaçu",
+   "state": "MA",
+   "neighborhood": "Porto Santo",
+   "address": "Avenida Celestina C. Batista, s/n, Porto Santo",
+   "zipCode": null,
+   "phone": "(98) 98413-6506",
+   "email": null,
+   "website": null,
+   "priestName": "Pe. Eduardo Carneiro Barbosa",
+   "foundedYear": 2026,
+   "sources": [
+    {
+     "url": "https://diocesedepinheiro.com.br/locais/area-pastoral-nossa-senhora-de-fatima-porto-santo/",
+     "title": "Diocese de Pinheiro - ficha oficial de Quase-paróquia da Bem-Aventurada Virgem Maria de Fátima de Porto Santo (data de ereccao, festa paroquial, endereco, casa paroquial, e-mail, telefone e clero)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [],
+   "schedules": []
+  },
+  {
+   "slug": "santa-luzia-turilandia",
+   "name": "Paróquia Santa Luzia",
+   "city": "Turilândia",
+   "state": "MA",
+   "neighborhood": "Centro",
+   "address": "Avenida Pe. Antônio de Foggia, s/n",
+   "zipCode": "65276-000",
+   "phone": "(98) 98411-5054",
+   "email": "turilandiaparoquiasantaluzia@gmail.com",
+   "website": null,
+   "priestName": "Pe. Waldeylson Silva Marques",
+   "foundedYear": 1998,
+   "sources": [
+    {
+     "url": "https://diocesedepinheiro.com.br/locais/paroquia-santa-luzia-turilandia/",
+     "title": "Diocese de Pinheiro - ficha oficial de Paróquia Santa Luzia (data de ereccao, festa paroquial, endereco, casa paroquial, e-mail, telefone e clero)",
+     "accessedAt": "2026-09-18"
+    }
+   ],
+   "confidence": "alta",
+   "communities": [],
+   "schedules": []
+  }
+ ],
+ "coverage": {
+  "parishesFound": 25,
+  "parishesExpected": 25,
+  "notes": "25 = 23 paróquias + 2 quase-paróquias (Oitiua, em Alcântara, e Porto Santo, em Turiaçu, ambas erigidas em 30/05/2026), todas da lista oficial do site da diocese, que está ativo e com fichas modificadas em 2026. Bate com as 25 paróquias do catholic-hierarchy (2023). O gcatholic lista 28 igrejas, 22 marcadas \"Parish\": a diferença são igrejas não paroquiais (ruínas de São Matias em Alcântara, São Benedito em Cururupu, Santa Luzia, São João Batista e São Pedro Apóstolo em Pinheiro). A diocese não publica comunidades nem horários de missa; os 21 horários registrados vêm só do agregador Lírio Católico e ficam com confiança baixa."
+ }
+}
