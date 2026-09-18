@@ -118,6 +118,10 @@ export class MassesService {
       where: {
         deletedAt: null,
         status: 'ACTIVE',
+        // Pino de centro de município (CITY) serve ao mapa do território, não à
+        // busca por proximidade: 40 capelas rurais empilhadas na praça da cidade
+        // apareceriam todas "a 2 km", quando estão a 20.
+        OR: [{ geoPrecision: null }, { geoPrecision: { not: 'CITY' } }],
         latitude: { not: null, gte: lat - latDelta, lte: lat + latDelta },
         longitude: { not: null, gte: lng - lngDelta, lte: lng + lngDelta },
       },

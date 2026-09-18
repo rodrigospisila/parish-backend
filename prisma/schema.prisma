@@ -32,6 +32,17 @@ enum ClergyTitle {
   DEACON // Diácono
 }
 
+/// De onde veio a coordenada da comunidade — sem isto, um centro de cidade
+/// passaria por endereço exato e a busca "missas por perto" mentiria a distância.
+enum GeoPrecision {
+  /// Pino posto ou conferido por uma pessoa no mapa.
+  MANUAL
+  /// Geocodificado pelo CEP específico ou pelo logradouro: nível de rua.
+  STREET
+  /// Centro do município. Serve para o mapa do território, não para distância.
+  CITY
+}
+
 enum EntityStatus {
   ACTIVE
   INACTIVE
@@ -499,8 +510,10 @@ model Community {
   coordinatorName String?
 
   // Geolocation
-  latitude  Float?
-  longitude Float?
+  latitude     Float?
+  longitude    Float?
+  /// Nulo = pino legado, anterior a este campo (origem desconhecida).
+  geoPrecision GeoPrecision?
 
   // Metadata
   foundedAt DateTime?
@@ -546,6 +559,7 @@ model Community {
 
   @@index([parishId])
   @@index([deletedAt])
+  @@index([geoPrecision])
   @@map("communities")
 }
 

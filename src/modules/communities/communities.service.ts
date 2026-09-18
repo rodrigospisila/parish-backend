@@ -125,9 +125,18 @@ export class CommunitiesService {
       }
     }
 
+    // Quem mexe na coordenada pelo cadastro comum não envia a precisão. Mudou o
+    // pino à mão → MANUAL; apagou → sem precisão. Senão um pino conferido
+    // continuaria marcado como centro de cidade e ficaria fora do "missas por perto".
+    const data: UpdateCommunityDto = { ...updateCommunityDto };
+    const mexeuNoPino = data.latitude !== undefined || data.longitude !== undefined;
+    if (mexeuNoPino && data.geoPrecision === undefined) {
+      data.geoPrecision = data.latitude == null || data.longitude == null ? null : "MANUAL";
+    }
+
     return this.prisma.community.update({
       where: { id },
-      data: updateCommunityDto,
+      data,
       include: {
         parish: {
           select: {

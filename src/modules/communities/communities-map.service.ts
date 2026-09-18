@@ -10,7 +10,8 @@ import { PrismaService } from '../../database/prisma.service';
  *
  * Classificação do pino, que é o que o painel existe para resolver:
  *   `ok`   — coordenada própria;
- *   `dup`  — coordenada IDÊNTICA à de outra comunidade. Quase sempre é o
+ *   `dup`  — pino aproximado: precisão CITY (centro do município) ou coordenada
+ *            IDÊNTICA à de outra comunidade. Quase sempre é o
  *            "centro da cidade" que o geocodificador devolve quando não acha o
  *            endereço: o pino existe, mas não aponta para a igreja;
  *   `sem`  — sem coordenada nenhuma.
@@ -98,15 +99,15 @@ export class CommunitiesMapService {
       SELECT c.id, c.name, c.latitude AS lat, c.longitude AS lng, c.city, c.state, c.address,
              p.name AS parish, d.name AS diocese,
              CASE WHEN c.latitude IS NULL THEN 'sem'
-                  WHEN dd.latitude IS NOT NULL THEN 'dup'
+                  WHEN dd.latitude IS NOT NULL OR c."geoPrecision" = 'CITY' THEN 'dup'
                   ELSE 'ok' END AS kind
       FROM communities c
       JOIN parishes p ON p.id = c."parishId"
       JOIN dioceses d ON d.id = p."dioceseId"
       LEFT JOIN dup dd ON dd.latitude = c.latitude AND dd.longitude = c.longitude
       WHERE ${where.join(' AND ')}
-      ${pin === 'ok' ? 'AND dd.latitude IS NULL' : ''}
-      ${pin === 'dup' ? 'AND dd.latitude IS NOT NULL' : ''}
+      ${pin === 'ok' ? 'AND dd.latitude IS NULL AND c."geoPrecision" IS DISTINCT FROM \'CITY\'' : ''}
+      ${pin === 'dup' ? 'AND (dd.latitude IS NOT NULL OR c."geoPrecision" = \'CITY\')' : ''}
       ORDER BY c.name
       LIMIT $${params.length}
     `;
@@ -125,8 +126,8 @@ export class CommunitiesMapService {
       )
       SELECT count(*)::int AS total,
              count(*) FILTER (WHERE c.latitude IS NULL)::int AS sem,
-             count(*) FILTER (WHERE c.latitude IS NOT NULL AND dd.latitude IS NOT NULL)::int AS dup,
-             count(*) FILTER (WHERE c.latitude IS NOT NULL AND dd.latitude IS NULL)::int AS ok
+             count(*) FILTER (WHERE c.latitude IS NOT NULL AND (dd.latitude IS NOT NULL OR c."geoPrecision" = 'CITY'))::int AS dup,
+             count(*) FILTER (WHERE c.latitude IS NOT NULL AND dd.latitude IS NULL AND c."geoPrecision" IS DISTINCT FROM 'CITY')::int AS ok
       FROM communities c
       LEFT JOIN dup dd ON dd.latitude = c.latitude AND dd.longitude = c.longitude
       WHERE c."deletedAt" IS NULL ${uf ? 'AND c.state = $1' : ''}
@@ -140,7 +141,7 @@ export class CommunitiesMapService {
       )
       SELECT c.state AS uf, count(*)::int AS total,
              count(*) FILTER (WHERE c.latitude IS NULL)::int AS sem,
-             count(*) FILTER (WHERE c.latitude IS NOT NULL AND dd.latitude IS NOT NULL)::int AS dup
+             count(*) FILTER (WHERE c.latitude IS NOT NULL AND (dd.latitude IS NOT NULL OR c."geoPrecision" = 'CITY'))::int AS dup
       FROM communities c
       LEFT JOIN dup dd ON dd.latitude = c.latitude AND dd.longitude = c.longitude
       WHERE c."deletedAt" IS NULL
@@ -165,7 +166,7 @@ export class CommunitiesMapService {
       )
       SELECT d.id, d.name, d.state AS uf, count(c.id)::int AS total,
              count(c.id) FILTER (WHERE c.latitude IS NULL)::int AS sem,
-             count(c.id) FILTER (WHERE c.latitude IS NOT NULL AND dd.latitude IS NOT NULL)::int AS dup
+             count(c.id) FILTER (WHERE c.latitude IS NOT NULL AND (dd.latitude IS NOT NULL OR c."geoPrecision" = 'CITY'))::int AS dup
       FROM dioceses d
       JOIN parishes p ON p."dioceseId" = d.id
       JOIN communities c ON c."parishId" = p.id

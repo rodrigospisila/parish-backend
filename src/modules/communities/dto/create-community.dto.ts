@@ -1,5 +1,5 @@
 import { IsString, IsNotEmpty, IsOptional, IsEnum, IsNumber, IsBoolean } from 'class-validator';
-import { EntityStatus } from '@prisma/client';
+import { GeoPrecision, EntityStatus } from '@prisma/client';
 
 export class CreateCommunityDto {
   @IsString()
@@ -49,6 +49,11 @@ export class CreateCommunityDto {
   @IsNumber()
   @IsOptional()
   longitude?: number;
+
+  /** Origem da coordenada: MANUAL (pino posto no mapa), STREET ou CITY. */
+  @IsOptional()
+  @IsEnum(GeoPrecision)
+  geoPrecision?: GeoPrecision | null;
 
   @IsString()
   @IsNotEmpty()
