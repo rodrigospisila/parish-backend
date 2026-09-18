@@ -1,0 +1,1265 @@
+{
+  "diocese": {
+    "name": "Diocese de Parintins",
+    "type": "Diocese",
+    "slug": "parintins",
+    "city": "Parintins",
+    "state": "AM",
+    "address": "Avenida Amazonas, 2139 – Centro",
+    "zipCode": "69151-000",
+    "phone": "(92) 3533-5555",
+    "email": null,
+    "website": "https://www.instagram.com/diocesedeparintins/",
+    "bishopName": "Dom José Albuquerque de Araújo",
+    "sources": [
+      {
+        "url": "https://minhareceita.org/",
+        "title": "Receita Federal via minhareceita.org — filiais do CNPJ 04.594.537 (Diocese de Parintins): 11 paróquias ativas (0009–0019), todas abertas em 02/01/2024, com endereço e CEP",
+        "accessedAt": "2026-09-17"
+      },
+      {
+        "url": "https://alvoradaparintins.com.br/categoria/diocese-de-parintins/1",
+        "title": "Rádio Alvorada (Sistema Alvorada de Comunicação, da Diocese de Parintins) — editoria Diocese de Parintins, 280 notícias de 2019 a 02/2025",
+        "accessedAt": "2026-09-17"
+      },
+      {
+        "url": "https://gcatholic.org/dioceses/diocese/pari1.htm",
+        "title": "gcatholic.org — Diocese of Parintins (11 paróquias em 31/12/2022)",
+        "accessedAt": "2026-09-17"
+      },
+      {
+        "url": "https://pt.wikipedia.org/wiki/Diocese_de_Parintins",
+        "title": "Wikipédia — Diocese de Parintins (11 paróquias)",
+        "accessedAt": "2026-09-17"
+      },
+      {
+        "url": "https://www.cnbb.org.br/fns-fortalece-missao-evangelizadora-parintins/",
+        "title": "CNBB — FNS fortalece a missão evangelizadora na diocese de Parintins (20/03/2026; municípios: Maués, Boa Vista do Ramos, Barreirinha, Nhamundá e Parintins)",
+        "accessedAt": "2026-09-17"
+      }
+    ],
+    "confidence": "alta"
+  },
+  "parishes": [
+    {
+      "slug": "nossa-senhora-do-carmo-parintins",
+      "name": "Catedral Nossa Senhora do Carmo",
+      "city": "Parintins",
+      "state": "AM",
+      "neighborhood": "Centro",
+      "address": "Rua Clarindo Chaves, 330 – Centro",
+      "zipCode": "69151-040",
+      "phone": null,
+      "email": null,
+      "website": "https://www.facebook.com/CatedraldePIN/",
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://minhareceita.org/",
+          "title": "Receita Federal via minhareceita.org — filiais do CNPJ 04.594.537 (Diocese de Parintins): 11 paróquias ativas (0009–0019), todas abertas em 02/01/2024, com endereço e CEP",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://alvoradaparintins.com.br/noticia/horarios-das-missas-nas-paroquias-da-diocese-de-parintins",
+          "title": "Rádio Alvorada (emissora da Diocese de Parintins) — Horários das missas nas paróquias da Diocese de Parintins (24/12/2020; programação de Natal, cita as comunidades de cada paróquia)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://gcatholic.org/churches/local/pari1-n",
+          "title": "gcatholic.org — Churches in the Diocese of Parintins (14 igrejas, atualizado em 01/01/2026)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://www.horariodemissa.com.br/igreja.php?k=thvWO",
+          "title": "horariodemissa.com.br — Catedral de Nossa Senhora do Carmo (ficha de 14/05/2013, sem horários; traz a página oficial no Facebook)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Catedral Nossa Senhora do Carmo",
+          "address": "Rua Clarindo Chaves, 330 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://minhareceita.org/",
+              "title": "Receita Federal via minhareceita.org — filiais do CNPJ 04.594.537 (Diocese de Parintins): 11 paróquias ativas (0009–0019), todas abertas em 02/01/2024, com endereço e CEP",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Benedito",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "notes": "Citada na programação de Natal de 2020 da emissora diocesana; a lista de comunidades da paróquia é parcial",
+          "sources": [
+            {
+              "url": "https://alvoradaparintins.com.br/noticia/horarios-das-missas-nas-paroquias-da-diocese-de-parintins",
+              "title": "Rádio Alvorada (emissora da Diocese de Parintins) — Horários das missas nas paróquias da Diocese de Parintins (24/12/2020; programação de Natal, cita as comunidades de cada paróquia)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Catedral Nossa Senhora do Carmo",
+          "dayOfWeek": 1,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Fonte única e não oficial (portal de notícias, 22/05/2022): \"Segunda-feira: 19h / Terça a sábado: 6h e 19h / Domingo: 6h, 9h e 19h\"",
+          "sources": [
+            {
+              "url": "https://edilenemafra.com/religiao/confira-os-dias-e-horarios-das-missas-na-catedral-de-parintins/",
+              "title": "Portal Edilene Mafra — Confira os dias e horários das missas na Catedral de Parintins (22/05/2022)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Catedral Nossa Senhora do Carmo",
+          "dayOfWeek": 2,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": "Fonte única e não oficial (portal de notícias, 22/05/2022): \"Segunda-feira: 19h / Terça a sábado: 6h e 19h / Domingo: 6h, 9h e 19h\"",
+          "sources": [
+            {
+              "url": "https://edilenemafra.com/religiao/confira-os-dias-e-horarios-das-missas-na-catedral-de-parintins/",
+              "title": "Portal Edilene Mafra — Confira os dias e horários das missas na Catedral de Parintins (22/05/2022)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Catedral Nossa Senhora do Carmo",
+          "dayOfWeek": 2,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Fonte única e não oficial (portal de notícias, 22/05/2022): \"Segunda-feira: 19h / Terça a sábado: 6h e 19h / Domingo: 6h, 9h e 19h\"",
+          "sources": [
+            {
+              "url": "https://edilenemafra.com/religiao/confira-os-dias-e-horarios-das-missas-na-catedral-de-parintins/",
+              "title": "Portal Edilene Mafra — Confira os dias e horários das missas na Catedral de Parintins (22/05/2022)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Catedral Nossa Senhora do Carmo",
+          "dayOfWeek": 3,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": "Fonte única e não oficial (portal de notícias, 22/05/2022): \"Segunda-feira: 19h / Terça a sábado: 6h e 19h / Domingo: 6h, 9h e 19h\"",
+          "sources": [
+            {
+              "url": "https://edilenemafra.com/religiao/confira-os-dias-e-horarios-das-missas-na-catedral-de-parintins/",
+              "title": "Portal Edilene Mafra — Confira os dias e horários das missas na Catedral de Parintins (22/05/2022)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Catedral Nossa Senhora do Carmo",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Fonte única e não oficial (portal de notícias, 22/05/2022): \"Segunda-feira: 19h / Terça a sábado: 6h e 19h / Domingo: 6h, 9h e 19h\"",
+          "sources": [
+            {
+              "url": "https://edilenemafra.com/religiao/confira-os-dias-e-horarios-das-missas-na-catedral-de-parintins/",
+              "title": "Portal Edilene Mafra — Confira os dias e horários das missas na Catedral de Parintins (22/05/2022)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Catedral Nossa Senhora do Carmo",
+          "dayOfWeek": 4,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": "Fonte única e não oficial (portal de notícias, 22/05/2022): \"Segunda-feira: 19h / Terça a sábado: 6h e 19h / Domingo: 6h, 9h e 19h\"",
+          "sources": [
+            {
+              "url": "https://edilenemafra.com/religiao/confira-os-dias-e-horarios-das-missas-na-catedral-de-parintins/",
+              "title": "Portal Edilene Mafra — Confira os dias e horários das missas na Catedral de Parintins (22/05/2022)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Catedral Nossa Senhora do Carmo",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Fonte única e não oficial (portal de notícias, 22/05/2022): \"Segunda-feira: 19h / Terça a sábado: 6h e 19h / Domingo: 6h, 9h e 19h\"",
+          "sources": [
+            {
+              "url": "https://edilenemafra.com/religiao/confira-os-dias-e-horarios-das-missas-na-catedral-de-parintins/",
+              "title": "Portal Edilene Mafra — Confira os dias e horários das missas na Catedral de Parintins (22/05/2022)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Catedral Nossa Senhora do Carmo",
+          "dayOfWeek": 5,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": "Fonte única e não oficial (portal de notícias, 22/05/2022): \"Segunda-feira: 19h / Terça a sábado: 6h e 19h / Domingo: 6h, 9h e 19h\"",
+          "sources": [
+            {
+              "url": "https://edilenemafra.com/religiao/confira-os-dias-e-horarios-das-missas-na-catedral-de-parintins/",
+              "title": "Portal Edilene Mafra — Confira os dias e horários das missas na Catedral de Parintins (22/05/2022)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Catedral Nossa Senhora do Carmo",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Fonte única e não oficial (portal de notícias, 22/05/2022): \"Segunda-feira: 19h / Terça a sábado: 6h e 19h / Domingo: 6h, 9h e 19h\"",
+          "sources": [
+            {
+              "url": "https://edilenemafra.com/religiao/confira-os-dias-e-horarios-das-missas-na-catedral-de-parintins/",
+              "title": "Portal Edilene Mafra — Confira os dias e horários das missas na Catedral de Parintins (22/05/2022)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Catedral Nossa Senhora do Carmo",
+          "dayOfWeek": 6,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": "Fonte única e não oficial (portal de notícias, 22/05/2022): \"Segunda-feira: 19h / Terça a sábado: 6h e 19h / Domingo: 6h, 9h e 19h\"",
+          "sources": [
+            {
+              "url": "https://edilenemafra.com/religiao/confira-os-dias-e-horarios-das-missas-na-catedral-de-parintins/",
+              "title": "Portal Edilene Mafra — Confira os dias e horários das missas na Catedral de Parintins (22/05/2022)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Catedral Nossa Senhora do Carmo",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Fonte única e não oficial (portal de notícias, 22/05/2022): \"Segunda-feira: 19h / Terça a sábado: 6h e 19h / Domingo: 6h, 9h e 19h\"",
+          "sources": [
+            {
+              "url": "https://edilenemafra.com/religiao/confira-os-dias-e-horarios-das-missas-na-catedral-de-parintins/",
+              "title": "Portal Edilene Mafra — Confira os dias e horários das missas na Catedral de Parintins (22/05/2022)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Catedral Nossa Senhora do Carmo",
+          "dayOfWeek": 0,
+          "time": "06:00",
+          "type": "MASS",
+          "notes": "Fonte única e não oficial (portal de notícias, 22/05/2022): \"Segunda-feira: 19h / Terça a sábado: 6h e 19h / Domingo: 6h, 9h e 19h\"",
+          "sources": [
+            {
+              "url": "https://edilenemafra.com/religiao/confira-os-dias-e-horarios-das-missas-na-catedral-de-parintins/",
+              "title": "Portal Edilene Mafra — Confira os dias e horários das missas na Catedral de Parintins (22/05/2022)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Catedral Nossa Senhora do Carmo",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": "Fonte única e não oficial (portal de notícias, 22/05/2022): \"Segunda-feira: 19h / Terça a sábado: 6h e 19h / Domingo: 6h, 9h e 19h\"",
+          "sources": [
+            {
+              "url": "https://edilenemafra.com/religiao/confira-os-dias-e-horarios-das-missas-na-catedral-de-parintins/",
+              "title": "Portal Edilene Mafra — Confira os dias e horários das missas na Catedral de Parintins (22/05/2022)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Catedral Nossa Senhora do Carmo",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Fonte única e não oficial (portal de notícias, 22/05/2022): \"Segunda-feira: 19h / Terça a sábado: 6h e 19h / Domingo: 6h, 9h e 19h\"",
+          "sources": [
+            {
+              "url": "https://edilenemafra.com/religiao/confira-os-dias-e-horarios-das-missas-na-catedral-de-parintins/",
+              "title": "Portal Edilene Mafra — Confira os dias e horários das missas na Catedral de Parintins (22/05/2022)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "sagrado-coracao-de-jesus-parintins",
+      "name": "Paróquia Sagrado Coração de Jesus",
+      "city": "Parintins",
+      "state": "AM",
+      "neighborhood": "Centro",
+      "address": "Rua Rio Branco, 44 – Centro",
+      "zipCode": "69151-210",
+      "phone": null,
+      "email": null,
+      "website": "https://www.facebook.com/p/Par%C3%B3quia-Sagrado-Cora%C3%A7%C3%A3o-de-Jesus-Diocese-de-ParintinsAm-100064595895346/",
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://minhareceita.org/",
+          "title": "Receita Federal via minhareceita.org — filiais do CNPJ 04.594.537 (Diocese de Parintins): 11 paróquias ativas (0009–0019), todas abertas em 02/01/2024, com endereço e CEP",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://alvoradaparintins.com.br/noticia/horarios-das-missas-nas-paroquias-da-diocese-de-parintins",
+          "title": "Rádio Alvorada (emissora da Diocese de Parintins) — Horários das missas nas paróquias da Diocese de Parintins (24/12/2020; programação de Natal, cita as comunidades de cada paróquia)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Sagrado Coração de Jesus",
+          "address": "Rua Rio Branco, 44 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://minhareceita.org/",
+              "title": "Receita Federal via minhareceita.org — filiais do CNPJ 04.594.537 (Diocese de Parintins): 11 paróquias ativas (0009–0019), todas abertas em 02/01/2024, com endereço e CEP",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santa Clara",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "notes": "Citada na programação de Natal de 2020 da emissora diocesana; a lista de comunidades da paróquia é parcial",
+          "sources": [
+            {
+              "url": "https://alvoradaparintins.com.br/noticia/horarios-das-missas-nas-paroquias-da-diocese-de-parintins",
+              "title": "Rádio Alvorada (emissora da Diocese de Parintins) — Horários das missas nas paróquias da Diocese de Parintins (24/12/2020; programação de Natal, cita as comunidades de cada paróquia)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "sao-jose-operario-parintins",
+      "name": "Paróquia São José Operário",
+      "city": "Parintins",
+      "state": "AM",
+      "neighborhood": null,
+      "address": "Avenida Nações Unidas, 3344",
+      "zipCode": "69151-060",
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://minhareceita.org/",
+          "title": "Receita Federal via minhareceita.org — filiais do CNPJ 04.594.537 (Diocese de Parintins): 11 paróquias ativas (0009–0019), todas abertas em 02/01/2024, com endereço e CEP",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://alvoradaparintins.com.br/noticia/horarios-das-missas-nas-paroquias-da-diocese-de-parintins",
+          "title": "Rádio Alvorada (emissora da Diocese de Parintins) — Horários das missas nas paróquias da Diocese de Parintins (24/12/2020; programação de Natal, cita as comunidades de cada paróquia)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://gcatholic.org/churches/local/pari1-n",
+          "title": "gcatholic.org — Churches in the Diocese of Parintins (14 igrejas, atualizado em 01/01/2026)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São José Operário",
+          "address": "Avenida Nações Unidas, 3344",
+          "neighborhood": null,
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://minhareceita.org/",
+              "title": "Receita Federal via minhareceita.org — filiais do CNPJ 04.594.537 (Diocese de Parintins): 11 paróquias ativas (0009–0019), todas abertas em 02/01/2024, com endereço e CEP",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora Auxiliadora",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "notes": "Citada na programação de Natal de 2020 da emissora diocesana; a lista de comunidades da paróquia é parcial",
+          "sources": [
+            {
+              "url": "https://alvoradaparintins.com.br/noticia/horarios-das-missas-nas-paroquias-da-diocese-de-parintins",
+              "title": "Rádio Alvorada (emissora da Diocese de Parintins) — Horários das missas nas paróquias da Diocese de Parintins (24/12/2020; programação de Natal, cita as comunidades de cada paróquia)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Santa Teresinha",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "notes": "Citada na programação de Natal de 2020 da emissora diocesana; a lista de comunidades da paróquia é parcial",
+          "sources": [
+            {
+              "url": "https://alvoradaparintins.com.br/noticia/horarios-das-missas-nas-paroquias-da-diocese-de-parintins",
+              "title": "Rádio Alvorada (emissora da Diocese de Parintins) — Horários das missas nas paróquias da Diocese de Parintins (24/12/2020; programação de Natal, cita as comunidades de cada paróquia)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "São Pedro",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "notes": "Citada na programação de Natal de 2020 da emissora diocesana; a lista de comunidades da paróquia é parcial",
+          "sources": [
+            {
+              "url": "https://alvoradaparintins.com.br/noticia/horarios-das-missas-nas-paroquias-da-diocese-de-parintins",
+              "title": "Rádio Alvorada (emissora da Diocese de Parintins) — Horários das missas nas paróquias da Diocese de Parintins (24/12/2020; programação de Natal, cita as comunidades de cada paróquia)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Nossa Senhora do Perpétuo Socorro",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "notes": "Citada na programação de Natal de 2020 da emissora diocesana; a lista de comunidades da paróquia é parcial",
+          "sources": [
+            {
+              "url": "https://alvoradaparintins.com.br/noticia/horarios-das-missas-nas-paroquias-da-diocese-de-parintins",
+              "title": "Rádio Alvorada (emissora da Diocese de Parintins) — Horários das missas nas paróquias da Diocese de Parintins (24/12/2020; programação de Natal, cita as comunidades de cada paróquia)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "São Francisco",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "notes": "Citada na programação de Natal de 2020 da emissora diocesana; a lista de comunidades da paróquia é parcial",
+          "sources": [
+            {
+              "url": "https://alvoradaparintins.com.br/noticia/horarios-das-missas-nas-paroquias-da-diocese-de-parintins",
+              "title": "Rádio Alvorada (emissora da Diocese de Parintins) — Horários das missas nas paróquias da Diocese de Parintins (24/12/2020; programação de Natal, cita as comunidades de cada paróquia)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Santa Maria",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "notes": "Citada na programação de Natal de 2020 da emissora diocesana; a lista de comunidades da paróquia é parcial",
+          "sources": [
+            {
+              "url": "https://alvoradaparintins.com.br/noticia/horarios-das-missas-nas-paroquias-da-diocese-de-parintins",
+              "title": "Rádio Alvorada (emissora da Diocese de Parintins) — Horários das missas nas paróquias da Diocese de Parintins (24/12/2020; programação de Natal, cita as comunidades de cada paróquia)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "sao-sebastiao-parintins",
+      "name": "Paróquia São Sebastião",
+      "city": "Parintins",
+      "state": "AM",
+      "neighborhood": "Paulo Corrêa",
+      "address": "Rua Padre Augusto Gianola, 3600 – Paulo Corrêa",
+      "zipCode": "69152-035",
+      "phone": null,
+      "email": null,
+      "website": "https://www.facebook.com/Paroquiasaosebastiaopin/",
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://minhareceita.org/",
+          "title": "Receita Federal via minhareceita.org — filiais do CNPJ 04.594.537 (Diocese de Parintins): 11 paróquias ativas (0009–0019), todas abertas em 02/01/2024, com endereço e CEP",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://alvoradaparintins.com.br/noticia/horarios-das-missas-nas-paroquias-da-diocese-de-parintins",
+          "title": "Rádio Alvorada (emissora da Diocese de Parintins) — Horários das missas nas paróquias da Diocese de Parintins (24/12/2020; programação de Natal, cita as comunidades de cada paróquia)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://gcatholic.org/churches/local/pari1-n",
+          "title": "gcatholic.org — Churches in the Diocese of Parintins (14 igrejas, atualizado em 01/01/2026)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Sebastião",
+          "address": "Rua Padre Augusto Gianola, 3600 – Paulo Corrêa",
+          "neighborhood": "Paulo Corrêa",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://minhareceita.org/",
+              "title": "Receita Federal via minhareceita.org — filiais do CNPJ 04.594.537 (Diocese de Parintins): 11 paróquias ativas (0009–0019), todas abertas em 02/01/2024, com endereço e CEP",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Santa Luzia",
+          "address": "Macurany",
+          "neighborhood": "Macurany",
+          "isMatriz": false,
+          "notes": "Citada na programação de Natal de 2020 da emissora diocesana; a lista de comunidades da paróquia é parcial",
+          "sources": [
+            {
+              "url": "https://alvoradaparintins.com.br/noticia/horarios-das-missas-nas-paroquias-da-diocese-de-parintins",
+              "title": "Rádio Alvorada (emissora da Diocese de Parintins) — Horários das missas nas paróquias da Diocese de Parintins (24/12/2020; programação de Natal, cita as comunidades de cada paróquia)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Sagrada Família",
+          "address": "Bairro Teixeirão",
+          "neighborhood": "Teixeirão",
+          "isMatriz": false,
+          "notes": "Citada na programação de Natal de 2020 da emissora diocesana; a lista de comunidades da paróquia é parcial",
+          "sources": [
+            {
+              "url": "https://alvoradaparintins.com.br/noticia/horarios-das-missas-nas-paroquias-da-diocese-de-parintins",
+              "title": "Rádio Alvorada (emissora da Diocese de Parintins) — Horários das missas nas paróquias da Diocese de Parintins (24/12/2020; programação de Natal, cita as comunidades de cada paróquia)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Santo Antônio",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "notes": "Citada na programação de Natal de 2020 da emissora diocesana; a lista de comunidades da paróquia é parcial",
+          "sources": [
+            {
+              "url": "https://alvoradaparintins.com.br/noticia/horarios-das-missas-nas-paroquias-da-diocese-de-parintins",
+              "title": "Rádio Alvorada (emissora da Diocese de Parintins) — Horários das missas nas paróquias da Diocese de Parintins (24/12/2020; programação de Natal, cita as comunidades de cada paróquia)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Sagrada Família",
+          "address": "Bairro União",
+          "neighborhood": "União",
+          "isMatriz": false,
+          "notes": "Citada na programação de Natal de 2020 da emissora diocesana; a lista de comunidades da paróquia é parcial",
+          "sources": [
+            {
+              "url": "https://alvoradaparintins.com.br/noticia/horarios-das-missas-nas-paroquias-da-diocese-de-parintins",
+              "title": "Rádio Alvorada (emissora da Diocese de Parintins) — Horários das missas nas paróquias da Diocese de Parintins (24/12/2020; programação de Natal, cita as comunidades de cada paróquia)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-de-lourdes-parintins",
+      "name": "Paróquia Nossa Senhora de Lourdes",
+      "city": "Parintins",
+      "state": "AM",
+      "neighborhood": "Palmares",
+      "address": "Rua Padre Victor, 1066 – Palmares",
+      "zipCode": "69153-160",
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://minhareceita.org/",
+          "title": "Receita Federal via minhareceita.org — filiais do CNPJ 04.594.537 (Diocese de Parintins): 11 paróquias ativas (0009–0019), todas abertas em 02/01/2024, com endereço e CEP",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://alvoradaparintins.com.br/noticia/horarios-das-missas-nas-paroquias-da-diocese-de-parintins",
+          "title": "Rádio Alvorada (emissora da Diocese de Parintins) — Horários das missas nas paróquias da Diocese de Parintins (24/12/2020; programação de Natal, cita as comunidades de cada paróquia)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://gcatholic.org/churches/local/pari1-n",
+          "title": "gcatholic.org — Churches in the Diocese of Parintins (14 igrejas, atualizado em 01/01/2026)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora de Lourdes",
+          "address": "Rua Padre Victor, 1066 – Palmares",
+          "neighborhood": "Palmares",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://minhareceita.org/",
+              "title": "Receita Federal via minhareceita.org — filiais do CNPJ 04.594.537 (Diocese de Parintins): 11 paróquias ativas (0009–0019), todas abertas em 02/01/2024, com endereço e CEP",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora de Nazaré",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "notes": "Citada na programação de Natal de 2020 da emissora diocesana; a lista de comunidades da paróquia é parcial",
+          "sources": [
+            {
+              "url": "https://alvoradaparintins.com.br/noticia/horarios-das-missas-nas-paroquias-da-diocese-de-parintins",
+              "title": "Rádio Alvorada (emissora da Diocese de Parintins) — Horários das missas nas paróquias da Diocese de Parintins (24/12/2020; programação de Natal, cita as comunidades de cada paróquia)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "São Vicente de Paulo",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "notes": "Citada na programação de Natal de 2020 da emissora diocesana; a lista de comunidades da paróquia é parcial",
+          "sources": [
+            {
+              "url": "https://alvoradaparintins.com.br/noticia/horarios-das-missas-nas-paroquias-da-diocese-de-parintins",
+              "title": "Rádio Alvorada (emissora da Diocese de Parintins) — Horários das missas nas paróquias da Diocese de Parintins (24/12/2020; programação de Natal, cita as comunidades de cada paróquia)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Santa Rita de Cássia",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "notes": "Citada na programação de Natal de 2020 da emissora diocesana; a lista de comunidades da paróquia é parcial",
+          "sources": [
+            {
+              "url": "https://alvoradaparintins.com.br/noticia/horarios-das-missas-nas-paroquias-da-diocese-de-parintins",
+              "title": "Rádio Alvorada (emissora da Diocese de Parintins) — Horários das missas nas paróquias da Diocese de Parintins (24/12/2020; programação de Natal, cita as comunidades de cada paróquia)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "sao-francisco-xavier-parintins",
+      "name": "Paróquia São Francisco Xavier",
+      "city": "Parintins",
+      "state": "AM",
+      "neighborhood": "Vila Amazônia",
+      "address": "Rua Pricílio Tito, 737 – Vila Amazônia",
+      "zipCode": "69158-700",
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": 2021,
+      "sources": [
+        {
+          "url": "https://minhareceita.org/",
+          "title": "Receita Federal via minhareceita.org — filiais do CNPJ 04.594.537 (Diocese de Parintins): 11 paróquias ativas (0009–0019), todas abertas em 02/01/2024, com endereço e CEP",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://alvoradaparintins.com.br/noticia/sao-francisco-xavier-uma-nova-paroquia-na-diocese-de-parintins",
+          "title": "Rádio Alvorada — São Francisco Xavier: uma nova paróquia na Diocese de Parintins (22/11/2021; instalação em 21/11/2021, 48 comunidades)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://alvoradaparintins.com.br/noticia/horarios-das-missas-nas-paroquias-da-diocese-de-parintins",
+          "title": "Rádio Alvorada (emissora da Diocese de Parintins) — Horários das missas nas paróquias da Diocese de Parintins (24/12/2020; programação de Natal, cita as comunidades de cada paróquia)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://gcatholic.org/churches/local/pari1-n",
+          "title": "gcatholic.org — Churches in the Diocese of Parintins (14 igrejas, atualizado em 01/01/2026)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Francisco Xavier",
+          "address": "Rua Pricílio Tito, 737 – Vila Amazônia",
+          "neighborhood": "Vila Amazônia",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://minhareceita.org/",
+              "title": "Receita Federal via minhareceita.org — filiais do CNPJ 04.594.537 (Diocese de Parintins): 11 paróquias ativas (0009–0019), todas abertas em 02/01/2024, com endereço e CEP",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Samaria da Valéria",
+          "address": "Gleba de Vila Amazônia",
+          "neighborhood": null,
+          "isMatriz": false,
+          "notes": "Citada na programação de Natal de 2020 da emissora diocesana (então Área Missionária São Francisco Xavier); a paróquia tem 48 comunidades e a lista é parcial",
+          "sources": [
+            {
+              "url": "https://alvoradaparintins.com.br/noticia/horarios-das-missas-nas-paroquias-da-diocese-de-parintins",
+              "title": "Rádio Alvorada (emissora da Diocese de Parintins) — Horários das missas nas paróquias da Diocese de Parintins (24/12/2020; programação de Natal, cita as comunidades de cada paróquia)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Bom Socorro",
+          "address": "Gleba de Vila Amazônia",
+          "neighborhood": null,
+          "isMatriz": false,
+          "notes": "Citada na programação de Natal de 2020 da emissora diocesana (então Área Missionária São Francisco Xavier); a paróquia tem 48 comunidades e a lista é parcial",
+          "sources": [
+            {
+              "url": "https://alvoradaparintins.com.br/noticia/horarios-das-missas-nas-paroquias-da-diocese-de-parintins",
+              "title": "Rádio Alvorada (emissora da Diocese de Parintins) — Horários das missas nas paróquias da Diocese de Parintins (24/12/2020; programação de Natal, cita as comunidades de cada paróquia)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Santa Rita da Valéria",
+          "address": "Gleba de Vila Amazônia",
+          "neighborhood": null,
+          "isMatriz": false,
+          "notes": "Citada na programação de Natal de 2020 da emissora diocesana (então Área Missionária São Francisco Xavier); a paróquia tem 48 comunidades e a lista é parcial",
+          "sources": [
+            {
+              "url": "https://alvoradaparintins.com.br/noticia/horarios-das-missas-nas-paroquias-da-diocese-de-parintins",
+              "title": "Rádio Alvorada (emissora da Diocese de Parintins) — Horários das missas nas paróquias da Diocese de Parintins (24/12/2020; programação de Natal, cita as comunidades de cada paróquia)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Irmãos Coragem",
+          "address": "Gleba de Vila Amazônia",
+          "neighborhood": null,
+          "isMatriz": false,
+          "notes": "Citada na programação de Natal de 2020 da emissora diocesana (então Área Missionária São Francisco Xavier); a paróquia tem 48 comunidades e a lista é parcial",
+          "sources": [
+            {
+              "url": "https://alvoradaparintins.com.br/noticia/horarios-das-missas-nas-paroquias-da-diocese-de-parintins",
+              "title": "Rádio Alvorada (emissora da Diocese de Parintins) — Horários das missas nas paróquias da Diocese de Parintins (24/12/2020; programação de Natal, cita as comunidades de cada paróquia)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Capela Nossa Senhora de Fátima",
+          "address": "Gleba de Vila Amazônia",
+          "neighborhood": null,
+          "isMatriz": false,
+          "notes": "Citada na programação de Natal de 2020 da emissora diocesana (então Área Missionária São Francisco Xavier); a paróquia tem 48 comunidades e a lista é parcial",
+          "sources": [
+            {
+              "url": "https://alvoradaparintins.com.br/noticia/horarios-das-missas-nas-paroquias-da-diocese-de-parintins",
+              "title": "Rádio Alvorada (emissora da Diocese de Parintins) — Horários das missas nas paróquias da Diocese de Parintins (24/12/2020; programação de Natal, cita as comunidades de cada paróquia)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-aparecida-boa-vista-do-ramos",
+      "name": "Paróquia Nossa Senhora Aparecida",
+      "city": "Boa Vista do Ramos",
+      "state": "AM",
+      "neighborhood": "Centro",
+      "address": "Rua Marechal Dutra, 80 – Centro",
+      "zipCode": "69195-000",
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://minhareceita.org/",
+          "title": "Receita Federal via minhareceita.org — filiais do CNPJ 04.594.537 (Diocese de Parintins): 11 paróquias ativas (0009–0019), todas abertas em 02/01/2024, com endereço e CEP",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://alvoradaparintins.com.br/noticia/horarios-das-missas-nas-paroquias-da-diocese-de-parintins",
+          "title": "Rádio Alvorada (emissora da Diocese de Parintins) — Horários das missas nas paróquias da Diocese de Parintins (24/12/2020; programação de Natal, cita as comunidades de cada paróquia)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://gcatholic.org/churches/local/pari1-n",
+          "title": "gcatholic.org — Churches in the Diocese of Parintins (14 igrejas, atualizado em 01/01/2026)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora Aparecida",
+          "address": "Rua Marechal Dutra, 80 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://minhareceita.org/",
+              "title": "Receita Federal via minhareceita.org — filiais do CNPJ 04.594.537 (Diocese de Parintins): 11 paróquias ativas (0009–0019), todas abertas em 02/01/2024, com endereço e CEP",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Igreja Nossa Senhora das Graças",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "notes": "Citada na programação de Natal de 2020 da emissora diocesana; a lista de comunidades da paróquia é parcial",
+          "sources": [
+            {
+              "url": "https://alvoradaparintins.com.br/noticia/horarios-das-missas-nas-paroquias-da-diocese-de-parintins",
+              "title": "Rádio Alvorada (emissora da Diocese de Parintins) — Horários das missas nas paróquias da Diocese de Parintins (24/12/2020; programação de Natal, cita as comunidades de cada paróquia)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Igreja Nossa Senhora de Fátima",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "notes": "Citada na programação de Natal de 2020 da emissora diocesana; a lista de comunidades da paróquia é parcial",
+          "sources": [
+            {
+              "url": "https://alvoradaparintins.com.br/noticia/horarios-das-missas-nas-paroquias-da-diocese-de-parintins",
+              "title": "Rádio Alvorada (emissora da Diocese de Parintins) — Horários das missas nas paróquias da Diocese de Parintins (24/12/2020; programação de Natal, cita as comunidades de cada paróquia)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "name": "Igreja São Pedro",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "notes": "Citada na programação de Natal de 2020 da emissora diocesana; a lista de comunidades da paróquia é parcial",
+          "sources": [
+            {
+              "url": "https://alvoradaparintins.com.br/noticia/horarios-das-missas-nas-paroquias-da-diocese-de-parintins",
+              "title": "Rádio Alvorada (emissora da Diocese de Parintins) — Horários das missas nas paróquias da Diocese de Parintins (24/12/2020; programação de Natal, cita as comunidades de cada paróquia)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-da-assuncao-nhamunda",
+      "name": "Paróquia Nossa Senhora da Assunção",
+      "city": "Nhamundá",
+      "state": "AM",
+      "neighborhood": "Centro",
+      "address": "Rua Nelson de Melo, 19 – Centro",
+      "zipCode": "69140-000",
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Benedito Teixeira",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://minhareceita.org/",
+          "title": "Receita Federal via minhareceita.org — filiais do CNPJ 04.594.537 (Diocese de Parintins): 11 paróquias ativas (0009–0019), todas abertas em 02/01/2024, com endereço e CEP",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://alvoradaparintins.com.br/noticia/paroquia-de-nhamunda-acolhe-seu-novo-paroco-e-vigario-paroquial",
+          "title": "Rádio Alvorada — Paróquia de Nhamundá acolhe seu novo pároco e vigário paroquial (17/01/2024)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://gcatholic.org/churches/local/pari1-n",
+          "title": "gcatholic.org — Churches in the Diocese of Parintins (14 igrejas, atualizado em 01/01/2026)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora da Assunção",
+          "address": "Rua Nelson de Melo, 19 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://minhareceita.org/",
+              "title": "Receita Federal via minhareceita.org — filiais do CNPJ 04.594.537 (Diocese de Parintins): 11 paróquias ativas (0009–0019), todas abertas em 02/01/2024, com endereço e CEP",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-do-bom-socorro-barreirinha",
+      "name": "Paróquia Nossa Senhora do Bom Socorro",
+      "city": "Barreirinha",
+      "state": "AM",
+      "neighborhood": "Centro",
+      "address": "Rua Desembargador Paulino de Melo, 81 – Centro",
+      "zipCode": "69160-000",
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Marcílio Moutinho",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://minhareceita.org/",
+          "title": "Receita Federal via minhareceita.org — filiais do CNPJ 04.594.537 (Diocese de Parintins): 11 paróquias ativas (0009–0019), todas abertas em 02/01/2024, com endereço e CEP",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://alvoradaparintins.com.br/noticia/padres-marcilio-e-orivaldo-tomam-posse-na-paroquia-n-s-do-bom-socorro",
+          "title": "Rádio Alvorada — Padres Marcílio e Orivaldo tomam posse na paróquia N. S. do Bom Socorro (19/02/2024)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://gcatholic.org/churches/local/pari1-n",
+          "title": "gcatholic.org — Churches in the Diocese of Parintins (14 igrejas, atualizado em 01/01/2026)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora do Bom Socorro",
+          "address": "Rua Desembargador Paulino de Melo, 81 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://minhareceita.org/",
+              "title": "Receita Federal via minhareceita.org — filiais do CNPJ 04.594.537 (Diocese de Parintins): 11 paróquias ativas (0009–0019), todas abertas em 02/01/2024, com endereço e CEP",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-da-conceicao-maues",
+      "name": "Paróquia Nossa Senhora da Conceição",
+      "city": "Maués",
+      "state": "AM",
+      "neighborhood": "Centro",
+      "address": "Rua Marechal Deodoro, 179 – Centro",
+      "zipCode": "69190-000",
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Jânio Negreiros",
+      "foundedYear": 1798,
+      "sources": [
+        {
+          "url": "https://minhareceita.org/",
+          "title": "Receita Federal via minhareceita.org — filiais do CNPJ 04.594.537 (Diocese de Parintins): 11 paróquias ativas (0009–0019), todas abertas em 02/01/2024, com endereço e CEP",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://alvoradaparintins.com.br/noticia/maues-tera-nova-paroquia-criada-pelo-bispo-de-parintins",
+          "title": "Rádio Alvorada — Maués terá nova paróquia criada pelo Bispo de Parintins (08/01/2024; a primeira paróquia de Maués é de 1798)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://alvoradaparintins.com.br/noticia/paroquias-de-maues-realizam-retiro-de-liderancas-da-pastoral-da-juventude-rural",
+          "title": "Rádio Alvorada — Paróquias de Maués realizam retiro de lideranças da PJR (17/02/2025; cita o pároco de N. Sra. da Conceição)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://gcatholic.org/churches/local/pari1-n",
+          "title": "gcatholic.org — Churches in the Diocese of Parintins (14 igrejas, atualizado em 01/01/2026)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora da Conceição",
+          "address": "Rua Marechal Deodoro, 179 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://minhareceita.org/",
+              "title": "Receita Federal via minhareceita.org — filiais do CNPJ 04.594.537 (Diocese de Parintins): 11 paróquias ativas (0009–0019), todas abertas em 02/01/2024, com endereço e CEP",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "sao-pedro-apostolo-maues",
+      "name": "Paróquia São Pedro Apóstolo",
+      "city": "Maués",
+      "state": "AM",
+      "neighborhood": "Ramalho Júnior",
+      "address": "Rua São João, 174 – Ramalho Júnior",
+      "zipCode": "69190-000",
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Ozéias Pontes Cativo",
+      "foundedYear": 2024,
+      "sources": [
+        {
+          "url": "https://minhareceita.org/",
+          "title": "Receita Federal via minhareceita.org — filiais do CNPJ 04.594.537 (Diocese de Parintins): 11 paróquias ativas (0009–0019), todas abertas em 02/01/2024, com endereço e CEP",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://alvoradaparintins.com.br/noticia/sao-pedro-apostolo-e-mais-nova-paroquia-da-diocese-de-parintins",
+          "title": "Rádio Alvorada — São Pedro Apóstolo é mais nova paróquia da Diocese de Parintins (20/05/2024; instalação em 18/05/2024, decreto, primeiro pároco e comunidades)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://alvoradaparintins.com.br/noticia/maues-tera-nova-paroquia-criada-pelo-bispo-de-parintins",
+          "title": "Rádio Alvorada — Maués terá nova paróquia criada pelo Bispo de Parintins (08/01/2024; a primeira paróquia de Maués é de 1798)",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://gcatholic.org/churches/local/pari1-n",
+          "title": "gcatholic.org — Churches in the Diocese of Parintins (14 igrejas, atualizado em 01/01/2026)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Pedro Apóstolo",
+          "address": "Rua São João, 174 – Ramalho Júnior",
+          "neighborhood": "Ramalho Júnior",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://minhareceita.org/",
+              "title": "Receita Federal via minhareceita.org — filiais do CNPJ 04.594.537 (Diocese de Parintins): 11 paróquias ativas (0009–0019), todas abertas em 02/01/2024, com endereço e CEP",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Nossa Senhora Rainha da Paz",
+          "address": "Bairro Mário Fonseca",
+          "neighborhood": "Mário Fonseca",
+          "isMatriz": false,
+          "notes": "Uma das cinco comunidades urbanas citadas no decreto de criação (18/05/2024); há ainda 63 comunidades rurais em 6 setores, sem lista publicada",
+          "sources": [
+            {
+              "url": "https://alvoradaparintins.com.br/noticia/sao-pedro-apostolo-e-mais-nova-paroquia-da-diocese-de-parintins",
+              "title": "Rádio Alvorada — São Pedro Apóstolo é mais nova paróquia da Diocese de Parintins (20/05/2024; instalação em 18/05/2024, decreto, primeiro pároco e comunidades)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Francisco de Assis",
+          "address": "Bairro Mirante do Éden",
+          "neighborhood": "Mirante do Éden",
+          "isMatriz": false,
+          "notes": "Uma das cinco comunidades urbanas citadas no decreto de criação (18/05/2024); há ainda 63 comunidades rurais em 6 setores, sem lista publicada",
+          "sources": [
+            {
+              "url": "https://alvoradaparintins.com.br/noticia/sao-pedro-apostolo-e-mais-nova-paroquia-da-diocese-de-parintins",
+              "title": "Rádio Alvorada — São Pedro Apóstolo é mais nova paróquia da Diocese de Parintins (20/05/2024; instalação em 18/05/2024, decreto, primeiro pároco e comunidades)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "São Sebastião",
+          "address": "Bairro Donga Michiles",
+          "neighborhood": "Donga Michiles",
+          "isMatriz": false,
+          "notes": "Uma das cinco comunidades urbanas citadas no decreto de criação (18/05/2024); há ainda 63 comunidades rurais em 6 setores, sem lista publicada",
+          "sources": [
+            {
+              "url": "https://alvoradaparintins.com.br/noticia/sao-pedro-apostolo-e-mais-nova-paroquia-da-diocese-de-parintins",
+              "title": "Rádio Alvorada — São Pedro Apóstolo é mais nova paróquia da Diocese de Parintins (20/05/2024; instalação em 18/05/2024, decreto, primeiro pároco e comunidades)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Sagrado Coração de Jesus",
+          "address": "Bairro Ramalho Júnior",
+          "neighborhood": "Ramalho Júnior",
+          "isMatriz": false,
+          "notes": "Uma das cinco comunidades urbanas citadas no decreto de criação (18/05/2024); há ainda 63 comunidades rurais em 6 setores, sem lista publicada",
+          "sources": [
+            {
+              "url": "https://alvoradaparintins.com.br/noticia/sao-pedro-apostolo-e-mais-nova-paroquia-da-diocese-de-parintins",
+              "title": "Rádio Alvorada — São Pedro Apóstolo é mais nova paróquia da Diocese de Parintins (20/05/2024; instalação em 18/05/2024, decreto, primeiro pároco e comunidades)",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-do-rosario-parintins",
+      "name": "Área Missionária Nossa Senhora do Rosário",
+      "city": "Parintins",
+      "state": "AM",
+      "neighborhood": "Distrito de Mocambo",
+      "address": "Vila de Mocambo do Arari",
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://arquidiocesedegoiania.org.br/arquidiocese-de-goiania-doa-carro-para-missao-na-amazonia-apos-experiencia-transformadora-de-seminarista/",
+          "title": "Arquidiocese de Goiânia — doação de carro para a missão na Amazônia (08/07/2025): Área Missionária Nossa Senhora do Rosário, distrito de Mocambo, 20 comunidades",
+          "accessedAt": "2026-09-17"
+        },
+        {
+          "url": "https://pom.org.br/de-coracao-a-coracao/",
+          "title": "Pontifícias Obras Missionárias — De coração a coração (13/01/2021): Área Missionária N. Sra. do Rosário (Caburi e Mocambo)",
+          "accessedAt": "2026-09-17"
+        }
+      ],
+      "confidence": "media",
+      "communities": [
+        {
+          "name": "Sede da Área Missionária Nossa Senhora do Rosário",
+          "address": "Vila de Mocambo do Arari",
+          "neighborhood": "Distrito de Mocambo",
+          "isMatriz": true,
+          "notes": "A fonte situa a área missionária no distrito de Mocambo (20 comunidades, a maioria ribeirinhas, com estrada de 36 km até a Agrovila do Caburi); não informa o templo-sede",
+          "sources": [
+            {
+              "url": "https://arquidiocesedegoiania.org.br/arquidiocese-de-goiania-doa-carro-para-missao-na-amazonia-apos-experiencia-transformadora-de-seminarista/",
+              "title": "Arquidiocese de Goiânia — doação de carro para a missão na Amazônia (08/07/2025): Área Missionária Nossa Senhora do Rosário, distrito de Mocambo, 20 comunidades",
+              "accessedAt": "2026-09-17"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "schedules": []
+    }
+  ],
+  "coverage": {
+    "parishesFound": 12,
+    "parishesExpected": 11,
+    "notes": "A diocese não tem site — o canal oficial é o Instagram, que não pôde ser lido. A lista foi fechada pela Receita Federal: o CNPJ 04.594.537 tem exatamente 11 filiais de paróquia ativas (0009–0019, todas registradas em 02/01/2024), número igual ao do gcatholic (11 em 31/12/2022) e da Wikipédia (11). As 11 aparecem também em notícias da Rádio Alvorada, emissora da própria diocese. A 12ª entrada é a Área Missionária Nossa Senhora do Rosário (distrito de Mocambo, Parintins), citada pelas Pontifícias Obras Missionárias (2021) e pela Arquidiocese de Goiânia (07/2025) — media. O gcatholic lista 14 igrejas como \"Parish\": ele não tem a Sagrado Coração de Jesus e traz 4 que nenhuma outra fonte confirma (N. Sra. de Fátima e Santa Luzia em Maués; N. Sra. de Lourdes e Santo Antônio em Mocambo), que não entraram — a emissora diocesana afirma em 05/2024 que Maués passou a ter só duas paróquias. Municípios: Parintins, Barreirinha, Boa Vista do Ramos, Maués e Nhamundá."
+  }
+}
