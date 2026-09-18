@@ -1,0 +1,4076 @@
+{
+  "diocese": {
+    "name": "Diocese de Macapá",
+    "type": "Diocese",
+    "slug": "macapa",
+    "city": "Macapá",
+    "state": "AP",
+    "address": "Cúria Diocesana, Rua São José, 1790 – Centro",
+    "zipCode": "68900-110",
+    "phone": "(96) 3222-0426",
+    "email": null,
+    "website": "https://www.diocesedemacapa.com.br",
+    "bishopName": "Dom Antônio de Assis Ribeiro, S.D.B.",
+    "sources": [
+      {
+        "url": "https://www.diocesedemacapa.com.br/paroquias-e-areas-missionarias/",
+        "title": "Diocese de Macapá — Paróquias e Áreas Missionárias (página oficial; modificada em 14/04/2026 segundo a REST do WordPress; 32 paróquias e 8 áreas missionárias em 10 vicariatos)",
+        "accessedAt": "2026-09-18"
+      },
+      {
+        "url": "https://www.diocesedemacapa.com.br/wp-content/uploads/2026/01/Anuario-2025.pdf",
+        "title": "Diocese de Macapá — Anuário Diocesano 2025 (PDF, 44 p., publicado em jan/2026; levantamento da secretaria da Cúria concluído em 28/02/2025): endereço, CEP, telefone, e-mail, pároco, vigários e diáconos",
+        "accessedAt": "2026-09-18"
+      },
+      {
+        "url": "https://minhareceita.org/",
+        "title": "Receita Federal via minhareceita.org — filiais do CNPJ 07.814.217 (Mitra Diocesana de Macapá): 42 estabelecimentos ativos (0001 a 0042; varredura até 0060, nada além)",
+        "accessedAt": "2026-09-18"
+      },
+      {
+        "url": "https://www.diocesedemacapa.com.br/anuario-diocesano/",
+        "title": "Diocese de Macapá — Anuário Diocesano (índice; página modificada em 26/01/2026)",
+        "accessedAt": "2026-09-18"
+      },
+      {
+        "url": "https://www.diocesedemacapa.com.br/bispo/",
+        "title": "Diocese de Macapá — Bispo (página modificada em 01/04/2026)",
+        "accessedAt": "2026-09-18"
+      }
+    ],
+    "confidence": "alta"
+  },
+  "parishes": [
+    {
+      "slug": "santa-cruz-macapa",
+      "name": "Paróquia Santa Cruz",
+      "city": "Macapá",
+      "state": "AP",
+      "neighborhood": "Jardim Felicidade I",
+      "address": "Rua Vereador Júlio Maria Pinto Pereira, 629 – Jardim Felicidade I",
+      "zipCode": "68909-000",
+      "phone": "(96) 98108-0066",
+      "email": "paroquiasantacruzap@gmail.com",
+      "website": null,
+      "priestName": "Pe. Ademilson Aparecido da Silva, SCJ",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedemacapa.com.br/paroquias-e-areas-missionarias/",
+          "title": "Diocese de Macapá — Paróquias e Áreas Missionárias (página oficial; modificada em 14/04/2026 segundo a REST do WordPress; 32 paróquias e 8 áreas missionárias em 10 vicariatos)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.diocesedemacapa.com.br/wp-content/uploads/2026/01/Anuario-2025.pdf",
+          "title": "Diocese de Macapá — Anuário Diocesano 2025 (PDF, 44 p., publicado em jan/2026; levantamento da secretaria da Cúria concluído em 28/02/2025): endereço, CEP, telefone, e-mail, pároco, vigários e diáconos",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://minhareceita.org/",
+          "title": "Receita Federal via minhareceita.org — filiais do CNPJ 07.814.217 (Mitra Diocesana de Macapá): 42 estabelecimentos ativos (0001 a 0042; varredura até 0060, nada além)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Santa Cruz",
+          "address": "Rua Vereador Júlio Maria Pinto Pereira, 629 – Jardim Felicidade I",
+          "neighborhood": "Jardim Felicidade I",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedemacapa.com.br/wp-content/uploads/2026/01/Anuario-2025.pdf",
+              "title": "Diocese de Macapá — Anuário Diocesano 2025 (PDF, 44 p., publicado em jan/2026; levantamento da secretaria da Cúria concluído em 28/02/2025): endereço, CEP, telefone, e-mail, pároco, vigários e diáconos",
+              "accessedAt": "2026-09-18"
+            },
+            {
+              "url": "https://minhareceita.org/",
+              "title": "Receita Federal via minhareceita.org — filiais do CNPJ 07.814.217 (Mitra Diocesana de Macapá): 42 estabelecimentos ativos (0001 a 0042; varredura até 0060, nada além)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São Lázaro",
+          "address": "Rua José Alves Pessoa, 513 – São Lázaro (CEP 68908-480)",
+          "neighborhood": "São Lázaro",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedemacapa.com.br/wp-content/uploads/2026/01/Anuario-2025.pdf",
+              "title": "Diocese de Macapá — Anuário Diocesano 2025 (PDF, 44 p., publicado em jan/2026; levantamento da secretaria da Cúria concluído em 28/02/2025): endereço, CEP, telefone, e-mail, pároco, vigários e diáconos",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Santa Cruz",
+          "dayOfWeek": 2,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/AP.json",
+              "title": "liriocatolico.com.br — base de horários de missa do Amapá (14 fichas; o campo ultima_atualizacao = 02/09/2026 é a data de regeneração da base, não de conferência)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Santa Cruz",
+          "dayOfWeek": 3,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/AP.json",
+              "title": "liriocatolico.com.br — base de horários de missa do Amapá (14 fichas; o campo ultima_atualizacao = 02/09/2026 é a data de regeneração da base, não de conferência)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Santa Cruz",
+          "dayOfWeek": 4,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/AP.json",
+              "title": "liriocatolico.com.br — base de horários de missa do Amapá (14 fichas; o campo ultima_atualizacao = 02/09/2026 é a data de regeneração da base, não de conferência)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Santa Cruz",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/AP.json",
+              "title": "liriocatolico.com.br — base de horários de missa do Amapá (14 fichas; o campo ultima_atualizacao = 02/09/2026 é a data de regeneração da base, não de conferência)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Santa Cruz",
+          "dayOfWeek": 5,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/AP.json",
+              "title": "liriocatolico.com.br — base de horários de missa do Amapá (14 fichas; o campo ultima_atualizacao = 02/09/2026 é a data de regeneração da base, não de conferência)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Santa Cruz",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/AP.json",
+              "title": "liriocatolico.com.br — base de horários de missa do Amapá (14 fichas; o campo ultima_atualizacao = 02/09/2026 é a data de regeneração da base, não de conferência)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Santa Cruz",
+          "dayOfWeek": 6,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/AP.json",
+              "title": "liriocatolico.com.br — base de horários de missa do Amapá (14 fichas; o campo ultima_atualizacao = 02/09/2026 é a data de regeneração da base, não de conferência)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Santa Cruz",
+          "dayOfWeek": 0,
+          "time": "10:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/AP.json",
+              "title": "liriocatolico.com.br — base de horários de missa do Amapá (14 fichas; o campo ultima_atualizacao = 02/09/2026 é a data de regeneração da base, não de conferência)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Santa Cruz",
+          "dayOfWeek": 0,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/AP.json",
+              "title": "liriocatolico.com.br — base de horários de missa do Amapá (14 fichas; o campo ultima_atualizacao = 02/09/2026 é a data de regeneração da base, não de conferência)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Santa Cruz",
+          "dayOfWeek": 2,
+          "time": "08:30",
+          "type": "CONFESSION",
+          "notes": "Fonte publica a faixa 08:30–11:00",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/AP.json",
+              "title": "liriocatolico.com.br — base de horários de missa do Amapá (14 fichas; o campo ultima_atualizacao = 02/09/2026 é a data de regeneração da base, não de conferência)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Santa Cruz",
+          "dayOfWeek": 3,
+          "time": "08:30",
+          "type": "CONFESSION",
+          "notes": "Fonte publica a faixa 08:30–11:00",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/AP.json",
+              "title": "liriocatolico.com.br — base de horários de missa do Amapá (14 fichas; o campo ultima_atualizacao = 02/09/2026 é a data de regeneração da base, não de conferência)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Santa Cruz",
+          "dayOfWeek": 4,
+          "time": "08:30",
+          "type": "CONFESSION",
+          "notes": "Fonte publica a faixa 08:30–11:00",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/AP.json",
+              "title": "liriocatolico.com.br — base de horários de missa do Amapá (14 fichas; o campo ultima_atualizacao = 02/09/2026 é a data de regeneração da base, não de conferência)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Santa Cruz",
+          "dayOfWeek": 5,
+          "time": "14:00",
+          "type": "CONFESSION",
+          "notes": "Fonte publica a faixa 14:00–17:00",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/AP.json",
+              "title": "liriocatolico.com.br — base de horários de missa do Amapá (14 fichas; o campo ultima_atualizacao = 02/09/2026 é a data de regeneração da base, não de conferência)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Santa Cruz",
+          "dayOfWeek": 6,
+          "time": "08:30",
+          "type": "CONFESSION",
+          "notes": "Fonte publica a faixa 08:30–11:00",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/AP.json",
+              "title": "liriocatolico.com.br — base de horários de missa do Amapá (14 fichas; o campo ultima_atualizacao = 02/09/2026 é a data de regeneração da base, não de conferência)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "nossa-senhora-do-rosario-e-sao-joao-calabria-macapa",
+      "name": "Paróquia Nossa Senhora do Rosário e São João Calábria",
+      "city": "Macapá",
+      "state": "AP",
+      "neighborhood": "Jardim Felicidade II",
+      "address": "Av. Ana Maria Gomes da Costa, 2714 – Jardim Felicidade II",
+      "zipCode": "68909-015",
+      "phone": "(96) 99193-2909",
+      "email": "prosariomacapa2017@gmail.com",
+      "website": null,
+      "priestName": "Pe. Adriano Carminatti",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedemacapa.com.br/paroquias-e-areas-missionarias/",
+          "title": "Diocese de Macapá — Paróquias e Áreas Missionárias (página oficial; modificada em 14/04/2026 segundo a REST do WordPress; 32 paróquias e 8 áreas missionárias em 10 vicariatos)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.diocesedemacapa.com.br/wp-content/uploads/2026/01/Anuario-2025.pdf",
+          "title": "Diocese de Macapá — Anuário Diocesano 2025 (PDF, 44 p., publicado em jan/2026; levantamento da secretaria da Cúria concluído em 28/02/2025): endereço, CEP, telefone, e-mail, pároco, vigários e diáconos",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://minhareceita.org/",
+          "title": "Receita Federal via minhareceita.org — filiais do CNPJ 07.814.217 (Mitra Diocesana de Macapá): 42 estabelecimentos ativos (0001 a 0042; varredura até 0060, nada além)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.diocesedemacapa.com.br/nsrosario/",
+          "title": "Diocese de Macapá — Paróquia Nossa Sra. do Rosário (página oficial; modificada em 25/05/2022 segundo a REST do WordPress)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora do Rosário e São João Calábria",
+          "address": "Av. Ana Maria Gomes da Costa, 2714 – Jardim Felicidade II",
+          "neighborhood": "Jardim Felicidade II",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedemacapa.com.br/wp-content/uploads/2026/01/Anuario-2025.pdf",
+              "title": "Diocese de Macapá — Anuário Diocesano 2025 (PDF, 44 p., publicado em jan/2026; levantamento da secretaria da Cúria concluído em 28/02/2025): endereço, CEP, telefone, e-mail, pároco, vigários e diáconos",
+              "accessedAt": "2026-09-18"
+            },
+            {
+              "url": "https://minhareceita.org/",
+              "title": "Receita Federal via minhareceita.org — filiais do CNPJ 07.814.217 (Mitra Diocesana de Macapá): 42 estabelecimentos ativos (0001 a 0042; varredura até 0060, nada além)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "nossa-senhora-de-nazare-macapa",
+      "name": "Paróquia Nossa Senhora de Nazaré",
+      "city": "Macapá",
+      "state": "AP",
+      "neighborhood": "Brasil Novo",
+      "address": "Av. Coqueiro, 401 – Brasil Novo",
+      "zipCode": "68909-315",
+      "phone": "(96) 3251-2549",
+      "email": "secretaria@paroquiansnazare.macapa.br",
+      "website": null,
+      "priestName": "Pe. Lukasz Franciszek Prugar",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedemacapa.com.br/paroquias-e-areas-missionarias/",
+          "title": "Diocese de Macapá — Paróquias e Áreas Missionárias (página oficial; modificada em 14/04/2026 segundo a REST do WordPress; 32 paróquias e 8 áreas missionárias em 10 vicariatos)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.diocesedemacapa.com.br/wp-content/uploads/2026/01/Anuario-2025.pdf",
+          "title": "Diocese de Macapá — Anuário Diocesano 2025 (PDF, 44 p., publicado em jan/2026; levantamento da secretaria da Cúria concluído em 28/02/2025): endereço, CEP, telefone, e-mail, pároco, vigários e diáconos",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://minhareceita.org/",
+          "title": "Receita Federal via minhareceita.org — filiais do CNPJ 07.814.217 (Mitra Diocesana de Macapá): 42 estabelecimentos ativos (0001 a 0042; varredura até 0060, nada além)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.diocesedemacapa.com.br/nossasradenazare/",
+          "title": "Diocese de Macapá — Paróquia Nossa Srª de Nazaré (página oficial; modificada em 30/05/2022 segundo a REST do WordPress)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora de Nazaré",
+          "address": "Av. Coqueiro, 401 – Brasil Novo",
+          "neighborhood": "Brasil Novo",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedemacapa.com.br/wp-content/uploads/2026/01/Anuario-2025.pdf",
+              "title": "Diocese de Macapá — Anuário Diocesano 2025 (PDF, 44 p., publicado em jan/2026; levantamento da secretaria da Cúria concluído em 28/02/2025): endereço, CEP, telefone, e-mail, pároco, vigários e diáconos",
+              "accessedAt": "2026-09-18"
+            },
+            {
+              "url": "https://minhareceita.org/",
+              "title": "Receita Federal via minhareceita.org — filiais do CNPJ 07.814.217 (Mitra Diocesana de Macapá): 42 estabelecimentos ativos (0001 a 0042; varredura até 0060, nada além)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora de Nazaré",
+          "dayOfWeek": 2,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/AP.json",
+              "title": "liriocatolico.com.br — base de horários de missa do Amapá (14 fichas; o campo ultima_atualizacao = 02/09/2026 é a data de regeneração da base, não de conferência)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora de Nazaré",
+          "dayOfWeek": 3,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/AP.json",
+              "title": "liriocatolico.com.br — base de horários de missa do Amapá (14 fichas; o campo ultima_atualizacao = 02/09/2026 é a data de regeneração da base, não de conferência)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora de Nazaré",
+          "dayOfWeek": 5,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/AP.json",
+              "title": "liriocatolico.com.br — base de horários de missa do Amapá (14 fichas; o campo ultima_atualizacao = 02/09/2026 é a data de regeneração da base, não de conferência)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora de Nazaré",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/AP.json",
+              "title": "liriocatolico.com.br — base de horários de missa do Amapá (14 fichas; o campo ultima_atualizacao = 02/09/2026 é a data de regeneração da base, não de conferência)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora de Nazaré",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/AP.json",
+              "title": "liriocatolico.com.br — base de horários de missa do Amapá (14 fichas; o campo ultima_atualizacao = 02/09/2026 é a data de regeneração da base, não de conferência)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora de Nazaré",
+          "dayOfWeek": 3,
+          "time": "10:00",
+          "type": "CONFESSION",
+          "notes": "Fonte publica a faixa 10:00–11:00",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/AP.json",
+              "title": "liriocatolico.com.br — base de horários de missa do Amapá (14 fichas; o campo ultima_atualizacao = 02/09/2026 é a data de regeneração da base, não de conferência)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ]
+    },
+    {
+      "slug": "sao-paulo-vi-macapa",
+      "name": "Paróquia São Paulo VI",
+      "city": "Macapá",
+      "state": "AP",
+      "neighborhood": "Morada das Palmeiras",
+      "address": "Rua Açaí, 324 – Morada das Palmeiras (Infraero)",
+      "zipCode": "68908-795",
+      "phone": "(96) 3388-9178",
+      "email": "secretaria@paroquiasaopaulovi.com",
+      "website": null,
+      "priestName": "Pe. Davide Chiaramella",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedemacapa.com.br/paroquias-e-areas-missionarias/",
+          "title": "Diocese de Macapá — Paróquias e Áreas Missionárias (página oficial; modificada em 14/04/2026 segundo a REST do WordPress; 32 paróquias e 8 áreas missionárias em 10 vicariatos)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.diocesedemacapa.com.br/wp-content/uploads/2026/01/Anuario-2025.pdf",
+          "title": "Diocese de Macapá — Anuário Diocesano 2025 (PDF, 44 p., publicado em jan/2026; levantamento da secretaria da Cúria concluído em 28/02/2025): endereço, CEP, telefone, e-mail, pároco, vigários e diáconos",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://minhareceita.org/",
+          "title": "Receita Federal via minhareceita.org — filiais do CNPJ 07.814.217 (Mitra Diocesana de Macapá): 42 estabelecimentos ativos (0001 a 0042; varredura até 0060, nada além)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Paulo VI",
+          "address": "Rua Açaí, 324 – Morada das Palmeiras",
+          "neighborhood": "Morada das Palmeiras",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedemacapa.com.br/wp-content/uploads/2026/01/Anuario-2025.pdf",
+              "title": "Diocese de Macapá — Anuário Diocesano 2025 (PDF, 44 p., publicado em jan/2026; levantamento da secretaria da Cúria concluído em 28/02/2025): endereço, CEP, telefone, e-mail, pároco, vigários e diáconos",
+              "accessedAt": "2026-09-18"
+            },
+            {
+              "url": "https://minhareceita.org/",
+              "title": "Receita Federal via minhareceita.org — filiais do CNPJ 07.814.217 (Mitra Diocesana de Macapá): 42 estabelecimentos ativos (0001 a 0042; varredura até 0060, nada além)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [],
+      "notes": "Vigário: Pe. Walter Roberto Cazzaniga. O site paroquial citado no e-mail (paroquiasaopaulovi.com) não responde (set/2026)."
+    },
+    {
+      "slug": "cristo-libertador-macapa",
+      "name": "Paróquia Cristo Libertador",
+      "city": "Macapá",
+      "state": "AP",
+      "neighborhood": "São Joaquim do Pacuí",
+      "address": "Rua Manoel da Silva Cordeiro, s/n – São Joaquim do Pacuí",
+      "zipCode": null,
+      "phone": "(96) 3222-0426",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedemacapa.com.br/paroquias-e-areas-missionarias/",
+          "title": "Diocese de Macapá — Paróquias e Áreas Missionárias (página oficial; modificada em 14/04/2026 segundo a REST do WordPress; 32 paróquias e 8 áreas missionárias em 10 vicariatos)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.diocesedemacapa.com.br/wp-content/uploads/2026/01/Anuario-2025.pdf",
+          "title": "Diocese de Macapá — Anuário Diocesano 2025 (PDF, 44 p., publicado em jan/2026; levantamento da secretaria da Cúria concluído em 28/02/2025): endereço, CEP, telefone, e-mail, pároco, vigários e diáconos",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://minhareceita.org/",
+          "title": "Receita Federal via minhareceita.org — filiais do CNPJ 07.814.217 (Mitra Diocesana de Macapá): 42 estabelecimentos ativos (0001 a 0042; varredura até 0060, nada além)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.diocesedemacapa.com.br/cristolibertador/",
+          "title": "Diocese de Macapá — Cristo Libertador (página oficial; modificada em 25/05/2022 segundo a REST do WordPress)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Cristo Libertador",
+          "address": "Rua Manoel da Silva Cordeiro, s/n – São Joaquim do Pacuí",
+          "neighborhood": "São Joaquim do Pacuí",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://minhareceita.org/",
+              "title": "Receita Federal via minhareceita.org — filiais do CNPJ 07.814.217 (Mitra Diocesana de Macapá): 42 estabelecimentos ativos (0001 a 0042; varredura até 0060, nada além)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [],
+      "notes": "Atende também os municípios de Cutias e Itaubal (site diocesano). Secretaria provisória na Cúria Diocesana, Rua São José, 1790 – Centro, Macapá. Diácono Gilson Barros dos Santos."
+    },
+    {
+      "slug": "divina-misericordia-macapa",
+      "name": "Área Missionária Divina Misericórdia",
+      "city": "Macapá",
+      "state": "AP",
+      "neighborhood": "Parque Aeroportuário",
+      "address": "Av. Dr. Papaléo Paes, 257 – Parque Aeroportuário",
+      "zipCode": "68908-910",
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedemacapa.com.br/paroquias-e-areas-missionarias/",
+          "title": "Diocese de Macapá — Paróquias e Áreas Missionárias (página oficial; modificada em 14/04/2026 segundo a REST do WordPress; 32 paróquias e 8 áreas missionárias em 10 vicariatos)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.diocesedemacapa.com.br/wp-content/uploads/2026/01/Anuario-2025.pdf",
+          "title": "Diocese de Macapá — Anuário Diocesano 2025 (PDF, 44 p., publicado em jan/2026; levantamento da secretaria da Cúria concluído em 28/02/2025): endereço, CEP, telefone, e-mail, pároco, vigários e diáconos",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://minhareceita.org/",
+          "title": "Receita Federal via minhareceita.org — filiais do CNPJ 07.814.217 (Mitra Diocesana de Macapá): 42 estabelecimentos ativos (0001 a 0042; varredura até 0060, nada além)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Divina Misericórdia",
+          "address": "Av. Dr. Papaléo Paes, 257 – Parque Aeroportuário",
+          "neighborhood": "Parque Aeroportuário",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://minhareceita.org/",
+              "title": "Receita Federal via minhareceita.org — filiais do CNPJ 07.814.217 (Mitra Diocesana de Macapá): 42 estabelecimentos ativos (0001 a 0042; varredura até 0060, nada além)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "santa-cristina-macapa",
+      "name": "Área Missionária Santa Cristina",
+      "city": "Macapá",
+      "state": "AP",
+      "neighborhood": null,
+      "address": null,
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedemacapa.com.br/paroquias-e-areas-missionarias/",
+          "title": "Diocese de Macapá — Paróquias e Áreas Missionárias (página oficial; modificada em 14/04/2026 segundo a REST do WordPress; 32 paróquias e 8 áreas missionárias em 10 vicariatos)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [],
+      "notes": "Site diocesano: “Resid. Miracema e adjacências”. É a única das 8 áreas missionárias sem filial própria no CNPJ da Mitra."
+    },
+    {
+      "slug": "sao-joao-batista-piamarta-macapa",
+      "name": "Paróquia São João Batista Piamarta",
+      "city": "Macapá",
+      "state": "AP",
+      "neighborhood": "Marabaixo II",
+      "address": "Igreja Matriz: Av. 7, s/n – Marabaixo II",
+      "zipCode": "68909-843",
+      "phone": "(96) 99105-2828",
+      "email": "paroquiajp@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Francisco Ronaldo de Negreiros",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedemacapa.com.br/paroquias-e-areas-missionarias/",
+          "title": "Diocese de Macapá — Paróquias e Áreas Missionárias (página oficial; modificada em 14/04/2026 segundo a REST do WordPress; 32 paróquias e 8 áreas missionárias em 10 vicariatos)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.diocesedemacapa.com.br/wp-content/uploads/2026/01/Anuario-2025.pdf",
+          "title": "Diocese de Macapá — Anuário Diocesano 2025 (PDF, 44 p., publicado em jan/2026; levantamento da secretaria da Cúria concluído em 28/02/2025): endereço, CEP, telefone, e-mail, pároco, vigários e diáconos",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://minhareceita.org/",
+          "title": "Receita Federal via minhareceita.org — filiais do CNPJ 07.814.217 (Mitra Diocesana de Macapá): 42 estabelecimentos ativos (0001 a 0042; varredura até 0060, nada além)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.diocesedemacapa.com.br/sjoaobatistapiamarta/",
+          "title": "Diocese de Macapá — Paróquia São João Batista Piamarta (página oficial; modificada em 30/05/2022 segundo a REST do WordPress)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São João Batista Piamarta",
+          "address": "Av. 7, s/n – Marabaixo II",
+          "neighborhood": "Marabaixo II",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedemacapa.com.br/wp-content/uploads/2026/01/Anuario-2025.pdf",
+              "title": "Diocese de Macapá — Anuário Diocesano 2025 (PDF, 44 p., publicado em jan/2026; levantamento da secretaria da Cúria concluído em 28/02/2025): endereço, CEP, telefone, e-mail, pároco, vigários e diáconos",
+              "accessedAt": "2026-09-18"
+            },
+            {
+              "url": "https://minhareceita.org/",
+              "title": "Receita Federal via minhareceita.org — filiais do CNPJ 07.814.217 (Mitra Diocesana de Macapá): 42 estabelecimentos ativos (0001 a 0042; varredura até 0060, nada além)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São João Batista Piamarta",
+          "dayOfWeek": 4,
+          "time": "19:30",
+          "type": "ADORATION",
+          "notes": "Fonte publica a faixa 19:30–20:30",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/AP.json",
+              "title": "liriocatolico.com.br — base de horários de missa do Amapá (14 fichas; o campo ultima_atualizacao = 02/09/2026 é a data de regeneração da base, não de conferência)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ],
+      "notes": "Casa paroquial: Rod. Duque de Serra, 1210 – Cabralzinho, CEP 68906-970, Macapá. Vigário: Pe. Rogério de França."
+    },
+    {
+      "slug": "nossa-senhora-de-fatima-macapa",
+      "name": "Santuário Nossa Senhora de Fátima",
+      "city": "Macapá",
+      "state": "AP",
+      "neighborhood": "Santa Rita",
+      "address": "Av. Almirante Barroso, 1363 – Santa Rita",
+      "zipCode": "68900-041",
+      "phone": "(96) 3222-0963",
+      "email": "santuarionsfatima.mcp@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Geraldo Magela",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedemacapa.com.br/paroquias-e-areas-missionarias/",
+          "title": "Diocese de Macapá — Paróquias e Áreas Missionárias (página oficial; modificada em 14/04/2026 segundo a REST do WordPress; 32 paróquias e 8 áreas missionárias em 10 vicariatos)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.diocesedemacapa.com.br/wp-content/uploads/2026/01/Anuario-2025.pdf",
+          "title": "Diocese de Macapá — Anuário Diocesano 2025 (PDF, 44 p., publicado em jan/2026; levantamento da secretaria da Cúria concluído em 28/02/2025): endereço, CEP, telefone, e-mail, pároco, vigários e diáconos",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://minhareceita.org/",
+          "title": "Receita Federal via minhareceita.org — filiais do CNPJ 07.814.217 (Mitra Diocesana de Macapá): 42 estabelecimentos ativos (0001 a 0042; varredura até 0060, nada além)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.instagram.com/santuarionsrafatimaoficial/",
+          "title": "Instagram @santuarionsrafatimaoficial (perfil oficial do Santuário N. Sra. de Fátima, Macapá; posts até 15/09/2026; bio sem grade de horários)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.diocesedemacapa.com.br/santuariodefatima/",
+          "title": "Diocese de Macapá — Paróquia Santuário de Fátima (página oficial; modificada em 30/05/2022 segundo a REST do WordPress)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Santuário Nossa Senhora de Fátima",
+          "address": "Av. Almirante Barroso, 1363 – Santa Rita",
+          "neighborhood": "Santa Rita",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedemacapa.com.br/wp-content/uploads/2026/01/Anuario-2025.pdf",
+              "title": "Diocese de Macapá — Anuário Diocesano 2025 (PDF, 44 p., publicado em jan/2026; levantamento da secretaria da Cúria concluído em 28/02/2025): endereço, CEP, telefone, e-mail, pároco, vigários e diáconos",
+              "accessedAt": "2026-09-18"
+            },
+            {
+              "url": "https://minhareceita.org/",
+              "title": "Receita Federal via minhareceita.org — filiais do CNPJ 07.814.217 (Mitra Diocesana de Macapá): 42 estabelecimentos ativos (0001 a 0042; varredura até 0060, nada além)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Santíssima Trindade",
+          "address": "Av. Pedro de Oliveira Gomes, 2942 – Nova Esperança (tel. (96) 3222-2212)",
+          "neighborhood": "Nova Esperança",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedemacapa.com.br/wp-content/uploads/2026/01/Anuario-2025.pdf",
+              "title": "Diocese de Macapá — Anuário Diocesano 2025 (PDF, 44 p., publicado em jan/2026; levantamento da secretaria da Cúria concluído em 28/02/2025): endereço, CEP, telefone, e-mail, pároco, vigários e diáconos",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade São Francisco de Assis",
+          "address": "Rua Minas Gerais, 2942 – Alvorada (tel. (96) 3222-4595)",
+          "neighborhood": "Alvorada",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedemacapa.com.br/wp-content/uploads/2026/01/Anuario-2025.pdf",
+              "title": "Diocese de Macapá — Anuário Diocesano 2025 (PDF, 44 p., publicado em jan/2026; levantamento da secretaria da Cúria concluído em 28/02/2025): endereço, CEP, telefone, e-mail, pároco, vigários e diáconos",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Comunidade Santíssima Trindade",
+          "dayOfWeek": 2,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedemacapa.com.br/wp-content/uploads/2026/01/Anuario-2025.pdf",
+              "title": "Diocese de Macapá — Anuário Diocesano 2025 (PDF, 44 p., publicado em jan/2026; levantamento da secretaria da Cúria concluído em 28/02/2025): endereço, CEP, telefone, e-mail, pároco, vigários e diáconos",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Comunidade Santíssima Trindade",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedemacapa.com.br/wp-content/uploads/2026/01/Anuario-2025.pdf",
+              "title": "Diocese de Macapá — Anuário Diocesano 2025 (PDF, 44 p., publicado em jan/2026; levantamento da secretaria da Cúria concluído em 28/02/2025): endereço, CEP, telefone, e-mail, pároco, vigários e diáconos",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Comunidade Santíssima Trindade",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedemacapa.com.br/wp-content/uploads/2026/01/Anuario-2025.pdf",
+              "title": "Diocese de Macapá — Anuário Diocesano 2025 (PDF, 44 p., publicado em jan/2026; levantamento da secretaria da Cúria concluído em 28/02/2025): endereço, CEP, telefone, e-mail, pároco, vigários e diáconos",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Comunidade São Francisco de Assis",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedemacapa.com.br/wp-content/uploads/2026/01/Anuario-2025.pdf",
+              "title": "Diocese de Macapá — Anuário Diocesano 2025 (PDF, 44 p., publicado em jan/2026; levantamento da secretaria da Cúria concluído em 28/02/2025): endereço, CEP, telefone, e-mail, pároco, vigários e diáconos",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Comunidade São Francisco de Assis",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedemacapa.com.br/wp-content/uploads/2026/01/Anuario-2025.pdf",
+              "title": "Diocese de Macapá — Anuário Diocesano 2025 (PDF, 44 p., publicado em jan/2026; levantamento da secretaria da Cúria concluído em 28/02/2025): endereço, CEP, telefone, e-mail, pároco, vigários e diáconos",
+              "accessedAt": "2026-09-18"
+            },
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/AP.json",
+              "title": "liriocatolico.com.br — base de horários de missa do Amapá (14 fichas; o campo ultima_atualizacao = 02/09/2026 é a data de regeneração da base, não de conferência)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Comunidade São Francisco de Assis",
+          "dayOfWeek": 2,
+          "time": "17:00",
+          "type": "ADORATION",
+          "notes": "Fonte publica a faixa 17:00–18:00",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/AP.json",
+              "title": "liriocatolico.com.br — base de horários de missa do Amapá (14 fichas; o campo ultima_atualizacao = 02/09/2026 é a data de regeneração da base, não de conferência)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade São Francisco de Assis",
+          "dayOfWeek": 4,
+          "time": "08:00",
+          "type": "ADORATION",
+          "notes": "Fonte publica a faixa 08:00–09:00",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/AP.json",
+              "title": "liriocatolico.com.br — base de horários de missa do Amapá (14 fichas; o campo ultima_atualizacao = 02/09/2026 é a data de regeneração da base, não de conferência)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade São Francisco de Assis",
+          "dayOfWeek": 6,
+          "time": "14:30",
+          "type": "ADORATION",
+          "notes": "Fonte publica a faixa 14:30–15:40",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/AP.json",
+              "title": "liriocatolico.com.br — base de horários de missa do Amapá (14 fichas; o campo ultima_atualizacao = 02/09/2026 é a data de regeneração da base, não de conferência)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade São Francisco de Assis",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "ADORATION",
+          "notes": "Fonte publica a faixa 08:00–09:00",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/AP.json",
+              "title": "liriocatolico.com.br — base de horários de missa do Amapá (14 fichas; o campo ultima_atualizacao = 02/09/2026 é a data de regeneração da base, não de conferência)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ],
+      "notes": "Segundo e-mail oficial: secretaria@santuariodefatimaoficial.com; segundo telefone (96) 99126-1904. A bio do Instagram oficial (set/2026) dá o endereço como Av. Cora de Carvalho – Santa Rita, divergente do Anuário 2025."
+    },
+    {
+      "slug": "menino-deus-macapa",
+      "name": "Área Missionária Menino Deus",
+      "city": "Macapá",
+      "state": "AP",
+      "neighborhood": "Goiabal",
+      "address": "Rua Nova Jerusalém, 2124 – Goiabal",
+      "zipCode": "68906-090",
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedemacapa.com.br/paroquias-e-areas-missionarias/",
+          "title": "Diocese de Macapá — Paróquias e Áreas Missionárias (página oficial; modificada em 14/04/2026 segundo a REST do WordPress; 32 paróquias e 8 áreas missionárias em 10 vicariatos)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.diocesedemacapa.com.br/wp-content/uploads/2026/01/Anuario-2025.pdf",
+          "title": "Diocese de Macapá — Anuário Diocesano 2025 (PDF, 44 p., publicado em jan/2026; levantamento da secretaria da Cúria concluído em 28/02/2025): endereço, CEP, telefone, e-mail, pároco, vigários e diáconos",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://minhareceita.org/",
+          "title": "Receita Federal via minhareceita.org — filiais do CNPJ 07.814.217 (Mitra Diocesana de Macapá): 42 estabelecimentos ativos (0001 a 0042; varredura até 0060, nada além)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Menino Deus",
+          "address": "Rua Nova Jerusalém, 2124 – Goiabal",
+          "neighborhood": "Goiabal",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://minhareceita.org/",
+              "title": "Receita Federal via minhareceita.org — filiais do CNPJ 07.814.217 (Mitra Diocesana de Macapá): 42 estabelecimentos ativos (0001 a 0042; varredura até 0060, nada além)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [],
+      "notes": "O Anuário 2025 dá o endereço como “Rua Nova Aliança – Bairro Goiabal”."
+    },
+    {
+      "slug": "sao-francisco-de-assis-macapa",
+      "name": "Área Missionária São Francisco de Assis",
+      "city": "Macapá",
+      "state": "AP",
+      "neighborhood": "Marabaixo",
+      "address": "Rua São Francisco de Assis (Comunidade do Coração), 1211 – Marabaixo",
+      "zipCode": "68909-866",
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedemacapa.com.br/paroquias-e-areas-missionarias/",
+          "title": "Diocese de Macapá — Paróquias e Áreas Missionárias (página oficial; modificada em 14/04/2026 segundo a REST do WordPress; 32 paróquias e 8 áreas missionárias em 10 vicariatos)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.diocesedemacapa.com.br/wp-content/uploads/2026/01/Anuario-2025.pdf",
+          "title": "Diocese de Macapá — Anuário Diocesano 2025 (PDF, 44 p., publicado em jan/2026; levantamento da secretaria da Cúria concluído em 28/02/2025): endereço, CEP, telefone, e-mail, pároco, vigários e diáconos",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://minhareceita.org/",
+          "title": "Receita Federal via minhareceita.org — filiais do CNPJ 07.814.217 (Mitra Diocesana de Macapá): 42 estabelecimentos ativos (0001 a 0042; varredura até 0060, nada além)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Francisco de Assis",
+          "address": "Rua São Francisco de Assis (Comunidade do Coração), 1211 – Marabaixo",
+          "neighborhood": "Marabaixo",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://minhareceita.org/",
+              "title": "Receita Federal via minhareceita.org — filiais do CNPJ 07.814.217 (Mitra Diocesana de Macapá): 42 estabelecimentos ativos (0001 a 0042; varredura até 0060, nada além)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [],
+      "notes": "Site diocesano: “Distrito do Coração / Macapá”."
+    },
+    {
+      "slug": "jesus-bom-samaritano-macapa",
+      "name": "Paróquia Jesus Bom Samaritano",
+      "city": "Macapá",
+      "state": "AP",
+      "neighborhood": "Zerão",
+      "address": "Rua Amadeu Gama, 782 – Zerão",
+      "zipCode": "68903-230",
+      "phone": "(96) 99205-3221",
+      "email": "paroquiajbs@gmail.com",
+      "website": null,
+      "priestName": "Pe. Antônio Figueiredo",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedemacapa.com.br/paroquias-e-areas-missionarias/",
+          "title": "Diocese de Macapá — Paróquias e Áreas Missionárias (página oficial; modificada em 14/04/2026 segundo a REST do WordPress; 32 paróquias e 8 áreas missionárias em 10 vicariatos)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.diocesedemacapa.com.br/wp-content/uploads/2026/01/Anuario-2025.pdf",
+          "title": "Diocese de Macapá — Anuário Diocesano 2025 (PDF, 44 p., publicado em jan/2026; levantamento da secretaria da Cúria concluído em 28/02/2025): endereço, CEP, telefone, e-mail, pároco, vigários e diáconos",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://minhareceita.org/",
+          "title": "Receita Federal via minhareceita.org — filiais do CNPJ 07.814.217 (Mitra Diocesana de Macapá): 42 estabelecimentos ativos (0001 a 0042; varredura até 0060, nada além)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.diocesedemacapa.com.br/jesusbomsamaritano/",
+          "title": "Diocese de Macapá — Paróquia Jesus Bom Samaritano (página oficial; modificada em 30/03/2026 segundo a REST do WordPress)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.instagram.com/jesusbomsamaritanoap/",
+          "title": "Instagram @jesusbomsamaritanoap (perfil oficial; posts até 16/09/2026)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Igreja Matriz Paroquial Jesus Bom Samaritano",
+          "address": "Rua Amadeu Gama, 782 – Zerão",
+          "neighborhood": "Zerão",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedemacapa.com.br/wp-content/uploads/2026/01/Anuario-2025.pdf",
+              "title": "Diocese de Macapá — Anuário Diocesano 2025 (PDF, 44 p., publicado em jan/2026; levantamento da secretaria da Cúria concluído em 28/02/2025): endereço, CEP, telefone, e-mail, pároco, vigários e diáconos",
+              "accessedAt": "2026-09-18"
+            },
+            {
+              "url": "https://www.diocesedemacapa.com.br/jesusbomsamaritano/",
+              "title": "Diocese de Macapá — Paróquia Jesus Bom Samaritano (página oficial; modificada em 30/03/2026 segundo a REST do WordPress)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Igreja São João Batista",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedemacapa.com.br/jesusbomsamaritano/",
+              "title": "Diocese de Macapá — Paróquia Jesus Bom Samaritano (página oficial; modificada em 30/03/2026 segundo a REST do WordPress)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Santa Edwiges",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedemacapa.com.br/jesusbomsamaritano/",
+              "title": "Diocese de Macapá — Paróquia Jesus Bom Samaritano (página oficial; modificada em 30/03/2026 segundo a REST do WordPress)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Nossa Senhora do Perpétuo Socorro",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedemacapa.com.br/jesusbomsamaritano/",
+              "title": "Diocese de Macapá — Paróquia Jesus Bom Samaritano (página oficial; modificada em 30/03/2026 segundo a REST do WordPress)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela São Francisco de Assis",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedemacapa.com.br/jesusbomsamaritano/",
+              "title": "Diocese de Macapá — Paróquia Jesus Bom Samaritano (página oficial; modificada em 30/03/2026 segundo a REST do WordPress)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela Imaculado Coração de Maria",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedemacapa.com.br/jesusbomsamaritano/",
+              "title": "Diocese de Macapá — Paróquia Jesus Bom Samaritano (página oficial; modificada em 30/03/2026 segundo a REST do WordPress)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Igreja Matriz Paroquial Jesus Bom Samaritano",
+          "dayOfWeek": 1,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedemacapa.com.br/jesusbomsamaritano/",
+              "title": "Diocese de Macapá — Paróquia Jesus Bom Samaritano (página oficial; modificada em 30/03/2026 segundo a REST do WordPress)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Igreja Matriz Paroquial Jesus Bom Samaritano",
+          "dayOfWeek": 4,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedemacapa.com.br/jesusbomsamaritano/",
+              "title": "Diocese de Macapá — Paróquia Jesus Bom Samaritano (página oficial; modificada em 30/03/2026 segundo a REST do WordPress)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Igreja Matriz Paroquial Jesus Bom Samaritano",
+          "dayOfWeek": 5,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedemacapa.com.br/jesusbomsamaritano/",
+              "title": "Diocese de Macapá — Paróquia Jesus Bom Samaritano (página oficial; modificada em 30/03/2026 segundo a REST do WordPress)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Igreja Matriz Paroquial Jesus Bom Samaritano",
+          "dayOfWeek": 3,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedemacapa.com.br/jesusbomsamaritano/",
+              "title": "Diocese de Macapá — Paróquia Jesus Bom Samaritano (página oficial; modificada em 30/03/2026 segundo a REST do WordPress)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Igreja Matriz Paroquial Jesus Bom Samaritano",
+          "dayOfWeek": 0,
+          "time": "07:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedemacapa.com.br/jesusbomsamaritano/",
+              "title": "Diocese de Macapá — Paróquia Jesus Bom Samaritano (página oficial; modificada em 30/03/2026 segundo a REST do WordPress)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Igreja Matriz Paroquial Jesus Bom Samaritano",
+          "dayOfWeek": 0,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedemacapa.com.br/jesusbomsamaritano/",
+              "title": "Diocese de Macapá — Paróquia Jesus Bom Samaritano (página oficial; modificada em 30/03/2026 segundo a REST do WordPress)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Igreja São João Batista",
+          "dayOfWeek": 0,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedemacapa.com.br/jesusbomsamaritano/",
+              "title": "Diocese de Macapá — Paróquia Jesus Bom Samaritano (página oficial; modificada em 30/03/2026 segundo a REST do WordPress)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Capela Santa Edwiges",
+          "dayOfWeek": 4,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Novena às 19h antes da missa",
+          "sources": [
+            {
+              "url": "https://www.diocesedemacapa.com.br/jesusbomsamaritano/",
+              "title": "Diocese de Macapá — Paróquia Jesus Bom Samaritano (página oficial; modificada em 30/03/2026 segundo a REST do WordPress)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Capela Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedemacapa.com.br/jesusbomsamaritano/",
+              "title": "Diocese de Macapá — Paróquia Jesus Bom Samaritano (página oficial; modificada em 30/03/2026 segundo a REST do WordPress)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Capela São Francisco de Assis",
+          "dayOfWeek": 6,
+          "time": "17:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedemacapa.com.br/jesusbomsamaritano/",
+              "title": "Diocese de Macapá — Paróquia Jesus Bom Samaritano (página oficial; modificada em 30/03/2026 segundo a REST do WordPress)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Capela Imaculado Coração de Maria",
+          "dayOfWeek": 0,
+          "time": "09:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedemacapa.com.br/jesusbomsamaritano/",
+              "title": "Diocese de Macapá — Paróquia Jesus Bom Samaritano (página oficial; modificada em 30/03/2026 segundo a REST do WordPress)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "notes": "Vigário: Pe. Giddi Raj Emmanuel (PIME). A grafia “Capela Imacuado Coração de Maria” do site foi normalizada para “Imaculado”."
+    },
+    {
+      "slug": "sagrado-coracao-de-jesus-macapa",
+      "name": "Paróquia Sagrado Coração de Jesus",
+      "city": "Macapá",
+      "state": "AP",
+      "neighborhood": "Buritizal",
+      "address": "Igreja Matriz: Av. 1º de Maio, 1776 – Buritizal",
+      "zipCode": "68902-891",
+      "phone": "(96) 3242-3953",
+      "email": "paroquiapscj006@gmail.com",
+      "website": null,
+      "priestName": "Pe. Giuseppe Marchesi",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedemacapa.com.br/paroquias-e-areas-missionarias/",
+          "title": "Diocese de Macapá — Paróquias e Áreas Missionárias (página oficial; modificada em 14/04/2026 segundo a REST do WordPress; 32 paróquias e 8 áreas missionárias em 10 vicariatos)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.diocesedemacapa.com.br/wp-content/uploads/2026/01/Anuario-2025.pdf",
+          "title": "Diocese de Macapá — Anuário Diocesano 2025 (PDF, 44 p., publicado em jan/2026; levantamento da secretaria da Cúria concluído em 28/02/2025): endereço, CEP, telefone, e-mail, pároco, vigários e diáconos",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://minhareceita.org/",
+          "title": "Receita Federal via minhareceita.org — filiais do CNPJ 07.814.217 (Mitra Diocesana de Macapá): 42 estabelecimentos ativos (0001 a 0042; varredura até 0060, nada além)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.diocesedemacapa.com.br/sagradocoracaodejesus/",
+          "title": "Diocese de Macapá — Paróquia Sagrado Coração de Jesus (página oficial; modificada em 30/05/2022 segundo a REST do WordPress)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Sagrado Coração de Jesus",
+          "address": "Av. 1º de Maio, 1776 – Buritizal",
+          "neighborhood": "Buritizal",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedemacapa.com.br/wp-content/uploads/2026/01/Anuario-2025.pdf",
+              "title": "Diocese de Macapá — Anuário Diocesano 2025 (PDF, 44 p., publicado em jan/2026; levantamento da secretaria da Cúria concluído em 28/02/2025): endereço, CEP, telefone, e-mail, pároco, vigários e diáconos",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [],
+      "notes": "Casa paroquial: Av. Diógenes Silva, 1775 – Buritizal, CEP 68901-326."
+    },
+    {
+      "slug": "cristo-bom-pastor-macapa",
+      "name": "Paróquia Cristo Bom Pastor",
+      "city": "Macapá",
+      "state": "AP",
+      "neighborhood": "Novo Buritizal",
+      "address": "Igreja Matriz: Rua Claudomiro de Moraes, 1278 – Novo Buritizal",
+      "zipCode": "68904-001",
+      "phone": "(96) 3242-1641",
+      "email": "paroquiacbpmacapa@gmail.com",
+      "website": null,
+      "priestName": "Pe. Sérgio Shoiti Matumoto",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedemacapa.com.br/paroquias-e-areas-missionarias/",
+          "title": "Diocese de Macapá — Paróquias e Áreas Missionárias (página oficial; modificada em 14/04/2026 segundo a REST do WordPress; 32 paróquias e 8 áreas missionárias em 10 vicariatos)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.diocesedemacapa.com.br/wp-content/uploads/2026/01/Anuario-2025.pdf",
+          "title": "Diocese de Macapá — Anuário Diocesano 2025 (PDF, 44 p., publicado em jan/2026; levantamento da secretaria da Cúria concluído em 28/02/2025): endereço, CEP, telefone, e-mail, pároco, vigários e diáconos",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://minhareceita.org/",
+          "title": "Receita Federal via minhareceita.org — filiais do CNPJ 07.814.217 (Mitra Diocesana de Macapá): 42 estabelecimentos ativos (0001 a 0042; varredura até 0060, nada além)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.diocesedemacapa.com.br/cristobompastor/",
+          "title": "Diocese de Macapá — Paróquia Cristo Bom Pastor (página oficial; modificada em 30/05/2022 segundo a REST do WordPress)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Cristo Bom Pastor",
+          "address": "Rua Claudomiro de Moraes, 1278 – Novo Buritizal",
+          "neighborhood": "Novo Buritizal",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedemacapa.com.br/wp-content/uploads/2026/01/Anuario-2025.pdf",
+              "title": "Diocese de Macapá — Anuário Diocesano 2025 (PDF, 44 p., publicado em jan/2026; levantamento da secretaria da Cúria concluído em 28/02/2025): endereço, CEP, telefone, e-mail, pároco, vigários e diáconos",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Cristo Redentor",
+          "address": "Av. Heráclito Juarez Filho – Novo Buritizal",
+          "neighborhood": "Novo Buritizal",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/AP.json",
+              "title": "liriocatolico.com.br — base de horários de missa do Amapá (14 fichas; o campo ultima_atualizacao = 02/09/2026 é a data de regeneração da base, não de conferência)",
+              "accessedAt": "2026-09-18"
+            },
+            {
+              "url": "https://www.diocesedemacapa.com.br/cristobompastor/",
+              "title": "Diocese de Macapá — Paróquia Cristo Bom Pastor (página oficial; modificada em 30/05/2022 segundo a REST do WordPress)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media",
+          "notes": "O site da paróquia noticia “Comunidade do bairro Buritizal realiza programação em honra a Cristo Redentor”; o endereço vem do liriocatolico."
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Comunidade Cristo Redentor",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/AP.json",
+              "title": "liriocatolico.com.br — base de horários de missa do Amapá (14 fichas; o campo ultima_atualizacao = 02/09/2026 é a data de regeneração da base, não de conferência)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Cristo Redentor",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/AP.json",
+              "title": "liriocatolico.com.br — base de horários de missa do Amapá (14 fichas; o campo ultima_atualizacao = 02/09/2026 é a data de regeneração da base, não de conferência)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Comunidade Cristo Redentor",
+          "dayOfWeek": 4,
+          "time": "18:30",
+          "type": "ADORATION",
+          "notes": "Fonte publica a faixa 18:30–19:30",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/AP.json",
+              "title": "liriocatolico.com.br — base de horários de missa do Amapá (14 fichas; o campo ultima_atualizacao = 02/09/2026 é a data de regeneração da base, não de conferência)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ],
+      "notes": "Secretaria paroquial: Rua José Gonçalves Picanço, 507 – Novo Buritizal, CEP 68904-080. Vigário: Pe. Vagner Donizetti."
+    },
+    {
+      "slug": "santa-terezinha-do-menino-jesus-macapa",
+      "name": "Paróquia Santa Terezinha do Menino Jesus",
+      "city": "Macapá",
+      "state": "AP",
+      "neighborhood": "Fazendinha",
+      "address": "Rua Caetano Tomaz, 100 – Fazendinha",
+      "zipCode": "68911-105",
+      "phone": "(96) 99205-1022",
+      "email": "psantateresinhadomeninojesus@gmail.com",
+      "website": null,
+      "priestName": "Pe. Jorge Sérgio Pinto de Souza",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedemacapa.com.br/paroquias-e-areas-missionarias/",
+          "title": "Diocese de Macapá — Paróquias e Áreas Missionárias (página oficial; modificada em 14/04/2026 segundo a REST do WordPress; 32 paróquias e 8 áreas missionárias em 10 vicariatos)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.diocesedemacapa.com.br/wp-content/uploads/2026/01/Anuario-2025.pdf",
+          "title": "Diocese de Macapá — Anuário Diocesano 2025 (PDF, 44 p., publicado em jan/2026; levantamento da secretaria da Cúria concluído em 28/02/2025): endereço, CEP, telefone, e-mail, pároco, vigários e diáconos",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://minhareceita.org/",
+          "title": "Receita Federal via minhareceita.org — filiais do CNPJ 07.814.217 (Mitra Diocesana de Macapá): 42 estabelecimentos ativos (0001 a 0042; varredura até 0060, nada além)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.diocesedemacapa.com.br/santaterezinha/",
+          "title": "Diocese de Macapá — Paróquia Santa Terezinha (página oficial; modificada em 30/05/2022 segundo a REST do WordPress)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Santa Terezinha do Menino Jesus",
+          "address": "Rua Caetano Tomaz, 100 – Fazendinha",
+          "neighborhood": "Fazendinha",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedemacapa.com.br/wp-content/uploads/2026/01/Anuario-2025.pdf",
+              "title": "Diocese de Macapá — Anuário Diocesano 2025 (PDF, 44 p., publicado em jan/2026; levantamento da secretaria da Cúria concluído em 28/02/2025): endereço, CEP, telefone, e-mail, pároco, vigários e diáconos",
+              "accessedAt": "2026-09-18"
+            },
+            {
+              "url": "https://minhareceita.org/",
+              "title": "Receita Federal via minhareceita.org — filiais do CNPJ 07.814.217 (Mitra Diocesana de Macapá): 42 estabelecimentos ativos (0001 a 0042; varredura até 0060, nada além)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Capela do Hospital São Camilo",
+          "address": null,
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedemacapa.com.br/wp-content/uploads/2026/01/Anuario-2025.pdf",
+              "title": "Diocese de Macapá — Anuário Diocesano 2025 (PDF, 44 p., publicado em jan/2026; levantamento da secretaria da Cúria concluído em 28/02/2025): endereço, CEP, telefone, e-mail, pároco, vigários e diáconos",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [],
+      "notes": "Capelão do Hospital São Camilo: Pe. Francisco Valdemiro Alves. O telefone registrado é o celular da secretária (Eliani), publicado no Anuário 2025."
+    },
+    {
+      "slug": "nossa-senhora-do-perpetuo-socorro-macapa",
+      "name": "Santuário Nossa Senhora do Perpétuo Socorro",
+      "city": "Macapá",
+      "state": "AP",
+      "neighborhood": "Perpétuo Socorro",
+      "address": "Rua Acézio Guedes, 549 – Perpétuo Socorro",
+      "zipCode": "68905-628",
+      "phone": "(96) 3223-0347",
+      "email": "santuarionspsocorroap@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Alcimar Mota (administrador paroquial)",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedemacapa.com.br/paroquias-e-areas-missionarias/",
+          "title": "Diocese de Macapá — Paróquias e Áreas Missionárias (página oficial; modificada em 14/04/2026 segundo a REST do WordPress; 32 paróquias e 8 áreas missionárias em 10 vicariatos)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.diocesedemacapa.com.br/wp-content/uploads/2026/01/Anuario-2025.pdf",
+          "title": "Diocese de Macapá — Anuário Diocesano 2025 (PDF, 44 p., publicado em jan/2026; levantamento da secretaria da Cúria concluído em 28/02/2025): endereço, CEP, telefone, e-mail, pároco, vigários e diáconos",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://minhareceita.org/",
+          "title": "Receita Federal via minhareceita.org — filiais do CNPJ 07.814.217 (Mitra Diocesana de Macapá): 42 estabelecimentos ativos (0001 a 0042; varredura até 0060, nada além)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.instagram.com/perpetuosocorro.macapa/",
+          "title": "Instagram @perpetuosocorro.macapa (perfil oficial do Santuário, missionários redentoristas)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.diocesedemacapa.com.br/nossasradoperpetuosocorro/",
+          "title": "Diocese de Macapá — Paróquia Nossa Sª do Perpétuo Socorro (página oficial; modificada em 30/05/2022 segundo a REST do WordPress)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Santuário Nossa Senhora do Perpétuo Socorro",
+          "address": "Rua Acézio Guedes, 549 – Perpétuo Socorro",
+          "neighborhood": "Perpétuo Socorro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedemacapa.com.br/wp-content/uploads/2026/01/Anuario-2025.pdf",
+              "title": "Diocese de Macapá — Anuário Diocesano 2025 (PDF, 44 p., publicado em jan/2026; levantamento da secretaria da Cúria concluído em 28/02/2025): endereço, CEP, telefone, e-mail, pároco, vigários e diáconos",
+              "accessedAt": "2026-09-18"
+            },
+            {
+              "url": "https://minhareceita.org/",
+              "title": "Receita Federal via minhareceita.org — filiais do CNPJ 07.814.217 (Mitra Diocesana de Macapá): 42 estabelecimentos ativos (0001 a 0042; varredura até 0060, nada além)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Santuário Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 0,
+          "time": "08:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/AP.json",
+              "title": "liriocatolico.com.br — base de horários de missa do Amapá (14 fichas; o campo ultima_atualizacao = 02/09/2026 é a data de regeneração da base, não de conferência)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Santuário Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 0,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/AP.json",
+              "title": "liriocatolico.com.br — base de horários de missa do Amapá (14 fichas; o campo ultima_atualizacao = 02/09/2026 é a data de regeneração da base, não de conferência)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Santuário Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 2,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": "Terça é o dia da novena perpétua; a fonte lista 07:00, 12:00, 15:00, 17:00, 19:00 e 20:00",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/AP.json",
+              "title": "liriocatolico.com.br — base de horários de missa do Amapá (14 fichas; o campo ultima_atualizacao = 02/09/2026 é a data de regeneração da base, não de conferência)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Santuário Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 2,
+          "time": "12:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/AP.json",
+              "title": "liriocatolico.com.br — base de horários de missa do Amapá (14 fichas; o campo ultima_atualizacao = 02/09/2026 é a data de regeneração da base, não de conferência)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Santuário Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 2,
+          "time": "15:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/AP.json",
+              "title": "liriocatolico.com.br — base de horários de missa do Amapá (14 fichas; o campo ultima_atualizacao = 02/09/2026 é a data de regeneração da base, não de conferência)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Santuário Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 2,
+          "time": "17:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/AP.json",
+              "title": "liriocatolico.com.br — base de horários de missa do Amapá (14 fichas; o campo ultima_atualizacao = 02/09/2026 é a data de regeneração da base, não de conferência)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Santuário Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 2,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/AP.json",
+              "title": "liriocatolico.com.br — base de horários de missa do Amapá (14 fichas; o campo ultima_atualizacao = 02/09/2026 é a data de regeneração da base, não de conferência)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Santuário Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 2,
+          "time": "20:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/AP.json",
+              "title": "liriocatolico.com.br — base de horários de missa do Amapá (14 fichas; o campo ultima_atualizacao = 02/09/2026 é a data de regeneração da base, não de conferência)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Santuário Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/AP.json",
+              "title": "liriocatolico.com.br — base de horários de missa do Amapá (14 fichas; o campo ultima_atualizacao = 02/09/2026 é a data de regeneração da base, não de conferência)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Santuário Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 2,
+          "time": "07:00",
+          "type": "CONFESSION",
+          "notes": "Fonte publica a faixa 07:00–07:30",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/AP.json",
+              "title": "liriocatolico.com.br — base de horários de missa do Amapá (14 fichas; o campo ultima_atualizacao = 02/09/2026 é a data de regeneração da base, não de conferência)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Santuário Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 6,
+          "time": "09:00",
+          "type": "CONFESSION",
+          "notes": "Fonte publica a faixa 09:00–12:00",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/AP.json",
+              "title": "liriocatolico.com.br — base de horários de missa do Amapá (14 fichas; o campo ultima_atualizacao = 02/09/2026 é a data de regeneração da base, não de conferência)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Santuário Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "ADORATION",
+          "notes": "Fonte publica a faixa 19:00–20:00",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/AP.json",
+              "title": "liriocatolico.com.br — base de horários de missa do Amapá (14 fichas; o campo ultima_atualizacao = 02/09/2026 é a data de regeneração da base, não de conferência)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ],
+      "notes": "Diáconos com atuação ribeirinha: Benedito Mota Rocha (ilhas do Bailique), José Raimundo Sousa Barroso (Bailique) e Raimundo Pedro das Neves G. (beira do rio Amazonas) — o Anuário não nomeia as comunidades do Bailique. Vigário: Pe. Ênio Renan."
+    },
+    {
+      "slug": "sao-benedito-macapa",
+      "name": "Paróquia São Benedito",
+      "city": "Macapá",
+      "state": "AP",
+      "neighborhood": "Laguinho",
+      "address": "Rua General Rondon, 429 – Laguinho",
+      "zipCode": "68900-130",
+      "phone": "(96) 3223-1145",
+      "email": "paroquiasaobenedito.macapa@gmail.com",
+      "website": null,
+      "priestName": "Pe. Railson Carneiro",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedemacapa.com.br/paroquias-e-areas-missionarias/",
+          "title": "Diocese de Macapá — Paróquias e Áreas Missionárias (página oficial; modificada em 14/04/2026 segundo a REST do WordPress; 32 paróquias e 8 áreas missionárias em 10 vicariatos)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.diocesedemacapa.com.br/wp-content/uploads/2026/01/Anuario-2025.pdf",
+          "title": "Diocese de Macapá — Anuário Diocesano 2025 (PDF, 44 p., publicado em jan/2026; levantamento da secretaria da Cúria concluído em 28/02/2025): endereço, CEP, telefone, e-mail, pároco, vigários e diáconos",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://minhareceita.org/",
+          "title": "Receita Federal via minhareceita.org — filiais do CNPJ 07.814.217 (Mitra Diocesana de Macapá): 42 estabelecimentos ativos (0001 a 0042; varredura até 0060, nada além)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.diocesedemacapa.com.br/saobenedito/",
+          "title": "Diocese de Macapá — Paróquia São Benedito (página oficial; modificada em 30/05/2022 segundo a REST do WordPress)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Benedito",
+          "address": "Rua General Rondon, 429 – Laguinho",
+          "neighborhood": "Laguinho",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedemacapa.com.br/wp-content/uploads/2026/01/Anuario-2025.pdf",
+              "title": "Diocese de Macapá — Anuário Diocesano 2025 (PDF, 44 p., publicado em jan/2026; levantamento da secretaria da Cúria concluído em 28/02/2025): endereço, CEP, telefone, e-mail, pároco, vigários e diáconos",
+              "accessedAt": "2026-09-18"
+            },
+            {
+              "url": "https://minhareceita.org/",
+              "title": "Receita Federal via minhareceita.org — filiais do CNPJ 07.814.217 (Mitra Diocesana de Macapá): 42 estabelecimentos ativos (0001 a 0042; varredura até 0060, nada além)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Comunidade Nossa Senhora Aparecida",
+          "address": "Tel. (96) 3223-0170",
+          "neighborhood": null,
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedemacapa.com.br/wp-content/uploads/2026/01/Anuario-2025.pdf",
+              "title": "Diocese de Macapá — Anuário Diocesano 2025 (PDF, 44 p., publicado em jan/2026; levantamento da secretaria da Cúria concluído em 28/02/2025): endereço, CEP, telefone, e-mail, pároco, vigários e diáconos",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "jesus-de-nazare-macapa",
+      "name": "Paróquia Jesus de Nazaré",
+      "city": "Macapá",
+      "state": "AP",
+      "neighborhood": "Jesus de Nazaré",
+      "address": "Rua Leopoldo Machado, 744 – Jesus de Nazaré",
+      "zipCode": "68908-120",
+      "phone": null,
+      "email": "paroquiajesusdenazare.mcp@gmail.com",
+      "website": null,
+      "priestName": "Pe. Rosielson Lobato Vilhena",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedemacapa.com.br/paroquias-e-areas-missionarias/",
+          "title": "Diocese de Macapá — Paróquias e Áreas Missionárias (página oficial; modificada em 14/04/2026 segundo a REST do WordPress; 32 paróquias e 8 áreas missionárias em 10 vicariatos)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.diocesedemacapa.com.br/wp-content/uploads/2026/01/Anuario-2025.pdf",
+          "title": "Diocese de Macapá — Anuário Diocesano 2025 (PDF, 44 p., publicado em jan/2026; levantamento da secretaria da Cúria concluído em 28/02/2025): endereço, CEP, telefone, e-mail, pároco, vigários e diáconos",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://minhareceita.org/",
+          "title": "Receita Federal via minhareceita.org — filiais do CNPJ 07.814.217 (Mitra Diocesana de Macapá): 42 estabelecimentos ativos (0001 a 0042; varredura até 0060, nada além)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.diocesedemacapa.com.br/jesusdenazare/",
+          "title": "Diocese de Macapá — Paróquia Jesus de Nazaré (página oficial; modificada em 30/05/2022 segundo a REST do WordPress)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Jesus de Nazaré",
+          "address": "Rua Leopoldo Machado, 744 – Jesus de Nazaré",
+          "neighborhood": "Jesus de Nazaré",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedemacapa.com.br/wp-content/uploads/2026/01/Anuario-2025.pdf",
+              "title": "Diocese de Macapá — Anuário Diocesano 2025 (PDF, 44 p., publicado em jan/2026; levantamento da secretaria da Cúria concluído em 28/02/2025): endereço, CEP, telefone, e-mail, pároco, vigários e diáconos",
+              "accessedAt": "2026-09-18"
+            },
+            {
+              "url": "https://minhareceita.org/",
+              "title": "Receita Federal via minhareceita.org — filiais do CNPJ 07.814.217 (Mitra Diocesana de Macapá): 42 estabelecimentos ativos (0001 a 0042; varredura até 0060, nada além)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Jesus de Nazaré",
+          "dayOfWeek": 6,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/AP.json",
+              "title": "liriocatolico.com.br — base de horários de missa do Amapá (14 fichas; o campo ultima_atualizacao = 02/09/2026 é a data de regeneração da base, não de conferência)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Jesus de Nazaré",
+          "dayOfWeek": 6,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/AP.json",
+              "title": "liriocatolico.com.br — base de horários de missa do Amapá (14 fichas; o campo ultima_atualizacao = 02/09/2026 é a data de regeneração da base, não de conferência)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Jesus de Nazaré",
+          "dayOfWeek": 0,
+          "time": "07:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/AP.json",
+              "title": "liriocatolico.com.br — base de horários de missa do Amapá (14 fichas; o campo ultima_atualizacao = 02/09/2026 é a data de regeneração da base, não de conferência)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Jesus de Nazaré",
+          "dayOfWeek": 0,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/AP.json",
+              "title": "liriocatolico.com.br — base de horários de missa do Amapá (14 fichas; o campo ultima_atualizacao = 02/09/2026 é a data de regeneração da base, não de conferência)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Jesus de Nazaré",
+          "dayOfWeek": 1,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/AP.json",
+              "title": "liriocatolico.com.br — base de horários de missa do Amapá (14 fichas; o campo ultima_atualizacao = 02/09/2026 é a data de regeneração da base, não de conferência)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Jesus de Nazaré",
+          "dayOfWeek": 2,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/AP.json",
+              "title": "liriocatolico.com.br — base de horários de missa do Amapá (14 fichas; o campo ultima_atualizacao = 02/09/2026 é a data de regeneração da base, não de conferência)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Jesus de Nazaré",
+          "dayOfWeek": 3,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/AP.json",
+              "title": "liriocatolico.com.br — base de horários de missa do Amapá (14 fichas; o campo ultima_atualizacao = 02/09/2026 é a data de regeneração da base, não de conferência)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Jesus de Nazaré",
+          "dayOfWeek": 4,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/AP.json",
+              "title": "liriocatolico.com.br — base de horários de missa do Amapá (14 fichas; o campo ultima_atualizacao = 02/09/2026 é a data de regeneração da base, não de conferência)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Jesus de Nazaré",
+          "dayOfWeek": 5,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/AP.json",
+              "title": "liriocatolico.com.br — base de horários de missa do Amapá (14 fichas; o campo ultima_atualizacao = 02/09/2026 é a data de regeneração da base, não de conferência)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ],
+      "notes": "Vigário: Pe. Edimundo Dias Feitoza. A Receita registra o número 840 na mesma rua."
+    },
+    {
+      "slug": "nossa-senhora-aparecida-macapa",
+      "name": "Área Missionária Nossa Senhora Aparecida",
+      "city": "Macapá",
+      "state": "AP",
+      "neighborhood": "Pacoval",
+      "address": "Rua Guanabara, 612 – Pacoval",
+      "zipCode": "68908-360",
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedemacapa.com.br/paroquias-e-areas-missionarias/",
+          "title": "Diocese de Macapá — Paróquias e Áreas Missionárias (página oficial; modificada em 14/04/2026 segundo a REST do WordPress; 32 paróquias e 8 áreas missionárias em 10 vicariatos)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://minhareceita.org/",
+          "title": "Receita Federal via minhareceita.org — filiais do CNPJ 07.814.217 (Mitra Diocesana de Macapá): 42 estabelecimentos ativos (0001 a 0042; varredura até 0060, nada além)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora Aparecida",
+          "address": "Rua Guanabara, 612 – Pacoval",
+          "neighborhood": "Pacoval",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://minhareceita.org/",
+              "title": "Receita Federal via minhareceita.org — filiais do CNPJ 07.814.217 (Mitra Diocesana de Macapá): 42 estabelecimentos ativos (0001 a 0042; varredura até 0060, nada além)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [],
+      "notes": "A Receita registra a filial como “Área Missionária Nossa Senhora da Conceição Apar…” (razão social truncada); o site diocesano chama de “N. Sra Aparecida (Pacoval)” e o Anuário 2025, de “Área Missionária N. Sra. Aparecida” (Vicariato 4)."
+    },
+    {
+      "slug": "sao-jose-macapa",
+      "name": "Catedral São José",
+      "city": "Macapá",
+      "state": "AP",
+      "neighborhood": "Centro",
+      "address": "Av. General Gurjão, 588 – Centro",
+      "zipCode": "68900-050",
+      "phone": "(96) 3223-0594",
+      "email": "paroquiasaojose.mcp@gmail.com",
+      "website": null,
+      "priestName": "Pe. Fábio Rogério Bezerra Pereira",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedemacapa.com.br/paroquias-e-areas-missionarias/",
+          "title": "Diocese de Macapá — Paróquias e Áreas Missionárias (página oficial; modificada em 14/04/2026 segundo a REST do WordPress; 32 paróquias e 8 áreas missionárias em 10 vicariatos)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.diocesedemacapa.com.br/wp-content/uploads/2026/01/Anuario-2025.pdf",
+          "title": "Diocese de Macapá — Anuário Diocesano 2025 (PDF, 44 p., publicado em jan/2026; levantamento da secretaria da Cúria concluído em 28/02/2025): endereço, CEP, telefone, e-mail, pároco, vigários e diáconos",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://minhareceita.org/",
+          "title": "Receita Federal via minhareceita.org — filiais do CNPJ 07.814.217 (Mitra Diocesana de Macapá): 42 estabelecimentos ativos (0001 a 0042; varredura até 0060, nada além)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.diocesedemacapa.com.br/saojose/",
+          "title": "Diocese de Macapá — Paróquia São José (página oficial; modificada em 30/05/2022 segundo a REST do WordPress)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://buscamissa.com.br/paroquia/ap/macapa/paroquia-sao-jose",
+          "title": "BuscaMissa — Paróquia São José, Macapá/AP (ficha marcada “Confirmado”)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Catedral São José",
+          "address": "Rua General Rondon – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedemacapa.com.br/saojose/",
+              "title": "Diocese de Macapá — Paróquia São José (página oficial; modificada em 30/05/2022 segundo a REST do WordPress)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Igreja São José",
+          "address": "Rua São José – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedemacapa.com.br/saojose/",
+              "title": "Diocese de Macapá — Paróquia São José (página oficial; modificada em 30/05/2022 segundo a REST do WordPress)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "name": "Igreja Santo Antônio",
+          "address": "Rua Odilardo Silva – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": false,
+          "sources": [
+            {
+              "url": "https://www.diocesedemacapa.com.br/saojose/",
+              "title": "Diocese de Macapá — Paróquia São José (página oficial; modificada em 30/05/2022 segundo a REST do WordPress)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Catedral São José",
+          "dayOfWeek": 6,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedemacapa.com.br/saojose/",
+              "title": "Diocese de Macapá — Paróquia São José (página oficial; modificada em 30/05/2022 segundo a REST do WordPress)",
+              "accessedAt": "2026-09-18"
+            },
+            {
+              "url": "https://buscamissa.com.br/paroquia/ap/macapa/paroquia-sao-jose",
+              "title": "BuscaMissa — Paróquia São José, Macapá/AP (ficha marcada “Confirmado”)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Catedral São José",
+          "dayOfWeek": 0,
+          "time": "07:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedemacapa.com.br/saojose/",
+              "title": "Diocese de Macapá — Paróquia São José (página oficial; modificada em 30/05/2022 segundo a REST do WordPress)",
+              "accessedAt": "2026-09-18"
+            },
+            {
+              "url": "https://buscamissa.com.br/paroquia/ap/macapa/paroquia-sao-jose",
+              "title": "BuscaMissa — Paróquia São José, Macapá/AP (ficha marcada “Confirmado”)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Catedral São José",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedemacapa.com.br/saojose/",
+              "title": "Diocese de Macapá — Paróquia São José (página oficial; modificada em 30/05/2022 segundo a REST do WordPress)",
+              "accessedAt": "2026-09-18"
+            },
+            {
+              "url": "https://buscamissa.com.br/paroquia/ap/macapa/paroquia-sao-jose",
+              "title": "BuscaMissa — Paróquia São José, Macapá/AP (ficha marcada “Confirmado”)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Igreja São José",
+          "dayOfWeek": 1,
+          "time": "12:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedemacapa.com.br/saojose/",
+              "title": "Diocese de Macapá — Paróquia São José (página oficial; modificada em 30/05/2022 segundo a REST do WordPress)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Igreja São José",
+          "dayOfWeek": 2,
+          "time": "12:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedemacapa.com.br/saojose/",
+              "title": "Diocese de Macapá — Paróquia São José (página oficial; modificada em 30/05/2022 segundo a REST do WordPress)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Igreja São José",
+          "dayOfWeek": 3,
+          "time": "12:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedemacapa.com.br/saojose/",
+              "title": "Diocese de Macapá — Paróquia São José (página oficial; modificada em 30/05/2022 segundo a REST do WordPress)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Igreja São José",
+          "dayOfWeek": 4,
+          "time": "12:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedemacapa.com.br/saojose/",
+              "title": "Diocese de Macapá — Paróquia São José (página oficial; modificada em 30/05/2022 segundo a REST do WordPress)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Igreja São José",
+          "dayOfWeek": 5,
+          "time": "12:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedemacapa.com.br/saojose/",
+              "title": "Diocese de Macapá — Paróquia São José (página oficial; modificada em 30/05/2022 segundo a REST do WordPress)",
+              "accessedAt": "2026-09-18"
+            },
+            {
+              "url": "https://buscamissa.com.br/paroquia/ap/macapa/paroquia-sao-jose",
+              "title": "BuscaMissa — Paróquia São José, Macapá/AP (ficha marcada “Confirmado”)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Igreja Santo Antônio",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedemacapa.com.br/saojose/",
+              "title": "Diocese de Macapá — Paróquia São José (página oficial; modificada em 30/05/2022 segundo a REST do WordPress)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        },
+        {
+          "community": "Igreja Santo Antônio",
+          "dayOfWeek": 0,
+          "time": "10:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.diocesedemacapa.com.br/saojose/",
+              "title": "Diocese de Macapá — Paróquia São José (página oficial; modificada em 30/05/2022 segundo a REST do WordPress)",
+              "accessedAt": "2026-09-18"
+            },
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/AP.json",
+              "title": "liriocatolico.com.br — base de horários de missa do Amapá (14 fichas; o campo ultima_atualizacao = 02/09/2026 é a data de regeneração da base, não de conferência)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "media"
+        }
+      ],
+      "notes": "Endereço da Receita e do Anuário para a secretaria: Rua São José, 1790 – Centro. Telefone alternativo (96) 98418-3768 (WhatsApp da secretaria). O site paroquial catedralsaojose.com, citado na página oficial, não responde (set/2026); o Instagram é @catedralsaojoseap. A Catedral passou por reforma do telhado em 2024."
+    },
+    {
+      "slug": "nossa-senhora-da-conceicao-macapa",
+      "name": "Paróquia Nossa Senhora da Conceição",
+      "city": "Macapá",
+      "state": "AP",
+      "neighborhood": "Trem",
+      "address": "Igreja Matriz: Av. Cônego Domingos Maltês, s/n – Trem",
+      "zipCode": "68901-050",
+      "phone": "(96) 98119-0023",
+      "email": "pnscamapa@gmail.com",
+      "website": null,
+      "priestName": "Pe. Diego Ferreira da Silva (administrador paroquial)",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedemacapa.com.br/paroquias-e-areas-missionarias/",
+          "title": "Diocese de Macapá — Paróquias e Áreas Missionárias (página oficial; modificada em 14/04/2026 segundo a REST do WordPress; 32 paróquias e 8 áreas missionárias em 10 vicariatos)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.diocesedemacapa.com.br/wp-content/uploads/2026/01/Anuario-2025.pdf",
+          "title": "Diocese de Macapá — Anuário Diocesano 2025 (PDF, 44 p., publicado em jan/2026; levantamento da secretaria da Cúria concluído em 28/02/2025): endereço, CEP, telefone, e-mail, pároco, vigários e diáconos",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://minhareceita.org/",
+          "title": "Receita Federal via minhareceita.org — filiais do CNPJ 07.814.217 (Mitra Diocesana de Macapá): 42 estabelecimentos ativos (0001 a 0042; varredura até 0060, nada além)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.instagram.com/paroquiansconceicao_mcp/",
+          "title": "Instagram @paroquiansconceicao_mcp (perfil oficial da Paróquia N. Sra. da Conceição, Macapá; horários na bio; posts até 21/08/2026)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.diocesedemacapa.com.br/nossasradaconceicao/",
+          "title": "Diocese de Macapá — Paróquia Nossa Sra. da Conceição (página oficial; modificada em 30/05/2022 segundo a REST do WordPress)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora da Conceição",
+          "address": "Av. Cônego Domingos Maltês, s/n – Trem",
+          "neighborhood": "Trem",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedemacapa.com.br/wp-content/uploads/2026/01/Anuario-2025.pdf",
+              "title": "Diocese de Macapá — Anuário Diocesano 2025 (PDF, 44 p., publicado em jan/2026; levantamento da secretaria da Cúria concluído em 28/02/2025): endereço, CEP, telefone, e-mail, pároco, vigários e diáconos",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 1,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/paroquiansconceicao_mcp/",
+              "title": "Instagram @paroquiansconceicao_mcp (perfil oficial da Paróquia N. Sra. da Conceição, Macapá; horários na bio; posts até 21/08/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 1,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/paroquiansconceicao_mcp/",
+              "title": "Instagram @paroquiansconceicao_mcp (perfil oficial da Paróquia N. Sra. da Conceição, Macapá; horários na bio; posts até 21/08/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 2,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/paroquiansconceicao_mcp/",
+              "title": "Instagram @paroquiansconceicao_mcp (perfil oficial da Paróquia N. Sra. da Conceição, Macapá; horários na bio; posts até 21/08/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 2,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/paroquiansconceicao_mcp/",
+              "title": "Instagram @paroquiansconceicao_mcp (perfil oficial da Paróquia N. Sra. da Conceição, Macapá; horários na bio; posts até 21/08/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 3,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/paroquiansconceicao_mcp/",
+              "title": "Instagram @paroquiansconceicao_mcp (perfil oficial da Paróquia N. Sra. da Conceição, Macapá; horários na bio; posts até 21/08/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 3,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/paroquiansconceicao_mcp/",
+              "title": "Instagram @paroquiansconceicao_mcp (perfil oficial da Paróquia N. Sra. da Conceição, Macapá; horários na bio; posts até 21/08/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 4,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/paroquiansconceicao_mcp/",
+              "title": "Instagram @paroquiansconceicao_mcp (perfil oficial da Paróquia N. Sra. da Conceição, Macapá; horários na bio; posts até 21/08/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 4,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/paroquiansconceicao_mcp/",
+              "title": "Instagram @paroquiansconceicao_mcp (perfil oficial da Paróquia N. Sra. da Conceição, Macapá; horários na bio; posts até 21/08/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 5,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/paroquiansconceicao_mcp/",
+              "title": "Instagram @paroquiansconceicao_mcp (perfil oficial da Paróquia N. Sra. da Conceição, Macapá; horários na bio; posts até 21/08/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 5,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/paroquiansconceicao_mcp/",
+              "title": "Instagram @paroquiansconceicao_mcp (perfil oficial da Paróquia N. Sra. da Conceição, Macapá; horários na bio; posts até 21/08/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 6,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/paroquiansconceicao_mcp/",
+              "title": "Instagram @paroquiansconceicao_mcp (perfil oficial da Paróquia N. Sra. da Conceição, Macapá; horários na bio; posts até 21/08/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 6,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/paroquiansconceicao_mcp/",
+              "title": "Instagram @paroquiansconceicao_mcp (perfil oficial da Paróquia N. Sra. da Conceição, Macapá; horários na bio; posts até 21/08/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/paroquiansconceicao_mcp/",
+              "title": "Instagram @paroquiansconceicao_mcp (perfil oficial da Paróquia N. Sra. da Conceição, Macapá; horários na bio; posts até 21/08/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 0,
+          "time": "10:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/paroquiansconceicao_mcp/",
+              "title": "Instagram @paroquiansconceicao_mcp (perfil oficial da Paróquia N. Sra. da Conceição, Macapá; horários na bio; posts até 21/08/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora da Conceição",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://www.instagram.com/paroquiansconceicao_mcp/",
+              "title": "Instagram @paroquiansconceicao_mcp (perfil oficial da Paróquia N. Sra. da Conceição, Macapá; horários na bio; posts até 21/08/2026)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "notes": "Secretaria: Av. Feliciano Coelho, 659B – Trem, CEP 68901-025, tel. (96) 98415-1716. Vigário: Pe. Manoel Alcântara. O liriocatolico publica grade divergente (domingo 07:00 e 18:00; segunda a sábado 18:30) — prevaleceu a bio do Instagram oficial, com posts de ago/2026."
+    },
+    {
+      "slug": "sao-pedro-macapa",
+      "name": "Paróquia São Pedro",
+      "city": "Macapá",
+      "state": "AP",
+      "neighborhood": "Beirol",
+      "address": "Igreja Matriz: Rua Jovino Dinoá, s/n – Beirol",
+      "zipCode": "68902-030",
+      "phone": "(96) 98414-1184",
+      "email": "saopedromacapa@gmail.com",
+      "website": null,
+      "priestName": "Pe. Samuel Antonny da Silva",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedemacapa.com.br/paroquias-e-areas-missionarias/",
+          "title": "Diocese de Macapá — Paróquias e Áreas Missionárias (página oficial; modificada em 14/04/2026 segundo a REST do WordPress; 32 paróquias e 8 áreas missionárias em 10 vicariatos)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.diocesedemacapa.com.br/wp-content/uploads/2026/01/Anuario-2025.pdf",
+          "title": "Diocese de Macapá — Anuário Diocesano 2025 (PDF, 44 p., publicado em jan/2026; levantamento da secretaria da Cúria concluído em 28/02/2025): endereço, CEP, telefone, e-mail, pároco, vigários e diáconos",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://minhareceita.org/",
+          "title": "Receita Federal via minhareceita.org — filiais do CNPJ 07.814.217 (Mitra Diocesana de Macapá): 42 estabelecimentos ativos (0001 a 0042; varredura até 0060, nada além)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.diocesedemacapa.com.br/saopedro/",
+          "title": "Diocese de Macapá — Paróquia São Pedro (página oficial; modificada em 30/05/2022 segundo a REST do WordPress)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Pedro",
+          "address": "Rua Jovino Dinoá, s/n – Beirol",
+          "neighborhood": "Beirol",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedemacapa.com.br/wp-content/uploads/2026/01/Anuario-2025.pdf",
+              "title": "Diocese de Macapá — Anuário Diocesano 2025 (PDF, 44 p., publicado em jan/2026; levantamento da secretaria da Cúria concluído em 28/02/2025): endereço, CEP, telefone, e-mail, pároco, vigários e diáconos",
+              "accessedAt": "2026-09-18"
+            },
+            {
+              "url": "https://minhareceita.org/",
+              "title": "Receita Federal via minhareceita.org — filiais do CNPJ 07.814.217 (Mitra Diocesana de Macapá): 42 estabelecimentos ativos (0001 a 0042; varredura até 0060, nada além)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [],
+      "notes": "Secretaria: Av. Galibis, 76 – Beirol, CEP 68902-130."
+    },
+    {
+      "slug": "nossa-senhora-de-fatima-e-santana-santana",
+      "name": "Paróquia Nossa Senhora de Fátima e Sant'Ana",
+      "city": "Santana",
+      "state": "AP",
+      "neighborhood": "Centro",
+      "address": "Av. 15 de Novembro, 1162 – Centro",
+      "zipCode": "68925-213",
+      "phone": "(96) 3048-4318",
+      "email": "m.fatimaesantana@gmail.com",
+      "website": null,
+      "priestName": "Pe. Vitório Chiguruparti",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedemacapa.com.br/paroquias-e-areas-missionarias/",
+          "title": "Diocese de Macapá — Paróquias e Áreas Missionárias (página oficial; modificada em 14/04/2026 segundo a REST do WordPress; 32 paróquias e 8 áreas missionárias em 10 vicariatos)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.diocesedemacapa.com.br/wp-content/uploads/2026/01/Anuario-2025.pdf",
+          "title": "Diocese de Macapá — Anuário Diocesano 2025 (PDF, 44 p., publicado em jan/2026; levantamento da secretaria da Cúria concluído em 28/02/2025): endereço, CEP, telefone, e-mail, pároco, vigários e diáconos",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://minhareceita.org/",
+          "title": "Receita Federal via minhareceita.org — filiais do CNPJ 07.814.217 (Mitra Diocesana de Macapá): 42 estabelecimentos ativos (0001 a 0042; varredura até 0060, nada além)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.instagram.com/paroquiafatimaesantaana/",
+          "title": "Instagram @paroquiafatimaesantaana (perfil oficial; último post de jun/2022)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora de Fátima e Sant'Ana",
+          "address": "Av. 15 de Novembro, 1162 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedemacapa.com.br/wp-content/uploads/2026/01/Anuario-2025.pdf",
+              "title": "Diocese de Macapá — Anuário Diocesano 2025 (PDF, 44 p., publicado em jan/2026; levantamento da secretaria da Cúria concluído em 28/02/2025): endereço, CEP, telefone, e-mail, pároco, vigários e diáconos",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [],
+      "notes": "A Receita registra a sede na Rua Ubaldo Figueira, 596 – Centro, CEP 68925-001. O Instagram oficial tem destaque “Horário missas”, mas o perfil está parado desde jun/2022 e o destaque não é legível por leitor automático. Vigários: Pe. Regan Jhon Gomes e Pe. Mauro Romanello."
+    },
+    {
+      "slug": "sao-padre-pio-de-pietrelcina-e-beato-padre-luiz-monza-santana",
+      "name": "Paróquia São Padre Pio de Pietrelcina e Beato Padre Luiz Monza",
+      "city": "Santana",
+      "state": "AP",
+      "neighborhood": "Fonte Nova",
+      "address": "Rua Everaldo Vasconcelos, 387 – Fonte Nova",
+      "zipCode": "68928-181",
+      "phone": "(96) 98419-1594",
+      "email": "paroquiapiomonza@gmail.com",
+      "website": null,
+      "priestName": "Frei Eduardo Farias Ferreira, OFMCap",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedemacapa.com.br/paroquias-e-areas-missionarias/",
+          "title": "Diocese de Macapá — Paróquias e Áreas Missionárias (página oficial; modificada em 14/04/2026 segundo a REST do WordPress; 32 paróquias e 8 áreas missionárias em 10 vicariatos)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.diocesedemacapa.com.br/wp-content/uploads/2026/01/Anuario-2025.pdf",
+          "title": "Diocese de Macapá — Anuário Diocesano 2025 (PDF, 44 p., publicado em jan/2026; levantamento da secretaria da Cúria concluído em 28/02/2025): endereço, CEP, telefone, e-mail, pároco, vigários e diáconos",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://minhareceita.org/",
+          "title": "Receita Federal via minhareceita.org — filiais do CNPJ 07.814.217 (Mitra Diocesana de Macapá): 42 estabelecimentos ativos (0001 a 0042; varredura até 0060, nada além)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.diocesedemacapa.com.br/paroquiasaopadrepiodepietrelcina/",
+          "title": "Diocese de Macapá — Paróquia São Padre Pio de Pietrelcina (página oficial; modificada em 25/05/2022 segundo a REST do WordPress)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Padre Pio de Pietrelcina",
+          "address": "Rua Everaldo Vasconcelos, 387 – Fonte Nova",
+          "neighborhood": "Fonte Nova",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedemacapa.com.br/wp-content/uploads/2026/01/Anuario-2025.pdf",
+              "title": "Diocese de Macapá — Anuário Diocesano 2025 (PDF, 44 p., publicado em jan/2026; levantamento da secretaria da Cúria concluído em 28/02/2025): endereço, CEP, telefone, e-mail, pároco, vigários e diáconos",
+              "accessedAt": "2026-09-18"
+            },
+            {
+              "url": "https://minhareceita.org/",
+              "title": "Receita Federal via minhareceita.org — filiais do CNPJ 07.814.217 (Mitra Diocesana de Macapá): 42 estabelecimentos ativos (0001 a 0042; varredura até 0060, nada além)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [],
+      "notes": "Vigário: Frei Wendeo Michael Terceiro Teixeira, OFMCap."
+    },
+    {
+      "slug": "nossa-senhora-do-perpetuo-socorro-santana",
+      "name": "Paróquia Nossa Senhora do Perpétuo Socorro",
+      "city": "Santana",
+      "state": "AP",
+      "neighborhood": "Remédio II",
+      "address": "Rua Cláudio Lúcio Monteiro, 1717 – Remédio II",
+      "zipCode": null,
+      "phone": "(96) 98405-3737",
+      "email": "paroquianspersoc@hotmail.com",
+      "website": null,
+      "priestName": "Pe. José Cláudio Barros",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedemacapa.com.br/paroquias-e-areas-missionarias/",
+          "title": "Diocese de Macapá — Paróquias e Áreas Missionárias (página oficial; modificada em 14/04/2026 segundo a REST do WordPress; 32 paróquias e 8 áreas missionárias em 10 vicariatos)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.diocesedemacapa.com.br/wp-content/uploads/2026/01/Anuario-2025.pdf",
+          "title": "Diocese de Macapá — Anuário Diocesano 2025 (PDF, 44 p., publicado em jan/2026; levantamento da secretaria da Cúria concluído em 28/02/2025): endereço, CEP, telefone, e-mail, pároco, vigários e diáconos",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://minhareceita.org/",
+          "title": "Receita Federal via minhareceita.org — filiais do CNPJ 07.814.217 (Mitra Diocesana de Macapá): 42 estabelecimentos ativos (0001 a 0042; varredura até 0060, nada além)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.diocesedemacapa.com.br/nossasradoperpetuosocorrosantana/",
+          "title": "Diocese de Macapá — Paróquia Nossa Srª do Perpétuo Socorro – Santana (página oficial; modificada em 30/05/2022 segundo a REST do WordPress)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora do Perpétuo Socorro",
+          "address": "Rua Cláudio Lúcio Monteiro, 1717 – Remédio II",
+          "neighborhood": "Remédio II",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedemacapa.com.br/wp-content/uploads/2026/01/Anuario-2025.pdf",
+              "title": "Diocese de Macapá — Anuário Diocesano 2025 (PDF, 44 p., publicado em jan/2026; levantamento da secretaria da Cúria concluído em 28/02/2025): endereço, CEP, telefone, e-mail, pároco, vigários e diáconos",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [],
+      "notes": "CEP em conflito: o Anuário 2025 imprime 68900-130 (CEP de Macapá) e a Receita registra Rua Felinto Müller, 1717 – Centro, CEP 68925-001. Deixado nulo até validação humana."
+    },
+    {
+      "slug": "nossa-senhora-da-assuncao-mazagao",
+      "name": "Paróquia Nossa Senhora da Assunção",
+      "city": "Mazagão",
+      "state": "AP",
+      "neighborhood": "Centro",
+      "address": "Travessa Padre Antônio Valente Flexa, s/n – Centro",
+      "zipCode": "68940-000",
+      "phone": "(96) 3271-1143",
+      "email": "paroquiamazagao@gmail.com",
+      "website": null,
+      "priestName": "Pe. Edivaldo dos Santos Neves",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedemacapa.com.br/paroquias-e-areas-missionarias/",
+          "title": "Diocese de Macapá — Paróquias e Áreas Missionárias (página oficial; modificada em 14/04/2026 segundo a REST do WordPress; 32 paróquias e 8 áreas missionárias em 10 vicariatos)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.diocesedemacapa.com.br/wp-content/uploads/2026/01/Anuario-2025.pdf",
+          "title": "Diocese de Macapá — Anuário Diocesano 2025 (PDF, 44 p., publicado em jan/2026; levantamento da secretaria da Cúria concluído em 28/02/2025): endereço, CEP, telefone, e-mail, pároco, vigários e diáconos",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://minhareceita.org/",
+          "title": "Receita Federal via minhareceita.org — filiais do CNPJ 07.814.217 (Mitra Diocesana de Macapá): 42 estabelecimentos ativos (0001 a 0042; varredura até 0060, nada além)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.diocesedemacapa.com.br/nossasradeassuncao/",
+          "title": "Diocese de Macapá — Paróquia Nossa Srª da Assunção (página oficial; modificada em 30/05/2022 segundo a REST do WordPress)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora da Assunção",
+          "address": "Travessa Padre Antônio Valente Flexa, s/n – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedemacapa.com.br/wp-content/uploads/2026/01/Anuario-2025.pdf",
+              "title": "Diocese de Macapá — Anuário Diocesano 2025 (PDF, 44 p., publicado em jan/2026; levantamento da secretaria da Cúria concluído em 28/02/2025): endereço, CEP, telefone, e-mail, pároco, vigários e diáconos",
+              "accessedAt": "2026-09-18"
+            },
+            {
+              "url": "https://minhareceita.org/",
+              "title": "Receita Federal via minhareceita.org — filiais do CNPJ 07.814.217 (Mitra Diocesana de Macapá): 42 estabelecimentos ativos (0001 a 0042; varredura até 0060, nada além)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [],
+      "notes": "O diácono Flaviano Fonseca dos Santos atende a localidade de Castanhal (Mazagão)."
+    },
+    {
+      "slug": "nossa-senhora-dos-navegantes-santana",
+      "name": "Paróquia Nossa Senhora dos Navegantes",
+      "city": "Santana",
+      "state": "AP",
+      "neighborhood": "Área Portuária",
+      "address": "Rua Trinta e Um de Março, 43 – Área Portuária",
+      "zipCode": "68925-049",
+      "phone": "(96) 99145-2660",
+      "email": "socorrochaves.iam@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Raul Bonte Có",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedemacapa.com.br/paroquias-e-areas-missionarias/",
+          "title": "Diocese de Macapá — Paróquias e Áreas Missionárias (página oficial; modificada em 14/04/2026 segundo a REST do WordPress; 32 paróquias e 8 áreas missionárias em 10 vicariatos)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.diocesedemacapa.com.br/wp-content/uploads/2026/01/Anuario-2025.pdf",
+          "title": "Diocese de Macapá — Anuário Diocesano 2025 (PDF, 44 p., publicado em jan/2026; levantamento da secretaria da Cúria concluído em 28/02/2025): endereço, CEP, telefone, e-mail, pároco, vigários e diáconos",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://minhareceita.org/",
+          "title": "Receita Federal via minhareceita.org — filiais do CNPJ 07.814.217 (Mitra Diocesana de Macapá): 42 estabelecimentos ativos (0001 a 0042; varredura até 0060, nada além)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.diocesedemacapa.com.br/nossasradosnavegantes/",
+          "title": "Diocese de Macapá — Paróquia Nossa Srª dos Navegantes (página oficial; modificada em 30/05/2022 segundo a REST do WordPress)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora dos Navegantes",
+          "address": "Rua Trinta e Um de Março, 43 – Área Portuária",
+          "neighborhood": "Área Portuária",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedemacapa.com.br/wp-content/uploads/2026/01/Anuario-2025.pdf",
+              "title": "Diocese de Macapá — Anuário Diocesano 2025 (PDF, 44 p., publicado em jan/2026; levantamento da secretaria da Cúria concluído em 28/02/2025): endereço, CEP, telefone, e-mail, pároco, vigários e diáconos",
+              "accessedAt": "2026-09-18"
+            },
+            {
+              "url": "https://minhareceita.org/",
+              "title": "Receita Federal via minhareceita.org — filiais do CNPJ 07.814.217 (Mitra Diocesana de Macapá): 42 estabelecimentos ativos (0001 a 0042; varredura até 0060, nada além)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [],
+      "notes": "Paróquia das Ilhas (arquipélago do Bailique e ilhas do Pará próximas): o site diocesano a identifica como “Ilhas”, mas nenhuma fonte pública lista as comunidades ribeirinhas. Vigário: Pe. Luca Vinati."
+    },
+    {
+      "slug": "sagrada-familia-santana",
+      "name": "Área Missionária Sagrada Família",
+      "city": "Santana",
+      "state": "AP",
+      "neighborhood": "Comercial (Aqua Villa)",
+      "address": "Av. Rio Calçoene, 1303 – Comercial (Aqua Villa / Porto de Santana)",
+      "zipCode": "68925-073",
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Beijamin Menegolla (administrador pastoral)",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedemacapa.com.br/paroquias-e-areas-missionarias/",
+          "title": "Diocese de Macapá — Paróquias e Áreas Missionárias (página oficial; modificada em 14/04/2026 segundo a REST do WordPress; 32 paróquias e 8 áreas missionárias em 10 vicariatos)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.diocesedemacapa.com.br/wp-content/uploads/2026/01/Anuario-2025.pdf",
+          "title": "Diocese de Macapá — Anuário Diocesano 2025 (PDF, 44 p., publicado em jan/2026; levantamento da secretaria da Cúria concluído em 28/02/2025): endereço, CEP, telefone, e-mail, pároco, vigários e diáconos",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://minhareceita.org/",
+          "title": "Receita Federal via minhareceita.org — filiais do CNPJ 07.814.217 (Mitra Diocesana de Macapá): 42 estabelecimentos ativos (0001 a 0042; varredura até 0060, nada além)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Sagrada Família",
+          "address": "Av. Rio Calçoene, 1303 – Comercial",
+          "neighborhood": "Comercial",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://minhareceita.org/",
+              "title": "Receita Federal via minhareceita.org — filiais do CNPJ 07.814.217 (Mitra Diocesana de Macapá): 42 estabelecimentos ativos (0001 a 0042; varredura até 0060, nada além)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [],
+      "notes": "O Anuário 2025 dá “Av. Rio Calçoene, 1282 – Porto de Santana, CEP 68925-000”."
+    },
+    {
+      "slug": "cristo-rei-santana",
+      "name": "Área Missionária Cristo Rei",
+      "city": "Santana",
+      "state": "AP",
+      "neighborhood": "Fortaleza",
+      "address": "Rua Piauí, 32 – Fortaleza",
+      "zipCode": "68926-340",
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedemacapa.com.br/paroquias-e-areas-missionarias/",
+          "title": "Diocese de Macapá — Paróquias e Áreas Missionárias (página oficial; modificada em 14/04/2026 segundo a REST do WordPress; 32 paróquias e 8 áreas missionárias em 10 vicariatos)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://minhareceita.org/",
+          "title": "Receita Federal via minhareceita.org — filiais do CNPJ 07.814.217 (Mitra Diocesana de Macapá): 42 estabelecimentos ativos (0001 a 0042; varredura até 0060, nada além)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Cristo Rei",
+          "address": "Rua Piauí, 32 – Fortaleza",
+          "neighborhood": "Fortaleza",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://minhareceita.org/",
+              "title": "Receita Federal via minhareceita.org — filiais do CNPJ 07.814.217 (Mitra Diocesana de Macapá): 42 estabelecimentos ativos (0001 a 0042; varredura até 0060, nada além)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [],
+      "notes": "Consta da lista das 8 áreas missionárias do site diocesano, mas não aparece na numeração por vicariato."
+    },
+    {
+      "slug": "santo-antonio-do-jari-laranjal-do-jari",
+      "name": "Paróquia Santo Antônio do Jari",
+      "city": "Laranjal do Jari",
+      "state": "AP",
+      "neighborhood": "Agreste",
+      "address": "Rua Liberdade, 885 – Agreste",
+      "zipCode": null,
+      "phone": "(96) 3621-1458",
+      "email": "paroqstoantonio@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Benedito da Silva Curtis",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedemacapa.com.br/paroquias-e-areas-missionarias/",
+          "title": "Diocese de Macapá — Paróquias e Áreas Missionárias (página oficial; modificada em 14/04/2026 segundo a REST do WordPress; 32 paróquias e 8 áreas missionárias em 10 vicariatos)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.diocesedemacapa.com.br/wp-content/uploads/2026/01/Anuario-2025.pdf",
+          "title": "Diocese de Macapá — Anuário Diocesano 2025 (PDF, 44 p., publicado em jan/2026; levantamento da secretaria da Cúria concluído em 28/02/2025): endereço, CEP, telefone, e-mail, pároco, vigários e diáconos",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://minhareceita.org/",
+          "title": "Receita Federal via minhareceita.org — filiais do CNPJ 07.814.217 (Mitra Diocesana de Macapá): 42 estabelecimentos ativos (0001 a 0042; varredura até 0060, nada além)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.diocesedemacapa.com.br/santoantoniodojari/",
+          "title": "Diocese de Macapá — Santo Antônio do Jari (página oficial; modificada em 25/05/2022 segundo a REST do WordPress)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Santo Antônio",
+          "address": "Rua Liberdade, 885 – Agreste",
+          "neighborhood": "Agreste",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedemacapa.com.br/wp-content/uploads/2026/01/Anuario-2025.pdf",
+              "title": "Diocese de Macapá — Anuário Diocesano 2025 (PDF, 44 p., publicado em jan/2026; levantamento da secretaria da Cúria concluído em 28/02/2025): endereço, CEP, telefone, e-mail, pároco, vigários e diáconos",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [],
+      "notes": "A Receita registra a sede na Av. Tancredo Neves, s/n – Centro, CEP 68920-000. Segundo telefone (casa paroquial): (96) 3621-1846. Vigário: Pe. Gerson Lúcio dos Anjos Gomes."
+    },
+    {
+      "slug": "sao-pedro-vitoria-do-jari",
+      "name": "Paróquia São Pedro",
+      "city": "Vitória do Jari",
+      "state": "AP",
+      "neighborhood": "São Pedro",
+      "address": "Av. Pedro Ladislau, 2971 – São Pedro",
+      "zipCode": "68924-000",
+      "phone": "(96) 99118-5051",
+      "email": "paroquiasaopedrovitoriadojari@gmail.com",
+      "website": null,
+      "priestName": "Pe. Antônio da Silva Pantoja",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedemacapa.com.br/paroquias-e-areas-missionarias/",
+          "title": "Diocese de Macapá — Paróquias e Áreas Missionárias (página oficial; modificada em 14/04/2026 segundo a REST do WordPress; 32 paróquias e 8 áreas missionárias em 10 vicariatos)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.diocesedemacapa.com.br/wp-content/uploads/2026/01/Anuario-2025.pdf",
+          "title": "Diocese de Macapá — Anuário Diocesano 2025 (PDF, 44 p., publicado em jan/2026; levantamento da secretaria da Cúria concluído em 28/02/2025): endereço, CEP, telefone, e-mail, pároco, vigários e diáconos",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://minhareceita.org/",
+          "title": "Receita Federal via minhareceita.org — filiais do CNPJ 07.814.217 (Mitra Diocesana de Macapá): 42 estabelecimentos ativos (0001 a 0042; varredura até 0060, nada além)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.diocesedemacapa.com.br/saopedrovitoria/",
+          "title": "Diocese de Macapá — Paróquia São Pedro (página oficial; modificada em 30/05/2022 segundo a REST do WordPress)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Pedro",
+          "address": "Av. Pedro Ladislau, 2971 – São Pedro",
+          "neighborhood": "São Pedro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedemacapa.com.br/wp-content/uploads/2026/01/Anuario-2025.pdf",
+              "title": "Diocese de Macapá — Anuário Diocesano 2025 (PDF, 44 p., publicado em jan/2026; levantamento da secretaria da Cúria concluído em 28/02/2025): endereço, CEP, telefone, e-mail, pároco, vigários e diáconos",
+              "accessedAt": "2026-09-18"
+            },
+            {
+              "url": "https://minhareceita.org/",
+              "title": "Receita Federal via minhareceita.org — filiais do CNPJ 07.814.217 (Mitra Diocesana de Macapá): 42 estabelecimentos ativos (0001 a 0042; varredura até 0060, nada além)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [],
+      "notes": "A Receita ainda registra a filial como “Quase-Paróquia São Pedro”; o site diocesano e o Anuário 2025 já a chamam de Paróquia."
+    },
+    {
+      "slug": "sao-tome-mazagao",
+      "name": "Área Missionária São Tomé",
+      "city": "Mazagão",
+      "state": "AP",
+      "neighborhood": "Distrito do Maracá",
+      "address": "Rodovia AP-020 / Ramal do Camaipi, Distrito do Maracá (área rural)",
+      "zipCode": "68940-000",
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedemacapa.com.br/paroquias-e-areas-missionarias/",
+          "title": "Diocese de Macapá — Paróquias e Áreas Missionárias (página oficial; modificada em 14/04/2026 segundo a REST do WordPress; 32 paróquias e 8 áreas missionárias em 10 vicariatos)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.diocesedemacapa.com.br/wp-content/uploads/2026/01/Anuario-2025.pdf",
+          "title": "Diocese de Macapá — Anuário Diocesano 2025 (PDF, 44 p., publicado em jan/2026; levantamento da secretaria da Cúria concluído em 28/02/2025): endereço, CEP, telefone, e-mail, pároco, vigários e diáconos",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://minhareceita.org/",
+          "title": "Receita Federal via minhareceita.org — filiais do CNPJ 07.814.217 (Mitra Diocesana de Macapá): 42 estabelecimentos ativos (0001 a 0042; varredura até 0060, nada além)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Tomé",
+          "address": "Distrito do Maracá – Mazagão",
+          "neighborhood": "Distrito do Maracá",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedemacapa.com.br/wp-content/uploads/2026/01/Anuario-2025.pdf",
+              "title": "Diocese de Macapá — Anuário Diocesano 2025 (PDF, 44 p., publicado em jan/2026; levantamento da secretaria da Cúria concluído em 28/02/2025): endereço, CEP, telefone, e-mail, pároco, vigários e diáconos",
+              "accessedAt": "2026-09-18"
+            },
+            {
+              "url": "https://minhareceita.org/",
+              "title": "Receita Federal via minhareceita.org — filiais do CNPJ 07.814.217 (Mitra Diocesana de Macapá): 42 estabelecimentos ativos (0001 a 0042; varredura até 0060, nada além)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [],
+      "notes": "O Anuário 2025 dá “Rodovia AP 130, Distrito do Maracá”; a Receita, “AP 020 – Ramal do Camaipi”."
+    },
+    {
+      "slug": "santa-barbara-serra-do-navio",
+      "name": "Paróquia Santa Bárbara",
+      "city": "Serra do Navio",
+      "state": "AP",
+      "neighborhood": "Centro",
+      "address": "Rua A3, s/n – Centro",
+      "zipCode": "68948-000",
+      "phone": "(96) 3322-1535",
+      "email": "paroquiasantabarbaranavio@gmail.com",
+      "website": null,
+      "priestName": "Pe. Odenilson Godinho",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedemacapa.com.br/paroquias-e-areas-missionarias/",
+          "title": "Diocese de Macapá — Paróquias e Áreas Missionárias (página oficial; modificada em 14/04/2026 segundo a REST do WordPress; 32 paróquias e 8 áreas missionárias em 10 vicariatos)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.diocesedemacapa.com.br/wp-content/uploads/2026/01/Anuario-2025.pdf",
+          "title": "Diocese de Macapá — Anuário Diocesano 2025 (PDF, 44 p., publicado em jan/2026; levantamento da secretaria da Cúria concluído em 28/02/2025): endereço, CEP, telefone, e-mail, pároco, vigários e diáconos",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://minhareceita.org/",
+          "title": "Receita Federal via minhareceita.org — filiais do CNPJ 07.814.217 (Mitra Diocesana de Macapá): 42 estabelecimentos ativos (0001 a 0042; varredura até 0060, nada além)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.diocesedemacapa.com.br/santabarbara/",
+          "title": "Diocese de Macapá — Paróquia Santa Bárbara (página oficial; modificada em 30/05/2022 segundo a REST do WordPress)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Santa Bárbara",
+          "address": "Rua A3, s/n – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://minhareceita.org/",
+              "title": "Receita Federal via minhareceita.org — filiais do CNPJ 07.814.217 (Mitra Diocesana de Macapá): 42 estabelecimentos ativos (0001 a 0042; varredura até 0060, nada além)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [],
+      "notes": "O Anuário 2025 trata Serra do Navio e Pedra Branca do Amapari como uma só paróquia, com secretaria na Rua da Paz, 601 – Centro, Pedra Branca do Amapari (CEP 68945-000); o site diocesano de 2026 já as lista separadas."
+    },
+    {
+      "slug": "sao-pedro-apostolo-pedra-branca-do-amapari",
+      "name": "Paróquia São Pedro Apóstolo",
+      "city": "Pedra Branca do Amapari",
+      "state": "AP",
+      "neighborhood": null,
+      "address": null,
+      "zipCode": null,
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedemacapa.com.br/paroquias-e-areas-missionarias/",
+          "title": "Diocese de Macapá — Paróquias e Áreas Missionárias (página oficial; modificada em 14/04/2026 segundo a REST do WordPress; 32 paróquias e 8 áreas missionárias em 10 vicariatos)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [],
+      "schedules": [],
+      "notes": "Desmembrada da Paróquia Santa Bárbara; ainda sem filial própria no CNPJ da Mitra e ausente do Anuário 2025. O endereço publicado no Anuário para a antiga paróquia unida (Rua da Paz, 601 – Centro, Pedra Branca do Amapari, CEP 68945-000, tel. (96) 3322-1535) provavelmente é o dela, mas não foi confirmado."
+    },
+    {
+      "slug": "nossa-senhora-do-brasil-aparecida-porto-grande",
+      "name": "Paróquia Nossa Senhora do Brasil Aparecida",
+      "city": "Porto Grande",
+      "state": "AP",
+      "neighborhood": "Centro",
+      "address": "Av. 8 de Agosto, 426 – Centro",
+      "zipCode": "68997-000",
+      "phone": "(96) 98117-6235",
+      "email": "paroquiansbaparecidapg@gmail.com",
+      "website": null,
+      "priestName": "Pe. Adventinus Nandus (administrador paroquial)",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedemacapa.com.br/paroquias-e-areas-missionarias/",
+          "title": "Diocese de Macapá — Paróquias e Áreas Missionárias (página oficial; modificada em 14/04/2026 segundo a REST do WordPress; 32 paróquias e 8 áreas missionárias em 10 vicariatos)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.diocesedemacapa.com.br/wp-content/uploads/2026/01/Anuario-2025.pdf",
+          "title": "Diocese de Macapá — Anuário Diocesano 2025 (PDF, 44 p., publicado em jan/2026; levantamento da secretaria da Cúria concluído em 28/02/2025): endereço, CEP, telefone, e-mail, pároco, vigários e diáconos",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://minhareceita.org/",
+          "title": "Receita Federal via minhareceita.org — filiais do CNPJ 07.814.217 (Mitra Diocesana de Macapá): 42 estabelecimentos ativos (0001 a 0042; varredura até 0060, nada além)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.diocesedemacapa.com.br/nossasradobrasil/",
+          "title": "Diocese de Macapá — Paróquia Nossa Srª do Brasil (página oficial; modificada em 30/05/2022 segundo a REST do WordPress)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora do Brasil Aparecida",
+          "address": "Av. 8 de Agosto, 426 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedemacapa.com.br/wp-content/uploads/2026/01/Anuario-2025.pdf",
+              "title": "Diocese de Macapá — Anuário Diocesano 2025 (PDF, 44 p., publicado em jan/2026; levantamento da secretaria da Cúria concluído em 28/02/2025): endereço, CEP, telefone, e-mail, pároco, vigários e diáconos",
+              "accessedAt": "2026-09-18"
+            },
+            {
+              "url": "https://minhareceita.org/",
+              "title": "Receita Federal via minhareceita.org — filiais do CNPJ 07.814.217 (Mitra Diocesana de Macapá): 42 estabelecimentos ativos (0001 a 0042; varredura até 0060, nada além)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [],
+      "notes": "O Anuário 2025 ainda a dá como responsável também por Ferreira Gomes; o site de 2026 lista Ferreira Gomes como paróquia própria."
+    },
+    {
+      "slug": "nossa-senhora-da-imaculada-conceicao-ferreira-gomes",
+      "name": "Paróquia Nossa Senhora da Imaculada Conceição",
+      "city": "Ferreira Gomes",
+      "state": "AP",
+      "neighborhood": "Centro",
+      "address": "Rua Sebastião Miranda, 261 – Centro",
+      "zipCode": "68915-000",
+      "phone": null,
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedemacapa.com.br/paroquias-e-areas-missionarias/",
+          "title": "Diocese de Macapá — Paróquias e Áreas Missionárias (página oficial; modificada em 14/04/2026 segundo a REST do WordPress; 32 paróquias e 8 áreas missionárias em 10 vicariatos)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://minhareceita.org/",
+          "title": "Receita Federal via minhareceita.org — filiais do CNPJ 07.814.217 (Mitra Diocesana de Macapá): 42 estabelecimentos ativos (0001 a 0042; varredura até 0060, nada além)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora da Imaculada Conceição",
+          "address": "Rua Sebastião Miranda, 261 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://minhareceita.org/",
+              "title": "Receita Federal via minhareceita.org — filiais do CNPJ 07.814.217 (Mitra Diocesana de Macapá): 42 estabelecimentos ativos (0001 a 0042; varredura até 0060, nada além)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": []
+    },
+    {
+      "slug": "sao-joao-paulo-ii-tartarugalzinho",
+      "name": "Paróquia São João Paulo II",
+      "city": "Tartarugalzinho",
+      "state": "AP",
+      "neighborhood": "Centro",
+      "address": "Rua São Luiz, 323 – Centro",
+      "zipCode": "68990-000",
+      "phone": "(96) 99909-4053",
+      "email": "parsjoaopauloii@gmail.com",
+      "website": null,
+      "priestName": "Pe. Rafael G. Bastos",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedemacapa.com.br/paroquias-e-areas-missionarias/",
+          "title": "Diocese de Macapá — Paróquias e Áreas Missionárias (página oficial; modificada em 14/04/2026 segundo a REST do WordPress; 32 paróquias e 8 áreas missionárias em 10 vicariatos)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.diocesedemacapa.com.br/wp-content/uploads/2026/01/Anuario-2025.pdf",
+          "title": "Diocese de Macapá — Anuário Diocesano 2025 (PDF, 44 p., publicado em jan/2026; levantamento da secretaria da Cúria concluído em 28/02/2025): endereço, CEP, telefone, e-mail, pároco, vigários e diáconos",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://minhareceita.org/",
+          "title": "Receita Federal via minhareceita.org — filiais do CNPJ 07.814.217 (Mitra Diocesana de Macapá): 42 estabelecimentos ativos (0001 a 0042; varredura até 0060, nada além)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.diocesedemacapa.com.br/joaopauloii/",
+          "title": "Diocese de Macapá — Paróquia São João Paulo II (página oficial; modificada em 30/05/2022 segundo a REST do WordPress)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São João Paulo II",
+          "address": "Rua São Luiz, 323 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedemacapa.com.br/wp-content/uploads/2026/01/Anuario-2025.pdf",
+              "title": "Diocese de Macapá — Anuário Diocesano 2025 (PDF, 44 p., publicado em jan/2026; levantamento da secretaria da Cúria concluído em 28/02/2025): endereço, CEP, telefone, e-mail, pároco, vigários e diáconos",
+              "accessedAt": "2026-09-18"
+            },
+            {
+              "url": "https://minhareceita.org/",
+              "title": "Receita Federal via minhareceita.org — filiais do CNPJ 07.814.217 (Mitra Diocesana de Macapá): 42 estabelecimentos ativos (0001 a 0042; varredura até 0060, nada além)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [],
+      "notes": "Atende também o município de Pracuúba (site diocesano). Vigário: Pe. Dalci de Aquino Nunes."
+    },
+    {
+      "slug": "divino-espirito-santo-amapa",
+      "name": "Paróquia Divino Espírito Santo",
+      "city": "Amapá",
+      "state": "AP",
+      "neighborhood": "Centro",
+      "address": "Rua Juscelino Kubitschek, 594 – Centro",
+      "zipCode": "68950-000",
+      "phone": "(96) 3421-1422",
+      "email": "parespisanto.amapa@gmail.com",
+      "website": null,
+      "priestName": "Pe. Lúcio Espíndola Santos",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedemacapa.com.br/paroquias-e-areas-missionarias/",
+          "title": "Diocese de Macapá — Paróquias e Áreas Missionárias (página oficial; modificada em 14/04/2026 segundo a REST do WordPress; 32 paróquias e 8 áreas missionárias em 10 vicariatos)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.diocesedemacapa.com.br/wp-content/uploads/2026/01/Anuario-2025.pdf",
+          "title": "Diocese de Macapá — Anuário Diocesano 2025 (PDF, 44 p., publicado em jan/2026; levantamento da secretaria da Cúria concluído em 28/02/2025): endereço, CEP, telefone, e-mail, pároco, vigários e diáconos",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://minhareceita.org/",
+          "title": "Receita Federal via minhareceita.org — filiais do CNPJ 07.814.217 (Mitra Diocesana de Macapá): 42 estabelecimentos ativos (0001 a 0042; varredura até 0060, nada além)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.diocesedemacapa.com.br/divinoespiritosanto/",
+          "title": "Diocese de Macapá — Paróquia Divino Espirito Santo (página oficial; modificada em 30/05/2022 segundo a REST do WordPress)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Divino Espírito Santo",
+          "address": "Rua Juscelino Kubitschek, 594 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedemacapa.com.br/wp-content/uploads/2026/01/Anuario-2025.pdf",
+              "title": "Diocese de Macapá — Anuário Diocesano 2025 (PDF, 44 p., publicado em jan/2026; levantamento da secretaria da Cúria concluído em 28/02/2025): endereço, CEP, telefone, e-mail, pároco, vigários e diáconos",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [],
+      "notes": "A Receita registra o número 44 na mesma rua."
+    },
+    {
+      "slug": "nossa-senhora-da-conceicao-calcoene",
+      "name": "Paróquia Nossa Senhora da Conceição",
+      "city": "Calçoene",
+      "state": "AP",
+      "neighborhood": "Centro",
+      "address": "Av. Teodoro Antônio Leal, 308 – Centro",
+      "zipCode": "68960-000",
+      "phone": "(96) 98409-6803",
+      "email": "conceicaocalcoene@gmail.com",
+      "website": null,
+      "priestName": "Pe. Dalci de Aquino Nunes (administrador pastoral)",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedemacapa.com.br/paroquias-e-areas-missionarias/",
+          "title": "Diocese de Macapá — Paróquias e Áreas Missionárias (página oficial; modificada em 14/04/2026 segundo a REST do WordPress; 32 paróquias e 8 áreas missionárias em 10 vicariatos)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.diocesedemacapa.com.br/wp-content/uploads/2026/01/Anuario-2025.pdf",
+          "title": "Diocese de Macapá — Anuário Diocesano 2025 (PDF, 44 p., publicado em jan/2026; levantamento da secretaria da Cúria concluído em 28/02/2025): endereço, CEP, telefone, e-mail, pároco, vigários e diáconos",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://minhareceita.org/",
+          "title": "Receita Federal via minhareceita.org — filiais do CNPJ 07.814.217 (Mitra Diocesana de Macapá): 42 estabelecimentos ativos (0001 a 0042; varredura até 0060, nada além)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora da Conceição",
+          "address": "Av. Teodoro Antônio Leal, 308 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedemacapa.com.br/wp-content/uploads/2026/01/Anuario-2025.pdf",
+              "title": "Diocese de Macapá — Anuário Diocesano 2025 (PDF, 44 p., publicado em jan/2026; levantamento da secretaria da Cúria concluído em 28/02/2025): endereço, CEP, telefone, e-mail, pároco, vigários e diáconos",
+              "accessedAt": "2026-09-18"
+            },
+            {
+              "url": "https://minhareceita.org/",
+              "title": "Receita Federal via minhareceita.org — filiais do CNPJ 07.814.217 (Mitra Diocesana de Macapá): 42 estabelecimentos ativos (0001 a 0042; varredura até 0060, nada além)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [],
+      "notes": "O Anuário 2025 ainda a classifica como Área Missionária; o site diocesano de 2026 e a Receita já a registram como paróquia. O telefone é o celular da secretária (Aline Miranda), publicado no Anuário."
+    },
+    {
+      "slug": "nossa-senhora-das-gracas-oiapoque",
+      "name": "Paróquia Nossa Senhora das Graças",
+      "city": "Oiapoque",
+      "state": "AP",
+      "neighborhood": "Centro",
+      "address": "Av. Barão do Rio Branco, 19 – Centro",
+      "zipCode": "68980-000",
+      "phone": "(96) 3521-1309",
+      "email": "paroquia2017@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Mevor Agbeko Koffi (Pe. Augustinho)",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://www.diocesedemacapa.com.br/paroquias-e-areas-missionarias/",
+          "title": "Diocese de Macapá — Paróquias e Áreas Missionárias (página oficial; modificada em 14/04/2026 segundo a REST do WordPress; 32 paróquias e 8 áreas missionárias em 10 vicariatos)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.diocesedemacapa.com.br/wp-content/uploads/2026/01/Anuario-2025.pdf",
+          "title": "Diocese de Macapá — Anuário Diocesano 2025 (PDF, 44 p., publicado em jan/2026; levantamento da secretaria da Cúria concluído em 28/02/2025): endereço, CEP, telefone, e-mail, pároco, vigários e diáconos",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://minhareceita.org/",
+          "title": "Receita Federal via minhareceita.org — filiais do CNPJ 07.814.217 (Mitra Diocesana de Macapá): 42 estabelecimentos ativos (0001 a 0042; varredura até 0060, nada além)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://www.diocesedemacapa.com.br/nossasradasgracas/",
+          "title": "Diocese de Macapá — Paróquia Nossa Srª das Graças (página oficial; modificada em 30/05/2022 segundo a REST do WordPress)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora das Graças",
+          "address": "Av. Barão do Rio Branco, 19 – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://www.diocesedemacapa.com.br/wp-content/uploads/2026/01/Anuario-2025.pdf",
+              "title": "Diocese de Macapá — Anuário Diocesano 2025 (PDF, 44 p., publicado em jan/2026; levantamento da secretaria da Cúria concluído em 28/02/2025): endereço, CEP, telefone, e-mail, pároco, vigários e diáconos",
+              "accessedAt": "2026-09-18"
+            },
+            {
+              "url": "https://minhareceita.org/",
+              "title": "Receita Federal via minhareceita.org — filiais do CNPJ 07.814.217 (Mitra Diocesana de Macapá): 42 estabelecimentos ativos (0001 a 0042; varredura até 0060, nada além)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora das Graças",
+          "dayOfWeek": 0,
+          "time": "07:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/AP.json",
+              "title": "liriocatolico.com.br — base de horários de missa do Amapá (14 fichas; o campo ultima_atualizacao = 02/09/2026 é a data de regeneração da base, não de conferência)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora das Graças",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/AP.json",
+              "title": "liriocatolico.com.br — base de horários de missa do Amapá (14 fichas; o campo ultima_atualizacao = 02/09/2026 é a data de regeneração da base, não de conferência)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora das Graças",
+          "dayOfWeek": 2,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/AP.json",
+              "title": "liriocatolico.com.br — base de horários de missa do Amapá (14 fichas; o campo ultima_atualizacao = 02/09/2026 é a data de regeneração da base, não de conferência)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora das Graças",
+          "dayOfWeek": 4,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/AP.json",
+              "title": "liriocatolico.com.br — base de horários de missa do Amapá (14 fichas; o campo ultima_atualizacao = 02/09/2026 é a data de regeneração da base, não de conferência)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora das Graças",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "ADORATION",
+          "notes": "Fonte publica a faixa 19:00–20:00",
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/AP.json",
+              "title": "liriocatolico.com.br — base de horários de missa do Amapá (14 fichas; o campo ultima_atualizacao = 02/09/2026 é a data de regeneração da base, não de conferência)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ],
+      "notes": "Vigários: Pe. Hemant Kahner e Pe. Elfridus Bonak Binsasi. O liriocatolico dá o endereço como Rua Presidente Getúlio Vargas."
+    },
+    {
+      "slug": "convento-dos-frades-capuchinhos-macapa",
+      "name": "Convento dos Frades Capuchinhos",
+      "city": "Macapá",
+      "state": "AP",
+      "neighborhood": "Santa Rita",
+      "address": "Av. FAB, 2851 – Santa Rita",
+      "zipCode": "68906-005",
+      "phone": "(96) 3223-4948",
+      "email": null,
+      "website": null,
+      "priestName": null,
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "https://liriocatolico.com.br/horario_missa/dados/uf/AP.json",
+          "title": "liriocatolico.com.br — base de horários de missa do Amapá (14 fichas; o campo ultima_atualizacao = 02/09/2026 é a data de regeneração da base, não de conferência)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "baixa",
+      "communities": [
+        {
+          "name": "Convento dos Frades Capuchinhos",
+          "address": "Av. FAB, 2851 – Santa Rita",
+          "neighborhood": "Santa Rita",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/AP.json",
+              "title": "liriocatolico.com.br — base de horários de missa do Amapá (14 fichas; o campo ultima_atualizacao = 02/09/2026 é a data de regeneração da base, não de conferência)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Convento dos Frades Capuchinhos",
+          "dayOfWeek": 0,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/AP.json",
+              "title": "liriocatolico.com.br — base de horários de missa do Amapá (14 fichas; o campo ultima_atualizacao = 02/09/2026 é a data de regeneração da base, não de conferência)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Convento dos Frades Capuchinhos",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/AP.json",
+              "title": "liriocatolico.com.br — base de horários de missa do Amapá (14 fichas; o campo ultima_atualizacao = 02/09/2026 é a data de regeneração da base, não de conferência)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Convento dos Frades Capuchinhos",
+          "dayOfWeek": 0,
+          "time": "11:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/AP.json",
+              "title": "liriocatolico.com.br — base de horários de missa do Amapá (14 fichas; o campo ultima_atualizacao = 02/09/2026 é a data de regeneração da base, não de conferência)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Convento dos Frades Capuchinhos",
+          "dayOfWeek": 0,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/AP.json",
+              "title": "liriocatolico.com.br — base de horários de missa do Amapá (14 fichas; o campo ultima_atualizacao = 02/09/2026 é a data de regeneração da base, não de conferência)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Convento dos Frades Capuchinhos",
+          "dayOfWeek": 1,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/AP.json",
+              "title": "liriocatolico.com.br — base de horários de missa do Amapá (14 fichas; o campo ultima_atualizacao = 02/09/2026 é a data de regeneração da base, não de conferência)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Convento dos Frades Capuchinhos",
+          "dayOfWeek": 2,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/AP.json",
+              "title": "liriocatolico.com.br — base de horários de missa do Amapá (14 fichas; o campo ultima_atualizacao = 02/09/2026 é a data de regeneração da base, não de conferência)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Convento dos Frades Capuchinhos",
+          "dayOfWeek": 3,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/AP.json",
+              "title": "liriocatolico.com.br — base de horários de missa do Amapá (14 fichas; o campo ultima_atualizacao = 02/09/2026 é a data de regeneração da base, não de conferência)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Convento dos Frades Capuchinhos",
+          "dayOfWeek": 4,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/AP.json",
+              "title": "liriocatolico.com.br — base de horários de missa do Amapá (14 fichas; o campo ultima_atualizacao = 02/09/2026 é a data de regeneração da base, não de conferência)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Convento dos Frades Capuchinhos",
+          "dayOfWeek": 5,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "https://liriocatolico.com.br/horario_missa/dados/uf/AP.json",
+              "title": "liriocatolico.com.br — base de horários de missa do Amapá (14 fichas; o campo ultima_atualizacao = 02/09/2026 é a data de regeneração da base, não de conferência)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ],
+      "status": "nao-paroquial",
+      "loadAsParish": true,
+      "notes": "Igreja conventual dos Capuchinhos (a Ordem cuida da Paróquia São Padre Pio, em Santana). Não consta da lista diocesana de paróquias nem das filiais da Mitra; entra só porque a fonte publica missa fixa diária."
+    }
+  ],
+  "coverage": {
+    "parishesFound": 40,
+    "parishesExpected": 40,
+    "notes": "O site diocesano (modificado em 14/04/2026) declara 32 paróquias e 8 áreas missionárias em 10 vicariatos — as 40 estão neste arquivo. A varredura das filiais do CNPJ 07.814.217 (Mitra Diocesana de Macapá) em minhareceita.org devolveu 42 estabelecimentos ativos (0001 a 0042; 0043 a 0060 inexistentes): 1 sede, 1 Centro Diocesano, 2 seminários, 31 paróquias e 7 áreas missionárias. As duas entradas do site sem filial própria são a Paróquia São Pedro Apóstolo (Pedra Branca do Amapari, recém-desmembrada de Santa Bárbara) e a Área Missionária Santa Cristina (Residencial Miracema). O Anuário Diocesano 2025 (levantamento concluído em 28/02/2025) ainda registrava 29 paróquias. Há ainda 1 entrada não paroquial (Convento dos Frades Capuchinhos), fora da contagem. O Vicariato 10 (Quilombos) é listado pela diocese sem nenhuma paróquia."
+  }
+}

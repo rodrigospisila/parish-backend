@@ -1,0 +1,1446 @@
+{
+  "diocese": {
+    "name": "Diocese de Coari",
+    "type": "Diocese",
+    "slug": "coari",
+    "city": "Coari",
+    "state": "AM",
+    "address": "Cúria Diocesana, Rua Gilberto Mestrinho, 227 – Centro",
+    "zipCode": "69460-000",
+    "phone": "(92) 3213-7737",
+    "email": "informativodiocesedecoari@gmail.com",
+    "website": "https://diocesecoari.org.br",
+    "bishopName": "Dom Marek Marian Piątek, C.SS.R.",
+    "sources": [
+      {
+        "url": "http://diocesecoari.org.br/paroquias",
+        "title": "Diocese de Coari — Paróquias (página oficial; 11 fichas com cidade, endereço, horário de secretaria, telefone, e-mail, grade de missas e clero)",
+        "accessedAt": "2026-09-18"
+      },
+      {
+        "url": "https://minhareceita.org/",
+        "title": "Receita Federal via minhareceita.org — filiais do CNPJ 05.554.787 (Diocese de Coari / Mitra Diocesana de Coari): 12 estabelecimentos ativos (0001 a 0012; varredura até 0025, nada além) = 1 sede + 11 paróquias",
+        "accessedAt": "2026-09-18"
+      },
+      {
+        "url": "https://pt.wikipedia.org/wiki/Diocese_de_Coari",
+        "title": "Wikipédia — Diocese de Coari (7 municípios: Coari, Codajás, Anori, Anamã, Beruri, Caapiranga e Manacapuru; tabela de 10 paróquias com ano de criação)",
+        "accessedAt": "2026-09-18"
+      },
+      {
+        "url": "http://diocesecoari.org.br/noticias",
+        "title": "Diocese de Coari — Notícias (sinal de atualidade: publicações de 8, 12, 13 e 14 de setembro de 2026)",
+        "accessedAt": "2026-09-18"
+      },
+      {
+        "url": "https://diocesecoari.org.br/",
+        "title": "Diocese de Coari — portal oficial (rodapé com Rua Gilberto Mestrinho, 227, Centro, 69.460-000 Coari e e-mail informativodiocesedecoari@gmail.com; desenvolvido por Cúria Online do Brasil)",
+        "accessedAt": "2026-09-18"
+      }
+    ],
+    "confidence": "alta"
+  },
+  "parishes": [
+    {
+      "slug": "santana-e-sao-sebastiao-coari",
+      "name": "Catedral Sant'Ana e São Sebastião",
+      "city": "Coari",
+      "state": "AM",
+      "neighborhood": "Centro",
+      "address": "Praça São Sebastião – Centro",
+      "zipCode": "69460-000",
+      "phone": "(97) 98453-0871",
+      "email": "p.santanasebastiao@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Valdivino Araújo",
+      "foundedYear": 1867,
+      "sources": [
+        {
+          "url": "http://diocesecoari.org.br/paroquias",
+          "title": "Diocese de Coari — Paróquias (página oficial; 11 fichas com cidade, endereço, horário de secretaria, telefone, e-mail, grade de missas e clero)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "http://diocesecoari.org.br/paroquias/49/x",
+          "title": "Diocese de Coari — Paróquia Sant'Ana e São Sebastião (Coari) (ficha oficial: endereço, atendimento, telefone, e-mail, “Horários de Missa” e clero)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://minhareceita.org/",
+          "title": "Receita Federal via minhareceita.org — filiais do CNPJ 05.554.787 (Diocese de Coari / Mitra Diocesana de Coari): 12 estabelecimentos ativos (0001 a 0012; varredura até 0025, nada além) = 1 sede + 11 paróquias",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://pt.wikipedia.org/wiki/Diocese_de_Coari",
+          "title": "Wikipédia — Diocese de Coari (7 municípios: Coari, Codajás, Anori, Anamã, Beruri, Caapiranga e Manacapuru; tabela de 10 paróquias com ano de criação)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "http://diocesecoari.org.br/noticias",
+          "title": "Diocese de Coari — Notícias (sinal de atualidade: publicações de 8, 12, 13 e 14 de setembro de 2026)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Catedral Sant'Ana e São Sebastião",
+          "address": "Praça São Sebastião – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "http://diocesecoari.org.br/paroquias/49/x",
+              "title": "Diocese de Coari — Paróquia Sant'Ana e São Sebastião (Coari) (ficha oficial: endereço, atendimento, telefone, e-mail, “Horários de Missa” e clero)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Catedral Sant'Ana e São Sebastião",
+          "dayOfWeek": 1,
+          "time": "19:30",
+          "type": "ROSARY",
+          "notes": "Terço dos Homens",
+          "sources": [
+            {
+              "url": "http://diocesecoari.org.br/paroquias/49/x",
+              "title": "Diocese de Coari — Paróquia Sant'Ana e São Sebastião (Coari) (ficha oficial: endereço, atendimento, telefone, e-mail, “Horários de Missa” e clero)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral Sant'Ana e São Sebastião",
+          "dayOfWeek": 2,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": "Novena e missa",
+          "sources": [
+            {
+              "url": "http://diocesecoari.org.br/paroquias/49/x",
+              "title": "Diocese de Coari — Paróquia Sant'Ana e São Sebastião (Coari) (ficha oficial: endereço, atendimento, telefone, e-mail, “Horários de Missa” e clero)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral Sant'Ana e São Sebastião",
+          "dayOfWeek": 2,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": "Novena e missa",
+          "sources": [
+            {
+              "url": "http://diocesecoari.org.br/paroquias/49/x",
+              "title": "Diocese de Coari — Paróquia Sant'Ana e São Sebastião (Coari) (ficha oficial: endereço, atendimento, telefone, e-mail, “Horários de Missa” e clero)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral Sant'Ana e São Sebastião",
+          "dayOfWeek": 4,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Adoração e missa",
+          "sources": [
+            {
+              "url": "http://diocesecoari.org.br/paroquias/49/x",
+              "title": "Diocese de Coari — Paróquia Sant'Ana e São Sebastião (Coari) (ficha oficial: endereço, atendimento, telefone, e-mail, “Horários de Missa” e clero)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral Sant'Ana e São Sebastião",
+          "dayOfWeek": 4,
+          "time": "19:30",
+          "type": "ADORATION",
+          "notes": "Adoração antes da missa",
+          "sources": [
+            {
+              "url": "http://diocesecoari.org.br/paroquias/49/x",
+              "title": "Diocese de Coari — Paróquia Sant'Ana e São Sebastião (Coari) (ficha oficial: endereço, atendimento, telefone, e-mail, “Horários de Missa” e clero)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral Sant'Ana e São Sebastião",
+          "dayOfWeek": 5,
+          "time": "19:00",
+          "type": "ROSARY",
+          "notes": "Terço das Mulheres",
+          "sources": [
+            {
+              "url": "http://diocesecoari.org.br/paroquias/49/x",
+              "title": "Diocese de Coari — Paróquia Sant'Ana e São Sebastião (Coari) (ficha oficial: endereço, atendimento, telefone, e-mail, “Horários de Missa” e clero)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral Sant'Ana e São Sebastião",
+          "dayOfWeek": 6,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "http://diocesecoari.org.br/paroquias/49/x",
+              "title": "Diocese de Coari — Paróquia Sant'Ana e São Sebastião (Coari) (ficha oficial: endereço, atendimento, telefone, e-mail, “Horários de Missa” e clero)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral Sant'Ana e São Sebastião",
+          "dayOfWeek": 0,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "http://diocesecoari.org.br/paroquias/49/x",
+              "title": "Diocese de Coari — Paróquia Sant'Ana e São Sebastião (Coari) (ficha oficial: endereço, atendimento, telefone, e-mail, “Horários de Missa” e clero)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Catedral Sant'Ana e São Sebastião",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "http://diocesecoari.org.br/paroquias/49/x",
+              "title": "Diocese de Coari — Paróquia Sant'Ana e São Sebastião (Coari) (ficha oficial: endereço, atendimento, telefone, e-mail, “Horários de Missa” e clero)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "notes": "Sé da Diocese (Catedral Diocesana de Sant'Ana e São Sebastião). Vigário: Pe. Willian da Silva Aragão. A Receita registra a sede na Rua 15 de Novembro, 325 – Centro, e o liriocatolico dá o nº 328 da mesma rua; a ficha oficial publica “Praça São Sebastião, Centro”. Ano de criação (1867) vem da Wikipédia."
+    },
+    {
+      "slug": "nossa-senhora-do-perpetuo-socorro-coari",
+      "name": "Paróquia Nossa Senhora do Perpétuo Socorro",
+      "city": "Coari",
+      "state": "AM",
+      "neighborhood": "Chagas Aguiar",
+      "address": "Rua Capitão Pessoa, s/n – Chagas Aguiar",
+      "zipCode": "69460-000",
+      "phone": "(92) 99504-4853",
+      "email": "paroquianspscoari@gmail.com",
+      "website": null,
+      "priestName": "Pe. Felipe Jorge Fernandes da Costa",
+      "foundedYear": 2010,
+      "sources": [
+        {
+          "url": "http://diocesecoari.org.br/paroquias",
+          "title": "Diocese de Coari — Paróquias (página oficial; 11 fichas com cidade, endereço, horário de secretaria, telefone, e-mail, grade de missas e clero)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "http://diocesecoari.org.br/paroquias/48/x",
+          "title": "Diocese de Coari — Paróquia Nossa Senhora do Perpétuo Socorro (Coari) (ficha oficial: endereço, atendimento, telefone, e-mail, “Horários de Missa” e clero)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://minhareceita.org/",
+          "title": "Receita Federal via minhareceita.org — filiais do CNPJ 05.554.787 (Diocese de Coari / Mitra Diocesana de Coari): 12 estabelecimentos ativos (0001 a 0012; varredura até 0025, nada além) = 1 sede + 11 paróquias",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://pt.wikipedia.org/wiki/Diocese_de_Coari",
+          "title": "Wikipédia — Diocese de Coari (7 municípios: Coari, Codajás, Anori, Anamã, Beruri, Caapiranga e Manacapuru; tabela de 10 paróquias com ano de criação)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "http://diocesecoari.org.br/noticias",
+          "title": "Diocese de Coari — Notícias (sinal de atualidade: publicações de 8, 12, 13 e 14 de setembro de 2026)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora do Perpétuo Socorro",
+          "address": "Rua Capitão Pessoa, s/n – Chagas Aguiar",
+          "neighborhood": "Chagas Aguiar",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "http://diocesecoari.org.br/paroquias/48/x",
+              "title": "Diocese de Coari — Paróquia Nossa Senhora do Perpétuo Socorro (Coari) (ficha oficial: endereço, atendimento, telefone, e-mail, “Horários de Missa” e clero)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 2,
+          "time": "18:00",
+          "type": "MASS",
+          "notes": "Novena e missa",
+          "sources": [
+            {
+              "url": "http://diocesecoari.org.br/paroquias/48/x",
+              "title": "Diocese de Coari — Paróquia Nossa Senhora do Perpétuo Socorro (Coari) (ficha oficial: endereço, atendimento, telefone, e-mail, “Horários de Missa” e clero)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Missa e adoração ao Santíssimo",
+          "sources": [
+            {
+              "url": "http://diocesecoari.org.br/paroquias/48/x",
+              "title": "Diocese de Coari — Paróquia Nossa Senhora do Perpétuo Socorro (Coari) (ficha oficial: endereço, atendimento, telefone, e-mail, “Horários de Missa” e clero)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "ADORATION",
+          "notes": "Adoração ao Santíssimo junto da missa",
+          "sources": [
+            {
+              "url": "http://diocesecoari.org.br/paroquias/48/x",
+              "title": "Diocese de Coari — Paróquia Nossa Senhora do Perpétuo Socorro (Coari) (ficha oficial: endereço, atendimento, telefone, e-mail, “Horários de Missa” e clero)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 0,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "http://diocesecoari.org.br/paroquias/48/x",
+              "title": "Diocese de Coari — Paróquia Nossa Senhora do Perpétuo Socorro (Coari) (ficha oficial: endereço, atendimento, telefone, e-mail, “Horários de Missa” e clero)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora do Perpétuo Socorro",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "http://diocesecoari.org.br/paroquias/48/x",
+              "title": "Diocese de Coari — Paróquia Nossa Senhora do Perpétuo Socorro (Coari) (ficha oficial: endereço, atendimento, telefone, e-mail, “Horários de Missa” e clero)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "notes": "Ano de criação (2010) vem da Wikipédia."
+    },
+    {
+      "slug": "sao-pedro-coari",
+      "name": "Paróquia São Pedro",
+      "city": "Coari",
+      "state": "AM",
+      "neighborhood": "União",
+      "address": "Rua Antônio Mariano, 99 – União",
+      "zipCode": "69460-000",
+      "phone": "(97) 98457-7697",
+      "email": "paroquiaspedrocoari@gmail.com",
+      "website": null,
+      "priestName": "Pe. Luís Carlos Sales de Amorim",
+      "foundedYear": 2010,
+      "sources": [
+        {
+          "url": "http://diocesecoari.org.br/paroquias",
+          "title": "Diocese de Coari — Paróquias (página oficial; 11 fichas com cidade, endereço, horário de secretaria, telefone, e-mail, grade de missas e clero)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "http://diocesecoari.org.br/paroquias/50/x",
+          "title": "Diocese de Coari — Paróquia São Pedro (Coari) (ficha oficial: endereço, atendimento, telefone, e-mail, “Horários de Missa” e clero)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://minhareceita.org/",
+          "title": "Receita Federal via minhareceita.org — filiais do CNPJ 05.554.787 (Diocese de Coari / Mitra Diocesana de Coari): 12 estabelecimentos ativos (0001 a 0012; varredura até 0025, nada além) = 1 sede + 11 paróquias",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://pt.wikipedia.org/wiki/Diocese_de_Coari",
+          "title": "Wikipédia — Diocese de Coari (7 municípios: Coari, Codajás, Anori, Anamã, Beruri, Caapiranga e Manacapuru; tabela de 10 paróquias com ano de criação)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "http://diocesecoari.org.br/noticias",
+          "title": "Diocese de Coari — Notícias (sinal de atualidade: publicações de 8, 12, 13 e 14 de setembro de 2026)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Pedro",
+          "address": "Rua Antônio Mariano, 99 – União",
+          "neighborhood": "União",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "http://diocesecoari.org.br/paroquias/50/x",
+              "title": "Diocese de Coari — Paróquia São Pedro (Coari) (ficha oficial: endereço, atendimento, telefone, e-mail, “Horários de Missa” e clero)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São Pedro",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "ROSARY",
+          "notes": "Terço da Família",
+          "sources": [
+            {
+              "url": "http://diocesecoari.org.br/paroquias/50/x",
+              "title": "Diocese de Coari — Paróquia São Pedro (Coari) (ficha oficial: endereço, atendimento, telefone, e-mail, “Horários de Missa” e clero)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Pedro",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "http://diocesecoari.org.br/paroquias/50/x",
+              "title": "Diocese de Coari — Paróquia São Pedro (Coari) (ficha oficial: endereço, atendimento, telefone, e-mail, “Horários de Missa” e clero)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Pedro",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "http://diocesecoari.org.br/paroquias/50/x",
+              "title": "Diocese de Coari — Paróquia São Pedro (Coari) (ficha oficial: endereço, atendimento, telefone, e-mail, “Horários de Missa” e clero)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "notes": "A Wikipédia chama a paróquia de “São Pedro e São João Batista” (criada em 2010); o site diocesano e a Receita registram só “São Pedro”."
+    },
+    {
+      "slug": "nossa-senhora-das-gracas-codajas",
+      "name": "Paróquia Nossa Senhora das Graças",
+      "city": "Codajás",
+      "state": "AM",
+      "neighborhood": "Centro",
+      "address": "Praça Dom Mário – Centro",
+      "zipCode": "69450-000",
+      "phone": "(92) 99339-3545",
+      "email": "pnossasenhoradasgracas@gmail.com",
+      "website": null,
+      "priestName": "Pe. Edinaldo Nascimento dos Santos",
+      "foundedYear": 1870,
+      "sources": [
+        {
+          "url": "http://diocesecoari.org.br/paroquias",
+          "title": "Diocese de Coari — Paróquias (página oficial; 11 fichas com cidade, endereço, horário de secretaria, telefone, e-mail, grade de missas e clero)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "http://diocesecoari.org.br/paroquias/52/x",
+          "title": "Diocese de Coari — Paróquia Nossa Senhora das Graças (Codajás) (ficha oficial: endereço, atendimento, telefone, e-mail, “Horários de Missa” e clero)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://minhareceita.org/",
+          "title": "Receita Federal via minhareceita.org — filiais do CNPJ 05.554.787 (Diocese de Coari / Mitra Diocesana de Coari): 12 estabelecimentos ativos (0001 a 0012; varredura até 0025, nada além) = 1 sede + 11 paróquias",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://pt.wikipedia.org/wiki/Diocese_de_Coari",
+          "title": "Wikipédia — Diocese de Coari (7 municípios: Coari, Codajás, Anori, Anamã, Beruri, Caapiranga e Manacapuru; tabela de 10 paróquias com ano de criação)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "http://diocesecoari.org.br/noticias",
+          "title": "Diocese de Coari — Notícias (sinal de atualidade: publicações de 8, 12, 13 e 14 de setembro de 2026)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora das Graças",
+          "address": "Praça Dom Mário – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "http://diocesecoari.org.br/paroquias/52/x",
+              "title": "Diocese de Coari — Paróquia Nossa Senhora das Graças (Codajás) (ficha oficial: endereço, atendimento, telefone, e-mail, “Horários de Missa” e clero)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora das Graças",
+          "dayOfWeek": 1,
+          "time": "19:00",
+          "type": "ROSARY",
+          "notes": "Terço dos Homens",
+          "sources": [
+            {
+              "url": "http://diocesecoari.org.br/paroquias/52/x",
+              "title": "Diocese de Coari — Paróquia Nossa Senhora das Graças (Codajás) (ficha oficial: endereço, atendimento, telefone, e-mail, “Horários de Missa” e clero)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora das Graças",
+          "dayOfWeek": 2,
+          "time": "18:00",
+          "type": "ROSARY",
+          "notes": "Terço das Mulheres",
+          "sources": [
+            {
+              "url": "http://diocesecoari.org.br/paroquias/52/x",
+              "title": "Diocese de Coari — Paróquia Nossa Senhora das Graças (Codajás) (ficha oficial: endereço, atendimento, telefone, e-mail, “Horários de Missa” e clero)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora das Graças",
+          "dayOfWeek": 2,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "http://diocesecoari.org.br/paroquias/52/x",
+              "title": "Diocese de Coari — Paróquia Nossa Senhora das Graças (Codajás) (ficha oficial: endereço, atendimento, telefone, e-mail, “Horários de Missa” e clero)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora das Graças",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "http://diocesecoari.org.br/paroquias/52/x",
+              "title": "Diocese de Coari — Paróquia Nossa Senhora das Graças (Codajás) (ficha oficial: endereço, atendimento, telefone, e-mail, “Horários de Missa” e clero)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora das Graças",
+          "dayOfWeek": 5,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "http://diocesecoari.org.br/paroquias/52/x",
+              "title": "Diocese de Coari — Paróquia Nossa Senhora das Graças (Codajás) (ficha oficial: endereço, atendimento, telefone, e-mail, “Horários de Missa” e clero)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora das Graças",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "http://diocesecoari.org.br/paroquias/52/x",
+              "title": "Diocese de Coari — Paróquia Nossa Senhora das Graças (Codajás) (ficha oficial: endereço, atendimento, telefone, e-mail, “Horários de Missa” e clero)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "notes": "Vigário: Pe. Leonardo Rufino da Silva. Ano de criação (1870) vem da Wikipédia."
+    },
+    {
+      "slug": "nossa-senhora-de-nazare-manacapuru",
+      "name": "Paróquia Nossa Senhora de Nazaré",
+      "city": "Manacapuru",
+      "state": "AM",
+      "neighborhood": "Centro",
+      "address": "Av. São João XXIII – Centro",
+      "zipCode": "69400-030",
+      "phone": "(92) 99105-2024",
+      "email": "paroquiamanaca@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Wellington Wesley Paiva, CSsR",
+      "foundedYear": 1909,
+      "sources": [
+        {
+          "url": "http://diocesecoari.org.br/paroquias",
+          "title": "Diocese de Coari — Paróquias (página oficial; 11 fichas com cidade, endereço, horário de secretaria, telefone, e-mail, grade de missas e clero)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "http://diocesecoari.org.br/paroquias/53/x",
+          "title": "Diocese de Coari — Paróquia Nossa Senhora de Nazaré (Manacapuru) (ficha oficial: endereço, atendimento, telefone, e-mail, “Horários de Missa” e clero)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://minhareceita.org/",
+          "title": "Receita Federal via minhareceita.org — filiais do CNPJ 05.554.787 (Diocese de Coari / Mitra Diocesana de Coari): 12 estabelecimentos ativos (0001 a 0012; varredura até 0025, nada além) = 1 sede + 11 paróquias",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://pt.wikipedia.org/wiki/Diocese_de_Coari",
+          "title": "Wikipédia — Diocese de Coari (7 municípios: Coari, Codajás, Anori, Anamã, Beruri, Caapiranga e Manacapuru; tabela de 10 paróquias com ano de criação)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "http://diocesecoari.org.br/noticias",
+          "title": "Diocese de Coari — Notícias (sinal de atualidade: publicações de 8, 12, 13 e 14 de setembro de 2026)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://liriocatolico.com.br/horario_missa/dados/uf/AM.json",
+          "title": "liriocatolico.com.br — base de horários de missa do Amazonas (108 fichas; o campo ultima_atualizacao = 02/09/2026 é a data de regeneração da base, não de conferência)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora de Nazaré",
+          "address": "Av. São João XXIII – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "http://diocesecoari.org.br/paroquias/53/x",
+              "title": "Diocese de Coari — Paróquia Nossa Senhora de Nazaré (Manacapuru) (ficha oficial: endereço, atendimento, telefone, e-mail, “Horários de Missa” e clero)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora de Nazaré",
+          "dayOfWeek": 4,
+          "time": "17:30",
+          "type": "MASS",
+          "notes": "Adoração e missa com o Apostolado da Oração",
+          "sources": [
+            {
+              "url": "http://diocesecoari.org.br/paroquias/53/x",
+              "title": "Diocese de Coari — Paróquia Nossa Senhora de Nazaré (Manacapuru) (ficha oficial: endereço, atendimento, telefone, e-mail, “Horários de Missa” e clero)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora de Nazaré",
+          "dayOfWeek": 4,
+          "time": "17:30",
+          "type": "ADORATION",
+          "notes": "Adoração junto da missa do Apostolado",
+          "sources": [
+            {
+              "url": "http://diocesecoari.org.br/paroquias/53/x",
+              "title": "Diocese de Coari — Paróquia Nossa Senhora de Nazaré (Manacapuru) (ficha oficial: endereço, atendimento, telefone, e-mail, “Horários de Missa” e clero)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora de Nazaré",
+          "dayOfWeek": 6,
+          "time": "07:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "http://diocesecoari.org.br/paroquias/53/x",
+              "title": "Diocese de Coari — Paróquia Nossa Senhora de Nazaré (Manacapuru) (ficha oficial: endereço, atendimento, telefone, e-mail, “Horários de Missa” e clero)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora de Nazaré",
+          "dayOfWeek": 0,
+          "time": "06:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "http://diocesecoari.org.br/paroquias/53/x",
+              "title": "Diocese de Coari — Paróquia Nossa Senhora de Nazaré (Manacapuru) (ficha oficial: endereço, atendimento, telefone, e-mail, “Horários de Missa” e clero)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora de Nazaré",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "http://diocesecoari.org.br/paroquias/53/x",
+              "title": "Diocese de Coari — Paróquia Nossa Senhora de Nazaré (Manacapuru) (ficha oficial: endereço, atendimento, telefone, e-mail, “Horários de Missa” e clero)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora de Nazaré",
+          "dayOfWeek": 0,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "http://diocesecoari.org.br/paroquias/53/x",
+              "title": "Diocese de Coari — Paróquia Nossa Senhora de Nazaré (Manacapuru) (ficha oficial: endereço, atendimento, telefone, e-mail, “Horários de Missa” e clero)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Nossa Senhora de Nazaré",
+          "dayOfWeek": 3,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Recorrência mensal — a fonte diz literalmente “1º quarta feira do mês”",
+          "sources": [
+            {
+              "url": "http://diocesecoari.org.br/paroquias/53/x",
+              "title": "Diocese de Coari — Paróquia Nossa Senhora de Nazaré (Manacapuru) (ficha oficial: endereço, atendimento, telefone, e-mail, “Horários de Missa” e clero)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        },
+        {
+          "community": "Matriz Nossa Senhora de Nazaré",
+          "dayOfWeek": 5,
+          "time": "17:30",
+          "type": "MASS",
+          "notes": "Recorrência mensal — a fonte diz literalmente “1º sexta feira do mês”",
+          "sources": [
+            {
+              "url": "http://diocesecoari.org.br/paroquias/53/x",
+              "title": "Diocese de Coari — Paróquia Nossa Senhora de Nazaré (Manacapuru) (ficha oficial: endereço, atendimento, telefone, e-mail, “Horários de Missa” e clero)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "baixa"
+        }
+      ],
+      "notes": "A Receita registra a sede na Rua da Bandeira, s/n – Centro. A ficha oficial lista ainda três novenas na terça (12h, 17h e 19h) sem indicar missa, e por isso elas não entraram na grade. O liriocatolico confirma domingo às 06h30, 09h e 19h, mas dá sábado às 19h em vez das 07h publicadas pela diocese. Ano de criação (1909) vem da Wikipédia."
+    },
+    {
+      "slug": "cristo-libertador-manacapuru",
+      "name": "Paróquia Cristo Libertador",
+      "city": "Manacapuru",
+      "state": "AM",
+      "neighborhood": "Liberdade",
+      "address": "Rua Agapito Pereira – Liberdade",
+      "zipCode": "69400-541",
+      "phone": "(92) 99376-7301",
+      "email": "cristolibertadormpu@gmail.com",
+      "website": null,
+      "priestName": "Pe. Elcivan Alencar da Costa",
+      "foundedYear": 2010,
+      "sources": [
+        {
+          "url": "http://diocesecoari.org.br/paroquias",
+          "title": "Diocese de Coari — Paróquias (página oficial; 11 fichas com cidade, endereço, horário de secretaria, telefone, e-mail, grade de missas e clero)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "http://diocesecoari.org.br/paroquias/57/x",
+          "title": "Diocese de Coari — Paróquia Cristo Libertador (Manacapuru) (ficha oficial: endereço, atendimento, telefone, e-mail, “Horários de Missa” e clero)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://minhareceita.org/",
+          "title": "Receita Federal via minhareceita.org — filiais do CNPJ 05.554.787 (Diocese de Coari / Mitra Diocesana de Coari): 12 estabelecimentos ativos (0001 a 0012; varredura até 0025, nada além) = 1 sede + 11 paróquias",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://pt.wikipedia.org/wiki/Diocese_de_Coari",
+          "title": "Wikipédia — Diocese de Coari (7 municípios: Coari, Codajás, Anori, Anamã, Beruri, Caapiranga e Manacapuru; tabela de 10 paróquias com ano de criação)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "http://diocesecoari.org.br/noticias",
+          "title": "Diocese de Coari — Notícias (sinal de atualidade: publicações de 8, 12, 13 e 14 de setembro de 2026)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Comunidade Matriz Cristo Libertador",
+          "address": "Rua Agapito Pereira – Liberdade",
+          "neighborhood": "Liberdade",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "http://diocesecoari.org.br/paroquias/57/x",
+              "title": "Diocese de Coari — Paróquia Cristo Libertador (Manacapuru) (ficha oficial: endereço, atendimento, telefone, e-mail, “Horários de Missa” e clero)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Comunidade Matriz Cristo Libertador",
+          "dayOfWeek": 2,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Novena e missa de N. Sra. do Perpétuo Socorro",
+          "sources": [
+            {
+              "url": "http://diocesecoari.org.br/paroquias/57/x",
+              "title": "Diocese de Coari — Paróquia Cristo Libertador (Manacapuru) (ficha oficial: endereço, atendimento, telefone, e-mail, “Horários de Missa” e clero)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Comunidade Matriz Cristo Libertador",
+          "dayOfWeek": 4,
+          "time": "18:30",
+          "type": "ADORATION",
+          "notes": null,
+          "sources": [
+            {
+              "url": "http://diocesecoari.org.br/paroquias/57/x",
+              "title": "Diocese de Coari — Paróquia Cristo Libertador (Manacapuru) (ficha oficial: endereço, atendimento, telefone, e-mail, “Horários de Missa” e clero)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Comunidade Matriz Cristo Libertador",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "http://diocesecoari.org.br/paroquias/57/x",
+              "title": "Diocese de Coari — Paróquia Cristo Libertador (Manacapuru) (ficha oficial: endereço, atendimento, telefone, e-mail, “Horários de Missa” e clero)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "notes": "A Receita registra a sede na Rua Joaquina Alexandre, 1292 – Liberdade. A ficha lista ainda o Apostolado da Oração na sexta às 17h, que não é missa e não entrou na grade. Ano de criação (2010) vem da Wikipédia."
+    },
+    {
+      "slug": "santo-afonso-manacapuru",
+      "name": "Paróquia Santo Afonso",
+      "city": "Manacapuru",
+      "state": "AM",
+      "neighborhood": "Terra Preta",
+      "address": "Av. Pedro Moura, 1004 – Terra Preta",
+      "zipCode": "69401-242",
+      "phone": "(97) 98107-5990",
+      "email": null,
+      "website": null,
+      "priestName": "Pe. Valdecir Silva de Sousa",
+      "foundedYear": null,
+      "sources": [
+        {
+          "url": "http://diocesecoari.org.br/paroquias",
+          "title": "Diocese de Coari — Paróquias (página oficial; 11 fichas com cidade, endereço, horário de secretaria, telefone, e-mail, grade de missas e clero)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "http://diocesecoari.org.br/paroquias/58/x",
+          "title": "Diocese de Coari — Paróquia Santo Afonso (Manacapuru) (ficha oficial: endereço, atendimento, telefone, e-mail, “Horários de Missa” e clero)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://minhareceita.org/",
+          "title": "Receita Federal via minhareceita.org — filiais do CNPJ 05.554.787 (Diocese de Coari / Mitra Diocesana de Coari): 12 estabelecimentos ativos (0001 a 0012; varredura até 0025, nada além) = 1 sede + 11 paróquias",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://pt.wikipedia.org/wiki/Diocese_de_Coari",
+          "title": "Wikipédia — Diocese de Coari (7 municípios: Coari, Codajás, Anori, Anamã, Beruri, Caapiranga e Manacapuru; tabela de 10 paróquias com ano de criação)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "http://diocesecoari.org.br/noticias",
+          "title": "Diocese de Coari — Notícias (sinal de atualidade: publicações de 8, 12, 13 e 14 de setembro de 2026)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Santo Afonso",
+          "address": "Av. Pedro Moura, 1004 – Terra Preta",
+          "neighborhood": "Terra Preta",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "http://diocesecoari.org.br/paroquias/58/x",
+              "title": "Diocese de Coari — Paróquia Santo Afonso (Manacapuru) (ficha oficial: endereço, atendimento, telefone, e-mail, “Horários de Missa” e clero)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Santo Afonso",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "http://diocesecoari.org.br/paroquias/58/x",
+              "title": "Diocese de Coari — Paróquia Santo Afonso (Manacapuru) (ficha oficial: endereço, atendimento, telefone, e-mail, “Horários de Missa” e clero)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "notes": "É a 11ª paróquia, ausente da tabela da Wikipédia (que lista 10) — portanto criada depois. A ficha oficial não publica telefone nem e-mail; o telefone registrado vem da Receita Federal (filial 0012). A novena de terça às 19h não foi transformada em horário porque a fonte não diz que há missa."
+    },
+    {
+      "slug": "sao-francisco-anama",
+      "name": "Santuário São Francisco",
+      "city": "Anamã",
+      "state": "AM",
+      "neighborhood": "Centro",
+      "address": "Rua Álvaro Maia – Centro",
+      "zipCode": "69445-000",
+      "phone": "(92) 99181-8442",
+      "email": "psaofranciscodeanama@gmail.com",
+      "website": null,
+      "priestName": "Pe. Tacísio Magno Falcão",
+      "foundedYear": 2008,
+      "sources": [
+        {
+          "url": "http://diocesecoari.org.br/paroquias",
+          "title": "Diocese de Coari — Paróquias (página oficial; 11 fichas com cidade, endereço, horário de secretaria, telefone, e-mail, grade de missas e clero)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "http://diocesecoari.org.br/paroquias/51/x",
+          "title": "Diocese de Coari — Paróquia Santuário São Francisco (Anamã) (ficha oficial: endereço, atendimento, telefone, e-mail, “Horários de Missa” e clero)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://minhareceita.org/",
+          "title": "Receita Federal via minhareceita.org — filiais do CNPJ 05.554.787 (Diocese de Coari / Mitra Diocesana de Coari): 12 estabelecimentos ativos (0001 a 0012; varredura até 0025, nada além) = 1 sede + 11 paróquias",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://pt.wikipedia.org/wiki/Diocese_de_Coari",
+          "title": "Wikipédia — Diocese de Coari (7 municípios: Coari, Codajás, Anori, Anamã, Beruri, Caapiranga e Manacapuru; tabela de 10 paróquias com ano de criação)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "http://diocesecoari.org.br/noticias",
+          "title": "Diocese de Coari — Notícias (sinal de atualidade: publicações de 8, 12, 13 e 14 de setembro de 2026)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Santuário São Francisco",
+          "address": "Rua Álvaro Maia – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "http://diocesecoari.org.br/paroquias/51/x",
+              "title": "Diocese de Coari — Paróquia Santuário São Francisco (Anamã) (ficha oficial: endereço, atendimento, telefone, e-mail, “Horários de Missa” e clero)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Santuário São Francisco",
+          "dayOfWeek": 1,
+          "time": "19:30",
+          "type": "ROSARY",
+          "notes": "Terço dos Homens",
+          "sources": [
+            {
+              "url": "http://diocesecoari.org.br/paroquias/51/x",
+              "title": "Diocese de Coari — Paróquia Santuário São Francisco (Anamã) (ficha oficial: endereço, atendimento, telefone, e-mail, “Horários de Missa” e clero)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Santuário São Francisco",
+          "dayOfWeek": 2,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": "Novena em honra a N. Sra. do Perpétuo Socorro e missa",
+          "sources": [
+            {
+              "url": "http://diocesecoari.org.br/paroquias/51/x",
+              "title": "Diocese de Coari — Paróquia Santuário São Francisco (Anamã) (ficha oficial: endereço, atendimento, telefone, e-mail, “Horários de Missa” e clero)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Santuário São Francisco",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "http://diocesecoari.org.br/paroquias/51/x",
+              "title": "Diocese de Coari — Paróquia Santuário São Francisco (Anamã) (ficha oficial: endereço, atendimento, telefone, e-mail, “Horários de Missa” e clero)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "notes": "A Wikipédia a chama de “São Francisco de Assis” (criada em 2008); o site diocesano publica “Paróquia Santuário São Francisco”. O nome do pároco está grafado “Tacísio” na fonte (provável erro de digitação de “Tarcísio”) — mantido como publicado. A Receita registra a sede na Rua São Francisco, s/n – Centro."
+    },
+    {
+      "slug": "imaculada-conceicao-anori",
+      "name": "Paróquia Imaculada Conceição",
+      "city": "Anori",
+      "state": "AM",
+      "neighborhood": "Centro",
+      "address": "Praça Capitão Pedro Silva – Centro",
+      "zipCode": "69440-000",
+      "phone": "(92) 99342-7254",
+      "email": "paroquiadeanori@gmail.com",
+      "website": null,
+      "priestName": "Pe. Josinaldo Plácido da Silva",
+      "foundedYear": 1975,
+      "sources": [
+        {
+          "url": "http://diocesecoari.org.br/paroquias",
+          "title": "Diocese de Coari — Paróquias (página oficial; 11 fichas com cidade, endereço, horário de secretaria, telefone, e-mail, grade de missas e clero)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "http://diocesecoari.org.br/paroquias/54/x",
+          "title": "Diocese de Coari — Paróquia Imaculada Conceição (Anori) (ficha oficial: endereço, atendimento, telefone, e-mail, “Horários de Missa” e clero)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://minhareceita.org/",
+          "title": "Receita Federal via minhareceita.org — filiais do CNPJ 05.554.787 (Diocese de Coari / Mitra Diocesana de Coari): 12 estabelecimentos ativos (0001 a 0012; varredura até 0025, nada além) = 1 sede + 11 paróquias",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://pt.wikipedia.org/wiki/Diocese_de_Coari",
+          "title": "Wikipédia — Diocese de Coari (7 municípios: Coari, Codajás, Anori, Anamã, Beruri, Caapiranga e Manacapuru; tabela de 10 paróquias com ano de criação)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "http://diocesecoari.org.br/noticias",
+          "title": "Diocese de Coari — Notícias (sinal de atualidade: publicações de 8, 12, 13 e 14 de setembro de 2026)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Imaculada Conceição",
+          "address": "Praça Capitão Pedro Silva – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "http://diocesecoari.org.br/paroquias/54/x",
+              "title": "Diocese de Coari — Paróquia Imaculada Conceição (Anori) (ficha oficial: endereço, atendimento, telefone, e-mail, “Horários de Missa” e clero)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Imaculada Conceição",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "MASS",
+          "notes": "Adoração e missa",
+          "sources": [
+            {
+              "url": "http://diocesecoari.org.br/paroquias/54/x",
+              "title": "Diocese de Coari — Paróquia Imaculada Conceição (Anori) (ficha oficial: endereço, atendimento, telefone, e-mail, “Horários de Missa” e clero)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Imaculada Conceição",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "ADORATION",
+          "notes": "Adoração junto da missa",
+          "sources": [
+            {
+              "url": "http://diocesecoari.org.br/paroquias/54/x",
+              "title": "Diocese de Coari — Paróquia Imaculada Conceição (Anori) (ficha oficial: endereço, atendimento, telefone, e-mail, “Horários de Missa” e clero)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Imaculada Conceição",
+          "dayOfWeek": 0,
+          "time": "09:00",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "http://diocesecoari.org.br/paroquias/54/x",
+              "title": "Diocese de Coari — Paróquia Imaculada Conceição (Anori) (ficha oficial: endereço, atendimento, telefone, e-mail, “Horários de Missa” e clero)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz Imaculada Conceição",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "http://diocesecoari.org.br/paroquias/54/x",
+              "title": "Diocese de Coari — Paróquia Imaculada Conceição (Anori) (ficha oficial: endereço, atendimento, telefone, e-mail, “Horários de Missa” e clero)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "notes": "Ano de criação (1975) vem da Wikipédia."
+    },
+    {
+      "slug": "nossa-senhora-de-nazare-beruri",
+      "name": "Paróquia Nossa Senhora de Nazaré",
+      "city": "Beruri",
+      "state": "AM",
+      "neighborhood": "Centro",
+      "address": "Rua Castelo Branco – Centro",
+      "zipCode": "69460-000",
+      "phone": "(97) 99158-6241",
+      "email": "pnsn.beruri@hotmail.com",
+      "website": null,
+      "priestName": "Pe. Raimundo Carvalho Gordiano",
+      "foundedYear": 1983,
+      "sources": [
+        {
+          "url": "http://diocesecoari.org.br/paroquias",
+          "title": "Diocese de Coari — Paróquias (página oficial; 11 fichas com cidade, endereço, horário de secretaria, telefone, e-mail, grade de missas e clero)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "http://diocesecoari.org.br/paroquias/55/x",
+          "title": "Diocese de Coari — Paróquia Nossa Senhora de Nazaré (Beruri) (ficha oficial: endereço, atendimento, telefone, e-mail, “Horários de Missa” e clero)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://minhareceita.org/",
+          "title": "Receita Federal via minhareceita.org — filiais do CNPJ 05.554.787 (Diocese de Coari / Mitra Diocesana de Coari): 12 estabelecimentos ativos (0001 a 0012; varredura até 0025, nada além) = 1 sede + 11 paróquias",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://pt.wikipedia.org/wiki/Diocese_de_Coari",
+          "title": "Wikipédia — Diocese de Coari (7 municípios: Coari, Codajás, Anori, Anamã, Beruri, Caapiranga e Manacapuru; tabela de 10 paróquias com ano de criação)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "http://diocesecoari.org.br/noticias",
+          "title": "Diocese de Coari — Notícias (sinal de atualidade: publicações de 8, 12, 13 e 14 de setembro de 2026)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz Nossa Senhora de Nazaré",
+          "address": "Rua Castelo Branco – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "http://diocesecoari.org.br/paroquias/55/x",
+              "title": "Diocese de Coari — Paróquia Nossa Senhora de Nazaré (Beruri) (ficha oficial: endereço, atendimento, telefone, e-mail, “Horários de Missa” e clero)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz Nossa Senhora de Nazaré",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "http://diocesecoari.org.br/paroquias/55/x",
+              "title": "Diocese de Coari — Paróquia Nossa Senhora de Nazaré (Beruri) (ficha oficial: endereço, atendimento, telefone, e-mail, “Horários de Missa” e clero)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "notes": "Vigário: Pe. Adeilson de Souza Vieira. É a paróquia com menos horários publicados da diocese — só a missa dominical. A Receita registra a filial com endereço “Rua da Igreja, s/n, Beruri” mas com o município cadastrado como Manacapuru e CEP 69400-030 (erro do cadastro); o CEP de Beruri é 69460-000. Ano de criação (1983) vem da Wikipédia."
+    },
+    {
+      "slug": "sao-sebastiao-caapiranga",
+      "name": "Paróquia São Sebastião",
+      "city": "Caapiranga",
+      "state": "AM",
+      "neighborhood": "Centro",
+      "address": "Rua Couto Vale – Centro",
+      "zipCode": "69435-000",
+      "phone": "(92) 99528-5115",
+      "email": "paroquiacaapiranga1983@gmail.com",
+      "website": null,
+      "priestName": "Pe. Edinei Lima de Souza",
+      "foundedYear": 1985,
+      "sources": [
+        {
+          "url": "http://diocesecoari.org.br/paroquias",
+          "title": "Diocese de Coari — Paróquias (página oficial; 11 fichas com cidade, endereço, horário de secretaria, telefone, e-mail, grade de missas e clero)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "http://diocesecoari.org.br/paroquias/56/x",
+          "title": "Diocese de Coari — Paróquia São Sebastião (Caapiranga) (ficha oficial: endereço, atendimento, telefone, e-mail, “Horários de Missa” e clero)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://minhareceita.org/",
+          "title": "Receita Federal via minhareceita.org — filiais do CNPJ 05.554.787 (Diocese de Coari / Mitra Diocesana de Coari): 12 estabelecimentos ativos (0001 a 0012; varredura até 0025, nada além) = 1 sede + 11 paróquias",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "https://pt.wikipedia.org/wiki/Diocese_de_Coari",
+          "title": "Wikipédia — Diocese de Coari (7 municípios: Coari, Codajás, Anori, Anamã, Beruri, Caapiranga e Manacapuru; tabela de 10 paróquias com ano de criação)",
+          "accessedAt": "2026-09-18"
+        },
+        {
+          "url": "http://diocesecoari.org.br/noticias",
+          "title": "Diocese de Coari — Notícias (sinal de atualidade: publicações de 8, 12, 13 e 14 de setembro de 2026)",
+          "accessedAt": "2026-09-18"
+        }
+      ],
+      "confidence": "alta",
+      "communities": [
+        {
+          "name": "Matriz São Sebastião",
+          "address": "Rua Couto Vale – Centro",
+          "neighborhood": "Centro",
+          "isMatriz": true,
+          "sources": [
+            {
+              "url": "http://diocesecoari.org.br/paroquias/56/x",
+              "title": "Diocese de Coari — Paróquia São Sebastião (Caapiranga) (ficha oficial: endereço, atendimento, telefone, e-mail, “Horários de Missa” e clero)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "schedules": [
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 1,
+          "time": "19:00",
+          "type": "ROSARY",
+          "notes": "Terço dos Homens",
+          "sources": [
+            {
+              "url": "http://diocesecoari.org.br/paroquias/56/x",
+              "title": "Diocese de Coari — Paróquia São Sebastião (Caapiranga) (ficha oficial: endereço, atendimento, telefone, e-mail, “Horários de Missa” e clero)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 2,
+          "time": "18:30",
+          "type": "ROSARY",
+          "notes": "Terço das Mulheres, antes da novena e da missa",
+          "sources": [
+            {
+              "url": "http://diocesecoari.org.br/paroquias/56/x",
+              "title": "Diocese de Coari — Paróquia São Sebastião (Caapiranga) (ficha oficial: endereço, atendimento, telefone, e-mail, “Horários de Missa” e clero)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 2,
+          "time": "18:30",
+          "type": "MASS",
+          "notes": "Terço das Mulheres, novena de N. Sra. do Perpétuo Socorro e missa",
+          "sources": [
+            {
+              "url": "http://diocesecoari.org.br/paroquias/56/x",
+              "title": "Diocese de Coari — Paróquia São Sebastião (Caapiranga) (ficha oficial: endereço, atendimento, telefone, e-mail, “Horários de Missa” e clero)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 4,
+          "time": "19:00",
+          "type": "ADORATION",
+          "notes": null,
+          "sources": [
+            {
+              "url": "http://diocesecoari.org.br/paroquias/56/x",
+              "title": "Diocese de Coari — Paróquia São Sebastião (Caapiranga) (ficha oficial: endereço, atendimento, telefone, e-mail, “Horários de Missa” e clero)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        },
+        {
+          "community": "Matriz São Sebastião",
+          "dayOfWeek": 0,
+          "time": "19:30",
+          "type": "MASS",
+          "notes": null,
+          "sources": [
+            {
+              "url": "http://diocesecoari.org.br/paroquias/56/x",
+              "title": "Diocese de Coari — Paróquia São Sebastião (Caapiranga) (ficha oficial: endereço, atendimento, telefone, e-mail, “Horários de Missa” e clero)",
+              "accessedAt": "2026-09-18"
+            }
+          ],
+          "confidence": "alta"
+        }
+      ],
+      "notes": "A Receita registra a filial com endereço “Rua da Igreja, s/n, Caapiranga” mas com o município cadastrado como Manacapuru e CEP 69400-030 (erro do cadastro). O CEP 69435-000 é o do município de Caapiranga e precisa de confirmação. Ano de criação (1985) vem da Wikipédia."
+    }
+  ],
+  "coverage": {
+    "parishesFound": 11,
+    "parishesExpected": 11,
+    "notes": "O site oficial (diocesecoari.org.br/paroquias) publica 11 paróquias e a varredura das filiais do CNPJ 05.554.787 (Diocese de Coari) em minhareceita.org devolveu exatamente 12 estabelecimentos ativos — 1 sede + as mesmas 11 paróquias (0013 a 0025 são 404). Cobertura de 100% com prova independente. A Wikipédia lista 10 paróquias, sem a Paróquia Santo Afonso de Manacapuru, criada depois. A diocese cobre 7 municípios: Coari (3 paróquias), Manacapuru (3), Codajás, Anamã, Anori, Beruri e Caapiranga (1 cada). Nenhuma fonte pública lista as comunidades/capelas: todas as paróquias entram só com a matriz."
+  }
+}

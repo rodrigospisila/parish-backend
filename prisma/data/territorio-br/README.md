@@ -183,6 +183,19 @@ enxame de validação. Nunca inventar: campo desconhecido = `null`.
 - **Dioceses do interior perdem o site**: Jequié sumiu do registro.br, Amargosa virou página de
   estacionamento em 2026, o blog de Estância parou em 2009. Site morto → `website: null` com nota.
 
+- **Não achou o CNPJ da mitra?** Procure no rodapé do site de UMA paróquia da diocese — foi assim que o
+  Alto Solimões saiu inteiro da Receita (18 filiais = 1 sede + 8 paróquias + 9 obras), sendo uma diocese
+  sem portal. A Receita às vezes cadastra o município errado (Beruri e Caapiranga como "Manacapuru").
+- **A REST do WordPress pode ter um tipo de conteúdo próprio**: em Tefé era `/wp-json/wp/v2/paroquia`,
+  com 16 fichas trazendo ano de criação, clero com função e a tabela oficial de horários.
+  `/wp-json/wp/v2/types` lista os tipos disponíveis.
+- **Placeholder do Elementor**: em Macapá 22 das 24 fichas tinham o bloco "Celebrações" com o texto
+  `test/test`, e as 16 páginas de horários por cidade estavam vazias. Não é missa.
+- **"Celebração da Palavra" e novena sem missa não viram horário** — não são missa e o modelo não as
+  cobre; registre em `notes` da paróquia.
+- **Confira cidade e UF antes de aceitar um perfil de rede social**: um buscador ofereceu um perfil com
+  sufixo "bnu" como se fosse de Benjamin Constant/AM, e não era.
+
 ## Marcadores que tiram uma entrada da carga
 
 | Campo | Efeito |
