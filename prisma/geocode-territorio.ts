@@ -142,7 +142,7 @@ async function consultarCep(cep: string): Promise<Ponto | null> {
   return null;
 }
 
-type AchadoNominatim = Ponto & { placeRank: number; tipo: string; estado: string };
+type AchadoNominatim = Ponto & { placeRank: number; tipo: string; estado: string; diagKm: number | null };
 
 /** Uma consulta ao Nominatim. Quem chama respeita o intervalo de 1,1 s. */
 async function nominatim(q: string): Promise<AchadoNominatim | null> {
@@ -154,12 +154,22 @@ async function nominatim(q: string): Promise<AchadoNominatim | null> {
     if (!r.ok) return null;
     const lista = (await r.json()) as Array<{
       lat: string; lon: string; place_rank?: number; category?: string; type?: string; address?: { state?: string };
+      boundingbox?: [string, string, string, string];
     }>;
     const a = lista[0];
     if (!a) return null;
     const p = { lat: Number(a.lat), lng: Number(a.lon) };
     if (!Number.isFinite(p.lat) || !Number.isFinite(p.lng) || !noBrasil(p)) return null;
-    return { ...p, placeRank: a.place_rank ?? 0, tipo: `${a.category ?? ''}/${a.type ?? ''}`, estado: norm(a.address?.state) };
+    // boundingbox = [sul, norte, oeste, leste]. A diagonal diz o tamanho do que foi
+    // achado: uma praça tem dezenas de metros, uma avenida pode ter quilômetros.
+    let diagKm: number | null = null;
+    if (a.boundingbox?.length === 4) {
+      const [sul, norte, oeste, leste] = a.boundingbox.map(Number);
+      const dy = (norte - sul) * 111;
+      const dx = (leste - oeste) * 111 * Math.cos((p.lat * Math.PI) / 180);
+      if (Number.isFinite(dx) && Number.isFinite(dy)) diagKm = Math.hypot(dx, dy);
+    }
+    return { ...p, placeRank: a.place_rank ?? 0, tipo: `${a.category ?? ''}/${a.type ?? ''}`, estado: norm(a.address?.state), diagKm };
   } catch {
     return null;
   }
@@ -283,12 +293,22 @@ async function refino() {
   const paroquias = await prisma.parish.findMany({
     select: {
       address: true,
+      zipCode: true,
+      city: true,
+      state: true,
       communities: { where: { deletedAt: null }, select: { id: true, name: true, city: true, state: true, latitude: true, geoPrecision: true } },
     },
   });
   await prisma.$disconnect();
 
-  const alvos: Array<{ id: string; consulta: string; centro: Ponto | null }> = [];
+  // Cidade "maior" = alguma paróquia dela tem CEP de logradouro: os Correios só dão
+  // CEP por rua a cidades de certo porte, e é nelas que existem avenidas longas.
+  const cidadesMaiores = new Set<string>();
+  for (const par of paroquias) {
+    if (cepEspecifico(par.zipCode)) cidadesMaiores.add(`${norm(par.city)}|${String(par.state).toUpperCase()}`);
+  }
+
+  const alvos: Array<{ id: string; consulta: string; centro: Ponto | null; cidadeMaior: boolean }> = [];
   for (const par of paroquias) {
     const sede = acharSede(par.communities);
     if (!sede || sede.geoPrecision !== 'CITY') continue;
@@ -299,15 +319,23 @@ async function refino() {
       id: sede.id,
       consulta: `${endereco}, ${sede.city}, ${String(sede.state).toUpperCase()}, Brasil`,
       centro: municipios.get(`${norm(sede.city)}|${String(sede.state).toUpperCase()}`) ?? null,
+      cidadeMaior: cidadesMaiores.has(`${norm(sede.city)}|${String(sede.state).toUpperCase()}`),
     });
   }
-  const cache = lerJson<Record<string, (Ponto & { placeRank: number }) | null>>(CACHE_ENDERECOS, {});
-  const fila = alvos.filter((a) => !(norm(a.consulta) in cache)).slice(0, limite);
-  console.log(`sedes em CITY com endereço procurável: ${alvos.length} · já no cache: ${alvos.length - alvos.filter((a) => !(norm(a.consulta) in cache)).length} · nesta rodada: ${fila.length}`);
+  const cache = lerJson<Record<string, (Ponto & { placeRank: number; diagKm?: number | null }) | null>>(CACHE_ENDERECOS, {});
+  // Entra na fila quem nunca foi consultado e, nas cidades maiores, quem tem resultado
+  // antigo sem o tamanho do trecho — sem ele não dá para saber se a avenida é longa.
+  const precisaConsultar = (a: (typeof alvos)[number]) => {
+    const r = cache[norm(a.consulta)];
+    if (r === undefined) return true;
+    return Boolean(r) && a.cidadeMaior && r?.diagKm === undefined;
+  };
+  const fila = alvos.filter(precisaConsultar).slice(0, limite);
+  console.log(`sedes em CITY com endereço procurável: ${alvos.length} · em cidade maior: ${alvos.filter((a) => a.cidadeMaior).length} · nesta rodada: ${fila.length}`);
 
   for (let i = 0; i < fila.length; i += 1) {
     const achado = await nominatim(fila[i].consulta);
-    cache[norm(fila[i].consulta)] = achado ? { lat: achado.lat, lng: achado.lng, placeRank: achado.placeRank } : null;
+    cache[norm(fila[i].consulta)] = achado ? { lat: achado.lat, lng: achado.lng, placeRank: achado.placeRank, diagKm: achado.diagKm } : null;
     if ((i + 1) % 100 === 0) {
       writeFileSync(CACHE_ENDERECOS, JSON.stringify(cache));
       console.log(`  ${i + 1}/${fila.length}`);
@@ -322,16 +350,20 @@ async function refino() {
   let finos = 0;
   let grossos = 0;
   let longe = 0;
+  let trechoLongo = 0;
+  const TRECHO_MAX_KM = 1.2; // centro do trecho erra no máximo ~600 m
   for (const a of alvos) {
     const r = cache[norm(a.consulta)];
     if (!r) continue;
     if (r.placeRank < 26) { grossos += 1; continue; }
     if (a.centro && !perto(r, a.centro)) { longe += 1; continue; }
+    // Na cidade maior, sem o tamanho do trecho (ou com trecho longo) o pino fica em CITY
+    if (a.cidadeMaior && !(typeof r.diagKm === 'number' && r.diagKm <= TRECHO_MAX_KM)) { trechoLongo += 1; continue; }
     plano.push({ id: a.id, lat: r.lat, lng: r.lng, precision: 'STREET' });
     finos += 1;
   }
   writeFileSync(PLANO_REFINO, JSON.stringify(plano));
-  console.log(`\nrefino: ${finos} sedes sobem para STREET · ${grossos} só acharam bairro/cidade · ${longe} caíram longe do município`);
+  console.log(`\nrefino: ${finos} sedes sobem para STREET · ${grossos} só acharam bairro/cidade · ${longe} caíram longe do município · ${trechoLongo} em cidade maior com trecho de rua longo demais`);
 }
 
 (async () => {
