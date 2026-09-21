@@ -167,6 +167,76 @@ repetido, aglomerado, amostra com o nome do que casou (`casouCom`); (2) duas fon
 que casam pela MESMA regra fraca não são confirmação independente; (3) regra que
 depende dos outros pinos não serve para julgar esses mesmos pinos.
 
+## Fase 3 — `geocode-enderecos.ts`: o Censo como geocodificador
+
+Para quem tem **endereço de rua próprio** (não o herdado da paróquia) e ainda estava
+no centro da cidade ou do povoado: ~7 mil comunidades, 3,2 mil delas com missa.
+
+O geocodificador é o próprio **CNEFE**: todo endereço do país com o GPS do
+recenseador, **número da casa incluído** — o que nenhum serviço aberto tem no Brasil
+(o Nominatim quase nunca conhece o número e devolve o meio da rua). É dado aberto do
+IBGE: pode ser guardado. A lógica mora em `enderecos.cjs`, com testes
+(`node prisma/data/geo/enderecos.test.cjs`) — inclusive um que roda o filtro awk de
+verdade e confere que ele normaliza a rua igual ao JS.
+
+```bash
+npx ts-node prisma/geocode-enderecos.ts --alvos      # lê o banco → cache/enderecos/{chaves.txt, filtro.awk, alvos.json}
+bash prisma/data/geo/preparar-cnefe-ruas.sh          # baixa o CNEFE (2 GB) e guarda só as ruas-alvo (~40 min, retomável)
+bash prisma/data/geo/preparar-cnefe-ruas.sh --extra  # 2ª passada: ruas dos pinos por CEP/endereço, só para conferi-los
+npx ts-node prisma/geocode-enderecos.ts --audit      # mede contra quem já tem pino de prédio + gera correções
+npx ts-node prisma/geocode-enderecos.ts --plan       # só leitura
+npx ts-node prisma/geocode-enderecos.ts --apply [--dry-run]
+npx ts-node prisma/geocode-enderecos.ts --apply-correcoes [--dry-run]
+npx ts-node prisma/geocode-enderecos.ts --desfazer=prisma/data/geo/cache/enderecos/backup-....json
+```
+
+**A chave da rua** tira título e patente dos dois lados ("Dr.", "Doutor" ou nada),
+funde santo em `ST` e Nossa Senhora em `NSRA`, e escreve rua numerada também por
+extenso ("Rua 7 de Setembro" → `7 SETEMBRO` e `SETE SETEMBRO`).
+
+**Regras**, da mais forte à mais fraca — grava `STREET`, `geoSource: cnefe-endereco`:
+
+| Regra | O que é | ≤ 150 m | ≤ 1 km |
+|---|---|---|---|
+| `templo-padroeiro` | um só templo da rua tem o padroeiro da comunidade | 99% | 100% |
+| `templo-numero` | há um templo (católico ou sem denominação) naquele número | 88% | 95% |
+| `templo-na-rua` | só há um templo católico na rua — não vale para estrada/rodovia | 82% | 95% |
+| `numero-exato` | o Censo visitou aquele número | 77% | 94% |
+| `numero-vizinho` | visitou um vizinho a até 60 números, do mesmo lado quando dá | 69% | 94% |
+| `rua-curta` | sem número, mas a rua inteira cabe em 800 m — nunca estrada/rodovia | 55% | 94% |
+
+No conjunto: **84% a até 150 m, 97% a até 1 km, 1% acima de 3 km** (3,2 mil
+comunidades que já tinham pino de prédio) — e boa parte desse 1% é o pino de
+referência que está errado, não o endereço.
+
+**Travas**, quase todas nascidas de um caso real:
+
+- *endereço herdado disfarçado*: mesma rua e número da paróquia (ou da sede), escrito
+  com outro bairro no fim → fora;
+- *rua homônima*: trechos sem ligação entre si são ruas diferentes com o mesmo nome; o
+  bairro declarado escolhe, e sem ele não casa;
+- *rua de nome genérico* ("Praça da Matriz", "Rua Principal", "Rua 42", "Via A-1"): só
+  dentro do bairro declarado — ou na sede da única paróquia do município, que se
+  confere pelo centro dele;
+- templo de **outro** padroeiro na mesma rua não é o nosso; sede não casa com capela;
+- o bairro declarado, localizado no Censo, confere o resultado; sede da única paróquia
+  fica a até 4 km do centro; capela com endereço de rua fica a até 25 km da matriz;
+- ponto em cima de outra comunidade nossa, de outro padroeiro → revisão;
+- rede final: padroeiros diferentes no mesmo ponto não gravam (mesmo padroeiro no
+  mesmo ponto é cadastro repetido da mesma igreja — pode).
+
+**A camada de endereços também corrige a anterior.** Quando o endereço leva a um
+*templo* do Censo (`templo-numero`, `templo-padroeiro`) e o pino de máquina que
+tínhamos (nome, CEP) está a mais de 2 km, o errado é o pino → `correcoes.json`,
+`--apply-correcoes`. Divergência sem templo para desempatar vai para
+`divergencias.csv`, com as duas coordenadas. O padrão que apareceu: **paróquia de
+distrito** — o casamento por nome achava a igreja homônima da sede do município, a
+30 km.
+
+**Reserva (Nominatim), desligada por padrão.** `--nominatim` consulta, a 1 req/s e com
+cache, o que o Censo não achou; `--plan --com-osm` inclui. O serviço público devolve
+503 em uso de massa e a amostra de auditoria ainda é pequena — fica para depois.
+
 ## O que ainda falta
 
 - **Fila de revisão** (`revisao-fontes.csv`): conflitos, disputas e fontes únicas
@@ -176,6 +246,11 @@ depende dos outros pinos não serve para julgar esses mesmos pinos.
   desmentem e não entraram na correção automática (legados, regra fraca); e ~21
   pinos novos caíram a menos de 50 m de OUTRA comunidade que já tinha pino — em
   geral é o pino antigo dessa outra que está errado, ou cadastro duplicado.
-- **Capelas com endereço de rua próprio**: candidatas a geocodificação por endereço.
+- **Endereços que o Censo não resolveu** (~3,4 mil: rua com outro nome oficial, rua
+  homônima sem bairro declarado, rua longa sem número): `cache/enderecos/revisao.csv`.
+  A reserva do Nominatim está pronta, mas desligada.
+- **Cadastros repetidos**: a mesma igreja aparece duas e até três vezes em algumas
+  dioceses (Limeira, Cosmópolis...) — a conferência do plano os revela como "mesmo
+  padroeiro no mesmo ponto". Vale uma limpeza no território.
 - **Quem não declara povoado nem tem templo com padroeiro nas fontes** só se
   resolve com gente: pino manual no mapa do território ou GPS pelo app.
