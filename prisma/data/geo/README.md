@@ -1,43 +1,50 @@
 # Geolocalização das comunidades
 
-Apoio ao `prisma/geocode-territorio.ts`, que deu pino às 52 mil comunidades do
-território em 18/09/2026.
+Dois scripts, duas fases:
+
+1. `prisma/geocode-territorio.ts` — deu **um pino a cada uma** das 53 mil comunidades
+   (18/09/2026): CEP da sede paroquial, senão o centro do município.
+2. `prisma/geocode-fontes.ts` — **sobe a precisão** de quem ficou no centro do
+   município, cruzando o cadastro com bases abertas que trazem a coordenada do
+   templo (21/09/2026).
 
 ## Arquivos
 
 - `municipios.csv` e `estados.csv` — os 5.570 municípios do IBGE com latitude e
   longitude da sede ([kelvins/municipios-brasileiros](https://github.com/kelvins/municipios-brasileiros)).
-  É o que resolve o "centro do município" sem depender de rede.
-- `cache-*.json` e `plano-*.json` — gerados pelo script, fora do git. Apagar o
-  cache só força a refazer as consultas.
+- `casamento.cjs` + `casamento.test.cjs` — o casador de nomes (padroeiro, povoado,
+  regras de unicidade). Funções puras, com testes: `node prisma/data/geo/casamento.test.cjs`.
+- `preparar-cnefe.sh`, `preparar-malhas.sh`, `overture-br.sql` — montam o `cache/`.
+- `backfill-origem.cjs` — preencheu `geoSource` nos pinos que já existiam.
+- `cache/`, `cache-*.json`, `plano-*.json` — gerados, fora do git. Apagar só força a refazer.
 
-## A precisão do pino (`Community.geoPrecision`)
+## Precisão (`Community.geoPrecision`) e origem (`Community.geoSource`)
 
-| Valor | Origem | Entra no "missas por perto"? |
+| Precisão | O que é | Entra no "missas por perto"? |
 |---|---|---|
-| `MANUAL` | pino posto ou conferido por uma pessoa (mapa do território ou cadastro) | sim |
-| `STREET` | CEP específico da paróquia ou endereço geocodificado — nível de rua | sim |
+| `MANUAL` | pino posto ou conferido por uma pessoa (mapa do território, cadastro, GPS do app) | sim |
+| `STREET` | nível de rua **ou melhor**: CEP específico da sede, endereço geocodificado, templo casado numa base aberta | sim |
+| `LOCALITY` | centro do povoado/bairro declarado, ou um templo católico dele — aproximado | **não** |
 | `CITY` | centro do município | **não** |
 | nulo | pino legado, anterior ao campo | sim |
 
-`CITY` aparece no mapa do território (`/admin/map`) como *pino aproximado*, que é
-a fila de trabalho de quem vai refinar. Fica fora da busca por proximidade porque
-quarenta capelas rurais empilhadas na praça da cidade apareceriam todas "a 2 km",
-quando estão a 20.
+`geoSource` diz de onde veio a coordenada e permite auditar — ou desfazer — uma
+fonte inteira: `manual`, `gps`, `cep`, `osm-endereco`, `cnefe`, `overture`,
+`cnefe+overture`, `cnefe-localidade`, `cnefe-templo`, `ibge-municipio`,
+`legado-centro`, `legado`.
 
-## A armadilha que molda o script
+`CITY` e `LOCALITY` ficam fora da busca por proximidade porque quarenta capelas
+rurais empilhadas na praça da cidade apareceriam todas "a 2 km", quando estão a 20.
+
+## A armadilha que molda tudo
 
 O importador do território grava em **toda** comunidade o CEP — e, na falta de
 endereço próprio, o endereço — **da paróquia**. Só a sede paroquial está de fato
-naquele CEP. Geocodificar pelo CEP da comunidade daria precisão "de rua" a 12 mil
-capelas que não estão ali. Por isso:
+ali. Por isso `STREET` por CEP vale só para a sede (comunidade com "matriz" ou
+"catedral" no nome; na falta, "santuário" ou "basílica"; na falta, a comunidade
+única da paróquia), e o casador ignora o endereço **herdado** ao procurar o povoado.
 
-- `STREET` por CEP vale **só para a sede**: a comunidade com "matriz" ou
-  "catedral" no nome; na falta, "santuário" ou "basílica"; na falta, a comunidade
-  única da paróquia.
-- Todo o resto vai para o centro do município.
-
-## Camadas e comandos
+## Fase 1 — `geocode-territorio.ts`
 
 ```bash
 npx ts-node prisma/geocode-territorio.ts --fetch          # lê o banco 1x, resolve, grava o plano
@@ -46,26 +53,97 @@ npx ts-node prisma/geocode-territorio.ts --refine         # endereço das sedes 
 npx ts-node prisma/geocode-territorio.ts --apply-refine   # sobe CITY → STREET
 ```
 
-1. Sede + CEP específico da paróquia → AwesomeAPI, com BrasilAPI de reserva.
-   Uma consulta por CEP distinto (4,6 mil), 99% de acerto.
-2. Centro do município pela base do IBGE.
-3. Nome de cidade que o IBGE não conhece (distrito gravado como município) → uma
-   consulta ao Nominatim **por nome**, com conferência de estado. Cinco grafias
-   divergentes estão resolvidas à mão em `APELIDOS`.
-4. Refino: endereço da paróquia no Nominatim, só para sedes em `CITY`. Aceita
-   apenas `place_rank >= 26` (rua ou mais fino) e resultado a menos de ~60 km do
-   centro do município. Amostra de 60: 72% de acerto.
+Sede + CEP específico → AwesomeAPI/BrasilAPI; o resto → centro do município (IBGE);
+nome de cidade que o IBGE não conhece → Nominatim por nome; refino das sedes pelo
+endereço (`place_rank >= 26`).
 
-Salvaguardas: nunca toca em pino `MANUAL`, `STREET` ou legado; CEP cuja coordenada
-cai longe do município é tratado como erro de digitação e cai para o centro; a
-gravação é em lotes de 500 num único `UPDATE`, porque dezenas de milhares de
-updates individuais derrubam o proxy do Railway.
+## Fase 2 — `geocode-fontes.ts`
+
+### As fontes
+
+| Fonte | O que traz | Uso |
+|---|---|---|
+| **CNEFE** (IBGE, Censo 2022) | todo endereço do país com o GPS do recenseador; 580 mil estabelecimentos religiosos, 94 mil deles católicos; 429 mil localidades | **grava** — é a única que chega à zona rural |
+| **Overture Maps** (Meta/Microsoft, CDLA Permissive) | 239 mil lugares com cara de templo, 38 mil católicos | **grava**, mas só em cima de um templo que o Censo também viu |
+| agregador de horários de missa | 15 mil igrejas com coordenada | **só confirma ou contesta** — não vira pino sem autorização de uso |
+
+Google Maps ficou de fora por contrato: os termos proíbem guardar coordenada além
+de 30 dias e usá-la fora de um mapa do Google.
+
+### Como casa
+
+Dentro do **mesmo município** (pelo nome, senão pela malha do IBGE), o padroeiro
+identifica o templo: "Capela N. Sra. Aparecida" ↔ "IGREJA CATOLICA NOSSA SENHORA
+APARECIDA". A unicidade vale dos **dois lados** — duas "São José" nossas sem pino e
+uma só na fonte não casam. Homônimas se resolvem pelo povoado, pelo bairro ou pela
+rua. Sede só casa com sede e capela com capela. Templo em cima de uma homônima
+nossa que já tem pino preciso está "tomado". O mesmo templo reivindicado por duas
+comunidades não vai para nenhuma. Tudo isso está em `casamento.cjs`, com testes.
+
+Três conferências de **lugar**, porque padroeiro igual não basta:
+
+- o povoado/bairro que a comunidade declara (no nome ou no endereço próprio) é
+  localizado nas localidades do Censo; candidato fora dele é descartado;
+- sede da única paróquia do município fica a até 4 km do centro dele;
+- capela a mais de 60 km da própria matriz não é dessa paróquia.
+
+### O que grava
+
+| Situação | Grava | Erro medido |
+|---|---|---|
+| duas fontes independentes a até 500 m uma da outra | `STREET` | < 1% acima de 5 km; 94% a até 1 km do pino que já tínhamos |
+| uma fonte só, aprovada na política abaixo | `STREET` | desacordo de ~1–2% nas sedes e ~5% nas capelas |
+| templo católico **sem padroeiro**, único no povoado declarado | `LOCALITY` (`cnefe-templo`) | 1 em 4 não é o templo da comunidade — por isso aproximado |
+| nenhum templo casado, mas o povoado declarado existe no Censo | `LOCALITY` (`cnefe-localidade`) — centro dos endereços do povoado | mediana de ~0,5 km; extensão máxima aceita: 12 km |
+| fontes em conflito (> 2 km), templo disputado, fonte única recusada | nada — vai para `cache/revisao-fontes.csv` | — |
+
+**Política de fonte única** (`recusaDeFonteUnica`). Saiu da medição, não do palpite:
+onde duas fontes casaram a mesma comunidade, contamos quando discordam.
+
+- ponto da Overture sem templo do Censo a 300 m → recusa (página de capela rural
+  costuma ser marcada "na cidade": 18% de erro, contra 5% com templo por perto);
+- padroeiro só parecido, ou "a que sobrou", sem o lugar bater → recusa (40–50%);
+- cidade de várias paróquias: a comunidade declara outro lugar → recusa (30–40%);
+  templo a mais de 5 km da própria matriz → recusa (metade é a capela homônima de
+  outra paróquia); matriz sem pino para conferir → recusa.
+
+Por isso roda em **duas passadas**: primeiro as sedes, depois as capelas, que aí já
+sabem onde fica a própria matriz.
+
+### Comandos
+
+```bash
+bash prisma/data/geo/preparar-cnefe.sh     # ~2 GB do FTP do IBGE → 100 MB de extratos (retomável)
+bash prisma/data/geo/preparar-malhas.sh    # malha municipal dos 27 estados
+# Overture: com o DuckDB CLI, a partir de prisma/data/geo/cache/overture:  duckdb < ../../overture-br.sql
+
+npx ts-node prisma/geocode-fontes.ts --audit             # erro contra os pinos JÁ precisos + pinos nossos suspeitos
+npx ts-node prisma/geocode-fontes.ts --plan              # plano + tabelas de concordância entre fontes (só leitura)
+npx ts-node prisma/geocode-fontes.ts --apply --dry-run
+npx ts-node prisma/geocode-fontes.ts --apply [--so=predio|localidade]
+npx ts-node prisma/geocode-fontes.ts --apply-correcoes   # ver abaixo
+npx ts-node prisma/geocode-fontes.ts --desfazer=prisma/data/geo/cache/backup-....json
+```
+
+Todo `--apply` grava antes uma cópia (`cache/backup-*.json`) do que estava lá.
+`--apply` só toca em pino `CITY`; `MANUAL`, `STREET` e legado nunca são sobrescritos.
+
+### A auditoria também audita a gente
+
+`--audit` finge que cada comunidade de pino preciso está no centro da cidade, casa
+do mesmo jeito e mede a distância. Quando **duas fontes concordam entre si** e o
+nosso pino está a mais de 2 km das duas, o suspeito é o nosso pino: CEP que o
+serviço devolveu em outro bairro, endereço geocodificado na rua homônima. Esses
+vão para `cache/pinos-suspeitos.csv`; os de origem de máquina (`cep`,
+`osm-endereco`) com templo do Censo no ponto novo entram em
+`cache/plano-correcoes.json`, aplicado por `--apply-correcoes`. Pino de gente
+(`manual`, `gps`, legado) só gente corrige.
 
 ## O que ainda falta
 
-- **Capelas com endereço próprio** (cerca de 5,6 mil têm logradouro e número): são
-  candidatas a geocodificação por endereço. Com uma `GOOGLE_GEOCODING_API_KEY` o
-  `geocode-communities.ts` resolve isso em minutos; pelo Nominatim seriam horas.
-- **Capelas rurais** ("Linha Rio Bonito", "Assentamento Libertação Camponesa") não
-  têm endereço geocodificável por nenhum serviço: só o pino manual, pelo mapa do
-  território, resolve.
+- **Fila de revisão** (`revisao-fontes.csv`): conflitos, disputas e fontes únicas
+  recusadas já têm a coordenada candidata — falta mostrá-la no editor do mapa do
+  território para um clique de confirmação.
+- **Capelas com endereço de rua próprio**: candidatas a geocodificação por endereço.
+- **Quem não declara povoado nem tem templo com padroeiro nas fontes** só se
+  resolve com gente: pino manual no mapa do território ou GPS pelo app.
