@@ -137,7 +137,7 @@ export class CommunitiesService {
       data.geoSource = apagou ? null : data.geoSource ?? 'manual';
     }
 
-    return this.prisma.community.update({
+    const atualizada = await this.prisma.community.update({
       where: { id },
       data,
       include: {
@@ -155,6 +155,17 @@ export class CommunitiesService {
         },
       },
     });
+
+    // Alguém pôs o pino à mão: as sugestões automáticas que esperavam conferência
+    // perderam o sentido. Saem da fila de revisão (ficam no histórico como SUPERSEDED).
+    if (mexeuNoPino) {
+      await this.prisma.communityGeoCandidate.updateMany({
+        where: { communityId: id, status: 'PENDING' },
+        data: { status: 'SUPERSEDED', resolvedAt: new Date(), resolvedByUserId: currentUser?.id ?? null },
+      });
+    }
+
+    return atualizada;
   }
 
   async remove(id: string, currentUser?: CurrentUser) {

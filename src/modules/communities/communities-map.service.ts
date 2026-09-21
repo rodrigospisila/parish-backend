@@ -9,15 +9,19 @@ import { PrismaService } from '../../database/prisma.service';
  * resumo vêm de agregações no banco.
  *
  * Classificação do pino, que é o que o painel existe para resolver:
- *   `ok`   — coordenada própria;
- *   `dup`  — pino aproximado: precisão CITY (centro do município) ou coordenada
- *            IDÊNTICA à de outra comunidade. Quase sempre é o
- *            "centro da cidade" que o geocodificador devolve quando não acha o
- *            endereço: o pino existe, mas não aponta para a igreja;
+ *   `ok`    — na porta: posto por gente, templo casado numa base aberta ou
+ *             endereço com número no Censo;
+ *   `rua`   — nível de RUA: veio do CEP ou do endereço no Nominatim, que devolvem o
+ *             meio do logradouro. Certo na vizinhança, a quadras da porta. Vale para o
+ *             "missas por perto", mas não se passa por conferido;
  *   `local` — centro do povoado, distrito ou bairro (precisão LOCALITY);
- *   `sem`  — sem coordenada nenhuma.
+ *   `dup`   — aproximado: centro do município (CITY), ou pino LEGADO empilhado na
+ *             mesma coordenada de outro (o "centro da cidade" de um geocodificador
+ *             antigo). Pino novo repetido NÃO é aproximado: é a mesma igreja cadastrada
+ *             duas vezes;
+ *   `sem`   — sem coordenada nenhuma.
  */
-export type PinKind = 'ok' | 'local' | 'dup' | 'sem';
+export type PinKind = 'ok' | 'rua' | 'local' | 'dup' | 'sem';
 
 export interface MapRow {
   id: string;
@@ -31,6 +35,8 @@ export interface MapRow {
   diocese: string;
   kind: PinKind;
   source: string | null;
+  /** Tem sugestão de pino à espera na fila de revisão. */
+  review: boolean;
 }
 
 interface MapQuery {
@@ -45,6 +51,26 @@ interface MapQuery {
 
 const LIMITE_PADRAO = 3000;
 const LIMITE_MAXIMO = 10000;
+
+// As mesmas condições servem à lista, aos totais, ao quadro por UF e ao das dioceses.
+// (COALESCE porque `"geoPrecision" = 'CITY'` é NULL no pino legado, e NULL contamina o NOT.)
+const LEGADO_EMPILHADO = `(c."geoPrecision" IS NULL AND dd.latitude IS NOT NULL)`;
+const APROXIMADO = `(COALESCE(c."geoPrecision" = 'CITY', FALSE) OR ${LEGADO_EMPILHADO})`;
+const NO_POVOADO = `COALESCE(c."geoPrecision" = 'LOCALITY', FALSE)`;
+const PRECISO = `(c.latitude IS NOT NULL AND NOT ${NO_POVOADO} AND NOT ${APROXIMADO})`;
+const DE_RUA = `COALESCE(c."geoSource" IN ('cep', 'osm-endereco'), FALSE)`;
+const DUP_CTE = `
+  WITH dup AS (
+    SELECT latitude, longitude FROM communities
+    WHERE "deletedAt" IS NULL AND latitude IS NOT NULL AND "geoPrecision" IS NULL
+    GROUP BY latitude, longitude HAVING count(*) > 1
+  )`;
+const CONTADORES = `
+  count(c.id) FILTER (WHERE c.latitude IS NULL)::int AS sem,
+  count(c.id) FILTER (WHERE c.latitude IS NOT NULL AND ${NO_POVOADO})::int AS local,
+  count(c.id) FILTER (WHERE c.latitude IS NOT NULL AND NOT ${NO_POVOADO} AND ${APROXIMADO})::int AS dup,
+  count(c.id) FILTER (WHERE ${PRECISO} AND ${DE_RUA})::int AS rua,
+  count(c.id) FILTER (WHERE ${PRECISO} AND NOT ${DE_RUA})::int AS ok`;
 
 @Injectable()
 export class CommunitiesMapService {
@@ -82,8 +108,11 @@ export class CommunitiesMapService {
       where.push(`(c.name ILIKE $${i} OR c.city ILIKE $${i} OR p.name ILIKE $${i})`);
     }
     if (pin === 'sem') where.push('c.latitude IS NULL');
-    else if (pin === 'ok' || pin === 'dup' || pin === 'local') where.push('c.latitude IS NOT NULL');
-    else if (box) where.push('c.latitude IS NOT NULL');
+    else if (pin !== 'todos' || box) where.push('c.latitude IS NOT NULL');
+    if (pin === 'ok') where.push(`${PRECISO} AND NOT ${DE_RUA}`);
+    if (pin === 'rua') where.push(`${PRECISO} AND ${DE_RUA}`);
+    if (pin === 'local') where.push(NO_POVOADO);
+    if (pin === 'dup') where.push(`NOT ${NO_POVOADO} AND ${APROXIMADO}`);
 
     if (box && pin !== 'sem') {
       params.push(box.sul, box.norte, box.oeste, box.leste);
@@ -93,26 +122,21 @@ export class CommunitiesMapService {
 
     params.push(limit + 1);
     const sql = `
-      WITH dup AS (
-        SELECT latitude, longitude FROM communities
-        WHERE "deletedAt" IS NULL AND latitude IS NOT NULL
-        GROUP BY latitude, longitude HAVING count(*) > 1
-      )
+      ${DUP_CTE}
       SELECT c.id, c.name, c.latitude AS lat, c.longitude AS lng, c.city, c.state, c.address,
              p.name AS parish, d.name AS diocese,
              c."geoSource" AS source,
+             EXISTS (SELECT 1 FROM community_geo_candidates g WHERE g."communityId" = c.id AND g.status = 'PENDING') AS review,
              CASE WHEN c.latitude IS NULL THEN 'sem'
-                  WHEN c."geoPrecision" = 'LOCALITY' THEN 'local'
-                  WHEN dd.latitude IS NOT NULL OR c."geoPrecision" = 'CITY' THEN 'dup'
+                  WHEN ${NO_POVOADO} THEN 'local'
+                  WHEN ${APROXIMADO} THEN 'dup'
+                  WHEN ${DE_RUA} THEN 'rua'
                   ELSE 'ok' END AS kind
       FROM communities c
       JOIN parishes p ON p.id = c."parishId"
       JOIN dioceses d ON d.id = p."dioceseId"
       LEFT JOIN dup dd ON dd.latitude = c.latitude AND dd.longitude = c.longitude
       WHERE ${where.join(' AND ')}
-      ${pin === 'ok' ? 'AND dd.latitude IS NULL AND (c."geoPrecision" IS NULL OR c."geoPrecision" NOT IN (\'CITY\', \'LOCALITY\'))' : ''}
-      ${pin === 'local' ? 'AND c."geoPrecision" = \'LOCALITY\'' : ''}
-      ${pin === 'dup' ? 'AND c."geoPrecision" IS DISTINCT FROM \'LOCALITY\' AND (dd.latitude IS NOT NULL OR c."geoPrecision" = \'CITY\')' : ''}
       ORDER BY c.name
       LIMIT $${params.length}
     `;
@@ -121,34 +145,19 @@ export class CommunitiesMapService {
     return { rows: truncated ? rows.slice(0, limit) : rows, truncated, limit };
   }
 
-  /** Contadores do painel: total do país e por UF, com a fila de pinos a revisar. */
+  /** Contadores do painel: total do país e por UF. */
   async stats(uf?: string) {
     const [totais] = await this.prisma.$queryRawUnsafe<any[]>(`
-      WITH dup AS (
-        SELECT latitude, longitude FROM communities
-        WHERE "deletedAt" IS NULL AND latitude IS NOT NULL
-        GROUP BY latitude, longitude HAVING count(*) > 1
-      )
-      SELECT count(*)::int AS total,
-             count(*) FILTER (WHERE c.latitude IS NULL)::int AS sem,
-             count(*) FILTER (WHERE c."geoPrecision" = 'LOCALITY')::int AS local,
-             count(*) FILTER (WHERE c.latitude IS NOT NULL AND c."geoPrecision" IS DISTINCT FROM 'LOCALITY' AND (dd.latitude IS NOT NULL OR c."geoPrecision" = 'CITY'))::int AS dup,
-             count(*) FILTER (WHERE c.latitude IS NOT NULL AND dd.latitude IS NULL AND (c."geoPrecision" IS NULL OR c."geoPrecision" NOT IN ('CITY', 'LOCALITY')))::int AS ok
+      ${DUP_CTE}
+      SELECT count(c.id)::int AS total, ${CONTADORES}
       FROM communities c
       LEFT JOIN dup dd ON dd.latitude = c.latitude AND dd.longitude = c.longitude
       WHERE c."deletedAt" IS NULL ${uf ? 'AND c.state = $1' : ''}
     `, ...(uf ? [uf.toUpperCase()] : []));
 
     const porUf = await this.prisma.$queryRawUnsafe<any[]>(`
-      WITH dup AS (
-        SELECT latitude, longitude FROM communities
-        WHERE "deletedAt" IS NULL AND latitude IS NOT NULL
-        GROUP BY latitude, longitude HAVING count(*) > 1
-      )
-      SELECT c.state AS uf, count(*)::int AS total,
-             count(*) FILTER (WHERE c.latitude IS NULL)::int AS sem,
-             count(*) FILTER (WHERE c."geoPrecision" = 'LOCALITY')::int AS local,
-             count(*) FILTER (WHERE c.latitude IS NOT NULL AND c."geoPrecision" IS DISTINCT FROM 'LOCALITY' AND (dd.latitude IS NOT NULL OR c."geoPrecision" = 'CITY'))::int AS dup
+      ${DUP_CTE}
+      SELECT c.state AS uf, count(c.id)::int AS total, ${CONTADORES}
       FROM communities c
       LEFT JOIN dup dd ON dd.latitude = c.latitude AND dd.longitude = c.longitude
       WHERE c."deletedAt" IS NULL
@@ -166,15 +175,8 @@ export class CommunitiesMapService {
   /** Dioceses para o filtro (só as que têm comunidade), com a contagem de pendências. */
   async dioceses(uf?: string) {
     return this.prisma.$queryRawUnsafe<any[]>(`
-      WITH dup AS (
-        SELECT latitude, longitude FROM communities
-        WHERE "deletedAt" IS NULL AND latitude IS NOT NULL
-        GROUP BY latitude, longitude HAVING count(*) > 1
-      )
-      SELECT d.id, d.name, d.state AS uf, count(c.id)::int AS total,
-             count(c.id) FILTER (WHERE c.latitude IS NULL)::int AS sem,
-             count(c.id) FILTER (WHERE c."geoPrecision" = 'LOCALITY')::int AS local,
-             count(c.id) FILTER (WHERE c.latitude IS NOT NULL AND c."geoPrecision" IS DISTINCT FROM 'LOCALITY' AND (dd.latitude IS NOT NULL OR c."geoPrecision" = 'CITY'))::int AS dup
+      ${DUP_CTE}
+      SELECT d.id, d.name, d.state AS uf, count(c.id)::int AS total, ${CONTADORES}
       FROM dioceses d
       JOIN parishes p ON p."dioceseId" = d.id
       JOIN communities c ON c."parishId" = p.id

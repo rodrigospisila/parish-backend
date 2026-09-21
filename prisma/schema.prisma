@@ -46,6 +46,16 @@ enum GeoPrecision {
   CITY
 }
 
+enum GeoCandidateStatus {
+  PENDING
+  /// Uma pessoa conferiu no mapa e confirmou: virou o pino da comunidade (MANUAL).
+  ACCEPTED
+  /// Uma pessoa conferiu e descartou. Fica guardado para a mesma sugestão não voltar.
+  REJECTED
+  /// O pino foi posto à mão em outro lugar antes de a sugestão ser olhada.
+  SUPERSEDED
+}
+
 enum EntityStatus {
   ACTIVE
   INACTIVE
@@ -558,6 +568,9 @@ model Community {
   saintPatronages SaintPatronage[]
   clergyMessages  ClergyMessage[]
 
+  // Sugestões de pino à espera de conferência (fila de revisão do mapa do território)
+  geoCandidates CommunityGeoCandidate[]
+
   // Audit
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
@@ -568,6 +581,37 @@ model Community {
   @@index([geoPrecision])
   @@index([geoSource])
   @@map("communities")
+}
+
+/// Coordenada sugerida por uma base aberta que NÃO foi gravada sozinha: fontes em conflito, fonte única recusada
+/// pela política, templo disputado, endereço que desmente o pino atual. Uma pessoa confere no mapa (com o satélite)
+/// e confirma ou descarta. Quem carrega: prisma/carregar-candidatos.ts.
+model CommunityGeoCandidate {
+  id          String    @id @default(cuid())
+  communityId String
+  community   Community @relation(fields: [communityId], references: [id], onDelete: Cascade)
+
+  latitude  Float
+  longitude Float
+  /// cnefe | overture | cnefe-endereco
+  source    String
+  /// Por que não entrou sozinha: conflito | fonte-unica | disputa | divergencia | pino-suspeito | endereco-dividido
+  reason    String
+  /// O que casou do outro lado: "IGREJA CATOLICA SAO JOSE", "RUA X 120"...
+  label     String?
+  /// O motivo por extenso: "cnefe × overture a 3,2 km", "longe da própria matriz"...
+  detail    String?
+
+  status           GeoCandidateStatus @default(PENDING)
+  resolvedAt       DateTime?
+  resolvedByUserId String?
+  createdAt        DateTime           @default(now())
+
+  /// A mesma sugestão não entra duas vezes — nem volta depois de descartada.
+  @@unique([communityId, source, latitude, longitude], map: "community_geo_candidates_unica")
+  @@index([communityId])
+  @@index([status])
+  @@map("community_geo_candidates")
 }
 
 // ============================================

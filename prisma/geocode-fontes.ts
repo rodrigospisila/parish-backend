@@ -43,6 +43,9 @@ const CACHE = join(GEO, 'cache');
 const PLANO = join(CACHE, 'plano-fontes.json');
 const REVISAO = join(CACHE, 'revisao-fontes.csv');
 const SUSPEITOS = join(CACHE, 'pinos-suspeitos.csv');
+/** O que não entrou sozinho, em formato que o carregador da fila de revisão lê (prisma/carregar-candidatos.ts). */
+const SUGESTOES = join(CACHE, 'sugestoes-fontes.json');
+const SUGESTOES_SUSPEITOS = join(CACHE, 'sugestoes-suspeitos.json');
 const CORRECOES = join(CACHE, 'plano-correcoes.json');
 /** Pino posto por máquina, que outra máquina pode corrigir. Pino de gente (manual, gps, legado) só gente mexe. */
 const ORIGEM_DE_MAQUINA = ['cep', 'osm-endereco'];
@@ -74,6 +77,9 @@ type Localidade = Ponto & { k: string; nome: string; n: number; diagKm: number }
 type Achado = { cand: Cand; regra: string };
 type Item = { id: string; nome: string; cidade: string; lat: number; lng: number; precision: 'STREET' | 'LOCALITY'; source: string; regra: string; nivel: string; confirmadaPor: string[]; diagKm?: number; povoado?: string; casouCom?: string };
 type AcharMunicipio = (lat: number, lng: number) => string | null;
+type Opcao = { fonte: string; lat: number; lng: number; rotulo: string };
+type Sugestao = { id: string; motivo: string; detalhe: string; opcoes: Opcao[] };
+const opcao = (fonte: string, a: Achado): Opcao => ({ fonte, lat: a.cand.lat, lng: a.cand.lng, rotulo: a.cand.nome });
 
 // ── bases ────────────────────────────────────────────────────────────────────────────
 function carregarMunicipios() {
@@ -315,7 +321,7 @@ function recusaDeFonteUnica(c: Nossa, a: Achado, fonte: string, nParoquias: numb
 
 async function planejar() {
   const { fontes, porMun, paroquiasDoMun, centros, sedePrecisa, plausivel, temPredioPerto } = await preparar();
-  const plano: Item[] = []; const revisao: string[] = ['id;comunidade;cidade;uf;motivo'];
+  const plano: Item[] = []; const revisao: string[] = ['id;comunidade;cidade;uf;motivo']; const sugestoes: Sugestao[] = [];
   const R = { alvo: 0, alvoMissa: 0, alvoSede: 0, predio: 0, predioMissa: 0, predioSede: 0, confirmado: 0, localidade: 0, temploAprox: 0, localidadeMissa: 0, localidadeLarga: 0, conflito: 0, disputa: 0, implausivel: 0, soConfirmacao: 0 };
   const porRegra: Record<string, number> = {}; const porFonte: Record<string, number> = {}; const recusas: Record<string, number> = {};
   const acordo: Record<string, number[]> = {}; const sinais: Record<string, { sim: number; nao: number }> = {};
@@ -359,11 +365,19 @@ async function planejar() {
           }
         }
         let d = C.decidir(porF, { primarias: PRIMARIAS, confirmacoes: CONFIRMACOES });
-        if (d?.conflito) { R.conflito += 1; revisao.push(`${c.id};${csv(c.name)};${csv(c.city)};${c.state};fontes em conflito: ${d.conflito}`); continue; }
+        if (d?.conflito) {
+          R.conflito += 1; revisao.push(`${c.id};${csv(c.name)};${csv(c.city)};${c.state};fontes em conflito: ${d.conflito}`);
+          sugestoes.push({ id: c.id, motivo: 'conflito', detalhe: `as fontes discordam: ${d.conflito}`, opcoes: PRIMARIAS.filter((f) => porF[f]).map((f) => opcao(f, porF[f])) });
+          continue;
+        }
         if (d && d.nivel === 'simples') {
           const base = d.fonte.split('+')[0];
           const recusa = recusaDeFonteUnica(c, porF[base], base, nPar, matriz, temPredioPerto(mun, porF[base].cand));
-          if (recusa) { recusas[recusa] = (recusas[recusa] ?? 0) + 1; revisao.push(`${c.id};${csv(c.name)};${csv(c.city)};${c.state};fonte única recusada (${recusa}): ${base} ${d.lat},${d.lng}`); d = null; }
+          if (recusa) {
+            recusas[recusa] = (recusas[recusa] ?? 0) + 1; revisao.push(`${c.id};${csv(c.name)};${csv(c.city)};${c.state};fonte única recusada (${recusa}): ${base} ${d.lat},${d.lng}`);
+            sugestoes.push({ id: c.id, motivo: 'fonte-unica', detalhe: `uma fonte só, e a regra automática não aceitou: ${recusa}`, opcoes: [opcao(base, porF[base])] });
+            d = null;
+          }
         }
         // Templo católico SEM padroeiro no povoado declarado, visto por uma fonte só: é um templo de verdade no lugar certo, mas em
         // 1 de cada 4 casos não é o da comunidade. Vale como pino aproximado — melhor que o centro do povoado, sem entrar na busca por perto.
@@ -381,7 +395,12 @@ async function planejar() {
           if (c.sede) sedePrecisa.set(c.parishId, { lat: d.lat, lng: d.lng });
           continue;
         }
-        if (emDisputa.has(c.id)) { R.disputa += 1; revisao.push(`${c.id};${csv(c.name)};${csv(c.city)};${c.state};mesmo templo disputado por outra comunidade`); }
+        if (emDisputa.has(c.id)) {
+          R.disputa += 1; revisao.push(`${c.id};${csv(c.name)};${csv(c.city)};${c.state};mesmo templo disputado por outra comunidade`);
+          // a disputa apagou o casamento; refaz só para esta comunidade, para a pessoa ter o que olhar
+          const opcoes = PRIMARIAS.map((f) => [f, C.casarNaFonte(c, lista, fontes[f].get(mun) ?? []) as Achado | null] as const).filter(([, a]) => a && plausivel(c, a.cand)).map(([f, a]) => opcao(f, a as Achado));
+          if (opcoes.length) sugestoes.push({ id: c.id, motivo: 'disputa', detalhe: 'o mesmo templo serve a mais de uma comunidade nossa — qual delas é?', opcoes });
+        }
         if (Object.keys(porF).length) R.soConfirmacao += 1;
         const l = c.geo;
         if (!l || !plausivel(c, l)) continue;
@@ -404,6 +423,8 @@ async function planejar() {
   if (!existsSync(CACHE)) mkdirSync(CACHE, { recursive: true });
   writeFileSync(PLANO, JSON.stringify(planoFinal));
   writeFileSync(REVISAO, revisao.join('\n'));
+  for (const x of repetidos) sugestoes.push({ id: x.id, motivo: 'mesmo-ponto', detalhe: 'outra comunidade nossa casou com este mesmo ponto', opcoes: [{ fonte: x.source.split('+')[0], lat: x.lat, lng: x.lng, rotulo: x.casouCom ?? '' }] });
+  writeFileSync(SUGESTOES, JSON.stringify(sugestoes));
   const resto = R.alvo - R.predio - R.localidade - R.temploAprox;
   console.log(`\nPLANO — pinos em centro de cidade: ${R.alvo} (com missa: ${R.alvoMissa} · sedes paroquiais: ${R.alvoSede})`);
   console.log(`  TEMPLO casado (→ STREET): ${pct(R.predio, R.alvo)} · entre as com missa: ${pct(R.predioMissa, R.alvoMissa)} · entre as sedes: ${pct(R.predioSede, R.alvoSede)} · confirmado por 2ª fonte: ${R.confirmado}`);
@@ -434,6 +455,7 @@ async function auditar() {
   const dist: Record<string, number[]> = {}; const piores: string[] = []; const suspeitos: string[] = ['id;comunidade;cidade;uf;origem_do_pino;km_do_pino_as_fontes;fontes;lat_sugerida;lng_sugerida'];
   const anota = (chave: string, d: number) => { (dist[chave] ??= []).push(d); };
   const correcoes: Array<Item & { origemAntes: string; kmAntes: number }> = [];
+  const sugestoesSuspeitos: Sugestao[] = [];
   let testadas = 0;
   for (const [mun, lista] of porMun) {
     const precisas = lista.filter((n) => n.precisa && n.lat != null);
@@ -466,7 +488,10 @@ async function auditar() {
           const forte = (a?: Achado) => !!a && (a.regra === 'unico' || a.regra === 'localidade');
           const base = d.fonte.split('+')[0];
           const confirmaForte = TODAS.some((x) => x !== base && forte(porF[x]) && C.km(porF[x].cand, d) <= 0.5);
-          if (ORIGEM_DE_MAQUINA.includes(c.origem ?? '') && temPredioPerto(mun, d) && forte(porF[base]) && confirmaForte) correcoes.push({ id: c.id, nome: c.name, cidade: `${c.city}/${c.state}`, lat: d.lat, lng: d.lng, precision: 'STREET', source: d.fonte, regra: d.regra, nivel: d.nivel, confirmadaPor: d.confirmadaPor, casouCom: Object.entries(porF).map(([f, a]) => `${f}=${a.cand.nome}`).join(' ; '), origemAntes: c.origem as string, kmAntes: Number(e.toFixed(1)) });
+          const corrigeSozinho = ORIGEM_DE_MAQUINA.includes(c.origem ?? '') && temPredioPerto(mun, d) && forte(porF[base]) && confirmaForte;
+          // o que não se corrige sozinho (pino legado, regra fraca) vira sugestão na fila de revisão
+          if (!corrigeSozinho) sugestoesSuspeitos.push({ id: c.id, motivo: 'pino-suspeito', detalhe: `duas fontes concordam entre si, a ${e.toFixed(1)} km do pino atual (${c.origem ?? 'legado'})`, opcoes: [opcao(base, porF[base])] });
+          if (corrigeSozinho) correcoes.push({ id: c.id, nome: c.name, cidade: `${c.city}/${c.state}`, lat: d.lat, lng: d.lng, precision: 'STREET', source: d.fonte, regra: d.regra, nivel: d.nivel, confirmadaPor: d.confirmadaPor, casouCom: Object.entries(porF).map(([f, a]) => `${f}=${a.cand.nome}`).join(' ; '), origemAntes: c.origem as string, kmAntes: Number(e.toFixed(1)) });
           suspeitos.push(`${c.id};${csv(c.name)};${csv(c.city)};${c.state};${c.origem ?? 'legado'};${e.toFixed(1)};${[d.fonte, ...d.confirmadaPor.filter((x: string) => !d.fonte.includes(x))].join('+')};${d.lat};${d.lng}`);
           anota('NOSSO PINO suspeito (2 fontes concordam, longe dele)', e);
           continue;
@@ -482,6 +507,7 @@ async function auditar() {
     }
   }
   writeFileSync(SUSPEITOS, suspeitos.join('\n'));
+  writeFileSync(SUGESTOES_SUSPEITOS, JSON.stringify(sugestoesSuspeitos));
   // duas comunidades corrigidas para o MESMO ponto: nenhuma das duas
   const alvoDe = new Map<string, number>();
   for (const x of correcoes) { const p = `${x.lat.toFixed(4)},${x.lng.toFixed(4)}`; alvoDe.set(p, (alvoDe.get(p) ?? 0) + 1); }

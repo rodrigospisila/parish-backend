@@ -14,6 +14,7 @@ import { join } from 'path';
  *   npx ts-node prisma/geocode-enderecos.ts --plan [--com-osm]   # grava cache/enderecos/plano.json (só leitura); --com-osm inclui a reserva
  *   npx ts-node prisma/geocode-enderecos.ts --apply [--dry-run]
  *   npx ts-node prisma/geocode-enderecos.ts --apply-correcoes [--dry-run]   # pinos da camada anterior que o endereço desmente (sai do --audit)
+ *   npx ts-node prisma/geocode-enderecos.ts --apply-refino [--dry-run]      # pinos "de rua" (CEP/Nominatim) levados até a porta pelo Censo (sai do --audit)
  *   npx ts-node prisma/geocode-enderecos.ts --desfazer=<cópia.json>
  *
  * Só sobe pino CITY ou LOCALITY. Grava STREET com geoSource 'cnefe-endereco'. Todo --apply guarda antes uma cópia.
@@ -37,6 +38,15 @@ const PRECISAS = join(DIR, 'precisas.json');
 const PLANO = join(DIR, 'plano.json');
 const REVISAO = join(DIR, 'revisao.csv');
 const CORRECOES = join(DIR, 'correcoes.json');
+const REFINO = join(DIR, 'refino.json');
+/** Pino "de rua": o CEP e o Nominatim dão o MEIO do logradouro, a quadras da porta. São esses que o endereço no Censo refina. */
+const ORIGEM_DE_RUA = ['cep', 'osm-endereco'];
+/** Regras que chegam ao número ou ao templo — melhores que um meio de rua. (`rua-curta` é outro meio de rua: não refina nada.) */
+const REGRA_QUE_REFINA = ['templo-padroeiro', 'templo-numero', 'templo-na-rua', 'numero-exato', 'numero-vizinho'];
+/** Até aqui o pino de rua e o endereço do Censo falam da mesma vizinhança: é refino. Acima disso é divergência, e vai para revisão. */
+const REFINO_MAX_KM = 1.5;
+/** Abaixo disso não vale a pena mexer. */
+const REFINO_MIN_KM = 0.06;
 /** Pino posto por máquina, que outra máquina pode corrigir. */
 const ORIGEM_DE_MAQUINA = ['cnefe', 'overture', 'cnefe+overture', 'cep', 'osm-endereco'];
 /** O endereço levou a um TEMPLO do Censo: prova bastante para desmentir um pino posto pelo nome. */
@@ -163,13 +173,15 @@ async function alvos() {
   writeFileSync(PRECISAS, JSON.stringify(linhas.filter((l) => l.latitude != null && l.geoPrecision !== 'CITY' && l.geoPrecision !== 'LOCALITY')
     .map((l) => ({ id: l.id, lat: l.latitude, lng: l.longitude, k: C.chavesDaComunidade({ name: l.name, address: '', enderecoHerdado: true }).k }))));
   // chaves.txt e filtro.awk alimentam a extração (que leva uma hora): só regrava se mudou, e avisa — extrato velho não serve mais
+  const jaExtraidas = ['chaves.txt', 'chaves-extra.txt'].map((n) => join(DIR, n)).filter((a) => existsSync(a)).map((a) => readFileSync(a, 'utf8'));
   const gravaSeMudou = (arquivo: string, conteudo: string) => {
     // compara como conjunto de linhas: a ordem das chaves não muda nada para o filtro
     const linhasDe = (t: string) => [...new Set(t.split('\n').filter(Boolean))].sort().join('\n');
     const antes = existsSync(arquivo) ? readFileSync(arquivo, 'utf8') : '';
     if (linhasDe(antes) === linhasDe(conteudo)) return false;
-    // tirar rua da lista não invalida o extrato (ele vira um superconjunto); rua NOVA, sim
-    const tinha = new Set(antes.split('\n'));
+    // tirar rua da lista não invalida o extrato (ele vira um superconjunto), nem mudá-la de arquivo (os dois extratos são lidos
+    // juntos); rua que não estava em NENHUM dos dois, sim
+    const tinha = new Set([antes, ...jaExtraidas].join('\n').split('\n'));
     const novas = conteudo.split('\n').filter((l) => l && !tinha.has(l)).length;
     writeFileSync(arquivo, conteudo);
     return novas > 0;
@@ -219,7 +231,8 @@ function casar(a: Alvo, ruas: Map<string, Linha[]>, semTemplos = false) {
   if (r.lat != null && a.matriz && E.km(r, a.matriz) > MATRIZ_MAX_KM) r = { motivo: 'longe demais da própria matriz' };
   // rua certa, bairro errado: é a rua homônima do outro lado da cidade
   if (r.lat != null && a.geo && E.km(r, a.geo) > a.geo.raioKm) r = { motivo: `cai fora do bairro declarado (${a.geo.nome})` };
-  const perto = r.lat == null ? null : linhas.filter((l) => l.templo && E.km(l, r) <= 0.05).map((l) => l.desc)[0];
+  // o rótulo mostra o templo em cima do ponto — o católico primeiro, que o vizinho evangélico da mesma calçada não interessa
+  const perto = r.lat == null ? null : linhas.filter((l) => l.templo && E.km(l, r) <= 0.05).sort((x, y) => Number(y.catolico) - Number(x.catolico) || E.km(x, r) - E.km(y, r)).map((l) => l.desc)[0];
   return { ...r, casouCom: r.lat == null ? '' : `${a.tipo} ${a.chaves[0]}${a.numero ? ` ${a.numero}` : ''}${perto ? ` = ${perto}` : ''}` };
 }
 
@@ -324,19 +337,30 @@ function auditar() {
   const { todos, ruas, municipioDe, cacheOsm, tomado } = lerAlvos();
   const dist: Record<string, number[]> = {}; const motivos: Record<string, number> = {}; const piores: string[] = [];
   const correcoes: Array<Item & { origemAntes: string; kmAntes: number }> = [];
+  const refino: Array<Item & { origemAntes: string; kmAntes: number }> = [];
   const divergencias: string[] = ['id;comunidade;cidade;endereco;origem_do_pino;km_entre_os_dois;regra_do_endereco;ponto_pelo_endereco;pino_atual'];
+  const sugestoes: Array<{ id: string; motivo: string; detalhe: string; opcoes: Array<{ fonte: string; lat: number; lng: number; rotulo: string }> }> = [];
+  const situacaoDaRua: Record<string, number> = { 'Censo leva até a porta (refino)': 0, 'já a menos de 60 m do endereço no Censo (validado)': 0, 'Censo só tem o meio da rua (não refina)': 0, 'Censo discorda por mais de 1,5 km (revisão)': 0, 'sem resposta do Censo': 0 };
   const verdade = todos.filter((a) => !a.alvo);
   for (const a of verdade) {
     const dePredio = ORIGEM_DE_PREDIO.includes(a.origem ?? '');
     const r = resolver(a, ruas, cacheOsm, municipioDe, tomado);
-    if (r.lat == null) { motivos[r.motivo] = (motivos[r.motivo] ?? 0) + 1; continue; }
+    const deRua = ORIGEM_DE_RUA.includes(a.origem ?? '');
+    if (r.lat == null) { motivos[r.motivo] = (motivos[r.motivo] ?? 0) + 1; if (deRua) situacaoDaRua['sem resposta do Censo'] += 1; continue; }
     const d = E.km(r, { lat: a.lat as number, lng: a.lng as number });
+    if (deRua) situacaoDaRua[d < REFINO_MIN_KM ? 'já a menos de 60 m do endereço no Censo (validado)' : d > REFINO_MAX_KM ? 'Censo discorda por mais de 1,5 km (revisão)' : REGRA_QUE_REFINA.includes(r.regra as string) ? 'Censo leva até a porta (refino)' : 'Censo só tem o meio da rua (não refina)'] += 1;
     (dist[`verdade vinda de ${a.origem}`] ??= []).push(d);
     // CEP e endereço geocodificado são nível de rua (e 5% estavam errados): não servem de régua, só entram na linha própria
     if (dePredio) { (dist[`regra ${r.regra}`] ??= []).push(d); (dist[`FONTE ${r.fonte}`] ??= []).push(d); (dist['TOTAL (contra pino de prédio)'] ??= []).push(d); }
+    if (ORIGEM_DE_RUA.includes(a.origem ?? '')) (dist[`pino de rua (${a.origem}) × endereço no Censo · ${REGRA_QUE_REFINA.includes(r.regra as string) ? 'regra de número/templo' : 'meio de rua curta'}`] ??= []).push(d);
+    if (d >= REFINO_MIN_KM && d <= REFINO_MAX_KM && ORIGEM_DE_RUA.includes(a.origem ?? '') && REGRA_QUE_REFINA.includes(r.regra as string)) refino.push({ id: a.id, nome: a.nome, cidade: a.cidade, lat: r.lat as number, lng: r.lng as number, precision: 'STREET', source: r.fonte, regra: r.regra as string, endereco: a.endereco, casouCom: r.casouCom, origemAntes: a.origem as string, kmAntes: Number(d.toFixed(2)) });
     if (d > 2 && REGRA_DE_TEMPLO.includes(r.regra as string) && ORIGEM_DE_MAQUINA.includes(a.origem ?? '')) correcoes.push({ id: a.id, nome: a.nome, cidade: a.cidade, lat: r.lat as number, lng: r.lng as number, precision: 'STREET', source: r.fonte, regra: r.regra as string, endereco: a.endereco, casouCom: r.casouCom, origemAntes: a.origem as string, kmAntes: Number(d.toFixed(1)) });
     // o endereço diz uma coisa e o pino de máquina outra, sem templo para desempatar: fila de revisão, com as duas coordenadas
-    else if (d > 2 && ORIGEM_DE_MAQUINA.includes(a.origem ?? '')) divergencias.push(`${a.id};${csv(a.nome)};${csv(a.cidade)};${csv(a.endereco)};${a.origem};${d.toFixed(1)};${r.regra};${r.lat},${r.lng};${a.lat},${a.lng}`);
+    // (para pino de rua o limite é o do refino; para pino casado pelo nome, 2 km)
+    else if (d > (deRua ? REFINO_MAX_KM : 2) && ORIGEM_DE_MAQUINA.includes(a.origem ?? '')) {
+      divergencias.push(`${a.id};${csv(a.nome)};${csv(a.cidade)};${csv(a.endereco)};${a.origem};${d.toFixed(1)};${r.regra};${r.lat},${r.lng};${a.lat},${a.lng}`);
+      sugestoes.push({ id: a.id, motivo: 'divergencia', detalhe: `o endereço "${a.endereco}" fica, pelo Censo (${r.regra}), a ${d.toFixed(1)} km do pino atual (${a.origem})`, opcoes: [{ fonte: FONTE, lat: r.lat as number, lng: r.lng as number, rotulo: r.casouCom }] });
+    }
     if (d > 3) piores.push(`${d.toFixed(1)} km · ${a.nome} (${a.cidade}) · ${a.endereco} · ${r.regra} → ${r.casouCom}`);
   }
   console.log(`\nAUDITORIA — ${verdade.length} comunidades que já têm pino de prédio e endereço de rua próprio`);
@@ -344,7 +368,23 @@ function auditar() {
   for (const k of Object.keys(dist).sort()) console.log(`  ${k.padEnd(34)} ${resumo(dist[k])}`);
   console.log(`\nnão casaram: ${Object.entries(motivos).sort((a, b) => b[1] - a[1]).map(([k, v]) => `${k} ${v}`).join(' · ')}`);
   writeFileSync(CORRECOES, JSON.stringify(correcoes));
+  // a mesma rede final do plano: padroeiros diferentes refinados para o MESMO ponto ficam como estão (paróquia pessoal que divide a
+  // igreja com outra é legítimo, mas não é a máquina que vai decidir)
+  const pontoRefino = new Map<string, typeof refino>();
+  for (const x of refino) { const p = `${x.lat.toFixed(4)},${x.lng.toFixed(4)}`; if (!pontoRefino.has(p)) pontoRefino.set(p, []); pontoRefino.get(p)!.push(x); }
+  const foraDoRefino = new Set<string>();
+  for (const v of pontoRefino.values()) { const ks = v.map((x) => C.chavesDaComunidade({ name: x.nome, address: '', enderecoHerdado: true }).k as string); if (v.length > 1 && !ks.every((k) => k && ks[0] && C.compativel(k, ks[0]))) for (const x of v) foraDoRefino.add(x.id); }
+  const refinoFinal = refino.filter((x) => !foraDoRefino.has(x.id));
+  refino.length = 0; refino.push(...refinoFinal);
+  writeFileSync(REFINO, JSON.stringify(refino));
+  console.log(`
+PINOS DE RUA (cep, osm-endereco) com endereço de rua legível: ${Object.entries(situacaoDaRua).map(([k, v]) => `${k} ${v}`).join(' · ')}`);
+  const kmRef = refino.map((x) => x.kmAntes).sort((x, y) => x - y);
+  console.log(`\nREFINO dos pinos de rua (CEP/Nominatim → porta, pelo Censo): ${refino.length} → ${REFINO}  (--apply-refino)`);
+  if (kmRef.length) console.log(`   quanto cada pino anda: mediana ${quantil(kmRef, 0.5).toFixed(2)} km · p75 ${quantil(kmRef, 0.75).toFixed(2)} · p90 ${quantil(kmRef, 0.9).toFixed(2)} | por regra: ${Object.entries(refino.reduce((m: Record<string, number>, x) => { m[x.regra] = (m[x.regra] ?? 0) + 1; return m; }, {})).map(([k, v]) => `${k} ${v}`).join(' · ')}`);
   writeFileSync(join(DIR, 'divergencias.csv'), divergencias.join('\n'));
+  // o mesmo, no formato que o carregador da fila de revisão lê (prisma/carregar-candidatos.ts)
+  writeFileSync(join(DIR, 'sugestoes-enderecos.json'), JSON.stringify(sugestoes));
   console.log(`\ncorreções da camada anterior (endereço leva a um templo do Censo, pino de máquina a mais de 2 km): ${correcoes.length} → ${CORRECOES}  (--apply-correcoes)`);
   console.log(`divergências sem templo para desempatar (endereço × pino de máquina, > 2 km): ${divergencias.length - 1} → cache/enderecos/divergencias.csv (revisão)`);
   console.log(`\npiores casos (> 3 km): ${piores.length}`);
@@ -397,17 +437,17 @@ async function gravar(itens: Array<{ id: string; lat: number | null; lng: number
   return n;
 }
 
-async function aplicar(correcao = false) {
-  const arquivo = correcao ? CORRECOES : PLANO;
+async function aplicar(correcao = false, refinar = false) {
+  const arquivo = refinar ? REFINO : correcao ? CORRECOES : PLANO;
   if (!existsSync(arquivo)) throw new Error(`plano ausente: ${arquivo} — rode ${correcao ? '--audit' : '--plan'}`);
   const plano: Item[] = JSON.parse(readFileSync(arquivo, 'utf8'));
   console.log(`${DRY ? 'DRY RUN — ' : ''}${plano.length} comunidades no plano`);
   if (DRY) return;
   const antes: unknown[] = [];
   for (let i = 0; i < plano.length; i += 5000) antes.push(...(await prisma.community.findMany({ where: { id: { in: plano.slice(i, i + 5000).map((x) => x.id) } }, select: { id: true, latitude: true, longitude: true, geoPrecision: true, geoSource: true } })));
-  const copia = join(DIR, `backup-${correcao ? 'correcoes-' : ''}${new Date().toISOString().replace(/[:.]/g, '-')}.json`);
+  const copia = join(DIR, `backup-${refinar ? 'refino-' : correcao ? 'correcoes-' : ''}${new Date().toISOString().replace(/[:.]/g, '-')}.json`);
   writeFileSync(copia, JSON.stringify(antes)); console.log(`cópia de segurança: ${copia}`);
-  console.log(`gravadas: ${await gravar(plano.map((x) => ({ id: x.id, lat: x.lat, lng: x.lng, prec: x.precision, src: x.source })), correcao ? `c."geoPrecision" = 'STREET' AND c."geoSource" IN (${ORIGEM_DE_MAQUINA.map((o) => `'${o}'`).join(', ')})` : `c."geoPrecision" IN ('CITY', 'LOCALITY')`)}`);
+  console.log(`gravadas: ${await gravar(plano.map((x) => ({ id: x.id, lat: x.lat, lng: x.lng, prec: x.precision, src: x.source })), refinar ? `c."geoPrecision" = 'STREET' AND c."geoSource" IN (${ORIGEM_DE_RUA.map((o) => `'${o}'`).join(', ')})` : correcao ? `c."geoPrecision" = 'STREET' AND c."geoSource" IN (${ORIGEM_DE_MAQUINA.map((o) => `'${o}'`).join(', ')})` : `c."geoPrecision" IN ('CITY', 'LOCALITY')`)}`);
 }
 
 async function desfazer(arquivo: string) {
@@ -423,6 +463,7 @@ async function desfazer(arquivo: string) {
   else if (arg('--nominatim')) await consultarNominatim();
   else if (arg('--audit')) auditar();
   else if (arg('--plan')) planejar();
+  else if (arg('--apply-refino')) await aplicar(false, true);
   else if (arg('--apply-correcoes')) await aplicar(true);
   else if (arg('--apply')) await aplicar();
   else console.log('uso: --alvos | --nominatim [--limit=N] | --audit | --plan | --apply [--dry-run] | --desfazer=<cópia.json>');
