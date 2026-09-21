@@ -130,8 +130,11 @@ export class CommunitiesService {
     // continuaria marcado como centro de cidade e ficaria fora do "missas por perto".
     const data: UpdateCommunityDto = { ...updateCommunityDto };
     const mexeuNoPino = data.latitude !== undefined || data.longitude !== undefined;
-    if (mexeuNoPino && data.geoPrecision === undefined) {
-      data.geoPrecision = data.latitude == null || data.longitude == null ? null : "MANUAL";
+    if (mexeuNoPino) {
+      const apagou = data.latitude == null || data.longitude == null;
+      if (data.geoPrecision === undefined) data.geoPrecision = apagou ? null : "MANUAL";
+      // Pino posto por gente: a origem é 'manual', ou 'gps' quando o app marcou no local
+      data.geoSource = apagou ? null : data.geoSource ?? 'manual';
     }
 
     return this.prisma.community.update({

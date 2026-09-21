@@ -39,6 +39,9 @@ enum GeoPrecision {
   MANUAL
   /// Geocodificado pelo CEP específico ou pelo logradouro: nível de rua.
   STREET
+  /// Centro do povoado, distrito ou bairro (média dos endereços do Censo naquela
+  /// localidade). Bem melhor que o centro do município, mas ainda aproximado.
+  LOCALITY
   /// Centro do município. Serve para o mapa do território, não para distância.
   CITY
 }
@@ -514,6 +517,9 @@ model Community {
   longitude    Float?
   /// Nulo = pino legado, anterior a este campo (origem desconhecida).
   geoPrecision GeoPrecision?
+  /// De onde veio a coordenada: cep, ibge-municipio, osm-endereco, cnefe, overture,
+  /// cnefe+overture, manual, gps... Permite auditar ou desfazer uma fonte inteira.
+  geoSource    String?
 
   // Metadata
   foundedAt DateTime?
@@ -560,6 +566,7 @@ model Community {
   @@index([parishId])
   @@index([deletedAt])
   @@index([geoPrecision])
+  @@index([geoSource])
   @@map("communities")
 }
 

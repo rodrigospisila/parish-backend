@@ -1,4 +1,4 @@
-import { IsString, IsNotEmpty, IsOptional, IsEnum, IsNumber, IsBoolean } from 'class-validator';
+import { IsString, IsNotEmpty, IsOptional, IsEnum, IsNumber, IsBoolean, IsIn } from 'class-validator';
 import { GeoPrecision, EntityStatus } from '@prisma/client';
 
 export class CreateCommunityDto {
@@ -54,6 +54,11 @@ export class CreateCommunityDto {
   @IsOptional()
   @IsEnum(GeoPrecision)
   geoPrecision?: GeoPrecision | null;
+
+  /** Origem declarada pelo cliente: 'manual' (pino no mapa) ou 'gps' (celular no local). */
+  @IsOptional()
+  @IsIn(['manual', 'gps'])
+  geoSource?: 'manual' | 'gps' | null;
 
   @IsString()
   @IsNotEmpty()

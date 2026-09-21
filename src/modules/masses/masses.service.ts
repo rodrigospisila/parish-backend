@@ -121,7 +121,9 @@ export class MassesService {
         // Pino de centro de município (CITY) serve ao mapa do território, não à
         // busca por proximidade: 40 capelas rurais empilhadas na praça da cidade
         // apareceriam todas "a 2 km", quando estão a 20.
-        OR: [{ geoPrecision: null }, { geoPrecision: { not: 'CITY' } }],
+        // LOCALITY (centro do povoado/bairro) também fica de fora por ora: a tela do
+        // app ainda não sabe avisar que a distância é aproximada.
+        OR: [{ geoPrecision: null }, { geoPrecision: { notIn: ['CITY', 'LOCALITY'] } }],
         latitude: { not: null, gte: lat - latDelta, lte: lat + latDelta },
         longitude: { not: null, gte: lng - lngDelta, lte: lng + lngDelta },
       },
