@@ -233,6 +233,10 @@ tínhamos (nome, CEP) está a mais de 2 km, o errado é o pino → `correcoes.js
 distrito** — o casamento por nome achava a igreja homônima da sede do município, a
 30 km.
 
+**Resultado em produção (21/09/2026):** 3.542 comunidades subiram para `STREET` pelo
+endereço e 50 pinos de máquina foram corrigidos. Pino preciso: 33% → **40%** das
+comunidades; entre as que têm missa cadastrada: 49% → **58%**.
+
 **Reserva (Nominatim), desligada por padrão.** `--nominatim` consulta, a 1 req/s e com
 cache, o que o Censo não achou; `--plan --com-osm` inclui. O serviço público devolve
 503 em uso de massa e a amostra de auditoria ainda é pequena — fica para depois.
