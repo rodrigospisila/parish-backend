@@ -247,7 +247,7 @@ Dois pinos "precisos" de Curitiba apareceram a quadras da igreja. Os dois vinham
 logradouro* — como o endereço no Nominatim, porque o OpenStreetMap quase não tem número de casa no Brasil. Medido contra o
 endereço com número no Censo: 18% dos pinos por CEP estão a mais de 500 m da porta, 8% a mais de 1 km. Por isso:
 
-- o mapa do território separa ** (na porta)** de **** (origem `cep` ou `osm-endereco`). As duas continuam
+- o mapa do território separa **`ok` (na porta)** de **`rua`** (origem `cep` ou `osm-endereco`). As duas continuam
   `STREET` e valem para o "missas por perto"; a segunda só deixa de se passar por conferida;
 - `geocode-enderecos.ts --apply-refino` leva o pino de rua até a porta quando o Censo chega ao número ou ao templo **e** os
   dois concordam na vizinhança (≤ 1,5 km). Acima disso é divergência, e vai para a fila;
