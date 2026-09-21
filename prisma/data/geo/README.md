@@ -241,6 +241,23 @@ comunidades; entre as que têm missa cadastrada: 49% → **58%**.
 cache, o que o Censo não achou; `--plan --com-osm` inclui. O serviço público devolve
 503 em uso de massa e a amostra de auditoria ainda é pequena — fica para depois.
 
+## "Na porta" × "na rua", e a fila de revisão (21/09/2026)
+
+Dois pinos "precisos" de Curitiba apareceram a quadras da igreja. Os dois vinham do **CEP**, que devolve o *meio do
+logradouro* — como o endereço no Nominatim, porque o OpenStreetMap quase não tem número de casa no Brasil. Medido contra o
+endereço com número no Censo: 18% dos pinos por CEP estão a mais de 500 m da porta, 8% a mais de 1 km. Por isso:
+
+- o mapa do território separa ** (na porta)** de **** (origem `cep` ou `osm-endereco`). As duas continuam
+  `STREET` e valem para o "missas por perto"; a segunda só deixa de se passar por conferida;
+- `geocode-enderecos.ts --apply-refino` leva o pino de rua até a porta quando o Censo chega ao número ou ao templo **e** os
+  dois concordam na vizinhança (≤ 1,5 km). Acima disso é divergência, e vai para a fila;
+- **fila de revisão** (`community_geo_candidates`, `/admin/map` → "Fila de revisão"): o que as cargas acharam mas não
+  gravaram sozinhas — conflito entre fontes, fonte única recusada, templo disputado, endereço que desmente o pino, pino nosso
+  que duas fontes desmentem. `npx ts-node prisma/carregar-candidatos.ts` recarrega a fila a partir dos `sugestoes-*.json` que
+  o `--plan` e o `--audit` das duas cargas emitem. Confirmar = pino `MANUAL`; descartar fica guardado e a sugestão não volta.
+  Vêm primeiro as comunidades com missa cadastrada;
+- o plano de validação com agentes está em [PLANO-validacao-pinos.md](PLANO-validacao-pinos.md) — **só sob ordem**.
+
 ## O que ainda falta
 
 - **Fila de revisão** (`revisao-fontes.csv`): conflitos, disputas e fontes únicas
