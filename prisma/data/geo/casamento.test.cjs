@@ -156,6 +156,22 @@ igual('mistério é padroeiro', ['Capela Assunção de Nossa Senhora', 'Igreja d
   igual('templo sem padroeiro não casa só pelo nome da rua', regra(c.casarNaFonte(nossas[0], nossas, [cand('IGREJA CATOLICA', -9, -36, { ruas: ['RUA DAS FLORES 300'] })])), null);
 }
 
+// ── o incidente de Belo Horizonte ───────────────────────────────────────────────────
+{
+  const catedral = [cand('CATEDRAL CRISTO REI', -19.82, -43.95)];
+  const bh = [com('a', 'Matriz Santa Cruz', 'Rua A, 1'), com('b', 'Matriz Santa Edith Stein', 'Rua B, 2', { precisa: true, lat: -19.9, lng: -43.9 })];
+  igual('matriz de outro padroeiro NÃO casa com a catedral', regra(c.casarNaFonte(bh[0], bh, catedral)), null);
+  const sozinha = [com('a', 'Matriz Santa Cruz', 'Rua A, 1')];
+  igual('nem sendo a única matriz do município', regra(c.casarNaFonte(sozinha[0], sozinha, catedral)), null);
+  igual('única matriz × "IGREJA MATRIZ" sem padroeiro', regra(c.casarNaFonte(sozinha[0], sozinha, [cand('IGREJA MATRIZ', -19.82, -43.95)])), 'matriz:IGREJA MATRIZ');
+  igual('duas matrizes nossas no município: a regra não vale', regra(c.casarNaFonte(bh[0], bh, [cand('IGREJA MATRIZ', -19.82, -43.95)])), null);
+}
+{
+  const nossas = [com('a', 'Matriz Nossa Senhora das Graças', 'Rua A, 1', { precisa: true, lat: -21.0983, lng: -45.0793 }), com('b', 'Nossa Senhora de Lourdes – Vila Nova')];
+  const deles = [cand('IGREJA CATOLICA', -21.0984, -45.0794, { lugares: ['VILA NOVA'] })];
+  igual('templo sem padroeiro em cima de OUTRA comunidade já resolvida está tomado', regra(c.casarNaFonte(nossas[1], nossas, deles)), null);
+}
+
 // ── decisão entre fontes ────────────────────────────────────────────────────────────
 const achado = (lat, lng, regraNome = 'unico') => ({ cand: { lat, lng }, regra: regraNome });
 igual('duas fontes concordam', c.decidir({ cnefe: achado(-25, -50), overture: achado(-25.001, -50.001) }),

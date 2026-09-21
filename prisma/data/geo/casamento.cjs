@@ -209,7 +209,9 @@ const RAIO_MESMO_PREDIO_KM = 0.5;
  *   localidade      há homônimas, e só um candidato fica no povoado/bairro/rua da comunidade;
  *   local-generico  a fonte não diz o padroeiro ("IGREJA CATOLICA"), mas só há um templo católico
  *                   naquele povoado — e a comunidade declara aquele povoado;
- *   matriz          única matriz ainda sem pino no município, dos dois lados.
+ *   matriz          a fonte diz só "IGREJA MATRIZ", sem padroeiro — vale onde temos UMA matriz só no município.
+ *                   (Já valeu para "a única matriz ainda sem pino": na auditoria, que testa uma sede por vez, isso
+ *                   mandou 28 matrizes de Belo Horizonte para a Catedral Cristo Rei.)
  *
  * Sempre: sede só casa com sede e capela com capela (quando os dois lados declaram), e
  * comunidade sem padroeiro no nome ("Comunidade Água Verde") só casa com lugar que se diz católico.
@@ -220,6 +222,8 @@ function casarNaFonte(c, nossas, deles) {
   const resolvidas = homonimas.filter((n) => n.precisa);
   const rivais = homonimas.filter((n) => !n.precisa);
   const tomado = (x, donas) => donas.some((n) => km(n, x) <= RAIO_MESMO_PREDIO_KM);
+  // templo sem padroeiro não tem homônima: qualquer comunidade nossa já resolvida em cima dele é a dona
+  const jaResolvidas = nossas.filter((n) => n !== c && n.precisa);
   const serve = (x) => (c.generica ? x.catolica : true) && tiposBatem(c.tipo, x.tipo) && !tomado(x, resolvidas);
 
   const candidatos = deles.filter((x) => x.k && compativel(x.k, c.k) && serve(x));
@@ -236,15 +240,14 @@ function casarNaFonte(c, nossas, deles) {
       if (noLugar.length === 1) return { cand: noLugar[0], regra: 'localidade' };
     } else {
       // sem padroeiro do outro lado, nome de rua é pouco: a mesma avenida tem mais de uma igreja, e a cidade, ruas homônimas
-      const genericos = deles.filter((x) => x.catolica && !x.padroeiro && tiposBatem(c.tipo, x.tipo) && noMesmoPovoado(c, x));
+      const genericos = deles.filter((x) => x.catolica && !x.padroeiro && tiposBatem(c.tipo, x.tipo) && !tomado(x, jaResolvidas) && noMesmoPovoado(c, x));
       if (genericos.length === 1) return { cand: genericos[0], regra: 'local-generico' };
     }
   }
 
-  if (c.matriz) {
-    const outrasSedes = nossas.filter((n) => n !== c && n.matriz);
-    const matrizes = deles.filter((x) => x.matriz && x.catolica && !tomado(x, outrasSedes.filter((n) => n.precisa)));
-    if (matrizes.length === 1 && !outrasSedes.some((n) => !n.precisa)) return { cand: matrizes[0], regra: 'matriz' };
+  if (c.matriz && !nossas.some((n) => n !== c && n.matriz)) {
+    const matrizes = deles.filter((x) => x.matriz && x.catolica && (!x.padroeiro || compativel(x.k, c.k)) && !tomado(x, jaResolvidas));
+    if (matrizes.length === 1) return { cand: matrizes[0], regra: 'matriz' };
   }
   return null;
 }

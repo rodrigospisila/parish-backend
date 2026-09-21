@@ -77,8 +77,11 @@ identifica o templo: "Capela N. Sra. Aparecida" ↔ "IGREJA CATOLICA NOSSA SENHO
 APARECIDA". A unicidade vale dos **dois lados** — duas "São José" nossas sem pino e
 uma só na fonte não casam. Homônimas se resolvem pelo povoado, pelo bairro ou pela
 rua. Sede só casa com sede e capela com capela. Templo em cima de uma homônima
-nossa que já tem pino preciso está "tomado". O mesmo templo reivindicado por duas
-comunidades não vai para nenhuma. Tudo isso está em `casamento.cjs`, com testes.
+nossa que já tem pino preciso está "tomado" — e templo **sem padroeiro**, em cima
+de qualquer comunidade nossa já resolvida. O mesmo templo reivindicado por duas
+comunidades não vai para nenhuma. A regra `matriz` ("IGREJA MATRIZ", sem
+padroeiro) só vale onde temos **uma matriz só** no município. Tudo isso está em
+`casamento.cjs`, com testes.
 
 Três conferências de **lugar**, porque padroeiro igual não basta:
 
@@ -127,6 +130,11 @@ npx ts-node prisma/geocode-fontes.ts --desfazer=prisma/data/geo/cache/backup-...
 
 Todo `--apply` grava antes uma cópia (`cache/backup-*.json`) do que estava lá.
 `--apply` só toca em pino `CITY`; `MANUAL`, `STREET` e legado nunca são sobrescritos.
+O `--plan` tem uma rede final: dois pinos novos no mesmo ponto não gravam, vão para a revisão.
+
+**Resultado em produção (21/09/2026):** 10.288 templos casados → `STREET`, 10.332
+pinos de povoado → `LOCALITY`, 169 pinos de máquina corrigidos. Pino preciso foi de
+14% para 33% das comunidades; entre as que têm missa cadastrada, de 25% para 49%.
 
 ### A auditoria também audita a gente
 
@@ -139,11 +147,35 @@ vão para `cache/pinos-suspeitos.csv`; os de origem de máquina (`cep`,
 `cache/plano-correcoes.json`, aplicado por `--apply-correcoes`. Pino de gente
 (`manual`, `gps`, legado) só gente corrige.
 
+Mexer num pino que já existe pede mais que subir um do centro da cidade: só entra
+na correção o casamento por regra forte (`unico` ou `localidade`) **na fonte que
+grava e em quem confirma**, e duas comunidades corrigidas para o mesmo ponto saem
+as duas.
+
+### O incidente de Belo Horizonte (21/09/2026)
+
+A primeira gravação mandou 28 matrizes de BH para a Catedral Cristo Rei. A regra
+`matriz` valia para "a única matriz ainda sem pino" × "o único templo marcado como
+matriz/catedral", sem olhar o padroeiro; a auditoria testa **uma sede por vez**, com
+todas as outras dadas como resolvidas — então, em cidade grande, cada matriz virava
+"a única sem pino" e casava com a catedral, no Censo e no agregador ao mesmo tempo
+("duas fontes concordam"). Quem pegou foi a conferência pós-gravação (coordenada
+repetida); tudo foi desfeito pelas cópias em minutos, corrigido e refeito.
+
+O que ficou: (1) **conferir o plano antes de gravar**, não só depois — ponto
+repetido, aglomerado, amostra com o nome do que casou (`casouCom`); (2) duas fontes
+que casam pela MESMA regra fraca não são confirmação independente; (3) regra que
+depende dos outros pinos não serve para julgar esses mesmos pinos.
+
 ## O que ainda falta
 
 - **Fila de revisão** (`revisao-fontes.csv`): conflitos, disputas e fontes únicas
   recusadas já têm a coordenada candidata — falta mostrá-la no editor do mapa do
   território para um clique de confirmação.
+- **Pinos antigos duvidosos**: `pinos-suspeitos.csv` lista os que duas fontes
+  desmentem e não entraram na correção automática (legados, regra fraca); e ~21
+  pinos novos caíram a menos de 50 m de OUTRA comunidade que já tinha pino — em
+  geral é o pino antigo dessa outra que está errado, ou cadastro duplicado.
 - **Capelas com endereço de rua próprio**: candidatas a geocodificação por endereço.
 - **Quem não declara povoado nem tem templo com padroeiro nas fontes** só se
   resolve com gente: pino manual no mapa do território ou GPS pelo app.

@@ -72,7 +72,7 @@ type Nossa = {
 };
 type Localidade = Ponto & { k: string; nome: string; n: number; diagKm: number };
 type Achado = { cand: Cand; regra: string };
-type Item = { id: string; nome: string; cidade: string; lat: number; lng: number; precision: 'STREET' | 'LOCALITY'; source: string; regra: string; nivel: string; confirmadaPor: string[]; diagKm?: number; povoado?: string };
+type Item = { id: string; nome: string; cidade: string; lat: number; lng: number; precision: 'STREET' | 'LOCALITY'; source: string; regra: string; nivel: string; confirmadaPor: string[]; diagKm?: number; povoado?: string; casouCom?: string };
 type AcharMunicipio = (lat: number, lng: number) => string | null;
 
 // ── bases ────────────────────────────────────────────────────────────────────────────
@@ -115,14 +115,16 @@ function tirarAnexos(mapa: Map<string, Cand[]>) {
 
 /**
  * Página de capela rural costuma ser marcada "na cidade": várias igrejas diferentes no MESMO ponto são o centro que o
- * geocodificador devolve, não o templo. Três padroeiros distintos em ~100 m: sai o ponto inteiro.
+ * geocodificador devolve, não o templo. Três padroeiros distintos em ~100 m, ou dois na coordenada idêntica: sai o ponto inteiro.
  */
 function tirarEmpilhados(mapa: Map<string, Cand[]>) {
   let fora = 0;
   for (const [mun, lista] of mapa) {
-    const porPonto = new Map<string, Set<string>>();
-    for (const x of lista) { const p = `${x.lat.toFixed(3)},${x.lng.toFixed(3)}`; if (!porPonto.has(p)) porPonto.set(p, new Set()); porPonto.get(p)!.add(x.k); }
-    const limpa = lista.filter((x) => porPonto.get(`${x.lat.toFixed(3)},${x.lng.toFixed(3)}`)!.size < 3);
+    const porPonto = new Map<string, Set<string>>(); const noMesmoPonto = new Map<string, Set<string>>();
+    const soma = (m: Map<string, Set<string>>, p: string, k: string) => { if (!m.has(p)) m.set(p, new Set()); m.get(p)!.add(k); };
+    for (const x of lista) { soma(porPonto, `${x.lat.toFixed(3)},${x.lng.toFixed(3)}`, x.k); soma(noMesmoPonto, `${x.lat},${x.lng}`, x.k); }
+    // dois padroeiros na coordenada IDÊNTICA também é ponto-padrão: templos vizinhos nunca coincidem até a última casa
+    const limpa = lista.filter((x) => porPonto.get(`${x.lat.toFixed(3)},${x.lng.toFixed(3)}`)!.size < 3 && noMesmoPonto.get(`${x.lat},${x.lng}`)!.size < 2);
     fora += lista.length - limpa.length; mapa.set(mun, limpa);
   }
   return fora;
@@ -373,7 +375,7 @@ async function planejar() {
         if (d) {
           R.predio += 1; if (c.missa) R.predioMissa += 1; if (c.sede) R.predioSede += 1; if (d.nivel === 'confirmado') R.confirmado += 1;
           porRegra[d.regra] = (porRegra[d.regra] ?? 0) + 1; porFonte[d.fonte] = (porFonte[d.fonte] ?? 0) + 1;
-          plano.push({ id: c.id, nome: c.name, cidade: `${c.city}/${c.state}`, lat: d.lat, lng: d.lng, precision: 'STREET', source: d.fonte, regra: d.regra, nivel: d.nivel, confirmadaPor: d.confirmadaPor });
+          plano.push({ id: c.id, nome: c.name, cidade: `${c.city}/${c.state}`, lat: d.lat, lng: d.lng, precision: 'STREET', source: d.fonte, regra: d.regra, nivel: d.nivel, confirmadaPor: d.confirmadaPor, casouCom: Object.entries(porF).map(([f, a]) => `${f}=${a.cand.nome}`).join(' ; ') });
           // daqui em diante a comunidade conta como resolvida: o templo dela está tomado, e a sede baliza as capelas
           c.precisa = true; c.lat = d.lat; c.lng = d.lng;
           if (c.sede) sedePrecisa.set(c.parishId, { lat: d.lat, lng: d.lng });
@@ -392,8 +394,15 @@ async function planejar() {
   passada((n) => n.sede);
   passada((n) => !n.sede);
 
+  // Rede final: dois pinos novos no MESMO ponto é sinal de casamento errado que escapou das regras. Nenhum dos dois grava.
+  const noPonto = new Map<string, Item[]>();
+  for (const x of plano) if (x.precision === 'STREET') { const p = `${x.lat.toFixed(4)},${x.lng.toFixed(4)}`; if (!noPonto.has(p)) noPonto.set(p, []); noPonto.get(p)!.push(x); }
+  const repetidos = new Set([...noPonto.values()].filter((v) => v.length > 1).flat());
+  for (const x of repetidos) revisao.push(`${x.id};${csv(x.nome)};${csv(x.cidade)};;mesmo ponto que outra comunidade (${x.source} ${x.regra}): ${x.lat},${x.lng}`);
+  const planoFinal = plano.filter((x) => !repetidos.has(x));
+  R.predio -= repetidos.size;
   if (!existsSync(CACHE)) mkdirSync(CACHE, { recursive: true });
-  writeFileSync(PLANO, JSON.stringify(plano));
+  writeFileSync(PLANO, JSON.stringify(planoFinal));
   writeFileSync(REVISAO, revisao.join('\n'));
   const resto = R.alvo - R.predio - R.localidade - R.temploAprox;
   console.log(`\nPLANO — pinos em centro de cidade: ${R.alvo} (com missa: ${R.alvoMissa} · sedes paroquiais: ${R.alvoSede})`);
@@ -401,6 +410,7 @@ async function planejar() {
   console.log(`     por fonte: ${Object.entries(porFonte).map(([k, v]) => `${k} ${v}`).join(' · ')}`);
   console.log(`     por regra: ${Object.entries(porRegra).sort((a, b) => b[1] - a[1]).map(([k, v]) => `${k} ${v}`).join(' · ')}`);
   console.log(`  POVOADO/BAIRRO (→ LOCALITY): ${pct(R.localidade + R.temploAprox, R.alvo)} — centro do povoado no Censo ${R.localidade} · templo católico do povoado, sem padroeiro ${R.temploAprox} · com missa: ${R.localidadeMissa} · povoado largo demais (> ${LOCALIDADE_MAX_KM} km): ${R.localidadeLarga}`);
+  console.log(`  retirados pela rede final (dois pinos novos no mesmo ponto): ${repetidos.size}`);
   console.log(`  para revisão: ${R.conflito} conflitos entre fontes · ${R.disputa} disputas · lugar implausível: ${R.implausivel} · só o agregador achou: ${R.soConfirmacao}`);
   console.log(`     fonte única recusada: ${Object.entries(recusas).sort((a, b) => b[1] - a[1]).map(([k, v]) => `${k} ${v}`).join(' · ') || 'nenhuma'}`);
   console.log(`  continuam no centro da cidade: ${pct(resto, R.alvo)}`);
@@ -450,7 +460,13 @@ async function auditar() {
         const e = C.km(verdade, d);
         // duas fontes independentes juntas e o nosso pino longe: o erro é do nosso pino, não do casamento
         if (d.nivel === 'confirmado' && e > 2 && c.origem !== 'manual') {
-          if (ORIGEM_DE_MAQUINA.includes(c.origem ?? '') && temPredioPerto(mun, d)) correcoes.push({ id: c.id, nome: c.name, cidade: `${c.city}/${c.state}`, lat: d.lat, lng: d.lng, precision: 'STREET', source: d.fonte, regra: d.regra, nivel: d.nivel, confirmadaPor: d.confirmadaPor, origemAntes: c.origem as string, kmAntes: Number(e.toFixed(1)) });
+          // Mexer num pino que já existe pede mais que subir um do centro da cidade: padroeiro idêntico e único (ou desempatado pelo
+          // lugar) na fonte que grava E em quem confirma. "A que sobrou", "a única matriz" e padroeiro parecido não bastam — a auditoria
+          // testa uma comunidade por vez, e essas regras confiam justamente nos outros pinos, que são o que está sob suspeita.
+          const forte = (a?: Achado) => !!a && (a.regra === 'unico' || a.regra === 'localidade');
+          const base = d.fonte.split('+')[0];
+          const confirmaForte = TODAS.some((x) => x !== base && forte(porF[x]) && C.km(porF[x].cand, d) <= 0.5);
+          if (ORIGEM_DE_MAQUINA.includes(c.origem ?? '') && temPredioPerto(mun, d) && forte(porF[base]) && confirmaForte) correcoes.push({ id: c.id, nome: c.name, cidade: `${c.city}/${c.state}`, lat: d.lat, lng: d.lng, precision: 'STREET', source: d.fonte, regra: d.regra, nivel: d.nivel, confirmadaPor: d.confirmadaPor, casouCom: Object.entries(porF).map(([f, a]) => `${f}=${a.cand.nome}`).join(' ; '), origemAntes: c.origem as string, kmAntes: Number(e.toFixed(1)) });
           suspeitos.push(`${c.id};${csv(c.name)};${csv(c.city)};${c.state};${c.origem ?? 'legado'};${e.toFixed(1)};${[d.fonte, ...d.confirmadaPor.filter((x: string) => !d.fonte.includes(x))].join('+')};${d.lat};${d.lng}`);
           anota('NOSSO PINO suspeito (2 fontes concordam, longe dele)', e);
           continue;
@@ -466,6 +482,12 @@ async function auditar() {
     }
   }
   writeFileSync(SUSPEITOS, suspeitos.join('\n'));
+  // duas comunidades corrigidas para o MESMO ponto: nenhuma das duas
+  const alvoDe = new Map<string, number>();
+  for (const x of correcoes) { const p = `${x.lat.toFixed(4)},${x.lng.toFixed(4)}`; alvoDe.set(p, (alvoDe.get(p) ?? 0) + 1); }
+  const semDisputa = correcoes.filter((x) => alvoDe.get(`${x.lat.toFixed(4)},${x.lng.toFixed(4)}`) === 1);
+  console.log(`correções descartadas por disputarem o mesmo ponto: ${correcoes.length - semDisputa.length}`);
+  correcoes.length = 0; correcoes.push(...semDisputa);
   writeFileSync(CORRECOES, JSON.stringify(correcoes));
   console.log(`\nAUDITORIA — ${testadas} comunidades com pino preciso, tratadas como se estivessem no centro da cidade`);
   console.log('distância entre a coordenada da fonte e o pino que já temos:\n');
