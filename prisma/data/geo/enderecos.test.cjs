@@ -55,7 +55,8 @@ const alvo = (numero, extra = {}) => ({ numero, tipo: 'RUA', k: 'st jose', locai
 {
   const rua = [L(100, -22, -47), L(250, -22.002, -47.002), L(253, -22.0021, -47.0021), L(900, -22.009, -47.009)];
   igual('número exato', e.casarEndereco(alvo(250), rua, compativel).regra, 'numero-exato');
-  igual('vizinho do mesmo lado', e.casarEndereco(alvo(251), rua, compativel), { lat: -22.0021, lng: -47.0021, regra: 'numero-vizinho' });
+  igual('entre dois vizinhos: interpola', e.casarEndereco(alvo(251), rua, compativel).regra, 'numero-interpolado');
+  igual('vizinho de um lado só: o do mesmo lado da rua', e.casarEndereco(alvo(300), rua, compativel), { lat: -22.002, lng: -47.002, regra: 'numero-vizinho' });
   igual('número longe de tudo, rua longa', e.casarEndereco(alvo(500), rua, compativel).motivo, 'número longe de tudo que o Censo visitou');
   igual('sem número, rua longa', e.casarEndereco(alvo(null), rua, compativel).motivo, 'sem número, rua longa');
 }
@@ -80,6 +81,26 @@ const alvo = (numero, extra = {}) => ({ numero, tipo: 'RUA', k: 'st jose', locai
   igual('dois templos e nenhum é o nosso: cai no número', e.casarEndereco(alvo(null, { k: 'st pedro' }), dois, compativel).motivo, 'sem número, rua longa');
 }
 igual('rua que o Censo não tem', e.casarEndereco(alvo(10), [], compativel).motivo, 'rua fora do Censo');
+{
+  // Curitiba, Av. Marechal Floriano Peixoto (11 km): o Santuário do Carmo é o nº 8520; o único templo "católico" que o Censo
+  // descreveu na avenida é a "Paróquia das Santas Missões", nº 3817, 4,7 km antes. A regra antiga mandava o Carmo para lá.
+  // (numeração métrica: um endereço a cada 300 números ≈ 300 m, do 1400 ao 9900, numa reta de 11 km)
+  const em = (n) => ({ lat: -25.4424 + ((n - 1414) / (9903 - 1414)) * (-25.5132 + 25.4424), lng: -49.2665 + ((n - 1414) / (9903 - 1414)) * (-49.2316 + 49.2665) });
+  const avenida = Array.from({ length: 29 }, (_, i) => 1400 + i * 300).map((n) => L(n, em(n).lat, em(n).lng));
+  avenida.push(L(3817, em(3817).lat, em(3817).lng, { templo: true, catolico: true }));
+  const carmo = e.casarEndereco(alvo(8520, { k: 'nsra carmo' }), avenida, compativel);
+  igual('templo longe de onde o número cai não é o do endereço: interpola entre os vizinhos', carmo.regra, 'numero-interpolado');
+  igual('… e o ponto fica onde o 8520 cai', [Math.abs(carmo.lat - em(8520).lat) < 0.0002, Math.abs(carmo.lng - em(8520).lng) < 0.0002], [true, true]);
+  igual('templo onde o número cai continua valendo', e.casarEndereco(alvo(3900, { k: 'nsra carmo' }), avenida, compativel).regra, 'templo-na-rua');
+  igual('sem número, avenida de 11 km: o único templo não basta', e.casarEndereco(alvo(null, { k: 'nsra carmo' }), avenida, compativel).motivo, 'sem número, rua longa');
+  igual('número sem vizinho a 500 e templo com número longe: nada', e.casarEndereco(alvo(12000, { k: 'nsra carmo' }), avenida, compativel).motivo, 'número longe de tudo que o Censo visitou');
+  const semNumero = avenida.map((l) => (l.templo ? { ...l, numero: 0 } : l));
+  igual('templo sem número registrado, longe de onde o número cai: também não', e.casarEndereco(alvo(8520, { k: 'nsra carmo' }), semNumero, compativel).regra, 'numero-interpolado');
+  // vizinhos de numeração a mais de 800 m um do outro: há um trecho sem Censo no meio, não se interpola
+  const buraco = [L(100, -22, -47), L(0, -22.003, -47.003), L(700, -22.006, -47.006)];
+  igual('vizinhos longe um do outro não interpolam', e.casarEndereco(alvo(400), buraco, compativel).motivo, 'número longe de tudo que o Censo visitou');
+  igual('vizinhos perto um do outro interpolam', e.casarEndereco(alvo(400), [L(100, -22, -47), L(700, -22.003, -47.003)], compativel), { lat: -22.0015, lng: -47.0015, regra: 'numero-interpolado' });
+}
 {
   // Tonantins/AM: a matriz São Pedro Apóstolo foi parar numa capela do Divino, 70 km rio acima, porque a "Rua São Pedro" batia
   const rua = [L(10, -2.8, -67.8), L(20, -2.8005, -67.8005, { templo: true, catolico: true, kTemplo: 'espiritosanto' }), L(900, -2.803, -67.803)];

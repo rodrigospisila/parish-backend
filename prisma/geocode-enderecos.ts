@@ -1,5 +1,5 @@
 import { PrismaClient } from '@prisma/client';
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'fs';
+import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'fs';
 import { join } from 'path';
 
 /**
@@ -15,6 +15,7 @@ import { join } from 'path';
  *   npx ts-node prisma/geocode-enderecos.ts --apply [--dry-run]
  *   npx ts-node prisma/geocode-enderecos.ts --apply-correcoes [--dry-run]   # pinos da camada anterior que o endereço desmente (sai do --audit)
  *   npx ts-node prisma/geocode-enderecos.ts --apply-refino [--dry-run]      # pinos "de rua" (CEP/Nominatim) levados até a porta pelo Censo (sai do --audit)
+ *   npx ts-node prisma/geocode-enderecos.ts --apply-reconferencia [--dry-run]   # regras corrigidas: regrava/devolve os pinos cnefe-endereco que mudaram (sai do --audit)
  *   npx ts-node prisma/geocode-enderecos.ts --desfazer=<cópia.json>
  *
  * Só sobe pino CITY ou LOCALITY. Grava STREET com geoSource 'cnefe-endereco'. Todo --apply guarda antes uma cópia.
@@ -41,10 +42,14 @@ const CORRECOES = join(DIR, 'correcoes.json');
 const REFINO = join(DIR, 'refino.json');
 /** Pinos de rua que o endereço no Censo confirma a < 60 m (grupo B3a do plano de validação): ficam fora dos lotes dos agentes. */
 const VALIDADOS = join(DIR, 'validados-censo.json');
+/** Todo pino `cnefe-endereco` resolvido de novo com as regras de hoje: regra, ponto e distância ao pino gravado (--apply-reconferencia). */
+const RECONFERENCIA = join(DIR, 'reconferencia.json');
 /** Pino "de rua": o CEP e o Nominatim dão o MEIO do logradouro, a quadras da porta. São esses que o endereço no Censo refina. */
 const ORIGEM_DE_RUA = ['cep', 'osm-endereco'];
 /** Regras que chegam ao número ou ao templo — melhores que um meio de rua. (`rua-curta` é outro meio de rua: não refina nada.) */
-const REGRA_QUE_REFINA = ['templo-padroeiro', 'templo-numero', 'templo-na-rua', 'numero-exato', 'numero-vizinho'];
+const REGRA_QUE_REFINA = ['templo-padroeiro', 'templo-numero', 'templo-na-rua', 'numero-exato', 'numero-interpolado', 'numero-vizinho'];
+/** Um pino que uma regra corrigida põe a mais que isso do pino gravado é regravado. */
+const RECONFERE_KM = 0.3;
 /** Até aqui o pino de rua e o endereço do Censo falam da mesma vizinhança: é refino. Acima disso é divergência, e vai para revisão. */
 const REFINO_MAX_KM = 1.5;
 /** Abaixo disso não vale a pena mexer. */
@@ -140,7 +145,8 @@ async function alvos() {
   const saida: Alvo[] = []; const chaves = new Set<string>(); const chavesExtra = new Set<string>(); const R = { alvo: 0, alvoMissa: 0, verdade: 0, semMunicipio: 0 };
   for (const l of linhas) {
     const paraSubir = l.geoPrecision === 'CITY' || l.geoPrecision === 'LOCALITY';
-    const verdade = !paraSubir && l.latitude != null && [...ORIGEM_DE_PREDIO, ...ORIGEM_DE_MAQUINA].includes(l.geoSource ?? '');
+    // (o pino que veio do próprio endereço — FONTE — não serve de régua para o Censo, mas entra para ser RECONFERIDO quando as regras mudam)
+    const verdade = !paraSubir && l.latitude != null && [...ORIGEM_DE_PREDIO, ...ORIGEM_DE_MAQUINA, FONTE].includes(l.geoSource ?? '');
     if (!paraSubir && !verdade) continue;
     const sede = sedes.has(l.id);
     // A armadilha de sempre: fora da sede, endereço igual ao da paróquia é herdado e não diz onde a capela fica
@@ -344,11 +350,21 @@ function auditar() {
   const sugestoes: Array<{ id: string; motivo: string; detalhe: string; opcoes: Array<{ fonte: string; lat: number; lng: number; rotulo: string }> }> = [];
   const situacaoDaRua: Record<string, number> = { 'Censo leva até a porta (refino)': 0, 'já a menos de 60 m do endereço no Censo (validado)': 0, 'Censo só tem o meio da rua (não refina)': 0, 'Censo discorda por mais de 1,5 km (revisão)': 0, 'sem resposta do Censo': 0 };
   const validados: Array<{ id: string; nome: string; cidade: string; regra: string; m: number }> = [];
+  const reconferencia: Array<{ id: string; nome: string; cidade: string; endereco: string; pinoEraTemplo: boolean; regra?: string; lat?: number; lng?: number; km?: number; motivo?: string }> = [];
   const verdade = todos.filter((a) => !a.alvo);
   for (const a of verdade) {
     const dePredio = ORIGEM_DE_PREDIO.includes(a.origem ?? '');
     const r = resolver(a, ruas, cacheOsm, municipioDe, tomado);
     const deRua = ORIGEM_DE_RUA.includes(a.origem ?? '');
+    // pino que veio do próprio endereço: como as regras de hoje o resolvem (as regras mudam; o pino gravado fica para trás).
+    // Não entra na régua: seria o Censo medido contra o Censo.
+    if (a.origem === FONTE) {
+      // o pino atual é um templo do Censo? Então, se a regra de hoje o desloca, o templo continua valendo como sugestão na fila
+      const pinoAtual = { lat: a.lat as number, lng: a.lng as number };
+      const pinoEraTemplo = a.chaves.flatMap((k) => ruas.get(`${a.mun}|${k}`) ?? []).some((l: any) => l.templo && E.km(l, pinoAtual) < 0.02);
+      reconferencia.push({ id: a.id, nome: a.nome, cidade: a.cidade, endereco: a.endereco, pinoEraTemplo, ...(r.lat == null ? { motivo: r.motivo } : { regra: r.regra as string, lat: r.lat, lng: r.lng, km: Number(E.km(r, pinoAtual).toFixed(3)) }) });
+      continue;
+    }
     if (r.lat == null) { motivos[r.motivo] = (motivos[r.motivo] ?? 0) + 1; if (deRua) situacaoDaRua['sem resposta do Censo'] += 1; continue; }
     const d = E.km(r, { lat: a.lat as number, lng: a.lng as number });
     if (deRua) situacaoDaRua[d < REFINO_MIN_KM ? 'já a menos de 60 m do endereço no Censo (validado)' : d > REFINO_MAX_KM ? 'Censo discorda por mais de 1,5 km (revisão)' : REGRA_QUE_REFINA.includes(r.regra as string) ? 'Censo leva até a porta (refino)' : 'Censo só tem o meio da rua (não refina)'] += 1;
@@ -383,9 +399,14 @@ function auditar() {
   refino.length = 0; refino.push(...refinoFinal);
   writeFileSync(REFINO, JSON.stringify(refino));
   writeFileSync(VALIDADOS, JSON.stringify(validados));
+  writeFileSync(RECONFERENCIA, JSON.stringify(reconferencia));
   console.log(`
 PINOS DE RUA (cep, osm-endereco) com endereço de rua legível: ${Object.entries(situacaoDaRua).map(([k, v]) => `${k} ${v}`).join(' · ')}`);
   console.log(`   validados pelo Censo (número ou templo a < 60 m, fora dos lotes de agentes): ${validados.length} → ${VALIDADOS}`);
+  const mudaram = reconferencia.filter((x) => x.km != null && x.km > RECONFERE_KM); const sumiram = reconferencia.filter((x) => x.motivo);
+  console.log(`
+RECONFERÊNCIA dos pinos ${FONTE} com as regras de hoje: ${reconferencia.length} · mudam de lugar (> ${RECONFERE_KM * 1000} m): ${mudaram.length} · sem resposta agora: ${sumiram.length} (${Object.entries(sumiram.reduce((m: Record<string, number>, x) => { m[x.motivo as string] = (m[x.motivo as string] ?? 0) + 1; return m; }, {})).map(([k, v]) => `${k} ${v}`).join(' · ')}) → ${RECONFERENCIA}  (--apply-reconferencia)`);
+  for (const x of mudaram.sort((a, b) => (b.km as number) - (a.km as number)).slice(0, 15)) console.log(`   ${String(x.km).padStart(6)} km · ${x.nome} (${x.cidade}) · ${x.endereco} · agora ${x.regra}`);
   const kmRef = refino.map((x) => x.kmAntes).sort((x, y) => x - y);
   console.log(`\nREFINO dos pinos de rua (CEP/Nominatim → porta, pelo Censo): ${refino.length} → ${REFINO}  (--apply-refino)`);
   if (kmRef.length) console.log(`   quanto cada pino anda: mediana ${quantil(kmRef, 0.5).toFixed(2)} km · p75 ${quantil(kmRef, 0.75).toFixed(2)} · p90 ${quantil(kmRef, 0.9).toFixed(2)} | por regra: ${Object.entries(refino.reduce((m: Record<string, number>, x) => { m[x.regra] = (m[x.regra] ?? 0) + 1; return m; }, {})).map(([k, v]) => `${k} ${v}`).join(' · ')}`);
@@ -457,6 +478,60 @@ async function aplicar(correcao = false, refinar = false) {
   console.log(`gravadas: ${await gravar(plano.map((x) => ({ id: x.id, lat: x.lat, lng: x.lng, prec: x.precision, src: x.source })), refinar ? `c."geoPrecision" = 'STREET' AND c."geoSource" IN (${ORIGEM_DE_RUA.map((o) => `'${o}'`).join(', ')})` : correcao ? `c."geoPrecision" = 'STREET' AND c."geoSource" IN (${ORIGEM_DE_MAQUINA.map((o) => `'${o}'`).join(', ')})` : `c."geoPrecision" IN ('CITY', 'LOCALITY')`)}`);
 }
 
+/**
+ * Regras corrigidas, pinos antigos: o que a regra de hoje põe a > 300 m do pino gravado é regravado; o que deixou de casar por
+ * causa da correção (templo longe do número; rua longa sem número) volta ao estado anterior à carga, pela cópia de segurança
+ * mais antiga em que aparece. "Conferido por endereço oficial + Censo" dependia do ponto antigo: é limpo nos dois casos.
+ * Pino MANUAL, conferido por gente ou por outra prova (templo independente, coordenada publicada) não é tocado.
+ */
+async function aplicarReconferencia() {
+  if (!existsSync(RECONFERENCIA)) throw new Error(`rode --audit primeiro (${RECONFERENCIA})`);
+  const lista: Array<{ id: string; nome: string; cidade: string; endereco: string; pinoEraTemplo?: boolean; regra?: string; lat?: number; lng?: number; km?: number; motivo?: string }> = JSON.parse(readFileSync(RECONFERENCIA, 'utf8'));
+  const MOTIVOS_DA_CORRECAO = ['sem número, rua longa', 'número longe de tudo que o Censo visitou'];
+  type Estado = { id: string; latitude: number | null; longitude: number | null; geoPrecision: string | null; geoSource: string | null };
+  // estado anterior à primeira carga: a cópia mais antiga (por nome, que começa pela data) em que a comunidade aparece
+  const anterior = new Map<string, Estado>();
+  for (const arq of readdirSync(DIR).filter((a) => /^backup-.*\.json$/.test(a) && !a.startsWith('backup-reconferencia')).sort()) {
+    const copia: Estado[] = JSON.parse(readFileSync(join(DIR, arq), 'utf8'));
+    for (const x of copia) if (!anterior.has(x.id)) anterior.set(x.id, x);
+  }
+  const ids = lista.map((x) => x.id); const atual = new Map<string, any>();
+  for (let i = 0; i < ids.length; i += 5000) for (const c of await prisma.community.findMany({ where: { id: { in: ids.slice(i, i + 5000) } }, select: { id: true, latitude: true, longitude: true, geoPrecision: true, geoSource: true, geoVerifiedAt: true, geoVerifiedBy: true } })) atual.set(c.id, c);
+  const mover: Array<{ id: string; lat: number; lng: number }> = []; const voltar: Estado[] = []; const limparConferido: string[] = [];
+  const R: Record<string, number> = {}; const conta = (k: string) => { R[k] = (R[k] ?? 0) + 1; };
+  for (const x of lista) {
+    const c = atual.get(x.id);
+    if (!c || c.geoSource !== FONTE || c.geoPrecision === 'MANUAL') { conta('não é mais pino de endereço (pulado)'); continue; }
+    if (c.geoVerifiedAt && c.geoVerifiedBy !== 'endereco-oficial+cnefe') { conta('conferido por outra prova (mantido)'); continue; }
+    if (x.lat != null && (x.km as number) > RECONFERE_KM) { mover.push({ id: x.id, lat: x.lat, lng: x.lng as number }); conta(`muda de lugar (agora ${x.regra})`); }
+    else if (x.motivo && MOTIVOS_DA_CORRECAO.includes(x.motivo)) {
+      const e = anterior.get(x.id);
+      if (e) { voltar.push(e); conta(`volta ao estado anterior (${e.geoPrecision ?? 'legado'}/${e.geoSource ?? 'legado'})`); } else conta('deixou de casar, sem cópia anterior (fica como está)');
+    } else if (x.motivo) conta(`sem resposta por outro motivo, fica como está (${x.motivo})`);
+    else { conta('mesmo lugar'); continue; }
+    if (c.geoVerifiedBy === 'endereco-oficial+cnefe' && (mover.some((m) => m.id === x.id) || voltar.some((v) => v.id === x.id))) limparConferido.push(x.id);
+  }
+  console.log(`${DRY ? 'DRY RUN — ' : ''}reconferência de ${lista.length} pinos ${FONTE}:`);
+  console.log(Object.entries(R).sort((a, b) => b[1] - a[1]).map(([k, v]) => `  ${k.padEnd(64)} ${v}`).join('\n'));
+  console.log(`regravar: ${mover.length} · voltar: ${voltar.length} · limpar "conferido por endereço": ${limparConferido.length}`);
+  for (const v of voltar.slice(0, 20)) { const x = lista.find((y) => y.id === v.id)!; console.log(`   volta · ${x.nome} (${x.cidade}) · ${x.endereco} · ${x.motivo} → ${v.geoPrecision ?? 'legado'}/${v.geoSource ?? 'legado'}`); }
+  if (DRY) return;
+  const tocados = [...new Set([...mover.map((m) => m.id), ...voltar.map((v) => v.id), ...limparConferido])];
+  const antes = tocados.map((id) => { const c = atual.get(id); return { id, latitude: c.latitude, longitude: c.longitude, geoPrecision: c.geoPrecision, geoSource: c.geoSource, geoVerifiedAt: c.geoVerifiedAt, geoVerifiedBy: c.geoVerifiedBy }; });
+  const copia = join(DIR, `backup-reconferencia-${new Date().toISOString().replace(/[:.]/g, '-')}.json`); writeFileSync(copia, JSON.stringify(antes)); console.log(`cópia de segurança: ${copia}`);
+  const condicao = `c."geoSource" = '${FONTE}' AND c."geoPrecision" = 'STREET' AND (c."geoVerifiedAt" IS NULL OR c."geoVerifiedBy" = 'endereco-oficial+cnefe')`;
+  // o pino que sai, quando era um templo do Censo, fica na fila como sugestão: se o número do cadastro é que estava errado, é um clique
+  const sugestoes = [...mover.map((m) => m.id), ...voltar.map((v) => v.id)].filter((id) => lista.find((x) => x.id === id)?.pinoEraTemplo).map((id) => {
+    const c = atual.get(id); const x = lista.find((y) => y.id === id)!;
+    const detail = x.regra ? `o Censo tem um templo católico nesta rua, mas a ${x.km} km de onde o nº do endereço "${x.endereco}" cai (${x.regra}); o pino foi para o número. Se o número do cadastro estiver errado, o templo é a igreja.` : `o Censo tem um templo católico nesta rua, mas a rua é longa e o endereço "${x.endereco}" não tem número: não dá para saber se é este. O pino voltou ao que era.`;
+    return { communityId: id, latitude: c.latitude as number, longitude: c.longitude as number, source: 'cnefe', reason: 'divergencia', label: 'templo católico na mesma rua', detail: detail.slice(0, 400) };
+  });
+  console.log(`regravadas: ${await gravar(mover.map((m) => ({ id: m.id, lat: m.lat, lng: m.lng, prec: 'STREET', src: FONTE })), condicao)}`);
+  console.log(`voltaram: ${await gravar(voltar.map((v) => ({ id: v.id, lat: v.latitude, lng: v.longitude, prec: v.geoPrecision, src: v.geoSource })), condicao)}`);
+  if (limparConferido.length) console.log(`"conferido por endereço" limpo: ${(await prisma.community.updateMany({ where: { id: { in: limparConferido }, geoVerifiedBy: 'endereco-oficial+cnefe' }, data: { geoVerifiedAt: null, geoVerifiedBy: null } })).count}`);
+  if (sugestoes.length) console.log(`templos que saíram, agora na fila como sugestão: ${(await prisma.communityGeoCandidate.createMany({ data: sugestoes, skipDuplicates: true })).count}`);
+}
+
 async function desfazer(arquivo: string) {
   const antes: Array<{ id: string; latitude: number | null; longitude: number | null; geoPrecision: string | null; geoSource: string | null }> = JSON.parse(readFileSync(arquivo, 'utf8'));
   console.log(`${DRY ? 'DRY RUN — ' : ''}${antes.length} pinos na cópia ${arquivo}`);
@@ -471,6 +546,7 @@ async function desfazer(arquivo: string) {
   else if (arg('--audit')) auditar();
   else if (arg('--plan')) planejar();
   else if (arg('--apply-refino')) await aplicar(false, true);
+  else if (arg('--apply-reconferencia')) await aplicarReconferencia();
   else if (arg('--apply-correcoes')) await aplicar(true);
   else if (arg('--apply')) await aplicar();
   else console.log('uso: --alvos | --nominatim [--limit=N] | --audit | --plan | --apply [--dry-run] | --desfazer=<cópia.json>');

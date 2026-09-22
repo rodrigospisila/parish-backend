@@ -121,6 +121,30 @@ function trechos(linhas) {
 const RUA_CURTA_KM = 0.8; // o meio de uma rua de 800 m erra no máximo 400 m
 const VIZINHO_MAX = 60; // diferença de numeração aceita para "o vizinho"
 const MESMO_LUGAR_KM = 0.3;
+const INTERPOLA_MAX = 500; // números de cada lado entre os quais se interpola
+const INTERPOLA_KM = 0.8; // os dois vizinhos têm de estar a menos disso um do outro (senão há um trecho sem Censo no meio)
+const TEMPLO_LONGE_DO_NUMERO_KM = 0.4; // templo "na rua" mais longe que isso de onde o número cai não é o do endereço
+const TEMPLO_NA_RUA_MAX_KM = 3; // sem número, "o único templo da rua" só vale em rua de até 3 km
+
+/**
+ * Onde o NÚMERO do endereço cai na rua, pelos endereços que o Censo visitou: no número exato, interpolado entre o vizinho de
+ * baixo e o de cima (a numeração brasileira é métrica quase sempre: o número é a distância ao início da rua), ou no vizinho
+ * a até 60 números. Devolve { lat, lng, regra } ou null.
+ */
+function ondeCaiONumero(numero, comGps) {
+  const exatos = comGps.filter((l) => l.numero === numero);
+  if (exatos.length && extensao(exatos) <= MESMO_LUGAR_KM) return { ...centro(exatos), regra: 'numero-exato' };
+  const abaixo = comGps.filter((l) => l.numero > 0 && l.numero < numero && numero - l.numero <= INTERPOLA_MAX).sort((a, b) => b.numero - a.numero)[0];
+  const acima = comGps.filter((l) => l.numero > numero && l.numero - numero <= INTERPOLA_MAX).sort((a, b) => a.numero - b.numero)[0];
+  if (abaixo && acima && km(abaixo, acima) <= INTERPOLA_KM) {
+    const f = (numero - abaixo.numero) / (acima.numero - abaixo.numero);
+    return { lat: abaixo.lat + (acima.lat - abaixo.lat) * f, lng: abaixo.lng + (acima.lng - abaixo.lng) * f, regra: 'numero-interpolado' };
+  }
+  const vizinhos = comGps.filter((l) => l.numero > 0 && Math.abs(l.numero - numero) <= VIZINHO_MAX)
+    .sort((a, b) => (Math.abs(a.numero - numero) + (a.numero % 2 === numero % 2 ? 0 : 1000)) - (Math.abs(b.numero - numero) + (b.numero % 2 === numero % 2 ? 0 : 1000)));
+  if (vizinhos.length) return { ...ponto(vizinhos[0]), regra: 'numero-vizinho' };
+  return null;
+}
 
 /**
  * Casa um endereço com as linhas do CNEFE daquela rua naquele município.
@@ -131,9 +155,12 @@ const MESMO_LUGAR_KM = 0.3;
  * Da mais forte à mais fraca:
  *   templo-padroeiro  um só templo da rua tem o padroeiro da comunidade;
  *   templo-numero   há um templo católico (ou sem denominação) NAQUELE número;
- *   templo-na-rua   só há um templo assim na rua inteira;
+ *   templo-na-rua   só há um templo assim na rua inteira — e ele está onde o número cai (a menos de 400 m), ou, sem número,
+ *                   a rua tem no máximo 3 km. (A Santas Missões no nº 3817 da Marechal Floriano não é o Carmo do nº 8520, 4,7 km adiante.)
  *   numero-exato    o Censo visitou aquele número;
- *   numero-vizinho  não visitou, mas visitou um vizinho a até 60 números, do mesmo lado da rua quando dá;
+ *   numero-interpolado  não visitou, mas visitou um número abaixo e um acima (até 500 de cada lado, a menos de 800 m um do outro):
+ *                   o ponto proporcional entre os dois — a numeração é métrica na maior parte do país;
+ *   numero-vizinho  só um lado: o vizinho a até 60 números, do mesmo lado da rua quando dá;
  *   rua-curta       sem número (ou sem vizinho), mas a rua inteira cabe em 800 m.
  * Rua homônima em dois bairros do mesmo município: o bairro declarado escolhe; sem ele, não casa.
  */
@@ -177,17 +204,21 @@ function casarEndereco(alvo, linhas, compativel) {
     for (const t of uso) if (t.templo && (t.catolico || t.talvez) && tipoOk(t) && t.numero === alvo.numero && !noNumero.some((u) => km(u, t) <= 0.1)) noNumero.push(t);
     if (noNumero.length === 1) return { ...ponto(noNumero[0]), regra: 'templo-numero' };
   }
+  const comGps = uso.filter((l) => l.nivel <= 2);
+  const peloNumero = alvo.numero != null ? ondeCaiONumero(alvo.numero, comGps) : null;
   // estrada e rodovia têm dezenas de quilômetros e uma capela a cada povoado: 'o único templo católico' ali é o único que o
   // recenseador DESCREVEU como católico. Só vale com padroeiro (acima) ou número.
-  if (unicos.length === 1 && !/^(ESTRADA|RODOVIA)$/.test(alvo.tipo ?? '')) return { ...ponto(unicos[0]), regra: 'templo-na-rua' };
-  const comGps = uso.filter((l) => l.nivel <= 2);
-  if (alvo.numero != null) {
-    const exatos = comGps.filter((l) => l.numero === alvo.numero);
-    if (exatos.length && extensao(exatos) <= MESMO_LUGAR_KM) return { ...centro(exatos), regra: 'numero-exato' };
-    const vizinhos = comGps.filter((l) => l.numero > 0 && Math.abs(l.numero - alvo.numero) <= VIZINHO_MAX)
-      .sort((a, b) => (Math.abs(a.numero - alvo.numero) + (a.numero % 2 === alvo.numero % 2 ? 0 : 1000)) - (Math.abs(b.numero - alvo.numero) + (b.numero % 2 === alvo.numero % 2 ? 0 : 1000)));
-    if (vizinhos.length) return { ...ponto(vizinhos[0]), regra: 'numero-vizinho' };
+  if (unicos.length === 1 && !/^(ESTRADA|RODOVIA)$/.test(alvo.tipo ?? '')) {
+    const t = unicos[0]; const rua = extensao(comGps.length ? comGps : uso);
+    // com número, o templo tem de estar onde o número cai — a não ser que a rua inteira seja curta (aí o número errado no
+    // cadastro não muda nada). Se o Censo não visitou nada perto do número, o número do próprio templo decide (sem número
+    // registrado, passa). Sem número no endereço, só em rua de até 3 km.
+    const coerente = alvo.numero == null
+      ? rua <= TEMPLO_NA_RUA_MAX_KM
+      : rua <= RUA_CURTA_KM || (peloNumero ? km(t, peloNumero) <= TEMPLO_LONGE_DO_NUMERO_KM : !(t.numero > 0) || Math.abs(t.numero - alvo.numero) <= INTERPOLA_MAX);
+    if (coerente) return { ...ponto(t), regra: 'templo-na-rua' };
   }
+  if (peloNumero) return peloNumero;
   // (estrada e rodovia nunca são "curtas": o Censo é que visitou poucos endereços nelas — três capelas da mesma rodovia virariam um ponto só)
   if (comGps.length >= 2 && extensao(comGps) <= RUA_CURTA_KM && !/^(ESTRADA|RODOVIA)$/.test(alvo.tipo ?? '')) return { ...centro(comGps), regra: 'rua-curta' };
   return { motivo: alvo.numero == null ? 'sem número, rua longa' : 'número longe de tudo que o Censo visitou' };

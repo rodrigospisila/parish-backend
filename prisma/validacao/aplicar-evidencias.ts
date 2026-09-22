@@ -14,13 +14,22 @@ import { join } from 'path';
  *                         ≤ 150 m do pino atual → pino CONFERIDO (geoVerifiedAt, evidencia:<origem>);
  *                         ≤ 100 m de uma sugestão pendente do Censo/Overture → duas fontes independentes: grava o pino
  *                             (STREET, <fonte>+evidencia) e resolve a fila;
- *                         senão → sugestão na fila (fonte site-paroquia / site-diocese / wikidata, motivo evidencia, URL no detalhe).
- *   endereco-oficial    endereço oficial confere E o pino veio do endereço com número no Censo → CONFERIDO (endereco-oficial+cnefe).
+ *                         senão, se a coordenada é FORTE (marcador de lugar, q=/ll=, JSON, Wikidata) → sugestão na fila;
+ *                         se é FRACA (centro de iframe `!2d…!3d…`, números soltos) → descartada (coordenadas-fracas.csv). O piloto mostrou:
+ *                             o centro do iframe é onde o site centrou o mapa (o endereço geocodificado pelo Google, a cidade), não a igreja —
+ *                             na amostra, 2 de 2 sugestões desse tipo estavam erradas. Ele só serve para CONFIRMAR o pino ou coincidir com o Censo.
+ *   endereco-oficial    endereço oficial confere E o pino veio do endereço no Censo por regra de TEMPLO (o Censo registrou uma igreja
+ *                       naquele número) → CONFERIDO (endereco-oficial+cnefe). Por número/vizinho/interpolado NÃO: o endereço confere,
+ *                       mas o ponto é o do Censo, com o erro dele (na amostra, o do Carmo estava a 4,8 km).
  *   osm                 templo com o padroeiro a ≤ 150 m no OpenStreetMap → CONFERIDO (osm). Só confirma; a coordenada do OSM não é gravada.
  *   templo              templo com o padroeiro a ≤ 150 m no Censo ou na Overture, de fonte DIFERENTE da que gerou o pino → CONFERIDO (templo:<fonte>).
- *   endereco-diverge    endereço oficial de rua ≠ o nosso → enderecos-divergentes.csv (o endereço NÃO é sobrescrito) e, se o Censo
- *                       conhece a rua oficial, uma sugestão (cnefe-endereco, motivo endereco-oficial).
+ *   endereco-oficial-de-rua   o nosso endereço não tem rua ("Centro", bairro) ou é outra rua, e a fonte dá rua e número:
+ *                         geocodifica pelo Censo. Nosso endereço sem rua + pino aproximado (CITY/LOCALITY/legado) → GRAVA STREET
+ *                         (cnefe-endereco-oficial) — é a fase 3 com um endereço melhor que o nosso; senão, a > 150 m do pino → sugestão
+ *                         (cnefe-endereco, motivo endereco-oficial). O endereço NÃO é sobrescrito: enderecos-oficiais.csv lista tudo.
  *   legado-longe        pino legado a > 5 km da localidade oficial (Censo) → legados-longe.csv, para gente olhar.
+ * Antes disso, uma REVISÃO do que rodadas anteriores gravaram com regras que mudaram: "conferido por endereço" sem regra de templo é
+ * desfeito (ou vira templo:<fonte>, se houver confirmação independente) e sugestão de coordenada fraca ainda pendente é recusada.
  * Pino MANUAL nunca é tocado. Toda gravação guarda antes uma cópia (backup-*.json). Grava também amostra-30.md, para conferência humana.
  */
 
@@ -38,9 +47,22 @@ if (!PILOTO) { console.log('uso: --piloto=<dir> [--dry-run]'); process.exit(1); 
 const GEO = join(__dirname, '..', 'data', 'geo');
 const CACHE = join(GEO, 'cache');
 
-const PERTO_KM = 0.15; const COINCIDE_KM = 0.1; const FORA_KM = 50; const LONGE_DA_LOCALIDADE_KM = 5;
+const PERTO_KM = 0.15; const COINCIDE_KM = 0.1; const FORA_KM = 50; const LONGE_DA_LOCALIDADE_KM = 5; const LONGE_DO_CENTRO_KM = 25;
 const ORIGEM_DE_GENTE = ['manual', 'gps'];
+/** Regras do Censo em que o ponto é uma IGREJA registrada pelo recenseador, não um número de casa. */
+const REGRA_DE_TEMPLO = ['templo-numero', 'templo-padroeiro'];
+const FONTE_OFICIAL = 'cnefe-endereco-oficial';
 const ehRua = (s: string) => /^(rua|r\.|av\.?|avenida|pra[çc]a|travessa|alameda|estrada|rodovia|largo|beco|via)\b/i.test(s.trim()) || /\d/.test(s);
+/**
+ * O que o trecho da evidência de coordenada É. Marcador de lugar (`!8m2!3d…!4d…`, `!3d…!4d…`), `q=`/`ll=`/`center=`, JSON
+ * (`"latitude":`) e Wikidata apontam um lugar; o centro do iframe (`!1d…!2d<lng>!3d<lat>`) e números soltos apontam onde o
+ * site centrou o mapa — fraco.
+ */
+const forcaDaCoordenada = (trecho: string, origem: string) => {
+  const t = String(trecho ?? '');
+  if (origem === 'wikidata' || /"latitude"\s*:/.test(t) || /!8m2!3d|!3d-?\d+\.\d+!4d-?\d+\.\d+/.test(t) || /[?&]q=-?\d|ll=-?\d|center=-?\d|data-lat=/.test(t)) return 'forte';
+  return 'fraca';
+};
 
 type Ponto = { lat: number; lng: number };
 const km = (a: Ponto, b: Ponto) => Math.hypot((a.lat - b.lat) * 111.2, (a.lng - b.lng) * 111.2 * Math.cos((((a.lat + b.lat) / 2) * Math.PI) / 180));
@@ -67,7 +89,7 @@ const csv = (s: unknown) => String(s ?? '').replace(/;/g, ',').replace(/\r?\n/g,
       if (Number(n) < 3 || k.length < 4 || k === 'centro') continue; if (!localidades.has(cod)) localidades.set(cod, []);
       localidades.get(cod)!.push({ k, nome, lat: Number(lat), lng: Number(lng), diagKm: C.km({ lat: Number(latMin), lng: Number(lngMin) }, { lat: Number(latMax), lng: Number(lngMax) }) });
     }
-    for (const arq of [`${uf.toLowerCase()}-ruas.csv`, `${uf.toLowerCase()}-ruas-extra.csv`]) {
+    for (const arq of [`${uf.toLowerCase()}-ruas.csv`, `${uf.toLowerCase()}-ruas-extra.csv`, `${uf.toLowerCase()}-ruas-oficiais.csv`]) {
       const f = join(CACHE, 'enderecos', arq); if (!existsSync(f)) continue;
       for (const l of readFileSync(f, 'latin1').split(/\r?\n/)) {
         if (!l) continue; const [cod, chave, tipo, numero, lat, lng, nivel, especie, desc, local] = l.split(';');
@@ -79,28 +101,43 @@ const csv = (s: unknown) => String(s ?? '').replace(/;/g, ',').replace(/\r?\n/g,
   }
   const ids = lotes.map((c) => c.id);
   const atuais = new Map<string, any>();
-  for (let i = 0; i < ids.length; i += 5000) for (const c of await prisma.community.findMany({ where: { id: { in: ids.slice(i, i + 5000) } }, select: { id: true, name: true, address: true, city: true, state: true, latitude: true, longitude: true, geoPrecision: true, geoSource: true, geoVerifiedAt: true, deletedAt: true, geoCandidates: { where: { status: 'PENDING' }, select: { id: true, latitude: true, longitude: true, source: true } } } })) atuais.set(c.id, c);
+  for (let i = 0; i < ids.length; i += 5000) for (const c of await prisma.community.findMany({ where: { id: { in: ids.slice(i, i + 5000) } }, select: { id: true, name: true, address: true, city: true, state: true, latitude: true, longitude: true, geoPrecision: true, geoSource: true, geoVerifiedAt: true, geoVerifiedBy: true, deletedAt: true, geoCandidates: { where: { status: 'PENDING' }, select: { id: true, latitude: true, longitude: true, source: true, reason: true, label: true } } } })) atuais.set(c.id, c);
+  // regra do Censo que produziu cada pino cnefe-endereco, pela reconferência (geocode-enderecos.ts --audit)
+  const arqReconferencia = join(CACHE, 'enderecos', 'reconferencia.json');
+  const regraDoPino = new Map<string, string>();
+  if (existsSync(arqReconferencia)) {
+    // (só vale a regra de um pino que a reconferência deixou no mesmo lugar: se mudou, a regra é outra e o pino também)
+    for (const x of JSON.parse(readFileSync(arqReconferencia, 'utf8')) as Array<{ id: string; regra?: string; km?: number }>) if (x.regra && (x.km ?? 0) <= 0.06) regraDoPino.set(x.id, x.regra);
+  } else console.log('ATENÇÃO: sem cache/enderecos/reconferencia.json — "conferido por endereço" não será concedido a ninguém (rode geocode-enderecos.ts --audit)');
 
   // ── decisão ──
-  type Acao = { id: string; nome: string; cidade: string; acao: string; motivo: string; url?: string; pino?: Ponto; novo?: Ponto; verifiedBy?: string; candidato?: any; sugestao?: any };
+  type Acao = { id: string; nome: string; cidade: string; acao: string; motivo: string; url?: string; pino?: Ponto; novo?: Ponto; verifiedBy?: string; candidato?: any; sugestao?: any; recusar?: string[] };
   const acoes: Acao[] = []; const divergentes: string[] = ['id;comunidade;cidade;nosso_endereco;endereco_oficial;url']; const legadosLonge: string[] = ['id;comunidade;cidade;pino;localidade_oficial;centro_da_localidade;km'];
+  const fracas: string[] = ['id;comunidade;cidade;coordenada_publicada;km_do_pino;trecho;url']; const chavesOficiais = new Set<string>(); const oficiais: string[] = ['id;comunidade;cidade;nosso_endereco;endereco_oficial;o_que_foi_feito;url'];
   const contagem = (k: string, m: Record<string, number>) => { m[k] = (m[k] ?? 0) + 1; };
   const R: Record<string, number> = {};
   for (const c of lotes) {
     const a = atuais.get(c.id); if (!a || a.deletedAt || a.latitude == null) { contagem('sem-pino-ou-apagada', R); continue; }
-    if (a.geoPrecision === 'MANUAL' || ORIGEM_DE_GENTE.includes(a.geoSource ?? '') || a.geoVerifiedAt) { contagem('ja-conferida-por-gente', R); continue; }
     const pino = { lat: a.latitude, lng: a.longitude };
+    const base = { id: c.id, nome: a.name, cidade: `${a.city}/${a.state}`, pino };
+    // 0. revisão do que rodadas anteriores gravaram com regras que mudaram
+    if (a.geoVerifiedBy === 'endereco-oficial+cnefe' && !REGRA_DE_TEMPLO.includes(regraDoPino.get(c.id) ?? '')) {
+      if (templos[c.id]) { acoes.push({ ...base, acao: 'reconferido', motivo: `"conferido por endereço" sem regra de templo (${regraDoPino.get(c.id) ?? 'sem regra'}); há templo independente a ${templos[c.id].distM} m → templo:${templos[c.id].fonte}`, verifiedBy: `templo:${templos[c.id].fonte}` }); contagem('revisao: conferido-por-endereco vira templo', R); }
+      else { acoes.push({ ...base, acao: 'desconferido', motivo: `"conferido por endereço" sem regra de templo (${regraDoPino.get(c.id) ?? 'sem regra'}): o endereço confere, o ponto não está provado` }); contagem('revisao: conferido-por-endereco desfeito', R); a.geoVerifiedAt = null; a.geoVerifiedBy = null; }
+    }
+    const fracasPendentes = a.geoCandidates.filter((g: any) => g.reason === 'evidencia' && forcaDaCoordenada(g.label ?? '', g.source) === 'fraca');
+    if (fracasPendentes.length) { acoes.push({ ...base, acao: 'recusa-sugestao', motivo: `${fracasPendentes.length} sugestão(ões) de coordenada fraca (centro de iframe) ainda na fila → recusada(s)`, recusar: fracasPendentes.map((g: any) => g.id) }); contagem('revisao: sugestao fraca recusada', R); a.geoCandidates = a.geoCandidates.filter((g: any) => !fracasPendentes.includes(g)); }
+    if (a.geoPrecision === 'MANUAL' || ORIGEM_DE_GENTE.includes(a.geoSource ?? '') || a.geoVerifiedAt) { contagem('ja-conferida-por-gente', R); continue; }
     const v = verificacao.find((x) => x.id === c.id);
     const confirmadas = (v?.evidencias ?? []).filter((e: any) => e.status === 'confirmada');
     const evCoord = confirmadas.find((e: any) => e.tipo === 'coordenada'); const evEnd = confirmadas.find((e: any) => e.tipo === 'endereco');
     const mun = porNome.get(`${C.semAcento(a.city).replace(/[^a-z0-9]+/g, ' ').trim()}|${a.state}`);
-    const base = { id: c.id, nome: a.name, cidade: `${a.city}/${a.state}`, pino };
-    let feito = false;
+    let feito = false; let foraDoMunicipio = false;
 
     // 1. fora do município
     if (mun && centros.has(mun) && municipioDe(pino.lat, pino.lng) !== mun && km(pino, centros.get(mun)!) > FORA_KM && a.geoPrecision !== 'CITY' && a.geoPrecision !== 'LOCALITY') {
       acoes.push({ ...base, acao: 'fora-do-municipio', motivo: `pino a ${km(pino, centros.get(mun)!).toFixed(0)} km do centro de ${a.city}, fora da malha do município → centro do município (CITY)`, novo: centros.get(mun)! });
-      contagem('fora-do-municipio', R); feito = true;
+      contagem('fora-do-municipio', R); feito = true; foraDoMunicipio = true;
     }
     // 2. coordenada publicada
     // iframe com zoom muito aberto devolve o centro do mapa, a quilômetros da igreja: coordenada fora do município da comunidade não vale
@@ -108,20 +145,23 @@ const csv = (s: unknown) => String(s ?? '').replace(/;/g, ',').replace(/\r?\n/g,
     if (coordForaDoMunicipio) contagem('coordenada-publicada-fora-do-municipio (descartada)', R);
     if (!feito && evCoord && v?.coordenada && !coordForaDoMunicipio) {
       const coord = { lat: Number(v.coordenada.lat), lng: Number(v.coordenada.lng) }; const origem = String(v.coordenada.origem ?? 'site-paroquia'); const d = km(coord, pino);
-      if (d <= PERTO_KM) { acoes.push({ ...base, acao: 'conferido', motivo: `coordenada publicada a ${Math.round(d * 1000)} m do pino`, url: evCoord.url, verifiedBy: `evidencia:${origem}` }); contagem('conferido-coordenada', R); }
+      const forca = forcaDaCoordenada(evCoord.trecho, origem);
+      if (d <= PERTO_KM) { acoes.push({ ...base, acao: 'conferido', motivo: `coordenada publicada a ${Math.round(d * 1000)} m do pino`, url: evCoord.url, verifiedBy: `evidencia:${origem}` }); contagem('conferido-coordenada', R); feito = true; }
       else {
         // a segunda fonte tem de ser independente (Censo/Overture) — não a sugestão que a própria evidência pôs na fila numa rodada anterior
         const cand = a.geoCandidates.find((g: any) => ['cnefe', 'overture', 'cnefe-endereco'].includes(g.source) && km({ lat: g.latitude, lng: g.longitude }, coord) <= COINCIDE_KM);
         const jaSugerida = a.geoCandidates.some((g: any) => !['cnefe', 'overture', 'cnefe-endereco'].includes(g.source) && km({ lat: g.latitude, lng: g.longitude }, coord) <= 0.01);
-        if (cand) { acoes.push({ ...base, acao: 'grava-duas-fontes', motivo: `coordenada publicada coincide (${Math.round(km({ lat: cand.latitude, lng: cand.longitude }, coord) * 1000)} m) com a sugestão ${cand.source}; pino atual a ${d.toFixed(2)} km`, url: evCoord.url, novo: { lat: cand.latitude, lng: cand.longitude }, verifiedBy: `evidencia:${origem}`, candidato: cand }); contagem('grava-duas-fontes', R); }
-        else if (jaSugerida) contagem('sugestao-ja-na-fila', R);
-        else { acoes.push({ ...base, acao: 'sugestao', motivo: `coordenada publicada a ${d.toFixed(2)} km do pino atual`, url: evCoord.url, sugestao: { latitude: coord.lat, longitude: coord.lng, source: origem, reason: 'evidencia', label: String(evCoord.trecho).slice(0, 200), detail: `coordenada publicada em ${evCoord.url}`.slice(0, 400) } }); contagem('sugestao-coordenada', R); }
+        if (cand) { acoes.push({ ...base, acao: 'grava-duas-fontes', motivo: `coordenada publicada coincide (${Math.round(km({ lat: cand.latitude, lng: cand.longitude }, coord) * 1000)} m) com a sugestão ${cand.source}; pino atual a ${d.toFixed(2)} km`, url: evCoord.url, novo: { lat: cand.latitude, lng: cand.longitude }, verifiedBy: `evidencia:${origem}`, candidato: cand }); contagem('grava-duas-fontes', R); feito = true; }
+        else if (forca === 'fraca') { fracas.push(`${c.id};${csv(a.name)};${csv(a.city)};${coord.lat},${coord.lng};${d.toFixed(2)};${csv(evCoord.trecho).slice(0, 80)};${evCoord.url}`); contagem('coordenada-fraca-longe (descartada, coordenadas-fracas.csv)', R); }
+        else if (jaSugerida) { contagem('sugestao-ja-na-fila', R); feito = true; }
+        else { acoes.push({ ...base, acao: 'sugestao', motivo: `coordenada publicada (${origem}) a ${d.toFixed(2)} km do pino atual`, url: evCoord.url, sugestao: { latitude: coord.lat, longitude: coord.lng, source: origem, reason: 'evidencia', label: String(evCoord.trecho).slice(0, 200), detail: `coordenada publicada em ${evCoord.url}`.slice(0, 400) } }); contagem('sugestao-coordenada', R); feito = true; }
       }
-      feito = true;
     }
-    // 3. endereço oficial confere + pino do endereço no Censo
+    // 3. endereço oficial confere + o pino é uma IGREJA registrada pelo Censo naquele endereço (regra de templo)
     if (!feito && evEnd && v?.enderecoConfere === true && a.geoSource === 'cnefe-endereco') {
-      acoes.push({ ...base, acao: 'conferido', motivo: 'endereço oficial confere e o pino é o endereço com número no Censo', url: evEnd.url, verifiedBy: 'endereco-oficial+cnefe' }); contagem('conferido-endereco', R); feito = true;
+      const regra = regraDoPino.get(c.id) ?? '';
+      if (REGRA_DE_TEMPLO.includes(regra)) { acoes.push({ ...base, acao: 'conferido', motivo: `endereço oficial confere e o Censo registrou uma igreja nesse endereço (${regra})`, url: evEnd.url, verifiedBy: 'endereco-oficial+cnefe' }); contagem('conferido-endereco', R); feito = true; }
+      else contagem(`endereco-confere-mas-ponto-nao-provado (${regra || 'sem regra'})`, R);
     }
     // 4. OSM confirma
     if (!feito && osm[c.id]?.confirma) {
@@ -131,17 +171,26 @@ const csv = (s: unknown) => String(s ?? '').replace(/;/g, ',').replace(/\r?\n/g,
     if (!feito && templos[c.id]) {
       acoes.push({ ...base, acao: 'conferido', motivo: `${templos[c.id].fonte === 'cnefe' ? 'Censo 2022' : 'Overture Maps'} tem "${templos[c.id].templo}" a ${templos[c.id].distM} m (fonte independente do pino)`, verifiedBy: `templo:${templos[c.id].fonte}` }); contagem('conferido-templo', R); feito = true;
     }
-    // 5. endereço oficial diverge (de rua) → CSV e, se o Censo conhece a rua, sugestão
-    if (evEnd && v?.enderecoConfere === false && v.enderecoOficial && ehRua(v.enderecoOficial)) {
-      divergentes.push(`${c.id};${csv(a.name)};${csv(a.city)};${csv(a.address)};${csv(v.enderecoOficial)};${evEnd.url}`);
+    // 5. endereço oficial de RUA quando o nosso não tem rua ("Centro", bairro) ou é outra rua: geocodifica pelo Censo.
+    //    Nosso sem rua + pino aproximado → grava STREET (é a fase 3 com um endereço melhor que o nosso); senão, sugestão a > 150 m.
+    //    O endereço do cadastro não é sobrescrito (enderecos-oficiais.csv); o nosso de outra rua vai também ao enderecos-divergentes.csv.
+    const nossoSemRua = !ehRua(String(a.address ?? ''));
+    const oficialDeRua = !!(evEnd && v?.enderecoOficial && ehRua(v.enderecoOficial));
+    if (oficialDeRua && (nossoSemRua || v.enderecoConfere === false)) {
+      if (!nossoSemRua) divergentes.push(`${c.id};${csv(a.name)};${csv(a.city)};${csv(a.address)};${csv(v.enderecoOficial)};${evEnd.url}`);
       const e = E.lerEndereco(v.enderecoOficial);
-      if (e && mun) {
-        const linhas = e.chaves.flatMap((k: string) => ruas.get(`${mun}|${k}`) ?? []);
-        const ch = C.chavesDaComunidade({ name: a.name, address: '', enderecoHerdado: true });
-        const r = E.casarEndereco({ numero: e.numero, tipo: e.tipo, k: ch.k, locais: [], tipoTemplo: ch.tipo, generica: e.chaves.every(E.chaveGenerica) }, linhas, C.compativel);
-        if (r.lat != null && km(r, pino) > PERTO_KM) { acoes.push({ ...base, acao: 'sugestao', motivo: `endereço oficial "${v.enderecoOficial}" localizado no Censo (${r.regra}), a ${km(r, pino).toFixed(2)} km do pino`, url: evEnd.url, sugestao: { latitude: r.lat, longitude: r.lng, source: 'cnefe-endereco', reason: 'endereco-oficial', label: `${v.enderecoOficial}`.slice(0, 200), detail: `endereço oficial em ${evEnd.url} · ${r.regra}`.slice(0, 400) } }); contagem('sugestao-endereco-oficial', R); }
-        else contagem('endereco-diverge-sem-sugestao', R);
-      } else contagem('endereco-diverge-sem-sugestao', R);
+      const linhas = e && mun ? e.chaves.flatMap((k: string) => ruas.get(`${mun}|${k}`) ?? []) : [];
+      const ch = C.chavesDaComunidade({ name: a.name, address: '', enderecoHerdado: true });
+      const r = e && mun ? E.casarEndereco({ numero: e.numero, tipo: e.tipo, k: ch.k, locais: [], tipoTemplo: ch.tipo, generica: e.chaves.every(E.chaveGenerica) }, linhas, C.compativel) : { motivo: e ? 'município não reconhecido' : 'endereço ilegível' };
+      const aproximado = foraDoMunicipio || a.geoPrecision === 'CITY' || a.geoPrecision === 'LOCALITY' || a.geoPrecision == null;
+      const dentro = r.lat != null && mun && municipioDe(r.lat, r.lng) === mun && (!centros.has(mun) || km(r, centros.get(mun)!) <= LONGE_DO_CENTRO_KM);
+      let feitoAqui = 'nada';
+      if (r.lat == null) { feitoAqui = `Censo não localizou (${r.motivo})`; if (e && mun && r.motivo === 'rua fora do Censo') for (const k of e.chaves) chavesOficiais.add(`${mun}|${k}`); }
+      else if (!dentro) feitoAqui = 'ponto fora do município (descartado)';
+      else if (nossoSemRua && aproximado) { acoes.push({ ...base, acao: 'grava-endereco-oficial', motivo: `nosso endereço é "${a.address ?? ''}", o oficial é "${v.enderecoOficial}": localizado no Censo (${r.regra}) → STREET`, url: evEnd.url, novo: { lat: r.lat, lng: r.lng } }); contagem('grava-endereco-oficial', R); feitoAqui = `pino gravado (${r.regra})`; feito = true; }
+      else if (km(r, pino) > PERTO_KM) { acoes.push({ ...base, acao: 'sugestao', motivo: `endereço oficial "${v.enderecoOficial}" localizado no Censo (${r.regra}), a ${km(r, pino).toFixed(2)} km do pino`, url: evEnd.url, sugestao: { latitude: r.lat, longitude: r.lng, source: 'cnefe-endereco', reason: 'endereco-oficial', label: `${v.enderecoOficial}`.slice(0, 200), detail: `endereço oficial em ${evEnd.url} · ${r.regra}`.slice(0, 400) } }); contagem('sugestao-endereco-oficial', R); feitoAqui = `sugestão (${r.regra}, ${km(r, pino).toFixed(2)} km)`; feito = true; }
+      else { feitoAqui = `pino já está no endereço oficial (${Math.round(km(r, pino) * 1000)} m)`; contagem('endereco-oficial-confirma-o-pino (não conferido)', R); }
+      oficiais.push(`${c.id};${csv(a.name)};${csv(a.city)};${csv(a.address)};${csv(v.enderecoOficial)};${csv(feitoAqui)};${evEnd.url}`);
     }
     // 6. legado longe da localidade oficial
     if (!feito && (a.geoSource === 'legado' || a.geoPrecision == null) && evEnd && v?.enderecoOficial && !ehRua(v.enderecoOficial) && mun) {
@@ -158,13 +207,25 @@ const csv = (s: unknown) => String(s ?? '').replace(/;/g, ',').replace(/\r?\n/g,
   writeFileSync(join(PILOTO, 'acoes.json'), JSON.stringify(acoes, null, 1));
   writeFileSync(join(PILOTO, 'enderecos-divergentes.csv'), divergentes.join('\n'));
   writeFileSync(join(PILOTO, 'legados-longe.csv'), legadosLonge.join('\n'));
+  writeFileSync(join(PILOTO, 'coordenadas-fracas.csv'), fracas.join('\n'));
+  writeFileSync(join(PILOTO, 'enderecos-oficiais.csv'), oficiais.join('\n'));
+  // ruas dos endereços oficiais que o extrato do Censo ainda não tem: entram na lista cumulativa da passada --oficiais
+  const arqChavesOficiais = join(CACHE, 'enderecos', 'chaves-oficiais.txt');
+  const jaListadas = new Set(existsSync(arqChavesOficiais) ? readFileSync(arqChavesOficiais, 'utf8').split('\n').filter(Boolean) : []);
+  const novasChaves = [...chavesOficiais].filter((k) => !jaListadas.has(k));
+  if (chavesOficiais.size) {
+    writeFileSync(arqChavesOficiais, [...new Set([...jaListadas, ...chavesOficiais])].sort().join('\n') + '\n');
+    console.log(`ruas de endereço oficial fora do extrato: ${chavesOficiais.size} (${novasChaves.length} novas) → ${arqChavesOficiais}\n   rode: bash prisma/data/geo/preparar-cnefe-ruas.sh --oficiais ${ufs.join(' ')}   e depois este script de novo`);
+  }
+  // (a amostra para gente conferir sai do estado final do banco: prisma/validacao/amostra.ts — aqui só o rascunho desta rodada,
+  // num arquivo próprio, para não passar por cima da amostra já conferida)
   let seed = 31; const rnd = () => { seed = (seed * 1103515245 + 12345) % 2147483648; return seed / 2147483648; };
   const embaralhadas = [...acoes].sort(() => rnd() - 0.5).slice(0, 30);
   const osmLink = (p: Ponto) => `https://www.openstreetmap.org/?mlat=${p.lat}&mlon=${p.lng}#map=18/${p.lat}/${p.lng}`;
-  const md = ['# Amostra para conferência humana (30 sorteadas entre as ações do piloto)', '', 'Abra o link do pino e o link da evidência; marque OK ou ERRO. Critério do piloto: pelo menos 28 de 30 certas.', '', '| # | Comunidade | Ação | Motivo | Pino / novo pino | Evidência | OK? |', '|---|---|---|---|---|---|---|'];
-  embaralhadas.forEach((x, i) => md.push(`| ${i + 1} | ${x.nome} (${x.cidade}) | ${x.acao} | ${x.motivo.replace(/\|/g, '/')} | [pino](${osmLink(x.pino!)})${x.novo ? ` → [novo](${osmLink(x.novo)})` : ''}${x.sugestao ? ` → [sugestão](${osmLink({ lat: x.sugestao.latitude, lng: x.sugestao.longitude })})` : ''} | ${x.url ? `[fonte](${x.url})` : '—'} | |`));
-  writeFileSync(join(PILOTO, 'amostra-30.md'), md.join('\n'));
-  console.log(`ações: ${acoes.length} · endereços divergentes: ${divergentes.length - 1} · legados longe da localidade: ${legadosLonge.length - 1} · amostra: ${embaralhadas.length} → amostra-30.md`);
+  const md = ['# Rascunho: 30 ações desta rodada (a amostra oficial é a do amostra.ts)', '', '| # | Comunidade | Ação | Motivo | Pino / novo pino | Evidência |', '|---|---|---|---|---|---|'];
+  embaralhadas.forEach((x, i) => md.push(`| ${i + 1} | ${x.nome} (${x.cidade}) | ${x.acao} | ${x.motivo.replace(/\|/g, '/')} | [pino](${osmLink(x.pino!)})${x.novo ? ` → [novo](${osmLink(x.novo)})` : ''}${x.sugestao ? ` → [sugestão](${osmLink({ lat: x.sugestao.latitude, lng: x.sugestao.longitude })})` : ''} | ${x.url ? `[fonte](${x.url})` : '—'} |`));
+  writeFileSync(join(PILOTO, 'acoes-rascunho.md'), md.join('\n'));
+  console.log(`ações: ${acoes.length} · endereços divergentes: ${divergentes.length - 1} · endereços oficiais de rua: ${oficiais.length - 1} · coordenadas fracas descartadas: ${fracas.length - 1} · legados longe da localidade: ${legadosLonge.length - 1}`);
   if (DRY) return;
 
   // ── gravação ──
@@ -175,6 +236,10 @@ const csv = (s: unknown) => String(s ?? '').replace(/;/g, ',').replace(/\r?\n/g,
   const agora = new Date(); let n = 0;
   for (const x of acoes) {
     if (x.acao === 'conferido') { await prisma.community.updateMany({ where: { id: x.id, OR: [{ geoPrecision: null }, { geoPrecision: { not: 'MANUAL' } }] }, data: { geoVerifiedAt: agora, geoVerifiedBy: x.verifiedBy } }); n += 1; }
+    else if (x.acao === 'reconferido') { await prisma.community.updateMany({ where: { id: x.id, geoVerifiedBy: 'endereco-oficial+cnefe' }, data: { geoVerifiedAt: agora, geoVerifiedBy: x.verifiedBy } }); n += 1; }
+    else if (x.acao === 'desconferido') { await prisma.community.updateMany({ where: { id: x.id, geoVerifiedBy: 'endereco-oficial+cnefe' }, data: { geoVerifiedAt: null, geoVerifiedBy: null } }); n += 1; }
+    else if (x.acao === 'recusa-sugestao') { await prisma.communityGeoCandidate.updateMany({ where: { id: { in: x.recusar! }, status: 'PENDING' }, data: { status: 'REJECTED', resolvedAt: agora, resolvedByUserId: 'regra:centro-de-iframe' } }); n += 1; }
+    else if (x.acao === 'grava-endereco-oficial') { await prisma.community.updateMany({ where: { id: x.id, OR: [{ geoPrecision: null }, { geoPrecision: { in: ['CITY', 'LOCALITY'] } }] }, data: { latitude: x.novo!.lat, longitude: x.novo!.lng, geoPrecision: 'STREET', geoSource: FONTE_OFICIAL, geoVerifiedAt: null, geoVerifiedBy: null } }); n += 1; }
     else if (x.acao === 'fora-do-municipio') { await prisma.community.updateMany({ where: { id: x.id, OR: [{ geoPrecision: null }, { geoPrecision: { not: 'MANUAL' } }] }, data: { latitude: x.novo!.lat, longitude: x.novo!.lng, geoPrecision: 'CITY', geoSource: 'ibge-municipio', geoVerifiedAt: null, geoVerifiedBy: null } }); n += 1; }
     else if (x.acao === 'grava-duas-fontes') {
       await prisma.$transaction([

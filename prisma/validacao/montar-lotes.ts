@@ -44,7 +44,7 @@ const grupoDe = (precisao: string | null, origem: string | null) => {
   if (precisao === 'CITY' || precisao === 'LOCALITY') return 'aproximado';
   if (!origem || origem === 'legado' || origem === 'legado-centro') return 'legado';
   if (origem === 'cep' || origem === 'osm-endereco') return 'rua';
-  if (origem === 'cnefe-endereco') return 'endereco';
+  if (origem === 'cnefe-endereco' || origem === 'cnefe-endereco-oficial') return 'endereco';
   if (origem === 'cnefe+overture') return 'nome-2-fontes';
   return 'nome-1-fonte';
 };
