@@ -530,6 +530,11 @@ model Community {
   /// De onde veio a coordenada: cep, ibge-municipio, osm-endereco, cnefe, overture,
   /// cnefe+overture, manual, gps... Permite auditar ou desfazer uma fonte inteira.
   geoSource    String?
+  /// Conferido: por uma pessoa (pino posto à mão, sugestão confirmada na fila) ou por evidência verificada
+  /// (site da paróquia, Wikidata). Enquanto nulo, o pino é palpite de máquina, por melhor que seja.
+  geoVerifiedAt DateTime?
+  /// Quem ou o que conferiu: usuario:<id>, evidencia:site-paroquia, evidencia:wikidata, osm...
+  geoVerifiedBy String?
 
   // Metadata
   foundedAt DateTime?

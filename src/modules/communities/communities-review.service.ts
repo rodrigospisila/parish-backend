@@ -197,7 +197,7 @@ export class CommunitiesReviewService {
       });
       const comunidade = await tx.community.update({
         where: { id: candidato.communityId },
-        data: { latitude: candidato.latitude, longitude: candidato.longitude, geoPrecision: 'MANUAL', geoSource: 'manual' },
+        data: { latitude: candidato.latitude, longitude: candidato.longitude, geoPrecision: 'MANUAL', geoSource: 'manual', geoVerifiedAt: agora, geoVerifiedBy: userId ? `usuario:${userId}` : 'usuario' },
         select: { id: true, latitude: true, longitude: true, geoPrecision: true, geoSource: true },
       });
       return { community: comunidade, candidateId };

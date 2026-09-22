@@ -37,6 +37,9 @@ export interface MapRow {
   source: string | null;
   /** Tem sugestão de pino à espera na fila de revisão. */
   review: boolean;
+  /** Quando e por quem/o quê o pino foi conferido (nulo = palpite de máquina). */
+  verifiedAt: Date | null;
+  verifiedBy: string | null;
 }
 
 interface MapQuery {
@@ -125,7 +128,7 @@ export class CommunitiesMapService {
       ${DUP_CTE}
       SELECT c.id, c.name, c.latitude AS lat, c.longitude AS lng, c.city, c.state, c.address,
              p.name AS parish, d.name AS diocese,
-             c."geoSource" AS source,
+             c."geoSource" AS source, c."geoVerifiedAt" AS "verifiedAt", c."geoVerifiedBy" AS "verifiedBy",
              EXISTS (SELECT 1 FROM community_geo_candidates g WHERE g."communityId" = c.id AND g.status = 'PENDING') AS review,
              CASE WHEN c.latitude IS NULL THEN 'sem'
                   WHEN ${NO_POVOADO} THEN 'local'

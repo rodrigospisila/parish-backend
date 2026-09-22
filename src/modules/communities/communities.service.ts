@@ -135,6 +135,8 @@ export class CommunitiesService {
       if (data.geoPrecision === undefined) data.geoPrecision = apagou ? null : "MANUAL";
       // Pino posto por gente: a origem é 'manual', ou 'gps' quando o app marcou no local
       data.geoSource = apagou ? null : data.geoSource ?? 'manual';
+      // e fica registrado como conferido por gente — ou deixa de estar, se o pino foi apagado
+      Object.assign(data, { geoVerifiedAt: apagou ? null : new Date(), geoVerifiedBy: apagou ? null : currentUser?.id ? `usuario:${currentUser.id}` : 'usuario' });
     }
 
     const atualizada = await this.prisma.community.update({

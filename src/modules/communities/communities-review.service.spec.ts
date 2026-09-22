@@ -41,7 +41,7 @@ describe('CommunitiesReviewService — fila de revisão dos pinos', () => {
       }));
       expect(prisma.community.update).toHaveBeenCalledWith(expect.objectContaining({
         where: { id: 'com1' },
-        data: { latitude: -25.2, longitude: -50.6, geoPrecision: 'MANUAL', geoSource: 'manual' },
+        data: expect.objectContaining({ latitude: -25.2, longitude: -50.6, geoPrecision: 'MANUAL', geoSource: 'manual', geoVerifiedBy: 'usuario:user1' }),
       }));
       expect(r.community.geoPrecision).toBe('MANUAL');
     });
