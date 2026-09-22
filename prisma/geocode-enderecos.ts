@@ -39,6 +39,8 @@ const PLANO = join(DIR, 'plano.json');
 const REVISAO = join(DIR, 'revisao.csv');
 const CORRECOES = join(DIR, 'correcoes.json');
 const REFINO = join(DIR, 'refino.json');
+/** Pinos de rua que o endereço no Censo confirma a < 60 m (grupo B3a do plano de validação): ficam fora dos lotes dos agentes. */
+const VALIDADOS = join(DIR, 'validados-censo.json');
 /** Pino "de rua": o CEP e o Nominatim dão o MEIO do logradouro, a quadras da porta. São esses que o endereço no Censo refina. */
 const ORIGEM_DE_RUA = ['cep', 'osm-endereco'];
 /** Regras que chegam ao número ou ao templo — melhores que um meio de rua. (`rua-curta` é outro meio de rua: não refina nada.) */
@@ -341,6 +343,7 @@ function auditar() {
   const divergencias: string[] = ['id;comunidade;cidade;endereco;origem_do_pino;km_entre_os_dois;regra_do_endereco;ponto_pelo_endereco;pino_atual'];
   const sugestoes: Array<{ id: string; motivo: string; detalhe: string; opcoes: Array<{ fonte: string; lat: number; lng: number; rotulo: string }> }> = [];
   const situacaoDaRua: Record<string, number> = { 'Censo leva até a porta (refino)': 0, 'já a menos de 60 m do endereço no Censo (validado)': 0, 'Censo só tem o meio da rua (não refina)': 0, 'Censo discorda por mais de 1,5 km (revisão)': 0, 'sem resposta do Censo': 0 };
+  const validados: Array<{ id: string; nome: string; cidade: string; regra: string; m: number }> = [];
   const verdade = todos.filter((a) => !a.alvo);
   for (const a of verdade) {
     const dePredio = ORIGEM_DE_PREDIO.includes(a.origem ?? '');
@@ -349,6 +352,8 @@ function auditar() {
     if (r.lat == null) { motivos[r.motivo] = (motivos[r.motivo] ?? 0) + 1; if (deRua) situacaoDaRua['sem resposta do Censo'] += 1; continue; }
     const d = E.km(r, { lat: a.lat as number, lng: a.lng as number });
     if (deRua) situacaoDaRua[d < REFINO_MIN_KM ? 'já a menos de 60 m do endereço no Censo (validado)' : d > REFINO_MAX_KM ? 'Censo discorda por mais de 1,5 km (revisão)' : REGRA_QUE_REFINA.includes(r.regra as string) ? 'Censo leva até a porta (refino)' : 'Censo só tem o meio da rua (não refina)'] += 1;
+    // só vale como validação quando o Censo chegou ao número ou ao templo: meio de rua curta em cima de meio de rua do CEP não prova nada
+    if (deRua && d < REFINO_MIN_KM && REGRA_QUE_REFINA.includes(r.regra as string)) validados.push({ id: a.id, nome: a.nome, cidade: a.cidade, regra: r.regra as string, m: Math.round(d * 1000) });
     (dist[`verdade vinda de ${a.origem}`] ??= []).push(d);
     // CEP e endereço geocodificado são nível de rua (e 5% estavam errados): não servem de régua, só entram na linha própria
     if (dePredio) { (dist[`regra ${r.regra}`] ??= []).push(d); (dist[`FONTE ${r.fonte}`] ??= []).push(d); (dist['TOTAL (contra pino de prédio)'] ??= []).push(d); }
@@ -377,8 +382,10 @@ function auditar() {
   const refinoFinal = refino.filter((x) => !foraDoRefino.has(x.id));
   refino.length = 0; refino.push(...refinoFinal);
   writeFileSync(REFINO, JSON.stringify(refino));
+  writeFileSync(VALIDADOS, JSON.stringify(validados));
   console.log(`
 PINOS DE RUA (cep, osm-endereco) com endereço de rua legível: ${Object.entries(situacaoDaRua).map(([k, v]) => `${k} ${v}`).join(' · ')}`);
+  console.log(`   validados pelo Censo (número ou templo a < 60 m, fora dos lotes de agentes): ${validados.length} → ${VALIDADOS}`);
   const kmRef = refino.map((x) => x.kmAntes).sort((x, y) => x - y);
   console.log(`\nREFINO dos pinos de rua (CEP/Nominatim → porta, pelo Censo): ${refino.length} → ${REFINO}  (--apply-refino)`);
   if (kmRef.length) console.log(`   quanto cada pino anda: mediana ${quantil(kmRef, 0.5).toFixed(2)} km · p75 ${quantil(kmRef, 0.75).toFixed(2)} · p90 ${quantil(kmRef, 0.9).toFixed(2)} | por regra: ${Object.entries(refino.reduce((m: Record<string, number>, x) => { m[x.regra] = (m[x.regra] ?? 0) + 1; return m; }, {})).map(([k, v]) => `${k} ${v}`).join(' · ')}`);

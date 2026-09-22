@@ -138,6 +138,22 @@ Curitiba + Ponta Grossa: 400 comunidades em 21 lotes, 4 agentes por vez, ~2,8 mi
   a condição `geoPrecision <> 'MANUAL'` em SQL é falsa para NULL — a primeira gravação pulou os legados.
 - **Amostra de 30** para conferência humana: `cache/validacao/piloto-2026-09-22/amostra-30.md`. Critério: ≥ 28 certas.
 
+## Varredura nacional "fora do município" (22/09/2026, sem agente)
+
+`prisma/validacao/fora-do-municipio.ts`: pino de máquina ou legado fora da malha do próprio município e a > 50 km do
+centro dele vai para o centro (CITY, `ibge-municipio`), com cópia de segurança. Achou **15** (13 legados, 2 por CEP:
+Canutama/AM a 1.880 km, Reserva/PR até 1.840 km, Santos/SP 56 km, Padre Bernardo/GO 59 km); segunda rodada: 0.
+
+## Onda 1 — montada, aguardando o veredito da amostra
+
+`montar-lotes.ts --todas --grupos=rua,legado --so-com-missa --excluir=<piloto>`: **1.403 comunidades em 80 lotes**
+(`cache/validacao/onda1-2026-09-22/`, prompts já gerados). Ficaram de fora 794 pinos de rua que o Censo confirma na
+porta (`cache/enderecos/validados-censo.json`, número ou templo a < 60 m) e 43 já olhados no piloto. Lote pequeno de
+diocese vizinha junta-se ao próximo (23 lotes têm 2+ dioceses; cada comunidade leva a própria diocese e o site).
+Estimativa pelo piloto (~7 mil tokens e ~20 s por comunidade, 4 agentes por vez): ~10 milhões de tokens, ~2 h de relógio.
+A onda 2 (casado pelo nome com uma fonte só, com missa, município de 2+ paróquias) tem 2.276 hoje — mais que o
+estimado, porque a carga de fontes cresceu depois da estimativa.
+
 ## Etapa 2 — gente
 
 O que nem o Censo nem os agentes resolvem só se resolve no lugar: fila de revisão aberta a dioceses e
