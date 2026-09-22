@@ -135,8 +135,8 @@ Curitiba + Ponta Grossa: 400 comunidades em 21 lotes, 4 agentes por vez, ~2,8 mi
   longe da localidade oficial.
 - Lições: iframe com zoom aberto devolve o centro do mapa, a quilômetros da igreja (guarda: coordenada fora do município
   é descartada); "Praça da Matriz"/slug genérico do site da Arquidiocese devolve o endereço da Cúria (guarda no verificador);
-  a condição  em SQL é falsa para NULL — a primeira gravação pulou os legados.
-- **Amostra de 30** para conferência humana: . Critério: ≥ 28 certas.
+  a condição `geoPrecision <> 'MANUAL'` em SQL é falsa para NULL — a primeira gravação pulou os legados.
+- **Amostra de 30** para conferência humana: `cache/validacao/piloto-2026-09-22/amostra-30.md`. Critério: ≥ 28 certas.
 
 ## Etapa 2 — gente
 
