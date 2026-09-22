@@ -60,17 +60,23 @@ const POR_EXTENSO = { 1: 'UM', 2: 'DOIS', 3: 'TRES', 4: 'QUATRO', 5: 'CINCO', 6:
   16: 'DEZESSEIS', 17: 'DEZESSETE', 18: 'DEZOITO', 19: 'DEZENOVE', 20: 'VINTE', 21: 'VINTE UM', 22: 'VINTE DOIS', 23: 'VINTE TRES', 24: 'VINTE QUATRO', 25: 'VINTE CINCO', 26: 'VINTE SEIS',
   27: 'VINTE SETE', 28: 'VINTE OITO', 29: 'VINTE NOVE', 30: 'TRINTA', 31: 'TRINTA UM' };
 
+/** Sem tipo de logradouro, o que NÃO é rua: povoado, bairro, lote, quadra, quilômetro, caixa postal, capela. */
+const NAO_E_RUA = /^(SITIO|FAZENDA|CHACARA|VILA|JARDIM|JD|BAIRRO|LOTEAMENTO|CONJUNTO|CONJ|RESIDENCIAL|PARQUE|PQ|SETOR|QUADRA|QD|LOTE|LT|KM|CAIXA|CX|CAPELA|IGREJA|COMUNIDADE|MATRIZ|PAROQUIA|LINHA|COLONIA|ASSENTAMENTO|DISTRITO|POVOADO|CENTRO|ZONA|GLEBA|NUCLEO|ALTO|MORRO|SERRA|LAGOA|BARRA|PORTO|PRAIA|ILHA|RIO|CORREGO|RIBEIRAO|SAO|SANTO|SANTA|NOSSA|N|S|STA|STO|PR|BR|SP|MG|RS|SC|BA|GO|MT|MS|PA|AM|CE|PE|RJ|ES|RN|PB|AL|SE|PI|MA|TO|RO|AC|AP|RR|DF)\b/;
+
 /**
  * Lê "Rua Dr. José Batistela, 251 – Jd. São Francisco" → { tipo: 'RUA', nome: 'DR JOSE BATISTELA', chaves: ['JOSE BATISTELA'], numero: 251 }.
  * Número no começo do nome faz parte dele ("Rua 01", "Avenida 9", "Rua 7 de Setembro", "Rua 1º de Maio") — e aí a chave sai
- * também por extenso, que é como o Censo costuma gravar. Devolve null quando o texto não começa por tipo de logradouro.
+ * também por extenso, que é como o Censo costuma gravar. Devolve null quando o texto não começa por tipo de logradouro —
+ * salvo com `semTipo`, para endereço publicado sem o tipo ("Rui Barbosa 715, Ivaí - Centro", como escreve a Diocese de Ponta
+ * Grossa): aí um nome seguido de número vale como rua, desde que não comece por povoado, bairro, lote, quadra, km ou santo.
  */
-function lerEndereco(endereco) {
+function lerEndereco(endereco, { semTipo = false } = {}) {
   // CEP sai antes de procurar o número, em qualquer formato: "CEP 14620-000", "49.100-000", "CEP: 74323120"
   const s = ascii(endereco).replace(/(CEP:? *)?\b\d{2}\.?\d{3}-\d{3}\b/g, ' ').replace(/CEP:? *\d{8}\b/g, ' ').replace(/(\d)[ºª°]/g, '$1')
     .replace(/\b(\d{1,2})\.(\d{3})\b/g, '$1$2') // "Estrada dos Bandeirantes, 1.755": ponto de milhar
     .replace(/\s+/g, ' ').trim();
-  const m = s.match(TIPO);
+  let m = s.match(TIPO);
+  if (!m && semTipo && /^[A-Z][A-Z .']{2,},? ?(N[º°.]? ?)?\d{1,5}(?!\d)/.test(s) && !NAO_E_RUA.test(s)) m = [s, 'RUA', s];
   if (!m) return null;
   const tipo = m[1].replace(/^(R)$/, 'RUA').replace(/^(AV|AVDA)$/, 'AVENIDA').replace(/^(PCA|PC)$/, 'PRACA').replace(/^(TV|TRAV)$/, 'TRAVESSA').replace(/^AL$/, 'ALAMEDA').replace(/^(ESTR|EST)$/, 'ESTRADA').replace(/^ROD$/, 'RODOVIA');
   // o nome vai até o primeiro separador; o que sobra guarda o número

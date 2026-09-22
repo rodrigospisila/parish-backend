@@ -138,6 +138,23 @@ Curitiba + Ponta Grossa: 400 comunidades em 21 lotes, 4 agentes por vez, ~2,8 mi
   a condição `geoPrecision <> 'MANUAL'` em SQL é falsa para NULL — a primeira gravação pulou os legados.
 - **Amostra de 30** para conferência humana: `cache/validacao/piloto-2026-09-22/amostra-30.md`. Critério: ≥ 28 certas.
 
+## Resultado da amostra (22/09/2026, noite) — 24 de 30, abaixo do critério
+
+O Rodrigo conferiu as 30 (`cache/validacao/piloto-2026-09-22/amostra-30-conferida-pelo-rodrigo.md`): **24 OK, 6 com problema**.
+Nenhuma coordenada inventada; os agentes acertaram. Os erros eram das REGRAS do aplicador e do geocodificador:
+
+| # | Caso | O que era | Causa | Correção |
+|---|---|---|---|---|
+| 21 | Santuário do Carmo, Curitiba — "conferido por endereço" a 4,8 km | pino `cnefe-endereco` no nº 3817 da Av. Marechal Floriano, endereço é o nº 8520 | `templo-na-rua` aceitava o único templo católico da rua sem olhar o número; a Nominatim já estava no meio da avenida (5 km) | regra exige o templo a ≤ 400 m de onde o número cai; nova regra `numero-interpolado`; `--apply-reconferencia` regravou **49 pinos** no país e devolveu 7 |
+| 20 | São José das Famílias, Curitiba — "erro bem próximo" | pino é o registro do Censo "IGREJA CATOLICA, nº 150" | GPS do recenseador no portão/lote, não no prédio | limitação do Censo (~50–150 m); fica como STREET, e "conferido por endereço" passa a exigir regra de templo (este tem) |
+| 1, 12 | sugestões do site a 0,4 e 3,9 km da igreja | coordenada = centro do iframe do Google Maps (`!2d…!3d…`) | o site centra o mapa no endereço geocodificado pelo Google, não na igreja | coordenada "fraca" só confirma (≤ 150 m) ou coincide com o Censo; nunca vira sugestão sozinha |
+| 22, 12 | pinos legados errados com endereço oficial publicado | agente achou "Rua Padre César de Buss, 116", "Av. Pres. Kennedy, 1" | nosso endereço era "Vila Liane"/"Centro": a regra só geocodificava endereço oficial quando o nosso era OUTRA rua | endereço oficial de rua + nosso sem rua + pino aproximado → Censo → grava STREET (`cnefe-endereco-oficial`); as ruas dos endereços oficiais entram no extrato (`preparar-cnefe-ruas.sh --oficiais`) |
+| 29 | Ventania — pino legado em Manaus foi para o centro do município | CITY é "no centro da cidade", por definição | mas a diocese publica "Flórido Caetano Ferreira, 97" (sem o tipo de logradouro) | parser aceita endereço sem tipo no caminho do endereço oficial; o Censo tem "IGREJA SÃO ROQUE" nessa rua → STREET |
+
+Reaplicação do piloto com as regras novas (dry run): **17 pinos aproximados ganham STREET pelo endereço oficial**, 7 sugestões
+novas por endereço oficial, 17 "conferido por endereço" viram `templo:<fonte>` (havia templo independente), 5 deixam de ser
+conferidos. Aguarda autorização; depois, nova amostra de 30 (`amostra.ts --saida=amostra-30-v2.md`) antes da onda 1.
+
 ## Varredura nacional "fora do município" (22/09/2026, sem agente)
 
 `prisma/validacao/fora-do-municipio.ts`: pino de máquina ou legado fora da malha do próprio município e a > 50 km do

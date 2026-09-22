@@ -22,7 +22,7 @@ igual('patente e ligação', e.chaveDaRua('Cel. João da Silva e Souza'), 'JOAO 
 igual('ordinal', e.chaveDaRua('1º de Maio'), '1 MAIO');
 
 // ── leitura do endereço ─────────────────────────────────────────────────────────────
-const le = (s) => { const r = e.lerEndereco(s); return r && [r.tipo, r.chaves[0], r.numero]; };
+const le = (s, o) => { const r = e.lerEndereco(s, o); return r && [r.tipo, r.chaves[0], r.numero]; };
 igual('completo', le('Rua Dr. José Batistela, 251 – Jardim São Francisco'), ['RUA', 'JOSE BATISTELA', 251]);
 igual('abreviado, número solto', le('R. Atibaia 125'), ['RUA', 'ATIBAIA', 125]);
 igual('nº', le('Praça Francisco Rocha, nº 12, Aziz Mansur'), ['PRACA', 'FRANCISCO ROCHA', 12]);
@@ -42,6 +42,12 @@ igual('ponto de milhar no número', le('Estrada dos Bandeirantes, 1.755'), ['EST
 igual('via de letra e número é nome genérico', [e.lerEndereco('Via A-1, 150').chaves[0], e.chaveGenerica(e.lerEndereco('Via A-1, 150').chaves[0])], ['A 1', true]);
 igual('povoado não é logradouro', e.lerEndereco('Sítio Lagoa da Porta'), null);
 igual('bairro não é logradouro', e.lerEndereco('Vila Nova'), null);
+// endereço publicado sem o tipo de logradouro (Diocese de Ponta Grossa): só quando quem chama pede
+igual('sem tipo, por padrão não é rua', e.lerEndereco('Rui Barbosa 715, Ivaí - Centro'), null);
+igual('sem tipo, aceito quando pedido', le('Rui Barbosa 715, Ivaí - Centro', { semTipo: true }), ['RUA', 'RUI BARBOSA', 715]);
+igual('sem tipo, com vírgula antes do número', le('Flórido Caetano Ferreira, 97 - Ventania - Centro', { semTipo: true }), ['RUA', 'FLORIDO CAETANO FERREIRA', 97]);
+igual('sem tipo e sem número: não é rua', e.lerEndereco('Rui Barbosa, Ivaí - Centro', { semTipo: true }), null);
+igual('sem tipo, mas é bairro/quadra/rodovia: não', [e.lerEndereco('Vila Nova, 12', { semTipo: true }), e.lerEndereco('Quadra 12, Lote 5', { semTipo: true }), e.lerEndereco('PR-160, 1110, Telêmaco Borba', { semTipo: true }), e.lerEndereco('Capela de Nossa Senhora Aparecida, PR-160, 1110', { semTipo: true })], [null, null, null, null]);
 
 // ── casamento com as linhas do Censo ────────────────────────────────────────────────
 const L = (numero, lat, lng, extra = {}) => ({ tipo: 'RUA', numero, lat, lng, nivel: 1, templo: false, catolico: false, kTemplo: '', local: '', ...extra });

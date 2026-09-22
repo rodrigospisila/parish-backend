@@ -175,10 +175,11 @@ const csv = (s: unknown) => String(s ?? '').replace(/;/g, ',').replace(/\r?\n/g,
     //    Nosso sem rua + pino aproximado → grava STREET (é a fase 3 com um endereço melhor que o nosso); senão, sugestão a > 150 m.
     //    O endereço do cadastro não é sobrescrito (enderecos-oficiais.csv); o nosso de outra rua vai também ao enderecos-divergentes.csv.
     const nossoSemRua = !ehRua(String(a.address ?? ''));
-    const oficialDeRua = !!(evEnd && v?.enderecoOficial && ehRua(v.enderecoOficial));
+    // (a fonte às vezes publica sem o tipo de logradouro — "Rui Barbosa 715, Ivaí - Centro": nome seguido de número vale como rua)
+    const oficialDeRua = !!(evEnd && v?.enderecoOficial && (ehRua(v.enderecoOficial) || E.lerEndereco(v.enderecoOficial, { semTipo: true })));
     if (oficialDeRua && (nossoSemRua || v.enderecoConfere === false)) {
       if (!nossoSemRua) divergentes.push(`${c.id};${csv(a.name)};${csv(a.city)};${csv(a.address)};${csv(v.enderecoOficial)};${evEnd.url}`);
-      const e = E.lerEndereco(v.enderecoOficial);
+      const e = E.lerEndereco(v.enderecoOficial, { semTipo: true });
       const linhas = e && mun ? e.chaves.flatMap((k: string) => ruas.get(`${mun}|${k}`) ?? []) : [];
       const ch = C.chavesDaComunidade({ name: a.name, address: '', enderecoHerdado: true });
       const r = e && mun ? E.casarEndereco({ numero: e.numero, tipo: e.tipo, k: ch.k, locais: [], tipoTemplo: ch.tipo, generica: e.chaves.every(E.chaveGenerica) }, linhas, C.compativel) : { motivo: e ? 'município não reconhecido' : 'endereço ilegível' };

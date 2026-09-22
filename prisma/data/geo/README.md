@@ -200,14 +200,21 @@ extenso ("Rua 7 de Setembro" → `7 SETEMBRO` e `SETE SETEMBRO`).
 |---|---|---|---|
 | `templo-padroeiro` | um só templo da rua tem o padroeiro da comunidade | 99% | 100% |
 | `templo-numero` | há um templo (católico ou sem denominação) naquele número | 88% | 95% |
-| `templo-na-rua` | só há um templo católico na rua — não vale para estrada/rodovia | 82% | 95% |
+| `templo-na-rua` | só há um templo católico na rua **e ele está onde o número cai** (≤ 400 m; ou a rua toda tem ≤ 800 m); sem número, só em rua de até 3 km — não vale para estrada/rodovia | 83% | 95% |
 | `numero-exato` | o Censo visitou aquele número | 77% | 94% |
-| `numero-vizinho` | visitou um vizinho a até 60 números, do mesmo lado quando dá | 69% | 94% |
+| `numero-interpolado` | visitou um número abaixo e um acima (até 500 de cada lado, a menos de 800 m um do outro): o ponto proporcional — a numeração é métrica na maior parte do país | 70% | 94% |
+| `numero-vizinho` | só um lado: o vizinho a até 60 números, do mesmo lado quando dá | 64% | 92% |
 | `rua-curta` | sem número, mas a rua inteira cabe em 800 m — nunca estrada/rodovia | 55% | 94% |
 
-No conjunto: **84% a até 150 m, 97% a até 1 km, 1% acima de 3 km** (3,2 mil
+No conjunto: **85% a até 150 m, 97% a até 1 km, 1% acima de 3 km** (3,2 mil
 comunidades que já tinham pino de prédio) — e boa parte desse 1% é o pino de
 referência que está errado, não o endereço.
+
+A regra `templo-na-rua` ganhou a exigência do número em 22/09/2026, depois que a amostra do piloto de validação pegou o
+Santuário do Carmo (Av. Marechal Floriano Peixoto, 8520, Curitiba) no nº 3817 da mesma avenida, 4,7 km antes — o único
+templo "católico" que o Censo descreveu na avenida. Quando uma regra muda, `--audit` grava `reconferencia.json` (todo pino
+`cnefe-endereco` resolvido de novo) e `--apply-reconferencia` regrava o que mudou de lugar, devolve à cópia de segurança o
+que deixou de casar e deixa na fila, como sugestão, o templo que saiu.
 
 **Travas**, quase todas nascidas de um caso real:
 
