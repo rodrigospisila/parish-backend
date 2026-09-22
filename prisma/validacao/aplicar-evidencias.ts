@@ -17,6 +17,7 @@ import { join } from 'path';
  *                         senão → sugestão na fila (fonte site-paroquia / site-diocese / wikidata, motivo evidencia, URL no detalhe).
  *   endereco-oficial    endereço oficial confere E o pino veio do endereço com número no Censo → CONFERIDO (endereco-oficial+cnefe).
  *   osm                 templo com o padroeiro a ≤ 150 m no OpenStreetMap → CONFERIDO (osm). Só confirma; a coordenada do OSM não é gravada.
+ *   templo              templo com o padroeiro a ≤ 150 m no Censo ou na Overture, de fonte DIFERENTE da que gerou o pino → CONFERIDO (templo:<fonte>).
  *   endereco-diverge    endereço oficial de rua ≠ o nosso → enderecos-divergentes.csv (o endereço NÃO é sobrescrito) e, se o Censo
  *                       conhece a rua oficial, uma sugestão (cnefe-endereco, motivo endereco-oficial).
  *   legado-longe        pino legado a > 5 km da localidade oficial (Censo) → legados-longe.csv, para gente olhar.
@@ -49,6 +50,7 @@ const csv = (s: unknown) => String(s ?? '').replace(/;/g, ',').replace(/\r?\n/g,
   // ── bases ──
   const verificacao: any[] = JSON.parse(readFileSync(join(PILOTO, 'verificacao.json'), 'utf8'));
   const osm: Record<string, any> = existsSync(join(PILOTO, 'osm.json')) ? JSON.parse(readFileSync(join(PILOTO, 'osm.json'), 'utf8')) : {};
+  const templos: Record<string, any> = existsSync(join(PILOTO, 'confirmacoes.json')) ? JSON.parse(readFileSync(join(PILOTO, 'confirmacoes.json'), 'utf8')) : {};
   const lotes = readdirSync(PILOTO).filter((a) => /^lote-\d+\.json$/.test(a)).flatMap((a) => JSON.parse(readFileSync(join(PILOTO, a), 'utf8')).comunidades as any[]);
   const doLote = new Map(lotes.map((c) => [c.id, c]));
   const ufs = [...new Set(lotes.map((c) => String(c.uf).toUpperCase()))];
@@ -101,12 +103,18 @@ const csv = (s: unknown) => String(s ?? '').replace(/;/g, ',').replace(/\r?\n/g,
       contagem('fora-do-municipio', R); feito = true;
     }
     // 2. coordenada publicada
-    if (!feito && evCoord && v?.coordenada) {
+    // iframe com zoom muito aberto devolve o centro do mapa, a quilômetros da igreja: coordenada fora do município da comunidade não vale
+    const coordForaDoMunicipio = evCoord && v?.coordenada && mun && municipioDe(Number(v.coordenada.lat), Number(v.coordenada.lng)) !== mun;
+    if (coordForaDoMunicipio) contagem('coordenada-publicada-fora-do-municipio (descartada)', R);
+    if (!feito && evCoord && v?.coordenada && !coordForaDoMunicipio) {
       const coord = { lat: Number(v.coordenada.lat), lng: Number(v.coordenada.lng) }; const origem = String(v.coordenada.origem ?? 'site-paroquia'); const d = km(coord, pino);
       if (d <= PERTO_KM) { acoes.push({ ...base, acao: 'conferido', motivo: `coordenada publicada a ${Math.round(d * 1000)} m do pino`, url: evCoord.url, verifiedBy: `evidencia:${origem}` }); contagem('conferido-coordenada', R); }
       else {
-        const cand = a.geoCandidates.find((g: any) => km({ lat: g.latitude, lng: g.longitude }, coord) <= COINCIDE_KM);
+        // a segunda fonte tem de ser independente (Censo/Overture) — não a sugestão que a própria evidência pôs na fila numa rodada anterior
+        const cand = a.geoCandidates.find((g: any) => ['cnefe', 'overture', 'cnefe-endereco'].includes(g.source) && km({ lat: g.latitude, lng: g.longitude }, coord) <= COINCIDE_KM);
+        const jaSugerida = a.geoCandidates.some((g: any) => !['cnefe', 'overture', 'cnefe-endereco'].includes(g.source) && km({ lat: g.latitude, lng: g.longitude }, coord) <= 0.01);
         if (cand) { acoes.push({ ...base, acao: 'grava-duas-fontes', motivo: `coordenada publicada coincide (${Math.round(km({ lat: cand.latitude, lng: cand.longitude }, coord) * 1000)} m) com a sugestão ${cand.source}; pino atual a ${d.toFixed(2)} km`, url: evCoord.url, novo: { lat: cand.latitude, lng: cand.longitude }, verifiedBy: `evidencia:${origem}`, candidato: cand }); contagem('grava-duas-fontes', R); }
+        else if (jaSugerida) contagem('sugestao-ja-na-fila', R);
         else { acoes.push({ ...base, acao: 'sugestao', motivo: `coordenada publicada a ${d.toFixed(2)} km do pino atual`, url: evCoord.url, sugestao: { latitude: coord.lat, longitude: coord.lng, source: origem, reason: 'evidencia', label: String(evCoord.trecho).slice(0, 200), detail: `coordenada publicada em ${evCoord.url}`.slice(0, 400) } }); contagem('sugestao-coordenada', R); }
       }
       feito = true;
@@ -118,6 +126,10 @@ const csv = (s: unknown) => String(s ?? '').replace(/;/g, ',').replace(/\r?\n/g,
     // 4. OSM confirma
     if (!feito && osm[c.id]?.confirma) {
       acoes.push({ ...base, acao: 'conferido', motivo: `OpenStreetMap tem "${osm[c.id].templo}" a ${osm[c.id].distM} m`, verifiedBy: 'osm' }); contagem('conferido-osm', R); feito = true;
+    }
+    // 4b. templo de fonte independente (Censo/Overture) com o padroeiro a 150 m
+    if (!feito && templos[c.id]) {
+      acoes.push({ ...base, acao: 'conferido', motivo: `${templos[c.id].fonte === 'cnefe' ? 'Censo 2022' : 'Overture Maps'} tem "${templos[c.id].templo}" a ${templos[c.id].distM} m (fonte independente do pino)`, verifiedBy: `templo:${templos[c.id].fonte}` }); contagem('conferido-templo', R); feito = true;
     }
     // 5. endereço oficial diverge (de rua) → CSV e, se o Censo conhece a rua, sugestão
     if (evEnd && v?.enderecoConfere === false && v.enderecoOficial && ehRua(v.enderecoOficial)) {
@@ -159,15 +171,16 @@ const csv = (s: unknown) => String(s ?? '').replace(/;/g, ',').replace(/\r?\n/g,
   const tocadas = [...new Set(acoes.map((x) => x.id))];
   const antes = await prisma.community.findMany({ where: { id: { in: tocadas } }, select: { id: true, latitude: true, longitude: true, geoPrecision: true, geoSource: true, geoVerifiedAt: true, geoVerifiedBy: true } });
   const copia = join(PILOTO, `backup-${new Date().toISOString().replace(/[:.]/g, '-')}.json`); writeFileSync(copia, JSON.stringify(antes)); console.log(`cópia de segurança: ${copia}`);
+  // (OR com null: pino legado tem precisão NULA, e "NOT = MANUAL" em SQL é falso para NULL — a primeira rodada pulou 36 legados por isso)
   const agora = new Date(); let n = 0;
   for (const x of acoes) {
-    if (x.acao === 'conferido') { await prisma.community.updateMany({ where: { id: x.id, geoPrecision: { not: 'MANUAL' } }, data: { geoVerifiedAt: agora, geoVerifiedBy: x.verifiedBy } }); n += 1; }
-    else if (x.acao === 'fora-do-municipio') { await prisma.community.updateMany({ where: { id: x.id, geoPrecision: { not: 'MANUAL' } }, data: { latitude: x.novo!.lat, longitude: x.novo!.lng, geoPrecision: 'CITY', geoSource: 'ibge-municipio', geoVerifiedAt: null, geoVerifiedBy: null } }); n += 1; }
+    if (x.acao === 'conferido') { await prisma.community.updateMany({ where: { id: x.id, OR: [{ geoPrecision: null }, { geoPrecision: { not: 'MANUAL' } }] }, data: { geoVerifiedAt: agora, geoVerifiedBy: x.verifiedBy } }); n += 1; }
+    else if (x.acao === 'fora-do-municipio') { await prisma.community.updateMany({ where: { id: x.id, OR: [{ geoPrecision: null }, { geoPrecision: { not: 'MANUAL' } }] }, data: { latitude: x.novo!.lat, longitude: x.novo!.lng, geoPrecision: 'CITY', geoSource: 'ibge-municipio', geoVerifiedAt: null, geoVerifiedBy: null } }); n += 1; }
     else if (x.acao === 'grava-duas-fontes') {
       await prisma.$transaction([
         prisma.communityGeoCandidate.updateMany({ where: { id: x.candidato.id, status: 'PENDING' }, data: { status: 'ACCEPTED', resolvedAt: agora, resolvedByUserId: x.verifiedBy } }),
         prisma.communityGeoCandidate.updateMany({ where: { communityId: x.id, status: 'PENDING' }, data: { status: 'SUPERSEDED', resolvedAt: agora, resolvedByUserId: x.verifiedBy } }),
-        prisma.community.updateMany({ where: { id: x.id, geoPrecision: { not: 'MANUAL' } }, data: { latitude: x.novo!.lat, longitude: x.novo!.lng, geoPrecision: 'STREET', geoSource: `${x.candidato.source}+evidencia`, geoVerifiedAt: agora, geoVerifiedBy: x.verifiedBy } }),
+        prisma.community.updateMany({ where: { id: x.id, OR: [{ geoPrecision: null }, { geoPrecision: { not: 'MANUAL' } }] }, data: { latitude: x.novo!.lat, longitude: x.novo!.lng, geoPrecision: 'STREET', geoSource: `${x.candidato.source}+evidencia`, geoVerifiedAt: agora, geoVerifiedBy: x.verifiedBy } }),
       ]); n += 1;
     } else if (x.acao === 'sugestao') { await prisma.communityGeoCandidate.createMany({ data: [{ communityId: x.id, ...x.sugestao }], skipDuplicates: true }); n += 1; }
   }

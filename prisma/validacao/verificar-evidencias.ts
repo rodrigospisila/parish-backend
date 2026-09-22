@@ -63,9 +63,13 @@ function lerResultados(): Resultado[] {
     for (const e of r.evidencias) {
       R.evidencias += 1;
       let host = ''; try { host = new URL(e.url).hostname; } catch { e.status = 'url-invalida'; R.naoEncontradas += 1; continue; }
-      if (PROIBIDAS.test(host)) { e.status = 'fonte-proibida'; R.proibidas += 1; continue; }
+      // sites.google.com é hospedagem de site próprio (Google Sites), não o Google Maps: o conteúdo é da paróquia
+      if (PROIBIDAS.test(host) && host !== 'sites.google.com') { e.status = 'fonte-proibida'; R.proibidas += 1; continue; }
       const trecho = normaliza(String(e.trecho ?? ''));
       if (trecho.length < MIN_TRECHO) { e.status = 'trecho-curto'; R.curtas += 1; continue; }
+      // o site da Arquidiocese de Curitiba responde 200 com uma página genérica (endereço da Cúria) para slug inexistente:
+      // o endereço da Cúria nunca é evidência de paróquia
+      if (/jaime reis,? 369/.test(trecho)) { e.status = 'pagina-generica'; e.motivo = 'endereço da Cúria, não da paróquia'; R.naoEncontradas += 1; continue; }
       const pag = await abrir(e.url);
       if (!pag.ok) { e.status = 'falha-fetch'; e.motivo = `HTTP ${pag.status}`; R.falhaFetch += 1; continue; }
       const texto = normaliza(semTags(pag.html)); const cru = normaliza(pag.html);

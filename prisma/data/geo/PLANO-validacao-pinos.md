@@ -116,6 +116,28 @@ certos**, e nenhuma coordenada inventada. Abaixo disso, ajusta-se o prompt e rep
 - Onda 1 (~1,4 mil): ~56 lotes + verificação ≈ 4 h de relógio, da ordem de 15 milhões de tokens.
 - Ondas 1 + 2: ~2,6 mil pinos, ≈ 7–8 h, da ordem de 30 milhões de tokens. A onda 3 só depois de medir o ganho das duas primeiras.
 
+## Resultado do piloto (22/09/2026)
+
+Curitiba + Ponta Grossa: 400 comunidades em 21 lotes, 4 agentes por vez, ~2,8 milhões de tokens e ~2 h de relógio.
+
+- Os agentes acharam **endereço oficial para 342 comunidades** (sites das dioceses listam paróquias e comunidades) e
+  **coordenada publicada para 21** (iframes de Google Maps em sites próprios, Wikidata). A diocese de Ponta Grossa usa
+  Google My Maps, que não expõe coordenada; a Arquidiocese de Curitiba só linka busca por endereço.
+- Verificação literal por script: **477 de 483 evidências confirmadas** (o resto: Facebook que não abre, trecho curto).
+  O agente verificador não foi necessário.
+- OpenStreetMap ficou fora: o Overpass respondeu 504/timeout o dia todo. No lugar, confirmação por templo do Censo ou
+  da Overture de fonte **independente** da que gerou o pino (mesmo padroeiro, ≤ 150 m).
+- Aplicado (com cópia de segurança): **127 pinos conferidos** (75 por templo independente, 42 por endereço oficial +
+  Censo, 10 por coordenada publicada), **11 pinos legados a 240–2.575 km do próprio município** devolvidos ao centro dele,
+  **11 sugestões novas** na fila (coordenadas publicadas a 0,2–3,9 km do pino atual) e **1 pino gravado por duas fontes**
+  (São Pedro e São Paulo/Tingui: site da paróquia coincide com a Overture, pino por CEP estava a 5,7 km).
+- Ficaram em CSV para gente olhar: 20 capelas com endereço oficial diferente do nosso (herdado da matriz) e 5 legados
+  longe da localidade oficial.
+- Lições: iframe com zoom aberto devolve o centro do mapa, a quilômetros da igreja (guarda: coordenada fora do município
+  é descartada); "Praça da Matriz"/slug genérico do site da Arquidiocese devolve o endereço da Cúria (guarda no verificador);
+  a condição  em SQL é falsa para NULL — a primeira gravação pulou os legados.
+- **Amostra de 30** para conferência humana: . Critério: ≥ 28 certas.
+
 ## Etapa 2 — gente
 
 O que nem o Censo nem os agentes resolvem só se resolve no lugar: fila de revisão aberta a dioceses e
