@@ -31,7 +31,8 @@ const osmLink = (lat: number, lng: number) => `https://www.openstreetmap.org/?ml
     const by = c.geoVerifiedBy ?? '';
     const base = { nome: c.name, cidade: `${c.city}/${c.state}`, endereco: c.address ?? '', pino: osmLink(c.latitude, c.longitude as number), fonte: urlDe(c.id) };
     if (by.startsWith('usuario')) continue; // conferido pelo Rodrigo hoje — não é o piloto
-    if (c.geoSource === 'cnefe-endereco-oficial') linhas.push({ ...base, grupo: 'grava-endereco-oficial', motivo: 'nosso endereço não tinha rua; o oficial (site) foi localizado no Censo e virou o pino' });
+    if (by === 'endereco-oficial+mapa') linhas.push({ ...base, grupo: 'grava-endereco-e-mapa', motivo: 'mapa publicado pela diocese/paróquia e endereço oficial localizado no Censo apontam o mesmo lugar; pino gravado' });
+    else if (c.geoSource === 'cnefe-endereco-oficial') linhas.push({ ...base, grupo: 'grava-endereco-oficial', motivo: 'nosso endereço não tinha rua; o oficial (site) foi localizado no Censo e virou o pino' });
     else if (String(c.geoSource).endsWith('+evidencia')) linhas.push({ ...base, grupo: 'grava-duas-fontes', motivo: `coordenada publicada coincide com a sugestão ${String(c.geoSource).split('+')[0]}; pino gravado` });
     else if (by.startsWith('templo:')) linhas.push({ ...base, grupo: 'conferido-templo', motivo: `templo com o padroeiro a ≤ 150 m em fonte independente (${by.slice(7) === 'cnefe' ? 'Censo' : 'Overture'})` });
     else if (by === 'endereco-oficial+cnefe') linhas.push({ ...base, grupo: 'conferido-endereco', motivo: 'endereço oficial confere e o pino é o endereço com número no Censo' });
