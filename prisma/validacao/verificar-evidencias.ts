@@ -31,6 +31,8 @@ type Resultado = { id: string; nome: string; enderecoOficial: string | null; end
 // o travessão e as aspas tipográficas viram hífen/aspas simples, como o agente costuma copiar
 const ENTIDADES: Record<string, string> = { nbsp: ' ', amp: '&', quot: '"', apos: "'", lt: '<', gt: '>', ndash: '-', mdash: '-', ordm: 'º', ordf: 'ª', deg: '°', rsquo: "'", lsquo: "'", ldquo: '"', rdquo: '"', hellip: '...' };
 const decodifica = (s: string) => s
+  // resposta JSON (AJAX de diretório de paróquias): "Belém", "s\/n"
+  .replace(/\\u([0-9a-f]{4})/gi, (_, n) => String.fromCharCode(parseInt(n, 16))).replace(/\\\//g, '/')
   .replace(/&#(\d+);/g, (_, n) => String.fromCodePoint(Number(n)))
   .replace(/&#x([0-9a-f]+);/gi, (_, n) => String.fromCodePoint(parseInt(n, 16)))
   .replace(/&([a-zA-Z])(acute|grave|tilde|circ|cedil|uml);/g, '$1')

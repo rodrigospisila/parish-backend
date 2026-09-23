@@ -64,7 +64,8 @@ const forcaDaCoordenada = (trecho: string, origem: string) => {
   const t = String(trecho ?? '');
   if (origem === 'wikidata' || /"latitude"\s*:/.test(t) || /!8m2!3d|!3d-?\d+\.\d+!4d-?\d+\.\d+/.test(t) || /[?&]q=-?\d|ll=-?\d|center=-?\d|data-lat=/.test(t)) return 'forte';
   // marcador em JSON ("lat":"-21.75", também codificado em URL: %22lat%22%3A — Arquidiocese de Juiz de Fora) e Plus Code (o lugar, não o mapa)
-  if (/"lat"\s*:|%22lat%22%3A/i.test(t) || P.acharCodigo(t)) return 'forte';
+  // e o local gravado no cadastro de paróquias da diocese ("location":["-1.46","-48.44"] — Arquidiocese de Belém)
+  if (/"lat"\s*:|%22lat%22%3A|"location"\s*:\s*\[/i.test(t) || P.acharCodigo(t)) return 'forte';
   return 'fraca';
 };
 
