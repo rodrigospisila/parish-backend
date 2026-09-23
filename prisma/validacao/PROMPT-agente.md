@@ -64,6 +64,7 @@ Nunca coloque e-mail, nome ou qualquer dado pessoal no User-Agent ou em outro ca
 - Alguns sites respondem 200 com uma página genérica (endereço da cúria, "Praça da Matriz") para um slug que não existe: se o endereço encontrado for o da cúria/diocese, não é evidência da paróquia.
 - Mapa embutido com zoom aberto (a cidade inteira) devolve o centro do mapa, não a igreja. O programa descarta coordenada fora do município, mas não gaste tempo: só registre coordenada de mapa que esteja centrado na igreja (zoom de rua, marcador único).
 - **Plus Code** (ex.: `74JM+2M Montes Claros`, ou o completo `58MG74JM+2M`) no mapa ou no texto da página da paróquia é localização publicada: registre como evidência com `"tipo":"pluscode"` e o trecho literal que contém o código (o programa converte em coordenada). Não converta você mesmo.
+- O rótulo de endereço que aparece DENTRO de um mapa do Google embutido (ex.: "R. Sete, 1-33 - Santos Dumont") é o endereço que o Google calcula para o ponto — é dado do Google, não da paróquia: nunca use como endereço oficial. Endereço oficial é o texto publicado pela paróquia/diocese.
 - Google My Maps (`/maps/d/embed?mid=`) não expõe coordenada. Facebook e Instagram quase nunca abrem por curl/WebFetch: não insista.
 - Comunidade rural ("Capela São José — Linha X", "Comunidade N. Sra. Aparecida — Fazenda Y") raramente tem endereço publicado; se a página da paróquia só a cita na grade de missas, registre sem evidência e siga.
 
