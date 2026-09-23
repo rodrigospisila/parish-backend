@@ -66,7 +66,8 @@ const forcaDaCoordenada = (trecho: string, origem: string) => {
   // marcador em JSON ("lat":"-21.75", também codificado em URL: %22lat%22%3A — Arquidiocese de Juiz de Fora) e Plus Code (o lugar, não o mapa)
   // e o local gravado no cadastro de paróquias da diocese ("location":["-1.46","-48.44"] — Arquidiocese de Belém)
   // (JSON dentro de HTML às vezes vem com as aspas escapadas: {\"lat\":-19.45,\"lng\":...} — Diocese de Sete Lagoas, plataforma Unitas)
-  if (/\\?"lat\\?"\s*:|%22lat%22%3A|"location"\s*:\s*\[/i.test(t) || P.acharCodigo(t)) return 'forte';
+  // (e o marcador do cadastro da Cúria do Rio: exibirMapa('-22.85','-43.24',...))
+  if (/\\?"lat\\?"\s*:|%22lat%22%3A|"location"\s*:\s*\[|exibirMapa\(/i.test(t) || P.acharCodigo(t)) return 'forte';
   return 'fraca';
 };
 
