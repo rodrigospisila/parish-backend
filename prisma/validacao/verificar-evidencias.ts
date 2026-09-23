@@ -25,7 +25,16 @@ const PROIBIDAS = /(^|\.)(google\.[a-z.]+|goo\.gl|maps\.app\.goo\.gl|horariodemi
 type Evidencia = { url: string; trecho: string; tipo?: 'endereco' | 'coordenada'; status?: string; motivo?: string };
 type Resultado = { id: string; nome: string; enderecoOficial: string | null; enderecoConfere: boolean | null; coordenada: { lat: number; lng: number; origem: string } | null; evidencias: Evidencia[]; observacao?: string; lote?: string };
 
-const normaliza = (s: string) => s.normalize('NFD').replace(/\p{M}/gu, '').toLowerCase().replace(/&nbsp;|&#160;/g, ' ').replace(/&amp;/g, '&').replace(/&quot;|&#34;/g, '"').replace(/&#39;|&apos;/g, "'").replace(/\s+/g, ' ').trim();
+// entidades HTML: numéricas (&#8211; &#x2013;) e as de letra acentuada (&ccedil; &atilde; &Eacute;) — o acento sai depois, no NFD;
+// o travessão e as aspas tipográficas viram hífen/aspas simples, como o agente costuma copiar
+const ENTIDADES: Record<string, string> = { nbsp: ' ', amp: '&', quot: '"', apos: "'", lt: '<', gt: '>', ndash: '-', mdash: '-', ordm: 'º', ordf: 'ª', deg: '°', rsquo: "'", lsquo: "'", ldquo: '"', rdquo: '"', hellip: '...' };
+const decodifica = (s: string) => s
+  .replace(/&#(\d+);/g, (_, n) => String.fromCodePoint(Number(n)))
+  .replace(/&#x([0-9a-f]+);/gi, (_, n) => String.fromCodePoint(parseInt(n, 16)))
+  .replace(/&([a-zA-Z])(acute|grave|tilde|circ|cedil|uml);/g, '$1')
+  .replace(/&([a-z]+);/gi, (m, n) => ENTIDADES[n.toLowerCase()] ?? m)
+  .replace(/[–—−]/g, '-').replace(/[‘’]/g, "'").replace(/[“”]/g, '"').replace(/ /g, ' ');
+const normaliza = (s: string) => decodifica(s).normalize('NFD').replace(/\p{M}/gu, '').toLowerCase().replace(/\s+/g, ' ').trim();
 const semTags = (html: string) => html.replace(/<script[\s\S]*?<\/script>/gi, ' ').replace(/<style[\s\S]*?<\/style>/gi, ' ').replace(/<[^>]+>/g, ' ');
 // truncado (não arredondado) em 3 casas: "-50.621" está em "-50.62169318"; o arredondado "-50.6217" não estaria
 const numeros4 = (n: number) => (String(n).match(/^-?\d+\.\d{0,3}/) ?? [String(n)])[0];
