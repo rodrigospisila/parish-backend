@@ -192,7 +192,12 @@ const csv = (s: unknown) => String(s ?? '').replace(/;/g, ',').replace(/\r?\n/g,
     const nossoSemRua = !ehRua(String(a.address ?? ''));
     // (a fonte às vezes publica sem o tipo de logradouro — "Rui Barbosa 715, Ivaí - Centro": nome seguido de número vale como rua)
     const oficialDeRua = !!(evEnd && v?.enderecoOficial && (ehRua(v.enderecoOficial) || E.lerEndereco(v.enderecoOficial, { semTipo: true })));
-    if (oficialDeRua && (nossoSemRua || v.enderecoConfere === false)) {
+    // capela cujo "endereço oficial" é o da própria paróquia herdou o endereço da matriz: não diz onde a capela fica
+    const ruaNumero = (s: string | null | undefined) => { const e = E.lerEndereco(s, { semTipo: true }); return e ? `${e.chaves[0]}|${e.numero ?? ''}` : null; };
+    const ehSede = /matriz|catedral|santu[áa]rio|bas[íi]lica/i.test(a.name);
+    const herdadoDaParoquia = oficialDeRua && !ehSede && ruaNumero(v.enderecoOficial) != null && ruaNumero(v.enderecoOficial) === ruaNumero(c.paroquia?.endereco);
+    if (herdadoDaParoquia) contagem('endereco-oficial-herdado-da-paroquia (capela, ignorado)', R);
+    if (oficialDeRua && !herdadoDaParoquia && (nossoSemRua || v.enderecoConfere === false)) {
       if (!nossoSemRua) divergentes.push(`${c.id};${csv(a.name)};${csv(a.city)};${csv(a.address)};${csv(v.enderecoOficial)};${evEnd.url}`);
       const e = E.lerEndereco(v.enderecoOficial, { semTipo: true });
       const linhas = e && mun ? e.chaves.flatMap((k: string) => ruas.get(`${mun}|${k}`) ?? []) : [];
