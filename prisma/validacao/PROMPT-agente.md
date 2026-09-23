@@ -75,3 +75,7 @@ Nunca coloque e-mail, nome ou qualquer dado pessoal no User-Agent ou em outro ca
 4. Para catedral, basílica ou santuário, consulte a Wikidata.
 5. Grave a linha JSONL de cada comunidade assim que terminar.
 6. No fim, grave o JSON final e responda com um resumo: quantas comunidades com endereço oficial, quantas com coordenada, quantas sem evidência, e qualquer problema (site fora do ar, etc.).
+
+## Arquivos temporários
+
+A pasta de rascunho é compartilhada com os agentes de outros lotes, que rodam ao mesmo tempo. Todo arquivo temporário seu começa com o número do lote (ex.: `l52_pagina.html`); nunca leia nem reaproveite arquivo temporário sem esse prefixo.
