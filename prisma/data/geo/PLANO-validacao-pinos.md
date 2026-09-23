@@ -151,9 +151,11 @@ Nenhuma coordenada inventada; os agentes acertaram. Os erros eram das REGRAS do 
 | 22, 12 | pinos legados errados com endereço oficial publicado | agente achou "Rua Padre César de Buss, 116", "Av. Pres. Kennedy, 1" | nosso endereço era "Vila Liane"/"Centro": a regra só geocodificava endereço oficial quando o nosso era OUTRA rua | endereço oficial de rua + nosso sem rua + pino aproximado → Censo → grava STREET (`cnefe-endereco-oficial`); as ruas dos endereços oficiais entram no extrato (`preparar-cnefe-ruas.sh --oficiais`) |
 | 29 | Ventania — pino legado em Manaus foi para o centro do município | CITY é "no centro da cidade", por definição | mas a diocese publica "Flórido Caetano Ferreira, 97" (sem o tipo de logradouro) | parser aceita endereço sem tipo no caminho do endereço oficial; o Censo tem "IGREJA SÃO ROQUE" nessa rua → STREET |
 
-Reaplicação do piloto com as regras novas (dry run): **17 pinos aproximados ganham STREET pelo endereço oficial**, 7 sugestões
-novas por endereço oficial, 17 "conferido por endereço" viram `templo:<fonte>` (havia templo independente), 5 deixam de ser
-conferidos. Aguarda autorização; depois, nova amostra de 30 (`amostra.ts --saida=amostra-30-v2.md`) antes da onda 1.
+Reaplicação do piloto com as regras novas — **APLICADA em 22/09/2026 à noite, autorizada**: 17 pinos aproximados ganharam STREET
+pelo endereço oficial (`cnefe-endereco-oficial`), 7 sugestões novas por endereço oficial, 17 "conferido por endereço" viraram
+`templo:<fonte>` (havia templo independente), 5 deixaram de ser conferidos. Segunda rodada: só as 7 sugestões (já na fila, sem efeito).
+**Amostra v2** (36 linhas, prioriza o que mudou; critério: no máximo 2 erros): `amostra-30-v2.md` — aguarda a conferência do Rodrigo.
+Pendente, pequeno: `--apply-refino` de 64 pinos de rua que a interpolação agora leva até a porta (sai do `--audit`).
 
 ## Varredura nacional "fora do município" (22/09/2026, sem agente)
 
@@ -161,11 +163,11 @@ conferidos. Aguarda autorização; depois, nova amostra de 30 (`amostra.ts --sai
 centro dele vai para o centro (CITY, `ibge-municipio`), com cópia de segurança. Achou **15** (13 legados, 2 por CEP:
 Canutama/AM a 1.880 km, Reserva/PR até 1.840 km, Santos/SP 56 km, Padre Bernardo/GO 59 km); segunda rodada: 0.
 
-## Onda 1 — montada, aguardando o veredito da amostra
+## Onda 1 — montada, aguardando o veredito da amostra v2
 
-`montar-lotes.ts --todas --grupos=rua,legado --so-com-missa --excluir=<piloto>`: **1.403 comunidades em 80 lotes**
-(`cache/validacao/onda1-2026-09-22/`, prompts já gerados). Ficaram de fora 794 pinos de rua que o Censo confirma na
-porta (`cache/enderecos/validados-censo.json`, número ou templo a < 60 m) e 43 já olhados no piloto. Lote pequeno de
+`montar-lotes.ts --todas --grupos=rua,legado --so-com-missa --excluir=<piloto>`: **1.423 comunidades em 81 lotes**
+(`cache/validacao/onda1-2026-09-23/`, prompts já gerados; remontada depois da reconferência). Ficaram de fora 777 pinos de rua
+que o Censo confirma na porta (`cache/enderecos/validados-censo.json`, número ou templo a < 60 m) e 30 já olhados no piloto. Lote pequeno de
 diocese vizinha junta-se ao próximo (23 lotes têm 2+ dioceses; cada comunidade leva a própria diocese e o site).
 Estimativa pelo piloto (~7 mil tokens e ~20 s por comunidade, 4 agentes por vez): ~10 milhões de tokens, ~2 h de relógio.
 A onda 2 (casado pelo nome com uma fonte só, com missa, município de 2+ paróquias) tem 2.276 hoje — mais que o
