@@ -234,4 +234,29 @@ const ponto = (l) => ({ lat: l.lat, lng: l.lng });
 /** Nome de rua que se repete em todo distrito: a praça da matriz, a rua principal, a rua numerada do conjunto habitacional. */
 const chaveGenerica = (k) => /^(\d+|[A-Z]( ?\d{1,3})?|(\d+ )?[A-Z]|MATRIZ|IGREJA|CAPELA|CATEDRAL|PRINCIPAL|CENTRAL|PROJETADA|SEM DENOMINACAO|COMERCIO|UM|DOIS|TRES|QUATRO|CINCO|SEIS|SETE|OITO|NOVE|DEZ)$/.test(k);
 
-module.exports = { chaveDaRua, programaAwk, lerEndereco, casarEndereco, chaveGenerica, km };
+const NO_BAIRRO_KM = 0.3; // o ponto do número tem de estar a isso de algum endereço do bairro declarado
+
+/**
+ * casarEndereco respeitando o BAIRRO declarado: quando o endereço diz o bairro e o Censo conhece esta rua nele, o ponto
+ * tem de cair no bairro. Se o número leva a outro bairro (a numeração recomeça, ou o número publicado está errado), tenta de
+ * novo só com os endereços do bairro — pelo número e, sem ele, pela rua curta ou pelo templo da rua dentro do bairro.
+ * (Irati: "Rua Lino Esculápio 30, Rio Bonito" — no Censo o nº 30 fica no Fósforo, a 1 km; no Rio Bonito a rua começa no 1083.)
+ *   bairros  chaves de localidade (C.localidade) que o endereço declara; as que a rua não tem no Censo são ignoradas.
+ */
+function casarNoBairro(alvo, linhas, compativel, bairros) {
+  const daRua = new Set(linhas.map((l) => l.local));
+  const meus = (bairros ?? []).filter((b) => b && daRua.has(b));
+  const r = casarEndereco({ ...alvo, locais: [...new Set([...(alvo.locais ?? []), ...meus])] }, linhas, compativel);
+  // só o ponto que saiu do NÚMERO: templo casado pelo padroeiro ou coerente com o número vale mais que o nome do bairro no Censo
+  // (Monte Bérico, Av. Vereador Toaldo Túlio: o templo está certo, mas o Censo chama aquele trecho de outro bairro)
+  if (!meus.length || r.lat == null || !/^numero-/.test(r.regra)) return r;
+  const doBairro = linhas.filter((l) => meus.includes(l.local));
+  if (doBairro.some((l) => km(l, r) <= NO_BAIRRO_KM)) return r;
+  const peloNumero = casarEndereco({ ...alvo, locais: meus }, doBairro, compativel);
+  if (peloNumero.lat != null) return { ...peloNumero, regra: `${peloNumero.regra}-no-bairro` };
+  const semNumero = casarEndereco({ ...alvo, numero: null, locais: meus }, doBairro, compativel);
+  if (semNumero.lat != null) return { ...semNumero, regra: `${semNumero.regra}-no-bairro` };
+  return { motivo: 'o número cai fora do bairro declarado' };
+}
+
+module.exports = { chaveDaRua, programaAwk, lerEndereco, casarEndereco, casarNoBairro, chaveGenerica, km };

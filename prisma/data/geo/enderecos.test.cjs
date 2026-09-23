@@ -88,6 +88,20 @@ const alvo = (numero, extra = {}) => ({ numero, tipo: 'RUA', k: 'st jose', locai
 }
 igual('rua que o Censo não tem', e.casarEndereco(alvo(10), [], compativel).motivo, 'rua fora do Censo');
 {
+  // Irati: "Rua Lino Esculápio 30, Rio Bonito" — o nº 30 do Censo fica no Fósforo; no Rio Bonito a rua começa no 1083
+  const fosforo = [L(35, -25.4717, -50.6514, { local: 'fosforo' }), L(44, -25.4716, -50.6519, { local: 'centro' }), L(201, -25.4717, -50.6530, { local: 'fosforo' }), L(580, -25.4717, -50.6568, { local: 'centro' })];
+  const rioBonito = [L(1083, -25.4720, -50.6617, { local: 'rio bonito' }), L(1300, -25.4720, -50.6640, { local: 'rio bonito' }), L(1500, -25.4720, -50.6660, { local: 'rio bonito' }), L(1728, -25.4722, -50.6686, { local: 'rio bonito' })];
+  const rua = [...fosforo, ...rioBonito];
+  igual('sem bairro: o número manda (e erra de bairro)', e.casarEndereco(alvo(30), rua, compativel).regra, 'numero-vizinho');
+  const r = e.casarNoBairro(alvo(30), rua, compativel, ['rio bonito']);
+  igual('com o bairro declarado: fica no bairro (rua curta dentro dele)', [r.regra, r.lng < -50.66 && r.lng > -50.67], ['rua-curta-no-bairro', true]);
+  igual('número que cai no bairro declarado continua valendo', e.casarNoBairro(alvo(1300), rua, compativel, ['rio bonito']).regra, 'numero-exato');
+  igual('bairro que a rua não tem no Censo é ignorado', e.casarNoBairro(alvo(30), rua, compativel, ['vila nova']).regra, 'numero-vizinho');
+  igual('número no bairro certo já no primeiro casamento: sem mudança', e.casarNoBairro(alvo(44), rua, compativel, ['centro']).regra, 'numero-exato');
+  const comTemplo = [...rua, L(600, -25.4717, -50.6570, { local: 'centro', templo: true, catolico: true, kTemplo: 'st jose' })];
+  igual('templo do padroeiro fora do bairro declarado continua valendo', e.casarNoBairro(alvo(30), comTemplo, compativel, ['rio bonito']).regra, 'templo-padroeiro');
+}
+{
   // Curitiba, Av. Marechal Floriano Peixoto (11 km): o Santuário do Carmo é o nº 8520; o único templo "católico" que o Censo
   // descreveu na avenida é a "Paróquia das Santas Missões", nº 3817, 4,7 km antes. A regra antiga mandava o Carmo para lá.
   // (numeração métrica: um endereço a cada 300 números ≈ 300 m, do 1400 ao 9900, numa reta de 11 km)

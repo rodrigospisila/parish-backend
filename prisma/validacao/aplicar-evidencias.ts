@@ -182,13 +182,16 @@ const csv = (s: unknown) => String(s ?? '').replace(/;/g, ',').replace(/\r?\n/g,
       const e = E.lerEndereco(v.enderecoOficial, { semTipo: true });
       const linhas = e && mun ? e.chaves.flatMap((k: string) => ruas.get(`${mun}|${k}`) ?? []) : [];
       const ch = C.chavesDaComunidade({ name: a.name, address: '', enderecoHerdado: true });
-      const r = e && mun ? E.casarEndereco({ numero: e.numero, tipo: e.tipo, k: ch.k, locais: [], tipoTemplo: ch.tipo, generica: e.chaves.every(E.chaveGenerica) }, linhas, C.compativel) : { motivo: e ? 'município não reconhecido' : 'endereço ilegível' };
-      const aproximado = foraDoMunicipio || a.geoPrecision === 'CITY' || a.geoPrecision === 'LOCALITY' || a.geoPrecision == null;
+      // bairros que o endereço oficial declara ("Rua X 30, Irati - Rio Bonito"): o ponto do número tem de cair num deles
+      const bairros = String(v.enderecoOficial).split(/\s[-–—]\s|,/).slice(1).map((x: string) => C.localidade(x)).filter((k: string) => k.length >= 4 && k !== C.localidade(a.city));
+      const r = e && mun ? E.casarNoBairro({ numero: e.numero, tipo: e.tipo, k: ch.k, locais: [], tipoTemplo: ch.tipo, generica: e.chaves.every(E.chaveGenerica) }, linhas, C.compativel, bairros) : { motivo: e ? 'município não reconhecido' : 'endereço ilegível' };
+      // pino que esta mesma regra gravou antes também pode ser refeito quando a regra melhora
+      const aproximado = foraDoMunicipio || a.geoPrecision === 'CITY' || a.geoPrecision === 'LOCALITY' || a.geoPrecision == null || a.geoSource === FONTE_OFICIAL;
       const dentro = r.lat != null && mun && municipioDe(r.lat, r.lng) === mun && (!centros.has(mun) || km(r, centros.get(mun)!) <= LONGE_DO_CENTRO_KM);
       let feitoAqui = 'nada';
       if (r.lat == null) { feitoAqui = `Censo não localizou (${r.motivo})`; if (e && mun && r.motivo === 'rua fora do Censo') for (const k of e.chaves) chavesOficiais.add(`${mun}|${k}`); }
       else if (!dentro) feitoAqui = 'ponto fora do município (descartado)';
-      else if (nossoSemRua && aproximado) { acoes.push({ ...base, acao: 'grava-endereco-oficial', motivo: `nosso endereço é "${a.address ?? ''}", o oficial é "${v.enderecoOficial}": localizado no Censo (${r.regra}) → STREET`, url: evEnd.url, novo: { lat: r.lat, lng: r.lng } }); contagem('grava-endereco-oficial', R); feitoAqui = `pino gravado (${r.regra})`; feito = true; }
+      else if (nossoSemRua && aproximado && !(a.geoSource === FONTE_OFICIAL && km(r, pino) <= PERTO_KM)) { acoes.push({ ...base, acao: 'grava-endereco-oficial', motivo: `nosso endereço é "${a.address ?? ''}", o oficial é "${v.enderecoOficial}": localizado no Censo (${r.regra}) → STREET`, url: evEnd.url, novo: { lat: r.lat, lng: r.lng } }); contagem('grava-endereco-oficial', R); feitoAqui = `pino gravado (${r.regra})`; feito = true; }
       else if (km(r, pino) > PERTO_KM) { acoes.push({ ...base, acao: 'sugestao', motivo: `endereço oficial "${v.enderecoOficial}" localizado no Censo (${r.regra}), a ${km(r, pino).toFixed(2)} km do pino`, url: evEnd.url, sugestao: { latitude: r.lat, longitude: r.lng, source: 'cnefe-endereco', reason: 'endereco-oficial', label: `${v.enderecoOficial}`.slice(0, 200), detail: `endereço oficial em ${evEnd.url} · ${r.regra}`.slice(0, 400) } }); contagem('sugestao-endereco-oficial', R); feitoAqui = `sugestão (${r.regra}, ${km(r, pino).toFixed(2)} km)`; feito = true; }
       else { feitoAqui = `pino já está no endereço oficial (${Math.round(km(r, pino) * 1000)} m)`; contagem('endereco-oficial-confirma-o-pino (não conferido)', R); }
       oficiais.push(`${c.id};${csv(a.name)};${csv(a.city)};${csv(a.address)};${csv(v.enderecoOficial)};${csv(feitoAqui)};${evEnd.url}`);
@@ -240,7 +243,7 @@ const csv = (s: unknown) => String(s ?? '').replace(/;/g, ',').replace(/\r?\n/g,
     else if (x.acao === 'reconferido') { await prisma.community.updateMany({ where: { id: x.id, geoVerifiedBy: 'endereco-oficial+cnefe' }, data: { geoVerifiedAt: agora, geoVerifiedBy: x.verifiedBy } }); n += 1; }
     else if (x.acao === 'desconferido') { await prisma.community.updateMany({ where: { id: x.id, geoVerifiedBy: 'endereco-oficial+cnefe' }, data: { geoVerifiedAt: null, geoVerifiedBy: null } }); n += 1; }
     else if (x.acao === 'recusa-sugestao') { await prisma.communityGeoCandidate.updateMany({ where: { id: { in: x.recusar! }, status: 'PENDING' }, data: { status: 'REJECTED', resolvedAt: agora, resolvedByUserId: 'regra:centro-de-iframe' } }); n += 1; }
-    else if (x.acao === 'grava-endereco-oficial') { await prisma.community.updateMany({ where: { id: x.id, OR: [{ geoPrecision: null }, { geoPrecision: { in: ['CITY', 'LOCALITY'] } }] }, data: { latitude: x.novo!.lat, longitude: x.novo!.lng, geoPrecision: 'STREET', geoSource: FONTE_OFICIAL, geoVerifiedAt: null, geoVerifiedBy: null } }); n += 1; }
+    else if (x.acao === 'grava-endereco-oficial') { await prisma.community.updateMany({ where: { id: x.id, OR: [{ geoPrecision: null }, { geoPrecision: { in: ['CITY', 'LOCALITY'] } }, { geoSource: FONTE_OFICIAL, geoVerifiedAt: null }] }, data: { latitude: x.novo!.lat, longitude: x.novo!.lng, geoPrecision: 'STREET', geoSource: FONTE_OFICIAL, geoVerifiedAt: null, geoVerifiedBy: null } }); n += 1; }
     else if (x.acao === 'fora-do-municipio') { await prisma.community.updateMany({ where: { id: x.id, OR: [{ geoPrecision: null }, { geoPrecision: { not: 'MANUAL' } }] }, data: { latitude: x.novo!.lat, longitude: x.novo!.lng, geoPrecision: 'CITY', geoSource: 'ibge-municipio', geoVerifiedAt: null, geoVerifiedBy: null } }); n += 1; }
     else if (x.acao === 'grava-duas-fontes') {
       await prisma.$transaction([
