@@ -138,7 +138,8 @@ const csv = (s: unknown) => String(s ?? '').replace(/;/g, ',').replace(/\r?\n/g,
     const mun = porNome.get(`${C.semAcento(a.city).replace(/[^a-z0-9]+/g, ' ').trim()}|${a.state}`);
     // Plus Code publicado pela paróquia ("74JM+2M Montes Claros"): vira coordenada, com o centro do município como referência do
     // código curto. Só quando não há coordenada literal (esta é mais direta).
-    const evPlus = confirmadas.find((e: any) => e.tipo === 'pluscode' && P.acharCodigo(e.trecho));
+    // (os primeiros lotes registraram o Plus Code como evidência de endereço: vale de qualquer tipo, desde que o trecho o contenha)
+    const evPlus = confirmadas.find((e: any) => e.tipo === 'pluscode' && P.acharCodigo(e.trecho)) ?? confirmadas.find((e: any) => P.acharCodigo(e.trecho));
     if (!evCoord && evPlus && v) {
       const p = P.paraCoordenada(P.acharCodigo(evPlus.trecho), mun ? centros.get(mun) : null);
       if (p) { v.coordenada = { lat: p.lat, lng: p.lng, origem: v.coordenada?.origem ?? 'site-paroquia' }; evCoord = { ...evPlus, tipo: 'coordenada' }; contagem('plus-code convertido em coordenada', R); }
