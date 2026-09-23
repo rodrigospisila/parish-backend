@@ -43,7 +43,7 @@ Se a única fonte disponível for proibida, o resultado é **sem evidência**.
 - `enderecoOficial`: string ou `null`.
 - `enderecoConfere`: `true` se rua e número da fonte batem com o endereço que temos; `false` se a fonte dá outro logradouro ou número; `null` se não achou endereço.
 - `coordenada`: `null` quando não há coordenada publicada. `origem` ∈ `site-paroquia` | `site-diocese` | `wikidata`.
-- `evidencias[].tipo` ∈ `endereco` | `coordenada`. Uma evidência de coordenada precisa do trecho com os números.
+- `evidencias[].tipo` ∈ `endereco` | `coordenada` | `pluscode`. Uma evidência de coordenada precisa do trecho com os números.
 - Sem evidência: `"enderecoOficial":null,"enderecoConfere":null,"coordenada":null,"evidencias":[]`.
 
 ## Onde está o ganho (leia antes de começar)
@@ -63,6 +63,7 @@ Nunca coloque e-mail, nome ou qualquer dado pessoal no User-Agent ou em outro ca
 - Um lote pode ter comunidades de mais de uma diocese: use o `diocese.site` de cada comunidade. Site de diocese costuma listar as paróquias (`/paroquias`, `/paroquia/<slug>`) e, dentro de cada paróquia, as comunidades com endereço — é a fonte mais rendosa: uma página resolve a matriz e as capelas.
 - Alguns sites respondem 200 com uma página genérica (endereço da cúria, "Praça da Matriz") para um slug que não existe: se o endereço encontrado for o da cúria/diocese, não é evidência da paróquia.
 - Mapa embutido com zoom aberto (a cidade inteira) devolve o centro do mapa, não a igreja. O programa descarta coordenada fora do município, mas não gaste tempo: só registre coordenada de mapa que esteja centrado na igreja (zoom de rua, marcador único).
+- **Plus Code** (ex.: `74JM+2M Montes Claros`, ou o completo `58MG74JM+2M`) no mapa ou no texto da página da paróquia é localização publicada: registre como evidência com `"tipo":"pluscode"` e o trecho literal que contém o código (o programa converte em coordenada). Não converta você mesmo.
 - Google My Maps (`/maps/d/embed?mid=`) não expõe coordenada. Facebook e Instagram quase nunca abrem por curl/WebFetch: não insista.
 - Comunidade rural ("Capela São José — Linha X", "Comunidade N. Sra. Aparecida — Fazenda Y") raramente tem endereço publicado; se a página da paróquia só a cita na grade de missas, registre sem evidência e siga.
 

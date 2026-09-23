@@ -37,6 +37,8 @@ import { join } from 'path';
 const C = require('../data/geo/casamento.cjs');
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const E = require('../data/geo/enderecos.cjs');
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const P = require('../data/geo/pluscode.cjs');
 
 const prisma = new PrismaClient();
 const arg = (n: string) => process.argv.includes(n);
@@ -61,6 +63,8 @@ const ehRua = (s: string) => /^(rua|r\.|av\.?|avenida|pra[çc]a|travessa|alameda
 const forcaDaCoordenada = (trecho: string, origem: string) => {
   const t = String(trecho ?? '');
   if (origem === 'wikidata' || /"latitude"\s*:/.test(t) || /!8m2!3d|!3d-?\d+\.\d+!4d-?\d+\.\d+/.test(t) || /[?&]q=-?\d|ll=-?\d|center=-?\d|data-lat=/.test(t)) return 'forte';
+  // marcador em JSON ("lat":"-21.75", também codificado em URL: %22lat%22%3A — Arquidiocese de Juiz de Fora) e Plus Code (o lugar, não o mapa)
+  if (/"lat"\s*:|%22lat%22%3A/i.test(t) || P.acharCodigo(t)) return 'forte';
   return 'fraca';
 };
 
@@ -130,8 +134,15 @@ const csv = (s: unknown) => String(s ?? '').replace(/;/g, ',').replace(/\r?\n/g,
     if (a.geoPrecision === 'MANUAL' || ORIGEM_DE_GENTE.includes(a.geoSource ?? '') || a.geoVerifiedAt) { contagem('ja-conferida-por-gente', R); continue; }
     const v = verificacao.find((x) => x.id === c.id);
     const confirmadas = (v?.evidencias ?? []).filter((e: any) => e.status === 'confirmada');
-    const evCoord = confirmadas.find((e: any) => e.tipo === 'coordenada'); const evEnd = confirmadas.find((e: any) => e.tipo === 'endereco');
+    let evCoord = confirmadas.find((e: any) => e.tipo === 'coordenada'); const evEnd = confirmadas.find((e: any) => e.tipo === 'endereco');
     const mun = porNome.get(`${C.semAcento(a.city).replace(/[^a-z0-9]+/g, ' ').trim()}|${a.state}`);
+    // Plus Code publicado pela paróquia ("74JM+2M Montes Claros"): vira coordenada, com o centro do município como referência do
+    // código curto. Só quando não há coordenada literal (esta é mais direta).
+    const evPlus = confirmadas.find((e: any) => e.tipo === 'pluscode' && P.acharCodigo(e.trecho));
+    if (!evCoord && evPlus && v) {
+      const p = P.paraCoordenada(P.acharCodigo(evPlus.trecho), mun ? centros.get(mun) : null);
+      if (p) { v.coordenada = { lat: p.lat, lng: p.lng, origem: v.coordenada?.origem ?? 'site-paroquia' }; evCoord = { ...evPlus, tipo: 'coordenada' }; contagem('plus-code convertido em coordenada', R); }
+    }
     let feito = false; let foraDoMunicipio = false;
 
     // 1. fora do município
