@@ -174,6 +174,29 @@ Estimativa pelo piloto (~7 mil tokens e ~20 s por comunidade, 4 agentes por vez)
 A onda 2 (casado pelo nome com uma fonte só, com missa, município de 2+ paróquias) tem 2.276 hoje — mais que o
 estimado, porque a carga de fontes cresceu depois da estimativa.
 
+## Resultado da onda 1 (23/09/2026)
+
+Amostra v2 do piloto aprovada (34/36). Onda 1 lançada e aplicada no mesmo dia: 1.423 comunidades com missa (pino de rua/legado),
+81 lotes + 1 repetição (Rio, lote 43, sem a dica da Cúria na 1ª vez), ~8,5 M tokens, 4–5 agentes por vez.
+
+- Verificação literal: **2.038 de 2.061 evidências confirmadas (98,9%)**; as 23 restantes eram páginas montadas por JavaScript,
+  um site com 403 e trechos curtos. Verificador ganhou: entidades HTML e escapes de JSON, PDF (pdftotext), curl do Windows para
+  certificado incompleto, nova tentativa em 429/503.
+- Confirmação local por templo independente: 450 de 1.423.
+- **Aplicado (cópia: onda1-2026-09-23/backup-2026-09-23T20-19-35-753Z.json): 506 pinos conferidos** (310 por templo, 196 por coordenada
+  publicada a ≤ 150 m), **27 gravados por duas fontes** (coordenada publicada + Censo/Overture; mediana 3 km, até 28 km),
+  **8 gravados por mapa + endereço oficial no Censo** (regra nova), **~214 sugestões** na fila. Conferência pós-gravação: 35/35 no
+  ponto do plano, nenhum ponto repetido. Conferidos no país: 334 → 763.
+- Onde há ganho: dioceses que publicam o pino de cada paróquia (Brasília, Cúria do Rio, Belém, Campo Limpo, Jaboticabal, Santos,
+  Criciúma, Caxias, Limeira, Mogi) — nelas quase toda comunidade ganha coordenada. Onde o site só repete o nosso cadastro
+  (Goiânia, Fortaleza, Ribeirão Preto…), o agente só confirma o endereço.
+- Formatos de coordenada reconhecidos como fortes: marcador de lugar, q=/ll=, JSON-LD, data-lat, "lat":, "location":[…],
+  exibirMapa(…), LatLng(…), Plus Code (decodificado com o centro do município). Centro de iframe e Street View são fracos: só
+  confirmam ou somam com outra fonte.
+- Observações de cada lote para revisão humana: onda1-2026-09-23/observacoes-dos-agentes.csv (cidades erradas no cadastro,
+  matrizes em distrito, sugestões do Censo desmentidas, sites de diocese desatualizados).
+- Amostra para conferência: onda1-2026-09-23/amostra-onda1.md (40; critério ≤ 2 erros).
+
 ## Etapa 2 — gente
 
 O que nem o Censo nem os agentes resolvem só se resolve no lugar: fila de revisão aberta a dioceses e
