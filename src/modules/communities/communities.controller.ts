@@ -121,7 +121,8 @@ export class CommunitiesController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.communitiesService.findOne(id);
+    // só dados públicos: esta rota não tem @Roles, qualquer fiel logado a chama (ver findOneSafe)
+    return this.communitiesService.findOneSafe(id);
   }
 
   @Patch(':id')

@@ -77,6 +77,32 @@ export class CommunitiesService {
     });
   }
 
+  /**
+   * Detalhe da comunidade para QUALQUER usuário logado (inclusive fiel): só dados públicos. O findOne abaixo (paróquia com todas
+   * as colunas, membros com CPF/RG/endereço, eventos em rascunho) é de uso interno — a rota GET /communities/:id o expunha a
+   * qualquer fiel, junto com os segredos do provedor de pagamento da paróquia.
+   */
+  async findOneSafe(id: string) {
+    const community = await this.prisma.community.findFirst({
+      where: { id, deletedAt: null },
+      select: {
+        id: true, name: true, address: true, city: true, state: true, zipCode: true, phone: true, email: true, website: true,
+        logoUrl: true, coordinatorName: true, foundedAt: true, status: true, latitude: true, longitude: true, geoPrecision: true,
+        parishId: true, createdAt: true, updatedAt: true,
+        parish: {
+          select: {
+            id: true, name: true, address: true, city: true, state: true, zipCode: true, phone: true, email: true, website: true,
+            logoUrl: true, priestName: true, dioceseId: true,
+            diocese: { select: { id: true, name: true, state: true, website: true, logoUrl: true, bishopName: true } },
+          },
+        },
+        _count: { select: { members: true, events: true } },
+      },
+    });
+    if (!community) throw new NotFoundException(`Comunidade com ID ${id} não encontrada`);
+    return community;
+  }
+
   async findOne(id: string) {
     const community = await this.prisma.community.findFirst({
       where: { id, deletedAt: null },
