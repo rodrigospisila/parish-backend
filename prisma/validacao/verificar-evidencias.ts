@@ -1,3 +1,4 @@
+import { spawnSync } from 'child_process';
 import { existsSync, readFileSync, readdirSync, writeFileSync } from 'fs';
 import { join } from 'path';
 
@@ -18,6 +19,7 @@ if (!PILOTO) { console.log('uso: --piloto=<dir>'); process.exit(1); }
 const RESULTADOS = join(PILOTO, 'resultados');
 const UA = 'ParishApp/1.0 (validacao de enderecos de paroquias)';
 const MIN_TRECHO = 15;
+const CURL_WINDOWS = 'C:/Windows/System32/curl.exe';
 
 // Fonte proibida pelo plano (contrato do Google; agregadores sem autorização; guias de empresas)
 const PROIBIDAS = /(^|\.)(google\.[a-z.]+|goo\.gl|maps\.app\.goo\.gl|horariodemissa\.com\.br|liriocatolico\.[a-z.]+|buscamissa\.[a-z.]+|missas\.com\.br|horariosdemissa\.[a-z.]+|missasonline\.[a-z.]+|apontador\.com\.br|telelistas\.net|cybo\.com|kekanto\.com\.br|encontracuritiba\.com\.br|guiamais\.com\.br)$/i;
@@ -46,7 +48,18 @@ async function abrir(url: string) {
   try {
     const resp = await fetch(url, { headers: { 'User-Agent': UA, Accept: 'text/html,application/json;q=0.9,*/*;q=0.8', 'Accept-Language': 'pt-BR,pt;q=0.9' }, redirect: 'follow', signal: AbortSignal.timeout(30000) });
     r = { ok: resp.ok, status: resp.status, html: resp.ok ? await resp.text() : '' };
-  } catch (e) { r = { ok: false, status: -1, html: String(e).slice(0, 80) }; }
+  } catch (e: any) {
+    r = { ok: false, status: -1, html: String(e).slice(0, 80) };
+    // site com cadeia de certificado incompleta (arquidiocesebh.org.br): o Node recusa; o curl do Windows (Schannel) busca o
+    // intermediário e abre. Só para erro de certificado — nunca desliga a verificação de TLS.
+    const codigo = String(e?.cause?.code ?? '');
+    if (/CERT|VERIFY|SIGNATURE|ISSUER/.test(codigo) && existsSync(CURL_WINDOWS)) {
+      const c = spawnSync(CURL_WINDOWS, ['-s', '-L', '-m', '30', '-A', UA, '-w', '\n%{http_code}', url], { encoding: 'utf8', maxBuffer: 50 * 1024 * 1024 });
+      const saida = c.stdout ?? ''; const i = saida.lastIndexOf('\n'); const status = Number(saida.slice(i + 1));
+      if (c.status === 0 && status >= 200 && status < 300) r = { ok: true, status, html: saida.slice(0, i) };
+      else r = { ok: false, status: status || -1, html: `curl.exe: ${codigo}` };
+    }
+  }
   cache.set(url, r);
   await new Promise((f) => setTimeout(f, 400)); // gentileza com os sites das dioceses
   return r;

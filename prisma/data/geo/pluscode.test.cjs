@@ -33,6 +33,7 @@ igual('codificar usa o formato 8+2', /^[23456789CFGHJMPQRVWX]{8}\+[23456789CFGHJ
 igual('acha o código no meio do texto', P.acharCodigo('Localização: 74JM+2M Montes Claros, MG'), '74JM+2M');
 igual('acha o código completo', P.acharCodigo('58MG74JM+2M'), '58MG74JM+2M');
 igual('sem código', P.acharCodigo('Rua Alagoas, 335 - Centro'), null);
+igual('código dentro de URL, com o + codificado', P.acharCodigo('embed?q=XF37%2BX3%20Lagoa%20da%20Prata'), 'XF37+X3');
 igual('número de telefone não é código', P.acharCodigo('(38) 3221+4455'), null);
 igual('código curto sem referência não decodifica', P.paraCoordenada('74JM+2M', null), null);
 

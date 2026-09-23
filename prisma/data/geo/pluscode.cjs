@@ -12,7 +12,8 @@ const CODIGO = /(?:^|[^0-9A-Z])([23456789CFGHJMPQRVWX]{4,8}\+[23456789CFGHJMPQRV
 
 /** Acha um Plus Code num texto; devolve o código em maiúsculas ou null. */
 function acharCodigo(texto) {
-  const m = String(texto ?? '').toUpperCase().match(CODIGO);
+  // o código costuma vir dentro de URL de iframe, com o "+" codificado: "XF37%2BX3%20Lagoa%20da%20Prata"
+  const m = String(texto ?? '').replace(/%2B/gi, '+').replace(/%20/g, ' ').toUpperCase().match(CODIGO);
   if (!m) return null;
   const antes = m[1].split('+')[0].length;
   return antes % 2 === 0 ? m[1] : null; // 4, 6 ou 8 dígitos antes do "+"
