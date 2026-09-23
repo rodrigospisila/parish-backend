@@ -26,7 +26,7 @@ async function overpass(sul: number, oeste: number, norte: number, leste: number
   const q = `[out:json][timeout:90];(node["amenity"="place_of_worship"](${sul},${oeste},${norte},${leste});way["amenity"="place_of_worship"](${sul},${oeste},${norte},${leste}););out center tags;`;
   for (let tentativa = 1; tentativa <= 3; tentativa += 1) {
     try {
-      const r = await fetch('https://overpass-api.de/api/interpreter', { method: 'POST', body: 'data=' + encodeURIComponent(q), headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'User-Agent': 'ParishApp/1.0 (confirmacao de pinos; rodrigospisila@gmail.com)' }, signal: AbortSignal.timeout(120000) });
+      const r = await fetch('https://overpass-api.de/api/interpreter', { method: 'POST', body: 'data=' + encodeURIComponent(q), headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'User-Agent': 'ParishApp/1.0 (confirmacao de pinos)' }, signal: AbortSignal.timeout(120000) });
       if (r.status === 429 || r.status === 504) { await new Promise((f) => setTimeout(f, 20000 * tentativa)); continue; }
       const j = (await r.json()) as { elements: any[] };
       return j.elements.map((e) => ({ lat: e.lat ?? e.center?.lat, lng: e.lon ?? e.center?.lon, nome: e.tags?.name ?? '', k: C.chavesDoLugar(e.tags?.name ?? '').k, religiao: e.tags?.religion ?? '', denominacao: e.tags?.denomination ?? '' })).filter((t) => Number.isFinite(t.lat));

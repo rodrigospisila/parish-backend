@@ -16,7 +16,7 @@ const val = (n: string) => process.argv.find((a) => a.startsWith(`${n}=`))?.spli
 const PILOTO = val('--piloto');
 if (!PILOTO) { console.log('uso: --piloto=<dir>'); process.exit(1); }
 const RESULTADOS = join(PILOTO, 'resultados');
-const UA = 'ParishApp/1.0 (validacao de enderecos de paroquias; contato: rodrigospisila@gmail.com)';
+const UA = 'ParishApp/1.0 (validacao de enderecos de paroquias)';
 const MIN_TRECHO = 15;
 
 // Fonte proibida pelo plano (contrato do Google; agregadores sem autorização; guias de empresas)

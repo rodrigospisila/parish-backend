@@ -46,6 +46,10 @@ Se a única fonte disponível for proibida, o resultado é **sem evidência**.
 - `evidencias[].tipo` ∈ `endereco` | `coordenada`. Uma evidência de coordenada precisa do trecho com os números.
 - Sem evidência: `"enderecoOficial":null,"enderecoConfere":null,"coordenada":null,"evidencias":[]`.
 
+## Identificação nas requisições
+
+Nunca coloque e-mail, nome ou qualquer dado pessoal no User-Agent ou em outro cabeçalho. Para a Wikidata (que recusa requisição sem User-Agent identificado), use exatamente: `ParishApp/1.0 (validacao de enderecos de paroquias)`. Para os sites, o User-Agent de navegador indicado acima.
+
 ## Lições do piloto (Curitiba e Ponta Grossa, 400 comunidades)
 
 - Um lote pode ter comunidades de mais de uma diocese: use o `diocese.site` de cada comunidade. Site de diocese costuma listar as paróquias (`/paroquias`, `/paroquia/<slug>`) e, dentro de cada paróquia, as comunidades com endereço — é a fonte mais rendosa: uma página resolve a matriz e as capelas.
