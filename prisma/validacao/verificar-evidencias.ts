@@ -46,8 +46,13 @@ async function abrir(url: string) {
   if (cache.has(url)) return cache.get(url)!;
   let r = { ok: false, status: 0, html: '' };
   try {
-    const resp = await fetch(url, { headers: { 'User-Agent': UA, Accept: 'text/html,application/json;q=0.9,*/*;q=0.8', 'Accept-Language': 'pt-BR,pt;q=0.9' }, redirect: 'follow', signal: AbortSignal.timeout(30000) });
-    r = { ok: resp.ok, status: resp.status, html: resp.ok ? await resp.text() : '' };
+    // 429/503 é limite de requisições (a Wikidata devolve isso com vários agentes consultando): espera e tenta de novo
+    for (let tentativa = 1; tentativa <= 4; tentativa += 1) {
+      const resp = await fetch(url, { headers: { 'User-Agent': UA, Accept: 'text/html,application/json;q=0.9,*/*;q=0.8', 'Accept-Language': 'pt-BR,pt;q=0.9' }, redirect: 'follow', signal: AbortSignal.timeout(30000) });
+      r = { ok: resp.ok, status: resp.status, html: resp.ok ? await resp.text() : '' };
+      if (resp.status !== 429 && resp.status !== 503) break;
+      await new Promise((f) => setTimeout(f, 5000 * tentativa));
+    }
   } catch (e: any) {
     r = { ok: false, status: -1, html: String(e).slice(0, 80) };
     // site com cadeia de certificado incompleta (arquidiocesebh.org.br): o Node recusa; o curl do Windows (Schannel) busca o
