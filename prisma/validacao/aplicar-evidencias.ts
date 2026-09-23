@@ -148,7 +148,7 @@ const csv = (s: unknown) => String(s ?? '').replace(/;/g, ',').replace(/\r?\n/g,
       const p = P.paraCoordenada(P.acharCodigo(evPlus.trecho), mun ? centros.get(mun) : null);
       if (p) { v.coordenada = { lat: p.lat, lng: p.lng, origem: v.coordenada?.origem ?? 'site-paroquia' }; evCoord = { ...evPlus, tipo: 'coordenada' }; contagem('plus-code convertido em coordenada', R); }
     }
-    let feito = false; let foraDoMunicipio = false;
+    let feito = false; let foraDoMunicipio = false; let coordFraca: { lat: number; lng: number; url: string; origem: string } | null = null;
 
     // 1. fora do município
     if (mun && centros.has(mun) && municipioDe(pino.lat, pino.lng) !== mun && km(pino, centros.get(mun)!) > FORA_KM && a.geoPrecision !== 'CITY' && a.geoPrecision !== 'LOCALITY') {
@@ -168,7 +168,7 @@ const csv = (s: unknown) => String(s ?? '').replace(/;/g, ',').replace(/\r?\n/g,
         const cand = a.geoCandidates.find((g: any) => ['cnefe', 'overture', 'cnefe-endereco'].includes(g.source) && km({ lat: g.latitude, lng: g.longitude }, coord) <= COINCIDE_KM);
         const jaSugerida = a.geoCandidates.some((g: any) => !['cnefe', 'overture', 'cnefe-endereco'].includes(g.source) && km({ lat: g.latitude, lng: g.longitude }, coord) <= 0.01);
         if (cand) { acoes.push({ ...base, acao: 'grava-duas-fontes', motivo: `coordenada publicada coincide (${Math.round(km({ lat: cand.latitude, lng: cand.longitude }, coord) * 1000)} m) com a sugestão ${cand.source}; pino atual a ${d.toFixed(2)} km`, url: evCoord.url, novo: { lat: cand.latitude, lng: cand.longitude }, verifiedBy: `evidencia:${origem}`, candidato: cand }); contagem('grava-duas-fontes', R); feito = true; }
-        else if (forca === 'fraca') { fracas.push(`${c.id};${csv(a.name)};${csv(a.city)};${coord.lat},${coord.lng};${d.toFixed(2)};${csv(evCoord.trecho).slice(0, 80)};${evCoord.url}`); contagem('coordenada-fraca-longe (descartada, coordenadas-fracas.csv)', R); }
+        else if (forca === 'fraca') { coordFraca = { ...coord, url: evCoord.url, origem }; fracas.push(`${c.id};${csv(a.name)};${csv(a.city)};${coord.lat},${coord.lng};${d.toFixed(2)};${csv(evCoord.trecho).slice(0, 80)};${evCoord.url}`); contagem('coordenada-fraca-longe (descartada, coordenadas-fracas.csv)', R); }
         else if (jaSugerida) { contagem('sugestao-ja-na-fila', R); feito = true; }
         else { acoes.push({ ...base, acao: 'sugestao', motivo: `coordenada publicada (${origem}) a ${d.toFixed(2)} km do pino atual`, url: evCoord.url, sugestao: { latitude: coord.lat, longitude: coord.lng, source: origem, reason: 'evidencia', label: String(evCoord.trecho).slice(0, 200), detail: `coordenada publicada em ${evCoord.url}`.slice(0, 400) } }); contagem('sugestao-coordenada', R); feito = true; }
       }
@@ -198,8 +198,9 @@ const csv = (s: unknown) => String(s ?? '').replace(/;/g, ',').replace(/\r?\n/g,
     const ehSede = /matriz|catedral|santu[áa]rio|bas[íi]lica/i.test(a.name);
     const herdadoDaParoquia = oficialDeRua && !ehSede && ruaNumero(v.enderecoOficial) != null && ruaNumero(v.enderecoOficial) === ruaNumero(c.paroquia?.endereco);
     if (herdadoDaParoquia) contagem('endereco-oficial-herdado-da-paroquia (capela, ignorado)', R);
-    if (oficialDeRua && !herdadoDaParoquia && (nossoSemRua || v.enderecoConfere === false)) {
-      if (!nossoSemRua) divergentes.push(`${c.id};${csv(a.name)};${csv(a.city)};${csv(a.address)};${csv(v.enderecoOficial)};${evEnd.url}`);
+    if (oficialDeRua && !herdadoDaParoquia) {
+      const melhoraOuDiverge = nossoSemRua || v.enderecoConfere === false;
+      if (melhoraOuDiverge && !nossoSemRua) divergentes.push(`${c.id};${csv(a.name)};${csv(a.city)};${csv(a.address)};${csv(v.enderecoOficial)};${evEnd.url}`);
       const e = E.lerEndereco(v.enderecoOficial, { semTipo: true });
       const linhas = e && mun ? e.chaves.flatMap((k: string) => ruas.get(`${mun}|${k}`) ?? []) : [];
       const ch = C.chavesDaComunidade({ name: a.name, address: '', enderecoHerdado: true });
@@ -210,7 +211,15 @@ const csv = (s: unknown) => String(s ?? '').replace(/;/g, ',').replace(/\r?\n/g,
       const aproximado = foraDoMunicipio || a.geoPrecision === 'CITY' || a.geoPrecision === 'LOCALITY' || a.geoPrecision == null || a.geoSource === FONTE_OFICIAL;
       const dentro = r.lat != null && mun && municipioDe(r.lat, r.lng) === mun && (!centros.has(mun) || km(r, centros.get(mun)!) <= LONGE_DO_CENTRO_KM);
       let feitoAqui = 'nada';
-      if (r.lat == null) { feitoAqui = `Censo não localizou (${r.motivo})`; if (e && mun && r.motivo === 'rua fora do Censo') for (const k of e.chaves) chavesOficiais.add(`${mun}|${k}`); }
+      // mapa do site (coordenada fraca, sozinha não vale) + endereço oficial no Censo apontando o MESMO lugar (≤ 150 m): duas fontes
+      // independentes — grava o ponto do Censo
+      if (!feito && r.lat != null && dentro && coordFraca && km(r, coordFraca) <= PERTO_KM && km(r, pino) > PERTO_KM) {
+        acoes.push({ ...base, acao: 'grava-endereco-e-mapa', motivo: `mapa publicado (${coordFraca.origem}) e endereço oficial no Censo (${r.regra}) a ${Math.round(km(r, coordFraca) * 1000)} m um do outro; pino atual a ${km(r, pino).toFixed(2)} km`, url: coordFraca.url, novo: { lat: r.lat, lng: r.lng }, verifiedBy: 'endereco-oficial+mapa' });
+        contagem('grava-endereco-e-mapa (duas fontes)', R); feitoAqui = `pino gravado: mapa + endereço (${r.regra})`; feito = true;
+      }
+      if (!melhoraOuDiverge && !feito) { if (r.lat != null) contagem('endereco-oficial-igual-ao-nosso (sem ação)', R); }
+      else if (feito && feitoAqui.startsWith('pino gravado: mapa')) { /* já decidido acima */ }
+      else if (r.lat == null) { feitoAqui = `Censo não localizou (${r.motivo})`; if (e && mun && r.motivo === 'rua fora do Censo') for (const k of e.chaves) chavesOficiais.add(`${mun}|${k}`); }
       else if (!dentro) feitoAqui = 'ponto fora do município (descartado)';
       else if (nossoSemRua && aproximado && !(a.geoSource === FONTE_OFICIAL && km(r, pino) <= PERTO_KM)) { acoes.push({ ...base, acao: 'grava-endereco-oficial', motivo: `nosso endereço é "${a.address ?? ''}", o oficial é "${v.enderecoOficial}": localizado no Censo (${r.regra}) → STREET`, url: evEnd.url, novo: { lat: r.lat, lng: r.lng } }); contagem('grava-endereco-oficial', R); feitoAqui = `pino gravado (${r.regra})`; feito = true; }
       else if (km(r, pino) > PERTO_KM) { acoes.push({ ...base, acao: 'sugestao', motivo: `endereço oficial "${v.enderecoOficial}" localizado no Censo (${r.regra}), a ${km(r, pino).toFixed(2)} km do pino`, url: evEnd.url, sugestao: { latitude: r.lat, longitude: r.lng, source: 'cnefe-endereco', reason: 'endereco-oficial', label: `${v.enderecoOficial}`.slice(0, 200), detail: `endereço oficial em ${evEnd.url} · ${r.regra}`.slice(0, 400) } }); contagem('sugestao-endereco-oficial', R); feitoAqui = `sugestão (${r.regra}, ${km(r, pino).toFixed(2)} km)`; feito = true; }
@@ -264,6 +273,7 @@ const csv = (s: unknown) => String(s ?? '').replace(/;/g, ',').replace(/\r?\n/g,
     else if (x.acao === 'reconferido') { await prisma.community.updateMany({ where: { id: x.id, geoVerifiedBy: 'endereco-oficial+cnefe' }, data: { geoVerifiedAt: agora, geoVerifiedBy: x.verifiedBy } }); n += 1; }
     else if (x.acao === 'desconferido') { await prisma.community.updateMany({ where: { id: x.id, geoVerifiedBy: 'endereco-oficial+cnefe' }, data: { geoVerifiedAt: null, geoVerifiedBy: null } }); n += 1; }
     else if (x.acao === 'recusa-sugestao') { await prisma.communityGeoCandidate.updateMany({ where: { id: { in: x.recusar! }, status: 'PENDING' }, data: { status: 'REJECTED', resolvedAt: agora, resolvedByUserId: 'regra:centro-de-iframe' } }); n += 1; }
+    else if (x.acao === 'grava-endereco-e-mapa') { await prisma.community.updateMany({ where: { id: x.id, geoVerifiedAt: null, OR: [{ geoPrecision: null }, { geoPrecision: { not: 'MANUAL' } }] }, data: { latitude: x.novo!.lat, longitude: x.novo!.lng, geoPrecision: 'STREET', geoSource: FONTE_OFICIAL, geoVerifiedAt: agora, geoVerifiedBy: x.verifiedBy } }); n += 1; }
     else if (x.acao === 'grava-endereco-oficial') { await prisma.community.updateMany({ where: { id: x.id, OR: [{ geoPrecision: null }, { geoPrecision: { in: ['CITY', 'LOCALITY'] } }, { geoSource: FONTE_OFICIAL, geoVerifiedAt: null }] }, data: { latitude: x.novo!.lat, longitude: x.novo!.lng, geoPrecision: 'STREET', geoSource: FONTE_OFICIAL, geoVerifiedAt: null, geoVerifiedBy: null } }); n += 1; }
     else if (x.acao === 'fora-do-municipio') { await prisma.community.updateMany({ where: { id: x.id, OR: [{ geoPrecision: null }, { geoPrecision: { not: 'MANUAL' } }] }, data: { latitude: x.novo!.lat, longitude: x.novo!.lng, geoPrecision: 'CITY', geoSource: 'ibge-municipio', geoVerifiedAt: null, geoVerifiedBy: null } }); n += 1; }
     else if (x.acao === 'grava-duas-fontes') {
