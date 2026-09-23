@@ -155,7 +155,8 @@ Reaplicação do piloto com as regras novas — **APLICADA em 22/09/2026 à noit
 pelo endereço oficial (`cnefe-endereco-oficial`), 7 sugestões novas por endereço oficial, 17 "conferido por endereço" viraram
 `templo:<fonte>` (havia templo independente), 5 deixaram de ser conferidos. Segunda rodada: só as 7 sugestões (já na fila, sem efeito).
 **Amostra v2** (36 linhas, prioriza o que mudou; critério: no máximo 2 erros): `amostra-30-v2.md` — aguarda a conferência do Rodrigo.
-Pendente, pequeno: `--apply-refino` de 64 pinos de rua que a interpolação agora leva até a porta (sai do `--audit`).
+Refino complementar de **64 pinos de rua** que a interpolação leva até a porta: aplicado em 23/09/2026 (autorizado), conferido
+(64/64 no ponto do plano, nenhum ponto repetido).
 
 ## Varredura nacional "fora do município" (22/09/2026, sem agente)
 
