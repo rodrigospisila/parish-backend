@@ -46,6 +46,14 @@ Se a única fonte disponível for proibida, o resultado é **sem evidência**.
 - `evidencias[].tipo` ∈ `endereco` | `coordenada`. Uma evidência de coordenada precisa do trecho com os números.
 - Sem evidência: `"enderecoOficial":null,"enderecoConfere":null,"coordenada":null,"evidencias":[]`.
 
+## Onde está o ganho (leia antes de começar)
+
+O nosso cadastro foi importado dos sites das dioceses: na maioria dos casos o endereço oficial vai ser IGUAL ao que já temos. Confirmar isso vale pouco — esses pinos já estão no endereço, só que no meio da rua (CEP) ou sem número. O ganho está em:
+1. **coordenada publicada** (mapa com marcador no site PRÓPRIO da paróquia — muitas vezes diferente do site da diocese —, JSON-LD, `data-lat`, Wikidata);
+2. **endereço mais preciso que o nosso** (com número, quando o nosso é "s/n" ou só quadra/lote; o endereço próprio de uma capela que herdou o da matriz);
+3. **endereço diferente** do nosso (a igreja mudou, ou o cadastro está errado).
+Se a página da diocese só repete o nosso endereço e não tem mapa, registre essa evidência rapidamente e gaste o esforço procurando o site próprio da paróquia. Não passe de ~3 buscas por comunidade.
+
 ## Identificação nas requisições
 
 Nunca coloque e-mail, nome ou qualquer dado pessoal no User-Agent ou em outro cabeçalho. Para a Wikidata (que recusa requisição sem User-Agent identificado), use exatamente: `ParishApp/1.0 (validacao de enderecos de paroquias)`. Para os sites, o User-Agent de navegador indicado acima.
