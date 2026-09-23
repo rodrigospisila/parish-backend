@@ -1,5 +1,6 @@
 import { spawnSync } from 'child_process';
-import { existsSync, readFileSync, readdirSync, writeFileSync } from 'fs';
+import { existsSync, readFileSync, readdirSync, unlinkSync, writeFileSync } from 'fs';
+import { tmpdir } from 'os';
 import { join } from 'path';
 
 /**
@@ -43,6 +44,16 @@ const semTags = (html: string) => html.replace(/<script[\s\S]*?<\/script>/gi, ' 
 // truncado (não arredondado) em 3 casas: "-50.621" está em "-50.62169318"; o arredondado "-50.6217" não estaria
 const numeros4 = (n: number) => (String(n).match(/^-?\d+\.\d{0,3}/) ?? [String(n)])[0];
 
+const PDFTOTEXT = ['C:/Program Files/Git/mingw64/bin/pdftotext.exe', '/usr/bin/pdftotext', 'pdftotext'].find((p) => !p.includes('/') || existsSync(p)) as string;
+function textoDoPdf(conteudo: Buffer) {
+  const arq = join(tmpdir(), `evidencia-${process.pid}-${Date.now()}.pdf`);
+  writeFileSync(arq, conteudo);
+  try {
+    const saidas = [['-layout'], []].map((opcoes) => spawnSync(PDFTOTEXT, [...opcoes, '-enc', 'UTF-8', arq, '-'], { encoding: 'utf8', maxBuffer: 200 * 1024 * 1024 }).stdout ?? '');
+    return saidas.join('\n');
+  } finally { try { unlinkSync(arq); } catch { /* arquivo temporário */ } }
+}
+
 const cache = new Map<string, { ok: boolean; status: number; html: string }>();
 async function abrir(url: string) {
   if (cache.has(url)) return cache.get(url)!;
@@ -50,8 +61,10 @@ async function abrir(url: string) {
   try {
     // 429/503 é limite de requisições (a Wikidata devolve isso com vários agentes consultando): espera e tenta de novo
     for (let tentativa = 1; tentativa <= 4; tentativa += 1) {
-      const resp = await fetch(url, { headers: { 'User-Agent': UA, Accept: 'text/html,application/json;q=0.9,*/*;q=0.8', 'Accept-Language': 'pt-BR,pt;q=0.9' }, redirect: 'follow', signal: AbortSignal.timeout(30000) });
-      r = { ok: resp.ok, status: resp.status, html: resp.ok ? await resp.text() : '' };
+      const resp = await fetch(url, { headers: { 'User-Agent': UA, Accept: 'text/html,application/json;q=0.9,*/*;q=0.8', 'Accept-Language': 'pt-BR,pt;q=0.9' }, redirect: 'follow', signal: AbortSignal.timeout(60000) });
+      // PDF (anuário da diocese): o texto sai pelo pdftotext, com e sem -layout (o agente pode ter copiado de qualquer um)
+      const ehPdf = /pdf/i.test(resp.headers.get('content-type') ?? '') || /\.pdf($|\?)/i.test(url);
+      r = { ok: resp.ok, status: resp.status, html: !resp.ok ? '' : ehPdf ? textoDoPdf(Buffer.from(await resp.arrayBuffer())) : await resp.text() };
       if (resp.status !== 429 && resp.status !== 503) break;
       await new Promise((f) => setTimeout(f, 5000 * tentativa));
     }
