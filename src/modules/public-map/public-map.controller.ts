@@ -1,5 +1,6 @@
 import { Controller, Get, Header, Param, Query, UseGuards } from '@nestjs/common';
 import { Throttle, ThrottlerGuard } from '@nestjs/throttler';
+import { GeocodingService } from '../geocoding/geocoding.service';
 import { MassesService } from '../masses/masses.service';
 import { clampMapLimit, parseFlag, parseOptionalNumber, parseTypesCsv } from '../masses/map-search.utils';
 import { PublicMapService } from './public-map.service';
@@ -15,7 +16,20 @@ export class PublicMapController {
   constructor(
     private readonly massesService: MassesService,
     private readonly publicMapService: PublicMapService,
+    private readonly geocodingService: GeocodingService,
   ) {}
+
+  /**
+   * GET /public/map/geocode?q= — busca de cidade/bairro/endereço para o mapa sem login (o mesmo proxy com cache da rota
+   * logada /geocoding/search). Limite mais apertado: 20 por minuto por IP — o provedor por trás também tem limites.
+   */
+  @Get('geocode')
+  @Throttle({ default: { limit: 20, ttl: 60_000 } })
+  geocode(@Query('q') q?: string) {
+    const texto = String(q ?? '').trim().slice(0, 120);
+    if (texto.length < 3) return [];
+    return this.geocodingService.search(texto);
+  }
 
   /** GET /public/map/config — provedor de tiles (env MAP_TILE_*). */
   @Get('config')
