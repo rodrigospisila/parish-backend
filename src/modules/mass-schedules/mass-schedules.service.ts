@@ -363,16 +363,23 @@ export class MassSchedulesService {
     if (communityId) where.communityId = communityId;
     if (type) where.type = type;
 
-    return this.prisma.massSchedule.findMany({
+    const schedules = await this.prisma.massSchedule.findMany({
       where,
       include: {
         community: {
           select: { id: true, name: true, parish: { select: { id: true, name: true } } },
         },
         pastorals: PASTORAL_INCLUDE,
+        // Selo "N datas suspensas" no painel
+        cancellations: upcomingCancellationsSelect(this.todaySaoPaulo()),
       },
       orderBy: [{ dayOfWeek: 'asc' }, { time: 'asc' }],
     });
+
+    return schedules.map(({ cancellations, ...schedule }) => ({
+      ...schedule,
+      upcomingCancellations: toUpcomingCancellations(cancellations),
+    }));
   }
 
   /**
