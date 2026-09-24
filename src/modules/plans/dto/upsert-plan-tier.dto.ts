@@ -6,6 +6,12 @@ import { IsBoolean, IsInt, IsOptional, IsString, Max, MaxLength, Min, MinLength 
  * `maxMembers: null` = sem limite; `description: null` limpa.
  */
 export class UpsertPlanTierDto {
+  /** Aceita e ignora: a chave da faixa é a do caminho (/platform/tiers/:key). Clientes antigos mandavam no corpo também. */
+  @IsOptional()
+  @IsString()
+  @MaxLength(40)
+  key?: string;
+
   @IsOptional()
   @IsString()
   @MinLength(2)
