@@ -23,8 +23,19 @@ export const MAX_MASSES_PER_COMMUNITY = 15;
 /** Quantas comunidades o mapa público devolve por consulta (padrão e teto). */
 export const MAP_LIMIT_DEFAULT = 300;
 export const MAP_LIMIT_MAX = 500;
-/** Maior lado aceito para o retângulo do mapa (em graus): ~440 km de latitude. */
-export const AREA_MAX_SPAN_DEG = 4;
+/**
+ * Recorte do mapa público: o retângulo pedido é cortado a esta caixa (o Brasil com folga).
+ * Qualquer tamanho dentro dela é aceito — de longe, a resposta vem agrupada (ver clusterCellDeg).
+ */
+export const MAP_BOUNDS = { minLng: -75, minLat: -35, maxLng: -28, maxLat: 7 } as const;
+/** Zoom aceito (Leaflet/OSM) e o ponto a partir do qual o mapa mostra os pinos um a um. */
+export const ZOOM_MIN = 0;
+export const ZOOM_MAX = 20;
+export const PINS_MIN_ZOOM = 11;
+/** Célula da grade ≈ 0,4 × um tile de 256 px (≈ 100 px de tela) no zoom pedido. */
+export const CLUSTER_CELL_FACTOR = 0.4;
+/** No máximo ~50 células no lado maior do retângulo, seja qual for o zoom (contém pedido abusivo). */
+export const CLUSTER_MAX_CELLS_PER_SIDE = 50;
 export const KM_PER_DEGREE_LAT = 111; // ~111 km por grau de latitude
 
 const VALID_TYPES = Object.values(MassScheduleType);
@@ -110,9 +121,9 @@ export function parseOptionalNumber(value: string | undefined, name: string): nu
 }
 
 /**
- * Valida o retângulo do mapa: 4 números, mínimos antes dos máximos, dentro do globo
- * e com no máximo AREA_MAX_SPAN_DEG de lado (uma tela de celular afastada o bastante
- * para cobrir meio Brasil não é um pedido razoável para uma única consulta).
+ * Valida o retângulo do mapa: 4 números, mínimos antes dos máximos e dentro do globo.
+ * Não há teto de tamanho — quem limita o volume é o recorte (clipToMapBounds) e o
+ * modo agrupado.
  */
 export function parseBbox(raw: string | number[] | undefined): Bbox {
   const parts = Array.isArray(raw)
@@ -130,11 +141,43 @@ export function parseBbox(raw: string | number[] | undefined): Bbox {
   if (minLng >= maxLng || minLat >= maxLat) {
     throw new BadRequestException('bbox inválido: os mínimos devem ser menores que os máximos');
   }
-  const EPS = 1e-6;
-  if (maxLng - minLng > AREA_MAX_SPAN_DEG + EPS || maxLat - minLat > AREA_MAX_SPAN_DEG + EPS) {
-    throw new BadRequestException(`Área grande demais: aproxime o mapa (máximo ${AREA_MAX_SPAN_DEG}° × ${AREA_MAX_SPAN_DEG}°)`);
-  }
   return [minLng, minLat, maxLng, maxLat];
+}
+
+/** Corta o retângulo à área do mapa público; null quando não sobra nada (fora do Brasil). */
+export function clipToMapBounds(bbox: Bbox): Bbox | null {
+  const minLng = Math.max(bbox[0], MAP_BOUNDS.minLng);
+  const minLat = Math.max(bbox[1], MAP_BOUNDS.minLat);
+  const maxLng = Math.min(bbox[2], MAP_BOUNDS.maxLng);
+  const maxLat = Math.min(bbox[3], MAP_BOUNDS.maxLat);
+  if (minLng >= maxLng || minLat >= maxLat) return null;
+  return [minLng, minLat, maxLng, maxLat];
+}
+
+/** Zoom opcional da query string: inteiro de 0 a 20 (ausente → undefined; o resto → 400). */
+export function parseZoom(value: string | undefined): number | undefined {
+  const n = parseOptionalNumber(value, 'zoom');
+  if (n === undefined) return undefined;
+  if (!Number.isInteger(n) || n < ZOOM_MIN || n > ZOOM_MAX) {
+    throw new BadRequestException(`Parâmetro zoom inválido: use um inteiro de ${ZOOM_MIN} a ${ZOOM_MAX}`);
+  }
+  return n;
+}
+
+/** Longe demais para pinos soltos: responde agrupado. Sem zoom (clientes antigos), nunca. */
+export function wantsClusters(zoom: number | undefined): boolean {
+  return zoom !== undefined && zoom < PINS_MIN_ZOOM;
+}
+
+/**
+ * Lado da célula da grade de agrupamento, em graus: ~100 px de tela no zoom pedido
+ * (360/2^zoom graus por tile de 256 px), nunca menor que o necessário para caber
+ * em ~50 células no lado maior do retângulo.
+ */
+export function clusterCellDeg(zoom: number, bbox: Bbox): number {
+  const byZoom = (360 / 2 ** zoom) * CLUSTER_CELL_FACTOR;
+  const span = Math.max(bbox[2] - bbox[0], bbox[3] - bbox[1]);
+  return Math.max(byZoom, span / CLUSTER_MAX_CELLS_PER_SIDE);
 }
 
 /** Retângulo que contém o círculo (pré-filtro no banco antes da distância exata). */
@@ -165,4 +208,10 @@ export function isVerifiedPin(pin: { geoPrecision?: GeoPrecision | null; geoVeri
 export function precisionWhere(approx: boolean): Prisma.CommunityWhereInput {
   if (approx) return {};
   return { OR: [{ geoPrecision: null }, { geoPrecision: { notIn: APPROXIMATE_PRECISIONS } }] };
+}
+
+/** O mesmo filtro de precisão, em SQL (para a consulta agregada). Só constantes — nada do usuário. */
+export function precisionSql(approx: boolean): Prisma.Sql {
+  if (approx) return Prisma.empty;
+  return Prisma.sql`AND (c."geoPrecision" IS NULL OR c."geoPrecision" NOT IN ('CITY', 'LOCALITY'))`;
 }

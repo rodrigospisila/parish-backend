@@ -2,7 +2,7 @@ import { Controller, Get, Header, Param, Query, UseGuards } from '@nestjs/common
 import { Throttle, ThrottlerGuard } from '@nestjs/throttler';
 import { GeocodingService } from '../geocoding/geocoding.service';
 import { MassesService } from '../masses/masses.service';
-import { clampMapLimit, parseFlag, parseOptionalNumber, parseTypesCsv } from '../masses/map-search.utils';
+import { clampMapLimit, parseFlag, parseOptionalNumber, parseTypesCsv, parseZoom } from '../masses/map-search.utils';
 import { PublicMapService } from './public-map.service';
 
 /**
@@ -65,12 +65,16 @@ export class PublicMapController {
   }
 
   /**
-   * GET /public/map/area?bbox=minLng,minLat,maxLng,maxLat&days&types&approx=0|1&limit
-   * Igrejas dentro do retângulo visível, a partir do centro; `truncated` se havia mais.
+   * GET /public/map/area?bbox=minLng,minLat,maxLng,maxLat&zoom&days&types&approx=0|1&limit
+   * Retângulo de qualquer tamanho, recortado ao Brasil (lat -35..7, lng -75..-28).
+   * - zoom < 11 (ou mais pinos que `limit`): `{ mode:'clusters', bbox, zoom, total, clusters:[{lat,lng,count,bbox,id?,name?}] }`
+   * - senão: `{ mode:'pins', zoom, origin:null, bbox, radiusKm:null, days, count, truncated, communities }`
+   * - sem zoom (app antigo): sempre pinos, `truncated` se havia mais que `limit`.
    */
   @Get('area')
   area(
     @Query('bbox') bbox?: string,
+    @Query('zoom') zoom?: string,
     @Query('days') days?: string,
     @Query('types') types?: string,
     @Query('approx') approx?: string,
@@ -78,6 +82,7 @@ export class PublicMapController {
   ) {
     return this.massesService.findInArea({
       bbox: bbox ?? '',
+      zoom: parseZoom(zoom),
       days: parseOptionalNumber(days, 'days'),
       types: parseTypesCsv(types),
       approx: parseFlag(approx),

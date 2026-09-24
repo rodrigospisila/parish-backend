@@ -1,10 +1,19 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { BadRequestException } from '@nestjs/common';
-import { MassScheduleType } from '@prisma/client';
-import { MassesService } from './masses.service';
+import { MassScheduleType, Prisma } from '@prisma/client';
+import { MapPinsResult, MassesService } from './masses.service';
 import { PrismaService } from '../../database/prisma.service';
 import { MassSchedulesService } from '../mass-schedules/mass-schedules.service';
-import { parseBbox, parseFlag, parseTypesCsv, clampMapLimit } from './map-search.utils';
+import {
+  parseBbox,
+  parseFlag,
+  parseTypesCsv,
+  clampMapLimit,
+  clipToMapBounds,
+  clusterCellDeg,
+  parseZoom,
+  wantsClusters,
+} from './map-search.utils';
 
 describe('MassesService — mapa (contrato, approx, área)', () => {
   let service: MassesService;
@@ -29,6 +38,7 @@ describe('MassesService — mapa (contrato, approx, área)', () => {
     prisma = {
       community: { findMany: jest.fn().mockResolvedValue([]) },
       event: { findMany: jest.fn().mockResolvedValue([]) },
+      $queryRaw: jest.fn().mockResolvedValue([]),
     };
     massSchedules = { expandOccurrences: jest.fn().mockResolvedValue([]) };
     const module: TestingModule = await Test.createTestingModule({
@@ -127,10 +137,21 @@ describe('MassesService — mapa (contrato, approx, área)', () => {
       expect(prisma.community.findMany).not.toHaveBeenCalled();
     });
 
-    it('recusa área maior que 4° × 4°', async () => {
-      await expect(service.findInArea({ bbox: '-50,-25,-45.9,-23' })).rejects.toBeInstanceOf(BadRequestException);
-      await expect(service.findInArea({ bbox: '-50,-28,-49,-23.9' })).rejects.toBeInstanceOf(BadRequestException);
-      await expect(service.findInArea({ bbox: '-50,-27,-46,-23' })).resolves.toBeDefined(); // exatamente 4°
+    it('aceita área de qualquer tamanho e recorta ao Brasil', async () => {
+      const res = await service.findInArea({ bbox: '-80,-40,-20,10' });
+      const where = prisma.community.findMany.mock.calls[0][0].where;
+      expect(where.latitude).toEqual({ not: null, gte: -35, lte: 7 });
+      expect(where.longitude).toEqual({ not: null, gte: -75, lte: -28 });
+      expect(res).toMatchObject({ mode: 'pins', zoom: null, bbox: [-75, -35, -28, 7] });
+    });
+
+    it('fora do Brasil não consulta nada', async () => {
+      const pins = await service.findInArea({ bbox: '10,40,20,50' });
+      expect(pins).toMatchObject({ mode: 'pins', count: 0, communities: [] });
+      const clusters = await service.findInArea({ bbox: '10,40,20,50', zoom: 5 });
+      expect(clusters).toMatchObject({ mode: 'clusters', total: 0, clusters: [] });
+      expect(prisma.community.findMany).not.toHaveBeenCalled();
+      expect(prisma.$queryRaw).not.toHaveBeenCalled();
     });
 
     it('consulta o retângulo e ordena pela distância ao centro', async () => {
@@ -139,13 +160,13 @@ describe('MassesService — mapa (contrato, approx, área)', () => {
         pin({ id: 'centro', latitude: -23.5, longitude: -46.5 }),
         pin({ id: 'meio', latitude: -23.7, longitude: -46.7 }),
       ]);
-      const res = await service.findInArea({ bbox: '-47,-24,-46,-23' });
+      const res = (await service.findInArea({ bbox: '-47,-24,-46,-23' })) as MapPinsResult;
       const where = prisma.community.findMany.mock.calls[0][0].where;
       expect(where.latitude).toEqual({ not: null, gte: -24, lte: -23 });
       expect(where.longitude).toEqual({ not: null, gte: -47, lte: -46 });
       expect(where.OR).toBeDefined(); // approx=0 por padrão
       expect(res.communities.map((c) => c.id)).toEqual(['centro', 'meio', 'borda']);
-      expect(res).toMatchObject({ origin: null, bbox: [-47, -24, -46, -23], radiusKm: null, days: 7, count: 3, truncated: false });
+      expect(res).toMatchObject({ mode: 'pins', zoom: null, origin: null, bbox: [-47, -24, -46, -23], radiusKm: null, days: 7, count: 3, truncated: false });
       expect(res.communities.every((c) => c.distanceKm === null)).toBe(true);
     });
 
@@ -157,12 +178,12 @@ describe('MassesService — mapa (contrato, approx, área)', () => {
     it('limit padrão 300, máximo 500, e truncated quando havia mais', async () => {
       const muitos = Array.from({ length: 600 }, (_, i) => pin({ id: `c${i}`, latitude: -23.5 - i * 0.001, longitude: -46.5 }));
       prisma.community.findMany.mockResolvedValue(muitos);
-      const padrao = await service.findInArea({ bbox: '-47,-24,-46,-23' });
+      const padrao = (await service.findInArea({ bbox: '-47,-24,-46,-23' })) as MapPinsResult;
       expect(padrao.count).toBe(300);
       expect(padrao.truncated).toBe(true);
-      const teto = await service.findInArea({ bbox: '-47,-24,-46,-23', limit: 9999 });
+      const teto = (await service.findInArea({ bbox: '-47,-24,-46,-23', limit: 9999 })) as MapPinsResult;
       expect(teto.count).toBe(500);
-      const poucos = await service.findInArea({ bbox: '-47,-24,-46,-23', limit: 10 });
+      const poucos = (await service.findInArea({ bbox: '-47,-24,-46,-23', limit: 10 })) as MapPinsResult;
       expect(poucos.count).toBe(10);
       expect(poucos.communities[0].id).toBe('c0');
     });
@@ -172,12 +193,93 @@ describe('MassesService — mapa (contrato, approx, área)', () => {
       massSchedules.expandOccurrences.mockResolvedValue([
         { id: 'conf-1', title: 'Confissão', type: MassScheduleType.CONFESSION, start: '2026-07-23T09:00:00', end: null, community: { id: 'c1', name: 'Matriz' } },
       ]);
-      const res = await service.findInArea({ bbox: '-47,-24,-46,-23', types: [MassScheduleType.CONFESSION], days: 2 });
+      const res = (await service.findInArea({ bbox: '-47,-24,-46,-23', types: [MassScheduleType.CONFESSION], days: 2 })) as MapPinsResult;
       expect(massSchedules.expandOccurrences.mock.calls[0][4]).toEqual({ communityIds: ['c1'], types: [MassScheduleType.CONFESSION] });
       expect(prisma.event.findMany).not.toHaveBeenCalled();
       expect(res.communities[0].nextMasses).toEqual([
         { id: 'conf-1', title: 'Confissão', type: 'CONFESSION', start: '2026-07-23T09:00:00', end: null, source: 'fixed' },
       ]);
+    });
+  });
+
+  describe('findInArea — modo agrupado', () => {
+    const grupo = (over: Record<string, any>) => ({
+      count: 3,
+      lat: -23.51234567,
+      lng: -46.61234567,
+      minLng: -46.7,
+      minLat: -23.6,
+      maxLng: -46.5,
+      maxLat: -23.4,
+      id: null,
+      name: null,
+      ...over,
+    });
+
+    it('zoom < 11 agrupa no banco, sem buscar pinos nem horários', async () => {
+      prisma.$queryRaw.mockResolvedValue([
+        grupo({}),
+        grupo({ count: 1, lat: -25.4, lng: -49.2, minLng: -49.2, minLat: -25.4, maxLng: -49.2, maxLat: -25.4, id: 'c9', name: 'Capela' }),
+        grupo({ count: 10 }),
+      ]);
+      const res = await service.findInArea({ bbox: '-75,-35,-28,7', zoom: 4 });
+      expect(prisma.community.findMany).not.toHaveBeenCalled();
+      expect(massSchedules.expandOccurrences).not.toHaveBeenCalled();
+      expect(res).toEqual({
+        mode: 'clusters',
+        bbox: [-75, -35, -28, 7],
+        zoom: 4,
+        total: 14,
+        clusters: [
+          { lat: -23.51235, lng: -46.61235, count: 10, bbox: [-46.7, -23.6, -46.5, -23.4] },
+          { lat: -23.51235, lng: -46.61235, count: 3, bbox: [-46.7, -23.6, -46.5, -23.4] },
+          { lat: -25.4, lng: -49.2, count: 1, bbox: [-49.2, -25.4, -49.2, -25.4], id: 'c9', name: 'Capela' },
+        ],
+      });
+    });
+
+    it('o SQL é parametrizado (bbox e célula como parâmetros) e respeita deletedAt/status/precisão', async () => {
+      await service.findInArea({ bbox: '-50.123,-26.5,-48.25,-24.75', zoom: 8 });
+      const query = prisma.$queryRaw.mock.calls[0][0] as Prisma.Sql;
+      expect(typeof query.sql).toBe('string');
+      const cell = clusterCellDeg(8, [-50.123, -26.5, -48.25, -24.75]);
+      expect(query.values).toEqual([-26.5, -24.75, -50.123, -48.25, cell, cell]);
+      expect(query.sql).not.toContain('50.123');
+      expect(query.sql).not.toContain('26.5');
+      expect(query.sql).toContain('c."deletedAt" IS NULL');
+      expect(query.sql).toContain("c.status = 'ACTIVE'");
+      expect(query.text).toMatch(/GROUP BY floor\(c\.latitude \/ \$5::float8\), floor\(c\.longitude \/ \$6::float8\)/);
+      expect(query.sql).toContain("NOT IN ('CITY', 'LOCALITY')"); // approx=0 por padrão
+    });
+
+    it('approx=1 tira o filtro de precisão do SQL', async () => {
+      await service.findInArea({ bbox: '-50,-26,-48,-24', zoom: 8, approx: true });
+      const query = prisma.$queryRaw.mock.calls[0][0] as Prisma.Sql;
+      expect(query.sql).not.toContain('geoPrecision');
+    });
+
+    it('zoom >= 11 com poucos pinos: modo pinos com horários', async () => {
+      prisma.community.findMany.mockResolvedValue([pin({ id: 'c1', latitude: -23.5, longitude: -46.5 })]);
+      const res = await service.findInArea({ bbox: '-46.6,-23.6,-46.4,-23.4', zoom: 13 });
+      expect(prisma.community.findMany.mock.calls[0][0].take).toBe(301);
+      expect(prisma.$queryRaw).not.toHaveBeenCalled();
+      expect(massSchedules.expandOccurrences).toHaveBeenCalled();
+      expect(res).toMatchObject({ mode: 'pins', zoom: 13, count: 1, truncated: false });
+    });
+
+    it('zoom >= 11 mas passou do limite: agrupa', async () => {
+      prisma.community.findMany.mockResolvedValue(Array.from({ length: 11 }, (_, i) => pin({ id: `c${i}` })));
+      prisma.$queryRaw.mockResolvedValue([grupo({ count: 11 })]);
+      const res = await service.findInArea({ bbox: '-46.7,-23.6,-46.5,-23.4', zoom: 12, limit: 10 });
+      expect(prisma.community.findMany.mock.calls[0][0].take).toBe(11);
+      expect(res).toMatchObject({ mode: 'clusters', zoom: 12, total: 11 });
+      expect(massSchedules.expandOccurrences).not.toHaveBeenCalled();
+    });
+
+    it('sem zoom não agrupa nem limita a consulta (compatível com o app antigo)', async () => {
+      await service.findInArea({ bbox: '-47,-24,-46,-23' });
+      expect(prisma.community.findMany.mock.calls[0][0].take).toBeUndefined();
+      expect(prisma.$queryRaw).not.toHaveBeenCalled();
     });
   });
 
@@ -210,6 +312,34 @@ describe('MassesService — mapa (contrato, approx, área)', () => {
 describe('map-search.utils', () => {
   it('parseBbox aceita a ordem minLng,minLat,maxLng,maxLat', () => {
     expect(parseBbox('-49.5, -25.6 ,-49.1,-25.3')).toEqual([-49.5, -25.6, -49.1, -25.3]);
+  });
+  it('parseBbox não tem mais teto de tamanho, mas recusa invertido', () => {
+    expect(parseBbox('-75,-35,-28,7')).toEqual([-75, -35, -28, 7]);
+    expect(() => parseBbox('-28,-35,-75,7')).toThrow(BadRequestException);
+  });
+  it('clipToMapBounds recorta ao Brasil e devolve null fora dele', () => {
+    expect(clipToMapBounds([-180, -90, 180, 90])).toEqual([-75, -35, -28, 7]);
+    expect(clipToMapBounds([-50, -26, -48, -24])).toEqual([-50, -26, -48, -24]);
+    expect(clipToMapBounds([-20, -10, -10, 0])).toBeNull();
+  });
+  it('parseZoom: inteiro 0–20; ausente → undefined; o resto → 400', () => {
+    expect(parseZoom(undefined)).toBeUndefined();
+    expect(parseZoom('')).toBeUndefined();
+    expect(parseZoom('0')).toBe(0);
+    expect(parseZoom('20')).toBe(20);
+    for (const z of ['-1', '21', '4.5', 'abc']) expect(() => parseZoom(z)).toThrow(BadRequestException);
+  });
+  it('wantsClusters: abaixo do zoom 11, e nunca sem zoom', () => {
+    expect(wantsClusters(undefined)).toBe(false);
+    expect(wantsClusters(4)).toBe(true);
+    expect(wantsClusters(10)).toBe(true);
+    expect(wantsClusters(11)).toBe(false);
+  });
+  it('clusterCellDeg: ~0,4 tile por zoom, no máximo ~50 células por lado', () => {
+    expect(clusterCellDeg(4, [-50, -26, -48, -24])).toBeCloseTo(9, 6);
+    expect(clusterCellDeg(10, [-50, -26, -49.9, -25.9])).toBeCloseTo(0.140625, 6);
+    // Brasil inteiro pedido com zoom 10: a célula cresce para caber em 50 por lado
+    expect(clusterCellDeg(10, [-75, -35, -28, 7])).toBeCloseTo(47 / 50, 6);
   });
   it('parseFlag só liga com 1/true', () => {
     expect(parseFlag('1')).toBe(true);

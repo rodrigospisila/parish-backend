@@ -1,7 +1,7 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { PrismaService } from '../../database/prisma.service';
 import { MassSchedulesService } from '../mass-schedules/mass-schedules.service';
-import { EventStatus, EventType, GeoPrecision, MassScheduleType } from '@prisma/client';
+import { EventStatus, EventType, GeoPrecision, MassScheduleType, Prisma } from '@prisma/client';
 import {
   Bbox,
   MAX_MASSES_PER_COMMUNITY,
@@ -9,13 +9,17 @@ import {
   clampDays,
   clampMapLimit,
   clampRadiusKm,
+  clipToMapBounds,
+  clusterCellDeg,
   haversineKm,
   isApproximatePin,
   isVerifiedPin,
   normalizeTypes,
   nowBrazilFloating,
   parseBbox,
+  precisionSql,
   precisionWhere,
+  wantsClusters,
 } from './map-search.utils';
 
 export interface NearbyMass {
@@ -56,6 +60,48 @@ export interface MapSearchResult {
   truncated: boolean;
   communities: MapCommunity[];
 }
+
+/** Grupo de igrejas numa célula da grade (mapa afastado). */
+export interface MapCluster {
+  /** Média das coordenadas do grupo (onde a bolha é desenhada). */
+  lat: number;
+  lng: number;
+  count: number;
+  /** [minLng, minLat, maxLng, maxLat] dos pinos do grupo (o app aproxima até ele). */
+  bbox: Bbox;
+  /** Só nos grupos de uma igreja: o pino simples. */
+  id?: string;
+  name?: string;
+}
+
+/** Área em modo agrupado: só contagens, sem horários. */
+export interface MapClustersResult {
+  mode: 'clusters';
+  bbox: Bbox;
+  zoom: number;
+  /** Igrejas na área (soma dos grupos). */
+  total: number;
+  clusters: MapCluster[];
+}
+
+/** Área em modo pinos: o contrato de sempre + o modo e o zoom (nulo quando o cliente não mandou). */
+export type MapPinsResult = MapSearchResult & { mode: 'pins'; zoom: number | null };
+
+export type MapAreaResult = MapPinsResult | MapClustersResult;
+
+interface ClusterRow {
+  count: number;
+  lat: number;
+  lng: number;
+  minLng: number;
+  minLat: number;
+  maxLng: number;
+  maxLat: number;
+  id: string | null;
+  name: string | null;
+}
+
+const round5 = (n: number) => Math.round(Number(n) * 1e5) / 1e5;
 
 /** Nomes antigos (rota logada /masses/nearby) — mesmo formato. */
 export type NearbyCommunity = MapCommunity;
@@ -101,9 +147,10 @@ export class MassesService {
    * Comunidades ativas com pino dentro do retângulo. Sem `approx`, exclui os pinos
    * de centro de cidade/povoado (ver precisionWhere).
    */
-  private async findPins(bbox: Bbox, approx: boolean): Promise<PinRow[]> {
+  private async findPins(bbox: Bbox, approx: boolean, take?: number): Promise<PinRow[]> {
     const [minLng, minLat, maxLng, maxLat] = bbox;
     return this.prisma.community.findMany({
+      ...(take != null ? { take } : {}),
       where: {
         deletedAt: null,
         status: 'ACTIVE',
@@ -289,28 +336,92 @@ export class MassesService {
   }
 
   /**
-   * Igrejas dentro do retângulo visível do mapa, da mais perto à mais longe do
-   * centro do retângulo; `truncated` avisa que havia mais do que `limit`.
+   * Igrejas dentro do retângulo visível do mapa (recortado ao Brasil — ver MAP_BOUNDS).
+   *
+   * - Com `zoom` < PINS_MIN_ZOOM, ou quando há mais pinos que `limit`: modo AGRUPADO
+   *   (`mode: 'clusters'`), uma consulta agregada por grade, sem horários.
+   * - Senão: modo PINOS (`mode: 'pins'`), da mais perto à mais longe do centro do
+   *   retângulo, com as próximas celebrações.
+   * - Sem `zoom` (clientes antigos): sempre pinos; `truncated` avisa que havia mais do que `limit`.
    */
   async findInArea(input: {
     bbox: string | number[];
+    zoom?: number;
     days?: number;
     types?: MassScheduleType[];
     approx?: boolean;
     limit?: number;
-  }): Promise<MapSearchResult> {
-    const bbox = parseBbox(input.bbox);
+  }): Promise<MapAreaResult> {
+    const requested = parseBbox(input.bbox);
     const days = clampDays(input.days);
     const types = normalizeTypes(input.types);
     const limit = clampMapLimit(input.limit);
-    const [minLng, minLat, maxLng, maxLat] = bbox;
+    const approx = input.approx === true;
+    const zoom = input.zoom;
+    const bbox = clipToMapBounds(requested);
 
-    const rows = await this.findPins(bbox, input.approx === true);
+    if (!bbox) {
+      // Fora do Brasil: nada a procurar
+      return wantsClusters(zoom)
+        ? { mode: 'clusters', bbox: requested, zoom: zoom as number, total: 0, clusters: [] }
+        : { mode: 'pins', zoom: zoom ?? null, origin: null, bbox: requested, radiusKm: null, days, count: 0, truncated: false, communities: [] };
+    }
+    if (wantsClusters(zoom)) return this.clusterArea(bbox, zoom as number, approx);
+
+    // Com zoom, basta saber se passou do limite (limit + 1 linhas) — passou, agrupa.
+    const rows = await this.findPins(bbox, approx, zoom !== undefined ? limit + 1 : undefined);
+    if (zoom !== undefined && rows.length > limit) return this.clusterArea(bbox, zoom, approx);
+
+    const [minLng, minLat, maxLng, maxLat] = bbox;
     const sorted = this.byDistance(rows, (minLat + maxLat) / 2, (minLng + maxLng) / 2);
     const truncated = sorted.length > limit;
     const kept = truncated ? sorted.slice(0, limit) : sorted;
 
     const communities = await this.withNextMasses(kept, days, types, false);
-    return { origin: null, bbox, radiusKm: null, days, count: communities.length, truncated, communities };
+    return { mode: 'pins', zoom: zoom ?? null, origin: null, bbox, radiusKm: null, days, count: communities.length, truncated, communities };
+  }
+
+  /**
+   * Agrupamento por grade no banco: uma consulta agregada (GROUP BY célula) sobre o
+   * retângulo. A grade é alinhada à origem (floor(lat / célula)), então os grupos não
+   * mudam ao arrastar o mapa no mesmo zoom. Toda entrada vai como parâmetro.
+   */
+  private async clusterArea(bbox: Bbox, zoom: number, approx: boolean): Promise<MapClustersResult> {
+    const [minLng, minLat, maxLng, maxLat] = bbox;
+    const cell = clusterCellDeg(zoom, bbox);
+    const rows = await this.prisma.$queryRaw<ClusterRow[]>(Prisma.sql`
+      SELECT count(*)::int AS count,
+             avg(c.latitude) AS lat, avg(c.longitude) AS lng,
+             min(c.longitude) AS "minLng", min(c.latitude) AS "minLat",
+             max(c.longitude) AS "maxLng", max(c.latitude) AS "maxLat",
+             CASE WHEN count(*) = 1 THEN min(c.id) END AS id,
+             CASE WHEN count(*) = 1 THEN min(c.name) END AS name
+      FROM communities c
+      WHERE c."deletedAt" IS NULL
+        AND c.status = 'ACTIVE'
+        AND c.latitude BETWEEN ${minLat}::float8 AND ${maxLat}::float8
+        AND c.longitude BETWEEN ${minLng}::float8 AND ${maxLng}::float8
+        ${precisionSql(approx)}
+      GROUP BY floor(c.latitude / ${cell}::float8), floor(c.longitude / ${cell}::float8)
+    `);
+
+    const clusters: MapCluster[] = rows
+      .map((r) => {
+        const count = Number(r.count);
+        const cluster: MapCluster = {
+          lat: round5(r.lat),
+          lng: round5(r.lng),
+          count,
+          bbox: [round5(r.minLng), round5(r.minLat), round5(r.maxLng), round5(r.maxLat)],
+        };
+        if (count === 1 && r.id) {
+          cluster.id = r.id;
+          cluster.name = r.name ?? '';
+        }
+        return cluster;
+      })
+      .sort((a, b) => b.count - a.count);
+    const total = clusters.reduce((sum, c) => sum + c.count, 0);
+    return { mode: 'clusters', bbox, zoom, total, clusters };
   }
 }
