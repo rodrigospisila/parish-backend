@@ -56,6 +56,26 @@ enum GeoCandidateStatus {
   SUPERSEDED
 }
 
+/// O que o fiel sugere corrigir numa comunidade (pelo app, no mapa).
+enum SuggestionKind {
+  /// O pino está no lugar errado (vem com a coordenada sugerida).
+  LOCATION
+  /// Horário de missa/confissão/adoração/terço errado ou faltando.
+  SCHEDULE
+  /// Outro dado: telefone, nome, endereço, padroeiro...
+  INFO
+}
+
+/// Andamento da sugestão. Nada é aplicado sozinho: ACCEPTED é só marcação —
+/// a correção continua sendo feita à mão por quem revisou.
+enum SuggestionStatus {
+  PENDING
+  /// Vista, sem decisão (ou decisão pendente de apuração).
+  REVIEWED
+  ACCEPTED
+  REJECTED
+}
+
 enum EntityStatus {
   ACTIVE
   INACTIVE
@@ -290,6 +310,9 @@ model User {
   catechesisMessages CatechesisMessage[]
   avatar             UserAvatar?
 
+  // Correções de comunidade sugeridas por este usuário no app
+  communitySuggestions CommunitySuggestion[]
+
   @@index([email])
   @@index([role])
   @@map("users")
@@ -523,13 +546,13 @@ model Community {
   coordinatorName String?
 
   // Geolocation
-  latitude     Float?
-  longitude    Float?
+  latitude      Float?
+  longitude     Float?
   /// Nulo = pino legado, anterior a este campo (origem desconhecida).
-  geoPrecision GeoPrecision?
+  geoPrecision  GeoPrecision?
   /// De onde veio a coordenada: cep, ibge-municipio, osm-endereco, cnefe, overture,
   /// cnefe+overture, manual, gps... Permite auditar ou desfazer uma fonte inteira.
-  geoSource    String?
+  geoSource     String?
   /// Conferido: por uma pessoa (pino posto à mão, sugestão confirmada na fila) ou por evidência verificada
   /// (site da paróquia, Wikidata). Enquanto nulo, o pino é palpite de máquina, por melhor que seja.
   geoVerifiedAt DateTime?
@@ -576,6 +599,9 @@ model Community {
   // Sugestões de pino à espera de conferência (fila de revisão do mapa do território)
   geoCandidates CommunityGeoCandidate[]
 
+  // Correções sugeridas pelos fiéis no app (nunca aplicadas sozinhas)
+  suggestions CommunitySuggestion[]
+
   // Audit
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
@@ -617,6 +643,41 @@ model CommunityGeoCandidate {
   @@index([communityId])
   @@index([status])
   @@map("community_geo_candidates")
+}
+
+/// Correção sugerida por um fiel no app (pino no lugar errado, horário, telefone...). NUNCA é aplicada
+/// automaticamente: o SYSTEM_ADMIN revisa e corrige à mão. Sugestão de LOCATION também entra na fila de
+/// revisão do mapa do território como CommunityGeoCandidate (source "usuario").
+model CommunitySuggestion {
+  id          String    @id @default(cuid())
+  communityId String
+  community   Community @relation(fields: [communityId], references: [id], onDelete: Cascade)
+  /// Quem sugeriu (nulo se a conta foi apagada depois).
+  userId      String?
+  user        User?     @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  kind         SuggestionKind
+  /// Em SCHEDULE: de que tipo de celebração é o horário.
+  scheduleType MassScheduleType?
+  /// Em LOCATION: a coordenada sugerida (e a precisão do GPS, em metros, quando veio do aparelho).
+  latitude     Float?
+  longitude    Float?
+  accuracyM    Float?
+  /// A pessoa disse estar na igreja ao enviar (a coordenada é a do GPS no local).
+  atChurch     Boolean           @default(false)
+  /// Texto do usuário (3 a 1000 caracteres).
+  message      String
+
+  status           SuggestionStatus @default(PENDING)
+  reviewNote       String?
+  reviewedAt       DateTime?
+  reviewedByUserId String?
+  createdAt        DateTime         @default(now())
+
+  @@index([communityId])
+  @@index([status])
+  @@index([createdAt])
+  @@map("community_suggestions")
 }
 
 // ============================================

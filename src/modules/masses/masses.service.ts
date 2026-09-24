@@ -1,47 +1,84 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { PrismaService } from '../../database/prisma.service';
 import { MassSchedulesService } from '../mass-schedules/mass-schedules.service';
-import { EventStatus, EventType, MassScheduleType } from '@prisma/client';
+import { EventStatus, EventType, GeoPrecision, MassScheduleType } from '@prisma/client';
+import {
+  Bbox,
+  MAX_MASSES_PER_COMMUNITY,
+  bboxAround,
+  clampDays,
+  clampMapLimit,
+  clampRadiusKm,
+  haversineKm,
+  isApproximatePin,
+  isVerifiedPin,
+  normalizeTypes,
+  nowBrazilFloating,
+  parseBbox,
+  precisionWhere,
+} from './map-search.utils';
 
 export interface NearbyMass {
   id: string;
   title: string;
-  type: string; // MASS
+  type: string; // MASS | CONFESSION | ADORATION | ROSARY
   start: string; // relógio de parede (YYYY-MM-DDTHH:MM:SS)
   end: string | null;
   source: 'fixed' | 'event';
 }
 
-export interface NearbyCommunity {
+/** Igreja/comunidade no mapa ou na busca por proximidade (contrato do app). */
+export interface MapCommunity {
   id: string;
   name: string;
+  address: string;
   city: string;
   state: string;
   latitude: number;
   longitude: number;
+  /** Pino no centro da cidade/povoado (CITY/LOCALITY): a posição é aproximada. */
+  approximate: boolean;
+  /** Pino conferido por uma pessoa ou por evidência verificada. */
+  verified: boolean;
   parish: { id: string; name: string } | null;
-  distanceKm: number;
+  /** Distância até a origem da busca (nula na busca por área). */
+  distanceKm: number | null;
   nextMasses: NearbyMass[];
 }
 
-export interface NearbyResult {
-  origin: { lat: number; lng: number };
-  radiusKm: number;
+export interface MapSearchResult {
+  origin: { lat: number; lng: number } | null;
+  bbox: Bbox | null;
+  radiusKm: number | null;
   days: number;
   count: number;
-  communities: NearbyCommunity[];
+  /** Havia mais comunidades do que o limite: as mais distantes ficaram de fora. */
+  truncated: boolean;
+  communities: MapCommunity[];
 }
 
-// Limites de segurança para os parâmetros da busca
-const RADIUS_MIN_KM = 0.5;
-const RADIUS_MAX_KM = 100;
-const DAYS_MIN = 1;
-const DAYS_MAX = 30;
-// Janela de 7 dias pode render várias missas; teto generoso para os filtros de
-// dia (hoje/domingo) aplicados no app ainda terem material suficiente.
-const MAX_MASSES_PER_COMMUNITY = 15;
-const KM_PER_DEGREE_LAT = 111; // ~111 km por grau de latitude
-const VALID_TYPES = Object.values(MassScheduleType);
+/** Nomes antigos (rota logada /masses/nearby) — mesmo formato. */
+export type NearbyCommunity = MapCommunity;
+export type NearbyResult = MapSearchResult;
+
+interface PinRow {
+  id: string;
+  name: string;
+  address: string;
+  city: string;
+  state: string;
+  latitude: number | null;
+  longitude: number | null;
+  geoPrecision: GeoPrecision | null;
+  geoVerifiedAt: Date | null;
+  parish: { id: string; name: string } | null;
+}
+
+type PinWithDistance = Omit<PinRow, 'latitude' | 'longitude'> & {
+  latitude: number;
+  longitude: number;
+  distanceKm: number;
+};
 
 @Injectable()
 export class MassesService {
@@ -50,111 +87,72 @@ export class MassesService {
     private readonly massSchedulesService: MassSchedulesService,
   ) {}
 
-  private toRad(deg: number): number {
-    return (deg * Math.PI) / 180;
-  }
-
   /** Distância em km entre dois pontos (fórmula de Haversine). */
   haversineKm(lat1: number, lng1: number, lat2: number, lng2: number): number {
-    const R = 6371; // raio médio da Terra (km)
-    const dLat = this.toRad(lat2 - lat1);
-    const dLng = this.toRad(lng2 - lng1);
-    const a =
-      Math.sin(dLat / 2) ** 2 +
-      Math.cos(this.toRad(lat1)) * Math.cos(this.toRad(lat2)) * Math.sin(dLng / 2) ** 2;
-    return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    return haversineKm(lat1, lng1, lat2, lng2);
+  }
+
+  /** "Agora" no relógio de parede de São Paulo (método para os testes congelarem). */
+  private nowBrazilFloating(): string {
+    return nowBrazilFloating();
   }
 
   /**
-   * "Agora" no fuso do Brasil (America/Sao_Paulo) como relógio de parede
-   * (YYYY-MM-DDTHH:MM:SS), independente do fuso do servidor. Todo o sistema
-   * trata horários como "wall clock" (a agenda fixa emite horário flutuante e
-   * os eventos são gravados com o horário digitado), então ancoramos a compara-
-   * ção de "próximas" no horário de parede — não no instante UTC do servidor.
+   * Comunidades ativas com pino dentro do retângulo. Sem `approx`, exclui os pinos
+   * de centro de cidade/povoado (ver precisionWhere).
    */
-  private nowBrazilFloating(): string {
-    const parts = new Intl.DateTimeFormat('en-CA', {
-      timeZone: 'America/Sao_Paulo',
-      year: 'numeric',
-      month: '2-digit',
-      day: '2-digit',
-      hour: '2-digit',
-      minute: '2-digit',
-      second: '2-digit',
-      hourCycle: 'h23',
-    }).formatToParts(new Date());
-    const v = (t: string) => parts.find((p) => p.type === t)?.value ?? '00';
-    return `${v('year')}-${v('month')}-${v('day')}T${v('hour')}:${v('minute')}:${v('second')}`;
-  }
-
-  async findNearby(input: {
-    lat: number;
-    lng: number;
-    radiusKm?: number;
-    days?: number;
-    types?: MassScheduleType[];
-  }): Promise<NearbyResult> {
-    const { lat, lng } = input;
-    if (!Number.isFinite(lat) || lat < -90 || lat > 90) {
-      throw new BadRequestException('Latitude inválida');
-    }
-    if (!Number.isFinite(lng) || lng < -180 || lng > 180) {
-      throw new BadRequestException('Longitude inválida');
-    }
-
-    const radiusKm = Math.min(Math.max(input.radiusKm ?? 10, RADIUS_MIN_KM), RADIUS_MAX_KM);
-    const days = Math.min(Math.max(Math.trunc(input.days ?? 7), DAYS_MIN), DAYS_MAX);
-    // Tipos de celebração (default: só Missa). Ignora valores inválidos.
-    const requested = (input.types ?? []).filter((t) => VALID_TYPES.includes(t));
-    const types = requested.length ? requested : [MassScheduleType.MASS];
-
-    // Bounding box (pré-filtro no banco antes do cálculo exato de distância)
-    const latDelta = radiusKm / KM_PER_DEGREE_LAT;
-    // Perto dos polos cos→0; no Brasil não ocorre, mas protegemos a divisão
-    const cosLat = Math.max(Math.abs(Math.cos(this.toRad(lat))), 0.01);
-    const lngDelta = radiusKm / (KM_PER_DEGREE_LAT * cosLat);
-
-    const communities = await this.prisma.community.findMany({
+  private async findPins(bbox: Bbox, approx: boolean): Promise<PinRow[]> {
+    const [minLng, minLat, maxLng, maxLat] = bbox;
+    return this.prisma.community.findMany({
       where: {
         deletedAt: null,
         status: 'ACTIVE',
-        // Pino de centro de município (CITY) serve ao mapa do território, não à
-        // busca por proximidade: 40 capelas rurais empilhadas na praça da cidade
-        // apareceriam todas "a 2 km", quando estão a 20.
-        // LOCALITY (centro do povoado/bairro) também fica de fora por ora: a tela do
-        // app ainda não sabe avisar que a distância é aproximada.
-        OR: [{ geoPrecision: null }, { geoPrecision: { notIn: ['CITY', 'LOCALITY'] } }],
-        latitude: { not: null, gte: lat - latDelta, lte: lat + latDelta },
-        longitude: { not: null, gte: lng - lngDelta, lte: lng + lngDelta },
+        ...precisionWhere(approx),
+        latitude: { not: null, gte: minLat, lte: maxLat },
+        longitude: { not: null, gte: minLng, lte: maxLng },
       },
       select: {
         id: true,
         name: true,
+        address: true,
         city: true,
         state: true,
         latitude: true,
         longitude: true,
+        geoPrecision: true,
+        geoVerifiedAt: true,
         parish: { select: { id: true, name: true } },
       },
     });
+  }
 
-    // Distância exata (Haversine) + filtro pelo raio + ordenação por proximidade
-    const near = communities
+  /** Distância exata de cada pino até um ponto, do mais perto ao mais longe. */
+  private byDistance(rows: PinRow[], lat: number, lng: number): PinWithDistance[] {
+    return rows
       .filter((c) => c.latitude != null && c.longitude != null)
       .map((c) => ({
         ...c,
         latitude: c.latitude as number,
         longitude: c.longitude as number,
-        distanceKm: this.haversineKm(lat, lng, c.latitude as number, c.longitude as number),
+        distanceKm: haversineKm(lat, lng, c.latitude as number, c.longitude as number),
       }))
-      .filter((c) => c.distanceKm <= radiusKm)
       .sort((a, b) => a.distanceKm - b.distanceKm);
+  }
 
-    if (near.length === 0) {
-      return { origin: { lat, lng }, radiusKm, days, count: 0, communities: [] };
-    }
+  /**
+   * Próximas celebrações (agenda fixa expandida + eventos de Missa publicados) por
+   * comunidade, na janela [agora, agora + days], em ordem de horário. O que já
+   * passou hoje (relógio de São Paulo) fica de fora.
+   */
+  async nextMassesByCommunity(
+    communityIds: string[],
+    days: number,
+    types: MassScheduleType[],
+    perCommunity: number = MAX_MASSES_PER_COMMUNITY,
+  ): Promise<Map<string, NearbyMass[]>> {
+    const massesByCommunity = new Map<string, NearbyMass[]>();
+    if (communityIds.length === 0) return massesByCommunity;
 
-    const communityIds = near.map((c) => c.id);
     const nowFloat = this.nowBrazilFloating();
     // Trata o relógio de parede como UTC para consultar os eventos (mesma
     // convenção com que eles foram gravados — ver EventsService.formatToISO)
@@ -186,8 +184,6 @@ export class MassesService {
         })
       : [];
 
-    // Agrupa as missas por comunidade (descarta as que já passaram hoje)
-    const massesByCommunity = new Map<string, NearbyMass[]>();
     const push = (communityId: string, mass: NearbyMass) => {
       const list = massesByCommunity.get(communityId) ?? [];
       list.push(mass);
@@ -207,6 +203,7 @@ export class MassesService {
     }
 
     for (const ev of events) {
+      if (!ev.communityId) continue;
       const start = ev.startDate.toISOString().slice(0, 19); // parede (grava-se como UTC)
       if (start < nowFloat) continue;
       push(ev.communityId, {
@@ -219,23 +216,101 @@ export class MassesService {
       });
     }
 
-    const result: NearbyCommunity[] = near.map((c) => {
-      const masses = (massesByCommunity.get(c.id) ?? [])
-        .sort((a, b) => a.start.localeCompare(b.start))
-        .slice(0, MAX_MASSES_PER_COMMUNITY);
-      return {
-        id: c.id,
-        name: c.name,
-        city: c.city,
-        state: c.state,
-        latitude: c.latitude,
-        longitude: c.longitude,
-        parish: c.parish,
-        distanceKm: Math.round(c.distanceKm * 10) / 10,
-        nextMasses: masses,
-      };
-    });
+    for (const [id, list] of massesByCommunity) {
+      massesByCommunity.set(id, list.sort((a, b) => a.start.localeCompare(b.start)).slice(0, perCommunity));
+    }
+    return massesByCommunity;
+  }
 
-    return { origin: { lat, lng }, radiusKm, days, count: result.length, communities: result };
+  /** Monta a resposta de cada comunidade com as próximas celebrações. */
+  private async withNextMasses(
+    rows: PinWithDistance[],
+    days: number,
+    types: MassScheduleType[],
+    withDistance: boolean,
+  ): Promise<MapCommunity[]> {
+    const masses = await this.nextMassesByCommunity(
+      rows.map((c) => c.id),
+      days,
+      types,
+    );
+    // Uma comunidade sem horário no período ainda aparece (nextMasses vazio):
+    // o mapa mostra as igrejas, não só as missas.
+    return rows.map((c) => ({
+      id: c.id,
+      name: c.name,
+      address: c.address,
+      city: c.city,
+      state: c.state,
+      latitude: c.latitude,
+      longitude: c.longitude,
+      approximate: isApproximatePin(c.geoPrecision),
+      verified: isVerifiedPin(c),
+      parish: c.parish ?? null,
+      distanceKm: withDistance ? Math.round(c.distanceKm * 10) / 10 : null,
+      nextMasses: masses.get(c.id) ?? [],
+    }));
+  }
+
+  /**
+   * Igrejas e próximas celebrações num raio em torno de uma coordenada, da mais
+   * perto à mais longe. `limit` corta as mais distantes (sem limite quando omitido —
+   * comportamento histórico da rota logada).
+   */
+  async findNearby(input: {
+    lat: number;
+    lng: number;
+    radiusKm?: number;
+    days?: number;
+    types?: MassScheduleType[];
+    approx?: boolean;
+    limit?: number;
+  }): Promise<MapSearchResult> {
+    const { lat, lng } = input;
+    if (!Number.isFinite(lat) || lat < -90 || lat > 90) {
+      throw new BadRequestException('Latitude inválida');
+    }
+    if (!Number.isFinite(lng) || lng < -180 || lng > 180) {
+      throw new BadRequestException('Longitude inválida');
+    }
+
+    const radiusKm = clampRadiusKm(input.radiusKm);
+    const days = clampDays(input.days);
+    const types = normalizeTypes(input.types);
+    const limit = input.limit != null ? clampMapLimit(input.limit) : undefined;
+
+    const rows = await this.findPins(bboxAround(lat, lng, radiusKm), input.approx === true);
+    const near = this.byDistance(rows, lat, lng).filter((c) => c.distanceKm <= radiusKm);
+    const truncated = limit != null && near.length > limit;
+    const kept = truncated ? near.slice(0, limit) : near;
+
+    const communities = await this.withNextMasses(kept, days, types, true);
+    return { origin: { lat, lng }, bbox: null, radiusKm, days, count: communities.length, truncated, communities };
+  }
+
+  /**
+   * Igrejas dentro do retângulo visível do mapa, da mais perto à mais longe do
+   * centro do retângulo; `truncated` avisa que havia mais do que `limit`.
+   */
+  async findInArea(input: {
+    bbox: string | number[];
+    days?: number;
+    types?: MassScheduleType[];
+    approx?: boolean;
+    limit?: number;
+  }): Promise<MapSearchResult> {
+    const bbox = parseBbox(input.bbox);
+    const days = clampDays(input.days);
+    const types = normalizeTypes(input.types);
+    const limit = clampMapLimit(input.limit);
+    const [minLng, minLat, maxLng, maxLat] = bbox;
+
+    const rows = await this.findPins(bbox, input.approx === true);
+    const sorted = this.byDistance(rows, (minLat + maxLat) / 2, (minLng + maxLng) / 2);
+    const truncated = sorted.length > limit;
+    const kept = truncated ? sorted.slice(0, limit) : sorted;
+
+    const communities = await this.withNextMasses(kept, days, types, false);
+    return { origin: null, bbox, radiusKm: null, days, count: communities.length, truncated, communities };
   }
 }

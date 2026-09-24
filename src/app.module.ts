@@ -40,6 +40,8 @@ import { SaintsModule } from './modules/saints/saints.module';
 import { ClergyMessagesModule } from './modules/clergy-messages/clergy-messages.module';
 import { GeocodingModule } from './modules/geocoding/geocoding.module';
 import { MassesModule } from './modules/masses/masses.module';
+import { PublicMapModule } from './modules/public-map/public-map.module';
+import { CommunitySuggestionsModule } from './modules/community-suggestions/community-suggestions.module';
 import { DashboardModule } from './modules/dashboard/dashboard.module';
 import { TitheModule } from './modules/tithe/tithe.module';
 import { CommonModule } from './common/common.module';
@@ -51,7 +53,7 @@ import { CommonModule } from './common/common.module';
       envFilePath: '.env',
     }),
     ScheduleModule.forRoot(),
-    // Limite padrão (só vale onde um ThrottlerGuard é aplicado — hoje, o dízimo)
+    // Limite padrão (só vale onde um ThrottlerGuard é aplicado — dízimo, auth, mapa público...)
     ThrottlerModule.forRoot([{ ttl: 60_000, limit: 60 }]),
     PrismaModule,
     CommonModule,
@@ -87,6 +89,8 @@ import { CommonModule } from './common/common.module';
     ClergyMessagesModule,
     GeocodingModule,
     MassesModule,
+    PublicMapModule,
+    CommunitySuggestionsModule,
     DashboardModule,
     TitheModule,
     SettingsModule,

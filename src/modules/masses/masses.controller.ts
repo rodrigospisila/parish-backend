@@ -7,8 +7,8 @@ import {
   Query,
   UseGuards,
 } from '@nestjs/common';
-import { MassScheduleType } from '@prisma/client';
 import { MassesService } from './masses.service';
+import { parseTypesCsv } from './map-search.utils';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 
 @Controller('masses')
@@ -28,12 +28,6 @@ export class MassesController {
     @Query('days', new DefaultValuePipe(7), ParseIntPipe) days: number,
     @Query('types') typesCsv?: string,
   ) {
-    const types = typesCsv
-      ? (typesCsv
-          .split(',')
-          .map((t) => t.trim().toUpperCase())
-          .filter(Boolean) as MassScheduleType[])
-      : undefined;
-    return this.massesService.findNearby({ lat, lng, radiusKm, days, types });
+    return this.massesService.findNearby({ lat, lng, radiusKm, days, types: parseTypesCsv(typesCsv) });
   }
 }
