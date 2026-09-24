@@ -367,6 +367,12 @@ export class MassesService {
         : { mode: 'pins', zoom: zoom ?? null, origin: null, bbox: requested, radiusKm: null, days, count: 0, truncated: false, communities: [] };
     }
     if (wantsClusters(zoom)) return this.clusterArea(bbox, zoom as number, approx);
+    // Sem zoom (cliente antigo) e retângulo grande: não carrega dezenas de milhares de pinos na memória para cortar em
+    // `limit` — agrupa, com o zoom equivalente ao tamanho do retângulo
+    if (zoom === undefined && Math.max(bbox[2] - bbox[0], bbox[3] - bbox[1]) > 4) {
+      const zoomEquivalente = Math.max(0, Math.min(10, Math.floor(Math.log2(360 / Math.max(bbox[2] - bbox[0], bbox[3] - bbox[1])))));
+      return this.clusterArea(bbox, zoomEquivalente, approx);
+    }
 
     // Com zoom, basta saber se passou do limite (limit + 1 linhas) — passou, agrupa.
     const rows = await this.findPins(bbox, approx, zoom !== undefined ? limit + 1 : undefined);

@@ -137,12 +137,19 @@ describe('MassesService — mapa (contrato, approx, área)', () => {
       expect(prisma.community.findMany).not.toHaveBeenCalled();
     });
 
-    it('aceita área de qualquer tamanho e recorta ao Brasil', async () => {
+    it('sem zoom e área grande: recorta ao Brasil e agrupa em vez de carregar todos os pinos', async () => {
+      prisma.$queryRaw = jest.fn().mockResolvedValue([]);
       const res = await service.findInArea({ bbox: '-80,-40,-20,10' });
+      expect(prisma.community.findMany).not.toHaveBeenCalled();
+      expect(prisma.$queryRaw).toHaveBeenCalledTimes(1);
+      expect(res).toMatchObject({ mode: 'clusters', bbox: [-75, -35, -28, 7] });
+    });
+
+    it('sem zoom e área pequena (até 4°): pinos, como os clientes antigos esperam', async () => {
+      const res = await service.findInArea({ bbox: '-49.4,-25.6,-49.1,-25.3' });
       const where = prisma.community.findMany.mock.calls[0][0].where;
-      expect(where.latitude).toEqual({ not: null, gte: -35, lte: 7 });
-      expect(where.longitude).toEqual({ not: null, gte: -75, lte: -28 });
-      expect(res).toMatchObject({ mode: 'pins', zoom: null, bbox: [-75, -35, -28, 7] });
+      expect(where.latitude).toEqual({ not: null, gte: -25.6, lte: -25.3 });
+      expect(res).toMatchObject({ mode: 'pins', zoom: null });
     });
 
     it('fora do Brasil não consulta nada', async () => {
