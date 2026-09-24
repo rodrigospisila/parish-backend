@@ -1,12 +1,16 @@
 import { Controller, Get, Post, Patch, Delete, Body, Param, Query, UseGuards, Request } from '@nestjs/common';
 import { DocumentsService } from './documents.service';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
+import { PlanFeatureGuard } from '../plans/plan-feature.guard';
+import { PlanResource, RequiresFeature } from '../plans/plan.decorators';
 import { RolesGuard } from '../auth/guards/roles.guard';
 import { Roles } from '../auth/decorators/roles.decorator';
 import { UserRole } from '@prisma/client';
 
+// Recurso pago da comunidade (planos); documento só da paróquia → alguma comunidade dela
 @Controller('documents')
-@UseGuards(JwtAuthGuard, RolesGuard)
+@UseGuards(JwtAuthGuard, RolesGuard, PlanFeatureGuard)
+@RequiresFeature('documents')
 @Roles(UserRole.PASTORAL_COORDINATOR)
 export class DocumentsController {
   constructor(private readonly service: DocumentsService) {}
@@ -17,6 +21,7 @@ export class DocumentsController {
   }
 
   @Get()
+  @PlanResource('communityPastoral:query.communityPastoralId')
   list(
     @Request() req: any,
     @Query('category') category?: string,
@@ -33,21 +38,25 @@ export class DocumentsController {
   }
 
   @Get(':id')
+  @PlanResource('pastoralDocument')
   get(@Param('id') id: string, @Request() req: any) {
     return this.service.getWithVersions(id, req.user);
   }
 
   @Post(':id/versions')
+  @PlanResource('pastoralDocument')
   addVersion(@Param('id') id: string, @Body() dto: any, @Request() req: any) {
     return this.service.addVersion(id, dto, req.user);
   }
 
   @Patch(':id/archive')
+  @PlanResource('pastoralDocument')
   archive(@Param('id') id: string, @Body() body: { isArchived: boolean }, @Request() req: any) {
     return this.service.archive(id, body.isArchived, req.user);
   }
 
   @Delete(':id')
+  @PlanResource('pastoralDocument')
   remove(@Param('id') id: string, @Request() req: any) {
     return this.service.remove(id, req.user);
   }

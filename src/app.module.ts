@@ -44,6 +44,7 @@ import { PublicMapModule } from './modules/public-map/public-map.module';
 import { CommunitySuggestionsModule } from './modules/community-suggestions/community-suggestions.module';
 import { DashboardModule } from './modules/dashboard/dashboard.module';
 import { TitheModule } from './modules/tithe/tithe.module';
+import { PlansModule } from './modules/plans/plans.module';
 import { CommonModule } from './common/common.module';
 
 @Module({
@@ -94,6 +95,7 @@ import { CommonModule } from './common/common.module';
     DashboardModule,
     TitheModule,
     SettingsModule,
+    PlansModule,
   ],
   controllers: [AppController],
   providers: [

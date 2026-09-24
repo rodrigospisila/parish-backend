@@ -26,7 +26,9 @@ export type AuditAction =
   | 'TWO_FACTOR_RESET'
   | 'TWO_FACTOR_LOGIN'
   | 'TWO_FACTOR_LOGIN_FAILED'
-  | 'TWO_FACTOR_BACKUP_USED';
+  | 'TWO_FACTOR_BACKUP_USED'
+  // Funil: fiel escolheu/trocou a comunidade no app (PATCH /users/me/community)
+  | 'COMMUNITY_JOIN';
 
 export interface AuditActor {
   id?: string;

@@ -1,12 +1,16 @@
 import { Controller, Get, Post, Body, Param, Query, UseGuards, Request } from '@nestjs/common';
 import { VisitationService } from './visitation.service';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
+import { PlanFeatureGuard } from '../plans/plan-feature.guard';
+import { PlanResource, RequiresFeature } from '../plans/plan.decorators';
 import { RolesGuard } from '../auth/guards/roles.guard';
 import { Roles } from '../auth/decorators/roles.decorator';
 import { VisitRequestStatus, UserRole } from '@prisma/client';
 
+// Recurso pago da comunidade (planos)
 @Controller('visitation')
-@UseGuards(JwtAuthGuard, RolesGuard)
+@UseGuards(JwtAuthGuard, RolesGuard, PlanFeatureGuard)
+@RequiresFeature('visitation')
 @Roles(UserRole.PASTORAL_COORDINATOR)
 export class VisitationController {
   constructor(private readonly service: VisitationService) {}
@@ -22,11 +26,13 @@ export class VisitationController {
   }
 
   @Get('requests/:id')
+  @PlanResource('visitRequest')
   getRequest(@Param('id') id: string, @Request() req: any) {
     return this.service.getRequestWithVisits(id, req.user);
   }
 
   @Post('requests/:id/visits')
+  @PlanResource('visitRequest')
   registerVisit(@Param('id') id: string, @Body() dto: any, @Request() req: any) {
     return this.service.registerVisit(id, dto, req.user);
   }

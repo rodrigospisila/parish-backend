@@ -21,12 +21,18 @@ import { CreatePastoralMemberDto } from './dto/create-pastoral-member.dto';
 import { UpdatePastoralMemberDto } from './dto/update-pastoral-member.dto';
 import { NotifyMembersDto } from './dto/notify-members.dto';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
+import { PlanFeatureGuard } from '../plans/plan-feature.guard';
+import { PlanResource, RequiresFeature, SkipPlanCheck } from '../plans/plan.decorators';
 import { RolesGuard } from '../auth/guards/roles.guard';
 import { Roles } from '../auth/decorators/roles.decorator';
 import { UserRole } from '@prisma/client';
 
+// Recurso pago da comunidade (planos). Catálogo global e a lista de pastorais
+// da comunidade seguem livres: telas grátis (eventos, agenda fixa, mensagens
+// do clero, usuários) dependem delas.
 @Controller('pastorals')
-@UseGuards(JwtAuthGuard)
+@UseGuards(JwtAuthGuard, PlanFeatureGuard)
+@RequiresFeature('pastorals')
 export class PastoralsController {
   constructor(private readonly pastoralsService: PastoralsService) {}
 
@@ -42,11 +48,13 @@ export class PastoralsController {
   }
 
   @Get('global')
+  @SkipPlanCheck()
   findAllGlobalPastorals() {
     return this.pastoralsService.findAllGlobalPastorals();
   }
 
   @Get('global/:id')
+  @SkipPlanCheck()
   findOneGlobalPastoral(@Param('id') id: string) {
     return this.pastoralsService.findOneGlobalPastoral(id);
   }
@@ -86,6 +94,7 @@ export class PastoralsController {
   }
 
   @Get('community')
+  @SkipPlanCheck()
   findAllCommunityPastorals(
     @Query('communityId') communityId?: string,
     @Query('parishId') parishId?: string,
@@ -98,11 +107,13 @@ export class PastoralsController {
   // self-service (ex.: vincular a própria pastoral a um horário da Agenda
   // Fixa). Rota estática ANTES de community/:id para não colidir.
   @Get('community/coordinated-by-me')
+  @SkipPlanCheck()
   findCoordinatedByMe(@Request() req) {
     return this.pastoralsService.findCoordinatedByMe(req.user.id);
   }
 
   @Get('community/:id/available-members')
+  @PlanResource('communityPastoral')
   @UseGuards(RolesGuard)
   @Roles(
     UserRole.SYSTEM_ADMIN,
@@ -116,6 +127,7 @@ export class PastoralsController {
   }
 
   @Get('community/:id')
+  @PlanResource('communityPastoral')
   findOneCommunityPastoral(@Param('id') id: string, @Request() req?) {
     return this.pastoralsService.findOneCommunityPastoral(id, req?.user);
   }
@@ -125,6 +137,7 @@ export class PastoralsController {
    * POST /pastorals/community/:id/notify-members
    */
   @Post('community/:id/notify-members')
+  @PlanResource('communityPastoral')
   @UseGuards(RolesGuard)
   @Roles(
     UserRole.SYSTEM_ADMIN,
@@ -138,6 +151,7 @@ export class PastoralsController {
   }
 
   @Patch('community/:id')
+  @PlanResource('communityPastoral')
   @UseGuards(RolesGuard)
   @Roles(
     UserRole.SYSTEM_ADMIN,
@@ -154,6 +168,7 @@ export class PastoralsController {
   }
 
   @Delete('community/:id')
+  @PlanResource('communityPastoral')
   @UseGuards(RolesGuard)
   @Roles(
     UserRole.SYSTEM_ADMIN,
@@ -170,6 +185,7 @@ export class PastoralsController {
   // ============================================
 
   @Post('groups')
+  @PlanResource('communityPastoral:body.communityPastoralId')
   @UseGuards(RolesGuard)
   @Roles(
     UserRole.SYSTEM_ADMIN,
@@ -183,16 +199,19 @@ export class PastoralsController {
   }
 
   @Get('groups')
+  @PlanResource('communityPastoral:query.communityPastoralId')
   findAllPastoralGroups(@Query('communityPastoralId') communityPastoralId?: string, @Request() req?) {
     return this.pastoralsService.findAllPastoralGroups(communityPastoralId, req?.user);
   }
 
   @Get('groups/:id')
+  @PlanResource('pastoralGroup')
   findOnePastoralGroup(@Param('id') id: string, @Request() req?) {
     return this.pastoralsService.findOnePastoralGroup(id, req?.user);
   }
 
   @Patch('groups/:id')
+  @PlanResource('pastoralGroup')
   @UseGuards(RolesGuard)
   @Roles(
     UserRole.SYSTEM_ADMIN,
@@ -206,6 +225,7 @@ export class PastoralsController {
   }
 
   @Delete('groups/:id')
+  @PlanResource('pastoralGroup')
   @UseGuards(RolesGuard)
   @Roles(
     UserRole.SYSTEM_ADMIN,
@@ -222,6 +242,7 @@ export class PastoralsController {
   // ============================================
 
   @Post('members')
+  @PlanResource('communityPastoral:body.communityPastoralId', 'pastoralGroup:body.pastoralGroupId')
   @UseGuards(RolesGuard)
   @Roles(
     UserRole.SYSTEM_ADMIN,
@@ -235,6 +256,7 @@ export class PastoralsController {
   }
 
   @Get('members')
+  @PlanResource('communityPastoral:query.communityPastoralId', 'pastoralGroup:query.pastoralGroupId')
   findPastoralMembers(
     @Query('communityPastoralId') communityPastoralId?: string,
     @Query('pastoralGroupId') pastoralGroupId?: string,
@@ -244,6 +266,7 @@ export class PastoralsController {
   }
 
   @Patch('members/:id')
+  @PlanResource('pastoralMember')
   @UseGuards(RolesGuard)
   @Roles(
     UserRole.SYSTEM_ADMIN,
@@ -257,6 +280,7 @@ export class PastoralsController {
   }
 
   @Delete('members/:id')
+  @PlanResource('pastoralMember')
   @UseGuards(RolesGuard)
   @Roles(
     UserRole.SYSTEM_ADMIN,

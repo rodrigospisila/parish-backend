@@ -3,12 +3,17 @@ import { FileInterceptor } from '@nestjs/platform-express';
 import type { Response } from 'express';
 import { CatechesisService } from './catechesis.service';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
+import { PlanFeatureGuard } from '../plans/plan-feature.guard';
+import { PlanResource, RequiresFeature } from '../plans/plan.decorators';
 import { RolesGuard } from '../auth/guards/roles.guard';
 import { Roles } from '../auth/decorators/roles.decorator';
 import { UserRole } from '@prisma/client';
 
+// Recurso pago da comunidade (planos): o fiel/família não paga — vale o plano
+// da comunidade da turma
 @Controller('catechesis')
-@UseGuards(JwtAuthGuard, RolesGuard)
+@UseGuards(JwtAuthGuard, RolesGuard, PlanFeatureGuard)
+@RequiresFeature('catechesis')
 export class CatechesisController {
   constructor(private readonly service: CatechesisService) {}
 
@@ -30,6 +35,7 @@ export class CatechesisController {
   // Editar etapa: estrutura é PARISH_ADMIN+ (service valida); a COR pode ser
   // ajustada pela coordenação da própria paróquia (pastoral/comunidade)
   @Patch('stages/:id')
+  @PlanResource('catechesisStage')
   @Roles(UserRole.PASTORAL_COORDINATOR)
   updateStage(
     @Param('id') id: string,
@@ -58,6 +64,7 @@ export class CatechesisController {
   }
 
   @Post('apply')
+  @PlanResource('catechesisClass:body.classId')
   apply(
     @Body()
     dto: {
@@ -75,11 +82,13 @@ export class CatechesisController {
 
   // Aprovação da inscrição (catequista da turma ou coordenação — service valida)
   @Patch('enrollments/:id/approve')
+  @PlanResource('catechesisEnrollment')
   approve(@Param('id') id: string, @Request() req: any) {
     return this.service.approveEnrollment(id, req.user);
   }
 
   @Patch('enrollments/:id/reject')
+  @PlanResource('catechesisEnrollment')
   reject(@Param('id') id: string, @Body() body: { reason?: string }, @Request() req: any) {
     return this.service.rejectEnrollment(id, body?.reason, req.user);
   }
@@ -87,24 +96,28 @@ export class CatechesisController {
   // Papelada (PDF): certificado, lote, lista da turma e declaração.
   // Guard no service: equipe da turma OU a própria família (individuais).
   @Get('enrollments/:id/certificate.pdf')
+  @PlanResource('catechesisEnrollment')
   async certificate(@Param('id') id: string, @Res() res: Response, @Request() req: any) {
     const buffer = await this.service.generateCertificate(id, req.user);
     this.sendPdf(res, buffer, 'certificado-catequese.pdf');
   }
 
   @Get('classes/:id/certificates.pdf')
+  @PlanResource('catechesisClass')
   async classCertificates(@Param('id') id: string, @Res() res: Response, @Request() req: any) {
     const buffer = await this.service.generateClassCertificates(id, req.user);
     this.sendPdf(res, buffer, 'certificados-turma.pdf');
   }
 
   @Get('classes/:id/roster.pdf')
+  @PlanResource('catechesisClass')
   async roster(@Param('id') id: string, @Res() res: Response, @Request() req: any) {
     const buffer = await this.service.generateClassRoster(id, req.user);
     this.sendPdf(res, buffer, 'lista-turma.pdf');
   }
 
   @Get('enrollments/:id/declaration.pdf')
+  @PlanResource('catechesisEnrollment')
   async declaration(@Param('id') id: string, @Res() res: Response, @Request() req: any) {
     const buffer = await this.service.generateEnrollmentDeclaration(id, req.user);
     this.sendPdf(res, buffer, 'declaracao-matricula.pdf');
@@ -112,6 +125,7 @@ export class CatechesisController {
 
   // Corrigir/excluir encontro (equipe da turma — service valida)
   @Patch('sessions/:id')
+  @PlanResource('catechesisSession')
   updateSession(
     @Param('id') id: string,
     @Body() dto: { date?: string; topic?: string },
@@ -121,18 +135,21 @@ export class CatechesisController {
   }
 
   @Delete('sessions/:id')
+  @PlanResource('catechesisSession')
   deleteSession(@Param('id') id: string, @Request() req: any) {
     return this.service.deleteSession(id, req.user);
   }
 
   // Aviso direcionado a UMA família (equipe da turma — service valida)
   @Post('enrollments/:id/notify')
+  @PlanResource('catechesisEnrollment')
   notifyFamily(@Param('id') id: string, @Body() body: { message: string }, @Request() req: any) {
     return this.service.notifyEnrollmentFamily(id, body?.message, req.user);
   }
 
   // Agenda do ano em lote (equipe da turma — service valida)
   @Post('classes/:id/generate-sessions')
+  @PlanResource('catechesisClass')
   generateSessions(@Param('id') id: string, @Body() body: { dates: string[] }, @Request() req: any) {
     return this.service.generateSessions(id, body, req.user);
   }
@@ -148,6 +165,7 @@ export class CatechesisController {
 
   // Documentos da matrícula: família envia, equipe confere (service valida)
   @Post('enrollments/:id/documents')
+  @PlanResource('catechesisEnrollment')
   @UseInterceptors(FileInterceptor('file', { limits: { fileSize: 8 * 1024 * 1024 } }))
   submitDocument(
     @Param('id') id: string,
@@ -159,6 +177,7 @@ export class CatechesisController {
   }
 
   @Get('enrollments/:id/documents')
+  @PlanResource('catechesisEnrollment')
   listDocuments(@Param('id') id: string, @Request() req: any) {
     return this.service.listDocuments(id, req.user);
   }
@@ -166,6 +185,7 @@ export class CatechesisController {
   // Declaração SEM arquivo: "não tem" ou batismo de outra denominação —
   // família ou equipe (service valida contra os requisitos da turma)
   @Post('enrollments/:id/documents/declaration')
+  @PlanResource('catechesisEnrollment')
   submitDeclaration(
     @Param('id') id: string,
     @Body() dto: { kind: string; declaration: string; denomination?: string },
@@ -177,11 +197,13 @@ export class CatechesisController {
   // Requisitos de documentos da inscrição: leitura para qualquer autenticado
   // (a família precisa ver o que a turma pede); edição pela coordenação
   @Get('classes/:id/doc-requirements')
+  @PlanResource('catechesisClass')
   classDocRequirements(@Param('id') id: string, @Request() req: any) {
     return this.service.getClassDocRequirements(id, req.user);
   }
 
   @Put('classes/:id/doc-requirements')
+  @PlanResource('catechesisClass')
   @Roles(UserRole.PASTORAL_COORDINATOR)
   setClassDocRequirements(
     @Param('id') id: string,
@@ -193,11 +215,13 @@ export class CatechesisController {
 
   // Frequência detalhada por encontro (família ou equipe — service valida)
   @Get('enrollments/:id/attendance')
+  @PlanResource('catechesisEnrollment')
   enrollmentAttendance(@Param('id') id: string, @Request() req: any) {
     return this.service.getEnrollmentAttendance(id, req.user);
   }
 
   @Get('documents/:id/file')
+  @PlanResource('catechesisDocument')
   async documentFile(@Param('id') id: string, @Res() res: Response, @Request() req: any) {
     const file = await this.service.getDocumentFile(id, req.user);
     res.set({
@@ -211,11 +235,13 @@ export class CatechesisController {
   // Corrigir o cadastro do catequizando conforme o LIDO do documento —
   // família da matrícula ou equipe (service valida; auditado; reconfere)
   @Post('documents/:id/apply-correction')
+  @PlanResource('catechesisDocument')
   applyDocumentCorrection(@Param('id') id: string, @Request() req: any) {
     return this.service.applyDocumentCorrection(id, req.user);
   }
 
   @Patch('documents/:id/review')
+  @PlanResource('catechesisDocument')
   reviewDocument(
     @Param('id') id: string,
     @Body() body: { approve: boolean; notes?: string },
@@ -226,6 +252,7 @@ export class CatechesisController {
 
   // Pareceres por período (equipe escreve; equipe e família leem — service valida)
   @Post('enrollments/:id/assessments')
+  @PlanResource('catechesisEnrollment')
   upsertAssessment(
     @Param('id') id: string,
     @Body() dto: { period: string; rating?: string; notes: string },
@@ -235,12 +262,14 @@ export class CatechesisController {
   }
 
   @Get('enrollments/:id/assessments')
+  @PlanResource('catechesisEnrollment')
   listAssessments(@Param('id') id: string, @Request() req: any) {
     return this.service.listAssessments(id, req.user);
   }
 
   // Parecer em lote para a turma (equipe — service valida)
   @Post('classes/:id/assessments')
+  @PlanResource('catechesisClass')
   upsertAssessmentsBatch(
     @Param('id') id: string,
     @Body() dto: { period: string; rating?: string; notes: string; enrollmentIds: string[] },
@@ -251,6 +280,7 @@ export class CatechesisController {
 
   // Taxa de material (coordenação registra; equipe consulta)
   @Post('classes/:id/fees')
+  @PlanResource('catechesisClass')
   @Roles(UserRole.PASTORAL_COORDINATOR)
   createFee(
     @Param('id') id: string,
@@ -261,11 +291,13 @@ export class CatechesisController {
   }
 
   @Get('classes/:id/fees')
+  @PlanResource('catechesisClass')
   classFees(@Param('id') id: string, @Request() req: any) {
     return this.service.getClassFees(id, req.user);
   }
 
   @Post('fees/:id/payments')
+  @PlanResource('catechesisFee')
   @Roles(UserRole.PASTORAL_COORDINATOR)
   recordFeePayment(
     @Param('id') id: string,
@@ -277,22 +309,26 @@ export class CatechesisController {
 
   // Conversa família ↔ equipe por matrícula (Onda 4) — service decide o lado
   @Get('enrollments/:id/messages')
+  @PlanResource('catechesisEnrollment')
   listMessages(@Param('id') id: string, @Request() req: any) {
     return this.service.listMessages(id, req.user);
   }
 
   @Post('enrollments/:id/messages')
+  @PlanResource('catechesisEnrollment')
   sendMessage(@Param('id') id: string, @Body() body: { body: string }, @Request() req: any) {
     return this.service.sendMessage(id, body?.body, req.user);
   }
 
   @Get('classes/:id/conversations')
+  @PlanResource('catechesisClass')
   classConversations(@Param('id') id: string, @Request() req: any) {
     return this.service.listClassConversations(id, req.user);
   }
 
   // Recibo do pagamento da taxa (família ou equipe — service valida)
   @Get('fees/payments/:id/receipt.pdf')
+  @PlanResource('catechesisFeePayment')
   async feeReceipt(@Param('id') id: string, @Res() res: Response, @Request() req: any) {
     const buffer = await this.service.generateFeeReceipt(id, req.user);
     this.sendPdf(res, buffer, 'recibo-taxa.pdf');
@@ -300,6 +336,7 @@ export class CatechesisController {
 
   // Exportação financeira das taxas da turma (CSV)
   @Get('classes/:id/fees/export.csv')
+  @PlanResource('catechesisClass')
   async feesCsv(@Param('id') id: string, @Res() res: Response, @Request() req: any) {
     const csv = await this.service.exportClassFeesCsv(id, req.user);
     res.set({
@@ -311,6 +348,7 @@ export class CatechesisController {
 
   // Planejamento de temas em lote (equipe — service valida)
   @Post('classes/:id/sessions/topics')
+  @PlanResource('catechesisClass')
   updateTopics(
     @Param('id') id: string,
     @Body() body: { items: Array<{ sessionId: string; topic: string }> },
@@ -321,6 +359,7 @@ export class CatechesisController {
 
   // Histórico de avisos enviados às famílias (equipe — service valida)
   @Get('classes/:id/sent-notices')
+  @PlanResource('catechesisClass')
   sentNotices(@Param('id') id: string, @Request() req: any) {
     return this.service.listSentNotices(id, req.user);
   }
@@ -341,12 +380,14 @@ export class CatechesisController {
 
   // Renovação em lote (coordenação)
   @Get('classes/:id/renewal-preview')
+  @PlanResource('catechesisClass')
   @Roles(UserRole.PASTORAL_COORDINATOR)
   renewalPreview(@Param('id') id: string, @Request() req: any) {
     return this.service.renewalPreview(id, req.user);
   }
 
   @Post('classes/:id/renew')
+  @PlanResource('catechesisClass')
   @Roles(UserRole.PASTORAL_COORDINATOR)
   renew(
     @Param('id') id: string,
@@ -358,6 +399,7 @@ export class CatechesisController {
 
   // Conclusão em lote da turma: uma data/ministro, resultado parcial por matrícula
   @Post('classes/:id/complete-batch')
+  @PlanResource('catechesisClass')
   @Roles(UserRole.PASTORAL_COORDINATOR)
   completeBatch(
     @Param('id') id: string,
@@ -394,6 +436,7 @@ export class CatechesisController {
   // herdando dados e catequistas — mantidos ou ajustados. Piso PASTORAL:
   // é quem opera o encerramento (painel/concluir/distribuir são dela)
   @Post('classes/:id/rollover')
+  @PlanResource('catechesisClass')
   @Roles(UserRole.PASTORAL_COORDINATOR)
   rolloverClass(
     @Param('id') id: string,
@@ -433,6 +476,7 @@ export class CatechesisController {
   }
 
   @Delete('enrollment-presets/:id')
+  @PlanResource('catechesisPreset')
   @Roles(UserRole.PASTORAL_COORDINATOR)
   deleteEnrollmentPreset(@Param('id') id: string, @Request() req: any) {
     return this.service.deleteEnrollmentPreset(id, req.user);
@@ -464,6 +508,7 @@ export class CatechesisController {
   // Editar a turma (inclui o limite de vagas e a janela de inscrições) —
   // coordenador de pastoral (Catequese) também, dentro do escopo da comunidade
   @Patch('classes/:id')
+  @PlanResource('catechesisClass')
   @Roles(UserRole.PASTORAL_COORDINATOR)
   updateClass(
     @Param('id') id: string,
@@ -486,33 +531,39 @@ export class CatechesisController {
 
   // Painel da turma: catequista vinculado OU escopo de gestão (service valida)
   @Get('classes/:id/report')
+  @PlanResource('catechesisClass')
   classReport(@Param('id') id: string, @Request() req: any) {
     return this.service.getClassReport(id, req.user);
   }
 
   @Get('classes/:id/sessions')
+  @PlanResource('catechesisClass')
   listSessions(@Param('id') id: string, @Request() req: any) {
     return this.service.listSessions(id, req.user);
   }
 
   @Get('sessions/:id/attendance')
+  @PlanResource('catechesisSession')
   sessionAttendance(@Param('id') id: string, @Request() req: any) {
     return this.service.getSessionAttendance(id, req.user);
   }
 
   @Get('classes/:id/eligible-catechists')
+  @PlanResource('catechesisClass')
   @Roles(UserRole.PASTORAL_COORDINATOR)
   eligibleCatechists(@Param('id') id: string, @Request() req: any) {
     return this.service.listEligibleCatechists(id, req.user);
   }
 
   @Post('classes/:id/catechists')
+  @PlanResource('catechesisClass')
   @Roles(UserRole.PASTORAL_COORDINATOR)
   addCatechist(@Param('id') id: string, @Body() body: { memberId: string; role?: string }, @Request() req: any) {
     return this.service.addCatechist(id, body.memberId, body.role, req.user);
   }
 
   @Delete('classes/:id/catechists/:memberId')
+  @PlanResource('catechesisClass')
   @Roles(UserRole.PASTORAL_COORDINATOR)
   removeCatechist(@Param('id') id: string, @Param('memberId') memberId: string, @Request() req: any) {
     return this.service.removeCatechist(id, memberId, req.user);
@@ -520,6 +571,7 @@ export class CatechesisController {
 
   // Matrícula
   @Post('enrollments')
+  @PlanResource('catechesisClass:body.classId')
   @Roles(UserRole.PASTORAL_COORDINATOR)
   enroll(
     @Body() dto: { classId: string; memberId: string; pendingDocuments?: string; requireBaptism?: boolean; overrideCapacity?: boolean; unbaptized?: boolean },
@@ -529,12 +581,14 @@ export class CatechesisController {
   }
 
   @Patch('enrollments/:id/transfer')
+  @PlanResource('catechesisEnrollment')
   @Roles(UserRole.PASTORAL_COORDINATOR)
   transfer(@Param('id') id: string, @Body() body: { targetClassId: string }, @Request() req: any) {
     return this.service.transferEnrollment(id, body.targetClassId, req.user);
   }
 
   @Patch('enrollments/:id/documents')
+  @PlanResource('catechesisEnrollment')
   @Roles(UserRole.PASTORAL_COORDINATOR)
   updateDocuments(
     @Param('id') id: string,
@@ -545,6 +599,7 @@ export class CatechesisController {
   }
 
   @Patch('enrollments/:id/complete')
+  @PlanResource('catechesisEnrollment')
   @Roles(UserRole.PASTORAL_COORDINATOR)
   complete(@Param('id') id: string, @Body() dto: { date?: string; minister?: string }, @Request() req: any) {
     return this.service.completeEnrollment(id, dto, req.user);
@@ -552,17 +607,20 @@ export class CatechesisController {
 
   // Encontros e chamada — catequista da turma OU escopo de gestão (service valida)
   @Post('classes/:id/sessions')
+  @PlanResource('catechesisClass')
   createSession(@Param('id') id: string, @Body() dto: { date: string; topic?: string }, @Request() req: any) {
     return this.service.createSession(id, dto, req.user);
   }
 
   // Mensagem do catequista/coordenação para as famílias da turma
   @Post('classes/:id/notify')
+  @PlanResource('catechesisClass')
   notifyFamilies(@Param('id') id: string, @Body() body: { message: string }, @Request() req: any) {
     return this.service.notifyClassFamilies(id, body?.message ?? '', req.user);
   }
 
   @Post('sessions/:id/attendance')
+  @PlanResource('catechesisSession')
   markAttendance(
     @Param('id') id: string,
     @Body() body: { entries: Array<{ enrollmentId: string; present: boolean; late?: boolean; justified?: boolean; clear?: boolean }> },
@@ -573,12 +631,14 @@ export class CatechesisController {
 
   // Folha de presença (alunos × encontros) — equipe da turma (service valida)
   @Get('classes/:id/attendance-grid')
+  @PlanResource('catechesisClass')
   attendanceGrid(@Param('id') id: string, @Request() req: any) {
     return this.service.getAttendanceGrid(id, req.user);
   }
 
   // Atestado da falta justificada
   @Post('sessions/:sessionId/attendance/:enrollmentId/certificate')
+  @PlanResource('catechesisSession:params.sessionId')
   @UseInterceptors(FileInterceptor('file', { limits: { fileSize: 8 * 1024 * 1024 } }))
   attachAbsenceCertificate(
     @Param('sessionId') sessionId: string,
@@ -590,6 +650,7 @@ export class CatechesisController {
   }
 
   @Get('sessions/:sessionId/attendance/:enrollmentId/certificate')
+  @PlanResource('catechesisSession:params.sessionId')
   async absenceCertificate(
     @Param('sessionId') sessionId: string,
     @Param('enrollmentId') enrollmentId: string,
@@ -606,6 +667,7 @@ export class CatechesisController {
   }
 
   @Delete('sessions/:sessionId/attendance/:enrollmentId/certificate')
+  @PlanResource('catechesisSession:params.sessionId')
   removeAbsenceCertificate(
     @Param('sessionId') sessionId: string,
     @Param('enrollmentId') enrollmentId: string,

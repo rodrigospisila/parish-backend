@@ -1143,6 +1143,19 @@ export class UsersService {
       });
     });
 
+    // Funil de crescimento: primeira escolha de comunidade ou troca (nunca lança)
+    await this.auditService.log({
+      actor: { id: currentUser.id, email: currentUser.email, role: currentUser.role },
+      action: 'COMMUNITY_JOIN',
+      entity: 'User',
+      entityId: userId,
+      metadata: {
+        communityId,
+        first: !currentUser.communityId,
+        previousCommunityId: currentUser.communityId ?? null,
+      },
+    });
+
     return this.serializeUser(updatedUser);
   }
 

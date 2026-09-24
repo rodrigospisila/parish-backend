@@ -22,12 +22,16 @@ import { UpdateScheduleStatusDto } from './dto/update-schedule-status.dto';
 import { UpdateSchedulePastoralsDto } from './dto/update-schedule-pastorals.dto';
 import { NotifyTeamDto } from './dto/notify-team.dto';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
+import { PlanFeatureGuard } from '../plans/plan-feature.guard';
+import { PlanResource, RequiresFeature } from '../plans/plan.decorators';
 import { RolesGuard } from '../auth/guards/roles.guard';
 import { Roles } from '../auth/decorators/roles.decorator';
 import { UserRole } from '@prisma/client';
 
+// Recurso pago da comunidade (planos) — comunidade resolvida pela escala/evento/atribuição
 @Controller('schedules')
-@UseGuards(JwtAuthGuard)
+@UseGuards(JwtAuthGuard, PlanFeatureGuard)
+@RequiresFeature('schedules')
 export class SchedulesController {
   constructor(private readonly schedulesService: SchedulesService) {}
 
@@ -48,6 +52,7 @@ export class SchedulesController {
    * PATCH /schedules/assignments/:id/confirm
    */
   @Patch('assignments/:id/confirm')
+  @PlanResource('assignment')
   async confirmAssignment(@Param('id') id: string, @Request() req: any) {
     return this.schedulesService.confirmAssignment(id, req.user);
   }
@@ -58,6 +63,7 @@ export class SchedulesController {
    * PATCH /schedules/assignments/:id/decline
    */
   @Patch('assignments/:id/decline')
+  @PlanResource('assignment')
   async declineAssignment(
     @Param('id') id: string,
     @Body() body: { reason?: string; declineCouple?: boolean },
@@ -69,6 +75,7 @@ export class SchedulesController {
   // ========== SCHEDULES ==========
 
   @Post()
+  @PlanResource('event:body.eventId')
   @UseGuards(RolesGuard)
   @Roles(
     UserRole.SYSTEM_ADMIN,
@@ -97,6 +104,7 @@ export class SchedulesController {
 
   // Gerador de rodízio (Fase 4.6): prévia (dryRun) ou publicação em lote
   @Post('generate')
+  @PlanResource('schedule:body.scheduleIds')
   @UseGuards(RolesGuard)
   @Roles(
     UserRole.SYSTEM_ADMIN,
@@ -123,6 +131,7 @@ export class SchedulesController {
 
   // Ajusta as vagas (requiredPeople) das pastorais vinculadas à escala
   @Patch(':id/pastorals')
+  @PlanResource('schedule')
   @UseGuards(RolesGuard)
   @Roles(
     UserRole.SYSTEM_ADMIN,
@@ -140,11 +149,13 @@ export class SchedulesController {
   }
 
   @Get()
+  @PlanResource('event:query.eventId')
   findAllSchedules(@Query('eventId') eventId?: string, @Request() req?: any) {
     return this.schedulesService.findAllSchedules(eventId, req?.user);
   }
 
   @Delete(':id')
+  @PlanResource('schedule')
   @UseGuards(RolesGuard)
   @Roles(
     UserRole.SYSTEM_ADMIN,
@@ -158,6 +169,7 @@ export class SchedulesController {
   }
 
   @Patch(':id/status')
+  @PlanResource('schedule')
   @UseGuards(RolesGuard)
   @Roles(
     UserRole.SYSTEM_ADMIN,
@@ -173,6 +185,7 @@ export class SchedulesController {
   // ========== ASSIGNMENTS ==========
 
   @Post('assignments')
+  @PlanResource('schedule:body.scheduleId')
   @UseGuards(RolesGuard)
   @Roles(
     UserRole.SYSTEM_ADMIN,
@@ -187,6 +200,7 @@ export class SchedulesController {
 
   // Convoca toda a pastoral (ou a lista informada) de uma vez — reunião de pastoral, mutirão
   @Post(':id/assignments/bulk')
+  @PlanResource('schedule')
   @UseGuards(RolesGuard)
   @Roles(
     UserRole.SYSTEM_ADMIN,
@@ -200,6 +214,7 @@ export class SchedulesController {
   }
 
   @Post('assignments/group')
+  @PlanResource('schedule:body.scheduleId')
   @UseGuards(RolesGuard)
   @Roles(
     UserRole.SYSTEM_ADMIN,
@@ -223,6 +238,7 @@ export class SchedulesController {
   }
 
   @Delete('assignments/group')
+  @PlanResource('schedule:query.scheduleId')
   @UseGuards(RolesGuard)
   @Roles(
     UserRole.SYSTEM_ADMIN,
@@ -241,6 +257,7 @@ export class SchedulesController {
 
   // Líder do grupo (ou coordenação) responde a escala em nome de toda a equipe
   @Patch('assignments/group/respond')
+  @PlanResource('schedule:body.scheduleId')
   respondGroupAssignment(
     @Body() dto: { scheduleId: string; pastoralGroupId: string; action: 'confirm' | 'decline'; reason?: string },
     @Request() req: any,
@@ -249,6 +266,7 @@ export class SchedulesController {
   }
 
   @Get('assignments/all')
+  @PlanResource('schedule:query.scheduleId', 'member:query.memberId')
   findAllAssignments(
     @Query('scheduleId') scheduleId?: string,
     @Query('memberId') memberId?: string,
@@ -258,11 +276,13 @@ export class SchedulesController {
   }
 
   @Get('assignments/:id')
+  @PlanResource('assignment')
   findOneAssignment(@Param('id') id: string, @Request() req?: any) {
     return this.schedulesService.findOneAssignment(id, req?.user);
   }
 
   @Delete('assignments/:id')
+  @PlanResource('assignment')
   @UseGuards(RolesGuard)
   @Roles(
     UserRole.SYSTEM_ADMIN,
@@ -276,6 +296,7 @@ export class SchedulesController {
   }
 
   @Patch('assignments/:id/replace')
+  @PlanResource('assignment')
   @UseGuards(RolesGuard)
   @Roles(
     UserRole.SYSTEM_ADMIN,
@@ -291,6 +312,7 @@ export class SchedulesController {
   // ========== CHECK-IN ==========
 
   @Patch('assignments/:id/checkin')
+  @PlanResource('assignment')
   @UseGuards(RolesGuard)
   @Roles(
     UserRole.SYSTEM_ADMIN,
@@ -304,6 +326,7 @@ export class SchedulesController {
   }
 
   @Patch('assignments/:id/undo-checkin')
+  @PlanResource('assignment')
   @UseGuards(RolesGuard)
   @Roles(
     UserRole.SYSTEM_ADMIN,
@@ -323,6 +346,7 @@ export class SchedulesController {
    * POST /schedules/:id/notify-team
    */
   @Post(':id/notify-team')
+  @PlanResource('schedule')
   @UseGuards(RolesGuard)
   @Roles(
     UserRole.SYSTEM_ADMIN,
@@ -342,6 +366,7 @@ export class SchedulesController {
    * GET /schedules/events/:eventId/eligible-members
    */
   @Get('events/:eventId/eligible-members')
+  @PlanResource('event:params.eventId')
   findEligibleMembers(@Param('eventId') eventId: string, @Request() req: any) {
     return this.schedulesService.findEligibleMembers(eventId, req.user);
   }
@@ -351,6 +376,7 @@ export class SchedulesController {
    * GET /schedules/:id/candidates
    */
   @Get(':id/candidates')
+  @PlanResource('schedule')
   @UseGuards(RolesGuard)
   @Roles(
     UserRole.SYSTEM_ADMIN,
@@ -366,6 +392,7 @@ export class SchedulesController {
   // ========== RELATÓRIOS ==========
 
   @Get('members/:memberId/stats')
+  @PlanResource('member:params.memberId')
   getMemberStats(@Param('memberId') memberId: string, @Request() req: any) {
     return this.schedulesService.getMemberStats(memberId, req.user);
   }
@@ -424,6 +451,7 @@ export class SchedulesController {
   }
 
   @Get(':id')
+  @PlanResource('schedule')
   findOneSchedule(@Param('id') id: string, @Request() req?: any) {
     return this.schedulesService.findOneSchedule(id, req?.user);
   }

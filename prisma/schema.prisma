@@ -602,6 +602,10 @@ model Community {
   // Correções sugeridas pelos fiéis no app (nunca aplicadas sozinhas)
   suggestions CommunitySuggestion[]
 
+  // Plano da plataforma (um por comunidade; ausência = FREE) + histórico
+  communityPlan       CommunityPlan?
+  communityPlanEvents CommunityPlanEvent[]
+
   // Audit
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
@@ -3092,4 +3096,89 @@ model TitheCampaignPledge {
 
   @@unique([campaignId, memberId])
   @@map("tithe_campaign_pledges")
+}
+
+// ============================================
+// PLANOS DA PLATAFORMA (por comunidade)
+// ============================================
+// Cada comunidade tem o seu plano. Recursos pagos (pastorais, escalas/trocas,
+// catequese, formação, salas, visitas, documentos) exigem plano com acesso;
+// o fiel nunca paga — o bloqueio é da comunidade. Regras em src/modules/plans.
+// `PlanStatus` já existe (planejamento pastoral), por isso o nome composto.
+
+enum CommunityPlanStatus {
+  FREE
+  TRIAL
+  ACTIVE
+  PAST_DUE
+  SUSPENDED
+  CANCELED
+}
+
+enum BillingCycle {
+  MONTHLY
+  YEARLY
+}
+
+/// Faixas de preço editáveis pelo SYSTEM_ADMIN (seed na migration: capela, comunidade, matriz).
+model PlanTier {
+  id                String          @id @default(cuid())
+  key               String          @unique
+  name              String
+  description       String?
+  /// Limite de membros da faixa (nulo = sem limite)
+  maxMembers        Int?
+  monthlyPriceCents Int
+  yearlyPriceCents  Int
+  isActive          Boolean         @default(true)
+  sortOrder         Int             @default(0)
+  plans             CommunityPlan[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("plan_tiers")
+}
+
+/// Plano de UMA comunidade. Sem linha = FREE.
+model CommunityPlan {
+  id               String              @id @default(cuid())
+  communityId      String              @unique
+  community        Community           @relation(fields: [communityId], references: [id], onDelete: Cascade)
+  status           CommunityPlanStatus @default(FREE)
+  tierId           String?
+  tier             PlanTier?           @relation(fields: [tierId], references: [id], onDelete: SetNull)
+  billingCycle     BillingCycle?
+  /// Preço combinado (centavos por ciclo); nulo = preço da faixa
+  priceCents       Int?
+  trialEndsAt      DateTime?
+  currentPeriodEnd DateTime?
+  /// Carência após currentPeriodEnd enquanto PAST_DUE
+  graceDays        Int                 @default(15)
+  suspendedAt      DateTime?
+  notes            String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([status])
+  @@index([tierId])
+  @@map("community_plans")
+}
+
+/// Histórico append-only das mudanças de plano (quem, quando, de/para).
+model CommunityPlanEvent {
+  id          String               @id @default(cuid())
+  communityId String
+  community   Community            @relation(fields: [communityId], references: [id], onDelete: Cascade)
+  action      String
+  fromStatus  CommunityPlanStatus?
+  toStatus    CommunityPlanStatus?
+  byUserId    String?
+  note        String?
+  data        Json?
+  createdAt   DateTime             @default(now())
+
+  @@index([communityId, createdAt])
+  @@map("community_plan_events")
 }
