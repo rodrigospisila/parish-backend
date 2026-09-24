@@ -5,6 +5,7 @@ import { PrismaService } from '../../database/prisma.service';
 import { MessagingService } from '../messaging/messaging.service';
 import { EmailService } from '../messaging/email.service';
 import { AuditService } from '../../common/audit.service';
+import { emailInsensitive, pickEmailMatch } from './email-lookup';
 
 const RESET_TTL_MINUTES = 30;
 
@@ -46,16 +47,27 @@ export class PasswordResetService {
       ? this.messagingService.normalizePhone(params.phone)
       : null;
 
-    const user = await this.prisma.user.findFirst({
+    const typedEmail = params.email?.trim() || null;
+
+    // E-mail sem diferença de caixa (mesma regra do login): conta antiga
+    // gravada como "Maria@Gmail.com" recupera a senha digitando em minúsculas
+    const candidates = await this.prisma.user.findMany({
       where: {
         isActive: true,
         OR: [
-          ...(params.email ? [{ email: params.email.trim().toLowerCase() }] : []),
+          ...(typedEmail ? [{ email: emailInsensitive(typedEmail) }] : []),
           ...(normalizedPhone ? [{ phone: normalizedPhone }] : []),
         ],
       },
       select: { id: true, email: true, phone: true },
+      orderBy: { createdAt: 'asc' },
+      take: 5,
     });
+    // Se o e-mail casar com mais de uma conta (diferem só na caixa), prefere o igual exato
+    const user =
+      (typedEmail ? pickEmailMatch(candidates, typedEmail) : null) ??
+      candidates.find((candidate) => !!normalizedPhone && candidate.phone === normalizedPhone) ??
+      null;
 
     // Nunca revela se a conta existe
     if (!user) {

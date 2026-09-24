@@ -14,6 +14,7 @@ import * as bcrypt from 'bcrypt';
 import { MembersService } from '../members/members.service';
 import { AuditService } from '../../common/audit.service';
 import { ROLE_HIERARCHY } from '../auth/constants/role-hierarchy';
+import { emailInsensitive, normalizeEmail } from '../auth/email-lookup';
 
 @Injectable()
 export class UsersService {
@@ -550,9 +551,13 @@ export class UsersService {
     } = createUserDto;
 
     rest.phone = this.normalizeOptionalPhone(rest.phone);
+    // Gravado em minúsculas daqui para frente (o login ignora a caixa)
+    email = normalizeEmail(email);
 
-    const existingUser = await this.prisma.user.findUnique({
-      where: { email },
+    // Duplicidade sem diferença de caixa: "Maria@x.com" antigo bloqueia "maria@x.com"
+    const existingUser = await this.prisma.user.findFirst({
+      where: { email: emailInsensitive(email) },
+      select: { id: true },
     });
 
     if (existingUser) {
@@ -800,6 +805,26 @@ export class UsersService {
       ...updateData
     } = updateUserDto;
     let communityIds = rawCommunityIds;
+
+    // Troca de e-mail: grava em minúsculas e confere duplicidade sem diferença de caixa
+    if (updateData.email !== undefined) {
+      const nextEmail = normalizeEmail(updateData.email);
+      if (nextEmail === user.email.toLowerCase()) {
+        // Mesmo e-mail (no máximo muda a caixa): não é troca — mantém o gravado
+        // e não esbarra numa conta antiga que difere só na caixa
+        delete updateData.email;
+      } else {
+        const existingEmail = await this.prisma.user.findFirst({
+          where: { email: emailInsensitive(nextEmail), id: { not: id } },
+          select: { id: true },
+        });
+
+        if (existingEmail) {
+          throw new ConflictException('Email ja esta em uso');
+        }
+        updateData.email = nextEmail;
+      }
+    }
 
     updateData.phone = this.normalizeOptionalPhone(updateData.phone);
     if (updateData.phone) {

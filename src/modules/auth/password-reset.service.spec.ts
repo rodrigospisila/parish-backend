@@ -17,7 +17,7 @@ describe('PasswordResetService (Fase 1)', () => {
 
   beforeEach(async () => {
     prisma = {
-      user: { findFirst: jest.fn(), update: jest.fn() },
+      user: { findMany: jest.fn().mockResolvedValue([]), update: jest.fn() },
       passwordResetToken: {
         deleteMany: jest.fn(),
         create: jest.fn(),
@@ -49,7 +49,7 @@ describe('PasswordResetService (Fase 1)', () => {
 
   describe('forgotPassword (sem enumeração de contas)', () => {
     it('responde genericamente e não cria token quando a conta não existe', async () => {
-      prisma.user.findFirst.mockResolvedValue(null);
+      prisma.user.findMany.mockResolvedValue([]);
 
       const res = await service.forgotPassword({ email: 'naoexiste@x.com' });
 
@@ -62,7 +62,7 @@ describe('PasswordResetService (Fase 1)', () => {
     });
 
     it('cria token com hash (nunca em claro) e invalida os anteriores', async () => {
-      prisma.user.findFirst.mockResolvedValue({ id: 'u1', phone: null });
+      prisma.user.findMany.mockResolvedValue([{ id: 'u1', email: 'existe@x.com', phone: null }]);
 
       await service.forgotPassword({ email: 'existe@x.com' });
 
@@ -72,6 +72,37 @@ describe('PasswordResetService (Fase 1)', () => {
       const createArg = prisma.passwordResetToken.create.mock.calls[0][0];
       expect(createArg.data.tokenHash).toMatch(/^[a-f0-9]{64}$/);
       expect(createArg.data.expiresAt.getTime()).toBeGreaterThan(Date.now());
+    });
+  });
+
+  describe('forgotPassword (e-mail sem diferença de caixa)', () => {
+    it('acha conta gravada com maiúscula digitando em minúsculas (busca insensitive)', async () => {
+      prisma.user.findMany.mockResolvedValue([{ id: 'u1', email: 'Maria@Gmail.com', phone: null }]);
+
+      await service.forgotPassword({ email: ' maria@gmail.com ' });
+
+      const where = prisma.user.findMany.mock.calls[0][0].where;
+      expect(where.OR).toEqual([{ email: { equals: 'maria@gmail.com', mode: 'insensitive' } }]);
+      expect(prisma.passwordResetToken.create.mock.calls[0][0].data.userId).toBe('u1');
+    });
+
+    it('com duas contas que diferem só na caixa, prefere a igual à digitada', async () => {
+      prisma.user.findMany.mockResolvedValue([
+        { id: 'antiga', email: 'maria@gmail.com', phone: null },
+        { id: 'exata', email: 'Maria@Gmail.com', phone: null },
+      ]);
+
+      await service.forgotPassword({ email: 'Maria@Gmail.com' });
+
+      expect(prisma.passwordResetToken.create.mock.calls[0][0].data.userId).toBe('exata');
+    });
+
+    it('continua achando por telefone normalizado', async () => {
+      prisma.user.findMany.mockResolvedValue([{ id: 'u2', email: 'x@x.com', phone: '+5542999998888' }]);
+
+      await service.forgotPassword({ phone: '42999998888' });
+
+      expect(prisma.passwordResetToken.create.mock.calls[0][0].data.userId).toBe('u2');
     });
   });
 

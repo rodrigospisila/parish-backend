@@ -18,6 +18,20 @@ import { OtpService } from './otp.service';
 import { AuditService } from '../../common/audit.service';
 import { ConsentsService } from '../consents/consents.service';
 import { CURRENT_POLICY_VERSION } from '../consents/consent.constants';
+import { MessagingService } from '../messaging/messaging.service';
+import { emailInsensitive, normalizeEmail, pickEmailMatch } from './email-lookup';
+
+/** Resposta única para conta inexistente, celular inválido e senha errada (não revela qual foi). */
+export const INVALID_CREDENTIALS_MESSAGE = 'E-mail, celular ou senha incorretos';
+/** Só aparece para quem acertou a senha — antes disso a conta desativada é indistinguível. */
+export const ACCOUNT_DISABLED_MESSAGE = 'Conta desativada — procure a secretaria da sua paróquia';
+
+/**
+ * Hash descartável: quando a conta não existe, a senha é comparada com ele
+ * mesmo assim, para o tempo de resposta não denunciar quais contas existem.
+ */
+let timingHash: Promise<string> | null = null;
+const dummyHash = () => (timingHash ??= bcrypt.hash('parish-login-sem-conta', 10));
 
 @Injectable()
 export class AuthService {
@@ -30,6 +44,7 @@ export class AuthService {
     private readonly auditService: AuditService,
     private readonly consentsService: ConsentsService,
     private readonly security: SessionSecurityService,
+    private readonly messagingService: MessagingService,
   ) {}
 
   private mapUserResponse(user: any) {
@@ -64,8 +79,9 @@ export class AuthService {
   }
 
   async register(registerDto: RegisterDto) {
-    const { email, password, name, role, communityId, consentGiven, verifiedPhoneToken } =
-      registerDto;
+    const { password, name, role, communityId, consentGiven, verifiedPhoneToken } = registerDto;
+    // Gravado sempre em minúsculas daqui para frente (o login ignora a caixa)
+    const email = normalizeEmail(registerDto.email);
 
     // SEGURANÇA: o registro público NUNCA atribui papel elevado.
     // Qualquer papel acima de FAITHFUL só pode ser criado por um administrador
@@ -83,9 +99,11 @@ export class AuthService {
       ? this.otpService.decodeVerifiedPhoneToken(verifiedPhoneToken)
       : registerDto.phone;
 
-    // Verificar se o usuário já existe
-    const existingUser = await this.prisma.user.findUnique({
-      where: { email },
+    // Verificar se o usuário já existe — sem diferença de caixa: "Maria@x.com"
+    // antigo impede criar "maria@x.com" (seriam duas contas no mesmo login)
+    const existingUser = await this.prisma.user.findFirst({
+      where: { email: emailInsensitive(email) },
+      select: { id: true },
     });
 
     if (existingUser) {
@@ -231,59 +249,73 @@ export class AuthService {
   }
 
   async login(loginDto: LoginDto, meta: LoginMeta = {}) {
-    const { email, password } = loginDto;
+    const { password } = loginDto;
+    const via: 'email' | 'phone' = loginDto.phone ? 'phone' : 'email';
 
-    // Buscar usuário
-    const user = await this.prisma.user.findUnique({
-      where: { email },
-      include: {
-        member: {
-          include: {
-            pastoralMemberships: {
-              where: { isActive: true },
-              include: {
-                communityPastoral: {
-                  select: {
-                    id: true,
-                    communityId: true,
-                    globalPastoral: {
-                      select: {
-                        id: true,
-                        name: true,
-                      },
-                    },
-                  },
-                },
-              },
-            },
-          },
-        },
-      },
-    });
+    // Resolve a conta por e-mail OU celular; daqui para frente o fluxo é um só
+    // (senha, conta ativa, 2FA, auditoria, aviso de aparelho novo)
+    const user = await this.findLoginUser(loginDto);
 
     if (!user) {
-      throw new UnauthorizedException('Credenciais inválidas');
+      // Compara mesmo assim: o tempo de resposta não denuncia se a conta existe
+      await bcrypt.compare(password, await dummyHash());
+      throw new UnauthorizedException(INVALID_CREDENTIALS_MESSAGE);
     }
 
-    // Verificar se o usuário está ativo
-    if (!user.isActive) {
-      throw new UnauthorizedException('Usuário inativo');
-    }
-
-    // Verificar senha
+    // Senha ANTES de qualquer outro estado da conta: com senha errada a
+    // resposta é sempre a genérica (quem chuta e-mails não descobre contas)
     const isPasswordValid = await bcrypt.compare(password, user.password);
 
     if (!isPasswordValid) {
       // Fica na atividade da conta: o titular vê tentativas com senha errada
       void this.auditService
-        .log({ actor: { id: user.id, email: user.email, role: user.role }, action: 'LOGIN_FAILED', entity: 'User', entityId: user.id, ip: meta.ip ?? null, metadata: { reason: 'password', userAgent: meta.userAgent ?? null } })
+        .log({ actor: { id: user.id, email: user.email, role: user.role }, action: 'LOGIN_FAILED', entity: 'User', entityId: user.id, ip: meta.ip ?? null, metadata: { reason: 'password', via, userAgent: meta.userAgent ?? null } })
         .catch(() => undefined);
-      throw new UnauthorizedException('Credenciais inválidas');
+      throw new UnauthorizedException(INVALID_CREDENTIALS_MESSAGE);
+    }
+
+    // Só quem acertou a senha fica sabendo que a conta está desativada.
+    // 403 (e não 401): os apps mostram o texto do servidor em vez de
+    // traduzir para "senha incorreta".
+    if (!user.isActive) {
+      void this.auditService
+        .log({ actor: { id: user.id, email: user.email, role: user.role }, action: 'LOGIN_FAILED', entity: 'User', entityId: user.id, ip: meta.ip ?? null, metadata: { reason: 'inactive', via, userAgent: meta.userAgent ?? null } })
+        .catch(() => undefined);
+      throw new ForbiddenException(ACCOUNT_DISABLED_MESSAGE);
     }
 
     // Segundo fator ativo: não emite sessão ainda — devolve o desafio
     if (user.twoFactorEnabled) return this.security.challenge(user);
-    return this.completeLogin(user, meta);
+    return this.completeLogin(user, meta, via);
+  }
+
+  /**
+   * Conta do login: por celular (normalizado como no esqueci-a-senha; `phone`
+   * é único, então no máximo uma) ou por e-mail sem diferença de caixa
+   * (prefere o igual exato). Celular que não normaliza = conta inexistente.
+   */
+  private async findLoginUser(loginDto: LoginDto) {
+    if (loginDto.phone) {
+      const phone = this.messagingService.normalizePhone(loginDto.phone);
+      if (!phone) return null;
+      return this.prisma.user.findUnique({ where: { phone }, include: this.sessionInclude });
+    }
+
+    const typed = String(loginDto.email ?? '').trim();
+    if (!typed) return null;
+
+    // Caminho comum: igual exato, pelo índice único
+    const exact = await this.prisma.user.findUnique({ where: { email: typed }, include: this.sessionInclude });
+    if (exact) return exact;
+
+    // Conta gravada com outra caixa ("Maria@Gmail.com" digitado "maria@gmail.com")
+    const candidates = await this.prisma.user.findMany({
+      where: { email: emailInsensitive(typed) },
+      include: this.sessionInclude,
+      orderBy: { createdAt: 'asc' },
+      take: 5,
+    });
+    return pickEmailMatch(candidates, typed);
   }
 
   /** Segunda etapa do login (2FA): confere o código e emite a sessão. */
@@ -337,7 +369,7 @@ export class AuthService {
   } as const;
 
   /** Emite a sessão: último login, aparelho conhecido (alerta se novo) e tokens. */
-  private async completeLogin(user: any, meta: LoginMeta) {
+  private async completeLogin(user: any, meta: LoginMeta, via?: 'email' | 'phone') {
     await this.prisma.user.update({ where: { id: user.id }, data: { lastLogin: new Date() } });
     const device = await this.security.registerDevice({ id: user.id, email: user.email, name: user.name }, meta);
     void this.auditService
@@ -347,7 +379,7 @@ export class AuthService {
         entity: 'User',
         entityId: user.id,
         ip: meta.ip ?? null,
-        metadata: { newDevice: device.isNew, device: meta.deviceName ?? null, userAgent: meta.userAgent ?? null },
+        metadata: { newDevice: device.isNew, device: meta.deviceName ?? null, userAgent: meta.userAgent ?? null, ...(via ? { via } : {}) },
       })
       .catch(() => undefined);
     const tokens = await this.generateTokens(
