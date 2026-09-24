@@ -11,6 +11,16 @@ export interface MapConfig {
   attribution: string;
   maxZoom: number;
   subdomains: string;
+  /** Imagem de satélite (botão de camadas no app); nulo = sem modo satélite. */
+  satellite: SatelliteConfig | null;
+}
+
+export interface SatelliteConfig {
+  tileUrl: string;
+  /** Camada de ruas/nomes por cima da imagem (nula = só a imagem). */
+  labelsUrl: string | null;
+  attribution: string;
+  maxZoom: number;
 }
 
 export interface PublicCommunityDetail {
@@ -58,6 +68,14 @@ const DEFAULT_TILE_URL = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
 const DEFAULT_ATTRIBUTION = '© OpenStreetMap contributors';
 const DEFAULT_MAX_ZOOM = 19;
 const DEFAULT_SUBDOMAINS = 'abc';
+// Satélite padrão: Esri World Imagery + ruas (sem subdomínio; {y} antes de {x}).
+// Antes do uso comercial, trocar por um provedor contratado via MAP_SATELLITE_*
+// (ou desligar com MAP_SATELLITE_URL=off). Nunca Google (contrato).
+const DEFAULT_SATELLITE_URL = 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}';
+const DEFAULT_SATELLITE_LABELS_URL =
+  'https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Transportation/MapServer/tile/{z}/{y}/{x}';
+const DEFAULT_SATELLITE_ATTRIBUTION = 'Imagens &copy; Esri, Maxar, Earthstar Geographics';
+const DEFAULT_SATELLITE_MAX_ZOOM = 19;
 /** Janela e teto das próximas celebrações na página da comunidade (todos os tipos). */
 const DETAIL_DAYS = 7;
 const DETAIL_MAX_MASSES = 50;
@@ -78,13 +96,30 @@ export class PublicMapService {
     };
     const maxZoom = Number.parseInt(str('MAP_TILE_MAX_ZOOM') ?? '', 10);
     const subdomains = this.config.get<string>('MAP_TILE_SUBDOMAINS');
+    const zoomOk = (z: number, fallback: number) => (Number.isFinite(z) && z > 0 && z <= 22 ? z : fallback);
+
+    const satUrl = str('MAP_SATELLITE_URL');
+    const satMaxZoom = Number.parseInt(str('MAP_SATELLITE_MAX_ZOOM') ?? '', 10);
+    const satLabels = str('MAP_SATELLITE_LABELS_URL');
+    const satellite: SatelliteConfig | null =
+      satUrl?.toLowerCase() === 'off'
+        ? null
+        : {
+            tileUrl: satUrl ?? DEFAULT_SATELLITE_URL,
+            // Com provedor próprio, a camada de ruas padrão só entra se pedida
+            labelsUrl: satLabels?.toLowerCase() === 'off' ? null : (satLabels ?? (satUrl ? null : DEFAULT_SATELLITE_LABELS_URL)),
+            attribution: str('MAP_SATELLITE_ATTRIBUTION') ?? DEFAULT_SATELLITE_ATTRIBUTION,
+            maxZoom: zoomOk(satMaxZoom, DEFAULT_SATELLITE_MAX_ZOOM),
+          };
+
     return {
       tileUrl: str('MAP_TILE_URL') ?? DEFAULT_TILE_URL,
       tileUrlDark: str('MAP_TILE_URL_DARK'),
       attribution: str('MAP_TILE_ATTRIBUTION') ?? DEFAULT_ATTRIBUTION,
-      maxZoom: Number.isFinite(maxZoom) && maxZoom > 0 && maxZoom <= 22 ? maxZoom : DEFAULT_MAX_ZOOM,
+      maxZoom: zoomOk(maxZoom, DEFAULT_MAX_ZOOM),
       // Definida vazia = provedor sem subdomínios
       subdomains: typeof subdomains === 'string' ? subdomains.trim() : DEFAULT_SUBDOMAINS,
+      satellite,
     };
   }
 

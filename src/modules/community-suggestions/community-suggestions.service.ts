@@ -111,6 +111,9 @@ export class CommunitySuggestionsService {
     let detail = `sugestão de usuário ${suggestionId}`;
     if (s.atChurch) {
       detail += s.accuracyM != null ? ` — no local, GPS ±${Math.round(s.accuracyM)} m` : ' — no local';
+    } else {
+      // Sem GPS no local: a pessoa arrastou o mapa até a igreja (app, modo "marcar no mapa")
+      detail += ' — marcado no mapa';
     }
     return detail;
   }

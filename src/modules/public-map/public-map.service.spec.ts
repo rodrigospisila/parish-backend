@@ -35,6 +35,13 @@ describe('PublicMapService — mapa público', () => {
         attribution: '© OpenStreetMap contributors',
         maxZoom: 19,
         subdomains: 'abc',
+        satellite: {
+          tileUrl: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+          labelsUrl:
+            'https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Transportation/MapServer/tile/{z}/{y}/{x}',
+          attribution: 'Imagens &copy; Esri, Maxar, Earthstar Geographics',
+          maxZoom: 19,
+        },
       });
     });
 
@@ -52,7 +59,27 @@ describe('PublicMapService — mapa público', () => {
         attribution: '© Exemplo',
         maxZoom: 18,
         subdomains: '',
+        satellite: expect.objectContaining({ tileUrl: expect.stringContaining('World_Imagery') }),
       });
+    });
+
+    it('satélite de provedor próprio via MAP_SATELLITE_* (sem a camada de ruas padrão)', () => {
+      Object.assign(env, {
+        MAP_SATELLITE_URL: 'https://sat.exemplo/{z}/{x}/{y}.jpg',
+        MAP_SATELLITE_ATTRIBUTION: '© Satélite Exemplo',
+        MAP_SATELLITE_MAX_ZOOM: '20',
+      });
+      expect(service.mapConfig().satellite).toEqual({
+        tileUrl: 'https://sat.exemplo/{z}/{x}/{y}.jpg',
+        labelsUrl: null,
+        attribution: '© Satélite Exemplo',
+        maxZoom: 20,
+      });
+    });
+
+    it('MAP_SATELLITE_URL=off desliga o modo satélite', () => {
+      env.MAP_SATELLITE_URL = 'off';
+      expect(service.mapConfig().satellite).toBeNull();
     });
 
     it('maxZoom inválido cai no padrão', () => {

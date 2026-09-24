@@ -96,11 +96,11 @@ describe('CommunitySuggestionsService — sugestões dos fiéis', () => {
       expect(prisma.community.update).toBeUndefined();
     });
 
-    it('label do candidato é cortado em 200 caracteres; fora da igreja não fala de GPS', async () => {
+    it('label do candidato é cortado em 200 caracteres; fora da igreja diz que foi marcado no mapa', async () => {
       await service.create('com1', 'u1', local({ message: 'y'.repeat(600) }));
       const cand = prisma.communityGeoCandidate.createMany.mock.calls[0][0].data[0];
       expect(cand.label).toHaveLength(200);
-      expect(cand.detail).toBe('sugestão de usuário sug1');
+      expect(cand.detail).toBe('sugestão de usuário sug1 — marcado no mapa');
     });
 
     it('SCHEDULE guarda o tipo de celebração e não cria candidato de pino nem guarda coordenada', async () => {
