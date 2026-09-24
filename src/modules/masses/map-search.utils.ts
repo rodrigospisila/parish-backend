@@ -210,6 +210,27 @@ export function precisionWhere(approx: boolean): Prisma.CommunityWhereInput {
   return { OR: [{ geoPrecision: null }, { geoPrecision: { notIn: APPROXIMATE_PRECISIONS } }] };
 }
 
+/**
+ * Sem Missa na seleção (só Confissão, Adoração ou Terço), o mapa mostra apenas as
+ * igrejas que oferecem o que foi escolhido. Com Missa, mostra todas: toda igreja
+ * tem missa, mesmo sem horário cadastrado — mas nem toda tem confissão.
+ */
+export function onlyOffering(types: MassScheduleType[]): boolean {
+  return types.length > 0 && !types.includes(MassScheduleType.MASS);
+}
+
+/** Filtro de "oferece algum dos tipos" (agenda fixa), para a busca de pinos. */
+export function offeringWhere(types: MassScheduleType[]): Prisma.CommunityWhereInput {
+  if (!onlyOffering(types)) return {};
+  return { massSchedules: { some: { type: { in: types } } } };
+}
+
+/** O mesmo filtro em SQL (consulta agregada). Os tipos já passaram por normalizeTypes e vão como parâmetro. */
+export function offeringSql(types: MassScheduleType[]): Prisma.Sql {
+  if (!onlyOffering(types)) return Prisma.empty;
+  return Prisma.sql`AND EXISTS (SELECT 1 FROM mass_schedules ms WHERE ms."communityId" = c.id AND ms.type::text IN (${Prisma.join(types)}))`;
+}
+
 /** O mesmo filtro de precisão, em SQL (para a consulta agregada). Só constantes — nada do usuário. */
 export function precisionSql(approx: boolean): Prisma.Sql {
   if (approx) return Prisma.empty;

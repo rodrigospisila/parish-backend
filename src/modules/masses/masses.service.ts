@@ -15,6 +15,9 @@ import {
   isApproximatePin,
   isVerifiedPin,
   normalizeTypes,
+  offeringSql,
+  offeringWhere,
+  onlyOffering,
   nowBrazilFloating,
   parseBbox,
   precisionSql,
@@ -147,7 +150,7 @@ export class MassesService {
    * Comunidades ativas com pino dentro do retângulo. Sem `approx`, exclui os pinos
    * de centro de cidade/povoado (ver precisionWhere).
    */
-  private async findPins(bbox: Bbox, approx: boolean, take?: number): Promise<PinRow[]> {
+  private async findPins(bbox: Bbox, approx: boolean, types: MassScheduleType[], take?: number): Promise<PinRow[]> {
     const [minLng, minLat, maxLng, maxLat] = bbox;
     return this.prisma.community.findMany({
       ...(take != null ? { take } : {}),
@@ -155,6 +158,7 @@ export class MassesService {
         deletedAt: null,
         status: 'ACTIVE',
         ...precisionWhere(approx),
+        ...offeringWhere(types),
         latitude: { not: null, gte: minLat, lte: maxLat },
         longitude: { not: null, gte: minLng, lte: maxLng },
       },
@@ -281,9 +285,11 @@ export class MassesService {
       days,
       types,
     );
-    // Uma comunidade sem horário no período ainda aparece (nextMasses vazio):
-    // o mapa mostra as igrejas, não só as missas.
-    return rows.map((c) => ({
+    // Com Missa na seleção, uma comunidade sem horário no período ainda aparece
+    // (nextMasses vazio): o mapa mostra as igrejas, não só as missas. Só com
+    // Confissão/Adoração/Terço, fica só quem tem horário no período.
+    const shown = onlyOffering(types) ? rows.filter((c) => (masses.get(c.id)?.length ?? 0) > 0) : rows;
+    return shown.map((c) => ({
       id: c.id,
       name: c.name,
       address: c.address,
@@ -326,7 +332,7 @@ export class MassesService {
     const types = normalizeTypes(input.types);
     const limit = input.limit != null ? clampMapLimit(input.limit) : undefined;
 
-    const rows = await this.findPins(bboxAround(lat, lng, radiusKm), input.approx === true);
+    const rows = await this.findPins(bboxAround(lat, lng, radiusKm), input.approx === true, types);
     const near = this.byDistance(rows, lat, lng).filter((c) => c.distanceKm <= radiusKm);
     const truncated = limit != null && near.length > limit;
     const kept = truncated ? near.slice(0, limit) : near;
@@ -366,17 +372,17 @@ export class MassesService {
         ? { mode: 'clusters', bbox: requested, zoom: zoom as number, total: 0, clusters: [] }
         : { mode: 'pins', zoom: zoom ?? null, origin: null, bbox: requested, radiusKm: null, days, count: 0, truncated: false, communities: [] };
     }
-    if (wantsClusters(zoom)) return this.clusterArea(bbox, zoom as number, approx);
+    if (wantsClusters(zoom)) return this.clusterArea(bbox, zoom as number, approx, types);
     // Sem zoom (cliente antigo) e retângulo grande: não carrega dezenas de milhares de pinos na memória para cortar em
     // `limit` — agrupa, com o zoom equivalente ao tamanho do retângulo
     if (zoom === undefined && Math.max(bbox[2] - bbox[0], bbox[3] - bbox[1]) > 4) {
       const zoomEquivalente = Math.max(0, Math.min(10, Math.floor(Math.log2(360 / Math.max(bbox[2] - bbox[0], bbox[3] - bbox[1])))));
-      return this.clusterArea(bbox, zoomEquivalente, approx);
+      return this.clusterArea(bbox, zoomEquivalente, approx, types);
     }
 
     // Com zoom, basta saber se passou do limite (limit + 1 linhas) — passou, agrupa.
-    const rows = await this.findPins(bbox, approx, zoom !== undefined ? limit + 1 : undefined);
-    if (zoom !== undefined && rows.length > limit) return this.clusterArea(bbox, zoom, approx);
+    const rows = await this.findPins(bbox, approx, types, zoom !== undefined ? limit + 1 : undefined);
+    if (zoom !== undefined && rows.length > limit) return this.clusterArea(bbox, zoom, approx, types);
 
     const [minLng, minLat, maxLng, maxLat] = bbox;
     const sorted = this.byDistance(rows, (minLat + maxLat) / 2, (minLng + maxLng) / 2);
@@ -392,7 +398,12 @@ export class MassesService {
    * retângulo. A grade é alinhada à origem (floor(lat / célula)), então os grupos não
    * mudam ao arrastar o mapa no mesmo zoom. Toda entrada vai como parâmetro.
    */
-  private async clusterArea(bbox: Bbox, zoom: number, approx: boolean): Promise<MapClustersResult> {
+  private async clusterArea(
+    bbox: Bbox,
+    zoom: number,
+    approx: boolean,
+    types: MassScheduleType[],
+  ): Promise<MapClustersResult> {
     const [minLng, minLat, maxLng, maxLat] = bbox;
     const cell = clusterCellDeg(zoom, bbox);
     const rows = await this.prisma.$queryRaw<ClusterRow[]>(Prisma.sql`
@@ -408,6 +419,7 @@ export class MassesService {
         AND c.latitude BETWEEN ${minLat}::float8 AND ${maxLat}::float8
         AND c.longitude BETWEEN ${minLng}::float8 AND ${maxLng}::float8
         ${precisionSql(approx)}
+        ${offeringSql(types)}
       GROUP BY floor(c.latitude / ${cell}::float8), floor(c.longitude / ${cell}::float8)
     `);
 

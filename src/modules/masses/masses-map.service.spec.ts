@@ -207,6 +207,33 @@ describe('MassesService — mapa (contrato, approx, área)', () => {
         { id: 'conf-1', title: 'Confissão', type: 'CONFESSION', start: '2026-07-23T09:00:00', end: null, source: 'fixed' },
       ]);
     });
+
+    it('só Confissão: busca só quem tem confissão na agenda e tira quem não tem horário no período', async () => {
+      prisma.community.findMany.mockResolvedValue([
+        pin({ id: 'com', latitude: -23.5, longitude: -46.5 }),
+        pin({ id: 'sem-no-periodo', latitude: -23.51, longitude: -46.5 }),
+      ]);
+      massSchedules.expandOccurrences.mockResolvedValue([
+        { id: 'conf-1', title: 'Confissão', type: MassScheduleType.CONFESSION, start: '2026-07-23T09:00:00', end: null, community: { id: 'com', name: 'Matriz' } },
+      ]);
+      const res = (await service.findInArea({ bbox: '-47,-24,-46,-23', zoom: 15, types: [MassScheduleType.CONFESSION] })) as MapPinsResult;
+      expect(prisma.community.findMany.mock.calls[0][0].where.massSchedules).toEqual({
+        some: { type: { in: [MassScheduleType.CONFESSION] } },
+      });
+      expect(res.communities.map((c) => c.id)).toEqual(['com']);
+      expect(res.count).toBe(1);
+    });
+
+    it('com Missa na seleção: todas as igrejas, inclusive sem horário', async () => {
+      prisma.community.findMany.mockResolvedValue([pin({ id: 'a' }), pin({ id: 'b', latitude: -23.56 })]);
+      const res = (await service.findInArea({
+        bbox: '-47,-24,-46,-23',
+        zoom: 15,
+        types: [MassScheduleType.MASS, MassScheduleType.CONFESSION],
+      })) as MapPinsResult;
+      expect(prisma.community.findMany.mock.calls[0][0].where.massSchedules).toBeUndefined();
+      expect(res.communities).toHaveLength(2);
+    });
   });
 
   describe('findInArea — modo agrupado', () => {
@@ -243,6 +270,18 @@ describe('MassesService — mapa (contrato, approx, área)', () => {
           { lat: -25.4, lng: -49.2, count: 1, bbox: [-49.2, -25.4, -49.2, -25.4], id: 'c9', name: 'Capela' },
         ],
       });
+    });
+
+    it('só Confissão: as bolhas contam só quem tem confissão na agenda (tipo como parâmetro)', async () => {
+      await service.findInArea({ bbox: '-75,-35,-28,7', zoom: 4, types: [MassScheduleType.CONFESSION] });
+      const sql = prisma.$queryRaw.mock.calls[0][0];
+      expect(sql.sql).toContain('EXISTS (SELECT 1 FROM mass_schedules ms');
+      expect(sql.values).toContain('CONFESSION');
+    });
+
+    it('com Missa: as bolhas contam todas as igrejas', async () => {
+      await service.findInArea({ bbox: '-75,-35,-28,7', zoom: 4, types: [MassScheduleType.MASS] });
+      expect(prisma.$queryRaw.mock.calls[0][0].sql).not.toContain('mass_schedules');
     });
 
     it('o SQL é parametrizado (bbox e célula como parâmetros) e respeita deletedAt/status/precisão', async () => {
