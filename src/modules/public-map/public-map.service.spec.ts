@@ -169,6 +169,35 @@ describe('PublicMapService — mapa público', () => {
       expect(r.schedules.map((s) => s.id)).toEqual(['s1', 's2', 's4', 's3']);
     });
 
+    it('agenda traz as suspensões dos próximos 60 dias (upcomingCancellations)', async () => {
+      prisma.community.findFirst.mockResolvedValue({
+        ...linha,
+        massSchedules: [
+          {
+            ...linha.massSchedules[2],
+            cancellations: [
+              { date: new Date('2026-09-27T00:00:00.000Z'), reason: 'Agenda dos padres' },
+              { date: new Date('2026-10-04T00:00:00.000Z'), reason: null },
+            ],
+          },
+          linha.massSchedules[1],
+        ],
+      });
+      const r = await service.communityDetail('c1');
+      const sel = prisma.community.findFirst.mock.calls[0][0].select.massSchedules.select.cancellations;
+      expect(sel.orderBy).toEqual({ date: 'asc' });
+      expect(sel.where.date.gte).toBeInstanceOf(Date);
+      // 60 dias de janela
+      expect((sel.where.date.lte.getTime() - sel.where.date.gte.getTime()) / 86400000).toBe(60);
+      const conf = r.schedules.find((s) => s.id === 's1')!;
+      expect(conf.upcomingCancellations).toEqual([
+        { date: '2026-09-27', reason: 'Agenda dos padres' },
+        { date: '2026-10-04', reason: null },
+      ]);
+      expect((conf as any).cancellations).toBeUndefined();
+      expect(r.schedules.find((s) => s.id === 's2')!.upcomingCancellations).toEqual([]);
+    });
+
     it('pino MANUAL é verificado', async () => {
       prisma.community.findFirst.mockResolvedValue({ ...linha, geoPrecision: 'MANUAL' });
       const r = await service.communityDetail('c1');

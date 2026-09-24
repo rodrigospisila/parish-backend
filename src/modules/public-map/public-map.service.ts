@@ -3,7 +3,12 @@ import { ConfigService } from '@nestjs/config';
 import { GeoPrecision, MassRecurrence, MassScheduleType } from '@prisma/client';
 import { PrismaService } from '../../database/prisma.service';
 import { MassesService, NearbyMass } from '../masses/masses.service';
-import { isApproximatePin, isVerifiedPin } from '../masses/map-search.utils';
+import { isApproximatePin, isVerifiedPin, nowBrazilFloating } from '../masses/map-search.utils';
+import {
+  UpcomingCancellation,
+  toUpcomingCancellations,
+  upcomingCancellationsSelect,
+} from '../mass-schedules/mass-schedules.service';
 
 export interface MapConfig {
   tileUrl: string;
@@ -59,6 +64,8 @@ export interface PublicCommunityDetail {
     weeksOfMonth: number[];
     dayOfMonth: number | null;
     notes: string | null;
+    /** Datas suspensas ("não haverá") de hoje até +60 dias, em ordem. */
+    upcomingCancellations: UpcomingCancellation[];
   }[];
   nextMasses: NearbyMass[];
 }
@@ -174,6 +181,7 @@ export class PublicMapService {
             weeksOfMonth: true,
             dayOfMonth: true,
             notes: true,
+            cancellations: upcomingCancellationsSelect(nowBrazilFloating().slice(0, 10)),
           },
         },
       },
@@ -181,12 +189,17 @@ export class PublicMapService {
     if (!c) throw new NotFoundException('Comunidade não encontrada');
 
     // Domingo a sábado; "todo dia 13" (sem dia da semana) vai para o fim, pelo dia do mês
-    const schedules = [...c.massSchedules].sort(
-      (a, b) =>
-        (a.dayOfWeek ?? 7) - (b.dayOfWeek ?? 7) ||
-        (a.dayOfMonth ?? 0) - (b.dayOfMonth ?? 0) ||
-        a.time.localeCompare(b.time),
-    );
+    const schedules = [...c.massSchedules]
+      .map(({ cancellations, ...s }) => ({
+        ...s,
+        upcomingCancellations: toUpcomingCancellations(cancellations),
+      }))
+      .sort(
+        (a, b) =>
+          (a.dayOfWeek ?? 7) - (b.dayOfWeek ?? 7) ||
+          (a.dayOfMonth ?? 0) - (b.dayOfMonth ?? 0) ||
+          a.time.localeCompare(b.time),
+      );
 
     const masses = await this.massesService.nextMassesByCommunity(
       [c.id],

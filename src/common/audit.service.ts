@@ -28,7 +28,10 @@ export type AuditAction =
   | 'TWO_FACTOR_LOGIN_FAILED'
   | 'TWO_FACTOR_BACKUP_USED'
   // Funil: fiel escolheu/trocou a comunidade no app (PATCH /users/me/community)
-  | 'COMMUNITY_JOIN';
+  | 'COMMUNITY_JOIN'
+  // Horário fixo suspenso/reativado numa data ("não haverá Confissão às 15:00")
+  | 'MASS_SCHEDULE_CANCELLED'
+  | 'MASS_SCHEDULE_RESTORED';
 
 export interface AuditActor {
   id?: string;

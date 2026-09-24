@@ -119,6 +119,22 @@ describe('MassesService — missas por perto', () => {
       expect(masses[0].title).toBe('Missa Solene');
     });
 
+    it('NearbyMass leva cancelled/cancelReason: fixa suspensa marcada, evento sempre false', async () => {
+      massSchedules.expandOccurrences.mockResolvedValue([
+        { id: 'mass-s1-2026-07-22', massScheduleId: 's1', title: 'Missa', type: MassScheduleType.MASS, notes: null, start: '2026-07-22T19:00:00', end: '2026-07-22T20:00:00', community: { id: 'c1', name: 'Matriz' }, isFixed: true, cancelled: true, cancelReason: 'Agenda dos padres' },
+      ]);
+      prisma.event.findMany.mockResolvedValue([
+        { id: 'e1', title: 'Missa Solene', startDate: new Date('2026-07-22T15:00:00.000Z'), endDate: null, communityId: 'c1' },
+      ]);
+
+      const res = await service.findNearby({ lat: ORIGIN.lat, lng: ORIGIN.lng, radiusKm: 10 });
+      const masses = res.communities[0].nextMasses;
+      expect(masses.map((m) => [m.source, m.cancelled, m.cancelReason])).toEqual([
+        ['event', false, null],
+        ['fixed', true, 'Agenda dos padres'],
+      ]);
+    });
+
     it('só expande missas (type MASS) e restringe às comunidades do raio', async () => {
       await service.findNearby({ lat: ORIGIN.lat, lng: ORIGIN.lng, radiusKm: 10 });
       const call = massSchedules.expandOccurrences.mock.calls[0];

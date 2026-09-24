@@ -8,12 +8,14 @@ import {
   Delete,
   UseGuards,
   Query,
+  HttpCode,
 } from '@nestjs/common';
 import { MassSchedulesService } from './mass-schedules.service';
 import { CreateMassScheduleDto } from './dto/create-mass-schedule.dto';
 import { UpdateMassScheduleDto } from './dto/update-mass-schedule.dto';
 import { GenerateScheduleFromMassDto } from './dto/generate-schedule.dto';
 import { GeneratePendingDto } from './dto/generate-pending.dto';
+import { CancelOccurrencesDto } from './dto/cancel-occurrences.dto';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { RolesGuard } from '../auth/guards/roles.guard';
 import { Roles } from '../auth/decorators/roles.decorator';
@@ -184,6 +186,63 @@ export class MassSchedulesController {
     @CurrentUser() user: any,
   ) {
     return this.massSchedulesService.unlinkPastoral(id, communityPastoralId, user);
+  }
+
+  // --- Suspensão pontual ("não haverá") -----------------------------------
+  // Mesma gestão que edita o horário (o service confere o escopo da
+  // comunidade). Não é recurso pago: vale para toda comunidade.
+
+  // Datas suspensas do horário (padrão: hoje..+60 dias, relógio de São Paulo)
+  @Get(':id/cancellations')
+  @UseGuards(JwtAuthGuard, RolesGuard)
+  @Roles(
+    UserRole.SYSTEM_ADMIN,
+    UserRole.DIOCESAN_ADMIN,
+    UserRole.PARISH_ADMIN,
+    UserRole.COMMUNITY_COORDINATOR,
+  )
+  listCancellations(
+    @Param('id') id: string,
+    @CurrentUser() user: any,
+    @Query('from') from?: string,
+    @Query('to') to?: string,
+  ) {
+    return this.massSchedulesService.listCancellations(id, user, from, to);
+  }
+
+  // Suspende o horário em uma ou mais datas (idempotente: repetir só troca o motivo)
+  @Post(':id/cancellations')
+  @HttpCode(200)
+  @UseGuards(JwtAuthGuard, RolesGuard)
+  @Roles(
+    UserRole.SYSTEM_ADMIN,
+    UserRole.DIOCESAN_ADMIN,
+    UserRole.PARISH_ADMIN,
+    UserRole.COMMUNITY_COORDINATOR,
+  )
+  cancelOccurrences(
+    @Param('id') id: string,
+    @Body() dto: CancelOccurrencesDto,
+    @CurrentUser() user: any,
+  ) {
+    return this.massSchedulesService.cancelOccurrences(id, dto, user);
+  }
+
+  // Reativa uma data suspensa
+  @Delete(':id/cancellations/:date')
+  @UseGuards(JwtAuthGuard, RolesGuard)
+  @Roles(
+    UserRole.SYSTEM_ADMIN,
+    UserRole.DIOCESAN_ADMIN,
+    UserRole.PARISH_ADMIN,
+    UserRole.COMMUNITY_COORDINATOR,
+  )
+  restoreOccurrence(
+    @Param('id') id: string,
+    @Param('date') date: string,
+    @CurrentUser() user: any,
+  ) {
+    return this.massSchedulesService.restoreOccurrence(id, date, user);
   }
 
   @Get(':id')

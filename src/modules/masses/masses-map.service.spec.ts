@@ -204,8 +204,27 @@ describe('MassesService — mapa (contrato, approx, área)', () => {
       expect(massSchedules.expandOccurrences.mock.calls[0][4]).toEqual({ communityIds: ['c1'], types: [MassScheduleType.CONFESSION] });
       expect(prisma.event.findMany).not.toHaveBeenCalled();
       expect(res.communities[0].nextMasses).toEqual([
-        { id: 'conf-1', title: 'Confissão', type: 'CONFESSION', start: '2026-07-23T09:00:00', end: null, source: 'fixed' },
+        { id: 'conf-1', title: 'Confissão', type: 'CONFESSION', start: '2026-07-23T09:00:00', end: null, source: 'fixed', cancelled: false, cancelReason: null },
       ]);
+    });
+
+    it('data suspensa continua no pino, marcada — e conta no filtro "só Confissão"', async () => {
+      prisma.community.findMany.mockResolvedValue([pin({ id: 'c1', latitude: -23.5, longitude: -46.5 })]);
+      massSchedules.expandOccurrences.mockResolvedValue([
+        {
+          id: 'conf-1',
+          title: 'Confissão',
+          type: MassScheduleType.CONFESSION,
+          start: '2026-07-23T15:00:00',
+          end: null,
+          community: { id: 'c1', name: 'Matriz' },
+          cancelled: true,
+          cancelReason: 'Agenda dos padres',
+        },
+      ]);
+      const res = (await service.findInArea({ bbox: '-47,-24,-46,-23', zoom: 15, types: [MassScheduleType.CONFESSION] })) as MapPinsResult;
+      expect(res.communities.map((c) => c.id)).toEqual(['c1']);
+      expect(res.communities[0].nextMasses[0]).toMatchObject({ cancelled: true, cancelReason: 'Agenda dos padres' });
     });
 
     it('só Confissão: busca só quem tem confissão na agenda e tira quem não tem horário no período', async () => {

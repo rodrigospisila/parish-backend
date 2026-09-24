@@ -4,6 +4,7 @@ import {
   ForbiddenException,
   BadRequestException,
   ConflictException,
+  Logger,
 } from '@nestjs/common';
 import { PrismaService } from '../../database/prisma.service';
 import {
@@ -12,8 +13,22 @@ import {
 } from './dto/create-mass-schedule.dto';
 import { UpdateMassScheduleDto } from './dto/update-mass-schedule.dto';
 import { GenerateScheduleFromMassDto } from './dto/generate-schedule.dto';
-import { MassScheduleType, ScheduleStatus, UserRole, MassRecurrence } from '@prisma/client';
+import {
+  CancelOccurrencesDto,
+  MAX_CANCELLATION_DATES,
+  MAX_CANCELLATION_REASON,
+} from './dto/cancel-occurrences.dto';
+import {
+  MassScheduleType,
+  ScheduleStatus,
+  UserRole,
+  MassRecurrence,
+  NotificationType,
+} from '@prisma/client';
 import { CurrentUser, HierarchyService } from '../../common/hierarchy.service';
+import { AuditService } from '../../common/audit.service';
+import { NotificationsService } from '../notifications/notifications.service';
+import { nowBrazilFloating } from '../masses/map-search.utils';
 
 /** Include padrão das pastorais vinculadas (com o nome global para o painel). */
 const PASTORAL_INCLUDE = {
@@ -54,14 +69,94 @@ export interface FixedOccurrence {
   end: string;
   community: { id: string; name: string } | null;
   isFixed: true;
+  /** Data suspensa pela comunidade ("não haverá"): continua na lista, com aviso. */
+  cancelled: boolean;
+  cancelReason: string | null;
+}
+
+/** Data suspensa de um horário fixo (formato das rotas /cancellations). */
+export interface MassScheduleCancellationView {
+  id: string;
+  date: string; // YYYY-MM-DD
+  reason: string | null;
+  createdAt: Date;
+  createdBy: { id: string; name: string } | null;
+}
+
+/** Suspensões futuras resumidas, anexadas à lista de horários (app e página pública). */
+export interface UpcomingCancellation {
+  date: string; // YYYY-MM-DD
+  reason: string | null;
+}
+
+/** Quantos dias à frente as listas mostram as suspensões (upcomingCancellations). */
+export const UPCOMING_CANCELLATIONS_DAYS = 60;
+/** Até quando dá para suspender uma data (evita pedidos para daqui a anos). */
+const MAX_CANCELLATION_AHEAD_DAYS = 366;
+
+const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
+const DAY_MS = 24 * 60 * 60 * 1000;
+
+/** Dia de calendário (YYYY-MM-DD) de uma data gravada à meia-noite UTC (@db.Date). */
+export function ymd(date: Date): string {
+  return date.toISOString().slice(0, 10);
+}
+
+/** 'YYYY-MM-DD' → Date à meia-noite UTC (como o Prisma grava/lê @db.Date). */
+function dayUtc(ymdStr: string): Date {
+  return new Date(`${ymdStr}T00:00:00.000Z`);
+}
+
+/** Soma dias a um 'YYYY-MM-DD'. */
+export function addDaysYmd(ymdStr: string, days: number): string {
+  return ymd(new Date(dayUtc(ymdStr).getTime() + days * DAY_MS));
+}
+
+/** Data de calendário válida (rejeita 2026-02-30)? */
+function isRealDate(ymdStr: string): boolean {
+  if (!DATE_RE.test(ymdStr)) return false;
+  const d = dayUtc(ymdStr);
+  return !Number.isNaN(d.getTime()) && ymd(d) === ymdStr;
+}
+
+/** 25/09/2026 */
+function brDate(ymdStr: string): string {
+  const [y, m, d] = ymdStr.split('-');
+  return `${d}/${m}/${y}`;
+}
+
+/** Suspensões de hoje (SP) até +60 dias, para anexar num `include`/`select` do Prisma. */
+export function upcomingCancellationsSelect(today: string) {
+  return {
+    where: {
+      date: { gte: dayUtc(today), lte: dayUtc(addDaysYmd(today, UPCOMING_CANCELLATIONS_DAYS)) },
+    },
+    select: { date: true, reason: true },
+    orderBy: { date: 'asc' as const },
+  };
+}
+
+export function toUpcomingCancellations(
+  rows: { date: Date; reason: string | null }[] | undefined,
+): UpcomingCancellation[] {
+  return (rows ?? []).map((c) => ({ date: ymd(c.date), reason: c.reason ?? null }));
 }
 
 @Injectable()
 export class MassSchedulesService {
+  private readonly logger = new Logger(MassSchedulesService.name);
+
   constructor(
     private readonly prisma: PrismaService,
     private readonly hierarchyService: HierarchyService,
+    private readonly auditService: AuditService,
+    private readonly notificationsService: NotificationsService,
   ) {}
+
+  /** Hoje no relógio de São Paulo, YYYY-MM-DD (método para os testes congelarem). */
+  protected todaySaoPaulo(): string {
+    return nowBrazilFloating().slice(0, 10);
+  }
 
   private async assertCommunityInScope(communityId: string, currentUser?: CurrentUser) {
     if (!currentUser || currentUser.role === UserRole.SYSTEM_ADMIN) return;
@@ -238,7 +333,7 @@ export class MassSchedulesService {
       where.type = type;
     }
 
-    return this.prisma.massSchedule.findMany({
+    const schedules = await this.prisma.massSchedule.findMany({
       where,
       include: {
         community: {
@@ -247,12 +342,19 @@ export class MassSchedulesService {
             name: true,
           },
         },
+        // Datas suspensas de hoje até +60 dias (o app mostra "não haverá")
+        cancellations: upcomingCancellationsSelect(this.todaySaoPaulo()),
       },
       orderBy: [
         { dayOfWeek: 'asc' },
         { time: 'asc' },
       ],
     });
+
+    return schedules.map(({ cancellations, ...schedule }) => ({
+      ...schedule,
+      upcomingCancellations: toUpcomingCancellations(cancellations),
+    }));
   }
 
   /** Listagem escopada para o painel (Agenda Fixa). */
@@ -314,80 +416,122 @@ export class MassSchedulesService {
     const endDay = new Date(Date.UTC(to.getUTCFullYear(), to.getUTCMonth(), to.getUTCDate()));
 
     const occurrences: FixedOccurrence[] = [];
-
     for (const schedule of schedules) {
       const [hh, mm] = (schedule.time || '00:00').split(':').map((n) => parseInt(n, 10) || 0);
-
-      // Horário especial (festa/solenidade): ocorrência única na data marcada
-      if (schedule.isSpecial && schedule.specialDate) {
-        const sd = new Date(schedule.specialDate);
-        const dayUTC = new Date(Date.UTC(sd.getUTCFullYear(), sd.getUTCMonth(), sd.getUTCDate()));
-        if (dayUTC >= startDay && dayUTC <= endDay) {
-          occurrences.push(this.toOccurrence(schedule, dayUTC, hh, mm));
-        }
-        continue;
+      for (const day of this.occurrenceDays(schedule, startDay, endDay)) {
+        occurrences.push(this.toOccurrence(schedule, day, hh, mm));
       }
+    }
 
-      // Data fixa do mês ("todo dia 13"): uma ocorrência por mês, se o mês tiver
-      // o dia. Fevereiro simplesmente não tem "dia 30" — o mês é pulado, e não
-      // empurrado para o dia 1º de março.
-      if (schedule.recurrence === 'MONTHLY_DAY') {
-        const dia = schedule.dayOfMonth;
-        if (!dia) continue;
-        const mes = new Date(Date.UTC(startDay.getUTCFullYear(), startDay.getUTCMonth(), 1));
-        while (mes <= endDay) {
-          const diasNoMes = new Date(Date.UTC(mes.getUTCFullYear(), mes.getUTCMonth() + 1, 0)).getUTCDate();
-          if (dia <= diasNoMes) {
-            const data = new Date(Date.UTC(mes.getUTCFullYear(), mes.getUTCMonth(), dia));
-            if (data >= startDay && data <= endDay) {
-              occurrences.push(this.toOccurrence(schedule, data, hh, mm));
-            }
+    // Datas suspensas ("não haverá") da janela: UMA consulta para todos os
+    // horários encontrados. A ocorrência continua na lista, marcada — o fiel
+    // precisa ver o aviso, não um buraco na agenda.
+    if (occurrences.length > 0) {
+      const cancellations = await this.prisma.massScheduleCancellation.findMany({
+        where: {
+          massScheduleId: { in: [...new Set(occurrences.map((o) => o.massScheduleId))] },
+          date: { gte: startDay, lte: endDay },
+        },
+        select: { massScheduleId: true, date: true, reason: true },
+      });
+      if (cancellations.length > 0) {
+        const byKey = new Map(
+          cancellations.map((c) => [`${c.massScheduleId}:${ymd(c.date)}`, c.reason ?? null]),
+        );
+        for (const occ of occurrences) {
+          const key = `${occ.massScheduleId}:${occ.start.slice(0, 10)}`;
+          if (byKey.has(key)) {
+            occ.cancelled = true;
+            occ.cancelReason = byKey.get(key) ?? null;
           }
-          mes.setUTCMonth(mes.getUTCMonth() + 1);
         }
-        continue;
-      }
-
-      if (schedule.dayOfWeek === null || schedule.dayOfWeek === undefined) continue;
-
-      // Enésimo dia da semana do mês ("1º e 3º sábado", "último domingo"):
-      // percorre mês a mês e escolhe as ocorrências pedidas. Lista vazia
-      // significa todas — aí o comportamento é o mesmo do semanal.
-      if (schedule.recurrence === 'MONTHLY_NTH' && schedule.weeksOfMonth.length > 0) {
-        const semanas = schedule.weeksOfMonth;
-        const mes = new Date(Date.UTC(startDay.getUTCFullYear(), startDay.getUTCMonth(), 1));
-        while (mes <= endDay) {
-          // Todos os dias do mês que caem no dia da semana pedido
-          const doDiaDaSemana: Date[] = [];
-          const diasNoMes = new Date(Date.UTC(mes.getUTCFullYear(), mes.getUTCMonth() + 1, 0)).getUTCDate();
-          for (let d = 1; d <= diasNoMes; d += 1) {
-            const data = new Date(Date.UTC(mes.getUTCFullYear(), mes.getUTCMonth(), d));
-            if (data.getUTCDay() === schedule.dayOfWeek) doDiaDaSemana.push(data);
-          }
-          for (const semana of semanas) {
-            // -1 é a última do mês, que pode ser a 4ª ou a 5ª conforme o mês
-            const data = semana === -1 ? doDiaDaSemana[doDiaDaSemana.length - 1] : doDiaDaSemana[semana - 1];
-            if (data && data >= startDay && data <= endDay) {
-              occurrences.push(this.toOccurrence(schedule, data, hh, mm));
-            }
-          }
-          mes.setUTCMonth(mes.getUTCMonth() + 1);
-        }
-        continue;
-      }
-
-      // Semanal: do 1º dia que bate o dia da semana, pula de 7 em 7 dias
-      const cursor = new Date(startDay);
-      while (cursor.getUTCDay() !== schedule.dayOfWeek) {
-        cursor.setUTCDate(cursor.getUTCDate() + 1);
-      }
-      for (let day = new Date(cursor); day <= endDay; day.setUTCDate(day.getUTCDate() + 7)) {
-        occurrences.push(this.toOccurrence(schedule, new Date(day), hh, mm));
       }
     }
 
     occurrences.sort((a, b) => a.start.localeCompare(b.start));
     return occurrences;
+  }
+
+  /**
+   * Dias (meia-noite UTC = dia de calendário) em que o horário acontece dentro
+   * de [startDay, endDay]. Única fonte da regra de recorrência: usada na
+   * expansão da agenda e na validação das datas suspensas.
+   */
+  private occurrenceDays(
+    schedule: {
+      isSpecial: boolean;
+      specialDate: Date | null;
+      recurrence?: MassRecurrence | string | null;
+      dayOfWeek: number | null;
+      dayOfMonth?: number | null;
+      weeksOfMonth?: number[] | null;
+    },
+    startDay: Date,
+    endDay: Date,
+  ): Date[] {
+    const days: Date[] = [];
+
+    // Horário especial (festa/solenidade): ocorrência única na data marcada
+    if (schedule.isSpecial && schedule.specialDate) {
+      const sd = new Date(schedule.specialDate);
+      const dayUTC = new Date(Date.UTC(sd.getUTCFullYear(), sd.getUTCMonth(), sd.getUTCDate()));
+      if (dayUTC >= startDay && dayUTC <= endDay) days.push(dayUTC);
+      return days;
+    }
+
+    // Data fixa do mês ("todo dia 13"): uma ocorrência por mês, se o mês tiver
+    // o dia. Fevereiro simplesmente não tem "dia 30" — o mês é pulado, e não
+    // empurrado para o dia 1º de março.
+    if (schedule.recurrence === 'MONTHLY_DAY') {
+      const dia = schedule.dayOfMonth;
+      if (!dia) return days;
+      const mes = new Date(Date.UTC(startDay.getUTCFullYear(), startDay.getUTCMonth(), 1));
+      while (mes <= endDay) {
+        const diasNoMes = new Date(Date.UTC(mes.getUTCFullYear(), mes.getUTCMonth() + 1, 0)).getUTCDate();
+        if (dia <= diasNoMes) {
+          const data = new Date(Date.UTC(mes.getUTCFullYear(), mes.getUTCMonth(), dia));
+          if (data >= startDay && data <= endDay) days.push(data);
+        }
+        mes.setUTCMonth(mes.getUTCMonth() + 1);
+      }
+      return days;
+    }
+
+    if (schedule.dayOfWeek === null || schedule.dayOfWeek === undefined) return days;
+
+    // Enésimo dia da semana do mês ("1º e 3º sábado", "último domingo"):
+    // percorre mês a mês e escolhe as ocorrências pedidas. Lista vazia
+    // significa todas — aí o comportamento é o mesmo do semanal.
+    const semanas = schedule.weeksOfMonth ?? [];
+    if (schedule.recurrence === 'MONTHLY_NTH' && semanas.length > 0) {
+      const mes = new Date(Date.UTC(startDay.getUTCFullYear(), startDay.getUTCMonth(), 1));
+      while (mes <= endDay) {
+        // Todos os dias do mês que caem no dia da semana pedido
+        const doDiaDaSemana: Date[] = [];
+        const diasNoMes = new Date(Date.UTC(mes.getUTCFullYear(), mes.getUTCMonth() + 1, 0)).getUTCDate();
+        for (let d = 1; d <= diasNoMes; d += 1) {
+          const data = new Date(Date.UTC(mes.getUTCFullYear(), mes.getUTCMonth(), d));
+          if (data.getUTCDay() === schedule.dayOfWeek) doDiaDaSemana.push(data);
+        }
+        for (const semana of semanas) {
+          // -1 é a última do mês, que pode ser a 4ª ou a 5ª conforme o mês
+          const data = semana === -1 ? doDiaDaSemana[doDiaDaSemana.length - 1] : doDiaDaSemana[semana - 1];
+          if (data && data >= startDay && data <= endDay) days.push(data);
+        }
+        mes.setUTCMonth(mes.getUTCMonth() + 1);
+      }
+      return days;
+    }
+
+    // Semanal: do 1º dia que bate o dia da semana, pula de 7 em 7 dias
+    const cursor = new Date(startDay);
+    while (cursor.getUTCDay() !== schedule.dayOfWeek) {
+      cursor.setUTCDate(cursor.getUTCDate() + 1);
+    }
+    for (let day = new Date(cursor); day <= endDay; day.setUTCDate(day.getUTCDate() + 7)) {
+      days.push(new Date(day));
+    }
+    return days;
   }
 
   /**
@@ -446,6 +590,8 @@ export class MassSchedulesService {
         pastorals: pastoralsByMass.get(occurrence.massScheduleId) ?? [],
       }))
       .filter((occurrence) => occurrence.pastorals.length > 0)
+      // Data suspensa: não há missa, então não há escala a sugerir
+      .filter((occurrence) => !occurrence.cancelled)
       .filter((occurrence) => !covered.has(`${occurrence.massScheduleId}:${occurrence.date}`))
       .filter(
         (occurrence) =>
@@ -520,6 +666,8 @@ export class MassSchedulesService {
       end: floating(endUtc),
       community: schedule.community,
       isFixed: true,
+      cancelled: false,
+      cancelReason: null,
     };
   }
 
@@ -734,6 +882,17 @@ export class MassSchedulesService {
       throw new BadRequestException('Data inválida');
     }
 
+    // Data suspensa ("não haverá"): não gera escala para o que não vai acontecer
+    const suspensa = await this.prisma.massScheduleCancellation.findUnique({
+      where: { massScheduleId_date: { massScheduleId: id, date: dayUtc(ymd(date)) } },
+      select: { id: true },
+    });
+    if (suspensa) {
+      throw new BadRequestException(
+        `Este horário está suspenso em ${brDate(ymd(date))}. Reative a data antes de gerar a escala.`,
+      );
+    }
+
     // Deduplicação: no máximo uma escala por (horário fixo, dia)
     const dayStart = new Date(
       Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate(), 0, 0, 0),
@@ -782,6 +941,265 @@ export class MassSchedulesService {
         pastorals: PASTORAL_INCLUDE,
       },
     });
+  }
+
+  // --- Suspensão pontual ("não haverá") ------------------------------------
+  // A Matriz tem Confissão às 09:00 e 15:00, mas em alguns dias não acontece
+  // (agenda dos padres). A gestão marca a data; o fiel vê o aviso no app e no
+  // mapa; quem favoritou recebe push se for hoje/amanhã. O horário continua.
+
+  /** Horário fixo + escopo de gestão (mesma checagem do Editar). */
+  private async findScheduleForCancellation(id: string, currentUser: CurrentUser) {
+    const schedule = await this.prisma.massSchedule.findUnique({
+      where: { id },
+      include: { community: { select: { id: true, name: true } } },
+    });
+    if (!schedule) {
+      throw new NotFoundException(`Horário fixo com ID ${id} não encontrado`);
+    }
+    await this.assertCommunityInScope(schedule.communityId, currentUser);
+    return schedule;
+  }
+
+  private toCancellationView(row: {
+    id: string;
+    date: Date;
+    reason: string | null;
+    createdAt: Date;
+    createdBy?: { id: string; name: string } | null;
+  }): MassScheduleCancellationView {
+    return {
+      id: row.id,
+      date: ymd(row.date),
+      reason: row.reason ?? null,
+      createdAt: row.createdAt,
+      createdBy: row.createdBy ? { id: row.createdBy.id, name: row.createdBy.name } : null,
+    };
+  }
+
+  private readonly cancellationSelect = {
+    id: true,
+    date: true,
+    reason: true,
+    createdAt: true,
+    createdBy: { select: { id: true, name: true } },
+  } as const;
+
+  /** Datas suspensas do horário no período (padrão: hoje..+60 dias, relógio de SP). */
+  async listCancellations(
+    id: string,
+    currentUser: CurrentUser,
+    fromStr?: string,
+    toStr?: string,
+  ): Promise<MassScheduleCancellationView[]> {
+    await this.findScheduleForCancellation(id, currentUser);
+    const today = this.todaySaoPaulo();
+    const from = fromStr || today;
+    const to = toStr || addDaysYmd(from, UPCOMING_CANCELLATIONS_DAYS);
+    if (!isRealDate(from) || !isRealDate(to)) {
+      throw new BadRequestException('Período inválido: use datas no formato AAAA-MM-DD');
+    }
+    if (to < from) {
+      throw new BadRequestException('Período inválido: a data final é anterior à inicial');
+    }
+
+    const rows = await this.prisma.massScheduleCancellation.findMany({
+      where: { massScheduleId: id, date: { gte: dayUtc(from), lte: dayUtc(to) } },
+      select: this.cancellationSelect,
+      orderBy: { date: 'asc' },
+    });
+    return rows.map((r) => this.toCancellationView(r));
+  }
+
+  /**
+   * Suspende o horário em uma ou mais datas. Cada data precisa ser uma
+   * ocorrência real do horário (mesma regra de recorrência da agenda) e não
+   * pode ter passado — hoje pode. Idempotente: data já suspensa só troca o
+   * motivo. Escalas já geradas para a data não são tocadas.
+   */
+  async cancelOccurrences(
+    id: string,
+    dto: CancelOccurrencesDto,
+    currentUser: CurrentUser,
+  ): Promise<MassScheduleCancellationView[]> {
+    const schedule = await this.findScheduleForCancellation(id, currentUser);
+
+    const dates = [...new Set((dto?.dates ?? []).map((d) => String(d).trim()))].sort();
+    if (dates.length === 0) {
+      throw new BadRequestException('Informe ao menos uma data');
+    }
+    if (dates.length > MAX_CANCELLATION_DATES) {
+      throw new BadRequestException(`Envie no máximo ${MAX_CANCELLATION_DATES} datas por vez`);
+    }
+    const invalid = dates.find((d) => !isRealDate(d));
+    if (invalid) {
+      throw new BadRequestException(`Data inválida: ${invalid} (use o formato AAAA-MM-DD)`);
+    }
+    const reasonRaw = typeof dto?.reason === 'string' ? dto.reason.trim() : '';
+    if (reasonRaw.length > MAX_CANCELLATION_REASON) {
+      throw new BadRequestException(`O motivo pode ter no máximo ${MAX_CANCELLATION_REASON} caracteres`);
+    }
+    const reason = reasonRaw || null;
+
+    const today = this.todaySaoPaulo();
+    const past = dates.find((d) => d < today);
+    if (past) {
+      throw new BadRequestException(`A data ${brDate(past)} já passou`);
+    }
+    const limit = addDaysYmd(today, MAX_CANCELLATION_AHEAD_DAYS);
+    const tooFar = dates.find((d) => d > limit);
+    if (tooFar) {
+      throw new BadRequestException(
+        `Só é possível suspender datas até ${brDate(limit)} (${brDate(tooFar)} está longe demais)`,
+      );
+    }
+
+    // A data precisa ser um dia em que o horário acontece de verdade
+    const validDays = new Set(
+      this.occurrenceDays(schedule, dayUtc(dates[0]), dayUtc(dates[dates.length - 1])).map(ymd),
+    );
+    const label = SCHEDULE_LABELS[schedule.type] ?? schedule.type;
+    const notOccurrence = dates.find((d) => !validDays.has(d));
+    if (notOccurrence) {
+      throw new BadRequestException(
+        `Não há ${label} às ${schedule.time} em ${brDate(notOccurrence)}`,
+      );
+    }
+
+    const alreadyCancelled = await this.prisma.massScheduleCancellation.findMany({
+      where: { massScheduleId: id, date: { in: dates.map(dayUtc) } },
+      select: { date: true },
+    });
+    const existing = new Set(alreadyCancelled.map((c) => ymd(c.date)));
+    const newDates = dates.filter((d) => !existing.has(d));
+
+    const rows = await this.prisma.$transaction(
+      dates.map((d) =>
+        this.prisma.massScheduleCancellation.upsert({
+          where: { massScheduleId_date: { massScheduleId: id, date: dayUtc(d) } },
+          update: { reason },
+          create: { massScheduleId: id, date: dayUtc(d), reason, createdById: currentUser.id },
+          select: this.cancellationSelect,
+        }),
+      ),
+    );
+
+    // Escalas já geradas para as datas: ficam como estão (a coordenação decide);
+    // só registramos na auditoria para quem for conferir.
+    const linkedSchedules = await this.prisma.schedule.findMany({
+      where: {
+        massScheduleId: id,
+        deletedAt: null,
+        date: {
+          gte: dayUtc(dates[0]),
+          lt: new Date(dayUtc(dates[dates.length - 1]).getTime() + DAY_MS),
+        },
+      },
+      select: { id: true, date: true },
+    });
+    const dateSet = new Set(dates);
+    const affectedSchedules = linkedSchedules.filter((s) => dateSet.has(ymd(s.date)));
+
+    await this.auditService.log({
+      actor: { id: currentUser.id, email: currentUser.email, role: currentUser.role },
+      action: 'MASS_SCHEDULE_CANCELLED',
+      entity: 'MassSchedule',
+      entityId: id,
+      after: { dates, reason },
+      metadata: {
+        communityId: schedule.communityId,
+        newDates,
+        reasonUpdatedDates: dates.filter((d) => existing.has(d)),
+        existingScheduleIds: affectedSchedules.map((s) => s.id),
+      },
+    });
+
+    // Push só para datas NOVAS (trocar o motivo não re-notifica ninguém)
+    await this.notifyFavoritesOfChange(schedule, newDates, 'cancelled', reason, currentUser.id);
+
+    return rows.map((r) => this.toCancellationView(r));
+  }
+
+  /** Reativa uma data suspensa ("voltou a acontecer"). 404 se não estava suspensa. */
+  async restoreOccurrence(id: string, date: string, currentUser: CurrentUser) {
+    const schedule = await this.findScheduleForCancellation(id, currentUser);
+    if (!isRealDate(date)) {
+      throw new BadRequestException(`Data inválida: ${date} (use o formato AAAA-MM-DD)`);
+    }
+
+    const found = await this.prisma.massScheduleCancellation.findUnique({
+      where: { massScheduleId_date: { massScheduleId: id, date: dayUtc(date) } },
+      select: { id: true, reason: true },
+    });
+    if (!found) {
+      throw new NotFoundException(`Este horário não está suspenso em ${brDate(date)}`);
+    }
+    await this.prisma.massScheduleCancellation.delete({ where: { id: found.id } });
+
+    await this.auditService.log({
+      actor: { id: currentUser.id, email: currentUser.email, role: currentUser.role },
+      action: 'MASS_SCHEDULE_RESTORED',
+      entity: 'MassSchedule',
+      entityId: id,
+      before: { date, reason: found.reason ?? null },
+      metadata: { communityId: schedule.communityId },
+    });
+
+    await this.notifyFavoritesOfChange(schedule, [date], 'restored', null, currentUser.id);
+
+    return { ok: true };
+  }
+
+  /**
+   * Avisa quem favoritou o horário quando a mudança é para HOJE ou AMANHÃ
+   * (relógio de SP) — mais longe que isso o fiel vê o aviso no app. Nunca
+   * lança: falha de push não derruba a suspensão. O autor não recebe.
+   */
+  private async notifyFavoritesOfChange(
+    schedule: { id: string; type: MassScheduleType; time: string; communityId: string; community: { name: string } | null },
+    dates: string[],
+    kind: 'cancelled' | 'restored',
+    reason: string | null,
+    authorId: string,
+  ) {
+    try {
+      const today = this.todaySaoPaulo();
+      const tomorrow = addDaysYmd(today, 1);
+      const soon = dates.filter((d) => d === today || d === tomorrow);
+      if (soon.length === 0) return;
+
+      const favorites = await this.prisma.massScheduleFavorite.findMany({
+        where: { massScheduleId: schedule.id, userId: { not: authorId } },
+        select: { userId: true },
+      });
+      const userIds = favorites.map((f) => f.userId);
+      if (userIds.length === 0) return;
+
+      const label = SCHEDULE_LABELS[schedule.type] ?? schedule.type;
+      const communityName = schedule.community?.name ?? 'Sua comunidade';
+      for (const d of soon) {
+        const when = d === today ? 'hoje' : 'amanhã';
+        const title =
+          kind === 'cancelled'
+            ? `${label} das ${schedule.time} não vai acontecer ${when}`
+            : `${label} das ${schedule.time} voltou a acontecer ${when}`;
+        const body =
+          kind === 'cancelled'
+            ? reason
+              ? `${communityName} — ${reason}`
+              : communityName
+            : `${communityName} — o horário está mantido.`;
+        await this.notificationsService.notifyUsers(userIds, NotificationType.EVENT_REMINDER, title, body, {
+          kind: kind === 'cancelled' ? 'mass-schedule-cancelled' : 'mass-schedule-restored',
+          massScheduleId: schedule.id,
+          communityId: schedule.communityId,
+          date: d,
+        });
+      }
+    } catch (error) {
+      // Aviso é best-effort: a suspensão já foi gravada
+      this.logger.warn(`Falha ao avisar favoritos do horário ${schedule.id}: ${error}`);
+    }
   }
 
   async remove(id: string, currentUser?: CurrentUser) {

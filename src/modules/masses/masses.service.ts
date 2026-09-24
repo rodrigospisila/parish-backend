@@ -32,6 +32,9 @@ export interface NearbyMass {
   start: string; // relógio de parede (YYYY-MM-DDTHH:MM:SS)
   end: string | null;
   source: 'fixed' | 'event';
+  /** Horário fixo suspenso nesta data ("não haverá"); eventos: sempre false. */
+  cancelled: boolean;
+  cancelReason: string | null;
 }
 
 /** Igreja/comunidade no mapa ou na busca por proximidade (contrato do app). */
@@ -250,6 +253,10 @@ export class MassesService {
         start: occ.start,
         end: occ.end,
         source: 'fixed',
+        // Continua na lista (e conta no filtro "só Confissão/Adoração"): a
+        // igreja aparece com o aviso de que naquele dia não haverá
+        cancelled: occ.cancelled === true,
+        cancelReason: occ.cancelReason ?? null,
       });
     }
 
@@ -264,6 +271,8 @@ export class MassesService {
         start,
         end: ev.endDate ? ev.endDate.toISOString().slice(0, 19) : null,
         source: 'event',
+        cancelled: false,
+        cancelReason: null,
       });
     }
 

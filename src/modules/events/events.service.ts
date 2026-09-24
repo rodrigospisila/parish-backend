@@ -394,7 +394,7 @@ export class EventsService {
         `DTEND:${fmtFloating(occ.end)}`,
         `SUMMARY:${esc(occ.title)}`,
         ...(occ.community?.name ? [`DESCRIPTION:${esc(`Comunidade: ${occ.community.name}`)}`] : []),
-        'STATUS:CONFIRMED',
+        occ.cancelled ? 'STATUS:CANCELLED' : 'STATUS:CONFIRMED',
         'END:VEVENT',
       );
     }

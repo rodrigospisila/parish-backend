@@ -313,6 +313,9 @@ model User {
   // Correções de comunidade sugeridas por este usuário no app
   communitySuggestions CommunitySuggestion[]
 
+  // Suspensões de horário fixo registradas por este usuário
+  massScheduleCancellations MassScheduleCancellation[]
+
   @@index([email])
   @@index([role])
   @@map("users")
@@ -1443,13 +1446,15 @@ model MassSchedule {
   dayOfMonth   Int?
 
   // Relations
-  communityId String
-  community   Community              @relation(fields: [communityId], references: [id], onDelete: Cascade)
-  favorites   MassScheduleFavorite[]
+  communityId   String
+  community     Community                  @relation(fields: [communityId], references: [id], onDelete: Cascade)
+  favorites     MassScheduleFavorite[]
   // Pastorais vinculadas ao horário fixo (base para gerar escalas)
-  pastorals   MassSchedulePastoral[]
+  pastorals     MassSchedulePastoral[]
   // Escalas geradas a partir deste horário fixo
-  schedules   Schedule[]
+  schedules     Schedule[]
+  // Datas em que o horário NÃO acontece (suspensões pontuais)
+  cancellations MassScheduleCancellation[]
 
   // Audit
   createdAt DateTime @default(now())
@@ -1484,6 +1489,24 @@ model MassSchedulePastoral {
   @@index([massScheduleId])
   @@index([communityPastoralId])
   @@map("mass_schedule_pastorals")
+}
+
+/// Horário fixo que NÃO acontece numa data (agenda dos padres, feriado…). Não apaga o horário.
+model MassScheduleCancellation {
+  id             String       @id @default(cuid())
+  massScheduleId String
+  massSchedule   MassSchedule @relation(fields: [massScheduleId], references: [id], onDelete: Cascade)
+  /// Dia da ocorrência no relógio de parede (America/Sao_Paulo)
+  date           DateTime     @db.Date
+  /// Texto curto mostrado ao fiel (até 140)
+  reason         String?
+  createdById    String?
+  createdBy      User?        @relation(fields: [createdById], references: [id], onDelete: SetNull)
+  createdAt      DateTime     @default(now())
+
+  @@unique([massScheduleId, date])
+  @@index([date])
+  @@map("mass_schedule_cancellations")
 }
 
 model MassScheduleFavorite {
