@@ -31,7 +31,10 @@ export type AuditAction =
   | 'COMMUNITY_JOIN'
   // Horário fixo suspenso/reativado numa data ("não haverá Confissão às 15:00")
   | 'MASS_SCHEDULE_CANCELLED'
-  | 'MASS_SCHEDULE_RESTORED';
+  | 'MASS_SCHEDULE_RESTORED'
+  // Fila de propostas de dados (fonte oficial) revisada pelo SYSTEM_ADMIN
+  | 'DATA_PROPOSAL_APPROVED'
+  | 'DATA_PROPOSAL_REJECTED';
 
 export interface AuditActor {
   id?: string;

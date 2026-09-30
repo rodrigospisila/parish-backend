@@ -316,6 +316,9 @@ model User {
   // Suspensões de horário fixo registradas por este usuário
   massScheduleCancellations MassScheduleCancellation[]
 
+  // Propostas de dados (fila de aprovação do SYSTEM_ADMIN) revisadas por este usuário
+  dataProposalsReviewed DataProposal[] @relation("DataProposalReviewer")
+
   @@index([email])
   @@index([role])
   @@map("users")
@@ -523,6 +526,9 @@ model Parish {
   guestGifts            TitheGuestGift[]
   webhookEvents         PaymentWebhookEvent[]
 
+  // Propostas de dados sobre esta paróquia (site, comunidade nova) à espera de aprovação
+  dataProposals DataProposal[]
+
   // Audit
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -605,6 +611,9 @@ model Community {
   // Correções sugeridas pelos fiéis no app (nunca aplicadas sozinhas)
   suggestions CommunitySuggestion[]
 
+  // Propostas de dados levantadas em fonte oficial, à espera de aprovação do SYSTEM_ADMIN
+  dataProposals DataProposal[]
+
   // Plano da plataforma (um por comunidade; ausência = FREE) + histórico
   communityPlan       CommunityPlan?
   communityPlanEvents CommunityPlanEvent[]
@@ -685,6 +694,80 @@ model CommunitySuggestion {
   @@index([status])
   @@index([createdAt])
   @@map("community_suggestions")
+}
+
+/// O que uma proposta de dado muda (fila de aprovação do SYSTEM_ADMIN no mapa do painel).
+enum DataProposalKind {
+  /// Horário novo numa comunidade (payload: type, dayOfWeek, time, recurrence, weeksOfMonth, dayOfMonth, notes).
+  SCHEDULE_CREATE
+  /// Horário cadastrado que a fonte contradiz (payload: os campos que mudam; {} = o aprovador informa).
+  SCHEDULE_UPDATE
+  /// Horário cadastrado que não existe mais (payload: {}).
+  SCHEDULE_DELETE
+  /// Horário "semanal" cuja nota diz que é mensal (payload: recurrence, dayOfWeek, weeksOfMonth, dayOfMonth, ou nulo).
+  SCHEDULE_RECURRENCE
+  /// Endereço da comunidade (payload: address).
+  COMMUNITY_ADDRESS
+  /// Comunidade listada em outra paróquia (payload: parishId).
+  COMMUNITY_PARISH
+  /// Comunidade que a fonte lista e o Parish não tem (payload: name, address, city, state).
+  COMMUNITY_CREATE
+  /// Site da comunidade (payload: website; nulo = apagar site errado).
+  COMMUNITY_WEBSITE
+  /// Site da paróquia (payload: website; nulo = apagar site errado).
+  PARISH_WEBSITE
+}
+
+enum DataProposalStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+/// Mudança de dado proposta por pesquisa (agentes/fonte oficial) que precisa de aprovação humana.
+/// O que tem alta confiança é gravado por script; aqui fica o resto — trecho que não bateu ao pé da
+/// letra, site antigo, folheto em imagem, horário contestado — para uma pessoa ver a evidência e decidir.
+/// Quem carrega: prisma/horarios/carregar-propostas.cjs.
+model DataProposal {
+  id     String             @id @default(cuid())
+  kind   DataProposalKind
+  status DataProposalStatus @default(PENDING)
+
+  communityId    String?
+  community      Community?    @relation(fields: [communityId], references: [id], onDelete: SetNull)
+  parishId       String?
+  parish         Parish?       @relation(fields: [parishId], references: [id], onDelete: SetNull)
+  massScheduleId String?
+  schedule       MassSchedule? @relation(fields: [massScheduleId], references: [id], onDelete: SetNull)
+
+  /// O que muda (formato por kind). Nulo só em SCHEDULE_RECURRENCE sem sugestão.
+  payload       Json?
+  /// Valor atual quando a proposta foi feita — se o dado mudou no meio, a aprovação recusa.
+  current       Json?
+  evidenceUrl   String?
+  /// Trecho literal da fonte (até 400 caracteres).
+  evidenceQuote String?
+  /// site-paroquia | site-diocese | rede-social | boletim | agente | cadastro
+  sourceKind    String?
+  /// alta | media | baixa
+  confidence    String?
+  /// Por que não foi gravada automaticamente.
+  reason        String?
+  /// Lote da carga, ex.: "horarios-rio-2026-09-30".
+  batch         String
+  city          String?
+  state         String?
+
+  createdAt    DateTime  @default(now())
+  reviewedAt   DateTime?
+  reviewedById String?
+  reviewedBy   User?     @relation("DataProposalReviewer", fields: [reviewedById], references: [id], onDelete: SetNull)
+  reviewNote   String?
+
+  @@index([status, kind])
+  @@index([communityId])
+  @@index([batch])
+  @@map("data_proposals")
 }
 
 // ============================================
@@ -1455,6 +1538,8 @@ model MassSchedule {
   schedules     Schedule[]
   // Datas em que o horário NÃO acontece (suspensões pontuais)
   cancellations MassScheduleCancellation[]
+  // Propostas de mudança deste horário (fila de aprovação do SYSTEM_ADMIN)
+  dataProposals DataProposal[]
 
   // Audit
   createdAt DateTime @default(now())

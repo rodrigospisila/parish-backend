@@ -45,6 +45,7 @@ import { CommunitySuggestionsModule } from './modules/community-suggestions/comm
 import { DashboardModule } from './modules/dashboard/dashboard.module';
 import { TitheModule } from './modules/tithe/tithe.module';
 import { PlansModule } from './modules/plans/plans.module';
+import { DataProposalsModule } from './modules/data-proposals/data-proposals.module';
 import { CommonModule } from './common/common.module';
 
 @Module({
@@ -96,6 +97,7 @@ import { CommonModule } from './common/common.module';
     TitheModule,
     SettingsModule,
     PlansModule,
+    DataProposalsModule,
   ],
   controllers: [AppController],
   providers: [
