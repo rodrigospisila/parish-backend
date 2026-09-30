@@ -132,7 +132,8 @@ function sugerirMensal(notes, dayOfWeek) {
   for (const v of cad.vinculos || []) {
     if (!emDuvida.has(v.communityId)) continue; // os outros foram gravados como alta confiança
     add({
-      kind: 'COMMUNITY_PARISH', communityId: v.communityId, payload: { parishId: v.paroquiaProposta.id }, current: { parishId: v.paroquiaAtual.id },
+      // parishId = paróquia de destino: o painel mostra o nome dela
+      kind: 'COMMUNITY_PARISH', communityId: v.communityId, parishId: v.paroquiaProposta.id, payload: { parishId: v.paroquiaProposta.id }, current: { parishId: v.paroquiaAtual.id },
       evidenceUrl: v.evidenceUrl, evidenceQuote: String(v.evidenceQuote).slice(0, 400), sourceKind: 'site-diocese', confidence: 'media',
       reason: `Dúvida antes de mover: ${emDuvida.get(v.communityId).titulo}`, batch: batchCad, city: 'Ponta Grossa', state: 'PR',
     });
