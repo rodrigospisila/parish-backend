@@ -1,10 +1,21 @@
 // Monta os lotes de paróquias para os agentes de horários, a partir do retrato
 // (somente leitura) gerado do banco.
 //   node prisma/horarios/montar-lotes-horarios.cjs <retrato.json> <pasta-de-saida> [paroquias-por-lote]
+//        [--cidade "Rio de Janeiro"] [--uf RJ] [--so-com-site] [--inicio 101]
 const fs = require('fs');
 const path = require('path');
 const [retratoPath, outDir, porLoteArg] = process.argv.slice(2);
 const porLote = Number(porLoteArg) || 4;
+const opt = (nome, padrao) => {
+  const i = process.argv.indexOf(nome);
+  return i > 0 ? process.argv[i + 1] : padrao;
+};
+const CIDADE = opt('--cidade', 'Ponta Grossa');
+const UF = opt('--uf', 'PR');
+const SO_COM_SITE = process.argv.includes('--so-com-site');
+const INICIO = Number(opt('--inicio', '1'));
+// Site só conta se for página própria (rede social e e-mail não são lidos sem login)
+const siteProprio = (u) => (u && !/facebook|instagram|gmail|hotmail|yahoo|wa\.me|whatsapp/i.test(u) ? u : null);
 const comunidades = JSON.parse(fs.readFileSync(retratoPath, 'utf8'));
 const DIAS = ['dom', 'seg', 'ter', 'qua', 'qui', 'sex', 'sáb'];
 const ehMatriz = (n) => /matriz|catedral|santu[aá]rio|reitoria|bas[ií]lica/i.test(n || '');
@@ -12,7 +23,8 @@ const ehMatriz = (n) => /matriz|catedral|santu[aá]rio|reitoria|bas[ií]lica/i.t
 const porParoquia = new Map();
 for (const c of comunidades) {
   const k = c.parish?.id || 'sem-paroquia';
-  if (!porParoquia.has(k)) porParoquia.set(k, { parishId: k, nome: c.parish?.name || '(sem paróquia)', cidade: 'Ponta Grossa', uf: 'PR', comunidades: [] });
+  if (!porParoquia.has(k)) porParoquia.set(k, { parishId: k, nome: c.parish?.name || '(sem paróquia)', cidade: CIDADE, uf: UF, site: null, comunidades: [] });
+  porParoquia.get(k).site = porParoquia.get(k).site || siteProprio(c.parish?.website) || siteProprio(c.website);
   porParoquia.get(k).comunidades.push({
     id: c.id,
     nome: c.name,
@@ -28,7 +40,9 @@ for (const c of comunidades) {
 for (const p of porParoquia.values()) if (p.comunidades.length === 1) p.comunidades[0].matriz = true;
 
 // Paróquias maiores primeiro, distribuídas em rodízio para equilibrar os lotes
-const lista = [...porParoquia.values()].sort((a, b) => b.comunidades.length - a.comunidades.length);
+const lista = [...porParoquia.values()]
+  .filter((p) => !SO_COM_SITE || p.site)
+  .sort((a, b) => b.comunidades.length - a.comunidades.length);
 const nLotes = Math.ceil(lista.length / porLote);
 const lotes = Array.from({ length: nLotes }, () => []);
 lista.forEach((p, i) => lotes[i % nLotes].push(p));
@@ -36,7 +50,7 @@ lista.forEach((p, i) => lotes[i % nLotes].push(p));
 fs.mkdirSync(path.join(outDir, 'lotes'), { recursive: true });
 fs.mkdirSync(path.join(outDir, 'resultados'), { recursive: true });
 lotes.forEach((paroquias, i) => {
-  const id = `lote-${String(i + 1).padStart(2, '0')}`;
+  const id = `lote-${String(i + INICIO).padStart(2, '0')}`;
   fs.writeFileSync(path.join(outDir, 'lotes', `${id}.json`), JSON.stringify({ lote: id, paroquias }, null, 1));
   console.log(id, paroquias.map((p) => `${p.nome} (${p.comunidades.length})`).join(' | '));
 });

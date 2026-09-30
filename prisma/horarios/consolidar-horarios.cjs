@@ -57,10 +57,14 @@ function htmlParaTexto(html) {
 }
 
 const paginas = new Map();
+/** Cópia da página guardada por um leitor de fonte oficial (ex.: ler-arqrio.cjs) */
+const copiaDe = (url) => path.join(dir, 'paginas', `${require('crypto').createHash('sha1').update(url).digest('hex')}.html`);
 function abrir(url) {
   if (paginas.has(url)) return paginas.get(url);
   let r = { ok: false, texto: '', erro: 'sem-rede' };
-  if (!semRede) {
+  if (fs.existsSync(copiaDe(url))) {
+    r = { ok: true, texto: htmlParaTexto(fs.readFileSync(copiaDe(url), 'utf8')) };
+  } else if (!semRede) {
     try {
       const out = execFileSync('curl', ['-s', '-L', '-m', '30', '--compressed', '-A', UA, '-w', '\n%{http_code}', url], { maxBuffer: 30 * 1024 * 1024 });
       const s = out.toString('utf8');
@@ -158,10 +162,18 @@ for (const a of itens) {
 }
 
 // ---------- proposta ----------
+// Confiança baixa (site abandonado, texto ambíguo) nunca entra sozinha: vai para conferência humana
+const baixa = (v) => String(v.confidence || '').toLowerCase() === 'baixa';
 const aceitos = verificados.filter((v) => !v.duplicado && (v.status === 'confirmado' || v.status === 'parcial'));
-const novos = aceitos.filter((v) => !v.jaCadastrado);
+const novos = aceitos.filter((v) => !v.jaCadastrado && !baixa(v));
 const conferem = aceitos.filter((v) => v.jaCadastrado);
-const pendentes = verificados.filter((v) => !v.duplicado && v.status === 'nao-verificavel' && !v.jaCadastrado);
+const pendentes = verificados.filter(
+  // "não confirmado" também: horário lido de imagem (folheto, cartaz) não está no texto da página
+  (v) =>
+    !v.duplicado &&
+    !v.jaCadastrado &&
+    (v.status === 'nao-verificavel' || v.status === 'nao-confirmado' || ((v.status === 'confirmado' || v.status === 'parcial') && baixa(v))),
+);
 const conta = (lista, f) => lista.reduce((m, x) => ((m[f(x)] = (m[f(x)] || 0) + 1), m), {});
 
 const resumo = {
@@ -221,7 +233,7 @@ for (let rodada = 0; amostra.length < 40 && rodada < 6; rodada++) {
 }
 
 const md = [
-  '# Piloto de horários — Ponta Grossa — amostra para conferência',
+  `# Horários em fonte oficial — ${path.basename(path.resolve(dir))} — amostra para conferência`,
   '',
   `Gerado em ${new Date().toISOString().slice(0, 10)}. Nada foi gravado no banco.`,
   '',
@@ -237,7 +249,7 @@ const md = [
   '',
   ...amostra.map(linha),
   '',
-  `## Achados em rede social — não deu para reabrir a página (${pendentes.length}) — só entram se você conferir`,
+  `## Pendentes de conferência humana — rede social que não reabre, trecho que não está no texto da página (ex.: folheto em imagem) ou confiança baixa (${pendentes.length}) — só entram se você conferir`,
   '',
   ...pendentes.slice(0, 40).map(linha),
   '',
