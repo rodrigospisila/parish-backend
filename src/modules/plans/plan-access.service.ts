@@ -33,7 +33,7 @@ export interface PlanUser {
   communityId?: string | null;
   parishId?: string | null;
   dioceseId?: string | null;
-  communities?: Array<{ communityId: string; isActive?: boolean }>;
+  communities?: Array<{ communityId: string; isActive?: boolean; role?: UserRole | `${UserRole}` }>;
 }
 
 interface CacheEntry<T> {
@@ -331,10 +331,15 @@ export class PlanAccessService {
       return this.evaluate({ parishId: user.parishId }, now);
     }
 
-    const ids = [
-      user.communityId,
-      ...(user.communities ?? []).filter((link) => link.isActive !== false).map((link) => link.communityId),
-    ].filter((id, i, all): id is string => !!id && all.indexOf(id) === i);
+    // Coordenação: só vínculos de gestão (mesmo papel) — vínculo de fé numa
+    // comunidade com plano não libera recurso pago para a comunidade que ele gere
+    const coordinating = user.role === UserRole.COMMUNITY_COORDINATOR || user.role === UserRole.PASTORAL_COORDINATOR;
+    const links = (user.communities ?? []).filter(
+      (link) =>
+        link.isActive !== false &&
+        (!coordinating || (user.role === UserRole.COMMUNITY_COORDINATOR && link.role === user.role)),
+    );
+    const ids = [user.communityId, ...links.map((link) => link.communityId)].filter((id, i, all): id is string => !!id && all.indexOf(id) === i);
 
     if (ids.length === 0) {
       return { allowed: false, communityId: null, target: 'usuário sem comunidade' };

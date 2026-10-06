@@ -4,6 +4,7 @@ import { PrismaService } from '../../database/prisma.service';
 import { HierarchyService, CurrentUser } from '../../common/hierarchy.service';
 import { AuditService } from '../../common/audit.service';
 import { PdfService } from '../pdf/pdf.service';
+import { memberOfParishWhere } from '../pastorals/coordination-scope';
 
 /**
  * Formação de agentes (roadmap 3.4).
@@ -91,6 +92,14 @@ export class FormationService {
     }
     const parishId = this.requireParish(user);
     if (!parishId) throw new BadRequestException('parishId é obrigatório');
+    // Trilha do body: só da MESMA paróquia (o curso apareceria na trilha alheia)
+    if (dto.trackId) {
+      const track = await this.prisma.formationTrack.findFirst({
+        where: { id: dto.trackId, parishId, deletedAt: null },
+        select: { id: true },
+      });
+      if (!track) throw new BadRequestException('Trilha não encontrada nesta paróquia');
+    }
 
     const course = await this.prisma.formationCourse.create({
       data: {
@@ -139,9 +148,15 @@ export class FormationService {
   // ===== INSCRIÇÃO E CONCLUSÃO =====
 
   async enroll(courseId: string, memberId: string, user: CurrentUser) {
-    await this.loadCourseInScope(courseId, user);
-    const member = await this.prisma.member.findFirst({ where: { id: memberId, deletedAt: null } });
-    if (!member) throw new NotFoundException('Membro não encontrado');
+    const course = await this.loadCourseInScope(courseId, user);
+    // O inscrito precisa ser da paróquia do curso (comunidade principal ou
+    // vínculo ativo): memberId de outra paróquia não entra na lista do curso
+    if (!memberId) throw new BadRequestException('Informe o membro');
+    const member = await this.prisma.member.findFirst({
+      where: memberOfParishWhere(memberId, course.parishId),
+      select: { id: true },
+    });
+    if (!member) throw new NotFoundException('Membro não encontrado nesta paróquia');
 
     const enrollment = await this.prisma.formationEnrollment.upsert({
       where: { courseId_memberId: { courseId, memberId } },
@@ -207,9 +222,34 @@ export class FormationService {
    * Se nenhum curso é exigido para a função, considera-se apto.
    * Base para o bloqueio de escalação (integração opcional com escala).
    */
-  async checkPrerequisite(memberId: string, role: string): Promise<{ eligible: boolean; missing: string[] }> {
+  async checkPrerequisite(
+    memberId: string,
+    role: string,
+    user: CurrentUser,
+  ): Promise<{ eligible: boolean; missing: string[] }> {
+    if (!memberId || !role) throw new BadRequestException('Informe memberId e role');
+    // O membro precisa estar no escopo de quem consulta; os cursos exigidos são
+    // os da paróquia dele (o catálogo é por paróquia — nunca o país inteiro)
+    const scope = await this.parishScopeWhere(user);
+    if (!scope) throw new NotFoundException('Membro não encontrado');
+    let parishId: string | null = null;
+    if (typeof scope.parishId === 'string') {
+      const member = await this.prisma.member.findFirst({
+        where: memberOfParishWhere(memberId, scope.parishId),
+        select: { id: true },
+      });
+      if (member) parishId = scope.parishId;
+    } else {
+      const member = await this.prisma.member.findFirst({
+        where: { id: memberId, deletedAt: null, community: scope },
+        select: { community: { select: { parishId: true } } },
+      });
+      parishId = member?.community?.parishId ?? null;
+    }
+    if (!parishId) throw new NotFoundException('Membro não encontrado');
+
     const requiredCourses = await this.prisma.formationCourse.findMany({
-      where: { requiredForRole: role, deletedAt: null },
+      where: { requiredForRole: role, deletedAt: null, parishId },
       select: { id: true, name: true, validityMonths: true },
     });
     if (requiredCourses.length === 0) {

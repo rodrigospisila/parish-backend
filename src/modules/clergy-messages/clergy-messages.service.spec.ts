@@ -165,4 +165,62 @@ describe('ClergyMessagesService (Palavra do Pastor)', () => {
       ForbiddenException,
     );
   });
+
+  // ===== Onda 2: administração diocesana só remove na própria diocese =====
+  describe('remove — escopo de diocese', () => {
+    it('bispo de OUTRA diocese não apaga a mensagem (antes: apagava qualquer uma) → 403', async () => {
+      prisma.clergyMessage.findFirst.mockResolvedValue({
+        id: 'msg1',
+        senderUserId: 'u-padre-d2',
+        dioceseId: null,
+        parish: { dioceseId: 'd2' },
+      });
+
+      await expect(service.remove('msg1', bishop)).rejects.toBeInstanceOf(ForbiddenException);
+      expect(prisma.clergyMessage.update).not.toHaveBeenCalled();
+    });
+
+    it('bispo sem diocese no cadastro → 403', async () => {
+      prisma.clergyMessage.findFirst.mockResolvedValue({ id: 'msg1', senderUserId: 'x', dioceseId: null });
+
+      await expect(
+        service.remove('msg1', { id: 'u-b', role: UserRole.DIOCESAN_ADMIN } as any),
+      ).rejects.toBeInstanceOf(ForbiddenException);
+    });
+
+    it.each([
+      ['diocese', { dioceseId: 'd1' }],
+      ['paróquia', { parish: { dioceseId: 'd1' } }],
+      ['comunidade', { community: { parish: { dioceseId: 'd1' } } }],
+      ['pastoral', { communityPastoral: { community: { parish: { dioceseId: 'd1' } } } }],
+      ['membro', { member: { community: { parish: { dioceseId: 'd1' } } } }],
+    ])('bispo remove mensagem cujo alvo (%s) é da sua diocese', async (_label, target) => {
+      prisma.clergyMessage.findFirst.mockResolvedValue({ id: 'msg1', senderUserId: 'u-padre', ...target });
+      prisma.clergyMessage.update.mockResolvedValue({ id: 'msg1' });
+
+      await service.remove('msg1', bishop);
+
+      expect(prisma.clergyMessage.update).toHaveBeenCalledWith(
+        expect.objectContaining({ where: { id: 'msg1' } }),
+      );
+    });
+
+    it('o autor remove a própria mensagem', async () => {
+      prisma.clergyMessage.findFirst.mockResolvedValue({ id: 'msg1', senderUserId: 'u-padre', parish: { dioceseId: 'd9' } });
+      prisma.clergyMessage.update.mockResolvedValue({ id: 'msg1' });
+
+      await service.remove('msg1', priest);
+
+      expect(prisma.clergyMessage.update).toHaveBeenCalled();
+    });
+
+    it('SYSTEM_ADMIN remove em qualquer diocese', async () => {
+      prisma.clergyMessage.findFirst.mockResolvedValue({ id: 'msg1', senderUserId: 'x', dioceseId: 'd7' });
+      prisma.clergyMessage.update.mockResolvedValue({ id: 'msg1' });
+
+      await service.remove('msg1', { id: 'u-sys', role: UserRole.SYSTEM_ADMIN } as any);
+
+      expect(prisma.clergyMessage.update).toHaveBeenCalled();
+    });
+  });
 });

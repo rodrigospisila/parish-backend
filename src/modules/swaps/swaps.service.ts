@@ -1,10 +1,11 @@
 import { Injectable, NotFoundException, ForbiddenException, BadRequestException, ConflictException } from '@nestjs/common';
-import { SwapStatus, NotificationType } from '@prisma/client';
+import { SwapStatus, NotificationType, UserRole } from '@prisma/client';
 import { PrismaService } from '../../database/prisma.service';
-import { CurrentUser } from '../../common/hierarchy.service';
+import { CurrentUser, HierarchyService } from '../../common/hierarchy.service';
 import { AuditService } from '../../common/audit.service';
 import { NotificationsService } from '../notifications/notifications.service';
 import { ScheduleConflictsService } from '../../common/schedule-conflicts.service';
+import { isRoleAtLeast } from '../auth/constants/role-hierarchy';
 
 /**
  * Troca de escala entre membros / swap (roadmap 4.6).
@@ -18,10 +19,98 @@ export class SwapsService {
     private readonly auditService: AuditService,
     private readonly notificationsService: NotificationsService,
     private readonly conflictsService: ScheduleConflictsService,
+    private readonly hierarchyService: HierarchyService,
   ) {}
 
   private async resolveMember(userId: string) {
     return this.prisma.member.findFirst({ where: { userId }, select: { id: true } });
+  }
+
+  /**
+   * Coordenação com escopo sobre a atribuição: COMMUNITY_COORDINATOR+ com
+   * acesso à escala; coordenador de pastoral só se COORDENA a pastoral da
+   * atribuição. Fiel/voluntário: nunca. Negar por padrão.
+   */
+  private async canModerateAssignment(
+    user: CurrentUser,
+    assignment: { scheduleId: string; communityPastoralId: string | null },
+  ): Promise<boolean> {
+    if (!user?.id || !user.role || !isRoleAtLeast(user.role, UserRole.PASTORAL_COORDINATOR)) {
+      return false;
+    }
+    if (user.role === UserRole.PASTORAL_COORDINATOR) {
+      const coordinated = Array.isArray(user.coordinatedPastoralIds) ? user.coordinatedPastoralIds : [];
+      if (!assignment.communityPastoralId || !coordinated.includes(assignment.communityPastoralId)) {
+        return false;
+      }
+    }
+    return this.hierarchyService.hasAccessToSchedule(user.id, assignment.scheduleId);
+  }
+
+  /**
+   * Candidatos para o convite de troca (GET /swaps/candidates): membros ATIVOS
+   * da mesma pastoral (ou do mesmo grupo) da atribuição, com vínculo com a
+   * comunidade da escala, exceto o dono da atribuição. Só nome — sem contato.
+   * Acesso: o dono da atribuição ou a coordenação com escopo.
+   */
+  async listCandidates(assignmentId: string, user: CurrentUser) {
+    if (!assignmentId) throw new BadRequestException('Informe a atribuição');
+
+    const assignment = await this.prisma.scheduleAssignment.findUnique({
+      where: { id: assignmentId },
+      select: {
+        id: true,
+        memberId: true,
+        scheduleId: true,
+        communityPastoralId: true,
+        pastoralGroupId: true,
+        schedule: {
+          select: { communityId: true, deletedAt: true, event: { select: { communityId: true } } },
+        },
+      },
+    });
+    if (!assignment) throw new NotFoundException('Atribuição não encontrada');
+
+    const self = await this.resolveMember(user.id);
+    const isOwner = !!self && self.id === assignment.memberId;
+    if (!isOwner && !(await this.canModerateAssignment(user, assignment))) {
+      throw new ForbiddenException('Você só pode convidar colegas para as suas próprias escalas');
+    }
+
+    const communityId = assignment.schedule?.event?.communityId ?? assignment.schedule?.communityId ?? null;
+    // Sem pastoral/grupo ou sem comunidade não há a quem convidar (negar por padrão)
+    if (assignment.schedule?.deletedAt || !communityId) return [];
+    const groupFilter = assignment.pastoralGroupId
+      ? { pastoralGroupId: assignment.pastoralGroupId }
+      : assignment.communityPastoralId
+        ? { communityPastoralId: assignment.communityPastoralId }
+        : null;
+    if (!groupFilter) return [];
+
+    const memberships = await this.prisma.pastoralMember.findMany({
+      where: {
+        ...groupFilter,
+        isActive: true,
+        leftAt: null,
+        member: {
+          id: { not: assignment.memberId },
+          deletedAt: null,
+          status: 'ACTIVE',
+          OR: [{ communityId }, { communityLinks: { some: { communityId, isActive: true } } }],
+        },
+      },
+      select: { member: { select: { id: true, fullName: true } } },
+      orderBy: { member: { fullName: 'asc' } },
+    });
+
+    const seen = new Set<string>();
+    const candidates: Array<{ memberId: string; fullName: string }> = [];
+    for (const membership of memberships) {
+      if (seen.has(membership.member.id)) continue;
+      seen.add(membership.member.id);
+      candidates.push({ memberId: membership.member.id, fullName: membership.member.fullName });
+    }
+    return candidates;
   }
 
   /** Comunidades onde o membro tem vínculo ativo (principal + secundárias). */
@@ -273,27 +362,61 @@ export class SwapsService {
     return resolved;
   }
 
-  async reject(swapId: string, user: CurrentUser) {
-    const member = await this.resolveMember(user.id);
-    const swap = await this.prisma.assignmentSwapRequest.findUnique({ where: { id: swapId } });
-    if (!swap) throw new NotFoundException('Pedido de troca não encontrado');
-    if (swap.targetId && swap.targetId !== member?.id) {
-      throw new ForbiddenException('Sem permissão');
-    }
-    return this.prisma.assignmentSwapRequest.update({
-      where: { id: swapId },
-      data: { status: SwapStatus.REJECTED, resolvedAt: new Date() },
+  /**
+   * Fecha o pedido só se ainda estiver PENDENTE (compare-and-set): um aceite
+   * concorrente não pode ser sobrescrito por recusa/cancelamento.
+   */
+  private async closePending(swapId: string, status: SwapStatus) {
+    const { count } = await this.prisma.assignmentSwapRequest.updateMany({
+      where: { id: swapId, status: SwapStatus.PENDING },
+      data: { status, resolvedAt: new Date() },
     });
+    if (count === 0) throw new BadRequestException('Pedido não está mais pendente');
+    return this.prisma.assignmentSwapRequest.findUnique({ where: { id: swapId } });
+  }
+
+  /**
+   * Recusa: só pedido PENDENTE; quem recusa é o convidado (troca direcionada)
+   * ou a coordenação com escopo. Troca ABERTA não tem convidado — antes,
+   * qualquer logado a "recusava" e o pedido sumia para todos.
+   */
+  async reject(swapId: string, user: CurrentUser) {
+    const swap = await this.prisma.assignmentSwapRequest.findUnique({
+      where: { id: swapId },
+      include: { assignment: { select: { scheduleId: true, communityPastoralId: true } } },
+    });
+    if (!swap) throw new NotFoundException('Pedido de troca não encontrado');
+    if (swap.status !== SwapStatus.PENDING) throw new BadRequestException('Pedido não está mais pendente');
+
+    const member = await this.resolveMember(user.id);
+    const isTarget = !!swap.targetId && !!member && swap.targetId === member.id;
+    if (!isTarget && !(await this.canModerateAssignment(user, swap.assignment))) {
+      throw new ForbiddenException(
+        swap.targetId
+          ? 'Somente o convidado ou a coordenação pode recusar este pedido'
+          : 'Troca aberta: basta não assumir a escala. Somente a coordenação pode encerrar o pedido',
+      );
+    }
+
+    const resolved = await this.closePending(swapId, SwapStatus.REJECTED);
+    await this.auditService.log({
+      actor: { id: user.id, email: user.email, role: user.role },
+      action: 'UPDATE',
+      entity: 'AssignmentSwapRequest',
+      entityId: swapId,
+      metadata: { rejected: true, byTarget: isTarget },
+    });
+    return resolved;
   }
 
   async cancel(swapId: string, user: CurrentUser) {
     const member = await this.resolveMember(user.id);
     const swap = await this.prisma.assignmentSwapRequest.findUnique({ where: { id: swapId } });
     if (!swap) throw new NotFoundException('Pedido de troca não encontrado');
-    if (swap.requesterId !== member?.id) throw new ForbiddenException('Só o solicitante pode cancelar');
-    return this.prisma.assignmentSwapRequest.update({
-      where: { id: swapId },
-      data: { status: SwapStatus.CANCELLED, resolvedAt: new Date() },
-    });
+    if (!member || swap.requesterId !== member.id) {
+      throw new ForbiddenException('Só o solicitante pode cancelar');
+    }
+    if (swap.status !== SwapStatus.PENDING) throw new BadRequestException('Pedido não está mais pendente');
+    return this.closePending(swapId, SwapStatus.CANCELLED);
   }
 }

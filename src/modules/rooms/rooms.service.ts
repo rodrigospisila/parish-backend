@@ -3,6 +3,7 @@ import { ReservationStatus, UserRole } from '@prisma/client';
 import { PrismaService } from '../../database/prisma.service';
 import { HierarchyService, CurrentUser } from '../../common/hierarchy.service';
 import { AuditService } from '../../common/audit.service';
+import { communityScopeWhere, resolveCoordinatedPastoralIds } from '../pastorals/coordination-scope';
 
 /**
  * Reserva de espaços (roadmap 4.2). Salas por comunidade e reservas com
@@ -44,11 +45,61 @@ export class RoomsService {
       const inScope = await this.hierarchyService.isCommunityInScope(user, communityId);
       if (!inScope) throw new ForbiddenException('Comunidade fora do seu escopo');
       where.communityId = communityId;
-    } else if (user.role !== UserRole.SYSTEM_ADMIN) {
-      if (user.communityId) where.communityId = user.communityId;
-      else if (user.parishId) where.community = { parishId: user.parishId };
+    } else {
+      // Escopo hierárquico (diocese/paróquia/comunidade). Sem escopo
+      // resolvido — ex.: diocesano sem diocese, coordenador sem comunidade —
+      // a lista é vazia (antes caía em "todas as salas do país")
+      const scope = communityScopeWhere(user);
+      if (!scope) return [];
+      if (Object.keys(scope).length) where.community = scope;
     }
     return this.prisma.room.findMany({ where, orderBy: { name: 'asc' } });
+  }
+
+  /**
+   * Pastoral/evento informados na reserva precisam ser da MESMA paróquia da
+   * sala (existentes e não excluídos); coordenador de pastoral só reserva em
+   * nome da pastoral que COORDENA. Sem isso, a reserva ficaria atrelada a
+   * pastoral/evento de outra paróquia.
+   */
+  private async assertReservationLinks(
+    room: { communityId: string },
+    dto: { communityPastoralId?: string; eventId?: string },
+    user: CurrentUser,
+  ) {
+    if (!dto.communityPastoralId && !dto.eventId) return;
+    const roomCommunity = await this.prisma.community.findUnique({
+      where: { id: room.communityId },
+      select: { parishId: true },
+    });
+    const parishId = roomCommunity?.parishId;
+    if (!parishId) throw new ForbiddenException('Sala fora do seu escopo');
+
+    if (dto.communityPastoralId) {
+      const pastoral = await this.prisma.communityPastoral.findFirst({
+        where: { id: dto.communityPastoralId, deletedAt: null },
+        select: { id: true, community: { select: { parishId: true } } },
+      });
+      if (!pastoral || pastoral.community?.parishId !== parishId) {
+        throw new ForbiddenException('Pastoral fora da paróquia da sala');
+      }
+      if (user.role === UserRole.PASTORAL_COORDINATOR) {
+        const coordinated = await resolveCoordinatedPastoralIds(this.prisma, user);
+        if (!coordinated.includes(pastoral.id)) {
+          throw new ForbiddenException('Você não coordena esta pastoral');
+        }
+      }
+    }
+
+    if (dto.eventId) {
+      const event = await this.prisma.event.findFirst({
+        where: { id: dto.eventId, deletedAt: null },
+        select: { id: true, community: { select: { parishId: true } } },
+      });
+      if (!event || event.community?.parishId !== parishId) {
+        throw new ForbiddenException('Evento fora da paróquia da sala');
+      }
+    }
   }
 
   /** Detecta sobreposição de horário com reservas ativas do mesmo espaço. */
@@ -74,6 +125,7 @@ export class RoomsService {
     if (!room) throw new NotFoundException('Sala não encontrada');
     const inScope = await this.hierarchyService.isCommunityInScope(user, room.communityId);
     if (!inScope) throw new ForbiddenException('Sala fora do seu escopo');
+    await this.assertReservationLinks(room, dto, user);
 
     const start = new Date(dto.startTime);
     const end = new Date(dto.endTime);

@@ -108,8 +108,13 @@ export class CommunitiesController {
     return this.communitiesService.create(createCommunityDto, user);
   }
 
+  /**
+   * Sem filtro: lista de gestão no escopo do usuário (sem escopo → vazia).
+   * `?parishId=`: cascata leve (id, nome, endereço) para escolher a comunidade.
+   */
   @Get()
-  findAll(@CurrentUser() user: any) {
+  findAll(@CurrentUser() user: any, @Query('parishId') parishId?: string) {
+    if (parishId) return this.communitiesService.listByParish(parishId);
     return this.communitiesService.findAll(user);
   }
 

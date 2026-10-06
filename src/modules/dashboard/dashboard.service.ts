@@ -170,8 +170,7 @@ export class DashboardService {
         (c) => c.id,
       );
     }
-    const linked = (user.communities ?? []).filter((c) => c.isActive !== false).map((c) => c.communityId);
-    return [...new Set([user.communityId, ...linked].filter((id): id is string => !!id))];
+    return this.hierarchyService.getCommunityScopeIds(user);
   }
 
   /**

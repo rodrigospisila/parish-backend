@@ -3,6 +3,7 @@ import { ActionStatus, PlanStatus, UserRole } from '@prisma/client';
 import { PrismaService } from '../../database/prisma.service';
 import { HierarchyService, CurrentUser } from '../../common/hierarchy.service';
 import { AuditService } from '../../common/audit.service';
+import { memberOfParishWhere } from '../pastorals/coordination-scope';
 
 /**
  * Planejamento pastoral (roadmap 3.2).
@@ -32,12 +33,20 @@ export class PlanningService {
     if (!user.parishId && user.role !== UserRole.SYSTEM_ADMIN) {
       throw new BadRequestException('Usuário sem paróquia vinculada');
     }
+    const parishId = user.parishId!;
     if (dto.communityId) {
       const inScope = await this.hierarchyService.isCommunityInScope(user, dto.communityId);
       if (!inScope) throw new ForbiddenException('Comunidade fora do seu escopo');
+      // O plano é gravado na paróquia do usuário: a comunidade tem de ser dela
+      const community = await this.prisma.community.findUnique({
+        where: { id: dto.communityId },
+        select: { parishId: true },
+      });
+      if (!community || community.parishId !== parishId) {
+        throw new ForbiddenException('Comunidade fora da sua paróquia');
+      }
     }
 
-    const parishId = user.parishId!;
     const plan = await this.prisma.pastoralPlan.create({
       data: { title: dto.title, year: dto.year, parishId, communityId: dto.communityId ?? null },
     });
@@ -47,7 +56,11 @@ export class PlanningService {
 
   async listPlans(user: CurrentUser) {
     const where: any = { deletedAt: null };
-    if (user.role !== UserRole.SYSTEM_ADMIN && user.parishId) {
+    // Mesma regra do loadPlanInScope: plano é da paróquia do usuário. Sem
+    // paróquia (ex.: diocesano, coordenação sem parishId), a lista é vazia —
+    // antes caía sem filtro e devolvia os planos do país inteiro
+    if (user.role !== UserRole.SYSTEM_ADMIN) {
+      if (!user.parishId) return [];
       where.parishId = user.parishId;
     }
     return this.prisma.pastoralPlan.findMany({
@@ -141,7 +154,16 @@ export class PlanningService {
     dto: { title: string; dueDate?: string; responsibleMemberId?: string },
     user: CurrentUser,
   ) {
-    await this.loadObjectiveInScope(objectiveId, user);
+    const objective = await this.loadObjectiveInScope(objectiveId, user);
+    // Responsável do body: membro da paróquia do plano (o nome dele aparece
+    // no detalhe do plano) — id de outra paróquia é recusado
+    if (dto.responsibleMemberId) {
+      const responsible = await this.prisma.member.findFirst({
+        where: memberOfParishWhere(dto.responsibleMemberId, objective.plan.parishId),
+        select: { id: true },
+      });
+      if (!responsible) throw new BadRequestException('Responsável fora da paróquia do plano');
+    }
     const action = await this.prisma.pastoralAction.create({
       data: {
         objectiveId,

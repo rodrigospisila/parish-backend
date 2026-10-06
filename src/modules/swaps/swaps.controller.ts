@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Patch, Body, Param, UseGuards, Request } from '@nestjs/common';
+import { Controller, Get, Post, Patch, Body, Param, Query, UseGuards, Request } from '@nestjs/common';
 import { SwapsService } from './swaps.service';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { PlanFeatureGuard } from '../plans/plan-feature.guard';
@@ -20,6 +20,17 @@ export class SwapsController {
   @Get('mine')
   mine(@Request() req: any) {
     return this.service.listMine(req.user);
+  }
+
+  /**
+   * Colegas que podem ser convidados para a troca (mesma pastoral/grupo da
+   * atribuição): [{ memberId, fullName }], sem contato. Dono da atribuição ou
+   * coordenação com escopo.
+   */
+  @Get('candidates')
+  @PlanResource('assignment:query.assignmentId')
+  candidates(@Query('assignmentId') assignmentId: string, @Request() req: any) {
+    return this.service.listCandidates(assignmentId, req.user);
   }
 
   @Patch(':id/accept')

@@ -1,5 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { ForbiddenException } from '@nestjs/common';
+import { BadRequestException, ForbiddenException } from '@nestjs/common';
 import { UserRole } from '@prisma/client';
 import { PlanningService } from './planning.service';
 import { PrismaService } from '../../database/prisma.service';
@@ -15,8 +15,11 @@ describe('PlanningService (3.2)', () => {
 
   beforeEach(async () => {
     prisma = {
-      pastoralPlan: { create: jest.fn(), findFirst: jest.fn() },
+      pastoralPlan: { create: jest.fn(), findFirst: jest.fn(), findMany: jest.fn().mockResolvedValue([]) },
       pastoralObjective: { create: jest.fn(), findUnique: jest.fn() },
+      pastoralAction: { create: jest.fn().mockResolvedValue({ id: 'ac1' }) },
+      community: { findUnique: jest.fn().mockResolvedValue({ parishId: 'p1' }) },
+      member: { findFirst: jest.fn() },
       event: { findFirst: jest.fn(), update: jest.fn() },
     };
     hierarchy = { isCommunityInScope: jest.fn().mockResolvedValue(true), canManageEvent: jest.fn() };
@@ -61,6 +64,54 @@ describe('PlanningService (3.2)', () => {
       hierarchy.canManageEvent.mockResolvedValue(false);
 
       await expect(service.linkEventToObjective('e1', 'o1', coord)).rejects.toBeInstanceOf(ForbiddenException);
+    });
+  });
+  describe('GET /planning/plans — escopo (negar por padrão)', () => {
+    it('sem paróquia: lista vazia, sem consulta (antes: planos do país)', async () => {
+      await expect(
+        service.listPlans({ id: 'd', role: UserRole.DIOCESAN_ADMIN, dioceseId: 'd1' } as any),
+      ).resolves.toEqual([]);
+      await expect(
+        service.listPlans({ id: 'c', role: UserRole.COMMUNITY_COORDINATOR, communityId: 'c1' } as any),
+      ).resolves.toEqual([]);
+      expect(prisma.pastoralPlan.findMany).not.toHaveBeenCalled();
+    });
+
+    it('com paróquia: só os planos dela; SYSTEM_ADMIN sem filtro', async () => {
+      await service.listPlans(coord);
+      expect(prisma.pastoralPlan.findMany.mock.calls[0][0].where).toEqual({ deletedAt: null, parishId: 'p1' });
+      await service.listPlans({ id: 's', role: UserRole.SYSTEM_ADMIN } as any);
+      expect(prisma.pastoralPlan.findMany.mock.calls[1][0].where).toEqual({ deletedAt: null });
+    });
+  });
+
+  describe('ids do body', () => {
+    it('createPlan: comunidade de outra paróquia é recusada', async () => {
+      prisma.community.findUnique.mockResolvedValue({ parishId: 'p2' });
+      await expect(
+        service.createPlan({ title: 'Plano', year: 2026, communityId: 'c9' }, coord),
+      ).rejects.toBeInstanceOf(ForbiddenException);
+      expect(prisma.pastoralPlan.create).not.toHaveBeenCalled();
+    });
+
+    it('createPlan: comunidade da própria paróquia é aceita', async () => {
+      prisma.pastoralPlan.create.mockResolvedValue({ id: 'pl2' });
+      await service.createPlan({ title: 'Plano', year: 2026, communityId: 'c1' }, coord);
+      expect(prisma.pastoralPlan.create.mock.calls[0][0].data).toMatchObject({ parishId: 'p1', communityId: 'c1' });
+    });
+
+    it('addAction: responsável de outra paróquia é recusado; da paróquia, aceito', async () => {
+      prisma.pastoralObjective.findUnique.mockResolvedValue({ id: 'o1', plan: { parishId: 'p1' } });
+      prisma.member.findFirst.mockResolvedValue(null);
+      await expect(
+        service.addAction('o1', { title: 'Visitar famílias', responsibleMemberId: 'm-x' }, coord),
+      ).rejects.toBeInstanceOf(BadRequestException);
+      expect(prisma.pastoralAction.create).not.toHaveBeenCalled();
+
+      prisma.member.findFirst.mockResolvedValue({ id: 'm1' });
+      await service.addAction('o1', { title: 'Visitar famílias', responsibleMemberId: 'm1' }, coord);
+      expect(prisma.member.findFirst.mock.calls[1][0].where.OR[0]).toEqual({ community: { parishId: 'p1' } });
+      expect(prisma.pastoralAction.create).toHaveBeenCalled();
     });
   });
 });

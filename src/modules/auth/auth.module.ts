@@ -5,6 +5,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { AuthService } from './auth.service';
 import { OtpService } from './otp.service';
 import { PasswordResetService } from './password-reset.service';
+import { LoginAttemptsService } from './login-attempts.service';
 import { AuthController } from './auth.controller';
 import { JwtStrategy } from './strategies/jwt.strategy';
 import { MembersModule } from '../members/members.module';
@@ -34,7 +35,7 @@ import { ConsentsModule } from '../consents/consents.module';
     }),
   ],
   controllers: [AuthController, SecurityController],
-  providers: [AuthService, OtpService, PasswordResetService, JwtStrategy, SessionSecurityService],
+  providers: [AuthService, OtpService, PasswordResetService, LoginAttemptsService, JwtStrategy, SessionSecurityService],
   exports: [AuthService],
 })
 export class AuthModule {}

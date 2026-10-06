@@ -16,6 +16,7 @@ import { MembersService } from '../members/members.service';
 import { AuditService } from '../../common/audit.service';
 import { ROLE_HIERARCHY } from '../auth/constants/role-hierarchy';
 import { emailInsensitive, normalizeEmail } from '../auth/email-lookup';
+import { COORDINATOR_MEMBER_ROLES, pickCoordinatedPastoralIds } from '../pastorals/coordination-scope';
 
 @Injectable()
 export class UsersService {
@@ -115,6 +116,11 @@ export class UsersService {
               },
             },
           },
+          // Coordenação vigente (histórico oficial) — base de coordinatedPastoralIds
+          pastoralCoordinations: {
+            where: { isCurrent: true, communityPastoral: { deletedAt: null } },
+            select: { communityPastoralId: true },
+          },
         },
       },
     } satisfies Prisma.UserSelect;
@@ -136,14 +142,22 @@ export class UsersService {
       ...userWithoutPassword
     } = user;
     const pastoralMemberships = member?.pastoralMemberships || [];
+    const coordinatedPastoralIds = pickCoordinatedPastoralIds(
+      pastoralMemberships,
+      member?.pastoralCoordinations ?? [],
+    );
 
     return {
       ...userWithoutPassword,
       // Do membro vinculado, só o id (o cadastro completo fica no módulo de membros)
       member: member ? { id: member.id } : null,
+      // PARTICIPAÇÃO (todos os vínculos ativos) — não é coordenação
       pastoralIds: pastoralMemberships
         .map((membership: any) => membership.communityPastoralId)
         .filter((id: string | null | undefined): id is string => !!id),
+      // COORDENAÇÃO vigente: é com esta lista que o painel inicializa o
+      // formulário do coordenador de pastoral (participação ≠ coordenação)
+      coordinatedPastoralIds,
       // Vínculos de sub-grupo (só pastoralGroupId) não têm communityPastoral — ignorar aqui
       pastorals: pastoralMemberships
         .filter((membership: any) => membership.communityPastoral)
@@ -153,6 +167,7 @@ export class UsersService {
           communityId: membership.communityPastoral.communityId,
           communityName: membership.communityPastoral.community?.name,
           role: membership.role,
+          isCoordinator: coordinatedPastoralIds.includes(membership.communityPastoral.id),
         })),
     };
   }
@@ -387,6 +402,73 @@ export class UsersService {
     }
   }
 
+  /**
+   * Cadeia diocese → paróquia → comunidade de um usuário NOVO (papéis que não
+   * resolvem o escopo por comunidades/pastorais): cada nível informado precisa
+   * existir (404 em vez do 500 da chave estrangeira), estar no escopo do ator
+   * (403) e ser coerente com os níveis acima (400). Os níveis de cima são
+   * derivados do mais baixo informado.
+   */
+  private async resolveNewUserScope(
+    currentUser: any,
+    next: { dioceseId: string | null; parishId: string | null; communityId: string | null },
+  ): Promise<{ dioceseId?: string; parishId?: string; communityId?: string }> {
+    let { dioceseId, parishId } = next;
+    const { communityId } = next;
+
+    if (communityId) {
+      const community = await this.prisma.community.findFirst({
+        where: { id: communityId, deletedAt: null },
+        include: { parish: true },
+      });
+      if (!community) {
+        throw new NotFoundException('Comunidade nao encontrada');
+      }
+      this.assertCommunityScope(currentUser, [community]);
+      if (parishId && parishId !== community.parishId) {
+        throw new BadRequestException('A comunidade nao pertence a paroquia informada');
+      }
+      if (dioceseId && dioceseId !== community.parish.dioceseId) {
+        throw new BadRequestException('A comunidade nao pertence a diocese informada');
+      }
+      parishId = community.parishId;
+      dioceseId = community.parish.dioceseId;
+    } else if (parishId) {
+      const parish = await this.prisma.parish.findUnique({
+        where: { id: parishId },
+        select: { id: true, dioceseId: true },
+      });
+      if (!parish) {
+        throw new NotFoundException('Paroquia nao encontrada');
+      }
+      if (
+        currentUser.role === UserRole.DIOCESAN_ADMIN &&
+        (!currentUser.dioceseId || parish.dioceseId !== currentUser.dioceseId)
+      ) {
+        throw new ForbiddenException('Voce so pode vincular usuarios a paroquias da sua diocese');
+      }
+      if (dioceseId && dioceseId !== parish.dioceseId) {
+        throw new BadRequestException('A paroquia nao pertence a diocese informada');
+      }
+      dioceseId = parish.dioceseId;
+    } else if (dioceseId && currentUser.role === UserRole.SYSTEM_ADMIN) {
+      // Demais papéis já tiveram a diocese fixada na do próprio cadastro
+      const diocese = await this.prisma.diocese.findUnique({
+        where: { id: dioceseId },
+        select: { id: true },
+      });
+      if (!diocese) {
+        throw new NotFoundException('Diocese nao encontrada');
+      }
+    }
+
+    return {
+      dioceseId: dioceseId ?? undefined,
+      parishId: parishId ?? undefined,
+      communityId: communityId ?? undefined,
+    };
+  }
+
   /** Diocese do ator: a gravada ou, na falta (cadastros antigos), a da sua paróquia. */
   private async resolveActorDioceseId(currentUser: any): Promise<string | null> {
     if (currentUser.dioceseId) {
@@ -510,7 +592,7 @@ export class UsersService {
     await tx.pastoralMember.updateMany({
       where: {
         memberId: user.member.id,
-        role: 'COORDINATOR',
+        role: { in: COORDINATOR_MEMBER_ROLES },
         isActive: true,
       },
       data: {
@@ -565,7 +647,7 @@ export class UsersService {
     await tx.pastoralMember.updateMany({
       where: {
         memberId: member.id,
-        role: 'COORDINATOR',
+        role: { in: COORDINATOR_MEMBER_ROLES },
         isActive: true,
         communityPastoralId: {
           notIn: pastoralIds,
@@ -611,20 +693,10 @@ export class UsersService {
         });
       }
 
-      await tx.pastoralCoordinator.updateMany({
-        where: {
-          communityPastoralId: pastoralId,
-          isCurrent: true,
-          memberId: {
-            not: member.id,
-          },
-        },
-        data: {
-          isCurrent: false,
-          endDate: now,
-        },
-      });
-
+      // NÃO encerra a coordenação de outras pessoas nesta pastoral: antes, editar
+      // um coordenador (o painel mandava todas as participações) destituía em
+      // silêncio os coordenadores vigentes. Substituir coordenador é ação
+      // explícita da gestão da pastoral.
       const existingCurrentRecord = await tx.pastoralCoordinator.findFirst({
         where: {
           communityPastoralId: pastoralId,
@@ -660,6 +732,10 @@ export class UsersService {
     });
   }
 
+  /**
+   * Coordenações VIGENTES do usuário (mesma regra da sessão — validateUser):
+   * papel de coordenação ativo na pastoral OU registro de coordenação atual.
+   */
   private async getCurrentCoordinatorPastoralIds(userId: string) {
     const user = await this.prisma.user.findUnique({
       where: { id: userId },
@@ -669,21 +745,28 @@ export class UsersService {
             pastoralMemberships: {
               where: {
                 isActive: true,
-                role: 'COORDINATOR',
+                role: { in: COORDINATOR_MEMBER_ROLES },
                 communityPastoralId: { not: null },
               },
               select: {
                 communityPastoralId: true,
+                role: true,
+                isActive: true,
               },
+            },
+            pastoralCoordinations: {
+              where: { isCurrent: true, communityPastoral: { deletedAt: null } },
+              select: { communityPastoralId: true },
             },
           },
         },
       },
     });
 
-    return (user?.member?.pastoralMemberships || [])
-      .map((membership) => membership.communityPastoralId)
-      .filter((currentPastoralId): currentPastoralId is string => !!currentPastoralId);
+    return pickCoordinatedPastoralIds(
+      user?.member?.pastoralMemberships ?? [],
+      user?.member?.pastoralCoordinations ?? [],
+    );
   }
 
   /**
@@ -736,14 +819,18 @@ export class UsersService {
       }
     }
 
-    const currentUserLevel = this.roleHierarchy[currentUser.role as UserRole];
+    const currentUserLevel = this.roleHierarchy[currentUser?.role as UserRole];
     const newUserLevel = this.roleHierarchy[role];
 
-    if (newUserLevel <= currentUserLevel) {
+    // Negar por padrão: papel desconhecido (de quem cria ou do novo) não passa
+    if (currentUserLevel === undefined || newUserLevel === undefined || newUserLevel <= currentUserLevel) {
       throw new ForbiddenException('Voce nao pode criar usuarios de nivel superior ou igual ao seu');
     }
 
     if (currentUser.role === UserRole.DIOCESAN_ADMIN) {
+      if (!currentUser.dioceseId) {
+        throw new ForbiddenException('Seu usuario nao esta vinculado a uma diocese');
+      }
       if (dioceseId && dioceseId !== currentUser.dioceseId) {
         throw new ForbiddenException('Voce so pode criar usuarios para sua diocese');
       }
@@ -808,6 +895,24 @@ export class UsersService {
       dioceseId = scopedPastorals[0].community.parish.dioceseId;
       communityIds = [communityId];
     }
+
+    if (role !== UserRole.COMMUNITY_COORDINATOR && role !== UserRole.PASTORAL_COORDINATOR) {
+      // Demais papéis: diocese/paróquia/comunidade do corpo eram gravadas sem
+      // conferência (ex.: DIOCESAN_ADMIN criava PARISH_ADMIN em paróquia de
+      // outra diocese). Resolve a cadeia a partir do nível mais baixo informado.
+      ({ dioceseId, parishId, communityId } = await this.resolveNewUserScope(currentUser, {
+        dioceseId: dioceseId || null,
+        parishId: parishId || null,
+        communityId: communityId || null,
+      }));
+    }
+
+    // Mesma régua do update: o destino inteiro fica dentro do escopo do ator
+    await this.assertScopeChangeWithinActor(
+      currentUser,
+      { dioceseId: null, parishId: null, communityId: null },
+      { dioceseId: dioceseId ?? null, parishId: parishId ?? null, communityId: communityId ?? null },
+    );
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
@@ -920,7 +1025,10 @@ export class UsersService {
         }
         break;
       default:
-        throw new ForbiddenException('Voce nao tem permissao para listar usuarios');
+        // Negar por padrão (coordenador de pastoral, voluntário, fiel, papel desconhecido)
+        throw new ForbiddenException(
+          'Somente a administração (diocese/paróquia) e a coordenação de comunidade listam usuários',
+        );
     }
 
     const users = await this.prisma.user.findMany({
@@ -1013,7 +1121,16 @@ export class UsersService {
     const user = await this.prisma.user.findUnique({
       where: { id },
       include: {
-        member: true,
+        member: {
+          include: {
+            // Participações ativas — para distinguir "reenviou as participações"
+            // de "mudou a coordenação" (coordenador de pastoral)
+            pastoralMemberships: {
+              where: { isActive: true, communityPastoralId: { not: null } },
+              select: { communityPastoralId: true },
+            },
+          },
+        },
         communities: { where: { isActive: true }, select: { communityId: true } },
       },
     });
@@ -1120,8 +1237,30 @@ export class UsersService {
     }
 
     let resolvedPastoralIds = pastoralIds || [];
-    if (nextRole === UserRole.PASTORAL_COORDINATOR && !resolvedPastoralIds.length) {
-      resolvedPastoralIds = await this.getCurrentCoordinatorPastoralIds(id);
+    // Coordenação só é sincronizada quando MUDA de verdade em relação às
+    // coordenações vigentes. O painel antigo inicializava o formulário com
+    // TODAS as participações (pastoralIds): reenviá-las sem mexer promovia cada
+    // participação a coordenação — agora vale como "sem mudança".
+    let coordinationChanged = true;
+    if (nextRole === UserRole.PASTORAL_COORDINATOR) {
+      const currentCoordinated = await this.getCurrentCoordinatorPastoralIds(id);
+      const participations: string[] = (user.member?.pastoralMemberships ?? [])
+        .map((membership: any) => membership.communityPastoralId)
+        .filter((pastoralId: string | null): pastoralId is string => !!pastoralId);
+      const sameSet = (a: string[], b: string[]) =>
+        new Set(a).size === new Set(b).size && a.every((pastoralId) => b.includes(pastoralId));
+
+      if (!resolvedPastoralIds.length) {
+        resolvedPastoralIds = currentCoordinated;
+      }
+      if (
+        user.role === UserRole.PASTORAL_COORDINATOR &&
+        currentCoordinated.length > 0 &&
+        (sameSet(resolvedPastoralIds, currentCoordinated) || sameSet(resolvedPastoralIds, participations))
+      ) {
+        resolvedPastoralIds = currentCoordinated;
+        coordinationChanged = false;
+      }
     }
 
     if (nextRole === UserRole.PASTORAL_COORDINATOR) {
@@ -1193,6 +1332,10 @@ export class UsersService {
       }
 
       if (nextRole === UserRole.PASTORAL_COORDINATOR) {
+        if (!coordinationChanged) {
+          // Coordenação intacta: nenhuma promoção nem destituição
+          return tx.user.findUnique({ where: { id }, select: this.getUserSelect() });
+        }
         await this.syncPastoralCoordinatorLinks(
           tx,
           id,
@@ -1372,6 +1515,7 @@ export class UsersService {
 
     const user = await this.prisma.user.findUnique({
       where: { id },
+      omit: { password: false }, // o hash é omitido globalmente; aqui ele é conferido
     });
 
     if (!user) {
@@ -1506,8 +1650,9 @@ export class UsersService {
    *   UserCommunity NÃO é gravado: para eles um vínculo ativo vale como escopo de
    *   coordenação (painel, finanças, dízimo, pedidos de oração).
    * - SYSTEM/DIOCESAN/PARISH_ADMIN: sem perfil de membro; o vínculo de fé é o
-   *   UserCommunity principal. Só gravado com a âncora do escopo preenchida (sem
-   *   paróquia/diocese, módulos caem nos vínculos e o link viraria escopo).
+   *   UserCommunity principal com papel FAITHFUL (nunca o papel de gestão — o
+   *   HierarchyService não o conta como escopo). Só gravado com a âncora do
+   *   escopo preenchida (sem paróquia/diocese, módulos caem nos vínculos).
    */
   private async updateManagerFaithCommunity(currentUser: any, community: any, consentGiven?: boolean) {
     const userId = currentUser.id;
@@ -1528,15 +1673,19 @@ export class UsersService {
       (currentUser.role === UserRole.DIOCESAN_ADMIN && !!currentUser.dioceseId) ||
       (currentUser.role === UserRole.PARISH_ADMIN && !!currentUser.parishId);
 
+    // Não move o perfil de quem já tem comunidade principal noutra (as
+    // pastorais coordenadas ficam lá — mesma regra do módulo de membros).
+    // Antes respondia 200 sem gravar nada ("Tornar principal" parecia funcionar).
+    const memberCommunityId = currentUser.member?.communityId ?? null;
+    if (isCoordinator && memberCommunityId && memberCommunityId !== communityId) {
+      throw new ConflictException(
+        'Quem coordena tem a comunidade principal definida pela administração — peça a troca a um administrador. Para participar de outra comunidade, adicione-a como vínculo secundário.',
+      );
+    }
+
     let persisted = false;
     await this.prisma.$transaction(async (tx) => {
       if (isCoordinator) {
-        // Não move o perfil de quem já tem comunidade principal noutra (as
-        // pastorais coordenadas ficam lá — mesma regra do módulo de membros)
-        const memberCommunityId = currentUser.member?.communityId ?? null;
-        if (memberCommunityId && memberCommunityId !== communityId) {
-          return;
-        }
         await this.membersService.ensureProfileForUser(
           tx,
           {
@@ -1558,15 +1707,18 @@ export class UsersService {
         return;
       }
 
-      // Não-destrutivo: os demais vínculos continuam, só deixam de ser o principal
+      // Não-destrutivo: os demais vínculos continuam, só deixam de ser o principal.
+      // O vínculo é gravado com papel FAITHFUL — é de FÉ, não de gestão: com o
+      // papel do admin ele parecia escopo (isCommunityInScope o aceitava e o
+      // PARISH_ADMIN passava a escrever em comunidade de outra paróquia).
       await tx.userCommunity.updateMany({
         where: { userId, isPrimary: true, communityId: { not: communityId } },
         data: { isPrimary: false },
       });
       await tx.userCommunity.upsert({
         where: { userId_communityId: { userId, communityId } },
-        create: { userId, communityId, role: currentUser.role, isPrimary: true },
-        update: { isActive: true, isPrimary: true, leftAt: null },
+        create: { userId, communityId, role: UserRole.FAITHFUL, isPrimary: true },
+        update: { role: UserRole.FAITHFUL, isActive: true, isPrimary: true, leftAt: null },
       });
       persisted = true;
     });
@@ -1591,7 +1743,7 @@ export class UsersService {
     });
     const presented = await this.presentSelf(updatedUser);
 
-    // Sem gravação (conta de gestão sem escopo ou perfil preso a outra comunidade):
+    // Sem gravação (conta de administração sem âncora de escopo):
     // a resposta ainda leva a escolha, para o app não prender o usuário no assistente
     if (!presented.communityId) {
       presented.communityId = communityId;

@@ -367,6 +367,15 @@ export class SchedulesController {
    */
   @Get('events/:eventId/eligible-members')
   @PlanResource('event:params.eventId')
+  // Devolve contatos dos membros: só coordenação (escopo no service)
+  @UseGuards(RolesGuard)
+  @Roles(
+    UserRole.SYSTEM_ADMIN,
+    UserRole.DIOCESAN_ADMIN,
+    UserRole.PARISH_ADMIN,
+    UserRole.COMMUNITY_COORDINATOR,
+    UserRole.PASTORAL_COORDINATOR,
+  )
   findEligibleMembers(@Param('eventId') eventId: string, @Request() req: any) {
     return this.schedulesService.findEligibleMembers(eventId, req.user);
   }

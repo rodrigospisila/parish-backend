@@ -47,6 +47,7 @@ describe('CatechesisService (3.1)', () => {
       catechesisClass: { findFirst: jest.fn(), findMany: jest.fn().mockResolvedValue([]) },
       catechesisCatechist: { findFirst: jest.fn().mockResolvedValue(null) },
       member: { findFirst: jest.fn() },
+      memberCommunity: { findFirst: jest.fn().mockResolvedValue(null) },
       community: { findUnique: jest.fn() },
       pastoralCoordinator: { findMany: jest.fn(catechesisCoordinationFor(['u1'])) },
       pastoralMember: { findMany: jest.fn().mockResolvedValue([]) },
@@ -93,7 +94,7 @@ describe('CatechesisService (3.1)', () => {
         communityId: 'c1',
         stage: { sacramentType: SacramentType.CONFIRMATION, name: 'Crisma' },
       });
-      prisma.member.findFirst.mockResolvedValue({ id: 'm1', sacraments: [] });
+      prisma.member.findFirst.mockResolvedValue({ id: 'm1', communityId: 'c1', sacraments: [] });
 
       await expect(
         service.enroll({ classId: 'cl1', memberId: 'm1' }, coord),
@@ -110,6 +111,7 @@ describe('CatechesisService (3.1)', () => {
       });
       prisma.member.findFirst.mockResolvedValue({
         id: 'm1',
+        communityId: 'c1',
         sacraments: [{ type: SacramentType.BAPTISM }],
       });
 
@@ -126,10 +128,78 @@ describe('CatechesisService (3.1)', () => {
         capacity: null,
         stage: { sacramentType: SacramentType.BAPTISM, name: 'Batismo' },
       });
-      prisma.member.findFirst.mockResolvedValue({ id: 'm1', sacraments: [] });
+      prisma.member.findFirst.mockResolvedValue({ id: 'm1', communityId: 'c1', sacraments: [] });
 
       await service.enroll({ classId: 'cl1', memberId: 'm1' }, coord);
       expect(tx.catechesisEnrollment.create).toHaveBeenCalled();
+    });
+  });
+
+  describe('enroll — catequizando precisa ser da comunidade da turma', () => {
+    const baptismClass = {
+      id: 'cl1',
+      communityId: 'c1',
+      capacity: null,
+      stage: { sacramentType: SacramentType.BAPTISM, name: 'Batismo' },
+    };
+
+    it('membro de OUTRA paróquia: 403, sem transação (não limpa filas nem entra no relatório)', async () => {
+      prisma.catechesisClass.findFirst.mockResolvedValue(baptismClass);
+      prisma.member.findFirst.mockResolvedValue({ id: 'm-alheio', communityId: 'c-outra', sacraments: [] });
+
+      await expect(service.enroll({ classId: 'cl1', memberId: 'm-alheio' }, coord)).rejects.toBeInstanceOf(
+        ForbiddenException,
+      );
+      expect(prisma.$transaction).not.toHaveBeenCalled();
+      expect(tx.catechesisEnrollment.updateMany).not.toHaveBeenCalled();
+    });
+
+    it('membro sem comunidade: 403', async () => {
+      prisma.catechesisClass.findFirst.mockResolvedValue(baptismClass);
+      prisma.member.findFirst.mockResolvedValue({ id: 'm-solto', communityId: null, sacraments: [] });
+
+      await expect(service.enroll({ classId: 'cl1', memberId: 'm-solto' }, coord)).rejects.toBeInstanceOf(
+        ForbiddenException,
+      );
+      expect(prisma.$transaction).not.toHaveBeenCalled();
+    });
+
+    it('vínculo secundário ATIVO na comunidade da turma matricula', async () => {
+      prisma.catechesisClass.findFirst.mockResolvedValue(baptismClass);
+      prisma.member.findFirst.mockResolvedValue({ id: 'm2', communityId: 'c-capela', sacraments: [] });
+      prisma.memberCommunity.findFirst.mockResolvedValue({ id: 'link1' });
+
+      await service.enroll({ classId: 'cl1', memberId: 'm2' }, coord);
+      expect(prisma.memberCommunity.findFirst).toHaveBeenCalledWith(
+        expect.objectContaining({ where: { memberId: 'm2', communityId: 'c1', isActive: true } }),
+      );
+      expect(tx.catechesisEnrollment.create).toHaveBeenCalled();
+    });
+
+    it('secretaria paroquial matricula criança de outra comunidade da MESMA paróquia', async () => {
+      const parishAdmin = { id: 'adm', role: UserRole.PARISH_ADMIN, parishId: 'p1' } as any;
+      prisma.catechesisClass.findFirst.mockResolvedValue(baptismClass);
+      prisma.member.findFirst.mockResolvedValue({ id: 'm3', communityId: 'c-capela', sacraments: [] });
+      prisma.community.findUnique.mockResolvedValue({ parishId: 'p1', parish: { dioceseId: 'd1' } });
+
+      await service.enroll({ classId: 'cl1', memberId: 'm3' }, parishAdmin);
+      expect(tx.catechesisEnrollment.create).toHaveBeenCalled();
+    });
+
+    it('secretaria paroquial NÃO matricula membro de comunidade de outra paróquia', async () => {
+      const parishAdmin = { id: 'adm', role: UserRole.PARISH_ADMIN, parishId: 'p1' } as any;
+      prisma.catechesisClass.findFirst.mockResolvedValue(baptismClass);
+      prisma.member.findFirst.mockResolvedValue({ id: 'm4', communityId: 'c-p2', sacraments: [] });
+      prisma.community.findUnique.mockImplementation(async ({ where }: any) =>
+        where.id === 'c1'
+          ? { parishId: 'p1', parish: { dioceseId: 'd1' } }
+          : { parishId: 'p2', parish: { dioceseId: 'd1' } },
+      );
+
+      await expect(service.enroll({ classId: 'cl1', memberId: 'm4' }, parishAdmin)).rejects.toBeInstanceOf(
+        ForbiddenException,
+      );
+      expect(prisma.$transaction).not.toHaveBeenCalled();
     });
   });
 

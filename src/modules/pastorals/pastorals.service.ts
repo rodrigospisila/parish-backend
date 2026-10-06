@@ -30,6 +30,9 @@ const TEAM_MEMBER_SELECT = {
   email: true,
 } as const;
 
+/** Campos de contato do TEAM_MEMBER_SELECT — removidos para quem não coordena a pastoral. */
+const TEAM_CONTACT_FIELDS = ['phone', 'email'] as const;
+
 @Injectable()
 export class PastoralsService {
   constructor(
@@ -340,6 +343,9 @@ export class PastoralsService {
     currentUser?: CurrentUser,
     parishId?: string,
   ) {
+    // Negar por padrão: sem usuário identificado, a consulta não teria filtro
+    if (!currentUser?.id) return [];
+
     // Aplicar filtros de hierarquia
     const where: any = {};
 
@@ -422,7 +428,11 @@ export class PastoralsService {
     
     where.deletedAt = null;
 
-    return this.prisma.communityPastoral.findMany({
+    // LGPD: a rota é aberta a qualquer fiel (aba Pastorais do app) — nunca o
+    // cadastro completo do membro. Nome/foto para todos; telefone/e-mail só
+    // para quem coordena AQUELA pastoral ou a gere (mesma regra do
+    // ensurePastoralAccess), decidido por pastoral logo abaixo.
+    const pastorals = await this.prisma.communityPastoral.findMany({
       where,
       include: {
         globalPastoral: true,
@@ -438,7 +448,7 @@ export class PastoralsService {
         members: {
           where: { member: { deletedAt: null } },
           include: {
-            member: true,
+            member: { select: TEAM_MEMBER_SELECT },
           },
         },
         subGroups: {
@@ -457,6 +467,48 @@ export class PastoralsService {
         },
       },
     });
+
+    const coordinatedIds =
+      currentUser.role === UserRole.PASTORAL_COORDINATOR ? await this.getScopedPastoralIds(currentUser) : [];
+    return pastorals.map((pastoral) =>
+      this.canSeeTeamContacts(pastoral, currentUser, coordinatedIds)
+        ? pastoral
+        : { ...pastoral, members: pastoral.members.map((link) => this.withoutContacts(link)) },
+    );
+  }
+
+  /**
+   * Telefone/e-mail da equipe na LISTAGEM: espelha o ensurePastoralAccess sem
+   * consultar por pastoral. A consulta já veio filtrada pelo escopo do usuário;
+   * DIOCESAN/PARISH_ADMIN só recebem pastorais da própria diocese/paróquia.
+   * Coordenador de comunidade: só a própria comunidade (a lista pode trazer a
+   * paróquia inteira ou uma comunidade de vínculo secundário). Coordenador de
+   * pastoral: só as pastorais que COORDENA. Fiel/voluntário: nunca.
+   */
+  private canSeeTeamContacts(
+    pastoral: { id: string; communityId: string },
+    currentUser: SessionUser,
+    coordinatedIds: string[],
+  ): boolean {
+    switch (currentUser.role) {
+      case UserRole.SYSTEM_ADMIN:
+      case UserRole.DIOCESAN_ADMIN:
+      case UserRole.PARISH_ADMIN:
+        return true;
+      case UserRole.COMMUNITY_COORDINATOR:
+        return !!currentUser.communityId && pastoral.communityId === currentUser.communityId;
+      case UserRole.PASTORAL_COORDINATOR:
+        return coordinatedIds.includes(pastoral.id);
+      default:
+        return false;
+    }
+  }
+
+  /** Vínculo de equipe sem o contato do membro (só identificação). */
+  private withoutContacts<T extends { member: Record<string, unknown> }>(link: T): T {
+    const member = { ...link.member };
+    for (const field of TEAM_CONTACT_FIELDS) delete member[field];
+    return { ...link, member };
   }
 
   async findOneCommunityPastoral(id: string, currentUser?: CurrentUser) {
@@ -467,10 +519,11 @@ export class PastoralsService {
       include: {
         globalPastoral: true,
         community: true,
+        // Já passou por ensurePastoralAccess: contato sim, cadastro completo não
         members: {
           where: { member: { deletedAt: null } },
           include: {
-            member: true,
+            member: { select: TEAM_MEMBER_SELECT },
           },
         },
         subGroups: {
@@ -479,7 +532,7 @@ export class PastoralsService {
             members: {
               where: { member: { deletedAt: null } },
               include: {
-                member: true,
+                member: { select: TEAM_MEMBER_SELECT },
               },
             },
           },
@@ -520,11 +573,12 @@ export class PastoralsService {
         status: 'ACTIVE',
         deletedAt: null,
       },
+      // O seletor do painel mostra nome + e-mail (para distinguir homônimos);
+      // telefone não sai daqui — o contato da equipe vem de /pastorals/members
       select: {
         id: true,
         fullName: true,
         email: true,
-        phone: true,
       },
       orderBy: {
         fullName: 'asc',
@@ -677,7 +731,7 @@ export class PastoralsService {
         members: {
           where: { member: { deletedAt: null } },
           include: {
-            member: true,
+            member: { select: TEAM_MEMBER_SELECT },
           },
         },
       },
@@ -894,7 +948,8 @@ export class PastoralsService {
         role: normalizedRole,
       },
       include: {
-        member: true,
+        // Resposta do POST: nunca o cadastro completo (CPF/RG/observações)
+        member: { select: TEAM_MEMBER_SELECT },
         communityPastoral: {
           include: {
             globalPastoral: true,
@@ -972,7 +1027,8 @@ export class PastoralsService {
         ...(normalizedRole !== undefined ? { role: normalizedRole } : {}),
       },
       include: {
-        member: true,
+        // Resposta do PATCH: nunca o cadastro completo (CPF/RG/observações)
+        member: { select: TEAM_MEMBER_SELECT },
         communityPastoral: {
           include: {
             globalPastoral: true,

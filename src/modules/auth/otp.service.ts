@@ -3,6 +3,7 @@ import {
   BadRequestException,
   ConflictException,
 } from '@nestjs/common';
+import { randomInt } from 'crypto';
 import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
 import { PrismaService } from '../../database/prisma.service';
@@ -41,7 +42,8 @@ export class OtpService {
     // Expire previous OTPs for this phone
     await this.prisma.phoneOtp.deleteMany({ where: { phone } });
 
-    const code = String(Math.floor(100000 + Math.random() * 900000));
+    // Gerador criptográfico: Math.random é previsível para quem observa saídas
+    const code = String(randomInt(100000, 1000000));
     const expiresAt = new Date(Date.now() + OTP_TTL_MINUTES * 60 * 1000);
 
     await this.prisma.phoneOtp.create({ data: { phone, code, expiresAt } });

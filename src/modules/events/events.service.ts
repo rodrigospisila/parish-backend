@@ -7,7 +7,12 @@ import { AddPastoralToEventDto } from './dto/add-pastoral-to-event.dto';
 import { CreateAssignmentDto } from './dto/create-assignment.dto';
 import { CheckinAssignmentDto } from './dto/checkin-assignment.dto';
 import { EventType, UserRole } from '@prisma/client';
-import { HierarchyService, CurrentUser, isNoAccessWhere } from '../../common/hierarchy.service';
+import {
+  HierarchyService,
+  CurrentUser,
+  isNoAccessWhere,
+  noAccessWhere,
+} from '../../common/hierarchy.service';
 import { MassSchedulesService } from '../mass-schedules/mass-schedules.service';
 import { isRoleAtLeast } from '../auth/constants/role-hierarchy';
 
@@ -22,6 +27,28 @@ function canSeeEventContacts(user?: CurrentUser): boolean {
 
 const MEMBER_CONTACT_SELECT = { id: true, fullName: true, email: true, phone: true } as const;
 const MEMBER_NAME_SELECT = { id: true, fullName: true } as const;
+
+/** Teto de GET /events/upcoming (antes o `limit` da query era livre). */
+export const UPCOMING_EVENTS_MAX_LIMIT = 100;
+
+/**
+ * Comunidade/paróquia/diocese na resposta de GET /events/:id: só o que as
+ * telas usam (nome e ids). Nunca a Parish inteira — ela guarda os segredos do
+ * dízimo (providerApiKeyEnc, providerWebhookToken, chave Pix).
+ */
+const EVENT_COMMUNITY_SELECT = {
+  id: true,
+  name: true,
+  parishId: true,
+  parish: {
+    select: {
+      id: true,
+      name: true,
+      dioceseId: true,
+      diocese: { select: { id: true, name: true } },
+    },
+  },
+} as const;
 
 @Injectable()
 export class EventsService {
@@ -47,16 +74,107 @@ export class EventsService {
     return new Date(dateString);
   }
 
+  /**
+   * Pastorais que o usuário COORDENA (coordinatedPastoralIds da sessão).
+   * `pastoralIds` é participação e não concede gestão. Sessão sem o campo
+   * (formato antigo): lista vazia — negar por padrão.
+   */
   private async getScopedPastoralIds(currentUser?: CurrentUser): Promise<string[]> {
-    if (!currentUser?.id) {
+    if (!currentUser?.id || !Array.isArray(currentUser.coordinatedPastoralIds)) {
       return [];
     }
 
-    if (currentUser.pastoralIds?.length) {
-      return currentUser.pastoralIds;
+    return currentUser.coordinatedPastoralIds.filter(
+      (id): id is string => typeof id === 'string' && !!id,
+    );
+  }
+
+  /**
+   * O usuário tem vínculo ATIVO de fé com a comunidade (vínculo N:N do
+   * usuário, cadastro de membro principal ou vínculo secundário do membro)?
+   * O vínculo é aberto (self-service): dá a agenda PÚBLICA, não a interna.
+   */
+  private async hasCommunityLink(currentUser: CurrentUser, communityId: string): Promise<boolean> {
+    if (
+      currentUser.communities?.some(
+        (link) => link.communityId === communityId && link.isActive !== false,
+      )
+    ) {
+      return true;
     }
 
-    return this.hierarchyService.getUserPastoralIds(currentUser.id, true);
+    const member = await this.prisma.member.findFirst({
+      where: {
+        userId: currentUser.id,
+        deletedAt: null,
+        OR: [{ communityId }, { communityLinks: { some: { communityId, isActive: true } } }],
+      },
+      select: { id: true },
+    });
+    return !!member;
+  }
+
+  /**
+   * Filtro de escopo das listagens de eventos (/events, export.ics, /upcoming,
+   * /range, /type/:type, /recurring). Negar por padrão:
+   * - sem usuário ou sem escopo resolvido: nada;
+   * - sem comunidade pedida: o escopo hierárquico do usuário;
+   * - comunidade pedida dentro do escopo (gestão com escopo; fiel/voluntário,
+   *   só a comunidade principal): todos os eventos dela;
+   * - comunidade com vínculo de fé: só os eventos PÚBLICOS e os das pastorais
+   *   de que o usuário participa;
+   * - qualquer outra: escopo AND comunidade. O communityId nunca substitui o
+   *   escopo (antes, ?communityId=X abria a agenda de qualquer paróquia).
+   */
+  private async resolveEventScopeWhere(
+    currentUser: CurrentUser | undefined,
+    communityId?: string,
+  ): Promise<any> {
+    if (!currentUser?.id || !currentUser.role) {
+      return noAccessWhere();
+    }
+
+    const scope = this.hierarchyService.applyEventFilter(currentUser);
+    if (!communityId) {
+      return scope;
+    }
+
+    if (currentUser.role === UserRole.SYSTEM_ADMIN) {
+      return { communityId };
+    }
+
+    const isBaseRole =
+      currentUser.role === UserRole.FAITHFUL || currentUser.role === UserRole.VOLUNTEER;
+    const fullAccess = isBaseRole
+      ? !!currentUser.communityId && currentUser.communityId === communityId
+      : !isNoAccessWhere(scope) &&
+        (await this.hierarchyService.isCommunityInScope(currentUser, communityId));
+    if (fullAccess) {
+      return { communityId };
+    }
+
+    if (await this.hasCommunityLink(currentUser, communityId)) {
+      const participation = (currentUser.pastoralIds ?? []).filter(
+        (id): id is string => typeof id === 'string' && !!id,
+      );
+      return {
+        communityId,
+        OR: [
+          { isPublic: true },
+          ...(participation.length
+            ? [{ eventPastorals: { some: { communityPastoralId: { in: participation } } } }]
+            : []),
+        ],
+      };
+    }
+
+    if (isNoAccessWhere(scope)) {
+      return noAccessWhere();
+    }
+
+    // Ex.: coordenador de pastoral vê, em outra comunidade, só os eventos em
+    // que a sua pastoral está envolvida
+    return { AND: [scope, { communityId }] };
   }
 
   private getEventPastoralWhere(scopedPastoralIds: string[]) {
@@ -190,13 +308,7 @@ export class EventsService {
 
     const community = await this.prisma.community.findUnique({
       where: { id: communityId },
-      include: {
-        parish: {
-          include: {
-            diocese: true,
-          },
-        },
-      },
+      select: { id: true },
     });
 
     if (!community) {
@@ -245,29 +357,17 @@ export class EventsService {
     currentUser?: CurrentUser,
     onlyMyPastorals?: boolean,
   ) {
-    let hierarchyFilter = currentUser ? this.hierarchyService.applyEventFilter(currentUser) : {};
-    // Sem escopo próprio (ex.: conta sem comunidade principal) o filtro é
-    // impossível; uma comunidade explícita só vale se for vínculo ativo dele.
-    if (
-      currentUser &&
-      communityId &&
-      isNoAccessWhere(hierarchyFilter) &&
-      (await this.hierarchyService.isCommunityInScope(currentUser, communityId))
-    ) {
-      hierarchyFilter = { communityId };
-    }
+    // Escopo do usuário combinado (AND) com a comunidade pedida — nunca
+    // substituído por ela (sem escopo próprio, só um vínculo ativo abre algo)
+    const scopeWhere = await this.resolveEventScopeWhere(currentUser, communityId);
     const scopedPastoralIds =
       currentUser?.role === UserRole.PASTORAL_COORDINATOR
         ? await this.getScopedPastoralIds(currentUser)
         : [];
-    const where: any = { ...hierarchyFilter, deletedAt: null };
-    // O filtro de hierarquia pode conter OR; condições extras entram em AND
+    const where: any = { ...scopeWhere, deletedAt: null };
+    // O filtro de escopo pode conter OR/AND; condições extras entram em AND
     // para não sobrescrevê-lo
     const andConditions: any[] = [];
-
-    if (communityId) {
-      where.communityId = communityId;
-    }
 
     if (type) {
       where.type = type;
@@ -367,6 +467,19 @@ export class EventsService {
     const esc = (text: string) =>
       text.replace(/\\/g, '\\\\').replace(/;/g, '\\;').replace(/,/g, '\\,').replace(/\r?\n/g, '\\n');
 
+    // Agenda fixa (Missa/Confissão/Adoração/Terço): escopo amplo
+    // (paróquia/diocese/plataforma) sem comunidade escolhida tem a expansão
+    // limitada (MassSchedulesService) — exporta só os próximos dias e AVISA no
+    // próprio calendário até quando ela vai.
+    const maxFixedDays = this.massSchedulesService.maxOccurrenceWindowDays(currentUser, communityId);
+    let fixedFrom = from;
+    let fixedTo = to;
+    const fixedTruncated = to.getTime() - from.getTime() > maxFixedDays * 24 * 60 * 60 * 1000;
+    if (fixedTruncated) {
+      fixedFrom = new Date();
+      fixedTo = new Date(fixedFrom.getTime() + (maxFixedDays - 1) * 24 * 60 * 60 * 1000);
+    }
+
     const lines: string[] = [
       'BEGIN:VCALENDAR',
       'VERSION:2.0',
@@ -375,6 +488,15 @@ export class EventsService {
       'METHOD:PUBLISH',
       'X-WR-CALNAME:Agenda Paroquial',
     ];
+    if (fixedTruncated) {
+      const until = fixedTo.toLocaleDateString('pt-BR', { timeZone: 'America/Sao_Paulo' });
+      lines.push(
+        `X-WR-CALDESC:${esc(
+          `Horários fixos (Missas, Confissões, Adoração, Terço) incluídos só até ${until}. ` +
+            'Para o período completo, exporte escolhendo uma comunidade.',
+        )}`,
+      );
+    }
 
     for (const event of events as any[]) {
       if (event.status === 'CANCELLED') continue;
@@ -398,17 +520,8 @@ export class EventsService {
       );
     }
 
-    // Inclui a agenda fixa (Missa/Confissão/Adoração/Terço) como ocorrências.
+    // Inclui a agenda fixa como ocorrências (janela calculada acima).
     // Horário flutuante (sem Z): '2026-07-05T08:00:00' → '20260705T080000'.
-    // Escopo amplo (paróquia/diocese/plataforma) sem comunidade escolhida: a
-    // expansão é limitada (MassSchedulesService) — exporta só os próximos dias.
-    const maxFixedDays = this.massSchedulesService.maxOccurrenceWindowDays(currentUser, communityId);
-    let fixedFrom = from;
-    let fixedTo = to;
-    if (to.getTime() - from.getTime() > maxFixedDays * 24 * 60 * 60 * 1000) {
-      fixedFrom = new Date();
-      fixedTo = new Date(fixedFrom.getTime() + (maxFixedDays - 1) * 24 * 60 * 60 * 1000);
-    }
     const fixed = await this.massSchedulesService.expandOccurrences(
       fixedFrom.toISOString(),
       fixedTo.toISOString(),
@@ -434,18 +547,37 @@ export class EventsService {
     return lines.join('\r\n');
   }
 
-  async findUpcoming(communityId?: string, limit: number = 10) {
-    const where: any = {
-      startDate: {
-        gte: new Date(),
-      },
-      status: 'PUBLISHED',
-      deletedAt: null,
-    };
-
-    if (communityId) {
-      where.communityId = communityId;
+  /**
+   * Limite de GET /events/upcoming: padrão 10, teto UPCOMING_EVENTS_MAX_LIMIT
+   * (valor inválido/negativo cai no padrão).
+   */
+  static normalizeUpcomingLimit(limit?: number | string): number {
+    const parsed = typeof limit === 'string' ? parseInt(limit, 10) : limit;
+    if (!parsed || !Number.isFinite(parsed) || parsed < 1) {
+      return 10;
     }
+    return Math.min(Math.floor(parsed), UPCOMING_EVENTS_MAX_LIMIT);
+  }
+
+  /**
+   * Escopo das rotas antigas (/upcoming, /range, /type/:type, /recurring):
+   * mesmo filtro do GET /events, em AND com as condições da rota.
+   */
+  private async scopedLegacyWhere(
+    conditions: Record<string, unknown>,
+    currentUser: CurrentUser | undefined,
+    communityId?: string,
+  ) {
+    const scopeWhere = await this.resolveEventScopeWhere(currentUser, communityId);
+    return { AND: [scopeWhere, { ...conditions, deletedAt: null }] };
+  }
+
+  async findUpcoming(communityId?: string, limit: number = 10, currentUser?: CurrentUser) {
+    const where = await this.scopedLegacyWhere(
+      { startDate: { gte: new Date() }, status: 'PUBLISHED' },
+      currentUser,
+      communityId,
+    );
 
     return this.prisma.event.findMany({
       where,
@@ -466,7 +598,7 @@ export class EventsService {
       orderBy: {
         startDate: 'asc',
       },
-      take: limit,
+      take: EventsService.normalizeUpcomingLimit(limit),
     });
   }
 
@@ -569,12 +701,8 @@ export class EventsService {
     return { eventId, favorite: false };
   }
 
-  async findRecurring(communityId?: string) {
-    const where: any = { isRecurring: true, deletedAt: null };
-
-    if (communityId) {
-      where.communityId = communityId;
-    }
+  async findRecurring(communityId?: string, currentUser?: CurrentUser) {
+    const where = await this.scopedLegacyWhere({ isRecurring: true }, currentUser, communityId);
 
     return this.prisma.event.findMany({
       where,
@@ -611,14 +739,9 @@ export class EventsService {
     const event = await this.prisma.event.findFirst({
       where: { id, deletedAt: null },
       include: {
+        // select explícito: a Parish inteira levava os segredos do dízimo
         community: {
-          include: {
-            parish: {
-              include: {
-                diocese: true,
-              },
-            },
-          },
+          select: EVENT_COMMUNITY_SELECT,
         },
         eventPastorals: this.buildEventPastoralsInclude(scopedPastoralIds, true, withContacts),
         participants: {
@@ -655,6 +778,25 @@ export class EventsService {
       updateEventDto.communityId !== currentUser.communityId
     ) {
       throw new ForbiddenException('Voce nao pode mover o evento para outra comunidade');
+    }
+
+    // Mover o evento: o destino também precisa estar sob a gestão do ator
+    // (antes, admin de uma paróquia "entregava" o evento a qualquer comunidade)
+    if (updateEventDto.communityId && currentUser) {
+      const current = await this.prisma.event.findUnique({
+        where: { id },
+        select: { communityId: true },
+      });
+      if (!current) {
+        throw new NotFoundException(`Evento com ID ${id} nao encontrado`);
+      }
+      if (
+        current.communityId !== updateEventDto.communityId &&
+        currentUser.role !== UserRole.PASTORAL_COORDINATOR &&
+        !(await this.hierarchyService.canManageCommunity(currentUser.id, updateEventDto.communityId))
+      ) {
+        throw new ForbiddenException('Voce nao pode mover o evento para uma comunidade fora do seu escopo');
+      }
     }
 
     const dataToUpdate: any = { ...updateEventDto };
@@ -695,12 +837,11 @@ export class EventsService {
     });
   }
 
-  async findByType(type: EventType, communityId?: string) {
-    const where: any = { type, deletedAt: null };
-
-    if (communityId) {
-      where.communityId = communityId;
+  async findByType(type: EventType, communityId?: string, currentUser?: CurrentUser) {
+    if (!Object.values(EventType).includes(type)) {
+      throw new BadRequestException('Tipo de evento invalido');
     }
+    const where = await this.scopedLegacyWhere({ type }, currentUser, communityId);
 
     return this.prisma.event.findMany({
       where,
@@ -719,18 +860,22 @@ export class EventsService {
     });
   }
 
-  async findByDateRange(startDate: string, endDate: string, communityId?: string) {
-    const where: any = {
-      startDate: {
-        gte: new Date(startDate),
-        lte: new Date(endDate),
-      },
-      deletedAt: null,
-    };
-
-    if (communityId) {
-      where.communityId = communityId;
+  async findByDateRange(
+    startDate: string,
+    endDate: string,
+    communityId?: string,
+    currentUser?: CurrentUser,
+  ) {
+    const from = new Date(startDate);
+    const to = new Date(endDate);
+    if (Number.isNaN(from.getTime()) || Number.isNaN(to.getTime())) {
+      throw new BadRequestException('Informe startDate e endDate validos');
     }
+    const where = await this.scopedLegacyWhere(
+      { startDate: { gte: from, lte: to } },
+      currentUser,
+      communityId,
+    );
 
     return this.prisma.event.findMany({
       where,

@@ -147,8 +147,8 @@ export class FinanceService {
       if (!user.parishId) throw new ForbiddenException('Seu cadastro não tem paróquia — sem escopo financeiro');
       return { parishIds: [user.parishId] };
     }
-    const linked = (user.communities ?? []).filter((c) => c.isActive !== false).map((c) => c.communityId);
-    const communityIds = [...new Set([user.communityId, ...linked].filter((id): id is string => !!id))];
+    // Vínculo de fé não amplia escopo financeiro: só a comunidade principal e as de gestão
+    const communityIds = await this.hierarchyService.getCommunityScopeIds(user);
     if (!communityIds.length) throw new ForbiddenException('Seu cadastro não tem comunidade — sem escopo financeiro');
     return { communityIds };
   }

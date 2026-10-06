@@ -16,6 +16,14 @@ import { RolesGuard } from '../auth/guards/roles.guard';
 import { Roles } from '../auth/decorators/roles.decorator';
 import { CurrentUser } from '../auth/decorators/current-user.decorator';
 import { UserRole } from '@prisma/client';
+import { Throttle } from '@nestjs/throttler';
+
+/**
+ * Paliativo para os apps já instalados: a escolha de comunidade faz GET
+ * /dioceses e um GET /dioceses/:id para CADA diocese (282 chamadas) — o teto
+ * geral de 300/min por rota barrava o fluxo. O app novo usa /territory.
+ */
+const TREE_THROTTLE = { default: { limit: 2000, ttl: 60_000 } };
 
 @Controller('dioceses')
 @UseGuards(JwtAuthGuard, RolesGuard)
@@ -29,11 +37,13 @@ export class DiocesesController {
   }
 
   @Get()
+  @Throttle(TREE_THROTTLE)
   findAll(@CurrentUser() user: any) {
     return this.diocesesService.findAll(user);
   }
 
   @Get(':id')
+  @Throttle(TREE_THROTTLE)
   findOne(@Param('id') id: string) {
     return this.diocesesService.findOne(id);
   }

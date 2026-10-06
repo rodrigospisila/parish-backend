@@ -9,7 +9,7 @@ import { AuditService } from '../../common/audit.service';
 describe('FinanceService (4.3)', () => {
   let service: FinanceService;
   let prisma: any;
-  let hierarchy: { isCommunityInScope: jest.Mock; canManageMember: jest.Mock };
+  let hierarchy: { isCommunityInScope: jest.Mock; canManageMember: jest.Mock; getCommunityScopeIds: jest.Mock };
 
   const coord = { id: 'u1', role: UserRole.COMMUNITY_COORDINATOR, communityId: 'c1', parishId: 'p1' } as any;
   const faithful = { id: 'u2', role: UserRole.FAITHFUL, communityId: 'c1' } as any;
@@ -32,6 +32,7 @@ describe('FinanceService (4.3)', () => {
     hierarchy = {
       isCommunityInScope: jest.fn().mockResolvedValue(true),
       canManageMember: jest.fn().mockResolvedValue(true),
+      getCommunityScopeIds: jest.fn(async (u: any) => (u?.communityId ? [u.communityId] : [])),
     };
     const module: TestingModule = await Test.createTestingModule({
       providers: [

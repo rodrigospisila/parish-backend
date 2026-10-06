@@ -6,6 +6,7 @@ import {
   Patch,
   Param,
   Delete,
+  Query,
   UseGuards,
 } from '@nestjs/common';
 import { ParishesService } from './parishes.service';
@@ -29,8 +30,13 @@ export class ParishesController {
     return this.parishesService.create(createParishDto, user);
   }
 
+  /**
+   * Sem filtro: lista de gestão no escopo do usuário (fiel sem escopo → vazia).
+   * `?dioceseId=`: cascata leve para escolher a paróquia (id, nome, cidade).
+   */
   @Get()
-  findAll(@CurrentUser() user: any) {
+  findAll(@CurrentUser() user: any, @Query('dioceseId') dioceseId?: string) {
+    if (dioceseId) return this.parishesService.listByDiocese(dioceseId);
     return this.parishesService.findAll(user);
   }
 

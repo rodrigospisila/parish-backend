@@ -99,3 +99,21 @@ export function communityScopeWhere(user?: CurrentUser | null): Record<string, u
       return null;
   }
 }
+
+/**
+ * Filtro (MemberWhereInput) que só casa com o membro informado se ele não
+ * está excluído e pertence à paróquia — comunidade principal OU vínculo
+ * secundário ATIVO numa comunidade dela. Para validar ids de membro vindos do
+ * body (visitação, formação, planejamento, documentos): negar por padrão
+ * quem é de outra paróquia.
+ */
+export function memberOfParishWhere(memberIds: string | string[], parishId: string) {
+  return {
+    id: Array.isArray(memberIds) ? { in: memberIds } : memberIds,
+    deletedAt: null,
+    OR: [
+      { community: { parishId } },
+      { communityLinks: { some: { isActive: true, community: { parishId } } } },
+    ],
+  };
+}

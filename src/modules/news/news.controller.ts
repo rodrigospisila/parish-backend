@@ -69,15 +69,20 @@ export class NewsController {
     UserRole.PARISH_ADMIN,
     UserRole.COMMUNITY_COORDINATOR,
   )
-  update(@Param('id') id: string, @Body() updateNewsDto: UpdateNewsDto) {
-    return this.newsService.update(id, updateNewsDto);
+  update(
+    @Param('id') id: string,
+    @Body() updateNewsDto: UpdateNewsDto,
+    @CurrentUser() user: any,
+  ) {
+    // Escopo (comunidade atual e destino) checado no service
+    return this.newsService.update(id, updateNewsDto, user);
   }
 
   @Delete(':id')
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles(UserRole.DIOCESAN_ADMIN, UserRole.PARISH_ADMIN)
-  remove(@Param('id') id: string) {
-    return this.newsService.remove(id);
+  remove(@Param('id') id: string, @CurrentUser() user: any) {
+    return this.newsService.remove(id, user);
   }
 }
 

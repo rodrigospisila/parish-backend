@@ -119,9 +119,9 @@ export class CreateMemberDto {
   @IsOptional()
   consentGiven?: boolean;
 
-  @IsString()
-  @IsOptional()
-  userId?: string;
+  // `userId` NÃO é aceito aqui nem no update (PartialType): ligar a ficha a uma
+  // conta é fluxo próprio (cadastro/adoção por telefone verificado) — pelo
+  // corpo, um gestor religaria o cadastro à conta de outra pessoa.
 
   @IsString()
   @IsOptional()

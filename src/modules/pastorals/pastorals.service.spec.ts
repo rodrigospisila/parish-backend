@@ -233,6 +233,120 @@ describe('PastoralsService — escopo e coordenação (C7, C8, A13)', () => {
     });
   });
 
+  describe('dados dos membros nas respostas de pastoral (LGPD)', () => {
+    const TEAM_SELECT = { select: { id: true, fullName: true, photoUrl: true, phone: true, email: true } };
+    const teamLink = (id: string, fullName: string) => ({
+      id: `pm-${id}`,
+      memberId: id,
+      role: 'MEMBER',
+      isActive: true,
+      member: { id, fullName, photoUrl: null, phone: '42999990000', email: `${id}@x.com` },
+    });
+    const listed = [
+      { id: 'cp-cat', communityId: 'c1', members: [teamLink('m1', 'Ana Souza')] },
+      { id: 'cp-musica', communityId: 'c1', members: [teamLink('m2', 'Bruno Lima')] },
+      { id: 'cp-capela', communityId: 'c2', members: [teamLink('m3', 'Carla Dias')] },
+    ];
+
+    beforeEach(() => {
+      prisma.communityPastoral.findMany.mockResolvedValue(listed);
+    });
+
+    it('GET /pastorals/community nunca pede o cadastro completo do membro (member: true)', async () => {
+      await service.findAllCommunityPastorals('c1', faithful);
+      const args = prisma.communityPastoral.findMany.mock.calls[0][0];
+      expect(args.include.members.include.member).toEqual(TEAM_SELECT);
+    });
+
+    it('fiel vê nome dos membros, sem telefone/e-mail (aba Pastorais do app)', async () => {
+      const result = await service.findAllCommunityPastorals('c1', faithful);
+      for (const pastoral of result) {
+        for (const link of pastoral.members as any[]) {
+          expect(link.member.fullName).toBeDefined();
+          expect(link.member).not.toHaveProperty('phone');
+          expect(link.member).not.toHaveProperty('email');
+          // o vínculo continua (papel de coordenação, contagem)
+          expect(link.role).toBe('MEMBER');
+        }
+      }
+    });
+
+    it('coordenador de pastoral vê contato só da pastoral que COORDENA', async () => {
+      const result: any[] = await service.findAllCommunityPastorals('c1', fiel20);
+      const byId = Object.fromEntries(result.map((pastoral) => [pastoral.id, pastoral]));
+      expect(byId['cp-musica'].members[0].member.phone).toBe('42999990000');
+      // fiel20 é só MEMBRO da Catequética: sem contato
+      expect(byId['cp-cat'].members[0].member).not.toHaveProperty('phone');
+      expect(byId['cp-capela'].members[0].member).not.toHaveProperty('email');
+    });
+
+    it('coordenador de comunidade vê contato só da própria comunidade', async () => {
+      const communityCoord = { id: 'cc1', role: UserRole.COMMUNITY_COORDINATOR, communityId: 'c1' } as any;
+      prisma.community.findUnique.mockResolvedValue({ parishId: 'p1' });
+      const result: any[] = await service.findAllCommunityPastorals(undefined, communityCoord, 'p1');
+      const byId = Object.fromEntries(result.map((pastoral) => [pastoral.id, pastoral]));
+      expect(byId['cp-cat'].members[0].member.email).toBe('m1@x.com');
+      expect(byId['cp-capela'].members[0].member).not.toHaveProperty('phone');
+    });
+
+    it('PARISH_ADMIN (lista já filtrada pela paróquia) vê o contato da equipe', async () => {
+      const result: any[] = await service.findAllCommunityPastorals(undefined, parishAdminP1);
+      expect(prisma.communityPastoral.findMany.mock.calls[0][0].where.community).toEqual({ parishId: 'p1' });
+      expect(result[2].members[0].member.phone).toBe('42999990000');
+    });
+
+    it('sem usuário identificado: lista vazia, sem consulta', async () => {
+      await expect(service.findAllCommunityPastorals('c1', undefined)).resolves.toEqual([]);
+      expect(prisma.communityPastoral.findMany).not.toHaveBeenCalled();
+    });
+
+    it('GET /pastorals/community/:id usa o select de equipe (membros e sub-grupos)', async () => {
+      await service.findOneCommunityPastoral('cp-cat', catCoordinator);
+      const args = prisma.communityPastoral.findFirst.mock.calls[0][0];
+      expect(args.include.members.include.member).toEqual(TEAM_SELECT);
+      expect(args.include.subGroups.include.members.include.member).toEqual(TEAM_SELECT);
+    });
+
+    it('GET /pastorals/groups/:id usa o select de equipe', async () => {
+      prisma.pastoralGroup.findFirst = jest.fn().mockResolvedValue({ id: 'g1', members: [] });
+      await service.findOnePastoralGroup('g1', catCoordinator);
+      expect(prisma.pastoralGroup.findFirst.mock.calls[0][0].include.members.include.member).toEqual(TEAM_SELECT);
+    });
+
+    it('POST e PATCH /pastorals/members respondem com o select de equipe', async () => {
+      prisma.member = {
+        findUnique: jest.fn().mockResolvedValue({ id: 'm1', communityId: 'c1', status: 'ACTIVE', userId: null }),
+      };
+      prisma.pastoralMember.findFirst = jest.fn().mockResolvedValue(null);
+      prisma.pastoralMember.create = jest.fn().mockResolvedValue({ id: 'pm1' });
+      await service.addMemberToPastoral({ memberId: 'm1', communityPastoralId: 'cp-cat' } as any, catCoordinator);
+      expect(prisma.pastoralMember.create.mock.calls[0][0].include.member).toEqual(TEAM_SELECT);
+
+      prisma.pastoralMember.findUnique = jest.fn().mockResolvedValue({
+        id: 'pm1',
+        memberId: 'm1',
+        communityPastoralId: 'cp-cat',
+        pastoralGroupId: null,
+        role: 'MEMBER',
+        isActive: true,
+      });
+      prisma.pastoralMember.update = jest.fn().mockResolvedValue({ id: 'pm1', role: 'MEMBER', isActive: true });
+      await service.updateMember('pm1', { role: 'MEMBER' } as any, catCoordinator);
+      expect(prisma.pastoralMember.update.mock.calls[0][0].include.member).toEqual(TEAM_SELECT);
+    });
+
+    it('available-members: coordenador de OUTRA pastoral é barrado; quem coordena recebe nome/e-mail, sem telefone', async () => {
+      prisma.member = { findMany: jest.fn().mockResolvedValue([]) };
+      await expect(service.findAvailableMembersForCommunityPastoral('cp-cat', fiel20)).rejects.toBeInstanceOf(
+        ForbiddenException,
+      );
+      expect(prisma.member.findMany).not.toHaveBeenCalled();
+
+      await service.findAvailableMembersForCommunityPastoral('cp-cat', catCoordinator);
+      expect(prisma.member.findMany.mock.calls[0][0].select).toEqual({ id: true, fullName: true, email: true });
+    });
+  });
+
   describe('coordination-scope', () => {
     it('pickCoordinatedPastoralIds: só papel de coordenação ativo ou coordenação vigente', () => {
       expect(

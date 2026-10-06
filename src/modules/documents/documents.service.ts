@@ -3,6 +3,7 @@ import { UserRole } from '@prisma/client';
 import { PrismaService } from '../../database/prisma.service';
 import { HierarchyService, CurrentUser } from '../../common/hierarchy.service';
 import { AuditService } from '../../common/audit.service';
+import { memberOfParishWhere, resolveCoordinatedPastoralIds } from '../pastorals/coordination-scope';
 
 /**
  * Documentos e memória pastoral (roadmap 3.3).
@@ -28,6 +29,55 @@ export class DocumentsService {
     return role !== UserRole.VOLUNTEER && role !== UserRole.FAITHFUL;
   }
 
+  /**
+   * Escopo de GESTÃO dos documentos (filtro PastoralDocumentWhereInput).
+   * `{}` = sem restrição (SYSTEM_ADMIN); `null` = sem escopo → nada.
+   * - DIOCESAN_ADMIN: a diocese; PARISH_ADMIN: a paróquia.
+   * - COMMUNITY_COORDINATOR: documentos da própria comunidade e das
+   *   pastorais dela.
+   * - PASTORAL_COORDINATOR: só os documentos das pastorais que COORDENA.
+   * - Coordenação (comunidade/pastoral) também vê o que ela mesma cadastrou
+   *   na própria paróquia (ex.: documento "da paróquia inteira").
+   * Ser da mesma paróquia, sozinho, não abre nada.
+   */
+  private async scopeWhere(user: CurrentUser): Promise<Record<string, unknown> | null> {
+    switch (user?.role) {
+      case UserRole.SYSTEM_ADMIN:
+        return {};
+      case UserRole.DIOCESAN_ADMIN:
+        return user.dioceseId ? { parish: { dioceseId: user.dioceseId } } : null;
+      case UserRole.PARISH_ADMIN:
+        return user.parishId ? { parishId: user.parishId } : null;
+      case UserRole.COMMUNITY_COORDINATOR:
+      case UserRole.PASTORAL_COORDINATOR: {
+        const or: Record<string, unknown>[] = [];
+        if (user.role === UserRole.COMMUNITY_COORDINATOR && user.communityId) {
+          or.push({ communityId: user.communityId });
+          const pastorals = await this.prisma.communityPastoral.findMany({
+            where: { communityId: user.communityId },
+            select: { id: true },
+          });
+          if (pastorals.length) {
+            or.push({ communityPastoralId: { in: pastorals.map((pastoral) => pastoral.id) } });
+          }
+        }
+        if (user.role === UserRole.PASTORAL_COORDINATOR) {
+          const coordinated = await resolveCoordinatedPastoralIds(this.prisma, user);
+          if (coordinated.length) or.push({ communityPastoralId: { in: coordinated } });
+        }
+        if (user.parishId) {
+          or.push({
+            parishId: user.parishId,
+            versions: { some: { version: 1, createdByUserId: user.id } },
+          });
+        }
+        return or.length ? { OR: or } : null;
+      }
+      default:
+        return null;
+    }
+  }
+
   async create(
     dto: {
       title: string;
@@ -47,16 +97,35 @@ export class DocumentsService {
     if (!user.parishId && user.role !== UserRole.SYSTEM_ADMIN) {
       throw new BadRequestException('Usuário sem paróquia vinculada');
     }
+    const parishId = user.parishId!;
     if (dto.communityId) {
       const inScope = await this.hierarchyService.isCommunityInScope(user, dto.communityId);
       if (!inScope) throw new ForbiddenException('Comunidade fora do seu escopo');
+      // O documento é gravado na paróquia do usuário: a comunidade tem de ser dela
+      const community = await this.prisma.community.findUnique({
+        where: { id: dto.communityId },
+        select: { parishId: true },
+      });
+      if (!community || community.parishId !== parishId) {
+        throw new ForbiddenException('Comunidade fora da sua paróquia');
+      }
+    }
+    if (dto.communityPastoralId) {
+      await this.assertPastoralForDocument(dto.communityPastoralId, dto.communityId, parishId, user);
+    }
+    if (dto.responsibleMemberId) {
+      const responsible = await this.prisma.member.findFirst({
+        where: memberOfParishWhere(dto.responsibleMemberId, parishId),
+        select: { id: true },
+      });
+      if (!responsible) throw new BadRequestException('Responsável fora da sua paróquia');
     }
 
     const doc = await this.prisma.pastoralDocument.create({
       data: {
         title: dto.title,
         category: dto.category,
-        parishId: user.parishId!,
+        parishId,
         communityId: dto.communityId ?? null,
         communityPastoralId: dto.communityPastoralId ?? null,
         responsibleMemberId: dto.responsibleMemberId ?? null,
@@ -77,10 +146,48 @@ export class DocumentsService {
     return doc;
   }
 
+  /**
+   * Pastoral do documento: existe, não foi excluída, é da paróquia (e da
+   * comunidade informada, se houver) e o ator a gere — coordenador de
+   * pastoral só vincula documento à pastoral que COORDENA; coordenador de
+   * comunidade, às pastorais da própria comunidade.
+   */
+  private async assertPastoralForDocument(
+    communityPastoralId: string,
+    communityId: string | undefined,
+    parishId: string,
+    user: CurrentUser,
+  ) {
+    const pastoral = await this.prisma.communityPastoral.findFirst({
+      where: { id: communityPastoralId, deletedAt: null },
+      select: { id: true, communityId: true, community: { select: { parishId: true } } },
+    });
+    if (!pastoral || pastoral.community?.parishId !== parishId) {
+      throw new ForbiddenException('Pastoral fora da sua paróquia');
+    }
+    if (communityId && pastoral.communityId !== communityId) {
+      throw new BadRequestException('A pastoral não pertence à comunidade informada');
+    }
+    if (user.role === UserRole.COMMUNITY_COORDINATOR && pastoral.communityId !== user.communityId) {
+      throw new ForbiddenException('Pastoral fora da sua comunidade');
+    }
+    if (user.role === UserRole.PASTORAL_COORDINATOR) {
+      const coordinated = await resolveCoordinatedPastoralIds(this.prisma, user);
+      if (!coordinated.includes(pastoral.id)) {
+        throw new ForbiddenException('Você não coordena esta pastoral');
+      }
+    }
+  }
+
   async list(
     user: CurrentUser,
     filters: { category?: string; communityId?: string; communityPastoralId?: string; includeArchived?: boolean },
   ) {
+    // Negar por padrão: sem escopo resolvido (ex.: coordenação sem paróquia,
+    // diocesano sem diocese), a lista é vazia — nunca "todo o país"
+    const scope = await this.scopeWhere(user);
+    if (!scope) return [];
+
     const where: any = { deletedAt: null };
     if (!filters.includeArchived) where.isArchived = false;
     if (filters.category) where.category = filters.category;
@@ -90,9 +197,8 @@ export class DocumentsService {
       const inScope = await this.hierarchyService.isCommunityInScope(user, filters.communityId);
       if (!inScope) throw new ForbiddenException('Comunidade fora do seu escopo');
       where.communityId = filters.communityId;
-    } else if (user.role !== UserRole.SYSTEM_ADMIN && user.parishId) {
-      where.parishId = user.parishId;
     }
+    if (Object.keys(scope).length) where.AND = [scope];
 
     return this.prisma.pastoralDocument.findMany({
       where,
@@ -101,11 +207,15 @@ export class DocumentsService {
     });
   }
 
+  /** Documento dentro do escopo de GESTÃO do usuário (mesma regra da listagem). */
   private async loadInScope(id: string, user: CurrentUser) {
     const doc = await this.prisma.pastoralDocument.findFirst({ where: { id, deletedAt: null } });
     if (!doc) throw new NotFoundException('Documento não encontrado');
-    if (user.role !== UserRole.SYSTEM_ADMIN && doc.parishId !== user.parishId) {
-      throw new ForbiddenException('Documento fora do seu escopo');
+    const scope = await this.scopeWhere(user);
+    if (!scope) throw new ForbiddenException('Documento fora do seu escopo');
+    if (Object.keys(scope).length) {
+      const visible = await this.prisma.pastoralDocument.count({ where: { id, deletedAt: null, AND: [scope] } });
+      if (!visible) throw new ForbiddenException('Documento fora do seu escopo');
     }
     return doc;
   }

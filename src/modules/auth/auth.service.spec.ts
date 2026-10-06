@@ -180,6 +180,71 @@ describe('AuthService (segurança do registro - Fase 0/1)', () => {
       expect(security.registerDevice).toHaveBeenCalled();
     });
 
+    describe('usuário devolvido no login (mesma regra do GET /users/me)', () => {
+      it('PARISH_ADMIN sem comunidade de escopo recebe a comunidade de FÉ (vínculo principal) e scopeCommunityId nulo', async () => {
+        prisma.user.findUnique.mockResolvedValue(
+          account({
+            role: UserRole.PARISH_ADMIN,
+            parishId: 'par-1',
+            communities: [
+              { communityId: 'com-sec', isPrimary: false, community: { id: 'com-sec', name: 'Capela' } },
+              { communityId: 'com-fe', isPrimary: true, community: { id: 'com-fe', name: 'Matriz' } },
+            ],
+          }),
+        );
+        const res: any = await service.login({ email: 'maria@gmail.com', password: PASSWORD } as any);
+        expect(res.user).toMatchObject({ communityId: 'com-fe', community: { id: 'com-fe', name: 'Matriz' }, scopeCommunityId: null, parishId: 'par-1' });
+      });
+
+      it('sem vínculo ativo, cai para a comunidade do cadastro de membro', async () => {
+        prisma.user.findUnique.mockResolvedValue(
+          account({ role: UserRole.DIOCESAN_ADMIN, dioceseId: 'dio-1', communities: [], member: { communityId: 'com-membro', pastoralMemberships: [] } }),
+        );
+        prisma.community.findUnique.mockResolvedValue({ id: 'com-membro', name: 'São José' });
+        const res: any = await service.login({ email: 'maria@gmail.com', password: PASSWORD } as any);
+        expect(res.user).toMatchObject({ communityId: 'com-membro', community: { name: 'São José' }, scopeCommunityId: null });
+      });
+
+      it('fiel e gestor COM comunidade de escopo mantêm o valor gravado; coordinatedPastoralIds vem na resposta', async () => {
+        prisma.user.findUnique.mockResolvedValue(
+          account({
+            role: UserRole.COMMUNITY_COORDINATOR,
+            communityId: 'com-escopo',
+            communities: [{ communityId: 'com-outra', isPrimary: true, community: { id: 'com-outra', name: 'Outra' } }],
+            member: {
+              communityId: 'com-escopo',
+              pastoralMemberships: [
+                { communityPastoralId: 'cp-coord', role: 'COORDINATOR', isActive: true, communityPastoral: null },
+                { communityPastoralId: 'cp-membro', role: 'MEMBER', isActive: true, communityPastoral: null },
+              ],
+              pastoralCoordinations: [{ communityPastoralId: 'cp-vigente' }],
+            },
+          }),
+        );
+        const res: any = await service.login({ email: 'maria@gmail.com', password: PASSWORD } as any);
+        expect(res.user.communityId).toBe('com-escopo');
+        expect(res.user.scopeCommunityId).toBe('com-escopo');
+        expect(res.user.pastoralIds).toEqual(['cp-coord', 'cp-membro']);
+        expect(res.user.coordinatedPastoralIds.sort()).toEqual(['cp-coord', 'cp-vigente']);
+
+        prisma.user.findUnique.mockResolvedValue(
+          account({ communities: [{ communityId: 'com-x', isPrimary: true, community: { id: 'com-x', name: 'X' } }] }),
+        );
+        const faithful: any = await service.login({ email: 'maria@gmail.com', password: PASSWORD } as any);
+        // Fiel sem comunidade continua indo ao assistente (o app decide por communityId)
+        expect(faithful.user.communityId).toBeNull();
+        expect(faithful.user.coordinatedPastoralIds).toEqual([]);
+      });
+
+      it('a consulta do login carrega os vínculos ativos e a coordenação vigente', async () => {
+        prisma.user.findUnique.mockResolvedValue(account());
+        await service.login({ email: 'maria@gmail.com', password: PASSWORD } as any);
+        const include = prisma.user.findUnique.mock.calls[0][0].include;
+        expect(include.communities.where).toEqual({ isActive: true });
+        expect(include.member.include.pastoralCoordinations.where).toMatchObject({ isCurrent: true });
+      });
+    });
+
     describe('conta inativa (não revela antes da senha)', () => {
       it('senha errada → mensagem genérica, sem falar em conta desativada', async () => {
         prisma.user.findUnique.mockResolvedValue(account({ isActive: false }));

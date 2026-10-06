@@ -1516,6 +1516,28 @@ export class CatechesisService {
 
   // ===== MATRÍCULA =====
 
+  /**
+   * Matrícula manual (secretaria): o membro precisa pertencer à comunidade da
+   * turma — principal ou vínculo secundário ATIVO — ou a uma comunidade cuja
+   * catequese o ator também coordena (ex.: secretaria paroquial matriculando
+   * na Matriz uma criança cadastrada na capela). Membro sem comunidade ou de
+   * fora do alcance do ator: negar.
+   */
+  private async assertEnrollableMember(
+    member: { id: string; communityId: string | null },
+    classCommunityId: string,
+    user: CurrentUser,
+  ) {
+    if (member.communityId === classCommunityId) return;
+    const link = await this.prisma.memberCommunity.findFirst({
+      where: { memberId: member.id, communityId: classCommunityId, isActive: true },
+      select: { id: true },
+    });
+    if (link) return;
+    if (member.communityId && (await this.isCatechesisCoordinator(user, member.communityId))) return;
+    throw new ForbiddenException('Este catequizando não pertence à comunidade desta turma');
+  }
+
   async enroll(
     dto: { classId: string; memberId: string; pendingDocuments?: string; requireBaptism?: boolean; overrideCapacity?: boolean; unbaptized?: boolean },
     user: CurrentUser,
@@ -1526,6 +1548,7 @@ export class CatechesisService {
       where: { id: dto.memberId, deletedAt: null },
       select: {
         id: true,
+        communityId: true,
         birthDate: true,
         responsibleId: true,
         sacraments: { select: { type: true } },
@@ -1534,6 +1557,13 @@ export class CatechesisService {
     if (!member) {
       throw new NotFoundException('Catequizando (membro) não encontrado');
     }
+
+    // SEGURANÇA: o catequizando precisa ser da comunidade da turma (ou ter
+    // vínculo ativo nela) — ou de uma comunidade cuja catequese o ator
+    // coordena (mesma regra da transferência). Sem isso, um memberId de outra
+    // paróquia entraria no relatório da turma (telefone do responsável) e a
+    // matrícula encerraria as filas de espera dele na paróquia de origem.
+    await this.assertEnrollableMember(member, klass.communityId, user);
 
     // REGRA: uma matrícula efetiva por vez — mudar de turma é transferência
     const concurrent = await this.findConcurrentEnrollment(dto.memberId, [dto.classId]);

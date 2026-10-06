@@ -194,8 +194,8 @@ export class PrayerRequestsService {
       const rows = await this.prisma.community.findMany({ where: { parishId: user.parishId }, select: { id: true } });
       return rows.map((c) => c.id);
     }
-    const linked = (user.communities ?? []).filter((c) => c.isActive !== false).map((c) => c.communityId);
-    return [...new Set([user.communityId, ...linked].filter((id): id is string => !!id))];
+    // Moderação é gestão: vínculo de fé não entra (a leitura soma os vínculos no readScope)
+    return this.hierarchyService.getCommunityScopeIds(user);
   }
 
   /**

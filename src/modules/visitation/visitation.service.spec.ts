@@ -18,9 +18,13 @@ describe('VisitationService (4.5 — privacidade)', () => {
         findFirst: jest.fn(),
         findUnique: jest.fn(),
         findMany: jest.fn().mockResolvedValue([]),
+        update: jest.fn(),
       },
-      member: { findFirst: jest.fn() },
-      visit: { findMany: jest.fn().mockResolvedValue([]) },
+      member: { findFirst: jest.fn(), count: jest.fn().mockResolvedValue(0) },
+      memberCommunity: { findFirst: jest.fn().mockResolvedValue(null) },
+      communityPastoral: { findFirst: jest.fn() },
+      community: { findUnique: jest.fn().mockResolvedValue({ parishId: 'p1' }) },
+      visit: { findMany: jest.fn().mockResolvedValue([]), create: jest.fn().mockResolvedValue({ id: 'v1' }) },
       pastoralMember: { findMany: jest.fn().mockResolvedValue([]) },
       pastoralCoordinator: { findMany: jest.fn().mockResolvedValue([]) },
     };
@@ -136,6 +140,65 @@ describe('VisitationService (4.5 — privacidade)', () => {
         deletedAt: null,
         community: { parishId: 'p1' },
       });
+    });
+  });
+  describe('ids do body (createRequest/registerVisit)', () => {
+    const coordinator = {
+      id: 'u1',
+      role: UserRole.PASTORAL_COORDINATOR,
+      communityId: 'c1',
+      coordinatedPastoralIds: ['pastoral-visita'],
+    } as any;
+    const base = { communityId: 'c1', reason: VisitReason.SICK, consentGiven: true };
+
+    it('pastoral de OUTRA comunidade/paróquia: 403, nada gravado', async () => {
+      prisma.communityPastoral.findFirst.mockResolvedValue({ communityId: 'c-p2' });
+      await expect(
+        service.createRequest({ ...base, personName: 'Dona Maria', communityPastoralId: 'cp-alheia' }, coordinator),
+      ).rejects.toBeInstanceOf(ForbiddenException);
+      expect(prisma.visitRequest.create).not.toHaveBeenCalled();
+    });
+
+    it('membro visitado de outra paróquia: 403, nada gravado', async () => {
+      prisma.member.findFirst.mockResolvedValue({ id: 'm-x', communityId: 'c-p2' });
+      hierarchy.isCommunityInScope.mockImplementation(async (_u: any, communityId: string) => communityId === 'c1');
+      await expect(service.createRequest({ ...base, memberId: 'm-x' }, coordinator)).rejects.toBeInstanceOf(
+        ForbiddenException,
+      );
+      expect(prisma.visitRequest.create).not.toHaveBeenCalled();
+    });
+
+    it('caminho legítimo: pastoral e membro da comunidade do pedido', async () => {
+      prisma.communityPastoral.findFirst.mockResolvedValue({ communityId: 'c1' });
+      prisma.member.findFirst.mockResolvedValue({ id: 'm1', communityId: 'c1' });
+      prisma.visitRequest.create.mockResolvedValue({ id: 'vr1' });
+      await service.createRequest({ ...base, memberId: 'm1', communityPastoralId: 'pastoral-visita' }, coordinator);
+      expect(prisma.visitRequest.create).toHaveBeenCalled();
+    });
+
+    it('secretaria paroquial: membro de outra comunidade da paróquia (escopo do ator) é aceito', async () => {
+      const parishAdmin = { id: 'adm', role: UserRole.PARISH_ADMIN, parishId: 'p1' } as any;
+      prisma.member.findFirst.mockResolvedValue({ id: 'm2', communityId: 'c2' });
+      prisma.visitRequest.create.mockResolvedValue({ id: 'vr2' });
+      await service.createRequest({ ...base, memberId: 'm2' }, parishAdmin);
+      expect(prisma.visitRequest.create).toHaveBeenCalled();
+    });
+
+    it('visitador de fora da paróquia não é designado (não ganharia as anotações)', async () => {
+      prisma.visitRequest.findFirst.mockResolvedValue({ id: 'vr1', communityId: 'c1', communityPastoralId: 'pastoral-visita' });
+      prisma.member.count.mockResolvedValue(1); // só 1 dos 2 ids é da paróquia
+      await expect(
+        service.registerVisit('vr1', { date: '2026-10-01', visitorMemberIds: ['m1', 'm-x'] }, coordinator),
+      ).rejects.toBeInstanceOf(ForbiddenException);
+      expect(prisma.visit.create).not.toHaveBeenCalled();
+    });
+
+    it('visitadores da paróquia: registra a visita', async () => {
+      prisma.visitRequest.findFirst.mockResolvedValue({ id: 'vr1', communityId: 'c1', communityPastoralId: 'pastoral-visita' });
+      prisma.member.count.mockResolvedValue(2);
+      await service.registerVisit('vr1', { date: '2026-10-01', visitorMemberIds: ['m1', 'm2', 'm1'] }, coordinator);
+      expect(prisma.member.count.mock.calls[0][0].where.id).toEqual({ in: ['m1', 'm2'] });
+      expect(prisma.visit.create.mock.calls[0][0].data.visitorMemberIds).toBe('m1,m2');
     });
   });
 });

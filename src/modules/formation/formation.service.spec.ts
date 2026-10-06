@@ -1,4 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
+import { BadRequestException, NotFoundException } from '@nestjs/common';
 import { UserRole } from '@prisma/client';
 import { FormationService } from './formation.service';
 import { PrismaService } from '../../database/prisma.service';
@@ -14,9 +15,15 @@ describe('FormationService (3.4)', () => {
 
   beforeEach(async () => {
     prisma = {
-      formationTrack: { findMany: jest.fn().mockResolvedValue([]) },
-      formationCourse: { findFirst: jest.fn(), findMany: jest.fn() },
-      formationEnrollment: { findUnique: jest.fn(), update: jest.fn(), findMany: jest.fn().mockResolvedValue([]) },
+      formationTrack: { findMany: jest.fn().mockResolvedValue([]), findFirst: jest.fn() },
+      formationCourse: { findFirst: jest.fn(), findMany: jest.fn(), create: jest.fn().mockResolvedValue({ id: 'cur9' }) },
+      formationEnrollment: {
+        findUnique: jest.fn(),
+        update: jest.fn(),
+        findMany: jest.fn().mockResolvedValue([]),
+        upsert: jest.fn().mockResolvedValue({ id: 'en1' }),
+      },
+      member: { findFirst: jest.fn() },
       community: { findUnique: jest.fn().mockResolvedValue(null) },
     };
 
@@ -33,9 +40,28 @@ describe('FormationService (3.4)', () => {
   });
 
   describe('checkPrerequisite', () => {
+    beforeEach(() => prisma.member.findFirst.mockResolvedValue({ id: 'm1' }));
+
+    it('membro fora do escopo de quem consulta → 404, sem ler cursos', async () => {
+      prisma.member.findFirst.mockResolvedValue(null);
+      await expect(service.checkPrerequisite('m-outra', 'Ministro', coord)).rejects.toBeInstanceOf(NotFoundException);
+      expect(prisma.formationCourse.findMany).not.toHaveBeenCalled();
+    });
+
+    it('sem escopo resolvido (usuário sem paróquia/comunidade) → 404', async () => {
+      const semEscopo = { id: 'u9', role: UserRole.PASTORAL_COORDINATOR } as any;
+      await expect(service.checkPrerequisite('m1', 'Ministro', semEscopo)).rejects.toBeInstanceOf(NotFoundException);
+    });
+
+    it('cursos exigidos só da paróquia do membro', async () => {
+      prisma.formationCourse.findMany.mockResolvedValue([]);
+      await service.checkPrerequisite('m1', 'Ministro', coord);
+      expect(prisma.formationCourse.findMany.mock.calls[0][0].where).toMatchObject({ parishId: 'p1', requiredForRole: 'Ministro' });
+    });
+
     it('apto quando nenhum curso é exigido para a função', async () => {
       prisma.formationCourse.findMany.mockResolvedValue([]);
-      await expect(service.checkPrerequisite('m1', 'Leitor')).resolves.toEqual({
+      await expect(service.checkPrerequisite('m1', 'Leitor', coord)).resolves.toEqual({
         eligible: true,
         missing: [],
       });
@@ -45,7 +71,7 @@ describe('FormationService (3.4)', () => {
       prisma.formationCourse.findMany.mockResolvedValue([{ id: 'cur1', name: 'Curso MESC', validityMonths: 12 }]);
       prisma.formationEnrollment.findUnique.mockResolvedValue(null);
 
-      const res = await service.checkPrerequisite('m1', 'Ministro');
+      const res = await service.checkPrerequisite('m1', 'Ministro', coord);
       expect(res.eligible).toBe(false);
       expect(res.missing).toContain('Curso MESC');
     });
@@ -57,7 +83,7 @@ describe('FormationService (3.4)', () => {
         expiresAt: new Date(Date.now() - 1000),
       });
 
-      const res = await service.checkPrerequisite('m1', 'Ministro');
+      const res = await service.checkPrerequisite('m1', 'Ministro', coord);
       expect(res.eligible).toBe(false);
     });
 
@@ -68,7 +94,7 @@ describe('FormationService (3.4)', () => {
         expiresAt: new Date(Date.now() + 1000000),
       });
 
-      const res = await service.checkPrerequisite('m1', 'Ministro');
+      const res = await service.checkPrerequisite('m1', 'Ministro', coord);
       expect(res.eligible).toBe(true);
     });
   });
@@ -159,6 +185,46 @@ describe('FormationService (3.4)', () => {
     it('SYSTEM_ADMIN sem filtro de paróquia', async () => {
       await service.listTracks({ id: 's', role: UserRole.SYSTEM_ADMIN } as any);
       expect(prisma.formationTrack.findMany.mock.calls[0][0].where).toEqual({ deletedAt: null });
+    });
+  });
+  describe('ids do body (enroll/createCourse)', () => {
+    it('enroll: membro de outra paróquia não é inscrito (404, nada gravado)', async () => {
+      prisma.formationCourse.findFirst.mockResolvedValue({ id: 'cur1', parishId: 'p1' });
+      prisma.member.findFirst.mockResolvedValue(null);
+      await expect(service.enroll('cur1', 'm-alheio', coord)).rejects.toBeInstanceOf(NotFoundException);
+      expect(prisma.member.findFirst.mock.calls[0][0].where).toEqual({
+        id: 'm-alheio',
+        deletedAt: null,
+        OR: [
+          { community: { parishId: 'p1' } },
+          { communityLinks: { some: { isActive: true, community: { parishId: 'p1' } } } },
+        ],
+      });
+      expect(prisma.formationEnrollment.upsert).not.toHaveBeenCalled();
+    });
+
+    it('enroll: membro da paróquia do curso é inscrito', async () => {
+      prisma.formationCourse.findFirst.mockResolvedValue({ id: 'cur1', parishId: 'p1' });
+      prisma.member.findFirst.mockResolvedValue({ id: 'm1' });
+      await service.enroll('cur1', 'm1', coord);
+      expect(prisma.formationEnrollment.upsert).toHaveBeenCalled();
+    });
+
+    it('createCourse: trilha de outra paróquia é recusada; da própria, aceita', async () => {
+      prisma.formationTrack.findFirst.mockResolvedValue(null);
+      await expect(service.createCourse({ name: 'MESC', trackId: 'tr-alheia' }, coord)).rejects.toBeInstanceOf(
+        BadRequestException,
+      );
+      expect(prisma.formationTrack.findFirst.mock.calls[0][0].where).toEqual({
+        id: 'tr-alheia',
+        parishId: 'p1',
+        deletedAt: null,
+      });
+      expect(prisma.formationCourse.create).not.toHaveBeenCalled();
+
+      prisma.formationTrack.findFirst.mockResolvedValue({ id: 'tr1' });
+      await service.createCourse({ name: 'MESC', trackId: 'tr1' }, coord);
+      expect(prisma.formationCourse.create).toHaveBeenCalled();
     });
   });
 });

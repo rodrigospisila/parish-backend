@@ -102,7 +102,7 @@ describe('HierarchyService (filtros de escopo)', () => {
 
     it('PASTORAL_COORDINATOR sem comunidade mas com pastorais vê os eventos das pastorais', () => {
       const where = service.applyEventFilter(
-        user({ role: UserRole.PASTORAL_COORDINATOR, pastoralIds: ['pa1'] }),
+        user({ role: UserRole.PASTORAL_COORDINATOR, coordinatedPastoralIds: ['pa1'] }),
       );
       expect(where).toEqual({
         OR: [{ eventPastorals: { some: { communityPastoralId: { in: ['pa1'] } } } }],
@@ -138,7 +138,7 @@ describe('HierarchyService (filtros de escopo)', () => {
 
     it('PASTORAL_COORDINATOR com pastorais: pelas pastorais (mesmo sem comunidade)', () => {
       expect(
-        service.applyScheduleFilter(user({ role: UserRole.PASTORAL_COORDINATOR, pastoralIds: ['pa1'] })),
+        service.applyScheduleFilter(user({ role: UserRole.PASTORAL_COORDINATOR, coordinatedPastoralIds: ['pa1'] })),
       ).toEqual({
         OR: [
           { event: { eventPastorals: { some: { communityPastoralId: { in: ['pa1'] } } } } },

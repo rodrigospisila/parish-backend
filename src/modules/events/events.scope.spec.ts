@@ -196,20 +196,22 @@ describe('EventsService — escopo de participantes e contatos (A5, A8, A10)', (
     });
 
     it('findAll com communityId que NÃO é vínculo dele: continua negado', async () => {
+      prisma.member.findFirst.mockResolvedValue(null);
+
       await service.findAll('c-imbituva', undefined, undefined, undefined, undefined, newcomer);
 
-      expect(hierarchy.isCommunityInScope).toHaveBeenCalledWith(newcomer, 'c-imbituva');
       expect(prisma.event.findMany.mock.calls[0][0].where.id).toBe('__none__');
     });
 
-    it('findAll com communityId de vínculo ativo: vê aquela comunidade', async () => {
-      hierarchy.isCommunityInScope.mockResolvedValue(true);
+    it('findAll com communityId de vínculo ativo: vê a agenda pública daquela comunidade', async () => {
+      const linked = { ...newcomer, communities: [{ communityId: 'c2', isActive: true }] };
 
-      await service.findAll('c2', undefined, undefined, undefined, undefined, newcomer);
+      await service.findAll('c2', undefined, undefined, undefined, undefined, linked);
 
       const where = prisma.event.findMany.mock.calls[0][0].where;
       expect(where.id).toBeUndefined();
       expect(where.communityId).toBe('c2');
+      expect(where.OR).toEqual([{ isPublic: true }]);
     });
 
     it('fiel com comunidade (caminho legítimo do app) segue vendo a própria', async () => {

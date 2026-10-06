@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { AssignmentStatus, MemberStatus } from '@prisma/client';
+import { AssignmentStatus, MemberStatus, UserRole } from '@prisma/client';
 import { PrismaService } from '../../database/prisma.service';
 import { HierarchyService, CurrentUser } from '../../common/hierarchy.service';
 import { PdfService } from '../pdf/pdf.service';
@@ -32,27 +32,22 @@ export class ReportsService {
       where: { ...memberWhere, deletedAt: null, status: MemberStatus.ACTIVE },
     });
 
-    // Agentes por pastoral (contagem de vínculos ativos)
-    const pastoralWhere: any = { deletedAt: null };
-    if (currentUser.communityId) {
-      pastoralWhere.communityId = currentUser.communityId;
-    } else if (currentUser.parishId) {
-      pastoralWhere.community = { parishId: currentUser.parishId };
-    } else if (currentUser.dioceseId) {
-      pastoralWhere.community = { parish: { dioceseId: currentUser.dioceseId } };
-    }
+    // Agentes por pastoral (contagem de vínculos ativos) — mesmo escopo dos membros
+    const pastoralScope = this.pastoralScope(currentUser);
 
-    const pastorals = await this.prisma.communityPastoral.findMany({
-      where: pastoralWhere,
-      select: {
-        id: true,
-        globalPastoral: { select: { name: true, kind: true } },
-        community: { select: { name: true } },
-        _count: {
-          select: { members: { where: { isActive: true, member: { deletedAt: null } } } },
-        },
-      },
-    });
+    const pastorals = !pastoralScope
+      ? []
+      : await this.prisma.communityPastoral.findMany({
+          where: { ...pastoralScope, deletedAt: null },
+          select: {
+            id: true,
+            globalPastoral: { select: { name: true, kind: true } },
+            community: { select: { name: true } },
+            _count: {
+              select: { members: { where: { isActive: true, member: { deletedAt: null } } } },
+            },
+          },
+        });
 
     const agentsByPastoral = pastorals.map((pastoral) => ({
       pastoralId: pastoral.id,
@@ -105,6 +100,27 @@ export class ReportsService {
       agentsByPastoral,
       overloaded,
     };
+  }
+
+  /**
+   * Escopo das pastorais pelo PAPEL (alinhado ao applyMemberFilter). Negar por
+   * padrão: sem o escopo correspondente no cadastro, `null` (nada a agregar) —
+   * antes caía no país inteiro.
+   */
+  private pastoralScope(user: CurrentUser): Record<string, unknown> | null {
+    switch (user.role) {
+      case UserRole.SYSTEM_ADMIN:
+        return {};
+      case UserRole.DIOCESAN_ADMIN:
+        return user.dioceseId ? { community: { parish: { dioceseId: user.dioceseId } } } : null;
+      case UserRole.PARISH_ADMIN:
+        return user.parishId ? { community: { parishId: user.parishId } } : null;
+      case UserRole.COMMUNITY_COORDINATOR:
+      case UserRole.PASTORAL_COORDINATOR:
+        return user.communityId ? { communityId: user.communityId } : null;
+      default:
+        return null;
+    }
   }
 
   async exportPastoralOverviewPdf(currentUser: CurrentUser): Promise<Buffer> {

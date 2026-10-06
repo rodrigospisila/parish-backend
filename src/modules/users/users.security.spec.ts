@@ -319,7 +319,7 @@ describe('UsersService — segurança (C2, C3, A11)', () => {
       for (const key of ['password', 'twoFactorSecret', 'twoFactorBackupCodes', 'pushToken', 'sessionsRevokedAt']) {
         expect(args.select).not.toHaveProperty(key);
       }
-      expect(Object.keys(args.select.member.select)).toEqual(['id', 'communityId', 'pastoralMemberships']);
+      expect(Object.keys(args.select.member.select)).toEqual(['id', 'communityId', 'pastoralMemberships', 'pastoralCoordinations']);
     });
 
     it('findAll de gestor sem âncora de escopo devolve lista vazia (antes: todos os usuários)', async () => {
@@ -372,11 +372,12 @@ describe('UsersService — segurança (C2, C3, A11)', () => {
       expect(res.dioceseId).toBe('d1');
       expect(res.role).toBe(UserRole.PARISH_ADMIN);
       expect(res.scopeCommunityId).toBeNull();
-      // Vínculo de fé gravado e devolvido para o app sair do assistente
+      // Vínculo de FÉ (papel FAITHFUL, nunca o de gestão) gravado e devolvido
+      // para o app sair do assistente
       expect(tx.userCommunity.upsert).toHaveBeenCalledWith(
         expect.objectContaining({
           where: { userId_communityId: { userId: parishAdmin.id, communityId: 'c-imb' } },
-          create: expect.objectContaining({ role: UserRole.PARISH_ADMIN, isPrimary: true }),
+          create: expect.objectContaining({ role: UserRole.FAITHFUL, isPrimary: true }),
         }),
       );
       expect(res.communityId).toBe('c-imb');

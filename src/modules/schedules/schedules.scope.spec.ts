@@ -121,8 +121,14 @@ describe('SchedulesService — escopo e contatos (C5, A5, A6, A8)', () => {
       expect(lastQuery().where.AND).toEqual([{ schedule: { id: '__none__' } }]);
     });
 
-    it('PASTORAL_COORDINATOR com pastorais: mantém o recorte pelas pastorais', async () => {
-      const pc = { id: 'u-pc', role: UserRole.PASTORAL_COORDINATOR, communityId: 'c1', pastoralIds: ['cp1'] } as any;
+    it('PASTORAL_COORDINATOR com pastorais coordenadas: mantém o recorte pelas pastorais', async () => {
+      const pc = {
+        id: 'u-pc',
+        role: UserRole.PASTORAL_COORDINATOR,
+        communityId: 'c1',
+        pastoralIds: ['cp1', 'cp-coral'],
+        coordinatedPastoralIds: ['cp1'],
+      } as any;
 
       await service.findAllAssignments(undefined, undefined, pc);
 
@@ -132,10 +138,17 @@ describe('SchedulesService — escopo e contatos (C5, A5, A6, A8)', () => {
       expect(lastQuery().where.AND).toBeUndefined();
     });
 
-    it('PASTORAL_COORDINATOR sem pastorais e sem comunidade: filtro impossível (antes: tudo)', async () => {
-      await service.findAllAssignments(undefined, undefined, { id: 'u', role: UserRole.PASTORAL_COORDINATOR } as any);
+    it('PASTORAL_COORDINATOR sem pastoral coordenada: tratado como fiel (antes: tudo, com contatos)', async () => {
+      const result = await service.findAllAssignments(undefined, undefined, {
+        id: 'u',
+        role: UserRole.PASTORAL_COORDINATOR,
+        pastoralIds: ['cp-coral'], // só participa — não coordena
+        coordinatedPastoralIds: [],
+      } as any);
 
-      expect(lastQuery().where.AND).toEqual([{ schedule: { id: '__none__' } }]);
+      // Sem cadastro de membro: nada; nunca a lista com contatos
+      expect(result).toEqual([]);
+      expect(prisma.scheduleAssignment.findMany).not.toHaveBeenCalled();
     });
 
     it('sem usuário: nada', async () => {

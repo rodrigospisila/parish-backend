@@ -1160,8 +1160,8 @@ export class TitheService {
       return { parishIds: parishes.map((p) => p.id) };
     }
     if (user.role === UserRole.PARISH_ADMIN && user.parishId) return { parishIds: [user.parishId] };
-    const linked = (user.communities ?? []).filter((c) => c.isActive !== false).map((c) => c.communityId);
-    return { communityIds: [...new Set([user.communityId, ...linked].filter((id): id is string => !!id))] };
+    // Vínculo de fé não amplia escopo financeiro
+    return { communityIds: await this.hierarchyService.getCommunityScopeIds(user) };
   }
 
   async listIntents(user: CurrentUser, filters: { status?: string; communityId?: string; referenceMonth?: string }) {

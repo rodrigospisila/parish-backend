@@ -124,10 +124,30 @@ export class ClergyMessagesService {
   }
 
   async remove(id: string, user: CurrentUser) {
-    const message = await this.prisma.clergyMessage.findFirst({ where: { id, deletedAt: null } });
+    const message = await this.prisma.clergyMessage.findFirst({
+      where: { id, deletedAt: null },
+      select: {
+        id: true,
+        senderUserId: true,
+        dioceseId: true,
+        // Diocese do alvo, para o escopo da administração diocesana
+        parish: { select: { dioceseId: true } },
+        community: { select: { parish: { select: { dioceseId: true } } } },
+        communityPastoral: {
+          select: { community: { select: { parish: { select: { dioceseId: true } } } } },
+        },
+        member: { select: { community: { select: { parish: { select: { dioceseId: true } } } } } },
+      },
+    });
     if (!message) throw new NotFoundException('Mensagem não encontrada');
     const isSender = message.senderUserId === user.id;
-    const isAdmin = user.role === UserRole.SYSTEM_ADMIN || user.role === UserRole.DIOCESAN_ADMIN;
+    // Administração diocesana remove só mensagens cujo alvo é da SUA diocese
+    // (antes, apagava a mensagem de qualquer diocese)
+    const isAdmin =
+      user.role === UserRole.SYSTEM_ADMIN ||
+      (user.role === UserRole.DIOCESAN_ADMIN &&
+        !!user.dioceseId &&
+        this.messageDioceseId(message) === user.dioceseId);
     if (!isSender && !isAdmin) {
       throw new ForbiddenException('Somente o autor (ou a administração) remove a mensagem');
     }
@@ -241,6 +261,24 @@ export class ClergyMessagesService {
   }
 
   // ===== HELPERS =====
+
+  /** Diocese do alvo da mensagem (diocese, paróquia, comunidade, pastoral ou membro). */
+  private messageDioceseId(message: {
+    dioceseId?: string | null;
+    parish?: { dioceseId: string } | null;
+    community?: { parish: { dioceseId: string } | null } | null;
+    communityPastoral?: { community: { parish: { dioceseId: string } | null } | null } | null;
+    member?: { community: { parish: { dioceseId: string } | null } | null } | null;
+  }): string | null {
+    return (
+      message.dioceseId ??
+      message.parish?.dioceseId ??
+      message.community?.parish?.dioceseId ??
+      message.communityPastoral?.community?.parish?.dioceseId ??
+      message.member?.community?.parish?.dioceseId ??
+      null
+    );
+  }
 
   private messageInclude() {
     return {

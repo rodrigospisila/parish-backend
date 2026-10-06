@@ -12,7 +12,7 @@ import { UpdateMemberAvailabilityDto } from './dto/update-member-availability.dt
 import { MemberStatus, Prisma, UserRole } from '@prisma/client';
 import { HierarchyService, CurrentUser } from '../../common/hierarchy.service';
 import { AuditService } from '../../common/audit.service';
-import { isRoleAtLeast } from '../auth/constants/role-hierarchy';
+import { isRoleAtLeast, ROLE_HIERARCHY } from '../auth/constants/role-hierarchy';
 
 /**
  * Roles que representam "pessoas da congregação" e por isso ganham um Member
@@ -130,8 +130,13 @@ export class MembersService {
     if (error instanceof Prisma.PrismaClientKnownRequestError && error.code === 'P2002') {
       const target = Array.isArray(error.meta?.target) ? error.meta.target : [];
 
+      // Duplicidade no SEU escopo já foi respondida antes com a mensagem clara;
+      // chegar aqui = CPF de alguém fora do escopo do ator. Não confirmar onde
+      // (nem que) a pessoa está cadastrada — o índice único é nacional.
       if (target.includes('cpf')) {
-        throw new ConflictException('CPF ja cadastrado');
+        throw new ConflictException(
+          'Não foi possível salvar com este CPF — confira o número ou procure a secretaria da paróquia',
+        );
       }
 
       if (target.includes('email')) {
@@ -404,20 +409,88 @@ export class MembersService {
   }
 
   /**
+   * Papéis cujo escopo administrativo (role/diocese/paróquia/comunidade do
+   * User) NUNCA muda por vínculo de comunidade: tudo acima de VOLUNTEER — e
+   * papel desconhecido (negar por padrão). Para eles a troca de principal mexe
+   * só no vínculo de FÉ do cadastro de membro; escopo muda só via /users.
+   */
+  private isManagementRole(role?: UserRole | null): boolean {
+    return role !== UserRole.FAITHFUL && role !== UserRole.VOLUNTEER;
+  }
+
+  /**
+   * O ator pode cadastrar/mover membros PARA esta comunidade? (negar por padrão)
+   * SYSTEM_ADMIN: qualquer; admin diocesano/paroquial e coordenador de
+   * comunidade: canManageCommunity (diocese/paróquia/comunidade do cadastro);
+   * coordenador de pastoral: só a própria comunidade; demais: nunca.
+   */
+  private async canManageMembersIn(currentUser: CurrentUser, communityId: string): Promise<boolean> {
+    if (!currentUser?.id || !currentUser.role || !communityId) {
+      return false;
+    }
+    if (currentUser.role === UserRole.SYSTEM_ADMIN) {
+      return true;
+    }
+    if (currentUser.role === UserRole.PASTORAL_COORDINATOR) {
+      return !!currentUser.communityId && currentUser.communityId === communityId;
+    }
+    if (!isRoleAtLeast(currentUser.role, UserRole.COMMUNITY_COORDINATOR)) {
+      return false;
+    }
+    return this.hierarchyService.canManageCommunity(currentUser.id, communityId);
+  }
+
+  /**
+   * Cônjuge/responsável informado precisa ser um membro que o ator GERENCIA —
+   * senão o vínculo recíproco altera a ficha de alguém de outra paróquia.
+   */
+  private async assertRelatedMemberManageable(
+    currentUser: CurrentUser | undefined,
+    relatedMemberId: string,
+    label: string,
+  ) {
+    if (!currentUser || currentUser.role === UserRole.SYSTEM_ADMIN) {
+      return;
+    }
+    const canManage = await this.hierarchyService.canManageMember(currentUser.id, relatedMemberId);
+    if (!canManage) {
+      throw new ForbiddenException(`O ${label} informado não está no seu escopo de gestão`);
+    }
+  }
+
+  /**
+   * Duplicidade (CPF/e-mail) procurada SÓ no escopo de leitura do ator: fora
+   * dele, a resposta não pode revelar que a pessoa existe em outra paróquia.
+   * Sem ator (chamada interna): busca global.
+   */
+  private async findMemberInActorScope(
+    where: Prisma.MemberWhereInput,
+    currentUser?: CurrentUser,
+    excludeId?: string,
+  ) {
+    const scope = currentUser
+      ? this.hierarchyService.applyMemberFilter(await this.withSelfMember(currentUser))
+      : {};
+    return this.prisma.member.findFirst({
+      where: { AND: [scope, where, ...(excludeId ? [{ id: { not: excludeId } }] : [])] },
+      select: { id: true },
+    });
+  }
+
+  /**
    * Troca EXPLÍCITA e não-destrutiva da comunidade principal: a antiga vira
-   * secundária (permanece ativa) e o espelho Member.communityId/User é
-   * atualizado. Exige vínculo ativo prévio com a nova comunidade.
+   * secundária (permanece ativa — é o que o app e o painel anunciam) e
+   * Member.communityId passa a ser a nova. Exige vínculo ativo prévio.
+   *
+   * SEGURANÇA: o escopo administrativo do usuário vinculado (role/diocese/
+   * paróquia/comunidade e UserCommunity) só é espelhado para FIEL/VOLUNTÁRIO.
+   * Gestor (acima de VOLUNTEER) muda só o vínculo de fé do cadastro de membro —
+   * antes um coordenador se mudava para qualquer comunidade do país
+   * (POST /members/me/communities + este PATCH no próprio cadastro).
+   * Alvo terceiro: autoridade sobre o membro (origem), canManageCommunity no
+   * DESTINO e papel do usuário vinculado estritamente abaixo do ator.
    */
   async setPrimaryCommunity(memberId: string, communityId: string, currentUser: CurrentUser) {
-    // Operação mais sensível dos vínculos: exige autoridade de GESTÃO sobre o
-    // membro (comunidade principal atual no escopo do ator)
-    const canManage = await this.hierarchyService.canManageMember(currentUser.id, memberId);
-    if (!canManage) {
-      throw new ForbiddenException(
-        'Você não tem permissão para alterar a comunidade principal deste membro',
-      );
-    }
-
     const member = await this.prisma.member.findFirst({
       where: { id: memberId, deletedAt: null },
       select: { id: true, communityId: true, userId: true },
@@ -425,21 +498,53 @@ export class MembersService {
     if (!member) {
       throw new NotFoundException('Membro não encontrado');
     }
+
+    const isSelf = !!member.userId && member.userId === currentUser.id;
+    if (!isSelf) {
+      // Autoridade de GESTÃO sobre o membro (comunidade principal atual no escopo)
+      const canManage = await this.hierarchyService.canManageMember(currentUser.id, memberId);
+      if (!canManage) {
+        throw new ForbiddenException(
+          'Você não tem permissão para alterar a comunidade principal deste membro',
+        );
+      }
+    }
+
     if (member.communityId === communityId) {
       throw new BadRequestException('Esta já é a comunidade principal do membro');
     }
 
+    const linkedUser = member.userId
+      ? await this.prisma.user.findUnique({
+          where: { id: member.userId },
+          select: { id: true, role: true },
+        })
+      : null;
+
     // Mesma trava do fluxo de usuários: coordenador de pastoral fica na
     // comunidade das pastorais que coordena
-    if (member.userId) {
-      const linkedUser = await this.prisma.user.findUnique({
-        where: { id: member.userId },
-        select: { role: true },
-      });
-      if (linkedUser?.role === UserRole.PASTORAL_COORDINATOR) {
-        throw new BadRequestException(
-          'Coordenador de pastoral não pode ter a comunidade principal trocada — as pastorais coordenadas ficam na comunidade atual',
-        );
+    if (linkedUser?.role === UserRole.PASTORAL_COORDINATOR) {
+      throw new BadRequestException(
+        'Coordenador de pastoral não pode ter a comunidade principal trocada — as pastorais coordenadas ficam na comunidade atual',
+      );
+    }
+
+    if (!isSelf && currentUser.role !== UserRole.SYSTEM_ADMIN) {
+      if (linkedUser) {
+        const actorLevel = ROLE_HIERARCHY[currentUser.role];
+        const targetLevel = ROLE_HIERARCHY[linkedUser.role];
+        if (actorLevel === undefined || targetLevel === undefined || targetLevel <= actorLevel) {
+          throw new ForbiddenException(
+            'Você só pode trocar a comunidade principal de quem tem papel abaixo do seu',
+          );
+        }
+      }
+      const canManageDestination = await this.hierarchyService.canManageCommunity(
+        currentUser.id,
+        communityId,
+      );
+      if (!canManageDestination) {
+        throw new ForbiddenException('A nova comunidade principal está fora do seu escopo');
       }
     }
 
@@ -460,36 +565,33 @@ export class MembersService {
       throw new NotFoundException('Comunidade não encontrada');
     }
 
+    // Espelho no User só para fiel/voluntário (vínculo aberto — decisão de produto)
+    const mirrorUserScope = !!linkedUser && !this.isManagementRole(linkedUser.role);
+
     await this.prisma.$transaction(async (tx) => {
       await tx.member.update({ where: { id: memberId }, data: { communityId } });
       // Rebaixa a principal antiga (continua ativa como secundária) e promove a nova
       await this.syncPrimaryCommunityLink(tx, memberId, communityId);
 
       // Espelha o escopo do usuário vinculado, preservando os demais vínculos
-      if (member.userId) {
-        const user = await tx.user.findUnique({
-          where: { id: member.userId },
-          select: { id: true, role: true },
+      if (mirrorUserScope && linkedUser) {
+        await tx.user.update({
+          where: { id: linkedUser.id },
+          data: {
+            communityId,
+            parishId: community.parishId,
+            dioceseId: community.parish.dioceseId,
+          },
         });
-        if (user) {
-          await tx.user.update({
-            where: { id: user.id },
-            data: {
-              communityId,
-              parishId: community.parishId,
-              dioceseId: community.parish.dioceseId,
-            },
-          });
-          await tx.userCommunity.updateMany({
-            where: { userId: user.id, isPrimary: true, communityId: { not: communityId } },
-            data: { isPrimary: false },
-          });
-          await tx.userCommunity.upsert({
-            where: { userId_communityId: { userId: user.id, communityId } },
-            create: { userId: user.id, communityId, role: user.role, isPrimary: true },
-            update: { isActive: true, isPrimary: true, leftAt: null },
-          });
-        }
+        await tx.userCommunity.updateMany({
+          where: { userId: linkedUser.id, isPrimary: true, communityId: { not: communityId } },
+          data: { isPrimary: false },
+        });
+        await tx.userCommunity.upsert({
+          where: { userId_communityId: { userId: linkedUser.id, communityId } },
+          create: { userId: linkedUser.id, communityId, role: linkedUser.role, isPrimary: true },
+          update: { isActive: true, isPrimary: true, leftAt: null },
+        });
       }
     });
 
@@ -502,6 +604,7 @@ export class MembersService {
         memberId,
         newPrimaryCommunityId: communityId,
         previousPrimaryCommunityId: member.communityId,
+        userScopeMirrored: mirrorUserScope,
       },
     });
 
@@ -626,9 +729,9 @@ export class MembersService {
 
   async create(createMemberDto: CreateMemberDto, currentUser?: CurrentUser) {
     const { cpf, email, communityId, spouseId, responsibleId, ...rest } = createMemberDto;
-    if (responsibleId) {
-      await this.assertValidResponsible(responsibleId);
-    }
+    // Vincular a ficha a uma CONTA é fluxo próprio (cadastro/adoção por
+    // telefone) — nunca pelo corpo do POST (religaria a conta de outra pessoa)
+    delete (rest as any).userId;
     const normalizedCpf = this.normalizeCpf(cpf);
     const normalizedEmail = this.normalizeEmail(email);
 
@@ -641,38 +744,28 @@ export class MembersService {
       throw new NotFoundException(`Comunidade com ID ${communityId} não encontrada`);
     }
 
-    // Validar acesso à comunidade
-    if (currentUser) {
-      const communityFilter = this.hierarchyService.applyCommunityFilter(currentUser);
-      // Verificar se a comunidade está dentro da hierarquia do usuário
-      if (communityFilter.id && communityFilter.id !== communityId) {
-        throw new ForbiddenException('Você não tem permissão para criar membros nesta comunidade');
-      }
-      if (communityFilter.parishId && community.parishId !== currentUser.parishId) {
-        throw new ForbiddenException('Você não tem permissão para criar membros nesta comunidade');
-      }
+    // Destino dentro do escopo de GESTÃO do ator (negar por padrão). Antes o
+    // applyCommunityFilter não restringia o admin diocesano: POST /members
+    // aceitava communityId de qualquer paróquia do país.
+    if (currentUser && !(await this.canManageMembersIn(currentUser, communityId))) {
+      throw new ForbiddenException('Você não tem permissão para criar membros nesta comunidade');
     }
 
-    // Verificar se CPF já está cadastrado (se fornecido)
-    if (normalizedCpf) {
-      const existingMemberByCpf = await this.prisma.member.findUnique({
-        where: { cpf: normalizedCpf },
-      });
-
-      if (existingMemberByCpf) {
-        throw new ConflictException('CPF já cadastrado');
-      }
+    if (responsibleId) {
+      await this.assertValidResponsible(responsibleId);
+      await this.assertRelatedMemberManageable(currentUser, responsibleId, 'responsável');
+    }
+    if (spouseId) {
+      await this.assertRelatedMemberManageable(currentUser, spouseId, 'cônjuge');
     }
 
-    // Verificar se email já está cadastrado (se fornecido)
-    if (normalizedEmail) {
-      const existingMemberByEmail = await this.prisma.member.findFirst({
-        where: { email: normalizedEmail },
-      });
+    // Duplicidade de CPF/e-mail só no escopo do ator (fora dele, não revelar)
+    if (normalizedCpf && (await this.findMemberInActorScope({ cpf: normalizedCpf }, currentUser))) {
+      throw new ConflictException('CPF já cadastrado');
+    }
 
-      if (existingMemberByEmail) {
-        throw new ConflictException('Email já cadastrado');
-      }
+    if (normalizedEmail && (await this.findMemberInActorScope({ email: normalizedEmail }, currentUser))) {
+      throw new ConflictException('Email já cadastrado');
     }
 
     try {
@@ -819,7 +912,7 @@ export class MembersService {
         _count: {
           select: {
             sacraments: true,
-            prayerRequests: true,
+            // prayerRequests fora: a contagem incluía os anônimos (desanonimização)
             scheduleAssignments: true,
           },
         },
@@ -865,12 +958,9 @@ export class MembersService {
             date: 'asc',
           },
         },
-        prayerRequests: {
-          orderBy: {
-            createdAt: 'desc',
-          },
-          take: 10,
-        },
+        // Pedidos de oração NÃO entram na ficha: incluíam os anônimos e
+        // expunham a intenção a qualquer gestor do escopo. O titular os recebe
+        // (só os não anônimos) na exportação LGPD.
         scheduleAssignments: {
           include: {
             schedule: {
@@ -931,48 +1021,71 @@ export class MembersService {
       }
     }
 
-    const { cpf, email, spouseId, responsibleId, ...rest } = updateMemberDto;
-    if (responsibleId) {
-      await this.assertValidResponsible(responsibleId, id);
+    const { cpf, email, spouseId, responsibleId, communityId, ...rest } = updateMemberDto;
+    // Religar a ficha a outra CONTA não é edição de cadastro (fluxo próprio)
+    delete (rest as any).userId;
+
+    // Mudança de comunidade principal: o DESTINO também precisa estar no
+    // escopo de gestão do ator (antes a ficha ia para qualquer paróquia)
+    const movingCommunity = !!communityId && communityId !== member.communityId;
+    if (movingCommunity) {
+      const destination = await this.prisma.community.findFirst({
+        where: { id: communityId, deletedAt: null },
+        select: { id: true },
+      });
+      if (!destination) {
+        throw new NotFoundException(`Comunidade com ID ${communityId} não encontrada`);
+      }
+      if (currentUser && !(await this.canManageMembersIn(currentUser, communityId))) {
+        throw new ForbiddenException('Você não tem permissão para mover membros para esta comunidade');
+      }
     }
+
+    // Responsável/cônjuge: só quando MUDA (o painel reenvia os atuais) e só
+    // membros que o ator gerencia
+    const responsibleChanged =
+      responsibleId !== undefined && (responsibleId || null) !== (member.responsibleId ?? null);
+    if (responsibleChanged && responsibleId) {
+      await this.assertValidResponsible(responsibleId, id);
+      await this.assertRelatedMemberManageable(currentUser, responsibleId, 'responsável');
+    }
+    const spouseChanged = spouseId !== undefined && (spouseId || null) !== (member.spouseId ?? null);
+    if (spouseChanged && spouseId) {
+      if (spouseId === id) {
+        throw new BadRequestException('O cônjuge não pode ser o próprio membro');
+      }
+      await this.assertRelatedMemberManageable(currentUser, spouseId, 'cônjuge');
+    }
+
     const normalizedCpf = this.normalizeCpf(cpf);
     const normalizedEmail = this.normalizeEmail(email);
 
-    // Vínculo de cônjuge (recíproco): só mexe quando o campo vem no payload
-    if (spouseId !== undefined) {
+    // Duplicidade só no escopo do ator (fora dele, não revelar)
+    if (normalizedCpf && (await this.findMemberInActorScope({ cpf: normalizedCpf }, currentUser, id))) {
+      throw new ConflictException('CPF já cadastrado para outro membro');
+    }
+
+    if (
+      normalizedEmail &&
+      (await this.findMemberInActorScope({ email: normalizedEmail }, currentUser, id))
+    ) {
+      throw new ConflictException('Email já cadastrado para outro membro');
+    }
+
+    // Vínculo de cônjuge (recíproco): só mexe quando o valor muda
+    if (spouseChanged) {
       await this.syncSpouseLink(id, spouseId || null);
     }
 
-    // Verificar se CPF já está em uso por outro membro
-    if (normalizedCpf) {
-      const existingMember = await this.prisma.member.findUnique({
-        where: { cpf: normalizedCpf },
-      });
-
-      if (existingMember && existingMember.id !== id) {
-        throw new ConflictException('CPF já cadastrado para outro membro');
-      }
-    }
-
-    // Verificar se email já está em uso por outro membro
-    if (normalizedEmail) {
-      const existingMember = await this.prisma.member.findFirst({
-        where: { email: normalizedEmail },
-      });
-
-      if (existingMember && existingMember.id !== id) {
-        throw new ConflictException('Email já cadastrado para outro membro');
-      }
-    }
-
     try {
-      if (updateMemberDto.communityId && updateMemberDto.communityId !== member.communityId) {
-        await this.syncPrimaryCommunityLink(this.prisma, id, updateMemberDto.communityId);
+      if (movingCommunity && communityId) {
+        await this.syncPrimaryCommunityLink(this.prisma, id, communityId);
       }
       const updatedMember = await this.prisma.member.update({
         where: { id },
         data: {
           ...rest,
+          ...(movingCommunity ? { communityId } : {}),
           // undefined preserva; '' / null remove o vínculo
           ...(responsibleId !== undefined ? { responsibleId: responsibleId || null } : {}),
           cpf: normalizedCpf,
@@ -1045,16 +1158,26 @@ export class MembersService {
   async exportMemberData(id: string, currentUser?: CurrentUser) {
     const member = await this.findOne(id);
 
+    let isSelf = false;
     if (currentUser) {
-      await this.assertMemberAccess(
+      ({ isSelf } = await this.assertMemberAccess(
         currentUser,
         member,
         'Você não tem permissão para exportar os dados deste membro',
-      );
+      ));
     }
 
     // Remover campos sensíveis internos
     const { createdAt, updatedAt, ...memberData } = member;
+
+    // Portabilidade: os pedidos de oração vão só para o PRÓPRIO titular e só
+    // os não anônimos — gestor nenhum recebe a intenção pela exportação
+    const prayerRequests = isSelf
+      ? await this.prisma.prayerRequest.findMany({
+          where: { memberId: id, isAnonymous: false },
+          orderBy: { createdAt: 'desc' },
+        })
+      : undefined;
 
     await this.auditService.log({
       actor: this.auditActor(currentUser),
@@ -1065,7 +1188,7 @@ export class MembersService {
 
     return {
       exportedAt: new Date().toISOString(),
-      member: memberData,
+      member: prayerRequests ? { ...memberData, prayerRequests } : memberData,
     };
   }
 
@@ -1400,12 +1523,9 @@ export class MembersService {
       throw new NotFoundException('Comunidade não encontrada');
     }
 
-    // Reusa a validação de escopo de criação
-    const communityFilter = this.hierarchyService.applyCommunityFilter(currentUser);
-    if (communityFilter.id && communityFilter.id !== communityId) {
-      throw new ForbiddenException('Você não tem permissão para importar nesta comunidade');
-    }
-    if (communityFilter.parishId && community.parishId !== currentUser.parishId) {
+    // Mesma regra da criação: destino no escopo de GESTÃO do ator (antes o
+    // admin diocesano importava em qualquer paróquia do país)
+    if (!(await this.canManageMembersIn(currentUser, communityId))) {
       throw new ForbiddenException('Você não tem permissão para importar nesta comunidade');
     }
 
@@ -1422,10 +1542,12 @@ export class MembersService {
       const cpf = this.normalizeCpf(row.cpf);
       const email = this.normalizeEmail(row.email);
 
-      // Pula duplicado por CPF/e-mail
+      // Pula duplicado por CPF/e-mail DENTRO do escopo do ator. Fora dele não
+      // revela: CPF de outra paróquia cai no erro genérico da linha (índice
+      // único nacional); e-mail repetido noutro lugar não impede o cadastro.
       const existing =
-        (cpf && (await this.prisma.member.findUnique({ where: { cpf } }))) ||
-        (email && (await this.prisma.member.findFirst({ where: { email } })));
+        (cpf && (await this.findMemberInActorScope({ cpf }, currentUser))) ||
+        (email && (await this.findMemberInActorScope({ email }, currentUser)));
       if (existing) {
         result.skipped++;
         continue;

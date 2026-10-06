@@ -1,8 +1,10 @@
-import { Controller, Post, Body, HttpCode, HttpStatus, UseGuards, Headers, Ip } from '@nestjs/common';
+import { Controller, Post, Body, HttpCode, HttpStatus, UseGuards, Headers, Ip, Res, UnauthorizedException } from '@nestjs/common';
+import type { Response } from 'express';
 import { Throttle } from '@nestjs/throttler';
 import { AuthService } from './auth.service';
 import { OtpService } from './otp.service';
 import { PasswordResetService } from './password-reset.service';
+import { LoginAttemptsService, LoginLockedException, loginAccountKey } from './login-attempts.service';
 import { LoginDto } from './dto/login.dto';
 import { RegisterDto } from './dto/register.dto';
 import { SendOtpDto } from './dto/send-otp.dto';
@@ -11,7 +13,7 @@ import { ForgotPasswordDto } from './dto/forgot-password.dto';
 import { ResetPasswordDto } from './dto/reset-password.dto';
 import { JwtAuthGuard } from './guards/jwt-auth.guard';
 import { CurrentUser } from './decorators/current-user.decorator';
-import { bodyTargetTracker } from './guards/app-throttler.guard';
+import { bodyTargetTracker, refreshTokenTracker } from './guards/app-throttler.guard';
 
 const MINUTE = 60_000;
 const HOUR = 3_600_000;
@@ -21,6 +23,11 @@ const HOUR = 3_600_000;
  * GLOBAL (AppThrottlerGuard, registrado como APP_GUARD) — por IP real, graças ao
  * `trust proxy` do main.ts. `hourly` e `target` (por celular/e-mail do corpo)
  * só valem onde declarados. Achado A12 da auditoria.
+ *
+ * O login NÃO usa `target`: um limite por conta contado antes da senha deixava
+ * qualquer um trancar a vítima. Lá vale o LoginAttemptsService (só falhas, por
+ * conta + IP). O `target` de otp/send e forgot-password fica (anti-SMS-bombing)
+ * — ver a mensagem de 429 em app-throttler.guard.ts.
  */
 @Controller('auth')
 export class AuthController {
@@ -28,37 +35,74 @@ export class AuthController {
     private readonly authService: AuthService,
     private readonly otpService: OtpService,
     private readonly passwordResetService: PasswordResetService,
+    private readonly loginAttempts: LoginAttemptsService,
   ) {}
 
+  /**
+   * Por IP: 20/min e 60/h — folgado para mutirão de inscrição no Wi-Fi da
+   * igreja (todos saem pelo mesmo IP). Duplicidade de e-mail/celular já é
+   * barrada no serviço; o celular ainda passa pelo OTP (limite por número).
+   */
   @Post('register')
   @HttpCode(HttpStatus.CREATED)
-  @Throttle({ default: { limit: 10, ttl: HOUR } })
+  @Throttle({ default: { limit: 20, ttl: MINUTE }, hourly: { limit: 60, ttl: HOUR } })
   async register(@Body() registerDto: RegisterDto) {
     return this.authService.register(registerDto);
   }
 
   /**
-   * Freio contra teste de senhas: por IP (o `trust proxy` do main.ts garante o IP
-   * real atrás do Railway) e por CONTA tentada — este vale mesmo com IP trocado.
+   * Freio contra teste de senhas: 10/min por IP (guard global; o `trust proxy`
+   * do main.ts garante o IP real atrás do Railway) e, por (conta + IP), 10
+   * FALHAS em 15 min — o sucesso zera. Um atacante não tranca o titular: o
+   * bloqueio vale só para o IP que errou; muitas falhas da conta somadas viram
+   * alerta na auditoria (LoginAttemptsService).
    */
   @Post('login')
   @HttpCode(HttpStatus.OK)
-  @Throttle({
-    default: { limit: 10, ttl: MINUTE },
-    target: { limit: 20, ttl: HOUR, getTracker: bodyTargetTracker },
-  })
-  async login(@Body() loginDto: LoginDto, @Headers() headers: Record<string, string | undefined>, @Ip() ip: string) {
-    return this.authService.login(loginDto, {
-      ip,
-      userAgent: headers['user-agent'] ?? null,
-      deviceId: headers['x-device-id'] ?? null,
-      deviceName: headers['x-device-name'] ?? null,
-    });
+  @Throttle({ default: { limit: 10, ttl: MINUTE } })
+  async login(
+    @Body() loginDto: LoginDto,
+    @Headers() headers: Record<string, string | undefined>,
+    @Ip() ip: string,
+    @Res({ passthrough: true }) res: Response,
+  ) {
+    const account = loginAccountKey(loginDto);
+    try {
+      this.loginAttempts.assertCanTry(account, ip);
+    } catch (error) {
+      if (error instanceof LoginLockedException) res.setHeader('Retry-After', String(error.retryAfterSeconds));
+      throw error;
+    }
+    try {
+      const result = await this.authService.login(loginDto, {
+        ip,
+        userAgent: headers['user-agent'] ?? null,
+        deviceId: headers['x-device-id'] ?? null,
+        deviceName: headers['x-device-name'] ?? null,
+      });
+      // Senha certa (inclusive quando ainda falta o 2FA): zera as falhas deste IP
+      this.loginAttempts.recordSuccess(account, ip);
+      return result;
+    } catch (error) {
+      // Só credencial inválida conta (conta desativada vem depois da senha certa)
+      if (error instanceof UnauthorizedException) {
+        this.loginAttempts.recordFailure(account, ip, { userAgent: headers['user-agent'] ?? null });
+      }
+      throw error;
+    }
   }
 
+  /**
+   * Renovação de sessão: 20/min POR REFRESH TOKEN (hash) e um teto alto de
+   * 300/min por IP. O limite antigo (30/min por IP) deslogava quem estava
+   * atrás do mesmo IP — o Wi-Fi da paróquia num domingo.
+   */
   @Post('refresh')
   @HttpCode(HttpStatus.OK)
-  @Throttle({ default: { limit: 30, ttl: MINUTE } })
+  @Throttle({
+    default: { limit: 300, ttl: MINUTE },
+    target: { limit: 20, ttl: MINUTE, getTracker: refreshTokenTracker },
+  })
   async refreshToken(@Body('refreshToken') refreshToken: string) {
     return this.authService.refreshToken(refreshToken);
   }
@@ -70,12 +114,16 @@ export class AuthController {
     return this.authService.logout(user.id);
   }
 
-  /** Cada chamada dispara um SMS pago (Twilio): por IP 3/min e 10/h; por número 3/h. */
+  /**
+   * Cada chamada dispara um SMS pago (Twilio). O freio principal é POR NÚMERO
+   * (3/h — anti-SMS-bombing, vale de qualquer IP). Por IP, 10/min e 30/h:
+   * folga para o mutirão de cadastro no Wi-Fi da igreja.
+   */
   @Post('otp/send')
   @HttpCode(HttpStatus.OK)
   @Throttle({
-    default: { limit: 3, ttl: MINUTE },
-    hourly: { limit: 10, ttl: HOUR },
+    default: { limit: 10, ttl: MINUTE },
+    hourly: { limit: 30, ttl: HOUR },
     target: { limit: 3, ttl: HOUR, getTracker: bodyTargetTracker },
   })
   async sendOtp(@Body() dto: SendOtpDto) {

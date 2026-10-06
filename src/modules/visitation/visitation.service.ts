@@ -6,6 +6,7 @@ import { AuditService } from '../../common/audit.service';
 import {
   SessionUser,
   communityScopeWhere,
+  memberOfParishWhere,
   resolveCoordinatedPastoralIds,
 } from '../pastorals/coordination-scope';
 
@@ -74,6 +75,21 @@ export class VisitationService {
     if (!dto.consentGiven) {
       throw new BadRequestException('Consentimento explícito do visitado/família é obrigatório');
     }
+    // Ids do body: a pastoral precisa ser DESTA comunidade (o pedido entraria
+    // na fila — e nas anotações — da coordenação de outra paróquia) e o
+    // membro visitado, da comunidade ou do escopo do ator
+    if (dto.communityPastoralId) {
+      const pastoral = await this.prisma.communityPastoral.findFirst({
+        where: { id: dto.communityPastoralId, deletedAt: null },
+        select: { communityId: true },
+      });
+      if (!pastoral || pastoral.communityId !== dto.communityId) {
+        throw new ForbiddenException('A pastoral informada não é desta comunidade');
+      }
+    }
+    if (dto.memberId) {
+      await this.assertVisitedMember(dto.memberId, dto.communityId, user);
+    }
 
     const request = await this.prisma.visitRequest.create({
       data: {
@@ -90,6 +106,28 @@ export class VisitationService {
     });
     await this.auditService.log({ actor: this.auditActor(user), action: 'CREATE', entity: 'VisitRequest', entityId: request.id, metadata: { reason: dto.reason } });
     return request;
+  }
+
+  /**
+   * Membro visitado: existe, não foi excluído e é da comunidade do pedido
+   * (principal ou vínculo ATIVO) ou de outra comunidade do escopo do ator
+   * (secretaria paroquial). O painel escolhe o membro na lista geral do
+   * escopo, por isso a segunda via.
+   */
+  private async assertVisitedMember(memberId: string, communityId: string, user: CurrentUser) {
+    const member = await this.prisma.member.findFirst({
+      where: { id: memberId, deletedAt: null },
+      select: { id: true, communityId: true },
+    });
+    if (!member) throw new NotFoundException('Membro não encontrado');
+    if (member.communityId === communityId) return;
+    const link = await this.prisma.memberCommunity.findFirst({
+      where: { memberId, communityId, isActive: true },
+      select: { id: true },
+    });
+    if (link) return;
+    if (member.communityId && (await this.hierarchyService.isCommunityInScope(user, member.communityId))) return;
+    throw new ForbiddenException('Membro fora do seu escopo');
   }
 
   /** Lista pedidos SEM as anotações sensíveis (apenas dados operacionais). */
@@ -144,11 +182,27 @@ export class VisitationService {
       throw new ForbiddenException('Apenas o coordenador da pastoral ou os visitadores podem registrar visitas');
     }
 
+    // Visitador designado passa a ver as anotações (canSeeNotes): só membros
+    // da paróquia do pedido — id de fora (ou inexistente) é recusado
+    const visitorMemberIds = [...new Set((dto.visitorMemberIds ?? []).filter((id) => typeof id === 'string' && id))];
+    if (visitorMemberIds.length) {
+      const community = await this.prisma.community.findUnique({
+        where: { id: request.communityId },
+        select: { parishId: true },
+      });
+      const valid = community?.parishId
+        ? await this.prisma.member.count({ where: memberOfParishWhere(visitorMemberIds, community.parishId) })
+        : 0;
+      if (valid !== visitorMemberIds.length) {
+        throw new ForbiddenException('Visitador fora da paróquia do pedido');
+      }
+    }
+
     const visit = await this.prisma.visit.create({
       data: {
         visitRequestId: requestId,
         date: new Date(dto.date),
-        visitorMemberIds: dto.visitorMemberIds?.length ? dto.visitorMemberIds.join(',') : null,
+        visitorMemberIds: visitorMemberIds.length ? visitorMemberIds.join(',') : null,
         notes: dto.notes ?? null,
         createdByUserId: user.id,
       },

@@ -27,6 +27,9 @@ export const INVALID_CREDENTIALS_MESSAGE = 'E-mail, celular ou senha incorretos'
 /** Só aparece para quem acertou a senha — antes disso a conta desativada é indistinguível. */
 export const ACCOUNT_DISABLED_MESSAGE = 'Conta desativada — procure a secretaria da sua paróquia';
 
+/** Única leitura do hash da senha no login (omitido globalmente no PrismaService). */
+const LOGIN_OMIT = { password: false } as const;
+
 /**
  * Hash descartável: quando a conta não existe, a senha é comparada com ele
  * mesmo assim, para o tempo de resposta não denunciar quais contas existem.
@@ -48,10 +51,21 @@ export class AuthService {
     private readonly messagingService: MessagingService,
   ) {}
 
-  private mapUserResponse(user: any) {
+  /** Papéis cujo escopo administrativo não muda pelo autoatendimento (igual ao users.service). */
+  private static readonly SELF_SERVICE_COMMUNITY_ROLES: UserRole[] = [UserRole.FAITHFUL, UserRole.VOLUNTEER];
+
+  /**
+   * Usuário devolvido no login/cadastro/2FA. Mesma regra do presentSelf
+   * (GET /users/me): o gestor sem comunidade de ESCOPO (PARISH_ADMIN,
+   * DIOCESAN_ADMIN...) recebe em `communityId`/`community` a comunidade de FÉ
+   * (vínculo principal) só para exibição — sem isso o app reabria o assistente
+   * de comunidade a cada login. `scopeCommunityId` traz o valor gravado (o
+   * escopo real continua vindo do banco no JwtStrategy).
+   */
+  private async mapUserResponse(user: any) {
     const pastoralMemberships = user.member?.pastoralMemberships || [];
 
-    return {
+    const response: Record<string, any> = {
       id: user.id,
       email: user.email,
       name: user.name,
@@ -63,10 +77,13 @@ export class AuthService {
       dioceseId: user.dioceseId,
       parishId: user.parishId,
       communityId: user.communityId,
+      scopeCommunityId: user.communityId ?? null,
       createdAt: user.createdAt,
       pastoralIds: pastoralMemberships
         .map((membership: any) => membership.communityPastoralId)
         .filter((id: string | null | undefined): id is string => !!id),
+      // COORDENAÇÃO (papel ativo ou coordenação vigente) — o painel libera a gestão da pastoral por isto
+      coordinatedPastoralIds: pickCoordinatedPastoralIds(pastoralMemberships, user.member?.pastoralCoordinations ?? []),
       // Vínculos de sub-grupo (só pastoralGroupId) não têm communityPastoral — ignorar aqui
       pastorals: pastoralMemberships
         .filter((membership: any) => membership.communityPastoral)
@@ -77,6 +94,20 @@ export class AuthService {
           role: membership.role,
         })),
     };
+
+    if (!user.communityId && user.role && !AuthService.SELF_SERVICE_COMMUNITY_ROLES.includes(user.role)) {
+      const links: any[] = user.communities ?? [];
+      const faithLink = links.find((link) => link.isPrimary) ?? links[0] ?? null;
+      const faithCommunityId: string | null = faithLink?.communityId ?? user.member?.communityId ?? null;
+      if (faithCommunityId) {
+        response.communityId = faithCommunityId;
+        response.community =
+          faithLink?.community ??
+          (await this.prisma.community.findUnique({ where: { id: faithCommunityId }, select: { id: true, name: true } }));
+      }
+    }
+
+    return response;
   }
 
   async register(registerDto: RegisterDto) {
@@ -244,7 +275,7 @@ export class AuthService {
     );
 
     return {
-      user: this.mapUserResponse(result),
+      user: await this.mapUserResponse(result),
       ...tokens,
     };
   }
@@ -296,23 +327,25 @@ export class AuthService {
    * (prefere o igual exato). Celular que não normaliza = conta inexistente.
    */
   private async findLoginUser(loginDto: LoginDto) {
+    // O hash da senha fica fora de toda consulta (omit global); o login é quem o confere
     if (loginDto.phone) {
       const phone = this.messagingService.normalizePhone(loginDto.phone);
       if (!phone) return null;
-      return this.prisma.user.findUnique({ where: { phone }, include: this.sessionInclude });
+      return this.prisma.user.findUnique({ where: { phone }, include: this.sessionInclude, omit: LOGIN_OMIT });
     }
 
     const typed = String(loginDto.email ?? '').trim();
     if (!typed) return null;
 
     // Caminho comum: igual exato, pelo índice único
-    const exact = await this.prisma.user.findUnique({ where: { email: typed }, include: this.sessionInclude });
+    const exact = await this.prisma.user.findUnique({ where: { email: typed }, include: this.sessionInclude, omit: LOGIN_OMIT });
     if (exact) return exact;
 
     // Conta gravada com outra caixa ("Maria@Gmail.com" digitado "maria@gmail.com")
     const candidates = await this.prisma.user.findMany({
       where: { email: emailInsensitive(typed) },
       include: this.sessionInclude,
+      omit: LOGIN_OMIT,
       orderBy: { createdAt: 'asc' },
       take: 5,
     });
@@ -365,7 +398,17 @@ export class AuthService {
             },
           },
         },
+        // Coordenação vigente (histórico oficial) — base de coordinatedPastoralIds
+        pastoralCoordinations: {
+          where: { isCurrent: true, communityPastoral: { deletedAt: null } },
+          select: { communityPastoralId: true },
+        },
       },
+    },
+    // Vínculos ativos: a comunidade de fé do gestor sem comunidade de escopo
+    communities: {
+      where: { isActive: true },
+      include: { community: { select: { id: true, name: true } } },
     },
   } as const;
 
@@ -391,7 +434,7 @@ export class AuthService {
       user.parishId ?? undefined,
       user.communityId ?? undefined,
     );
-    return { user: this.mapUserResponse(user), ...tokens, newDevice: device.isNew };
+    return { user: await this.mapUserResponse(user), ...tokens, newDevice: device.isNew };
   }
 
   async refreshToken(refreshToken: string) {

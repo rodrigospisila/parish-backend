@@ -69,8 +69,8 @@ export class FormationController {
 
   @Get('check')
   @Roles(UserRole.PASTORAL_COORDINATOR)
-  check(@Query('memberId') memberId: string, @Query('role') role: string) {
-    return this.service.checkPrerequisite(memberId, role);
+  check(@Query('memberId') memberId: string, @Query('role') role: string, @Request() req: any) {
+    return this.service.checkPrerequisite(memberId, role, req.user);
   }
 
   @Get('enrollments/:id/certificate.pdf')

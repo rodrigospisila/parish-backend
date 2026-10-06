@@ -75,35 +75,23 @@ export class ParishesService {
     return created;
   }
 
-  async findAll(user?: any) {
-    const where: any = {};
-
-    // DIOCESAN_ADMIN só vê paróquias da sua diocese
-    if (user && user.role === 'DIOCESAN_ADMIN' && user.dioceseId) {
-      where.dioceseId = user.dioceseId;
-    }
-
-    // PARISH_ADMIN só vê sua paróquia
-    if (user && user.role === 'PARISH_ADMIN' && user.parishId) {
-      where.id = user.parishId;
-    }
-
-    // COMMUNITY_COORDINATOR só vê a paróquia da sua comunidade
-    if (user && user.role === 'COMMUNITY_COORDINATOR' && user.parishId) {
-      where.id = user.parishId;
-    }
+  /**
+   * Lista de GESTÃO (painel: Paróquias, Usuários, Comunidades, Finanças...).
+   * Negar por padrão: só a plataforma vê o país inteiro; a diocese vê as suas;
+   * os demais papéis só a própria paróquia — sem escopo no cadastro, lista vazia.
+   * Antes, qualquer fiel logado recebia as 12.843 paróquias COM as comunidades
+   * (16 MB). A lista de comunidades por paróquia saiu (o painel usa o _count);
+   * quem precisa escolher paróquia usa a cascata `?dioceseId=` (listByDiocese).
+   */
+  async findAll(user?: CurrentUser) {
+    const where = this.listScope(user);
+    if (!where) return [];
 
     return this.prisma.parish.findMany({
       where,
       omit: PARISH_SECRETS,
       include: {
         diocese: {
-          select: {
-            id: true,
-            name: true,
-          },
-        },
-        communities: {
           select: {
             id: true,
             name: true,
@@ -121,13 +109,47 @@ export class ParishesService {
     });
   }
 
+  /** Filtro da lista de gestão por papel; `null` = sem escopo (nada a listar). */
+  private listScope(user?: CurrentUser): Record<string, string> | null {
+    if (!user?.id) return null;
+    if (user.role === UserRole.SYSTEM_ADMIN) return {};
+    if (user.role === UserRole.DIOCESAN_ADMIN) return user.dioceseId ? { dioceseId: user.dioceseId } : null;
+    return user.parishId ? { id: user.parishId } : null;
+  }
+
+  /**
+   * Cascata pública (app/painel, qualquer usuário logado): paróquias ATIVAS de
+   * UMA diocese, só o necessário para escolher — id, nome, cidade/UF.
+   */
+  async listByDiocese(dioceseId: string) {
+    return this.prisma.parish.findMany({
+      where: { dioceseId, status: 'ACTIVE' },
+      select: { id: true, name: true, city: true, state: true, dioceseId: true },
+      orderBy: { name: 'asc' },
+    });
+  }
+
+  /**
+   * Ficha da paróquia para QUALQUER usuário logado (o app mostra o contato no
+   * perfil do fiel): só dados públicos — sem configuração do dízimo/provedor e
+   * só as comunidades não arquivadas.
+   */
   async findOne(id: string) {
     const parish = await this.prisma.parish.findUnique({
       where: { id },
-      omit: PARISH_SECRETS,
-      include: {
-        diocese: true,
-        communities: true,
+      select: {
+        id: true, name: true, address: true, city: true, state: true, zipCode: true, phone: true, email: true,
+        website: true, logoUrl: true, priestName: true, latitude: true, longitude: true, foundedAt: true, status: true,
+        dioceseId: true, titheEnabled: true, createdAt: true, updatedAt: true,
+        diocese: { select: { id: true, name: true, city: true, state: true, website: true, logoUrl: true, bishopName: true } },
+        communities: {
+          where: { deletedAt: null },
+          select: {
+            id: true, name: true, address: true, city: true, state: true, zipCode: true, phone: true, email: true,
+            website: true, logoUrl: true, coordinatorName: true, latitude: true, longitude: true, status: true, parishId: true,
+          },
+          orderBy: { name: 'asc' },
+        },
         _count: {
           select: {
             communities: true,

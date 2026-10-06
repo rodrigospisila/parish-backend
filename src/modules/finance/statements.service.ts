@@ -108,6 +108,17 @@ export class StatementsService {
     if (!inScope) throw new ForbiddenException('Comunidade fora do seu escopo');
   }
 
+  /** Leitura de dado da paróquia inteira (sem exigir administração paroquial): só no escopo do usuário. */
+  private async assertParishReadable(user: CurrentUser, parishId: string) {
+    if (user.role === UserRole.SYSTEM_ADMIN) return;
+    if (user.role === UserRole.DIOCESAN_ADMIN) {
+      const parish = await this.prisma.parish.findUnique({ where: { id: parishId }, select: { dioceseId: true } });
+      if (!parish || !user.dioceseId || parish.dioceseId !== user.dioceseId) throw new ForbiddenException('Paróquia fora da sua diocese');
+      return;
+    }
+    if (!user.parishId || user.parishId !== parishId) throw new ForbiddenException('Paróquia fora do seu escopo');
+  }
+
   private async resolveParish(user: CurrentUser, parishId?: string | null, communityId?: string | null) {
     if (communityId) {
       const community = await this.prisma.community.findUnique({ where: { id: communityId }, select: { parishId: true } });
@@ -238,8 +249,8 @@ export class StatementsService {
       where.communityId = filters.communityId;
     } else if (!this.isParishAdmin(user.role) && user.role !== UserRole.SYSTEM_ADMIN && user.role !== UserRole.DIOCESAN_ADMIN) {
       // Coordenação: os das suas comunidades (vínculo principal e ativos) + os publicados da paróquia, para leitura
-      const linked = ((user as any).communities ?? []).filter((c: any) => c.isActive !== false).map((c: any) => c.communityId);
-      const mine = [...new Set([user.communityId, ...linked].filter((id): id is string => !!id))];
+      // Vínculo de fé não amplia escopo: principal + comunidades de gestão
+      const mine = await this.hierarchyService.getCommunityScopeIds(user);
       where.OR = [{ communityId: { in: mine.length ? mine : [''] } }, { communityId: null, status: 'PUBLISHED' }];
     } else {
       await this.assertScope(user, parishId, null);
@@ -371,10 +382,16 @@ export class StatementsService {
     return this.present(saved);
   }
 
-  /** Centros de custo em uso na paróquia + sugestões. */
+  /**
+   * Centros de custo em uso na paróquia + sugestões. A paróquia pedida precisa
+   * estar no escopo financeiro (antes, `?parishId=` de qualquer paróquia do país
+   * devolvia os centros de custo dela): plataforma qualquer uma, diocese as
+   * suas, os demais só a própria.
+   */
   async costCenters(user: CurrentUser, parishId?: string) {
     if (!this.canManage(user.role)) throw new ForbiddenException('Sem permissão financeira');
     const target = parishId || user.parishId;
+    if (target) await this.assertParishReadable(user, target);
     const used = target
       ? await this.prisma.financialTransaction.findMany({ where: { parishId: target, costCenter: { not: null } }, distinct: ['costCenter'], select: { costCenter: true }, take: 100 })
       : [];

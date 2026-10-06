@@ -9,7 +9,7 @@ import { AuditService } from '../../common/audit.service';
 describe('PrayerRequestsService (blindagem - Fase 0)', () => {
   let service: PrayerRequestsService;
   let prisma: any;
-  let hierarchy: { isCommunityInScope: jest.Mock; canManageMember: jest.Mock };
+  let hierarchy: { isCommunityInScope: jest.Mock; canManageMember: jest.Mock; getCommunityScopeIds: jest.Mock };
   let audit: { log: jest.Mock };
 
   // Comunidades: c1 e c2 são da paróquia p1 (diocese PG); cX é de outra paróquia
@@ -54,7 +54,11 @@ describe('PrayerRequestsService (blindagem - Fase 0)', () => {
       member: { findUnique: jest.fn(), findFirst: jest.fn() },
       memberCommunity: { findMany: jest.fn().mockResolvedValue([]) },
     };
-    hierarchy = { isCommunityInScope: jest.fn(), canManageMember: jest.fn().mockResolvedValue(true) };
+    hierarchy = {
+      isCommunityInScope: jest.fn(),
+      canManageMember: jest.fn().mockResolvedValue(true),
+      getCommunityScopeIds: jest.fn(async (u: any) => (u?.communityId ? [u.communityId] : [])),
+    };
     audit = { log: jest.fn().mockResolvedValue(undefined) };
 
     const module: TestingModule = await Test.createTestingModule({

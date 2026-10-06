@@ -46,6 +46,9 @@ export class SacramentProcessesService {
     if (!this.canManage(user.role)) throw new ForbiddenException('Sem permissão');
     const inScope = await this.hierarchyService.isCommunityInScope(user, dto.communityId);
     if (!inScope) throw new ForbiddenException('Comunidade fora do seu escopo');
+    // O membro precisa ser da comunidade do processo (ou gerenciável pelo
+    // ator): um memberId de outra paróquia gravaria sacramento nele
+    await this.assertMemberForCommunity(dto.memberId, dto.communityId, user);
 
     const process = await this.prisma.sacramentProcess.create({
       data: {
@@ -85,6 +88,33 @@ export class SacramentProcessesService {
     return process;
   }
 
+  /**
+   * O membro do processo precisa existir e pertencer à comunidade do
+   * processo — principal ou vínculo secundário ATIVO — ou a outra comunidade
+   * do escopo do ator (secretaria paroquial atendendo membro de capela; o
+   * processo só é gerido por COMMUNITY_COORDINATOR ou acima).
+   * Fora disso, negar: o sacramento seria gravado no histórico de alguém de
+   * outra paróquia.
+   */
+  private async assertMemberForCommunity(memberId: string, communityId: string, user: CurrentUser) {
+    if (!memberId) throw new BadRequestException('Informe o membro');
+    const member = await this.prisma.member.findFirst({
+      where: { id: memberId, deletedAt: null },
+      select: { id: true, communityId: true },
+    });
+    if (!member) throw new NotFoundException('Membro não encontrado');
+    if (member.communityId === communityId) return member;
+    const link = await this.prisma.memberCommunity.findFirst({
+      where: { memberId, communityId, isActive: true },
+      select: { id: true },
+    });
+    if (link) return member;
+    if (member.communityId && (await this.hierarchyService.isCommunityInScope(user, member.communityId))) {
+      return member;
+    }
+    throw new ForbiddenException('Membro fora da comunidade do processo');
+  }
+
   async updateStatus(id: string, status: SacramentProcessStatus, user: CurrentUser) {
     if (!this.canManage(user.role)) throw new ForbiddenException('Sem permissão');
     await this.loadInScope(id, user);
@@ -111,9 +141,22 @@ export class SacramentProcessesService {
     if (process.status === SacramentProcessStatus.CELEBRATED) {
       throw new BadRequestException('Processo já celebrado');
     }
+    // Processos antigos podem ter memberId de fora (antes da validação no
+    // create): revalida antes de gravar o Sacrament definitivo
+    await this.assertMemberForCommunity(process.memberId, process.communityId, user);
 
     const date = dto.date ? new Date(dto.date) : new Date();
     const result = await this.prisma.$transaction(async (prisma) => {
+      // Lock por membro (mesma chave da catequese) + compare-and-set do
+      // status: duplo clique/celebrações simultâneas não geram dois Sacrament
+      await prisma.$queryRaw`SELECT pg_advisory_xact_lock(hashtext(${'parish:member:' + process.memberId}))::text`;
+      const claimed = await prisma.sacramentProcess.updateMany({
+        where: { id, deletedAt: null, status: { not: SacramentProcessStatus.CELEBRATED } },
+        data: { status: SacramentProcessStatus.CELEBRATED },
+      });
+      if (claimed.count === 0) {
+        throw new BadRequestException('Processo já celebrado');
+      }
       const sacrament = await prisma.sacrament.create({
         data: {
           memberId: process.memberId,

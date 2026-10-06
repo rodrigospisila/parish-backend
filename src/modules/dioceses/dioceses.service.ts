@@ -23,6 +23,11 @@ export class DiocesesService {
     });
   }
 
+  /**
+   * Lista de dioceses. A lista de paróquias de cada uma (12.843 no país) só vai
+   * para a plataforma: o app e o painel usam só o id/nome daqui e pegam as
+   * paróquias no detalhe (GET /dioceses/:id) ou na cascata /territory.
+   */
   async findAll(user?: any) {
     const where: any = {};
 
@@ -31,15 +36,12 @@ export class DiocesesService {
       where.id = user.dioceseId;
     }
 
+    const isSystem = user?.role === UserRole.SYSTEM_ADMIN;
+
     return this.prisma.diocese.findMany({
       where,
       include: {
-        parishes: {
-          select: {
-            id: true,
-            name: true,
-          },
-        },
+        ...(isSystem ? { parishes: { select: { id: true, name: true } } } : {}),
         _count: {
           select: {
             parishes: true,
@@ -52,20 +54,33 @@ export class DiocesesService {
     });
   }
 
+  /**
+   * Árvore de UMA diocese (o app antigo monta a escolha de comunidade com ela):
+   * paróquias só com o necessário para escolher — nunca a configuração do
+   * dízimo/provedor de pagamento de cada paróquia.
+   */
   async findOne(id: string) {
     const diocese = await this.prisma.diocese.findUnique({
       where: { id },
       include: {
         parishes: {
-          include: {
+          select: {
+            id: true,
+            name: true,
+            city: true,
+            state: true,
+            dioceseId: true,
+            status: true,
             communities: {
               where: { deletedAt: null },
               select: {
                 id: true,
                 name: true,
               },
+              orderBy: { name: 'asc' },
             },
           },
+          orderBy: { name: 'asc' },
         },
         _count: {
           select: {

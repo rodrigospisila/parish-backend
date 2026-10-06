@@ -23,6 +23,10 @@ import { RolesGuard } from '../auth/guards/roles.guard';
 import { Roles } from '../auth/decorators/roles.decorator';
 import { CurrentUser } from '../auth/decorators/current-user.decorator';
 import { UserRole, EventType } from '@prisma/client';
+import { Throttle } from '@nestjs/throttler';
+
+/** Vínculos pastoral↔evento por minuto (POST /events/:id/pastorals). */
+export const EVENT_PASTORAL_LINK_THROTTLE_PER_MINUTE = 2000;
 
 @Controller('events')
 export class EventsController {
@@ -79,20 +83,26 @@ export class EventsController {
     res.send(ics);
   }
 
+  // Rotas antigas da agenda: mesmo escopo do GET /events (o communityId da
+  // query combina com o escopo do usuário, nunca o substitui)
   @Get('upcoming')
   @UseGuards(JwtAuthGuard)
   findUpcoming(
     @Query('communityId') communityId?: string,
     @Query('limit') limit?: string,
+    @CurrentUser() user?: any,
   ) {
-    const limitNum = limit ? parseInt(limit) : 10;
-    return this.eventsService.findUpcoming(communityId, limitNum);
+    return this.eventsService.findUpcoming(
+      communityId,
+      EventsService.normalizeUpcomingLimit(limit),
+      user,
+    );
   }
 
   @Get('recurring')
   @UseGuards(JwtAuthGuard)
-  findRecurring(@Query('communityId') communityId?: string) {
-    return this.eventsService.findRecurring(communityId);
+  findRecurring(@Query('communityId') communityId?: string, @CurrentUser() user?: any) {
+    return this.eventsService.findRecurring(communityId, user);
   }
 
   @Get('type/:type')
@@ -100,8 +110,9 @@ export class EventsController {
   findByType(
     @Param('type') type: EventType,
     @Query('communityId') communityId?: string,
+    @CurrentUser() user?: any,
   ) {
-    return this.eventsService.findByType(type, communityId);
+    return this.eventsService.findByType(type, communityId, user);
   }
 
   @Get('range')
@@ -110,8 +121,9 @@ export class EventsController {
     @Query('startDate') startDate: string,
     @Query('endDate') endDate: string,
     @Query('communityId') communityId?: string,
+    @CurrentUser() user?: any,
   ) {
-    return this.eventsService.findByDateRange(startDate, endDate, communityId);
+    return this.eventsService.findByDateRange(startDate, endDate, communityId, user);
   }
 
   @Get('favorites')
@@ -213,7 +225,11 @@ export class EventsController {
   // PASTORAL MANAGEMENT
   // ============================================
 
+  // Limite próprio, acima do teto geral (300/min): o painel cria um evento
+  // recorrente vinculando cada pastoral a cada ocorrência (até ~312 POSTs em
+  // paralelo). Rota só de coordenação e com escopo checado no service.
   @Post(':id/pastorals')
+  @Throttle({ default: { limit: EVENT_PASTORAL_LINK_THROTTLE_PER_MINUTE, ttl: 60_000 } })
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles(
     UserRole.SYSTEM_ADMIN,

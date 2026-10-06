@@ -72,11 +72,20 @@ export class CommunitiesService {
     });
   }
 
+  /**
+   * Lista de GESTÃO (painel: seletores de comunidade de quase todas as telas).
+   * Negar por padrão: fora a plataforma, conta sem escopo (fiel sem comunidade,
+   * administrador diocesano sem diocese no cadastro...) recebe lista vazia — o
+   * filtro de hierarquia vazio significava o país inteiro (53 mil comunidades
+   * com contagens). Para escolher comunidade use a cascata (`?parishId=` ou
+   * /territory).
+   */
   async findAll(currentUser?: CurrentUser) {
-    // Aplicar filtros de hierarquia usando o serviço centralizado
-    const hierarchyFilter = currentUser
-      ? this.hierarchyService.applyCommunityFilter(currentUser)
-      : {};
+    if (!currentUser?.id) return [];
+    const hierarchyFilter = this.hierarchyService.applyCommunityFilter(currentUser);
+    if (currentUser.role !== UserRole.SYSTEM_ADMIN && Object.keys(hierarchyFilter ?? {}).length === 0) {
+      return [];
+    }
 
     return this.prisma.community.findMany({
       where: { ...hierarchyFilter, deletedAt: null },
@@ -103,6 +112,15 @@ export class CommunitiesService {
       orderBy: {
         name: 'asc',
       },
+    });
+  }
+
+  /** Cascata pública (qualquer usuário logado): comunidades ativas de UMA paróquia, só id/nome/endereço. */
+  async listByParish(parishId: string) {
+    return this.prisma.community.findMany({
+      where: { parishId, deletedAt: null, status: 'ACTIVE' },
+      select: { id: true, name: true, address: true, city: true, parishId: true },
+      orderBy: { name: 'asc' },
     });
   }
 

@@ -41,8 +41,13 @@ export class UsersController {
     return this.usersService.create(createUserDto, req.user);
   }
 
+  /**
+   * Lista de usuários do escopo. Sem @Roles de propósito: o service é a lista
+   * explícita de papéis (negar por padrão) e responde 403 com mensagem clara
+   * em pt-BR — o RolesGuard só devolveria "Forbidden resource" ao coordenador
+   * de pastoral/voluntário/fiel.
+   */
   @Get()
-  @Roles(UserRole.SYSTEM_ADMIN, UserRole.DIOCESAN_ADMIN, UserRole.PARISH_ADMIN, UserRole.COMMUNITY_COORDINATOR)
   findAll(@Request() req) {
     return this.usersService.findAll(req.user);
   }

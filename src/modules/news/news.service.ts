@@ -126,7 +126,12 @@ export class NewsService {
     const news = await this.prisma.news.findUnique({
       where: { id },
       include: {
-        community: true,
+        community: {
+          select: {
+            id: true,
+            name: true,
+          },
+        },
       },
     });
 
@@ -137,8 +142,36 @@ export class NewsService {
     return news;
   }
 
-  async update(id: string, updateNewsDto: UpdateNewsDto) {
-    await this.findOne(id); // Verifica se existe
+  /**
+   * Editar/mover/apagar aviso: o ator precisa GERIR a comunidade do aviso
+   * (canManageCommunity) — antes, COMMUNITY_COORDINATOR+ de qualquer paróquia
+   * editava, movia ou apagava o aviso de outra. Negar por padrão.
+   */
+  private async assertCanManageNews(communityId: string, currentUser?: CurrentUser) {
+    if (!currentUser?.id) {
+      throw new ForbiddenException('Você não tem permissão para alterar este aviso');
+    }
+    const canManage = await this.hierarchyService.canManageCommunity(currentUser.id, communityId);
+    if (!canManage) {
+      throw new ForbiddenException('Você não tem permissão para alterar avisos desta comunidade');
+    }
+  }
+
+  async update(id: string, updateNewsDto: UpdateNewsDto, currentUser?: CurrentUser) {
+    const news = await this.findOne(id); // Verifica se existe
+    await this.assertCanManageNews(news.communityId, currentUser);
+
+    // Mover o aviso: o destino também precisa estar sob a gestão do ator
+    if (updateNewsDto.communityId && updateNewsDto.communityId !== news.communityId) {
+      const target = await this.prisma.community.findUnique({
+        where: { id: updateNewsDto.communityId },
+        select: { id: true },
+      });
+      if (!target) {
+        throw new NotFoundException(`Comunidade com ID ${updateNewsDto.communityId} não encontrada`);
+      }
+      await this.assertCanManageNews(updateNewsDto.communityId, currentUser);
+    }
 
     return this.prisma.news.update({
       where: { id },
@@ -154,8 +187,9 @@ export class NewsService {
     });
   }
 
-  async remove(id: string) {
-    await this.findOne(id); // Verifica se existe
+  async remove(id: string, currentUser?: CurrentUser) {
+    const news = await this.findOne(id); // Verifica se existe
+    await this.assertCanManageNews(news.communityId, currentUser);
 
     return this.prisma.news.delete({
       where: { id },
